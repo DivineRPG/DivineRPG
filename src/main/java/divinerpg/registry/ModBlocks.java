@@ -29,6 +29,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -40,10 +41,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModBlocks {
-    public static final List<Block> BLOCKS = new ArrayList<Block>();
-
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
-
+    private static List<Block> blockItemRegistryList = new ArrayList<Block>();
     // Vanilla dimensions
 
     // Ores
@@ -188,7 +187,7 @@ public class ModBlocks {
     @ObjectHolder("rupee_minibricks")
     public static Block rupeeMinibricks = null;
 
-    //Lamps
+    // Lamps
     @ObjectHolder("aqua_lamp")
     public static Block aquaLamp = null;
     @ObjectHolder("arlemite_lamp")
@@ -275,6 +274,12 @@ public class ModBlocks {
     public static Block spikeBlock = null;
     @ObjectHolder("hot_spike_block")
     public static Block hotSpikeBlock = null;
+
+    // Utility blocks
+    @ObjectHolder("altar_of_corruption")
+    public static Block altarOfCorruption = null;
+    @ObjectHolder("bone_chest")
+    public static Block boneChest = null;
 
     // Divine natural blocks
     @ObjectHolder("divine_sapling")
@@ -367,8 +372,8 @@ public class ModBlocks {
     public static Block coalstoneFurnace = null;
     @ObjectHolder("coalstone_furnace_on")
     public static Block coalstoneFurnaceOn = null;
-    @ObjectHolder("coalstone_stairs")
-    public static Block coalstoneStairs = null;
+    //@ObjectHolder("coalstone_stairs")
+    //public static Block coalstoneStairs = null;
     @ObjectHolder("frost_archer_spawner")
     public static Block frostArcherSpawner = null;
     @ObjectHolder("frosted_chest")
@@ -428,7 +433,7 @@ public class ModBlocks {
     @ObjectHolder("iceika_fire")
     public static Block iceikaFire = null;
     @ObjectHolder("iceika_portal")
-    public static Block iceikaPortal = null;
+    public static BlockModPortal iceikaPortal = null;
 
     // Twilight dimensions
 
@@ -568,15 +573,15 @@ public class ModBlocks {
 
     // Portal
     @ObjectHolder("eden_portal")
-    public static Block edenPortal = null;
+    public static BlockModPortal edenPortal = null;
     @ObjectHolder("wildwood_portal")
-    public static Block wildwoodPortal = null;
+    public static BlockModPortal wildwoodPortal = null;
     @ObjectHolder("apalachia_portal")
-    public static Block apalachiaPortal = null;
+    public static BlockModPortal apalachiaPortal = null;
     @ObjectHolder("skythern_portal")
-    public static Block skythernPortal = null;
+    public static BlockModPortal skythernPortal = null;
     @ObjectHolder("mortum_portal")
-    public static Block mortumPortal = null;
+    public static BlockModPortal mortumPortal = null;
 
     // Other
     @ObjectHolder("blue_fire")
@@ -927,10 +932,10 @@ public class ModBlocks {
     public static Block lunicAcid = null;
 
     // Portal blocks
-    @ObjectHolder("nightmare_bed")
+    @ObjectHolder("nightmare_bed_block")
     public static Block nightmareBed = null;
     @ObjectHolder("vethea_portal")
-    public static Block vetheaPortal = null;
+    public static BlockModPortal vetheaPortal = null;
 
     public static void AddWoodVariants() {
         for (WoodType woodType : WoodType.values()) {
@@ -1122,6 +1127,10 @@ public class ModBlocks {
         register(registry, new BlockSpike("spike_block"));
         register(registry, new BlockHotSpike("hot_spike_block"));
 
+        // Utility blocks
+        register(registry, new BlockAltarOfCorruption("altar_of_corruption"));
+        register(registry, new BlockBoneChest("bone_chest"));
+
         // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
@@ -1176,7 +1185,7 @@ public class ModBlocks {
         register(registry, new BlockMod("coalstone", 3.0F));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
-        register(registry, new BlockModStairs(coalstone, "coalstone_stairs"));
+        //register(registry, new BlockModStairs(coalstone, "coalstone_stairs"));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
         register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
@@ -1513,14 +1522,26 @@ public class ModBlocks {
         // Portal blocks
         register(registry, new BlockNightmareBed());
         register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension.getId(), ModBlocks.blueFire, ModBlocks.mortumBlock, ParticleType.MORTUM_PORTAL));
+    }
 
+    @SubscribeEvent
+    public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+        for(Block block: blockItemRegistryList) {
+            Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
+            if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
+                ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
+            }
+            event.getRegistry().register(itemBlock);
+        }
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {
         registry.register(block);
-        Item itemBlock = Item.getItemFromBlock(block);
-        if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
-            ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
-        }
+        blockItemRegistryList.add(block);
+
+
+        //System.out.println("Registered " + block.getLocalizedName());
+        //System.out.println(coalstone);
+        //System.out.println(frozenDirt);
     }
 }

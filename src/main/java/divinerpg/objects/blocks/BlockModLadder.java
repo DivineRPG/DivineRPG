@@ -13,8 +13,5 @@ public class BlockModLadder extends BlockLadder  {
         setRegistryName(Reference.MODID, name);
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(0.4F);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 }

@@ -22,9 +22,6 @@ public class BlockStupidSpawner extends BlockMobSpawner  {
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(5.0F);
         this.setTickRandomly(true);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

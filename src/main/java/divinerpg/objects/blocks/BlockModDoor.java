@@ -28,9 +28,6 @@ public class BlockModDoor extends BlockDoor  {
         setRegistryName(Reference.MODID, name);
         setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
-
-        ModBlocks.BLOCKS.add(this);
-        //ModItems.ITEMS.add(new ItemBlockDoor(this).setRegistryName(this.getRegistryName()));
     }
 
     @Override

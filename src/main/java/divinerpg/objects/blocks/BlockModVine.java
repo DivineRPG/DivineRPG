@@ -19,8 +19,5 @@ public class BlockModVine extends BlockVine {
                 .withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false))
                 .withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)));
         this.setTickRandomly(true);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 }

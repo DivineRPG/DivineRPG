@@ -42,9 +42,6 @@ public abstract class BlockModChest extends BlockContainer  {
         setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     abstract public int getGuiID();

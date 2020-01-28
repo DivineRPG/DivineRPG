@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
  */
 public class MortumTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.mortumLogs.getDefaultState();
+    protected IBlockState log = ModBlocks.mortumLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
 
     public MortumTreeLarge(boolean notify, int minTrunkHeight) {

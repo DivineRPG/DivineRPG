@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
  */
 public class LargeEdenTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.edenLogs.getDefaultState();
+    protected IBlockState log = ModBlocks.edenLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
 
     public LargeEdenTree(boolean notify, int minTrunkHeight, IBlockState log, IBlockState leaves) {

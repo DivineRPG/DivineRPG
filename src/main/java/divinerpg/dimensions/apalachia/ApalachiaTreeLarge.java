@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
  */
 public class ApalachiaTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.apalachiaLogs.getDefaultState();
+    protected IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
 
     public ApalachiaTreeLarge(boolean notify, int minTrunkHeight) {

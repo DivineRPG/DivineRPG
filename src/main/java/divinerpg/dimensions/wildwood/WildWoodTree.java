@@ -27,7 +27,7 @@ public class WildWoodTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        IBlockState log = ModBlocks.wildwoodLogs.getDefaultState();
+        IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
         IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
         boolean isSoil = ((BlockModSapling) ModBlocks.wildwoodSapling).canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;

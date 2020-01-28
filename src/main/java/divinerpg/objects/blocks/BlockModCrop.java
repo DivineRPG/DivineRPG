@@ -34,8 +34,6 @@ public class BlockModCrop extends BlockCrops  {
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
 
-        ModBlocks.BLOCKS.add(this);
-
         // Stages starting with zero
         double step = maxHeight / ((double) getMaxAge() + 1);
 

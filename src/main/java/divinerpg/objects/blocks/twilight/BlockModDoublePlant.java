@@ -44,9 +44,6 @@ public class BlockModDoublePlant extends BlockBush
         this.setSoundType(SoundType.PLANT);
         this.setDefaultState(
                 this.blockState.getBaseState().withProperty(HALF, BlockModDoublePlant.EnumBlockHalf.LOWER));
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

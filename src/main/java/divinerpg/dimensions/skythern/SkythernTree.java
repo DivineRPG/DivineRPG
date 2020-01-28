@@ -59,7 +59,7 @@ public class SkythernTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.skythernLogs.getDefaultState();
+        IBlockState log = ModBlocks.skythernLog.getDefaultState();
         IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;

@@ -59,7 +59,7 @@ public class MortumTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.mortumLogs.getDefaultState();
+        IBlockState log = ModBlocks.mortumLog.getDefaultState();
         IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;

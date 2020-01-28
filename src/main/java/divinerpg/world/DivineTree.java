@@ -63,7 +63,7 @@ public class DivineTree extends WorldGenAbstractTree {
             if (!canGenerate) {
                 return false;
             } else {
-                IBlockState logState = ModBlocks.divineLogs.getDefaultState();
+                IBlockState logState = ModBlocks.divineLog.getDefaultState();
                 IBlockState leavesState = ModBlocks.divineLeaves.getDefaultState();
                 BlockPos down = blockPos.down();
                 IBlockState blockState = worldIn.getBlockState(down);

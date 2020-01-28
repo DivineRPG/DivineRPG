@@ -33,9 +33,6 @@ public class BlockTwilightGrass extends BlockBush
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

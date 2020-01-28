@@ -22,6 +22,6 @@ public class BlockEucalyptusRoot extends BlockArcanaCrop {
 
     @Override
     public Item getCrop() {
-        return Item.getItemFromBlock(ModBlocks.eucalyptusLogs);
+        return Item.getItemFromBlock(ModBlocks.eucalyptusLog);
     }
 }

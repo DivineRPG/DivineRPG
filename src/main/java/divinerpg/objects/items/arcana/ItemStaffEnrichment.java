@@ -39,8 +39,8 @@ public class ItemStaffEnrichment extends ItemMod {
 			Block var11 = world.getBlockState(pos).getBlock();
 			Block var12 = world.getBlockState(pos.up()).getBlock();
 
-			if(var11 == ModBlocks.arcanaDirt) {
-				Block var13 = ModBlocks.arcanaGrass;
+			if(var11 == ModBlocks.arcaniteDirt) {
+				Block var13 = ModBlocks.arcaniteGrass;
 				player.playSound(SoundEvents.BLOCK_METAL_STEP, 0.8f, 0.8f);
 				if (world.isRemote) {
 					return EnumActionResult.PASS;

@@ -28,9 +28,6 @@ public class BlockModTorch extends BlockTorch  {
         this.setLightLevel(1);
         this.setHardness(0.0F);
         this.flameParticle = particle;
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @SideOnly(Side.CLIENT)

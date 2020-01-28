@@ -3,12 +3,13 @@ package divinerpg.objects.blocks.arcana;
 import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.Utils;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockArcanaCrop extends BlockModCrop {
-    private static final IBlockState arcanaGrass = ModBlocks.arcanaGrass.getDefaultState();
+    private static final Block arcaniteGrass = ModBlocks.arcaniteGrass;
 
     public BlockArcanaCrop(String name) {
         super(name);
@@ -16,7 +17,7 @@ public class BlockArcanaCrop extends BlockModCrop {
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state == arcanaGrass;
+        return state == arcaniteGrass.getDefaultState();
     }
 
     @Override

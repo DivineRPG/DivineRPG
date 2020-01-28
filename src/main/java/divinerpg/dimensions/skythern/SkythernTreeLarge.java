@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
  */
 public class SkythernTreeLarge extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.skythernLogs.getDefaultState();
+    protected IBlockState log = ModBlocks.skythernLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.skythernLeaves.getDefaultState();
     
     public SkythernTreeLarge(boolean notify, int minTrunkHeight) {

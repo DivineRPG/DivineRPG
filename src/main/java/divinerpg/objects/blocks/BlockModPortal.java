@@ -66,9 +66,6 @@ public class BlockModPortal extends BlockBreakable {
         this.dimId = dimId;
         this.portalFrame = portalFrame;
         this.portalParticle = particle;
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

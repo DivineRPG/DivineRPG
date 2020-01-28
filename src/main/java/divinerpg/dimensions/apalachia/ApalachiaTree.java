@@ -59,7 +59,7 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.apalachiaLogs.getDefaultState();
+        IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
         IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;

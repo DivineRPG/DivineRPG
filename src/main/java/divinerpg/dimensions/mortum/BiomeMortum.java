@@ -20,7 +20,7 @@ public class BiomeMortum extends TwilightBiomeBase {
 
         this.genTree = new MortumTree(false, 5);
         this.genLargeTree = new MortumTreeLarge(true, 5);
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
+        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         this.brush = new WorldGenPlants(ModBlocks.mortumBrush, ModBlocks.mortumGrass);
         this.bloom = new WorldGenPlants(ModBlocks.eyePlant, ModBlocks.mortumGrass);
         this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.demonBrambles, ModBlocks.mortumGrass);

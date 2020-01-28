@@ -44,9 +44,6 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     public BlockModLeaves(String name, float hardness, Block sapling, @Nonnull MapColor mapColorIn) {

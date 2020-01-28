@@ -39,7 +39,6 @@ public class BlockModSapling extends BlockBush implements IGrowable {
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
-        ModBlocks.BLOCKS.add(this);
     }
 
     public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree, int xOff, int zOff) {

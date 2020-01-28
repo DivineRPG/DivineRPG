@@ -6,6 +6,6 @@ import divinerpg.registry.ModBlocks;
 public class ItemArcanaSeeds extends ItemModSeeds {
 
     public ItemArcanaSeeds(String name) {
-        super(name, ModBlocks.arcanaGrass);
+        super(name, ModBlocks.arcaniteGrass);
     }
 }

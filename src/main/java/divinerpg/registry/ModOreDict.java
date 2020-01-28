@@ -5,14 +5,14 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModOreDict {
     public static void init() {
-        OreDictionary.registerOre("logWood", ModBlocks.edenLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.wildwoodLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.apalachiaLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.skythernLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.mortumLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.divineLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.eucalyptusLogs);
-        OreDictionary.registerOre("logWood", ModBlocks.frozenLogs);
+        OreDictionary.registerOre("logWood", ModBlocks.edenLog);
+        OreDictionary.registerOre("logWood", ModBlocks.wildwoodLog);
+        OreDictionary.registerOre("logWood", ModBlocks.apalachiaLog);
+        OreDictionary.registerOre("logWood", ModBlocks.skythernLog);
+        OreDictionary.registerOre("logWood", ModBlocks.mortumLog);
+        OreDictionary.registerOre("logWood", ModBlocks.divineLog);
+        OreDictionary.registerOre("logWood", ModBlocks.eucalyptusLog);
+        OreDictionary.registerOre("logWood", ModBlocks.frozenLog);
 
         OreDictionary.registerOre("stone", ModBlocks.divineRock);
         OreDictionary.registerOre("stone", ModBlocks.frozenStone);

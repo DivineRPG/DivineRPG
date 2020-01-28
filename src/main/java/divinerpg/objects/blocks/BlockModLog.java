@@ -28,9 +28,6 @@ public class BlockModLog extends BlockLog  {
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		this.setDefaultState(this.getDefaultState().withProperty(LOG_AXIS, EnumAxis.Y));
 		this.setMapColor(mapColorIn);
-
-		ModBlocks.BLOCKS.add(this);
-
 	}
 
 

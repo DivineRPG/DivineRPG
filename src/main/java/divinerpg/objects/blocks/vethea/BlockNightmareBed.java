@@ -64,10 +64,9 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         super(Material.CLOTH);
         setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockNightmareBed.EnumPartType.FOOT).withProperty(OCCUPIED, Boolean.valueOf(false)));
         hasTileEntity = true;
-        setRegistryName("nightmare_bed");
-        setUnlocalizedName("nightmare_bed");
+        setRegistryName("nightmare_bed_block");
+        setUnlocalizedName("nightmare_bed_block");
         setCreativeTab(DivineRPGTabs.vethea);
-        ModBlocks.BLOCKS.add(this);
     }
 
     /**

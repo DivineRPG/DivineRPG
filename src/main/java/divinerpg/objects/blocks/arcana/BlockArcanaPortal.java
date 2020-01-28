@@ -40,8 +40,6 @@ public class BlockArcanaPortal extends Block {
         setBlockUnbreakable();
         setResistance(6000000F);
         this.dimId = dimId;
-
-        ModBlocks.BLOCKS.add(this);
     }
 
     @Override

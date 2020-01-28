@@ -45,8 +45,6 @@ public abstract class BlockModSlab extends BlockSlab  {
                     .withProperty(HALF, EnumBlockHalf.BOTTOM));
             setCreativeTab(DivineRPGTabs.BlocksTab);
         }
-
-        ModBlocks.BLOCKS.add(this);
     }
 
     public String getUnlocalizedName(int meta) {

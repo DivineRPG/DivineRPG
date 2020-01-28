@@ -20,7 +20,6 @@ public class BlockAyeracoSpawn extends BlockContainer {
 
         // Need to register it!
         setRegistryName("ayeraco_spawn");
-        ModBlocks.BLOCKS.add(this);
     }
 
     @Override

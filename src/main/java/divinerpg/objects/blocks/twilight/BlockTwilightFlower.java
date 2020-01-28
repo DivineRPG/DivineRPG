@@ -38,9 +38,6 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
 
-        ModBlocks.BLOCKS.add(this);
-
-
         if (width <= 0 || height <= 0) {
             throw new RuntimeException("Width or height cannot be less/equals zero!");
         }

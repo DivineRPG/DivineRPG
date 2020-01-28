@@ -56,7 +56,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.hitchakSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.veiloSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModItems.lamonaSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.arcanaDirt, 9)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.arcaniteDirt, 9)));
         return list;
     }
 

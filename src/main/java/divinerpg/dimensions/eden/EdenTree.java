@@ -73,7 +73,7 @@ public class EdenTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.edenLogs.getDefaultState();
+        IBlockState log = ModBlocks.edenLog.getDefaultState();
         IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;

@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
  */
 public class LargeWildWoodTree extends WorldGenAbstractTree {
     private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.wildwoodLogs.getDefaultState();
+    protected IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
     protected IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight) {

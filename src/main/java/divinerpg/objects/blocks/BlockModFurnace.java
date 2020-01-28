@@ -51,9 +51,6 @@ public abstract class BlockModFurnace extends Block  {
         this.isBurning = isBurning;
         setHardness(3.5F);
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     abstract public int getGuiID();

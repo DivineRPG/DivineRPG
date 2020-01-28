@@ -36,8 +36,6 @@ public class BlockMobPumpkin extends BlockHorizontal {
         setHardness(1.0F);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.WOOD);
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

@@ -20,8 +20,6 @@ public class BlockModFence extends BlockFence  {
 		setUnlocalizedName(name);
 		setRegistryName(Reference.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
-		ModBlocks.BLOCKS.add(this);
-
 	}
 
 	public BlockModFence(String name) {

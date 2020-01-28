@@ -2493,17 +2493,17 @@ public class ModItems {
     public static void addCropsToSeeds() {
         ((ItemModSeeds)whiteMushroomSeeds).setCrop(ModBlocks.whiteMushroomPlant);
         ((ItemModSeeds)tomatoSeeds).setCrop(ModBlocks.tomatoPlant);
-        ((ItemModSeeds)moonbulbSeeds).setCrop(ModBlocks.moonbulb);
-        ((ItemModSeeds)pinkGlowboneSeeds).setCrop(ModBlocks.pinkGlowbone);
-        ((ItemModSeeds)purpleGlowboneSeeds).setCrop(ModBlocks.purpleGlowbone);
+        ((ItemModSeeds)moonbulbSeeds).setCrop(ModBlocks.moonbulbPlant);
+        ((ItemModSeeds)pinkGlowboneSeeds).setCrop(ModBlocks.pinkGlowbonePlant);
+        ((ItemModSeeds)purpleGlowboneSeeds).setCrop(ModBlocks.purpleGlowbonePlant);
         ((ItemModSeeds)skyPlantSeeds).setCrop(ModBlocks.skyPlant);
-        ((ItemModSeeds)hitchakSeeds).setCrop(ModBlocks.hitchak);
-        ((ItemModSeeds)veiloSeeds).setCrop(ModBlocks.veilo);
-        ((ItemModSeeds)marsineSeeds).setCrop(ModBlocks.marsine);
-        ((ItemModSeeds)lamonaSeeds).setCrop(ModBlocks.lamona);
-        ((ItemModSeeds)firestockSeeds).setCrop(ModBlocks.firestock);
-        ((ItemModSeeds)pinflySeeds).setCrop(ModBlocks.pinfly);
-        ((ItemModSeeds)aquamarineSeeds).setCrop(ModBlocks.aquamarine);
-        ((ItemModSeeds)eucalyptusRootSeeds).setCrop(ModBlocks.eucalyptusRoot);
+        ((ItemModSeeds)hitchakSeeds).setCrop(ModBlocks.hitchakPlant);
+        ((ItemModSeeds)veiloSeeds).setCrop(ModBlocks.veiloPlant);
+        ((ItemModSeeds)marsineSeeds).setCrop(ModBlocks.marsinePlant);
+        ((ItemModSeeds)lamonaSeeds).setCrop(ModBlocks.lamonaPlant);
+        ((ItemModSeeds)firestockSeeds).setCrop(ModBlocks.firestockPlant);
+        ((ItemModSeeds)pinflySeeds).setCrop(ModBlocks.pinflyPlant);
+        ((ItemModSeeds)aquamarineSeeds).setCrop(ModBlocks.aquamarinePlant);
+        ((ItemModSeeds)eucalyptusRootSeeds).setCrop(ModBlocks.eucalyptusPlant);
     }
 }

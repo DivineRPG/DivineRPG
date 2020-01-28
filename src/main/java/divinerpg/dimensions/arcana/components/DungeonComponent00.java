@@ -508,7 +508,7 @@ public class DungeonComponent00 extends DungeonComponentBase {
         this.setBlock(chunk, x + 9, y + 0, z + 14, ancientbricks);
         this.setBlock(chunk, x + 9, y + 0, z + 15, ancientbricks);
         this.setBlock(chunk, x + 9, y + 1, z + 0, ancientStone);
-        this.setBlockState(chunk, x + 9, y + 1, z + 7, ModBlocks.dungeonSpawnerPrisoner.getDefaultState());
+        this.setBlockState(chunk, x + 9, y + 1, z + 7, ModBlocks.dungeonPrisonerSpawner.getDefaultState());
         this.setBlock(chunk, x + 9, y + 1, z + 8, heatTraps);
         this.setBlock(chunk, x + 9, y + 1, z + 15, ancientStone);
         this.setBlock(chunk, x + 9, y + 2, z + 0, ModBlocks.dungeonLamp);

@@ -17,7 +17,7 @@ public class BiomeSkythern extends TwilightBiomeBase {
 
         this.genTree = new SkythernTree(false, 5);
         this.genLargeTree = new SkythernTreeLarge(true, 5);
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
+        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         this.brush = new WorldGenPlants(ModBlocks.skythernBrush, ModBlocks.skythernGrass);
         this.bloom = new WorldGenPlants(ModBlocks.dustLily, ModBlocks.skythernGrass);
         this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,

@@ -22,9 +22,6 @@ public class BlockModFire extends BlockFire  {
         setCreativeTab(null);
         setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     protected boolean canNeighborBurn(World world, BlockPos pos) {

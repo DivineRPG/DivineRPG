@@ -16,9 +16,9 @@ public class BiomeEden extends TwilightBiomeBase {
         super(new BiomeProperties("eden"), "eden");
 
         this.genTree = new EdenTree(false, 3);
-        this.genLargeTree = new LargeEdenTree(false, 7, ModBlocks.edenLogs.getDefaultState(),
+        this.genLargeTree = new LargeEdenTree(false, 7, ModBlocks.edenLog.getDefaultState(),
                 ModBlocks.edenLeaves.getDefaultState());
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossystone);
+        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         this.genLakes = new WorldGenLakes(Blocks.WATER);
         this.brush = new WorldGenTwilightSinglePlants(ModBlocks.edenBrush, ModBlocks.edenGrass);
         this.bloom = new WorldGenTwilightSinglePlants(ModBlocks.sunbloom, ModBlocks.edenGrass);

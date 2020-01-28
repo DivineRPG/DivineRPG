@@ -43,7 +43,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.eggNog, 1, 0), 302L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.peppermints, 1, 0), 54L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.chocolateLog, 1, 0), 415L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.divineMossystone, 1, 0), 3L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.divineMossStone, 1, 0), 3L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.apalachiaDirt, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.edenDirt, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.frozenDirt, 1, 0), 1L);

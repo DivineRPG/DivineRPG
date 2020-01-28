@@ -18,7 +18,7 @@ public abstract class BlockStackPlant extends BlockModDoubleCrop {
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
-        return block == this || (block == ModBlocks.arcanaGrass
+        return block == this || (block == ModBlocks.arcaniteGrass
                 && Utils.bordersTar(worldIn, pos.getX(), pos.getY() - 1, pos.getZ()));
     }
 

@@ -16,8 +16,5 @@ public class BlockModStairs extends BlockStairs  {
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 }

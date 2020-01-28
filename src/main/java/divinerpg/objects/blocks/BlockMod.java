@@ -37,9 +37,6 @@ public class BlockMod extends Block  {
         this.setRegistryName(Reference.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(tab);
-
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override

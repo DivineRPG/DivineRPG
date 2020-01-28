@@ -23,8 +23,6 @@ public abstract class BlockModAltar extends BlockContainer implements ITileEntit
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setBlockUnbreakable();
         setResistance(6000000F);
-        ModBlocks.BLOCKS.add(this);
-
     }
 
     @Override
