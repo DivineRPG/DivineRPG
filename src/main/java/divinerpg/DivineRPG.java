@@ -54,7 +54,6 @@ public class DivineRPG {
         proxy.registerTileEntities();
         proxy.RegisterTileEntityRender();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-        ModArmorEvents.init();
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initServer();
         AttributeFixer.init();
@@ -66,6 +65,7 @@ public class DivineRPG {
         ModOreDict.init();
         ModTriggers.registerTriggers();
         ModSmelting.init();
+        ModArmorEvents.init();
     }
 
     @Mod.EventHandler

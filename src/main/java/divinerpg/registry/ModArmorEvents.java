@@ -219,8 +219,6 @@ public class ModArmorEvents {
                         .withAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.7F))
                         .withAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.4F, false)),
 
-
-
                 new FullArmorHandler(ModItems.demonizedHood, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots)
                         .withAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .withAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
@@ -233,8 +231,6 @@ public class ModArmorEvents {
                 new FullArmorHandler(ModItems.demonizedMask, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots, stopSpeeUp)
                         .withAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.625F))
                         .withAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.8F, false)),
-
-
 
                 new FullArmorHandler(ModItems.tormentedHood, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots)
                         .withAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
