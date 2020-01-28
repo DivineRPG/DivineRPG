@@ -3,6 +3,8 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.media.jfxmedia.logging.Logger;
+import divinerpg.DivineRPG;
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.mortum.MortumTree;
@@ -993,6 +995,8 @@ public class ModBlocks {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        DivineRPG.logger.info("Registering DivineRPG blocks");
+
         ModBlocks.AddWoodVariants();
         IForgeRegistry<Block> registry = event.getRegistry();
 

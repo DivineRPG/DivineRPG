@@ -12,7 +12,7 @@ public class ToolMaterialMod {
 
     public static ToolMaterial Apalachia = addMeleeMaterial("apalachia", 2000, 29, 22, ModItems.apalachiaGem);
     public static ToolMaterial AquaDagger = addMeleeMaterial("aqua_dagger", 2000, 10, 15, ModItems.aquaticIngot);
-    public static ToolMaterial AquaMaul = addMeleeMaterial("aqua_maul", 4000, 18, 10, ModItems.aquaticIngot);
+    public static ToolMaterial AquaMaul = addMeleeMaterial("aquatic_maul", 4000, 18, 10, ModItems.aquaticIngot);
     public static ToolMaterial AquaTrident = addMeleeMaterial("aqua_trident", 7000, 14, 15, ModItems.aquaticIngot);
     public static ToolMaterial Aquaton = addMeleeMaterial("aquaton", 5000, 16, 15, ModItems.aquaticIngot);
     public static ToolMaterial AquatoothMaul = addMeleeMaterial("aquatooth_maul", 3500, 18, 10,

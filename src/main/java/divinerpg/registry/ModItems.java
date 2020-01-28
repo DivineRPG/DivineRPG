@@ -1,5 +1,6 @@
 package divinerpg.registry;
 
+import divinerpg.DivineRPG;
 import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
@@ -1632,6 +1633,8 @@ public class ModItems {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
+        DivineRPG.logger.info("Registering DivineRPG items");
+
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension weapons
