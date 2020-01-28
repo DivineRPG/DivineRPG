@@ -39,7 +39,7 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
         this.setTickRandomly(true);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
 
         if (width <= 0 || height <= 0) {
             throw new RuntimeException("Width or height cannot be less/equals zero!");

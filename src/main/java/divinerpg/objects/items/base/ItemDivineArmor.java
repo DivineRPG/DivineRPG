@@ -100,7 +100,7 @@ public class ItemDivineArmor extends net.minecraft.item.ItemArmor implements ISp
             setRegistryName(this.name);
             this.setCreativeTab(DivineRPGTabs.armor);
         }
-        ModItems.ITEMS.add(this);
+
     }
 
     @Override

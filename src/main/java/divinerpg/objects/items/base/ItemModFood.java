@@ -28,7 +28,7 @@ public class ItemModFood extends ItemFood  {
 		setUnlocalizedName(name);
 		setRegistryName(Reference.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.food);
-		ModItems.ITEMS.add(this);
+
 	}
 
 	@Override

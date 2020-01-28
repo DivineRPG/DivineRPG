@@ -17,6 +17,6 @@ public class ItemMod extends Item  {
         setRegistryName(Reference.MODID, name);
         this.setCreativeTab(tab);
 
-        ModItems.ITEMS.add(this);
+
     }
 }

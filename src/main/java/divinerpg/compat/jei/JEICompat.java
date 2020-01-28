@@ -93,7 +93,7 @@ public class JEICompat implements IModPlugin {
                 GuiZelus.MERCHANT_GUI_TEXTURE,
                 JeiReferences.ZELUS_CATEGORY,
                 MessageLocalizer.normal("entity.divinerpg.zelus.name"),
-                ModItems.golemOfRejuvenationSpawner));
+                ModItems.golemOfRejuvenationEgg));
 
         registry.addRecipeCategories(new SmelterCategory(guiHelper,
                 ArcaniumExtractorGUI.TEXTURES,

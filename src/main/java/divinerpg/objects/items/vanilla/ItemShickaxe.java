@@ -55,7 +55,7 @@ public class ItemShickaxe extends ItemTool  {
         this.setHarvestLevel("pickaxe", toolMaterial.getHarvestLevel());
         this.setMaxDamage(toolMaterial.getMaxUses());
 
-        ModItems.ITEMS.add(this);
+
     }
 
     public boolean canHarvestBlock(IBlockState blockIn) {

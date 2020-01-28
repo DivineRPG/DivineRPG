@@ -53,7 +53,7 @@ public abstract class BlockModFurnace extends Block  {
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     abstract public int getGuiID();

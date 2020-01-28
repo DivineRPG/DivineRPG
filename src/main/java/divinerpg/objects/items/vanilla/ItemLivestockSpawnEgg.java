@@ -39,31 +39,31 @@ public class ItemLivestockSpawnEgg extends ItemMod {
             ItemStack stack = player.getHeldItem(hand);
             Item item = stack.getItem();
             int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-            if (item == ModItems.ehuSpawner) {
+            if (item == ModItems.ehuEgg) {
                 EntityEhu ehu = new EntityEhu(world, player);
                 ehu.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(ehu);
-            } else if (item == ModItems.huskSpawner) {
+            } else if (item == ModItems.huskEgg) {
                 EntityHusk husk = new EntityHusk(world, player);
                 husk.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(husk);
-            } else if (item == ModItems.stoneGolemSpawner) {
+            } else if (item == ModItems.stoneGolemEgg) {
                 EntityStoneGolem stoneGolem = new EntityStoneGolem(world, player);
                 stoneGolem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(stoneGolem);
-            } else if (item == ModItems.smelterSpawner) {
+            } else if (item == ModItems.smelterEgg) {
                 EntitySmelter smelter = new EntitySmelter(world, player);
                 smelter.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(smelter);
-            } else if (item == ModItems.snapperSpawner) {
+            } else if (item == ModItems.snapperEgg) {
                 EntitySnapper snapper = new EntitySnapper(world, player);
                 snapper.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(snapper);
-            } else if (item == ModItems.whiteGrizzleSpawner) {
+            } else if (item == ModItems.whiteGrizzleEgg) {
                 EntityWhiteGrizzle whiteGrizzle = new EntityWhiteGrizzle(world, player);
                 whiteGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(whiteGrizzle);
-            } else if (item == ModItems.brownGrizzleSpawner) {
+            } else if (item == ModItems.brownGrizzleEgg) {
                 EntityBrownGrizzle brownGrizzle = new EntityBrownGrizzle(world, player);
                 brownGrizzle.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(brownGrizzle);
@@ -77,19 +77,19 @@ public class ItemLivestockSpawnEgg extends ItemMod {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         Item item = stack.getItem();
-        if (item == ModItems.ehuSpawner) {
+        if (item == ModItems.ehuEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.ehu_egg"));
-        } else if (item == ModItems.huskSpawner) {
+        } else if (item == ModItems.huskEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.husk_egg"));
-        } else if (item == ModItems.stoneGolemSpawner) {
+        } else if (item == ModItems.stoneGolemEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.stone_golem_egg"));
-        } else if (item == ModItems.smelterSpawner) {
+        } else if (item == ModItems.smelterEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.smelter_egg"));
-        } else if (item == ModItems.snapperSpawner) {
+        } else if (item == ModItems.snapperEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.snapper_egg"));
-        } else if (item == ModItems.whiteGrizzleSpawner) {
+        } else if (item == ModItems.whiteGrizzleEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.white_grizzle_egg"));
-        } else if (item == ModItems.brownGrizzleSpawner) {
+        } else if (item == ModItems.brownGrizzleEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.brown_grizzle_egg"));
         }
     }

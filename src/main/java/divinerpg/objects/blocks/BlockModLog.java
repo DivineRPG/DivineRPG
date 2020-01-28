@@ -30,7 +30,7 @@ public class BlockModLog extends BlockLog  {
 		this.setMapColor(mapColorIn);
 
 		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
 	}
 
 

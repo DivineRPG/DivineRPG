@@ -24,7 +24,7 @@ public class BlockModFire extends BlockFire  {
         this.setRegistryName(Reference.MODID, name);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     protected boolean canNeighborBurn(World world, BlockPos pos) {

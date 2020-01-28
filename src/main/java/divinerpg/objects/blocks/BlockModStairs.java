@@ -18,6 +18,6 @@ public class BlockModStairs extends BlockStairs  {
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 }

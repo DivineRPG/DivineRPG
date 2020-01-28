@@ -18,7 +18,7 @@ public class RecipesInfusionTable {
     public void addRecipes() {
 
         addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModItems.teakerBow));
-        addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthrimisBow));
+        addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthirmisBow));
         addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModItems.darvenBow));
         addRecipe(ModItems.cermileLump, ModItems.bowTemplate, 8, new ItemStack(ModItems.cermileBow));
         addRecipe(ModItems.pardimalLump, ModItems.bowTemplate, 11, new ItemStack(ModItems.pardimalBow));
@@ -28,7 +28,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModItems.arksianeBow));
 
         addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModItems.teakerStaff));
-        addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthrimisStaff));
+        addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthirmisStaff));
         addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModItems.darvenStaff));
         addRecipe(ModItems.cermileLump, ModItems.staffTemplate, 6, new ItemStack(ModItems.cermileStaff));
         addRecipe(ModItems.pardimalLump, ModItems.staffTemplate, 8, new ItemStack(ModItems.pardimalStaff));
@@ -37,18 +37,18 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.staffTemplate, 17, new ItemStack(ModItems.heliosisStaff));
         addRecipe(ModItems.arksianeLump, ModItems.staffTemplate, 21, new ItemStack(ModItems.arksianeStaff));
 
-        addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerSword));
-        addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthrimisSword));
-        addRecipe(ModItems.darvenLump, ModItems.backswordTemplate, 6, new ItemStack(ModItems.darvenSword));
-        addRecipe(ModItems.cermileLump, ModItems.backswordTemplate, 8, new ItemStack(ModItems.cermileSword));
-        addRecipe(ModItems.pardimalLump, ModItems.backswordTemplate, 11, new ItemStack(ModItems.pardimalSword));
-        addRecipe(ModItems.quadroticLump, ModItems.backswordTemplate, 13, new ItemStack(ModItems.quadroticSword));
-        addRecipe(ModItems.karosLump, ModItems.backswordTemplate, 18, new ItemStack(ModItems.karosSword));
-        addRecipe(ModItems.heliosisLump, ModItems.backswordTemplate, 20, new ItemStack(ModItems.heliosisSword));
-        addRecipe(ModItems.arksianeLump, ModItems.backswordTemplate, 24, new ItemStack(ModItems.arksianeSword));
+        addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerBacksword));
+        addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthirmisBacksword));
+        addRecipe(ModItems.darvenLump, ModItems.backswordTemplate, 6, new ItemStack(ModItems.darvenBacksword));
+        addRecipe(ModItems.cermileLump, ModItems.backswordTemplate, 8, new ItemStack(ModItems.cermileBacksword));
+        addRecipe(ModItems.pardimalLump, ModItems.backswordTemplate, 11, new ItemStack(ModItems.pardimalBacksword));
+        addRecipe(ModItems.quadroticLump, ModItems.backswordTemplate, 13, new ItemStack(ModItems.quadroticBacksword));
+        addRecipe(ModItems.karosLump, ModItems.backswordTemplate, 18, new ItemStack(ModItems.karosBacksword));
+        addRecipe(ModItems.heliosisLump, ModItems.backswordTemplate, 20, new ItemStack(ModItems.heliosisBacksword));
+        addRecipe(ModItems.arksianeLump, ModItems.backswordTemplate, 24, new ItemStack(ModItems.arksianeBacksword));
 
         addRecipe(ModItems.teakerLump, ModItems.clawTemplate, 2, new ItemStack(ModItems.teakerClaw));
-        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModItems.amthrimisClaw));
+        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModItems.amthirmisClaw));
         addRecipe(ModItems.darvenLump, ModItems.clawTemplate, 4, new ItemStack(ModItems.darvenClaw));
         addRecipe(ModItems.cermileLump, ModItems.clawTemplate, 6, new ItemStack(ModItems.cermileClaw));
         addRecipe(ModItems.pardimalLump, ModItems.clawTemplate, 8, new ItemStack(ModItems.pardimalClaw));
@@ -58,7 +58,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.arksianeLump, ModItems.clawTemplate, 21, new ItemStack(ModItems.arksianeClaw));
 
         addRecipe(ModItems.teakerLump, ModItems.hammerTemplate, 7, new ItemStack(ModItems.teakerHammer));
-        addRecipe(ModItems.amthirmisLump, ModItems.hammerTemplate, 9, new ItemStack(ModItems.amthrimisHammer));
+        addRecipe(ModItems.amthirmisLump, ModItems.hammerTemplate, 9, new ItemStack(ModItems.amthirmisHammer));
         addRecipe(ModItems.darvenLump, ModItems.hammerTemplate, 11, new ItemStack(ModItems.darvenHammer));
         addRecipe(ModItems.cermileLump, ModItems.hammerTemplate, 14, new ItemStack(ModItems.cermileHammer));
         addRecipe(ModItems.pardimalLump, ModItems.hammerTemplate, 17, new ItemStack(ModItems.pardimalHammer));
@@ -68,7 +68,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.arksianeLump, ModItems.hammerTemplate, 31, new ItemStack(ModItems.arksianeHammer));
 
         addRecipe(ModItems.teakerLump, ModItems.cannonTemplate, 7, new ItemStack(ModItems.teakerCannon));
-        addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModItems.amthrimisCannon));
+        addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModItems.amthirmisCannon));
         addRecipe(ModItems.darvenLump, ModItems.cannonTemplate, 11, new ItemStack(ModItems.darvenCannon));
         addRecipe(ModItems.cermileLump, ModItems.cannonTemplate, 14, new ItemStack(ModItems.cermileCannon));
         addRecipe(ModItems.pardimalLump, ModItems.cannonTemplate, 17, new ItemStack(ModItems.pardimalCannon));
@@ -78,7 +78,7 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.arksianeLump, ModItems.cannonTemplate, 31, new ItemStack(ModItems.arksianeCannon));
 
         addRecipe(ModItems.teakerLump, ModItems.diskTemplate, 4, new ItemStack(ModItems.teakerDisk));
-        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModItems.amthrimisDisk));
+        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModItems.amthirmisDisk));
         addRecipe(ModItems.darvenLump, ModItems.diskTemplate, 6, new ItemStack(ModItems.darvenDisk));
         addRecipe(ModItems.cermileLump, ModItems.diskTemplate, 8, new ItemStack(ModItems.cermileDisk));
         addRecipe(ModItems.pardimalLump, ModItems.diskTemplate, 11, new ItemStack(ModItems.pardimalDisk));
@@ -91,36 +91,36 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 6, new ItemStack(ModItems.degradedMask));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 5, new ItemStack(ModItems.degradedBoots));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 9, new ItemStack(ModItems.degradedLegs));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 10, new ItemStack(ModItems.degradedBody));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 9, new ItemStack(ModItems.degradedLeggings));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 10, new ItemStack(ModItems.degradedChestplate));
 
         addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 10, new ItemStack(ModItems.finishedHelmet));
         addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 11, new ItemStack(ModItems.finishedHood));
         addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 9, new ItemStack(ModItems.finishedMask));
         addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 8, new ItemStack(ModItems.finishedBoots));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 12, new ItemStack(ModItems.finishedLegs));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 14, new ItemStack(ModItems.finishedBody));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 12, new ItemStack(ModItems.finishedLeggings));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 14, new ItemStack(ModItems.finishedChestplate));
 
         addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 10, new ItemStack(ModItems.glisteningHelmet));
         addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 11, new ItemStack(ModItems.glisteningHood));
         addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 9, new ItemStack(ModItems.glisteningMask));
         addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 8, new ItemStack(ModItems.glisteningBoots));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 12, new ItemStack(ModItems.glisteningLegs));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 14, new ItemStack(ModItems.glisteningBody));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 12, new ItemStack(ModItems.glisteningLeggings));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 14, new ItemStack(ModItems.glisteningChestplate));
 
         addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 10, new ItemStack(ModItems.demonizedHelmet));
         addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 11, new ItemStack(ModItems.demonizedHood));
         addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 9, new ItemStack(ModItems.demonizedMask));
         addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 8, new ItemStack(ModItems.demonizedBoots));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 12, new ItemStack(ModItems.demonizedLegs));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 14, new ItemStack(ModItems.demonizedBody));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 12, new ItemStack(ModItems.demonizedLeggings));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 14, new ItemStack(ModItems.demonizedChestplate));
 
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 10, new ItemStack(ModItems.tormentedHelmet));
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 11, new ItemStack(ModItems.tormentedHood));
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 9, new ItemStack(ModItems.tormentedMask));
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 8, new ItemStack(ModItems.tormentedBoots));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 12, new ItemStack(ModItems.tormentedLegs));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModItems.tormentedBody));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 12, new ItemStack(ModItems.tormentedLeggings));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModItems.tormentedChestplate));
     }
 
     public void addRecipe(Item lump, Item template, int count, ItemStack res) {

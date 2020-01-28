@@ -68,7 +68,7 @@ public class BlockModPortal extends BlockBreakable {
         this.portalParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     @Override

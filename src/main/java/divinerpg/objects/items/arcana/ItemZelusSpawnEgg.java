@@ -36,19 +36,19 @@ public class ItemZelusSpawnEgg extends ItemMod {
             ItemStack stack = player.getHeldItem(hand);
             Item item = stack.getItem();
             int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-            if (item == ModItems.fyracryxSpawner) {
+            if (item == ModItems.fyracryxEgg) {
                 EntityFyracryx fyracryx = new EntityFyracryx(world, player);
                 fyracryx.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(fyracryx);
-            } else if (item == ModItems.seimerSpawner) {
+            } else if (item == ModItems.seimerEgg) {
                 EntitySeimer seimer = new EntitySeimer(world, player);
                 seimer.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(seimer);
-            } else if (item == ModItems.golemOfRejuvenationSpawner) {
+            } else if (item == ModItems.golemOfRejuvenationEgg) {
                 EntityGolemOfRejuvenation golem = new EntityGolemOfRejuvenation(world, player);
                 golem.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(golem);
-            } else if (item == ModItems.paratikuSpawner) {
+            } else if (item == ModItems.paratikuEgg) {
                 EntityParatiku paratiku = new EntityParatiku(world, player);
                 paratiku.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntity(paratiku);
@@ -62,13 +62,13 @@ public class ItemZelusSpawnEgg extends ItemMod {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         Item item = stack.getItem();
-        if (item == ModItems.fyracryxSpawner) {
+        if (item == ModItems.fyracryxEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.fyracryx_egg"));
-        } else if (item == ModItems.seimerSpawner) {
+        } else if (item == ModItems.seimerEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.seimer_egg"));
-        } else if (item == ModItems.golemOfRejuvenationSpawner) {
+        } else if (item == ModItems.golemOfRejuvenationEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.golem_of_rejuvination_egg"));
-        } else if (item == ModItems.paratikuSpawner) {
+        } else if (item == ModItems.paratikuEgg) {
             list.add(TooltipHelper.getInfoText("tooltip.paratiku_egg"));
         }
     }

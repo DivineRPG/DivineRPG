@@ -24,7 +24,7 @@ public abstract class BlockModAltar extends BlockContainer implements ITileEntit
         setBlockUnbreakable();
         setResistance(6000000F);
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     @Override

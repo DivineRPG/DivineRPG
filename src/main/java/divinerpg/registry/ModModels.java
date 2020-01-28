@@ -34,13 +34,13 @@ public class ModModels {
         }
 
         registerTESRs();
-        for (Item item : ModItems.ITEMS) {
-            registerModel(item);
-        }
+        //for (Item item : ModItems.ITEMS) {
+        //    registerModel(item);
+       // }
     }
 
     public static void registerModel(Item item) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+
     }
 
     public static void registerTESRs() {

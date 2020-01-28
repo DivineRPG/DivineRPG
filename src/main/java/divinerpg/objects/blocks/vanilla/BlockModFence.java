@@ -21,7 +21,7 @@ public class BlockModFence extends BlockFence  {
 		setRegistryName(Reference.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
 	}
 
 	public BlockModFence(String name) {

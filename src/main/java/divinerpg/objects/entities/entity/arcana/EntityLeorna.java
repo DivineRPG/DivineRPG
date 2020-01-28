@@ -48,7 +48,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
 
     public static MerchantRecipeList getAllRecipies(){
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.eucalyptusSeeds)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.eucalyptusRootSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.marsineSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.firestockSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModItems.pinflySeeds)));

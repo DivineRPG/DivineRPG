@@ -49,15 +49,15 @@ public class EntityLordVatticus extends EntityDivineRPGVillager {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.collector, 16), new ItemStack(ModItems.chargedCollector)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaHelmet)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaBody)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaLegs)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaLeggings)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaBoots)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosHelmet)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosBody)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosLegs)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosLeggings)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 10), new ItemStack(ModItems.vemosBoots)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.staffOfEnrichment)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.wizardBook)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.wizardsBook)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.weakArcanaPotion, 4)));
         list.add(
                 new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.strongArcanaPotion, 4)));

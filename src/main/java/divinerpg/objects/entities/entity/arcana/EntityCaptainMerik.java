@@ -54,12 +54,12 @@ public class EntityCaptainMerik extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.stormSword)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 12), new ItemStack(ModItems.enderScepter)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 20), new ItemStack(ModItems.ghostbane)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.shadowSword)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.shadowSaber)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(ModItems.starlight)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.arcaniumSaber)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 20), new ItemStack(ModItems.captainsSparkler)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 12), new ItemStack(ModItems.firefly)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 20), new ItemStack(ModItems.staffStarlight)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 20), new ItemStack(ModItems.staffOfStarlight)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 15), new ItemStack(ModItems.meriksMissile)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 30), new ItemStack(ModItems.liviciaSword)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 6), new ItemStack(ModItems.laVekor)));

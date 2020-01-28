@@ -30,7 +30,7 @@ public class BlockModTorch extends BlockTorch  {
         this.flameParticle = particle;
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     @SideOnly(Side.CLIENT)

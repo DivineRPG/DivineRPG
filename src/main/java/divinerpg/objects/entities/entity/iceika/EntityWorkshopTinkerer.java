@@ -80,7 +80,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 40), new ItemStack(ModItems.divineSword, 1, 0),
                 new ItemStack(ModItems.icineSword, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModItems.sandslash, 1, 0),
-                new ItemStack(ModItems.snowSlash, 1, 0)));
+                new ItemStack(ModItems.snowslash, 1, 0)));
         return list;
     }
 

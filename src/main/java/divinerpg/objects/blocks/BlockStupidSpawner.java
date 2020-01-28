@@ -24,7 +24,7 @@ public class BlockStupidSpawner extends BlockMobSpawner  {
         this.setTickRandomly(true);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     @Override

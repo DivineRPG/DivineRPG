@@ -30,7 +30,7 @@ public class ItemModSword extends ItemSword  {
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.swords);
 
-        ModItems.ITEMS.add(this);
+
     }
 
     @Override

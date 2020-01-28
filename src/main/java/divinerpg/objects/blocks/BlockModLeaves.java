@@ -46,7 +46,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     public BlockModLeaves(String name, float hardness, Block sapling, @Nonnull MapColor mapColorIn) {

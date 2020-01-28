@@ -48,12 +48,14 @@ import divinerpg.objects.items.vethea.*;
 import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -63,8 +65,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModItems {
-    public static final List<Item> ITEMS = new ArrayList<Item>();
-
     // Vanilla dimension weapons
     @ObjectHolder("aquatic_maul")
     public static Item aquaticMaul = null;
@@ -1006,8 +1006,8 @@ public class ModItems {
     public static Item edenChestplate = null;
     @ObjectHolder("eden_leggings")
     public static Item edenLeggings = null;
-    @ObjectHolder("eden_boot")
-    public static Item edenBoot = null;
+    @ObjectHolder("eden_boots")
+    public static Item edenBoots = null;
 
     @ObjectHolder("wildwood_helmet")
     public static Item wildwoodHelmet = null;
@@ -1638,856 +1638,857 @@ public class ModItems {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension weapons
-        registry.register(new ItemModSword(ToolMaterialMod.AquaDagger, "aquatic_dagger"));
-        registry.register(new ItemModSword(ToolMaterialMod.AquaMaul, "aquatic_maul"));
-        registry.register(new ItemModSword(ToolMaterialMod.AquaTrident, "aquatic_trident"));
-        registry.register(new ItemModSword(ToolMaterialMod.Aquaton, "aquaton"));
-        registry.register(new ItemModSword(ToolMaterialMod.AquatoothMaul, "aquatooth_maul"));
-        registry.register(new ItemModSword(ToolMaterialMod.AquatoothSword, "aquatooth_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Arlemite, "arlemite_stabber"));
-        registry.register(new ItemModSword(ToolMaterialMod.Bedrock, "bedrock_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.BedrockMaul, "bedrock_maul"));
-        registry.register(new ItemModSword(ToolMaterialMod.Bloodgem, "bloodgem_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Bluefire, "bluefire_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.CorruptedMaul, "corrupted_maul"));
-        registry.register(new ItemModSword(ToolMaterialMod.CrabclawMaul, "crabclaw_maul"));
-        registry.register(new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsian_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.DeathBringer, "death_bringer"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "blue_divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "gray_divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "green_divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "red_divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Divine, "yellow_divine_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.DualClaw, "dual_claw"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "black_ender_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "blue_ender_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "ender_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "green_ender_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "red_ender_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Ender, "yellow_ender_sword"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Frost, "frost_sword"));
-        registry.register(new ItemBurningSword(ToolMaterialMod.FlamingFury, "flaming_fury", 15));
-        registry.register(new ItemModSword(ToolMaterialMod.FuryMaul, "fury_maul"));
-        registry.register(new ItemBurningSword(ToolMaterialMod.Inferno, "inferno_sword", 12));
-        registry.register(new ItemPoisonousSword(ToolMaterialMod.JungleKnife, "jungle_knife", 2.5f));
-        registry.register(new ItemPoisonousSword(ToolMaterialMod.JungleRapier, "jungle_rapier", 4f));
-        registry.register(new ItemBurningSword(ToolMaterialMod.Molten, "molten_sword", 5));
-        registry.register(new ItemModSword(ToolMaterialMod.OceanKnife, "ocean_knife"));
-        registry.register(new ItemPoisonousSword(ToolMaterialMod.PoisonSaber, "poison_saber", 5));
-        registry.register(new ItemModSword(ToolMaterialMod.Realmite, "realmite_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Rupee, "rupee_rapier"));
-        registry.register(new ItemModSword(ToolMaterialMod.Sandslash, "sandslash"));
-        registry.register(new ItemModSword(ToolMaterialMod.Scorching, "scorching_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Shark, "shark_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.Slime, "slime_sword"));
-        registry.register(new ItemModSword(ToolMaterialMod.TerranDagger, "terran_dagger"));
-        registry.register(new ItemModSword(ToolMaterialMod.TerranKnife, "terran_knife"));
-        registry.register(new ItemModSword(ToolMaterialMod.TerranMaul, "terran_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.AquaDagger, "aquatic_dagger"));
+        register(registry, new ItemModSword(ToolMaterialMod.AquaMaul, "aquatic_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.AquaTrident, "aquatic_trident"));
+        register(registry, new ItemModSword(ToolMaterialMod.Aquaton, "aquaton"));
+        register(registry, new ItemModSword(ToolMaterialMod.AquatoothMaul, "aquatooth_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.AquatoothSword, "aquatooth_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Arlemite, "arlemite_stabber"));
+        register(registry, new ItemModSword(ToolMaterialMod.Bedrock, "bedrock_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.BedrockMaul, "bedrock_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.Bloodgem, "bloodgem_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Bluefire, "bluefire_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.CorruptedMaul, "corrupted_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.CrabclawMaul, "crabclaw_maul"));
+        register(registry, new ItemModSword(ToolMaterialMod.Cyclops, "cyclopsian_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.DeathBringer, "death_bringer"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "blue_divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "gray_divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "green_divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "red_divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Divine, "yellow_divine_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.DualClaw, "dual_claw"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "black_ender_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "blue_ender_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "ender_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "green_ender_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "red_ender_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Ender, "yellow_ender_sword"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Frost, "frost_sword"));
+        register(registry, new ItemBurningSword(ToolMaterialMod.FlamingFury, "flaming_fury", 15));
+        register(registry, new ItemModSword(ToolMaterialMod.FuryMaul, "fury_maul"));
+        register(registry, new ItemBurningSword(ToolMaterialMod.Inferno, "inferno_sword", 12));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.JungleKnife, "jungle_knife", 2.5f));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.JungleRapier, "jungle_rapier", 4f));
+        register(registry, new ItemBurningSword(ToolMaterialMod.Molten, "molten_sword", 5));
+        register(registry, new ItemModSword(ToolMaterialMod.OceanKnife, "ocean_knife"));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.PoisonSaber, "poison_saber", 5));
+        register(registry, new ItemModSword(ToolMaterialMod.Realmite, "realmite_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Rupee, "rupee_rapier"));
+        register(registry, new ItemModSword(ToolMaterialMod.Sandslash, "sandslash"));
+        register(registry, new ItemModSword(ToolMaterialMod.Scorching, "scorching_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Shark, "shark_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.Slime, "slime_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.TerranDagger, "terran_dagger"));
+        register(registry, new ItemModSword(ToolMaterialMod.TerranKnife, "terran_knife"));
+        register(registry, new ItemModSword(ToolMaterialMod.TerranMaul, "terran_maul"));
 
-        registry.register(new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1));
-        registry.register(new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1));
-        registry.register(new ItemModBow("hunter_bow", ArrowType.HUNTER_ARROW, 2500, Items.ARROW));
-        registry.register(new ItemModBow("inferno_bow", ArrowType.INFERNO_ARROW, 10000));
-        registry.register(new ItemModBow("shadow_bow", ArrowType.SHADOW_ARROW, 10000, 36000, Items.ARROW));
+        register(registry, new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1));
+        register(registry, new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1));
+        register(registry, new ItemModBow("hunter_bow", ArrowType.HUNTER_ARROW, 2500, Items.ARROW));
+        register(registry, new ItemModBow("inferno_bow", ArrowType.INFERNO_ARROW, 10000));
+        register(registry, new ItemModBow("shadow_bow", ArrowType.SHADOW_ARROW, 10000, 36000, Items.ARROW));
 
-        registry.register(new ItemScythe("scythe"));
+        register(registry, new ItemScythe("scythe"));
 
-        registry.register(new ItemThrowable("shuriken", BulletType.SHURIKEN_SHOT));
-        registry.register(new ItemVileStorm("vile_storm"));
+        register(registry, new ItemThrowable("shuriken", BulletType.SHURIKEN_SHOT));
+        register(registry, new ItemVileStorm("vile_storm"));
 
-        registry.register(new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT));
-        registry.register(new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
-        registry.register(new ItemCorruptedCannon("corrupted_cannon"));
-        registry.register(new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT));
-        registry.register(new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
-        registry.register(new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT, ModSounds.STAFF, 600, 0));
-        registry.register(new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0));
-        registry.register(new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT, ModSounds.GHAST_CANNON, 100, 20));
-        registry.register(new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ, Items.GOLD_NUGGET, -1, 0));
-        registry.register(new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT));
-        registry.register(new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, ModSounds.GHAST_CANNON, 100, 0));
-        registry.register(new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT));
+        register(registry, new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT));
+        register(registry, new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new ItemCorruptedCannon("corrupted_cannon"));
+        register(registry, new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT));
+        register(registry, new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT, ModSounds.STAFF, 600, 0));
+        register(registry, new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0));
+        register(registry, new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT, ModSounds.GHAST_CANNON, 100, 20));
+        register(registry, new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ, Items.GOLD_NUGGET, -1, 0));
+        register(registry, new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT));
+        register(registry, new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, ModSounds.GHAST_CANNON, 100, 0));
+        register(registry, new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT));
 
-        registry.register(new ItemSerenadeOfDeath("serenade_of_death"));
-        registry.register(new ItemSerenadeOfHealth("serenade_of_health"));
-        registry.register(new ItemSerenadeOfInfusion("serenade_of_infusion"));
-        registry.register(new ItemSerenadeStriker("serenade_striker"));
+        register(registry, new ItemSerenadeOfDeath("serenade_of_death"));
+        register(registry, new ItemSerenadeOfHealth("serenade_of_health"));
+        register(registry, new ItemSerenadeOfInfusion("serenade_of_infusion"));
+        register(registry, new ItemSerenadeStriker("serenade_striker"));
 
-        registry.register(new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1F));
-        registry.register(new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5F));
+        register(registry, new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1F));
+        register(registry, new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5F));
 
         // Vanilla dimension armor
 
-        registry.register(new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, angelicInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, angelicInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, angelicInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, angelicInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, angelicInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, angelicInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, angelicInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, angelicInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.HEAD, aquastriveInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.CHEST, aquastriveInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.LEGS, aquastriveInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.FEET, aquastriveInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.HEAD, aquastriveInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.CHEST, aquastriveInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.LEGS, aquastriveInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.FEET, aquastriveInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.HEAD, arlemiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.CHEST, arlemiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.LEGS, arlemiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.FEET, arlemiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.HEAD, arlemiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.CHEST, arlemiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.LEGS, arlemiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.FEET, arlemiteInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.HEAD, bedrockInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.CHEST, bedrockInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.LEGS, bedrockInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.FEET, bedrockInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.HEAD, bedrockInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.CHEST, bedrockInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.LEGS, bedrockInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.FEET, bedrockInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.HEAD, corruptedInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.CHEST, corruptedInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.LEGS, corruptedInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.FEET, corruptedInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.HEAD, corruptedInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.CHEST, corruptedInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.LEGS, corruptedInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.FEET, corruptedInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.HEAD, divineInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.CHEST, divineInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.LEGS, divineInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.FEET, divineInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.HEAD, divineInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.CHEST, divineInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.LEGS, divineInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.FEET, divineInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.HEAD, eliteRealmiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.CHEST, eliteRealmiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.LEGS, eliteRealmiteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.FEET, eliteRealmiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.HEAD, eliteRealmiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.CHEST, eliteRealmiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.LEGS, eliteRealmiteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.FEET, eliteRealmiteInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.HEAD, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.CHEST, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.LEGS, enderInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.FEET, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.HEAD, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.CHEST, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.LEGS, enderInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.FEET, enderInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.HEAD, frozenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.CHEST, frozenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.LEGS, frozenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.FEET, frozenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.HEAD, frozenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.CHEST, frozenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.LEGS, frozenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.FEET, frozenInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.CHEST, infernoInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.LEGS, infernoInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.FEET, infernoInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.CHEST, infernoInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.LEGS, infernoInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.FEET, infernoInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, jackomanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, jackomanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, jackomanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, jackomanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, jackomanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, jackomanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, jackomanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, jackomanInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.HEAD, jungleInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.CHEST, jungleInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.LEGS, jungleInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.FEET, jungleInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.HEAD, jungleInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.CHEST, jungleInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.LEGS, jungleInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.FEET, jungleInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.HEAD, krakenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.CHEST, krakenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.LEGS, krakenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.HEAD, krakenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.CHEST, krakenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.LEGS, krakenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.HEAD, netheriteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.CHEST, netheriteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.LEGS, netheriteInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.FEET, netheriteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.HEAD, netheriteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.CHEST, netheriteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.LEGS, netheriteInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.FEET, netheriteInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.HEAD));
-        registry.register(new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.HEAD));
+        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.FEET));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.HEAD, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.HEAD, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.HEAD, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.HEAD, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.HEAD, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.HEAD, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.HEAD, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.HEAD, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD,rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD,rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.HEAD, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.CHEST, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.LEGS, rupeeInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.FEET, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.HEAD, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.CHEST, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.LEGS, rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.HEAD, shadowInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.CHEST, shadowInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.LEGS, shadowInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.FEET, shadowInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.HEAD, shadowInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.CHEST, shadowInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.LEGS, shadowInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.FEET, shadowInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.HEAD, skelemanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.CHEST, skelemanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.LEGS, skelemanInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.FEET, skelemanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.HEAD, skelemanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.CHEST, skelemanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.LEGS, skelemanInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.FEET, skelemanInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.HEAD, terranInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.CHEST, terranInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.HEAD, terranInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.CHEST, terranInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.HEAD, witherReaperInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.CHEST, witherReaperInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.LEGS, witherReaperInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.FEET, witherReaperInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.HEAD, witherReaperInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.CHEST, witherReaperInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.LEGS, witherReaperInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.FEET, witherReaperInfo));
 
         // Vanilla dimension tools
-        registry.register(new ItemModShovel(ToolMaterialMod.ArlemiteShovel, "arlemite_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemite_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemite_axe"));
-        registry.register(new ItemModHoe(ToolMaterialMod.ArlemitePick, "arlemite_hoe"));
-        registry.register(new ItemShickaxe(ToolMaterialMod.ArlemiteShick, "arlemite_shickaxe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.ArlemiteShovel, "arlemite_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.ArlemitePick, "arlemite_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.ArlemiteAxe, "arlemite_axe"));
+        register(registry, new ItemModHoe(ToolMaterialMod.ArlemitePick, "arlemite_hoe"));
+        register(registry, new ItemShickaxe(ToolMaterialMod.ArlemiteShick, "arlemite_shickaxe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.BedrockShovel, "bedrock_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.BedrockPick, "bedrock_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.BedrockAxe, "bedrock_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.BedrockShovel, "bedrock_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.BedrockPick, "bedrock_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.BedrockAxe, "bedrock_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.CorruptedShovel, "corrupted_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.CorruptedPick, "corrupted_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corrupted_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.CorruptedShovel, "corrupted_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.CorruptedPick, "corrupted_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.CorruptedAxe, "corrupted_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.DivineShovel, "divine_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.DivinePick, "divine_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.DivineAxe, "divine_axe"));
-        registry.register(new ItemShickaxe(ToolMaterialMod.DivineShick, "divine_shickaxe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.DivineShovel, "divine_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.DivinePick, "divine_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.DivineAxe, "divine_axe"));
+        register(registry, new ItemShickaxe(ToolMaterialMod.DivineShick, "divine_shickaxe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.RealmiteShovel, "realmite_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.RealmitePick, "realmite_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.RealmiteAxe, "realmite_axe"));
-        registry.register(new ItemModHoe(ToolMaterialMod.RealmitePick, "realmite_hoe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.RealmiteShovel, "realmite_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.RealmitePick, "realmite_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.RealmiteAxe, "realmite_axe"));
+        register(registry, new ItemModHoe(ToolMaterialMod.RealmitePick, "realmite_hoe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.RupeeShovel, "rupee_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupee_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupee_axe"));
-        registry.register(new ItemModHoe(ToolMaterialMod.RupeePick, "rupee_hoe"));
-        registry.register(new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupee_shickaxe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.RupeeShovel, "rupee_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.RupeePick, "rupee_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.RupeeAxe, "rupee_axe"));
+        register(registry, new ItemModHoe(ToolMaterialMod.RupeePick, "rupee_hoe"));
+        register(registry, new ItemShickaxe(ToolMaterialMod.RupeeShick, "rupee_shickaxe"));
 
         // Teleportation crystal
-        registry.register(new ItemTeleportationCrystal("teleportation_crystal"));
+        register(registry, new ItemTeleportationCrystal("teleportation_crystal"));
 
         // Vanilla misc items
 
         // Shards
-        registry.register(new ItemMod("corrupted_shards"));
-        registry.register(new ItemMod("divine_shards"));
-        registry.register(new ItemMod("ender_shards"));
-        registry.register(new ItemMod("ice_shards"));
-        registry.register(new ItemMod("jungle_shards"));
-        registry.register(new ItemMod("molten_shards"));
-        registry.register(new ItemMod("terran_shards"));
+        register(registry, new ItemMod("corrupted_shards"));
+        register(registry, new ItemMod("divine_shards"));
+        register(registry, new ItemMod("ender_shards"));
+        register(registry, new ItemMod("ice_shards"));
+        register(registry, new ItemMod("jungle_shards"));
+        register(registry, new ItemMod("molten_shards"));
+        register(registry, new ItemMod("terran_shards"));
 
         // Stones
-        registry.register(new ItemMod("corrupted_stone"));
-        registry.register(new ItemMod("divine_stone"));
-        registry.register(new ItemMod("ender_stone"));
-        registry.register(new ItemMod("ice_stone"));
-        registry.register(new ItemMod("jungle_stone"));
-        registry.register(new ItemMod("molten_stone"));
-        registry.register(new ItemMod("shadow_stone"));
-        registry.register(new ItemMod("terran_stone"));
+        register(registry, new ItemMod("corrupted_stone"));
+        register(registry, new ItemMod("divine_stone"));
+        register(registry, new ItemMod("ender_stone"));
+        register(registry, new ItemMod("ice_stone"));
+        register(registry, new ItemMod("jungle_stone"));
+        register(registry, new ItemMod("molten_stone"));
+        register(registry, new ItemMod("shadow_stone"));
+        register(registry, new ItemMod("terran_stone"));
 
         // Ingots
-        registry.register(new ItemMod("arlemite_ingot"));
-        registry.register(new ItemMod("hellstone_ingot"));
-        registry.register(new ItemMod("netherite_ingot"));
-        registry.register(new ItemMod("realmite_ingot"));
-        registry.register(new ItemMod("rupee_ingot"));
-        registry.register(new ItemMod("shadow_bar"));
-
-        // Gems
-        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+        register(registry, new ItemMod("arlemite_ingot"));
+        register(registry, new ItemMod("hellstone_ingot"));
+        register(registry, new ItemMod("netherite_ingot"));
+        register(registry, new ItemMod("realmite_ingot"));
+        register(registry, new ItemMod("rupee_ingot"));
+        register(registry, new ItemMod("shadow_bar"));
 
         // Boss spawners
-        registry.register(new ItemCallOfTheWatcher("call_of_the_watcher"));
-        registry.register(new ItemHordeHorn("horde_horn"));
-        registry.register(new ItemInfernalFlame("infernal_flame"));
-        registry.register(new ItemMysteriousClock("mysterious_clock"));
-        registry.register(new ItemMod("watching_eye"));
+        register(registry, new ItemCallOfTheWatcher("call_of_the_watcher"));
+        register(registry, new ItemHordeHorn("horde_horn"));
+        register(registry, new ItemInfernalFlame("infernal_flame"));
+        register(registry, new ItemMysteriousClock("mysterious_clock"));
+        register(registry, new ItemMod("watching_eye"));
 
         // Ayeraco fragments
-        registry.register(new ItemMod("ayeraco_fragment_blue"));
-        registry.register(new ItemMod("ayeraco_fragment_green"));
-        registry.register(new ItemMod("ayeraco_fragment_purple"));
-        registry.register(new ItemMod("ayeraco_fragment_red"));
-        registry.register(new ItemMod("ayeraco_fragment_yellow"));
+        register(registry, new ItemMod("ayeraco_fragment_blue"));
+        register(registry, new ItemMod("ayeraco_fragment_green"));
+        register(registry, new ItemMod("ayeraco_fragment_purple"));
+        register(registry, new ItemMod("ayeraco_fragment_red"));
+        register(registry, new ItemMod("ayeraco_fragment_yellow"));
 
         // Diamond chunks
-        registry.register(new ItemMod("blue_diamond_chunk"));
-        registry.register(new ItemMod("gray_diamond_chunk"));
-        registry.register(new ItemMod("red_diamond_chunk"));
-        registry.register(new ItemMod("yellow_diamond_chunk"));
-        registry.register(new ItemMod("green_diamond_chunk"));
+        register(registry, new ItemMod("blue_diamond_chunk"));
+        register(registry, new ItemMod("gray_diamond_chunk"));
+        register(registry, new ItemMod("red_diamond_chunk"));
+        register(registry, new ItemMod("yellow_diamond_chunk"));
+        register(registry, new ItemMod("green_diamond_chunk"));
 
         // Pet spawn eggs
-        registry.register(new ItemLivestockSpawnEgg("brown_grizzle_egg"));
-        registry.register(new ItemLivestockSpawnEgg("husk_egg"));
-        registry.register(new ItemLivestockSpawnEgg("smelter_egg"));
-        registry.register(new ItemLivestockSpawnEgg("snapper_egg"));
-        registry.register(new ItemLivestockSpawnEgg("stone_golem_egg"));
-        registry.register(new ItemLivestockSpawnEgg("white_grizzle_egg"));
-        registry.register(new ItemLivestockSpawnEgg("ehu_egg"));
+        register(registry, new ItemLivestockSpawnEgg("brown_grizzle_egg"));
+        register(registry, new ItemLivestockSpawnEgg("husk_egg"));
+        register(registry, new ItemLivestockSpawnEgg("smelter_egg"));
+        register(registry, new ItemLivestockSpawnEgg("snapper_egg"));
+        register(registry, new ItemLivestockSpawnEgg("stone_golem_egg"));
+        register(registry, new ItemLivestockSpawnEgg("white_grizzle_egg"));
+        register(registry, new ItemLivestockSpawnEgg("ehu_egg"));
 
         // Miscellaneous resources
-        registry.register(new ItemMod("aqua_ball"));
-        registry.register(new ItemMod("aquatic_blaze_rod"));
-        registry.register(new ItemMod("aquatic_ingot"));
-        registry.register(new ItemMod("aquatic_pellets"));
-        registry.register(new ItemMod("bedrock_chunk"));
-        registry.register(new ItemMod("bloodgem"));
-        registry.register(new ItemMod("bluefire_stone"));
-        registry.register(new ItemMod("corrupted_bullet"));
-        registry.register(new ItemMod("crab_claw"));
-        registry.register(new ItemMod("cyclops_eye"));
-        registry.register(new ItemMod("cyclops_eye_shards"));
-        registry.register(new ItemMod("fury_fire"));
-        registry.register(new ItemHealingStone("healing_stone", 20));
-        registry.register(new ItemMod("kraken_scale"));
-        registry.register(new ItemMod("kraken_skin"));
-        registry.register(new ItemMod("legendary_ender_eye"));
-        registry.register(new ItemMod("liopleurodon_skull"));
-        registry.register(new ItemMod("liopleurodon_teeth"));
-        registry.register(new ItemMod("netherite_chunk"));
-        registry.register(new ItemMod("pure_aquatic_pellets"));
-        registry.register(new ItemMod("purple_blaze"));
-        registry.register(new ItemMod("shadow_coins"));
-        registry.register(new ItemMod("shark_fin"));
-        registry.register(new ItemMod("whale_fin"));
+        register(registry, new ItemMod("aqua_ball"));
+        register(registry, new ItemMod("aquatic_blaze_rod"));
+        register(registry, new ItemMod("aquatic_ingot"));
+        register(registry, new ItemMod("aquatic_pellets"));
+        register(registry, new ItemMod("bedrock_chunk"));
+        register(registry, new ItemMod("bloodgem"));
+        register(registry, new ItemMod("bluefire_stone"));
+        register(registry, new ItemMod("corrupted_bullet"));
+        register(registry, new ItemMod("crab_claw"));
+        register(registry, new ItemMod("cyclops_eye"));
+        register(registry, new ItemMod("cyclops_eye_shards"));
+        register(registry, new ItemMod("fury_fire"));
+        register(registry, new ItemHealingStone("healing_stone", 20));
+        register(registry, new ItemMod("kraken_scale"));
+        register(registry, new ItemMod("kraken_skin"));
+        register(registry, new ItemMod("legendary_ender_eye"));
+        register(registry, new ItemMod("liopleurodon_skull"));
+        register(registry, new ItemMod("liopleurodon_teeth"));
+        register(registry, new ItemMod("netherite_chunk"));
+        register(registry, new ItemMod("pure_aquatic_pellets"));
+        register(registry, new ItemMod("purple_blaze"));
+        register(registry, new ItemMod("shadow_coins"));
+        register(registry, new ItemMod("shark_fin"));
+        register(registry, new ItemMod("whale_fin"));
 
         // Iceika
 
         // Iceika dimension weapons - melee
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Enderice, "enderice"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Frostking, "frostking_sword"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Glacier, "glacier_sword"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Icine, "icine_sword"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.Snowslash, "snowslash"));
-        registry.register(new ItemSlowingSword(ToolMaterialMod.IcicleBane, "icicle_bane"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Enderice, "enderice"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Frostking, "frostking_sword"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.FrozenMaul, "frozen_maul"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Glacier, "glacier_sword"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Icine, "icine_sword"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.Snowslash, "snowslash"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.IcicleBane, "icicle_bane"));
 
-        registry.register(new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1F));
+        register(registry, new ItemHealingSword("frossivence", ToolMaterialMod.Frossivence, 1F));
 
         // Iceika dimension weapons - ranged
-        registry.register(new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1));
-        registry.register(new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW));
+        register(registry, new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1));
+        register(registry, new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW));
 
-        registry.register(new ItemThrowable("snowflake_shuriken", BulletType.SNOWFLAKE_SHURIKEN_SHOT));
+        register(registry, new ItemThrowable("snowflake_shuriken", BulletType.SNOWFLAKE_SHURIKEN_SHOT));
 
-        registry.register(new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, iceShards, 10000, 0));
-        registry.register(new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
+        register(registry, new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, iceShards, 10000, 0));
+        register(registry, new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
 
-        registry.register(new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC, EntitySoundOfMusic.class));
-        registry.register(new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS, EntitySoundOfCarols.class));
+        register(registry, new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC, EntitySoundOfMusic.class));
+        register(registry, new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS, EntitySoundOfCarols.class));
 
-        registry.register(new ItemSerenadeOfIce("serenade_of_ice"));
+        register(registry, new ItemSerenadeOfIce("serenade_of_ice"));
 
         // Iceika dimension armor
-        registry.register(new ItemDivineArmor("santa_boots", EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo));
-        registry.register(new ItemDivineArmor("santa_pants", EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo));
-        registry.register(new ItemDivineArmor("santa_tunic", EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo));
-        registry.register(new ItemDivineArmor("santa_cap", EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo));
+        register(registry, new ItemDivineArmor("santa_boots", EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo));
+        register(registry, new ItemDivineArmor("santa_pants", EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo));
+        register(registry, new ItemDivineArmor("santa_tunic", EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo));
+        register(registry, new ItemDivineArmor("santa_cap", EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo));
 
         // Iceika misc
-        registry.register(new ItemMod("snowflake"));
+        register(registry, new ItemMod("snowflake"));
 
         // Iceika portal item
-        registry.register(new ItemSnowGlobe("snow_globe"));
+        register(registry, new ItemSnowGlobe("snow_globe"));
 
         /*************************/
 
         // Foods
-        registry.register(new ItemModFood(10, 10.0F, "advanced_mushroom_stew"));
-        registry.register(new ItemModFood(2, 3.0F, true, "bacon"));
-        registry.register(new ItemModFood(4, 0.5F, "boiled_egg"));
-        registry.register(new ItemModFood(2, 0.2F,  "cheese"));
-        registry.register(new ItemModFood(20, 20.0F,  "chicken_dinner"));
-        registry.register(new ItemModFood(4, 1.0F,  "chocolate_log"));
-        registry.register(new ItemModFood(16, 0.3F, "donut"));
-        registry.register(new ItemEggNog("egg_nog"));
-        registry.register(new ItemModFood(5, 2.0F, true, "raw_empowered_meat"));
-        registry.register(new ItemModFood(10, 4.0F, true, "empowered_meat"));
-        registry.register(new ItemFastFood(7, 2.5F, true, "enriched_magic_meat"));
-        registry.register(new ItemForbiddenFruit());
-        registry.register(new ItemModFood(16, 2.0F, "fruit_cake"));
-        registry.register(new ItemModFood(5, 7.0F, true, "hot_pumpkin_pie"));
-        registry.register(new ItemFastFood(5, 1.0F, true, "magic_meat"));
-        registry.register(new ItemFastFood(1, 5, false, "moonbulb"));
-        registry.register(new ItemModFood(1, 0.3F,  "peppermints"));
-        registry.register(new ItemFastFood(3, 5, false, "pink_glowbone"));
-        registry.register(new ItemFastFood(3, 5, false, "purple_glowbone"));
-        registry.register(new ItemSkyFlower("sky_flower"));
-        registry.register(new ItemModFood(2, 0.3F, "snow_cones"));
-        registry.register(new ItemModFood(4, 0.3F,  "tomato"));
-        registry.register(new ItemModFood(1, 0.1F,  "white_mushroom"));
-        registry.register(new ItemModFood(4, 1.0F, "winterberry"));
+        register(registry, new ItemModFood(10, 10.0F, "advanced_mushroom_stew"));
+        register(registry, new ItemModFood(2, 3.0F, true, "bacon"));
+        register(registry, new ItemModFood(4, 0.5F, "boiled_egg"));
+        register(registry, new ItemModFood(2, 0.2F,  "cheese"));
+        register(registry, new ItemModFood(20, 20.0F,  "chicken_dinner"));
+        register(registry, new ItemModFood(4, 1.0F,  "chocolate_log"));
+        register(registry, new ItemModFood(16, 0.3F, "donut"));
+        register(registry, new ItemEggNog("egg_nog"));
+        register(registry, new ItemModFood(5, 2.0F, true, "raw_empowered_meat"));
+        register(registry, new ItemModFood(10, 4.0F, true, "empowered_meat"));
+        register(registry, new ItemFastFood(7, 2.5F, true, "enriched_magic_meat"));
+        register(registry, new ItemForbiddenFruit());
+        register(registry, new ItemModFood(16, 2.0F, "fruit_cake"));
+        register(registry, new ItemModFood(5, 7.0F, true, "hot_pumpkin_pie"));
+        register(registry, new ItemFastFood(5, 1.0F, true, "magic_meat"));
+        register(registry, new ItemFastFood(1, 5, false, "moonbulb"));
+        register(registry, new ItemModFood(1, 0.3F,  "peppermints"));
+        register(registry, new ItemFastFood(3, 5, false, "pink_glowbone"));
+        register(registry, new ItemFastFood(3, 5, false, "purple_glowbone"));
+        register(registry, new ItemSkyFlower("sky_flower"));
+        register(registry, new ItemModFood(2, 0.3F, "snow_cones"));
+        register(registry, new ItemModFood(4, 0.3F,  "tomato"));
+        register(registry, new ItemModFood(1, 0.1F,  "white_mushroom"));
+        register(registry, new ItemModFood(4, 1.0F, "winterberry"));
 
         // Twilight Dimensions
 
         // Twilight souls
-        registry.register(new ItemMod("eden_soul"));
-        registry.register(new ItemMod("wildwood_soul"));
-        registry.register(new ItemMod("apalachia_soul"));
-        registry.register(new ItemMod("skythern_soul"));
-        registry.register(new ItemMod("mortum_soul"));
+        register(registry, new ItemMod("eden_soul"));
+        register(registry, new ItemMod("wildwood_soul"));
+        register(registry, new ItemMod("apalachia_soul"));
+        register(registry, new ItemMod("skythern_soul"));
+        register(registry, new ItemMod("mortum_soul"));
 
         // Twilight fragments
-        registry.register(new ItemMod("eden_fragments"));
-        registry.register(new ItemMod("wildwood_fragments"));
-        registry.register(new ItemMod("apalachia_fragments"));
-        registry.register(new ItemMod("skythern_fragments"));
-        registry.register(new ItemMod("mortum_fragments"));
+        register(registry, new ItemMod("eden_fragments"));
+        register(registry, new ItemMod("wildwood_fragments"));
+        register(registry, new ItemMod("apalachia_fragments"));
+        register(registry, new ItemMod("skythern_fragments"));
+        register(registry, new ItemMod("mortum_fragments"));
 
         // Twilight gems
-        registry.register(new ItemMod("eden_gem"));
-        registry.register(new ItemMod("wildwood_gem"));
-        registry.register(new ItemMod("apalachia_gem"));
-        registry.register(new ItemMod("skythern_gem"));
-        registry.register(new ItemMod("mortum_gem"));
+        register(registry, new ItemMod("eden_gem"));
+        register(registry, new ItemMod("wildwood_gem"));
+        register(registry, new ItemMod("apalachia_gem"));
+        register(registry, new ItemMod("skythern_gem"));
+        register(registry, new ItemMod("mortum_gem"));
 
         // Twilight chunks
-        registry.register(new ItemMod("eden_chunk"));
-        registry.register(new ItemMod("wildwood_chunk"));
-        registry.register(new ItemMod("apalachia_chunk"));
-        registry.register(new ItemMod("skythern_chunk"));
-        registry.register(new ItemMod("mortum_chunk"));
+        register(registry, new ItemMod("eden_chunk"));
+        register(registry, new ItemMod("wildwood_chunk"));
+        register(registry, new ItemMod("apalachia_chunk"));
+        register(registry, new ItemMod("skythern_chunk"));
+        register(registry, new ItemMod("mortum_chunk"));
 
         // Twilight dust
-        registry.register(new ItemMod("eden_dust"));
-        registry.register(new ItemMod("wildwood_dust"));
-        registry.register(new ItemMod("apalachia_dust"));
-        registry.register(new ItemMod("skythern_dust"));
-        registry.register(new ItemMod("mortum_dust"));
+        register(registry, new ItemMod("eden_dust"));
+        register(registry, new ItemMod("wildwood_dust"));
+        register(registry, new ItemMod("apalachia_dust"));
+        register(registry, new ItemMod("skythern_dust"));
+        register(registry, new ItemMod("mortum_dust"));
 
         // Twilight boss spawners
 
         // Twilight swords
-        registry.register(new ItemModSword(ToolMaterialMod.Eden, "eden_blade"));
-        registry.register(new ItemModSword(ToolMaterialMod.Wildwood, "wildwood_blade"));
-        registry.register(new ItemModSword(ToolMaterialMod.Apalachia, "apalachia_blade"));
-        registry.register(new ItemModSword(ToolMaterialMod.Skythern, "skythern_blade"));
-        registry.register(new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade"));
-        registry.register(new ItemModSword(ToolMaterialMod.Halite, "halite_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Eden, "eden_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Wildwood, "wildwood_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Apalachia, "apalachia_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Skythern, "skythern_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.Halite, "halite_blade"));
 
         // Twilight bows
-        registry.register(new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, edenArrow));
-        registry.register(new ItemModBow("wildwood_bow", ArrowType.LESSER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
-        registry.register(new ItemModBow("apalachia_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, wildwoodArrow));
-        registry.register(new ItemModBow("skythern_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
-        registry.register(new ItemModBow("mortum_bow", ArrowType.FURY_ARROW, -1, furyArrow));
-        registry.register(new ItemModBow("halite_bow", ArrowType.FURY_ARROW, -1, 36000, furyArrow));
-        registry.register(new ItemModBow("twilight_bow", ArrowType.FURY_ARROW, -1, 14400, furyArrow));
+        register(registry, new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, edenArrow));
+        register(registry, new ItemModBow("wildwood_bow", ArrowType.LESSER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
+        register(registry, new ItemModBow("apalachia_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, wildwoodArrow));
+        register(registry, new ItemModBow("skythern_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
+        register(registry, new ItemModBow("mortum_bow", ArrowType.FURY_ARROW, -1, furyArrow));
+        register(registry, new ItemModBow("halite_bow", ArrowType.FURY_ARROW, -1, 36000, furyArrow));
+        register(registry, new ItemModBow("twilight_bow", ArrowType.FURY_ARROW, -1, 14400, furyArrow));
 
         // Twilight slicers
-        registry.register(new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER_SHOT));
-        registry.register(new ItemThrowable("wildwood_slicer", BulletType.WILDWOOD_SLICER_SHOT));
-        registry.register(new ItemThrowable("apalachia_slicer", BulletType.APALACHIA_SLICER_SHOT));
-        registry.register(new ItemThrowable("skythern_slicer", BulletType.SKYTHERN_SLICER_SHOT));
-        registry.register(new ItemThrowable("mortum_slicer", BulletType.MORTUM_SLICER_SHOT));
-        registry.register(new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER_SHOT));
+        register(registry, new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER_SHOT));
+        register(registry, new ItemThrowable("wildwood_slicer", BulletType.WILDWOOD_SLICER_SHOT));
+        register(registry, new ItemThrowable("apalachia_slicer", BulletType.APALACHIA_SLICER_SHOT));
+        register(registry, new ItemThrowable("skythern_slicer", BulletType.SKYTHERN_SLICER_SHOT));
+        register(registry, new ItemThrowable("mortum_slicer", BulletType.MORTUM_SLICER_SHOT));
+        register(registry, new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER_SHOT));
 
         // Twilight blitzes
-        registry.register(new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust));
-        registry.register(new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT, wildwoodDust));
-        registry.register(new ItemTwilightBlitz("apalachia_blitz", BulletType.APALACHIA_BLITZ_SHOT, apalachiaDust));
-        registry.register(new ItemTwilightBlitz("skythern_blitz", BulletType.SKYTHERN_BLITZ_SHOT, skythernDust));
-        registry.register(new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, mortumDust));
-        registry.register(new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust));
+        register(registry, new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust));
+        register(registry, new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT, wildwoodDust));
+        register(registry, new ItemTwilightBlitz("apalachia_blitz", BulletType.APALACHIA_BLITZ_SHOT, apalachiaDust));
+        register(registry, new ItemTwilightBlitz("skythern_blitz", BulletType.SKYTHERN_BLITZ_SHOT, skythernDust));
+        register(registry, new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, mortumDust));
+        register(registry, new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust));
 
         // Twilight phasers
-        registry.register(new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        registry.register(new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        registry.register(new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        registry.register(new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        registry.register(new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        registry.register(new RangedWeaponBase("halite_phaser", BulletType.HALITE_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("halite_phaser", BulletType.HALITE_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
 
         // Twilight tools
-        registry.register(new ItemModShovel(ToolMaterialMod.EdenShovel, "eden_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.EdenPick, "eden_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.EdenAxe, "eden_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.EdenShovel, "eden_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.EdenPick, "eden_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.EdenAxe, "eden_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.WildwoodShovel, "wildwood_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwood_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwood_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.WildwoodShovel, "wildwood_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.WildwoodPick, "wildwood_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.WildwoodAxe, "wildwood_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.ApalachiaShovel, "apalachia_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachia_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachia_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.ApalachiaShovel, "apalachia_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.ApalachiaPick, "apalachia_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.ApalachiaAxe, "apalachia_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.SkythernShovel, "skythern_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythern_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythern_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.SkythernShovel, "skythern_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.SkythernPick, "skythern_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.SkythernAxe, "skythern_axe"));
 
-        registry.register(new ItemModShovel(ToolMaterialMod.MortumShovel, "mortum_shovel"));
-        registry.register(new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortum_pickaxe"));
-        registry.register(new ItemModAxe(ToolMaterialMod.MortumAxe, "mortum_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.MortumShovel, "mortum_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.MortumPick, "mortum_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.MortumAxe, "mortum_axe"));
 
         // Twilight armor
-        registry.register(new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.HEAD, edenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.CHEST, edenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.LEGS, edenInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.FEET, edenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.HEAD, edenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.CHEST, edenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.LEGS, edenInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.FEET, edenInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.HEAD, wildInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.CHEST, wildInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.LEGS, wildInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.FEET, wildInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.HEAD, wildInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.CHEST, wildInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.LEGS, wildInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.FEET, wildInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.HEAD, apInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.CHEST, apInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.LEGS, apInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.FEET, apInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.HEAD, apInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.CHEST, apInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.LEGS, apInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.FEET, apInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.HEAD, skyInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.CHEST, skyInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.LEGS, skyInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.FEET, skyInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.HEAD, skyInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.CHEST, skyInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.LEGS, skyInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.FEET, skyInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.HEAD, mortInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.CHEST, mortInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.LEGS, mortInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.FEET, mortInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.HEAD, mortInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.CHEST, mortInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.LEGS, mortInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.FEET, mortInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.HEAD, halInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.HEAD, halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
 
         // Twilight boss spawners
-        registry.register(new ItemTwilightSpawner("eternal_archer_crystal"));
-        registry.register(new ItemTwilightSpawner("karot_crystal"));
-        registry.register(new ItemTwilightSpawner("reyvor_crystal"));
-        registry.register(new ItemTwilightSpawner("soul_fiend_crystal"));
-        registry.register(new ItemTwilightSpawner("twilight_demon_crystal"));
-        registry.register(new ItemTwilightSpawner("vamacheron_crystal"));
-        registry.register(new ItemTwilightSpawner("densos_crystal"));
+        register(registry, new ItemTwilightSpawner("eternal_archer_crystal"));
+        register(registry, new ItemTwilightSpawner("karot_crystal"));
+        register(registry, new ItemTwilightSpawner("reyvor_crystal"));
+        register(registry, new ItemTwilightSpawner("soul_fiend_crystal"));
+        register(registry, new ItemTwilightSpawner("twilight_demon_crystal"));
+        register(registry, new ItemTwilightSpawner("vamacheron_crystal"));
+        register(registry, new ItemTwilightSpawner("densos_crystal"));
 
         // Twilight portal item
-        registry.register(new ItemTwilightClock("twilight_clock"));
+        register(registry, new ItemTwilightClock("twilight_clock"));
 
         // Twilight arrows
-        registry.register(new ItemMod("eden_arrow").setCreativeTab(DivineRPGTabs.ranged));
-        registry.register(new ItemMod("fury_arrow").setCreativeTab(DivineRPGTabs.ranged));
-        registry.register(new ItemMod("wildwood_arrow").setCreativeTab(DivineRPGTabs.ranged));
+        register(registry, new ItemMod("eden_arrow").setCreativeTab(DivineRPGTabs.ranged));
+        register(registry, new ItemMod("fury_arrow").setCreativeTab(DivineRPGTabs.ranged));
+        register(registry, new ItemMod("wildwood_arrow").setCreativeTab(DivineRPGTabs.ranged));
 
         // Twilight miscellaneous
-        registry.register(new ItemMod("base_spawn_crystal"));
-        registry.register(new ItemMod("eden_sparkles"));
+        register(registry, new ItemMod("base_spawn_crystal"));
+        register(registry, new ItemMod("eden_sparkles"));
 
         // Arcana
 
         // Arcana melee
-        registry.register(new ItemArcaniteBlade());
-        registry.register(new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber));
-        registry.register(new ItemEnderScepter("ender_scepter"));
-        registry.register(new ItemModSword(ToolMaterialMod.LiviciaSword, "livicia_sword"));
-        registry.register(new ItemStormSword("storm_sword", ToolMaterialMod.Storm));
-        registry.register(new ItemShadowSaber("shadow_saber", ToolMaterialMod.ShadowSaber));
+        register(registry, new ItemArcaniteBlade());
+        register(registry, new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber));
+        register(registry, new ItemEnderScepter("ender_scepter"));
+        register(registry, new ItemModSword(ToolMaterialMod.LiviciaSword, "livicia_sword"));
+        register(registry, new ItemStormSword("storm_sword", ToolMaterialMod.Storm));
+        register(registry, new ItemShadowSaber("shadow_saber", ToolMaterialMod.ShadowSaber));
 
         // Arcana ranged
-        registry.register(new ItemArcaniteBlaster());
-        registry.register(new ItemCaptainsSparkler("captains_sparkler"));
-        registry.register(new ItemFirefly());
-        registry.register(new ItemGeneralsStaff());
-        registry.register(new ItemLaVekor());
-        registry.register(new ItemMeriksMissile("meriks_missile"));
-        registry.register(new ItemMeteorMash());
-        registry.register(new ItemStaffStarlight("starlight", 5));
-        registry.register(new ItemStaffStarlight("staff_of_starlight", 25));
+        register(registry, new ItemArcaniteBlaster());
+        register(registry, new ItemCaptainsSparkler("captains_sparkler"));
+        register(registry, new ItemFirefly());
+        register(registry, new ItemGeneralsStaff());
+        register(registry, new ItemLaVekor());
+        register(registry, new ItemMeriksMissile("meriks_missile"));
+        register(registry, new ItemMeteorMash());
+        register(registry, new ItemStaffStarlight("starlight", 5));
+        register(registry, new ItemStaffStarlight("staff_of_starlight", 25));
 
         // Arcana throwable
-        registry.register(new ItemGrenade("grenade"));
+        register(registry, new ItemGrenade("grenade"));
 
         // Arcana utility
-        registry.register(new ItemAttractor());
-        registry.register(new ItemReflector());
-        registry.register(new ItemDivineAccumulator());
-        registry.register(new ItemGhostbane());
-        registry.register(new ItemOrbOfLight());
-        registry.register(new ItemStaffEnrichment("staff_of_enrichment"));
+        register(registry, new ItemAttractor());
+        register(registry, new ItemReflector());
+        register(registry, new ItemDivineAccumulator());
+        register(registry, new ItemGhostbane());
+        register(registry, new ItemOrbOfLight());
+        register(registry, new ItemStaffEnrichment("staff_of_enrichment"));
 
         // Arcana armor sets
-        registry.register(new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.LEGS, kormInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.FEET, kormInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.LEGS, kormInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.FEET, kormInfo));
 
-        registry.register(new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.HEAD, vemInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.CHEST, vemInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.HEAD, vemInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.CHEST, vemInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo));
 
         // Arcana boss spawners
-        registry.register(new ItemWizardsBook("wizards_book"));
+        register(registry, new ItemWizardsBook("wizards_book"));
 
         // Arcana pet spawners
-        registry.register(new ItemZelusSpawnEgg("fyracryx_egg"));
-        registry.register(new ItemZelusSpawnEgg("paratiku_egg"));
-        registry.register(new ItemZelusSpawnEgg("seimer_egg"));
-        registry.register(new ItemZelusSpawnEgg("golem_of_rejuvenation_egg"));
+        register(registry, new ItemZelusSpawnEgg("fyracryx_egg"));
+        register(registry, new ItemZelusSpawnEgg("paratiku_egg"));
+        register(registry, new ItemZelusSpawnEgg("seimer_egg"));
+        register(registry, new ItemZelusSpawnEgg("golem_of_rejuvenation_egg"));
 
         // Arcana crops
-        registry.register(new ItemAquamarine("aquamarine"));
-        registry.register(new ItemMod("firestock"));
-        registry.register(new ItemLamona());
-        registry.register(new ItemMod("marsine"));
-        registry.register(new ItemModFood(2, 0.3F,  "pinfly").setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F));
-        registry.register(new ItemMod("veilo"));
-        registry.register(new ItemModFood(2, 3,  "hitchak"));
+        register(registry, new ItemAquamarine("aquamarine"));
+        register(registry, new ItemMod("firestock"));
+        register(registry, new ItemLamona());
+        register(registry, new ItemMod("marsine"));
+        register(registry, new ItemModFood(2, 0.3F,  "pinfly").setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F));
+        register(registry, new ItemMod("veilo"));
+        register(registry, new ItemModFood(2, 3,  "hitchak"));
 
         // Arcana keys
-        registry.register(new ItemKey("ancient_key"));
-        registry.register(new ItemKey("degraded_key"));
-        registry.register(new ItemKey("soul_key"));
-        registry.register(new ItemKey("sludge_key"));
+        register(registry, new ItemKey("ancient_key"));
+        register(registry, new ItemKey("degraded_key"));
+        register(registry, new ItemKey("soul_key"));
+        register(registry, new ItemKey("sludge_key"));
 
         // Arcana potions
-        registry.register(new ItemArcanaPotion("weak_arcana_potion", 100));
-        registry.register(new ItemArcanaPotion("strong_arcana_potion", 200));
+        register(registry, new ItemArcanaPotion("weak_arcana_potion", 100));
+        register(registry, new ItemArcanaPotion("strong_arcana_potion", 200));
 
         // Arcana miscellaneous
-        registry.register(new ItemMod("arcanium"));
-        registry.register(new ItemChargedCollector("charged_collector"));
-        registry.register(new ItemMod("collector"));
-        registry.register(new ItemMod("dungeon_tokens"));
+        register(registry, new ItemMod("arcanium"));
+        register(registry, new ItemChargedCollector("charged_collector"));
+        register(registry, new ItemMod("collector"));
+        register(registry, new ItemMod("dungeon_tokens"));
 
         // Seeds
-        registry.register(new ItemArcanaSeeds("aquamarine_seeds"));
-        registry.register(new ItemArcanaSeeds("eucalyptus_root_seeds"));
-        registry.register(new ItemArcanaSeeds("firestock_seeds"));
-        registry.register(new ItemArcanaSeeds("hitchak_seeds"));
-        registry.register(new ItemArcanaSeeds("lamona_seeds"));
-        registry.register(new ItemArcanaSeeds("marsine_seeds"));
-        registry.register(new ItemModSeeds("moonbulb_seeds", Blocks.FARMLAND));
-        registry.register(new ItemArcanaSeeds("pinfly_seeds"));
-        registry.register(new ItemModSeeds("pink_glowbone_seeds", Blocks.GRASS));
-        registry.register(new ItemModSeeds("purple_glowbone_seeds", Blocks.GRASS));
-        registry.register(new ItemModSeeds("sky_plant_seeds", Blocks.GRASS));
-        registry.register(new ItemModSeeds("tomato_seeds", Blocks.FARMLAND));
-        registry.register(new ItemArcanaSeeds("veilo_seeds"));
-        registry.register(new ItemModSeeds("white_mushroom_seeds", Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("aquamarine_seeds"));
+        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds"));
+        register(registry, new ItemArcanaSeeds("firestock_seeds"));
+        register(registry, new ItemArcanaSeeds("hitchak_seeds"));
+        register(registry, new ItemArcanaSeeds("lamona_seeds"));
+        register(registry, new ItemArcanaSeeds("marsine_seeds"));
+        register(registry, new ItemModSeeds("moonbulb_seeds", Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("pinfly_seeds"));
+        register(registry, new ItemModSeeds("pink_glowbone_seeds", Blocks.GRASS));
+        register(registry, new ItemModSeeds("purple_glowbone_seeds", Blocks.GRASS));
+        register(registry, new ItemModSeeds("sky_plant_seeds", Blocks.GRASS));
+        register(registry, new ItemModSeeds("tomato_seeds", Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("veilo_seeds"));
+        register(registry, new ItemModSeeds("white_mushroom_seeds", Blocks.FARMLAND));
 
         // Vethea
         // Vethea pearls
-        registry.register(new ItemVethean("dirty_pearls"));
-        registry.register(new ItemVethean("clean_pearls"));
-        registry.register(new ItemVethean("polished_pearls"));
-        registry.register(new ItemVethean("shiny_pearls"));
+        register(registry, new ItemVethean("dirty_pearls"));
+        register(registry, new ItemVethean("clean_pearls"));
+        register(registry, new ItemVethean("polished_pearls"));
+        register(registry, new ItemVethean("shiny_pearls"));
 
         // Vethea lumps
-        registry.register(new ItemVethean("teaker_lump"));
-        registry.register(new ItemVethean("amthirmis_lump"));
-        registry.register(new ItemVethean("darven_lump"));
-        registry.register(new ItemVethean("cermile_lump"));
-        registry.register(new ItemVethean("pardimal_lump"));
-        registry.register(new ItemVethean("quadrotic_lump"));
-        registry.register(new ItemVethean("karos_lump"));
-        registry.register(new ItemVethean("heliosis_lump"));
-        registry.register(new ItemVethean("arksiane_lump"));
+        register(registry, new ItemVethean("teaker_lump"));
+        register(registry, new ItemVethean("amthirmis_lump"));
+        register(registry, new ItemVethean("darven_lump"));
+        register(registry, new ItemVethean("cermile_lump"));
+        register(registry, new ItemVethean("pardimal_lump"));
+        register(registry, new ItemVethean("quadrotic_lump"));
+        register(registry, new ItemVethean("karos_lump"));
+        register(registry, new ItemVethean("heliosis_lump"));
+        register(registry, new ItemVethean("arksiane_lump"));
 
         // Vethea templates
-        registry.register(new ItemVethean("backsword_template"));
-        registry.register(new ItemVethean("bow_template"));
-        registry.register(new ItemVethean("cannon_template"));
-        registry.register(new ItemVethean("claw_template"));
-        registry.register(new ItemVethean("disk_template"));
-        registry.register(new ItemVethean("hammer_template"));
-        registry.register(new ItemVethean("staff_template"));
+        register(registry, new ItemVethean("backsword_template"));
+        register(registry, new ItemVethean("bow_template"));
+        register(registry, new ItemVethean("cannon_template"));
+        register(registry, new ItemVethean("claw_template"));
+        register(registry, new ItemVethean("disk_template"));
+        register(registry, new ItemVethean("hammer_template"));
+        register(registry, new ItemVethean("staff_template"));
 
-        registry.register(new ItemVethean("degraded_template"));
-        registry.register(new ItemVethean("finished_template"));
-        registry.register(new ItemVethean("glistening_template"));
-        registry.register(new ItemVethean("demonized_template"));
-        registry.register(new ItemVethean("tormented_template"));
+        register(registry, new ItemVethean("degraded_template"));
+        register(registry, new ItemVethean("finished_template"));
+        register(registry, new ItemVethean("glistening_template"));
+        register(registry, new ItemVethean("demonized_template"));
+        register(registry, new ItemVethean("tormented_template"));
 
         // Vethea food
-        registry.register(new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemModFood(6, 0.6F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemHealingFood(0, 0F, 8, "dream_sours").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemModFood(1, 0.2F, "honeysuckle").setCreativeTab(DivineRPGTabs.vethea));
-        registry.register(new ItemModFood(1, 0.2F, "honeychunk").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(6, 0.6F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemHealingFood(0, 0F, 8, "dream_sours").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(1, 0.2F, "honeysuckle").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(1, 0.2F, "honeychunk").setCreativeTab(DivineRPGTabs.vethea));
 
         // Vethea boss spawners
-        registry.register(new ItemVethean("dream_flint"));
-        registry.register(new ItemVethean("moon_clock"));
+        register(registry, new ItemVethean("dream_flint"));
+        register(registry, new ItemVethean("moon_clock"));
 
         // Vethea weapons
         // Backsword
-        registry.register(new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.DarvenSword,"darven_backsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.CermileSword,"cermile_backsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.PardimalSword,"pardimal_backsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_warsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_warsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_wrathsword"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenSword,"darven_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileSword,"cermile_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalSword,"pardimal_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_warsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_warsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_wrathsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword"));
 
         // Bow
-        registry.register(new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow));
-        registry.register(new ItemVetheanBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, teakerArrow));
-        registry.register(new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow));
-        registry.register(new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, darvenArrow));
-        registry.register(new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, pardimalArrow));
-        registry.register(new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow));
-        registry.register(new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow));
-        registry.register(new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow));
-        registry.register(new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, karosArrow));
-        registry.register(new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, everArrow));
+        register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow));
+        register(registry, new ItemVetheanBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, teakerArrow));
+        register(registry, new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow));
+        register(registry, new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, darvenArrow));
+        register(registry, new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, pardimalArrow));
+        register(registry, new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow));
+        register(registry, new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow));
+        register(registry, new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow));
+        register(registry, new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, karosArrow));
+        register(registry, new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, everArrow));
 
         // Cannon
-        registry.register(new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid));
-        registry.register(new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, ModItems.acid));
 
         // Claw
-        registry.register(new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.CermileClaw,"cermile_claw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_warclaw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_warclaw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.Everbright, "everbright"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileClaw,"cermile_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_warclaw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_warclaw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.Everbright, "everbright"));
 
         // Disk
-        registry.register(new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK));
-        registry.register(new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK));
-        registry.register(new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK));
-        registry.register(new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK));
-        registry.register(new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK));
-        registry.register(new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK));
-        registry.register(new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK));
-        registry.register(new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK));
-        registry.register(new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK));
+        register(registry, new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK));
+        register(registry, new ItemVetheanDisk("amthirmis_disk", DiskType.AMTHRIMIS_DISK));
+        register(registry, new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK));
+        register(registry, new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK));
+        register(registry, new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK));
+        register(registry, new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK));
+        register(registry, new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK));
+        register(registry, new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK));
+        register(registry, new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK));
 
         // Hammer
-        registry.register(new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.DarvenHammer,"darven_hammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.CermileHammer,"cermile_hammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.PardimalHammer,"pardimal_hammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_warhammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_warhammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_wrathhammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_wrathhammer"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight"));
-        registry.register(new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenHammer,"darven_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileHammer,"cermile_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalHammer,"pardimal_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_warhammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_warhammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_wrathhammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_wrathhammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul"));
 
         // Staff
-        registry.register(new ItemStaff(3, 10, "teaker_staff"));
-        registry.register(new ItemStaff(5, 10, "amthirmis_staff"));
-        registry.register(new ItemStaff(8, 10, "darven_staff"));
-        registry.register(new ItemStaff(12, 10, "cermile_staff"));
-        registry.register(new ItemStaff(15, 10, "pardimal_staff"));
-        registry.register(new ItemStaff(19, 10, "quadrotic_warstaff"));
-        registry.register(new ItemStaff(21, 10, "karos_warstaff"));
-        registry.register(new ItemStaff(28, 10, "heliosis_wrathstaff"));
-        registry.register(new ItemStaff(36, 10, "arksiane_wrathstaff"));
-        registry.register(new ItemEvernight(115, 80, "evernight"));
+        register(registry, new ItemStaff(3, 10, "teaker_staff"));
+        register(registry, new ItemStaff(5, 10, "amthirmis_staff"));
+        register(registry, new ItemStaff(8, 10, "darven_staff"));
+        register(registry, new ItemStaff(12, 10, "cermile_staff"));
+        register(registry, new ItemStaff(15, 10, "pardimal_staff"));
+        register(registry, new ItemStaff(19, 10, "quadrotic_warstaff"));
+        register(registry, new ItemStaff(21, 10, "karos_warstaff"));
+        register(registry, new ItemStaff(28, 10, "heliosis_wrathstaff"));
+        register(registry, new ItemStaff(36, 10, "arksiane_wrathstaff"));
+        register(registry, new ItemEvernight(115, 80, "evernight"));
 
         // Vethea arrows
-        registry.register(new ItemVethean("teaker_arrow"));
-        registry.register(new ItemVethean("darven_arrow"));
-        registry.register(new ItemVethean("pardimal_arrow"));
-        registry.register(new ItemVethean("karos_arrow"));
-        registry.register(new ItemVethean("ever_arrow"));
+        register(registry, new ItemVethean("teaker_arrow"));
+        register(registry, new ItemVethean("darven_arrow"));
+        register(registry, new ItemVethean("pardimal_arrow"));
+        register(registry, new ItemVethean("karos_arrow"));
+        register(registry, new ItemVethean("ever_arrow"));
 
         // Vethea armor sets
-        registry.register(new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        registry.register(new ItemDivineArmor("degraded_hood", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        registry.register(new ItemDivineArmor("degraded_mask", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo));
+        register(registry, new ItemDivineArmor("degraded_hood", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo));
+        register(registry, new ItemDivineArmor("degraded_mask", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET));
 
-        registry.register(new ItemDivineArmor("finished_helmet", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        registry.register(new ItemDivineArmor("finished_hood", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        registry.register(new ItemDivineArmor("finished_mask", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor("finished_helmet", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo));
+        register(registry, new ItemDivineArmor("finished_hood", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo));
+        register(registry, new ItemDivineArmor("finished_mask", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET));
 
-        registry.register(new ItemDivineArmor("glistening_helmet", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHelmInfo));
-        registry.register(new ItemDivineArmor("glistening_hood", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHoodInfo));
-        registry.register(new ItemDivineArmor("glistening_mask", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningMaskInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor("glistening_helmet", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHelmInfo));
+        register(registry, new ItemDivineArmor("glistening_hood", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHoodInfo));
+        register(registry, new ItemDivineArmor("glistening_mask", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningMaskInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET));
 
-        registry.register(new ItemDivineArmor("demonized_helmet", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHelmInfo));
-        registry.register(new ItemDivineArmor("demonized_hood", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHoodInfo));
-        registry.register(new ItemDivineArmor("demonized_mask", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedMaskInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor("demonized_helmet", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHelmInfo));
+        register(registry, new ItemDivineArmor("demonized_hood", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHoodInfo));
+        register(registry, new ItemDivineArmor("demonized_mask", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedMaskInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET));
 
-        registry.register(new ItemDivineArmor("tormented_helmet", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHelmInfo));
-        registry.register(new ItemDivineArmor("tormented_hood", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHoodInfo));
-        registry.register(new ItemDivineArmor("tormented_mask", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedMaskInfo));
-        registry.register(new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST));
-        registry.register(new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS));
-        registry.register(new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET));
+        register(registry, new ItemDivineArmor("tormented_helmet", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHelmInfo));
+        register(registry, new ItemDivineArmor("tormented_hood", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHoodInfo));
+        register(registry, new ItemDivineArmor("tormented_mask", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedMaskInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST));
+        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS));
+        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET));
 
         // Vethea portal item
-        registry.register(new ItemNightmareBed());
+        register(registry, new ItemNightmareBed());
 
         // Vethea miscellaneous
-        registry.register(new ItemVethean("acid"));
-        registry.register(new ItemVethean("band_of_heiva_hunting"));
-        registry.register(new ItemVethean("miners_amulet"));
-        registry.register(new ItemVethean("rock_chunks"));
+        register(registry, new ItemVethean("acid"));
+        register(registry, new ItemVethean("band_of_heiva_hunting"));
+        register(registry, new ItemVethean("miners_amulet"));
+        register(registry, new ItemVethean("rock_chunks"));
     }
 
+    private static void register(IForgeRegistry<Item> registry, Item item) {
+        registry.register(item);
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
     /**
      * Called during FML init, ensures that the crop blocks aren't null before the seeds are set to plant them
      */

@@ -40,7 +40,6 @@ public class BlockModSapling extends BlockBush implements IGrowable {
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree, int xOff, int zOff) {

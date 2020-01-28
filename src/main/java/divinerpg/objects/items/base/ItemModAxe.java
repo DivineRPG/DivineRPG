@@ -24,7 +24,7 @@ public class ItemModAxe extends ItemAxe  {
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 
-		ModItems.ITEMS.add(this);
+
 	}
 
 	@Override

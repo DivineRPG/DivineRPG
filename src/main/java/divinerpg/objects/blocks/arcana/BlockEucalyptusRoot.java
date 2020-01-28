@@ -17,7 +17,7 @@ public class BlockEucalyptusRoot extends BlockArcanaCrop {
 
     @Override
     public Item getSeed() {
-        return ModItems.eucalyptusSeeds;
+        return ModItems.eucalyptusRootSeeds;
     }
 
     @Override

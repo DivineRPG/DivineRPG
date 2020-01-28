@@ -27,7 +27,7 @@ public class ItemModSeeds extends Item implements IPlantable {
         this.crop = null;
         this.soil = soil;
         setCreativeTab(DivineRPGTabs.food);
-        ModItems.ITEMS.add(this);
+
     }
 
     /**

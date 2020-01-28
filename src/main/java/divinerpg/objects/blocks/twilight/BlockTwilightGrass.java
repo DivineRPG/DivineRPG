@@ -35,7 +35,7 @@ public class BlockTwilightGrass extends BlockBush
         this.setTickRandomly(true);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 
     @Override

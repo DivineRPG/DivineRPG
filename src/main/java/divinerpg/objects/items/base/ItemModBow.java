@@ -89,7 +89,7 @@ public class ItemModBow extends ItemBow  {
             }
         });
 
-        ModItems.ITEMS.add(this);
+
     }
 
     @Override

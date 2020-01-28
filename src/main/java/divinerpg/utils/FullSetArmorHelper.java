@@ -67,22 +67,22 @@ public class FullSetArmorHelper {
 
     public boolean isBedrock(){
         return (boots == ModItems.bedrockBoots
-                && legs == ModItems.bedrockLegs
-                && body == ModItems.bedrockBody
+                && legs == ModItems.bedrockLeggings
+                && body == ModItems.bedrockChestplate
                 && helmet == ModItems.bedrockHelmet);
     }
 
     public boolean isInfernal(){
         return boots == ModItems.infernoBoots
-                && legs == ModItems.infernoLegs
-                && body == ModItems.infernoBody
+                && legs == ModItems.infernoLeggings
+                && body == ModItems.infernoChestplate
                 && helmet == ModItems.infernoHelmet;
     }
 
     public boolean isNetherite(){
         return boots == ModItems.netheriteBoots
-                && legs == ModItems.netheriteLegs
-                && body == ModItems.netheriteBody
+                && legs == ModItems.netheriteLeggings
+                && body == ModItems.netheriteChestplate
                 && helmet == ModItems.netheriteHelmet;
     }
 
@@ -102,15 +102,15 @@ public class FullSetArmorHelper {
 
     public boolean isVemos(){
         return boots == ModItems.vemosBoots
-                && body == ModItems.vemosBody
-                && legs == ModItems.vemosLegs
+                && body == ModItems.vemosChestplate
+                && legs == ModItems.vemosLeggings
                 && helmet == ModItems.vemosHelmet;
     }
 
     public boolean isKorma(){
         return boots == ModItems.kormaBoots
-                && body == ModItems.kormaBody
-                && legs == ModItems.kormaLegs
+                && body == ModItems.kormaChestplate
+                && legs == ModItems.kormaLeggings
                 && helmet == ModItems.kormaHelmet;
     }
 
@@ -123,43 +123,43 @@ public class FullSetArmorHelper {
 
     public boolean isEliteRealmite(){
         return boots == ModItems.eliteRealmiteBoots
-                && body == ModItems.eliteRealmiteBody
-                && legs == ModItems.eliteRealmiteLegs
+                && body == ModItems.eliteRealmiteChestplate
+                && legs == ModItems.eliteRealmiteLeggings
                 && helmet == ModItems.eliteRealmiteHelmet;
     }
 
     public boolean isAquastrive(){
         return boots == ModItems.aquastriveBoots
-                && body == ModItems.aquastriveBody
-                && legs == ModItems.aquastriveLegs
+                && body == ModItems.aquastriveChestplate
+                && legs == ModItems.aquastriveLeggings
                 && helmet == ModItems.aquastriveHelmet;
     }
 
     public boolean isShadow(){
         return boots == ModItems.shadowBoots
-                && body == ModItems.shadowBody
-                && legs == ModItems.shadowLegs
+                && body == ModItems.shadowChestplate
+                && legs == ModItems.shadowLeggings
                 && helmet == ModItems.shadowHelmet;
     }
 
     public boolean isFrozen(){
         return boots == ModItems.frozenBoots
-                && body == ModItems.frozenBody
-                && legs == ModItems.frozenLegs
+                && body == ModItems.frozenChestplate
+                && legs == ModItems.frozenLeggings
                 && helmet == ModItems.frozenHelmet;
     }
 
     public boolean isTerran(){
         return boots == ModItems.terranBoots
-                && body == ModItems.terranBody
-                && legs == ModItems.terranLegs
+                && body == ModItems.terranChestplate
+                && legs == ModItems.terranLeggings
                 && helmet == ModItems.terranHelmet;
     }
 
     public boolean isSkeleman(){
         return boots == ModItems.skelemanBoots
-                && body == ModItems.skelemanBody
-                && legs == ModItems.skelemanLegs
+                && body == ModItems.skelemanChestplate
+                && legs == ModItems.skelemanLeggings
                 && helmet == ModItems.skelemanHelmet;
     }
 
@@ -174,8 +174,8 @@ public class FullSetArmorHelper {
 //        if (specialHelmet == null)
 //            specialHelmet = ModItems.glisteningHelmet;
 //
-//        return body == ModItems.glisteningBody
-//                && legs == ModItems.glisteningLegs
+//        return body == ModItems.glisteningChestplate
+//                && legs == ModItems.glisteningLeggings
 //                && boots == ModItems.glisteningBoots
 //                && helmet == specialHelmet;
 //    }
@@ -184,8 +184,8 @@ public class FullSetArmorHelper {
 //        if (specialHelmet == null)
 //            specialHelmet = ModItems.demonizedHelmet;
 //
-//        return body == ModItems.demonizedBody
-//                && legs == ModItems.demonizedLegs
+//        return body == ModItems.demonizedChestplate
+//                && legs == ModItems.demonizedLeggings
 //                && boots == ModItems.demonizedBoots
 //                && helmet == specialHelmet;
 //    }
@@ -194,8 +194,8 @@ public class FullSetArmorHelper {
 //        if (specialHelmet == null)
 //            specialHelmet = ModItems.tormentedHelmet;
 //
-//        return body == ModItems.tormentedBody
-//                && legs == ModItems.tormentedLegs
+//        return body == ModItems.tormentedChestplate
+//                && legs == ModItems.tormentedLeggings
 //                && boots == ModItems.tormentedBoots
 //                && helmet == specialHelmet;
 //    }
@@ -208,19 +208,19 @@ public class FullSetArmorHelper {
                         || boots == ModItems.blueEnderBoots
                         || boots == ModItems.grayEnderBoots)
                 &&
-                (legs == ModItems.enderLegs
-                        || legs == ModItems.redEnderLegs
-                        || legs == ModItems.yellowEnderLegs
-                        || legs == ModItems.greenEnderLegs
-                        || legs == ModItems.blueEnderLegs
-                        || legs == ModItems.grayEnderLegs)
+                (legs == ModItems.enderLeggings
+                        || legs == ModItems.redEnderLeggings
+                        || legs == ModItems.yellowEnderLeggings
+                        || legs == ModItems.greenEnderLeggings
+                        || legs == ModItems.blueEnderLeggings
+                        || legs == ModItems.grayEnderLeggings)
                 &&
-                (body == ModItems.enderBody
-                        || body == ModItems.redEnderBody
-                        || body == ModItems.yellowEnderBody
-                        || body == ModItems.greenEnderBody
-                        || body == ModItems.blueEnderBody
-                        || body == ModItems.grayEnderBody)
+                (body == ModItems.enderChestplate
+                        || body == ModItems.redEnderChestplate
+                        || body == ModItems.yellowEnderChestplate
+                        || body == ModItems.greenEnderChestplate
+                        || body == ModItems.blueEnderChestplate
+                        || body == ModItems.grayEnderChestplate)
                 &&
                 (helmet == ModItems.enderHelmet
                         || helmet == ModItems.redEnderHelmet
@@ -232,8 +232,8 @@ public class FullSetArmorHelper {
 
     public boolean isArlemit(){
         return boots == ModItems.arlemiteBoots
-                && legs == ModItems.arlemiteLegs
-                && body == ModItems.arlemiteBody
+                && legs == ModItems.arlemiteLeggings
+                && body == ModItems.arlemiteChestplate
                 && helmet == ModItems.arlemiteHelmet;
     }
 
@@ -245,19 +245,19 @@ public class FullSetArmorHelper {
                         || boots == ModItems.blueRupeeBoots
                         || boots == ModItems.grayRupeeBoots)
                 &&
-                (legs == ModItems.rupeeLegs
-                        || legs == ModItems.redRupeeLegs
-                        || legs == ModItems.yellowRupeeLegs
-                        || legs == ModItems.greenRupeeLegs
-                        || legs == ModItems.blueRupeeLegs
-                        || legs == ModItems.grayRupeeLegs)
+                (legs == ModItems.rupeeLeggings
+                        || legs == ModItems.redRupeeLeggings
+                        || legs == ModItems.yellowRupeeLeggings
+                        || legs == ModItems.greenRupeeLeggings
+                        || legs == ModItems.blueRupeeLeggings
+                        || legs == ModItems.grayRupeeLeggings)
                 &&
-                (body == ModItems.rupeeBody
-                        || body == ModItems.redRupeeBody
-                        || body == ModItems.yellowRupeeBody
-                        || body == ModItems.greenRupeeBody
-                        || body == ModItems.blueRupeeBody
-                        || body == ModItems.grayRupeeBody)
+                (body == ModItems.rupeeChestplate
+                        || body == ModItems.redRupeeChestplate
+                        || body == ModItems.yellowRupeeChestplate
+                        || body == ModItems.greenRupeeChestplate
+                        || body == ModItems.blueRupeeChestplate
+                        || body == ModItems.grayRupeeChestplate)
                 &&
                 (helmet == ModItems.rupeeHelmet
                         || helmet == ModItems.redRupeeHelmet
@@ -282,16 +282,16 @@ public class FullSetArmorHelper {
     }
 
     public boolean isCorrupted(){
-        return body == ModItems.corruptedBody
-                && legs == ModItems.corruptedLegs
+        return body == ModItems.corruptedChestplate
+                && legs == ModItems.corruptedLeggings
                 && boots == ModItems.corruptedBoots
                 && helmet == ModItems.corruptedHelmet;
     }
 
     public boolean isKraken(){
         return boots == ModItems.krakenBoots
-                && body == ModItems.krakenBody
-                && legs == ModItems.krakenLegs
+                && body == ModItems.krakenChestplate
+                && legs == ModItems.krakenLeggings
                 && helmet == ModItems.krakenHelmet;
     }
 
@@ -304,22 +304,22 @@ public class FullSetArmorHelper {
 
     public boolean isWither(){
         return boots == ModItems.witherReaperBoots
-                && legs == ModItems.witherReaperLegs
-                && body == ModItems.witherReaperBody
+                && legs == ModItems.witherReaperLeggings
+                && body == ModItems.witherReaperChestplate
                 && helmet == ModItems.witherReaperHelmet;
     }
 
     public boolean isJungle(){
         return boots == ModItems.jungleBoots
-                && legs == ModItems.jungleLegs
-                && body == ModItems.jungleBody
+                && legs == ModItems.jungleLeggings
+                && body == ModItems.jungleChestplate
                 && helmet == ModItems.jungleHelmet;
     }
 
     public boolean isJackoMan(){
         return boots == ModItems.jackOManBoots
-                && legs == ModItems.jackOManLegs
-                && body == ModItems.jackOManBody
+                && legs == ModItems.jackOManLeggings
+                && body == ModItems.jackOManChestplate
                 && helmet == ModItems.jackOManHelmet;
     }
 }

@@ -23,7 +23,7 @@ public class ItemModPickaxe extends ItemPickaxe  {
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 
-		ModItems.ITEMS.add(this);
+
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class ItemModShovel extends ItemSpade  {
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 
-		ModItems.ITEMS.add(this);
+
 	}
 
 	@Override

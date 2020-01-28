@@ -573,10 +573,10 @@ public class ModBlocks {
             woodType.setSingleSlab(singleSlab);
             woodType.setDoubleSlab(doubleSlab);
 
-            ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-                    .setRegistryName(singleSlab.getRegistryName()));
-            ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-                    .setRegistryName(doubleSlab.getRegistryName()));
+            //ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+                    //.setRegistryName(singleSlab.getRegistryName()));
+            //ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+                    //.setRegistryName(doubleSlab.getRegistryName()));
         }
     }
 

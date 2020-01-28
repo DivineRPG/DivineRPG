@@ -15,6 +15,6 @@ public class BlockModLadder extends BlockLadder  {
         setHardness(0.4F);
 
         ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+
     }
 }

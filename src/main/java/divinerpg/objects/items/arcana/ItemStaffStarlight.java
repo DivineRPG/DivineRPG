@@ -68,7 +68,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
 
             if (!world.isRemote) {
 
-                if (stack.getItem() == ModItems.staffStarlight) {
+                if (stack.getItem() == ModItems.staffOfStarlight) {
                     for (int i = 0; i < 8; i++)
                         world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
                                 (double) blockZ + 0.5D));
@@ -88,7 +88,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
 
-        tooltip.add(stack.getItem() == ModItems.staffStarlight ? "Drops several stars from the sky" :
+        tooltip.add(stack.getItem() == ModItems.staffOfStarlight ? "Drops several stars from the sky" :
                 "Drops a star from the sky");
     }
 

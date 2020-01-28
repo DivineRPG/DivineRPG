@@ -42,7 +42,7 @@ public class EntityLheiva extends VetheaMob {
     public boolean attackEntityFrom(DamageSource source, float par2) {
         Entity var1 = source.getImmediateSource();
         if (var1 != null && var1 instanceof EntityPlayer) {
-            if (((EntityPlayer)var1).inventory.hasItemStack(new ItemStack(ModItems.heivaBelt)))
+            if (((EntityPlayer)var1).inventory.hasItemStack(new ItemStack(ModItems.bandOfHeivaHunting)))
                 return super.attackEntityFrom(source, par2);
         } else if(source == DamageSource.OUT_OF_WORLD) return super.attackEntityFrom(source, par2);
         return false;

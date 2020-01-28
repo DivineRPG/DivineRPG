@@ -23,7 +23,7 @@ public class ItemModHoe extends ItemHoe  {
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.tools);
 
-        ModItems.ITEMS.add(this);
+
     }
 
     @Override
