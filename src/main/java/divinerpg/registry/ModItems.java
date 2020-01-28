@@ -1,8 +1,5 @@
 package divinerpg.registry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
@@ -2489,6 +2486,7 @@ public class ModItems {
         registry.register(item);
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
+
     /**
      * Called during FML init, ensures that the crop blocks aren't null before the seeds are set to plant them
      */

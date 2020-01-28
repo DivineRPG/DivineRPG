@@ -19,7 +19,7 @@ public class BlockAyeracoSpawn extends BlockContainer {
         setResistance(6000000.0F);
 
         // Need to register it!
-        setRegistryName("ayeraco_spawner");
+        setRegistryName("ayeraco_spawn");
         ModBlocks.BLOCKS.add(this);
     }
 

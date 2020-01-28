@@ -25,22 +25,7 @@ public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
-        Item air = Item.getItemFromBlock(Blocks.AIR);
-        for (Block block : ModBlocks.BLOCKS) {
-            Item itemBlock = Item.getItemFromBlock(block);
-            if(!itemBlock.equals(air)) {
-                registerModel(itemBlock);
-            }
-        }
-
         registerTESRs();
-        //for (Item item : ModItems.ITEMS) {
-        //    registerModel(item);
-       // }
-    }
-
-    public static void registerModel(Item item) {
-
     }
 
     public static void registerTESRs() {
