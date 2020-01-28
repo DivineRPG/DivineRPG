@@ -5,6 +5,7 @@ import java.util.Random;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.items.base.ItemModSeeds;
+import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -20,15 +21,19 @@ import net.minecraftforge.common.IPlantable;
 import javax.annotation.Nonnull;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
-    protected BlockMod dirt;
+    protected BlockModDirt dirt;
     private MapColor mapColor;
 
-    public BlockModGrass(BlockMod dirt, String name, float hardness, @Nonnull MapColor mapColorIn) {
+    public BlockModGrass(String name, float hardness, @Nonnull MapColor mapColorIn) {
         super(EnumBlockType.GRASS, name, hardness);
         this.setMapColor(mapColorIn);
-        this.dirt = dirt;
+        this.dirt = null;
         setTickRandomly(true);
         setHarvestLevel("shovel", 3);
+    }
+
+    public void setDirt(BlockModDirt dirt) {
+        this.dirt = dirt;
     }
 
     @Override

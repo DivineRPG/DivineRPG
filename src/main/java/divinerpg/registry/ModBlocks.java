@@ -355,9 +355,9 @@ public class ModBlocks {
 
     // Terrain
     @ObjectHolder("frozen_dirt")
-    public static Block frozenDirt = null;
+    public static BlockModDirt frozenDirt = null;
     @ObjectHolder("frozen_grass")
-    public static Block frozenGrass = null;
+    public static BlockModGrass frozenGrass = null;
     @ObjectHolder("frozen_stone")
     public static Block frozenStone = null;
     @ObjectHolder("frozen_log")
@@ -439,27 +439,27 @@ public class ModBlocks {
 
     // Dirt
     @ObjectHolder("eden_dirt")
-    public static Block edenDirt = null;
+    public static BlockModDirt edenDirt = null;
     @ObjectHolder("wildwood_dirt")
-    public static Block wildwoodDirt = null;
+    public static BlockModDirt wildwoodDirt = null;
     @ObjectHolder("apalachia_dirt")
-    public static Block apalachiaDirt = null;
+    public static BlockModDirt apalachiaDirt = null;
     @ObjectHolder("skythern_dirt")
-    public static Block skythernDirt = null;
+    public static BlockModDirt skythernDirt = null;
     @ObjectHolder("mortum_dirt")
-    public static Block mortumDirt = null;
+    public static BlockModDirt mortumDirt = null;
 
     // Grass
     @ObjectHolder("eden_grass")
-    public static Block edenGrass = null;
+    public static BlockModGrass edenGrass = null;
     @ObjectHolder("wildwood_grass")
-    public static Block wildwoodGrass = null;
+    public static BlockModGrass wildwoodGrass = null;
     @ObjectHolder("apalachia_grass")
-    public static Block apalachiaGrass = null;
+    public static BlockModGrass apalachiaGrass = null;
     @ObjectHolder("skythern_grass")
-    public static Block skythernGrass = null;
+    public static BlockModGrass skythernGrass = null;
     @ObjectHolder("mortum_grass")
-    public static Block mortumGrass = null;
+    public static BlockModGrass mortumGrass = null;
 
     // Stone
     @ObjectHolder("twilight_stone")
@@ -597,11 +597,11 @@ public class ModBlocks {
 
     // Dirt
     @ObjectHolder("arcanite_dirt")
-    public static Block arcaniteDirt = null;
+    public static BlockModDirt arcaniteDirt = null;
 
     // Grass
     @ObjectHolder("arcanite_grass")
-    public static Block arcaniteGrass = null;
+    public static BlockModGrass arcaniteGrass = null;
 
     // Ore
     @ObjectHolder("arcanium_ore")
@@ -760,9 +760,9 @@ public class ModBlocks {
     // Vethea
     // Terrain
     @ObjectHolder("dream_dirt")
-    public static Block dreamDirt = null;
+    public static BlockModDirt dreamDirt = null;
     @ObjectHolder("dream_grass")
-    public static Block dreamGrass = null;
+    public static BlockModGrass dreamGrass = null;
     @ObjectHolder("dream_stone")
     public static Block dreamStone = null;
 
@@ -994,7 +994,6 @@ public class ModBlocks {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         ModBlocks.AddWoodVariants();
-
         IForgeRegistry<Block> registry = event.getRegistry();
 
         // Vanilla dimensions
@@ -1176,7 +1175,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("frozen_dirt", 2.5F, MapColor.WHITE_STAINED_HARDENED_CLAY));
-        register(registry, new BlockModGrass((BlockMod) frozenDirt, "frozen_grass", 2.5F, MapColor.LIGHT_BLUE));
+        register(registry, new BlockModGrass("frozen_grass", 2.5F, MapColor.LIGHT_BLUE));
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
         register(registry, new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY));
@@ -1233,11 +1232,11 @@ public class ModBlocks {
         register(registry, new BlockModDirt("mortum_dirt", 5.0F, MapColor.BLACK));
 
         // Grass
-        register(registry, new BlockModGrass((BlockMod) edenDirt, "eden_grass", 5.0F, MapColor.YELLOW));
-        register(registry, new BlockModGrass((BlockMod) wildwoodDirt, "wildwood_grass", 5.0F, MapColor.BLUE));
-        register(registry, new BlockModGrass((BlockMod) apalachiaDirt, "apalachia_grass", 5.0F, MapColor.PURPLE));
-        register(registry, new BlockModGrass((BlockMod) skythernDirt, "skythern_grass", 5.0F, MapColor.CLOTH));
-        register(registry, new BlockModGrass((BlockMod) mortumDirt, "mortum_grass", 5.0F, MapColor.BLACK));
+        register(registry, new BlockModGrass("eden_grass", 5.0F, MapColor.YELLOW));
+        register(registry, new BlockModGrass("wildwood_grass", 5.0F, MapColor.BLUE));
+        register(registry, new BlockModGrass("apalachia_grass", 5.0F, MapColor.PURPLE));
+        register(registry, new BlockModGrass("skythern_grass", 5.0F, MapColor.CLOTH));
+        register(registry, new BlockModGrass("mortum_grass", 5.0F, MapColor.BLACK));
 
         // Stone
         register(registry, new BlockMod("twilight_stone", 6.0F));
@@ -1322,7 +1321,7 @@ public class ModBlocks {
         register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MapColor.BLUE));
 
         // Grass
-        register(registry, new BlockModGrass((BlockMod) arcaniteDirt, "arcanite_grass", 0.5F, MapColor.BLUE));
+        register(registry, new BlockModGrass("arcanite_grass", 0.5F, MapColor.BLUE));
 
         // Ore
         register(registry, new BlockMod("arcanium_ore", 3.0F));
@@ -1415,7 +1414,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGrass((BlockMod) dreamDirt, "dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModGrass("dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs
@@ -1538,10 +1537,20 @@ public class ModBlocks {
     private static void register(IForgeRegistry<Block> registry, Block block) {
         registry.register(block);
         blockItemRegistryList.add(block);
-
-
-        //System.out.println("Registered " + block.getLocalizedName());
-        //System.out.println(coalstone);
-        //System.out.println(frozenDirt);
     }
+
+    /**
+     * Called during FML init
+     */
+    public static void blockInitTasks() {
+        frozenGrass.setDirt(frozenDirt);
+        edenGrass.setDirt(edenDirt);
+        wildwoodGrass.setDirt(wildwoodDirt);
+        apalachiaGrass.setDirt(apalachiaDirt);
+        skythernGrass.setDirt(skythernDirt);
+        mortumGrass.setDirt(mortumDirt);
+        arcaniteGrass.setDirt(arcaniteDirt);
+        dreamGrass.setDirt(dreamDirt);
+    }
+
 }
