@@ -718,7 +718,7 @@ public class ModBlocks {
     public static Block eucalyptusLog = null;
     @ObjectHolder("eucalyptus_planks")
     public static Block eucalyptusPlanks = null;
-    
+
     // Crops
     @ObjectHolder("aquamarine_plant")
     public static Block aquamarinePlant = null;

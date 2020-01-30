@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderWreckExplosiveShot extends RenderProjectile<EntityWreckExplosiveShot> {
     private ResourceLocation TEXTURE = new ResourceLocation(
-            "divinerpg:textures/projectiles/wreck_explosive_shot.png");
+            "divinerpg:textures/projectiles/wreck_explosive_projectile.png");
 
     public RenderWreckExplosiveShot(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);
