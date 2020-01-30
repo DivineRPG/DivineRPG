@@ -3,7 +3,6 @@ package divinerpg.registry;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.media.jfxmedia.logging.Logger;
 import divinerpg.DivineRPG;
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
@@ -22,7 +21,6 @@ import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.objects.blocks.vethea.*;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,7 +30,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -1010,11 +1007,11 @@ public class ModBlocks {
         register(registry, new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND, null));
 
         // Compressed ore blocks
-        register(registry, new BlockMod(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND, true));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON, true));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND, true));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND, true));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND, true));
+        register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND));
+        register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "realmite_block", 5.0F, IRON));
+        register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "rupee_block", 5.0F, DIAMOND));
+        register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "bloodgem_block", 5.0F, DIAMOND));
+        register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "netherite_block", 5.0F, DIAMOND));
 
         // Mob pumpkins
         register(registry, new BlockMobPumpkin("blaze_pumpkin", SoundEvents.ENTITY_BLAZE_AMBIENT));
@@ -1038,49 +1035,49 @@ public class ModBlocks {
         // Decorative blocks
 
         // Steel
-        register(registry, new BlockMod(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND, false).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "black_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "bright_red_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "green_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "orange_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "red_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "white_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "yellow_steel", 10.0F, DIAMOND).setResistance(60.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "teal_steel", 10.0F, DIAMOND).setResistance(60.0F));
 
         // Vanes
-        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_vane", 2.0F, IRON, false).setResistance(10F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "cyan_vane", 2.0F, IRON, false).setResistance(10F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_vane", 2.0F, IRON, false).setResistance(10F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "red_vane", 2.0F, IRON, false).setResistance(10F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON, false).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_vane", 2.0F, IRON).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "cyan_vane", 2.0F, IRON).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_vane", 2.0F, IRON).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "red_vane", 2.0F, IRON).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "yellow_vane", 2.0F, IRON).setResistance(10F));
 
         // Bricks
-        register(registry, new BlockMod(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON, false).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "aquatonic_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "lava_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "arlemite_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "darkstone_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "diamond_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "gold_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "green_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "iron_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "lapis_lazuli_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "milk_stone_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "netherite_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "pink_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON).setResistance(30.0F));
 
         // Minibricks
-        register(registry, new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON, false).setResistance(30.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON, false).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "arlemite_minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "bedrock_minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "netherite_minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "bloodgem_minibricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON).setResistance(30.0F));
 
         // Lamps
         register(registry, new BlockModLamp(EnumBlockType.GLASS, "aqua_lamp", 3.0F).setResistance(30.0F));
@@ -1117,14 +1114,14 @@ public class ModBlocks {
 
         // Miscellaneous decorative blocks
         register(registry, new BlockMod("asphalt", 2.0F));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD, false).setResistance(10F).setLightLevel(1));
-        register(registry, new BlockMod(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD, false));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD, false));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND, false).setResistance(2000.0F).setLightLevel(1));
-        register(registry, new BlockMod(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD, false));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD, false).setResistance(10F));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "plank_design", 2.5F, WOOD_GOLD, false));
-        register(registry, new BlockMod(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD, false));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "blue_stone", 1.5F, WOOD_GOLD).setResistance(10F).setLightLevel(1));
+        register(registry, new BlockMod(EnumBlockType.WOOL, "checker", 0.8F, WOOD_GOLD));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "crate", 2.5F, WOOD_GOLD));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "darkstone", 50f, DIAMOND).setResistance(2000.0F).setLightLevel(1));
+        register(registry, new BlockMod(EnumBlockType.WOOL, "fancy_wool", 0.8F, WOOD_GOLD));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "milk_stone", 1.5F, WOOD_GOLD).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "plank_design", 2.5F, WOOD_GOLD));
+        register(registry, new BlockMod(EnumBlockType.WOOL, "rainbow_wool", 0.8F, WOOD_GOLD));
 
         // Spike blocks
         register(registry, new BlockSpike("spike_block"));
@@ -1139,7 +1136,7 @@ public class ModBlocks {
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
         register(registry, new BlockModLeaves("divine_leaves", 0.3F, divineSapling, MapColor.YELLOW));
         register(registry, new BlockMod("divine_moss_stone", 2.0F).setResistance(10));
-        register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE, false).setResistance(10F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F));
 
         // Miscellaneous utility
         register(registry, new BlockModLight("slime_light", 1.5F));
@@ -1274,11 +1271,11 @@ public class ModBlocks {
         register(registry, new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling, MapColor.RED));
 
         // Compressed blocks
-        register(registry, new BlockMod("eden_block", 9, true));
-        register(registry, new BlockMod("wildwood_block", 9, true));
-        register(registry, new BlockMod("apalachia_block", 9, true));
-        register(registry, new BlockMod("skythern_block", 9, true));
-        register(registry, new BlockMod("mortum_block", 9, true));
+        register(registry, new BlockBeaconBase("eden_block", 9.0F));
+        register(registry, new BlockBeaconBase("wildwood_block", 9.0F));
+        register(registry, new BlockBeaconBase("apalachia_block", 9.0F));
+        register(registry, new BlockBeaconBase("skythern_block", 9.0F));
+        register(registry, new BlockBeaconBase("mortum_block", 9.0F));
 
         // Ground foliage
         register(registry, new BlockTwilightFlower("sunbloom", edenGrass, MapColor.YELLOW));

@@ -16,18 +16,14 @@ public class BlockMod extends Block  {
     public BlockMod(String name, float hardness) {
         this(EnumBlockType.ROCK, name, hardness);
     }
-    public BlockMod(String name, float hardness, boolean beaconBase) {
-        this(EnumBlockType.ROCK, name, hardness);
-        this.beaconBase = beaconBase;
-    }
+
     public BlockMod(EnumBlockType blockType, String name, float hardness) {
         this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
     }
 
-    public BlockMod(EnumBlockType blockType, String name, float hardness, int harvest, boolean beaconBase) {
+    public BlockMod(EnumBlockType blockType, String name, float hardness, int harvest) {
         this(blockType, name, hardness, DivineRPGTabs.BlocksTab);
         setHarvestLevel("pickaxe", harvest);
-        this.beaconBase = beaconBase;
     }
 
     public BlockMod(EnumBlockType blockType, String name, float hardness, CreativeTabs tab) {
@@ -37,10 +33,5 @@ public class BlockMod extends Block  {
         this.setRegistryName(Reference.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(tab);
-    }
-
-    @Override
-    public boolean isBeaconBase(IBlockAccess world, BlockPos pos, BlockPos beacon){
-        return beaconBase;
     }
 }
