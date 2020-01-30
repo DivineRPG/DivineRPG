@@ -280,13 +280,15 @@ public class ModBlocks {
     @ObjectHolder("bone_chest")
     public static Block boneChest = null;
 
-    // Divine natural blocks
+    // Divine blocks
     @ObjectHolder("divine_sapling")
     public static Block divineSapling = null;
     @ObjectHolder("divine_log")
     public static Block divineLog = null;
     @ObjectHolder("divine_leaves")
     public static Block divineLeaves = null;
+    @ObjectHolder("divine_planks")
+    public static Block divinePlanks = null;
     @ObjectHolder("divine_moss_stone")
     public static Block divineMossStone = null;
     @ObjectHolder("divine_rock")
@@ -363,6 +365,8 @@ public class ModBlocks {
     public static Block frozenLog = null;
     @ObjectHolder("brittle_leaves")
     public static Block brittleLeaves = null;
+    @ObjectHolder("frozen_planks")
+    public static Block frozenPlanks = null;
 
     // Structure blocks
     @ObjectHolder("coalstone")
@@ -511,6 +515,18 @@ public class ModBlocks {
     public static Block skythernLeaves = null;
     @ObjectHolder("mortum_leaves")
     public static Block mortumLeaves = null;
+
+    // Planks
+    @ObjectHolder("eden_planks")
+    public static Block edenPlanks = null;
+    @ObjectHolder("wildwood_planks")
+    public static Block wildwoodPlanks = null;
+    @ObjectHolder("apalachia_planks")
+    public static Block apalachiaPlanks = null;
+    @ObjectHolder("skythern_planks")
+    public static Block skythernPlanks = null;
+    @ObjectHolder("mortum_planks")
+    public static Block mortumPlanks = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -697,11 +713,15 @@ public class ModBlocks {
     @ObjectHolder("arcana_hard_portal_frame")
     public static Block arcanaHardPortalFrame = null;
 
+    // Eucalyptus
+    @ObjectHolder("eucalyptus_log")
+    public static Block eucalyptusLog = null;
+    @ObjectHolder("eucalyptus_planks")
+    public static Block eucalyptusPlanks = null;
+    
     // Crops
     @ObjectHolder("aquamarine_plant")
     public static Block aquamarinePlant = null;
-    @ObjectHolder("eucalyptus_log")
-    public static Block eucalyptusLog = null;
     @ObjectHolder("eucalyptus_plant")
     public static Block eucalyptusPlant = null;
     @ObjectHolder("firestock_plant")
@@ -1135,6 +1155,7 @@ public class ModBlocks {
         register(registry, new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
         register(registry, new BlockModLeaves("divine_leaves", 0.3F, divineSapling, MapColor.YELLOW));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F));
         register(registry, new BlockMod("divine_moss_stone", 2.0F).setResistance(10));
         register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F));
 
@@ -1180,6 +1201,7 @@ public class ModBlocks {
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
         register(registry, new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F));
 
         // Structure blocks
         register(registry, new BlockMod("coalstone", 3.0F));
@@ -1269,6 +1291,13 @@ public class ModBlocks {
         register(registry, new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling, MapColor.PINK).setLightLevel(0.5F));
         register(registry, new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling, MapColor.CLOTH));
         register(registry, new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling, MapColor.RED));
+
+        // Planks
+        register(registry, new BlockMod(EnumBlockType.WOOD, "eden_planks", 2.0F));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "wildwood_planks", 2.0F));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "apalachia_planks", 2.0F));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "skythern_planks", 2.0F));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "mortum_planks", 2.0F));
 
         // Compressed blocks
         register(registry, new BlockBeaconBase("eden_block", 9.0F));
@@ -1380,9 +1409,12 @@ public class ModBlocks {
         register(registry, new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal));
         register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 
+        // Eucalyptus
+        register(registry, new BlockModLog("eucalyptus_log", MapColor.CLOTH));
+        register(registry, new BlockMod(EnumBlockType.WOOD, "eucalyptus_planks", 2.0F));
+
         // Crops
         register(registry, new BlockAquaMarine("aquamarine_plant"));
-        register(registry, new BlockModLog("eucalyptus_log", MapColor.CLOTH));
         register(registry, new BlockEucalyptusRoot("eucalyptus_plant"));
         register(registry, new BlockFirestock());
         register(registry, new BlockHitchak("hitchak_plant"));
