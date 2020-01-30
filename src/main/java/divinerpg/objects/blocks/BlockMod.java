@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockMod extends Block  {
-    boolean beaconBase;
+
     public BlockMod(String name, float hardness) {
         this(EnumBlockType.ROCK, name, hardness);
     }
