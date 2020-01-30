@@ -6,9 +6,13 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.ArrayList;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public final class ModSounds {
+    private static ArrayList<SoundEvent> SOUND_EVENTS = new ArrayList<SoundEvent>();
 
     public static final SoundEvent ACID_HAG = createEvent("acid_hag");
     public static final SoundEvent ACID_HAG_HURT = createEvent("acid_hag_hurt");
@@ -56,7 +60,6 @@ public final class ModSounds {
     public static final SoundEvent DEMON_OF_DARKNESS = createEvent("demon_of_darkness");
     public static final SoundEvent DENSOS = createEvent("densos");
     public static final SoundEvent DENSOS_HURT = createEvent("densos_hurt");
-    public static final SoundEvent DESERT = createEvent("desert");
     public static final SoundEvent DISSIMENT = createEvent("dissiment");
     public static final SoundEvent DISSIMENT_HURT = createEvent("dissiment_hurt");
     public static final SoundEvent DIVINE_ACCUMULATOR = createEvent("divine_accumulator");
@@ -71,7 +74,6 @@ public final class ModSounds {
     public static final SoundEvent DUNGEON_PRISONER_HURT = createEvent("dungeon_prisoner_hurt");
     public static final SoundEvent DUO = createEvent("duo");
     public static final SoundEvent DUO_HURT = createEvent("duo_hurt");
-    public static final SoundEvent END = createEvent("end");
     public static final SoundEvent ENDIKU = createEvent("endiku");
     public static final SoundEvent ENDIKU_HURT = createEvent("endiku_hurt");
     public static final SoundEvent ENT = createEvent("ent");
@@ -96,7 +98,6 @@ public final class ModSounds {
     public static final SoundEvent GOLEM = createEvent("golem");
     public static final SoundEvent GORGOSION = createEvent("gorgosion");
     public static final SoundEvent GORGOSION_HURT = createEvent("gorgosion_hurt");
-    public static final SoundEvent GRASS = createEvent("grass");
     public static final SoundEvent GRIZZLE = createEvent("grizzle");
     public static final SoundEvent GRIZZLE_HURT = createEvent("grizzle_hurt");
     public static final SoundEvent GROWL = createEvent("growl");
@@ -119,7 +120,6 @@ public final class ModSounds {
     public static final SoundEvent ICEMAN_HURT = createEvent("iceman_hurt");
     public static final SoundEvent INSECT = createEvent("insect");
     public static final SoundEvent JACKOMAN = createEvent("jackoman");
-    public static final SoundEvent JUNGLE = createEvent("jungle");
     public static final SoundEvent JUNGLE_SPIDER = createEvent("jungle_spider");
     public static final SoundEvent KAROS_INTRO = createEvent("karos_intro");
     public static final SoundEvent KAROS_LAUGH = createEvent("karos_laugh");
@@ -131,8 +131,8 @@ public final class ModSounds {
     public static final SoundEvent LADY_LUNA = createEvent("lady_luna");
     public static final SoundEvent LADY_LUNA_HURT = createEvent("lady_luna_hurt");
     public static final SoundEvent LA_VEKOR = createEvent("la_vekor");
-    public static final SoundEvent LHEIVA = createEvent("lhevia");
-    public static final SoundEvent LHEIVA_HURT = createEvent("lhevia_hurt");
+    public static final SoundEvent LHEIVA = createEvent("lheiva");
+    public static final SoundEvent LHEIVA_HURT = createEvent("lheiva_hurt");
     public static final SoundEvent LIOPLEURODON = createEvent("liopleurodon");
     public static final SoundEvent LIOPLEURODON_HURT = createEvent("liopleurodon_hurt");
     public static final SoundEvent LIVESTOCK_MERCHANT = createEvent("livestock_merchant");
@@ -152,7 +152,6 @@ public final class ModSounds {
     public static final SoundEvent NESRO = createEvent("nesro");
     public static final SoundEvent NESRO_HURT = createEvent("nesro_hurt");
     public static final SoundEvent NOBODY_CAN_DEFEAT = createEvent("nobody_can_defeat");
-    public static final SoundEvent OCEAN = createEvent("ocean");
     public static final SoundEvent PARASECTA = createEvent("parasecta");
     public static final SoundEvent PARASECTA_HURT = createEvent("parasecta_hurt");
     public static final SoundEvent PHASER = createEvent("phaser");
@@ -209,8 +208,8 @@ public final class ModSounds {
     public static final SoundEvent VERMENOUS = createEvent("vermenous");
     public static final SoundEvent VERMENOUS_HURT = createEvent("vermenous_hurt");
     public static final SoundEvent VETHEA_BOW = createEvent("vethea_bow");
-    public static final SoundEvent VHRAAK = createEvent("varaak");
-    public static final SoundEvent VHRAAK_HURT = createEvent("varaak_hurt");
+    public static final SoundEvent VHRAAK = createEvent("vhraak");
+    public static final SoundEvent VHRAAK_HURT = createEvent("vhraak_hurt");
     public static final SoundEvent WHALE = createEvent("whale");
     public static final SoundEvent WHALE_HURT = createEvent("whale_hurt");
     public static final SoundEvent WILDFIRE = createEvent("wildfire");
@@ -226,150 +225,20 @@ public final class ModSounds {
     public static final SoundEvent ZORAGON = createEvent("zoragon");
     public static final SoundEvent ZORAGON_HURT = createEvent("zoragon_hurt");
 
-
     public static final SoundEvent ICEIKA_MUSIC = createEvent("iceika_music");
 
     private static SoundEvent createEvent(String sound) {
         ResourceLocation soundLocation = new ResourceLocation(Reference.MODID, sound);
-        return new SoundEvent(soundLocation).setRegistryName(soundLocation);
+        SoundEvent event = new SoundEvent(soundLocation).setRegistryName(soundLocation);
+        SOUND_EVENTS.add(event);
+        return event;
     }
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> evt) {
-        evt.getRegistry().register(ALICANTO);
-        evt.getRegistry().register(ALICANTO_HURT);
-        evt.getRegistry().register(ARCANIUM_SABER);
-        evt.getRegistry().register(ARCHER);
-        evt.getRegistry().register(ARID_WARRIOR);
-        evt.getRegistry().register(ARID_WARRIOR_HURT);
-        evt.getRegistry().register(AYERACO);
-        evt.getRegistry().register(AYERACO_HALF_HEALTH);
-        evt.getRegistry().register(AYERACO_HURT);
-        evt.getRegistry().register(AYERACO_PILLAR);
-        evt.getRegistry().register(AYERACO_SPAWN);
-        evt.getRegistry().register(AYERACO_TELEPORT);
-        evt.getRegistry().register(BLITZ);
-        evt.getRegistry().register(BUNNY);
-        evt.getRegistry().register(BUNNY_HURT);
-        evt.getRegistry().register(CADILLION);
-        evt.getRegistry().register(CONSTRUCTOR_HURT);
-        evt.getRegistry().register(CONSTRUCTOR_PUNCH);
-        evt.getRegistry().register(CORI);
-        evt.getRegistry().register(CORI_HURT);
-        evt.getRegistry().register(CORI_IDLE);
-        evt.getRegistry().register(CORI_SHOOT);
-        evt.getRegistry().register(CRAB);
-        evt.getRegistry().register(CRAB_HURT);
-        evt.getRegistry().register(CRAWLER);
-        evt.getRegistry().register(CRAWLER_HURT);
-        evt.getRegistry().register(CROAK);
-        evt.getRegistry().register(CYCLOPS);
-        evt.getRegistry().register(CYCLOPS_HURT);
-        evt.getRegistry().register(DEATHCRYX);
-        evt.getRegistry().register(DEATHCRYX_HURT);
-        evt.getRegistry().register(DEATH_HOUND);
-        evt.getRegistry().register(DEATH_HOUND_HURT);
-        evt.getRegistry().register(DEEP_LAUGH);
-        evt.getRegistry().register(DEMON_OF_DARKNESS);
-        evt.getRegistry().register(DENSOS);
-        evt.getRegistry().register(DENSOS_HURT);
-        evt.getRegistry().register(DIVINE_ACCUMULATOR);
-        evt.getRegistry().register(DRAMCRYX);
-        evt.getRegistry().register(DRAMCRYX_HURT);
-        evt.getRegistry().register(DRAMIX);
-        evt.getRegistry().register(DRAMIX_HURT);
-        evt.getRegistry().register(DUNGEON_PRISONER);
-        evt.getRegistry().register(DUNGEON_PRISONER_CHANGE);
-        evt.getRegistry().register(DUNGEON_PRISONER_HURT);
-        evt.getRegistry().register(ENDIKU);
-        evt.getRegistry().register(ENDIKU_HURT);
-        evt.getRegistry().register(FIREFLY);
-        evt.getRegistry().register(FRACTITE);
-        evt.getRegistry().register(FRACTITE_ATTACK);
-        evt.getRegistry().register(FRACTITE_CANNON);
-        evt.getRegistry().register(FRACTITE_HURT);
-        evt.getRegistry().register(FROST);
-        evt.getRegistry().register(FROSTCLAW_CANNON);
-        evt.getRegistry().register(FROSTY);
-        evt.getRegistry().register(FROSTY_HURT);
-        evt.getRegistry().register(FROST_CANNON);
-        evt.getRegistry().register(GHAST_CANNON);
-        evt.getRegistry().register(GLACIDE);
-        evt.getRegistry().register(GLACIDE_HURT);
-        evt.getRegistry().register(GOLEM);
-        evt.getRegistry().register(GRASS);
-        evt.getRegistry().register(GRIZZLE);
-        evt.getRegistry().register(GRIZZLE_HURT);
-        evt.getRegistry().register(GROWL);
-        evt.getRegistry().register(GROWL_HURT);
-        evt.getRegistry().register(HASTREUS);
-        evt.getRegistry().register(HASTREUS_HURT);
-        evt.getRegistry().register(HEAL);
-        evt.getRegistry().register(HELL_SPIDER);
-        evt.getRegistry().register(HERBOMANCER);
-        evt.getRegistry().register(HERBOMANCER_HURT);
-        evt.getRegistry().register(HIGH_HIT);
-        evt.getRegistry().register(HISS);
-        evt.getRegistry().register(ICEMAN);
-        evt.getRegistry().register(ICEMAN_HURT);
-        evt.getRegistry().register(INSECT);
-        evt.getRegistry().register(JACKOMAN);
-        evt.getRegistry().register(JUNGLE_SPIDER);
-        evt.getRegistry().register(KING_OF_SCORCHERS);
-        evt.getRegistry().register(KING_OF_SCORCHERS_HURT);
-        evt.getRegistry().register(KOBBLIN);
-        evt.getRegistry().register(LA_VEKOR);
-        evt.getRegistry().register(LIOPLEURODON);
-        evt.getRegistry().register(LIOPLEURODON_HURT);
-        evt.getRegistry().register(LIVESTOCK_MERCHANT);
-        evt.getRegistry().register(LIVESTOCK_MERCHANT_HURT);
-        evt.getRegistry().register(MADIVEL);
-        evt.getRegistry().register(MADIVEL_HURT);
-        evt.getRegistry().register(MAGE_FIRE);
-        evt.getRegistry().register(MEGALITH);
-        evt.getRegistry().register(MEGALITH_HURT);
-        evt.getRegistry().register(MUCKY);
-        evt.getRegistry().register(NESRO);
-        evt.getRegistry().register(NESRO_HURT);
-        evt.getRegistry().register(OCEAN);
-        evt.getRegistry().register(PARASECTA);
-        evt.getRegistry().register(PARASECTA_HURT);
-        evt.getRegistry().register(PHASER);
-        evt.getRegistry().register(RAINBOUR);
-        evt.getRegistry().register(RAINBOUR_HURT);
-        evt.getRegistry().register(RAZORBACK);
-        evt.getRegistry().register(RAZORBACK_HURT);
-        evt.getRegistry().register(REFLECTOR);
-        evt.getRegistry().register(REYVOR);
-        evt.getRegistry().register(REYVOR_HURT);
-        evt.getRegistry().register(ROAMER);
-        evt.getRegistry().register(ROAMER_HURT);
-        evt.getRegistry().register(ROAR);
-        evt.getRegistry().register(ROLLUM);
-        evt.getRegistry().register(ROLLUM_HURT);
-        evt.getRegistry().register(ROTATICK);
-        evt.getRegistry().register(ROTATICK_HURT);
-        evt.getRegistry().register(SAGUARO_WORM);
-        evt.getRegistry().register(SCORCHER);
-        evt.getRegistry().register(SERENADE);
-        evt.getRegistry().register(SHADOW_SABER);
-        evt.getRegistry().register(SHARK);
-        evt.getRegistry().register(SHARK_HURT);
-        evt.getRegistry().register(SOUND_OF_CAROLS);
-        evt.getRegistry().register(SOUND_OF_MUSIC);
-        evt.getRegistry().register(SPARKLER);
-        evt.getRegistry().register(STAFF);
-        evt.getRegistry().register(STARLIGHT);
-        evt.getRegistry().register(THE_EYE);
-        evt.getRegistry().register(THE_EYE_HURT);
-        evt.getRegistry().register(VEREK);
-        evt.getRegistry().register(VEREK_HURT);
-        evt.getRegistry().register(WHALE);
-        evt.getRegistry().register(WHALE_HURT);
-        evt.getRegistry().register(WILDFIRE);
-        evt.getRegistry().register(WILDFIRE_HURT);
-        evt.getRegistry().register(WRAITH);
-        evt.getRegistry().register(WRAITH_HURT);
-        evt.getRegistry().register(ICEIKA_MUSIC);
+        IForgeRegistry<SoundEvent> registry = evt.getRegistry();
+        for(SoundEvent event: SOUND_EVENTS) {
+            registry.register(event);
+        }
     }
 }

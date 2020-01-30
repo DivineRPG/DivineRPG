@@ -257,12 +257,6 @@
          "divinerpg:densos_hurt"
       ]
    },
-   "desert":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:desert"
-      ]
-   },
    "dissiment":{
       "category":"master",
       "sounds":[
@@ -339,12 +333,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:duo_hurt"
-      ]
-   },
-   "end":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:end"
       ]
    },
    "endiku":{
@@ -459,12 +447,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:gorgosion_hurt"
-      ]
-   },
-   "grass":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:grass"
       ]
    },
    "grizzle":{
@@ -593,12 +575,6 @@
          "divinerpg:jackoman"
       ]
    },
-   "jungle":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:jungle"
-      ]
-   },
    "jungle_spider":{
       "category":"master",
       "sounds":[
@@ -661,16 +637,16 @@
          "divinerpg:lady_luna_hurt"
       ]
    },
-   "lhevia":{
+   "lheiva":{
       "category":"master",
       "sounds":[
-         "divinerpg:lhevia"
+         "divinerpg:lheiva"
       ]
    },
-   "lhevia_hurt":{
+   "lheiva_hurt":{
       "category":"master",
       "sounds":[
-         "divinerpg:lhevia_hurt"
+         "divinerpg:lheiva_hurt"
       ]
    },
    "liopleurodon":{
@@ -785,12 +761,6 @@
       "category":"master",
       "sounds":[
          "divinerpg:nobody_can_defeat"
-      ]
-   },
-   "ocean":{
-      "category":"master",
-      "sounds":[
-         "divinerpg:ocean"
       ]
    },
    "parasecta":{
@@ -1045,16 +1015,16 @@
          "divinerpg:try_your_best"
       ]
    },
-   "varaak":{
+   "vhraak":{
       "category":"master",
       "sounds":[
-         "divinerpg:varaak"
+         "divinerpg:vhraak"
       ]
    },
-   "varaak_hurt":{
+   "vhraak_hurt":{
       "category":"master",
       "sounds":[
-         "divinerpg:varaak_hurt"
+         "divinerpg:vhraak_hurt"
       ]
    },
    "verek":{
