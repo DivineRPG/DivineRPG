@@ -41,7 +41,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 @ObjectHolder("divinerpg")
 public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
-    private static List<Block> blockItemRegistryList = new ArrayList<Block>();
+    private static List<Block> blockList = new ArrayList<Block>();
     // Vanilla dimensions
 
     // Ores
@@ -375,8 +375,8 @@ public class ModBlocks {
     public static Block coalstoneFurnace = null;
     @ObjectHolder("coalstone_furnace_on")
     public static Block coalstoneFurnaceOn = null;
-    //@ObjectHolder("coalstone_stairs")
-    //public static Block coalstoneStairs = null;
+    @ObjectHolder("coalstone_stairs")
+    public static Block coalstoneStairs = null;
     @ObjectHolder("frost_archer_spawner")
     public static Block frostArcherSpawner = null;
     @ObjectHolder("frosted_chest")
@@ -1207,7 +1207,7 @@ public class ModBlocks {
         register(registry, new BlockMod("coalstone", 3.0F));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
-        //register(registry, new BlockModStairs(coalstone, "coalstone_stairs"));
+        register(registry, new BlockModStairs(getBlockFromList("coalstone"), "coalstone_stairs"));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
         register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
@@ -1558,7 +1558,7 @@ public class ModBlocks {
 
     @SubscribeEvent
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
-        for(Block block: blockItemRegistryList) {
+        for(Block block: blockList) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
                 ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
@@ -1569,11 +1569,29 @@ public class ModBlocks {
 
     private static void register(IForgeRegistry<Block> registry, Block block) {
         registry.register(block);
-        blockItemRegistryList.add(block);
+        blockList.add(block);
     }
 
     /**
-     * Called during FML init
+     * Used to retrieve blocks by registry name when they are needed to construct other blocks (e.g. for stairs and slabs).
+     * This is needed because object holders are not populated until block registration is done.
+     * As such, any attempt to reference the object holder will cause an NPE.
+     *
+     * @param registryName the registry name
+     * @return the block matching the registry name
+     */
+    private static Block getBlockFromList(String registryName) {
+        for(Block block: blockList) {
+            if(block.getRegistryName().getResourcePath().equals(registryName)) {
+                return block;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Called during FML init. May be able to move some of these to use getBlockFromList above instead
      */
     public static void blockInitTasks() {
         frozenGrass.setDirt(frozenDirt);
@@ -1585,5 +1603,4 @@ public class ModBlocks {
         arcaniteGrass.setDirt(arcaniteDirt);
         dreamGrass.setDirt(dreamDirt);
     }
-
 }
