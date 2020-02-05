@@ -8,12 +8,12 @@ import net.minecraft.util.IStringSerializable;
 
 public enum WoodType implements IStringSerializable {
     DIVINE("divine", MapColor.EMERALD, 2),
-    FROZEN("frozen", MapColor.ICE, 6),
-    EDEN("eden", MapColor.SAND, 8),
-    WILDWOOD("wildwood", MapColor.WATER, 8),
-    APALACHIA("apalachia", MapColor.PINK, 8),
-    SKYTHERN("skythern", MapColor.WHITE_STAINED_HARDENED_CLAY, 8),
-    MORTUM("mortum", MapColor.BROWN, 8),
+    FROZEN("frozen", MapColor.ICE, 2),
+    EDEN("eden", MapColor.SAND, 2),
+    WILDWOOD("wildwood", MapColor.WATER, 2),
+    APALACHIA("apalachia", MapColor.PINK, 2),
+    SKYTHERN("skythern", MapColor.WHITE_STAINED_HARDENED_CLAY, 2),
+    MORTUM("mortum", MapColor.BROWN, 2),
     EUCALYPTUS("eucalyptus", MapColor.WHITE_STAINED_HARDENED_CLAY, 2);
 
     private final String name;

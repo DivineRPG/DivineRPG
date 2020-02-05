@@ -21,6 +21,7 @@ import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.objects.blocks.vethea.*;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -528,6 +529,18 @@ public class ModBlocks {
     @ObjectHolder("mortum_planks")
     public static Block mortumPlanks = null;
 
+    // Stairs
+    @ObjectHolder("eden_stairs")
+    public static Block edenStairs = null;
+    @ObjectHolder("wildwood_stairs")
+    public static Block wildwoodStairs = null;
+    @ObjectHolder("apalachia_stairs")
+    public static Block apalachiaStairs = null;
+    @ObjectHolder("skythern_stairs")
+    public static Block skythernStairs = null;
+    @ObjectHolder("mortum_stairs")
+    public static Block mortumStairs = null;
+
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static Block edenBlock = null;
@@ -965,7 +978,7 @@ public class ModBlocks {
                     input -> input == woodType);
 
             BlockModPlank planks = new BlockModPlank(woodType);
-            Block stairs = new BlockModStairs(planks, woodName + "_stairs");
+            //Block stairs = new BlockModStairs(planks, woodName + "_stairs");
             Block singleSlab = new BlockModSlab(planks, null, woodType) {
                 @Override
                 public boolean isDouble() {
@@ -999,7 +1012,7 @@ public class ModBlocks {
             };
 
             woodType.setPlank(planks);
-            woodType.setStair(stairs);
+            //woodType.setStair(stairs);
             woodType.setSingleSlab(singleSlab);
             woodType.setDoubleSlab(doubleSlab);
 
@@ -1207,7 +1220,7 @@ public class ModBlocks {
         register(registry, new BlockMod("coalstone", 3.0F));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
-        register(registry, new BlockModStairs(getBlockFromList("coalstone"), "coalstone_stairs"));
+        register(registry, new BlockModStairs("coalstone_stairs", getBlockFromList("coalstone")));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
         register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
@@ -1298,6 +1311,13 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.WOOD, "apalachia_planks", 2.0F));
         register(registry, new BlockMod(EnumBlockType.WOOD, "skythern_planks", 2.0F));
         register(registry, new BlockMod(EnumBlockType.WOOD, "mortum_planks", 2.0F));
+
+        // Stairs
+        register(registry, new BlockModStairs("eden_stairs", getBlockFromList("eden_planks")));
+        register(registry, new BlockModStairs("wildwood_stairs", getBlockFromList("wildwood_planks")));
+        register(registry, new BlockModStairs("apalachia_stairs", getBlockFromList("apalachia_planks")));
+        register(registry, new BlockModStairs("skythern_stairs", getBlockFromList("skythern_planks")));
+        register(registry, new BlockModStairs("mortum_stairs", getBlockFromList("mortum_planks")));
 
         // Compressed blocks
         register(registry, new BlockBeaconBase("eden_block", 9.0F));
@@ -1575,7 +1595,7 @@ public class ModBlocks {
     /**
      * Used to retrieve blocks by registry name when they are needed to construct other blocks (e.g. for stairs and slabs).
      * This is needed because object holders are not populated until block registration is done.
-     * As such, any attempt to reference the object holder will cause an NPE.
+     * As such, any attempt to reference the object holder before then will cause an NPE.
      *
      * @param registryName the registry name
      * @return the block matching the registry name

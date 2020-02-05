@@ -10,7 +10,7 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockModStairs extends BlockStairs  {
 
-    public BlockModStairs(Block base, String name) {
+    public BlockModStairs(String name, Block base) {
         super(base.getDefaultState());
         this.useNeighborBrightness = true;
         setUnlocalizedName(name);
