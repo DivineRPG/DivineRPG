@@ -74,19 +74,21 @@ public class CommonProxy {
             config.save();
         }
         ModEntities.initMobs();
-    }
 
-    public void preInit(FMLPreInitializationEvent e) {
-        MinecraftForge.EVENT_BUS.register(new ModEntities());
-        ModDimensions.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenTreeGenerator(), 0);
-        MinecraftForge.EVENT_BUS.register(new Ticker());
+    }
 
+    public void preInit(FMLPreInitializationEvent e) {
         File directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
         Config.readConfig();
+
+        MinecraftForge.EVENT_BUS.register(new ModEntities());
+        MinecraftForge.EVENT_BUS.register(new Ticker());
+
+        ModDimensions.init();
     }
 
     @SuppressWarnings("deprecation")
