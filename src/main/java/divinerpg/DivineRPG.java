@@ -9,13 +9,7 @@ import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
-import divinerpg.registry.ModArmorEvents;
-import divinerpg.registry.ModLiquids;
-import divinerpg.registry.ModMessages;
-import divinerpg.registry.ModOreDict;
-import divinerpg.registry.ModSmelting;
-import divinerpg.registry.ModSpawns;
-import divinerpg.registry.ModTriggers;
+import divinerpg.registry.*;
 import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraftforge.common.MinecraftForge;
@@ -65,7 +59,6 @@ public class DivineRPG {
         ModOreDict.init();
         ModTriggers.registerTriggers();
         ModSmelting.init();
-        ModArmorEvents.init();
     }
 
     @Mod.EventHandler

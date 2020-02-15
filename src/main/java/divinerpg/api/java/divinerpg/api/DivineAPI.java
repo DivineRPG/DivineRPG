@@ -1,18 +1,27 @@
 package divinerpg.api.java.divinerpg.api;
 
-import static divinerpg.api.java.divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
-
 import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.java.divinerpg.api.armor14.IPoweredArmorSet;
+import divinerpg.events.armor.ArmorObserver;
+import divinerpg.events.armor.FullArmorEventHandler;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegistryManager;
+
+import static divinerpg.api.java.divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
 
 /**
  * Main API class.
  */
 public class DivineAPI {
     /**
-     * Armor registry. Will injected on FMLPreInitEvent
+     * Contains all possible power sets data
      */
-    public static IFullArmorRegistry ARMOR_REGISTRY = null;
+    public static IForgeRegistry<IPoweredArmorSet> getPowerRegistry() {
+        return RegistryManager.ACTIVE.getRegistry(IPoweredArmorSet.class);
+    }
 
     /**
      * Gets the arcana capability
@@ -21,5 +30,22 @@ public class DivineAPI {
      */
     public static IArcana getArcana(Entity entity){
         return entity.getCapability(ARCANA_CAP, null);
+    }
+
+    /**
+     * Checks if player wears that type of armor
+     *
+     * @param entity - player
+     * @param id     - ID of powered armor set
+     */
+    public static boolean isOn(Entity entity, ResourceLocation id) {
+        if (id == null || !(entity instanceof EntityPlayer))
+            return false;
+
+        ArmorObserver observer = FullArmorEventHandler.getPlayerMap().get(entity.getUniqueID());
+        if (observer == null)
+            return false;
+
+        return observer.isOn(id);
     }
 }
