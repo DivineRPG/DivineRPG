@@ -55,6 +55,7 @@ public class ClientProxy extends CommonProxy {
         Utils.setupCapes();
         Utils.updateCapeList();
         ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
+        ModItems.registerItemModels();
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }

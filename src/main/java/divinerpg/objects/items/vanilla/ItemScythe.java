@@ -1,5 +1,12 @@
 package divinerpg.objects.items.vanilla;
 
+import divinerpg.DivineRPG;
+import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.enums.BulletType;
+import divinerpg.objects.items.base.RangedWeaponBase;
+import divinerpg.registry.ModArmorEvents;
+import divinerpg.registry.ModSounds;
+import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -10,14 +17,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-
-import divinerpg.DivineRPG;
-import divinerpg.enums.BulletType;
-import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.FullSetArmorHelper;
-import divinerpg.utils.TooltipLocalizer;
-
 import java.util.List;
 
 public class ItemScythe extends RangedWeaponBase {
@@ -35,8 +34,7 @@ public class ItemScythe extends RangedWeaponBase {
 
     @Override
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType, Class<? extends EntityThrowable> clazz) {
-        FullSetArmorHelper helper = new FullSetArmorHelper(player);
-        super.spawnEntity(world, player, stack, helper.isJackoMan()
+        super.spawnEntity(world, player, stack, DivineAPI.isOn(player, ModArmorEvents.JACKOMAN)
                         ? BulletType.MEGA_SCYTHE_SHOT
                         : BulletType.SCYTHE_SHOT,
                 null);
@@ -45,8 +43,7 @@ public class ItemScythe extends RangedWeaponBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        FullSetArmorHelper helper = new FullSetArmorHelper(DivineRPG.proxy.getPlayer());
-        list.add(TooltipLocalizer.rangedDam(helper.isJackoMan()
+        list.add(TooltipLocalizer.rangedDam(DivineAPI.isOn(DivineRPG.proxy.getPlayer(), ModArmorEvents.JACKOMAN)
                 ? BulletType.MEGA_SCYTHE_SHOT.getDamage()
                 : BulletType.SCYTHE_SHOT.getDamage()));
 

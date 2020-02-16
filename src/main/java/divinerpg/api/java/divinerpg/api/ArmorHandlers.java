@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -65,6 +66,29 @@ public class ArmorHandlers {
      */
     public static void onAddRangedDamage(LivingHurtEvent e, Function<Float, Float> damageConversionFunc) {
         onPlayerAttacked(e, DamageSource::isProjectile, damageConversionFunc);
+    }
+
+    /**
+     * Adding ranged damage from player on Server side
+     *
+     * @param e                    - event
+     * @param damageConversionFunc - function modifying original damage amount
+     */
+    public static void onAddRangedDamage(LivingHurtEvent e, ResourceLocation armorId, Function<Float, Float> damageConversionFunc) {
+        if (isRemote(e.getEntity()) || !(e.getSource().getTrueSource() instanceof EntityPlayer))
+            return;
+
+        DamageSource source = e.getSource();
+        Entity entity = source.getTrueSource();
+
+        // if ranged damage
+        if (source.isProjectile() || source.getDamageType().equals("thrown")) {
+            // if armor is on
+            if (DivineAPI.isOn(entity, armorId)) {
+                // set new amount
+                e.setAmount(damageConversionFunc.apply(e.getAmount()));
+            }
+        }
     }
 
     /**

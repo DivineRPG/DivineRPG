@@ -64,6 +64,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import java.util.ArrayList;
+
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModItems {

@@ -1,4 +1,5 @@
-package divinerpg.api.java.divinerpg.api.armorset;
+package divinerpg.api.java.divinerpg.api.armor14;
+
 
 import net.minecraftforge.fml.common.eventhandler.Event;
 
@@ -9,5 +10,5 @@ public interface IPowerAbility<T extends Event> {
      *
      * @param event - Forge event
      */
-    void handle(T event);
+    void handleAbility(T event);
 }
