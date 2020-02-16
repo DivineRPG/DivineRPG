@@ -43,7 +43,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
     private static List<Block> blockList = new ArrayList<Block>();
-    private static List<Item> blockItemList = new ArrayList<>();
+
     // Vanilla dimensions
 
     // Ores
