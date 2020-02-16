@@ -43,6 +43,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
     private static List<Block> blockList = new ArrayList<Block>();
+    private static List<Item> blockItemList = new ArrayList<>();
     // Vanilla dimensions
 
     // Ores
@@ -529,7 +530,7 @@ public class ModBlocks {
     @ObjectHolder("mortum_planks")
     public static Block mortumPlanks = null;
 
-    // Stairs
+ // Stairs
     @ObjectHolder("eden_stairs")
     public static Block edenStairs = null;
     @ObjectHolder("wildwood_stairs")
@@ -540,7 +541,43 @@ public class ModBlocks {
     public static Block skythernStairs = null;
     @ObjectHolder("mortum_stairs")
     public static Block mortumStairs = null;
+    
+    // Slab
+    @ObjectHolder("eden_slab")
+    public static Block edenSlab = null;
+    @ObjectHolder("wildwood_slab")
+    public static Block wildwoodSlab= null;
+    @ObjectHolder("apalachia_slab")
+    public static Block apalachiaSlab = null;
+    @ObjectHolder("skythern_slab")
+    public static Block skythernSlab = null;
+    @ObjectHolder("mortum_slab")
+    public static Block mortumSlab = null;
+    @ObjectHolder("divine_slab")
+    public static Block divineSlab = null;
+    @ObjectHolder("frozen_slab")
+    public static Block frozenSlab = null;
+    @ObjectHolder("eucalyptus_slab")
+    public static Block eucalyptusSlab = null;
 
+    //Double Slab
+    @ObjectHolder("eden_double_slab")
+    public static Block edenDoubleSlab = null;
+    @ObjectHolder("wildwood_double_slab")
+    public static Block wildwoodDoubleSlab= null;
+    @ObjectHolder("apalachia_double_slab")
+    public static Block apalachiaDoubleSlab = null;
+    @ObjectHolder("skythern_double_slab")
+    public static Block skythernDoubleSlab = null;
+    @ObjectHolder("mortum_double_slab")
+    public static Block mortumDoubleSlab = null;
+    @ObjectHolder("divine_double_slab")
+    public static Block divineDoubleSlab = null;
+    @ObjectHolder("frozen_double_slab")
+    public static Block frozenDoubleSlab = null;
+    @ObjectHolder("eucalyptus_double_slab")
+    public static Block eucalyptusDoubleSlab = null;
+    
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static Block edenBlock = null;
@@ -968,66 +1005,66 @@ public class ModBlocks {
     public static Block nightmareBed = null;
     @ObjectHolder("vethea_portal")
     public static BlockModPortal vetheaPortal = null;
-
-    public static void AddWoodVariants() {
-        for (WoodType woodType : WoodType.values()) {
-            String woodName = woodType.getName();
-
-            // Make special property key that allows ONLY one value because slabs are special level of stupid
-            final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
-                    input -> input == woodType);
-
-            BlockModPlank planks = new BlockModPlank(woodType);
-            //Block stairs = new BlockModStairs(planks, woodName + "_stairs");
-            Block singleSlab = new BlockModSlab(planks, null, woodType) {
-                @Override
-                public boolean isDouble() {
-                    return false;
-                }
-
-                protected Block getSingle() {
-                    return this;
-                }
-
-                @Override
-                public IProperty<WoodType> getVariantProperty() {
-                    return restrictedKey;
-                }
-            };
-
-            Block doubleSlab = new BlockModSlab(planks, singleSlab, woodType) {
-                @Override
-                public boolean isDouble() {
-                    return true;
-                }
-
-                protected Block getSingle() {
-                    return singleSlab;
-                }
-
-                @Override
-                public IProperty<WoodType> getVariantProperty() {
-                    return restrictedKey;
-                }
-            };
-
-            woodType.setPlank(planks);
-            //woodType.setStair(stairs);
-            woodType.setSingleSlab(singleSlab);
-            woodType.setDoubleSlab(doubleSlab);
-
-            //ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-                    //.setRegistryName(singleSlab.getRegistryName()));
-            //ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-                    //.setRegistryName(doubleSlab.getRegistryName()));
-        }
-    }
+//
+//    public static void AddWoodVariants() {
+//        for (WoodType woodType : WoodType.values()) {
+//            String woodName = woodType.getName();
+//
+//            // Make special property key that allows ONLY one value because slabs are special level of stupid
+//            final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
+//                    input -> input == woodType);
+//
+//            BlockModPlank planks = new BlockModPlank(woodType);
+//            //Block stairs = new BlockModStairs(planks, woodName + "_stairs");
+//            Block singleSlab = new BlockModSlab(planks, null, woodType) {
+//                @Override
+//                public boolean isDouble() {
+//                    return false;
+//                }
+//
+//                protected Block getSingle() {
+//                    return this;
+//                }
+//
+//                @Override
+//                public IProperty<WoodType> getVariantProperty() {
+//                    return restrictedKey;
+//                }
+//            };
+//
+//            Block doubleSlab = new BlockModSlab(planks, singleSlab, woodType) {
+//                @Override
+//                public boolean isDouble() {
+//                    return true;
+//                }
+//
+//                protected Block getSingle() {
+//                    return singleSlab;
+//                }
+//
+//                @Override
+//                public IProperty<WoodType> getVariantProperty() {
+//                    return restrictedKey;
+//                }
+//            };
+//
+//            woodType.setPlank(planks);
+//            //woodType.setStair(stairs);
+//            woodType.setSingleSlab(singleSlab);
+//            woodType.setDoubleSlab(doubleSlab);
+//
+//            //ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+//                    //.setRegistryName(singleSlab.getRegistryName()));
+//            //ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
+//                    //.setRegistryName(doubleSlab.getRegistryName()));
+//        }
+//    }
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         DivineRPG.logger.info("Registering DivineRPG blocks");
 
-        ModBlocks.AddWoodVariants();
+//        ModBlocks.AddWoodVariants();
         IForgeRegistry<Block> registry = event.getRegistry();
 
         // Vanilla dimensions
@@ -1574,6 +1611,27 @@ public class ModBlocks {
         // Portal blocks
         register(registry, new BlockNightmareBed());
         register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension.getId(), ModBlocks.blueFire, ModBlocks.mortumBlock, ParticleType.MORTUM_PORTAL));
+    
+        //Slab
+        register(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));
+        register(registry, new BlockModSlab("wildwood_slab", BlockModPlank.EnumType.WILDWOOD, false));
+        register(registry, new BlockModSlab("apalachia_slab", BlockModPlank.EnumType.APALACHIA, false));
+        register(registry, new BlockModSlab("skythern_slab", BlockModPlank.EnumType.SKYTHERN, false));
+        register(registry, new BlockModSlab("mortum_slab", BlockModPlank.EnumType.MORTUM, false));
+        register(registry, new BlockModSlab("divine_slab", BlockModPlank.EnumType.DIVINE, false));
+        register(registry, new BlockModSlab("frozen_slab", BlockModPlank.EnumType.FROZEN, false));
+        register(registry, new BlockModSlab("eucalyptus_slab", BlockModPlank.EnumType.EUCALYPTUS, false));
+        
+        //Double Slab
+        register(registry, new BlockModSlab("eden_double_slab", BlockModPlank.EnumType.EDEN, true));
+        register(registry, new BlockModSlab("wildwood_double_slab", BlockModPlank.EnumType.WILDWOOD, true));
+        register(registry, new BlockModSlab("apalachia_double_slab", BlockModPlank.EnumType.APALACHIA, true));
+        register(registry, new BlockModSlab("skythern_double_slab", BlockModPlank.EnumType.SKYTHERN, true));
+        register(registry, new BlockModSlab("mortum_double_slab", BlockModPlank.EnumType.MORTUM, true));
+        register(registry, new BlockModSlab("divine_double_slab", BlockModPlank.EnumType.DIVINE, true));
+        register(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
+        register(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
+         
     }
 
     @SubscribeEvent
@@ -1581,7 +1639,7 @@ public class ModBlocks {
         for(Block block: blockList) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
-                ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
+                ModItems.itemList.add(itemBlock);
             }
             event.getRegistry().register(itemBlock);
         }
@@ -1606,7 +1664,6 @@ public class ModBlocks {
                 return block;
             }
         }
-
         return null;
     }
 

@@ -1,5 +1,7 @@
 package divinerpg.registry;
 
+import java.util.ArrayList;
+
 import divinerpg.DivineRPG;
 import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
@@ -58,11 +60,15 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModItems {
+    public static ArrayList<Item> itemList = new ArrayList<Item>();
+
     // Vanilla dimension weapons
     @ObjectHolder("aquatic_maul")
     public static Item aquaticMaul = null;
@@ -1574,6 +1580,24 @@ public class ModItems {
     public static Item minersAmulet = null;
     @ObjectHolder("rock_chunks")
     public static Item rockChunks = null;
+    
+    //Slabs
+    @ObjectHolder("eden_slab")
+    public static Item edenSlab = null;
+    @ObjectHolder("wildwood_slab")
+    public static Item wildwoodSlab = null;
+    @ObjectHolder("apalachia_slab")
+    public static Item apalachiaSlab = null;
+    @ObjectHolder("skythern_slab")
+    public static Item skythernSlab = null;
+    @ObjectHolder("mortum_slab")
+    public static Item mortumSlab = null;
+    @ObjectHolder("divine_slab")
+    public static Item divineSlab = null;
+    @ObjectHolder("frozen_slab")
+    public static Item frozenSlab = null;
+    @ObjectHolder("eucalyptus_slab")
+    public static Item eucalyptusSlab = null;
     /*
     public static Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
 */
@@ -2483,11 +2507,38 @@ public class ModItems {
         register(registry, new ItemVethean("band_of_heiva_hunting"));
         register(registry, new ItemVethean("miners_amulet"));
         register(registry, new ItemVethean("rock_chunks"));
+        
+        //Slabs
+        register(registry, new ItemModSlab("eden_slab", ModBlocks.edenSlab, ModBlocks.edenSlab, ModBlocks.edenDoubleSlab));
+        register(registry, new ItemModSlab("wildwood_slab", ModBlocks.wildwoodSlab, ModBlocks.wildwoodSlab, ModBlocks.wildwoodDoubleSlab));
+        register(registry, new ItemModSlab("apalachia_slab", ModBlocks.apalachiaSlab, ModBlocks.apalachiaSlab, ModBlocks.apalachiaDoubleSlab));
+        register(registry, new ItemModSlab("skythern_slab", ModBlocks.skythernSlab, ModBlocks.skythernSlab, ModBlocks.skythernDoubleSlab));
+        register(registry, new ItemModSlab("mortum_slab", ModBlocks.mortumSlab, ModBlocks.mortumSlab, ModBlocks.mortumDoubleSlab));
+        register(registry, new ItemModSlab("divine_slab", ModBlocks.divineSlab, ModBlocks.divineSlab, ModBlocks.divineDoubleSlab));
+        register(registry, new ItemModSlab("frozen_slab", ModBlocks.frozenSlab, ModBlocks.frozenSlab, ModBlocks.frozenDoubleSlab));
+        register(registry, new ItemModSlab("eucalyptus_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
+
+        register(registry, new ItemModSlab("eden_double_slab", ModBlocks.edenSlab, ModBlocks.edenSlab, ModBlocks.edenDoubleSlab));
+        register(registry, new ItemModSlab("wildwood_double_slab", ModBlocks.wildwoodSlab, ModBlocks.wildwoodSlab, ModBlocks.wildwoodDoubleSlab));
+        register(registry, new ItemModSlab("apalachia_double_slab", ModBlocks.apalachiaSlab, ModBlocks.apalachiaSlab, ModBlocks.apalachiaDoubleSlab));
+        register(registry, new ItemModSlab("skythern_double_slab", ModBlocks.skythernSlab, ModBlocks.skythernSlab, ModBlocks.skythernDoubleSlab));
+        register(registry, new ItemModSlab("mortum_double_slab", ModBlocks.mortumSlab, ModBlocks.mortumSlab, ModBlocks.mortumDoubleSlab));
+        register(registry, new ItemModSlab("divine_double_slab", ModBlocks.divineSlab, ModBlocks.divineSlab, ModBlocks.divineDoubleSlab));
+        register(registry, new ItemModSlab("frozen_double_slab", ModBlocks.frozenSlab, ModBlocks.frozenSlab, ModBlocks.frozenDoubleSlab));
+        register(registry, new ItemModSlab("eucalyptus_double_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
+        
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        itemList.add(item);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void registerItemModels() {
+        for(Item item: itemList) {
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        }
     }
 
     /**

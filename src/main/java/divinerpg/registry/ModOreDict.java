@@ -112,9 +112,23 @@ public class ModOreDict {
         OreDictionary.registerOre("shards", ModItems.moltenShards);
         OreDictionary.registerOre("shards", ModItems.terranShards);
 
-        for (WoodType woodType : WoodType.values()) {
-            OreDictionary.registerOre("plankWood", woodType.getPlank());
-            OreDictionary.registerOre("slabWood", woodType.getSingleSlab());
-        }
+        OreDictionary.registerOre("plankWood", ModBlocks.edenPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.wildwoodPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.apalachiaPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.skythernPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.mortumPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.frozenPlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.divinePlanks);
+        OreDictionary.registerOre("plankWood", ModBlocks.eucalyptusPlanks);
+
+        OreDictionary.registerOre("slabWood", ModBlocks.edenSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.wildwoodSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.apalachiaSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.skythernSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.mortumSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.frozenSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.divineSlab);
+        OreDictionary.registerOre("slabWood", ModBlocks.eucalyptusSlab);
+
     }
 }
