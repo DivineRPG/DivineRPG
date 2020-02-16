@@ -1,6 +1,7 @@
 package divinerpg.objects.items.base;
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.objects.blocks.BlockModPlank;
 import divinerpg.objects.blocks.BlockModSlab;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -35,12 +36,16 @@ public class ItemModSlab extends ItemBlock
         this.doubleSlab = (BlockModSlab) doubleSlab;
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
-        this.setRegistryName(Reference.MODID, name);
-        this.setUnlocalizedName(name);
+        setUnlocalizedName(name);
+        setRegistryName(Reference.MODID, name+".name");
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         
     }
-
+    
+    public String getUnlocalizedName(int meta)
+    {
+        return super.getUnlocalizedName() + "." + BlockModPlank.EnumType.byMetadata(meta).getUnlocalizedName();
+    }
     public int getMetadata(int damage)
     {
         return damage;

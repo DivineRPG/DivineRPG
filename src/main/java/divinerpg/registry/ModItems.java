@@ -2532,8 +2532,8 @@ public class ModItems {
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
-        registry.register(item);
         itemList.add(item);
+        registry.register(item);
     }
 
     @SideOnly(Side.CLIENT)
