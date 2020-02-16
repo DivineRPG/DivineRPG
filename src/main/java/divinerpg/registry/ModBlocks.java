@@ -43,6 +43,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
     private static List<Block> blockList = new ArrayList<Block>();
+    private static List<Item> blockItemList = new ArrayList<>();
     // Vanilla dimensions
 
     // Ores
@@ -1581,7 +1582,7 @@ public class ModBlocks {
         for(Block block: blockList) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
-                ModelLoader.setCustomModelResourceLocation(itemBlock, 0, new ModelResourceLocation(itemBlock.getRegistryName(), "inventory"));
+                ModItems.itemList.add(itemBlock);
             }
             event.getRegistry().register(itemBlock);
         }
@@ -1606,7 +1607,6 @@ public class ModBlocks {
                 return block;
             }
         }
-
         return null;
     }
 

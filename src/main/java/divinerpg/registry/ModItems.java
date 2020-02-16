@@ -58,11 +58,17 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.ArrayList;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModItems {
+    public static ArrayList<Item> itemList = new ArrayList<Item>();
+
     // Vanilla dimension weapons
     @ObjectHolder("aquatic_maul")
     public static Item aquaticMaul = null;
@@ -2487,7 +2493,14 @@ public class ModItems {
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        itemList.add(item);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void registerItemModels() {
+        for(Item item: itemList) {
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        }
     }
 
     /**
