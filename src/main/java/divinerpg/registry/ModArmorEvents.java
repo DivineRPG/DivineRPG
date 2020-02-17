@@ -1,5 +1,6 @@
 package divinerpg.registry;
 
+import divinerpg.DivineRPG;
 import divinerpg.api.java.divinerpg.api.ArmorHandlers;
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.api.java.divinerpg.api.armor14.*;
@@ -11,15 +12,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@Mod.EventBusSubscriber(modid = Reference.MODID)
 public class ModArmorEvents {
     public static final ResourceLocation JACKOMAN = new ResourceLocation(Reference.MODID, "jack_o_man_power_set");
     public static final ResourceLocation CORRUPTED = new ResourceLocation(Reference.MODID, "corrupted_set");
@@ -30,7 +36,10 @@ public class ModArmorEvents {
      * needed handler from server to client
      */
     // public static final ArrayList<PoweredArmorSet> ALL_HANDLERS = new ArrayList<>();
-    public static void init() {
+    @SubscribeEvent
+    public static void init(RegistryEvent.Register<IPoweredArmorSet> registryEvent) {
+        DivineRPG.logger.info("Registering armor handlers");
+
         IArmorSet rupeeArmorDescriber = new ArmorSet()
                 .withVariant(ModItems.rupeeHelmet, ModItems.rupeeChestplate, ModItems.rupeeLeggings, ModItems.rupeeBoots)
                 .withVariant(ModItems.blueRupeeHelmet, ModItems.blueRupeeChestplate, ModItems.blueRupeeLeggings, ModItems.blueRupeeBoots)
@@ -292,8 +301,9 @@ public class ModArmorEvents {
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.348F))
                         .addAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 2.2F, false))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedMask"))
-
-
         );
+
+        IForgeRegistry<IPoweredArmorSet> registry = registryEvent.getRegistry();
+        handlers.forEach(registry::register);
     }
 }

@@ -1,10 +1,10 @@
 /**
  * @author NicosaurusRex99
- *
  */
 package divinerpg;
 
 import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.java.divinerpg.api.armor14.IPoweredArmorSet;
 import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
@@ -12,7 +12,9 @@ import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
 import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -21,9 +23,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.registries.RegistryBuilder;
+import org.apache.logging.log4j.LogManager;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL, dependencies="required:forge@[14.23.5.2768,)")
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL, dependencies = "required:forge@[14.23.5.2768,)")
 public class DivineRPG {
     @Mod.Instance
     public static DivineRPG instance;
@@ -38,6 +43,12 @@ public class DivineRPG {
     static {
         FluidRegistry.enableUniversalBucket();
     }
+
+    public DivineRPG() {
+        MinecraftForge.EVENT_BUS.register(this);
+        logger = LogManager.getLogger();
+    }
+
 
     /** Init Methods */
     @Mod.EventHandler
@@ -74,6 +85,19 @@ public class DivineRPG {
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
         Utils.addDevsToList();
+    }
+
+    /**
+     * Creating new registry here
+     */
+    @SubscribeEvent
+    public void createRegistries(RegistryEvent.NewRegistry event) {
+        logger.info("Creating registries");
+
+        new RegistryBuilder<IPoweredArmorSet>()
+                .setName(new ResourceLocation(Reference.MODID, "powers"))
+                .setType(IPoweredArmorSet.class)
+                .create();
     }
 
 }
