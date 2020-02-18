@@ -403,9 +403,9 @@ public class BlockModPortal extends BlockBreakable {
                     || blockIn == portalBlock;
         }
 
-        public boolean isValid() {
-            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3
-                    && this.height <= 21;
+        public boolean isValid()
+        {
+            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
         }
 
         public void placePortalBlocks() {
