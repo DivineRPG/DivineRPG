@@ -1,11 +1,17 @@
 {
     "variants": {
-        "facing=down":  { "model": "divinerpg:karos_cannon" },
-        "facing=up":    { "model": "divinerpg:karos_cannon" },
-        "facing=north": { "model": "divinerpg:karos_cannon" },
-        "facing=south": { "model": "divinerpg:karos_cannon" },
-        "facing=west":  { "model": "divinerpg:karos_cannon" },
-        "facing=east":  { "model": "divinerpg:karos_cannon" }
+        "facing=down,triggered=false":  { "model": "divinerpg:karos_cannon" },
+        "facing=up,triggered=false":    { "model": "divinerpg:karos_cannon" },
+        "facing=north,triggered=false": { "model": "divinerpg:karos_cannon" },
+        "facing=south,triggered=false": { "model": "divinerpg:karos_cannon" },
+        "facing=west,triggered=false":  { "model": "divinerpg:karos_cannon" },
+        "facing=east,triggered=false":  { "model": "divinerpg:karos_cannon" },
+        "facing=down,triggered=true":  { "model": "divinerpg:karos_cannon" },
+        "facing=up,triggered=true":    { "model": "divinerpg:karos_cannon" },
+        "facing=north,triggered=true": { "model": "divinerpg:karos_cannon" },
+        "facing=south,triggered=true": { "model": "divinerpg:karos_cannon" },
+        "facing=west,triggered=true":  { "model": "divinerpg:karos_cannon" },
+        "facing=east,triggered=true":  { "model": "divinerpg:karos_cannon" }
     }
 }
 
