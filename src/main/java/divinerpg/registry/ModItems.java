@@ -54,6 +54,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -2534,12 +2535,13 @@ public class ModItems {
     private static void register(IForgeRegistry<Item> registry, Item item) {
         itemList.add(item);
         registry.register(item);
+        registerItemModels();
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
         for(Item item: itemList) {
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        	ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
     }
 
