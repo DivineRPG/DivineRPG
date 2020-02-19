@@ -53,7 +53,6 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent e) {
         super.init(e);
         Utils.setupCapes();
-        ModItems.registerItemModels();
         Utils.updateCapeList();
         ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         InitLog.init();

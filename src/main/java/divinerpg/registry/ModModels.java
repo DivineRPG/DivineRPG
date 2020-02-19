@@ -19,12 +19,16 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(value=Side.CLIENT, modid=Reference.MODID)
 public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
+        for(Item item: ModItems.itemList) {
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        }
         registerTESRs();
     }
 
