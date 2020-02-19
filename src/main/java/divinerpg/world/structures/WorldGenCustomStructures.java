@@ -1,6 +1,8 @@
 package divinerpg.world.structures;
 
 import divinerpg.config.Config;
+import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
+import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.DRPGLootTables;
@@ -42,6 +44,10 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
             DRPGLootTables.ICEIKA_CHEST_HUT);
 
+
+    private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
+    private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
+    
     //vanilla
     public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
 
@@ -50,6 +56,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             IChunkProvider chunkProvider) {
 
         if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+    		generateStructure(rollum, world, random, chunkX, chunkZ, 50);
+    		generateStructure(archer, world, random, chunkX, chunkZ, 50);
         	//TODO fix these at a later date when litewolf has a better pc
 //            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
 //            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
