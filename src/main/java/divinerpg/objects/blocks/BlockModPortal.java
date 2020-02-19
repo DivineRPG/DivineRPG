@@ -411,9 +411,6 @@ public class BlockModPortal extends BlockBreakable {
         public void placePortalBlocks() {
             for (int i = 0; i < this.width; ++i) {
                 BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
-                if (Config.debug) {
-                    DivineRPG.logger.info("attempting to ignight a portal");
-                }
                 for (int j = 0; j < this.height; ++j) {
                     this.world.setBlockState(blockpos.up(j),
                             portalBlock.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);

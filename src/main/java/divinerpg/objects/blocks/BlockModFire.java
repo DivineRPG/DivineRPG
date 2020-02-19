@@ -36,8 +36,7 @@ public class BlockModFire extends BlockFire  {
     	ModBlocks.skythernPortal.makePortal(world, pos);
     	ModBlocks.mortumPortal.makePortal(world, pos);
     	ModBlocks.iceikaPortal.makePortal(world, pos);
-        
-        }
+    }
 
     @Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
@@ -46,7 +45,6 @@ public class BlockModFire extends BlockFire  {
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-
         lightPortal(worldIn, pos, state);
         if (worldIn.getGameRules().getBoolean("doFireTick")) {
             if (!worldIn.isAreaLoaded(pos, 2)) {
