@@ -91,7 +91,7 @@ public class CommonProxy {
         ModDimensions.init();
     }
 
-    @SuppressWarnings("deprecation")
+    @Deprecated
     public void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityDramixAltar.class, Reference.MODID + ":te_dramix_altar");
         GameRegistry.registerTileEntity(TileEntityParasectaAltar.class, Reference.MODID + ":te_parasecta_altar");

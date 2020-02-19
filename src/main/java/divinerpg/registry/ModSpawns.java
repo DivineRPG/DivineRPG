@@ -137,7 +137,7 @@ public class ModSpawns {
             }
         }
     }
-    @SuppressWarnings("deprecation")	
+    @Deprecated	
     public static void initSpawns() {	
         for (Biome biome : ForgeRegistries.BIOMES.getValues())
             if (biome.equals(ModBiomes.Iceika)) {
