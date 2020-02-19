@@ -377,6 +377,7 @@ tile.eucalyptus_planks.name=Eucalyptus Planks
 tile.eucalyptus_log.name=Eucalyptus Log
 tile.eucalyptus_stairs.name=Eucalyptus Stairs
 tile.eucalyptus_slab.name=Eucalyptus Slab
+tile.eucalyptus_double_slab.name=Double Eucalyptus Slab
 tile.arcanium_torch.name=Arcanium Torch
 tile.elevantium.name=Elevantium
 tile.arcanite_rails.name=Arcanite Rails

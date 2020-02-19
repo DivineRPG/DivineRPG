@@ -1,9 +1,13 @@
 package divinerpg.dimensions.iceika;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import divinerpg.DivineRPG;
+import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
+import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -19,6 +23,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderIceika implements  IChunkGenerator
 {
@@ -29,10 +34,6 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 	private final MapGenBase caveGenerator;
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
-
-
-
-
 
 	public ChunkProviderIceika(World world, long seed)
 	{
@@ -155,7 +156,6 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		boolean flag = false;
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.worldObj, this.rand, x, z, flag);
-
 
 		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && !flag)
 			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.worldObj, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))

@@ -10,6 +10,7 @@ import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -29,18 +30,12 @@ public class BlockModFire extends BlockFire  {
     }
 
     protected void lightPortal(World world, BlockPos pos, IBlockState state) {
-        if (this == ModBlocks.blueFire) {
-            if ((ModBlocks.edenPortal.makePortal(world, pos) || ModBlocks.wildwoodPortal.makePortal(world, pos)
-                    || ModBlocks.apalachiaPortal.makePortal(world, pos)
-                    || ModBlocks.skythernPortal.makePortal(world, pos) || ModBlocks.mortumPortal.makePortal(world, pos))
-                    && Config.debug) {
-                DivineRPG.logger.info("Twilight portal created");
-            }
-        } else {
-            if (ModBlocks.iceikaPortal.makePortal(world, pos) && Config.debug) {
-                DivineRPG.logger.info("Iceika portal created");
-            }
-        }
+    	ModBlocks.edenPortal.makePortal(world, pos);
+    	ModBlocks.wildwoodPortal.makePortal(world, pos);
+    	ModBlocks.apalachiaPortal.makePortal(world, pos);
+    	ModBlocks.skythernPortal.makePortal(world, pos);
+    	ModBlocks.mortumPortal.makePortal(world, pos);
+    	ModBlocks.iceikaPortal.makePortal(world, pos);
     }
 
     @Override
@@ -50,7 +45,6 @@ public class BlockModFire extends BlockFire  {
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-
         lightPortal(worldIn, pos, state);
         if (worldIn.getGameRules().getBoolean("doFireTick")) {
             if (!worldIn.isAreaLoaded(pos, 2)) {

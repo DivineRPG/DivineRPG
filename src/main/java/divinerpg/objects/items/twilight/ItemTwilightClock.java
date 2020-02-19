@@ -1,5 +1,6 @@
 package divinerpg.objects.items.twilight;
 
+import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -15,6 +16,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class ItemTwilightClock extends ItemMod {
 
     public ItemTwilightClock(String name) {
@@ -26,6 +29,10 @@ public class ItemTwilightClock extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+        //testing code until a structure gen command or something is implemented
+        //new WorldGenRollumDungeon().generate(worldIn, new Random(), pos);
+
         pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);
         if (!player.canPlayerEdit(pos, facing, itemstack)) {

@@ -48,14 +48,13 @@ public class ClientProxy extends CommonProxy {
         return FMLClientHandler.instance().getClientPlayerEntity();
     }
 
-    @SuppressWarnings("deprecation")
+    @Deprecated
 	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
         Utils.setupCapes();
         Utils.updateCapeList();
         ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
-        ModItems.registerItemModels();
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
@@ -67,7 +66,7 @@ public class ClientProxy extends CommonProxy {
         Utils.postFMLEvent(new ClientTicker());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());
-
+        
         PostInitLog.init();
         IntenseDebug.init();
     }
