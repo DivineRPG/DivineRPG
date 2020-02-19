@@ -67,7 +67,7 @@ public class WorldGenArcherDungeon extends WorldGenerator {
         }
 		if (tileentity2 instanceof TileEntityFrostedChest)
         {
-            ((TileEntityLockableLoot)tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
+            ((TileEntityLockableLoot)tileentity2).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
         return true;
     }
