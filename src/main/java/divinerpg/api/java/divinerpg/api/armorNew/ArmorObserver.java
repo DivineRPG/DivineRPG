@@ -1,12 +1,13 @@
 package divinerpg.api.java.divinerpg.api.armorNew;
 
-import divinerpg.api.java.divinerpg.api.armor14.IPoweredArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -18,7 +19,7 @@ public class ArmorObserver {
     /**
      * Map of all possible armor set describers
      */
-    private final Map<ResourceLocation, IPoweredArmorSet> allPossible;
+    private final Map<ResourceLocation, IPoweredArmor> allPossible;
 
     /**
      * List of equipped armor sets
@@ -29,7 +30,7 @@ public class ArmorObserver {
 
     private final Map<EntityEquipmentSlot, Item> currentArmor;
 
-    public ArmorObserver(EntityPlayer player, List<IPoweredArmorSet> allPossible) {
+    public ArmorObserver(EntityPlayer player, Collection<IPoweredArmor> allPossible) {
         this.allPossible = allPossible.stream().collect(Collectors.toMap(IForgeRegistryEntry::getRegistryName, o -> o));
         this.player = player;
         currentArmor = new HashMap<>();
@@ -62,6 +63,18 @@ public class ArmorObserver {
     }
 
     /**
+     * Main handle event method
+     *
+     * @param clazz
+     * @param event
+     */
+    public void handle(Class clazz, Event event) {
+        equipped.stream().map(allPossible::get).filter(Objects::nonNull)
+                .map(x -> x.getAbilityMap().get(clazz)).filter(Objects::nonNull)
+                .forEach(x -> x.handleAbility(event));
+    }
+
+    /**
      * Dispose resource here, after player log out from game
      */
     @SubscribeEvent
@@ -88,8 +101,6 @@ public class ArmorObserver {
         this.equipped.stream().filter(x -> !curentlyEquped.contains(x))
                 // find actual handlers
                 .map(allPossible::get).filter(Objects::nonNull)
-                // find equipped callbacks
-                .map(IPoweredArmorSet::getEquippedHandler).filter(Objects::nonNull)
                 // call for each armor
                 .forEach(x -> x.onEquppedChanged(player, false));
 
@@ -97,8 +108,6 @@ public class ArmorObserver {
         curentlyEquped.stream().filter(x -> !equipped.contains(x))
                 // find actual handlers
                 .map(allPossible::get).filter(Objects::nonNull)
-                // find equipped callbacks
-                .map(IPoweredArmorSet::getEquippedHandler).filter(Objects::nonNull)
                 // call for each armor
                 .forEach(x -> x.onEquppedChanged(player, true));
     }

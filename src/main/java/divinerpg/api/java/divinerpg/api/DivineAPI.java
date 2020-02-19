@@ -2,6 +2,7 @@ package divinerpg.api.java.divinerpg.api;
 
 import divinerpg.api.java.divinerpg.api.arcana.IArcana;
 import divinerpg.api.java.divinerpg.api.armor14.IPoweredArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.events.armor.ArmorObserver;
 import divinerpg.events.armor.FullArmorEventHandler;
 import net.minecraft.entity.Entity;
@@ -21,6 +22,10 @@ public class DivineAPI {
      */
     public static IForgeRegistry<IPoweredArmorSet> getPowerRegistry() {
         return RegistryManager.ACTIVE.getRegistry(IPoweredArmorSet.class);
+    }
+
+    public static IForgeRegistry<IPoweredArmor> getPowerSetRegistry() {
+        return RegistryManager.ACTIVE.getRegistry(IPoweredArmor.class);
     }
 
     /**
