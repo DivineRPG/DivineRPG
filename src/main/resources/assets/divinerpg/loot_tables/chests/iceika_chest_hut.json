@@ -46,7 +46,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:snowcone",
+                    "name": "divinerpg:snow_cones",
                     "weight": 7,
                     "functions": [
                         {
@@ -144,7 +144,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_helmet",
+                    "name": "divinerpg:santa_cap",
                     "weight": 1,
                     "functions": [
                         {
@@ -158,7 +158,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_chestplate",
+                    "name": "divinerpg:santa_tunic",
                     "weight": 1,
                     "functions": [
                         {
@@ -172,7 +172,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_leggings",
+                    "name": "divinerpg:santa_pants",
                     "weight": 1,
                     "functions": [
                         {

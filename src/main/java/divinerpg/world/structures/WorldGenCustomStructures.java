@@ -2,6 +2,8 @@ package divinerpg.world.structures;
 
 import divinerpg.config.Config;
 import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
+import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
+import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
 import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
@@ -47,6 +49,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
     private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
     private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
+    private WorldGenLibrary library = new WorldGenLibrary();
+    private WorldGenHouse1 house1 = new WorldGenHouse1();
     
     //vanilla
     public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
@@ -64,13 +68,15 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
+//            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
             generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 13, 12);
             generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 11, 11);
             generateStructure(WORKSHOP_HOUSE_4, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 10);
             generateStructure(WORKSHOP_HOUSE_5, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 12, 8);
             generateStructure(WORKSHOP_HOUSE_6, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 9);
-            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
+//            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
+            generateStructure(library, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
+            generateStructure(house1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
         }
         	if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
             Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)

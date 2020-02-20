@@ -2,12 +2,15 @@ package divinerpg.dimensions.iceika.structures;
 
 import java.util.Random;
 
+import divinerpg.DivineRPG;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -92,11 +95,9 @@ public class WorldGenAPI {
 	public static void placeIceikaChest(World w, int x, int y, int z, int meta){
 		Random r = new Random();
 		w.setBlockState(new BlockPos(x, y, z), ModBlocks.frostedChest.getDefaultState(), meta);
-		TileEntityChest chest = (TileEntityChest)w.getTileEntity(new BlockPos(x, y, z));
+		TileEntityLockableLoot chest = (TileEntityLockableLoot)w.getTileEntity(new BlockPos(x, y, z));
 		if(chest != null && !w.isRemote){
-			for(int i = 0; i < r.nextInt(4) + 1; i++){
-				chest.setInventorySlotContents(r.nextInt(26) + 1, new ItemStack(ModItems.peppermints));
-			}
+				chest.setLootTable(DRPGLootTables.ICEIKA_CHEST_HUT, r.nextLong());
 		}
 	}
 
