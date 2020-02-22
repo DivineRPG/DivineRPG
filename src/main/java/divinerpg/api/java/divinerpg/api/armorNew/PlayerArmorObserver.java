@@ -33,11 +33,7 @@ public class PlayerArmorObserver {
      */
     @SubscribeEvent
     public void handleArmorChanges(LivingEquipmentChangeEvent e) {
-        EntityPlayer player = (EntityPlayer) e.getEntity();
-        if (player == null)
-            return;
-
-        if (this.player != player)
+        if (this.player != e.getEntity())
             return;
 
         currentArmor.put(e.getSlot(), e.getTo().getItem());

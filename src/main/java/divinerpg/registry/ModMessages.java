@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.networking.message.EquipmentChangeMessage;
 import divinerpg.networking.message.MessageArcanaBar;
 import divinerpg.networking.message.MessageDivineAccumulator;
+import divinerpg.networking.message.PlayerLoggedEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class ModMessages {
@@ -19,5 +20,6 @@ public class ModMessages {
         DivineRPG.network.registerMessage(MessageArcanaBar.Handler.class, MessageArcanaBar.class, 2, Side.CLIENT);
         DivineRPG.network.registerMessage(MessageDivineAccumulator.Handler.class, MessageDivineAccumulator.class, 3, Side.CLIENT);
         DivineRPG.network.registerMessage(EquipmentChangeMessage.Handler.class, EquipmentChangeMessage.class, 4, Side.CLIENT);
+        DivineRPG.network.registerMessage(PlayerLoggedEvent.Handler.class, PlayerLoggedEvent.class, 5, Side.CLIENT);
     }
 }
