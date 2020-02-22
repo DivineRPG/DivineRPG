@@ -1,17 +1,18 @@
 package divinerpg.api.java.divinerpg.api.armorNew.interfaces;
 
-import com.sun.istack.internal.NotNull;
-import divinerpg.api.java.divinerpg.api.armor14.IEquipped;
-import divinerpg.api.java.divinerpg.api.armor14.IPowerAbility;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
+import javax.annotation.Nonnull;
 import java.util.Map;
 
 
+/**
+ * Describe what powered armor should do
+ */
 public interface IPoweredArmor extends IForgeRegistryEntry<IPoweredArmor>, IEquipped {
 
-    Map<Class, IPowerAbility<? extends Event>> getAbilityMap();
+    Map<Class, IAbilityHandler<?>> getAbilityMap();
 
     /**
      * Add ability to armor set
@@ -20,13 +21,13 @@ public interface IPoweredArmor extends IForgeRegistryEntry<IPoweredArmor>, IEqui
      * @param e     - handling event
      * @param <T>   - type of event
      */
-    <T extends Event> void addAbility(Class<T> clazz, IPowerAbility<T> e);
+    <T extends Event, TRes extends IPoweredArmor> TRes addAbility(Class<T> clazz, IAbilityHandler<T> e);
 
     /**
      * Returns current armor description
      *
      * @return
      */
-    @NotNull
+    @Nonnull
     IArmorSet getArmorDescription();
 }

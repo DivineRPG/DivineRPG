@@ -1,10 +1,11 @@
 package divinerpg.api.java.divinerpg.api.armorNew;
 
-import divinerpg.api.java.divinerpg.api.armor14.IEquipped;
-import divinerpg.api.java.divinerpg.api.armor14.IPowerAbility;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IAbilityHandler;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IEquipped;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
@@ -12,25 +13,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PoweredArmor extends IForgeRegistryEntry.Impl<IPoweredArmor> implements IPoweredArmor {
-    protected final Map<Class, IPowerAbility<? extends net.minecraftforge.fml.common.eventhandler.Event>> abilities = new HashMap<>();
+    protected final Map<Class, IAbilityHandler<?>> abilities = new HashMap<>();
     private final IEquipped handler;
     private final IArmorSet set;
 
-    public PoweredArmor(IEquipped handler, IArmorSet set) {
+    public PoweredArmor(IArmorSet set, IEquipped handler) {
         this.handler = handler;
         this.set = set;
     }
 
+
+    public PoweredArmor(Item helmet, Item chestplate, Item legs, Item boots) {
+        this(helmet, chestplate, legs, boots, null);
+    }
+
+    public PoweredArmor(Item helmet, Item chestplate, Item legs, Item boots, IEquipped handler) {
+        this(new ArmorSet().withVariant(helmet, chestplate, legs, boots), handler);
+    }
+
     @Override
-    public Map<Class, IPowerAbility<?>> getAbilityMap() {
+    public Map<Class, IAbilityHandler<?>> getAbilityMap() {
         return abilities;
     }
 
     @Override
-    public <T extends Event> void addAbility(Class<T> clazz, IPowerAbility<T> e) {
+    public <T extends Event, TRes extends IPoweredArmor> TRes addAbility(Class<T> clazz, IAbilityHandler<T> e) {
         if (!abilities.containsKey(clazz)) {
             abilities.put(clazz, e);
         }
+
+        return (TRes) this;
     }
 
     @Override

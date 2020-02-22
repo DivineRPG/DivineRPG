@@ -5,6 +5,9 @@ import net.minecraft.item.Item;
 
 import java.util.List;
 
+/**
+ * Describes how armorset should lok like
+ */
 public interface IArmorSet {
     /**
      * Returns list of possible values

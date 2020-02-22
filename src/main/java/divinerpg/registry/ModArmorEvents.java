@@ -3,7 +3,11 @@ package divinerpg.registry;
 import divinerpg.DivineRPG;
 import divinerpg.api.java.divinerpg.api.ArmorHandlers;
 import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.api.java.divinerpg.api.armor14.*;
+import divinerpg.api.java.divinerpg.api.armorNew.ArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.PoweredArmor;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IEquipped;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,9 +39,9 @@ public class ModArmorEvents {
      * All handlers are available by indexes so it makes much easier to point on
      * needed handler from server to client
      */
-    // public static final ArrayList<PoweredArmorSet> ALL_HANDLERS = new ArrayList<>();
+    // public static final ArrayList<PoweredArmor> ALL_HANDLERS = new ArrayList<>();
     @SubscribeEvent
-    public static void init(RegistryEvent.Register<IPoweredArmorSet> registryEvent) {
+    public static void init(RegistryEvent.Register<IPoweredArmor> registryEvent) {
         DivineRPG.logger.info("Registering armor handlers");
 
         IArmorSet rupeeArmorDescriber = new ArmorSet()
@@ -62,19 +66,19 @@ public class ModArmorEvents {
             }
         };
 
-        List<IPoweredArmorSet> handlers = Arrays.asList(
-                new PoweredArmorSet(ModItems.angelicHelmet, ModItems.angelicChestplate, ModItems.angelicLeggings, ModItems.angelicBoots,
+        List<IPoweredArmor> handlers = Arrays.asList(
+                new PoweredArmor(ModItems.angelicHelmet, ModItems.angelicChestplate, ModItems.angelicLeggings, ModItems.angelicBoots,
                         ArmorHandlers::onCanFlyChanged)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.onCanFlyChanged(event.player, true))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "angelic")),
 
-                new PoweredArmorSet(ModItems.divineHelmet, ModItems.divineChestplate, ModItems.divineLeggings, ModItems.divineBoots)
+                new PoweredArmor(ModItems.divineHelmet, ModItems.divineChestplate, ModItems.divineLeggings, ModItems.divineBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6))
                         .addAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance -= 0.5F)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "divine")),
 
-                new PoweredArmorSet(ModItems.bedrockHelmet, ModItems.bedrockChestplate, ModItems.bedrockLeggings, ModItems.bedrockBoots)
+                new PoweredArmor(ModItems.bedrockHelmet, ModItems.bedrockChestplate, ModItems.bedrockLeggings, ModItems.bedrockBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event,
                                 source -> source.isFireDamage() || source.isExplosion() || source == DamageSource.LAVA))
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> {
@@ -83,15 +87,15 @@ public class ModArmorEvents {
                         })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "bedrock")),
 
-                new PoweredArmorSet(enderArmorDescriber, null)
+                new PoweredArmor(enderArmorDescriber, null)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, DamageSource::isExplosion))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "ender")),
 
-                new PoweredArmorSet(rupeeArmorDescriber, null)
+                new PoweredArmor(rupeeArmorDescriber, null)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event, ArmorHandlers::isMeeleeDamage, aFloat -> aFloat * 0.25F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "rupee")),
 
-                new PoweredArmorSet(ModItems.santaCap, ModItems.santaTunic, ModItems.santaPants, ModItems.santaBoots, stopSpeeUp)
+                new PoweredArmor(ModItems.santaCap, ModItems.santaTunic, ModItems.santaPants, ModItems.santaBoots, stopSpeeUp)
                         .addAbility(LivingHurtEvent.class, event -> {
                             if (event.getEntityLiving().world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
                                 ArmorHandlers.onPlayerReceiveDamage(event, ArmorHandlers::isMeeleeDamage, aFloat -> aFloat * 0.25F);
@@ -105,74 +109,74 @@ public class ModArmorEvents {
                 })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "santa")),
 
-                new PoweredArmorSet(ModItems.skelemanHelmet, ModItems.skelemanChestplate, ModItems.skelemanLeggings, ModItems.skelemanBoots)
+                new PoweredArmor(ModItems.skelemanHelmet, ModItems.skelemanChestplate, ModItems.skelemanLeggings, ModItems.skelemanBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::refillHunger)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "skeleman")),
 
-                new PoweredArmorSet(ModItems.terranHelmet, ModItems.terranChestplate, ModItems.terranLeggings, ModItems.terranBoots)
+                new PoweredArmor(ModItems.terranHelmet, ModItems.terranChestplate, ModItems.terranLeggings, ModItems.terranBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(new PotionEffect(MobEffects.HASTE,
                                 20, 2, true, false)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "terrain")),
 
-                new PoweredArmorSet(ModItems.frozenHelmet, ModItems.frozenChestplate, ModItems.frozenLeggings, ModItems.frozenBoots)
+                new PoweredArmor(ModItems.frozenHelmet, ModItems.frozenChestplate, ModItems.frozenLeggings, ModItems.frozenBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.frozeNearMobs(event, 10, 6))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "frozen")),
 
-                new PoweredArmorSet(ModItems.shadowHelmet, ModItems.shadowChestplate, ModItems.shadowLeggings, ModItems.shadowBoots, stopSpeeUp)
+                new PoweredArmor(ModItems.shadowHelmet, ModItems.shadowChestplate, ModItems.shadowLeggings, ModItems.shadowBoots, stopSpeeUp)
                         .addAbility(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpPlayer(event.player, 3, false))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "shadow")),
 
-                new PoweredArmorSet(ModItems.arlemiteHelmet, ModItems.arlemiteChestplate, ModItems.arlemiteLeggings, ModItems.arlemiteBoots)
+                new PoweredArmor(ModItems.arlemiteHelmet, ModItems.arlemiteChestplate, ModItems.arlemiteLeggings, ModItems.arlemiteBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event,
                                 source -> source.isProjectile() || source.damageType.equals("thrown"), aFloat -> aFloat * 0.2f))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "arlemite")),
 
-                new PoweredArmorSet(ModItems.skythernHelmet, ModItems.skythernChestplate, ModItems.skythernLeggings, ModItems.skythernBoots)
+                new PoweredArmor(ModItems.skythernHelmet, ModItems.skythernChestplate, ModItems.skythernLeggings, ModItems.skythernBoots)
                         .addAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.5, 0))
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "skythernm")),
 
-                new PoweredArmorSet(ModItems.haliteHelmet, ModItems.haliteChestplate, ModItems.haliteLeggings, ModItems.haliteBoots)
+                new PoweredArmor(ModItems.haliteHelmet, ModItems.haliteChestplate, ModItems.haliteLeggings, ModItems.haliteBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 16))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "halite")),
 
-                new PoweredArmorSet(ModItems.aquastriveHelmet, ModItems.aquastriveChestplate, ModItems.aquastriveLeggings, ModItems.aquastriveBoots)
+                new PoweredArmor(ModItems.aquastriveHelmet, ModItems.aquastriveChestplate, ModItems.aquastriveLeggings, ModItems.aquastriveBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpInWater(event.player, 1.2F))
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "aqua")),
 
-                new PoweredArmorSet(ModItems.krakenHelmet, ModItems.krakenChestplate, ModItems.krakenLeggings, ModItems.krakenBoots)
+                new PoweredArmor(ModItems.krakenHelmet, ModItems.krakenChestplate, ModItems.krakenLeggings, ModItems.krakenBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "kraken")),
 
-                new PoweredArmorSet(ModItems.netheriteHelmet, ModItems.netheriteChestplate, ModItems.netheriteLeggings, ModItems.netheriteBoots)
+                new PoweredArmor(ModItems.netheriteHelmet, ModItems.netheriteChestplate, ModItems.netheriteLeggings, ModItems.netheriteBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
                         })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "netherite")),
 
-                new PoweredArmorSet(ModItems.infernoHelmet, ModItems.infernoChestplate, ModItems.infernoLeggings, ModItems.infernoBoots)
+                new PoweredArmor(ModItems.infernoHelmet, ModItems.infernoChestplate, ModItems.infernoLeggings, ModItems.infernoBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
                         })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "inferno")),
 
-                new PoweredArmorSet(ModItems.mortumHelmet, ModItems.mortumChestplate, ModItems.mortumLeggings, ModItems.mortumBoots)
+                new PoweredArmor(ModItems.mortumHelmet, ModItems.mortumChestplate, ModItems.mortumLeggings, ModItems.mortumBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(
                                 new PotionEffect(MobEffects.NIGHT_VISION, 210, 10, true, false)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "mortum")),
 
-                new PoweredArmorSet(ModItems.eliteRealmiteHelmet, ModItems.eliteRealmiteChestplate, ModItems.eliteRealmiteLeggings, ModItems.eliteRealmiteBoots)
+                new PoweredArmor(ModItems.eliteRealmiteHelmet, ModItems.eliteRealmiteChestplate, ModItems.eliteRealmiteLeggings, ModItems.eliteRealmiteBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "realmite")),
 
-                new PoweredArmorSet(ModItems.apalachiaHelmet, ModItems.apalachiaChestplate, ModItems.apalachiaLeggings, ModItems.apalachiaBoots)
+                new PoweredArmor(ModItems.apalachiaHelmet, ModItems.apalachiaChestplate, ModItems.apalachiaLeggings, ModItems.apalachiaBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> {
                             EntityPlayer player = event.player;
                             if (player.isInWater()) {
@@ -181,23 +185,23 @@ public class ModArmorEvents {
                         })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "apalachia")),
 
-                new PoweredArmorSet(ModItems.kormaHelmet, ModItems.kormaChestplate, ModItems.kormaLeggings, ModItems.kormaBoots)
+                new PoweredArmor(ModItems.kormaHelmet, ModItems.kormaChestplate, ModItems.kormaLeggings, ModItems.kormaBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.heal(1))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "korma")),
 
-                new PoweredArmorSet(ModItems.vemosHelmet, ModItems.vemosChestplate, ModItems.vemosLeggings, ModItems.vemosBoots)
+                new PoweredArmor(ModItems.vemosHelmet, ModItems.vemosChestplate, ModItems.vemosLeggings, ModItems.vemosBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.heal(0.1F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "vemos")),
 
-                new PoweredArmorSet(ModItems.jungleHelmet, ModItems.jungleChestplate, ModItems.jungleLeggings, ModItems.jungleBoots)
+                new PoweredArmor(ModItems.jungleHelmet, ModItems.jungleChestplate, ModItems.jungleLeggings, ModItems.jungleBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, DamageSource::isMagicDamage))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "jungle")),
 
-                new PoweredArmorSet(ModItems.witherReaperHelmet, ModItems.witherReaperChestplate, ModItems.witherReaperLeggings, ModItems.witherReaperBoots)
+                new PoweredArmor(ModItems.witherReaperHelmet, ModItems.witherReaperChestplate, ModItems.witherReaperLeggings, ModItems.witherReaperBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.WITHER)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "wither")),
 
-                new PoweredArmorSet(ModItems.apalachiaHelmet, ModItems.apalachiaChestplate, ModItems.apalachiaLeggings, ModItems.apalachiaBoots)
+                new PoweredArmor(ModItems.apalachiaHelmet, ModItems.apalachiaChestplate, ModItems.apalachiaLeggings, ModItems.apalachiaBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event,
                                 s -> s.equals(DamageSource.CACTUS)
                                         || s.equals(DamageSource.FALLING_BLOCK)
@@ -206,7 +210,7 @@ public class ModArmorEvents {
                                         || s.equals(Utils.trapSource)))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "apalachia")),
 
-                new PoweredArmorSet(ModItems.edenHelmet, ModItems.edenChestplate, ModItems.edenLeggings, ModItems.edenBoots)
+                new PoweredArmor(ModItems.edenHelmet, ModItems.edenChestplate, ModItems.edenLeggings, ModItems.edenBoots)
                         .addAbility(BlockEvent.HarvestDropsEvent.class, event -> {
                             if (event.getState().getBlock() instanceof BlockTwilightOre && !event.isSilkTouching()) {
                                 ItemStack fragment = event.getDrops().get(0);
@@ -215,95 +219,95 @@ public class ModArmorEvents {
                         })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "eden")),
 
-                new PoweredArmorSet(ModItems.corruptedHelmet, ModItems.corruptedChestplate, ModItems.corruptedLeggings, ModItems.corruptedBoots)
+                new PoweredArmor(ModItems.corruptedHelmet, ModItems.corruptedChestplate, ModItems.corruptedLeggings, ModItems.corruptedBoots)
                         .addAbility(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, CORRUPTED, x -> x * 1.5F))
                         .setRegistryName(CORRUPTED),
 
-                new PoweredArmorSet(ModItems.jackOManHelmet, ModItems.jackOManChestplate, ModItems.jackOManLeggings, ModItems.jackOManBoots)
+                new PoweredArmor(ModItems.jackOManHelmet, ModItems.jackOManChestplate, ModItems.jackOManLeggings, ModItems.jackOManBoots)
                         .setRegistryName(JACKOMAN),
 
 
                 ///////////////////////////////
                 // VETHEA
                 //////////////////////////////
-                new PoweredArmorSet(ModItems.degradedHood, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
+                new PoweredArmor(ModItems.degradedHood, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "degradedHood")),
 
-                new PoweredArmorSet(ModItems.degradedHelmet, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
+                new PoweredArmor(ModItems.degradedHelmet, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "degradedHelmet")),
 
-                new PoweredArmorSet(ModItems.degradedMask, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
+                new PoweredArmor(ModItems.degradedMask, ModItems.degradedChestplate, ModItems.degradedLeggings, ModItems.degradedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "degradedMask")),
 
 
-                new PoweredArmorSet(ModItems.finishedHood, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
+                new PoweredArmor(ModItems.finishedHood, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "finishedHood")),
 
-                new PoweredArmorSet(ModItems.finishedHelmet, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
+                new PoweredArmor(ModItems.finishedHelmet, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "finishedHelmet")),
 
-                new PoweredArmorSet(ModItems.finishedMask, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
+                new PoweredArmor(ModItems.finishedMask, ModItems.finishedChestplate, ModItems.finishedLeggings, ModItems.finishedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "finishedMask")),
 
 
-                new PoweredArmorSet(ModItems.glisteningHood, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots)
+                new PoweredArmor(ModItems.glisteningHood, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.7F))
                         .addAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHood")),
 
-                new PoweredArmorSet(ModItems.glisteningHelmet, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots)
+                new PoweredArmor(ModItems.glisteningHelmet, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.7F))
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onAddMeleeDamage(e, x -> x + 3))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHelmet")),
 
-                new PoweredArmorSet(ModItems.glisteningMask, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots, stopSpeeUp)
+                new PoweredArmor(ModItems.glisteningMask, ModItems.glisteningChestplate, ModItems.glisteningLeggings, ModItems.glisteningBoots, stopSpeeUp)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.7F))
                         .addAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.4F, false))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningMask")),
 
 
-                new PoweredArmorSet(ModItems.demonizedHood, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots)
+                new PoweredArmor(ModItems.demonizedHood, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .addAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHood")),
 
-                new PoweredArmorSet(ModItems.demonizedHelmet, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots)
+                new PoweredArmor(ModItems.demonizedHelmet, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.625F))
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onAddMeleeDamage(e, x -> x + 6))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHelmet")),
 
-                new PoweredArmorSet(ModItems.demonizedMask, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots, stopSpeeUp)
+                new PoweredArmor(ModItems.demonizedMask, ModItems.demonizedChestplate, ModItems.demonizedLeggings, ModItems.demonizedBoots, stopSpeeUp)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.625F))
                         .addAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.8F, false))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedMask")),
 
 
-                new PoweredArmorSet(ModItems.tormentedHood, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots)
+                new PoweredArmor(ModItems.tormentedHood, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
                         .addAbility(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.4, 0))
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHood")),
 
-                new PoweredArmorSet(ModItems.tormentedHelmet, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots)
+                new PoweredArmor(ModItems.tormentedHelmet, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.348F))
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onAddMeleeDamage(e, x -> x + 9))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHelmet")),
 
-                new PoweredArmorSet(ModItems.tormentedMask, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots, stopSpeeUp)
+                new PoweredArmor(ModItems.tormentedMask, ModItems.tormentedChestplate, ModItems.tormentedLeggings, ModItems.tormentedBoots, stopSpeeUp)
                         .addAbility(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.348F))
                         .addAbility(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 2.2F, false))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedMask"))
         );
 
-        IForgeRegistry<IPoweredArmorSet> registry = registryEvent.getRegistry();
+        IForgeRegistry<IPoweredArmor> registry = registryEvent.getRegistry();
         handlers.forEach(registry::register);
     }
 }

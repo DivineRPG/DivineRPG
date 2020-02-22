@@ -4,7 +4,7 @@
 package divinerpg;
 
 import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.api.java.divinerpg.api.armor14.IPoweredArmorSet;
+import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
@@ -94,9 +94,9 @@ public class DivineRPG {
     public void createRegistries(RegistryEvent.NewRegistry event) {
         logger.info("Creating registries");
 
-        new RegistryBuilder<IPoweredArmorSet>()
+        new RegistryBuilder<IPoweredArmor>()
                 .setName(new ResourceLocation(Reference.MODID, "powers"))
-                .setType(IPoweredArmorSet.class)
+                .setType(IPoweredArmor.class)
                 .create();
     }
 
