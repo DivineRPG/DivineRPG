@@ -3,6 +3,7 @@ package divinerpg.api.java.divinerpg.api.armorNew.interfaces;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ public interface IArmorSet {
      *
      * @param slot - entity slot
      */
+    @Nonnull
     List<Item> getPossibleItems(EntityEquipmentSlot slot);
 
     /**

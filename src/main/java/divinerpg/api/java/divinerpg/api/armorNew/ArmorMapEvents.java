@@ -6,16 +6,14 @@ import divinerpg.api.java.divinerpg.api.DivineAPI;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmorManage;
-import divinerpg.networking.message.MessageArcanaBar;
 import divinerpg.networking.message.PlayerLoggedEvent;
-import it.unimi.dsi.fastutil.booleans.BooleanArrayList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -55,7 +53,8 @@ public class ArmorMapEvents {
      * @return
      */
     public static PlayerArmorObserver findPlayerArmorObserver(EntityPlayer player) {
-        return getPlayersMap().get(player);
+        Map<EntityPlayer, PlayerArmorObserver> map = getPlayersMap();
+        return map.computeIfAbsent(player, PlayerArmorObserver::new);
     }
 
     /**
@@ -103,18 +102,26 @@ public class ArmorMapEvents {
         }
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
+    @SubscribeEvent
     public static void checkEquipment(IsEquppedEvent event) {
-        List<ResourceLocation> wearing = DivineAPI.getPowerSetRegistry().getEntries().parallelStream()
-                .filter(x -> {
-                    IArmorSet armor = x.getValue().getArmorDescription();
+        for (IPoweredArmor armor : DivineAPI.getPowerSetRegistry()) {
+            if (armor != null) {
+                // returns description of armor
+                IArmorSet description = armor.getArmorDescription();
 
-                    return Arrays.stream(EntityEquipmentSlot.values())
-                            .allMatch(s -> armor.getPossibleItems(s).contains(event.getItemInSlot(s)));
-                }).map(Map.Entry::getKey).collect(Collectors.toList());
+                boolean isOn = Arrays.stream(EntityEquipmentSlot.values())
+                        .allMatch(x -> {
+                            // getting possible items of armor set
+                            List<Item> items = description.getPossibleItems(x);
+                            // checks if list is empty or armor description contains
+                            // equipped item
+                            return items.isEmpty() || items.contains(event.getItemInSlot(x));
+                        });
 
-        for (ResourceLocation id : wearing) {
-            event.add(id);
+                if (isOn) {
+                    event.add(armor.getRegistryName());
+                }
+            }
         }
     }
 }

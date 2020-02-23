@@ -1,10 +1,12 @@
 package divinerpg.api.java.divinerpg.api.armorNew.interfaces;
 
+import divinerpg.api.java.divinerpg.api.armorNew.ForgeEventHandler;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
+import java.util.function.Consumer;
 
 
 /**
@@ -12,7 +14,7 @@ import java.util.Map;
  */
 public interface IPoweredArmor extends IForgeRegistryEntry<IPoweredArmor>, IEquipped {
 
-    Map<Class, IAbilityHandler<?>> getAbilityMap();
+    Map<Class, ForgeEventHandler<?>> getAbilityMap();
 
     /**
      * Add ability to armor set
@@ -21,7 +23,7 @@ public interface IPoweredArmor extends IForgeRegistryEntry<IPoweredArmor>, IEqui
      * @param e     - handling event
      * @param <T>   - type of event
      */
-    <T extends Event, TRes extends IPoweredArmor> TRes addAbility(Class<T> clazz, IAbilityHandler<T> e);
+    <T extends Event, TRes extends IPoweredArmor> TRes addAbility(Class<T> clazz, Consumer<T> e);
 
     /**
      * Returns current armor description
