@@ -20,6 +20,7 @@ public class BlockAyeracoSpawn extends BlockContainer {
 
         // Need to register it!
         setRegistryName("ayeraco_spawn");
+        setUnlocalizedName("ayeraco_spawn");
     }
 
     @Override

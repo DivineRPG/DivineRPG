@@ -24,6 +24,7 @@ public class BlockAyeracoBeam extends BlockContainer {
 
         // Need to register it!
         setRegistryName(Reference.MODID, name);
+        setUnlocalizedName(name);
     }
 
     @Override
