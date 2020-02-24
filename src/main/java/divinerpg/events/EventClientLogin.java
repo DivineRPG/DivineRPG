@@ -25,7 +25,7 @@ public class EventClientLogin {
         if (!player.world.isRemote) {
 
             // Greetings
-            if (Utils.DEV_LIST.contains(player.getName())) {
+            if (Utils.DEV_LIST.contains(player.getUniqueID().toString())) {
                 Logging.message(player, TextFormatting.WHITE + MessageLocalizer.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
             }
 

@@ -272,18 +272,18 @@ public class Utils {
     }
 
     public static void addDevsToList() {
-        DEV_LIST.add("RadioactiveStud");
-        DEV_LIST.add("Eternaldoom1");
-        DEV_LIST.add("BossLetsPlays");
-        DEV_LIST.add("Xolova");
-        DEV_LIST.add("sheenrox82");
-        DEV_LIST.add("The_SlayerMC");
-        DEV_LIST.add("insanity414all");
-        DEV_LIST.add("deathman12e3");
-        DEV_LIST.add("Fire_Sight");
-        DEV_LIST.add("krwminer"); //Krwminer
-        DEV_LIST.add("NicosaurusRex99"); //NicosaurusRex99
-        DEV_LIST.add("LiteWolf101"); //Wufflez
-        DEV_LIST.add("Dash"); //Dash
+        DEV_LIST.add("607043b2-830e-4d7c-a600-871754c01827"); //RadioactiveStud
+        DEV_LIST.add("a75f7026-aebd-4777-9cbb-de40516dca84"); //Eternaldoom1
+        DEV_LIST.add("989677b3-7af4-4b9a-9672-07b367677ecb"); //BossLetsPlays
+        DEV_LIST.add("010318ef-28fc-4c7c-8940-2f0d62eabfa6"); //Xolova
+        DEV_LIST.add("6e65f2ca-fd15-47c5-ab91-13dd2731d73f"); //sheenrox82
+        DEV_LIST.add("b9ee091b-c611-41ff-a52b-4020027e5cb6"); //The_SlayerMC
+        DEV_LIST.add("3a037d9d-0744-4452-aa80-f3c9ab17a1d2"); //insanity414all
+        DEV_LIST.add("de247846-69fb-4880-907b-a5e1f58267f3"); //deathman12e3
+        DEV_LIST.add("1586e8bd-e266-49d0-aa2a-f6aab3a8e90d"); //Fire_Sight
+        DEV_LIST.add("c657219e-36ba-495c-aff4-dad3c248f76c"); //Krwminer
+        DEV_LIST.add("17356bc2-89ad-484e-9f2a-8fdbdcf1f3cd"); //NicosaurusRex99
+        DEV_LIST.add("1e2326e7-a592-4e11-9b4c-d0c930deeca3"); //Wufflez
+        DEV_LIST.add("e11679a6-2269-46aa-a6fd-4e2aec9f3b96"); //Dash
     }
 }

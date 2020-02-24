@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.Side;
 	public void playerRender(RenderPlayerEvent.Post evt) {
 		EntityPlayer player = evt.getEntityPlayer();
 
-		if (Utils.isDeveloperName(player.getDisplayNameString())) {
+		if (Utils.isDeveloperName(player.getUniqueID().toString())) {
 			GL11.glPushMatrix();
 			// rotating hat
 			GL11.glRotated(-player.rotationYaw, 0,1,0);
