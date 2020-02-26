@@ -2314,20 +2314,20 @@ public class ModItems {
         register(registry, new ItemMod("dungeon_tokens"));
 
         // Seeds
-        register(registry, new ItemArcanaSeeds("aquamarine_seeds"));
-        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds"));
-        register(registry, new ItemArcanaSeeds("firestock_seeds"));
-        register(registry, new ItemArcanaSeeds("hitchak_seeds"));
-        register(registry, new ItemArcanaSeeds("lamona_seeds"));
-        register(registry, new ItemArcanaSeeds("marsine_seeds"));
-        register(registry, new ItemModSeeds("moonbulb_seeds", Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("pinfly_seeds"));
-        register(registry, new ItemModSeeds("pink_glowbone_seeds", Blocks.GRASS));
-        register(registry, new ItemModSeeds("purple_glowbone_seeds", Blocks.GRASS));
-        register(registry, new ItemModSeeds("sky_plant_seeds", Blocks.GRASS));
-        register(registry, new ItemModSeeds("tomato_seeds", Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("veilo_seeds"));
-        register(registry, new ItemModSeeds("white_mushroom_seeds", Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("aquamarine_seeds", () -> ModBlocks.aquamarinePlant));
+        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds", () -> ModBlocks.eucalyptusPlant));
+        register(registry, new ItemArcanaSeeds("firestock_seeds", () -> ModBlocks.firestockPlant));
+        register(registry, new ItemArcanaSeeds("hitchak_seeds", () -> ModBlocks.hitchakPlant));
+        register(registry, new ItemArcanaSeeds("lamona_seeds", () -> ModBlocks.lamonaPlant));
+        register(registry, new ItemArcanaSeeds("marsine_seeds", () -> ModBlocks.marsinePlant));
+        register(registry, new ItemModSeeds("moonbulb_seeds", () -> ModBlocks.moonbulbPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("pinfly_seeds", () -> ModBlocks.pinflyPlant));
+        register(registry, new ItemModSeeds("pink_glowbone_seeds", () -> ModBlocks.pinkGlowbonePlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("purple_glowbone_seeds", () -> ModBlocks.purpleGlowbonePlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("sky_plant_seeds", () -> ModBlocks.skyPlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("tomato_seeds", () -> ModBlocks.tomatoPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("veilo_seeds", () -> ModBlocks.veiloPlant));
+        register(registry, new ItemModSeeds("white_mushroom_seeds", () -> ModBlocks.whiteMushroomPlant, () -> Blocks.FARMLAND));
 
         // Vethea
         // Vethea pearls
@@ -2536,25 +2536,5 @@ public class ModItems {
     private static void register(IForgeRegistry<Item> registry, Item item) {
         itemList.add(item);
         registry.register(item);
-    }
-
-    /**
-     * Called during FML init, ensures that the crop blocks aren't null before the seeds are set to plant them
-     */
-    public static void addCropsToSeeds() {
-        ((ItemModSeeds)whiteMushroomSeeds).setCrop(ModBlocks.whiteMushroomPlant);
-        ((ItemModSeeds)tomatoSeeds).setCrop(ModBlocks.tomatoPlant);
-        ((ItemModSeeds)moonbulbSeeds).setCrop(ModBlocks.moonbulbPlant);
-        ((ItemModSeeds)pinkGlowboneSeeds).setCrop(ModBlocks.pinkGlowbonePlant);
-        ((ItemModSeeds)purpleGlowboneSeeds).setCrop(ModBlocks.purpleGlowbonePlant);
-        ((ItemModSeeds)skyPlantSeeds).setCrop(ModBlocks.skyPlant);
-        ((ItemModSeeds)hitchakSeeds).setCrop(ModBlocks.hitchakPlant);
-        ((ItemModSeeds)veiloSeeds).setCrop(ModBlocks.veiloPlant);
-        ((ItemModSeeds)marsineSeeds).setCrop(ModBlocks.marsinePlant);
-        ((ItemModSeeds)lamonaSeeds).setCrop(ModBlocks.lamonaPlant);
-        ((ItemModSeeds)firestockSeeds).setCrop(ModBlocks.firestockPlant);
-        ((ItemModSeeds)pinflySeeds).setCrop(ModBlocks.pinflyPlant);
-        ((ItemModSeeds)aquamarineSeeds).setCrop(ModBlocks.aquamarinePlant);
-        ((ItemModSeeds)eucalyptusRootSeeds).setCrop(ModBlocks.eucalyptusPlant);
     }
 }

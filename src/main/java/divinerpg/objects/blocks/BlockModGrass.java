@@ -113,7 +113,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         }
 
         if (plantable instanceof ItemModSeeds) {
-            return ((ItemModSeeds)plantable).soil == this;
+            return ((ItemModSeeds)plantable).soilSupplier.get() == this;
         }
 
         return false;

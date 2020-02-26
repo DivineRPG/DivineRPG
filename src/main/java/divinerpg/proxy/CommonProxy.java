@@ -64,8 +64,6 @@ public class CommonProxy {
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
-
-        ModItems.addCropsToSeeds();
     }
 
     public void postInit(FMLPostInitializationEvent e) {
