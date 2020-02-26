@@ -1070,11 +1070,11 @@ public class ModBlocks {
         // Vanilla dimensions
 
         // Ores
-        register(registry, new BlockModOre("arlemite_ore", 3.0F, 2000F, DIAMOND, null));
-        register(registry, new BlockModOre("realmite_ore", 3.0F, 2000F, IRON, null));
-        register(registry, new BlockModOre("rupee_ore", 3.0F, 2000F, DIAMOND, null));
-        register(registry, new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, ModItems.bloodgem));
-        register(registry, new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND, null));
+        register(registry, new BlockModOre("arlemite_ore", 3.0F, 2000F, DIAMOND, () -> null));
+        register(registry, new BlockModOre("realmite_ore", 3.0F, 2000F, IRON, () -> null));
+        register(registry, new BlockModOre("rupee_ore", 3.0F, 2000F, DIAMOND, () -> null));
+        register(registry, new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, () -> ModItems.bloodgem));
+        register(registry, new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND));
 
         // Compressed ore blocks
         register(registry, new BlockBeaconBase(EnumBlockType.ROCK, "arlemite_block", 5.0F, DIAMOND));
@@ -1204,7 +1204,7 @@ public class ModBlocks {
         // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
-        register(registry, new BlockModLeaves("divine_leaves", 0.3F, getBlockFromList("divine_sapling"), MapColor.YELLOW));
+        register(registry, new BlockModLeaves("divine_leaves", 0.3F, () -> divineSapling, MapColor.YELLOW));
         register(registry, new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F));
         register(registry, new BlockMod("divine_moss_stone", 2.0F).setResistance(10));
         register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F));
@@ -1314,11 +1314,11 @@ public class ModBlocks {
         register(registry, new BlockMod("twilight_stone", 6.0F));
 
         // Ore
-        register(registry, new BlockTwilightOre("eden_ore", 9, 2000F, DIAMOND, ModItems.edenFragments));
-        register(registry, new BlockTwilightOre("wildwood_ore", 9, 2000F, DIAMOND, ModItems.wildwoodFragments));
-        register(registry, new BlockTwilightOre("apalachia_ore", 9, 2000F, DIAMOND, ModItems.apalachiaFragments));
-        register(registry, new BlockTwilightOre("skythern_ore", 9, 2000F, DIAMOND, ModItems.skythernFragments));
-        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments));
+        register(registry, new BlockTwilightOre("eden_ore", 9, 2000F, DIAMOND, () -> ModItems.edenFragments));
+        register(registry, new BlockTwilightOre("wildwood_ore", 9, 2000F, DIAMOND, () -> ModItems.wildwoodFragments));
+        register(registry, new BlockTwilightOre("apalachia_ore", 9, 2000F, DIAMOND, () -> ModItems.apalachiaFragments));
+        register(registry, new BlockTwilightOre("skythern_ore", 9, 2000F, DIAMOND, () -> ModItems.skythernFragments));
+        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, () -> ModItems.mortumFragments));
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", getBlockFromList("eden_grass"), getBlockFromList("eden_dirt"), new EdenTree(true)));
@@ -1335,11 +1335,11 @@ public class ModBlocks {
         register(registry, new BlockModLog("mortum_log", MapColor.RED));
 
         // Leaves
-        register(registry, new BlockModLeaves("eden_leaves", 0.5F, getBlockFromList("eden_sapling"), MapColor.YELLOW));
-        register(registry, new BlockModLeaves("wildwood_leaves", 0.5F, getBlockFromList("wildwood_sapling"), MapColor.LIGHT_BLUE));
-        register(registry, new BlockModLeaves("apalachia_leaves", 0.5F, getBlockFromList("apalachia_sapling"), MapColor.PINK).setLightLevel(0.5F));
-        register(registry, new BlockModLeaves("skythern_leaves", 0.5F, getBlockFromList("skythern_sapling"), MapColor.CLOTH));
-        register(registry, new BlockModLeaves("mortum_leaves", 0.5F, getBlockFromList("mortum_sapling"), MapColor.RED));
+        register(registry, new BlockModLeaves("eden_leaves", 0.5F, () -> edenSapling, MapColor.YELLOW));
+        register(registry, new BlockModLeaves("wildwood_leaves", 0.5F, () -> wildwoodSapling, MapColor.LIGHT_BLUE));
+        register(registry, new BlockModLeaves("apalachia_leaves", 0.5F, () -> apalachiaSapling, MapColor.PINK).setLightLevel(0.5F));
+        register(registry, new BlockModLeaves("skythern_leaves", 0.5F, () -> skythernSapling, MapColor.CLOTH));
+        register(registry, new BlockModLeaves("mortum_leaves", 0.5F, () -> mortumSapling, MapColor.RED));
 
         // Planks
         register(registry, new BlockMod(EnumBlockType.WOOD, "eden_planks", 2.0F));

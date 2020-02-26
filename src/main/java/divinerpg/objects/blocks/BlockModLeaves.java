@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
@@ -32,11 +33,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockModLeaves extends BlockLeaves implements IShearable {
-    private Block sapling;
+    private Supplier<Block> saplingSupplier;
     private MapColor mapColor;
 
     public BlockModLeaves(String name, float hardness, @Nonnull MapColor mapColorIn) {
         super();
+        this.saplingSupplier = () -> null;
         this.setMapColor(mapColorIn);
         this.setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
@@ -46,9 +48,9 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
     }
 
-    public BlockModLeaves(String name, float hardness, Block sapling, @Nonnull MapColor mapColorIn) {
+    public BlockModLeaves(String name, float hardness, Supplier<Block> saplingSupplier, @Nonnull MapColor mapColorIn) {
         this(name, hardness, mapColorIn);
-        this.sapling = sapling;
+        this.saplingSupplier = saplingSupplier;
     }
 
     @Override
@@ -63,7 +65,8 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-    	return (this.sapling != null) ? Item.getItemFromBlock(this.sapling) : null;
+        Block sapling = this.saplingSupplier.get();
+    	return sapling != null ? Item.getItemFromBlock(sapling) : null;
     }
 
     @Override

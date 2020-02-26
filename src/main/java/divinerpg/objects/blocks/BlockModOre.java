@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
@@ -11,30 +12,33 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockModOre extends BlockMod {
-    private Item dropItem;
+    private Supplier<Item> dropItemSupplier;
     private Random rand;
 
-    public BlockModOre(String name, float hardness, float resistance, int harvestLevel, Item drop) {
+    public BlockModOre(String name, float hardness, float resistance, int harvestLevel, Supplier<Item> drop) {
         super(EnumBlockType.ROCK, name, hardness, DivineRPGTabs.BlocksTab);
         this.setHarvestLevel("pickaxe", harvestLevel);
         this.setResistance(resistance);
-        this.dropItem = drop;
+        this.dropItemSupplier = drop;
 
         this.rand = new Random();
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return this.dropItem != null ? this.dropItem : Item.getItemFromBlock(this);
+        Item dropItem = this.dropItemSupplier.get();
+        return dropItem != null ? dropItem : Item.getItemFromBlock(this);
     }
 
     @Override
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
-        return this.dropItem != null ? MathHelper.getInt(rand, 0, 4) : 0;
+        Item dropItem = this.dropItemSupplier.get();
+        return dropItem != null ? MathHelper.getInt(rand, 0, 4) : 0;
     }
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return this.dropItem != null ? random.nextInt(fortune + 1) + 1 : 1;
+        Item dropItem = this.dropItemSupplier.get();
+        return dropItem != null ? random.nextInt(fortune + 1) + 1 : 1;
     }
 }

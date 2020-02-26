@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 public class BlockNetheriteOre extends BlockModOre {
 
-    public BlockNetheriteOre(String name, float hardness, float resistance, int harvest, Item item) {
-        super(name, hardness, resistance, harvest, item);
+    public BlockNetheriteOre(String name, float hardness, float resistance, int harvest) {
+        super(name, hardness, resistance, harvest, () -> null);
         setTickRandomly(true);
     }
 
