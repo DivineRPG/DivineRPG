@@ -20,7 +20,6 @@ Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping
 * Claim that you made DivineRPG
 * Redistribute modified versions of DivineRPG
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
-* Put DivineRPG in a modpack without permission
 
 ### Credits
 This mod is owned by XolovA, but he is no longer part of the team
