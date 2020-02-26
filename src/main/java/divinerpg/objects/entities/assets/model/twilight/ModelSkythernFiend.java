@@ -16,8 +16,8 @@ public class ModelSkythernFiend extends ModelBase
     ModelRenderer leftleg;
     ModelRenderer connector;
     ModelRenderer head1;
+    ModelRenderer Spear1;
     ModelRenderer Spear2;
-    ModelRenderer Shape1;
 
     public ModelSkythernFiend()
     {
@@ -71,18 +71,18 @@ public class ModelSkythernFiend extends ModelBase
         this.head1.setTextureSize(64, 32);
         this.head1.mirror = true;
         this.setRotation(this.head1, 0.0F, 0.0F, 0.0F);
-        this.Spear2 = new ModelRenderer(this, -2, 0);
+        this.Spear1 = new ModelRenderer(this, -2, 0);
+        this.Spear1.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
+        this.Spear1.setRotationPoint(5.5F, 10.0F, -15.0F);
+        this.Spear1.setTextureSize(64, 32);
+        this.Spear1.mirror = true;
+        this.setRotation(this.Spear1, 0.0F, 0.0F, 0.0F);
+        this.Spear2 = new ModelRenderer(this, 0, 0);
         this.Spear2.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
-        this.Spear2.setRotationPoint(5.5F, 10.0F, -15.0F);
+        this.Spear2.setRotationPoint(-7.0F, 10.0F, -15.0F);
         this.Spear2.setTextureSize(64, 32);
         this.Spear2.mirror = true;
         this.setRotation(this.Spear2, 0.0F, 0.0F, 0.0F);
-        this.Shape1 = new ModelRenderer(this, 0, 0);
-        this.Shape1.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
-        this.Shape1.setRotationPoint(-7.0F, 10.0F, -15.0F);
-        this.Shape1.setTextureSize(64, 32);
-        this.Shape1.mirror = true;
-        this.setRotation(this.Shape1, 0.0F, 0.0F, 0.0F);
     }
 
     /**
@@ -101,8 +101,8 @@ public class ModelSkythernFiend extends ModelBase
         this.leftleg.render(var7);
         this.connector.render(var7);
         this.head1.render(var7);
+        this.Spear1.render(var7);
         this.Spear2.render(var7);
-        this.Shape1.render(var7);
     }
 
     private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
@@ -120,10 +120,10 @@ public class ModelSkythernFiend extends ModelBase
         this.leftarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
         this.rightarm.rotateAngleZ = 0.0F;
         this.leftarm.rotateAngleZ = 0.0F;
-        this.Spear2.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
-        this.Shape1.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
+        this.Spear1.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
+        this.Spear2.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
+        this.Spear1.rotateAngleZ = 0.0F;
         this.Spear2.rotateAngleZ = 0.0F;
-        this.Shape1.rotateAngleZ = 0.0F;
         this.rightleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
         this.leftleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
         this.rightleg.rotateAngleY = 0.0F;
