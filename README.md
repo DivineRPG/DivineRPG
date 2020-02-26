@@ -3,7 +3,7 @@ DivineRPG
 
 The official repository for the DivineRPG Minecraft mod
 
-CurseForge: https://www.curseforge.com/minecraft/mc-mods/official-divinerpg
+Download (CurseForge): https://www.curseforge.com/minecraft/mc-mods/official-divinerpg
 
 Discord: https://discord.gg/R9Zc32D
 
