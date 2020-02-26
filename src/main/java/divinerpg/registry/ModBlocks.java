@@ -593,34 +593,37 @@ public class ModBlocks {
     // Ground foliage
     @ObjectHolder("sunbloom")
     public static final Block sunbloom = null;
-    @ObjectHolder("eden_brush")
-    public static final Block edenBrush = null;
     @ObjectHolder("sun_blossom")
     public static final Block sunBlossom = null;
     @ObjectHolder("moonlight_fern")
     public static final Block moonlightFern = null;
     @ObjectHolder("moon_bud")
     public static final Block moonBud = null;
-    @ObjectHolder("wildwood_tallgrass")
-    public static final Block wildwoodTallgrass = null;
-    @ObjectHolder("dusk_flower")
-    public static final Block duskFlower = null;
     @ObjectHolder("dusk_bloom")
     public static final Block duskBloom = null;
+    @ObjectHolder("dust_lily")
+    public static final Block dustLily = null;
+    @ObjectHolder("eye_plant")
+    public static final Block eyePlant = null;
+
+    @ObjectHolder("eden_brush")
+    public static final Block edenBrush = null;
     @ObjectHolder("apalachia_tallgrass")
     public static final Block apalachiaTallgrass = null;
     @ObjectHolder("skythern_brush")
     public static final Block skythernBrush = null;
-    @ObjectHolder("dust_lily")
-    public static final Block dustLily = null;
+    @ObjectHolder("mortum_brush")
+    public static final Block mortumBrush = null;
+
+    @ObjectHolder("wildwood_tallgrass")
+    public static final Block wildwoodTallgrass = null;
+    @ObjectHolder("dusk_flower")
+    public static final Block duskFlower = null;
+
     @ObjectHolder("dust_brambles")
     public static final Block dustBrambles = null;
     @ObjectHolder("demon_brambles")
     public static final Block demonBrambles = null;
-    @ObjectHolder("eye_plant")
-    public static final Block eyePlant = null;
-    @ObjectHolder("mortum_brush")
-    public static final Block mortumBrush = null;
 
     // Crops
     @ObjectHolder("moonbulb_plant")
@@ -1364,20 +1367,24 @@ public class ModBlocks {
 
         // Ground foliage
         register(registry, new BlockTwilightFlower("sunbloom", () -> edenGrass, MapColor.YELLOW));
-        register(registry, new BlockTwilightGrass("eden_brush", getBlockFromList("eden_grass"), MapColor.YELLOW));
         register(registry, new BlockTwilightFlower("sun_blossom", () -> edenGrass, 0.9, 0.6, MapColor.YELLOW));
         register(registry, new BlockTwilightFlower("moonlight_fern", () -> wildwoodGrass, 0.8, 0.8, MapColor.BLUE));
         register(registry, new BlockTwilightFlower("moon_bud", () -> wildwoodGrass, 0.8, 0.7, MapColor.BLUE));
-        register(registry, new BlockModDoublePlant("wildwood_tallgrass", getBlockFromList("wildwood_grass"), MapColor.BLUE));
-        register(registry, new BlockModDoublePlant("dusk_flower", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
         register(registry, new BlockTwilightFlower("dusk_bloom", () -> apalachiaGrass, 0.5, 0.5, MapColor.PURPLE));
+        register(registry, new BlockTwilightFlower("dust_lily", () -> skythernGrass, MapColor.GRAY));
+        register(registry, new BlockTwilightFlower("eye_plant", () -> mortumGrass, 0.5, 0.5, MapColor.BLACK));
+
+        register(registry, new BlockTwilightGrass("eden_brush", getBlockFromList("eden_grass"), MapColor.YELLOW));
         register(registry, new BlockTwilightGrass("apalachia_tallgrass", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
         register(registry, new BlockTwilightGrass("skythern_brush", getBlockFromList("skythern_grass"), MapColor.GRAY));
-        register(registry, new BlockTwilightFlower("dust_lily", () -> skythernGrass, MapColor.GRAY));
+        register(registry, new BlockTwilightGrass("mortum_brush", getBlockFromList("mortum_grass"), MapColor.BLACK));
+
+        register(registry, new BlockModDoublePlant("wildwood_tallgrass", getBlockFromList("wildwood_grass"), MapColor.BLUE));
+        register(registry, new BlockModDoublePlant("dusk_flower", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
+
         register(registry, new BlockBrambles("dust_brambles", getBlockFromList("skythern_grass"), MapColor.GRAY));
         register(registry, new BlockBrambles("demon_brambles", getBlockFromList("mortum_grass"), MapColor.BLACK));
-        register(registry, new BlockTwilightFlower("eye_plant", () -> mortumGrass, 0.5, 0.5, MapColor.BLACK));
-        register(registry, new BlockTwilightGrass("mortum_brush", getBlockFromList("mortum_grass"), MapColor.BLACK));
+
 
         // Crops
         register(registry, new BlockMoonbulb().setLightLevel(0.6f));
