@@ -3,7 +3,8 @@ DivineRPG
 
 The official repository for the DivineRPG Minecraft mod
 
-Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2455655-divinerpg-8-new-dimensions-115-new-mobs-bosses)
+CurseForge: https://www.curseforge.com/minecraft/mc-mods/official-divinerpg
+Discord: https://discord.gg/R9Zc32D
 
 ### What you can and cannot do with DivineRPG
 ###### You CAN:
