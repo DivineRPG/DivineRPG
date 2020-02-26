@@ -11,8 +11,8 @@ Discord: https://discord.gg/R9Zc32D
 ###### You CAN:
 * Download DivineRPG and use it
 * Make a public Minecraft server with DivineRPG installed
-* Include DivineRPG in a modpack _if you have permission from the development team, if you link back to the mod's forum thread, if you credit the team, and if you agree to remove the mod from the pack at any time if you are told to by the DivineRPG team_
-* Make youtube videos showing DivineRPG gameplay _as long as you link back to the mod's forum thread_
+* Include DivineRPG in a modpack. Ideally you include the CurseForge download link (given above) with it.
+* Make videos with DivineRPG gameplay. Ideally you include the CurseForge download link (given above) with them.
 * Use the source code as a reference for educational purposes
 * Modify and recompile DivineRPG for PERSONAL use
 * Fork DivineRPG on Github and write a pull request
@@ -24,7 +24,8 @@ Discord: https://discord.gg/R9Zc32D
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
 
 ### Credits
-This mod is owned by XolovA, but he is no longer part of the team
+* XolovA - original creator
+* Scimiguy - current owner
 ***
 ##### Main Team
 * RadioactiveStud (aka SoccerStud) - Developer
@@ -33,6 +34,8 @@ This mod is owned by XolovA, but he is no longer part of the team
 * BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
 * NicosasurusRex99 - Developer
 * Wufflez/Litewolf101 - Developer
+* Immortallis - Developer
+* Dash - Developer
 
 ##### Special Thanks to
 * Dizzlepop12 - A few models/textures
