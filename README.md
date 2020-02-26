@@ -28,11 +28,8 @@ Discord: https://discord.gg/R9Zc32D
 * Scimiguy - current owner
 ***
 ##### Main Team
-* RadioactiveStud (aka SoccerStud) - Developer
-* Eternaldoom - Developer
-* krwminer - Developer
-* BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
 * NicosasurusRex99 - Developer
+* krwminer - Developer
 * Wufflez/Litewolf101 - Developer
 * Immortallis - Developer
 * Dash - Developer
@@ -46,8 +43,11 @@ Discord: https://discord.gg/R9Zc32D
 * BlueEyes9 - A few Models/Textures
 * Insanity414all - Wiki admin
 * Laorwick - Some Recipes
+* BossLetsPlays - Sound Artist & Maintenance Developer & Former Server Owner
 
 ##### Other Credits
+* RadioactiveStud (aka SoccerStud) - Former Developer
+* Eternaldoom - Former Developer
 * The_SlayerMC - Former Developer
 * Sheenrox82 - Former Developer
 * Mazetar - Former Developer
