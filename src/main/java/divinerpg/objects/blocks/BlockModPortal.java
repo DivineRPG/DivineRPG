@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.java.divinerpg.api.Reference;
@@ -49,12 +50,15 @@ public class BlockModPortal extends BlockBreakable {
         return a == EnumFacing.Axis.X ? 1 : (a == EnumFacing.Axis.Z ? 2 : 0);
     }
 
-    protected Block fireBlock, portalFrame, portalBlock = this;
+    private Supplier<Block> fireBlockSupplier;
+    private Supplier<Block> portalFrameSupplier;
+    private Block portalBlock = this;
+
     ParticleType portalParticle;
     protected String name;
     protected int dimId;
 
-    public BlockModPortal(String name, int dimId, Block fireBlock, Block portalFrame, ParticleType particle) {
+    public BlockModPortal(String name, int dimId, Supplier<Block> fireBlockSupplier, Supplier<Block> portalFrameSupplier, ParticleType particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
         this.setRegistryName(Reference.MODID, name);
@@ -62,9 +66,9 @@ public class BlockModPortal extends BlockBreakable {
         this.setTickRandomly(true);
         this.setCreativeTab(null);
         this.setBlockUnbreakable();
-        this.fireBlock = fireBlock;
         this.dimId = dimId;
-        this.portalFrame = portalFrame;
+        this.fireBlockSupplier = fireBlockSupplier;
+        this.portalFrameSupplier = portalFrameSupplier;
         this.portalParticle = particle;
     }
 
@@ -177,11 +181,11 @@ public class BlockModPortal extends BlockBreakable {
                 thePlayer.timeUntilPortal = 40;
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
                         new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
-                                portalFrame.getDefaultState()));
+                                portalFrameSupplier.get().getDefaultState()));
             } else {
                 thePlayer.timeUntilPortal = 40;
                 thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-                        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrame.getDefaultState()));
+                        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrameSupplier.get().getDefaultState()));
             }
         }
     }
@@ -325,6 +329,7 @@ public class BlockModPortal extends BlockBreakable {
         }
 
         protected int calculatePortalHeight() {
+            Block portalFrame = portalFrameSupplier.get();
             label56:
 
             for (this.height = 0; this.height < 21; ++this.height) {
@@ -375,6 +380,8 @@ public class BlockModPortal extends BlockBreakable {
         }
 
         protected int getDistanceUntilEdge(BlockPos pos, EnumFacing facing) {
+            Block portalFrame = portalFrameSupplier.get();
+
             int i;
 
             for (i = 0; i < 22; ++i) {
@@ -399,7 +406,7 @@ public class BlockModPortal extends BlockBreakable {
         }
         @Deprecated
         protected boolean isEmptyBlock(Block blockIn) {
-            return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlock
+            return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlockSupplier.get()
                     || blockIn == portalBlock;
         }
 

@@ -1463,8 +1463,8 @@ public class ModBlocks {
 
         // Portal blocks
         register(registry, new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId()));
-        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame", getBlockFromList("arcana_portal")));
-        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame", getBlockFromList("arcana_portal")).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
+        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame"));
+        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 
         // Eucalyptus
         register(registry, new BlockModLog("eucalyptus_log", MapColor.CLOTH));
@@ -1613,13 +1613,13 @@ public class ModBlocks {
 
         // Portal blocks
         // Portal
-        register(registry, new BlockModPortal("iceika_portal", ModDimensions.iceikaDimension.getId(), getBlockFromList("iceika_fire"), Blocks.SNOW, ParticleType.FROST));
-        register(registry, new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("divine_rock"), ParticleType.EDEN_PORTAL));
-        register(registry, new BlockModPortal("wildwood_portal", ModDimensions.wildWoodDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("eden_block"), ParticleType.WILDWOOD_PORTAL));
-        register(registry, new BlockModPortal("apalachia_portal", ModDimensions.apalachiaDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("wildwood_block"), ParticleType.APALACHIA_PORTAL));
-        register(registry, new BlockModPortal("skythern_portal", ModDimensions.skythernDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("apalachia_block"), ParticleType.SKYTHERN_PORTAL));
-        register(registry, new BlockModPortal("mortum_portal", ModDimensions.mortumDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("skythern_block"), ParticleType.MORTUM_PORTAL));
-        register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension.getId(), getBlockFromList("blue_fire"), getBlockFromList("mortum_block"), ParticleType.MORTUM_PORTAL));
+        register(registry, new BlockModPortal("iceika_portal", ModDimensions.iceikaDimension.getId(), () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
+        register(registry, new BlockModPortal("eden_portal", ModDimensions.edenDimension.getId(), () -> blueFire, () -> divineRock, ParticleType.EDEN_PORTAL));
+        register(registry, new BlockModPortal("wildwood_portal", ModDimensions.wildWoodDimension.getId(), () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
+        register(registry, new BlockModPortal("apalachia_portal", ModDimensions.apalachiaDimension.getId(), () -> blueFire, () -> wildwoodBlock, ParticleType.APALACHIA_PORTAL));
+        register(registry, new BlockModPortal("skythern_portal", ModDimensions.skythernDimension.getId(), () -> blueFire, () -> apalachiaBlock, ParticleType.SKYTHERN_PORTAL));
+        register(registry, new BlockModPortal("mortum_portal", ModDimensions.mortumDimension.getId(), () -> blueFire, () -> skythernBlock, ParticleType.MORTUM_PORTAL));
+        register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension.getId(), () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
     
         //Slab
         register(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));

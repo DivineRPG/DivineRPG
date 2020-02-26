@@ -20,9 +20,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.function.Supplier;
+
 public class BlockVetheaPortal extends BlockModPortal {
-    public BlockVetheaPortal(String name, int dimId, Block fireBlock, Block portalFrame, ParticleType particle) {
-        super(name, dimId, fireBlock, portalFrame, particle);
+    public BlockVetheaPortal(String name, int dimId, Supplier<Block> fireBlockSupplier, Supplier<Block> portalFrameSupplier, ParticleType particle) {
+        super(name, dimId, fireBlockSupplier, portalFrameSupplier, particle);
     }
 
     @Override

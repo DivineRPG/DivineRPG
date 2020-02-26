@@ -33,12 +33,9 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     protected static final AxisAlignedBB AABB_BLOCK = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.8125D, 1.0D);
 
-    protected Block portal;
-
-    public BlockArcanaPortalFrame(String name, Block portal) {
+    public BlockArcanaPortalFrame(String name) {
         super(EnumBlockType.ROCK, name, 5.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-        this.portal = portal;
     }
 
     @Override
