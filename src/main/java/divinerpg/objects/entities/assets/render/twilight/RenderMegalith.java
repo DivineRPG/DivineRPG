@@ -13,7 +13,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMegalith extends RenderLiving<EntityMegalith> {
     public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/EntityMegalith.png");
+    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/megalith.png");
 
     public RenderMegalith(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
         super(rendermanagerIn, new ModelMegalith(), shadowsizeIn);
