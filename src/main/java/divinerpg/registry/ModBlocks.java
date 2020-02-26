@@ -1257,10 +1257,11 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F));
 
         // Structure blocks
-        register(registry, new BlockMod("coalstone", 3.0F));
+        Block coalstone = new BlockMod("coalstone", 3.0F);
+        register(registry, coalstone);
+        register(registry, new BlockModStairs("coalstone_stairs", coalstone));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
-        register(registry, new BlockModStairs("coalstone_stairs", getBlockFromList("coalstone")));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
         register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
@@ -1345,18 +1346,24 @@ public class ModBlocks {
         register(registry, new BlockModLeaves("mortum_leaves", 0.5F, () -> mortumSapling, MapColor.RED));
 
         // Planks
-        register(registry, new BlockMod(EnumBlockType.WOOD, "eden_planks", 2.0F));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "wildwood_planks", 2.0F));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "apalachia_planks", 2.0F));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "skythern_planks", 2.0F));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "mortum_planks", 2.0F));
+        Block edenPlanks = new BlockMod(EnumBlockType.WOOD, "eden_planks", 2.0F);
+        Block wildwoodPlanks = new BlockMod(EnumBlockType.WOOD, "wildwood_planks", 2.0F);
+        Block apalachiaPlanks = new BlockMod(EnumBlockType.WOOD, "apalachia_planks", 2.0F);
+        Block skythernPlanks = new BlockMod(EnumBlockType.WOOD, "skythern_planks", 2.0F);
+        Block mortumPlanks = new BlockMod(EnumBlockType.WOOD, "mortum_planks", 2.0F);
+
+        register(registry, edenPlanks);
+        register(registry, wildwoodPlanks);
+        register(registry, apalachiaPlanks);
+        register(registry, skythernPlanks);
+        register(registry, mortumPlanks);
 
         // Stairs
-        register(registry, new BlockModStairs("eden_stairs", getBlockFromList("eden_planks")));
-        register(registry, new BlockModStairs("wildwood_stairs", getBlockFromList("wildwood_planks")));
-        register(registry, new BlockModStairs("apalachia_stairs", getBlockFromList("apalachia_planks")));
-        register(registry, new BlockModStairs("skythern_stairs", getBlockFromList("skythern_planks")));
-        register(registry, new BlockModStairs("mortum_stairs", getBlockFromList("mortum_planks")));
+        register(registry, new BlockModStairs("eden_stairs", edenPlanks));
+        register(registry, new BlockModStairs("wildwood_stairs", wildwoodPlanks));
+        register(registry, new BlockModStairs("apalachia_stairs", apalachiaPlanks));
+        register(registry, new BlockModStairs("skythern_stairs", skythernPlanks));
+        register(registry, new BlockModStairs("mortum_stairs", mortumPlanks));
 
         // Compressed blocks
         register(registry, new BlockBeaconBase("eden_block", 9.0F));
@@ -1661,22 +1668,5 @@ public class ModBlocks {
     private static void register(IForgeRegistry<Block> registry, Block block) {
         registry.register(block);
         blockList.add(block);
-    }
-
-    /**
-     * Used to retrieve blocks by registry name when they are needed to construct other blocks (e.g. for stairs and slabs).
-     * This is needed because object holders are not populated until block registration is done.
-     * As such, any attempt to reference the object holder before then will cause an NPE.
-     *
-     * @param registryName the registry name
-     * @return the block matching the registry name
-     */
-    private static Block getBlockFromList(String registryName) {
-        for(Block block: blockList) {
-            if(block.getRegistryName().getResourcePath().equals(registryName)) {
-                return block;
-            }
-        }
-        return null;
     }
 }
