@@ -1363,20 +1363,20 @@ public class ModBlocks {
         register(registry, new BlockBeaconBase("mortum_block", 9.0F));
 
         // Ground foliage
-        register(registry, new BlockTwilightFlower("sunbloom", getBlockFromList("eden_grass"), MapColor.YELLOW));
+        register(registry, new BlockTwilightFlower("sunbloom", () -> edenGrass, MapColor.YELLOW));
         register(registry, new BlockTwilightGrass("eden_brush", getBlockFromList("eden_grass"), MapColor.YELLOW));
-        register(registry, new BlockTwilightFlower("sun_blossom", getBlockFromList("eden_grass"), 0.9, 0.6, MapColor.YELLOW));
-        register(registry, new BlockTwilightFlower("moonlight_fern", getBlockFromList("wildwood_grass"), 0.8, 0.8, MapColor.BLUE));
-        register(registry, new BlockTwilightFlower("moon_bud", getBlockFromList("wildwood_grass"), 0.8, 0.7, MapColor.BLUE));
+        register(registry, new BlockTwilightFlower("sun_blossom", () -> edenGrass, 0.9, 0.6, MapColor.YELLOW));
+        register(registry, new BlockTwilightFlower("moonlight_fern", () -> wildwoodGrass, 0.8, 0.8, MapColor.BLUE));
+        register(registry, new BlockTwilightFlower("moon_bud", () -> wildwoodGrass, 0.8, 0.7, MapColor.BLUE));
         register(registry, new BlockModDoublePlant("wildwood_tallgrass", getBlockFromList("wildwood_grass"), MapColor.BLUE));
         register(registry, new BlockModDoublePlant("dusk_flower", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
-        register(registry, new BlockTwilightFlower("dusk_bloom", getBlockFromList("apalachia_grass"), 0.5, 0.5, MapColor.PURPLE));
+        register(registry, new BlockTwilightFlower("dusk_bloom", () -> apalachiaGrass, 0.5, 0.5, MapColor.PURPLE));
         register(registry, new BlockTwilightGrass("apalachia_tallgrass", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
         register(registry, new BlockTwilightGrass("skythern_brush", getBlockFromList("skythern_grass"), MapColor.GRAY));
-        register(registry, new BlockTwilightFlower("dust_lily", getBlockFromList("skythern_grass"), MapColor.GRAY));
+        register(registry, new BlockTwilightFlower("dust_lily", () -> skythernGrass, MapColor.GRAY));
         register(registry, new BlockBrambles("dust_brambles", getBlockFromList("skythern_grass"), MapColor.GRAY));
         register(registry, new BlockBrambles("demon_brambles", getBlockFromList("mortum_grass"), MapColor.BLACK));
-        register(registry, new BlockTwilightFlower("eye_plant", getBlockFromList("mortum_grass"), 0.5, 0.5, MapColor.BLACK));
+        register(registry, new BlockTwilightFlower("eye_plant", () -> mortumGrass, 0.5, 0.5, MapColor.BLACK));
         register(registry, new BlockTwilightGrass("mortum_brush", getBlockFromList("mortum_grass"), MapColor.BLACK));
 
         // Crops
@@ -1513,16 +1513,16 @@ public class ModBlocks {
         register(registry, new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea));
 
         // Ground foliage
-        register(registry, new BlockTwilightFlower("bulbatobe", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("cracklespike", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("dreamglow", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("fernite", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("green_dulah", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("green_gemtop", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("purple_gemtop", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("shimmer", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("shine_grass", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("yellow_dulah", dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("bulbatobe", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("cracklespike", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("dreamglow", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("fernite", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("green_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("green_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("purple_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("shimmer", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("shine_grass", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("yellow_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
 
         // Vines
         register(registry, new BlockModVine("weedwood_vine").setCreativeTab(DivineRPGTabs.vethea));

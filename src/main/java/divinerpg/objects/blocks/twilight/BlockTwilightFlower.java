@@ -17,23 +17,25 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
+import java.util.function.Supplier;
+
 public class BlockTwilightFlower extends BlockBush implements IPlantable {
-    private Block grass;
+    private Supplier<Block> grassSupplier;
     private AxisAlignedBB size;
 
-    public BlockTwilightFlower(String name, Block grass, MapColor mapColorIn) {
-        this(name, grass, 0.4, 1, mapColorIn);
+    public BlockTwilightFlower(String name, Supplier<Block> grassSupplier, MapColor mapColorIn) {
+        this(name, grassSupplier, 0.4, 1, mapColorIn);
     }
 
     /**
      * @param width  - sets the width of flower. Can't be lass/equals zero
      * @param height - sets the height of flower. Can't be less/equals zero
      */
-    public BlockTwilightFlower(String name, Block grass, double width, double height, MapColor mapColorIn) {
+    public BlockTwilightFlower(String name, Supplier<Block> grassSupplier, double width, double height, MapColor mapColorIn) {
         super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
-        this.grass = grass;
+        this.grassSupplier = grassSupplier;
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
@@ -79,12 +81,12 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && soil.getBlock() == grass;
+        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && soil.getBlock() == grassSupplier.get();
     }
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == grass;
+        return state.getBlock() == grassSupplier.get();
     }
 
     @Override
@@ -96,9 +98,11 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return size;
     }
+
     public Block getGrass(){
-        return this.grass;
+        return this.grassSupplier.get();
     }
+
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         return net.minecraftforge.common.EnumPlantType.Plains;
