@@ -1204,7 +1204,7 @@ public class ModBlocks {
         // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
-        register(registry, new BlockModLeaves("divine_leaves", 0.3F, divineSapling, MapColor.YELLOW));
+        register(registry, new BlockModLeaves("divine_leaves", 0.3F, getBlockFromList("divine_sapling"), MapColor.YELLOW));
         register(registry, new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F));
         register(registry, new BlockMod("divine_moss_stone", 2.0F).setResistance(10));
         register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F));
@@ -1321,11 +1321,11 @@ public class ModBlocks {
         register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, ModItems.mortumFragments));
 
         // Sapling
-        register(registry, new BlockModSapling("eden_sapling", edenGrass, edenDirt, new EdenTree(true)));
-        register(registry, new BlockModSapling("wildwood_sapling", wildwoodGrass, wildwoodDirt, new WildWoodTree(true)));
-        register(registry, new BlockModSapling("apalachia_sapling", apalachiaGrass, apalachiaDirt, new ApalachiaTree(true)));
-        register(registry, new BlockModSapling("skythern_sapling", skythernGrass, skythernDirt, new SkythernTree(true)));
-        register(registry, new BlockModSapling("mortum_sapling", mortumGrass, mortumDirt, new MortumTree(true)));
+        register(registry, new BlockModSapling("eden_sapling", getBlockFromList("eden_grass"), getBlockFromList("eden_dirt"), new EdenTree(true)));
+        register(registry, new BlockModSapling("wildwood_sapling", getBlockFromList("wildwood_grass"), getBlockFromList("wildwood_dirt"), new WildWoodTree(true)));
+        register(registry, new BlockModSapling("apalachia_sapling", getBlockFromList("apalachia_grass"), getBlockFromList("apalachia_dirt"), new ApalachiaTree(true)));
+        register(registry, new BlockModSapling("skythern_sapling", getBlockFromList("skythern_grass"), getBlockFromList("skythern_dirt"), new SkythernTree(true)));
+        register(registry, new BlockModSapling("mortum_sapling", getBlockFromList("mortum_grass"), getBlockFromList("mortum_dirt"), new MortumTree(true)));
 
         // Logs
         register(registry, new BlockModLog("eden_log", MapColor.YELLOW));
@@ -1335,11 +1335,11 @@ public class ModBlocks {
         register(registry, new BlockModLog("mortum_log", MapColor.RED));
 
         // Leaves
-        register(registry, new BlockModLeaves("eden_leaves", 0.5F, edenSapling, MapColor.YELLOW));
-        register(registry, new BlockModLeaves("wildwood_leaves", 0.5F, wildwoodSapling, MapColor.LIGHT_BLUE));
-        register(registry, new BlockModLeaves("apalachia_leaves", 0.5F, apalachiaSapling, MapColor.PINK).setLightLevel(0.5F));
-        register(registry, new BlockModLeaves("skythern_leaves", 0.5F, skythernSapling, MapColor.CLOTH));
-        register(registry, new BlockModLeaves("mortum_leaves", 0.5F, mortumSapling, MapColor.RED));
+        register(registry, new BlockModLeaves("eden_leaves", 0.5F, getBlockFromList("eden_sapling"), MapColor.YELLOW));
+        register(registry, new BlockModLeaves("wildwood_leaves", 0.5F, getBlockFromList("wildwood_sapling"), MapColor.LIGHT_BLUE));
+        register(registry, new BlockModLeaves("apalachia_leaves", 0.5F, getBlockFromList("apalachia_sapling"), MapColor.PINK).setLightLevel(0.5F));
+        register(registry, new BlockModLeaves("skythern_leaves", 0.5F, getBlockFromList("skythern_sapling"), MapColor.CLOTH));
+        register(registry, new BlockModLeaves("mortum_leaves", 0.5F, getBlockFromList("mortum_sapling"), MapColor.RED));
 
         // Planks
         register(registry, new BlockMod(EnumBlockType.WOOD, "eden_planks", 2.0F));
@@ -1363,21 +1363,21 @@ public class ModBlocks {
         register(registry, new BlockBeaconBase("mortum_block", 9.0F));
 
         // Ground foliage
-        register(registry, new BlockTwilightFlower("sunbloom", edenGrass, MapColor.YELLOW));
-        register(registry, new BlockTwilightGrass("eden_brush", edenGrass, MapColor.YELLOW));
-        register(registry, new BlockTwilightFlower("sun_blossom", edenGrass, 0.9, 0.6, MapColor.YELLOW));
-        register(registry, new BlockTwilightFlower("moonlight_fern", wildwoodGrass, 0.8, 0.8, MapColor.BLUE));
-        register(registry, new BlockTwilightFlower("moon_bud", wildwoodGrass, 0.8, 0.7, MapColor.BLUE));
-        register(registry, new BlockModDoublePlant("wildwood_tallgrass", wildwoodGrass, MapColor.BLUE));
-        register(registry, new BlockModDoublePlant("dusk_flower", apalachiaGrass, MapColor.PURPLE));
-        register(registry, new BlockTwilightFlower("dusk_bloom", apalachiaGrass, 0.5, 0.5, MapColor.PURPLE));
-        register(registry, new BlockTwilightGrass("apalachia_tallgrass", apalachiaGrass, MapColor.PURPLE));
-        register(registry, new BlockTwilightGrass("skythern_brush", skythernGrass, MapColor.GRAY));
-        register(registry, new BlockTwilightFlower("dust_lily", skythernGrass, MapColor.GRAY));
-        register(registry, new BlockBrambles("dust_brambles", skythernGrass, MapColor.GRAY));
-        register(registry, new BlockBrambles("demon_brambles", mortumGrass, MapColor.BLACK));
-        register(registry, new BlockTwilightFlower("eye_plant", mortumGrass, 0.5, 0.5, MapColor.BLACK));
-        register(registry, new BlockTwilightGrass("mortum_brush", mortumGrass, MapColor.BLACK));
+        register(registry, new BlockTwilightFlower("sunbloom", getBlockFromList("eden_grass"), MapColor.YELLOW));
+        register(registry, new BlockTwilightGrass("eden_brush", getBlockFromList("eden_grass"), MapColor.YELLOW));
+        register(registry, new BlockTwilightFlower("sun_blossom", getBlockFromList("eden_grass"), 0.9, 0.6, MapColor.YELLOW));
+        register(registry, new BlockTwilightFlower("moonlight_fern", getBlockFromList("wildwood_grass"), 0.8, 0.8, MapColor.BLUE));
+        register(registry, new BlockTwilightFlower("moon_bud", getBlockFromList("wildwood_grass"), 0.8, 0.7, MapColor.BLUE));
+        register(registry, new BlockModDoublePlant("wildwood_tallgrass", getBlockFromList("wildwood_grass"), MapColor.BLUE));
+        register(registry, new BlockModDoublePlant("dusk_flower", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
+        register(registry, new BlockTwilightFlower("dusk_bloom", getBlockFromList("apalachia_grass"), 0.5, 0.5, MapColor.PURPLE));
+        register(registry, new BlockTwilightGrass("apalachia_tallgrass", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
+        register(registry, new BlockTwilightGrass("skythern_brush", getBlockFromList("skythern_grass"), MapColor.GRAY));
+        register(registry, new BlockTwilightFlower("dust_lily", getBlockFromList("skythern_grass"), MapColor.GRAY));
+        register(registry, new BlockBrambles("dust_brambles", getBlockFromList("skythern_grass"), MapColor.GRAY));
+        register(registry, new BlockBrambles("demon_brambles", getBlockFromList("mortum_grass"), MapColor.BLACK));
+        register(registry, new BlockTwilightFlower("eye_plant", getBlockFromList("mortum_grass"), 0.5, 0.5, MapColor.BLACK));
+        register(registry, new BlockTwilightGrass("mortum_brush", getBlockFromList("mortum_grass"), MapColor.BLACK));
 
         // Crops
         register(registry, new BlockMoonbulb().setLightLevel(0.6f));
@@ -1456,8 +1456,8 @@ public class ModBlocks {
 
         // Portal blocks
         register(registry, new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId()));
-        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame", arcanaPortal));
-        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame", arcanaPortal).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
+        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame", getBlockFromList("arcana_portal")));
+        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame", getBlockFromList("arcana_portal")).setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 
         // Eucalyptus
         register(registry, new BlockModLog("eucalyptus_log", MapColor.CLOTH));
