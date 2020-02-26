@@ -56,7 +56,7 @@ public class EntityDreamwrecker extends VetheaMob {
 
         if (var1 != null && var1.getDistance(this) < 20) var1 = getAttackTarget();
         if(this.getAttackTarget() != null && this.getAttackTarget() instanceof EntityPlayer && !this.getAttackTarget().isDead && this.canEntityBeSeen(this.getAttackTarget()))this.getAttackTarget().addVelocity(Math.signum(this.posX - this.getAttackTarget().posX) * 0.029, 0, Math.signum(this.posZ - this.getAttackTarget().posZ) * 0.029);
-        if(this.getAttackTarget() != null && (this.getAttackTarget().getDistance(this) >= 20 || this.getAttackTarget().isDead || ((EntityPlayer)this.getAttackTarget()).capabilities.isCreativeMode)) this.attackingPlayer = null;
+        if(this.getAttackTarget() != null && (this.getAttackTarget().getDistance(this) >= 20 || this.getAttackTarget().isDead)) this.attackingPlayer = null;
     }
  
     @Override
