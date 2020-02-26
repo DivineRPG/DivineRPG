@@ -3,10 +3,8 @@ package divinerpg.dimensions.vethea.village;
 import java.util.ArrayList;
 import java.util.Random;
 
-import divinerpg.dimensions.vethea.VetheaWorldGenerator;
 import divinerpg.dimensions.vethea.all.WorldGenConeUp;
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.VetheaBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
