@@ -3,14 +3,16 @@ DivineRPG
 
 The official repository for the DivineRPG Minecraft mod
 
-Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2455655-divinerpg-8-new-dimensions-115-new-mobs-bosses)
+Download (CurseForge): https://www.curseforge.com/minecraft/mc-mods/official-divinerpg
+
+Discord: https://discord.gg/R9Zc32D
 
 ### What you can and cannot do with DivineRPG
 ###### You CAN:
 * Download DivineRPG and use it
 * Make a public Minecraft server with DivineRPG installed
-* Include DivineRPG in a modpack _if you have permission from the development team, if you link back to the mod's forum thread, if you credit the team, and if you agree to remove the mod from the pack at any time if you are told to by the DivineRPG team_
-* Make youtube videos showing DivineRPG gameplay _as long as you link back to the mod's forum thread_
+* Include DivineRPG in a modpack. Ideally you include the CurseForge download link (given above) with it.
+* Make videos with DivineRPG gameplay. Ideally you include the CurseForge download link (given above) with them.
 * Use the source code as a reference for educational purposes
 * Modify and recompile DivineRPG for PERSONAL use
 * Fork DivineRPG on Github and write a pull request
@@ -22,15 +24,15 @@ Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
 
 ### Credits
-This mod is owned by XolovA, but he is no longer part of the team
+* XolovA - original creator
+* Scimiguy - current owner
 ***
 ##### Main Team
-* RadioactiveStud (aka SoccerStud) - Developer
-* Eternaldoom - Developer
-* krwminer - Developer
-* BossLetsPlays - Sound Artist & Maintenance Developer & Server Owner
 * NicosasurusRex99 - Developer
+* krwminer - Developer
 * Wufflez/Litewolf101 - Developer
+* Immortallis - Developer
+* Dash - Developer
 
 ##### Special Thanks to
 * Dizzlepop12 - A few models/textures
@@ -41,8 +43,11 @@ This mod is owned by XolovA, but he is no longer part of the team
 * BlueEyes9 - A few Models/Textures
 * Insanity414all - Wiki admin
 * Laorwick - Some Recipes
+* BossLetsPlays - Sound Artist & Maintenance Developer & Former Server Owner
 
 ##### Other Credits
+* RadioactiveStud (aka SoccerStud) - Former Developer
+* Eternaldoom - Former Developer
 * The_SlayerMC - Former Developer
 * Sheenrox82 - Former Developer
 * Mazetar - Former Developer
