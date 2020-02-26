@@ -1669,4 +1669,5 @@ public class ModBlocks {
         registry.register(block);
         blockList.add(block);
     }
+
 }
