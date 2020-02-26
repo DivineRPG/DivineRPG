@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.twilight;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
@@ -23,13 +24,13 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockTwilightGrass extends BlockBush
         implements IPlantable, net.minecraftforge.common.IShearable {
-    private Block grass;
+    private Supplier<Block> grassSupplier;
 
-    public BlockTwilightGrass(String name, Block grass, MapColor mapColorIn) {
+    public BlockTwilightGrass(String name, Supplier<Block> grassSupplier, MapColor mapColorIn) {
         super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
-        this.grass = grass;
+        this.grassSupplier = grassSupplier;
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
@@ -46,12 +47,12 @@ public class BlockTwilightGrass extends BlockBush
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && soil.getBlock() == grass;
+        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && soil.getBlock() == grassSupplier.get();
     }
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == grass;
+        return state.getBlock() == grassSupplier.get();
     }
 
     @Override

@@ -1374,16 +1374,16 @@ public class ModBlocks {
         register(registry, new BlockTwilightFlower("dust_lily", () -> skythernGrass, MapColor.GRAY));
         register(registry, new BlockTwilightFlower("eye_plant", () -> mortumGrass, 0.5, 0.5, MapColor.BLACK));
 
-        register(registry, new BlockTwilightGrass("eden_brush", getBlockFromList("eden_grass"), MapColor.YELLOW));
-        register(registry, new BlockTwilightGrass("apalachia_tallgrass", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
-        register(registry, new BlockTwilightGrass("skythern_brush", getBlockFromList("skythern_grass"), MapColor.GRAY));
-        register(registry, new BlockTwilightGrass("mortum_brush", getBlockFromList("mortum_grass"), MapColor.BLACK));
+        register(registry, new BlockTwilightGrass("eden_brush", () -> edenGrass, MapColor.YELLOW));
+        register(registry, new BlockTwilightGrass("apalachia_tallgrass", () -> apalachiaGrass, MapColor.PURPLE));
+        register(registry, new BlockTwilightGrass("skythern_brush", () -> skythernGrass, MapColor.GRAY));
+        register(registry, new BlockTwilightGrass("mortum_brush", () -> mortumGrass, MapColor.BLACK));
 
-        register(registry, new BlockModDoublePlant("wildwood_tallgrass", getBlockFromList("wildwood_grass"), MapColor.BLUE));
-        register(registry, new BlockModDoublePlant("dusk_flower", getBlockFromList("apalachia_grass"), MapColor.PURPLE));
+        register(registry, new BlockModDoublePlant("wildwood_tallgrass", () -> wildwoodGrass, MapColor.BLUE));
+        register(registry, new BlockModDoublePlant("dusk_flower", () -> apalachiaGrass, MapColor.PURPLE));
 
-        register(registry, new BlockBrambles("dust_brambles", getBlockFromList("skythern_grass"), MapColor.GRAY));
-        register(registry, new BlockBrambles("demon_brambles", getBlockFromList("mortum_grass"), MapColor.BLACK));
+        register(registry, new BlockBrambles("dust_brambles", () -> skythernGrass, MapColor.GRAY));
+        register(registry, new BlockBrambles("demon_brambles", () -> mortumGrass, MapColor.BLACK));
 
 
         // Crops

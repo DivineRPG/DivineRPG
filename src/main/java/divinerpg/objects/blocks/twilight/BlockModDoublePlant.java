@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.twilight;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
@@ -32,13 +33,13 @@ public class BlockModDoublePlant extends BlockBush
     public static final PropertyEnum<BlockModDoublePlant.EnumBlockHalf> HALF = PropertyEnum.create(
             "half", BlockModDoublePlant.EnumBlockHalf.class);
     protected static final AxisAlignedBB DOUBLE_PLANT_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
-    private Block grass;
+    private Supplier<Block> grassSupplier;
 
-    public BlockModDoublePlant(String name, Block grass, MapColor mapColorIn) {
+    public BlockModDoublePlant(String name, Supplier<Block> grassSupplier, MapColor mapColorIn) {
         super(Material.PLANTS, mapColorIn);
         setRegistryName(Reference.MODID, name);
         setUnlocalizedName(name);
-        this.grass = grass;
+        this.grassSupplier = grassSupplier;
         setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
@@ -59,7 +60,7 @@ public class BlockModDoublePlant extends BlockBush
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        return soil.getBlock() == grass && worldIn.isAirBlock(pos) && worldIn.isAirBlock(pos.up());
+        return soil.getBlock() == grassSupplier.get() && worldIn.isAirBlock(pos) && worldIn.isAirBlock(pos.up());
     }
 
     @Override
@@ -151,6 +152,6 @@ public class BlockModDoublePlant extends BlockBush
     }
 
     public Block getGrass(){
-        return this.grass;
+        return this.grassSupplier.get();
     }
 }

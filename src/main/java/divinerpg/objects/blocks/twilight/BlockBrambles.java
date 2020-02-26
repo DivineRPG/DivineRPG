@@ -13,10 +13,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.function.Supplier;
+
 public class BlockBrambles extends BlockModDoublePlant {
 
-    public BlockBrambles(String name, Block grass, MapColor mapColorIn) {
-        super(name, grass, mapColorIn);
+    public BlockBrambles(String name, Supplier<Block> grassSupplier, MapColor mapColorIn) {
+        super(name, grassSupplier, mapColorIn);
     }
 
     @Override
