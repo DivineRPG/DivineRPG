@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockBrambles;
@@ -23,24 +24,20 @@ import net.minecraftforge.common.IPlantable;
 import javax.annotation.Nonnull;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
-    protected BlockModDirt dirt;
+    protected Supplier<BlockModDirt> dirtSupplier;
     private MapColor mapColor;
 
-    public BlockModGrass(String name, float hardness, @Nonnull MapColor mapColorIn) {
+    public BlockModGrass(String name, Supplier<BlockModDirt> dirtSupplier, float hardness,  @Nonnull MapColor mapColorIn) {
         super(EnumBlockType.GRASS, name, hardness);
         this.setMapColor(mapColorIn);
-        this.dirt = null;
+        this.dirtSupplier = dirtSupplier;
         setTickRandomly(true);
         setHarvestLevel("shovel", 3);
     }
 
-    public void setDirt(BlockModDirt dirt) {
-        this.dirt = dirt;
-    }
-
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(dirt);
+        return Item.getItemFromBlock(dirtSupplier.get());
     }
 
     @Override
@@ -48,6 +45,9 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         if (!world.isRemote) {
             if (!world.isAreaLoaded(pos, 3))
                 return;
+
+            Block dirt = dirtSupplier.get();
+
             if (world.getLightFromNeighbors(pos.up()) < 4
                     && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
                 world.setBlockState(pos, dirt.getDefaultState());

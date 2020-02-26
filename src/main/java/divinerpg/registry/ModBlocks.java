@@ -1250,7 +1250,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("frozen_dirt", 2.5F, MapColor.WHITE_STAINED_HARDENED_CLAY));
-        register(registry, new BlockModGrass("frozen_grass", 2.5F, MapColor.LIGHT_BLUE));
+        register(registry, new BlockModGrass("frozen_grass", () -> frozenDirt,2.5F, MapColor.LIGHT_BLUE));
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
         register(registry, new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY));
@@ -1307,11 +1307,11 @@ public class ModBlocks {
         register(registry, new BlockModDirt("mortum_dirt", 5.0F, MapColor.BLACK));
 
         // Grass
-        register(registry, new BlockModGrass("eden_grass", 5.0F, MapColor.YELLOW));
-        register(registry, new BlockModGrass("wildwood_grass", 5.0F, MapColor.BLUE));
-        register(registry, new BlockModGrass("apalachia_grass", 5.0F, MapColor.PURPLE));
-        register(registry, new BlockModGrass("skythern_grass", 5.0F, MapColor.CLOTH));
-        register(registry, new BlockModGrass("mortum_grass", 5.0F, MapColor.BLACK));
+        register(registry, new BlockModGrass("eden_grass", () -> edenDirt, 5.0F, MapColor.YELLOW));
+        register(registry, new BlockModGrass("wildwood_grass", () -> wildwoodDirt, 5.0F, MapColor.BLUE));
+        register(registry, new BlockModGrass("apalachia_grass", () -> apalachiaDirt, 5.0F, MapColor.PURPLE));
+        register(registry, new BlockModGrass("skythern_grass", () -> skythernDirt, 5.0F, MapColor.CLOTH));
+        register(registry, new BlockModGrass("mortum_grass", () -> mortumDirt, 5.0F, MapColor.BLACK));
 
         // Stone
         register(registry, new BlockMod("twilight_stone", 6.0F));
@@ -1408,7 +1408,7 @@ public class ModBlocks {
         register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MapColor.BLUE));
 
         // Grass
-        register(registry, new BlockModGrass("arcanite_grass", 0.5F, MapColor.BLUE));
+        register(registry, new BlockModGrass("arcanite_grass", () -> arcaniteDirt,0.5F, MapColor.BLUE));
 
         // Ore
         register(registry, new BlockMod("arcanium_ore", 3.0F));
@@ -1504,7 +1504,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGrass("dream_grass", 2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt,2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs
@@ -1678,19 +1678,5 @@ public class ModBlocks {
             }
         }
         return null;
-    }
-
-    /**
-     * Called during FML init. May be able to move some of these to use getBlockFromList above instead
-     */
-    public static void blockInitTasks() {
-        frozenGrass.setDirt(frozenDirt);
-        edenGrass.setDirt(edenDirt);
-        wildwoodGrass.setDirt(wildwoodDirt);
-        apalachiaGrass.setDirt(apalachiaDirt);
-        skythernGrass.setDirt(skythernDirt);
-        mortumGrass.setDirt(mortumDirt);
-        arcaniteGrass.setDirt(arcaniteDirt);
-        dreamGrass.setDirt(dreamDirt);
     }
 }

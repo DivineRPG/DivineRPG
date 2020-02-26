@@ -65,7 +65,6 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
 
-        ModBlocks.blockInitTasks();
         ModItems.addCropsToSeeds();
     }
 
