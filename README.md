@@ -14,9 +14,9 @@ Minecraft Forum thread: [DivineRPG](http://www.minecraftforum.net/forums/mapping
 * Use the source code as a reference for educational purposes
 * Modify and recompile DivineRPG for PERSONAL use
 * Fork DivineRPG on Github and write a pull request
+* Include DivineRPG in your modpack, however if the modpack is released outside of CurseForge we request you post a link to the mod file
 
 ###### You CANNOT:
-* Redistribute DivineRPG without permission from the team
 * Claim that you made DivineRPG
 * Redistribute modified versions of DivineRPG
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
