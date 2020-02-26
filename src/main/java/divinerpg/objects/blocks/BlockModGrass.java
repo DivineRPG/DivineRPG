@@ -3,7 +3,9 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 
 import divinerpg.enums.EnumBlockType;
+import divinerpg.objects.blocks.twilight.BlockBrambles;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
+import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -101,6 +103,13 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
         if (plantable instanceof BlockModDoublePlant) {
             return ((BlockModDoublePlant) plantable).getGrass() == this;
+        }
+
+        if (plantable instanceof BlockBrambles) {
+            return ((BlockBrambles) plantable).getGrass() == this;
+        }
+        if (plantable instanceof BlockTwilightFlower) {
+            return ((BlockTwilightFlower) plantable).getGrass() == this;
         }
 
         if (plantable instanceof ItemModSeeds) {

@@ -96,7 +96,9 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return size;
     }
-
+    public Block getGrass(){
+        return this.grass;
+    }
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         return net.minecraftforge.common.EnumPlantType.Plains;
