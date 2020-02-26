@@ -48,963 +48,963 @@ public class ModBlocks {
 
     // Ores
     @ObjectHolder("arlemite_ore")
-    public static Block arlemiteOre = null;
+    public static final Block arlemiteOre = null;
     @ObjectHolder("realmite_ore")
-    public static Block realmiteOre = null;
+    public static final Block realmiteOre = null;
     @ObjectHolder("rupee_ore")
-    public static Block rupeeOre = null;
+    public static final Block rupeeOre = null;
     @ObjectHolder("bloodgem_ore")
-    public static Block bloodgemOre = null;
+    public static final Block bloodgemOre = null;
     @ObjectHolder("netherite_ore")
-    public static Block netheriteOre = null;
+    public static final Block netheriteOre = null;
 
     // Compressed ore blocks
     @ObjectHolder("arlemite_block")
-    public static Block arlemiteBlock = null;
+    public static final Block arlemiteBlock = null;
     @ObjectHolder("realmite_block")
-    public static Block realmiteBlock = null;
+    public static final Block realmiteBlock = null;
     @ObjectHolder("rupee_block")
-    public static Block rupeeBlock = null;
+    public static final Block rupeeBlock = null;
     @ObjectHolder("bloodgem_block")
-    public static Block bloodgemBlock = null;
+    public static final Block bloodgemBlock = null;
     @ObjectHolder("netherite_block")
-    public static Block netheriteBlock = null;
+    public static final Block netheriteBlock = null;
 
     // Mob pumpkins
     @ObjectHolder("blaze_pumpkin")
-    public static Block blazePumpkin = null;
+    public static final Block blazePumpkin = null;
     @ObjectHolder("creeper_pumpkin")
-    public static Block creeperPumpkin = null;
+    public static final Block creeperPumpkin = null;
     @ObjectHolder("cyclops_pumpkin")
-    public static Block cyclopsPumpkin = null;
+    public static final Block cyclopsPumpkin = null;
     @ObjectHolder("ender_pumpkin")
-    public static Block enderPumpkin = null;
+    public static final Block enderPumpkin = null;
     @ObjectHolder("ender_watcher_pumpkin")
-    public static Block enderWatcherPumpkin = null;
+    public static final Block enderWatcherPumpkin = null;
     @ObjectHolder("frost_pumpkin")
-    public static Block frostPumpkin = null;
+    public static final Block frostPumpkin = null;
     @ObjectHolder("ghast_pumpkin")
-    public static Block ghastPumpkin = null;
+    public static final Block ghastPumpkin = null;
     @ObjectHolder("glacon_pumpkin")
-    public static Block glaconPumpkin = null;
+    public static final Block glaconPumpkin = null;
     @ObjectHolder("hellspider_pumpkin")
-    public static Block hellspiderPumpkin = null;
+    public static final Block hellspiderPumpkin = null;
     @ObjectHolder("jungle_spider_pumpkin")
-    public static Block jungleSpiderPumpkin = null;
+    public static final Block jungleSpiderPumpkin = null;
     @ObjectHolder("skeleton_pumpkin")
-    public static Block skeletonPumpkin = null;
+    public static final Block skeletonPumpkin = null;
     @ObjectHolder("spider_pumpkin")
-    public static Block spiderPumpkin = null;
+    public static final Block spiderPumpkin = null;
     @ObjectHolder("zombie_pumpkin")
-    public static Block zombiePumpkin = null;
+    public static final Block zombiePumpkin = null;
 
     // Torches
     @ObjectHolder("aqua_torch")
-    public static Block aquaTorch = null;
+    public static final Block aquaTorch = null;
     @ObjectHolder("skeleton_torch")
-    public static Block skeletonTorch = null;
+    public static final Block skeletonTorch = null;
 
     // Decoration blocks
 
     // Steel
     @ObjectHolder("black_steel")
-    public static Block blackSteel = null;
+    public static final Block blackSteel = null;
     @ObjectHolder("blue_steel")
-    public static Block blueSteel = null;
+    public static final Block blueSteel = null;
     @ObjectHolder("bright_red_steel")
-    public static Block brightRedSteel = null;
+    public static final Block brightRedSteel = null;
     @ObjectHolder("green_steel")
-    public static Block greenSteel = null;
+    public static final Block greenSteel = null;
     @ObjectHolder("orange_steel")
-    public static Block orangeSteel = null;
+    public static final Block orangeSteel = null;
     @ObjectHolder("purple_steel")
-    public static Block purpleSteel = null;
+    public static final Block purpleSteel = null;
     @ObjectHolder("red_steel")
-    public static Block redSteel = null;
+    public static final Block redSteel = null;
     @ObjectHolder("teal_steel")
-    public static Block tealSteel = null;
+    public static final Block tealSteel = null;
     @ObjectHolder("white_steel")
-    public static Block whiteSteel = null;
+    public static final Block whiteSteel = null;
     @ObjectHolder("yellow_steel")
-    public static Block yellowSteel = null;
+    public static final Block yellowSteel = null;
 
     // Vanes
     @ObjectHolder("blue_vane")
-    public static Block blueVane = null;
+    public static final Block blueVane = null;
     @ObjectHolder("cyan_vane")
-    public static Block cyanVane = null;
+    public static final Block cyanVane = null;
     @ObjectHolder("purple_vane")
-    public static Block purpleVane = null;
+    public static final Block purpleVane = null;
     @ObjectHolder("red_vane")
-    public static Block redVane = null;
+    public static final Block redVane = null;
     @ObjectHolder("yellow_vane")
-    public static Block yellowVane = null;
+    public static final Block yellowVane = null;
 
     // Bricks
     @ObjectHolder("aquatonic_bricks")
-    public static Block aquatonicBricks = null;
+    public static final Block aquatonicBricks = null;
     @ObjectHolder("arlemite_bricks")
-    public static Block arlemiteBricks = null;
+    public static final Block arlemiteBricks = null;
     @ObjectHolder("darkstone_bricks")
-    public static Block darkstoneBricks = null;
+    public static final Block darkstoneBricks = null;
     @ObjectHolder("diamond_bricks")
-    public static Block diamondBricks = null;
+    public static final Block diamondBricks = null;
     @ObjectHolder("gold_bricks")
-    public static Block goldBricks = null;
+    public static final Block goldBricks = null;
     @ObjectHolder("green_bricks")
-    public static Block greenBricks = null;
+    public static final Block greenBricks = null;
     @ObjectHolder("iron_bricks")
-    public static Block ironBricks = null;
+    public static final Block ironBricks = null;
     @ObjectHolder("lapis_lazuli_bricks")
-    public static Block lapisLazuliBricks = null;
+    public static final Block lapisLazuliBricks = null;
     @ObjectHolder("lava_bricks")
-    public static Block lavaBricks = null;
+    public static final Block lavaBricks = null;
     @ObjectHolder("milk_stone_bricks")
-    public static Block milkStoneBricks = null;
+    public static final Block milkStoneBricks = null;
     @ObjectHolder("netherite_bricks")
-    public static Block netheriteBricks = null;
+    public static final Block netheriteBricks = null;
     @ObjectHolder("pink_bricks")
-    public static Block pinkBricks = null;
+    public static final Block pinkBricks = null;
     @ObjectHolder("purple_bricks")
-    public static Block purpleBricks = null;
+    public static final Block purpleBricks = null;
     @ObjectHolder("realmite_bricks")
-    public static Block realmiteBricks = null;
+    public static final Block realmiteBricks = null;
     @ObjectHolder("redstone_bricks")
-    public static Block redstoneBricks = null;
+    public static final Block redstoneBricks = null;
 
     // Minibricks
     @ObjectHolder("minibricks")
-    public static Block minibricks = null;
+    public static final Block minibricks = null;
     @ObjectHolder("arlemite_minibricks")
-    public static Block arlemiteMinibricks = null;
+    public static final Block arlemiteMinibricks = null;
     @ObjectHolder("bedrock_minibricks")
-    public static Block bedrockMinibricks = null;
+    public static final Block bedrockMinibricks = null;
     @ObjectHolder("bloodgem_minibricks")
-    public static Block bloodgemMinibricks = null;
+    public static final Block bloodgemMinibricks = null;
     @ObjectHolder("netherite_minibricks")
-    public static Block netheriteMinibricks = null;
+    public static final Block netheriteMinibricks = null;
     @ObjectHolder("realmite_minibricks")
-    public static Block realmiteMinibricks = null;
+    public static final Block realmiteMinibricks = null;
     @ObjectHolder("rupee_minibricks")
-    public static Block rupeeMinibricks = null;
+    public static final Block rupeeMinibricks = null;
 
     // Lamps
     @ObjectHolder("aqua_lamp")
-    public static Block aquaLamp = null;
+    public static final Block aquaLamp = null;
     @ObjectHolder("arlemite_lamp")
-    public static Block arlemiteLamp = null;
+    public static final Block arlemiteLamp = null;
     @ObjectHolder("blaze_lamp")
-    public static Block blazeLamp = null;
+    public static final Block blazeLamp = null;
     @ObjectHolder("bluefire_lamp")
-    public static Block bluefireLamp = null;
+    public static final Block bluefireLamp = null;
     @ObjectHolder("diamond_lamp")
-    public static Block diamondLamp = null;
+    public static final Block diamondLamp = null;
     @ObjectHolder("divine_lamp")
-    public static Block divineLamp = null;
+    public static final Block divineLamp = null;
     @ObjectHolder("draken_lamp")
-    public static Block drakenLamp = null;
+    public static final Block drakenLamp = null;
     @ObjectHolder("eden_lamp")
-    public static Block edenLamp = null;
+    public static final Block edenLamp = null;
     @ObjectHolder("ender_lamp")
-    public static Block enderLamp = null;
+    public static final Block enderLamp = null;
     @ObjectHolder("ender_stone_lamp")
-    public static Block enderStoneLamp = null;
+    public static final Block enderStoneLamp = null;
     @ObjectHolder("gold_lamp")
-    public static Block goldLamp = null;
+    public static final Block goldLamp = null;
     @ObjectHolder("ice_lamp")
-    public static Block iceLamp = null;
+    public static final Block iceLamp = null;
     @ObjectHolder("jungle_lamp")
-    public static Block jungleLamp = null;
+    public static final Block jungleLamp = null;
     @ObjectHolder("kraken_lamp")
-    public static Block krakenLamp = null;
+    public static final Block krakenLamp = null;
     @ObjectHolder("lapis_lazuli_lamp")
-    public static Block lapisLazuliLamp = null;
+    public static final Block lapisLazuliLamp = null;
     @ObjectHolder("lava_lamp")
-    public static Block lavaLamp = null;
+    public static final Block lavaLamp = null;
     @ObjectHolder("milky_lamp")
-    public static Block milkyLamp = null;
+    public static final Block milkyLamp = null;
     @ObjectHolder("molten_lamp")
-    public static Block moltenLamp = null;
+    public static final Block moltenLamp = null;
     @ObjectHolder("netherite_lamp")
-    public static Block netheriteLamp = null;
+    public static final Block netheriteLamp = null;
     @ObjectHolder("realmite_lamp")
-    public static Block realmiteLamp = null;
+    public static final Block realmiteLamp = null;
     @ObjectHolder("redstone_ore_lamp")
-    public static Block redstoneOreLamp = null;
+    public static final Block redstoneOreLamp = null;
     @ObjectHolder("rupee_lamp")
-    public static Block rupeeLamp = null;
+    public static final Block rupeeLamp = null;
     @ObjectHolder("terran_lamp")
-    public static Block terranLamp = null;
+    public static final Block terranLamp = null;
 
     // Powered fences
     @ObjectHolder("blue_fence")
-    public static Block blueFence = null;
+    public static final Block blueFence = null;
     @ObjectHolder("blue_fence_on")
-    public static Block blueFenceOn = null;
+    public static final Block blueFenceOn = null;
     @ObjectHolder("green_fence")
-    public static Block greenFence = null;
+    public static final Block greenFence = null;
     @ObjectHolder("green_fence_on")
-    public static Block greenFenceOn = null;
+    public static final Block greenFenceOn = null;
     @ObjectHolder("red_fence")
-    public static Block redFence = null;
+    public static final Block redFence = null;
     @ObjectHolder("red_fence_on")
-    public static Block redFenceOn = null;
+    public static final Block redFenceOn = null;
 
     // Miscellaneous decorative blocks
     @ObjectHolder("asphalt")
-    public static Block asphalt = null;
+    public static final Block asphalt = null;
     @ObjectHolder("blue_stone")
-    public static Block blueStone = null;
+    public static final Block blueStone = null;
     @ObjectHolder("checker")
-    public static Block checker = null;
+    public static final Block checker = null;
     @ObjectHolder("crate")
-    public static Block crate = null;
+    public static final Block crate = null;
     @ObjectHolder("darkstone")
-    public static Block darkstone = null;
+    public static final Block darkstone = null;
     @ObjectHolder("fancy_wool")
-    public static Block fancyWool = null;
+    public static final Block fancyWool = null;
     @ObjectHolder("milk_stone")
-    public static Block milkStone = null;
+    public static final Block milkStone = null;
     @ObjectHolder("plank_design")
-    public static Block plankDesign = null;
+    public static final Block plankDesign = null;
     @ObjectHolder("rainbow_wool")
-    public static Block rainbowWool = null;
+    public static final Block rainbowWool = null;
 
     // Spike blocks
     @ObjectHolder("spike_block")
-    public static Block spikeBlock = null;
+    public static final Block spikeBlock = null;
     @ObjectHolder("hot_spike_block")
-    public static Block hotSpikeBlock = null;
+    public static final Block hotSpikeBlock = null;
 
     // Utility blocks
     @ObjectHolder("altar_of_corruption")
-    public static Block altarOfCorruption = null;
+    public static final Block altarOfCorruption = null;
     @ObjectHolder("bone_chest")
-    public static Block boneChest = null;
+    public static final Block boneChest = null;
 
     // Divine blocks
     @ObjectHolder("divine_sapling")
-    public static Block divineSapling = null;
+    public static final Block divineSapling = null;
     @ObjectHolder("divine_log")
-    public static Block divineLog = null;
+    public static final Block divineLog = null;
     @ObjectHolder("divine_leaves")
-    public static Block divineLeaves = null;
+    public static final Block divineLeaves = null;
     @ObjectHolder("divine_planks")
-    public static Block divinePlanks = null;
+    public static final Block divinePlanks = null;
     @ObjectHolder("divine_moss_stone")
-    public static Block divineMossStone = null;
+    public static final Block divineMossStone = null;
     @ObjectHolder("divine_rock")
-    public static Block divineRock = null;
+    public static final Block divineRock = null;
 
     // Miscellaneous utility
     @ObjectHolder("slime_light")
-    public static Block slimeLight = null;
+    public static final Block slimeLight = null;
     @ObjectHolder("dark_bridge")
-    public static Block darkBridge = null;
+    public static final Block darkBridge = null;
 
     // Crops
     @ObjectHolder("tomato_plant")
-    public static Block tomatoPlant = null;
+    public static final Block tomatoPlant = null;
     @ObjectHolder("white_mushroom_plant")
-    public static Block whiteMushroomPlant = null;
+    public static final Block whiteMushroomPlant = null;
 
     // Boss statues
     @ObjectHolder("ancient_entity_statue")
-    public static Block ancientEntityStatue = null;
+    public static final Block ancientEntityStatue = null;
     @ObjectHolder("ayeraco_statue")
-    public static Block ayeracoStatue = null;
+    public static final Block ayeracoStatue = null;
     @ObjectHolder("densos_statue")
-    public static Block densosStatue = null;
+    public static final Block densosStatue = null;
     @ObjectHolder("dramix_statue")
-    public static Block dramixStatue = null;
+    public static final Block dramixStatue = null;
     @ObjectHolder("eternal_archer_statue")
-    public static Block eternalArcherStatue = null;
+    public static final Block eternalArcherStatue = null;
     @ObjectHolder("karot_statue")
-    public static Block karotStatue = null;
+    public static final Block karotStatue = null;
     @ObjectHolder("king_of_scorchers_statue")
-    public static Block kingOfScorchersStatue = null;
+    public static final Block kingOfScorchersStatue = null;
     @ObjectHolder("parasecta_statue")
-    public static Block parasectaStatue = null;
+    public static final Block parasectaStatue = null;
     @ObjectHolder("reyvor_statue")
-    public static Block reyvorStatue = null;
+    public static final Block reyvorStatue = null;
     @ObjectHolder("soul_fiend_statue")
-    public static Block soulFiendStatue = null;
+    public static final Block soulFiendStatue = null;
     @ObjectHolder("the_watcher_statue")
-    public static Block theWatcherStatue = null;
+    public static final Block theWatcherStatue = null;
     @ObjectHolder("twilight_demon_statue")
-    public static Block twilightDemonStatue = null;
+    public static final Block twilightDemonStatue = null;
     @ObjectHolder("vamacheron_statue")
-    public static Block vamacheronStatue = null;
+    public static final Block vamacheronStatue = null;
 
     // Liquid
     @ObjectHolder("tar")
-    public static Block tar = null;
+    public static final Block tar = null;
 
     // Ayeraco technical blocks
     @ObjectHolder("ayeraco_beam_blue")
-    public static Block ayeracoBeamBlue = null;
+    public static final Block ayeracoBeamBlue = null;
     @ObjectHolder("ayeraco_beam_green")
-    public static Block ayeracoBeamGreen = null;
+    public static final Block ayeracoBeamGreen = null;
     @ObjectHolder("ayeraco_beam_purple")
-    public static Block ayeracoBeamPurple = null;
+    public static final Block ayeracoBeamPurple = null;
     @ObjectHolder("ayeraco_beam_red")
-    public static Block ayeracoBeamRed = null;
+    public static final Block ayeracoBeamRed = null;
     @ObjectHolder("ayeraco_beam_yellow")
-    public static Block ayeracoBeamYellow = null;
+    public static final Block ayeracoBeamYellow = null;
     @ObjectHolder("ayeraco_spawn")
-    public static Block ayeracoSpawn = null;
+    public static final Block ayeracoSpawn = null;
 
     // Iceika
 
     // Terrain
     @ObjectHolder("frozen_dirt")
-    public static BlockModDirt frozenDirt = null;
+    public static final BlockModDirt frozenDirt = null;
     @ObjectHolder("frozen_grass")
-    public static BlockModGrass frozenGrass = null;
+    public static final BlockModGrass frozenGrass = null;
     @ObjectHolder("frozen_stone")
-    public static Block frozenStone = null;
+    public static final Block frozenStone = null;
     @ObjectHolder("frozen_log")
-    public static Block frozenLog = null;
+    public static final Block frozenLog = null;
     @ObjectHolder("brittle_leaves")
-    public static Block brittleLeaves = null;
+    public static final Block brittleLeaves = null;
     @ObjectHolder("frozen_planks")
-    public static Block frozenPlanks = null;
+    public static final Block frozenPlanks = null;
 
     // Structure blocks
     @ObjectHolder("coalstone")
-    public static Block coalstone = null;
+    public static final Block coalstone = null;
     @ObjectHolder("coalstone_furnace")
-    public static Block coalstoneFurnace = null;
+    public static final Block coalstoneFurnace = null;
     @ObjectHolder("coalstone_furnace_on")
-    public static Block coalstoneFurnaceOn = null;
+    public static final Block coalstoneFurnaceOn = null;
     @ObjectHolder("coalstone_stairs")
-    public static Block coalstoneStairs = null;
+    public static final Block coalstoneStairs = null;
     @ObjectHolder("frost_archer_spawner")
-    public static Block frostArcherSpawner = null;
+    public static final Block frostArcherSpawner = null;
     @ObjectHolder("frosted_chest")
-    public static Block frostedChest = null;
+    public static final Block frostedChest = null;
     @ObjectHolder("frosted_glass")
-    public static Block frostedGlass = null;
+    public static final Block frostedGlass = null;
     @ObjectHolder("icy_bricks")
-    public static Block icyBricks = null;
+    public static final Block icyBricks = null;
     @ObjectHolder("icy_stone")
-    public static Block icyStone = null;
+    public static final Block icyStone = null;
     @ObjectHolder("rollum_spawner")
-    public static Block rollumSpawner = null;
+    public static final Block rollumSpawner = null;
     @ObjectHolder("snow_bricks")
-    public static Block snowBricks = null;
+    public static final Block snowBricks = null;
     @ObjectHolder("steel_door")
-    public static Block steelDoor = null;
+    public static final Block steelDoor = null;
     @ObjectHolder("workshop_bookcase")
-    public static Block workshopBookcase = null;
+    public static final Block workshopBookcase = null;
     @ObjectHolder("workshop_lamp")
-    public static Block workshopLamp = null;
+    public static final Block workshopLamp = null;
 
     // Candy canes
     @ObjectHolder("blue_candy_cane")
-    public static Block blueCandyCane = null;
+    public static final Block blueCandyCane = null;
     @ObjectHolder("green_candy_cane")
-    public static Block greenCandyCane = null;
+    public static final Block greenCandyCane = null;
     @ObjectHolder("pink_candy_cane")
-    public static Block pinkCandyCane = null;
+    public static final Block pinkCandyCane = null;
     @ObjectHolder("red_candy_cane")
-    public static Block redCandyCane = null;
+    public static final Block redCandyCane = null;
     @ObjectHolder("yellow_candy_cane")
-    public static Block yellowCandyCane = null;
+    public static final Block yellowCandyCane = null;
 
     // Christmas lights
     @ObjectHolder("blue_christmas_lights")
-    public static Block blueChristmasLights = null;
+    public static final Block blueChristmasLights = null;
     @ObjectHolder("green_christmas_lights")
-    public static Block greenChristmasLights = null;
+    public static final Block greenChristmasLights = null;
     @ObjectHolder("purple_christmas_lights")
-    public static Block purpleChristmasLights = null;
+    public static final Block purpleChristmasLights = null;
     @ObjectHolder("red_christmas_lights")
-    public static Block redChristmasLights = null;
+    public static final Block redChristmasLights = null;
     @ObjectHolder("yellow_christmas_lights")
-    public static Block yellowChristmasLights = null;
+    public static final Block yellowChristmasLights = null;
 
     // Chest
     @ObjectHolder("present_box")
-    public static Block presentBox = null;
+    public static final Block presentBox = null;
 
     // Crops
     @ObjectHolder("winterberry_bush")
-    public static Block winterberryBush = null;
+    public static final Block winterberryBush = null;
     @ObjectHolder("ripe_winterberry_bush")
-    public static Block ripeWinterberryBush = null;
+    public static final Block ripeWinterberryBush = null;
 
     // Other
     @ObjectHolder("iceika_fire")
-    public static Block iceikaFire = null;
+    public static final Block iceikaFire = null;
     @ObjectHolder("iceika_portal")
-    public static BlockModPortal iceikaPortal = null;
+    public static final BlockModPortal iceikaPortal = null;
 
     // Twilight dimensions
 
     // Dirt
     @ObjectHolder("eden_dirt")
-    public static BlockModDirt edenDirt = null;
+    public static final BlockModDirt edenDirt = null;
     @ObjectHolder("wildwood_dirt")
-    public static BlockModDirt wildwoodDirt = null;
+    public static final BlockModDirt wildwoodDirt = null;
     @ObjectHolder("apalachia_dirt")
-    public static BlockModDirt apalachiaDirt = null;
+    public static final BlockModDirt apalachiaDirt = null;
     @ObjectHolder("skythern_dirt")
-    public static BlockModDirt skythernDirt = null;
+    public static final BlockModDirt skythernDirt = null;
     @ObjectHolder("mortum_dirt")
-    public static BlockModDirt mortumDirt = null;
+    public static final BlockModDirt mortumDirt = null;
 
     // Grass
     @ObjectHolder("eden_grass")
-    public static BlockModGrass edenGrass = null;
+    public static final BlockModGrass edenGrass = null;
     @ObjectHolder("wildwood_grass")
-    public static BlockModGrass wildwoodGrass = null;
+    public static final BlockModGrass wildwoodGrass = null;
     @ObjectHolder("apalachia_grass")
-    public static BlockModGrass apalachiaGrass = null;
+    public static final BlockModGrass apalachiaGrass = null;
     @ObjectHolder("skythern_grass")
-    public static BlockModGrass skythernGrass = null;
+    public static final BlockModGrass skythernGrass = null;
     @ObjectHolder("mortum_grass")
-    public static BlockModGrass mortumGrass = null;
+    public static final BlockModGrass mortumGrass = null;
 
     // Stone
     @ObjectHolder("twilight_stone")
-    public static Block twilightStone = null;
+    public static final Block twilightStone = null;
 
     // Ore
     @ObjectHolder("eden_ore")
-    public static Block edenOre = null;
+    public static final Block edenOre = null;
     @ObjectHolder("wildwood_ore")
-    public static Block wildwoodOre = null;
+    public static final Block wildwoodOre = null;
     @ObjectHolder("apalachia_ore")
-    public static Block apalachiaOre = null;
+    public static final Block apalachiaOre = null;
     @ObjectHolder("skythern_ore")
-    public static Block skythernOre = null;
+    public static final Block skythernOre = null;
     @ObjectHolder("mortum_ore")
-    public static Block mortumOre = null;
+    public static final Block mortumOre = null;
 
     // Sapling
     @ObjectHolder("eden_sapling")
-    public static Block edenSapling = null;
+    public static final Block edenSapling = null;
     @ObjectHolder("wildwood_sapling")
-    public static Block wildwoodSapling = null;
+    public static final Block wildwoodSapling = null;
     @ObjectHolder("apalachia_sapling")
-    public static Block apalachiaSapling = null;
+    public static final Block apalachiaSapling = null;
     @ObjectHolder("skythern_sapling")
-    public static Block skythernSapling = null;
+    public static final Block skythernSapling = null;
     @ObjectHolder("mortum_sapling")
-    public static Block mortumSapling = null;
+    public static final Block mortumSapling = null;
 
     // Logs
     @ObjectHolder("eden_log")
-    public static Block edenLog = null;
+    public static final Block edenLog = null;
     @ObjectHolder("wildwood_log")
-    public static Block wildwoodLog = null;
+    public static final Block wildwoodLog = null;
     @ObjectHolder("apalachia_log")
-    public static Block apalachiaLog = null;
+    public static final Block apalachiaLog = null;
     @ObjectHolder("skythern_log")
-    public static Block skythernLog = null;
+    public static final Block skythernLog = null;
     @ObjectHolder("mortum_log")
-    public static Block mortumLog = null;
+    public static final Block mortumLog = null;
 
     // Leaves
     @ObjectHolder("eden_leaves")
-    public static Block edenLeaves = null;
+    public static final Block edenLeaves = null;
     @ObjectHolder("wildwood_leaves")
-    public static Block wildwoodLeaves = null;
+    public static final Block wildwoodLeaves = null;
     @ObjectHolder("apalachia_leaves")
-    public static Block apalachiaLeaves = null;
+    public static final Block apalachiaLeaves = null;
     @ObjectHolder("skythern_leaves")
-    public static Block skythernLeaves = null;
+    public static final Block skythernLeaves = null;
     @ObjectHolder("mortum_leaves")
-    public static Block mortumLeaves = null;
+    public static final Block mortumLeaves = null;
 
     // Planks
     @ObjectHolder("eden_planks")
-    public static Block edenPlanks = null;
+    public static final Block edenPlanks = null;
     @ObjectHolder("wildwood_planks")
-    public static Block wildwoodPlanks = null;
+    public static final Block wildwoodPlanks = null;
     @ObjectHolder("apalachia_planks")
-    public static Block apalachiaPlanks = null;
+    public static final Block apalachiaPlanks = null;
     @ObjectHolder("skythern_planks")
-    public static Block skythernPlanks = null;
+    public static final Block skythernPlanks = null;
     @ObjectHolder("mortum_planks")
-    public static Block mortumPlanks = null;
+    public static final Block mortumPlanks = null;
 
  // Stairs
     @ObjectHolder("eden_stairs")
-    public static Block edenStairs = null;
+    public static final Block edenStairs = null;
     @ObjectHolder("wildwood_stairs")
-    public static Block wildwoodStairs = null;
+    public static final Block wildwoodStairs = null;
     @ObjectHolder("apalachia_stairs")
-    public static Block apalachiaStairs = null;
+    public static final Block apalachiaStairs = null;
     @ObjectHolder("skythern_stairs")
-    public static Block skythernStairs = null;
+    public static final Block skythernStairs = null;
     @ObjectHolder("mortum_stairs")
-    public static Block mortumStairs = null;
+    public static final Block mortumStairs = null;
     
     // Slab
     @ObjectHolder("eden_slab")
-    public static Block edenSlab = null;
+    public static final Block edenSlab = null;
     @ObjectHolder("wildwood_slab")
-    public static Block wildwoodSlab= null;
+    public static final Block wildwoodSlab= null;
     @ObjectHolder("apalachia_slab")
-    public static Block apalachiaSlab = null;
+    public static final Block apalachiaSlab = null;
     @ObjectHolder("skythern_slab")
-    public static Block skythernSlab = null;
+    public static final Block skythernSlab = null;
     @ObjectHolder("mortum_slab")
-    public static Block mortumSlab = null;
+    public static final Block mortumSlab = null;
     @ObjectHolder("divine_slab")
-    public static Block divineSlab = null;
+    public static final Block divineSlab = null;
     @ObjectHolder("frozen_slab")
-    public static Block frozenSlab = null;
+    public static final Block frozenSlab = null;
     @ObjectHolder("eucalyptus_slab")
-    public static Block eucalyptusSlab = null;
+    public static final Block eucalyptusSlab = null;
 
     //Double Slab
     @ObjectHolder("eden_double_slab")
-    public static Block edenDoubleSlab = null;
+    public static final Block edenDoubleSlab = null;
     @ObjectHolder("wildwood_double_slab")
-    public static Block wildwoodDoubleSlab= null;
+    public static final Block wildwoodDoubleSlab= null;
     @ObjectHolder("apalachia_double_slab")
-    public static Block apalachiaDoubleSlab = null;
+    public static final Block apalachiaDoubleSlab = null;
     @ObjectHolder("skythern_double_slab")
-    public static Block skythernDoubleSlab = null;
+    public static final Block skythernDoubleSlab = null;
     @ObjectHolder("mortum_double_slab")
-    public static Block mortumDoubleSlab = null;
+    public static final Block mortumDoubleSlab = null;
     @ObjectHolder("divine_double_slab")
-    public static Block divineDoubleSlab = null;
+    public static final Block divineDoubleSlab = null;
     @ObjectHolder("frozen_double_slab")
-    public static Block frozenDoubleSlab = null;
+    public static final Block frozenDoubleSlab = null;
     @ObjectHolder("eucalyptus_double_slab")
-    public static Block eucalyptusDoubleSlab = null;
+    public static final Block eucalyptusDoubleSlab = null;
     
     // Compressed blocks
     @ObjectHolder("eden_block")
-    public static Block edenBlock = null;
+    public static final Block edenBlock = null;
     @ObjectHolder("wildwood_block")
-    public static Block wildwoodBlock = null;
+    public static final Block wildwoodBlock = null;
     @ObjectHolder("apalachia_block")
-    public static Block apalachiaBlock = null;
+    public static final Block apalachiaBlock = null;
     @ObjectHolder("skythern_block")
-    public static Block skythernBlock = null;
+    public static final Block skythernBlock = null;
     @ObjectHolder("mortum_block")
-    public static Block mortumBlock = null;
+    public static final Block mortumBlock = null;
 
     // Ground foliage
     @ObjectHolder("sunbloom")
-    public static Block sunbloom = null;
+    public static final Block sunbloom = null;
     @ObjectHolder("eden_brush")
-    public static Block edenBrush = null;
+    public static final Block edenBrush = null;
     @ObjectHolder("sun_blossom")
-    public static Block sunBlossom = null;
+    public static final Block sunBlossom = null;
     @ObjectHolder("moonlight_fern")
-    public static Block moonlightFern = null;
+    public static final Block moonlightFern = null;
     @ObjectHolder("moon_bud")
-    public static Block moonBud = null;
+    public static final Block moonBud = null;
     @ObjectHolder("wildwood_tallgrass")
-    public static Block wildwoodTallgrass = null;
+    public static final Block wildwoodTallgrass = null;
     @ObjectHolder("dusk_flower")
-    public static Block duskFlower = null;
+    public static final Block duskFlower = null;
     @ObjectHolder("dusk_bloom")
-    public static Block duskBloom = null;
+    public static final Block duskBloom = null;
     @ObjectHolder("apalachia_tallgrass")
-    public static Block apalachiaTallgrass = null;
+    public static final Block apalachiaTallgrass = null;
     @ObjectHolder("skythern_brush")
-    public static Block skythernBrush = null;
+    public static final Block skythernBrush = null;
     @ObjectHolder("dust_lily")
-    public static Block dustLily = null;
+    public static final Block dustLily = null;
     @ObjectHolder("dust_brambles")
-    public static Block dustBrambles = null;
+    public static final Block dustBrambles = null;
     @ObjectHolder("demon_brambles")
-    public static Block demonBrambles = null;
+    public static final Block demonBrambles = null;
     @ObjectHolder("eye_plant")
-    public static Block eyePlant = null;
+    public static final Block eyePlant = null;
     @ObjectHolder("mortum_brush")
-    public static Block mortumBrush = null;
+    public static final Block mortumBrush = null;
 
     // Crops
     @ObjectHolder("moonbulb_plant")
-    public static Block moonbulbPlant = null;
+    public static final Block moonbulbPlant = null;
     @ObjectHolder("pink_glowbone_plant")
-    public static Block pinkGlowbonePlant = null;
+    public static final Block pinkGlowbonePlant = null;
     @ObjectHolder("purple_glowbone_plant")
-    public static Block purpleGlowbonePlant = null;
+    public static final Block purpleGlowbonePlant = null;
     @ObjectHolder("sky_plant")
-    public static Block skyPlant = null;
+    public static final Block skyPlant = null;
 
     // Vine
     @ObjectHolder("wildwood_vine")
-    public static Block wildwoodVine = null;
+    public static final Block wildwoodVine = null;
 
     // Portal
     @ObjectHolder("eden_portal")
-    public static BlockModPortal edenPortal = null;
+    public static final BlockModPortal edenPortal = null;
     @ObjectHolder("wildwood_portal")
-    public static BlockModPortal wildwoodPortal = null;
+    public static final BlockModPortal wildwoodPortal = null;
     @ObjectHolder("apalachia_portal")
-    public static BlockModPortal apalachiaPortal = null;
+    public static final BlockModPortal apalachiaPortal = null;
     @ObjectHolder("skythern_portal")
-    public static BlockModPortal skythernPortal = null;
+    public static final BlockModPortal skythernPortal = null;
     @ObjectHolder("mortum_portal")
-    public static BlockModPortal mortumPortal = null;
+    public static final BlockModPortal mortumPortal = null;
 
     // Other
     @ObjectHolder("blue_fire")
-    public static Block blueFire = null;
+    public static final Block blueFire = null;
     @ObjectHolder("eden_torch")
-    public static Block edenTorch = null;
+    public static final Block edenTorch = null;
     @ObjectHolder("eden_chest")
-    public static Block edenChest = null;
+    public static final Block edenChest = null;
     @ObjectHolder("truffle")
-    public static Block truffle = null;
+    public static final Block truffle = null;
 
     // Arcana
 
     // Dirt
     @ObjectHolder("arcanite_dirt")
-    public static BlockModDirt arcaniteDirt = null;
+    public static final BlockModDirt arcaniteDirt = null;
 
     // Grass
     @ObjectHolder("arcanite_grass")
-    public static BlockModGrass arcaniteGrass = null;
+    public static final BlockModGrass arcaniteGrass = null;
 
     // Ore
     @ObjectHolder("arcanium_ore")
-    public static Block arcaniumOre = null;
+    public static final Block arcaniumOre = null;
 
     // Structure blocks
     // Normal
     @ObjectHolder("ancient_brick")
-    public static Block ancientBrick = null;
+    public static final Block ancientBrick = null;
     @ObjectHolder("ancient_stone")
-    public static Block ancientStone = null;
+    public static final Block ancientStone = null;
     @ObjectHolder("ancient_tile")
-    public static Block ancientTile = null;
+    public static final Block ancientTile = null;
     @ObjectHolder("arcanite_tubes")
-    public static Block arcaniteTubes = null;
+    public static final Block arcaniteTubes = null;
     @ObjectHolder("arcanium_metal")
-    public static Block arcaniumMetal = null;
+    public static final Block arcaniumMetal = null;
     @ObjectHolder("arcanium_power")
-    public static Block arcaniumPower = null;
+    public static final Block arcaniumPower = null;
     @ObjectHolder("dark_degraded_brick")
-    public static Block darkDegradedBrick = null;
+    public static final Block darkDegradedBrick = null;
     @ObjectHolder("degraded_brick")
-    public static Block degradedBrick = null;
+    public static final Block degradedBrick = null;
     @ObjectHolder("dungeon_lamp")
-    public static Block dungeonLamp = null;
+    public static final Block dungeonLamp = null;
     @ObjectHolder("heat_trap")
-    public static Block heatTrap = null;
+    public static final Block heatTrap = null;
     @ObjectHolder("heat_trap_on")
-    public static Block heatTrapOn = null;
+    public static final Block heatTrapOn = null;
     @ObjectHolder("light_degraded_brick")
-    public static Block lightDegradedBrick = null;
+    public static final Block lightDegradedBrick = null;
     @ObjectHolder("soul_sludge")
-    public static Block soulSludge = null;
+    public static final Block soulSludge = null;
     @ObjectHolder("soul_stone")
-    public static Block soulStone = null;
+    public static final Block soulStone = null;
 
     // Door
     @ObjectHolder("ancient_brick_door")
-    public static Block ancientBrickDoor = null;
+    public static final Block ancientBrickDoor = null;
     @ObjectHolder("degraded_brick_door")
-    public static Block degradedBrickDoor = null;
+    public static final Block degradedBrickDoor = null;
     @ObjectHolder("soul_sludge_door")
-    public static Block soulSludgeDoor = null;
+    public static final Block soulSludgeDoor = null;
     @ObjectHolder("soul_stone_door")
-    public static Block soulStoneDoor = null;
+    public static final Block soulStoneDoor = null;
 
     // Spawner
     @ObjectHolder("death_hound_spawner")
-    public static Block deathHoundSpawner = null;
+    public static final Block deathHoundSpawner = null;
     @ObjectHolder("deathcryx_spawner")
-    public static Block deathcryxSpawner = null;
+    public static final Block deathcryxSpawner = null;
     @ObjectHolder("dungeon_prisoner_spawner")
-    public static Block dungeonPrisonerSpawner = null;
+    public static final Block dungeonPrisonerSpawner = null;
     @ObjectHolder("living_statue_spawner")
-    public static Block livingStatueSpawner = null;
+    public static final Block livingStatueSpawner = null;
     @ObjectHolder("razorback_spawner")
-    public static Block razorbackSpawner = null;
+    public static final Block razorbackSpawner = null;
     @ObjectHolder("roamer_spawner")
-    public static Block roamerSpawner = null;
+    public static final Block roamerSpawner = null;
 
     // Utility
     @ObjectHolder("arcanium_extractor")
-    public static Block arcaniumExtractor = null;
+    public static final Block arcaniumExtractor = null;
 
     // Boss altars
     @ObjectHolder("dramix_altar")
-    public static Block dramixAltar = null;
+    public static final Block dramixAltar = null;
     @ObjectHolder("parasecta_altar")
-    public static Block parasectaAltar = null;
+    public static final Block parasectaAltar = null;
 
     // Stained glass
     @ObjectHolder("stained_glass")
-    public static Block stainedGlass = null;
+    public static final Block stainedGlass = null;
     @ObjectHolder("stained_glass2")
-    public static Block stainedGlass2 = null;
+    public static final Block stainedGlass2 = null;
     @ObjectHolder("stained_glass3")
-    public static Block stainedGlass3 = null;
+    public static final Block stainedGlass3 = null;
     @ObjectHolder("stained_glass4")
-    public static Block stainedGlass4 = null;
+    public static final Block stainedGlass4 = null;
     @ObjectHolder("stained_glass5")
-    public static Block stainedGlass5 = null;
+    public static final Block stainedGlass5 = null;
     @ObjectHolder("stained_glass6")
-    public static Block stainedGlass6 = null;
+    public static final Block stainedGlass6 = null;
     @ObjectHolder("stained_glass7")
-    public static Block stainedGlass7 = null;
+    public static final Block stainedGlass7 = null;
     @ObjectHolder("stained_glass8")
-    public static Block stainedGlass8 = null;
+    public static final Block stainedGlass8 = null;
 
     // Portal blocks
     @ObjectHolder("arcana_portal")
-    public static Block arcanaPortal = null;
+    public static final Block arcanaPortal = null;
     @ObjectHolder("arcana_portal_frame")
-    public static Block arcanaPortalFrame = null;
+    public static final Block arcanaPortalFrame = null;
     @ObjectHolder("arcana_hard_portal_frame")
-    public static Block arcanaHardPortalFrame = null;
+    public static final Block arcanaHardPortalFrame = null;
 
     // Eucalyptus
     @ObjectHolder("eucalyptus_log")
-    public static Block eucalyptusLog = null;
+    public static final Block eucalyptusLog = null;
     @ObjectHolder("eucalyptus_planks")
-    public static Block eucalyptusPlanks = null;
+    public static final Block eucalyptusPlanks = null;
 
     // Crops
     @ObjectHolder("aquamarine_plant")
-    public static Block aquamarinePlant = null;
+    public static final Block aquamarinePlant = null;
     @ObjectHolder("eucalyptus_plant")
-    public static Block eucalyptusPlant = null;
+    public static final Block eucalyptusPlant = null;
     @ObjectHolder("firestock_plant")
-    public static Block firestockPlant = null;
+    public static final Block firestockPlant = null;
     @ObjectHolder("hitchak_plant")
-    public static Block hitchakPlant = null;
+    public static final Block hitchakPlant = null;
     @ObjectHolder("lamona_plant")
-    public static Block lamonaPlant = null;
+    public static final Block lamonaPlant = null;
     @ObjectHolder("marsine_plant")
-    public static Block marsinePlant = null;
+    public static final Block marsinePlant = null;
     @ObjectHolder("pinfly_plant")
-    public static Block pinflyPlant = null;
+    public static final Block pinflyPlant = null;
     @ObjectHolder("veilo_plant")
-    public static Block veiloPlant = null;
+    public static final Block veiloPlant = null;
 
     // Furnace
     @ObjectHolder("greenlight_furnace")
-    public static Block greenlightFurnace = null;
+    public static final Block greenlightFurnace = null;
     @ObjectHolder("greenlight_furnace_on")
-    public static Block greenlightFurnaceOn = null;
+    public static final Block greenlightFurnaceOn = null;
     @ObjectHolder("oceanfire_furnace")
-    public static Block oceanfireFurnace = null;
+    public static final Block oceanfireFurnace = null;
     @ObjectHolder("oceanfire_furnace_on")
-    public static Block oceanfireFurnaceOn = null;
+    public static final Block oceanfireFurnaceOn = null;
     @ObjectHolder("molten_furnace")
-    public static Block moltenFurnace = null;
+    public static final Block moltenFurnace = null;
     @ObjectHolder("molten_furnace_on")
-    public static Block moltenFurnaceOn = null;
+    public static final Block moltenFurnaceOn = null;
     @ObjectHolder("whitefire_furnace")
-    public static Block whitefireFurnace = null;
+    public static final Block whitefireFurnace = null;
     @ObjectHolder("whitefire_furnace_on")
-    public static Block whitefireFurnaceOn = null;
+    public static final Block whitefireFurnaceOn = null;
     @ObjectHolder("moonlight_furnace")
-    public static Block moonlightFurnace = null;
+    public static final Block moonlightFurnace = null;
     @ObjectHolder("moonlight_furnace_on")
-    public static Block moonlightFurnaceOn = null;
+    public static final Block moonlightFurnaceOn = null;
     @ObjectHolder("demon_furnace")
-    public static Block demonFurnace = null;
+    public static final Block demonFurnace = null;
     @ObjectHolder("demon_furnace_on")
-    public static Block demonFurnaceOn = null;
+    public static final Block demonFurnaceOn = null;
 
     // Miscellaneous utility
     @ObjectHolder("acceleron")
-    public static Block acceleron = null;
+    public static final Block acceleron = null;
     @ObjectHolder("arcanium_torch")
-    public static Block arcaniumTorch = null;
+    public static final Block arcaniumTorch = null;
     @ObjectHolder("elevantium")
-    public static Block elevantium = null;
+    public static final Block elevantium = null;
     @ObjectHolder("star_bridge")
-    public static Block starBridge = null;
+    public static final Block starBridge = null;
 
     //We are avoiding rails for now
-    //public static Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
+    //public static final Block arcaniteRails = new BlockRedstonelessRails("arcanite_rails");
 
     // Vethea
     // Terrain
     @ObjectHolder("dream_dirt")
-    public static BlockModDirt dreamDirt = null;
+    public static final BlockModDirt dreamDirt = null;
     @ObjectHolder("dream_grass")
-    public static BlockModGrass dreamGrass = null;
+    public static final BlockModGrass dreamGrass = null;
     @ObjectHolder("dream_stone")
-    public static Block dreamStone = null;
+    public static final Block dreamStone = null;
 
     // Logs
     @ObjectHolder("dreamwood_log")
-    public static Block dreamwoodLog = null;
+    public static final Block dreamwoodLog = null;
     @ObjectHolder("firewood_log")
-    public static Block firewoodLog = null;
+    public static final Block firewoodLog = null;
     @ObjectHolder("hyrewood_log")
-    public static Block hyrewoodLog = null;
+    public static final Block hyrewoodLog = null;
     @ObjectHolder("mintwood_log")
-    public static Block mintwoodLog = null;
+    public static final Block mintwoodLog = null;
 
     // Leaves
     @ObjectHolder("dreamwood_leaves")
-    public static Block dreamwoodLeaves = null;
+    public static final Block dreamwoodLeaves = null;
     @ObjectHolder("firewood_leaves")
-    public static Block firewoodLeaves = null;
+    public static final Block firewoodLeaves = null;
     @ObjectHolder("hyrewood_leaves")
-    public static Block hyrewoodLeaves = null;
+    public static final Block hyrewoodLeaves = null;
     @ObjectHolder("mintwood_leaves")
-    public static Block mintwoodLeaves = null;
+    public static final Block mintwoodLeaves = null;
 
     // Ground foliage
     @ObjectHolder("bulbatobe")
-    public static Block bulbatobe = null;
+    public static final Block bulbatobe = null;
     @ObjectHolder("cracklespike")
-    public static Block cracklespike = null;
+    public static final Block cracklespike = null;
     @ObjectHolder("dreamglow")
-    public static Block dreamglow = null;
+    public static final Block dreamglow = null;
     @ObjectHolder("fernite")
-    public static Block fernite = null;
+    public static final Block fernite = null;
     @ObjectHolder("green_dulah")
-    public static Block greenDulah = null;
+    public static final Block greenDulah = null;
     @ObjectHolder("green_gemtop")
-    public static Block greenGemtop = null;
+    public static final Block greenGemtop = null;
     @ObjectHolder("purple_gemtop")
-    public static Block purpleGemtop = null;
+    public static final Block purpleGemtop = null;
     @ObjectHolder("shimmer")
-    public static Block shimmer = null;
+    public static final Block shimmer = null;
     @ObjectHolder("shine_grass")
-    public static Block shineGrass = null;
+    public static final Block shineGrass = null;
     @ObjectHolder("yellow_dulah")
-    public static Block yellowDulah = null;
+    public static final Block yellowDulah = null;
 
     // Vines
     @ObjectHolder("weedwood_vine")
-    public static Block weedwoodVine = null;
+    public static final Block weedwoodVine = null;
     @ObjectHolder("blossomed_weedwood_vine")
-    public static Block blossomedWeedwoodVine = null;
+    public static final Block blossomedWeedwoodVine = null;
 
     // Building blocks
     @ObjectHolder("dark_dream_bricks")
-    public static Block darkDreamBricks = null;
+    public static final Block darkDreamBricks = null;
     @ObjectHolder("light_dream_bricks")
-    public static Block lightDreamBricks = null;
+    public static final Block lightDreamBricks = null;
     @ObjectHolder("red_dream_bricks")
-    public static Block redDreamBricks = null;
+    public static final Block redDreamBricks = null;
     @ObjectHolder("smooth_glass")
-    public static Block smoothGlass = null;
+    public static final Block smoothGlass = null;
 
     // Lighting
     @ObjectHolder("fire_crystal")
-    public static Block fireCrystal = null;
+    public static final Block fireCrystal = null;
     @ObjectHolder("firelight")
-    public static Block firelight = null;
+    public static final Block firelight = null;
 
     // Structure
     // General
     @ObjectHolder("dream_lamp")
-    public static Block dreamLamp = null;
+    public static final Block dreamLamp = null;
     @ObjectHolder("everstone")
-    public static Block everstone = null;
+    public static final Block everstone = null;
     @ObjectHolder("dark_everstone")
-    public static Block darkEverstone = null;
+    public static final Block darkEverstone = null;
     @ObjectHolder("white_everstone")
-    public static Block whiteEverstone = null;
+    public static final Block whiteEverstone = null;
 
     // Crypt
     @ObjectHolder("black_hungerstone")
-    public static Block blackHungerstone = null;
+    public static final Block blackHungerstone = null;
     @ObjectHolder("green_hungerstone")
-    public static Block greenHungerstone = null;
+    public static final Block greenHungerstone = null;
     @ObjectHolder("crypt_floor")
-    public static Block cryptFloor = null;
+    public static final Block cryptFloor = null;
     @ObjectHolder("crypt_wall")
-    public static Block cryptWall = null;
+    public static final Block cryptWall = null;
     @ObjectHolder("metal_caging")
-    public static Block metalCaging = null;
+    public static final Block metalCaging = null;
 
     // Village
     @ObjectHolder("village_lamp")
-    public static Block villageLamp = null;
+    public static final Block villageLamp = null;
 
     // Hive
     @ObjectHolder("cell_lamp")
-    public static Block cellLamp = null;
+    public static final Block cellLamp = null;
     @ObjectHolder("hive_wall")
-    public static Block hiveWall = null;
+    public static final Block hiveWall = null;
 
     // Karos Madhouse
     @ObjectHolder("black_karos_bricks")
-    public static Block blackKarosBricks = null;
+    public static final Block blackKarosBricks = null;
     @ObjectHolder("blue_karos_bricks")
-    public static Block blueKarosBricks = null;
+    public static final Block blueKarosBricks = null;
     @ObjectHolder("heliotic_beam")
-    public static Block helioticBeam = null;
+    public static final Block helioticBeam = null;
     @ObjectHolder("karos_cannon")
-    public static Block karosCannon = null;
+    public static final Block karosCannon = null;
     @ObjectHolder("karos_heat_tile_green")
-    public static Block karosHeatTileGreen = null;
+    public static final Block karosHeatTileGreen = null;
     @ObjectHolder("karos_heat_tile_red")
-    public static Block karosHeatTileRed = null;
+    public static final Block karosHeatTileRed = null;
 
     // Lunic Garden
     @ObjectHolder("luna_bricks")
-    public static Block lunaBricks = null;
+    public static final Block lunaBricks = null;
     @ObjectHolder("luna_stone")
-    public static Block lunaStone = null;
+    public static final Block lunaStone = null;
 
     // Raglok Chamber
     @ObjectHolder("chamber_wall")
-    public static Block chamberWall = null;
+    public static final Block chamberWall = null;
     @ObjectHolder("shifted_chamber_wall")
-    public static Block shiftedChamberWall = null;
+    public static final Block shiftedChamberWall = null;
     @ObjectHolder("stacked_chamber_wall")
-    public static Block stackedChamberWall = null;
+    public static final Block stackedChamberWall = null;
 
     // Wreck Hall
     @ObjectHolder("hall_wall")
-    public static Block hallWall = null;
+    public static final Block hallWall = null;
 
     // Utility
     @ObjectHolder("infusion_table")
-    public static Block infusionTable = null;
+    public static final Block infusionTable = null;
 
     // Boss altars
     @ObjectHolder("karos_altar")
-    public static Block karosAltar = null;
+    public static final Block karosAltar = null;
     @ObjectHolder("lunic_altar")
-    public static Block lunicAltar = null;
+    public static final Block lunicAltar = null;
     @ObjectHolder("quadrotic_altar")
-    public static Block quadroticAltar = null;
+    public static final Block quadroticAltar = null;
     @ObjectHolder("raglok_altar")
-    public static Block raglokAltar = null;
+    public static final Block raglokAltar = null;
     @ObjectHolder("wreck_altar")
-    public static Block wreckAltar = null;
+    public static final Block wreckAltar = null;
 
     // Mob spawners
     @ObjectHolder("biphron_spawner")
-    public static Block biphronSpawner = null;
+    public static final Block biphronSpawner = null;
     @ObjectHolder("dreamwrecker_spawner")
-    public static Block dreamwreckerSpawner = null;
+    public static final Block dreamwreckerSpawner = null;
     @ObjectHolder("gorgosion_spawner")
-    public static Block gorgosionSpawner = null;
+    public static final Block gorgosionSpawner = null;
     @ObjectHolder("twins_spawner")
-    public static Block twinsSpawner = null;
+    public static final Block twinsSpawner = null;
     @ObjectHolder("vermenous_spawner")
-    public static Block vermenousSpawner = null;
+    public static final Block vermenousSpawner = null;
 
     // Acid
     @ObjectHolder("acid_block")
-    public static Block acidBlock = null;
+    public static final Block acidBlock = null;
     @ObjectHolder("bacterial_acid")
-    public static Block bacterialAcid = null;
+    public static final Block bacterialAcid = null;
     @ObjectHolder("lunic_acid")
-    public static Block lunicAcid = null;
+    public static final Block lunicAcid = null;
 
     // Portal blocks
     @ObjectHolder("nightmare_bed_block")
-    public static Block nightmareBed = null;
+    public static final Block nightmareBed = null;
     @ObjectHolder("vethea_portal")
-    public static BlockModPortal vetheaPortal = null;
+    public static final BlockModPortal vetheaPortal = null;
 //
 //    public static void AddWoodVariants() {
 //        for (WoodType woodType : WoodType.values()) {
