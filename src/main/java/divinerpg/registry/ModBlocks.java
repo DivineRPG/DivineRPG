@@ -1205,7 +1205,7 @@ public class ModBlocks {
         register(registry, new BlockBoneChest("bone_chest"));
 
         // Divine blocks
-        register(registry, new BlockModSapling("divine_sapling", Blocks.GRASS, Blocks.DIRT, new DivineTree(true)));
+        register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
         register(registry, new BlockModLeaves("divine_leaves", 0.3F, () -> divineSapling, MapColor.YELLOW));
         register(registry, new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F));
@@ -1324,11 +1324,11 @@ public class ModBlocks {
         register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, () -> ModItems.mortumFragments));
 
         // Sapling
-        register(registry, new BlockModSapling("eden_sapling", getBlockFromList("eden_grass"), getBlockFromList("eden_dirt"), new EdenTree(true)));
-        register(registry, new BlockModSapling("wildwood_sapling", getBlockFromList("wildwood_grass"), getBlockFromList("wildwood_dirt"), new WildWoodTree(true)));
-        register(registry, new BlockModSapling("apalachia_sapling", getBlockFromList("apalachia_grass"), getBlockFromList("apalachia_dirt"), new ApalachiaTree(true)));
-        register(registry, new BlockModSapling("skythern_sapling", getBlockFromList("skythern_grass"), getBlockFromList("skythern_dirt"), new SkythernTree(true)));
-        register(registry, new BlockModSapling("mortum_sapling", getBlockFromList("mortum_grass"), getBlockFromList("mortum_dirt"), new MortumTree(true)));
+        register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
+        register(registry, new BlockModSapling("wildwood_sapling", () -> wildwoodGrass, () -> wildwoodDirt, new WildWoodTree(true)));
+        register(registry, new BlockModSapling("apalachia_sapling", () -> apalachiaGrass, () -> apalachiaDirt, new ApalachiaTree(true)));
+        register(registry, new BlockModSapling("skythern_sapling", () -> skythernGrass, () -> skythernDirt, new SkythernTree(true)));
+        register(registry, new BlockModSapling("mortum_sapling", () -> mortumGrass, () -> mortumDirt, new MortumTree(true)));
 
         // Logs
         register(registry, new BlockModLog("eden_log", MapColor.YELLOW));

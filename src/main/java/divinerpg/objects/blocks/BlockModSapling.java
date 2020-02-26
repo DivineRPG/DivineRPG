@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
@@ -26,23 +27,24 @@ public class BlockModSapling extends BlockBush implements IGrowable {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D,
             0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
-    private Block grass, dirt;
+    private Supplier<Block> grassSupplier;
+    private Supplier<Block> dirtSupplier;
     private WorldGenerator tree;
     private int xOff, zOff;
 
-    public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree) {
+    public BlockModSapling(String name, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, WorldGenerator tree) {
         this.setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
-        this.grass = grass;
-        this.dirt = dirt;
+        this.grassSupplier = grassSupplier;
+        this.dirtSupplier = dirtSupplier;
         this.tree = tree;
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(0.0F);
         setSoundType(SoundType.PLANT);
     }
 
-    public BlockModSapling(String name, Block grass, Block dirt, WorldGenerator tree, int xOff, int zOff) {
-        this(name, grass, dirt, tree);
+    public BlockModSapling(String name, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, WorldGenerator tree, int xOff, int zOff) {
+        this(name, grassSupplier, dirtSupplier, tree);
         this.xOff = xOff;
         this.zOff = zOff;
     }
@@ -120,11 +122,11 @@ public class BlockModSapling extends BlockBush implements IGrowable {
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState soil = worldIn.getBlockState(pos.down());
-        return soil.getBlock() == grass || soil.getBlock() == dirt;
+        return soil.getBlock() == grassSupplier.get() || soil.getBlock() == dirtSupplier.get();
     }
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == grass || state.getBlock() == dirt;
+        return state.getBlock() == grassSupplier.get() || state.getBlock() == dirtSupplier.get();
     }
 }
