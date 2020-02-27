@@ -21,11 +21,12 @@ public class ModelSkythernFiend extends ModelBase
 
     public ModelSkythernFiend()
     {
+    	//TODO - fix head1/spears being detatched
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.head = new ModelRenderer(this, 0, 0);
         this.head.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8);
-//        this.head.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.head.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.head.setTextureSize(64, 32);
         this.head.mirror = true;
         this.setRotation(this.head, 0.0F, 0.0F, 0.0F);
