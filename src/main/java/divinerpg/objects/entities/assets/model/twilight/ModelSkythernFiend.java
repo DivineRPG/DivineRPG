@@ -6,8 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelSkythernFiend extends ModelBase
-{
+public class ModelSkythernFiend extends ModelBase {
     ModelRenderer head;
     ModelRenderer body;
     ModelRenderer rightarm;
@@ -15,13 +14,11 @@ public class ModelSkythernFiend extends ModelBase
     ModelRenderer rightleg;
     ModelRenderer leftleg;
     ModelRenderer connector;
-    ModelRenderer head1;
-    ModelRenderer Spear1;
-    ModelRenderer Spear2;
+    ModelRenderer eye;
+    ModelRenderer leftSpear;
+    ModelRenderer rightSpear;
 
-    public ModelSkythernFiend()
-    {
-    	//TODO - fix head1/spears being detatched
+    public ModelSkythernFiend() {
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.head = new ModelRenderer(this, 0, 0);
@@ -36,18 +33,7 @@ public class ModelSkythernFiend extends ModelBase
         this.body.setTextureSize(64, 32);
         this.body.mirror = true;
         this.setRotation(this.body, 0.0F, 0.0F, 0.0F);
-        this.rightarm = new ModelRenderer(this, 40, 16);
-        this.rightarm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4);
-        this.rightarm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-        this.rightarm.setTextureSize(64, 32);
-        this.rightarm.mirror = true;
-        this.setRotation(this.rightarm, 0.0F, 0.0F, 0.0F);
-        this.leftarm = new ModelRenderer(this, 40, 16);
-        this.leftarm.addBox(-1.0F, -2.0F, -2.0F, 4, 12, 4);
-        this.leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
-        this.leftarm.setTextureSize(64, 32);
-        this.leftarm.mirror = true;
-        this.setRotation(this.leftarm, 0.0F, 0.0F, 0.0F);
+
         this.rightleg = new ModelRenderer(this, 0, 16);
         this.rightleg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4);
         this.rightleg.setRotationPoint(-2.0F, 12.0F, 0.0F);
@@ -66,32 +52,51 @@ public class ModelSkythernFiend extends ModelBase
         this.connector.setTextureSize(64, 32);
         this.connector.mirror = true;
         this.setRotation(this.connector, 0.0F, 0.0F, 0.0F);
-        this.head1 = new ModelRenderer(this, 32, 0);
-        this.head1.addBox(0.0F, 0.0F, 0.0F, 8, 8, 8);
-        this.head1.setRotationPoint(-4.0F, -8.0F, -16.0F);
-        this.head1.setTextureSize(64, 32);
-        this.head1.mirror = true;
-        this.setRotation(this.head1, 0.0F, 0.0F, 0.0F);
-        this.Spear1 = new ModelRenderer(this, -2, 0);
-        this.Spear1.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
-        this.Spear1.setRotationPoint(5.5F, 10.0F, -15.0F);
-        this.Spear1.setTextureSize(64, 32);
-        this.Spear1.mirror = true;
-        this.setRotation(this.Spear1, 0.0F, 0.0F, 0.0F);
-        this.Spear2 = new ModelRenderer(this, 0, 0);
-        this.Spear2.addBox(0.0F, 0.0F, 0.0F, 1, 1, 13);
-        this.Spear2.setRotationPoint(-7.0F, 10.0F, -15.0F);
-        this.Spear2.setTextureSize(64, 32);
-        this.Spear2.mirror = true;
-        this.setRotation(this.Spear2, 0.0F, 0.0F, 0.0F);
+        this.eye = new ModelRenderer(this, 32, 0);
+        this.eye.addBox(0.0F, 0.0F, 0.0F, 8, 8, 8);
+        this.eye.setRotationPoint(-4.0F, -8.0F, -16.0F);
+        this.eye.setTextureSize(64, 32);
+        this.eye.mirror = true;
+        this.setRotation(this.eye, 0.0F, 0.0F, 0.0F);
+
+        this.leftarm = new ModelRenderer(this, 40, 16);
+        this.leftarm.addBox(-1.0F, -2.0F, -2.0F, 4, 12, 4);
+        this.leftarm.setRotationPoint(5.0F, 2.0F, 0.0F);
+        this.leftarm.setTextureSize(64, 32);
+        this.leftarm.mirror = true;
+        this.setRotation(this.leftarm, 0.0F, 0.0F, 0.0F);
+        this.leftSpear = new ModelRenderer(this, -2, 0);
+        this.leftSpear.addBox(-4.5F, -1, 2, 1, 1, 13);
+        this.leftSpear.setRotationPoint(5.5F, 10.0F, -15.0F);
+        this.leftSpear.setTextureSize(64, 32);
+        this.leftSpear.mirror = true;
+        this.setRotation(this.leftSpear, 0.0F, 0.0F, 0.0F);
+
+        this.rightarm = new ModelRenderer(this, 40, 16);
+        this.rightarm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4);
+        this.rightarm.setRotationPoint(-5.0F, 2.0F, 0.0F);
+        this.rightarm.setTextureSize(64, 32);
+        this.rightarm.mirror = true;
+        this.setRotation(this.rightarm, 0.0F, 0.0F, 0.0F);
+        this.rightSpear = new ModelRenderer(this, 0, 0);
+        this.rightSpear.addBox(5.5F, -1, 2, 1, 1, 13);
+        this.rightSpear.setRotationPoint(-7.0F, 10.0F, -15.0F);
+        this.rightSpear.setTextureSize(64, 32);
+        this.rightSpear.mirror = true;
+        this.setRotation(this.rightSpear, 0.0F, 0.0F, 0.0F);
+
+        rightarm.addChild(rightSpear);
+        leftarm.addChild(leftSpear);
+
+        head.addChild(connector);
+        head.addChild(eye);
     }
 
     /**
      * Sets the models various rotation angles then renders the model.
      */
     @Override
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
+    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
         super.render(var1, var2, var3, var4, var5, var6, var7);
         this.setRotationAngles(var2, var3, var4, var5, var6, var7);
         this.head.render(var7);
@@ -100,33 +105,24 @@ public class ModelSkythernFiend extends ModelBase
         this.leftarm.render(var7);
         this.rightleg.render(var7);
         this.leftleg.render(var7);
-        this.connector.render(var7);
-        this.head1.render(var7);
-        this.Spear1.render(var7);
-        this.Spear2.render(var7);
     }
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
-    {
+    private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {
         var1.rotateAngleX = var2;
         var1.rotateAngleY = var3;
         var1.rotateAngleZ = var4;
     }
 
-    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6)
-    {
-        this.head1.rotateAngleY = var4 / (180F / (float)Math.PI);
-        this.head1.rotateAngleX = var5 / (180F / (float)Math.PI);
-        this.rightarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
+    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6) {
+        this.head.rotateAngleY = var4 / (180F / (float) Math.PI);
+        this.head.rotateAngleX = var5 / (180F / (float) Math.PI);
+
+        this.rightarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float) Math.PI) * 2.0F * var2 * 0.5F;
         this.leftarm.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
         this.rightarm.rotateAngleZ = 0.0F;
         this.leftarm.rotateAngleZ = 0.0F;
-        this.Spear1.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
-        this.Spear2.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
-        this.Spear1.rotateAngleZ = 0.0F;
-        this.Spear2.rotateAngleZ = 0.0F;
         this.rightleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-        this.leftleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
+        this.leftleg.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float) Math.PI) * 1.4F * var2;
         this.rightleg.rotateAngleY = 0.0F;
         this.leftleg.rotateAngleY = 0.0F;
     }
