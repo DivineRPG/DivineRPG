@@ -11,18 +11,12 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundCategory;
 
+import java.util.function.Supplier;
+
 public class ItemTwilightBlitz extends RangedWeaponBase {
 
-    public ItemTwilightBlitz(String name, BulletType projectileType, Item ammo) {
-        super(name,
-                null,
-                projectileType,
-                ModSounds.BLITZ,
-                SoundCategory.MASTER,
-                -1,
-                0,
-                ammo,
-                0);
+    public ItemTwilightBlitz(String name, BulletType projectileType, Supplier<Item> ammoSupplier) {
+        super(name,null, projectileType, ModSounds.BLITZ, SoundCategory.MASTER,-1,0, ammoSupplier,0);
     }
 
     @Override

@@ -28,7 +28,7 @@ public class ItemScythe extends RangedWeaponBase {
                 SoundCategory.MASTER,
                 -1,
                 0,
-                null,
+                () -> null,
                 0);
     }
 

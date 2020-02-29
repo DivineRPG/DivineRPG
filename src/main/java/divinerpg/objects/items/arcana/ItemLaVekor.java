@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class ItemLaVekor extends RangedWeaponBase {
 
     public ItemLaVekor() {
-        super("la_vekor", EntityGrenade.class, null, ModSounds.LA_VEKOR, SoundCategory.MASTER, -1, 0, ModItems.grenade,
+        super("la_vekor", EntityGrenade.class, null, ModSounds.LA_VEKOR, SoundCategory.MASTER, -1, 0, () -> ModItems.grenade,
                 5);
     }
 

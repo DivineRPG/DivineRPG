@@ -1,6 +1,7 @@
 package divinerpg.objects.items.base;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
@@ -40,7 +41,7 @@ public class RangedWeaponBase extends ItemMod {
     private final SoundEvent sound;
     private final SoundCategory soundCategory;
     private final int delay;
-    private final Item ammo;
+    private final Supplier<Item> ammoSupplier;
     private int arcanaConsuming;
 
     private final String delayTagName = "CanShootTime";
@@ -64,13 +65,13 @@ public class RangedWeaponBase extends ItemMod {
      *            - max usage of item
      * @param delay
      *            - cooldown for shoot
-     * @param ammo
-     *            - Ammo for weapon. IF null, no ammo required
+     * @param ammoSupplier
+     *            - Ammo for weapon. If supplier returns null, no ammo required
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
     public RangedWeaponBase(String name, Class<? extends EntityThrowable> clazz, BulletType bulletType,
-            SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Item ammo, int arcanaConsuming) {
+            SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
         super(name, DivineRPGTabs.ranged);
         setMaxDamage(maxDamage);
         setMaxStackSize(1);
@@ -79,18 +80,25 @@ public class RangedWeaponBase extends ItemMod {
         this.sound = sound;
         this.soundCategory = soundCategory;
         this.delay = delay;
-        this.ammo = ammo;
+
+        if(ammoSupplier == null) {
+            this.ammoSupplier = () -> null;
+        }
+        else {
+            this.ammoSupplier = ammoSupplier;
+        }
+
         this.arcanaConsuming = arcanaConsuming;
         this.bulletType = bulletType;
     }
 
-    public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, Item ammo, int maxDamange,
+    public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, Supplier<Item> ammoSupplier, int maxDamange,
             int counter) {
-        this(name, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammo, 0);
+        this(name, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammoSupplier, 0);
     }
 
     public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
-        this(name, bulletType, shotSound, null, uses, counter);
+        this(name, bulletType, shotSound, () -> null, uses, counter);
     }
 
     @Override
@@ -163,16 +171,24 @@ public class RangedWeaponBase extends ItemMod {
 
     private void addAmmoInfo(List<String> list) {
         EntityPlayer player = DivineRPG.proxy.getPlayer();
-        if (player == null || this.ammo == null) {
+        if (!needsAmmo() || player == null) {
             list.add(TooltipLocalizer.infiniteAmmo());
         } else {
             ItemStack ammo = findAmmo(player);
-            list.add(TooltipLocalizer.ammo(this.ammo, ammo != null));
+            list.add(TooltipLocalizer.ammo(getAmmo(), ammo != null));
         }
     }
 
+    private Item getAmmo() {
+        return this.ammoSupplier.get();
+    }
+
+    private boolean needsAmmo() {
+        return this.ammoSupplier.get() != null;
+    }
+
     private boolean isAmmo(@Nullable ItemStack stack) {
-        return stack != null && stack.getItem() == this.ammo;
+        return stack != null && stack.getItem() == getAmmo();
     }
 
     private ItemStack findAmmo(EntityPlayer player) {
@@ -218,7 +234,7 @@ public class RangedWeaponBase extends ItemMod {
         ItemStack stack = null;
         EnumActionResult result = EnumActionResult.SUCCESS;
 
-        if (!player.capabilities.isCreativeMode && this.ammo != null) {
+        if (!player.capabilities.isCreativeMode && needsAmmo()) {
             stack = findAmmo(player);
             if (stack == null || stack.getCount() < 1) {
                 result = EnumActionResult.FAIL;

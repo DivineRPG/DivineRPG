@@ -29,7 +29,7 @@ public class ItemCorruptedCannon extends RangedWeaponBase {
                 SoundCategory.MASTER,
                 -1,
                 4,
-                ModItems.corruptedBullet,
+                () -> ModItems.corruptedBullet,
                 0);
     }
 
