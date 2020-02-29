@@ -144,15 +144,6 @@ public class Utils {
         return null;
     }
 
-    public static boolean isBlockInList(Block block1, Block... blocks) {
-        for (Block b : blocks) {
-            if (block1 == b) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static boolean isContributor(AbstractClientPlayer player) {
         return player != null && REGISTRY.containsKey(player);
     }
@@ -168,6 +159,7 @@ public class Utils {
     public static void postForgeEvent(Object o) {
         MinecraftForge.EVENT_BUS.register(o);
     }
+
     @Deprecated
     public static void setupCapes() {
         try {

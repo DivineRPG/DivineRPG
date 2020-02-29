@@ -49,7 +49,6 @@ public class DivineRPG {
         logger = LogManager.getLogger();
     }
 
-
     /** Init Methods */
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

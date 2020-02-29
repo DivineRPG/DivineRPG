@@ -1715,9 +1715,9 @@ public class ModItems {
 
         register(registry, new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1));
         register(registry, new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1));
-        register(registry, new ItemModBow("hunter_bow", ArrowType.HUNTER_ARROW, 2500, Items.ARROW));
+        register(registry, new ItemModBow("hunter_bow", ArrowType.HUNTER_ARROW, 2500, () -> Items.ARROW));
         register(registry, new ItemModBow("inferno_bow", ArrowType.INFERNO_ARROW, 10000));
-        register(registry, new ItemModBow("shadow_bow", ArrowType.SHADOW_ARROW, 10000, 36000, Items.ARROW));
+        register(registry, new ItemModBow("shadow_bow", ArrowType.SHADOW_ARROW, 10000, 36000, () -> Items.ARROW));
 
         register(registry, new ItemScythe("scythe"));
 
@@ -1725,14 +1725,14 @@ public class ModItems {
         register(registry, new ItemVileStorm("vile_storm"));
 
         register(registry, new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT));
-        register(registry, new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, ModSounds.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
         register(registry, new ItemCorruptedCannon("corrupted_cannon"));
         register(registry, new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT));
-        register(registry, new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
         register(registry, new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT, ModSounds.STAFF, 600, 0));
-        register(registry, new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, ModSounds.FROST_CANNON, Items.SNOWBALL, 15000, 0));
+        register(registry, new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, ModSounds.FROST_CANNON, () -> Items.SNOWBALL, 15000, 0));
         register(registry, new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT, ModSounds.GHAST_CANNON, 100, 20));
-        register(registry, new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ, Items.GOLD_NUGGET, -1, 0));
+        register(registry, new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ, () -> Items.GOLD_NUGGET, -1, 0));
         register(registry, new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT));
         register(registry, new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, ModSounds.GHAST_CANNON, 100, 0));
         register(registry, new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT));
@@ -2031,12 +2031,12 @@ public class ModItems {
 
         // Iceika dimension weapons - ranged
         register(registry, new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1));
-        register(registry, new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW));
+        register(registry, new ItemModBow("icicle_bow", ArrowType.ICICLE_ARROW, 10000, 24000, () -> Items.ARROW));
 
         register(registry, new ItemThrowable("snowflake_shuriken", BulletType.SNOWFLAKE_SHURIKEN_SHOT));
 
-        register(registry, new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, iceShards, 10000, 0));
-        register(registry, new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
+        register(registry, new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, () -> iceShards, 10000, 0));
+        register(registry, new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
 
         register(registry, new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC, EntitySoundOfMusic.class));
         register(registry, new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS, EntitySoundOfCarols.class));
@@ -2131,13 +2131,13 @@ public class ModItems {
         register(registry, new ItemModSword(ToolMaterialMod.Halite, "halite_blade"));
 
         // Twilight bows
-        register(registry, new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, edenArrow));
-        register(registry, new ItemModBow("wildwood_bow", ArrowType.LESSER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
-        register(registry, new ItemModBow("apalachia_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, wildwoodArrow));
-        register(registry, new ItemModBow("skythern_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, 36000, wildwoodArrow));
-        register(registry, new ItemModBow("mortum_bow", ArrowType.FURY_ARROW, -1, furyArrow));
-        register(registry, new ItemModBow("halite_bow", ArrowType.FURY_ARROW, -1, 36000, furyArrow));
-        register(registry, new ItemModBow("twilight_bow", ArrowType.FURY_ARROW, -1, 14400, furyArrow));
+        register(registry, new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, () -> edenArrow));
+        register(registry, new ItemModBow("wildwood_bow", ArrowType.LESSER_WILDWOOD_ARROW, -1, 36000, () -> wildwoodArrow));
+        register(registry, new ItemModBow("apalachia_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, () -> wildwoodArrow));
+        register(registry, new ItemModBow("skythern_bow", ArrowType.GREATER_WILDWOOD_ARROW, -1, 36000, () -> wildwoodArrow));
+        register(registry, new ItemModBow("mortum_bow", ArrowType.FURY_ARROW, -1, () -> furyArrow));
+        register(registry, new ItemModBow("halite_bow", ArrowType.FURY_ARROW, -1, 36000, () -> furyArrow));
+        register(registry, new ItemModBow("twilight_bow", ArrowType.FURY_ARROW, -1, 14400, () -> furyArrow));
 
         // Twilight slicers
         register(registry, new ItemThrowable("eden_slicer", BulletType.EDEN_SLICER_SHOT));
@@ -2148,12 +2148,12 @@ public class ModItems {
         register(registry, new ItemThrowable("halite_slicer", BulletType.HALITE_SLICER_SHOT));
 
         // Twilight blitzes
-        register(registry, new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, edenDust));
-        register(registry, new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT, wildwoodDust));
-        register(registry, new ItemTwilightBlitz("apalachia_blitz", BulletType.APALACHIA_BLITZ_SHOT, apalachiaDust));
-        register(registry, new ItemTwilightBlitz("skythern_blitz", BulletType.SKYTHERN_BLITZ_SHOT, skythernDust));
-        register(registry, new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, mortumDust));
-        register(registry, new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, mortumDust));
+        register(registry, new ItemTwilightBlitz("eden_blitz", BulletType.EDEN_BLITZ_SHOT, () -> edenDust));
+        register(registry, new ItemTwilightBlitz("wildwood_blitz", BulletType.WILDWOOD_BLITZ_SHOT, () -> wildwoodDust));
+        register(registry, new ItemTwilightBlitz("apalachia_blitz", BulletType.APALACHIA_BLITZ_SHOT, () -> apalachiaDust));
+        register(registry, new ItemTwilightBlitz("skythern_blitz", BulletType.SKYTHERN_BLITZ_SHOT, () -> skythernDust));
+        register(registry, new ItemTwilightBlitz("mortum_blitz", BulletType.MORTUM_BLITZ_SHOT, () -> mortumDust));
+        register(registry, new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, () -> mortumDust));
 
         // Twilight phasers
         register(registry, new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
@@ -2389,28 +2389,28 @@ public class ModItems {
         register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword"));
 
         // Bow
-        register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, teakerArrow));
-        register(registry, new ItemVetheanBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, teakerArrow));
-        register(registry, new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, darvenArrow));
-        register(registry, new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, darvenArrow));
-        register(registry, new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, pardimalArrow));
-        register(registry, new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, pardimalArrow));
-        register(registry, new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, karosArrow));
-        register(registry, new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, karosArrow));
-        register(registry, new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, karosArrow));
-        register(registry, new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, everArrow));
+        register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, () -> teakerArrow));
+        register(registry, new ItemVetheanBow("amthirmis_bow", ArrowType.AMTHIRMIS_ARROW, -1, () -> teakerArrow));
+        register(registry, new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, () -> darvenArrow));
+        register(registry, new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, () -> darvenArrow));
+        register(registry, new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, () -> pardimalArrow));
+        register(registry, new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, () -> pardimalArrow));
+        register(registry, new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, () ->karosArrow));
+        register(registry, new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, () -> karosArrow));
+        register(registry, new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, () -> karosArrow));
+        register(registry, new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, () -> everArrow));
 
         // Cannon
-        register(registry, new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, ModItems.acid));
-        register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, ModItems.acid));
+        register(registry, new ItemVetheanCannon("teaker_cannon", BulletType.TEAKER_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("amthirmis_cannon", BulletType.AMTHIRMIS_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, () -> ModItems.acid));
 
         // Claw
         register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw"));

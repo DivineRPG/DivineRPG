@@ -25,7 +25,7 @@ public class ItemMusicShooter extends RangedWeaponBase {
                 SoundCategory.MASTER,
                 4000,
                 0,
-                null,
+                () -> null,
                 0);
     }
 

@@ -13,6 +13,7 @@ import net.minecraft.world.gen.MapGenBase;
 
 public class MapGenFloorCrystals extends MapGenBase
 {
+
     protected void func_151542_a(long p_151542_1_, int p_151542_3_, int p_151542_4_, Block[] p_151542_5_, double p_151542_6_, double p_151542_8_, double p_151542_10_)
     {
         this.func_151541_a(p_151542_1_, p_151542_3_, p_151542_4_, p_151542_5_, p_151542_6_, p_151542_8_, p_151542_10_, 1.0F + this.rand.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
@@ -248,8 +249,9 @@ public class MapGenFloorCrystals extends MapGenBase
         Block filler = biome.fillerBlock.getBlock();
         Block block  = data[index];
 
+        System.out.println(block);
         if (block == ModBlocks.dreamGrass || block == filler || block == top || block == ModBlocks.dreamStone) {
-        data[index] = ModBlocks.fireCrystal;
+                data[index] = ModBlocks.fireCrystal;
 
                 if (foundTop && data[index - 1] == filler) {
                     data[index - 1] = top;
