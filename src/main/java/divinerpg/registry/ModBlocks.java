@@ -291,6 +291,8 @@ public class ModBlocks {
     public static final Block divineLeaves = null;
     @ObjectHolder("divine_planks")
     public static final Block divinePlanks = null;
+    @ObjectHolder("divine_stairs")
+    public static final Block divineStairs = null;
     @ObjectHolder("divine_moss_stone")
     public static final Block divineMossStone = null;
     @ObjectHolder("divine_rock")
@@ -369,6 +371,8 @@ public class ModBlocks {
     public static final Block brittleLeaves = null;
     @ObjectHolder("frozen_planks")
     public static final Block frozenPlanks = null;
+    @ObjectHolder("frozen_stairs")
+    public static final Block frozenStairs = null;
 
     // Structure blocks
     @ObjectHolder("coalstone")
@@ -771,6 +775,8 @@ public class ModBlocks {
     public static final Block eucalyptusLog = null;
     @ObjectHolder("eucalyptus_planks")
     public static final Block eucalyptusPlanks = null;
+    @ObjectHolder("eucalyptus_stairs")
+    public static final Block eucalyptusStairs = null;
 
     // Crops
     @ObjectHolder("aquamarine_plant")
@@ -1152,7 +1158,9 @@ public class ModBlocks {
         register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree(true)));
         register(registry, new BlockModLog("divine_log", MapColor.YELLOW));
         register(registry, new BlockModLeaves("divine_leaves", 0.3F, () -> divineSapling, MapColor.YELLOW));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F));
+        Block divinePlanks = new BlockMod(EnumBlockType.WOOD, "divine_planks", 2.0F);
+        register(registry, divinePlanks);
+        register(registry, new BlockModStairs("divine_stairs", divinePlanks));
         register(registry, new BlockMod("divine_moss_stone", 2.0F).setResistance(10));
         register(registry, new BlockMod(EnumBlockType.ROCK, "divine_rock", 1.5F, STONE).setResistance(10F));
 
@@ -1198,12 +1206,15 @@ public class ModBlocks {
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
         register(registry, new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F));
+        Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F);
+        register(registry, frozenPlanks);
+        register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
+
 
         // Structure blocks
         Block coalstone = new BlockMod("coalstone", 3.0F);
         register(registry, coalstone);
-        register(registry, new BlockModStairs("coalstone_stairs", () -> coalstone));
+        register(registry, new BlockModStairs("coalstone_stairs", coalstone));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
@@ -1303,11 +1314,11 @@ public class ModBlocks {
         register(registry, mortumPlanks);
 
         // Stairs
-        register(registry, new BlockModStairs("eden_stairs", () -> edenPlanks));
-        register(registry, new BlockModStairs("wildwood_stairs", () -> wildwoodPlanks));
-        register(registry, new BlockModStairs("apalachia_stairs", () -> apalachiaPlanks));
-        register(registry, new BlockModStairs("skythern_stairs", () -> skythernPlanks));
-        register(registry, new BlockModStairs("mortum_stairs", () -> mortumPlanks));
+        register(registry, new BlockModStairs("eden_stairs", edenPlanks));
+        register(registry, new BlockModStairs("wildwood_stairs", wildwoodPlanks));
+        register(registry, new BlockModStairs("apalachia_stairs", apalachiaPlanks));
+        register(registry, new BlockModStairs("skythern_stairs", skythernPlanks));
+        register(registry, new BlockModStairs("mortum_stairs", mortumPlanks));
 
         // Compressed blocks
         register(registry, new BlockBeaconBase("eden_block", 9.0F));
@@ -1419,7 +1430,9 @@ public class ModBlocks {
 
         // Eucalyptus
         register(registry, new BlockModLog("eucalyptus_log", MapColor.CLOTH));
-        register(registry, new BlockMod(EnumBlockType.WOOD, "eucalyptus_planks", 2.0F));
+        Block eucalyptusPlanks = new BlockMod(EnumBlockType.WOOD, "eucalyptus_planks", 2.0F);
+        register(registry, eucalyptusPlanks);
+        register(registry, new BlockModStairs("eucalyptus_stairs", eucalyptusPlanks));
 
         // Crops
         register(registry, new BlockAquaMarine("aquamarine_plant"));

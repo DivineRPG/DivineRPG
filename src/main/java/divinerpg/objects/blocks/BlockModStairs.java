@@ -8,17 +8,16 @@ import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
 public class BlockModStairs extends BlockStairs  {
-
-    private Supplier<Block> baseSupplier;
     
-    public BlockModStairs(String name, Supplier<Block> base) {
-        super(base.get().getDefaultState());
-        this.useNeighborBrightness = true;
+    public BlockModStairs(String name, Block base) {
+        super(base.getDefaultState());
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.useNeighborBrightness = true;
     }
 }
