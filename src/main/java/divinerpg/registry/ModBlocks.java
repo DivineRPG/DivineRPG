@@ -1008,66 +1008,10 @@ public class ModBlocks {
     public static final Block nightmareBed = null;
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
-//
-//    public static void AddWoodVariants() {
-//        for (WoodType woodType : WoodType.values()) {
-//            String woodName = woodType.getName();
-//
-//            // Make special property key that allows ONLY one value because slabs are special level of stupid
-//            final PropertyEnum<WoodType> restrictedKey = PropertyEnum.create("variant", WoodType.class,
-//                    input -> input == woodType);
-//
-//            BlockModPlank planks = new BlockModPlank(woodType);
-//            //Block stairs = new BlockModStairs(planks, woodName + "_stairs");
-//            Block singleSlab = new BlockModSlab(planks, null, woodType) {
-//                @Override
-//                public boolean isDouble() {
-//                    return false;
-//                }
-//
-//                protected Block getSingle() {
-//                    return this;
-//                }
-//
-//                @Override
-//                public IProperty<WoodType> getVariantProperty() {
-//                    return restrictedKey;
-//                }
-//            };
-//
-//            Block doubleSlab = new BlockModSlab(planks, singleSlab, woodType) {
-//                @Override
-//                public boolean isDouble() {
-//                    return true;
-//                }
-//
-//                protected Block getSingle() {
-//                    return singleSlab;
-//                }
-//
-//                @Override
-//                public IProperty<WoodType> getVariantProperty() {
-//                    return restrictedKey;
-//                }
-//            };
-//
-//            woodType.setPlank(planks);
-//            //woodType.setStair(stairs);
-//            woodType.setSingleSlab(singleSlab);
-//            woodType.setDoubleSlab(doubleSlab);
-//
-//            //ModItems.ITEMS.add(new ItemSlab(singleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-//                    //.setRegistryName(singleSlab.getRegistryName()));
-//            //ModItems.ITEMS.add(new ItemSlab(doubleSlab, (BlockSlab) singleSlab, (BlockSlab) doubleSlab)
-//                    //.setRegistryName(doubleSlab.getRegistryName()));
-//        }
-//    }
-
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         DivineRPG.logger.info("Registering DivineRPG blocks");
 
-//        ModBlocks.AddWoodVariants();
         IForgeRegistry<Block> registry = event.getRegistry();
 
         // Vanilla dimensions
@@ -1259,7 +1203,7 @@ public class ModBlocks {
         // Structure blocks
         Block coalstone = new BlockMod("coalstone", 3.0F);
         register(registry, coalstone);
-        register(registry, new BlockModStairs("coalstone_stairs", coalstone));
+        register(registry, new BlockModStairs("coalstone_stairs", () -> coalstone));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
         register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
@@ -1359,11 +1303,11 @@ public class ModBlocks {
         register(registry, mortumPlanks);
 
         // Stairs
-        register(registry, new BlockModStairs("eden_stairs", edenPlanks));
-        register(registry, new BlockModStairs("wildwood_stairs", wildwoodPlanks));
-        register(registry, new BlockModStairs("apalachia_stairs", apalachiaPlanks));
-        register(registry, new BlockModStairs("skythern_stairs", skythernPlanks));
-        register(registry, new BlockModStairs("mortum_stairs", mortumPlanks));
+        register(registry, new BlockModStairs("eden_stairs", () -> edenPlanks));
+        register(registry, new BlockModStairs("wildwood_stairs", () -> wildwoodPlanks));
+        register(registry, new BlockModStairs("apalachia_stairs", () -> apalachiaPlanks));
+        register(registry, new BlockModStairs("skythern_stairs", () -> skythernPlanks));
+        register(registry, new BlockModStairs("mortum_stairs", () -> mortumPlanks));
 
         // Compressed blocks
         register(registry, new BlockBeaconBase("eden_block", 9.0F));

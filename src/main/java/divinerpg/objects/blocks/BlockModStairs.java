@@ -1,5 +1,7 @@
 package divinerpg.objects.blocks;
 
+import java.util.function.Supplier;
+
 import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -10,8 +12,10 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockModStairs extends BlockStairs  {
 
-    public BlockModStairs(String name, Block base) {
-        super(base.getDefaultState());
+    private Supplier<Block> baseSupplier;
+    
+    public BlockModStairs(String name, Supplier<Block> base) {
+        super(base.get().getDefaultState());
         this.useNeighborBrightness = true;
         setUnlocalizedName(name);
         setRegistryName(Reference.MODID, name);
