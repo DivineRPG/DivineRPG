@@ -70,7 +70,9 @@ public class ChunkProviderVethea implements IChunkGenerator {
 	private final WorldGenerator l1Forest = new WorldGenLayer1Forest(false);
 	private final WorldGenerator l2Forest = new WorldGenLayer2Forest(false);
 
-	private final WorldGenMinable firecrystals = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 70, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+	private final WorldGenMinable firecrystalsSmall = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 25, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+	private final WorldGenMinable firecrystalsMedium = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 45, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+	private final WorldGenMinable firecrystalsLarge = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 70, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
 
 	public ChunkProviderVethea(World par1World, long par2) {
 		this.worldObj = par1World;
@@ -147,6 +149,17 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		return true;
 	}
 
+	private WorldGenMinable getRandomFirecrystalGen(Random random) {
+		switch(random.nextInt(7)) {
+			case 0:
+				return firecrystalsLarge;
+			case 1:
+			case 2:
+				return firecrystalsMedium;
+			default:
+				return firecrystalsSmall;
+		}
+	}
 	@Override
 	public void populate(int par2, int par3) {
 		int var4 = par2 * 16 + 8;
@@ -157,8 +170,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		this.rand.setSeed((long)par2 * var7 + (long)par3 * var9 ^ this.worldObj.getSeed());
 
 		//layer1
-		if(rand.nextInt(7) == 0) firecrystals.generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), 17, var5 + rand.nextInt(8)));
-
+		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), 17, var5 + rand.nextInt(8)));
 		if(this.rand.nextInt(5)==0)greenGemTops.generate(worldObj, rand, new BlockPos(var4, 17, var5));
 		if(this.rand.nextInt(5)==0)purpleGemTops.generate(worldObj, rand, new BlockPos(var4, 17, var5));
 		if(this.rand.nextInt(5)==0)yellowDulahs.generate(worldObj, rand, new BlockPos(var4, 17, var5));
@@ -183,14 +195,13 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		// Layer 2
 		int l2GroundHeight = 65;
+		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l2GroundHeight, var5 + rand.nextInt(8)));
 		if (this.rand.nextInt(250) == 0) {
 			if(worldObj.getBlockState(new BlockPos(var4, l2GroundHeight, var5)).getBlock() == Blocks.AIR) {
 				(pyramids.get(this.rand.nextInt(pyramids.size()))).generate(this.worldObj, this.rand, new BlockPos(var4, l2GroundHeight, var5));
 			}
 
 		}
-
-		if(rand.nextInt(7) == 0) firecrystals.generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l2GroundHeight, var5 + rand.nextInt(8)));
 
 		for (int i = 0; i < 3; i++) {
 			l2Forest.generate(this.worldObj, this.rand, new BlockPos(var4, l2GroundHeight, var5));
@@ -210,7 +221,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		//Layer 3
 		int l3GroundHeight = 113;
-		if(rand.nextInt(7) == 0) firecrystals.generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l3GroundHeight, var5 + rand.nextInt(8)));
+		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l3GroundHeight, var5 + rand.nextInt(8)));
 
 		for (int i = 0; i < 3; i++) {
 			l1Forest.generate(this.worldObj, this.rand, new BlockPos(var4, l3GroundHeight, var5));
@@ -234,7 +245,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		//Layer 4
 		int l4GroundHeight = 161;
-		if(rand.nextInt(7) == 0) firecrystals.generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l4GroundHeight, var5 + rand.nextInt(8)));
+		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l4GroundHeight, var5 + rand.nextInt(8)));
 
 		for (int i = 0; i < 5; i++) {
 			(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, new BlockPos(var4, l4GroundHeight, var5));
