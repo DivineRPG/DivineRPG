@@ -161,15 +161,23 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
         return null;
     }
-
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+    }
+    @Override
     public boolean isFullCube(IBlockState state)
     {
         return false;
     }
-
-    /**
-     * Used to determine ambient occlusion and culling when rebuilding chunks for render
-     */
+    @Override
     public boolean isOpaqueCube(IBlockState state)
     {
         return false;
@@ -314,20 +322,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         return EnumPushReaction.DESTROY;
     }
 
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
-        return BlockRenderLayer.CUTOUT;
-    }
-
-    /**
-     * The type of render function called. MODEL for mixed tesr and static model, MODELBLOCK_ANIMATED for TESR-only,
-     * LIQUID for vanilla liquids, INVISIBLE to skip all rendering
-     */
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
-        return EnumBlockRenderType.INVISIBLE;
-    }
+    
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {

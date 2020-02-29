@@ -1,0 +1,12 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:ayeraco_spawn"
+      }
+    }
+  ],
+  "normal": {
+      "model": "divinerpg:ayeraco_spawn"
+    }
+}

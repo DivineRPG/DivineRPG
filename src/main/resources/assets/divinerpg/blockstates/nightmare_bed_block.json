@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:nightmare_bed"
+      }
+    }
+  ]
+}

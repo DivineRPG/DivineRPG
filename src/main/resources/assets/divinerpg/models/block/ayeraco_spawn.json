@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "divinerpg:model/purple_ayeraco_symbol"
+  }
+}
