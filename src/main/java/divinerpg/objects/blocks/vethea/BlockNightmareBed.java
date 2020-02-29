@@ -326,7 +326,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      */
     public EnumBlockRenderType getRenderType(IBlockState state)
     {
-        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+        return EnumBlockRenderType.INVISIBLE;
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
