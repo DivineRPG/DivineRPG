@@ -1,6 +1,7 @@
 package divinerpg.objects.items.base;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
@@ -37,29 +38,26 @@ public class ItemModBow extends ItemBow  {
     protected ArrowType arrowType;
     protected int maxUseDuration;
     protected boolean unbreakable;
-    protected Item arrowAmmo = null;
-    protected boolean needArrow = true;
+    protected Supplier<Item> arrowSupplier;
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, Item arrow) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrow);
+    public ItemModBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier) {
+        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier);
     }
 
     public ItemModBow(String name, ArrowType arrowType, int uses) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, null);
+        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, () -> null);
     }
 
     public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration) {
-        this(name, arrowType, uses, maxUseDuration, null);
+        this(name, arrowType, uses, maxUseDuration, () -> null);
     }
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Item arrowAmmo) {
+    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
         setMaxDamage(uses);
         this.setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
         this.arrowType = arrowType;
-        this.arrowAmmo = arrowAmmo;
-        if (arrowAmmo == null)
-            needArrow = false;
+        this.arrowSupplier = arrowSupplier;
         this.setCreativeTab(DivineRPGTabs.ranged);
         this.maxUseDuration = maxUseDuration;
         unbreakable = true;
@@ -88,13 +86,19 @@ public class ItemModBow extends ItemBow  {
                         0.0F;
             }
         });
+    }
 
+    private Item getArrowItem() {
+        return this.arrowSupplier.get();
+    }
 
+    private boolean needsArrow() {
+        return this.arrowSupplier.get() != null;
     }
 
     @Override
     protected boolean isArrow(ItemStack stack) {
-        return stack.getItem() == this.arrowAmmo;
+        return stack.getItem() == getArrowItem();
     }
 
     @Override
@@ -113,7 +117,7 @@ public class ItemModBow extends ItemBow  {
             tooltip.add(TooltipLocalizer.burn(12));
         if (arrowType.getArrowSpecial() == ArrowSpecial.EXPLODE)
             tooltip.add(TooltipLocalizer.explosiveShots());
-        tooltip.add(this.needArrow ? TooltipLocalizer.ammo(this.arrowAmmo) : TooltipLocalizer.infiniteAmmo());
+        tooltip.add(this.needsArrow() ? TooltipLocalizer.ammo(getArrowItem()) : TooltipLocalizer.infiniteAmmo());
     }
 
     @Override
@@ -124,15 +128,14 @@ public class ItemModBow extends ItemBow  {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        boolean hasAmmo = (!needArrow || !this.findAmmunition(player).isEmpty());
+        boolean hasAmmo = (!needsArrow() || !this.findAmmunition(player).isEmpty());
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(stack, world, player, hand,
                 hasAmmo);
         if (ret != null) {
             return ret;
         }
         if (!player.capabilities.isCreativeMode && !hasAmmo) {
-            return !hasAmmo ? new ActionResult<>(EnumActionResult.FAIL, stack) :
-                    new ActionResult<>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         } else {
             player.setActiveHand(hand);
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
@@ -143,7 +146,7 @@ public class ItemModBow extends ItemBow  {
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
-            boolean infiniteAmmo = !needArrow || entityplayer.capabilities.isCreativeMode
+            boolean infiniteAmmo = !needsArrow() || entityplayer.capabilities.isCreativeMode
                     || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemstack = this.findAmmunition(entityplayer);
 
@@ -157,7 +160,7 @@ public class ItemModBow extends ItemBow  {
                 if ((double) f >= 0.1D) {
                     if (!worldIn.isRemote) {
                         EntityDivineArrow entityarrow = new EntityDivineArrow(worldIn, arrowType, entityplayer);
-                        entityarrow.setAmmoItem(arrowAmmo, infiniteAmmo);
+                        entityarrow.setAmmoItem(getArrowItem(), infiniteAmmo);
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F,
                                 f * 3.0F, 1.0F);
                         if (f == 1.0F) {
