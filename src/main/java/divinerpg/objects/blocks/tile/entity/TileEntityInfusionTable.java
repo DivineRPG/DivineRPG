@@ -58,7 +58,6 @@ public class TileEntityInfusionTable extends TileEntity implements ITickable, II
 
             RecipesInfusionTable x = RecipesInfusionTable.instance;
             Item item = x.getOutput(input, template, inputCount);
-            System.out.println(template + " " + item);
             if(item != null) {
                 inventory.set(2, new ItemStack(item));
             }

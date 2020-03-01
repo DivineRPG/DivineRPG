@@ -125,14 +125,10 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
         if (!this.world.isRemote && this.getProtectionType() == ProtectionType.ARCANA && this.ticksExisted % 30 == 0) {
             Iterator<BlockPos> iter = this.acidPositions.iterator();
             while (iter.hasNext()) {
-                System.out.println("Got to iterator");
                 BlockPos pos = iter.next();
 
-                System.out.println(pos + " " + this.world.getBlockState(pos).getBlock());
                 if (this.world.getBlockState(pos).getBlock() != ModBlocks.lunicAcid) iter.remove();
                 else if (this.rand.nextInt(4) == 0) {
-                    System.out.println("Attempting to spawn");
-
                     EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(this.world, this);
                     e.setPosition(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);
                     this.world.spawnEntity(e);

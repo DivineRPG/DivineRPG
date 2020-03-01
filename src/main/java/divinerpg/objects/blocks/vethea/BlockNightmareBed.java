@@ -96,7 +96,6 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
                 while (iterator.hasNext()) {
                     EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
-                    System.out.println("a");
 
                     if (entityplayer1 != null) {
                         playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]), true);

@@ -80,7 +80,6 @@ public class TeleporterVethea extends Teleporter {
 	public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
 		//System.out.println(var2 + " " + var3 + " " + var4 + " " + var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock());
 		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal) {
-			System.out.println("Portal found");
 			return true;
 		}
 		return false;

@@ -49,7 +49,6 @@ public class BlockKarosCannon extends BlockModUnbreakable {
     }
 
     public void dispense(World world, BlockPos pos) {
-        System.out.println("dispensing");
         double var5 = pos.getX();
         double var7 = pos.getY();
         double var9 = pos.getZ();
