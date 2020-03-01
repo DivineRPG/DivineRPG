@@ -16,7 +16,6 @@ public class RecipesInfusionTable {
     }
 
     public void addRecipes() {
-
         addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModItems.teakerBow));
         addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthirmisBow));
         addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModItems.darvenBow));

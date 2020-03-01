@@ -1983,12 +1983,12 @@ public class ModItems {
 
         // Pet spawn eggs
         register(registry, new ItemLivestockSpawnEgg("brown_grizzle_egg"));
+        register(registry, new ItemLivestockSpawnEgg("ehu_egg"));
         register(registry, new ItemLivestockSpawnEgg("husk_egg"));
         register(registry, new ItemLivestockSpawnEgg("smelter_egg"));
         register(registry, new ItemLivestockSpawnEgg("snapper_egg"));
         register(registry, new ItemLivestockSpawnEgg("stone_golem_egg"));
         register(registry, new ItemLivestockSpawnEgg("white_grizzle_egg"));
-        register(registry, new ItemLivestockSpawnEgg("ehu_egg"));
 
         // Miscellaneous resources
         register(registry, new ItemMod("aqua_ball"));
