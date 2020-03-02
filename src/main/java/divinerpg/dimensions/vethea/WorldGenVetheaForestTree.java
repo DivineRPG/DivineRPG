@@ -1,4 +1,4 @@
-package divinerpg.dimensions.vethea.layer1;
+package divinerpg.dimensions.vethea;
 
 import java.util.Iterator;
 import java.util.Random;

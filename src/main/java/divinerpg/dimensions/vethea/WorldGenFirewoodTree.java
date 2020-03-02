@@ -1,6 +1,5 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.dimensions.vethea.layer1.WorldGenVetheaForestTree;
 import divinerpg.registry.ModBlocks;
 
 /**
@@ -8,6 +7,6 @@ import divinerpg.registry.ModBlocks;
  */
 public class WorldGenFirewoodTree extends WorldGenVetheaForestTree {
     public WorldGenFirewoodTree(boolean notify) {
-        super(false, ModBlocks.firewoodLog.getDefaultState(), ModBlocks.firewoodLeaves.getDefaultState());
+        super(notify, ModBlocks.firewoodLog.getDefaultState(), ModBlocks.firewoodLeaves.getDefaultState());
     }
 }
