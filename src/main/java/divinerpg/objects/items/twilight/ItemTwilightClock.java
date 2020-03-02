@@ -1,6 +1,5 @@
 package divinerpg.objects.items.twilight;
 
-import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;

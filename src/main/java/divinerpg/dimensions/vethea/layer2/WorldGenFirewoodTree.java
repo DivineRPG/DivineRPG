@@ -9,9 +9,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenLayer2Forest extends WorldGenerator
+public class WorldGenFirewoodTree extends WorldGenerator
 {
-    public WorldGenLayer2Forest(boolean par1)
+    public WorldGenFirewoodTree(boolean par1)
     {
         super(par1);
     }

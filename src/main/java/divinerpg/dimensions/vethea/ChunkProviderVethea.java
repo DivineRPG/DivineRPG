@@ -5,14 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 import divinerpg.dimensions.vethea.all.CeilingTexture;
-import divinerpg.dimensions.vethea.all.WorldGenConeDown;
 import divinerpg.dimensions.vethea.layer1.Crypt1;
 import divinerpg.dimensions.vethea.layer1.Crypt2;
-import divinerpg.dimensions.vethea.layer1.WorldGenLayer1Forest;
 import divinerpg.dimensions.vethea.layer2.HiveNest;
 import divinerpg.dimensions.vethea.layer2.Pyramid1;
 import divinerpg.dimensions.vethea.layer2.Pyramid2;
-import divinerpg.dimensions.vethea.layer2.WorldGenLayer2Forest;
 import divinerpg.dimensions.vethea.layer3.KarosMadhouse;
 import divinerpg.dimensions.vethea.layer3.QuadroticPost;
 import divinerpg.dimensions.vethea.layer3.Tree7;
@@ -25,7 +22,6 @@ import divinerpg.dimensions.vethea.layer4.RaglokChamber;
 import divinerpg.dimensions.vethea.layer4.WreckHall;
 import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.EnumCreatureType;
@@ -36,12 +32,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 
 public class ChunkProviderVethea implements IChunkGenerator {
 
@@ -67,8 +60,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 	private final WorldGenerator yellowDulahs;
 	private final WorldGenerator greenDulahs;
 	private final WorldGenerator hungerVillages;
-	private final WorldGenerator l1Forest = new WorldGenLayer1Forest(false);
-	private final WorldGenerator l2Forest = new WorldGenLayer2Forest(false);
+
 
 	private final WorldGenMinable firecrystalsSmall = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 25, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
 	private final WorldGenMinable firecrystalsMedium = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(), 45, BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
@@ -161,13 +153,13 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		}
 	}
 	@Override
-	public void populate(int par2, int par3) {
-		int var4 = par2 * 16 + 8;
-		int var5 = par3 * 16 + 8;
+	public void populate(int chunkX, int chunkZ) {
+		int var4 = chunkX * 16 + 8;
+		int var5 = chunkZ * 16 + 8;
 		this.rand.setSeed(this.worldObj.getSeed());
 		long var7 = this.rand.nextLong() / 2L * 2L + 1L;
 		long var9 = this.rand.nextLong() / 2L * 2L + 1L;
-		this.rand.setSeed((long)par2 * var7 + (long)par3 * var9 ^ this.worldObj.getSeed());
+		this.rand.setSeed((long)chunkX * var7 + (long)chunkZ * var9 ^ this.worldObj.getSeed());
 
 		//layer1
 		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), 17, var5 + rand.nextInt(8)));
@@ -183,10 +175,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 			(hungerVillages).generate(this.worldObj, this.rand, new BlockPos(var4, height, var5));
 		}
 
-		for (int i = 0; i < 1; i++) {
-			height = 17;
-			l1Forest.generate(this.worldObj, this.rand, new BlockPos(var4, height, var5));
-		}
+
 
 		if (this.rand.nextInt(250) == 0) {
 			height = 13;
@@ -203,9 +192,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		}
 
-		for (int i = 0; i < 3; i++) {
-			l2Forest.generate(this.worldObj, this.rand, new BlockPos(var4, l2GroundHeight, var5));
-		}
+
 
 		if (this.rand.nextInt(10) == 0) {
 			(fernites).generate(this.worldObj, this.rand, new BlockPos(var4, l2GroundHeight, var5));
@@ -223,9 +210,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		int l3GroundHeight = 113;
 		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l3GroundHeight, var5 + rand.nextInt(8)));
 
-		for (int i = 0; i < 3; i++) {
-			l1Forest.generate(this.worldObj, this.rand, new BlockPos(var4, l3GroundHeight, var5));
-		}
+
 
 		if (this.rand.nextInt(250) == 0) {
 			(l3Altars.get(this.rand.nextInt(l3Altars.size()))).generate(this.worldObj, this.rand, new BlockPos(var4, l3GroundHeight, var5));
@@ -247,9 +232,7 @@ public class ChunkProviderVethea implements IChunkGenerator {
 		int l4GroundHeight = 161;
 		if(rand.nextInt(5) == 0) getRandomFirecrystalGen(rand).generate(worldObj, rand, new BlockPos(var4 + rand.nextInt(8), l4GroundHeight, var5 + rand.nextInt(8)));
 
-		for (int i = 0; i < 5; i++) {
-			(new WorldGenLayer2Forest(false)).generate(this.worldObj, this.rand, new BlockPos(var4, l4GroundHeight, var5));
-		}
+
 
 		if (this.rand.nextInt(150) == 0) {
 			(l4Altars).get(this.rand.nextInt(l4Altars.size())).generate(this.worldObj, this.rand, new BlockPos(var4, l4GroundHeight, var5));
@@ -280,6 +263,14 @@ public class ChunkProviderVethea implements IChunkGenerator {
 
 		//MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, rand, par2, par3, var11));
 		BlockSand.fallInstantly = false;
+
+
+		//decorator code
+		int x = chunkX * 16 + 1;
+		int z = chunkZ * 16 + 1;
+		BlockPos pos = new BlockPos(x, 0, z);
+		Biome biome = this.worldObj.getBiome(pos);
+		biome.decorate(this.worldObj, this.rand, pos);
 	}
 
 	public boolean saveChunks(boolean par1, IProgressUpdate par2IProgressUpdate) {
