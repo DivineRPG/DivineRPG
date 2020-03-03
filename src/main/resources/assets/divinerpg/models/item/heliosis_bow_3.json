@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/heliosis_wrathdisk"
+    "layer0": "divinerpg:items/heliosis_bow_3"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/arksiane_wrathbow_2"
+    "layer0": "divinerpg:items/arksiane_staff"
   }
 }

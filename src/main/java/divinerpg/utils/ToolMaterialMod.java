@@ -141,10 +141,10 @@ public class ToolMaterialMod {
     public static ToolMaterial DarvenHammer = addMeleeMaterial("darven_hammer", 12, 0);
     public static ToolMaterial CermileHammer = addMeleeMaterial("cermile_hammer", 15, 0);
     public static ToolMaterial PardimalHammer = addMeleeMaterial("pardimal_hammer", 19, 0);
-    public static ToolMaterial QuadroticHammer = addMeleeMaterial("quadrotic_warhammer", 24, 0);
-    public static ToolMaterial KarosHammer = addMeleeMaterial("karos_warhammer", 26, 0);
-    public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_wrathhhammer", 33, 0);
-    public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_wrathhammer", 39, 0);
+    public static ToolMaterial QuadroticHammer = addMeleeMaterial("quadrotic_hammer", 24, 0);
+    public static ToolMaterial KarosHammer = addMeleeMaterial("karos_hammer", 26, 0);
+    public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_hammer", 33, 0);
+    public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_hammer", 39, 0);
     public static ToolMaterial Everlight = addMeleeMaterial("everlight", 44, 0);
     public static ToolMaterial KarosRockmaul = addMeleeMaterial("karos_rockmaul", 46, 0);
 
@@ -154,10 +154,10 @@ public class ToolMaterialMod {
     public static ToolMaterial DarvenSword = addMeleeMaterial("darven_backsword", 9, 0);
     public static ToolMaterial CermileSword = addMeleeMaterial("cermile_backsword", 13, 0);
     public static ToolMaterial PardimalSword = addMeleeMaterial("pardimal_backsword", 16, 0);
-    public static ToolMaterial QuadroticSword = addMeleeMaterial("quadrotic_warsword", 20, 0);
-    public static ToolMaterial KarosSword = addMeleeMaterial("karos_warsword", 22, 0);
-    public static ToolMaterial HeliosisSword = addMeleeMaterial("heliosis_wrathsword", 29, 0);
-    public static ToolMaterial ArksianeSword = addMeleeMaterial("arksiane_wrathsword", 37, 0);
+    public static ToolMaterial QuadroticSword = addMeleeMaterial("quadrotic_backsword", 20, 0);
+    public static ToolMaterial KarosSword = addMeleeMaterial("karos_backsword", 22, 0);
+    public static ToolMaterial HeliosisSword = addMeleeMaterial("heliosis_backsword", 29, 0);
+    public static ToolMaterial ArksianeSword = addMeleeMaterial("arksiane_backsword", 37, 0);
 
     //Claws
     public static ToolMaterial TeakerClaw = addMeleeMaterial("teaker_claw", 3, 0);

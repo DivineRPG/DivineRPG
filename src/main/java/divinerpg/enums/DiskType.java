@@ -9,10 +9,10 @@ public enum DiskType {
     DARVEN_DISK(9, ItemLoc("darven_disk")),
     CERMILE_DISK(13, ItemLoc("cermile_disk")),
     PARDIMAL_DISK(16, ItemLoc("pardimal_disk")),
-    QUADROTIC_DISK(20, ItemLoc("quadrotic_wardisk")),
-    KAROS_DISK(22, ItemLoc("karos_wardisk")),
-    HELIOSIS_DISK(29, ItemLoc("heliosis_wrathdisk")),
-    ARKSIANE_DISK(37, ItemLoc("arksiane_wrathdisk"));
+    QUADROTIC_DISK(20, ItemLoc("quadrotic_disk")),
+    KAROS_DISK(22, ItemLoc("karos_disk")),
+    HELIOSIS_DISK(29, ItemLoc("heliosis_disk")),
+    ARKSIANE_DISK(37, ItemLoc("arksiane_disk"));
 
     private final float damage;
     private final ResourceLocation texture;
