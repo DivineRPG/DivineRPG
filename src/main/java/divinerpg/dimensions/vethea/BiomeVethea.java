@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class BiomeVethea extends Biome {
-    private static BiomeProperties properties = new BiomeProperties("Arksiane").setRainDisabled();
+    private static BiomeProperties properties = new BiomeProperties("Vethea").setRainDisabled();
     private World world;
     private Random rand;
     private BlockPos pos;
@@ -23,7 +23,7 @@ public class BiomeVethea extends Biome {
 
     public BiomeVethea() {
         super(properties);
-        this.setRegistryName(Reference.MODID, "Arksiane");
+        this.setRegistryName(Reference.MODID, "Vethea");
 
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
