@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/quadrotic_warcannon"
+    "layer0": "divinerpg:items/karos_bow_1"
   }
 }
