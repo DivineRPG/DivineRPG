@@ -12,7 +12,6 @@ import divinerpg.dimensions.wildwood.WildWoodTree;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.StatueType;
-import divinerpg.enums.WoodType;
 import divinerpg.objects.blocks.*;
 import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.iceika.*;
@@ -21,17 +20,12 @@ import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.objects.blocks.vethea.*;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -948,8 +942,8 @@ public class ModBlocks {
     public static final Block blueKarosBricks = null;
     @ObjectHolder("heliotic_beam")
     public static final Block helioticBeam = null;
-    @ObjectHolder("karos_cannon")
-    public static final Block karosCannon = null;
+    @ObjectHolder("karos_dispenser")
+    public static final Block karosDispenser = null;
     @ObjectHolder("karos_heat_tile_green")
     public static final Block karosHeatTileGreen = null;
     @ObjectHolder("karos_heat_tile_red")
@@ -1534,7 +1528,7 @@ public class ModBlocks {
         register(registry, new BlockModUnbreakable("black_karos_bricks").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockModUnbreakable("blue_karos_bricks").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockHelioticBeam("heliotic_beam").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockKarosCannon("karos_cannon").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockKarosDispenser("karos_dispenser").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockKarosHeatTile("karos_heat_tile_green").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockKarosHeatTile("karos_heat_tile_red").setCreativeTab(DivineRPGTabs.vethea));
 

@@ -1,8 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import com.google.common.base.Predicate;
 import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
-import divinerpg.objects.blocks.vethea.BlockKarosCannon;
+import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
@@ -10,11 +9,8 @@ import divinerpg.registry.ModSounds;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
 import net.minecraft.block.Block;
-import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
@@ -140,7 +136,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
                         if(currentBlock == ModBlocks.helioticBeam) {
                             ceiling.add(currentPos);
                         }
-                        else if(currentBlock == ModBlocks.karosCannon) {
+                        else if(currentBlock == ModBlocks.karosDispenser) {
                             cannons.add(currentPos);
                         }
                     }
@@ -165,8 +161,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.rand.nextInt(cannons.size()));
                 Block currentBlock = this.world.getBlockState(currentPos).getBlock();
-                if(currentBlock instanceof BlockKarosCannon) {
-                    ((BlockKarosCannon)currentBlock).dispense(this.world, currentPos);
+                if(currentBlock instanceof BlockKarosDispenser) {
+                    ((BlockKarosDispenser)currentBlock).dispense(this.world, currentPos);
                 }
             }
         } else if (ability == FLOOR) {

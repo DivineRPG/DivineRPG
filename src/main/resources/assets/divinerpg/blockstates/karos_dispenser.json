@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "facing=down,triggered=false":  { "model": "divinerpg:karos_dispenser" },
+        "facing=up,triggered=false":    { "model": "divinerpg:karos_dispenser" },
+        "facing=north,triggered=false": { "model": "divinerpg:karos_dispenser" },
+        "facing=south,triggered=false": { "model": "divinerpg:karos_dispenser" },
+        "facing=west,triggered=false":  { "model": "divinerpg:karos_dispenser" },
+        "facing=east,triggered=false":  { "model": "divinerpg:karos_dispenser" },
+        "facing=down,triggered=true":  { "model": "divinerpg:karos_dispenser" },
+        "facing=up,triggered=true":    { "model": "divinerpg:karos_dispenser" },
+        "facing=north,triggered=true": { "model": "divinerpg:karos_dispenser" },
+        "facing=south,triggered=true": { "model": "divinerpg:karos_dispenser" },
+        "facing=west,triggered=true":  { "model": "divinerpg:karos_dispenser" },
+        "facing=east,triggered=true":  { "model": "divinerpg:karos_dispenser" }
+    }
+}
+

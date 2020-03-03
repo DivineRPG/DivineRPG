@@ -2,7 +2,7 @@ package divinerpg.objects.items.vethea;
 
 import java.util.List;
 
-import divinerpg.objects.blocks.vethea.BlockKarosCannon;
+import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
 import divinerpg.utils.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
@@ -31,8 +31,8 @@ public class ItemEvernight extends ItemStaff {
                     BlockPos pos = new BlockPos(player.getPosition().add(x, y, z));
                     Block block = world.getBlockState(pos).getBlock();
 
-                    if(block instanceof BlockKarosCannon) {
-                        ((BlockKarosCannon)block).dispense(world, pos);
+                    if(block instanceof BlockKarosDispenser) {
+                        ((BlockKarosDispenser)block).dispense(world, pos);
                     }
                 }
             }

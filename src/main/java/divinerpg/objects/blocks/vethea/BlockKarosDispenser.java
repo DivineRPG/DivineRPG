@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockKarosCannon extends BlockModUnbreakable {
+public class BlockKarosDispenser extends BlockModUnbreakable {
 
     public static final PropertyDirection FACING;
     public static final PropertyBool TRIGGERED;
@@ -38,7 +38,7 @@ public class BlockKarosCannon extends BlockModUnbreakable {
         TRIGGERED = PropertyBool.create("triggered");
     }
     
-    public BlockKarosCannon(String name) {
+    public BlockKarosDispenser(String name) {
         super(name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(TRIGGERED, false));
     }

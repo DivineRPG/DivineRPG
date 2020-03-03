@@ -2383,10 +2383,10 @@ public class ModItems {
         register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenSword,"darven_backsword"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.CermileSword,"cermile_backsword"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalSword,"pardimal_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_warsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_warsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_wrathsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_wrathsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_backsword"));
 
         // Bow
         register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, () -> teakerArrow));
@@ -2394,10 +2394,10 @@ public class ModItems {
         register(registry, new ItemVetheanBow("darven_bow", ArrowType.DARVEN_ARROW, -1, () -> darvenArrow));
         register(registry, new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, () -> darvenArrow));
         register(registry, new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, () -> pardimalArrow));
-        register(registry, new ItemVetheanBow("quadrotic_warbow", ArrowType.QUADROTIC_ARROW, -1, () -> pardimalArrow));
-        register(registry, new ItemVetheanBow("karos_warbow", ArrowType.KAROS_ARROW, -1, () ->karosArrow));
-        register(registry, new ItemVetheanBow("heliosis_wrathbow", ArrowType.HELIOSIS_ARROW, -1, () -> karosArrow));
-        register(registry, new ItemVetheanBow("arksiane_wrathbow", ArrowType.ARKSIANE_ARROW, -1, () -> karosArrow));
+        register(registry, new ItemVetheanBow("quadrotic_bow", ArrowType.QUADROTIC_ARROW, -1, () -> pardimalArrow));
+        register(registry, new ItemVetheanBow("karos_bow", ArrowType.KAROS_ARROW, -1, () ->karosArrow));
+        register(registry, new ItemVetheanBow("heliosis_bow", ArrowType.HELIOSIS_ARROW, -1, () -> karosArrow));
+        register(registry, new ItemVetheanBow("arksiane_bow", ArrowType.ARKSIANE_ARROW, -1, () -> karosArrow));
         register(registry, new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, () -> everArrow));
 
         // Cannon
@@ -2406,10 +2406,10 @@ public class ModItems {
         register(registry, new ItemVetheanCannon("darven_cannon", BulletType.DARVEN_CANNON_SHOT, () -> ModItems.acid));
         register(registry, new ItemVetheanCannon("cermile_cannon", BulletType.CERMILE_CANNON_SHOT, () -> ModItems.acid));
         register(registry, new ItemVetheanCannon("pardimal_cannon", BulletType.PARDIMAL_CANNON_SHOT, () -> ModItems.acid));
-        register(registry, new ItemVetheanCannon("quadrotic_warcannon", BulletType.QUADROTIC_CANNON_SHOT, () -> ModItems.acid));
-        register(registry, new ItemVetheanCannon("karos_warcannon", BulletType.KAROS_CANNON_SHOT, () -> ModItems.acid));
-        register(registry, new ItemVetheanCannon("heliosis_wrathcannon", BulletType.HELIOSIS_CANNON_SHOT, () -> ModItems.acid));
-        register(registry, new ItemVetheanCannon("arksiane_wrathcannon", BulletType.ARKSIANE_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("quadrotic_cannon", BulletType.QUADROTIC_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("karos_cannon", BulletType.KAROS_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("heliosis_cannon", BulletType.HELIOSIS_CANNON_SHOT, () -> ModItems.acid));
+        register(registry, new ItemVetheanCannon("arksiane_cannon", BulletType.ARKSIANE_CANNON_SHOT, () -> ModItems.acid));
         register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, () -> ModItems.acid));
 
         // Claw
@@ -2418,10 +2418,10 @@ public class ModItems {
         register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.CermileClaw,"cermile_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_warclaw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_warclaw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_wrathclaw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_wrathclaw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.Everbright, "everbright"));
 
         // Disk
@@ -2430,10 +2430,10 @@ public class ModItems {
         register(registry, new ItemVetheanDisk("darven_disk", DiskType.DARVEN_DISK));
         register(registry, new ItemVetheanDisk("cermile_disk", DiskType.CERMILE_DISK));
         register(registry, new ItemVetheanDisk("pardimal_disk", DiskType.PARDIMAL_DISK));
-        register(registry, new ItemVetheanDisk("quadrotic_wardisk", DiskType.QUADROTIC_DISK));
-        register(registry, new ItemVetheanDisk("karos_wardisk", DiskType.KAROS_DISK));
-        register(registry, new ItemVetheanDisk("heliosis_wrathdisk", DiskType.HELIOSIS_DISK));
-        register(registry, new ItemVetheanDisk("arksiane_wrathdisk", DiskType.ARKSIANE_DISK));
+        register(registry, new ItemVetheanDisk("quadrotic_disk", DiskType.QUADROTIC_DISK));
+        register(registry, new ItemVetheanDisk("karos_disk", DiskType.KAROS_DISK));
+        register(registry, new ItemVetheanDisk("heliosis_disk", DiskType.HELIOSIS_DISK));
+        register(registry, new ItemVetheanDisk("arksiane_disk", DiskType.ARKSIANE_DISK));
 
         // Hammer
         register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer"));
@@ -2441,10 +2441,10 @@ public class ModItems {
         register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenHammer,"darven_hammer"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.CermileHammer,"cermile_hammer"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalHammer,"pardimal_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_warhammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_warhammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_wrathhammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_wrathhammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_hammer"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul"));
 
@@ -2454,10 +2454,10 @@ public class ModItems {
         register(registry, new ItemStaff(8, 10, "darven_staff"));
         register(registry, new ItemStaff(12, 10, "cermile_staff"));
         register(registry, new ItemStaff(15, 10, "pardimal_staff"));
-        register(registry, new ItemStaff(19, 10, "quadrotic_warstaff"));
-        register(registry, new ItemStaff(21, 10, "karos_warstaff"));
-        register(registry, new ItemStaff(28, 10, "heliosis_wrathstaff"));
-        register(registry, new ItemStaff(36, 10, "arksiane_wrathstaff"));
+        register(registry, new ItemStaff(19, 10, "quadrotic_staff"));
+        register(registry, new ItemStaff(21, 10, "karos_staff"));
+        register(registry, new ItemStaff(28, 10, "heliosis_staff"));
+        register(registry, new ItemStaff(36, 10, "arksiane_staff"));
         register(registry, new ItemEvernight(115, 80, "evernight"));
 
         // Vethea arrows
