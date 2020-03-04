@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -98,6 +99,18 @@ public class PoweredArmorManager implements IPoweredArmorManage {
         if (e instanceof LivingHurtEvent
                 && ((LivingHurtEvent) e).getSource().getTrueSource() instanceof EntityPlayer) {
             return ((LivingHurtEvent) e).getSource().getTrueSource();
+        }
+
+        if (e instanceof BlockEvent.BreakEvent) {
+            return ((BlockEvent.BreakEvent) e).getPlayer();
+        }
+
+        if (e instanceof BlockEvent.PlaceEvent) {
+            return ((BlockEvent.PlaceEvent) e).getPlayer();
+        }
+
+        if (e instanceof BlockEvent.HarvestDropsEvent) {
+            return ((BlockEvent.HarvestDropsEvent) e).getHarvester();
         }
 
         return null;
