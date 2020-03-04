@@ -84,6 +84,7 @@ public class DivineRPG {
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
         Utils.addDevsToList();
+        Utils.addTestersToList();
     }
 
     /**

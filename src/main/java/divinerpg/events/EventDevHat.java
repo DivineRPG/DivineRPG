@@ -22,6 +22,7 @@ import net.minecraftforge.fml.relauncher.Side;
 	public void playerRender(RenderPlayerEvent.Post evt) {
 		EntityPlayer player = evt.getEntityPlayer();
 
+		//TODO - Fix y axis rotations
 		if (Utils.isDeveloperName(player.getUniqueID().toString())) {
 			GL11.glPushMatrix();
 			// rotating hat
@@ -35,6 +36,23 @@ import net.minecraftforge.fml.relauncher.Side;
 			}
 			GL11.glTranslatef(-0.5f, height, -0.5f);
 			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhats/hat_red.png"));
+			hat.renderAll();
+			GL11.glPopMatrix();
+		}
+		
+		if (Utils.isTesterName(player.getUniqueID().toString())) {
+			GL11.glPushMatrix();
+			// rotating hat
+			GL11.glRotated(-player.rotationYaw, 0,1,0);
+
+			// removing empty space if sneaking. If there are smth like
+			// smart moving - we are have problems here
+			float height = player.height;
+			if (player.isSneaking()){
+				height -= 0.3;
+			}
+			GL11.glTranslatef(-0.5f, height, -0.5f);
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("divinerpg:textures/model/devhats/hat_blue.png"));
 			hat.renderAll();
 			GL11.glPopMatrix();
 		}

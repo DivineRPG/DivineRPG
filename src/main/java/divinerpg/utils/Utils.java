@@ -55,6 +55,7 @@ public class Utils {
     public static String WHITE = "\u00a7f";
 
     public static List<String> DEV_LIST = new ArrayList<String>();
+    public static List<String> TESTER_LIST = new ArrayList<String>();
     public static Map<AbstractClientPlayer, RenderHat.Type> REGISTRY = new LinkedHashMap<>();
     private static List<String> PATRON_LIST = new ArrayList<String>();
     public static Map<String, ResourceLocation> capeMap = new HashMap<>();
@@ -150,6 +151,10 @@ public class Utils {
 
     public static boolean isDeveloperName(String name) {
         return DEV_LIST.contains(name);
+    }
+    
+    public static boolean isTesterName(String name) {
+        return TESTER_LIST.contains(name);
     }
 
     public static void postFMLEvent(Object o) {
@@ -277,5 +282,33 @@ public class Utils {
         DEV_LIST.add("17356bc2-89ad-484e-9f2a-8fdbdcf1f3cd"); //NicosaurusRex99
         DEV_LIST.add("1e2326e7-a592-4e11-9b4c-d0c930deeca3"); //Wufflez
         DEV_LIST.add("e11679a6-2269-46aa-a6fd-4e2aec9f3b96"); //Dash
+    }
+    
+	public static void addTestersToList() {
+        TESTER_LIST.add("509f6794-ad97-4270-9627-ae85b03a0534"); //alexandru
+        TESTER_LIST.add("2903ef30-1a71-40ff-87aa-dceee2b6f6d9"); //FireBitMC
+        TESTER_LIST.add("ae8d12d9-391f-4b0c-9627-662b3e91b3c9"); //Locomen_
+        TESTER_LIST.add("52b7a6ca-ec5f-406a-90cb-012dbb8dbc0d"); //69EHOTUK96
+        TESTER_LIST.add("f4bcf30e-cc3a-48bc-82dc-d75798f1f844"); //rpgmaster99
+        TESTER_LIST.add("74e117c8-7f46-4f39-a174-c86bafb6ad50"); //KIRYLL_Wexd1105
+        TESTER_LIST.add("0d731c4e-7d1a-4072-8ef3-54cc6a524e47"); //PinkGoose_
+        TESTER_LIST.add("f4bcf30e-cc3a-48bc-82dc-d75798f1f844"); //Cpfuzzyz
+        TESTER_LIST.add("6280b6f6-eafe-4a38-9296-a05cace12c15"); //sikerow
+        TESTER_LIST.add("5f7b78f0-e8e0-4ae3-a55c-2e8ddab3c51e"); //EliteXander2017
+        TESTER_LIST.add("52dc9328-c685-4868-bc71-0f17b66c3ae0"); //Arob105
+        TESTER_LIST.add("ac5a82b0-6ace-4649-ac54-ac66597127fc"); //Dinozver
+        TESTER_LIST.add("4cf228db-7980-4543-ab01-4138ed5824c7"); //Lukifuge
+        TESTER_LIST.add("c3c9543a-70a1-4b24-9c3c-7f6569b90437"); //TellNoLies
+        TESTER_LIST.add("404b95bb-9fc1-4653-98b2-6be5ef77ede8"); //PeggyPenguin
+        TESTER_LIST.add("48448fdb-18d4-4359-af91-eb529486f18c"); //Chelovechecheggg
+        TESTER_LIST.add("940b96bb-1b57-40d1-9cbf-51e261e3b31d"); //SystemDysphoria
+        TESTER_LIST.add("d6f20cb4-6a17-4ffc-b928-dc05c6d5c809"); //a09hopper
+        TESTER_LIST.add("af0adaea-4a23-4b18-9237-fc7661e854a5"); //PeopleMcNugget
+        TESTER_LIST.add("0c23ad99-41b5-420a-8503-9868cf174183"); //whitebeartigtig
+        TESTER_LIST.add("417f6730-13ec-4ad0-83cf-abd6ef1ef9a9"); //MaxTalks
+        TESTER_LIST.add("ebbfcae9-9181-46f7-9b0b-840b75b4919c"); //masterbobli
+        TESTER_LIST.add("0c23ad99-41b5-420a-8503-9868cf174183"); //whitebear___
+        TESTER_LIST.add("492875d9-06f7-4c3b-85f1-9e3a63f71128"); //FLAVSY9000
+        TESTER_LIST.add("a9d16dd7-d917-48ac-9888-095eb30ab3af"); //Techno3712
     }
 }
