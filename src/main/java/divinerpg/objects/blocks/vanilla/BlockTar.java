@@ -15,7 +15,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -75,12 +77,12 @@ public class BlockTar extends BlockModFluid {
         if (touchingWater) {
             Integer integer = (Integer)state.getValue(LEVEL);
             if (integer == 0) {
-                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }
             else if (integer <= 4) {
-                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }
@@ -88,7 +90,7 @@ public class BlockTar extends BlockModFluid {
         else if (touchingLava) {
             Integer integer = (Integer)state.getValue(LEVEL);
             if (integer <= 4) {
-                worldIn.setBlockState(pos, ForgeEventFactory.fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.twilightStone.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.twilightStone.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }
@@ -139,7 +141,7 @@ public class BlockTar extends BlockModFluid {
 
                         if (block.getBlock().isAir(block, world, blockpos)) {
                             if (this.isSurroundingBlockFlammable(world, blockpos)) {
-                                world.setBlockState(blockpos, ForgeEventFactory.fireFluidPlaceBlockEvent(world,
+                                world.setBlockState(blockpos, fireFluidPlaceBlockEvent(world,
                                         blockpos, pos, Blocks.FIRE.getDefaultState()));
                                 return;
                             }
@@ -156,13 +158,19 @@ public class BlockTar extends BlockModFluid {
                         }
 
                         if (world.isAirBlock(blockpos1.up()) && this.getCanBlockBurn(world, blockpos1)) {
-                            world.setBlockState(blockpos1.up(), ForgeEventFactory.fireFluidPlaceBlockEvent(world,
+                            world.setBlockState(blockpos1.up(), fireFluidPlaceBlockEvent(world,
                                     blockpos1.up(), pos, Blocks.FIRE.getDefaultState()));
                         }
                     }
                 }
             }
         }
+    }
+    public static IBlockState fireFluidPlaceBlockEvent(World world, BlockPos pos, BlockPos liquidPos, IBlockState state)
+    {
+        BlockEvent.FluidPlaceBlockEvent event = new BlockEvent.FluidPlaceBlockEvent(world, pos, liquidPos, state);
+        MinecraftForge.EVENT_BUS.post(event);
+        return event.getNewState();
     }
     /*
     	Stolen from Lava Block
