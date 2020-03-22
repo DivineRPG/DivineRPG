@@ -1,6 +1,9 @@
 package divinerpg.api.java.divinerpg.api.armorNew;
 
+import divinerpg.DivineRPG;
+import divinerpg.networking.message.EquipmentChangeMessage;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -29,7 +32,8 @@ public class PlayerArmorObserver {
     }
 
     /**
-     * Check any armor equipment changes
+     * Check any armor equipment changes.
+     * Server-side only
      */
     @SubscribeEvent
     public void handleArmorChanges(LivingEquipmentChangeEvent e) {
@@ -41,6 +45,18 @@ public class PlayerArmorObserver {
         recheckEquipment();
     }
 
+    /**
+     * Remember curring player armor
+     */
+    public void rememberEquipment() {
+        for (EntityEquipmentSlot id : EntityEquipmentSlot.values()) {
+            currentArmor.put(id, player.getItemStackFromSlot(id).getItem());
+        }
+    }
+
+    /**
+     * Trying to recheck actal equipment
+     */
     public void recheckEquipment() {
         // checks the statuses of
 
@@ -57,11 +73,15 @@ public class PlayerArmorObserver {
         equipped.addAll(takenUp);
 
         for (ResourceLocation id : takenOff) {
-            ArmorMapEvents.findArmorSetManager(id).removePlayer(player);
+            MainArmorEvents.findArmorSetManager(id).removePlayer(player);
         }
 
         for (ResourceLocation id : takenUp) {
-            ArmorMapEvents.findArmorSetManager(id).addPlayer(player);
+            MainArmorEvents.findArmorSetManager(id).addPlayer(player);
+        }
+
+        if ((!takenOff.isEmpty() || !takenUp.isEmpty()) && player instanceof EntityPlayerMP) {
+            DivineRPG.network.sendTo(new EquipmentChangeMessage(), (EntityPlayerMP) player);
         }
     }
 

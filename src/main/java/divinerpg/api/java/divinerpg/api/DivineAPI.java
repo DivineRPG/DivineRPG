@@ -1,7 +1,7 @@
 package divinerpg.api.java.divinerpg.api;
 
 import divinerpg.api.java.divinerpg.api.arcana.IArcana;
-import divinerpg.api.java.divinerpg.api.armorNew.ArmorMapEvents;
+import divinerpg.api.java.divinerpg.api.armorNew.MainArmorEvents;
 import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,6 +42,6 @@ public class DivineAPI {
         if (id == null || !(entity instanceof EntityPlayer))
             return false;
 
-        return ArmorMapEvents.findPlayerArmorObserver((EntityPlayer) entity).isOn(id);
+        return MainArmorEvents.findPlayerArmorObserver((EntityPlayer) entity).isOn(id);
     }
 }

@@ -14,7 +14,6 @@ import divinerpg.objects.blocks.tile.render.*;
 import divinerpg.particle.*;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModMessages;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
@@ -79,7 +78,6 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PreInitLog.init();
-        ModMessages.initClient();
     }
 
     @Override

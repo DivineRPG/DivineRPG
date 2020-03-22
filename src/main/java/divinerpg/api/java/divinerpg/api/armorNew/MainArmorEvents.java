@@ -25,8 +25,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Main monitoring class
+ */
 @Mod.EventBusSubscriber()
-public class ArmorMapEvents {
+public class MainArmorEvents {
     //
     // We need to store map for each side for singleplayer
     // Because we are running both side on one physical machine
@@ -43,7 +46,7 @@ public class ArmorMapEvents {
      * @return
      */
     public static IPoweredArmorManage findArmorSetManager(ResourceLocation location) {
-        return armorManagerMap.computeIfAbsent(FMLCommonHandler.instance().getEffectiveSide(), ArmorMapEvents::createPowerMap).get(location);
+        return armorManagerMap.computeIfAbsent(FMLCommonHandler.instance().getEffectiveSide(), MainArmorEvents::createPowerMap).get(location);
     }
 
     /**
@@ -83,7 +86,9 @@ public class ArmorMapEvents {
     @SubscribeEvent
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         Map<EntityPlayer, PlayerArmorObserver> map = getPlayersMap();
-        map.computeIfAbsent(event.player, PlayerArmorObserver::new);
+
+        // todo remove duplicates
+        map.put(event.player, new PlayerArmorObserver(event.player));
 
         if (event.player instanceof EntityPlayerMP) {
             DivineRPG.network.sendTo(new PlayerLoggedEvent(true), (EntityPlayerMP) event.player);
@@ -95,11 +100,13 @@ public class ArmorMapEvents {
      */
     @SubscribeEvent
     public static void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent e) {
-        getPlayersMap().remove(e.player);
+        // todo Maube will delete it
+        // will not work. I believe it is because client was already disconnected
+//        if (e.player instanceof EntityPlayerMP) {
+//            DivineRPG.network.sendTo(new PlayerLoggedEvent(false), (EntityPlayerMP) e.player);
+//        }
 
-        if (e.player instanceof EntityPlayerMP) {
-            DivineRPG.network.sendTo(new PlayerLoggedEvent(false), (EntityPlayerMP) e.player);
-        }
+        getPlayersMap().remove(e.player);
     }
 
     @SubscribeEvent

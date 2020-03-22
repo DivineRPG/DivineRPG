@@ -59,7 +59,7 @@ public class DivineRPG {
         proxy.RegisterTileEntityRender();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
-        ModMessages.initServer();
+        ModMessages.initMessages();
         AttributeFixer.init();
     }
 

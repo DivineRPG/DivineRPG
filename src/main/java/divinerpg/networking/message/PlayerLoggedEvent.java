@@ -1,7 +1,7 @@
 package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.armorNew.ArmorMapEvents;
+import divinerpg.api.java.divinerpg.api.armorNew.MainArmorEvents;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -38,11 +38,10 @@ public class PlayerLoggedEvent implements IMessage {
         public IMessage onMessage(PlayerLoggedEvent message, MessageContext ctx) {
             if (ctx.side == Side.CLIENT){
                 if (message.addedToWorld){
-                    ArmorMapEvents.onLogin(new PlayerEvent.PlayerLoggedInEvent(DivineRPG.proxy.getPlayer()));
+                    MainArmorEvents.onLogin(new PlayerEvent.PlayerLoggedInEvent(DivineRPG.proxy.getPlayer()));
                 } else {
-                    ArmorMapEvents.onPlayerLeave(new PlayerEvent.PlayerLoggedOutEvent(DivineRPG.proxy.getPlayer()));
+                    MainArmorEvents.onPlayerLeave(new PlayerEvent.PlayerLoggedOutEvent(DivineRPG.proxy.getPlayer()));
                 }
-
             }
 
             return null;

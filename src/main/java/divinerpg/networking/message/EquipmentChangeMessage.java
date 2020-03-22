@@ -1,7 +1,9 @@
 package divinerpg.networking.message;
 
+import divinerpg.DivineRPG;
+import divinerpg.api.java.divinerpg.api.armorNew.MainArmorEvents;
+import divinerpg.api.java.divinerpg.api.armorNew.PlayerArmorObserver;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -29,8 +31,13 @@ public class EquipmentChangeMessage implements IMessage {
 
         @Override
         public IMessage onMessage(EquipmentChangeMessage msg, MessageContext ctx) {
-            if (ctx.side == Side.SERVER) {
-                EntityPlayerMP player = ctx.getServerHandler().player;
+            if (ctx.side == Side.CLIENT) {
+                PlayerArmorObserver observer = MainArmorEvents.findPlayerArmorObserver(DivineRPG.proxy.getPlayer());
+
+                if (observer != null) {
+                    observer.rememberEquipment();
+                    observer.recheckEquipment();
+                }
             }
 
             return null;
