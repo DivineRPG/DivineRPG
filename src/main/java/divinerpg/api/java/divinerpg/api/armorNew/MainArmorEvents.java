@@ -16,13 +16,11 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -86,8 +84,6 @@ public class MainArmorEvents {
     @SubscribeEvent
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         Map<EntityPlayer, PlayerArmorObserver> map = getPlayersMap();
-
-        // todo remove duplicates
         map.put(event.player, new PlayerArmorObserver(event.player));
 
         if (event.player instanceof EntityPlayerMP) {
@@ -96,17 +92,29 @@ public class MainArmorEvents {
     }
 
     /**
-     * Removing leaving player from map
+     * Removing leaving player from map on CLIENT side
      */
     @SubscribeEvent
     public static void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent e) {
-        // todo Maube will delete it
-        // will not work. I believe it is because client was already disconnected
-//        if (e.player instanceof EntityPlayerMP) {
-//            DivineRPG.network.sendTo(new PlayerLoggedEvent(false), (EntityPlayerMP) e.player);
-//        }
+        if (e == null || e.player == null || e.player.getUniqueID() == null)
+            return;
 
-        getPlayersMap().remove(e.player);
+        UUID id = e.player.getUniqueID();
+        Map<EntityPlayer, PlayerArmorObserver> map = getPlayersMap();
+
+        map.keySet().stream().filter(x -> id.equals(x.getUniqueID()))
+                .collect(Collectors.toList())
+                .forEach(map::remove);
+    }
+
+    /**
+     * Clearing all player on client side
+     *
+     * @param e - called when disconnected from player
+     */
+    @SubscribeEvent
+    public static void onPlayerLeave(FMLNetworkEvent.ClientDisconnectionFromServerEvent e) {
+        onPlayerLeave(new PlayerEvent.PlayerLoggedOutEvent(DivineRPG.proxy.getPlayer()));
     }
 
     @SubscribeEvent
