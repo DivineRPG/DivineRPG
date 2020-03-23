@@ -5,6 +5,7 @@ import divinerpg.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -17,13 +18,16 @@ public class ArcanaRenderer {
     public static boolean regen;
 
     @SubscribeEvent
-    public void onRender(RenderGameOverlayEvent.Text event) {
-        onTickRender();
+    public void onRender(RenderGameOverlayEvent.Post event) {
+        if(event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+            onTickRender();
+        }
     }
 
     private void onTickRender() {
-        Config cfg = new Config();
         if (mc.currentScreen == null) {
+            GlStateManager.color(1.0F, 1.0F, 1.0F);//resets color
+
             GuiIngame gig = mc.ingameGUI;
             ScaledResolution scaledresolution = new ScaledResolution(mc);
             int i = scaledresolution.getScaledWidth();
