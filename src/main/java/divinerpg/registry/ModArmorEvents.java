@@ -176,14 +176,14 @@ public class ModArmorEvents {
                         .addAbility(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "realmite")),
 
-                new PoweredArmor(ModItems.apalachiaHelmet, ModItems.apalachiaChestplate, ModItems.apalachiaLeggings, ModItems.apalachiaBoots)
+                new PoweredArmor(ModItems.wildwoodHelmet, ModItems.wildwoodChestplate, ModItems.wildwoodLeggings, ModItems.wildwoodBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> {
                             EntityPlayer player = event.player;
                             if (player.isInWater()) {
                                 player.heal(0.25F);
                             }
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "apalachia")),
+                        .setRegistryName(new ResourceLocation(Reference.MODID, "wildwood")),
 
                 new PoweredArmor(ModItems.kormaHelmet, ModItems.kormaChestplate, ModItems.kormaLeggings, ModItems.kormaBoots)
                         .addAbility(TickEvent.PlayerTickEvent.class, event -> event.player.heal(1))
