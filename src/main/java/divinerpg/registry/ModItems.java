@@ -1602,9 +1602,6 @@ public class ModItems {
     public static final Item frozenSlab = null;
     @ObjectHolder("eucalyptus_slab")
     public static final Item eucalyptusSlab = null;
-    /*
-    public static final Item barredDoor = new ItemModDoor(VetheaBlocks.barredDoor, "barredDoor").setCreativeTab(DivineRPGTabs.vethea);
-*/
 
     // Armor information
     // Vanilla dimensions
