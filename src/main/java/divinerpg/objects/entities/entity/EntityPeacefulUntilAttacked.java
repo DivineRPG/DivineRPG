@@ -1,5 +1,7 @@
 package divinerpg.objects.entities.entity;
 
+import java.util.UUID;
+
 import javax.annotation.Nullable;
 
 import com.google.common.base.Predicate;
@@ -17,9 +19,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
-    private static final DataParameter<Boolean> ANGRY = EntityDataManager
-            .<Boolean>createKey(EntityPeacefulUntilAttacked.class, DataSerializers.BOOLEAN);
 
+    private int angerLevel;
+    private UUID angerTargetUUID;
     public EntityPeacefulUntilAttacked(World world) {
         super(world);
     }
@@ -31,42 +33,73 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
     }
 
     @Override
-    public void setAttackTarget(@Nullable EntityLivingBase entity) {
-        if (entity != null && entity instanceof EntityPlayer && !((EntityPlayer) entity).capabilities.isCreativeMode
-                && !isAngry()) {
-            super.setAttackTarget(entity);
-            makeAngry();
+    public void setRevengeTarget(@Nullable EntityLivingBase livingBase)
+    {
+        super.setRevengeTarget(livingBase);
+
+        if (livingBase != null)
+        {
+            this.angerTargetUUID = livingBase.getUniqueID();
         }
     }
 
     @Override
     public void entityInit() {
         super.entityInit();
-        dataManager.register(ANGRY, false);
     }
-
+    
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        boolean angry = compound.getBoolean("Angry");
-        if (angry) {
-            makeAngry();
+        this.angerLevel = compound.getShort("Anger");
+        String s = compound.getString("HurtBy");
+
+        if (!s.isEmpty())
+        {
+            this.angerTargetUUID = UUID.fromString(s);
+            EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
+            this.setRevengeTarget(entityplayer);
+
+            if (entityplayer != null)
+            {
+                this.attackingPlayer = entityplayer;
+                this.recentlyHit = this.getRevengeTimer();
+            }
         }
     }
 
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        compound.setBoolean("Angry", this.dataManager.get(ANGRY).booleanValue());
+    	super.writeEntityToNBT(compound);
+        compound.setShort("Anger", (short)this.angerLevel);
+
+        if (this.angerTargetUUID != null)
+        {
+            compound.setString("HurtBy", this.angerTargetUUID.toString());
+        }
+        else
+        {
+            compound.setString("HurtBy", "");
+        }
     }
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
-        Entity entity = source.getTrueSource();
-        if (entity instanceof EntityPlayer) {
-            this.setAttackTarget((EntityPlayer) entity);
+    	if (this.isEntityInvulnerable(source))
+        {
+            return false;
         }
-        return super.attackEntityFrom(source, amount);
+        else
+        {
+            Entity entity = source.getTrueSource();
+
+            if (entity instanceof EntityPlayer)
+            {
+                this.becomeAngryAt(entity);
+            }
+
+            return super.attackEntityFrom(source, amount);
+        }
     }
 
     @Override
@@ -75,13 +108,17 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
     }
 
     public boolean isAngry() {
-        return this.dataManager.get(ANGRY).booleanValue();
+        return this.angerLevel > 0;
     }
 
-    public void makeAngry() {
-        this.dataManager.set(ANGRY, true);
-        this.targetTasks.addTask(1,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+    private void becomeAngryAt(Entity target)
+    {
+        this.angerLevel = 400 + this.rand.nextInt(400);
+
+        if (target instanceof EntityLivingBase)
+        {
+            this.setRevengeTarget((EntityLivingBase)target);
+        }
     }
 
     @Override

@@ -276,7 +276,6 @@ public class EntityParatiku extends EntityDivineRPGTameable
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable ageable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
