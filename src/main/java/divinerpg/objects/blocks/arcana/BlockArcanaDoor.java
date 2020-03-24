@@ -15,11 +15,12 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class BlockArcanaDoor extends BlockModDoor {
-    private Item keyItem;
+    private Supplier<Item> keyItem;
 
-    public BlockArcanaDoor(String name, Item key) {
+    public BlockArcanaDoor(String name, Supplier<Item> key) {
         super(name, Material.ROCK, -1F);
         this.setResistance(6000000F);
         this.keyItem = key;
@@ -39,7 +40,7 @@ public class BlockArcanaDoor extends BlockModDoor {
                 if(iblockstate.getProperties().get(OPEN).equals(true)) {
                     return false;
                 }
-                Item key = this.keyItem;
+                Item key = this.keyItem.get();
                 ItemStack itemstack = player.getHeldItem(hand);
                 if (itemstack == null || itemstack.getItem() != key) {
                     return false;

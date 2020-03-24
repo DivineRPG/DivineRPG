@@ -1387,10 +1387,10 @@ public class ModBlocks {
         register(registry, new BlockModUnbreakable("soul_stone"));
 
         // Door
-        register(registry, new BlockArcanaDoor("ancient_brick_door", ModItems.ancientKey));
-        register(registry, new BlockArcanaDoor("degraded_brick_door", ModItems.degradedKey));
-        register(registry, new BlockArcanaDoor("soul_sludge_door", ModItems.sludgeKey));
-        register(registry, new BlockArcanaDoor("soul_stone_door", ModItems.soulKey));
+        register(registry, new BlockArcanaDoor("ancient_brick_door", () -> ModItems.ancientKey));
+        register(registry, new BlockArcanaDoor("degraded_brick_door", () -> ModItems.degradedKey));
+        register(registry, new BlockArcanaDoor("soul_sludge_door",() ->  ModItems.sludgeKey));
+        register(registry, new BlockArcanaDoor("soul_stone_door", () -> ModItems.soulKey));
 
         // Spawner
         register(registry, new BlockArcanaSpawner("death_hound_spawner", "death_hound"));
