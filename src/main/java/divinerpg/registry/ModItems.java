@@ -48,6 +48,7 @@ import divinerpg.objects.items.vethea.*;
 import divinerpg.objects.items.vanilla.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -1216,6 +1217,18 @@ public class ModItems {
     public static final Item pinfly = null;
     @ObjectHolder("veilo")
     public static final Item veilo = null;
+    
+    //Doors
+    @ObjectHolder("steel_door")
+    public static final Item steelDoor = null;
+    @ObjectHolder("ancient_brick_door")
+    public static final Item ancientBrickDoor = null;
+    @ObjectHolder("degraded_brick_door")
+    public static final Item degradedBrickDoor = null;
+    @ObjectHolder("soul_sludge_door")
+    public static final Item soulSludgeDoor = null;
+    @ObjectHolder("soul_stone_door")
+    public static final Item soulStoneDoor = null;
 
     // Arcana miscellaneous
     @ObjectHolder("arcanium")
@@ -2299,6 +2312,13 @@ public class ModItems {
         register(registry, new ItemKey("degraded_key"));
         register(registry, new ItemKey("soul_key"));
         register(registry, new ItemKey("sludge_key"));
+
+        // Doors
+        register(registry, new ItemModDoor(ModBlocks.ancientBrickDoor, "ancient_brick_door"));
+        register(registry, new ItemModDoor(ModBlocks.degradedBrickDoor, "degraded_brick_door"));
+        register(registry, new ItemModDoor(ModBlocks.soulSludgeDoor, "soul_sludge_door"));
+        register(registry, new ItemModDoor(ModBlocks.soulStoneDoor, "soul_stone_door"));
+        register(registry, new ItemModDoor(ModBlocks.steelDoor, "steel_door"));
 
         // Arcana potions
         register(registry, new ItemArcanaPotion("weak_arcana_potion", 100));

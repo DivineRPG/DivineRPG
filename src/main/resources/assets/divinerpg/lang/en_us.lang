@@ -416,6 +416,13 @@ tile.dreamwrecker_spawner.name=Dream Wrecker Spawner
 
 container.iceika_chest=Iceika Chest
 
+
+
+item.steel_door.name=Steel Door
+item.soul_stone_door.name=Soul Stone Door
+item.soul_sludge_door.name=Soul Sludge Door
+item.degraded_brick_door.name=Degraded Brick Door
+item.ancient_brick_door.name=Ancient Brick Door
 item.everfright_bow.name=Everfright Bow
 item.bedrock_chunk.name=Bedrock Chunk
 item.bacon.name=Bacon
