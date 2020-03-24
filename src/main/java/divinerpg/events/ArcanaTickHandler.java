@@ -28,22 +28,15 @@ public class ArcanaTickHandler {
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         drainArcana(event.player);
     }
-    public static BlockPos vetheaSpawn;
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         refillArcana(event.player);
-        if(event.player.dimension==ModDimensions.vetheaDimension.getId()) {
-        	event.player.attemptTeleport(vetheaSpawn.getX()+1, vetheaSpawn.getY(), vetheaSpawn.getZ()+4);
-        }
     }
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         refillArcana(event.player);
         event.player.addExperienceLevel(0);
-        if(event.toDim==ModDimensions.vetheaDimension.getId()) {
-        	vetheaSpawn = event.player.getPosition();
-        }
     }
 
     /**
