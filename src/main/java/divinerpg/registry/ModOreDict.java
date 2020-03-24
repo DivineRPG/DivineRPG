@@ -42,7 +42,12 @@ public class ModOreDict {
         OreDictionary.registerOre("torch", ModBlocks.aquaTorch);
         OreDictionary.registerOre("torch", ModBlocks.skeletonTorch);
 
-        OreDictionary.registerOre("doorSteel", ModBlocks.steelDoor);
+        OreDictionary.registerOre("doorSteel", ModItems.steelDoor);
+        OreDictionary.registerOre("door", ModItems.steelDoor);
+        OreDictionary.registerOre("door", ModItems.ancientBrickDoor);
+        OreDictionary.registerOre("door", ModItems.degradedBrickDoor);
+        OreDictionary.registerOre("door", ModItems.soulSludgeDoor);
+        OreDictionary.registerOre("door", ModItems.soulStoneDoor);
 
         OreDictionary.registerOre("treeLeaves", ModBlocks.apalachiaLeaves);
         OreDictionary.registerOre("treeLeaves", ModBlocks.brittleLeaves);
@@ -53,6 +58,8 @@ public class ModOreDict {
         OreDictionary.registerOre("treeLeaves", ModBlocks.wildwoodLeaves);
 
         OreDictionary.registerOre("vine", ModBlocks.wildwoodVine);
+        OreDictionary.registerOre("vine", ModBlocks.weedwoodVine);
+        OreDictionary.registerOre("vine", ModBlocks.blossomedWeedwoodVine);
 
         OreDictionary.registerOre("treeSapling", ModBlocks.divineSapling);
         OreDictionary.registerOre("treeSapling", ModBlocks.edenSapling);
