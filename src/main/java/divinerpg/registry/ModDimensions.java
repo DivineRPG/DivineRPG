@@ -10,7 +10,12 @@ import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.vethea.WorldProviderVethea;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
+import divinerpg.structure.legacy.DivineLegacyStructureStart;
+import divinerpg.structure.legacy.DivineStructureComponent;
+import divinerpg.structure.template.DivineStructureComponentTemplate;
+import divinerpg.structure.template.DivineStructureStart;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
 
 public class ModDimensions {
@@ -24,8 +29,17 @@ public class ModDimensions {
     public static DimensionType vetheaDimension;
 
     public static void init() {
+        registerStructures();
         registerDimensionTypes();
         registerDimensions();
+    }
+
+    private static void registerStructures() {
+        MapGenStructureIO.registerStructure(DivineStructureStart.class, "DrpgSS");
+        MapGenStructureIO.registerStructureComponent(DivineStructureComponentTemplate.class, "DrpgCmp");
+
+        MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
+        MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");
     }
 
     private static void registerDimensionTypes() {

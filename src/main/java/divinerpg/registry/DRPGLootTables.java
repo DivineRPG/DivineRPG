@@ -12,6 +12,11 @@ public class DRPGLootTables {
     public static final ResourceLocation ICEIKA_CHEST_DUNGEON = registerTable("chests/iceika/iceika_chest_dungeon");
     public static final ResourceLocation ICEIKA_CHEST_HUT = registerTable("chests/iceika/iceika_chest_hut");
 
+    public static final ResourceLocation TEMPLE_LOOT_BOTTOM = registerTable("chests/vethea/temple_loot_bottom");
+    public static final ResourceLocation TEMPLE_LOOT_MIDDLE = registerTable("chests/vethea/temple_loot_middle");
+    public static final ResourceLocation TEMPLE_LOOT_TOP = registerTable("chests/vethea/temple_loot_top");
+
+
     public static final ResourceLocation ENTITIES_ANCIENT_ENTITY = registerTable("entities/vanilla/ancient_entity");
     public static final ResourceLocation ENTITIES_AYERACO_BLUE = registerTable("entities/vanilla/ayeraco_blue");
     public static final ResourceLocation ENTITIES_AYERACO_GREEN = registerTable("entities/vanilla/ayeraco_green");
