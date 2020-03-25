@@ -14,6 +14,7 @@ import net.divinerpg.items.arcana.ItemChargedCollector;
 import net.divinerpg.items.arcana.ItemDivineAccumulator;
 import net.divinerpg.items.arcana.ItemEnderScepter;
 import net.divinerpg.items.arcana.ItemFirefly;
+import net.divinerpg.items.arcana.ItemFrozenCharge;
 import net.divinerpg.items.arcana.ItemGeneralsStaff;
 import net.divinerpg.items.arcana.ItemGrenade;
 import net.divinerpg.items.arcana.ItemKey;
@@ -112,6 +113,8 @@ public class ArcanaItems {
 	public static Item vemosBody = new ItemDivineArmor(EnumArmor.VEMOS, BODY, "vemos", vemInfo);
 	public static Item vemosLegs = new ItemDivineArmor(EnumArmor.VEMOS, LEGS, "vemos", vemInfo);
 	public static Item vemosBoots = new ItemDivineArmor(EnumArmor.VEMOS, BOOTS, "vemos", vemInfo);
+	
+	public static Item frozenCharge = new ItemFrozenCharge();
 
 	public static void init() {}
 }

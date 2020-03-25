@@ -7,6 +7,7 @@ public class TooltipLocalizer {
 
     protected static final String USES = "tooltip.uses",
             INFINITEUSES = "tooltip.uses.infinite",
+            SINGLEUSE = "tooltip.uses.single",
             ARCANA = "tooltip.arcana",
             ARCANAREGEN = "tooltip.arcana.regen",
             MELEEDAM = "tooltip.damage.melee",
@@ -61,6 +62,10 @@ public class TooltipLocalizer {
 
     public static String infiniteUses() {
         return StatCollector.translateToLocal(INFINITEUSES);
+    }
+    
+    public static String singleUse() {
+        return StatCollector.translateToLocal(SINGLEUSE);
     }
 
     public static String rangedAndMelee(double dam) {

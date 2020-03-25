@@ -1,6 +1,5 @@
 package net.divinerpg.utils.recipes;
 
-import net.divinerpg.DivineRPG;
 import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
@@ -491,5 +490,7 @@ public class VanillaRecipeHelper extends RecipeUtil {
         addRecipe(new ItemStack(VanillaBlocks.cyanVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 6), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.purpleVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 5), 'O', Blocks.obsidian);
         addRecipe(new ItemStack(VanillaBlocks.yellowVane, 4), "CCC", "COC", "CCC", 'C', new ItemStack(Items.dye, 1, 11), 'O', Blocks.obsidian);
+        
+        addRecipe(new ItemStack(ArcanaItems.frozenCharge, 3), "CCC", "COC", "CCC", 'C', IceikaItems.iceShards, 'O', VanillaItemsOther.purpleBlaze);
 	}
 }
