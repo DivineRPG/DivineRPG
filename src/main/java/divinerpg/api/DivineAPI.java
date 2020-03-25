@@ -3,6 +3,8 @@ package divinerpg.api;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.api.armorNew.MainArmorEvents;
 import divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.utils.attributes.IReflectionHelper;
+import divinerpg.utils.attributes.ReflectionHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -15,6 +17,11 @@ import static divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
  * Main API class.
  */
 public class DivineAPI {
+    /**
+     * Reflection helper working with obfuscated code
+     */
+    public final static IReflectionHelper reflectionHelper = new ReflectionHelper();
+
     /**
      * Contains all possible power sets data
      */
