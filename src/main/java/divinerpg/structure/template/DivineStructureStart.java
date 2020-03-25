@@ -31,11 +31,11 @@ public class DivineStructureStart extends StructureStart {
      * [0;1].nbt
      * [1;1].nbt
      * <p>
-     * OZ is increased there ->
-     * __________________________       OX increased there
+     * OX is increased there ->
+     * __________________________       OZ increased there
      * |           |            |       |
      * |   [0;0]   |   [1;0]    |       |
-     * |           |            |      \|
+     * |           |            |      \/
      * ____________|____________|
      * |           |            |
      * | [1;0]     |   [1;1]    |
