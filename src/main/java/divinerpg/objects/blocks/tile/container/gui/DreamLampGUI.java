@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.container.ContainerDreamLamp;
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import divinerpg.registry.ModItems;
@@ -9,7 +9,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
 public class DreamLampGUI extends GuiContainer {
@@ -27,8 +26,8 @@ public class DreamLampGUI extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRenderer.drawString(this.blockInv.hasCustomName() ? this.blockInv.getName() : I18n.format(this.blockInv.getName(), new Object[0]), 12, 8, 0x6FA940);
-        this.fontRenderer.drawString(this.playerInv.hasCustomName() ? this.playerInv.getName() : I18n.format(this.playerInv.getName(), new Object[0]), 12, this.ySize - 96, 0x6FA940);
+        this.fontRenderer.drawString(this.blockInv.hasCustomName() ? this.blockInv.getName() : I18n.format(this.blockInv.getName()), 12, 8, 0x6FA940);
+        this.fontRenderer.drawString(this.playerInv.hasCustomName() ? this.playerInv.getName() : I18n.format(this.playerInv.getName()), 12, this.ySize - 96, 0x6FA940);
     }
 
     @Override

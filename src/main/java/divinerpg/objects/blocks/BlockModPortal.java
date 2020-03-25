@@ -1,15 +1,8 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-import java.util.function.Supplier;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.config.Config;
-import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
+import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.DivineTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -23,7 +16,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -36,6 +28,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
+import java.util.function.Supplier;
 
 public class BlockModPortal extends BlockBreakable {
 

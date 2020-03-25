@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;

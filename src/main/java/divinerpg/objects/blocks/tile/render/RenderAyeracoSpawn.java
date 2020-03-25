@@ -1,9 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.client.ClientTicker;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import net.minecraft.client.Minecraft;
@@ -13,6 +10,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
 public class RenderAyeracoSpawn extends TileEntitySpecialRenderer<TileEntityAyeracoSpawn> {
 

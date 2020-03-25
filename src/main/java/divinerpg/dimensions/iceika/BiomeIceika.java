@@ -1,8 +1,6 @@
 package divinerpg.dimensions.iceika;
 
-import java.util.Random;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
@@ -16,6 +14,8 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BiomeIceika extends Biome {
 

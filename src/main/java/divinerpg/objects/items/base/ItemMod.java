@@ -1,8 +1,7 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

@@ -1,9 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -13,6 +11,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+
+import java.util.Random;
 
 public class TileEntityStupidSpawner extends TileEntity implements ITickable {
     private String entityName;

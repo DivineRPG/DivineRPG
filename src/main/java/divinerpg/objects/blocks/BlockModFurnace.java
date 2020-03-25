@@ -1,17 +1,12 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityModFurnace;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -19,22 +14,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockModFurnace extends Block  {
+import java.util.Random;
+
+public abstract class BlockModFurnace extends Block {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public static boolean keepInventory;
     protected boolean isBurning;
@@ -70,7 +60,7 @@ public abstract class BlockModFurnace extends Block  {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { FACING });
+        return new BlockStateContainer(this, FACING);
     }
 
     @Override

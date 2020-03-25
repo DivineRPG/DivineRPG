@@ -1,13 +1,13 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.ArmorHandlers;
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.api.java.divinerpg.api.armorNew.ArmorSet;
-import divinerpg.api.java.divinerpg.api.armorNew.PoweredArmor;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IEquipped;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.api.ArmorHandlers;
+import divinerpg.api.Reference;
+import divinerpg.api.armorNew.ArmorSet;
+import divinerpg.api.armorNew.PoweredArmor;
+import divinerpg.api.armorNew.interfaces.IArmorSet;
+import divinerpg.api.armorNew.interfaces.IEquipped;
+import divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.player.EntityPlayer;

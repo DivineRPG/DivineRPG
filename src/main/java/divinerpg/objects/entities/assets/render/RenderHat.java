@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -50,7 +50,7 @@ public class RenderHat implements LayerRenderer<AbstractClientPlayer> {
 		ModelHat.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, player);
 		ModelHat.render(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.popMatrix();
-		
+
 	}
 
 
@@ -58,15 +58,17 @@ public class RenderHat implements LayerRenderer<AbstractClientPlayer> {
 	public boolean shouldCombineTextures() {
 		return false;
 	}
-	public static enum Type {
-		RED, BLUE;
+
+	public enum Type {
+		RED, BLUE
 	}
+
 	private String getTexture(Type type) {
 		switch (type) {
-		case RED:
-			return "textures/models/devhat.png";
-		case BLUE:
-			return "textures/models/devhat_b.png";
+			case RED:
+				return "textures/models/devhat.png";
+			case BLUE:
+				return "textures/models/devhat_b.png";
 		}
 		return "";
 	}

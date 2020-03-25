@@ -1,22 +1,16 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.BlockModPortal;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.DivineTeleporter;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -38,7 +32,7 @@ public class BlockVetheaPortal extends BlockModPortal {
             }
             else if (playerIn.dimension == Config.vetheaDimensionId) {
 
-                NBTTagCompound persistentData = playerIn.getEntityData().getCompoundTag(playerIn.PERSISTED_NBT_TAG);
+                NBTTagCompound persistentData = playerIn.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
                 persistentData.setTag("VetheaInv", playerIn.inventory.writeToNBT(new NBTTagList()));
                 playerIn.getEntityData().setTag("PlayerPersisted", persistentData);
                 playerIn.inventory.clear();

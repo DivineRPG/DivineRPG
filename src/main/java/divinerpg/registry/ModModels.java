@@ -1,25 +1,14 @@
 package divinerpg.registry;
 
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.client.render.RenderItemArcaniumExtractor;
-import divinerpg.client.render.RenderItemBoneChest;
-import divinerpg.client.render.RenderItemDemonFurnace;
-import divinerpg.client.render.RenderItemDramixAltar;
-import divinerpg.client.render.RenderItemEdenChest;
-import divinerpg.client.render.RenderItemFrostedChest;
-import divinerpg.client.render.RenderItemParasectaAltar;
-import divinerpg.client.render.RenderItemPresentBox;
-import divinerpg.client.render.RenderItemStatue;
-import net.minecraft.block.Block;
+import divinerpg.api.Reference;
+import divinerpg.client.render.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(value=Side.CLIENT, modid=Reference.MODID)
 public class ModModels {

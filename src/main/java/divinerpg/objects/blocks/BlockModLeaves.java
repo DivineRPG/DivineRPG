@@ -1,11 +1,6 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-import java.util.function.Supplier;
-
-import javax.annotation.Nonnull;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -14,13 +9,11 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -31,6 +24,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import java.util.Random;
+import java.util.function.Supplier;
 
 public class BlockModLeaves extends BlockLeaves implements IShearable {
     private Supplier<Block> saplingSupplier;
@@ -55,7 +52,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { CHECK_DECAY, DECAYABLE });
+        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
     }
 
     @Override

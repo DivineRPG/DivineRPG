@@ -1,11 +1,11 @@
 package divinerpg.dimensions.arcana;
 
-import java.util.Random;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+
+import java.util.Random;
 
 public class BiomeArcana extends Biome {
     private static BiomeProperties properties = new BiomeProperties("Arcana").setRainDisabled();

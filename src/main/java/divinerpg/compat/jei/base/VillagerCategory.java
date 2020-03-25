@@ -1,8 +1,6 @@
 package divinerpg.compat.jei.base;
 
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableStatic;
@@ -14,6 +12,8 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nullable;
 
 public class VillagerCategory implements IRecipeCategory {
 

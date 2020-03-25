@@ -1,8 +1,8 @@
 package divinerpg.networking.message;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.armorNew.MainArmorEvents;
-import divinerpg.api.java.divinerpg.api.armorNew.PlayerArmorObserver;
+import divinerpg.api.armorNew.MainArmorEvents;
+import divinerpg.api.armorNew.PlayerArmorObserver;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;

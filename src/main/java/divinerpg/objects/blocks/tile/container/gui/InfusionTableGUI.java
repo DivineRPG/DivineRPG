@@ -1,8 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import java.awt.Color;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.container.ContainerInfusionTable;
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -10,15 +8,16 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
 
 public class InfusionTableGUI extends GuiContainer {
     private TileEntityInfusionTable TeInfusionTable;
 
     private ResourceLocation texture = new ResourceLocation(Reference.MODID + ":textures/gui/infusion_table.png");
 
-    public InfusionTableGUI(ContainerInfusionTable container)  {
+    public InfusionTableGUI(ContainerInfusionTable container) {
         super(container);
         this.TeInfusionTable = container.tileentity;
     }

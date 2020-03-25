@@ -1,15 +1,8 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Sets;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -31,7 +24,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemShickaxe extends ItemTool  {
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Set;
+
+public class ItemShickaxe extends ItemTool {
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
             Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
             Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE,
@@ -71,12 +68,8 @@ public class ItemShickaxe extends ItemTool  {
                             if (block != Blocks.REDSTONE_ORE && block != Blocks.LIT_REDSTONE_ORE) {
                                 Material material = blockIn.getMaterial();
 
-                                if (material == Material.ROCK || material == Material.IRON || material == Material.ANVIL
-                                        || block == Blocks.SNOW_LAYER || block == Blocks.SNOW) {
-                                    return true;
-                                } else {
-                                    return false;
-                                }
+                                return material == Material.ROCK || material == Material.IRON || material == Material.ANVIL
+                                        || block == Blocks.SNOW_LAYER || block == Blocks.SNOW;
                             } else {
                                 return this.toolMaterial.getHarvestLevel() >= 2;
                             }

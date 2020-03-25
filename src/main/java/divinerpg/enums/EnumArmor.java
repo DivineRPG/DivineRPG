@@ -1,8 +1,7 @@
 package divinerpg.enums;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.ModItems;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -67,25 +66,25 @@ public enum EnumArmor {
     private boolean clothing;
     private boolean override;
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction) {
+    EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction) {
         this(name, textureName, durability, enchantability, null, damageReduction, false, false);
     }
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
-            int damageReduction) {
+    EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
+              int damageReduction) {
         this(name, textureName, durability, enchantability, repair, damageReduction, false, false);
     }
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction,
-            boolean clothing, boolean override) {
+    EnumArmor(String name, String textureName, int durability, int enchantability, int damageReduction,
+              boolean clothing, boolean override) {
         this(name, textureName, durability, enchantability, null, damageReduction, clothing, override);
     }
 
-    private EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
-            int damageReduction, boolean clothing, boolean override) {
+    EnumArmor(String name, String textureName, int durability, int enchantability, Item repair,
+              int damageReduction, boolean clothing, boolean override) {
         this.armorMaterial = EnumHelper.addArmorMaterial(name,
                 (override ? "minecraft:" : (Reference.MODID + ":")) + textureName, (int) Math.round(durability / 13.75),
-                new int[] { 0, 0, 0, 0 }, enchantability,
+                new int[]{0, 0, 0, 0}, enchantability,
                 clothing ? SoundEvents.ITEM_ARMOR_EQUIP_LEATHER : SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f);
         if (repair != null) {
             this.armorMaterial.setRepairItem(new ItemStack(repair, 1));

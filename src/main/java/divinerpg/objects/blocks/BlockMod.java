@@ -1,15 +1,10 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 
 public class BlockMod extends Block  {
 

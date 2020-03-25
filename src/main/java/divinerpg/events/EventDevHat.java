@@ -1,8 +1,6 @@
 package divinerpg.events;
 
-import org.lwjgl.opengl.GL11;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -12,6 +10,7 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import org.lwjgl.opengl.GL11;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 	public class EventDevHat {

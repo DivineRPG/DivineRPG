@@ -3,8 +3,8 @@
  */
 package divinerpg;
 
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.api.Reference;
+import divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;

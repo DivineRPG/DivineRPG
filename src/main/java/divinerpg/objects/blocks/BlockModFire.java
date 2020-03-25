@@ -1,21 +1,16 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
-import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.config.Config;
+import divinerpg.api.Reference;
 import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockModFire extends BlockFire  {
+import java.util.Random;
+
+public class BlockModFire extends BlockFire {
 
     public BlockModFire(String name) {
         super();

@@ -1,11 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.dimensions.arcana.ArcanaTeleporter;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.ModBlocks;
@@ -23,6 +18,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class BlockArcanaPortal extends Block {
     private int firetick;

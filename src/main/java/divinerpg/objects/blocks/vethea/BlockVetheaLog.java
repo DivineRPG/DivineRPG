@@ -1,16 +1,10 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.blocks.BlockModLog;
 import divinerpg.objects.entities.entity.vethea.EntityEnt;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

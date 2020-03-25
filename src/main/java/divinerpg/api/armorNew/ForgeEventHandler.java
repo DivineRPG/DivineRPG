@@ -1,4 +1,4 @@
-package divinerpg.api.java.divinerpg.api.armorNew;
+package divinerpg.api.armorNew;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.Event;

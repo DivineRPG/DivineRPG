@@ -1,9 +1,7 @@
 package divinerpg.events;
 
-import java.util.concurrent.CompletableFuture;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
@@ -14,6 +12,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 public class EventClientLogin {

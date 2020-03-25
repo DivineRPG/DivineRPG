@@ -1,7 +1,7 @@
 package divinerpg.objects.items.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.DivineAPI;
+import divinerpg.api.DivineAPI;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModArmorEvents;

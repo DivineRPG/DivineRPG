@@ -1,10 +1,6 @@
 package divinerpg.objects.blocks;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.registry.ModBlocks;
+import divinerpg.api.Reference;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -14,7 +10,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockModCrop extends BlockCrops  {
+import java.util.ArrayList;
+import java.util.List;
+
+public class BlockModCrop extends BlockCrops {
 
     /**
      * Contains stages of growth

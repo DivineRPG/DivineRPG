@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.BlockModPlank;
 import divinerpg.objects.blocks.BlockModSlab;
 import divinerpg.registry.DivineRPGTabs;
@@ -64,7 +64,7 @@ public class ItemModSlab extends ItemBlock
             {
                 IProperty<?> iproperty = this.singleSlab.getVariantProperty();
                 Comparable<?> comparable1 = iblockstate.getValue(iproperty);
-                BlockSlab.EnumBlockHalf blockslab$enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF);
+                BlockSlab.EnumBlockHalf blockslab$enumblockhalf = iblockstate.getValue(BlockSlab.HALF);
 
                 if ((facing == EnumFacing.UP && blockslab$enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || facing == EnumFacing.DOWN && blockslab$enumblockhalf == BlockSlab.EnumBlockHalf.TOP) && comparable1 == comparable)
                 {
@@ -115,7 +115,7 @@ public class ItemModSlab extends ItemBlock
 
         pos = pos.offset(side);
         IBlockState iblockstate1 = worldIn.getBlockState(pos);
-        return iblockstate1.getBlock() == this.singleSlab && comparable == iblockstate1.getValue(iproperty) ? true : super.canPlaceBlockOnSide(worldIn, blockpos, side, player, stack);
+        return iblockstate1.getBlock() == this.singleSlab && comparable == iblockstate1.getValue(iproperty) || super.canPlaceBlockOnSide(worldIn, blockpos, side, player, stack);
     }
 
     private boolean tryPlace(EntityPlayer player, ItemStack stack, World worldIn, BlockPos pos, Object itemSlabType)

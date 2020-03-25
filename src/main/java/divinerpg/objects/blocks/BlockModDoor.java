@@ -1,12 +1,7 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.objects.items.base.ItemBlockDoor;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,7 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockModDoor extends BlockDoor  {
+import java.util.Random;
+
+public class BlockModDoor extends BlockDoor {
 
     public BlockModDoor(String name, Material materialIn, float hardness) {
         super(materialIn);
@@ -42,7 +39,7 @@ public class BlockModDoor extends BlockDoor  {
             state = iblockstate.cycleProperty(OPEN);
             worldIn.setBlockState(blockpos, state, 10);
             worldIn.markBlockRangeForRenderUpdate(blockpos, pos);
-            worldIn.playEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, pos, 0);
+            worldIn.playEvent(player, state.getValue(OPEN).booleanValue() ? 1005 : 1011, pos, 0);
             return true;
         }
     }

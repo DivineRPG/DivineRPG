@@ -1,12 +1,7 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -19,7 +14,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModSword extends ItemSword  {
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemModSword extends ItemSword {
 
     private ToolMaterial material;
 

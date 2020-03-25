@@ -1,12 +1,7 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemAxe;
@@ -15,7 +10,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModAxe extends ItemAxe  {
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemModAxe extends ItemAxe {
 
 	public ItemModAxe(ToolMaterial material, String name) {
 		// Eskl decided the speed multiplier (the / 5 thing)

@@ -1,15 +1,15 @@
-package divinerpg.api.java.divinerpg.api;
+package divinerpg.api;
 
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
-import divinerpg.api.java.divinerpg.api.armorNew.MainArmorEvents;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.api.arcana.IArcana;
+import divinerpg.api.armorNew.MainArmorEvents;
+import divinerpg.api.armorNew.interfaces.IPoweredArmor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryManager;
 
-import static divinerpg.api.java.divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
+import static divinerpg.api.arcana.ArcanaProvider.ARCANA_CAP;
 
 /**
  * Main API class.

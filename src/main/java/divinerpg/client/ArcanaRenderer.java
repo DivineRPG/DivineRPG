@@ -1,6 +1,6 @@
 package divinerpg.client;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;

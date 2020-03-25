@@ -1,6 +1,6 @@
-package divinerpg.api.java.divinerpg.api.armorNew;
+package divinerpg.api.armorNew;
 
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
+import divinerpg.api.armorNew.interfaces.IArmorSet;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 

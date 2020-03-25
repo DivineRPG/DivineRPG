@@ -1,15 +1,15 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.ToolMaterialMod;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 public class ItemArcaniteBlade extends ItemModSword {
 

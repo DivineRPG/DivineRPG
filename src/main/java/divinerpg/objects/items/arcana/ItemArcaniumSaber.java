@@ -1,11 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
@@ -16,6 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemArcaniumSaber extends ItemModSword {
 

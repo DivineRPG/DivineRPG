@@ -1,8 +1,6 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +18,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
+import javax.annotation.Nullable;
+
 public abstract class TileEntityModChest extends TileEntityLockableLoot implements ITickable {
-    private NonNullList<ItemStack> chestContents = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
+    private NonNullList<ItemStack> chestContents = NonNullList.withSize(27, ItemStack.EMPTY);
     public int numPlayersUsing, ticksSinceSync;
     public float lidAngle, prevLidAngle;
     private String customName;
@@ -54,7 +54,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
     }
 
     public void initChestContents() {
-        this.chestContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+        this.chestContents = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
     }
 
     @Override
@@ -124,9 +124,9 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
             this.numPlayersUsing = 0;
             float f = 5.0F;
             for (EntityPlayer entityplayer : this.world.getEntitiesWithinAABB(EntityPlayer.class,
-                    new AxisAlignedBB((double) ((float) i - 5.0F), (double) ((float) j - 5.0F),
-                            (double) ((float) k - 5.0F), (double) ((float) (i + 1) + 5.0F),
-                            (double) ((float) (j + 1) + 5.0F), (double) ((float) (k + 1) + 5.0F)))) {
+                    new AxisAlignedBB((float) i - 5.0F, (float) j - 5.0F,
+                            (float) k - 5.0F, (float) (i + 1) + 5.0F,
+                            (float) (j + 1) + 5.0F, (float) (k + 1) + 5.0F))) {
                 if (entityplayer.openContainer instanceof ContainerModChest) {
                     if (((ContainerModChest) entityplayer.openContainer).getChestInventory() == this) {
                         ++this.numPlayersUsing;
@@ -141,7 +141,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
         if (this.numPlayersUsing > 0 && this.lidAngle == 0.0F) {
             double d1 = (double) pos.getX() + 0.5D;
             double d2 = (double) pos.getZ() + 0.5D;
-            this.world.playSound((EntityPlayer) null, d1, (double) pos.getY() + 0.5D, d2,
+            this.world.playSound(null, d1, (double) pos.getY() + 0.5D, d2,
                     SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN, SoundCategory.BLOCKS, 0.5F,
                     this.world.rand.nextFloat() * 0.1F + 0.9F);
         }
@@ -164,7 +164,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
             if (this.lidAngle < 0.5F && f2 >= 0.5F) {
                 double d3 = (double) pos.getX() + 0.5D;
                 double d0 = (double) pos.getZ() + 0.5D;
-                this.world.playSound((EntityPlayer) null, d3, (double) pos.getY() + 0.5D, d0,
+                this.world.playSound(null, d3, (double) pos.getY() + 0.5D, d0,
                         SoundEvents.BLOCK_IRON_DOOR_CLOSE, SoundCategory.BLOCKS, 0.5F,
                         this.world.rand.nextFloat() * 0.1F + 0.9F);
             }

@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

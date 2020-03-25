@@ -1,11 +1,8 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockVine;
-import net.minecraft.item.ItemBlock;
 
 public class BlockModVine extends BlockVine {
 

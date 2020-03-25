@@ -1,11 +1,10 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +17,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockModPlank extends Block
 {
-    public static final PropertyEnum<BlockModPlank.EnumType> VARIANT = PropertyEnum.<BlockModPlank.EnumType>create("variant", BlockModPlank.EnumType.class);
+    public static final PropertyEnum<BlockModPlank.EnumType> VARIANT = PropertyEnum.create("variant", BlockModPlank.EnumType.class);
 
     public BlockModPlank(String name, BlockModPlank.EnumType type)
     {
@@ -35,7 +34,7 @@ public class BlockModPlank extends Block
      */
     public int damageDropped(IBlockState state)
     {
-        return ((BlockModPlank.EnumType)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     /**
@@ -62,7 +61,7 @@ public class BlockModPlank extends Block
      */
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-        return ((BlockModPlank.EnumType)state.getValue(VARIANT)).getMapColor();
+        return state.getValue(VARIANT).getMapColor();
     }
 
     /**
@@ -70,16 +69,15 @@ public class BlockModPlank extends Block
      */
     public int getMetaFromState(IBlockState state)
     {
-        return ((BlockModPlank.EnumType)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {VARIANT});
+        return new BlockStateContainer(this, VARIANT);
     }
 
-    public static enum EnumType implements IStringSerializable
-    {
+    public enum EnumType implements IStringSerializable {
         EDEN(0, "eden", MapColor.YELLOW),
         WILDWOOD(1, "wildwood", MapColor.LAPIS),
         APALACHIA(2, "apalachia", MapColor.MAGENTA),
@@ -96,13 +94,11 @@ public class BlockModPlank extends Block
         /** The color that represents this entry on a map. */
         private final MapColor mapColor;
 
-        private EnumType(int metaIn, String nameIn, MapColor mapColorIn)
-        {
+        EnumType(int metaIn, String nameIn, MapColor mapColorIn) {
             this(metaIn, nameIn, nameIn, mapColorIn);
         }
 
-        private EnumType(int metaIn, String nameIn, String unlocalizedNameIn, MapColor mapColorIn)
-        {
+        EnumType(int metaIn, String nameIn, String unlocalizedNameIn, MapColor mapColorIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;

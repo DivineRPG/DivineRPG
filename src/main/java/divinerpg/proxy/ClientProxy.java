@@ -1,6 +1,6 @@
 package divinerpg.proxy;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.client.ClientTicker;
 import divinerpg.client.render.RenderItemNightmareBed;

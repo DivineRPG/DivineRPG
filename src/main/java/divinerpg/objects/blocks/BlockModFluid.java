@@ -1,11 +1,8 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
+import divinerpg.api.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;

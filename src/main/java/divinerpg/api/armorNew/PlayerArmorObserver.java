@@ -1,4 +1,4 @@
-package divinerpg.api.java.divinerpg.api.armorNew;
+package divinerpg.api.armorNew;
 
 import divinerpg.DivineRPG;
 import divinerpg.networking.message.EquipmentChangeMessage;

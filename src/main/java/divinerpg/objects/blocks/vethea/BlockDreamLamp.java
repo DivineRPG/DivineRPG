@@ -1,29 +1,15 @@
 package divinerpg.objects.blocks.vethea;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.tile.entity.TileEntityDreamLamp;
-import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -42,7 +28,7 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { POWERED });
+        return new BlockStateContainer(this, POWERED);
     }
 
     @Override

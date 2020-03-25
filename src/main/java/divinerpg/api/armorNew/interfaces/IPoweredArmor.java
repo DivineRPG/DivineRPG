@@ -1,6 +1,6 @@
-package divinerpg.api.java.divinerpg.api.armorNew.interfaces;
+package divinerpg.api.armorNew.interfaces;
 
-import divinerpg.api.java.divinerpg.api.armorNew.ForgeEventHandler;
+import divinerpg.api.armorNew.ForgeEventHandler;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 

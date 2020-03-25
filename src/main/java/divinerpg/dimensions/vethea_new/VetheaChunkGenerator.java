@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea_new;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.dimensions.vethea.WorldGenVetheanFlower;
 import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import divinerpg.registry.ModBlocks;

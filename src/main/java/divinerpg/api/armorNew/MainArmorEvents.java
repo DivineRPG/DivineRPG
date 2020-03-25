@@ -1,11 +1,11 @@
-package divinerpg.api.java.divinerpg.api.armorNew;
+package divinerpg.api.armorNew;
 
 
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IArmorSet;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmor;
-import divinerpg.api.java.divinerpg.api.armorNew.interfaces.IPoweredArmorManage;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.armorNew.interfaces.IArmorSet;
+import divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.api.armorNew.interfaces.IPoweredArmorManage;
 import divinerpg.networking.message.PlayerLoggedEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

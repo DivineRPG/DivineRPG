@@ -1,9 +1,5 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import javax.annotation.Nullable;
-
-
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -11,29 +7,19 @@ import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.MessageLocalizer;
 import divinerpg.utils.Utils;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMob {
@@ -90,14 +76,15 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
     }
 
     private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityPigZombie.class));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (!this.world.isRemote && this.getAttackTarget() != null && this.getAttackTarget() instanceof EntityLivingBase) this.attackEntityWithRangedAttack((EntityLivingBase) this.getAttackTarget(), 0);
+        if (!this.world.isRemote && this.getAttackTarget() != null && this.getAttackTarget() instanceof EntityLivingBase)
+            this.attackEntityWithRangedAttack(this.getAttackTarget(), 0);
         if (this.abilityCooldown <= 0) {
             this.ability = getRandomAbility();
             this.abilityCooldown = 500;

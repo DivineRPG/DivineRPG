@@ -1,10 +1,6 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.ChatFormats;
@@ -17,7 +13,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModFood extends ItemFood  {
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemModFood extends ItemFood {
 
 	public ItemModFood(int healAmount, float saturation, String name) {
 		this(healAmount, saturation, false, name);

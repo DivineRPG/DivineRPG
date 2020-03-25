@@ -1,11 +1,9 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.java.divinerpg.api.Reference;
-import divinerpg.client.render.RenderItemNightmareBed;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import net.minecraft.client.model.ModelBed;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
@@ -31,7 +29,7 @@ public class RenderNightmareBed extends TileEntitySpecialRenderer<TileEntityNigh
         }
 
         boolean flag = te.getWorld() != null;
-        boolean flag1 = flag ? te.isHeadPiece() : true;
+        boolean flag1 = !flag || te.isHeadPiece();
         int i = flag ? te.getBlockMetadata() & 3 : 0;
 
         if (destroyStage >= 0)

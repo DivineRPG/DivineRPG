@@ -1,23 +1,20 @@
 package divinerpg.objects.blocks;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockModTorch extends BlockTorch  {
+import java.util.Random;
+
+public class BlockModTorch extends BlockTorch {
     private ParticleType flameParticle;
 
     public BlockModTorch(String name, ParticleType particle) {
@@ -32,7 +29,7 @@ public class BlockModTorch extends BlockTorch  {
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        EnumFacing enumfacing = (EnumFacing) stateIn.getValue(FACING);
+        EnumFacing enumfacing = stateIn.getValue(FACING);
         double d0 = (double) pos.getX() + 0.5D;
         double d1 = (double) pos.getY() + 0.7D;
         double d2 = (double) pos.getZ() + 0.5D;

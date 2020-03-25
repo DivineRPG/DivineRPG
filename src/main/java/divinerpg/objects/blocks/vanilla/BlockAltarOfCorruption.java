@@ -1,14 +1,10 @@
 package divinerpg.objects.blocks.vanilla;
 
-import java.util.Random;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModTriggers;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
@@ -17,7 +13,6 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -29,6 +24,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockAltarOfCorruption extends BlockContainer {
     protected static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D);
@@ -72,7 +69,7 @@ public class BlockAltarOfCorruption extends BlockContainer {
                         worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, (double) pos.getX() + 0.5D,
                                 (double) pos.getY() + 2.0D, (double) pos.getZ() + 0.5D,
                                 (double) ((float) i + rand.nextFloat()) - 0.5D,
-                                (double) ((float) k - rand.nextFloat() - 1.0F),
+                                (float) k - rand.nextFloat() - 1.0F,
                                 (double) ((float) j + rand.nextFloat()) - 0.5D);
                     }
                 }

@@ -1,16 +1,10 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.api.Reference;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,16 +17,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModBow extends ItemBow  {
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class ItemModBow extends ItemBow {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ENTITY_ARROW_SHOOT;
     public static final int DEFAULT_MAX_USE_DURATION = 72000;
     protected ArrowType arrowType;

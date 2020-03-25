@@ -1,30 +1,15 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import javax.annotation.Nullable;
-
-
-import divinerpg.api.java.divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityLadyLunaSparkler;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIFollow;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -35,6 +20,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -92,7 +78,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
     }
 
     private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityPigZombie.class));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
@@ -180,7 +166,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
 
     @Override
     public boolean attackEntityAsMob(Entity e) {
-        int dam = (int) 20;
+        int dam = 20;
 
         boolean var4 = e.attackEntityFrom(DamageSource.causeMobDamage(this), dam);
         if (var4) {
