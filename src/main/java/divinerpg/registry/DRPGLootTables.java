@@ -9,8 +9,8 @@ import net.minecraft.world.storage.loot.LootTableList;
  * /18/2019
  */
 public class DRPGLootTables {
-    public static final ResourceLocation ICEIKA_CHEST_DUNGEON = registerTable("chests/iceika_chest_dungeon");
-    public static final ResourceLocation ICEIKA_CHEST_HUT = registerTable("chests/iceika_chest_hut");
+    public static final ResourceLocation ICEIKA_CHEST_DUNGEON = registerTable("chests/iceika/iceika_chest_dungeon");
+    public static final ResourceLocation ICEIKA_CHEST_HUT = registerTable("chests/iceika/iceika_chest_hut");
 
     public static final ResourceLocation ENTITIES_ANCIENT_ENTITY = registerTable("entities/vanilla/ancient_entity");
     public static final ResourceLocation ENTITIES_AYERACO_BLUE = registerTable("entities/vanilla/ayeraco_blue");
