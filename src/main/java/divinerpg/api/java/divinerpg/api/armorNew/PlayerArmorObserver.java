@@ -15,11 +15,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class PlayerArmorObserver {
-    private final Map<EntityEquipmentSlot, Item> currentArmor = new HashMap<>();
+    private final Map<EntityEquipmentSlot, Item> currentArmor;
     private EntityPlayer player;
     private Set<ResourceLocation> equipped = new HashSet<>();
 
     public PlayerArmorObserver(EntityPlayer player) {
+        currentArmor = new HashMap<>();
         this.player = player;
 
         for (EntityEquipmentSlot id : EntityEquipmentSlot.values()) {

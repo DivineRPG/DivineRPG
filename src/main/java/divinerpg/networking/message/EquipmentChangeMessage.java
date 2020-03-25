@@ -31,7 +31,7 @@ public class EquipmentChangeMessage implements IMessage {
 
         @Override
         public IMessage onMessage(EquipmentChangeMessage msg, MessageContext ctx) {
-            if (ctx.side == Side.CLIENT) {
+            if (ctx.side == Side.CLIENT && DivineRPG.proxy.getPlayer() != null) {
                 PlayerArmorObserver observer = MainArmorEvents.findPlayerArmorObserver(DivineRPG.proxy.getPlayer());
 
                 if (observer != null) {
