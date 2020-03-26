@@ -144,7 +144,7 @@ public class AyeracoGroup {
      */
     private void writeEntity(NBTTagCompound compound, Entity entity, String key) {
         if (checkNotDead(entity))
-            compound.setUniqueId(key, entity.getPersistentID());
+            compound.setUniqueId(key, entity.getUniqueID());
     }
 
     /**
@@ -212,7 +212,7 @@ public class AyeracoGroup {
      */
     private <T extends Entity> T find(UUID uuid, World world) {
         Optional<Entity> first = world.loadedEntityList.stream()
-                .filter(x -> uuid.equals(x.getPersistentID())).findFirst();
+                .filter(x -> uuid.equals(x.getUniqueID())).findFirst();
 
         return (T) first.orElse(null);
     }

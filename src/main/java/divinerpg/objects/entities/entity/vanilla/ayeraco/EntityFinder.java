@@ -32,7 +32,7 @@ public class EntityFinder {
      * @param entity
      */
     public EntityFinder(Entity entity){
-        this(entity.getPersistentID(), entity.world);
+        this(entity.getUniqueID(), entity.world);
         this.entity = entity;
     }
 
@@ -52,13 +52,13 @@ public class EntityFinder {
     }
 
     boolean sameEntity(Entity e){
-        return e.getPersistentID().equals(uuid);
+        return e.getUniqueID().equals(uuid);
     }
 
     public void writeToNBT(NBTTagCompound compound, String nbtKey){
         Entity entity = getEntity();
         if (entity != null && !entity.isDead){
-            compound.setUniqueId(nbtKey, entity.getPersistentID());
+            compound.setUniqueId(nbtKey, entity.getUniqueID());
         }
     }
 
@@ -72,7 +72,7 @@ public class EntityFinder {
      */
     private <T extends Entity> T find(UUID uuid, World world){
         Optional<Entity> first = world.loadedEntityList.stream()
-                .filter(x -> uuid.equals(x.getPersistentID())).findFirst();
+                .filter(x -> uuid.equals(x.getUniqueID())).findFirst();
 
         return (T) first.orElse(null);
     }

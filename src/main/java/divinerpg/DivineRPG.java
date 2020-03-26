@@ -5,7 +5,6 @@ package divinerpg;
 
 import divinerpg.api.Reference;
 import divinerpg.api.armorNew.interfaces.IPoweredArmor;
-import divinerpg.compat.ProjectECompat;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
@@ -75,7 +74,7 @@ public class DivineRPG {
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
         if (Loader.isModLoaded("projecte")) {
-            ProjectECompat.init();
+            // divinerpg.compat.ProjectECompat.init();
         }
         ModSpawns.initSpawns();
     }
