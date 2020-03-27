@@ -3,7 +3,6 @@ package divinerpg.api.armor.binded;
 import divinerpg.api.armor.IPlayerSubscription;
 import divinerpg.api.armor.registry.IForgeEvent;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -60,21 +59,5 @@ public interface IPlayerForgeEvent<T extends Event> extends IForgeEvent<T>, IPla
 
         return event instanceof BlockEvent.HarvestDropsEvent
                 && ((BlockEvent.HarvestDropsEvent) event).getHarvester() == player;
-    }
-
-    /**
-     * Subscribe on current event
-     */
-    @Override
-    default void subscribe() {
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    /**
-     * Unregister from event subscribing
-     */
-    @Override
-    default void unsubscribe() {
-        MinecraftForge.EVENT_BUS.unregister(this);
     }
 }

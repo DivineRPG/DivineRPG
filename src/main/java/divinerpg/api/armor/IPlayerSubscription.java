@@ -24,4 +24,11 @@ public interface IPlayerSubscription {
      * Unsubscribe from Forge events
      */
     void unsubscribe();
+
+    /**
+     * Is current class is receiving Forge events
+     *
+     * @return
+     */
+    boolean isListening();
 }

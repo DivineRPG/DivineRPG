@@ -2,9 +2,10 @@ package divinerpg.objects.items.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
+import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModArmorEvents;
+import divinerpg.registry.ArmorDescriptionRegister;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
@@ -34,7 +35,7 @@ public class ItemScythe extends RangedWeaponBase {
 
     @Override
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType, Class<? extends EntityThrowable> clazz) {
-        super.spawnEntity(world, player, stack, DivineAPI.isOn(player, ModArmorEvents.JACKOMAN)
+        super.spawnEntity(world, player, stack, isJackoman(player)
                         ? BulletType.MEGA_SCYTHE_SHOT
                         : BulletType.SCYTHE_SHOT,
                 null);
@@ -43,10 +44,21 @@ public class ItemScythe extends RangedWeaponBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(DivineAPI.isOn(DivineRPG.proxy.getPlayer(), ModArmorEvents.JACKOMAN)
+        list.add(TooltipLocalizer.rangedDam(isJackoman(DivineRPG.proxy.getPlayer())
                 ? BulletType.MEGA_SCYTHE_SHOT.getDamage()
                 : BulletType.SCYTHE_SHOT.getDamage()));
 
         super.addInformation(stack, worldIn, list, flagIn);
+    }
+
+    private boolean isJackoman(EntityPlayer player) {
+        if (player == null)
+            return false;
+
+        IArmorPowers powers = DivineAPI.getArmorPowers(player);
+        if (powers == null)
+            return false;
+
+        return powers.wearing(ArmorDescriptionRegister.JACKOMAN);
     }
 }

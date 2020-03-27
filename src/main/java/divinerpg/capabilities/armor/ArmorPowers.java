@@ -8,16 +8,16 @@ import divinerpg.api.armor.registry.IArmorDescription;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nullable;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ArmorPowers implements IArmorPowers {
     private final Map<ResourceLocation, IPlayerArmorDescription> descriptions = new LinkedHashMap<>();
@@ -38,9 +38,15 @@ public class ArmorPowers implements IArmorPowers {
         }
     }
 
+    /**
+     * Avoid memory leaking, because capability is creating on every entity instance
+     *
+     * @param e - event calling on both sides where any entity is joined the world
+     */
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onDeath(LivingDeathEvent e) {
-        if (!e.isCanceled() && e.getEntity() == player) {
+    public void onCleanUp(EntityJoinWorldEvent e) {
+        // the same IDs but not the same instance
+        if (e.getEntity().getUniqueID() == player.getUniqueID() && e.getEntity() != player) {
             MinecraftForge.EVENT_BUS.unregister(this);
 
             descriptions.values().forEach(IPlayerArmorDescription::unsubscribe);
@@ -50,7 +56,10 @@ public class ArmorPowers implements IArmorPowers {
 
     @Override
     public Set<ResourceLocation> wearing() {
-        return new HashSet<>(descriptions.keySet());
+        return descriptions.entrySet().stream()
+                .filter(x -> x.getValue().isListening())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
     }
 
     @Override
@@ -67,6 +76,7 @@ public class ArmorPowers implements IArmorPowers {
     private void changeWearStatus(ResourceLocation id, boolean isOn) {
         if (player != null) {
             IPlayerArmorDescription description = descriptions.computeIfAbsent(id, location -> {
+                // lazy creation of armor set. Further we manage (un)subscription that armor handler
                 IArmorDescription value = DivineAPI.getArmorDescriptionRegistry().getValue(id);
                 return value == null
                         ? null

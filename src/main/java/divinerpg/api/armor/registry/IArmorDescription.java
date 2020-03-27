@@ -1,6 +1,6 @@
 package divinerpg.api.armor.registry;
 
-import divinerpg.api.armorNew.interfaces.IEquipped;
+import divinerpg.api.armor.IEquipped;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistryEntry;

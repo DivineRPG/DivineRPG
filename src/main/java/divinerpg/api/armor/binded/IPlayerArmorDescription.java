@@ -15,7 +15,7 @@ public interface IPlayerArmorDescription extends IPlayerSubscription {
     /**
      * Change equipped status
      *
-     * @param isOn
+     * @param isOn - is armor on
      */
     void changeStatus(boolean isOn);
 
@@ -27,5 +27,10 @@ public interface IPlayerArmorDescription extends IPlayerSubscription {
     @Override
     default void unsubscribe() {
         getHandlers().forEach(IPlayerForgeEvent::unsubscribe);
+    }
+
+    @Override
+    default boolean isListening() {
+        return getHandlers().stream().anyMatch(IPlayerSubscription::isListening);
     }
 }

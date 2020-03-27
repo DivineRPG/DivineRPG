@@ -1,10 +1,10 @@
 package divinerpg.capabilities.armor;
 
 import divinerpg.DivineRPG;
+import divinerpg.api.armor.IEquipped;
 import divinerpg.api.armor.binded.IPlayerArmorDescription;
 import divinerpg.api.armor.binded.IPlayerForgeEvent;
 import divinerpg.api.armor.registry.IArmorDescription;
-import divinerpg.api.armorNew.interfaces.IEquipped;
 import divinerpg.networking.message.ArmorStatusChangedMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,7 +34,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
 
     @Override
     public List<IPlayerForgeEvent<?>> getHandlers() {
-        return null;
+        return handlers;
     }
 
     @Override
@@ -50,6 +50,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
             handlers.forEach(IPlayerForgeEvent::unsubscribe);
         }
 
+        // sending message to client
         if (getPlayer() instanceof EntityPlayerMP) {
             DivineRPG.network.sendTo(new ArmorStatusChangedMessage(id, isOn), (EntityPlayerMP) getPlayer());
         }

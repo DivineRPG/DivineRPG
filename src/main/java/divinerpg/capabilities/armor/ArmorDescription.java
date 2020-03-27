@@ -1,8 +1,8 @@
 package divinerpg.capabilities.armor;
 
+import divinerpg.api.armor.IEquipped;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.api.armor.registry.IForgeEvent;
-import divinerpg.api.armorNew.interfaces.IEquipped;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.eventhandler.Event;

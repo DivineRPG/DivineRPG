@@ -17,6 +17,16 @@ public interface IArmorPowers {
     Set<ResourceLocation> wearing();
 
     /**
+     * Is current armor equipped
+     *
+     * @param id - armor id
+     * @return
+     */
+    default boolean wearing(ResourceLocation id) {
+        return wearing().contains(id);
+    }
+
+    /**
      * Wears current armor by it's ID
      *
      * @param id
