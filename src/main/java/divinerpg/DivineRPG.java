@@ -74,7 +74,7 @@ public class DivineRPG {
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
         if (Loader.isModLoaded("projecte")) {
-            // divinerpg.compat.ProjectECompat.init();
+            divinerpg.compat.ProjectECompat.init();
         }
         ModSpawns.initSpawns();
     }
@@ -97,6 +97,11 @@ public class DivineRPG {
                 .setName(new ResourceLocation(Reference.MODID, "powers"))
                 .setType(IPoweredArmor.class)
                 .create();
+
+//        new RegistryBuilder<IArmorDescription>()
+//                .setName(new ResourceLocation(Reference.MODID, "armor_descriptions"))
+//                .setType(IArmorDescription.class)
+//                .create();
     }
 
 }

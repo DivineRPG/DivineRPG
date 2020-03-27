@@ -1,4 +1,4 @@
-package divinerpg.capabilities;
+package divinerpg.capabilities.arcana;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.arcana.IArcana;
