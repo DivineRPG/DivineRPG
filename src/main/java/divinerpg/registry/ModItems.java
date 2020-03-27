@@ -7,6 +7,7 @@ import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import divinerpg.objects.items.arcana.ItemAquamarine;
+import divinerpg.objects.items.arcana.ItemArcanaCharge;
 import divinerpg.objects.items.arcana.ItemArcanaPotion;
 import divinerpg.objects.items.arcana.ItemArcanaSeeds;
 import divinerpg.objects.items.arcana.ItemArcaniteBlade;
@@ -1150,6 +1151,8 @@ public class ModItems {
     public static final Item orbOfLight = null;
     @ObjectHolder("staff_of_enrichment")
     public static final Item staffOfEnrichment = null;
+    @ObjectHolder("frozen_charge")
+    public static final Item frozenCharge = null;
 
     // Arcana armor sets
     @ObjectHolder("korma_helmet")
@@ -2277,6 +2280,7 @@ public class ModItems {
         register(registry, new ItemGhostbane());
         register(registry, new ItemOrbOfLight());
         register(registry, new ItemStaffEnrichment("staff_of_enrichment"));
+        register(registry, new ItemArcanaCharge());
 
         // Arcana armor sets
         register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo));
