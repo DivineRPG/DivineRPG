@@ -35,6 +35,7 @@ public class MortumTreeLarge extends WorldGenAbstractTree {
             return false;
         }
 
+        if(groundState == ModBlocks.mortumGrass.getDefaultState()) {
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
         buildLeaves1(world, blockPos, trunkHeight + 2);
@@ -52,6 +53,9 @@ public class MortumTreeLarge extends WorldGenAbstractTree {
         buildBranches2(world, blockPos, trunkHeight + 6);
         setTreeHeight(world, blockPos, treeHeight);
         return true;
+        }else {
+        	return false;
+        }
     }
 
     private void buildLeaves6(World world, BlockPos blockPos, int height) {

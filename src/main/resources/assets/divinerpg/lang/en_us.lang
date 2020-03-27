@@ -1090,6 +1090,7 @@ item.golden_helmet.name=Golden Helmet
 item.golden_chestplate.name=Golden Chestplate
 item.golden_leggings.name=Golden Leggings
 item.golden_boots.name=Golden Boots
+item.frozen_charge.name=Frozen Charge
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
@@ -1547,3 +1548,5 @@ tooltip.smelter_egg=Spawns a pet Smelter
 tooltip.snapper_egg=Spawns a pet Snapper
 tooltip.white_grizzle_egg=Spawns a pet White Grizzle
 tooltip.brown_grizzle_egg=Spawns a pet Brown Grizzle
+tooltip.uses.single=Single Use
+tooltip.frozencharge=Blasts open blocked doors in the Dungeon of Arcana

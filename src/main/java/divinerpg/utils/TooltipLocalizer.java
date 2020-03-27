@@ -10,7 +10,8 @@ public class TooltipLocalizer {
             INFINITEAMMO = "tooltip.ammo.infinite", EXPLOSIVESHOTS = "tooltip.shots.explosive",
             HOMINGSHOTS = "tooltip.shots.homing", FULLSETPERKS = "tooltip.fullset", NOPROT = "tooltip.noprotection",
             EFFICIENCY = "tooltip.efficiency", CANTBLOCK = "tooltip.noblock", POISON = "tooltip.effect.poisons",
-            BURNS = "tooltip.effect.burns", SLOWS = "tooltip.effect.slows";
+            BURNS = "tooltip.effect.burns", SLOWS = "tooltip.effect.slows", 
+                    SINGLEUSE = "tooltip.uses.single";
 
     public static String ammo(Item ammo) {
         return TooltipHelper.localize(AMMO).replace("|item|",
@@ -91,6 +92,10 @@ public class TooltipLocalizer {
 
     public static String infiniteUses() {
         return TooltipHelper.localize(INFINITEUSES);
+    }
+
+    public static String singleUse() {
+        return TooltipHelper.localize(SINGLEUSE);
     }
 
     public static String meleeDam(double dam) {
