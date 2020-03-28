@@ -7,15 +7,14 @@ import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
-import divinerpg.events.EventDevHat;
 import divinerpg.events.EventTooltip;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.objects.blocks.tile.render.*;
+import divinerpg.objects.entities.assets.render.PlayerHatRender;
 import divinerpg.particle.*;
 import divinerpg.registry.ModEntities;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.Utils;
 import divinerpg.utils.log.InitLog;
 import divinerpg.utils.log.IntenseDebug;
 import divinerpg.utils.log.PostInitLog;
@@ -23,6 +22,7 @@ import divinerpg.utils.log.PreInitLog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -51,8 +51,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        Utils.setupCapes();
-        Utils.updateCapeList();
         ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
@@ -61,13 +59,18 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
-        Utils.postFMLEvent(new ArcanaRenderer());
-        Utils.postFMLEvent(new ClientTicker());
+        MinecraftForge.EVENT_BUS.register(new ClientTicker());
+        MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());
-        
+
         PostInitLog.init();
         IntenseDebug.init();
+
+        RenderPlayer renderPlayer = Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default");
+        if (renderPlayer != null) {
+            renderPlayer.addLayer(new PlayerHatRender(renderPlayer));
+        }
     }
 
     @Override
@@ -76,7 +79,6 @@ public class ClientProxy extends CommonProxy {
         ModEntities.initModels();
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
-        MinecraftForge.EVENT_BUS.register(new EventDevHat());
         PreInitLog.init();
     }
 

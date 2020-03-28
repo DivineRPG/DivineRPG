@@ -11,7 +11,6 @@ import divinerpg.capabilities.arcana.CapabilityArcana;
 import divinerpg.capabilities.armor.ArmorPowers;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
-import divinerpg.events.Ticker;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
@@ -64,7 +63,6 @@ public class CommonProxy {
         Config.readConfig();
 
         MinecraftForge.EVENT_BUS.register(new ModEntities());
-        MinecraftForge.EVENT_BUS.register(new Ticker());
 
         ModDimensions.init();
     }

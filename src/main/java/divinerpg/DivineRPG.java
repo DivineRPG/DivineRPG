@@ -9,7 +9,6 @@ import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
-import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -82,8 +81,7 @@ public class DivineRPG {
     /** For Registering Commands */
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
-        Utils.addDevsToList();
-        Utils.addTestersToList();
+
     }
 
     /**
