@@ -113,5 +113,14 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
                 ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
             }
         }
+
+        //Raglok Chamber data markers
+        if (function.equals("RaglokChamberLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
+            }
+        }
     }
 }

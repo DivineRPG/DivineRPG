@@ -17,7 +17,8 @@ public class DRPGLootTables {
     public static final ResourceLocation TEMPLE_LOOT_MIDDLE = registerTable("chests/vethea/temple_loot_middle");
     public static final ResourceLocation TEMPLE_LOOT_TOP = registerTable("chests/vethea/temple_loot_top");
     public static final ResourceLocation KAROS_MADHOUSE_LOOT = registerTable("chests/vethea/karos_madhouse_loot");
-    
+    public static final ResourceLocation RAGLOK_CHAMBER_LOOT = registerTable("chests/vethea/raglok_chamber_loot");
+
     public static final ResourceLocation ENTITIES_ANCIENT_ENTITY = registerTable("entities/vanilla/ancient_entity");
     public static final ResourceLocation ENTITIES_AYERACO_BLUE = registerTable("entities/vanilla/ayeraco_blue");
     public static final ResourceLocation ENTITIES_AYERACO_GREEN = registerTable("entities/vanilla/ayeraco_green");

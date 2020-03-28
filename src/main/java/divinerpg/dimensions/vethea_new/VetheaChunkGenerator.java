@@ -218,7 +218,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "RaglokChamber",
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
-                        30));
+                        10));
                 level.addStructure(new DivineLargeStructure(world,
                         "WreckHall",
                         createForVethea(position, "wreckhall"),
