@@ -104,5 +104,14 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             templeGuardian.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
             worldIn.spawnEntity(templeGuardian);
         }
+
+        //Karos Madhouse data markers
+        if (function.equals("KarosMadhouseLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
+            }
+        }
     }
 }

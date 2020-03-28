@@ -140,10 +140,10 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                                     true), 24, surfaceLevel));
                 }
 
-                level.addStructure(new DrpgLegacyStructure("VetheaVillage",
-                        40,
+               /* level.addStructure(new DrpgLegacyStructure("VetheaVillage",
+                        5,
                         new WorldGenVillageIsland(),
-                        30));
+                        30));*/
 
                 addFlowers(level, surfaceLevel, ModBlocks.greenGemtop, ModBlocks.purpleGemtop, ModBlocks.yellowDulah, ModBlocks.greenDulah);
                 break;
@@ -183,7 +183,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Karosmadhouse",
                         createForVethea(position, "karosmadhouse"),
                         surfaceLevel,
-                        30));
+                        10));
 
                 level.addWorldGen(new WorldGenEnhanced(
                         new TempleWorldGenerator(createForVethea(position, "quadroticpost"),
