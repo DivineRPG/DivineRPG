@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_charge",
+    "count": 3
+  },
+  "pattern": [
+    "CCC",
+	"COC",
+	"CCC"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "divinerpg:ice_shards"
+    },
+	"O": {
+      "item": "divinerpg:purple_blaze"
+    }
+  }
+}

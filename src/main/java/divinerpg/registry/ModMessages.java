@@ -1,10 +1,9 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.networking.message.EquipmentChangeMessage;
+import divinerpg.networking.message.ArmorStatusChangedMessage;
 import divinerpg.networking.message.MessageArcanaBar;
 import divinerpg.networking.message.MessageDivineAccumulator;
-import divinerpg.networking.message.PlayerLoggedEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.relauncher.Side;
@@ -14,9 +13,8 @@ public class ModMessages {
 
     public static void initMessages() {
         registerMessage(MessageArcanaBar.Handler.class, MessageArcanaBar.class, Side.CLIENT);
-        registerMessage(PlayerLoggedEvent.Handler.class, PlayerLoggedEvent.class, Side.CLIENT);
         registerMessage(MessageDivineAccumulator.Handler.class, MessageDivineAccumulator.class, Side.CLIENT);
-        registerMessage(EquipmentChangeMessage.Handler.class, EquipmentChangeMessage.class, Side.CLIENT);
+        registerMessage(ArmorStatusChangedMessage.Handler.class, ArmorStatusChangedMessage.class, Side.CLIENT);
     }
 
     /**

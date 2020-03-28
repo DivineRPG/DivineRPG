@@ -1,4 +1,4 @@
-package divinerpg.capabilities;
+package divinerpg.capabilities.arcana;
 
 import divinerpg.api.arcana.IArcana;
 import net.minecraft.nbt.NBTBase;

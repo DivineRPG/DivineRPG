@@ -3,12 +3,14 @@ package divinerpg.proxy;
 import divinerpg.DivineRPG;
 import divinerpg.api.Reference;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.capabilities.Arcana;
-import divinerpg.capabilities.CapabilityArcana;
+import divinerpg.api.armor.cap.ArmorStorage;
+import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.capabilities.CapabilityHandler;
+import divinerpg.capabilities.arcana.Arcana;
+import divinerpg.capabilities.arcana.CapabilityArcana;
+import divinerpg.capabilities.armor.ArmorPowers;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
-import divinerpg.events.Ticker;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.registry.ModDimensions;
 import divinerpg.registry.ModEntities;
@@ -41,6 +43,7 @@ public class CommonProxy {
         NetworkRegistry.INSTANCE.registerGuiHandler(DivineRPG.instance, new GUIHandler());
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
+        CapabilityManager.INSTANCE.register(IArmorPowers.class, new ArmorStorage(), ArmorPowers::new);
     }
 
     public void postInit(FMLPostInitializationEvent e) {
@@ -60,7 +63,6 @@ public class CommonProxy {
         Config.readConfig();
 
         MinecraftForge.EVENT_BUS.register(new ModEntities());
-        MinecraftForge.EVENT_BUS.register(new Ticker());
 
         ModDimensions.init();
     }

@@ -4,12 +4,11 @@
 package divinerpg;
 
 import divinerpg.api.Reference;
-import divinerpg.api.armorNew.interfaces.IPoweredArmor;
+import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
-import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -74,7 +73,7 @@ public class DivineRPG {
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
         if (Loader.isModLoaded("projecte")) {
-            // divinerpg.compat.ProjectECompat.init();
+            divinerpg.compat.ProjectECompat.init();
         }
         ModSpawns.initSpawns();
     }
@@ -82,8 +81,7 @@ public class DivineRPG {
     /** For Registering Commands */
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
-        Utils.addDevsToList();
-        Utils.addTestersToList();
+
     }
 
     /**
@@ -93,9 +91,14 @@ public class DivineRPG {
     public void createRegistries(RegistryEvent.NewRegistry event) {
         logger.info("Creating registries");
 
-        new RegistryBuilder<IPoweredArmor>()
-                .setName(new ResourceLocation(Reference.MODID, "powers"))
-                .setType(IPoweredArmor.class)
+//        new RegistryBuilder<IPoweredArmor>()
+//                .setName(new ResourceLocation(Reference.MODID, "powers"))
+//                .setType(IPoweredArmor.class)
+//                .create();
+
+        new RegistryBuilder<IArmorDescription>()
+                .setName(new ResourceLocation(Reference.MODID, "armor_descriptions"))
+                .setType(IArmorDescription.class)
                 .create();
     }
 

@@ -1,5 +1,6 @@
 package divinerpg.api;
 
+import divinerpg.api.armor.cap.IArmorPowers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -80,11 +81,12 @@ public class ArmorHandlers {
 
         DamageSource source = e.getSource();
         Entity entity = source.getTrueSource();
+        IArmorPowers powers = DivineAPI.getArmorPowers(entity);
 
         // if ranged damage
-        if (source.isProjectile() || source.getDamageType().equals("thrown")) {
+        if (powers != null && (source.isProjectile() || source.getDamageType().equals("thrown"))) {
             // if armor is on
-            if (DivineAPI.isOn(entity, armorId)) {
+            if (powers.wearing(armorId)) {
                 // set new amount
                 e.setAmount(damageConversionFunc.apply(e.getAmount()));
             }

@@ -23,13 +23,16 @@ public class EventClientLogin {
         EntityPlayer player = evt.player;
 
         if (!player.world.isRemote) {
-
             // Greetings
-            if (Utils.DEV_LIST.contains(player.getUniqueID().toString())) {
-                Logging.message(player, TextFormatting.WHITE + MessageLocalizer.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
+            if (Utils.isDeveloperName(player.getUniqueID())) {
+                Logging.message(player, TextFormatting.DARK_RED + MessageLocalizer.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
+            } else if (Utils.isTesterName(player.getUniqueID())) {
+                Logging.message(player, TextFormatting.BLUE + MessageLocalizer.normal("Welcome DivineRPG tester! " + player.getName() + " is on the DivineRPG tester team"));
+            } else if (Utils.isPatreon(player.getUniqueID())) {
+                Logging.message(player, TextFormatting.YELLOW + MessageLocalizer.normal("Welcome DivineRPG patreon! " + player.getName() + " is on the DivineRPG supporter, thank you for your help!"));
+            } else {
+                Logging.message(player, "Welcome " + player.getDisplayName().getFormattedText());
             }
-
-            Logging.message(player, "Welcome " + player.getDisplayName().getFormattedText());
 
             printGeneralInformation(player);
         }

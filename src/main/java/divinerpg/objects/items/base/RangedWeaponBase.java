@@ -5,7 +5,6 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.ParticleType;
-import divinerpg.events.Ticker;
 import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
@@ -19,7 +18,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -116,7 +114,7 @@ public class RangedWeaponBase extends ItemMod {
         ItemStack stack = player.getHeldItem(hand);
         EnumActionResult result = EnumActionResult.FAIL;
 
-        if (canUseRangedWeapon(player, stack) && manageDelay(stack)) {
+        if (canUseRangedWeapon(player, stack)) {
             ActionResult<ItemStack> ammo = tryFindAmmo(player);
             ActionResult<IArcana> checkArcana = tryCheckArcana(player);
 
@@ -143,7 +141,8 @@ public class RangedWeaponBase extends ItemMod {
                 if (!player.capabilities.isCreativeMode) {
                     stack.damageItem(1, player);
                 }
-                stack.getTagCompound().setLong("CanShootTime", Ticker.tick + delay);
+
+                player.getCooldownTracker().setCooldown(stack.getItem(), delay * 4 + 1);
 
                 if (player instanceof EntityPlayerMP) {
                     ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -199,24 +198,6 @@ public class RangedWeaponBase extends ItemMod {
             }
             return null;
         }
-    }
-
-    protected boolean manageDelay(ItemStack rangedWeapon) {
-        // Trying to set compound
-        if (!rangedWeapon.hasTagCompound()) {
-            rangedWeapon.setTagCompound(new NBTTagCompound());
-        }
-        // get reference
-        NBTTagCompound compound = rangedWeapon.getTagCompound();
-        // get percantage
-        long canShootTime = compound.getLong(delayTagName);
-
-        // we managing delay here, re-evaulating every item using time
-        if (canShootTime >= 100000 || canShootTime > Ticker.tick + delay * 4 + 1) {
-            compound.setLong(delayTagName, 0);
-        }
-
-        return Ticker.tick >= canShootTime;
     }
 
     /*
