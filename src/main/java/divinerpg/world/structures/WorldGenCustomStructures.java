@@ -46,7 +46,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
             DRPGLootTables.ICEIKA_CHEST_HUT);
 
-
     private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
     private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
     private WorldGenLibrary library = new WorldGenLibrary();
