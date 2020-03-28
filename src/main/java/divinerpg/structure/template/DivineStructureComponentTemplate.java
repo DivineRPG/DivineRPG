@@ -77,6 +77,10 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             cryptKeeper.enablePersistence();
             cryptKeeper.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
             worldIn.spawnEntity(cryptKeeper);
+
+            //Temporary workaround to stop crypt keeper from suffocating
+            worldIn.setBlockToAir(pos.add(0, 1, 0));
+            worldIn.setBlockToAir(pos);
         }
 
         //Temple data markers
