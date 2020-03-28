@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_shield"
+  },
+  "pattern": [
+    "prp",
+    "prp",
+    " r "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "divinerpg:realmite_ingot"
+    },
+    "p": {
+      "item": "#PLANKWOOD"
+    }
+  }
+}

@@ -1,71 +1,30 @@
 package divinerpg.registry;
 
-import java.util.ArrayList;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.items.arcana.ItemAquamarine;
-import divinerpg.objects.items.arcana.ItemArcanaCharge;
-import divinerpg.objects.items.arcana.ItemArcanaPotion;
-import divinerpg.objects.items.arcana.ItemArcanaSeeds;
-import divinerpg.objects.items.arcana.ItemArcaniteBlade;
-import divinerpg.objects.items.arcana.ItemArcaniteBlaster;
-import divinerpg.objects.items.arcana.ItemArcaniumSaber;
-import divinerpg.objects.items.arcana.ItemAttractor;
-import divinerpg.objects.items.arcana.ItemCaptainsSparkler;
-import divinerpg.objects.items.arcana.ItemChargedCollector;
-import divinerpg.objects.items.arcana.ItemDivineAccumulator;
-import divinerpg.objects.items.arcana.ItemEnderScepter;
-import divinerpg.objects.items.arcana.ItemFirefly;
-import divinerpg.objects.items.arcana.ItemGeneralsStaff;
-import divinerpg.objects.items.arcana.ItemGhostbane;
-import divinerpg.objects.items.arcana.ItemGrenade;
-import divinerpg.objects.items.arcana.ItemKey;
-import divinerpg.objects.items.arcana.ItemLaVekor;
-import divinerpg.objects.items.arcana.ItemLamona;
-import divinerpg.objects.items.arcana.ItemMeriksMissile;
-import divinerpg.objects.items.arcana.ItemMeteorMash;
-import divinerpg.objects.items.arcana.ItemOrbOfLight;
-import divinerpg.objects.items.arcana.ItemReflector;
-import divinerpg.objects.items.arcana.ItemShadowSaber;
-import divinerpg.objects.items.arcana.ItemStaffEnrichment;
-import divinerpg.objects.items.arcana.ItemStaffStarlight;
-import divinerpg.objects.items.arcana.ItemStormSword;
-import divinerpg.objects.items.arcana.ItemWizardsBook;
-import divinerpg.objects.items.arcana.ItemZelusSpawnEgg;
+import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemMusicShooter;
 import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
 import divinerpg.objects.items.iceika.ItemSnowGlobe;
-import divinerpg.objects.items.twilight.ItemForbiddenFruit;
-import divinerpg.objects.items.twilight.ItemSkyFlower;
-import divinerpg.objects.items.twilight.ItemTwilightBlitz;
-import divinerpg.objects.items.twilight.ItemTwilightClock;
-import divinerpg.objects.items.twilight.ItemTwilightSpawner;
-import divinerpg.objects.items.vethea.*;
+import divinerpg.objects.items.twilight.*;
 import divinerpg.objects.items.vanilla.*;
+import divinerpg.objects.items.vethea.*;
 import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
@@ -1619,15 +1578,19 @@ public class ModItems {
     @ObjectHolder("eucalyptus_slab")
     public static final Item eucalyptusSlab = null;
 
+    // shields
+    @ObjectHolder("realmite_shield")
+    public static final Item realmite_shield = null;
+
     // Armor information
     // Vanilla dimensions
-    private static Object[] angelicInfo = new Object[] { ArmorInfo.NO_FALL, ArmorInfo.FLY };
-    private static Object[] aquastriveInfo = new Object[] { ArmorInfo.UNDERWATER, ArmorInfo.SWIM };
-    private static Object[] arlemiteInfo = new Object[] { 85, ArmorInfo.RANGED_PROTECTION };
-    private static Object[] bedrockInfo = new Object[] { ArmorInfo.FIRE_PROTECTION, ArmorInfo.EXPLOSION_PROTECTION };
-    private static Object[] corruptedInfo = new Object[] { 20, ArmorInfo.RANGED_DAMAGE };
-    private static Object[] divineInfo = new Object[] { 6, ArmorInfo.MELEE_DAMAGE, 2, ArmorInfo.JUMP_HEIGHT,
-            ArmorInfo.NO_FALL };
+    private static Object[] angelicInfo = new Object[]{ArmorInfo.NO_FALL, ArmorInfo.FLY};
+    private static Object[] aquastriveInfo = new Object[]{ArmorInfo.UNDERWATER, ArmorInfo.SWIM};
+    private static Object[] arlemiteInfo = new Object[]{85, ArmorInfo.RANGED_PROTECTION};
+    private static Object[] bedrockInfo = new Object[]{ArmorInfo.FIRE_PROTECTION, ArmorInfo.EXPLOSION_PROTECTION};
+    private static Object[] corruptedInfo = new Object[]{20, ArmorInfo.RANGED_DAMAGE};
+    private static Object[] divineInfo = new Object[]{6, ArmorInfo.MELEE_DAMAGE, 2, ArmorInfo.JUMP_HEIGHT,
+            ArmorInfo.NO_FALL};
     private static Object[] eliteRealmiteInfo = new Object[] { ArmorInfo.NO_FALL };
     private static Object[] enderInfo = new Object[] { ArmorInfo.EXPLOSION_PROTECTION };
     private static Object[] frozenInfo = new Object[] { ArmorInfo.FREEZE };
@@ -2551,7 +2514,10 @@ public class ModItems {
         register(registry, new ItemModSlab("divine_double_slab", ModBlocks.divineSlab, ModBlocks.divineSlab, ModBlocks.divineDoubleSlab));
         register(registry, new ItemModSlab("frozen_double_slab", ModBlocks.frozenSlab, ModBlocks.frozenSlab, ModBlocks.frozenDoubleSlab));
         register(registry, new ItemModSlab("eucalyptus_double_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
-        
+
+        // Shields
+        register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));
+
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

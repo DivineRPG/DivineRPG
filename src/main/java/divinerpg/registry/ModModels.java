@@ -3,6 +3,7 @@ package divinerpg.registry;
 import divinerpg.api.Reference;
 import divinerpg.client.render.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -10,12 +11,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod.EventBusSubscriber(value=Side.CLIENT, modid=Reference.MODID)
+import java.util.Arrays;
+import java.util.Objects;
+
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MODID)
 public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
-        for(Item item: ModItems.itemList) {
+        for (Item item : ModItems.itemList) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
         registerTESRs();
@@ -44,5 +48,14 @@ public class ModModels {
         Item.getItemFromBlock(ModBlocks.theWatcherStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
         Item.getItemFromBlock(ModBlocks.twilightDemonStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
         Item.getItemFromBlock(ModBlocks.vamacheronStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
+
+        registerRenders(new ShieldsRender(), ModItems.realmite_shield);
+    }
+
+    private static void registerRenders(TileEntityItemStackRenderer teisr, Item... items) {
+        if (teisr == null || items == null)
+            return;
+
+        Arrays.stream(items).filter(Objects::nonNull).forEach(x -> x.setTileEntityItemStackRenderer(teisr));
     }
 }
