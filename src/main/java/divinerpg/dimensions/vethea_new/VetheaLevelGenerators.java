@@ -70,6 +70,7 @@ public class VetheaLevelGenerators {
 
     public void generateChunk(World world, ChunkPrimer chunkPrimer, int x, int z) {
         generateFloors(chunkPrimer);
+        //System.out.println("Floor generated");
         structures.forEach(gen -> gen.generate(world, x, z, chunkPrimer));
     }
 
@@ -102,6 +103,7 @@ public class VetheaLevelGenerators {
         // dirt level (1)
         BlockPos.getAllInBoxMutable(0, dirtLevel, 0, maxWidth, dirtLevel, maxWidth)
                 .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), ModBlocks.dreamDirt.getDefaultState()));
+
 
         // earth level (1)
         BlockPos.getAllInBoxMutable(0, earthLevel, 0, maxWidth, earthLevel, maxWidth)

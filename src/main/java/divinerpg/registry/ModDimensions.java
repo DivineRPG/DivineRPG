@@ -9,6 +9,7 @@ import divinerpg.dimensions.iceika.WorldProviderIceika;
 import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.vethea.WorldProviderVethea;
+import divinerpg.dimensions.vethea_new.VetheaWorldProvider;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
 import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
@@ -58,7 +59,7 @@ public class ModDimensions {
         arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", Config.arcanaDimensionId,
                 WorldProviderArcana.class, false);
         vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", Config.vetheaDimensionId, 
-        		WorldProviderVethea.class, false);
+        		VetheaWorldProvider.class, false); //VetheaWorldProvider = new, WorldProviderVethea = old
     }
 
     private static void registerDimensions() {

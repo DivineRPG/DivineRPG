@@ -43,7 +43,6 @@ public class WorldGenVillageIsland extends WorldGenerator
         lampsUp.add(new LightUp3());
         lampsUp.add(new LightUp4());
         lampsUp.add(new LightUp5());
-        
     }
 
 	@Override
@@ -55,6 +54,7 @@ public class WorldGenVillageIsland extends WorldGenerator
 		int var2 = par2.nextInt(15) + 25;
 		
 		this.placeSpikeIteration(par1, par2, par3, par4, par5, var2);
+		System.out.println("Gen finished");
 		return true;
 	}
 	

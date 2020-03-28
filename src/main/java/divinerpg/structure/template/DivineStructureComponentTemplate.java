@@ -1,5 +1,6 @@
 package divinerpg.structure.template;
 
+import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.nbt.NBTTagCompound;
@@ -61,6 +62,27 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
 
         // TODO check if we really need it!
+
+        System.out.println(function);
+        //Crypt data markers
+        if (function.equals("CryptLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.CRYPT_LOOT, rand.nextLong());
+            }
+        }
+        else if (function.equals("CryptKeeper")) {
+            EntityCryptKeeper cryptKeeper = new EntityCryptKeeper(worldIn);
+            cryptKeeper.enablePersistence();
+            cryptKeeper.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
+            worldIn.spawnEntity(cryptKeeper);
+
+            //Temporary workaround to stop crypt keeper from suffocating
+            worldIn.setBlockToAir(pos.add(0, 1, 0));
+            worldIn.setBlockToAir(pos);
+        }
+
         //Temple data markers
         if (function.startsWith("TempleLoot")) {
             BlockPos blockpos = pos.down();
@@ -81,7 +103,24 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             templeGuardian.enablePersistence();
             templeGuardian.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
             worldIn.spawnEntity(templeGuardian);
-            //worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 2);
+        }
+
+        //Karos Madhouse data markers
+        if (function.equals("KarosMadhouseLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
+            }
+        }
+
+        //Raglok Chamber data markers
+        if (function.equals("RaglokChamberLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
+            }
         }
     }
 }
