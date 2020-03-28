@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityFirefly;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,6 +11,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderFirefly extends Render<EntityFirefly> {
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/projectiles/firefly.png");
 
     public RenderFirefly(RenderManager manager) {
         super(manager);
@@ -57,7 +59,8 @@ public class RenderFirefly extends Render<EntityFirefly> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityFirefly entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/firefly.png");
-	}
+
+        return texture;
+    }
     
 }

@@ -1,28 +1,26 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
 import divinerpg.objects.entities.entity.twilight.EntityReyvor;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderReyvor extends RenderLiving<EntityReyvor> {
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/reyvor.png");
-    public static final IRenderFactory FACTORY = new Factory();
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/reyvor.png");
 
-    public RenderReyvor(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelDensos(), shadowsizeIn);
+
+    public RenderReyvor(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelDensos(), 0);
         addLayer(new MainHandLayer(this));
     }
 
@@ -32,12 +30,6 @@ public class RenderReyvor extends RenderLiving<EntityReyvor> {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EntityReyvor> {
-        @Override
-        public Render<? super EntityReyvor> createRenderFor(RenderManager manager) {
-            return new RenderReyvor(manager, new ModelDensos(), 0);
-        }
-    }
 
     private class MainHandLayer implements LayerRenderer<EntityReyvor> {
         protected final RenderReyvor renderReyvor;

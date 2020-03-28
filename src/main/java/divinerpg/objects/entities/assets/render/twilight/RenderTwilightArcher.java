@@ -1,28 +1,26 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelTwilightArcher;
 import divinerpg.objects.entities.entity.twilight.EntityTwilightArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderTwilightArcher extends RenderLiving<EntityTwilightArcher> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/twilight_archer.png");
 
-    public RenderTwilightArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelTwilightArcher(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/twilight_archer.png");
+
+    public RenderTwilightArcher(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelTwilightArcher(), 0);
         addLayer(new MainHandLayer(this));
     }
 
@@ -32,12 +30,6 @@ public class RenderTwilightArcher extends RenderLiving<EntityTwilightArcher> {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EntityTwilightArcher> {
-        @Override
-        public Render<? super EntityTwilightArcher> createRenderFor(RenderManager manager) {
-            return new RenderTwilightArcher(manager, new ModelTwilightArcher(), 0);
-        }
-    }
 
     private class MainHandLayer implements LayerRenderer<EntityTwilightArcher> {
         protected final RenderTwilightArcher renderTwilightArcher;

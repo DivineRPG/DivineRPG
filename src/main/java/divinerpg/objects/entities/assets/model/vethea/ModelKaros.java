@@ -1,12 +1,10 @@
 package divinerpg.objects.entities.assets.model.vethea;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelKaros extends ModelBase
-{
+public class ModelKaros extends ItemModel {
     //fields
     ModelRenderer head1;
     ModelRenderer body1;
@@ -220,39 +218,36 @@ public class ModelKaros extends ModelBase
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5);
-        head1.render(f5);
-        body1.render(f5);
-        rightarm1.render(f5);
-        leftarm1.render(f5);
-        head2.render(f5);
-        rightarm2.render(f5);
-        leftarm2.render(f5);
-        body2.render(f5);
-        body3.render(f5);
-        body4.render(f5);
-        body5.render(f5);
-        body6.render(f5);
-        body7.render(f5);
-        body8.render(f5);
-        body9.render(f5);
-        body10.render(f5);
-        body11.render(f5);
-        body12.render(f5);
-        body13.render(f5);
-        body14.render(f5);
-        body15.render(f5);
-        body16.render(f5);
-        body17.render(f5);
-        body18.render(f5);
-        body19.render(f5);
-        body20.render(f5);
-        body21.render(f5);
-        body22.render(f5);
-        body23.render(f5);
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        head1.render(scale);
+        body1.render(scale);
+        rightarm1.render(scale);
+        leftarm1.render(scale);
+        head2.render(scale);
+        rightarm2.render(scale);
+        leftarm2.render(scale);
+        body2.render(scale);
+        body3.render(scale);
+        body4.render(scale);
+        body5.render(scale);
+        body6.render(scale);
+        body7.render(scale);
+        body8.render(scale);
+        body9.render(scale);
+        body10.render(scale);
+        body11.render(scale);
+        body12.render(scale);
+        body13.render(scale);
+        body14.render(scale);
+        body15.render(scale);
+        body16.render(scale);
+        body17.render(scale);
+        body18.render(scale);
+        body19.render(scale);
+        body20.render(scale);
+        body21.render(scale);
+        body22.render(scale);
+        body23.render(scale);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)

@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,8 +16,10 @@ public class RenderMeteor extends Render<EntityMeteor> {
         super(manager);
     }
 
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/meteor.png");
+
     public void doRender(EntityMeteor entity, double x, double y, double z, float entityYaw,
-            float partialTicks) {
+                         float partialTicks) {
         this.bindTexture(getEntityTexture(entity));
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -55,9 +58,9 @@ public class RenderMeteor extends Render<EntityMeteor> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityMeteor entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/meteor.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntityMeteor entity) {
+        return location;
+    }
+
 }

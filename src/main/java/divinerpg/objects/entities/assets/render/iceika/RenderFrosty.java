@@ -1,35 +1,25 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.iceika.ModelFrosty;
 import divinerpg.objects.entities.entity.iceika.EntityFrosty;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderFrosty extends RenderLiving<EntityFrosty> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation frostyLoc = new ResourceLocation("divinerpg:textures/entity/frosty.png");
-    ResourceLocation angryFrostyLoc = new ResourceLocation("divinerpg:textures/entity/angry_frosty.png");
+    ResourceLocation frostyLoc = new ResourceLocation(Reference.MODID, "textures/entity/frosty.png");
+    ResourceLocation angryFrostyLoc = new ResourceLocation(Reference.MODID, "textures/entity/angry_frosty.png");
 
-    public RenderFrosty(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelFrosty(), shadowsizeIn);
+    public RenderFrosty(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelFrosty(), 0);
     }
 
     @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityFrosty frosty) {
         return frosty.isAngry() ? angryFrostyLoc : frostyLoc;
-    }
-
-    public static class Factory implements IRenderFactory<EntityFrosty> {
-        @Override
-        public Render<? super EntityFrosty> createRenderFor(RenderManager manager) {
-            return new RenderFrosty(manager, new ModelFrosty(), 0F);
-        }
     }
 }

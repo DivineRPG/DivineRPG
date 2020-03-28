@@ -1,8 +1,5 @@
 package divinerpg.registry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import divinerpg.DivineRPG;
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
@@ -31,6 +28,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
@@ -1168,7 +1168,7 @@ public class ModBlocks {
 
         // Boss statues
         register(registry, new BlockStatue("ancient_entity_statue", StatueType.ANCIENT_ENTITY_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue", StatueType.AYERACO_STATUE));
+        register(registry, new BlockStatue("ayeraco_statue", StatueType.BLUE_AYERACO_STATUE));
         register(registry, new BlockStatue("densos_statue", StatueType.DENSOS_STATUE));
         register(registry, new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE));
         register(registry, new BlockStatue("eternal_archer_statue", StatueType.ETERNAL_ARCHER_STATUE));

@@ -1,47 +1,48 @@
 package divinerpg.enums;
 
-import divinerpg.client.render.DivineModel;
-import divinerpg.objects.blocks.tile.model.statue.ModelAncientEntityStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelAyeracoStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelDensosStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelDramixStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelEternalArcherStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelKarotStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelKingOfScorchersStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelParasectaStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelReyvorStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelSoulFiendStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelTheWatcherStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelTwilightDemonStatue;
-import divinerpg.objects.blocks.tile.model.statue.ModelVamacheronStatue;
+import divinerpg.api.Reference;
+import divinerpg.objects.entities.assets.model.ItemModel;
+import divinerpg.objects.entities.assets.model.arcana.ModelDramix;
+import divinerpg.objects.entities.assets.model.arcana.ModelParasecta;
+import divinerpg.objects.entities.assets.model.twilight.*;
+import divinerpg.objects.entities.assets.model.vanilla.ModelAncientEntity;
+import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
+import divinerpg.objects.entities.assets.model.vanilla.ModelKingScorcher;
+import divinerpg.objects.entities.assets.model.vanilla.ModelTheWatcher;
+import divinerpg.objects.entities.assets.model.vethea.ModelKaros;
 import net.minecraft.util.ResourceLocation;
 
 public enum StatueType {
     NONE(null, null),
-    ANCIENT_ENTITY_STATUE(new ModelAncientEntityStatue(), StatueLoc("ancient_entity_statue")),
-    AYERACO_STATUE(new ModelAyeracoStatue(), StatueLoc("ayeraco_statue")),
-    DENSOS_STATUE(new ModelDensosStatue(), StatueLoc("densos_statue")),
-    DRAMIX_STATUE(new ModelDramixStatue(), StatueLoc("dramix_statue")),
-    ETERNAL_ARCHER_STATUE(new ModelEternalArcherStatue(), StatueLoc("eternal_archer_statue")),
-    KAROT_STATUE(new ModelKarotStatue(), StatueLoc("karot_statue")),
-    KING_OF_SCORCHERS_STATUE(new ModelKingOfScorchersStatue(), StatueLoc("king_of_scorchers_statue")),
-    PARASECTA_STATUE(new ModelParasectaStatue(), StatueLoc("parasecta_statue")),
-    REYVOR_STATUE(new ModelReyvorStatue(), StatueLoc("reyvor_statue")),
-    SOUL_FIEND_STATUE(new ModelSoulFiendStatue(), StatueLoc("soul_fiend_statue")),
-    THE_WATCHER_STATUE(new ModelTheWatcherStatue(), StatueLoc("the_watcher_statue")),
-    TWILIGHT_DEMON_STATUE(new ModelTwilightDemonStatue(), StatueLoc("twilight_demon_statue")),
-    VAMACHERON_STATUE(new ModelVamacheronStatue(), StatueLoc("vamacheron_statue"));
+    ANCIENT_ENTITY_STATUE(new ModelAncientEntity(), new ResourceLocation(Reference.MODID, "textures/entity/ancient_entity.png")),
+    BLUE_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_blue.png")),
+    DENSOS_STATUE(new ModelDensos(), new ResourceLocation(Reference.MODID, "textures/entity/densos.png")),
+    DRAMIX_STATUE(new ModelDramix(), new ResourceLocation(Reference.MODID, "textures/entity/dramix.png")),
+    ETERNAL_ARCHER_STATUE(new ModelEternalArcher(), new ResourceLocation(Reference.MODID, "textures/entity/eternal_archer.png")),
+    KAROT_STATUE(new ModelKaros(), new ResourceLocation(Reference.MODID, "textures/entity/karos.png")),
+    KING_OF_SCORCHERS_STATUE(new ModelKingScorcher(), new ResourceLocation(Reference.MODID, "textures/entity/king_of_scorchers.png")),
+    PARASECTA_STATUE(new ModelParasecta(), new ResourceLocation(Reference.MODID, "textures/entity/parasecta.png")),
+    REYVOR_STATUE(new ModelDensos(), new ResourceLocation(Reference.MODID, "textures/entity/reyvor.png")),
+    SOUL_FIEND_STATUE(new ModelSoulFiend(), new ResourceLocation(Reference.MODID, "textures/entity/soul_fiend.png")),
+    THE_WATCHER_STATUE(new ModelTheWatcher(), new ResourceLocation(Reference.MODID, "textures/entity/the_watcher.png")),
+    TWILIGHT_DEMON_STATUE(new ModelTwilightDemon(), new ResourceLocation(Reference.MODID, "textures/entity/twilight_demon.png")),
+    VAMACHERON_STATUE(new ModelVamacheron(), new ResourceLocation(Reference.MODID, "textures/entity/vamecheron.png")),
 
-    private final DivineModel model;
+    RED_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_red.png")),
+    GREEN_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_green.png")),
+    PURPLE_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_purple.png")),
+    YELLOW_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_yellow.png"));
+
+    private final ItemModel model;
     private final ResourceLocation texture;
 
-    StatueType(DivineModel model, ResourceLocation texture) {
+    StatueType(ItemModel model, ResourceLocation texture) {
         this.model = model;
         this.texture = texture;
     }
 
-    public DivineModel getModel() {
-        return this.model;
+    private static ResourceLocation StatueLoc(String name) {
+        return new ResourceLocation(Reference.MODID, "textures/model/" + name + ".png");
     }
 
     public ResourceLocation getTexture() {
@@ -55,7 +56,7 @@ public enum StatueType {
         return values()[ordinal];
     }
 
-    private static ResourceLocation StatueLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/model/" + name + ".png");
+    public ItemModel getModel() {
+        return this.model;
     }
 }

@@ -1,28 +1,26 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedArcher;
 import divinerpg.objects.entities.entity.twilight.EntityEnchantedArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderEnchantedArcher extends RenderLiving<EntityEnchantedArcher> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/enchanted_archer.png");
 
-    public RenderEnchantedArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEnchantedArcher(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/enchanted_archer.png");
+
+    public RenderEnchantedArcher(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelEnchantedArcher(), 0);
         addLayer(new MainHandLayer(this));
     }
 
@@ -30,13 +28,6 @@ public class RenderEnchantedArcher extends RenderLiving<EntityEnchantedArcher> {
     @Override
     protected ResourceLocation getEntityTexture(EntityEnchantedArcher entity) {
         return texture;
-    }
-
-    public static class Factory implements IRenderFactory<EntityEnchantedArcher> {
-        @Override
-        public Render<? super EntityEnchantedArcher> createRenderFor(RenderManager manager) {
-            return new RenderEnchantedArcher(manager, new ModelEnchantedArcher(), 0);
-        }
     }
 
     private class MainHandLayer implements LayerRenderer<EntityEnchantedArcher> {

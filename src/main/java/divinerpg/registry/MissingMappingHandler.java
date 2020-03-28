@@ -1,5 +1,6 @@
 package divinerpg.registry;
 
+import divinerpg.api.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +18,7 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBlocks(MissingMappings<Block> event) {
         for(MissingMappings.Mapping<Block> mapping: event.getAllMappings()) {
-            if(mapping.key.equals(new ResourceLocation("divinerpg:karos_cannon"))) {
+            if (mapping.key.equals(new ResourceLocation(Reference.MODID, "karos_cannon"))) {
                 mapping.remap(ModBlocks.karosDispenser);
             }
         }
@@ -31,7 +32,7 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBiomes(MissingMappings<Biome> event) {
         for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
-            if(mapping.key.equals(new ResourceLocation("divinerpg:arksiane"))) {
+            if (mapping.key.equals(new ResourceLocation(Reference.MODID, "arksiane"))) {
                 mapping.remap(ModBiomes.Vethea);
             }
         }

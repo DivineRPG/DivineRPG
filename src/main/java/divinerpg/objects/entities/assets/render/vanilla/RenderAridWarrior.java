@@ -1,28 +1,26 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAridWarrior;
 import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/arid_warrior.png");
 
-    public RenderAridWarrior(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelAridWarrior(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/arid_warrior.png");
+
+    public RenderAridWarrior(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelAridWarrior(), 0);
         addLayer(new MainHandLayer(this));
     }
 
@@ -30,13 +28,6 @@ public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
     @Override
     protected ResourceLocation getEntityTexture(EntityAridWarrior entity) {
         return texture;
-    }
-
-    public static class Factory implements IRenderFactory<EntityAridWarrior> {
-        @Override
-        public Render<? super EntityAridWarrior> createRenderFor(RenderManager manager) {
-            return new RenderAridWarrior(manager, new ModelAridWarrior(), 0F);
-        }
     }
 
     private class MainHandLayer implements LayerRenderer<EntityAridWarrior> {

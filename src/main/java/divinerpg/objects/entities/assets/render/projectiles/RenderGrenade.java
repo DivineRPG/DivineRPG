@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,13 +11,14 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGrenade extends Render<EntityGrenade> {
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/items/grenade.png");
 
     public RenderGrenade(RenderManager manager) {
         super(manager);
     }
 
     public void doRender(EntityGrenade entity, double x, double y, double z, float entityYaw,
-            float partialTicks) {
+                         float partialTicks) {
         this.bindTexture(getEntityTexture(entity));
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -55,9 +57,9 @@ public class RenderGrenade extends Render<EntityGrenade> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityGrenade entity) {
-        return new ResourceLocation("divinerpg:textures/items/grenade.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntityGrenade entity) {
+        return location;
+    }
+
 }

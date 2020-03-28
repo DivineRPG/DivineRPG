@@ -1,11 +1,11 @@
 package divinerpg.objects.entities.assets.model.arcana;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelParasecta extends ModelBase {
+public class ModelParasecta extends ItemModel {
     ModelRenderer foot6;
     ModelRenderer wing2;
     ModelRenderer wing1;
@@ -139,27 +139,26 @@ public class ModelParasecta extends ModelBase {
         setRotation(tusk2, 0F, 0F, -0.1396263F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        foot6.render(f5);
-        wing2.render(f5);
-        wing1.render(f5);
-        body.render(f5);
-        leg6.render(f5);
-        foot4.render(f5);
-        leg4.render(f5);
-        foot5.render(f5);
-        leg5.render(f5);
-        leg1.render(f5);
-        leg2.render(f5);
-        leg3.render(f5);
-        foot1.render(f5);
-        foot2.render(f5);
-        foot3.render(f5);
-        tusk1.render(f5);
-        head.render(f5);
-        tusk2.render(f5);
+    @Override
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        foot6.render(scale);
+        wing2.render(scale);
+        wing1.render(scale);
+        body.render(scale);
+        leg6.render(scale);
+        foot4.render(scale);
+        leg4.render(scale);
+        foot5.render(scale);
+        leg5.render(scale);
+        leg1.render(scale);
+        leg2.render(scale);
+        leg3.render(scale);
+        foot1.render(scale);
+        foot2.render(scale);
+        foot3.render(scale);
+        tusk1.render(scale);
+        head.render(scale);
+        tusk2.render(scale);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {

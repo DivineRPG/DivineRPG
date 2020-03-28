@@ -1,13 +1,11 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelVamacheron extends ModelBase
-{
+public class ModelVamacheron extends ItemModel {
     ModelRenderer head;
     ModelRenderer body;
     ModelRenderer leg1;
@@ -120,29 +118,23 @@ public class ModelVamacheron extends ModelBase
         this.setRotation(this.Shape2, 0.0F, 0.0F, 0.0F);
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
     @Override
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
-        super.render(var1, var2, var3, var4, var5, var6, var7);
-        this.setRotationAngles(var2, var3, var4, var5, var6, var7);
-        this.head.render(var7);
-        this.body.render(var7);
-        this.leg1.render(var7);
-        this.leg2.render(var7);
-        this.leg3.render(var7);
-        this.leg4.render(var7);
-        this.horn1.render(var7);
-        this.horn2.render(var7);
-        this.Horn.render(var7);
-        this.Shape1.render(var7);
-        this.head1.render(var7);
-        this.horn3.render(var7);
-        this.horn4.render(var7);
-        this.Horn1.render(var7);
-        this.Shape2.render(var7);
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        this.head.render(scale);
+        this.body.render(scale);
+        this.leg1.render(scale);
+        this.leg2.render(scale);
+        this.leg3.render(scale);
+        this.leg4.render(scale);
+        this.horn1.render(scale);
+        this.horn2.render(scale);
+        this.Horn.render(scale);
+        this.Shape1.render(scale);
+        this.head1.render(scale);
+        this.horn3.render(scale);
+        this.horn4.render(scale);
+        this.Horn1.render(scale);
+        this.Shape2.render(scale);
     }
 
     private void setRotation(ModelRenderer var1, float var2, float var3, float var4)

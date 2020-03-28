@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityLamona;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,13 +11,14 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderLamona extends Render<EntityLamona> {
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/items/lamona.png");
 
     public RenderLamona(RenderManager manager) {
         super(manager);
     }
 
     public void doRender(EntityLamona entity, double x, double y, double z, float entityYaw,
-            float partialTicks) {
+                         float partialTicks) {
         this.bindTexture(getEntityTexture(entity));
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -55,9 +57,9 @@ public class RenderLamona extends Render<EntityLamona> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityLamona entity) {
-        return new ResourceLocation("divinerpg:textures/items/lamona.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntityLamona entity) {
+        return texture;
+    }
+
 }

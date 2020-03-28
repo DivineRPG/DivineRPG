@@ -1,41 +1,30 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vethea.ModelGalroid;
 import divinerpg.objects.entities.entity.vethea.EntityGalroid;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderGalroid extends RenderLiving<EntityGalroid> {
-	
-	public static final IRenderFactory FACTORY = new Factory();
-	private final ModelGalroid modelEntity;
-    
-	public RenderGalroid(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelGalroid(), 1F);
-        modelEntity = (ModelGalroid) super.mainModel;
+    ResourceLocation regular = new ResourceLocation(Reference.MODID, "textures/entity/galroid.png");
+    ResourceLocation invulnerable = new ResourceLocation(Reference.MODID, "textures/entity/galroid_invulnerable.png");
 
+    public RenderGalroid(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelGalroid(), 1F);
     }
 
-
-	@Nullable
+    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityGalroid entity) {
-		if(entity.getIsInvulnerable()) return new ResourceLocation("divinerpg:textures/entity/galroid_invulnerable.png");
-		return new ResourceLocation("divinerpg:textures/entity/galroid.png");
+        if (entity.getIsInvulnerable()) {
+            return invulnerable;
+        }
+
+        return regular;
     }
 
-	 public static class Factory implements IRenderFactory<EntityGalroid> {
-
-	        @Override
-	        public Render<? super EntityGalroid> createRenderFor(RenderManager manager) {
-	            return new RenderGalroid(manager, new ModelGalroid(), 1F);
-	        }
-	    }
-
-	}
+}

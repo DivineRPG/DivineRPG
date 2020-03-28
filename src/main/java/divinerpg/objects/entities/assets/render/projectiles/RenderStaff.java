@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,8 +16,10 @@ public class RenderStaff extends Render<EntityGeneralsStaff> {
         super(manager);
     }
 
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/generals_staff.png");
+
     public void doRender(EntityGeneralsStaff entity, double x, double y, double z, float entityYaw,
-            float partialTicks) {
+                         float partialTicks) {
         this.bindTexture(getEntityTexture(entity));
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -55,9 +58,9 @@ public class RenderStaff extends Render<EntityGeneralsStaff> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityGeneralsStaff entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/generals_staff.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntityGeneralsStaff entity) {
+        return location;
+    }
+
 }

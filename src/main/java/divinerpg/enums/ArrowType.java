@@ -1,5 +1,6 @@
 package divinerpg.enums;
 
+import divinerpg.api.Reference;
 import net.minecraft.util.ResourceLocation;
 
 public enum ArrowType {
@@ -85,7 +86,7 @@ public enum ArrowType {
     }
 
     private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
+        return new ResourceLocation(Reference.MODID, "textures/projectiles/" + name + ".png");
     }
 
     private static ResourceLocation VanillaLoc() {
@@ -93,6 +94,6 @@ public enum ArrowType {
     }
 
     public enum ArrowSpecial {
-        NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POSION;
+        NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POSION
     }
 }

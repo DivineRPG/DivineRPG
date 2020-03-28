@@ -1,22 +1,20 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.arcana.ModelRazorback;
 import divinerpg.objects.entities.entity.arcana.EntityRazorback;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderRazorback extends RenderLiving<EntityRazorback> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/razorback.png");
 
-    public RenderRazorback(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelRazorback(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/razorback.png");
+
+    public RenderRazorback(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelRazorback(), 0);
     }
 
     @Nullable
@@ -25,10 +23,4 @@ public class RenderRazorback extends RenderLiving<EntityRazorback> {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EntityRazorback> {
-        @Override
-        public Render<? super EntityRazorback> createRenderFor(RenderManager manager) {
-            return new RenderRazorback(manager, new ModelRazorback(), 0);
-        }
-    }
 }

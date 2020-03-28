@@ -1,5 +1,6 @@
 package divinerpg.enums;
 
+import divinerpg.api.Reference;
 import net.minecraft.util.ResourceLocation;
 
 public enum DiskType {
@@ -38,10 +39,10 @@ public enum DiskType {
     }
 
     private static ResourceLocation ItemLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/items/" + name + ".png");
+        return new ResourceLocation(Reference.MODID, "textures/items/" + name + ".png");
     }
 
     private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation("divinerpg:textures/projectiles/" + name + ".png");
+        return new ResourceLocation(Reference.MODID, "textures/projectiles/" + name + ".png");
     }
 }

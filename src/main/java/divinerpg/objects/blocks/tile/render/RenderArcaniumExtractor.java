@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityArcaniumExtractor;
 import divinerpg.objects.blocks.tile.model.ModelArcaniumExtractor;
 import net.minecraft.client.renderer.GlStateManager;
@@ -7,7 +8,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderArcaniumExtractor extends TileEntitySpecialRenderer<TileEntityArcaniumExtractor> {
-    private static ResourceLocation TEXTURE = new ResourceLocation("divinerpg:textures/model/arcanium_extractor.png");
+    private static ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/model/arcanium_extractor.png");
     private static ModelArcaniumExtractor model = new ModelArcaniumExtractor();
 
     public void render(TileEntityArcaniumExtractor te, double x, double y, double z, float partialTicks,

@@ -1,12 +1,11 @@
 package divinerpg.objects.entities.assets.model.vanilla;
 
+import divinerpg.objects.entities.assets.model.ItemModel;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-
-public class ModelTheWatcher extends ModelBase {
+public class ModelTheWatcher extends ItemModel {
     ModelRenderer Head;
     ModelRenderer Jaw;
     ModelRenderer Tentacle11;
@@ -69,21 +68,19 @@ public class ModelTheWatcher extends ModelBase {
         this.setRotation(this.Tentacle32, 0.0F, ((float) Math.PI * 3F / 2F), 0.0F);
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
-        super.render(var1, var2, var3, var4, var5, var6, var7);
-        GL11.glScaled(4.5, 4.5, 4.5);
-        GL11.glTranslatef(0f, -1.25f, 0f);
-        this.Head.render(var7);
-        this.Jaw.render(var7);
-        this.Tentacle11.render(var7);
-        this.Tentacle12.render(var7);
-        this.Tentacle21.render(var7);
-        this.Tentacle22.render(var7);
-        this.Tentacle31.render(var7);
-        this.Tentacle32.render(var7);
+    @Override
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        GlStateManager.scale(1.5, 1.5, 1.5);
+        GL11.glTranslatef(0f, -0.55f, 0f);
+
+        this.Head.render(scale);
+        this.Jaw.render(scale);
+        this.Tentacle11.render(scale);
+        this.Tentacle12.render(scale);
+        this.Tentacle21.render(scale);
+        this.Tentacle22.render(scale);
+        this.Tentacle31.render(scale);
+        this.Tentacle32.render(scale);
     }
 
     private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {

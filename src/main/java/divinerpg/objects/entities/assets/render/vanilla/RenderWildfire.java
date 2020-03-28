@@ -1,28 +1,26 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelWildfire;
 import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderWildfire extends RenderLiving<EntityWildfire> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/wildfire.png");
 
-    public RenderWildfire(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelWildfire(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/wildfire.png");
+
+    public RenderWildfire(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelWildfire(), 0);
         addLayer(new MainHandLayer(this));
     }
 
@@ -32,12 +30,6 @@ public class RenderWildfire extends RenderLiving<EntityWildfire> {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EntityWildfire> {
-        @Override
-        public Render<? super EntityWildfire> createRenderFor(RenderManager manager) {
-            return new RenderWildfire(manager, new ModelWildfire(), 0F);
-        }
-    }
 
     private class MainHandLayer implements LayerRenderer<EntityWildfire> {
         protected final RenderWildfire renderWildfire;

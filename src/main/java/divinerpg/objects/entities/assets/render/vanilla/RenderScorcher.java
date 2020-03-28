@@ -1,34 +1,24 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelScorcher;
 import divinerpg.objects.entities.entity.vanilla.EntityScorcher;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderScorcher extends RenderLiving<EntityScorcher> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/scorcher.png");
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/scorcher.png");
 
-    public RenderScorcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelScorcher(), shadowsizeIn);
+    public RenderScorcher(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelScorcher(), 0);
     }
 
     @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityScorcher entity) {
         return texture;
-    }
-
-    public static class Factory implements IRenderFactory<EntityScorcher> {
-        @Override
-        public Render<? super EntityScorcher> createRenderFor(RenderManager manager) {
-            return new RenderScorcher(manager, new ModelScorcher(), 0F);
-        }
     }
 }

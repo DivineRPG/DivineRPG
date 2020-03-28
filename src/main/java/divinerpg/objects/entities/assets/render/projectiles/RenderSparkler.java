@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,8 +16,10 @@ public class RenderSparkler extends Render<EntitySparkler> {
         super(manager);
     }
 
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/sparkler.png");
+
     public void doRender(EntitySparkler entity, double x, double y, double z, float entityYaw,
-            float partialTicks) {
+                         float partialTicks) {
         this.bindTexture(getEntityTexture(entity));
         GlStateManager.pushMatrix();
         this.bindEntityTexture(entity);
@@ -55,9 +58,8 @@ public class RenderSparkler extends Render<EntitySparkler> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntitySparkler entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/sparkler.png");
-	}
-    
+    @Override
+    protected ResourceLocation getEntityTexture(EntitySparkler entity) {
+        return location;
+    }
 }

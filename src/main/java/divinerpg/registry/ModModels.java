@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.api.Reference;
 import divinerpg.client.render.*;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.Item;
@@ -35,21 +36,30 @@ public class ModModels {
         Item.getItemFromBlock(ModBlocks.dramixAltar).setTileEntityItemStackRenderer(new RenderItemDramixAltar());
         Item.getItemFromBlock(ModBlocks.parasectaAltar).setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
         Item.getItemFromBlock(ModBlocks.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-        Item.getItemFromBlock(ModBlocks.ancientEntityStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.ayeracoStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.densosStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.dramixStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.eternalArcherStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.karotStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.kingOfScorchersStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.parasectaStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.soulFiendStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.reyvorStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.theWatcherStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.twilightDemonStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
-        Item.getItemFromBlock(ModBlocks.vamacheronStatue).setTileEntityItemStackRenderer(new RenderItemStatue());
+
+        registerRenders(new RenderItemStatue(),
+                ModBlocks.ancientEntityStatue,
+                ModBlocks.ayeracoStatue,
+                ModBlocks.densosStatue,
+                ModBlocks.dramixStatue,
+                ModBlocks.eternalArcherStatue,
+                ModBlocks.karotStatue,
+                ModBlocks.kingOfScorchersStatue,
+                ModBlocks.parasectaStatue,
+                ModBlocks.soulFiendStatue,
+                ModBlocks.reyvorStatue,
+                ModBlocks.theWatcherStatue,
+                ModBlocks.twilightDemonStatue,
+                ModBlocks.vamacheronStatue);
 
         registerRenders(new ShieldsRender(), ModItems.realmite_shield);
+    }
+
+    private static void registerRenders(TileEntityItemStackRenderer teisr, Block... items) {
+        if (teisr == null || items == null)
+            return;
+
+        registerRenders(teisr, Arrays.stream(items).map(Item::getItemFromBlock).toArray(Item[]::new));
     }
 
     private static void registerRenders(TileEntityItemStackRenderer teisr, Item... items) {

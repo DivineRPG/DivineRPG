@@ -1,22 +1,20 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import javax.annotation.Nullable;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJungleSpider;
 import divinerpg.objects.entities.entity.vanilla.EntityJungleSpider;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+import javax.annotation.Nullable;
 
 public class RenderJungleSpider extends RenderLiving<EntityJungleSpider> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/jungle_spider.png");
 
-    public RenderJungleSpider(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelJungleSpider(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/jungle_spider.png");
+
+    public RenderJungleSpider(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelJungleSpider(), 0);
     }
 
     @Nullable
@@ -25,10 +23,4 @@ public class RenderJungleSpider extends RenderLiving<EntityJungleSpider> {
         return texture;
     }
 
-    public static class Factory implements IRenderFactory<EntityJungleSpider> {
-        @Override
-        public Render<? super EntityJungleSpider> createRenderFor(RenderManager manager) {
-            return new RenderJungleSpider(manager, new ModelJungleSpider(), 0F);
-        }
-    }
 }

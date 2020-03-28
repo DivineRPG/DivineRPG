@@ -1,13 +1,11 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelDensos extends ModelBase
-{
+public class ModelDensos extends ItemModel {
     ModelRenderer head;
     ModelRenderer body;
     public ModelRenderer rightarm;
@@ -85,24 +83,18 @@ public class ModelDensos extends ModelBase
         this.setRotation(this.head4, 0.0F, 0.0F, 0.0F);
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
     @Override
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7)
-    {
-        super.render(var1, var2, var3, var4, var5, var6, var7);
-        this.setRotationAngles(var2, var3, var4, var5, var6, var7);
-        this.head.render(var7);
-        this.body.render(var7);
-        this.rightarm.render(var7);
-        this.leftarm.render(var7);
-        this.rightleg.render(var7);
-        this.leftleg.render(var7);
-        this.head1.render(var7);
-        this.head2.render(var7);
-        this.head3.render(var7);
-        this.head4.render(var7);
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        this.head.render(scale);
+        this.body.render(scale);
+        this.rightarm.render(scale);
+        this.leftarm.render(scale);
+        this.rightleg.render(scale);
+        this.leftleg.render(scale);
+        this.head1.render(scale);
+        this.head2.render(scale);
+        this.head3.render(scale);
+        this.head4.render(scale);
     }
 
     private void setRotation(ModelRenderer var1, float var2, float var3, float var4)

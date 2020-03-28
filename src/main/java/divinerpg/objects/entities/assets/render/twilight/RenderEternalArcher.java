@@ -1,31 +1,28 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import javax.annotation.Nullable;
-
-import org.lwjgl.opengl.GL11;
-
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelEternalArcher;
 import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
 import divinerpg.registry.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+import org.lwjgl.opengl.GL11;
+
+import javax.annotation.Nullable;
 
 public class RenderEternalArcher extends RenderLiving<EntityEternalArcher> {
-    public static final IRenderFactory FACTORY = new Factory();
-    ResourceLocation texture = new ResourceLocation("divinerpg:textures/entity/eternal_archer.png");
 
-    public RenderEternalArcher(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
-        super(rendermanagerIn, new ModelEternalArcher(), shadowsizeIn);
+    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/eternal_archer.png");
+
+    public RenderEternalArcher(RenderManager rendermanagerIn) {
+        super(rendermanagerIn, new ModelEternalArcher(), 0);
         addLayer(new HandsLayer(this));
     }
 
@@ -38,13 +35,6 @@ public class RenderEternalArcher extends RenderLiving<EntityEternalArcher> {
     @Override
     public void preRenderCallback(EntityEternalArcher entity, float f) {
         GL11.glScalef(2.5f, 2.5f, 2.5f);
-    }
-
-    public static class Factory implements IRenderFactory<EntityEternalArcher> {
-        @Override
-        public Render<? super EntityEternalArcher> createRenderFor(RenderManager manager) {
-            return new RenderEternalArcher(manager, new ModelEternalArcher(), 0);
-        }
     }
 
     private class HandsLayer implements LayerRenderer<EntityEternalArcher> {

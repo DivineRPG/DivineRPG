@@ -1,5 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityStar;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -55,9 +56,10 @@ public class RenderStar extends Render<EntityStar> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(EntityStar entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/starlight.png");
-	}
-    
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/starlight.png");
+
+    @Override
+    protected ResourceLocation getEntityTexture(EntityStar entity) {
+        return location;
+    }
 }

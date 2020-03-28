@@ -1,12 +1,11 @@
 package divinerpg.objects.entities.assets.model.arcana;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelDramix extends ModelBase
-{
+public class ModelDramix extends ItemModel {
     //fields
     ModelRenderer Leg_Right;
     ModelRenderer Leg_Left;
@@ -15,8 +14,7 @@ public class ModelDramix extends ModelBase
     ModelRenderer Head;
     ModelRenderer Chest;
 
-    public ModelDramix()
-    {
+    public ModelDramix() {
         textureWidth = 64;
         textureHeight = 64;
         Leg_Right = new ModelRenderer(this, 0, 22);
@@ -57,27 +55,23 @@ public class ModelDramix extends ModelBase
         setRotation(Chest, 0F, 0F, 0F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        Leg_Right.render(f5);
-        Leg_Left.render(f5);
-        Arm_Right.render(f5);
-        Arm_Left.render(f5);
-        Head.render(f5);
-        Chest.render(f5);
+    @Override
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        Leg_Right.render(scale);
+        Leg_Left.render(scale);
+        Arm_Right.render(scale);
+        Arm_Left.render(scale);
+        Head.render(scale);
+        Chest.render(scale);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6, Entity var7)
-    {
+    public void setRotationAngles(float var1, float var2, float var3, float var4, float var5, float var6, Entity var7) {
         super.setRotationAngles(var1, var2, var3, var4, var5, var6, var7);
         this.Arm_Right.rotateAngleX = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
         this.Arm_Left.rotateAngleX = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;

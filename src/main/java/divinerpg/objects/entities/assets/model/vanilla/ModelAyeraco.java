@@ -1,13 +1,10 @@
 package divinerpg.objects.entities.assets.model.vanilla;
 
-import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelAyeraco extends ModelBase {
+public class ModelAyeraco extends ItemModel {
     // fields
     ModelRenderer BodyLower;
     ModelRenderer Neck;
@@ -275,48 +272,45 @@ public class ModelAyeraco extends ModelBase {
         setRotation(Shape14, 0.4089647F, 0F, 0F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5);
-        GL11.glScaled(2, 2, 2);
-        GL11.glTranslatef(0f, -0.8f, 0f);
-        BodyLower.render(f5);
-        Neck.render(f5);
-        Head.render(f5);
-        Tail.render(f5);
-        WingLB.render(f5);
-        Tail2.render(f5);
-        Tail3.render(f5);
-        Shape1.render(f5);
-        WingRB.render(f5);
-        WingRF.render(f5);
-        WingLF.render(f5);
-        WingRExtB.render(f5);
-        WingLExtB.render(f5);
-        WingLExtF.render(f5);
-        WingRExtF.render(f5);
-        WingRExt.render(f5);
-        WingRM.render(f5);
-        WingLM.render(f5);
-        WingLExtM.render(f5);
-        Mouth1.render(f5);
-        Butt.render(f5);
-        Head2.render(f5);
-        Mouth2.render(f5);
-        Body.render(f5);
-        Shape2.render(f5);
-        Shape3.render(f5);
-        Shape4.render(f5);
-        Shape5.render(f5);
-        Shape6.render(f5);
-        Shape7.render(f5);
-        Shape8.render(f5);
-        Shape9.render(f5);
-        Shape10.render(f5);
-        Shape11.render(f5);
-        Shape12.render(f5);
-        Shape13.render(f5);
-        Shape14.render(f5);
+    @Override
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        BodyLower.render(scale);
+        Neck.render(scale);
+        Head.render(scale);
+        Tail.render(scale);
+        WingLB.render(scale);
+        Tail2.render(scale);
+        Tail3.render(scale);
+        Shape1.render(scale);
+        WingRB.render(scale);
+        WingRF.render(scale);
+        WingLF.render(scale);
+        WingRExtB.render(scale);
+        WingLExtB.render(scale);
+        WingLExtF.render(scale);
+        WingRExtF.render(scale);
+        WingRExt.render(scale);
+        WingRM.render(scale);
+        WingLM.render(scale);
+        WingLExtM.render(scale);
+        Mouth1.render(scale);
+        Butt.render(scale);
+        Head2.render(scale);
+        Mouth2.render(scale);
+        Body.render(scale);
+        Shape2.render(scale);
+        Shape3.render(scale);
+        Shape4.render(scale);
+        Shape5.render(scale);
+        Shape6.render(scale);
+        Shape7.render(scale);
+        Shape8.render(scale);
+        Shape9.render(scale);
+        Shape10.render(scale);
+        Shape11.render(scale);
+        Shape12.render(scale);
+        Shape13.render(scale);
+        Shape14.render(scale);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {

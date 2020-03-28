@@ -1,14 +1,13 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
-import divinerpg.registry.ModItems;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBouncingProjectile extends Render<EntityBouncingProjectile> {
@@ -57,9 +56,10 @@ public class RenderBouncingProjectile extends Render<EntityBouncingProjectile> {
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
+    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/bouncing.png");
+
     @Override
     protected ResourceLocation getEntityTexture(EntityBouncingProjectile entity) {
-        return new ResourceLocation("divinerpg:textures/projectiles/bouncing.png");
+        return location;
     }
-
 }

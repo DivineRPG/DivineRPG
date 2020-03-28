@@ -4,10 +4,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 
+// TODO remove
+// What the hell is it ?!
+@Deprecated
 public class ClientTicker {
 
     public static int tick;
-    public static int        guiTick = 600;
+    public static int guiTick = 600;
+
     @SubscribeEvent
     public void tickClient(ClientTickEvent evt) {
         if (evt.phase == Phase.END) {

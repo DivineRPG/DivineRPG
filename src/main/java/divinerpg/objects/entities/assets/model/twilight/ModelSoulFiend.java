@@ -1,13 +1,11 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 
-public class ModelSoulFiend extends ModelBase
-{
+public class ModelSoulFiend extends ItemModel {
     ModelRenderer head;
     ModelRenderer body;
     ModelRenderer rightarmext;
@@ -255,44 +253,41 @@ public class ModelSoulFiend extends ModelBase
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5);
-        head.render(f5);
-        body.render(f5);
-        rightarmext.render(f5);
-        leftarmext.render(f5);
-        rightlegcap.render(f5);
-        leftlegcap.render(f5);
-        Shape1.render(f5);
-        Shape2.render(f5);
-        Shape3.render(f5);
-        Shape4.render(f5);
-        Shape5.render(f5);
-        Shape6.render(f5);
-        Shape7.render(f5);
-        Shape8.render(f5);
-        Shape9.render(f5);
-        Shape10.render(f5);
-        back.render(f5);
-        back2.render(f5);
-        back3.render(f5);
-        back4.render(f5);
-        leftleg.render(f5);
-        rightleg.render(f5);
-        leftarm.render(f5);
-        rightarm.render(f5);
-        leftfoot.render(f5);
-        rightfoot.render(f5);
-        back5.render(f5);
-        back6.render(f5);
-        back7.render(f5);
-        back8.render(f5);
-        back9.render(f5);
-        back10.render(f5);
-        back11.render(f5);
-        back12.render(f5);
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        head.render(scale);
+        body.render(scale);
+        rightarmext.render(scale);
+        leftarmext.render(scale);
+        rightlegcap.render(scale);
+        leftlegcap.render(scale);
+        Shape1.render(scale);
+        Shape2.render(scale);
+        Shape3.render(scale);
+        Shape4.render(scale);
+        Shape5.render(scale);
+        Shape6.render(scale);
+        Shape7.render(scale);
+        Shape8.render(scale);
+        Shape9.render(scale);
+        Shape10.render(scale);
+        back.render(scale);
+        back2.render(scale);
+        back3.render(scale);
+        back4.render(scale);
+        leftleg.render(scale);
+        rightleg.render(scale);
+        leftarm.render(scale);
+        rightarm.render(scale);
+        leftfoot.render(scale);
+        rightfoot.render(scale);
+        back5.render(scale);
+        back6.render(scale);
+        back7.render(scale);
+        back8.render(scale);
+        back9.render(scale);
+        back10.render(scale);
+        back11.render(scale);
+        back12.render(scale);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)
