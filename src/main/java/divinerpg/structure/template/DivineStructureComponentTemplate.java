@@ -122,5 +122,14 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
                 ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
             }
         }
+
+        //Wreck Hall data markers
+        if (function.equals("WreckHallLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
+            }
+        }
     }
 }

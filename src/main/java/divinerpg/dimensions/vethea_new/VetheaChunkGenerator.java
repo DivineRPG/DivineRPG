@@ -223,7 +223,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "WreckHall",
                         createForVethea(position, "wreckhall"),
                         surfaceLevel,
-                        30));
+                        10));
 
                 addFlowers(level, surfaceLevel, ModBlocks.shimmer, ModBlocks.shineGrass, ModBlocks.dreamglow);
                 break;
