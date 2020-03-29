@@ -1089,6 +1089,9 @@ item.golden_chestplate.name=Golden Chestplate
 item.golden_leggings.name=Golden Leggings
 item.golden_boots.name=Golden Boots
 item.frozen_charge.name=Frozen Charge
+item.realmite_shield.name=Realmite Shield
+item.rupee_shield.name=Rupee Shield
+item.arlemite_shield.name=Arlemite Shield
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
