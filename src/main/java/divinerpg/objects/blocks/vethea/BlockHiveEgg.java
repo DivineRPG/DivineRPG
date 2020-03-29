@@ -27,6 +27,7 @@ public class BlockHiveEgg extends Block {
 
     public BlockHiveEgg(String name) {
         super(Material.DRAGON_EGG, MapColor.BLACK);
+        this.setHardness(5.0F);
         this.setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
     }
@@ -45,6 +46,11 @@ public class BlockHiveEgg extends Block {
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         this.checkFall(worldIn, pos);
+    }
+
+    @Override
+    public int quantityDropped(Random random) {
+        return 0;
     }
 
     private void checkFall(World worldIn, BlockPos pos) {
