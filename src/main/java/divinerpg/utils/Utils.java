@@ -89,6 +89,12 @@ public class Utils {
     private static List<UUID> PATRON_LIST = new ArrayList<UUID>() {{
 
     }};
+    
+    private static List<UUID> ARTIST_LIST = new ArrayList<UUID>() {{
+    	add(UUID.fromString("071f1e56-0030-4c3a-bb68-be36f542903b")); // Linx145
+    	add(UUID.fromString("352a52e5-af4a-49f2-8a70-da790cd620b0")); // Dizzlepop12
+    	add(UUID.fromString("a857efaa-5a4a-480d-b64c-e5d9b7f11550")); // UKDeccy
+    }};
 
     public static boolean isDeveloperName(UUID name) {
         return DEV_LIST.contains(name);
@@ -100,6 +106,10 @@ public class Utils {
 
     public static boolean isPatreon(UUID name) {
         return PATRON_LIST.contains(name);
+    }
+    
+    public static boolean isArtist(UUID name) {
+        return ARTIST_LIST.contains(name);
     }
 
     /**
