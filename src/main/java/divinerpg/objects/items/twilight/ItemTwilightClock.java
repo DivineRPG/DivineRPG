@@ -3,6 +3,7 @@ package divinerpg.objects.items.twilight;
 import divinerpg.dimensions.vethea.layer2.HiveNest;
 import divinerpg.dimensions.vethea.layer3.KarosMadhouse;
 import divinerpg.dimensions.vethea.layer3.QuadroticPost;
+import divinerpg.dimensions.vethea.layer4.Evergarden;
 import divinerpg.dimensions.vethea.layer4.RaglokChamber;
 import divinerpg.dimensions.vethea.layer4.WreckHall;
 import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
@@ -36,7 +37,7 @@ public class ItemTwilightClock extends ItemMod {
             EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         //testing code until a structure gen command or something is implemented
-        new HiveNest().generate(worldIn, new Random(), pos);
+        new Evergarden().generate(worldIn, new Random(), pos);
 
         pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);
