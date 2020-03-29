@@ -27,9 +27,9 @@ public class EventClientLogin {
             if (Utils.isDeveloperName(player.getUniqueID())) {
                 Logging.message(player, TextFormatting.DARK_RED + MessageLocalizer.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
             } else if (Utils.isTesterName(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.BLUE + MessageLocalizer.normal("Welcome DivineRPG tester! " + player.getName() + " is on the DivineRPG tester team"));
+                Logging.message(player, TextFormatting.BLUE + MessageLocalizer.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
             } else if (Utils.isPatreon(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.YELLOW + MessageLocalizer.normal("Welcome DivineRPG patreon! " + player.getName() + " is on the DivineRPG supporter, thank you for your help!"));
+                Logging.message(player, TextFormatting.YELLOW + MessageLocalizer.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
             } else {
                 Logging.message(player, "Welcome " + player.getDisplayName().getFormattedText());
             }

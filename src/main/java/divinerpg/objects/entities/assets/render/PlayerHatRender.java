@@ -17,8 +17,7 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
     private RenderPlayer renderManager;
     private ResourceLocation dev = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_red.png");
     private ResourceLocation tester = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_blue.png");
-
-    // todo make texture
+    private ResourceLocation artist = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_purple.png");
     private ResourceLocation patreon = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_yellow.png");
 
     public PlayerHatRender(RenderPlayer renderManager) {
@@ -58,6 +57,10 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
 
             if (Utils.isTesterName(id)) {
                 return tester;
+            }
+            
+            if (Utils.isArtist(id)) {
+                return artist;
             }
         }
 
