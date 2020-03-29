@@ -63,7 +63,6 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
 
         // TODO check if we really need it!
 
-        System.out.println(function);
         //Crypt data markers
         if (function.equals("CryptLoot")) {
             BlockPos blockpos = pos.down();
@@ -103,6 +102,15 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             templeGuardian.enablePersistence();
             templeGuardian.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
             worldIn.spawnEntity(templeGuardian);
+        }
+
+        //Quadrotic Post data markers
+        if (function.equals("QuadroticPostLoot")) {
+            BlockPos blockpos = pos.down();
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+            if (tileentity instanceof TileEntityChest) {
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
+            }
         }
 
         //Karos Madhouse data markers

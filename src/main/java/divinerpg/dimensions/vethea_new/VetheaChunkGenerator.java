@@ -122,11 +122,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         switch (position) {
             case 0:
 
-                /*level.addStructure(new DivineLargeStructure(world,
+                level.addStructure(new DivineLargeStructure(world,
                         "Crypt1",
                         createForVethea(position, "crypt1"),
                         position * floorHeight + 10,
-                        10));*/
+                        10));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "Crypt2",
@@ -185,9 +185,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         surfaceLevel,
                         10));
 
-                level.addWorldGen(new WorldGenEnhanced(
-                        new TempleWorldGenerator(createForVethea(position, "quadroticpost"),
-                                true), 30, surfaceLevel));
+                level.addStructure(new DivineLargeStructure(world,
+                        "QuadroticPost",
+                        createForVethea(position, "quadroticpost"),
+                        surfaceLevel,
+                        10));
 
                 for (int i = 7; i <= 8; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
