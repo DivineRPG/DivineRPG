@@ -38,23 +38,25 @@ public class EntityHiveQueen extends EntityDivineRPGBoss {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        if (this.spawnTick % 40 == 0 && !this.world.isRemote && this.world.getClosestPlayerToEntity(this, 20) != null) {
-            if (this.rand.nextBoolean()) {
-                EntityHoverStinger var2 = new EntityHoverStinger(this.world);
-                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-                this.world.spawnEntity(var2);
-                this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-            } else {
-                EntityHiveSoldier var2 = new EntityHiveSoldier(this.world);
-                var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
-                this.world.spawnEntity(var2);
-                this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+        if(this.getHealth() > 0) {
+            if (this.spawnTick % 40 == 0 && !this.world.isRemote && this.world.getClosestPlayerToEntity(this, 20) != null) {
+                if (this.rand.nextBoolean()) {
+                    EntityHoverStinger var2 = new EntityHoverStinger(this.world);
+                    var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                    this.world.spawnEntity(var2);
+                    this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
+                } else {
+                    EntityHiveSoldier var2 = new EntityHiveSoldier(this.world);
+                    var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
+                    this.world.spawnEntity(var2);
+                    this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
 
+                }
+                spawnTick = 80;
             }
-            spawnTick = 80;
-        }
 
-        this.spawnTick--;
+            this.spawnTick--;
+        }
     }
 
     @Override

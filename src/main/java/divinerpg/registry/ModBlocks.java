@@ -971,6 +971,10 @@ public class ModBlocks {
     @ObjectHolder("infusion_table")
     public static final Block infusionTable = null;
 
+    // Hive egg
+    @ObjectHolder("hive_egg")
+    public static final Block hiveEgg = null;
+
     // Boss altars
     @ObjectHolder("karos_altar")
     public static final Block karosAltar = null;
@@ -1546,6 +1550,9 @@ public class ModBlocks {
 
         // Utility
         register(registry, new BlockInfusionTable("infusion_table").setCreativeTab(DivineRPGTabs.vethea));
+
+        // Hive egg
+        register(registry, new BlockHiveEgg("hive_egg").setCreativeTab(DivineRPGTabs.vethea));
 
         // Boss altars
         register(registry, new BlockKarosAltar("karos_altar").setCreativeTab(DivineRPGTabs.vethea));

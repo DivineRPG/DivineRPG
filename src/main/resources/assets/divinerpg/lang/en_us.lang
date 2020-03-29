@@ -183,6 +183,7 @@ tile.vermenous_spawner.name=Vermenous Spawner
 tile.twins_spawner.name=Twins Spawner
 tile.biphron_spawner.name=Biphron Spawner
 tile.gorgosion_spawner.name=Gorgosion Spawner
+tile.hive_egg.name=Hive Egg
 tile.wreck_altar.name=Wreck Altar
 tile.quadrotic_altar.name=Quadrotic Altar
 tile.karos_altar.name=Karos Altar
