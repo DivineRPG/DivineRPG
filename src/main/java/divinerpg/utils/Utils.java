@@ -1,6 +1,7 @@
 package divinerpg.utils;
 
 import divinerpg.registry.ModBlocks;
+import divinerpg.utils.Utils.DLThread;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
@@ -41,74 +42,37 @@ public class Utils {
             YELLOW = "\u00a7e";
     public static String WHITE = "\u00a7f";
 
-    private static List<UUID> DEV_LIST = new ArrayList<UUID>() {{
-        add(UUID.fromString("607043b2-830e-4d7c-a600-871754c01827")); //RadioactiveStud
-        add(UUID.fromString("a75f7026-aebd-4777-9cbb-de40516dca84")); //Eternaldoom1
-        add(UUID.fromString("989677b3-7af4-4b9a-9672-07b367677ecb")); //BossLetsPlays
-        add(UUID.fromString("010318ef-28fc-4c7c-8940-2f0d62eabfa6")); //Xolova
-        add(UUID.fromString("6e65f2ca-fd15-47c5-ab91-13dd2731d73f")); //sheenrox82
-        add(UUID.fromString("b9ee091b-c611-41ff-a52b-4020027e5cb6")); //The_SlayerMC
-        add(UUID.fromString("3a037d9d-0744-4452-aa80-f3c9ab17a1d2")); //insanity414all
-        add(UUID.fromString("de247846-69fb-4880-907b-a5e1f58267f3")); //deathman12e3
-        add(UUID.fromString("1586e8bd-e266-49d0-aa2a-f6aab3a8e90d")); //Fire_Sight
-        add(UUID.fromString("c657219e-36ba-495c-aff4-dad3c248f76c")); //Krwminer
-        add(UUID.fromString("17356bc2-89ad-484e-9f2a-8fdbdcf1f3cd")); //NicosaurusRex99
-        add(UUID.fromString("1e2326e7-a592-4e11-9b4c-d0c930deeca3")); //Wufflez
-        add(UUID.fromString("e11679a6-2269-46aa-a6fd-4e2aec9f3b96")); //Dash
-    }};
+    private static List<UUID> DEV_LIST = new ArrayList<UUID>();
+    private static List<UUID> TESTER_LIST = new ArrayList<UUID>();
+    private static List<UUID> PATRON_LIST = new ArrayList<UUID>();
+    private static List<UUID> ARTIST_LIST = new ArrayList<UUID>();
 
-    private static List<UUID> TESTER_LIST = new ArrayList<UUID>() {{
-        add(UUID.fromString("509f6794-ad97-4270-9627-ae85b03a0534")); //alexandru
-        add(UUID.fromString("2903ef30-1a71-40ff-87aa-dceee2b6f6d9")); //FireBitMC
-        add(UUID.fromString("ae8d12d9-391f-4b0c-9627-662b3e91b3c9")); //Locomen_
-        add(UUID.fromString("52b7a6ca-ec5f-406a-90cb-012dbb8dbc0d")); //69EHOTUK96
-        add(UUID.fromString("f4bcf30e-cc3a-48bc-82dc-d75798f1f844")); //rpgmaster99
-        add(UUID.fromString("74e117c8-7f46-4f39-a174-c86bafb6ad50")); //KIRYLL_Wexd1105
-        add(UUID.fromString("0d731c4e-7d1a-4072-8ef3-54cc6a524e47")); //PinkGoose_
-        add(UUID.fromString("f4bcf30e-cc3a-48bc-82dc-d75798f1f844")); //Cpfuzzyz
-        add(UUID.fromString("6280b6f6-eafe-4a38-9296-a05cace12c15")); //sikerow
-        add(UUID.fromString("5f7b78f0-e8e0-4ae3-a55c-2e8ddab3c51e")); //EliteXander2017
-        add(UUID.fromString("52dc9328-c685-4868-bc71-0f17b66c3ae0")); //Arob105
-        add(UUID.fromString("ac5a82b0-6ace-4649-ac54-ac66597127fc")); //Dinozver
-        add(UUID.fromString("4cf228db-7980-4543-ab01-4138ed5824c7")); //Lukifuge
-        add(UUID.fromString("c3c9543a-70a1-4b24-9c3c-7f6569b90437")); //TellNoLies
-        add(UUID.fromString("404b95bb-9fc1-4653-98b2-6be5ef77ede8")); //PeggyPenguin
-        add(UUID.fromString("48448fdb-18d4-4359-af91-eb529486f18c")); //Chelovechecheggg
-        add(UUID.fromString("940b96bb-1b57-40d1-9cbf-51e261e3b31d")); //SystemDysphoria
-        add(UUID.fromString("d6f20cb4-6a17-4ffc-b928-dc05c6d5c809")); //a09hopper
-        add(UUID.fromString("af0adaea-4a23-4b18-9237-fc7661e854a5")); //PeopleMcNugget
-        add(UUID.fromString("0c23ad99-41b5-420a-8503-9868cf174183")); //whitebeartigtig
-        add(UUID.fromString("417f6730-13ec-4ad0-83cf-abd6ef1ef9a9")); //MaxTalks
-        add(UUID.fromString("ebbfcae9-9181-46f7-9b0b-840b75b4919c")); //masterbobli
-        add(UUID.fromString("0c23ad99-41b5-420a-8503-9868cf174183")); //whitebear___
-        add(UUID.fromString("492875d9-06f7-4c3b-85f1-9e3a63f71128")); //FLAVSY9000
-        add(UUID.fromString("a9d16dd7-d917-48ac-9888-095eb30ab3af")); //Techno3712
-    }};
-
-    // Whats a pity, It's empty
-    private static List<UUID> PATRON_LIST = new ArrayList<UUID>() {{
-
-    }};
-    
-    private static List<UUID> ARTIST_LIST = new ArrayList<UUID>() {{
-    	add(UUID.fromString("071f1e56-0030-4c3a-bb68-be36f542903b")); // Linx145
-    	add(UUID.fromString("352a52e5-af4a-49f2-8a70-da790cd620b0")); // Dizzlepop12
-    	add(UUID.fromString("a857efaa-5a4a-480d-b64c-e5d9b7f11550")); // UKDeccy
-    }};
-
+	private static DLThread thread;
     public static boolean isDeveloperName(UUID name) {
+    	thread = new DLThread();
+		thread.setDaemon(true);
+		thread.start();
         return DEV_LIST.contains(name);
     }
 
     public static boolean isTesterName(UUID name) {
+    	thread = new DLThread();
+		thread.setDaemon(true);
+		thread.start();
         return TESTER_LIST.contains(name);
     }
 
     public static boolean isPatreon(UUID name) {
+    	thread = new DLThread();
+		thread.setDaemon(true);
+		thread.start();
         return PATRON_LIST.contains(name);
     }
     
     public static boolean isArtist(UUID name) {
+    	thread = new DLThread();
+		thread.setDaemon(true);
+		thread.start();
         return ARTIST_LIST.contains(name);
     }
 
@@ -187,4 +151,98 @@ public class Utils {
     public static ToolMaterial addHammerMaterial(float damage) {
         return EnumHelper.addToolMaterial("sword", 0, -1, 0, damage - 4, 22);
     }
+    
+    
+    public static class DLThread extends Thread {
+
+		private boolean finished = false;
+		private boolean failed = false;
+
+		public DLThread() {
+			super("DivineRPG DL Thread");
+		}
+
+		@Override
+		public void run() {
+			super.run();
+
+			try {
+				List<String> devEntries = new ArrayList<String>();
+				List<String> testEntries = new ArrayList<String>();
+				List<String> patreonEntries = new ArrayList<String>();
+				List<String> artEntries = new ArrayList<String>();
+				HttpURLConnection dev;
+				HttpURLConnection tester;
+				HttpURLConnection patreon;
+				HttpURLConnection art;
+				dev = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/dev_list.txt").openConnection();
+				tester = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/tester_list.txt").openConnection();
+				patreon = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/patron_list.txt").openConnection();
+				art = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/art_list.txt").openConnection();
+				dev.setConnectTimeout(1000);
+				tester.setConnectTimeout(1000);
+				patreon.setConnectTimeout(1000);
+				art.setConnectTimeout(1000);
+				InputStream inDev = dev.getInputStream();
+				InputStream inTest = tester.getInputStream();
+				InputStream inPatreon = patreon.getInputStream();
+				InputStream inArt = art.getInputStream();
+				devEntries = IOUtils.readLines(inDev, Charset.defaultCharset());
+				testEntries = IOUtils.readLines(inTest, Charset.defaultCharset());
+				patreonEntries = IOUtils.readLines(inPatreon, Charset.defaultCharset());
+				artEntries = IOUtils.readLines(inArt, Charset.defaultCharset());
+				if (!devEntries.isEmpty()) {
+					List<UUID> tmpEntries = new ArrayList<UUID>();
+					for (String str : devEntries) {
+						tmpEntries.add(UUID.fromString(str));
+					}
+					DEV_LIST = tmpEntries;
+				}else if (!testEntries.isEmpty()) {
+					List<UUID> tmpEntries = new ArrayList<UUID>();
+					for (String str : testEntries) {
+						tmpEntries.add(UUID.fromString(str));
+					}
+					TESTER_LIST = tmpEntries;
+				}else if (!patreonEntries.isEmpty()) {
+					List<UUID> tmpEntries = new ArrayList<UUID>();
+					for (String str : patreonEntries) {
+						tmpEntries.add(UUID.fromString(str));
+					}
+					PATRON_LIST = tmpEntries;
+				}else if (!artEntries.isEmpty()) {
+					List<UUID> tmpEntries = new ArrayList<UUID>();
+					for (String str : artEntries) {
+						tmpEntries.add(UUID.fromString(str));
+					}
+					ARTIST_LIST = tmpEntries;
+				}
+				inDev.close();
+				inTest.close();
+				inPatreon.close();
+				inArt.close();
+				dev.disconnect();
+				patreon.disconnect();
+				tester.disconnect();
+				art.disconnect();
+				finished = true;
+				failed = DEV_LIST.isEmpty();
+				failed = TESTER_LIST.isEmpty();
+				failed = PATRON_LIST.isEmpty();
+				failed = ARTIST_LIST.isEmpty();
+			}
+			catch (Exception e) {
+				failed = true;
+				e.printStackTrace();
+			}
+
+		}
+
+		public boolean isFinished() {
+			return finished;
+		}
+
+		public boolean isFailed() {
+			return failed;
+		}
+	}
 }
