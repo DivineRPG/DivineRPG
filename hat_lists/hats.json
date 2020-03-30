@@ -13,7 +13,7 @@
     { "17356bc2-89ad-484e-9f2a-8fdbdcf1f3cd" : "NicosaurusRex99"},
     { "1e2326e7-a592-4e11-9b4c-d0c930deeca3" : "Wufflez"},
     { "e11679a6-2269-46aa-a6fd-4e2aec9f3b96" : "Dash"}
-],
+  ],
 
   "tester" : [
     {"509f6794-ad97-4270-9627-ae85b03a0534": "alexandru"},
@@ -41,7 +41,7 @@
     {"0c23ad99-41b5-420a-8503-9868cf174183": "whitebear___"},
     {"492875d9-06f7-4c3b-85f1-9e3a63f71128": "FLAVSY9000"},
     {"a9d16dd7-d917-48ac-9888-095eb30ab3af": "Techno3712"}
-],
+  ],
 
   "patreon": [
 
@@ -51,5 +51,5 @@
     {"071f1e56-0030-4c3a-bb68-be36f542903b": "Linx145"},
     {"352a52e5-af4a-49f2-8a70-da790cd620b0": "Dizzlepop12"},
     {"a857efaa-5a4a-480d-b64c-e5d9b7f11550": "UKDeccy"}
-]
+  ]
 }
