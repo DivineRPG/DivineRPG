@@ -22,9 +22,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 public class Utils {
     public static int mobID = 500, projectileID = 0, entityListID = 2500;
@@ -99,10 +100,10 @@ public class Utils {
                     HatsInfo info = new Gson().fromJson(rawJson, HatsInfo.class);
                     if (info != null) {
 
-                        DEV_LIST.addAll(info.getDevs());
-                        TESTER_LIST.addAll(info.getTesters());
-                        PATRON_LIST.addAll(info.getPatreons());
-                        ARTIST_LIST.addAll(info.getArtists());
+                        DEV_LIST.addAll(info.dev);
+                        TESTER_LIST.addAll(info.tester);
+                        PATRON_LIST.addAll(info.patreon);
+                        ARTIST_LIST.addAll(info.artists);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -193,32 +194,9 @@ public class Utils {
     }
 
     public class HatsInfo {
-        public List<Map<UUID, String>> dev;
-        public List<Map<UUID, String>> tester;
-        public List<Map<UUID, String>> patreon;
-        public List<Map<UUID, String>> artists;
-
-        private Set<UUID> getSet(List<Map<UUID, String>> list) {
-            if (list == null || list.isEmpty())
-                return new HashSet<>();
-
-            return list.stream().map(Map::keySet).flatMap(Collection::stream).collect(Collectors.toSet());
-        }
-
-        public Set<UUID> getDevs() {
-            return getSet(dev);
-        }
-
-        public Set<UUID> getTesters() {
-            return getSet(tester);
-        }
-
-        public Set<UUID> getPatreons() {
-            return getSet(patreon);
-        }
-
-        public Set<UUID> getArtists() {
-            return getSet(artists);
-        }
+        public List<UUID> dev;
+        public List<UUID> tester;
+        public List<UUID> patreon;
+        public List<UUID> artists;
     }
 }
