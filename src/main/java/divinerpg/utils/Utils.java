@@ -175,10 +175,10 @@ public class Utils {
 				HttpURLConnection tester;
 				HttpURLConnection patreon;
 				HttpURLConnection art;
-				dev = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/dev_list.txt").openConnection();
-				tester = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/tester_list.txt").openConnection();
-				patreon = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/patron_list.txt").openConnection();
-				art = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/art_list.txt").openConnection();
+				dev = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/dev_list.txt").openConnection();
+				tester = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/tester_list.txt").openConnection();
+				patreon = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/patron_list.txt").openConnection();
+				art = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/art_list.txt").openConnection();
 				dev.setConnectTimeout(1000);
 				tester.setConnectTimeout(1000);
 				patreon.setConnectTimeout(1000);
@@ -195,26 +195,26 @@ public class Utils {
 					List<UUID> tmpEntries = new ArrayList<UUID>();
 					for (String str : devEntries) {
 						tmpEntries.add(UUID.fromString(str));
+						DEV_LIST = tmpEntries;
 					}
-					DEV_LIST = tmpEntries;
 				}else if (!testEntries.isEmpty()) {
 					List<UUID> tmpEntries = new ArrayList<UUID>();
 					for (String str : testEntries) {
 						tmpEntries.add(UUID.fromString(str));
+						TESTER_LIST = tmpEntries;
 					}
-					TESTER_LIST = tmpEntries;
 				}else if (!patreonEntries.isEmpty()) {
 					List<UUID> tmpEntries = new ArrayList<UUID>();
 					for (String str : patreonEntries) {
 						tmpEntries.add(UUID.fromString(str));
+						PATRON_LIST = tmpEntries;
 					}
-					PATRON_LIST = tmpEntries;
 				}else if (!artEntries.isEmpty()) {
 					List<UUID> tmpEntries = new ArrayList<UUID>();
 					for (String str : artEntries) {
 						tmpEntries.add(UUID.fromString(str));
+						ARTIST_LIST = tmpEntries;
 					}
-					ARTIST_LIST = tmpEntries;
 				}
 				inDev.close();
 				inTest.close();
