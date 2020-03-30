@@ -18,15 +18,36 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBlocks(MissingMappings<Block> event) {
         for(MissingMappings.Mapping<Block> mapping: event.getAllMappings()) {
-            if (mapping.key.equals(new ResourceLocation(Reference.MODID, "karos_cannon"))) {
-                mapping.remap(ModBlocks.karosDispenser);
+            ResourceLocation oldKey = mapping.key;
+            if (!oldKey.getResourceDomain().equals(Reference.MODID))
+                continue;
+
+            switch (oldKey.getResourcePath()) {
+                case "karos_cannon":
+                    mapping.remap(ModBlocks.karosDispenser);
+                    break;
+
+                case "ayeraco_statue":
+                    mapping.remap(ModBlocks.ayeracoBlueStatue);
+                    break;
             }
         }
     }
 
     @SubscribeEvent
     public static void handleMissingItems(MissingMappings<Item> event) {
-        //no important changed item IDs yet
+        for (MissingMappings.Mapping<Item> mapping : event.getAllMappings()) {
+            ResourceLocation oldKey = mapping.key;
+            if (!oldKey.getResourceDomain().equals(Reference.MODID))
+                continue;
+
+            switch (oldKey.getResourcePath()) {
+
+                case "ayeraco_statue":
+                    mapping.remap(Item.getItemFromBlock(ModBlocks.ayeracoBlueStatue));
+                    break;
+            }
+        }
     }
 
     @SubscribeEvent

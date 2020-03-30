@@ -39,7 +39,11 @@ public class ModModels {
 
         registerRenders(new RenderItemStatue(),
                 ModBlocks.ancientEntityStatue,
-                ModBlocks.ayeracoStatue,
+                ModBlocks.ayeracoRedStatue,
+                ModBlocks.ayeracoGreenStatue,
+                ModBlocks.ayeracoBlueStatue,
+                ModBlocks.ayeracoYellowStatue,
+                ModBlocks.ayeracoPurpleStatue,
                 ModBlocks.densosStatue,
                 ModBlocks.dramixStatue,
                 ModBlocks.eternalArcherStatue,

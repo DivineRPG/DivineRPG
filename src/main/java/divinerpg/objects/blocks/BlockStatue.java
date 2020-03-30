@@ -3,10 +3,8 @@ package divinerpg.objects.blocks;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.StatueType;
 import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -50,7 +48,7 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { FACING });
+        return new BlockStateContainer(this, FACING);
     }
 
     @Override
@@ -67,7 +65,7 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
     @Override
     @Deprecated
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-            float hitZ, int meta, EntityLivingBase placer) {
+                                            float hitZ, int meta, EntityLivingBase placer) {
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
@@ -90,7 +88,7 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
-            ItemStack stack) {
+                                ItemStack stack) {
         worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
@@ -137,20 +135,33 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        if (this == ModBlocks.theWatcherStatue) {
-            return WATCHER_AABB;
-        } else if (this == ModBlocks.ayeracoStatue) {
-            return AYERACO_AABB;
-        } else if (this == ModBlocks.twilightDemonStatue) {
-            return TWILIGHT_DEMON_AABB;
-        } else if (this == ModBlocks.vamacheronStatue) {
-            return VAMACHERON_AABB;
-        } else if (this == ModBlocks.parasectaStatue) {
-            return PARASECTA_AABB;
-        } else if (this == ModBlocks.soulFiendStatue) {
-            return SOUL_FIEND_AABB;
-        } else {
-            return FULL_BLOCK_AABB;
+
+        if (statueType != null) {
+            switch (this.statueType) {
+                case RED_AYERACO_STATUE:
+                case BLUE_AYERACO_STATUE:
+                case GREEN_AYERACO_STATUE:
+                case PURPLE_AYERACO_STATUE:
+                case YELLOW_AYERACO_STATUE:
+                    return AYERACO_AABB;
+
+                case THE_WATCHER_STATUE:
+                    return WATCHER_AABB;
+
+                case TWILIGHT_DEMON_STATUE:
+                    return TWILIGHT_DEMON_AABB;
+
+                case VAMACHERON_STATUE:
+                    return VAMACHERON_AABB;
+
+                case PARASECTA_STATUE:
+                    return PARASECTA_AABB;
+
+                case SOUL_FIEND_STATUE:
+                    return SOUL_FIEND_AABB;
+            }
         }
+
+        return FULL_BLOCK_AABB;
     }
 }

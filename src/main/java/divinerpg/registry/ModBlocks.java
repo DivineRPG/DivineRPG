@@ -307,8 +307,16 @@ public class ModBlocks {
     // Boss statues
     @ObjectHolder("ancient_entity_statue")
     public static final Block ancientEntityStatue = null;
-    @ObjectHolder("ayeraco_statue")
-    public static final Block ayeracoStatue = null;
+    @ObjectHolder("ayeraco_statue_blue")
+    public static final Block ayeracoBlueStatue = null;
+    @ObjectHolder("ayeraco_statue_red")
+    public static final Block ayeracoRedStatue = null;
+    @ObjectHolder("ayeraco_statue_green")
+    public static final Block ayeracoGreenStatue = null;
+    @ObjectHolder("ayeraco_statue_yellow")
+    public static final Block ayeracoYellowStatue = null;
+    @ObjectHolder("ayeraco_statue_purple")
+    public static final Block ayeracoPurpleStatue = null;
     @ObjectHolder("densos_statue")
     public static final Block densosStatue = null;
     @ObjectHolder("dramix_statue")
@@ -1172,7 +1180,13 @@ public class ModBlocks {
 
         // Boss statues
         register(registry, new BlockStatue("ancient_entity_statue", StatueType.ANCIENT_ENTITY_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue", StatueType.BLUE_AYERACO_STATUE));
+
+        register(registry, new BlockStatue("ayeraco_statue_blue", StatueType.BLUE_AYERACO_STATUE));
+        register(registry, new BlockStatue("ayeraco_statue_red", StatueType.RED_AYERACO_STATUE));
+        register(registry, new BlockStatue("ayeraco_statue_yellow", StatueType.YELLOW_AYERACO_STATUE));
+        register(registry, new BlockStatue("ayeraco_statue_green", StatueType.GREEN_AYERACO_STATUE));
+        register(registry, new BlockStatue("ayeraco_statue_purple", StatueType.PURPLE_AYERACO_STATUE));
+
         register(registry, new BlockStatue("densos_statue", StatueType.DENSOS_STATUE));
         register(registry, new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE));
         register(registry, new BlockStatue("eternal_archer_statue", StatueType.ETERNAL_ARCHER_STATUE));
