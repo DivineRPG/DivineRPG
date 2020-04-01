@@ -14,6 +14,7 @@ public class EntityMortumCadillion extends EntityDivineRPGMob {
     public EntityMortumCadillion(World worldIn) {
         super(worldIn);
         this.setSize(1.0F, 1.5F);
+        this.addAttackingAI();
         this.experienceValue = 40;
     }
 
