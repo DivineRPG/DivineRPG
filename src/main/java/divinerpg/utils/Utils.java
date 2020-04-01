@@ -1,7 +1,10 @@
 package divinerpg.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.Utils.DLThread;
+import io.netty.util.internal.ConcurrentSet;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
@@ -14,12 +17,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.commons.io.IOUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
@@ -42,64 +46,101 @@ public class Utils {
             YELLOW = "\u00a7e";
     public static String WHITE = "\u00a7f";
 
-    private static List<UUID> DEV_LIST = new ArrayList<UUID>();
-    private static List<UUID> TESTER_LIST = new ArrayList<UUID>();
-    private static List<UUID> PATRON_LIST = new ArrayList<UUID>();
-    private static List<UUID> ARTIST_LIST = new ArrayList<UUID>();
+    private static Set<UUID> DEV_LIST = new ConcurrentSet<>();
+    private static Set<UUID> TESTER_LIST = new ConcurrentSet<>();
+    private static Set<UUID> PATRON_LIST = new ConcurrentSet<>();
+    private static Set<UUID> ARTIST_LIST = new ConcurrentSet<>();
 
-	private static DLThread thread;
     public static boolean isDeveloperName(UUID name) {
-    	thread = new DLThread();
-		thread.setDaemon(true);
-		thread.start();
         return DEV_LIST.contains(name);
     }
 
     public static boolean isTesterName(UUID name) {
-    	thread = new DLThread();
-		thread.setDaemon(true);
-		thread.start();
         return TESTER_LIST.contains(name);
     }
 
     public static boolean isPatreon(UUID name) {
-    	thread = new DLThread();
-		thread.setDaemon(true);
-		thread.start();
         return PATRON_LIST.contains(name);
     }
-    
+
     public static boolean isArtist(UUID name) {
-    	thread = new DLThread();
-		thread.setDaemon(true);
-		thread.start();
         return ARTIST_LIST.contains(name);
     }
 
     /**
-     * Loads possible information from web if we really need it
+     * Loads hat information
      *
      * @return
      */
-    public static void loadHatInformation(String filePath) {
-        CompletableFuture<String> fileDownload = CompletableFuture.supplyAsync(() -> {
+    public static void loadHatInformation() {
+
+        CompletableFuture.supplyAsync(() -> {
+            String urlString = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/hats.json";
+
             try {
-                HttpURLConnection con = (HttpURLConnection) new URL(filePath).openConnection();
+                HttpURLConnection con = (HttpURLConnection) new URL(urlString).openConnection();
                 con.setConnectTimeout(1000);
                 InputStream in2 = con.getInputStream();
-                List<String> strings = IOUtils.readLines(in2, Charset.defaultCharset());
+                List<String> lines = IOUtils.readLines(in2, Charset.defaultCharset());
 
-                return String.join("\n", strings);
+                return String.join("\n", lines);
 
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
+                return "";
             }
-        });
+        }).thenApply(rawJson -> {
+            DEV_LIST.clear();
+            TESTER_LIST.clear();
+            PATRON_LIST.clear();
+            ARTIST_LIST.clear();
 
-        fileDownload.thenApply(text -> {
-            // parse your result
-            return true;
+            if (rawJson != null) {
+                try {
+                    HatsInfo info = new Gson().fromJson(rawJson, HatsInfo.class);
+                    if (info != null) {
+
+                        DEV_LIST.addAll(info.dev);
+                        TESTER_LIST.addAll(info.tester);
+                        PATRON_LIST.addAll(info.patreon);
+                        ARTIST_LIST.addAll(info.artists);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return rawJson;
+        });
+    }
+
+    /**
+     * Performs API request to detect UUID of nick
+     *
+     * @param nick
+     * @return
+     */
+    public static CompletableFuture<UUID> getLicenceId(String nick) {
+        return CompletableFuture.supplyAsync(() -> {
+            String url = "https://api.mojang.com/users/profiles/minecraft/" + nick;
+            UUID result = new UUID(0, 0);
+
+            try {
+                HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                connection.setRequestMethod("GET");
+                InputStream stream = connection.getInputStream();
+                String json = IOUtils.toString(stream, Charset.defaultCharset());
+                JsonObject object = new Gson().fromJson(json, JsonObject.class);
+
+                if (!object.has("error")) {
+                    result = UUIDTypeAdapter.fromString(object.get("id").getAsString());
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return result;
         });
     }
 
@@ -151,98 +192,11 @@ public class Utils {
     public static ToolMaterial addHammerMaterial(float damage) {
         return EnumHelper.addToolMaterial("sword", 0, -1, 0, damage - 4, 22);
     }
-    
-    
-    public static class DLThread extends Thread {
 
-		private boolean finished = false;
-		private boolean failed = false;
-
-		public DLThread() {
-			super("DivineRPG DL Thread");
-		}
-
-		@Override
-		public void run() {
-			super.run();
-
-			try {
-				List<String> devEntries = new ArrayList<String>();
-				List<String> testEntries = new ArrayList<String>();
-				List<String> patreonEntries = new ArrayList<String>();
-				List<String> artEntries = new ArrayList<String>();
-				HttpURLConnection dev;
-				HttpURLConnection tester;
-				HttpURLConnection patreon;
-				HttpURLConnection art;
-				dev = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/dev_list.txt").openConnection();
-				tester = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/tester_list.txt").openConnection();
-				patreon = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/patron_list.txt").openConnection();
-				art = (HttpURLConnection) new URL("https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/art_list.txt").openConnection();
-				dev.setConnectTimeout(1000);
-				tester.setConnectTimeout(1000);
-				patreon.setConnectTimeout(1000);
-				art.setConnectTimeout(1000);
-				InputStream inDev = dev.getInputStream();
-				InputStream inTest = tester.getInputStream();
-				InputStream inPatreon = patreon.getInputStream();
-				InputStream inArt = art.getInputStream();
-				devEntries = IOUtils.readLines(inDev, Charset.defaultCharset());
-				testEntries = IOUtils.readLines(inTest, Charset.defaultCharset());
-				patreonEntries = IOUtils.readLines(inPatreon, Charset.defaultCharset());
-				artEntries = IOUtils.readLines(inArt, Charset.defaultCharset());
-				if (!devEntries.isEmpty()) {
-					List<UUID> tmpEntries = new ArrayList<UUID>();
-					for (String str : devEntries) {
-						tmpEntries.add(UUID.fromString(str));
-						DEV_LIST = tmpEntries;
-					}
-				}else if (!testEntries.isEmpty()) {
-					List<UUID> tmpEntries = new ArrayList<UUID>();
-					for (String str : testEntries) {
-						tmpEntries.add(UUID.fromString(str));
-						TESTER_LIST = tmpEntries;
-					}
-				}else if (!patreonEntries.isEmpty()) {
-					List<UUID> tmpEntries = new ArrayList<UUID>();
-					for (String str : patreonEntries) {
-						tmpEntries.add(UUID.fromString(str));
-						PATRON_LIST = tmpEntries;
-					}
-				}else if (!artEntries.isEmpty()) {
-					List<UUID> tmpEntries = new ArrayList<UUID>();
-					for (String str : artEntries) {
-						tmpEntries.add(UUID.fromString(str));
-						ARTIST_LIST = tmpEntries;
-					}
-				}
-				inDev.close();
-				inTest.close();
-				inPatreon.close();
-				inArt.close();
-				dev.disconnect();
-				patreon.disconnect();
-				tester.disconnect();
-				art.disconnect();
-				finished = true;
-				failed = DEV_LIST.isEmpty();
-				failed = TESTER_LIST.isEmpty();
-				failed = PATRON_LIST.isEmpty();
-				failed = ARTIST_LIST.isEmpty();
-			}
-			catch (Exception e) {
-				failed = true;
-				e.printStackTrace();
-			}
-
-		}
-
-		public boolean isFinished() {
-			return finished;
-		}
-
-		public boolean isFailed() {
-			return failed;
-		}
-	}
+    public class HatsInfo {
+        public List<UUID> dev;
+        public List<UUID> tester;
+        public List<UUID> patreon;
+        public List<UUID> artists;
+    }
 }
