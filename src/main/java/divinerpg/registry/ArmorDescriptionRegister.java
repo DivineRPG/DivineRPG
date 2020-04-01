@@ -489,7 +489,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.7F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
+                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHood"))
         );
 
@@ -507,7 +507,7 @@ public class ArmorDescriptionRegister {
         );
 
         registry.register(
-                new ArmorDescription()
+                new ArmorDescription(stopSpeedUp)
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.glisteningMask)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.glisteningChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.glisteningLeggings)
@@ -525,7 +525,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
+                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHood"))
         );
         registry.register(
@@ -542,7 +542,7 @@ public class ArmorDescriptionRegister {
         );
 
         registry.register(
-                new ArmorDescription()
+                new ArmorDescription(stopSpeedUp)
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.demonizedMask)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.demonizedChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.demonizedLeggings)
@@ -560,7 +560,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.4, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance = -0.5F)
+                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHood"))
         );
 
@@ -578,7 +578,7 @@ public class ArmorDescriptionRegister {
         );
 
         registry.register(
-                new ArmorDescription()
+                new ArmorDescription(stopSpeedUp)
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.tormentedMask)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.tormentedChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.tormentedLeggings)
