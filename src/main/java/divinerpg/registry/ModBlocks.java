@@ -375,6 +375,8 @@ public class ModBlocks {
     public static final Block frozenPlanks = null;
     @ObjectHolder("frozen_stairs")
     public static final Block frozenStairs = null;
+    @ObjectHolder("frozen_sapling")
+    public static final Block frozenSapling = null;
 
     // Structure blocks
     @ObjectHolder("coalstone")
@@ -1221,6 +1223,8 @@ public class ModBlocks {
         Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F);
         register(registry, frozenPlanks);
         register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
+        //TODO - Convert iceika tree to something that works for saplings
+        register(registry, new BlockModSapling("frozen_sapling", () -> frozenGrass, () -> frozenDirt, null));
 
 
         // Structure blocks
