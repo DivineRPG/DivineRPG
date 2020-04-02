@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:netherite_minibricks"
+    "item": "divinerpg:netherite_minibricks",
+	"count": 8
   },
   "pattern": [
     "XXX",

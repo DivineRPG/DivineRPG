@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:redstone_bricks"
+    "item": "divinerpg:redstone_bricks",
+	"count": 4
   },
   "ingredients": [
     {

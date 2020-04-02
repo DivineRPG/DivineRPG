@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:iron_bricks"
+    "item": "divinerpg:iron_bricks",
+	"count": 4
   },
   "ingredients": [
     {

@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:green_bricks"
+    "item": "divinerpg:green_bricks",
+	"count": 4
   },
   "ingredients": [
     {

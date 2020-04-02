@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:lava_bricks"
+    "item": "divinerpg:lava_bricks",
+	"count": 4
   },
   "ingredients": [
     {

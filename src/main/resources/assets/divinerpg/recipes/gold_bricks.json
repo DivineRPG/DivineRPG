@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:gold_bricks"
+    "item": "divinerpg:gold_bricks",
+	"count": 4
   },
   "ingredients": [
     {

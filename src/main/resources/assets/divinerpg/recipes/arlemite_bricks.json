@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:arlemite_bricks"
+    "item": "divinerpg:arlemite_bricks",
+	"count": 4
   },
   "pattern": [
     "xyx",
