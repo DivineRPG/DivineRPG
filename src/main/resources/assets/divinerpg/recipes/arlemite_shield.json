@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_shield"
+  },
+  "pattern": [
+    "prp",
+    "pCp",
+    " r "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    "p": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "C": {
+      "item": "divinerpg:bloodgem"
+    }
+  }
+}
