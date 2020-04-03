@@ -1,5 +1,7 @@
 package divinerpg.api.armor.cap;
 
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Set;
@@ -39,4 +41,12 @@ public interface IArmorPowers {
      * @param id
      */
     void takeOff(ResourceLocation id);
+
+    /**
+     * Gets current items on player
+     *
+     * @param slot - equipment slot
+     * @return
+     */
+    Set<Item> currentItems(EntityEquipmentSlot slot);
 }

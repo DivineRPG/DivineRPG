@@ -2,10 +2,13 @@ package divinerpg.capabilities.armor;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
+import divinerpg.api.armor.IItemContainer;
 import divinerpg.api.armor.binded.IPlayerArmorDescription;
 import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.api.armor.registry.IArmorDescription;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -14,6 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -70,6 +74,23 @@ public class ArmorPowers implements IArmorPowers {
     @Override
     public void takeOff(ResourceLocation id) {
         changeWearStatus(id, false);
+    }
+
+    @Override
+    public Set<Item> currentItems(EntityEquipmentSlot slot) {
+        Set<Item> items = new HashSet<>();
+
+        if (player != null) {
+            Item item = player.getItemStackFromSlot(slot).getItem();
+
+            items.add(item);
+
+            if (item instanceof IItemContainer) {
+                items.addAll(((IItemContainer) item).getItems());
+            }
+        }
+
+        return items;
     }
 
     @Nullable

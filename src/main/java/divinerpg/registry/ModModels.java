@@ -56,8 +56,9 @@ public class ModModels {
                 ModBlocks.twilightDemonStatue,
                 ModBlocks.vamacheronStatue);
 
-        registerRenders(new ShieldsRender(), ModItems.realmite_shield);
-        registerRenders(new ShieldsRender(), ModItems.arlemite_shield);
+        registerRenders(new ShieldsRender(),
+                ModItems.realmite_shield,
+                ModItems.arlemite_shield);
     }
 
     private static void registerRenders(TileEntityItemStackRenderer teisr, Block... items) {

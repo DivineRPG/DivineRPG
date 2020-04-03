@@ -6,9 +6,11 @@ import divinerpg.utils.Lazy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.tileentity.TileEntityBanner;
-import net.minecraft.util.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemShield;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
@@ -17,6 +19,7 @@ import java.util.function.Supplier;
 
 public class DivineShield extends ItemShield {
     private Lazy<Item> repair;
+
     public DivineShield(String name, CreativeTabs tab, Supplier<Item> repairMaterial, int damage) {
         repair = new Lazy<>(repairMaterial);
         setCreativeTab(tab);
@@ -34,28 +37,22 @@ public class DivineShield extends ItemShield {
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
         return repair.getItem() == this.repair.getValue();
     }
-    
-    @Override
-    public String getItemStackDisplayName(ItemStack stack)
-    {
-            return I18n.translateToLocal(this.getUnlocalizedName()+".name");
-    }
-    
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-    {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        playerIn.setActiveHand(handIn);
-        if(this == ModItems.realmite_shield) {
-        	playerIn.fallDistance = 0;
-        }
-//      if(this == ModItems.arlemite_shield) {
-//    	Ranged damage protection boost
-//      }
-//      if(this == ModItems.rupee_shield) {
-//    	melee damage protection boost
-//      }
 
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return I18n.translateToLocal(this.getUnlocalizedName() + ".name");
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+
+        ActionResult<ItemStack> result = super.onItemRightClick(worldIn, playerIn, handIn);
+        Item item = result.getResult().getItem();
+
+        if (item == ModItems.realmite_shield) {
+            playerIn.fallDistance = 0;
+        }
+
+        return result;
     }
 }

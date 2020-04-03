@@ -2,8 +2,10 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.ArmorHandlers;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.Reference;
 import divinerpg.api.armor.IEquipped;
+import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.capabilities.armor.ArmorDescription;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
@@ -65,7 +67,18 @@ public class ArmorDescriptionRegister {
                                 ModItems.greenRupeeBoots,
                                 ModItems.redRupeeBoots,
                                 ModItems.yellowRupeeBoots)
-                        .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, ArmorHandlers::isMeeleeDamage, f -> f * 0.25F))
+                        .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, ArmorHandlers::isMeeleeDamage, f -> {
+                            float multiplier = 0.25F;
+//                            IArmorPowers powers = DivineAPI.getArmorPowers(e.getEntity());
+//
+//                            if (powers != null) {
+//                                if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ModItems.rupee_shield)){
+//                                    multiplier /= 2;
+//                                }
+//                            }
+
+                            return f * multiplier;
+                        }))
                         .setRegistryName(Reference.MODID, "rupee")
         );
 
@@ -194,16 +207,6 @@ public class ArmorDescriptionRegister {
         );
 
         registry.register(
-                new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.frozenHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.frozenChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.frozenLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.frozenBoots)
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.frozeNearMobs(event, 10, 6))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "frozen"))
-        );
-
-        registry.register(
                 new ArmorDescription(stopSpeedUp)
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.shadowHelmet)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.shadowChestplate)
@@ -221,7 +224,19 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.arlemiteLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.arlemiteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event,
-                                source -> source.isProjectile() || source.damageType.equals("thrown"), aFloat -> aFloat * 0.2f))
+                                source -> source.isProjectile() || source.damageType.equals("thrown"),
+                                aFloat -> {
+                                    float multiplier = 0.2F;
+
+                                    IArmorPowers powers = DivineAPI.getArmorPowers(event.getEntity());
+                                    if (powers != null) {
+                                        if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ModItems.arlemite_shield)) {
+                                            multiplier /= 2;
+                                        }
+                                    }
+
+                                    return aFloat * multiplier;
+                                }))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "arlemite"))
         );
 

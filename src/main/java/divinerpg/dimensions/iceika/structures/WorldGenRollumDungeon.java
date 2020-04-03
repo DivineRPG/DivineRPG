@@ -28,6 +28,7 @@ public class WorldGenRollumDungeon extends WorldGenerator {
     @Override
     public boolean generate(World w, Random rand, BlockPos pos) {
 
+        // todo too big
         int x = pos.getX() + 5, y = pos.getY(), z = pos.getZ() + 5;
         if (!locationIsValidSpawn(w, x, y, z)) return false;
         WorldGenAPI.addRectangle(6, 4, 5, w, x, y, z, ModBlocks.icyBricks);

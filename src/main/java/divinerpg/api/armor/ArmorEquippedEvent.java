@@ -1,5 +1,7 @@
 package divinerpg.api.armor;
 
+import divinerpg.api.DivineAPI;
+import divinerpg.api.armor.cap.IArmorPowers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -16,16 +18,13 @@ public class ArmorEquippedEvent extends Event {
     private final Map<EntityEquipmentSlot, Set<Item>> items = new LinkedHashMap<>();
 
     public ArmorEquippedEvent(EntityPlayer player) {
+        IArmorPowers powers = DivineAPI.getArmorPowers(player);
+
         for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
             HashSet<Item> slotItems = new HashSet<>();
-            Item item = player.getItemStackFromSlot(slot).getItem();
-            slotItems.add(item);
 
-            // WIP
-            // Can work with something absorbing items
-            // for example absorbing ring or super armor
-            if (item instanceof IItemContainer) {
-                slotItems.addAll(((IItemContainer) item).getItems());
+            if (powers != null) {
+                slotItems.addAll(powers.currentItems(slot));
             }
 
             items.put(slot, slotItems);
