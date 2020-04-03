@@ -5,9 +5,9 @@ import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
 import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
 import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
 import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -91,8 +91,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     /** Generates a structure between y=13 and y=56 */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
             int chance) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
+        int x = chunkX * 16 + 1;
+        int z = chunkZ * 16 + 1;
         int y = random.nextInt(43) + 13;
         BlockPos pos = new BlockPos(x, y, z);
         if (random.nextInt(chance) == 0) {
@@ -103,8 +103,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     /** Generates a structure only on the specified topblock */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
             int chance, Block topBlock) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
+        int x = chunkX * 16 + 1;
+        int z = chunkZ * 16 + 1;
         int y = calculateGenerationHeight(world, x, z, topBlock);
         BlockPos pos = new BlockPos(x, y, z);
         if (random.nextInt(chance) == 0) {
@@ -115,8 +115,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     /** Generates a structure with the specified blocks in a given area */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
             int chance, Block topBlock, int xCheckDist, int zCheckDist) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
+        int x = chunkX * 16 + 1;
+        int z = chunkZ * 16 + 1;
         int y = calculateGenerationHeight(world, x, z, topBlock);
         BlockPos pos = new BlockPos(x, y, z);
         if (random.nextInt(chance) == 0) {

@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -21,6 +22,10 @@ public class BiomeIceika extends Biome {
 
     private static BiomeProperties properties = new BiomeProperties("Iceika").setTemperature(0.0f).setRainfall(0.5f)
             .setSnowEnabled().setHeightVariation(0.5F);
+
+    WorldGenTallGrass tallGrass = new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
+    WorldGenerator genIceTree = new IceTreeGen(false, false);
+
 
     public BiomeIceika() {
         super(properties);
@@ -75,10 +80,9 @@ public class BiomeIceika extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-        WorldGenTallGrass tallGrass = new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
-        WorldGenIceTree genIceTree = new WorldGenIceTree();
 
         BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
+
         for (int i = 0; i < 40; i++) {
             int rx = pos.getX() + rand.nextInt(16) + 8;
             int ry = worldIn.getSeaLevel() + rand.nextInt(60);
@@ -96,7 +100,7 @@ public class BiomeIceika extends Biome {
     }
 
     protected void generateIceikaTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z,
-            double noiseVal) {
+                                         double noiseVal) {
         int seaLevel = worldIn.getSeaLevel();
         IBlockState topBlock = this.topBlock;
         IBlockState fillerBlock = this.fillerBlock;

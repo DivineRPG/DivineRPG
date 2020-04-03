@@ -3,6 +3,7 @@ package divinerpg.registry;
 import divinerpg.DivineRPG;
 import divinerpg.dimensions.apalachia.ApalachiaTree;
 import divinerpg.dimensions.eden.EdenTree;
+import divinerpg.dimensions.iceika.IceTreeGen;
 import divinerpg.dimensions.mortum.MortumTree;
 import divinerpg.dimensions.skythern.SkythernTree;
 import divinerpg.dimensions.wildwood.WildWoodTree;
@@ -1216,15 +1217,16 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("frozen_dirt", 2.5F, MapColor.WHITE_STAINED_HARDENED_CLAY));
-        register(registry, new BlockModGrass("frozen_grass", () -> frozenDirt,2.5F, MapColor.LIGHT_BLUE));
+        register(registry, new BlockModGrass("frozen_grass", () -> frozenDirt, 2.5F, MapColor.LIGHT_BLUE));
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
-        register(registry, new BlockModLeaves("brittle_leaves", 0.1F, MapColor.WHITE_STAINED_HARDENED_CLAY));
+        register(registry, new BlockModLeaves("brittle_leaves", 0.1F, () -> frozenSapling,
+                MapColor.WHITE_STAINED_HARDENED_CLAY, 10));
         Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F);
         register(registry, frozenPlanks);
         register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
         //TODO - Convert iceika tree to something that works for saplings
-        register(registry, new BlockModSapling("frozen_sapling", () -> frozenGrass, () -> frozenDirt, null));
+        register(registry, new BlockModSapling("frozen_sapling", () -> frozenGrass, () -> frozenDirt, new IceTreeGen(true, true)));
 
 
         // Structure blocks
