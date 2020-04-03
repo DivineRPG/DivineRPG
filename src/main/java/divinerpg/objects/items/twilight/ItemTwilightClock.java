@@ -37,7 +37,7 @@ public class ItemTwilightClock extends ItemMod {
             EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         //testing code until a structure gen command or something is implemented
-        new Evergarden().generate(worldIn, new Random(), pos);
+        new WorldGenVillageIsland().generate(worldIn, new Random(), pos);
 
         pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);

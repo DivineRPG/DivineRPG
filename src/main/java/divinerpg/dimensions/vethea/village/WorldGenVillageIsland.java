@@ -81,11 +81,11 @@ public class WorldGenVillageIsland extends WorldGenerator
 				else if (par2.nextInt(5) == 0 && j % 8 == 4)
 				{
 					int var1 = par2.nextInt(5);
-					int var2 = y + (int)(radius - i)/2 + 1;
-					while (!par1World.isAirBlock(new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))))))
+					int var2 = y + (int)(radius - i)/2 + 1 + 20;
+					/*while (!par1World.isAirBlock(new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2))))))
 					{
 						var2++;
-					}
+					}*/
 					if (var1 == 0)
 					{
 						lampsUp.get(par2.nextInt(4)).generate(par1World, par2, new BlockPos((int)Math.round(x + Math.sin(j) * (i - par2.nextInt(2))), var2, (int)Math.round(z + Math.cos(j) * (i - par2.nextInt(2)))));

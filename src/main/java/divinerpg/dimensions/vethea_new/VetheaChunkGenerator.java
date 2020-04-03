@@ -205,7 +205,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Evergarden",
                         createForVethea(position, "evergarden"),
                         surfaceLevel,
-                        30));
+                        10));
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree1",
                         createForVethea(position, "layer4tree1"),
