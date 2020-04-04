@@ -6,6 +6,7 @@ import divinerpg.dimensions.vethea.layer3.QuadroticPost;
 import divinerpg.dimensions.vethea.layer4.Evergarden;
 import divinerpg.dimensions.vethea.layer4.RaglokChamber;
 import divinerpg.dimensions.vethea.layer4.WreckHall;
+import divinerpg.dimensions.vethea.village.*;
 import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
@@ -37,7 +38,14 @@ public class ItemTwilightClock extends ItemMod {
             EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         //testing code until a structure gen command or something is implemented
-        new WorldGenVillageIsland().generate(worldIn, new Random(), pos);
+        new HouseDown1().generate(worldIn, new Random(), pos);
+        new HouseDown2().generate(worldIn, new Random(), pos.add(24, 0, 0));
+        new HouseDown3().generate(worldIn, new Random(), pos.add(48, 0, 0));
+        new HouseUp1().generate(worldIn, new Random(), pos.add(0, 0, 24));
+        new HouseUp2().generate(worldIn, new Random(), pos.add(24, 0, 24));
+        new HouseUp3().generate(worldIn, new Random(), pos.add(48, 0, 24));
+        new HouseUp4().generate(worldIn, new Random(), pos.add(72, 0, 24));
+        new HouseUp5().generate(worldIn, new Random(), pos.add(96, 0, 24));
 
         pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);
