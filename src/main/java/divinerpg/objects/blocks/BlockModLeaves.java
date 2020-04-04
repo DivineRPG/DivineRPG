@@ -36,7 +36,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
     private int[][][] surroundings;
 
     public BlockModLeaves(String name, float hardness, @Nonnull MapColor mapColorIn) {
-        this(name, hardness, null, mapColorIn);
+        this(name, hardness, () -> null, mapColorIn);
 
     }
 
