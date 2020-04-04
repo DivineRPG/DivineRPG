@@ -126,13 +126,31 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Crypt1",
                         createForVethea(position, "crypt1"),
                         position * floorHeight + 10,
-                        10));
+                        20));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "Crypt2",
                         createForVethea(position, "crypt2"),
                         position * floorHeight + 12,
-                        10));
+                        20));
+
+                level.addStructure(new DivineLargeStructure(world,
+                        "HungerHouse1",
+                        createForVethea(position, "hungerhouse1"),
+                        surfaceLevel + 8,
+                        16));
+
+                level.addStructure(new DivineLargeStructure(world,
+                        "HungerHouse2",
+                        createForVethea(position, "hungerhouse2"),
+                        surfaceLevel + 6,
+                        16));
+
+                level.addStructure(new DivineLargeStructure(world,
+                        "HungerHouse3",
+                        createForVethea(position, "hungerhouse3"),
+                        surfaceLevel + 8,
+                        16));
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(

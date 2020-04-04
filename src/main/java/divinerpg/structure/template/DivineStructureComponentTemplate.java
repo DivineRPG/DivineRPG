@@ -2,6 +2,7 @@ package divinerpg.structure.template;
 
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
+import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -62,6 +63,14 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
 
         // TODO check if we really need it!
+
+        //Hunger House data markers
+         if (function.equals("TheHunger")) {
+            EntityTheHunger theHunger = new EntityTheHunger(worldIn);
+            theHunger.enablePersistence();
+            theHunger.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
+            worldIn.spawnEntity(theHunger);
+        }
 
         //Crypt data markers
         if (function.equals("CryptLoot")) {
