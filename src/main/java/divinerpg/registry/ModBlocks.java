@@ -907,6 +907,10 @@ public class ModBlocks {
     @ObjectHolder("smooth_glass")
     public static final Block smoothGlass = null;
 
+    // Door
+    @ObjectHolder("barred_door")
+    public static final Block barredDoor = null;
+
     // Lighting
     @ObjectHolder("fire_crystal")
     public static final Block fireCrystal = null;
@@ -1522,6 +1526,9 @@ public class ModBlocks {
         register(registry, new BlockMod("light_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("red_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea));
+
+        // Door
+        register(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
 
         // Lighting
         register(registry, new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
