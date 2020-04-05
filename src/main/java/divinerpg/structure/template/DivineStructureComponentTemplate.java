@@ -118,7 +118,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.QUADROTIC_POST_LOOT, rand.nextLong());
             }
         }
 
@@ -145,7 +145,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.WRECK_HALL_LOOT, rand.nextLong());
             }
         }
     }

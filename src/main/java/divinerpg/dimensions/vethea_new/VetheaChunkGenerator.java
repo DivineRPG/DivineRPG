@@ -138,19 +138,19 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "HungerHouse1",
                         createForVethea(position, "hungerhouse1"),
                         surfaceLevel + 8,
-                        16));
+                        18));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse2",
                         createForVethea(position, "hungerhouse2"),
                         surfaceLevel + 6,
-                        16));
+                        18));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse3",
                         createForVethea(position, "hungerhouse3"),
                         surfaceLevel + 8,
-                        16));
+                        18));
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -201,13 +201,13 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Karosmadhouse",
                         createForVethea(position, "karosmadhouse"),
                         surfaceLevel,
-                        10));
+                        25));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "QuadroticPost",
                         createForVethea(position, "quadroticpost"),
                         surfaceLevel,
-                        10));
+                        25));
 
                 for (int i = 7; i <= 8; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -223,7 +223,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Evergarden",
                         createForVethea(position, "evergarden"),
                         surfaceLevel,
-                        10));
+                        25));
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree1",
                         createForVethea(position, "layer4tree1"),
@@ -238,12 +238,12 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "RaglokChamber",
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
-                        10));
+                        25));
                 level.addStructure(new DivineLargeStructure(world,
                         "WreckHall",
                         createForVethea(position, "wreckhall"),
                         surfaceLevel,
-                        10));
+                        25));
 
                 addFlowers(level, surfaceLevel, ModBlocks.shimmer, ModBlocks.shineGrass, ModBlocks.dreamglow);
                 break;
