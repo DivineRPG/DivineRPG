@@ -55,7 +55,7 @@ public class BiomeMortum extends TwilightBiomeBase {
         generate(worldIn, rand, chunk.x, chunk.z, 100, 13, 80 + 13,
                 brush);
 
-        generate(worldIn, rand, chunk.x, chunk.z, 2, 55, 55 + 20,
+        generate(worldIn, rand, chunk.x, chunk.z, 5, 55, 55 + 20,
                 genTree);
 
         generate(worldIn, rand, chunk.x, chunk.z, 1, 55, 55 + 20,

@@ -1,7 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import com.google.common.base.Predicate;
-
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
@@ -18,8 +16,15 @@ import net.minecraft.world.World;
 
 public class EntityMage extends EntityDivineRPGMob {
 
+    private final BulletType bullet;
+
     public EntityMage(World worldIn) {
-        super(worldIn);
+        this(worldIn, BulletType.MAGE_SHOT);
+    }
+
+    public EntityMage(World world, BulletType bullet) {
+        super(world);
+        this.bullet = bullet;
         this.setSize(0.5F, 2.2F);
     }
 
@@ -39,7 +44,7 @@ public class EntityMage extends EntityDivineRPGMob {
     protected void initEntityAI() {
         super.initEntityAI();
         this.targetTasks.addTask(2,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
     }
 
     @Override
@@ -56,10 +61,10 @@ public class EntityMage extends EntityDivineRPGMob {
                 double tx = this.attackingPlayer.posX - this.posX;
                 double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
                 double tz = this.attackingPlayer.posZ - this.posZ;
-                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.MAGE_SHOT);
+                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, bullet);
                 shot.shoot(tx, ty, tz, 1.6f, 0);
                 this.world.spawnEntity(shot);
-                this.world.playSound((EntityPlayer) null, this.attackingPlayer.posX, this.attackingPlayer.posY,
+                this.world.playSound(null, this.attackingPlayer.posX, this.attackingPlayer.posY,
                         this.attackingPlayer.posZ, ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }
         }

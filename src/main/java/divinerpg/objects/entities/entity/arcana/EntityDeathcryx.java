@@ -8,6 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -16,10 +17,13 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityDeathcryx extends EntityDivineRPGMob {
+    protected Potion potionEffect;
 
     public EntityDeathcryx(World world) {
         super(world);
         this.setSize(1.0F, 1.2F);
+
+        potionEffect = MobEffects.SLOWNESS;
     }
 
     @Override
@@ -38,6 +42,7 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(160.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6.0D);
     }
 
     @Override
@@ -76,7 +81,7 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
         if (entity instanceof EntityLivingBase) {
             damage += EnchantmentHelper.getEfficiencyModifier((EntityLivingBase) entity);
             knockback += EnchantmentHelper.getKnockbackModifier((EntityLivingBase) entity);
-            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 16 * 20, 2));
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(potionEffect, 16 * 20, 2));
         }
 
         boolean attacked = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);

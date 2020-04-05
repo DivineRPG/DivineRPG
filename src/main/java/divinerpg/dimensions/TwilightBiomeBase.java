@@ -53,6 +53,8 @@ public class TwilightBiomeBase extends Biome {
 
     protected void generate(World world, Random random, int chunkX, int chunkZ, int tries, int minY, int maxY,
                             WorldGenerator... generators) {
+        random = world.setRandomSeed(chunkX, chunkZ, 10387313);
+
         if (generators != null && generators.length > 0) {
             int height = getHeightOrThrow(minY, maxY);
 

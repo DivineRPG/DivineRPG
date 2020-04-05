@@ -1,6 +1,7 @@
 package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.TwilightBiomeBase;
+import divinerpg.dimensions.TwilightTree;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
@@ -19,7 +20,10 @@ public class BiomeApalachia extends TwilightBiomeBase {
     public BiomeApalachia() {
         super(new BiomeProperties("Apalachia"), "apalachia");
 
-        genTree = new ApalachiaTree(false, 5);
+        genTree = new TwilightTree(false, 5,
+                () -> ModBlocks.apalachiaLog.getDefaultState(),
+                () -> ModBlocks.apalachiaLeaves.getDefaultState(),
+                () -> ModBlocks.apalachiaSapling);
         genLargeTree = new ApalachiaTreeLarge(true, 5);
         genLakes = new WorldGenLakes(Blocks.WATER);
         blossom = new WorldGenTwilightDoublePlants(ModBlocks.duskFlower,

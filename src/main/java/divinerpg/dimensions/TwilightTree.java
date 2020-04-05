@@ -1,31 +1,37 @@
-package divinerpg.dimensions.apalachia;
+package divinerpg.dimensions;
 
-import java.util.Random;
-
-import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.registry.ModBlocks;
+import divinerpg.utils.Lazy;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.LazyLoadBase;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class ApalachiaTree extends WorldGenAbstractTree {
+import java.util.Random;
+import java.util.function.Supplier;
+
+public class TwilightTree extends WorldGenAbstractTree {
+    private final LazyLoadBase<IBlockState> log;
+    private final LazyLoadBase<IBlockState> leaves;
+    private final LazyLoadBase<Block> sapling;
+
     private int minTreeHeight;
     private boolean isSapling;
 
-    public ApalachiaTree(boolean notify) {
-        this(notify, 5);
-    }
-
-    public ApalachiaTree(boolean notify, int minTreeHeightIn) {
+    public TwilightTree(boolean notify, int minTreeHeightIn, Supplier<IBlockState> log, Supplier<IBlockState> leaves, Supplier<Block> sapling) {
         super(notify);
         this.isSapling = notify;
         this.minTreeHeight = minTreeHeightIn;
+
+        this.log = new Lazy<>(log);
+        this.leaves = new Lazy<>(leaves);
+        this.sapling = new Lazy<>(sapling);
     }
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        boolean isSoil = ((BlockModSapling) ModBlocks.apalachiaSapling).canPlaceBlockAt(worldIn, position);
+        boolean isSoil = sapling.getValue().canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;
         int treeTopPos = position.getY() + treeHeight;
 
@@ -59,8 +65,8 @@ public class ApalachiaTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.apalachiaLog.getDefaultState();
-        IBlockState leaves = ModBlocks.apalachiaLeaves.getDefaultState();
+        IBlockState log = this.log.getValue();
+        IBlockState leaves = this.leaves.getValue();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;

@@ -1,6 +1,7 @@
 package divinerpg.dimensions.skythern;
 
 import divinerpg.dimensions.TwilightBiomeBase;
+import divinerpg.dimensions.TwilightTree;
 import divinerpg.dimensions.WorldGenPlants;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.registry.ModBlocks;
@@ -15,7 +16,10 @@ public class BiomeSkythern extends TwilightBiomeBase {
     public BiomeSkythern() {
         super(new BiomeProperties("Skythern"), "skythern");
 
-        this.genTree = new SkythernTree(false, 5);
+        this.genTree = new TwilightTree(false, 5,
+                () -> ModBlocks.skythernLog.getDefaultState(),
+                () -> ModBlocks.skythernLeaves.getDefaultState(),
+                () -> ModBlocks.skythernSapling);
         this.genLargeTree = new SkythernTreeLarge(true, 5);
         this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         this.brush = new WorldGenPlants(ModBlocks.skythernBrush, ModBlocks.skythernGrass);
