@@ -36,15 +36,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
 
     public VetheaChunkGenerator(World world) {
         this.world = world;
-        int height = world.getHeight();
 
-        int index = 0;
-
-        for (int i = 0; i < height; i += floorHeight) {
-            VetheaLevelGenerators level = new VetheaLevelGenerators(i, roofHeight);
-            customize(level, index);
+        for (int i = 0; i < 4; i++) {
+            VetheaLevelGenerators level = new VetheaLevelGenerators(floorHeight * i, roofHeight);
+            customize(level, i);
             levels.add(level);
-            index++;
         }
     }
 
@@ -88,9 +84,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         // ************************************************************************************
 
         //
-        // Pillar
+        // Pillar (does not generate on the top layer)
         //
-        level.addWorldGen(new WorldGenEnhanced(new WorldGenVetheanPillarNew(floorHeight - roofHeight), 24, surfaceLevel));
+        if(position < 3) {
+            level.addWorldGen(new WorldGenEnhanced(new WorldGenVetheanPillarNew(floorHeight - roofHeight), 24, surfaceLevel));
+        }
 
         //
         // Infusion
