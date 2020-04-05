@@ -1,50 +1,57 @@
-package divinerpg.dimensions.eden;
+package divinerpg.dimensions;
 
-import java.util.Random;
-
-import divinerpg.registry.ModBlocks;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
+import java.util.Random;
+
 /**
  * Created by LiteWolf101 on 10/8/2018.
  */
-public class LargeEdenTree extends WorldGenAbstractTree {
-    private int minTrunkHeight = 3;
-    protected IBlockState log = ModBlocks.edenLog.getDefaultState();
-    protected IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
+public class LargeTwilightTree extends WorldGenAbstractTree {
+    protected int minTrunkHeight;
+    protected IBlockState log;
+    protected IBlockState leaves;
+    protected Block grass;
 
-    public LargeEdenTree(boolean notify, int minTrunkHeight, IBlockState log, IBlockState leaves) {
+    public LargeTwilightTree(boolean notify,
+                             int minTrunkHeight,
+                             IBlockState log,
+                             IBlockState leaves,
+                             Block grass) {
         super(notify);
         this.minTrunkHeight = minTrunkHeight;
         this.log = log;
         this.leaves = leaves;
+        this.grass = grass;
     }
 
     @Override
     public boolean generate(World world, Random random, BlockPos blockPos) {
         int trunkHeight = random.nextInt(4) + minTrunkHeight;
         int treeHeight = 10 + trunkHeight;
-        Material materialBelow = world.getBlockState(blockPos.down()).getMaterial();
 
         //return false if these conditions are met
-        if (blockPos.getY() < 1 || blockPos.getY() + treeHeight + 1 > 256 || world.getBlockState(blockPos.down()).getBlock() != ModBlocks.edenGrass || blockPos.getY() >= 256 - treeHeight - 1) {
+        if (blockPos.getY() < 1 || blockPos.getY() + treeHeight + 1 > 256 || world.getBlockState(blockPos.down()).getBlock() != grass || blockPos.getY() >= 256 - treeHeight - 1) {
             return false;
         }
         for (int x = -5; x <= 5; x++) {
             for (int z = -5; z <= 5; z++) {
                 for (int y = trunkHeight; y <= treeHeight; y++) {
-                    if (world.getBlockState(new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z)).getBlock() != Blocks.AIR) {
+                    if (!world.isAirBlock(new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z))) {
                         return false;
                     }
                 }
             }
         }
 
+        return generateTree(world, blockPos, treeHeight, trunkHeight);
+    }
+
+    protected boolean generateTree(World world, BlockPos blockPos, int treeHeight, int trunkHeight) {
         //Build-a-trees!
         //We generate leaves first so that they can appropriately be replaced by logs
         buildLeaves1(world, blockPos, trunkHeight + 2);
@@ -217,11 +224,8 @@ public class LargeEdenTree extends WorldGenAbstractTree {
         }
     }
 
+    @Deprecated
     private int setTreeHeight(World world, BlockPos pos, int treeHeight) {
         return treeHeight;
-    }
-
-    public int getTreeHeight(World world, BlockPos pos, int treeHeight) {
-        return this.setTreeHeight(world, pos, treeHeight);
     }
 }

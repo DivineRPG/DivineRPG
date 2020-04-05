@@ -24,6 +24,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
+// todo fix movement
 public class EntityFractite extends EntityDivineRPGFlying {
 
     public int courseChangeCooldown = 0;
@@ -127,7 +128,7 @@ public class EntityFractite extends EntityDivineRPGFlying {
 
                 if (this.attackCounter == 20) {
                     if (!this.world.isRemote) {
-                        this.world.playSound((EntityPlayer) null, this.targetedEntity.posX, this.targetedEntity.posY,
+                        this.world.playSound(null, this.targetedEntity.posX, this.targetedEntity.posY,
                                 this.targetedEntity.posZ, ModSounds.FRACTITE_ATTACK, SoundCategory.HOSTILE, 1.0F, 1.0F);
                     }
                     EntityFractiteShot shot = new EntityFractiteShot(this.world, this, var11, var13, var15);
@@ -190,9 +191,9 @@ public class EntityFractite extends EntityDivineRPGFlying {
 
                     this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
-                    this.motionX *= (double) f6;
-                    this.motionY *= (double) f6;
-                    this.motionZ *= (double) f6;
+                    this.motionX *= f6;
+                    this.motionY *= f6;
+                    this.motionZ *= f6;
                 } else {
                     this.moveRelative(strafe, vertical, forward, 0.02F);
                     this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);

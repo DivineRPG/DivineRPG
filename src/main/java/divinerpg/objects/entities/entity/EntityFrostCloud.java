@@ -1,24 +1,9 @@
 package divinerpg.objects.entities.entity;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Maps;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
-import divinerpg.objects.entities.entity.iceika.EntityFractite;
-import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
-import divinerpg.objects.entities.entity.iceika.EntityFrosty;
-import divinerpg.objects.entities.entity.iceika.EntityGlacide;
-import divinerpg.objects.entities.entity.iceika.EntityHastreus;
-import divinerpg.objects.entities.entity.iceika.EntityRollum;
+import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.vanilla.EntityFrost;
 import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
 import net.minecraft.block.material.EnumPushReaction;
@@ -35,8 +20,17 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.UUID;
+
+@Deprecated
+// todo replace by EntityAreaEffectCloud
 public class EntityFrostCloud extends Entity {
-    private static final DataParameter<Float> RADIUS = EntityDataManager.<Float>createKey(EntityFrostCloud.class,
+    private static final DataParameter<Float> RADIUS = EntityDataManager.createKey(EntityFrostCloud.class,
             DataSerializers.FLOAT);
     private final Map<Entity, Integer> reapplicationDelayMap;
     private int duration;
@@ -48,7 +42,7 @@ public class EntityFrostCloud extends Entity {
 
     public EntityFrostCloud(World worldIn) {
         super(worldIn);
-        this.reapplicationDelayMap = Maps.<Entity, Integer>newHashMap();
+        this.reapplicationDelayMap = Maps.newHashMap();
         this.duration = 600;
         this.reapplicationDelay = 10;
         this.noClip = true;
@@ -144,7 +138,7 @@ public class EntityFrostCloud extends Entity {
                     }
                 }
 
-                List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class,
+                List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class,
                         this.getEntityBoundingBox());
 
                 if (!list.isEmpty()) {

@@ -1,25 +1,27 @@
-package divinerpg.objects.entities.entity.twilight;
-
-import com.google.common.base.Predicate;
+package divinerpg.objects.entities.entity.twilight.mage;
 
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntitySpellbinder extends EntityDivineRPGMob {
+public abstract class EntityMageBase extends EntityDivineRPGMob {
+    private final BulletType bullet;
 
-    public EntitySpellbinder(World worldIn) {
-        super(worldIn);
+    private EntityMageBase(World worldIn) {
+        this(worldIn, BulletType.MAGE_SHOT);
+    }
+
+    protected EntityMageBase(World world, BulletType bullet) {
+        super(world);
+        this.bullet = bullet;
         this.setSize(0.5F, 2.2F);
     }
 
@@ -31,15 +33,15 @@ public class EntitySpellbinder extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(95);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(90);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
     }
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
         this.targetTasks.addTask(2,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
     }
 
     @Override
@@ -56,10 +58,10 @@ public class EntitySpellbinder extends EntityDivineRPGMob {
                 double tx = this.attackingPlayer.posX - this.posX;
                 double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
                 double tz = this.attackingPlayer.posZ - this.posZ;
-                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SPELLBINDER_SHOT);
+                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, bullet);
                 shot.shoot(tx, ty, tz, 1.6f, 0);
                 this.world.spawnEntity(shot);
-                this.world.playSound((EntityPlayer) null, this.attackingPlayer.posX, this.attackingPlayer.posY,
+                this.world.playSound(null, this.attackingPlayer.posX, this.attackingPlayer.posY,
                         this.attackingPlayer.posZ, ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }
         }
@@ -73,10 +75,5 @@ public class EntitySpellbinder extends EntityDivineRPGMob {
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return ModSounds.INSECT;
-    }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SPELLBINDER;
     }
 }

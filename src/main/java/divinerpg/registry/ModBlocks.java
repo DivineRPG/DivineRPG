@@ -1,11 +1,10 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.dimensions.apalachia.ApalachiaTree;
+import divinerpg.dimensions.TwilightTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.iceika.IceTreeGen;
 import divinerpg.dimensions.mortum.MortumTree;
-import divinerpg.dimensions.skythern.SkythernTree;
 import divinerpg.dimensions.wildwood.WildWoodTree;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.ParticleType;
@@ -1303,8 +1302,19 @@ public class ModBlocks {
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
         register(registry, new BlockModSapling("wildwood_sapling", () -> wildwoodGrass, () -> wildwoodDirt, new WildWoodTree(true)));
-        register(registry, new BlockModSapling("apalachia_sapling", () -> apalachiaGrass, () -> apalachiaDirt, new ApalachiaTree(true)));
-        register(registry, new BlockModSapling("skythern_sapling", () -> skythernGrass, () -> skythernDirt, new SkythernTree(true)));
+        register(registry, new BlockModSapling("apalachia_sapling", () -> apalachiaGrass, () -> apalachiaDirt,
+                new TwilightTree(true,
+                        5,
+                        () -> ModBlocks.apalachiaLog.getDefaultState(),
+                        () -> ModBlocks.apalachiaLeaves.getDefaultState(),
+                        () -> ModBlocks.apalachiaSapling)
+        ));
+        register(registry, new BlockModSapling("skythern_sapling", () -> skythernGrass, () -> skythernDirt,
+                new TwilightTree(true,
+                        5,
+                        () -> ModBlocks.skythernLog.getDefaultState(),
+                        () -> ModBlocks.skythernLeaves.getDefaultState(),
+                        () -> ModBlocks.skythernSapling)));
         register(registry, new BlockModSapling("mortum_sapling", () -> mortumGrass, () -> mortumDirt, new MortumTree(true)));
 
         // Logs

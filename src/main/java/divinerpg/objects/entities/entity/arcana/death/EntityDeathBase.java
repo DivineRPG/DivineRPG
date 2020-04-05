@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.arcana;
+package divinerpg.objects.entities.entity.arcana.death;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
@@ -8,6 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -15,11 +16,17 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityDeathcryx extends EntityDivineRPGMob {
+public abstract class EntityDeathBase extends EntityDivineRPGMob {
+    private final Potion potionEffect;
 
-    public EntityDeathcryx(World world) {
+    private EntityDeathBase(World w) {
+        this(w, MobEffects.SLOWNESS);
+    }
+
+    protected EntityDeathBase(World world, Potion potionEffect) {
         super(world);
         this.setSize(1.0F, 1.2F);
+        this.potionEffect = potionEffect;
     }
 
     @Override
@@ -38,6 +45,7 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(160.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6.0D);
     }
 
     @Override
@@ -76,7 +84,7 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
         if (entity instanceof EntityLivingBase) {
             damage += EnchantmentHelper.getEfficiencyModifier((EntityLivingBase) entity);
             knockback += EnchantmentHelper.getKnockbackModifier((EntityLivingBase) entity);
-            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 16 * 20, 2));
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(potionEffect, 16 * 20, 2));
         }
 
         boolean attacked = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
@@ -106,6 +114,4 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
     public boolean getCanSpawnHere() {
         return this.posY < 40.0D && super.getCanSpawnHere();
     }
-
-
 }

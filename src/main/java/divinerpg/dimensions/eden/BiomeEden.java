@@ -1,5 +1,6 @@
 package divinerpg.dimensions.eden;
 
+import divinerpg.dimensions.LargeTwilightTree;
 import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.registry.ModBlocks;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
@@ -16,8 +17,10 @@ public class BiomeEden extends TwilightBiomeBase {
         super(new BiomeProperties("eden"), "eden");
 
         this.genTree = new EdenTree(false, 3);
-        this.genLargeTree = new LargeEdenTree(false, 7, ModBlocks.edenLog.getDefaultState(),
-                ModBlocks.edenLeaves.getDefaultState());
+        this.genLargeTree = new LargeTwilightTree(false, 7,
+                ModBlocks.edenLog.getDefaultState(),
+                ModBlocks.edenLeaves.getDefaultState(),
+                ModBlocks.edenGrass);
         this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
         this.genLakes = new WorldGenLakes(Blocks.WATER);
         this.brush = new WorldGenTwilightSinglePlants(ModBlocks.edenBrush, ModBlocks.edenGrass);

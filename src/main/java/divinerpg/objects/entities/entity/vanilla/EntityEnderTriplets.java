@@ -16,6 +16,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
+// todo fix movement
 public class EntityEnderTriplets extends EntityDivineRPGFlying {
 
     public int courseChangeCooldown;
@@ -87,7 +88,7 @@ public class EntityEnderTriplets extends EntityDivineRPGFlying {
 
         if (this.courseChangeCooldown-- <= 0) {
             this.courseChangeCooldown += this.rand.nextInt(5) + 2;
-            d3 = (double) MathHelper.sqrt(d3);
+            d3 = MathHelper.sqrt(d3);
 
             if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
                 this.motionX += d0 / d3 * 0.1D;

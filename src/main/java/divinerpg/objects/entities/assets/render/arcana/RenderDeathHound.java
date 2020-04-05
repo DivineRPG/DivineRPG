@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.arcana;
 
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.arcana.ModelDeathHound;
-import divinerpg.objects.entities.entity.arcana.EntityDeathHound;
+import divinerpg.objects.entities.entity.arcana.death.EntityDeathHound;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

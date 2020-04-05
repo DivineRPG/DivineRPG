@@ -1,14 +1,11 @@
-package divinerpg.objects.entities.entity.twilight;
+package divinerpg.objects.entities.entity.twilight.cories;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -17,19 +14,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityAdvancedCori extends EntityDivineRPGFlying {
-
+public class EntityCoriBase extends EntityDivineRPGFlying {
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
     public double waypointZ;
-    private Entity targetedEntity = null;
-    private int aggroCooldown = 0;
     public int prevAttackCounter = 0;
     public int attackCounter = 0;
+    private Entity targetedEntity = null;
+    private int aggroCooldown = 0;
     private BlockPos currentFlightTarget;
 
-    public EntityAdvancedCori(World worldIn) {
+    public EntityCoriBase(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.5F);
     }
@@ -39,11 +35,13 @@ public class EntityAdvancedCori extends EntityDivineRPGFlying {
         return 0.8F;
     }
 
-
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(30);
     }
 
     @Override
@@ -58,7 +56,7 @@ public class EntityAdvancedCori extends EntityDivineRPGFlying {
         double var1 = this.waypointX - this.posX;
         double var3 = this.waypointY - this.posY;
         double var5 = this.waypointZ - this.posZ;
-        double var7 = (double) MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
+        double var7 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
 
         if (var7 < 1.0D || var7 > 60.0D) {
             this.waypointX = this.posX + (double) ((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
@@ -104,9 +102,9 @@ public class EntityAdvancedCori extends EntityDivineRPGFlying {
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20) {
-                    this.world.playSound((EntityPlayer) null, this.targetedEntity.posX, this.targetedEntity.posY,
+                    this.world.playSound(null, this.targetedEntity.posX, this.targetedEntity.posY,
                             this.targetedEntity.posZ, ModSounds.CORI_SHOOT, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                    EntityCoriShot shot = new EntityCoriShot(this.world, this, 100);
+                    EntityCoriShot shot = new EntityCoriShot(this.world, this, (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
                     shot.shoot(tx, ty, tz, 1.6f, 4);
                     if (!this.world.isRemote) {
                         this.world.spawnEntity(shot);
@@ -162,8 +160,5 @@ public class EntityAdvancedCori extends EntityDivineRPGFlying {
         return ModSounds.CORI_HURT;
     }
 
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ADVANCED_CORI;
-    }
+
 }
