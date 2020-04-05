@@ -12,7 +12,6 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class EntityTermid extends EntityDivineRPGMob {
-	//TODO - polish loot table
 	public EntityTermid(World par1World) {
 		super(par1World);
 		this.setSize(0.4F, 1.2F);

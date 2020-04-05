@@ -1229,7 +1229,6 @@ public class ModBlocks {
         Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozen_planks", 2.0F);
         register(registry, frozenPlanks);
         register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
-        //TODO - Convert iceika tree to something that works for saplings
         register(registry, new BlockModSapling("frozen_sapling", () -> frozenGrass, () -> frozenDirt, new IceTreeGen(true, true)));
 
 

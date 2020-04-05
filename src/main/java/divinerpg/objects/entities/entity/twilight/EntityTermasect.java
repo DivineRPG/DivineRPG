@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
 public class EntityTermasect extends EntityDivineRPGBoss {
-	//TODO - Make throw logs at player/polish loot table/add spawn method/spawn termid minions
+	//TODO - Make throw logs at player/polish loot table/add spawn method
 	public EntityTermasect(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);
