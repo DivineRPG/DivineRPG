@@ -7,8 +7,10 @@ import divinerpg.registry.ModBlocks;
 import divinerpg.structure.legacy.DrpgLegacyStructure;
 import divinerpg.structure.template.DivineLargeStructure;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -274,9 +276,17 @@ public class VetheaChunkGenerator implements IChunkGenerator {
     }
 
     @Override
-    public void populate(int x, int z) {
-        Random random = world.setRandomSeed(x, z, 10387313);
-        levels.forEach(level -> level.populate(world, random, x, z));
+    public void populate(int chunkX, int chunkZ) {
+        Random random = world.setRandomSeed(chunkX, chunkZ, 10387313);
+        levels.forEach(level -> level.populate(world, random, chunkX, chunkZ));
+
+        // Decorator code
+        int x = chunkX * 16 + 1;
+        int z = chunkZ * 16 + 1;
+        BlockPos pos = new BlockPos(x, 0, z);
+        Biome biome = this.world.getBiome(pos);
+        biome.decorate(this.world, random, pos);
+
     }
 
     @Override
