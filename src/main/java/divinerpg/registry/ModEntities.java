@@ -66,11 +66,13 @@ public class ModEntities {
                 buildEntityEntry(EntityAridWarrior.class, "arid_warrior", OVERWORLD),
                 buildEntityEntry(EntityCaveCrawler.class, "cave_crawler", OVERWORLD),
                 buildEntityEntry(EntityCaveclops.class, "caveclops", OVERWORLD),
-                buildEntityEntry(EntityCrab.class, "crab", OVERWORLD), buildEntityEntry(EntityCyclops.class, "cyclops", OVERWORLD),
+                buildEntityEntry(EntityCrab.class, "crab", OVERWORLD),
+                buildEntityEntry(EntityCyclops.class, "cyclops", OVERWORLD),
                 buildEntityEntry(EntityDesertCrawler.class, "desert_crawler", OVERWORLD),
                 buildEntityEntry(EntityEhu.class, "ehu", OVERWORLD),
                 buildEntityEntry(EntityEnthralledDramcryx.class, "enthralled_dramcryx", OVERWORLD),
-                buildEntityEntry(EntityFrost.class, "frost", OVERWORLD), buildEntityEntry(EntityGlacon.class, "glacon", OVERWORLD),
+                buildEntityEntry(EntityFrost.class, "frost", OVERWORLD),
+                buildEntityEntry(EntityGlacon.class, "glacon", OVERWORLD),
                 buildEntityEntry(EntityBrownGrizzle.class, "brown_grizzle", OVERWORLD),
                 buildEntityEntry(EntityWhiteGrizzle.class, "white_grizzle", OVERWORLD),
                 buildEntityEntry(EntityHusk.class, "husk", OVERWORLD),
@@ -110,8 +112,10 @@ public class ModEntities {
                 buildEntityEntry(EntityAlicanto.class, "alicanto", ICEIKA),
                 buildEntityEntry(EntityFractite.class, "fractite", ICEIKA),
                 buildEntityEntry(EntityFrostArcher.class, "frost_archer", ICEIKA),
-                buildEntityEntry(EntityFrosty.class, "frosty", ICEIKA), buildEntityEntry(EntityGlacide.class, "glacide", ICEIKA),
-                buildEntityEntry(EntityHastreus.class, "hastreus", ICEIKA), buildEntityEntry(EntityRollum.class, "rollum", ICEIKA),
+                buildEntityEntry(EntityFrosty.class, "frosty", ICEIKA),
+                buildEntityEntry(EntityGlacide.class, "glacide", ICEIKA),
+                buildEntityEntry(EntityHastreus.class, "hastreus", ICEIKA),
+                buildEntityEntry(EntityRollum.class, "rollum", ICEIKA),
                 buildEntityEntry(EntityWorkshopMerchant.class, "workshop_merchant", ICEIKA),
                 buildEntityEntry(EntityWorkshopTinkerer.class, "workshop_tinkerer", ICEIKA),
 
@@ -119,14 +123,17 @@ public class ModEntities {
                 buildEntityEntry(EntityBunny.class, "bunny", EDEN),
                 buildEntityEntry(EntityEdenCadillion.class, "eden_cadillion", EDEN),
                 buildEntityEntry(EntityEdenTomo.class, "eden_tomo", EDEN),
-                buildEntityEntry(EntityGreenfeet.class, "greenfeet", EDEN), buildEntityEntry(EntityMadivel.class, "madivel", EDEN),
+                buildEntityEntry(EntityGreenfeet.class, "greenfeet", EDEN),
+                buildEntityEntry(EntityMadivel.class, "madivel", EDEN),
                 buildEntityEntry(EntitySunArcher.class, "sun_archer", EDEN),
                 buildEntityEntry(EntityWeakCori.class, "weak_cori", EDEN),
 
                 // Wildwood
                 buildEntityEntry(EntityBehemoth.class, "behemoth", WILDWOOD),
-                buildEntityEntry(EntityEpiphite.class, "epiphite", WILDWOOD), buildEntityEntry(EntityMage.class, "mage", WILDWOOD),
+                buildEntityEntry(EntityEpiphite.class, "epiphite", WILDWOOD),
+                buildEntityEntry(EntityMage.class, "mage", WILDWOOD),
                 buildEntityEntry(EntityMoonWolf.class, "moon_wolf", WILDWOOD),
+                buildEntityEntry(EntityTermid.class, "termid", WILDWOOD),
                 buildEntityEntry(EntityVerek.class, "verek", WILDWOOD),
                 buildEntityEntry(EntityWildwoodCadillion.class, "wildwood_cadillion", WILDWOOD),
                 buildEntityEntry(EntityWildwoodGolem.class, "wildwood_golem", WILDWOOD),
@@ -143,7 +150,8 @@ public class ModEntities {
                 // Skythern
                 buildEntityEntry(EntityAdvancedCori.class, "advanced_cori", SKYTHERN),
                 buildEntityEntry(EntityMegalith.class, "megalith", SKYTHERN),
-                buildEntityEntry(EntityMystic.class, "mystic", SKYTHERN), buildEntityEntry(EntitySamek.class, "samek", SKYTHERN),
+                buildEntityEntry(EntityMystic.class, "mystic", SKYTHERN),
+                buildEntityEntry(EntitySamek.class, "samek", SKYTHERN),
                 buildEntityEntry(EntitySkythernArcher.class, "skythern_archer", SKYTHERN),
                 buildEntityEntry(EntitySkythernFiend.class, "skythern_fiend", SKYTHERN),
                 buildEntityEntry(EntitySkythernGolem.class, "skythern_golem", SKYTHERN),
@@ -166,15 +174,18 @@ public class ModEntities {
                 buildEntityEntry(EntityDungeonConstructor.class, "dungeon_constructor", ARCANA),
                 buildEntityEntry(EntityDungeonDemon.class, "dungeon_demon", ARCANA),
                 buildEntityEntry(EntityDungeonPrisoner.class, "dungeon_prisoner", ARCANA),
-                buildEntityEntry(EntityFyracryx.class, "fyracryx", ARCANA), buildEntityEntry(EntityLeorna.class, "leorna", ARCANA),
+                buildEntityEntry(EntityFyracryx.class, "fyracryx", ARCANA),
+                buildEntityEntry(EntityLeorna.class, "leorna", ARCANA),
                 buildEntityEntry(EntityLivingStatue.class, "living_statue", ARCANA),
                 buildEntityEntry(EntityParatiku.class, "paratiku", ARCANA),
                 buildEntityEntry(EntityRazorback.class, "razorback", ARCANA),
                 buildEntityEntry(EntityGolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
-                buildEntityEntry(EntityRoamer.class, "roamer", ARCANA), buildEntityEntry(EntitySeimer.class, "seimer", ARCANA),
+                buildEntityEntry(EntityRoamer.class, "roamer", ARCANA),
+                buildEntityEntry(EntitySeimer.class, "seimer", ARCANA),
                 buildEntityEntry(EntityLordVatticus.class, "lord_vatticus", ARCANA),
                 buildEntityEntry(EntityWarGeneral.class, "war_general", ARCANA),
-                buildEntityEntry(EntityWraith.class, "wraith", ARCANA), buildEntityEntry(EntityZelus.class, "zelus", ARCANA),
+                buildEntityEntry(EntityWraith.class, "wraith", ARCANA),
+                buildEntityEntry(EntityZelus.class, "zelus", ARCANA),
 
                 // Vethea
                 buildEntityEntry(EntityAcidHag.class, "acid_hag", VETHEA),
@@ -219,7 +230,8 @@ public class ModEntities {
                 buildEntityEntry(EntityAyeracoPurple.class, "ayeraco_purple", BOSS),
                 buildEntityEntry(EntityAyeracoRed.class, "ayeraco_red", BOSS),
                 buildEntityEntry(EntityAyeracoYellow.class, "ayeraco_yellow", BOSS),
-                buildEntityEntry(EntityDensos.class, "densos", BOSS), buildEntityEntry(EntityDramix.class, "dramix", BOSS),
+                buildEntityEntry(EntityDensos.class, "densos", BOSS),
+                buildEntityEntry(EntityDramix.class, "dramix", BOSS),
                 buildEntityEntry(EntityEternalArcher.class, "eternal_archer", BOSS),
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(EntityKarot.class, "karot", BOSS),
@@ -229,7 +241,10 @@ public class ModEntities {
                 buildEntityEntry(EntityParasecta.class, "parasecta", BOSS),
                 buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
                 buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
-                buildEntityEntry(EntityReyvor.class, "reyvor", BOSS), buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
+                buildEntityEntry(EntityReyvor.class, "reyvor", BOSS),
+                buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
+                buildEntityEntry(EntitySunstorm.class, "sunstorm", BOSS),
+                buildEntityEntry(EntityTermasect.class, "termasect", BOSS),
                 buildEntityEntry(EntityTheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(EntityTwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(EntityVamacheron.class, "vamacheron", BOSS),
@@ -271,7 +286,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityGrenade.class, "grenade"),
                 buildProjectileEntry(EntityAttractor.class, "attractor"),
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
-                buildProjectileEntry(EntityMeteor.class, "meteor"), buildProjectileEntry(EntityStar.class, "star"),
+                buildProjectileEntry(EntityMeteor.class, "meteor"),
+                buildProjectileEntry(EntityStar.class, "star"),
                 buildProjectileEntry(EntityLamona.class, "lamona"),
                 buildProjectileEntry(EntityFirefly.class, "firefly"),
                 buildProjectileEntry(EntityReflector.class, "reflector"),
@@ -443,6 +459,9 @@ public class ModEntities {
         registerRender(EntitySoulStealer.class, RenderSoulStealer::new);
         registerRender(EntitySpellbinder.class, RenderSpellbinder::new);
         registerRender(EntitySunArcher.class, RenderSunArcher::new);
+        registerRender(EntitySunstorm.class, RenderSunstorm::new);
+        registerRender(EntityTermasect.class, RenderTermasect::new);
+        registerRender(EntityTermid.class, RenderTermid::new);
         registerRender(EntityTwilightArcher.class, RenderTwilightArcher::new);
         registerRender(EntityTwilightDemon.class, RenderTwilightDemon::new);
         registerRender(EntityVamacheron.class, RenderVamacheron::new);

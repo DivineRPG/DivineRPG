@@ -54,7 +54,9 @@ public enum BulletType {
     TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(0, 0, 0)),
     TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(255, 0, 0)),
     SOUL_FIEND_SHOT(0, ProjectileLoc("blank")),
-
+    SUNSTORM(12, ProjectileLoc("blank"), new Color(255, 235, 0)),
+    
+    
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
     AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),
     DARVEN_CANNON_SHOT(8, ProjectileLoc("cannon")),
