@@ -1553,3 +1553,5 @@ tooltip.white_grizzle_egg=Spawns a pet White Grizzle
 tooltip.brown_grizzle_egg=Spawns a pet Brown Grizzle
 tooltip.uses.single=Single Use
 tooltip.frozencharge=Blasts open blocked doors in the Dungeon of Arcana
+
+enchantment.world_break=World Break
