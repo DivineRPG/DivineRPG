@@ -1550,6 +1550,10 @@ public class ModItems {
     @ObjectHolder("nightmare_bed")
     public static final Item nightmareBed = null;
 
+    // Vethea door
+    @ObjectHolder("barred_door")
+    public static final Item barredDoor = null;
+
     // Vethea miscellaneous
     @ObjectHolder("acid")
     public static final Item acid = null;
@@ -2491,6 +2495,9 @@ public class ModItems {
 
         // Vethea portal item
         register(registry, new ItemNightmareBed());
+
+        // Vethea door
+        register(registry, new ItemModDoor(ModBlocks.barredDoor, "barred_door"));
 
         // Vethea miscellaneous
         register(registry, new ItemVethean("acid"));
