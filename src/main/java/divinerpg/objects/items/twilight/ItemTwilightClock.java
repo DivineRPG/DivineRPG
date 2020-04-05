@@ -37,16 +37,6 @@ public class ItemTwilightClock extends ItemMod {
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        //testing code until a structure gen command or something is implemented
-        new HouseDown1().generate(worldIn, new Random(), pos);
-        new HouseDown2().generate(worldIn, new Random(), pos.add(24, 0, 0));
-        new HouseDown3().generate(worldIn, new Random(), pos.add(48, 0, 0));
-        new HouseUp1().generate(worldIn, new Random(), pos.add(0, 0, 24));
-        new HouseUp2().generate(worldIn, new Random(), pos.add(24, 0, 24));
-        new HouseUp3().generate(worldIn, new Random(), pos.add(48, 0, 24));
-        new HouseUp4().generate(worldIn, new Random(), pos.add(72, 0, 24));
-        new HouseUp5().generate(worldIn, new Random(), pos.add(96, 0, 24));
-
         pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);
         if (!player.canPlayerEdit(pos, facing, itemstack)) {
