@@ -33,17 +33,9 @@ public class ItemModFood extends ItemFood {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-		list.add("Fills " + (double) getHealAmount(item) / 2 + " Hunger Bars");
-		list.add(getSaturationModifier(item) + " Saturation");
+		list.add("Fills " + (double) getHealAmount(item) + " Hunger Points");
+		list.add(getHealAmount(item) * getSaturationModifier(item) * 2.0F + " Saturation");
 		list.add(!isWolfsFavoriteMeat() ? ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " false"
 		        : ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " true");
-	}
-
-	@Override
-	public ItemStack onItemUseFinish(ItemStack item, World world, EntityLivingBase entityLiving) {
-		super.onItemUseFinish(item, world, entityLiving);
-		if (entityLiving instanceof EntityPlayer && item.getItem() == ModItems.chickenDinner) {
-		}
-		return item;
 	}
 }

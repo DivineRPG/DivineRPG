@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class ItemEggNog extends ItemModFood {
 
     public ItemEggNog(String name) {
-        super(4, 5.0F, false, name);
+        super(4, 1.5F, false, name);
         this.setMaxStackSize(1);
     }
 

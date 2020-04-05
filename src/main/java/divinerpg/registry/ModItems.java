@@ -2040,25 +2040,25 @@ public class ModItems {
         /*************************/
 
         // Foods
-        register(registry, new ItemModFood(10, 10.0F, "advanced_mushroom_stew"));
-        register(registry, new ItemModFood(2, 3.0F, true, "bacon"));
+        register(registry, new ItemModFood(10, 0.5F, "advanced_mushroom_stew"));
+        register(registry, new ItemModFood(2, 2.0F, true, "bacon"));
         register(registry, new ItemModFood(4, 0.5F, "boiled_egg"));
         register(registry, new ItemModFood(2, 0.2F,  "cheese"));
-        register(registry, new ItemModFood(20, 20.0F,  "chicken_dinner"));
+        register(registry, new ItemModFood(20, 0.5F,  "chicken_dinner"));
         register(registry, new ItemModFood(4, 1.0F,  "chocolate_log"));
         register(registry, new ItemModFood(16, 0.3F, "donut"));
         register(registry, new ItemEggNog("egg_nog"));
-        register(registry, new ItemModFood(5, 2.0F, true, "raw_empowered_meat"));
-        register(registry, new ItemModFood(10, 4.0F, true, "empowered_meat"));
-        register(registry, new ItemFastFood(7, 2.5F, true, "enriched_magic_meat"));
+        register(registry, new ItemModFood(5, 1.0F, true, "raw_empowered_meat"));
+        register(registry, new ItemModFood(10, 1.0F, true, "empowered_meat"));
+        register(registry, new ItemFastFood(7, 1.0F, true, "enriched_magic_meat"));
         register(registry, new ItemForbiddenFruit());
-        register(registry, new ItemModFood(16, 2.0F, "fruit_cake"));
-        register(registry, new ItemModFood(5, 7.0F, true, "hot_pumpkin_pie"));
+        register(registry, new ItemModFood(16, 0.2F, "fruit_cake"));
+        register(registry, new ItemModFood(5, 0.4F, true, "hot_pumpkin_pie"));
         register(registry, new ItemFastFood(5, 1.0F, true, "magic_meat"));
-        register(registry, new ItemFastFood(1, 5, false, "moonbulb"));
+        register(registry, new ItemFastFood(1, 2.0F, false, "moonbulb"));
         register(registry, new ItemModFood(1, 0.3F,  "peppermints"));
-        register(registry, new ItemFastFood(3, 5, false, "pink_glowbone"));
-        register(registry, new ItemFastFood(3, 5, false, "purple_glowbone"));
+        register(registry, new ItemFastFood(3, 2.0F, false, "pink_glowbone"));
+        register(registry, new ItemFastFood(3, 2.0F, false, "purple_glowbone"));
         register(registry, new ItemSkyFlower("sky_flower"));
         register(registry, new ItemModFood(2, 0.3F, "snow_cones"));
         register(registry, new ItemModFood(4, 0.3F,  "tomato"));
