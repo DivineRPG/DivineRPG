@@ -6,7 +6,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 
 public class PositionHelper {
-    public static RayTraceResult rayTrace(EntityPlayer player, int blockReachDistance, int partialTicks){
+    public static RayTraceResult rayTrace(EntityPlayer player, double blockReachDistance, int partialTicks) {
         Vec3d vec3d = player.getPositionEyes(partialTicks);
         Vec3d vec3d1 = player.getLook(partialTicks);
         Vec3d vec3d2 = vec3d.addVector(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
