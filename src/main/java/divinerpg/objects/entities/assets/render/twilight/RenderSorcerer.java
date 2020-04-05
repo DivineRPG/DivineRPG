@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelSorcerer;
-import divinerpg.objects.entities.entity.twilight.EntitySorcerer;
+import divinerpg.objects.entities.entity.twilight.mage.EntitySorcerer;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

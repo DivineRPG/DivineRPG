@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.arcana;
+package divinerpg.objects.entities.entity.arcana.death;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
@@ -16,14 +16,17 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityDeathcryx extends EntityDivineRPGMob {
-    protected Potion potionEffect;
+public abstract class EntityDeathBase extends EntityDivineRPGMob {
+    private final Potion potionEffect;
 
-    public EntityDeathcryx(World world) {
+    private EntityDeathBase(World w) {
+        this(w, MobEffects.SLOWNESS);
+    }
+
+    protected EntityDeathBase(World world, Potion potionEffect) {
         super(world);
         this.setSize(1.0F, 1.2F);
-
-        potionEffect = MobEffects.SLOWNESS;
+        this.potionEffect = potionEffect;
     }
 
     @Override
@@ -111,6 +114,4 @@ public class EntityDeathcryx extends EntityDivineRPGMob {
     public boolean getCanSpawnHere() {
         return this.posY < 40.0D && super.getCanSpawnHere();
     }
-
-
 }

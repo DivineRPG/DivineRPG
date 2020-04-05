@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.arcana;
+package divinerpg.objects.entities.entity.arcana.death;
 
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
@@ -9,23 +9,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityDeathHound extends EntityDeathcryx {
-
+public class EntityDeathHound extends EntityDeathBase {
     public EntityDeathHound(World world) {
-        super(world);
+        super(world, MobEffects.BLINDNESS);
         this.setSize(0.8F, 0.9F);
-        potionEffect = MobEffects.BLINDNESS;
     }
 
     @Override
     public float getEyeHeight() {
         return 0.75F;
-    }
-
-    @Override
-    protected void initEntityAI() {
-        super.initEntityAI();
-        addAttackingAI();
     }
 
     @Override
@@ -53,10 +45,5 @@ public class EntityDeathHound extends EntityDeathcryx {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_DEATH_HOUND;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
     }
 }

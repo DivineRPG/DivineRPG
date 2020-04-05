@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelCori;
-import divinerpg.objects.entities.entity.twilight.EntityAdvancedCori;
+import divinerpg.objects.entities.entity.twilight.cories.EntityAdvancedCori;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

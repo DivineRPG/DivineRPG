@@ -1,13 +1,11 @@
-package divinerpg.objects.entities.entity.twilight;
+package divinerpg.objects.entities.entity.twilight.cories;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGFlying;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -16,20 +14,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-// todo fix movenet
-public class EntityWeakCori extends EntityDivineRPGFlying {
-
+public class EntityCoriBase extends EntityDivineRPGFlying {
     public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
     public double waypointZ;
-    private Entity targetedEntity = null;
-    private int aggroCooldown = 0;
     public int prevAttackCounter = 0;
     public int attackCounter = 0;
+    private Entity targetedEntity = null;
+    private int aggroCooldown = 0;
     private BlockPos currentFlightTarget;
 
-    public EntityWeakCori(World worldIn) {
+    public EntityCoriBase(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.5F);
     }
@@ -164,8 +160,5 @@ public class EntityWeakCori extends EntityDivineRPGFlying {
         return ModSounds.CORI_HURT;
     }
 
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WEAK_CORI;
-    }
+
 }

@@ -1,28 +1,25 @@
-package divinerpg.objects.entities.entity.twilight;
+package divinerpg.objects.entities.entity.twilight.mage;
 
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
-import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityMage extends EntityDivineRPGMob {
-
+public abstract class EntityMageBase extends EntityDivineRPGMob {
     private final BulletType bullet;
 
-    public EntityMage(World worldIn) {
+    private EntityMageBase(World worldIn) {
         this(worldIn, BulletType.MAGE_SHOT);
     }
 
-    public EntityMage(World world, BulletType bullet) {
+    protected EntityMageBase(World world, BulletType bullet) {
         super(world);
         this.bullet = bullet;
         this.setSize(0.5F, 2.2F);
@@ -78,10 +75,5 @@ public class EntityMage extends EntityDivineRPGMob {
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return ModSounds.INSECT;
-    }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_MAGE;
     }
 }
