@@ -35,6 +35,8 @@ public class ItemShickaxe extends ItemTool {
 
         this.setHarvestLevel("pickaxe", toolMaterial.getHarvestLevel());
         this.setHarvestLevel("shovel", toolMaterial.getHarvestLevel());
+        this.setHarvestLevel("axe", toolMaterial.getHarvestLevel());
+
         this.setMaxDamage(toolMaterial.getMaxUses());
     }
 

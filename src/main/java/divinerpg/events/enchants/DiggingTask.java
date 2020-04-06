@@ -1,24 +1,50 @@
 package divinerpg.events.enchants;
 
 import divinerpg.utils.PositionHelper;
-import net.minecraft.entity.player.EntityPlayer;
+import io.netty.util.internal.ConcurrentSet;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.world.BlockEvent;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class DiggingTask {
-    private final Set<BlockPos> positions = new HashSet<>();
-    private EntityPlayerMP player;
+public class DiggingTask extends TaskBase {
+    /**
+     * Contains current breaking blocks
+     */
+    private static final Map<Integer, Set<BlockPos>> breakingPositionsMap = new ConcurrentHashMap<>();
 
-    public DiggingTask(EntityPlayerMP player, BlockPos brokenBlockPos, int level) {
+    /**
+     * Current server player
+     */
+    private final EntityPlayerMP player;
+
+    /**
+     * List of blocks inside current task
+     */
+    private final List<BlockPos> currentBlockPoses;
+
+    /**
+     * All scheduled task inside the dimension
+     */
+    private final Set<BlockPos> dimensionBlocks;
+
+
+    public DiggingTask(MinecraftServer server, EntityPlayerMP player, BlockPos brokenBlockPos, int enchantLevel) {
+        super(server);
+        Objects.requireNonNull(player);
         this.player = player;
+        currentBlockPoses = new ArrayList<>();
+        dimensionBlocks = breakingPositionsMap.computeIfAbsent(player.dimension, integer -> new ConcurrentSet<>());
 
-        // trying to get correct side hit of block
         RayTraceResult result = PositionHelper.rayTrace(player, player.getPosition().distanceSq(brokenBlockPos.getX(), brokenBlockPos.getY(), brokenBlockPos.getZ()), 0);
 
         EnumFacing direction = result != null
@@ -41,37 +67,62 @@ public class DiggingTask {
         BlockPos leftUpCorner = brokenBlockPos.offset(down.getOpposite()).offset(left);
         BlockPos rightDownCorner = brokenBlockPos.offset(down).offset(right);
 
-        for (int i = 2; i <= level; i++) {
+        for (int i = 2; i <= enchantLevel; i++) {
             rightDownCorner = rightDownCorner.offset(direction.getOpposite());
         }
 
-
-        BlockPos.getAllInBox(leftUpCorner, rightDownCorner).forEach(positions::add);
+        BlockPos.getAllInBox(leftUpCorner, rightDownCorner).forEach(currentBlockPoses::add);
     }
 
     /**
-     * Check if current player is breaking current block position
+     * Detects if current block is in work already
      *
-     * @param player - player
-     * @param pos    - block break position
+     * @param e -- block break event
+     * @return
      */
-    public boolean isInWork(EntityPlayer player, BlockPos pos) {
-        return player.getUniqueID() == this.player.getUniqueID() && positions.contains(pos);
+    public static boolean isInWork(BlockEvent.BreakEvent e) {
+        if (e == null || e.getPlayer() == null || e.getPos() == null)
+            return false;
+
+        Set<BlockPos> poses = breakingPositionsMap.get(e.getPlayer().dimension);
+        if (poses == null || poses.isEmpty())
+            return false;
+
+        return poses.contains(e.getPos());
     }
 
-    /**
-     * Perform range breaking
-     */
-    public void perform() {
-        while (!positions.isEmpty()) {
-            BlockPos pos = positions.stream().findFirst().orElse(null);
-            if (pos != null) {
+    @Override
+    protected void start() {
+        for (BlockPos pos : currentBlockPoses) {
 
-                if (ForgeHooks.canHarvestBlock(player.world.getBlockState(pos).getBlock(), player, player.world, pos))
+            if (dimensionBlocks.contains(pos)) {
+                if (canHarvestBlock(player.world.getMinecraftServer(), player.world, player.world.getBlockState(pos), pos, player.getHeldItemMainhand())) {
                     player.interactionManager.tryHarvestBlock(pos);
-            }
+                }
 
-            positions.remove(pos);
+                // removed from all blocks
+                dimensionBlocks.remove(pos);
+            }
         }
+
+        currentBlockPoses.clear();
+    }
+
+    @Override
+    protected void onRegister() {
+        super.onRegister();
+
+        // adding all blocks to global map
+        dimensionBlocks.addAll(currentBlockPoses);
+    }
+
+    private boolean canHarvestBlock(MinecraftServer server, World world, IBlockState state, BlockPos pos, ItemStack stack) {
+        if (!ForgeHooks.canToolHarvestBlock(world, pos, stack))
+            return false;
+
+        if (server.isBlockProtected(world, pos, player))
+            return false;
+
+        return ForgeHooks.canHarvestBlock(state.getBlock(), player, world, pos);
     }
 }

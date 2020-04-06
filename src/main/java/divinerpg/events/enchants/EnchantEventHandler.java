@@ -7,17 +7,8 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 @Mod.EventBusSubscriber
 public class EnchantEventHandler {
-    /**
-     * Map of digging tasks to prevent cascading digging
-     */
-    private static final Queue<DiggingTask> diggingTasks = new ConcurrentLinkedQueue<>();
-
-
     @SubscribeEvent
     public static void onBreakBlock(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof EntityPlayerMP))
@@ -28,7 +19,7 @@ public class EnchantEventHandler {
             return;
 
         // is already in work
-        if (diggingTasks.stream().anyMatch(x -> x.isInWork(event.getPlayer(), event.getPos())))
+        if (DiggingTask.isInWork(event))
             return;
 
         int level = EnchantmentHelper.getEnchantmentLevel(EnchantRegister.world_break, event.getPlayer().getHeldItemMainhand());
@@ -37,12 +28,13 @@ public class EnchantEventHandler {
         if (level < 1)
             return;
 
-        // creating task and adding it to list
-        DiggingTask task = new DiggingTask((EntityPlayerMP) event.getPlayer(), event.getPos(), level);
-        diggingTasks.add(task);
+        EntityPlayerMP player = (EntityPlayerMP) event.getPlayer();
 
-        // perform task and remove it from list
-        task.perform();
-        diggingTasks.remove(task);
+        if (player.mcServer != null && player.interactionManager != null) {
+            // creating task and adding it to list
+            DiggingTask task = new DiggingTask(player.mcServer, player, event.getPos(), level);
+            // performing task
+            task.perform();
+        }
     }
 }
