@@ -2,7 +2,6 @@ package divinerpg.proxy;
 
 import divinerpg.api.Reference;
 import divinerpg.client.ArcanaRenderer;
-import divinerpg.client.ClientTicker;
 import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
@@ -59,7 +58,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
-        MinecraftForge.EVENT_BUS.register(new ClientTicker());
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
         MinecraftForge.EVENT_BUS.register(new EventTooltip());

@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
 import divinerpg.api.Reference;
-import divinerpg.client.ClientTicker;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -53,7 +52,7 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer<TileEntityAyer
         float f9 = 0.25F;
         GL11.glPushMatrix();
         GL11.glTranslatef(0, 0, -0.28125f);
-        GL11.glRotatef(ClientTicker.tick * 4, 0F, 1F, 0F);
+        GL11.glRotatef(te.getWorld().getTotalWorldTime() * 4, 0F, 1F, 0F);
         GL11.glTranslatef(0, 0, 0.28125f);
         GL11.glRotatef(270, 1F, 0F, 0F);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 0, 65536);
@@ -67,7 +66,7 @@ public class RenderAyeracoSpawn extends TileEntitySpecialRenderer<TileEntityAyer
         GL11.glPopMatrix();
         GL11.glPushMatrix();
         GL11.glTranslatef(0, 0.001f, -0.28125f);
-        GL11.glRotatef(-ClientTicker.tick * 4, 0F, 1F, 0F);
+        GL11.glRotatef(-te.getWorld().getTotalWorldTime() * 4, 0F, 1F, 0F);
         GL11.glTranslatef(0, 0, 0.28125f);
         GL11.glRotatef(270, 1F, 0F, 0F);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 0, 65536);
