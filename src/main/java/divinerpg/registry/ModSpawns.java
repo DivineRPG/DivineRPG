@@ -150,10 +150,17 @@ public class ModSpawns {
                 EntityRegistry.addSpawn(EntityLheiva.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityLorga.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityLorgaflight.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                //EntityRegistry.addSpawn(Mandragora.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityMandragora.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityMysteriousManLayer1.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityMysteriousManLayer2.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityMysteriousManLayer3.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityShadahier.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityTocaxin.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityTwins.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityVermenous.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityVhraak.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityZone.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                //EntityRegistry.addSpawn(EntityZoragon.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
             } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.END)) {
                 EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityEnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);

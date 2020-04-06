@@ -17,6 +17,8 @@ public class EntityFakeVhraak extends VetheaMob {
 
     public EntityFakeVhraak(World worldIn) {
         super(worldIn);
+        this.setSize(1F, 1F);
+        this.addAttackingAI();
     }
 
     @Override
