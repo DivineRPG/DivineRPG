@@ -4,9 +4,12 @@ import java.util.Random;
 
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
+import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemDoor;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -69,7 +72,11 @@ public class WorldGenLibrary extends WorldGenerator{
 		ItemDoor.placeDoor(w, new BlockPos(x + 1, y + 1, z + 6), EnumFacing.WEST, ModBlocks.steelDoor, false);
 		w.setBlockState(new BlockPos(x, y, z), ModBlocks.frozenGrass.getDefaultState());
 		w.setBlockState(new BlockPos(x, y, z + 10), ModBlocks.frozenGrass.getDefaultState());
-		WorldGenAPI.placeIceikaChest(w, x + 15, y + 1, z + 5, 1);
+		w.setBlockState(new BlockPos(x + 15, y + 1, z + 5), ModBlocks.frostedChest.getDefaultState(), 0);
+		TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 15, y + 1, z + 5));
+        if (tileentity1 instanceof TileEntityLockableLoot) {
+            ((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, w.rand.nextLong());
+        }
     	
 		EntityWorkshopMerchant mer = new EntityWorkshopMerchant(w);
     	EntityWorkshopTinkerer tink = new EntityWorkshopTinkerer(w);
