@@ -1,15 +1,19 @@
 package divinerpg.events;
 
+import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.client.ArcanaRenderer;
+import divinerpg.registry.ModDimensions;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
-public class ArcanaTickHandler {
+public class ArcanaTickHandler {	   
+	public static BlockPos vetheaSpawn;
     @SubscribeEvent
     public void onTick(PlayerTickEvent event) {
         if (event.phase == Phase.START) {
@@ -29,12 +33,20 @@ public class ArcanaTickHandler {
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         refillArcana(event.player);
+        if(event.player.dimension==ModDimensions.vetheaDimension.getId()) {	
+        	event.player.attemptTeleport(vetheaSpawn.getX(), vetheaSpawn.getY(), vetheaSpawn.getZ());	
+        }
     }
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         refillArcana(event.player);
         event.player.addExperienceLevel(0);
+        
+        if(event.toDim==ModDimensions.vetheaDimension.getId()) {	
+        	vetheaSpawn = event.player.getPosition();	
+        	event.player.setSpawnChunk(vetheaSpawn, true, ModDimensions.vetheaDimension.getId());
+        }
     }
 
     /**
