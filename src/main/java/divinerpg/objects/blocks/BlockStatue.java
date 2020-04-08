@@ -133,7 +133,8 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
     public static final AxisAlignedBB PARASECTA_AABB = new AxisAlignedBB(0.2F, 0.2F, 0.20F, 0.8F, 1.0F, 0.8F);
     public static final AxisAlignedBB SOUL_FIEND_AABB = new AxisAlignedBB(0.2F, 0.0F, 0.20F, 0.8F, 1.0F, 0.8F);
 
-    @Override
+    @SuppressWarnings("incomplete-switch")
+	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 
         if (statueType != null) {
