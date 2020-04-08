@@ -3,6 +3,8 @@ package divinerpg.utils.attributes;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public interface IReflectionHelper {
@@ -15,8 +17,8 @@ public interface IReflectionHelper {
      * @return
      */
     @Nullable
-    default Field find(@Nonnull Object instance, String name) {
-        return find(instance.getClass(), name);
+    default Field findField(@Nonnull Object instance, String name) {
+        return findField(instance.getClass(), name);
     }
 
     /**
@@ -53,7 +55,7 @@ public interface IReflectionHelper {
      * @return
      */
     default boolean trySetPrivateValue(Class<?> holderClass, @Nullable Object instance, String name, Object newValue) {
-        Field field = find(holderClass, name);
+        Field field = findField(holderClass, name);
         if (field != null) {
             try {
                 field.set(instance, newValue);
@@ -99,5 +101,31 @@ public interface IReflectionHelper {
      * @return
      */
     @Nullable
-    Field find(@Nonnull Class<?> holderClass, @Nonnull String name);
+    Field findField(@Nonnull Class<?> holderClass, @Nonnull String name);
+
+    /**
+     * Finds methods
+     *
+     * @param holderClass
+     * @param name
+     * @param params
+     * @return
+     */
+    @Nullable
+    Method findMethod(@Nonnull Class<?> holderClass, @Nonnull String name, Class... params);
+
+    default void callMethod(@Nonnull Object instance, String methodName, Object... params) {
+        Class<?>[] classes = new Class[params.length];
+        for (int i = 0; i < params.length; i++) {
+            classes[i] = params[i].getClass();
+        }
+
+        try {
+            Method method = findMethod(instance.getClass(), methodName, classes);
+            if (method != null)
+                method.invoke(instance, params);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
 }

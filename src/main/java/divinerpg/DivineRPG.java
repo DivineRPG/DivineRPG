@@ -7,6 +7,7 @@ import divinerpg.api.Reference;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.EventEntityDrop;
+import divinerpg.events.enchants.DiggingTaskFactory;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
 import divinerpg.utils.Utils;
@@ -78,6 +79,8 @@ public class DivineRPG {
         }
         ModSpawns.initSpawns();
         Utils.loadHatInformation();
+
+        MinecraftForge.EVENT_BUS.register(new DiggingTaskFactory());
     }
 
     /** For Registering Commands */
