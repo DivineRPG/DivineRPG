@@ -168,7 +168,10 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
         int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
 
         if (block.canSilkHarvest(world, pos, state, player) && isSilk) {
-            DivineAPI.reflectionHelper.callMethod(block, "getSilkTouchDrop", state);
+            Object silkStack = DivineAPI.reflectionHelper.callMethod(Block.class, block, "getSilkTouchDrop", () -> new Object[]{state}, IBlockState.class);
+            if (silkStack instanceof ItemStack) {
+                drop.add((ItemStack) silkStack);
+            }
         } else {
             block.getDrops(drop, world, pos, state, fortune);
         }

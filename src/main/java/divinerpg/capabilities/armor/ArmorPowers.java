@@ -12,20 +12,17 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nullable;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.lang.ref.WeakReference;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ArmorPowers implements IArmorPowers {
     private final Map<ResourceLocation, IPlayerArmorDescription> descriptions = new LinkedHashMap<>();
-    private final EntityPlayer player;
+    private final WeakReference<EntityPlayer> player;
 
     public ArmorPowers() {
         this(null);
@@ -35,27 +32,34 @@ public class ArmorPowers implements IArmorPowers {
     }
 
     public ArmorPowers(EntityPlayer player) {
-        this.player = player;
+        this.player = new WeakReference<>(player);
 
         if (player != null) {
             MinecraftForge.EVENT_BUS.register(this);
         }
     }
 
-    /**
-     * Avoid memory leaking, because capability is creating on every entity instance
-     *
-     * @param e - event calling on both sides where any entity is joined the world
-     */
-    @SubscribeEvent(priority = EventPriority.LOWEST)
+    @SubscribeEvent
     public void onCleanUp(EntityJoinWorldEvent e) {
-        // the same IDs but not the same instance
-        if (e.getEntity().getUniqueID() == player.getUniqueID() && e.getEntity() != player) {
-            MinecraftForge.EVENT_BUS.unregister(this);
+        EntityPlayer currentPlayer = this.player.get();
 
-            descriptions.values().forEach(IPlayerArmorDescription::unsubscribe);
-            descriptions.clear();
+        // should unregister
+        if (currentPlayer == null) {
+            unsubscribe();
+            return;
         }
+
+        // Same entity
+        if (e.getEntity() == currentPlayer)
+            return;
+
+        // get unique ID of player
+        UUID id = currentPlayer.getUniqueID();
+        // another entity, don't care
+        if (id != e.getEntity().getUniqueID())
+            return;
+
+        unsubscribe();
     }
 
     @Override
@@ -80,8 +84,8 @@ public class ArmorPowers implements IArmorPowers {
     public Set<Item> currentItems(EntityEquipmentSlot slot) {
         Set<Item> items = new HashSet<>();
 
-        if (player != null) {
-            Item item = player.getItemStackFromSlot(slot).getItem();
+        if (player.get() != null) {
+            Item item = player.get().getItemStackFromSlot(slot).getItem();
 
             items.add(item);
 
@@ -95,18 +99,25 @@ public class ArmorPowers implements IArmorPowers {
 
     @Nullable
     private void changeWearStatus(ResourceLocation id, boolean isOn) {
-        if (player != null) {
+        if (player.get() != null) {
             IPlayerArmorDescription description = descriptions.computeIfAbsent(id, location -> {
                 // lazy creation of armor set. Further we manage (un)subscription that armor handler
                 IArmorDescription value = DivineAPI.getArmorDescriptionRegistry().getValue(id);
                 return value == null
                         ? null
-                        : new PlayerArmorDescription(player, value);
+                        : new PlayerArmorDescription(player.get(), value);
             });
 
             if (description != null) {
                 description.changeStatus(isOn);
             }
         }
+    }
+
+    private void unsubscribe() {
+        MinecraftForge.EVENT_BUS.unregister(this);
+
+        descriptions.values().forEach(IPlayerArmorDescription::unsubscribe);
+        descriptions.clear();
     }
 }

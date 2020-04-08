@@ -10,13 +10,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class PlayerArmorDescription implements IPlayerArmorDescription {
 
-    private final EntityPlayer player;
+    private final WeakReference<EntityPlayer> player;
     private final IArmorDescription source;
     private final List<IPlayerForgeEvent<?>> handlers = new ArrayList<>();
     private final ResourceLocation id;
@@ -25,7 +26,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
         Objects.requireNonNull(player);
         Objects.requireNonNull(source);
 
-        this.player = player;
+        this.player = new WeakReference<>(player);
         this.source = source;
         id = source.getRegistryName();
 
@@ -58,6 +59,6 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
 
     @Override
     public EntityPlayer getPlayer() {
-        return player;
+        return player.get();
     }
 }

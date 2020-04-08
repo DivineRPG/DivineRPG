@@ -19,9 +19,14 @@ public class ScheduledTask<T extends Event> {
 
     public boolean schedule() {
         listener.addScheduledTask(() -> {
-            isExecuting = true;
-            task.execute();
-            onFinish.accept(task);
+            try {
+                isExecuting = true;
+                task.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                onFinish.accept(task);
+            }
         });
 
         return true;

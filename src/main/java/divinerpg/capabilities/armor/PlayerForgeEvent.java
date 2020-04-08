@@ -1,22 +1,29 @@
 package divinerpg.capabilities.armor;
 
+import divinerpg.DivineRPG;
+import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.binded.IPlayerForgeEvent;
 import divinerpg.api.armor.registry.IForgeEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.apache.logging.log4j.Level;
 
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 import java.util.Objects;
 
 public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
     private final IForgeEvent<T> base;
-    private final EntityPlayer player;
+    private final WeakReference<EntityPlayer> player;
     private boolean isListen = false;
 
     public PlayerForgeEvent(IForgeEvent<T> base, EntityPlayer player) {
         this.base = base;
-        this.player = player;
+        this.player = new WeakReference<>(player);
 
         Objects.requireNonNull(base);
         Objects.requireNonNull(player);
@@ -24,7 +31,7 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
 
     @Override
     public EntityPlayer getPlayer() {
-        return player;
+        return player.get();
     }
 
     @Override
@@ -37,7 +44,23 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
      */
     @Override
     public void subscribe() {
-        MinecraftForge.EVENT_BUS.register(this);
+        Method eventHandlingMethod = DivineAPI.reflectionHelper.findMethod(this.getClass(), "handleEvent", Event.class);
+        if (eventHandlingMethod == null) {
+            DivineRPG.logger.log(Level.WARN, "Can't find 'handleEvent' method there, maybe it was renamed or signature was changed");
+            return;
+        }
+
+        Object wasCalled = DivineAPI.reflectionHelper.callMethod(MinecraftForge.EVENT_BUS, "register",
+                () -> new Object[]{
+                        getParameterClass(), this, eventHandlingMethod, Loader.instance().activeModContainer()
+                },
+                Class.class, Object.class, Method.class, ModContainer.class);
+
+        if (Boolean.FALSE.equals(wasCalled)) {
+            DivineRPG.logger.log(Level.WARN, "Can't find private 'register' method inside EventBus, maybe it was renamed or signature was changed or name was obfuscated");
+            return;
+        }
+
         isListen = true;
     }
 
@@ -67,7 +90,10 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
      */
     @SubscribeEvent
     public void handleEvent(T event) {
-        if (getParameterClass().equals(event.getClass()) && canHandle(event)) {
+        if (!getParameterClass().equals(event.getClass()))
+            return;
+
+        if (canHandle(event)) {
             handle(event);
         }
     }

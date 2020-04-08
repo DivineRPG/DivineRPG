@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.cap.IArmorPowers;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -28,17 +29,15 @@ public class ArmorStatusChangedMessage implements IMessage {
     public void fromBytes(ByteBuf buf) {
         isOn = buf.readBoolean();
         int length = buf.readInt();
-        ByteBuf byteBuf = buf.readBytes(length);
-        String id = byteBuf.toString(Charset.defaultCharset());
-        this.id = new ResourceLocation(id);
+        id = new ResourceLocation(buf.readCharSequence(length, Charset.defaultCharset()).toString());
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
         buf.writeBoolean(isOn);
-        byte[] bytes = id.toString().getBytes(Charset.defaultCharset());
-        buf.writeInt(bytes.length);
-        buf.writeBytes(bytes);
+        String text = id.toString();
+        buf.writeInt(text.length());
+        buf.writeCharSequence(text, Charset.defaultCharset());
     }
 
     public static class Handler implements IMessageHandler<ArmorStatusChangedMessage, IMessage> {
@@ -53,6 +52,17 @@ public class ArmorStatusChangedMessage implements IMessage {
                     } else {
                         powers.takeOff(message.id);
                     }
+                }
+            }
+
+            if (ctx.side == Side.SERVER) {
+                EntityPlayerMP player = ctx.getServerHandler().player;
+                IArmorPowers powers = DivineAPI.getArmorPowers(player);
+
+                if (player != null && powers != null) {
+                    powers.wearing().stream()
+                            .map(x -> new ArmorStatusChangedMessage(x, true))
+                            .forEach(x -> DivineRPG.network.sendTo(x, player));
                 }
             }
 

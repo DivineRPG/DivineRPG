@@ -14,7 +14,7 @@ public class ModMessages {
     public static void initMessages() {
         registerMessage(MessageArcanaBar.Handler.class, MessageArcanaBar.class, Side.CLIENT);
         registerMessage(MessageDivineAccumulator.Handler.class, MessageDivineAccumulator.class, Side.CLIENT);
-        registerMessage(ArmorStatusChangedMessage.Handler.class, ArmorStatusChangedMessage.class, Side.CLIENT);
+        registerMessage(ArmorStatusChangedMessage.Handler.class, ArmorStatusChangedMessage.class);
     }
 
     /**

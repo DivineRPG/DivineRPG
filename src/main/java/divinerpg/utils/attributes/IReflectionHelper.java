@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.function.Supplier;
 
 public interface IReflectionHelper {
 
@@ -114,18 +115,20 @@ public interface IReflectionHelper {
     @Nullable
     Method findMethod(@Nonnull Class<?> holderClass, @Nonnull String name, Class... params);
 
-    default void callMethod(@Nonnull Object instance, String methodName, Object... params) {
-        Class<?>[] classes = new Class[params.length];
-        for (int i = 0; i < params.length; i++) {
-            classes[i] = params[i].getClass();
-        }
+    default Object callMethod(@Nonnull Object instance, @Nonnull String name, Supplier<Object[]> func, Class... params) {
+        return callMethod(instance.getClass(), instance, name, func, params);
+    }
 
+    default Object callMethod(Class<?> classToFind, @Nullable Object instance, @Nonnull String name, Supplier<Object[]> func, Class... params) {
+        Method method = findMethod(classToFind, name, params);
         try {
-            Method method = findMethod(instance.getClass(), methodName, classes);
-            if (method != null)
-                method.invoke(instance, params);
+            if (method != null) {
+                return method.invoke(instance, func.get());
+            }
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 }
