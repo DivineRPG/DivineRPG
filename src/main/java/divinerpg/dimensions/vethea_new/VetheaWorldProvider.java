@@ -30,14 +30,9 @@ public class VetheaWorldProvider extends WorldProvider {
         return 0.1f;
     }
 
-    /**
-     * Can't respawn in Vethea
-     *
-     * @return
-     */
     @Override
     public boolean canRespawnHere() {
-        return false;
+        return true;
     }
 
     @Override
