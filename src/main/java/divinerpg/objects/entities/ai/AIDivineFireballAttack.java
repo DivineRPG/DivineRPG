@@ -1,28 +1,74 @@
 package divinerpg.objects.entities.ai;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.monster.EntityGhast;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import java.util.function.BiFunction;
 
 public class AIDivineFireballAttack extends EntityAIBase {
-    private final EntityGhast parentEntity;
+    private final EntityLiving parentEntity;
     private final BiFunction<EntityLivingBase, Entity, Entity> createFireballFunc;
     public int attackTimer;
 
-    public AIDivineFireballAttack(EntityGhast ghast, ILaunchArrow createArrow, float maxAttackDistance) {
-        this.parentEntity = ghast;
-        this.createFireballFunc = (entityLivingBase, entity) -> createArrow.createArrow(entityLivingBase, entity, maxAttackDistance);
+    /**
+     * Attack delay
+     */
+    private final int attackDelay;
+
+    /**
+     * Max attack distance
+     */
+    private final int maxDistance;
+
+    /**
+     * Warn pre shoot sound
+     */
+    private final SoundEvent beforeShoot;
+
+    /**
+     * shoot sound
+     */
+    private final SoundEvent onShoot;
+
+    public AIDivineFireballAttack(EntityLiving parentEntity,
+                                  BiFunction<EntityLivingBase, Entity, Entity> createFireballFunc,
+                                  int attackDelay,
+                                  int maxDistance,
+                                  SoundEvent beforeShoot,
+                                  SoundEvent onShoot) {
+
+        this.parentEntity = parentEntity;
+        this.createFireballFunc = createFireballFunc;
+
+        this.attackDelay = attackDelay;
+        this.maxDistance = maxDistance;
+        this.beforeShoot = beforeShoot;
+        this.onShoot = onShoot;
     }
 
-    public AIDivineFireballAttack(EntityGhast ghast, ILaunchFireBall createFireball) {
-        this.parentEntity = ghast;
-        this.createFireballFunc = (entityLivingBase, entity) -> createFireball.createFireball((EntityGhast) entityLivingBase, entity);
+    public AIDivineFireballAttack(EntityLiving ghast, ILaunchFireBall func) {
+        this(ghast, func::createFireball, 20, 64, SoundEvents.ENTITY_GHAST_WARN, SoundEvents.ENTITY_GHAST_SHOOT);
     }
+
+    public AIDivineFireballAttack(EntityLiving ghast, ILaunchFireBall createFireball, SoundEvent onShoot) {
+        this(ghast, createFireball::createFireball, 20, 64, null, onShoot);
+    }
+
+    public AIDivineFireballAttack(EntityLiving ghast, ILaunchThrowable createThrowable, SoundEvent onShoot) {
+        this(ghast, createThrowable::createFireball, 20, 64, null, onShoot);
+    }
+
+//    public AIDivineFireballAttack(EntityLiving ghast, ILaunchArrow createArrow, float maxAttackDistance) {
+//        this.parentEntity = ghast;
+//        this.createFireballFunc = (entityLivingBase, entity) -> createArrow.createArrow(entityLivingBase, entity, maxAttackDistance);
+//    }
+
 
     /**
      * Returns whether the EntityAIBase should begin execution.
@@ -42,7 +88,7 @@ public class AIDivineFireballAttack extends EntityAIBase {
      * Reset the task's internal state. Called when this task is interrupted by another one
      */
     public void resetTask() {
-        this.parentEntity.setAttacking(false);
+        this.parentEntity.setAttackTarget(null);
     }
 
     /**
@@ -50,25 +96,35 @@ public class AIDivineFireballAttack extends EntityAIBase {
      */
     public void updateTask() {
         EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();
-        double d0 = 64.0D;
 
-        if (entitylivingbase.getDistanceSq(this.parentEntity) < 4096.0D && this.parentEntity.canEntityBeSeen(entitylivingbase)) {
+        if (Math.sqrt(entitylivingbase.getDistanceSq(this.parentEntity)) < maxDistance
+                && this.parentEntity.canEntityBeSeen(entitylivingbase)) {
             World world = this.parentEntity.world;
             ++this.attackTimer;
 
-            if (this.attackTimer == 10) {
-                world.playEvent(null, 1015, new BlockPos(this.parentEntity), 0);
+            if (this.attackTimer == attackDelay - 10) {
+                playSound(beforeShoot);
             }
 
-            if (this.attackTimer == 20) {
-                world.playEvent(null, 1016, new BlockPos(this.parentEntity), 0);
+            if (this.attackTimer == attackDelay) {
+                playSound(onShoot);
                 world.spawnEntity(createFireballFunc.apply(parentEntity, entitylivingbase));
-                this.attackTimer = -40;
+                this.attackTimer = attackDelay * -2;
             }
         } else if (this.attackTimer > 0) {
             --this.attackTimer;
         }
 
-        this.parentEntity.setAttacking(this.attackTimer > 10);
+        if (attackTimer <= 10) {
+            // todo notify client about
+        }
+    }
+
+    private void playSound(SoundEvent event) {
+        if (parentEntity == null || parentEntity.world == null || event == null)
+            return;
+
+        parentEntity.world.playSound(parentEntity.posX, parentEntity.posY, parentEntity.posZ, event, SoundCategory.HOSTILE, 10,
+                (parentEntity.world.rand.nextFloat() - parentEntity.world.rand.nextFloat()) * 0.2F + 1.0F, false);
     }
 }

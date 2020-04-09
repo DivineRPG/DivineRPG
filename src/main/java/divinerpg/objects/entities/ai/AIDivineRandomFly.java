@@ -1,15 +1,15 @@
 package divinerpg.objects.entities.ai;
 
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
-import net.minecraft.entity.monster.EntityGhast;
 
 import java.util.Random;
 
 public class AIDivineRandomFly extends EntityAIBase {
-    private final EntityGhast parentEntity;
+    private final EntityLiving parentEntity;
 
-    public AIDivineRandomFly(EntityGhast ghast) {
+    public AIDivineRandomFly(EntityLiving ghast) {
         this.parentEntity = ghast;
         this.setMutexBits(1);
     }

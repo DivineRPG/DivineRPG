@@ -1,14 +1,14 @@
 package divinerpg.objects.entities.ai;
 
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.util.math.MathHelper;
 
 public class AIDivineLookAround extends EntityAIBase {
-    private final EntityGhast parentEntity;
+    private final EntityLiving parentEntity;
 
-    public AIDivineLookAround(EntityGhast ghast) {
+    public AIDivineLookAround(EntityLiving ghast) {
         this.parentEntity = ghast;
         this.setMutexBits(2);
     }

@@ -20,11 +20,9 @@ public class EntityAdvancedCori extends EntityDivineGhast {
 
     @Override
     protected AIDivineFireballAttack createShootAI() {
-        return new AIDivineFireballAttack(this, (world1, parent, x, y, z, fireballStrength) -> {
-            EntityCoriShot shot = new EntityCoriShot(world, parent, 100);
-            shot.shoot(x, y, z, 1.6f, 4);
-            return shot;
-        });
+        return new AIDivineFireballAttack(this,
+                (world1, parent, x, y, z) -> new EntityCoriShot(world, parent, 100),
+                ModSounds.CORI_SHOOT);
     }
 
     @Override

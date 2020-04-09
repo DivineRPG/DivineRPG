@@ -2,7 +2,6 @@ package divinerpg.objects.entities.ai;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -19,7 +18,7 @@ public interface ILaunchFireBall {
      * @param x                - x velocity
      * @param y                - y velocity
      * @param z                - z velocity
-     * @param fireballStrength - strength of fireball
+     * @param fireballStrength - strength of fireball (random value 0..5)
      * @return
      */
     @Nonnull
@@ -29,14 +28,14 @@ public interface ILaunchFireBall {
     /**
      * Is taken from ghast shoot task
      */
-    default Entity createFireball(EntityGhast parent, Entity target) {
+    default Entity createFireball(EntityLivingBase parent, Entity target) {
         Vec3d vec3d = parent.getLook(1.0F);
 
         double d2 = target.posX - (parent.posX + vec3d.x * 4.0D);
         double d3 = target.getEntityBoundingBox().minY + (double) (target.height / 2.0F) - (0.5D + parent.posY + (double) (parent.height / 2.0F));
         double d4 = target.posZ - (parent.posZ + vec3d.z * 4.0D);
 
-        Entity fireball = createFireball(parent.world, parent, d2, d3, d4, parent.getFireballStrength());
+        Entity fireball = createFireball(parent.world, parent, d2, d3, d4, parent.getRNG().nextInt(6));
 
         fireball.posX = parent.posX + vec3d.x * 4.0D;
         fireball.posY = parent.posY + (double) (parent.height / 2.0F) + 0.5D;
