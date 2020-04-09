@@ -53,10 +53,8 @@ public class ArmorPowers implements IArmorPowers {
         if (e.getEntity() == currentPlayer)
             return;
 
-        // get unique ID of player
-        UUID id = currentPlayer.getUniqueID();
         // another entity, don't care
-        if (id != e.getEntity().getUniqueID())
+        if (Objects.equals(e.getEntity().getUniqueID(), currentPlayer.getUniqueID()))
             return;
 
         unsubscribe();
