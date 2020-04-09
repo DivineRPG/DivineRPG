@@ -19,6 +19,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -145,7 +146,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.divineBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.fallDistance -= 0.5F)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(Reference.MODID, "divine")
         );
 
@@ -247,7 +248,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.skythernLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.skythernBoots)
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.5, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "skythernm"))
         );
 
@@ -328,7 +329,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.eliteRealmiteChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.eliteRealmiteLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.eliteRealmiteBoots)
-                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "realmite"))
         );
 
@@ -504,7 +505,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.7F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHood"))
         );
 
@@ -540,7 +541,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHood"))
         );
         registry.register(
@@ -575,7 +576,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.4, 0))
-                        .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::disableFallDamage)
+                        .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHood"))
         );
 

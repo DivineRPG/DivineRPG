@@ -13,6 +13,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -281,9 +282,8 @@ public class ArmorHandlers {
      *
      * @param event - tick event
      */
-    public static void disableFallDamage(TickEvent.PlayerTickEvent event) {
-        if (!isRemote(event.player))
-            event.player.fallDistance -= 0.5F;
+    public static void disableFallDamage(LivingFallEvent event) {
+        event.setDistance(0);
     }
 
     /**
