@@ -9,4 +9,4 @@ What I expected to happen:
 
 What happened instead:
 
-Potential fix:
+Potential fix: (If you understand modding, dont worry if you dont)
