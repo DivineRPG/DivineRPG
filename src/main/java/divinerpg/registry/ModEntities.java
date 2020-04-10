@@ -311,7 +311,8 @@ public class ModEntities {
                 buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb"),
                 buildProjectileEntry(EntityWreckBouncingProjectile.class, "wreck_bouncing_projectile"),
                 buildProjectileEntry(EntityWreckExplosiveShot.class, "wreck_explosive_shot"),
-                buildProjectileEntry(EntityWreckShot.class, "wreck_shot")};
+                buildProjectileEntry(EntityWreckShot.class, "wreck_shot"),
+        buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")};
 
         if (Config.debug) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
@@ -365,6 +366,7 @@ public class ModEntities {
         registerRender(EntityWreckExplosiveShot.class, manager -> new RenderWreckExplosiveShot(manager, 1f));
         registerRender(EntityWreckShot.class, manager -> new RenderWreckShot(manager, 1f));
         registerRender(EntityZoragonBomb.class, manager -> new RenderZoragonBomb(manager, 1f));
+        registerRender(EntityWildwoodLog.class, manager -> new RenderWildwoodLog(manager, 1f));
 
         registerRender(EntityFrostCloud.class, RenderFrostCloud::new);
 

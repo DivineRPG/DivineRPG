@@ -46,7 +46,7 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
             shot.shoot(tx, ty, tz, 1.6f, 0);
             this.world.spawnEntity(shot);
             this.world.playSound((EntityPlayer) null, this.attackingPlayer.posX, this.attackingPlayer.posY,
-                    this.attackingPlayer.posZ, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                    this.attackingPlayer.posZ, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.HOSTILE, 1.0F, 1.0F);
         }
     }
 
