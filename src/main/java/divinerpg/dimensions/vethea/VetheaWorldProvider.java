@@ -1,6 +1,5 @@
-package divinerpg.dimensions.vethea_new;
+package divinerpg.dimensions.vethea;
 
-import divinerpg.dimensions.vethea.BiomeProviderVethea;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;

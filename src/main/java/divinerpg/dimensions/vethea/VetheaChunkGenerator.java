@@ -1,15 +1,11 @@
-package divinerpg.dimensions.vethea_new;
+package divinerpg.dimensions.vethea;
 
 import divinerpg.api.Reference;
-import divinerpg.dimensions.vethea.WorldGenVetheanFlower;
 import divinerpg.registry.ModBlocks;
-import divinerpg.structure.legacy.DrpgLegacyStructure;
 import divinerpg.structure.template.DivineLargeStructure;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

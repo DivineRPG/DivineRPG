@@ -1,4 +1,4 @@
-package divinerpg.dimensions.vethea_new;
+package divinerpg.dimensions.vethea;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
