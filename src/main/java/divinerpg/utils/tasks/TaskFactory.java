@@ -78,7 +78,7 @@ public abstract class TaskFactory<T extends Event> {
                     ScheduledTask<T> scheduledTask = new ScheduledTask<>(getListener(event), newTask, x -> playerTasks.remove(x.getActor()));
                     playerTasks.put(id, scheduledTask);
 
-                    scheduledTask.schedule();
+                    scheduledTask.executeOnNextTick();
                 }
             }
         }

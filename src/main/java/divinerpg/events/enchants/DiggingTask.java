@@ -17,26 +17,81 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.world.BlockEvent;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
+
+    /**
+     * Cached player UUID
+     */
     private final UUID id;
+
+    /**
+     * Player weak reference
+     */
     private final WeakReference<EntityPlayerMP> player;
+
+    /**
+     * Initial player break pos
+     */
+    private final BlockPos startPos;
+
+    /**
+     * Cached poses to break
+     */
     private final Set<BlockPos> poses;
 
-    public DiggingTask(EntityPlayerMP playerMP) {
-        this.id = playerMP.getUniqueID();
+    /**
+     * Direction in depth, forward to player look
+     */
+    private final EnumFacing forward;
+
+    /**
+     * Relative to forward right direction
+     */
+    private final EnumFacing right;
+
+    /**
+     * Relative to forward up direction
+     */
+    private final EnumFacing up;
+
+    public DiggingTask(BlockEvent.HarvestDropsEvent e) {
+        // It checked is task factory method
+        EntityPlayerMP harvester = (EntityPlayerMP) e.getHarvester();
+
+        // caching break start pos
+        startPos = e.getPos();
+
+        // caching id
+        this.id = harvester.getUniqueID();
         poses = new ConcurrentSet<>();
-        player = new WeakReference<>(playerMP);
+        player = new WeakReference<>(harvester);
+
+        // getting correct side hit (thanks cofh core)
+        RayTraceResult result = PositionHelper.rayTrace(harvester, false);
+
+        forward = (result == null
+                // using 100% working but inaccurate method
+                ? EnumFacing.getDirectionFromEntityLiving(startPos, harvester)
+                : result.sideHit).getOpposite();
+
+        // getting sides
+        if (forward.getAxis().isVertical()) {
+            up = harvester.getHorizontalFacing();
+            right = up.rotateYCCW();
+        } else {
+            up = EnumFacing.UP;
+            right = forward.rotateYCCW();
+        }
     }
 
     @Override
@@ -50,31 +105,14 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
         BlockPos eventPos = event.getPos();
         int enchantLevel = getEnchantLevel(player);
 
-        RayTraceResult result = PositionHelper.rayTrace(player, player.getDistance(eventPos.getX(), eventPos.getY(), eventPos.getZ()), 0);
+        BlockPos leftUpCorner = eventPos.offset(up).offset(right.getOpposite());
+        BlockPos rightDownCorner = eventPos.offset(up.getOpposite()).offset(right);
 
-        EnumFacing direction = result == null
-                ? EnumFacing.getDirectionFromEntityLiving(eventPos, player)
-                : result.sideHit;
-
-        // relative positions
-        EnumFacing right, left, down;
-
-        if (direction.getAxis().isVertical()) {
-            down = player.getHorizontalFacing().getOpposite();
-            right = down.rotateYCCW();
-            left = right.getOpposite();
-        } else {
-            down = EnumFacing.DOWN;
-            right = direction.rotateYCCW();
-            left = right.getOpposite();
-        }
-
-        BlockPos leftUpCorner = eventPos.offset(down.getOpposite()).offset(left);
-        BlockPos rightDownCorner = eventPos.offset(down).offset(right);
-
+        //next level will dig in depth
         for (int i = 2; i <= enchantLevel; i++) {
-            rightDownCorner = rightDownCorner.offset(direction.getOpposite());
+            rightDownCorner = rightDownCorner.offset(forward);
         }
+
 
         BlockPos.getAllInBox(leftUpCorner, rightDownCorner).forEach(poses::add);
     }
@@ -98,8 +136,26 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
 
         List<ItemStack> drops = new ArrayList<>();
 
-        if (playerMP != null && server != null && world != null && stack != null) {
+        // vertical offset
+        // player do not need to look up
+        // all breaking block will be from where player started digging - 1 and higher
+        if (up.getAxis().isVertical()) {
+            // find min pos in breaking blocks
+            Optional<Integer> min = poses.stream().map(Vec3i::getY).min(Integer::compareTo);
+            if (min.isPresent()) {
+                int diff = startPos.getY() - min.get();
 
+                // min pos lower, player will fall, need to fix
+                if (diff > 0) {
+                    List<BlockPos> newPoses = poses.stream().map(x -> x.up(diff)).collect(Collectors.toList());
+                    poses.clear();
+                    poses.addAll(newPoses);
+                }
+            }
+        }
+
+
+        if (playerMP != null && server != null && world != null && stack != null) {
             for (BlockPos pos : poses) {
                 IBlockState state = world.getBlockState(pos);
 
@@ -111,6 +167,7 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
             }
         }
 
+        // merging stacks
         for (int i = 0; i < drops.size(); i++) {
             ItemStack stack1 = drops.get(i);
 
@@ -184,6 +241,8 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
 
         drops.addAll(drop);
         block.dropXpOnBlockBreak(world, pos, exp);
+
+        stack.damageItem(1, player);
     }
 
 }

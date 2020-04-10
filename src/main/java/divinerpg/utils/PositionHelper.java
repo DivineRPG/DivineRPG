@@ -13,7 +13,21 @@ public class PositionHelper {
         return player.world.rayTraceBlocks(vec3d, vec3d2, false, false, true);
     }
 
-    public static void moveBullet(EntityPlayer player, EntityThrowable bullet){
+    public static RayTraceResult rayTrace(EntityPlayer e, boolean stopOnLiquid) {
+        Vec3d startVec = new Vec3d(e.posX, e.posY + (double) e.getEyeHeight(), e.posZ);
+        Vec3d endVec = startVec.add(e.getLook(0).scale(getBlockReachDistance(e)));
+        return e.world.rayTraceBlocks(startVec, endVec, stopOnLiquid, false, true);
+    }
+
+    public static double getBlockReachDistance(EntityPlayer player) {
+        if (player.world.isRemote) {
+            return net.minecraft.client.Minecraft.getMinecraft().playerController.getBlockReachDistance();
+        }
+
+        return player.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue();
+    }
+
+    public static void moveBullet(EntityPlayer player, EntityThrowable bullet) {
         if (player == null || bullet == null)
             return;
 

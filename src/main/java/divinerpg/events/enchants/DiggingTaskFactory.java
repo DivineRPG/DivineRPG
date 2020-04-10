@@ -20,7 +20,7 @@ public class DiggingTaskFactory extends TaskFactory<BlockEvent.HarvestDropsEvent
     @Override
     protected ITask<BlockEvent.HarvestDropsEvent> createTask(UUID id, BlockEvent.HarvestDropsEvent event) {
         if (event.getHarvester() instanceof EntityPlayerMP) {
-            return new DiggingTask((EntityPlayerMP) event.getHarvester());
+            return new DiggingTask(event);
         }
 
         return null;
