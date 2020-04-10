@@ -40,14 +40,14 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
     private final WeakReference<EntityPlayerMP> player;
 
     /**
-     * Initial player break pos
-     */
-    private final BlockPos startPos;
-
-    /**
      * Cached poses to break
      */
     private final Set<BlockPos> poses;
+
+    /**
+     * Blocks that player is breakin. Will contain more than 1 on range breaking tools
+     */
+    private final Set<BlockPos> requestedByPlayerPoses;
 
     /**
      * Direction in depth, forward to player look
@@ -65,15 +65,19 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
     private final EnumFacing up;
 
     public DiggingTask(BlockEvent.HarvestDropsEvent e) {
+        poses = new ConcurrentSet<>();
+        requestedByPlayerPoses = new ConcurrentSet<>();
+
         // It checked is task factory method
         EntityPlayerMP harvester = (EntityPlayerMP) e.getHarvester();
 
         // caching break start pos
-        startPos = e.getPos();
+        BlockPos startPos = e.getPos();
+
+        requestedByPlayerPoses.add(startPos);
 
         // caching id
         this.id = harvester.getUniqueID();
-        poses = new ConcurrentSet<>();
         player = new WeakReference<>(harvester);
 
         // getting correct side hit (thanks cofh core)
@@ -103,6 +107,7 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
     public void merge(BlockEvent.HarvestDropsEvent event) {
         EntityPlayer player = event.getHarvester();
         BlockPos eventPos = event.getPos();
+        requestedByPlayerPoses.add(eventPos);
         int enchantLevel = getEnchantLevel(player);
 
         BlockPos leftUpCorner = eventPos.offset(up).offset(right.getOpposite());
@@ -139,11 +144,17 @@ public class DiggingTask implements ITask<BlockEvent.HarvestDropsEvent> {
         // vertical offset
         // player do not need to look up
         // all breaking block will be from where player started digging - 1 and higher
-        if (up.getAxis().isVertical()) {
+
+        // fixing ranged breaking tools area
+        if (up.getAxis().isVertical() && requestedByPlayerPoses.size() > 1) {
             // find min pos in breaking blocks
-            Optional<Integer> min = poses.stream().map(Vec3i::getY).min(Integer::compareTo);
-            if (min.isPresent()) {
-                int diff = startPos.getY() - min.get();
+            Optional<Integer> breakingMin = poses.stream().map(Vec3i::getY).min(Integer::compareTo);
+
+            // find min pos for actual player breaking positions
+            Optional<Integer> playerBreakingMin = requestedByPlayerPoses.stream().map(Vec3i::getY).min(Integer::compareTo);
+            if (playerBreakingMin.isPresent() && breakingMin.isPresent()) {
+
+                int diff = playerBreakingMin.get() - breakingMin.get();
 
                 // min pos lower, player will fall, need to fix
                 if (diff > 0) {
