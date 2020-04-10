@@ -8,7 +8,6 @@ import divinerpg.dimensions.eden.WorldProviderEden;
 import divinerpg.dimensions.iceika.WorldProviderIceika;
 import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
-import divinerpg.dimensions.vethea.WorldProviderVethea;
 import divinerpg.dimensions.vethea_new.VetheaWorldProvider;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
 import divinerpg.structure.legacy.DivineLegacyStructureStart;

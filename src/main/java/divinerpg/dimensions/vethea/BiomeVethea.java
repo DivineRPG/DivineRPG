@@ -1,7 +1,6 @@
 package divinerpg.dimensions.vethea;
 
 import divinerpg.api.Reference;
-import divinerpg.dimensions.vethea.layer2.WorldGenFirewoodTree;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

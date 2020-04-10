@@ -2,7 +2,6 @@ package divinerpg.dimensions.vethea_new;
 
 import divinerpg.api.Reference;
 import divinerpg.dimensions.vethea.WorldGenVetheanFlower;
-import divinerpg.dimensions.vethea.village.WorldGenVillageIsland;
 import divinerpg.registry.ModBlocks;
 import divinerpg.structure.legacy.DrpgLegacyStructure;
 import divinerpg.structure.template.DivineLargeStructure;
