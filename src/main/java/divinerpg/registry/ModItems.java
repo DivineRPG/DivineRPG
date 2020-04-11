@@ -1964,8 +1964,8 @@ public class ModItems {
         // Boss spawners
         register(registry, new ItemBossSpawner("call_of_the_watcher", "message.watcher", x -> Objects.equals(x, DimensionType.NETHER), EntityTheWatcher::new));
         register(registry, new ItemHordeHorn("horde_horn"));
-        register(registry, new ItemBossSpawner("infernal_flame", "tooltip.king_of_scorchers", x -> Objects.equals(x, DimensionType.NETHER), EntityKingOfScorchers::new));
-        register(registry, new ItemBossSpawner("mysterious_clock", "tootip.ancient_entity", x -> Objects.equals(x, DimensionType.OVERWORLD), EntityAncientEntity::new));
+        register(registry, new ItemBossSpawner("infernal_flame", "message.king_of_scorchers", x -> Objects.equals(x, DimensionType.NETHER), EntityKingOfScorchers::new));
+        register(registry, new ItemBossSpawner("mysterious_clock", "message.ancient_entity", x -> Objects.equals(x, DimensionType.OVERWORLD), EntityAncientEntity::new));
         register(registry, new ItemMod("watching_eye"));
 
         // Ayeraco fragments
