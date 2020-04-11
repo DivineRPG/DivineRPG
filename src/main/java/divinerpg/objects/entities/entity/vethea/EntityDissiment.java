@@ -62,7 +62,7 @@ public class EntityDissiment extends EntityDivineGhast {
 
     @Override
     protected float getSoundVolume() {
-        return 10.0F;
+        return 5.0F;
     }
 
 }

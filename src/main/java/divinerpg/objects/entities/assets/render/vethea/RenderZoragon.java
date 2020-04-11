@@ -3,6 +3,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vethea.ModelZoragon;
 import divinerpg.objects.entities.entity.vethea.EntityZoragon;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -16,9 +17,7 @@ public class RenderZoragon extends RenderLiving<EntityZoragon> {
 
     public RenderZoragon(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelZoragon(), 1F);
-
     }
-
 
     @Nullable
     @Override
