@@ -1,14 +1,10 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.projectiles.EntityVileStorm;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -21,6 +17,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemVileStorm extends ItemMod {
 
     public ItemVileStorm(String name) {
@@ -31,7 +30,7 @@ public class ItemVileStorm extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipLocalizer.rangedDam(4));
+        tooltip.add(LocalizeKeys.rangedDam(4));
         tooltip.add(TooltipHelper.getInfoText("tooltip.vilestorm"));
     }
 

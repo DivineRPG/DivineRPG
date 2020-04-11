@@ -1,14 +1,10 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.SecondaryTeleporter;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -21,6 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemTeleportationCrystal extends ItemMod {
 
     WorldServer worldserver;
@@ -32,10 +31,28 @@ public class ItemTeleportationCrystal extends ItemMod {
         setMaxStackSize(1);
     }
 
+    public static void teleportToDimension(EntityPlayer player, int dimension, BlockPos pos) {
+        int oldDimension = player.getEntityWorld().provider.getDimension();
+        EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
+        MinecraftServer server = player.getEntityWorld().getMinecraftServer();
+        WorldServer worldServer = server.getWorld(dimension);
+        player.addExperienceLevel(0);
+
+        if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
+            pos = worldServer.getTopSolidOrLiquidBlock(pos);
+        }
+        double x = pos.getX();
+        double y = pos.getY();
+        double z = pos.getZ();
+        worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension,
+                new SecondaryTeleporter(worldServer, x, y, z));
+        player.setPositionAndUpdate(x, y, z);
+    }
+
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(TooltipHelper.getInfoText("tooltip.teleport_bed_spawn"));
-        list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        list.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
     @Override
@@ -49,7 +66,7 @@ public class ItemTeleportationCrystal extends ItemMod {
             if (worldIn.provider.getDimension() != 0) {
                 teleportToDimension(player, 0, teleportPos);
             } else {
-                if (player.getBedSpawnLocation(worldIn, teleportPos, true) == null) {
+                if (EntityPlayer.getBedSpawnLocation(worldIn, teleportPos, true) == null) {
                     teleportPos = worldIn.getTopSolidOrLiquidBlock(teleportPos);
                 }
                 player.setPositionAndUpdate(teleportPos.getX(), teleportPos.getY(), teleportPos.getZ());
@@ -59,23 +76,5 @@ public class ItemTeleportationCrystal extends ItemMod {
             stack.damageItem(1, player);
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-    }
-
-    public static void teleportToDimension(EntityPlayer player, int dimension, BlockPos pos) {
-        int oldDimension = player.getEntityWorld().provider.getDimension();
-        EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
-        MinecraftServer server = player.getEntityWorld().getMinecraftServer();
-        WorldServer worldServer = server.getWorld(dimension);
-        player.addExperienceLevel(0);
-
-        if (player.getBedSpawnLocation(worldServer, pos, true) == null) {
-            pos = worldServer.getTopSolidOrLiquidBlock(pos);
-        }
-        double x = pos.getX();
-        double y = pos.getY();
-        double z = pos.getZ();
-        worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension,
-                new SecondaryTeleporter(worldServer, x, y, z));
-        player.setPositionAndUpdate(x, y, z);
     }
 }

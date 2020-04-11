@@ -2,7 +2,7 @@ package divinerpg.objects.items.base;
 
 import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
@@ -28,9 +28,9 @@ public class ItemModHoe extends ItemHoe {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
         if (stack.getMaxDamage() > 0) {
-            infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+            infoList.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
         } else {
-            infoList.add(TooltipLocalizer.infiniteUses());
+            infoList.add(LocalizeKeys.infiniteUses());
         }
     }
 }

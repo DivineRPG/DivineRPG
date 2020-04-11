@@ -3,8 +3,8 @@ package divinerpg.objects.items.arcana;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.ToolMaterialMod;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -27,6 +27,6 @@ public class ItemArcaniteBlade extends ItemModSword {
 
     @Override
     public void addAdditionalInformation(List list) {
-        list.add(TooltipLocalizer.arcanaConsumed(12));
+        list.add(LocalizeKeys.arcanaConsumed(12));
     }
 }

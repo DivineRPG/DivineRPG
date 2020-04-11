@@ -1,16 +1,12 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityStar;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.PositionHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -19,6 +15,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemStaffStarlight extends RangedWeaponBase {
 
@@ -84,7 +83,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
-        tooltip.add(TooltipLocalizer.rangedDam(20));
+        tooltip.add(LocalizeKeys.rangedDam(20));
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
 

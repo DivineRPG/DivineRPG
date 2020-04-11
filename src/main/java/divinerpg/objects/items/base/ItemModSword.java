@@ -2,7 +2,7 @@ package divinerpg.objects.items.base;
 
 import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,12 +48,12 @@ public class ItemModSword extends ItemSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.meleeDam(material.getAttackDamage() + 5));
+        list.add(LocalizeKeys.meleeDam(material.getAttackDamage() + 5));
         addAdditionalInformation(list);
         if (item.getMaxDamage() > 0) {
-            list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
+            list.add(LocalizeKeys.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
         } else {
-            list.add(TooltipLocalizer.infiniteUses());
+            list.add(LocalizeKeys.infiniteUses());
         }
     }
 

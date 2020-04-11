@@ -1,10 +1,5 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
@@ -13,8 +8,8 @@ import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +23,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class ItemArcanaCharge extends ItemMod {
     private Random rand = new Random();
@@ -121,7 +120,7 @@ public class ItemArcanaCharge extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(TooltipHelper.getInfoText("tooltip.frozencharge"));
-        list.add(TooltipLocalizer.arcanaConsumed(200));
-        list.add(TooltipLocalizer.singleUse());
+        list.add(LocalizeKeys.arcanaConsumed(200));
+        list.add(LocalizeKeys.singleUse());
     }
 }

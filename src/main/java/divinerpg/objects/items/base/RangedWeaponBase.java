@@ -9,8 +9,8 @@ import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.PositionHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -97,16 +97,16 @@ public class RangedWeaponBase extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (bulletType != null) {
-            tooltip.add(TooltipLocalizer.rangedDam(bulletType.getDamage()));
+            tooltip.add(LocalizeKeys.rangedDam(bulletType.getDamage()));
         }
 
         addAmmoInfo(tooltip);
 
-        tooltip.add(stack.getMaxDamage() == -1 ? TooltipLocalizer.infiniteUses() :
-                TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        tooltip.add(stack.getMaxDamage() == -1 ? LocalizeKeys.infiniteUses() :
+                LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
 
         if (arcanaConsuming > 0)
-            tooltip.add(TooltipLocalizer.arcanaConsumed(arcanaConsuming));
+            tooltip.add(LocalizeKeys.arcanaConsumed(arcanaConsuming));
     }
 
     @Override
@@ -165,10 +165,10 @@ public class RangedWeaponBase extends ItemMod {
     private void addAmmoInfo(List<String> list) {
         EntityPlayer player = DivineRPG.proxy.getPlayer();
         if (!needsAmmo() || player == null) {
-            list.add(TooltipLocalizer.infiniteAmmo());
+            list.add(LocalizeKeys.infiniteAmmo());
         } else {
             ItemStack ammo = findAmmo(player);
-            list.add(TooltipLocalizer.ammo(getAmmo(), ammo != null));
+            list.add(LocalizeKeys.ammo(getAmmo(), ammo != null));
         }
     }
 

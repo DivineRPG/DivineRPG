@@ -1,11 +1,11 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 public class ItemBurningSword extends ItemModSword {
     private int burnSeconds;
@@ -24,6 +24,6 @@ public class ItemBurningSword extends ItemModSword {
 
     @Override
     protected void addAdditionalInformation(List list) {
-        list.add(TooltipLocalizer.burn(this.burnSeconds));
+        list.add(LocalizeKeys.burn(this.burnSeconds));
     }
 }
