@@ -139,7 +139,7 @@ public class ModSpawns {
                 EntityRegistry.addSpawn(EntityBiphron.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityBohemite.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityCymesoid.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityDissiment.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDissiment.class, 1, 1, 1, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityDreamwrecker.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityDuo.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityGalroid.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
@@ -160,7 +160,7 @@ public class ModSpawns {
                 EntityRegistry.addSpawn(EntityVermenous.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityVhraak.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityZone.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityZoragon.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityZoragon.class, 1, 1, 1, EnumCreatureType.MONSTER, biome);
             } else if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.END)) {
                 EntityRegistry.addSpawn(EntityEnderSpider.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityEnderTriplets.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
