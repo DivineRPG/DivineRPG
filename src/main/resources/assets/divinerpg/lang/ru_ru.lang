@@ -1586,5 +1586,7 @@ tooltip.armor_info.arcana_regen=Увеличение скорость реген
 tooltip.armor_info.poison_protection=Защита от зелий
 tooltip.armor_info.freeze=Замедление враждебных мобов в пределах %s блоков
 tooltip.armor_info.haste=Увеличение скорости копания
+tooltip.bow_speed.slower=В %sx раз(а) быстрее
+tooltip.bow_speed.faster=В %sx раз(а) медленнее
 
 enchantment.world_break=Крушитель миров

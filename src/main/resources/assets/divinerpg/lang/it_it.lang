@@ -1468,6 +1468,8 @@ tooltip.smelter_egg=Genera una Fonderia domestica
 tooltip.snapper_egg=Genera uno Snapper domestico
 tooltip.white_grizzle_egg=Genera un Grizzle bianco domestico
 tooltip.brown_grizzle_egg=Genera un Grizzle marrone domestico
+tooltip.bow_speed.slower=%sx Times Faster
+tooltip.bow_speed.faster=%sx Times Slower
 
 tooltip.armor_info.fire_protection=Fire Protection
 tooltip.armor_info.no_fall=No Fall Damage

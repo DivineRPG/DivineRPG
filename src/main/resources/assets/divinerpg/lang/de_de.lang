@@ -519,3 +519,5 @@ tooltip.armor_info.arcana_regen=Arcana Regeneration
 tooltip.armor_info.poison_protection=Poison Resistance
 tooltip.armor_info.freeze=Slows Hostile Mobs Within %s Blocks
 tooltip.armor_info.haste=Increased Mining Speed
+tooltip.bow_speed.slower=%sx Times Faster
+tooltip.bow_speed.faster=%sx Times Slower
