@@ -1491,11 +1491,13 @@ message.ayeraco.red=Красный Айрако был призван
 message.ayeraco.yellow=Желтый Айрако был призван
 message.ayeraco.purple=Фиолетовый Айрако был призван
 message.ayeraco.spawn=Орда Айрако прибыла!
-message.developer=Добро пожаловать: разработчик DivineRPG!
 message.standard=Спасибо %s за скачивание и игру %s!
 message.internet=Не удалось проверить наличие обновлений, проверьте Ваше подключение к интернету!
 message.update=Доступно обновление DivineRPG
 message.version=[Новая версия: %s]
+message.developer=Добро пожаловать разбработчик DivineRPG! %s является разработчиком DivineRPG.
+message.tester=Добро пожаловать тестер DivineRPG! %s, команда разработчиков благодарна вам за помощь в улучшении мода.
+message.patreon=Добро пожаловать %s! Команда разработчиков DivineRPG, благодарит вас за финансовую поддержку!
 
 tooltip.uses.single=Однократное использование
 tooltip.frozencharge=Открывает заблокированные двери в подземелье Арканы

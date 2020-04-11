@@ -1399,7 +1399,6 @@ message.hunger.dinner=Andiamo a cena. Tu Cucinerai.
 message.internet=Impossible controllare per aggiornamenti sulle nuove versioni, prova a controllare la tua connessione internet!
 message.update=Un aggiornamento per DivineRPG è disponibile.
 message.version=[Nuova Versione: %s]
-message.developer=Benvenuto in DivineRPG modalità di sviluppo!
 message.ayeraco.green=L'Ayeraco Verde è stato chiamato
 message.ayeraco.blue=L'Ayeraco Blu è stato chiamato
 message.ayeraco.red=L'Ayeraco Rosso è stato chiamato
@@ -1407,6 +1406,9 @@ message.ayeraco.yellow=L'Ayeraco Giallo è stato chiamato
 message.ayeraco.purple=L'Ayeraco Viola è stato chiamato
 message.ayeraco.spawn=L'Orda di Ayeraco è arrivata!
 message.standard=Grazie %s per aver scaricato e giocato %s!
+message.developer=Welcome DivineRPG developer! %s is on the DivineRPG dev team.
+message.tester=Welcome DivineRPG tester! %s kindly offered their time to help test DivineRPG. Thank you for your service!
+message.patreon=Welcome DivineRPG patreon! %s kindly supported the DivineRPG dev team, thank you for your help!
 
 tooltip.uses=%s Usi Rimanenti
 tooltip.harvest=Livello di Raccoglimento: +
