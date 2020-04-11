@@ -4,8 +4,7 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,7 +44,7 @@ public class ItemShadowSaber extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeKeys.arcanaConsumed(12));
-        list.add(TooltipHelper.getInfoText("tooltip.shadow_saber"));
+        list.add(LocalizeUtils.arcanaConsumed(12));
+        list.add(LocalizeUtils.i18n("tooltip.shadow_saber"));
     }
 }

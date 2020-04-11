@@ -4,7 +4,7 @@ import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
@@ -22,7 +22,7 @@ public class ItemLaVekor extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.explosiveShots());
+        tooltip.add(LocalizeUtils.explosiveShots());
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

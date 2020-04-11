@@ -2,8 +2,13 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.*;
+import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
+import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
+import divinerpg.objects.entities.entity.arcana.EntityParatiku;
+import divinerpg.objects.entities.entity.arcana.EntitySeimer;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
+import divinerpg.objects.entities.entity.vanilla.*;
 import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
@@ -29,7 +34,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
 
-import static divinerpg.utils.LocalizeKeys.getArmorAbility;
+import static divinerpg.utils.LocalizeUtils.getArmorAbility;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
@@ -1975,13 +1980,13 @@ public class ModItems {
         register(registry, new ItemMod("green_diamond_chunk"));
 
         // Pet spawn eggs
-        register(registry, new ItemLivestockSpawnEgg("brown_grizzle_egg"));
-        register(registry, new ItemLivestockSpawnEgg("ehu_egg"));
-        register(registry, new ItemLivestockSpawnEgg("husk_egg"));
-        register(registry, new ItemLivestockSpawnEgg("smelter_egg"));
-        register(registry, new ItemLivestockSpawnEgg("snapper_egg"));
-        register(registry, new ItemLivestockSpawnEgg("stone_golem_egg"));
-        register(registry, new ItemLivestockSpawnEgg("white_grizzle_egg"));
+        register(registry, new ItemLivestockSpawnEgg("brown_grizzle_egg", EntityBrownGrizzle::new));
+        register(registry, new ItemLivestockSpawnEgg("ehu_egg", EntityEhu::new));
+        register(registry, new ItemLivestockSpawnEgg("husk_egg", EntityHusk::new));
+        register(registry, new ItemLivestockSpawnEgg("smelter_egg", EntitySmelter::new));
+        register(registry, new ItemLivestockSpawnEgg("snapper_egg", EntitySnapper::new));
+        register(registry, new ItemLivestockSpawnEgg("stone_golem_egg", EntityStoneGolem::new));
+        register(registry, new ItemLivestockSpawnEgg("white_grizzle_egg", EntityWhiteGrizzle::new));
 
         // Miscellaneous resources
         register(registry, new ItemMod("aqua_ball"));
@@ -2277,10 +2282,10 @@ public class ModItems {
         register(registry, new ItemWizardsBook("wizards_book"));
 
         // Arcana pet spawners
-        register(registry, new ItemZelusSpawnEgg("fyracryx_egg"));
-        register(registry, new ItemZelusSpawnEgg("paratiku_egg"));
-        register(registry, new ItemZelusSpawnEgg("seimer_egg"));
-        register(registry, new ItemZelusSpawnEgg("golem_of_rejuvenation_egg"));
+        register(registry, new ItemZelusSpawnEgg("fyracryx_egg", EntityFyracryx::new));
+        register(registry, new ItemZelusSpawnEgg("paratiku_egg", EntityParatiku::new));
+        register(registry, new ItemZelusSpawnEgg("seimer_egg", EntitySeimer::new));
+        register(registry, new ItemZelusSpawnEgg("golem_of_rejuvenation_egg", EntityGolemOfRejuvenation::new));
 
         // Arcana crops
         register(registry, new ItemAquamarine("aquamarine"));

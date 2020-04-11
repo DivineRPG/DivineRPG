@@ -3,8 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
@@ -22,8 +21,8 @@ public class ItemGeneralsStaff extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.rangedDam(18));
-        tooltip.add(TooltipHelper.getInfoText("tooltip.generals_staff.split"));
+        tooltip.add(LocalizeUtils.rangedDam(18));
+        tooltip.add(LocalizeUtils.i18n("tooltip.generals_staff.split"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

@@ -1,5 +1,11 @@
 package divinerpg.objects.entities.entity.vanilla;
 
+import divinerpg.DivineRPG;
+import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ModItems;
+import divinerpg.registry.ModSounds;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -17,14 +23,6 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
 
 public class EntityJackOMan extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah",
@@ -46,8 +44,8 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.jack_o_man.name") + ": "
-                + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
+        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.jack_o_man.name") + ": "
+                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     public static List<MerchantRecipe> getAllRecipies() {

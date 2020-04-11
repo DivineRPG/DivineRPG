@@ -1,25 +1,18 @@
 package divinerpg.objects.blocks.vethea;
 
-import java.util.Iterator;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import divinerpg.dimensions.vethea.TeleporterVethea;
 import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
-import divinerpg.utils.SecondaryTeleporter;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
@@ -29,7 +22,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,13 +29,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -53,10 +39,14 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.Random;
+
 public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider {
     private NBTTagCompound persistentData;
 
-    public static final PropertyEnum<BlockNightmareBed.EnumPartType> PART = PropertyEnum.<BlockNightmareBed.EnumPartType>create("part", BlockNightmareBed.EnumPartType.class);
+    public static final PropertyEnum<BlockNightmareBed.EnumPartType> PART = PropertyEnum.create("part", BlockNightmareBed.EnumPartType.class);
     public static final PropertyBool OCCUPIED = PropertyBool.create("occupied");
     protected static final AxisAlignedBB BED_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5625D, 1.0D);
 
@@ -77,6 +67,96 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     }
 
     /**
+     * Returns a safe BlockPos to disembark the bed
+     */
+    @Nullable
+    public static BlockPos getSafeExitLocation(World worldIn, BlockPos pos, int tries) {
+        EnumFacing enumfacing = worldIn.getBlockState(pos).getValue(FACING);
+        int i = pos.getX();
+        int j = pos.getY();
+        int k = pos.getZ();
+
+        for (int l = 0; l <= 1; ++l) {
+            int i1 = i - enumfacing.getFrontOffsetX() * l - 1;
+            int j1 = k - enumfacing.getFrontOffsetZ() * l - 1;
+            int k1 = i1 + 2;
+            int l1 = j1 + 2;
+
+            for (int i2 = i1; i2 <= k1; ++i2) {
+                for (int j2 = j1; j2 <= l1; ++j2) {
+                    BlockPos blockpos = new BlockPos(i2, j, j2);
+
+                    if (hasRoomForPlayer(worldIn, blockpos)) {
+                        if (tries <= 0) {
+                            return blockpos;
+                        }
+
+                        --tries;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    @Nullable
+    private EntityPlayer getPlayerInBed(World worldIn, BlockPos pos) {
+        for (EntityPlayer entityplayer : worldIn.playerEntities) {
+            if (entityplayer.isPlayerSleeping() && entityplayer.bedLocation.equals(pos)) {
+                return entityplayer;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT;
+    }
+
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    /**
+     * Block's chance to react to a living entity falling on it.
+     */
+    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+        super.onFallenUpon(worldIn, pos, entityIn, fallDistance * 0.5F);
+    }
+
+    /**
+     * Called when an Entity lands on this Block. This method *must* update motionY because the entity will not do that
+     * on its own
+     */
+    public void onLanded(World worldIn, Entity entityIn) {
+        if (entityIn.isSneaking()) {
+            super.onLanded(worldIn, entityIn);
+        } else if (entityIn.motionY < 0.0D) {
+            entityIn.motionY = -entityIn.motionY * 0.6600000262260437D;
+
+            if (!(entityIn instanceof EntityLivingBase)) {
+                entityIn.motionY *= 0.8D;
+            }
+        }
+    }
+
+    /**
      * Called when the block is right clicked by a player.
      */
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -84,11 +164,11 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         else {
             EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
 
-            this.persistentData = playerIn.getEntityData().getCompoundTag(playerIn.PERSISTED_NBT_TAG);
+            this.persistentData = playerIn.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
 
             if (playerIn.world.provider.getDimension() == 0) {
                 if (worldIn.getBlockLightOpacity(pos) > 7) {
-                    playerIn.sendMessage(Utils.getChatComponent("You can only use the Nightmare Bed in a dark place."));
+                    playerIn.sendMessage(LocalizeUtils.getChatComponent("You can only use the Nightmare Bed in a dark place."));
                     return true;
                 }
                 EntityPlayer entityplayer1 = null;
@@ -98,7 +178,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
 
                     if (entityplayer1 != null) {
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied", new Object[0]), true);
+                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied"), true);
                         return true;
                     }
 
@@ -115,7 +195,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                     MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
                     WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
                     playerIn.addExperienceLevel(0);
-                    if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
+                    if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
                         pos = worldServer.getTopSolidOrLiquidBlock(pos);
                     }
                     double x = pos.getX(), y = 17, z = pos.getZ();
@@ -133,7 +213,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
                 WorldServer worldServer = server.getWorld(0);
                 playerIn.addExperienceLevel(0);
 
-                if (playerIn.getBedSpawnLocation(worldServer, pos, true) == null) {
+                if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
                     pos = worldServer.getTopSolidOrLiquidBlock(pos);
                 }
                 double x = pos.getX(), y = pos.getY(), z = pos.getZ();
@@ -146,69 +226,20 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         return true;
     }
 
-
-    @Nullable
-    private EntityPlayer getPlayerInBed(World worldIn, BlockPos pos)
-    {
-        for (EntityPlayer entityplayer : worldIn.playerEntities)
-        {
-            if (entityplayer.isPlayerSleeping() && entityplayer.bedLocation.equals(pos))
-            {
-                return entityplayer;
-            }
-        }
-
-        return null;
+    /**
+     * Get the Item that this Block should drop when harvested.
+     */
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT ? Items.AIR : Item.getItemFromBlock(ModBlocks.nightmareBed);
     }
-    @Override
+
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return BED_AABB;
+    }
+
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
-        return BlockRenderLayer.CUTOUT;
-    }
-    @Override
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
-        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
-    }
-    @Override
-    public boolean isFullCube(IBlockState state)
-    {
-        return false;
-    }
-    @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }
-
-    /**
-     * Block's chance to react to a living entity falling on it.
-     */
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
-    {
-        super.onFallenUpon(worldIn, pos, entityIn, fallDistance * 0.5F);
-    }
-
-    /**
-     * Called when an Entity lands on this Block. This method *must* update motionY because the entity will not do that
-     * on its own
-     */
-    public void onLanded(World worldIn, Entity entityIn)
-    {
-        if (entityIn.isSneaking())
-        {
-            super.onLanded(worldIn, entityIn);
-        }
-        else if (entityIn.motionY < 0.0D)
-        {
-            entityIn.motionY = -entityIn.motionY * 0.6600000262260437D;
-
-            if (!(entityIn instanceof EntityLivingBase))
-            {
-                entityIn.motionY *= 0.8D;
-            }
-        }
+    public boolean hasCustomBreakingProgress(IBlockState state) {
+        return true;
     }
 
     /**
@@ -218,7 +249,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      */
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-        EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
+        EnumFacing enumfacing = state.getValue(FACING);
 
         if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
         {
@@ -236,65 +267,6 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
             worldIn.setBlockToAir(pos);
         }
-    }
-
-    /**
-     * Get the Item that this Block should drop when harvested.
-     */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        return state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT ? Items.AIR : Item.getItemFromBlock(ModBlocks.nightmareBed);
-    }
-
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return BED_AABB;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean hasCustomBreakingProgress(IBlockState state)
-    {
-        return true;
-    }
-
-    /**
-     * Returns a safe BlockPos to disembark the bed
-     */
-    @Nullable
-    public static BlockPos getSafeExitLocation(World worldIn, BlockPos pos, int tries)
-    {
-        EnumFacing enumfacing = (EnumFacing)worldIn.getBlockState(pos).getValue(FACING);
-        int i = pos.getX();
-        int j = pos.getY();
-        int k = pos.getZ();
-
-        for (int l = 0; l <= 1; ++l)
-        {
-            int i1 = i - enumfacing.getFrontOffsetX() * l - 1;
-            int j1 = k - enumfacing.getFrontOffsetZ() * l - 1;
-            int k1 = i1 + 2;
-            int l1 = j1 + 2;
-
-            for (int i2 = i1; i2 <= k1; ++i2)
-            {
-                for (int j2 = j1; j2 <= l1; ++j2)
-                {
-                    BlockPos blockpos = new BlockPos(i2, j, j2);
-
-                    if (hasRoomForPlayer(worldIn, blockpos))
-                    {
-                        if (tries <= 0)
-                        {
-                            return blockpos;
-                        }
-
-                        --tries;
-                    }
-                }
-            }
-        }
-
-        return null;
     }
 
     @Deprecated
@@ -321,15 +293,13 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         return EnumPushReaction.DESTROY;
     }
 
-    
-
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
         BlockPos blockpos = pos;
 
         if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
         {
-            blockpos = pos.offset((EnumFacing)state.getValue(FACING));
+            blockpos = pos.offset(state.getValue(FACING));
         }
 
         TileEntity tileentity = worldIn.getTileEntity(blockpos);
@@ -344,7 +314,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     {
         if (player.capabilities.isCreativeMode && state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
         {
-            BlockPos blockpos = pos.offset((EnumFacing)state.getValue(FACING));
+            BlockPos blockpos = pos.offset(state.getValue(FACING));
 
             if (worldIn.getBlockState(blockpos).getBlock() == this)
             {
@@ -367,7 +337,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         }
         else
         {
-            super.harvestBlock(worldIn, player, pos, state, (TileEntity)null, stack);
+            super.harvestBlock(worldIn, player, pos, state, null, stack);
         }
     }
 
@@ -397,7 +367,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     {
         if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
         {
-            IBlockState iblockstate = worldIn.getBlockState(pos.offset((EnumFacing)state.getValue(FACING)));
+            IBlockState iblockstate = worldIn.getBlockState(pos.offset(state.getValue(FACING)));
 
             if (iblockstate.getBlock() == this)
             {
@@ -414,7 +384,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      */
     public IBlockState withRotation(IBlockState state, Rotation rot)
     {
-        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+        return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     /**
@@ -423,7 +393,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      */
     public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
     {
-        return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+        return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     /**
@@ -432,14 +402,13 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     public int getMetaFromState(IBlockState state)
     {
         int i = 0;
-        i = i | ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
+        i = i | state.getValue(FACING).getHorizontalIndex();
 
         if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD)
         {
             i |= 8;
 
-            if (((Boolean)state.getValue(OCCUPIED)).booleanValue())
-            {
+            if (state.getValue(OCCUPIED).booleanValue()) {
                 i |= 4;
             }
         }
@@ -463,7 +432,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {FACING, PART, OCCUPIED});
+        return new BlockStateContainer(this, FACING, PART, OCCUPIED);
     }
 
     /**
@@ -480,15 +449,13 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         return (metadata & 8) != 0;
     }
 
-    public static enum EnumPartType implements IStringSerializable
-    {
+    public enum EnumPartType implements IStringSerializable {
         HEAD("head"),
         FOOT("foot");
 
         private final String name;
 
-        private EnumPartType(String name)
-        {
+        EnumPartType(String name) {
             this.name = name;
         }
 

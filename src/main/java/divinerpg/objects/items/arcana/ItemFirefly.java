@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.projectiles.EntityFirefly;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
@@ -20,8 +20,8 @@ public class ItemFirefly extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.homingShots());
-        tooltip.add(LocalizeKeys.rangedDam(15));
+        tooltip.add(LocalizeUtils.homingShots());
+        tooltip.add(LocalizeUtils.rangedDam(15));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

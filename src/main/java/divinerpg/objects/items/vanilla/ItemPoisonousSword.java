@@ -1,7 +1,7 @@
 package divinerpg.objects.items.vanilla;
 
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +29,6 @@ public class ItemPoisonousSword extends ItemModSword {
 
     @Override
     protected void addAdditionalInformation(List list) {
-        list.add(LocalizeKeys.poison(this.poisonSeconds));
+        list.add(LocalizeUtils.poison(this.poisonSeconds));
     }
 }

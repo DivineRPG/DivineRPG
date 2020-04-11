@@ -6,14 +6,16 @@ import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -73,7 +75,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
     }
 
     private void applyEntityAI() {
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityPigZombie.class));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
@@ -88,7 +90,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     if (!this.world.isRemote) {
                         List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
                         for (EntityPlayer p : players) {
-                            p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.explosion")));
+                            p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.explosion")));
                         }
                     }
                     break;
@@ -124,8 +126,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
                 List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
                 for (EntityPlayer p : players) {
                     this.world.playSound(p, p.getPosition(), ModSounds.KAROS_INTRO, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                    p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.game")));
-                    p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.begin")));
+                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.game")));
+                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.begin")));
                 }
             }
             for (int x = -40; x < 40; x++) {
@@ -195,19 +197,19 @@ public class EntityKaros extends EntityDivineRPGBoss {
             switch (s) {
                 case 0:
                     if (!this.world.isRemote)
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.laugh")));
+                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.laugh")));
                     break;
                 case 1:
                     if (!this.world.isRemote)
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.doom")));
+                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.doom")));
                     break;
                 case 2:
                     if (!this.world.isRemote)
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.cmon")));
+                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.cmon")));
                     break;
                 default:
                     if (!this.world.isRemote)
-                        p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.karos.weak")));
+                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.weak")));
                     break;
             }
 

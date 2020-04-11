@@ -5,7 +5,7 @@ import divinerpg.objects.entities.entity.projectiles.EntityStar;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -83,7 +83,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
-        tooltip.add(LocalizeKeys.rangedDam(20));
+        tooltip.add(LocalizeUtils.rangedDam(20));
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
 

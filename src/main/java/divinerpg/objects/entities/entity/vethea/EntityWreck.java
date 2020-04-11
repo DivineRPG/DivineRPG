@@ -6,8 +6,7 @@ import divinerpg.objects.entities.entity.projectiles.EntityWreckExplosiveShot;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckShot;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -169,36 +168,36 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
                 switch (this.getAbility()) {
                     case CHARGE:
-                        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.charge")));
+                        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.charge")));
                         break;
                     case PULL:
                         this.playSound(ModSounds.FEEL_SOUL_ARKSIANE, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.pull")));
+                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.pull")));
                         break;
                     case FIRE:
-                        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.fire")));
+                        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.fire")));
                         break;
                     case FREEZE:
                         this.playSound(ModSounds.STOP_AT_ONCE, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
-                            player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.freeze")));
+                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.freeze")));
                         }
                         break;
                     case SPEED:
                         this.playSound(ModSounds.WRECK_SPEED, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.speed")));
+                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.speed")));
                         break;
                     case EXPLOSIONS:
                         this.playSound(ModSounds.EXPLOSIONS, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.explosion")));
+                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.explosion")));
                         break;
                     case STRENGTH:
                         this.playSound(ModSounds.WRECK_STRENGTH, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.strength")));
+                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.strength")));
                         break;
                     default:
                         break;
@@ -214,8 +213,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
         if (!world.isRemote && !loaded) {
             List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
             for (EntityPlayer p : players) {
-                p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.run")));
-                p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("message.wreck.smell")));
+                p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.run")));
+                p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.smell")));
             }
             this.playSound(ModSounds.WRECK_INTRO, 1.0F, 1.0F);
             loaded = true;

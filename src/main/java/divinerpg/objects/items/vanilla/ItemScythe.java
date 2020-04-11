@@ -7,7 +7,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ArmorDescriptionRegister;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -44,7 +44,7 @@ public class ItemScythe extends RangedWeaponBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeKeys.rangedDam(isJackoman(DivineRPG.proxy.getPlayer())
+        list.add(LocalizeUtils.rangedDam(isJackoman(DivineRPG.proxy.getPlayer())
                 ? BulletType.MEGA_SCYTHE_SHOT.getDamage()
                 : BulletType.SCYTHE_SHOT.getDamage()));
 

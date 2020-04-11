@@ -1,7 +1,6 @@
 package divinerpg.objects.entities.entity;
 
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -30,8 +29,8 @@ public abstract class EntityGifterNPC extends EntityDivineRPGMob {
     protected void sendRandomChatMessage(EntityPlayer player) {
         String[] messages = getMessages();
 
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal(getTranslationName())
-                + ": " + MessageLocalizer.normal(messages[this.rand.nextInt(messages.length)])));
+        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal(getTranslationName())
+                + ": " + LocalizeUtils.normal(messages[this.rand.nextInt(messages.length)])));
     }
 
     protected abstract ItemStack getGift();

@@ -5,8 +5,7 @@ import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -41,10 +40,10 @@ public class ItemStaff extends RangedWeaponBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeKeys.arcanaDam(damage));
-        list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
+        list.add(LocalizeUtils.arcanaDam(damage));
+        list.add(LocalizeUtils.i18n("tooltip.staff.bounce"));
 		/*if(stack.getItem() == ModItems.evernight)
-			list.add(TooltipHelper.getInfoText("tooltip.staff.evernight.damage"));*/
+			list.add(LocalizeUtils.i18n("tooltip.staff.evernight.damage"));*/
         super.addInformation(stack, worldIn, list, flagIn);
         //list.add(TooltipLocalizer.vethean());
     }

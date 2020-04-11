@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -47,6 +47,6 @@ public class ItemGrenade extends ItemMod {
 
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.explosiveShots());
+		tooltip.add(LocalizeUtils.explosiveShots());
     }
 }

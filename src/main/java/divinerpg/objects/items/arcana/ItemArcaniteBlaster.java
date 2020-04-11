@@ -4,7 +4,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -47,7 +47,7 @@ public class ItemArcaniteBlaster extends RangedWeaponBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeKeys.bowDam("30x23"));
+        list.add(LocalizeUtils.bowDam("30x23"));
         super.addInformation(stack, worldIn, list, flagIn);
     }
 }

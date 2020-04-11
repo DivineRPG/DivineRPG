@@ -6,15 +6,10 @@ import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.registry.ModBlocks;
 import io.netty.util.internal.ConcurrentSet;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.EnumHelper;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -34,17 +29,6 @@ public class Utils {
     public static DamageSource acidSource = new DamageSource("acid");
     public static DamageSource spikeSource = new DamageSource("spike");
     public static DamageSource arcanaSource = new DamageSource("arcana");
-
-    private static String str;
-
-    private static Object args;
-    public static String BLACK = "\u00a70", DARK_BLUE = "\u00a71", DARK_GREEN = "\u00a72", DARK_AQUA = "\u00a73",
-            DARK_RED = "\u00a74";
-    public static String DARK_PURPLE = "\u00a75", GOLD = "\u00a76", GRAY = "\u00a77", DARK_GRAY = "\u00a78",
-            BLUE = "\u00a79";
-    public static String GREEN = "\u00a7a", AQUA = "\u00a7b", RED = "\u00a7c", LIGHT_PURPLE = "\u00a7d",
-            YELLOW = "\u00a7e";
-    public static String WHITE = "\u00a7f";
 
     private static Set<UUID> DEV_LIST = new ConcurrentSet<>();
     private static Set<UUID> TESTER_LIST = new ConcurrentSet<>();
@@ -144,17 +128,6 @@ public class Utils {
         });
     }
 
-    public static ITextComponent getChatComponent(String str) {
-        TextComponentString ret = new TextComponentString(str);
-        return ret;
-    }
-
-    public static ITextComponent getChatComponent(String str, String args) {
-        TextComponentString ret = new TextComponentString(args + str);
-        ret.getStyle().setColor(TextFormatting.WHITE);
-        return ret;
-    }
-
     public static DamageSource causeArcanaDamage(Entity projectile, Entity shooter) {
         return new EntityDamageSourceIndirect("arrow", projectile, shooter).setMagicDamage();
     }
@@ -175,22 +148,6 @@ public class Utils {
 
     public static boolean bordersTar(World w, BlockPos pos) {
         return bordersTar(w, pos.getX(), pos.getY(), pos.getZ());
-    }
-
-    public static ITextComponent addChatMessage(ITextComponent displayName) {
-        TextComponentString ret = new TextComponentString(args + str);
-        ret.getStyle().setColor(TextFormatting.WHITE);
-        return ret;
-    }
-
-    public static TextComponentString addChatMessage(String str, Object... args) {
-        TextComponentString ret = new TextComponentString(args + str);
-        ret.getStyle().setColor(TextFormatting.WHITE);
-        return ret;
-    }
-
-    public static ToolMaterial addHammerMaterial(float damage) {
-        return EnumHelper.addToolMaterial("sword", 0, -1, 0, damage - 4, 22);
     }
 
     public class HatsInfo {
