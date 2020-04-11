@@ -17,28 +17,33 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class ItemZelusSpawnEgg extends ItemMod {
+public class ItemSpawnEgg extends ItemMod {
 
-    private final BiFunction<World, EntityPlayer, Entity> createZelus;
+    private final BiFunction<World, EntityPlayer, Entity> createEntityFunc;
+    private final String langId;
 
-    public ItemZelusSpawnEgg(String name, BiFunction<World, EntityPlayer, Entity> createZelus) {
+    public ItemSpawnEgg(String name, BiFunction<World, EntityPlayer, Entity> createEntityFunc) {
         super(name, DivineRPGTabs.spawner);
-        this.createZelus = createZelus;
+        this.createEntityFunc = createEntityFunc;
         setMaxStackSize(1);
+
+        langId = "tooltip." + name;
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
                                       float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            ItemStack stack = player.getHeldItem(hand);
             int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
-            Entity zelus = createZelus.apply(world, player);
-            zelus.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
-            world.spawnEntity(zelus);
+            Entity e = createEntityFunc.apply(world, player);
+            e.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
+            world.spawnEntity(e);
 
-            stack.shrink(1);
+            if (!player.isCreative())
+                player.getHeldItem(hand).shrink(1);
+
+
             return EnumActionResult.PASS;
         }
         return EnumActionResult.FAIL;
@@ -46,6 +51,6 @@ public class ItemZelusSpawnEgg extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        LocalizeUtils.i18n("tooltip." + getUnlocalizedName());
+        list.add(LocalizeUtils.i18n(langId));
     }
 }

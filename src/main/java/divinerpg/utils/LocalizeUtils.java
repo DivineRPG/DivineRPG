@@ -96,7 +96,7 @@ public class LocalizeUtils {
      * @return
      */
     public static String ammo(Item ammo, TextFormatting formatting) {
-        TextComponentTranslation ammoName = new TextComponentTranslation(ammo.getRegistryName().toString());
+        ITextComponent ammoName = new TextComponentTranslation(ammo.getUnlocalizedName() + ".name");
         ammoName.getStyle().setColor(formatting);
 
         return i18n(Ammo, ammoName);
@@ -318,6 +318,8 @@ public class LocalizeUtils {
      * @return
      */
     public static String i18n(String text, Object... args) {
-        return new TextComponentTranslation(text, args).getFormattedText();
+        TextComponentTranslation result = new TextComponentTranslation(text, args);
+        result.getStyle().setColor(TextFormatting.GRAY);
+        return result.getFormattedText();
     }
 }
