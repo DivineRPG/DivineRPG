@@ -1,14 +1,10 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,15 +18,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemStaffEnrichment extends ItemMod {
 
-	public ItemStaffEnrichment(String name) {
-		super(name, DivineRPGTabs.tools);
-		this.maxStackSize = 1;
-		this.setMaxDamage(100);
-	}
-	
-	@Override
+    public ItemStaffEnrichment(String name) {
+        super(name, DivineRPGTabs.tools);
+        this.maxStackSize = 1;
+        this.setMaxDamage(100);
+    }
+
+    @Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {	ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem());
 		if (!player.canPlayerEdit(pos, facing, stack)) {
@@ -55,10 +54,10 @@ public class ItemStaffEnrichment extends ItemMod {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn)
-    {	list.add(TooltipHelper.getInfoText("tooltip.staff_of_enrichment"));
-		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
-	}
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        list.add(TooltipHelper.getInfoText("tooltip.staff_of_enrichment"));
+        list.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+    }
 
 	@Override
 	@SideOnly(Side.CLIENT)

@@ -1,46 +1,81 @@
 package divinerpg.enums;
 
-public enum ArmorInfo {
+import com.mojang.realmsclient.gui.ChatFormatting;
+import divinerpg.utils.LocalizeKeys;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.*;
+import net.minecraft.world.World;
 
-    FIRE_PROTECTION("Fire Protection"),
-    NO_FALL("No Fall Damage"),
-    FLY("Flight"),
-    SPEED("#x Movement Speed"),
-    MELEE_DAMAGE("+# Melee Damage"),
-    RANGED_DAMAGE("+#% Ranged Damage"),
-    HUNGER("Refills Hunger"),
-    DAMAGE_REDUCTION("#% Damage Reduction"),
-    JUMP_HEIGHT("#x Jump Height"),
-    ORE_DROPS("+# Twilight Ore Drops"),
-    HEALTH_REGEN("Health Regeneration"),
-    UNDERWATER_HEALTH_REGEN("Health Regenerates Underwater"),
-    BLOCK_PROTECTION("Block Damage Protection"),
-    NIGHT_VISION("Night Vision"),
-    EXPLOSION_PROTECTION("Explosion Protection"),
-    RANGED_PROTECTION("#% Ranged Damage Protection"),
-    MELEE_PROTECTION("#% Melee Damage Protection"),
-    ARCANA_PROTECTION("+#% Arcana Damage Protection"),
-    UNDERWATER("Breathe Underwater"),
-    SCYTHE_DAMAGE("#x Scythe Damage"),
-    SWIM("Swim Faster"),
-    WITHER_PROTECTION("Wither Protection"),
-    ARCANA_REGEN("Arcana Regeneration"),
-    POISON_PROTECTION("Poison Resistance"),
-    FREEZE("Slows Hostile Mobs Within 6 Blocks"),
-    HASTE("Increased Mining Speed");
-    
-    private String info;
+import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
-    ArmorInfo(String info) {
-        this.info = info;
+public class ArmorInfo {
+    /**
+     * Description of full set perks
+     */
+    public final TextComponentBase FullSetPerks;
+    /**
+     * Need to detect if armor can work here
+     */
+    public TextComponentBase dimensionName;
+
+
+    public ArmorInfo() {
+        this(null);
     }
 
-    public String getInfo() {
-        return info;
+    public ArmorInfo(TextComponentBase... fullSetPerks) {
+        FullSetPerks = new TextComponentString("");
+
+        if (fullSetPerks != null && fullSetPerks.length > 0) {
+            Arrays.stream(fullSetPerks).forEach(FullSetPerks::appendSibling);
+        }
+
+        FullSetPerks.getStyle().setColor(TextFormatting.GRAY);
     }
-    
-    @Override
-    public String toString() {
-        return getInfo();
+
+    public ArmorInfo withDimension(TextComponentBase dimensionName) {
+        this.dimensionName = dimensionName;
+        return this;
     }
+
+    public List<String> toString(ItemStack item, @Nullable World worldIn, double fullReduction, double damageReduction) {
+        TextComponentString result = new TextComponentString("");
+
+        result.getStyle().setColor(TextFormatting.GRAY);
+
+        if (fullReduction <= 0) {
+            result.appendSibling(new TextComponentTranslation(LocalizeKeys.NoProtection));
+        } else {
+            result.appendSibling(new TextComponentTranslation(LocalizeKeys.DamageReductionStringFormat, Math.round(damageReduction * 100), Math.round(fullReduction)));
+        }
+
+        if (item.getMaxDamage() <= 0) {
+            result.appendSibling(new TextComponentTranslation(LocalizeKeys.InfiniteUses));
+        } else {
+            result.appendSibling(new TextComponentTranslation(LocalizeKeys.RemainingUses, item.getMaxDamage() - item.getItemDamage()));
+        }
+
+        if (dimensionName != null) {
+            boolean isBoosted = worldIn != null && worldIn.provider != null && Objects.equals(worldIn.provider.getDimensionType().getName(), dimensionName.getFormattedText());
+
+            result.appendText(String.format("%s%s", isBoosted
+                    ? ChatFormatting.DARK_GREEN.toString()
+                    : "", dimensionName.getFormattedText()));
+        }
+
+        if (FullSetPerks != null && !FullSetPerks.getSiblings().isEmpty()) {
+            TextComponentString fullSetDescription = new TextComponentString("Full Set Perks:");
+            result.appendSibling(fullSetDescription.setStyle(fullSetDescription.getStyle().setColor(TextFormatting.WHITE)));
+
+
+            FullSetPerks.getSiblings().forEach(result::appendSibling);
+        }
+
+        return result.getSiblings().stream().map(ITextComponent::getFormattedText).collect(Collectors.toList());
+    }
+
 }

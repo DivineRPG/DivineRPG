@@ -1,17 +1,45 @@
 package divinerpg.utils;
 
 import net.minecraft.item.Item;
+import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.TextComponentTranslation;
 
-public class TooltipLocalizer {
-    protected static final String USES = "tooltip.uses", INFINITEUSES = "tooltip.uses.infinite",
-            ARCANA = "tooltip.arcana", ARCANAREGEN = "tooltip.arcana.regen", MELEEDAM = "tooltip.damage.melee",
-            RANGEDDAM = "tooltip.damage.ranged", RANGEDNMELEE = "tooltip.damage.both",
-            ARCANADAM = "tooltip.damage.arcana", DAMAGEREDUCTION = "tooltip.damage.reduction", AMMO = "tooltip.ammo",
-            INFINITEAMMO = "tooltip.ammo.infinite", EXPLOSIVESHOTS = "tooltip.shots.explosive",
-            HOMINGSHOTS = "tooltip.shots.homing", FULLSETPERKS = "tooltip.fullset", NOPROT = "tooltip.noprotection",
-            EFFICIENCY = "tooltip.efficiency", CANTBLOCK = "tooltip.noblock", POISON = "tooltip.effect.poisons",
-            BURNS = "tooltip.effect.burns", SLOWS = "tooltip.effect.slows", 
-                    SINGLEUSE = "tooltip.uses.single";
+public class LocalizeKeys {
+    public static final String RemainingUses = "tooltip.uses",
+            InfiniteUses = "tooltip.uses.infinite",
+            DamageReductionStringFormat = "tooltip.damage.reduction",
+            NoProtection = "tooltip.noprotection",
+            ARCANA = "tooltip.arcana",
+            ARCANAREGEN = "tooltip.arcana.regen",
+            MELEEDAM = "tooltip.damage.melee",
+            RANGEDDAM = "tooltip.damage.ranged",
+            RANGEDNMELEE = "tooltip.damage.both",
+            ARCANADAM = "tooltip.damage.arcana",
+            AMMO = "tooltip.ammo",
+            INFINITEAMMO = "tooltip.ammo.infinite",
+            EXPLOSIVESHOTS = "tooltip.shots.explosive",
+            HOMINGSHOTS = "tooltip.shots.homing",
+            FULLSETPERKS = "tooltip.fullset",
+            EFFICIENCY = "tooltip.efficiency",
+            CANTBLOCK = "tooltip.noblock",
+            POISON = "tooltip.effect.poisons",
+            BURNS = "tooltip.effect.burns",
+            SLOWS = "tooltip.effect.slows",
+            SINGLEUSE = "tooltip.uses.single";
+
+    /**
+     * Armor ability
+     *
+     * @param keyPart - part of localized key 'tooltip.armor_info.' + KEY_PART
+     * @return
+     */
+    public static TextComponentBase getArmorAbility(String keyPart, Object... params) {
+        String id = String.format("tooltip.armor_info.%s", keyPart);
+
+        return params == null || params.length < 1
+                ? new TextComponentTranslation(id)
+                : new TextComponentTranslation(id, params);
+    }
 
     public static String ammo(Item ammo) {
         return TooltipHelper.localize(AMMO).replace("|item|",
@@ -20,11 +48,9 @@ public class TooltipLocalizer {
 
     /**
      * Writes ammo with color indicating if ammo is present
-     * 
-     * @param ammo
-     *            - ammo for cannon
-     * @param isPresent
-     *            - if present print green else - red
+     *
+     * @param ammo      - ammo for cannon
+     * @param isPresent - if present print green else - red
      * @return
      */
     public static String ammo(Item ammo, boolean isPresent) {
@@ -66,7 +92,7 @@ public class TooltipLocalizer {
     }
 
     public static String damageReduction(double reduct, double fullReduct) {
-        return TooltipHelper.localize(DAMAGEREDUCTION).replace("|percent|", reduct + "%").replace("|percentFull|",
+        return TooltipHelper.localize(DamageReductionStringFormat).replace("|percent|", reduct + "%").replace("|percentFull|",
                 fullReduct + "%");
     }
 
@@ -91,7 +117,7 @@ public class TooltipLocalizer {
     }
 
     public static String infiniteUses() {
-        return TooltipHelper.localize(INFINITEUSES);
+        return TooltipHelper.localize(InfiniteUses);
     }
 
     public static String singleUse() {
@@ -103,7 +129,7 @@ public class TooltipLocalizer {
     }
 
     public static String noProtection() {
-        return TooltipHelper.localize(NOPROT);
+        return TooltipHelper.localize(NoProtection);
     }
 
     public static String poison(float seconds) {
@@ -123,6 +149,6 @@ public class TooltipLocalizer {
     }
 
     public static String usesRemaining(int uses) {
-        return TooltipHelper.localize(USES).replace("#", String.valueOf(uses));
+        return TooltipHelper.localize(RemainingUses).replace("#", String.valueOf(uses));
     }
 }

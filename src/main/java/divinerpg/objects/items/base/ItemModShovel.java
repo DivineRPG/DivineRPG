@@ -2,7 +2,7 @@ package divinerpg.objects.items.base;
 
 import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
@@ -27,11 +27,11 @@ public class ItemModShovel extends ItemSpade {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-		infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiency()));
-		if (stack.getMaxDamage() > 0) {
-			infoList.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
-		} else {
-			infoList.add(TooltipLocalizer.infiniteUses());
-		}
-	}
+        infoList.add(LocalizeKeys.efficiency(toolMaterial.getEfficiency()));
+        if (stack.getMaxDamage() > 0) {
+            infoList.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+        } else {
+            infoList.add(LocalizeKeys.infiniteUses());
+        }
+    }
 }

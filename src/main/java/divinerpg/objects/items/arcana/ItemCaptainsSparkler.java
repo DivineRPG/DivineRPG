@@ -1,17 +1,16 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemCaptainsSparkler extends RangedWeaponBase {
 
@@ -21,7 +20,7 @@ public class ItemCaptainsSparkler extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipLocalizer.rangedDam(20));
+        tooltip.add(LocalizeKeys.rangedDam(20));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

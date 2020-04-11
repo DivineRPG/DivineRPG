@@ -13,7 +13,6 @@ import divinerpg.objects.items.iceika.ItemSnowGlobe;
 import divinerpg.objects.items.twilight.*;
 import divinerpg.objects.items.vanilla.*;
 import divinerpg.objects.items.vethea.*;
-import divinerpg.utils.ChatFormats;
 import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,6 +20,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,6 +28,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
+
+import static divinerpg.utils.LocalizeKeys.getArmorAbility;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
@@ -1179,7 +1181,7 @@ public class ModItems {
     public static final Item pinfly = null;
     @ObjectHolder("veilo")
     public static final Item veilo = null;
-    
+
     //Doors
     @ObjectHolder("steel_door")
     public static final Item steelDoor = null;
@@ -1563,7 +1565,7 @@ public class ModItems {
     public static final Item minersAmulet = null;
     @ObjectHolder("rock_chunks")
     public static final Item rockChunks = null;
-    
+
     //Slabs
     @ObjectHolder("eden_slab")
     public static final Item edenSlab = null;
@@ -1590,56 +1592,65 @@ public class ModItems {
 
     // Armor information
     // Vanilla dimensions
-    private static Object[] angelicInfo = new Object[]{ArmorInfo.NO_FALL, ArmorInfo.FLY};
-    private static Object[] aquastriveInfo = new Object[]{ArmorInfo.UNDERWATER, ArmorInfo.SWIM};
-    private static Object[] arlemiteInfo = new Object[]{85, ArmorInfo.RANGED_PROTECTION};
-    private static Object[] bedrockInfo = new Object[]{ArmorInfo.FIRE_PROTECTION, ArmorInfo.EXPLOSION_PROTECTION};
-    private static Object[] corruptedInfo = new Object[]{20, ArmorInfo.RANGED_DAMAGE};
-    private static Object[] divineInfo = new Object[]{6, ArmorInfo.MELEE_DAMAGE, 2, ArmorInfo.JUMP_HEIGHT,
-            ArmorInfo.NO_FALL};
-    private static Object[] eliteRealmiteInfo = new Object[] { ArmorInfo.NO_FALL };
-    private static Object[] enderInfo = new Object[] { ArmorInfo.EXPLOSION_PROTECTION };
-    private static Object[] frozenInfo = new Object[] { ArmorInfo.FREEZE };
-    private static Object[] infernoInfo = new Object[] { ArmorInfo.FIRE_PROTECTION };
-    private static Object[] jackomanInfo = new Object[] { 3, ArmorInfo.SCYTHE_DAMAGE };
-    private static Object[] jungleInfo = new Object[] { ArmorInfo.POISON_PROTECTION };
-    private static Object[] krakenInfo = new Object[] { ArmorInfo.UNDERWATER };
-    private static Object[] netheriteInfo = new Object[] { ArmorInfo.FIRE_PROTECTION };
-    private static Object[] rupeeInfo = new Object[] { 85, ArmorInfo.MELEE_PROTECTION };
-    private static Object[] shadowInfo = new Object[] { 3, ArmorInfo.SPEED };
-    private static Object[] skelemanInfo = new Object[] { ArmorInfo.HUNGER };
-    private static Object[] terranInfo = new Object[] { 20, ArmorInfo.HASTE };
-    private static Object[] witherReaperInfo = new Object[] { ArmorInfo.WITHER_PROTECTION };
+    private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));
+    private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
+    private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 85));
+    private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
+    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 20));
+    private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
+            getArmorAbility("jump_height", 2),
+            getArmorAbility("no_fall"));
+    private static ArmorInfo eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall"));
+    private static ArmorInfo enderInfo = new ArmorInfo(getArmorAbility("explosion_protection"));
+    private static ArmorInfo frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6));
+    private static ArmorInfo infernoInfo = new ArmorInfo(getArmorAbility("fire_protection"));
+    private static ArmorInfo jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3));
+    private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
+    private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("underwater"));
+    private static ArmorInfo netheriteInfo = new ArmorInfo(getArmorAbility("fire_protection"));
+    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 85));
+    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 3));
+    private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
+    private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
+    private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
 
     // Iceika
-    private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6,
-            ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
+    private static ArmorInfo santaInfo = new ArmorInfo(new TextComponentString("Massive Buff"),
+            getArmorAbility("speed", 2),
+            getArmorAbility("melee_damage", 6),
+            getArmorAbility("hunger"),
+            getArmorAbility("melee_protection", 80))
+            // todo remade
+            .withDimension(new TextComponentString("Iceika"));
 
     // Twilight
-    private static Object[] edenInfo = new Object[] { 3, ArmorInfo.ORE_DROPS };
-    private static Object[] wildInfo = new Object[] { ArmorInfo.UNDERWATER_HEALTH_REGEN };
-    private static Object[] apInfo = new Object[] { ArmorInfo.BLOCK_PROTECTION };
-    private static Object[] skyInfo = new Object[] { 5, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
-    private static Object[] mortInfo = new Object[] { ArmorInfo.NIGHT_VISION };
-    private static Object[] halInfo = new Object[] { 16, ArmorInfo.MELEE_DAMAGE };
+    private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
+    private static ArmorInfo wildInfo = new ArmorInfo(getArmorAbility("underwater_health_regen"));
+    private static ArmorInfo apInfo = new ArmorInfo(getArmorAbility("block_protection"));
+    private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
+    private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
+    private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
 
     // Arcana
-    private static Object[] kormInfo = new Object[] { ArmorInfo.ARCANA_REGEN };
-    private static Object[] vemInfo = new Object[] { ArmorInfo.HEALTH_REGEN };
+    private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
+    private static ArmorInfo vemInfo = new ArmorInfo(getArmorAbility("health_regen"));
 
     // Vethea
-    private static Object[] basicHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION };
-    private static Object[] basicMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION };
-    private static Object[] basicHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION };
-    private static Object[] glisteningHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 3, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] glisteningMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.4, ArmorInfo.SPEED };
-    private static Object[] glisteningHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 2, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
-    private static Object[] demonizedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 6, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] demonizedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 1.8, ArmorInfo.SPEED };
-    private static Object[] demonizedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 3, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
-    private static Object[] tormentedHelmInfo = { 15, ArmorInfo.MELEE_PROTECTION, 9, ArmorInfo.MELEE_DAMAGE };
-    private static Object[] tormentedMaskInfo = { 15, ArmorInfo.RANGED_PROTECTION, 2.2, ArmorInfo.SPEED };
-    private static Object[] tormentedHoodInfo = { 15, ArmorInfo.ARCANA_PROTECTION, 4, ArmorInfo.JUMP_HEIGHT, ArmorInfo.NO_FALL };
+    private static ArmorInfo basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15));
+    private static ArmorInfo basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15));
+    private static ArmorInfo basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15));
+
+    private static ArmorInfo glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3));
+    private static ArmorInfo glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.4));
+    private static ArmorInfo glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall"));
+
+    private static ArmorInfo demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6));
+    private static ArmorInfo demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.8));
+    private static ArmorInfo demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall"));
+
+    private static ArmorInfo tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9));
+    private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2.2));
+    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -1849,7 +1860,7 @@ public class ModItems {
         register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo));
         register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo));
 
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD,rupeeInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD, rupeeInfo));
         register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST, rupeeInfo));
         register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo));
         register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET, rupeeInfo));
@@ -2043,9 +2054,9 @@ public class ModItems {
         register(registry, new ItemModFood(10, 0.5F, "advanced_mushroom_stew"));
         register(registry, new ItemModFood(2, 2.0F, true, "bacon"));
         register(registry, new ItemModFood(4, 0.5F, "boiled_egg"));
-        register(registry, new ItemModFood(2, 0.2F,  "cheese"));
-        register(registry, new ItemModFood(20, 0.5F,  "chicken_dinner"));
-        register(registry, new ItemModFood(4, 1.0F,  "chocolate_log"));
+        register(registry, new ItemModFood(2, 0.2F, "cheese"));
+        register(registry, new ItemModFood(20, 0.5F, "chicken_dinner"));
+        register(registry, new ItemModFood(4, 1.0F, "chocolate_log"));
         register(registry, new ItemModFood(16, 0.3F, "donut"));
         register(registry, new ItemEggNog("egg_nog"));
         register(registry, new ItemModFood(5, 1.0F, true, "raw_empowered_meat"));
@@ -2056,13 +2067,13 @@ public class ModItems {
         register(registry, new ItemModFood(5, 0.4F, true, "hot_pumpkin_pie"));
         register(registry, new ItemFastFood(5, 1.0F, true, "magic_meat"));
         register(registry, new ItemFastFood(1, 2.0F, false, "moonbulb"));
-        register(registry, new ItemModFood(1, 0.3F,  "peppermints"));
+        register(registry, new ItemModFood(1, 0.3F, "peppermints"));
         register(registry, new ItemFastFood(3, 2.0F, false, "pink_glowbone"));
         register(registry, new ItemFastFood(3, 2.0F, false, "purple_glowbone"));
         register(registry, new ItemSkyFlower("sky_flower"));
         register(registry, new ItemModFood(2, 0.3F, "snow_cones"));
-        register(registry, new ItemModFood(4, 0.3F,  "tomato"));
-        register(registry, new ItemModFood(1, 0.1F,  "white_mushroom"));
+        register(registry, new ItemModFood(4, 0.3F, "tomato"));
+        register(registry, new ItemModFood(1, 0.1F, "white_mushroom"));
         register(registry, new ItemModFood(4, 1.0F, "winterberry"));
 
         // Twilight Dimensions
@@ -2276,9 +2287,9 @@ public class ModItems {
         register(registry, new ItemMod("firestock"));
         register(registry, new ItemLamona());
         register(registry, new ItemMod("marsine"));
-        register(registry, new ItemModFood(2, 0.3F,  "pinfly").setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F));
+        register(registry, new ItemModFood(2, 0.3F, "pinfly").setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F));
         register(registry, new ItemMod("veilo"));
-        register(registry, new ItemModFood(2, 3,  "hitchak"));
+        register(registry, new ItemModFood(2, 3, "hitchak"));
 
         // Arcana keys
         register(registry, new ItemKey("ancient_key"));
@@ -2370,13 +2381,13 @@ public class ModItems {
         // Backsword
         register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenSword,"darven_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileSword,"cermile_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalSword,"pardimal_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword,"quadrotic_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword,"karos_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword,"heliosis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword,"arksiane_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenSword, "darven_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileSword, "cermile_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalSword, "pardimal_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword, "quadrotic_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword, "karos_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword, "heliosis_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword, "arksiane_backsword"));
 
         // Bow
         register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, () -> teakerArrow));
@@ -2385,7 +2396,7 @@ public class ModItems {
         register(registry, new ItemVetheanBow("cermile_bow", ArrowType.CERMILE_ARROW, -1, () -> darvenArrow));
         register(registry, new ItemVetheanBow("pardimal_bow", ArrowType.PARDIMAL_ARROW, -1, () -> pardimalArrow));
         register(registry, new ItemVetheanBow("quadrotic_bow", ArrowType.QUADROTIC_ARROW, -1, () -> pardimalArrow));
-        register(registry, new ItemVetheanBow("karos_bow", ArrowType.KAROS_ARROW, -1, () ->karosArrow));
+        register(registry, new ItemVetheanBow("karos_bow", ArrowType.KAROS_ARROW, -1, () -> karosArrow));
         register(registry, new ItemVetheanBow("heliosis_bow", ArrowType.HELIOSIS_ARROW, -1, () -> karosArrow));
         register(registry, new ItemVetheanBow("arksiane_bow", ArrowType.ARKSIANE_ARROW, -1, () -> karosArrow));
         register(registry, new ItemVetheanBow("everfright", ArrowType.EVERFRIGHT, -1, () -> everArrow));
@@ -2406,7 +2417,7 @@ public class ModItems {
         register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileClaw,"cermile_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileClaw, "cermile_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_claw"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_claw"));
@@ -2426,15 +2437,15 @@ public class ModItems {
         register(registry, new ItemVetheanDisk("arksiane_disk", DiskType.ARKSIANE_DISK));
 
         // Hammer
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerHammer,"teaker_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerHammer, "teaker_hammer"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenHammer,"darven_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileHammer,"cermile_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalHammer,"pardimal_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer,"quadrotic_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer,"karos_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer,"heliosis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer,"arksiane_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenHammer, "darven_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileHammer, "cermile_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalHammer, "pardimal_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer, "quadrotic_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer, "karos_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer, "heliosis_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer, "arksiane_hammer"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight"));
         register(registry, new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul"));
 
@@ -2504,7 +2515,7 @@ public class ModItems {
         register(registry, new ItemVethean("band_of_heiva_hunting"));
         register(registry, new ItemVethean("miners_amulet"));
         register(registry, new ItemVethean("rock_chunks"));
-        
+
         //Slabs
         register(registry, new ItemModSlab("eden_slab", ModBlocks.edenSlab, ModBlocks.edenSlab, ModBlocks.edenDoubleSlab));
         register(registry, new ItemModSlab("wildwood_slab", ModBlocks.wildwoodSlab, ModBlocks.wildwoodSlab, ModBlocks.wildwoodDoubleSlab));

@@ -5,8 +5,8 @@ import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.arcana.EntityWraith;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeKeys;
 import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -42,7 +42,7 @@ public class ItemGhostbane extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.arcanaConsumed(200));
+        list.add(LocalizeKeys.arcanaConsumed(200));
         list.add(TooltipHelper.getInfoText("tooltip.ghostbane.spawn"));
         list.add(TooltipHelper.getInfoText("tooltip.ghostbane.damage"));
         list.add(TooltipHelper.getInfoText("tooltip.ghostbane.health"));

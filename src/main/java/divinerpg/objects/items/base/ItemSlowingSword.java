@@ -1,14 +1,14 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+
+import java.util.List;
 
 public class ItemSlowingSword extends ItemModSword {
 
@@ -25,6 +25,6 @@ public class ItemSlowingSword extends ItemModSword {
 
     @Override
     public void addAdditionalInformation(List l) {
-        l.add(TooltipLocalizer.slow(2.5));
+        l.add(LocalizeKeys.slow(2.5));
     }
 }

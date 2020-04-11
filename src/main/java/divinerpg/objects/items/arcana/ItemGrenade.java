@@ -1,5 +1,9 @@
 package divinerpg.objects.items.arcana;
 
+import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
+import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -11,12 +15,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-
-import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
-import divinerpg.objects.items.base.ItemMod;
-import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipLocalizer;
-
 import java.util.List;
 
 public class ItemGrenade extends ItemMod {
@@ -48,8 +46,7 @@ public class ItemGrenade extends ItemMod {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-     {
-		tooltip.add(TooltipLocalizer.explosiveShots());
-	}
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(LocalizeKeys.explosiveShots());
+    }
 }

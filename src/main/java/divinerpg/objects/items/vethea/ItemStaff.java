@@ -1,19 +1,23 @@
 package divinerpg.objects.items.vethea;
 
-import java.util.List;
-
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.*;
-import divinerpg.utils.*;
+import divinerpg.registry.DivineRPGTabs;
+import divinerpg.registry.ModSounds;
+import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.*;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemStaff extends RangedWeaponBase {
 
@@ -37,13 +41,13 @@ public class ItemStaff extends RangedWeaponBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
-	    list.add(TooltipLocalizer.arcanaDam(damage));
-		list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
+        list.add(LocalizeKeys.arcanaDam(damage));
+        list.add(TooltipHelper.getInfoText("tooltip.staff.bounce"));
 		/*if(stack.getItem() == ModItems.evernight)
 			list.add(TooltipHelper.getInfoText("tooltip.staff.evernight.damage"));*/
-		super.addInformation(stack,worldIn,list,flagIn);
-		//list.add(TooltipLocalizer.vethean());
-	}
+        super.addInformation(stack, worldIn, list, flagIn);
+        //list.add(TooltipLocalizer.vethean());
+    }
 
 	@Override
 	protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType, Class<? extends EntityThrowable> clazz) {

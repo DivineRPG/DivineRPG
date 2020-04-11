@@ -1,11 +1,7 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeKeys;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,6 +10,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingSword extends ItemModSword {
 
@@ -41,6 +40,6 @@ public class ItemHealingSword extends ItemModSword {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add("Heals " + this.healAmount / 2 + " hearts on use");
-        list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
+        list.add(LocalizeKeys.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
     }
 }
