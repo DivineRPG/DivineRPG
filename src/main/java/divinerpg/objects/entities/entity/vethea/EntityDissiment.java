@@ -14,12 +14,10 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class EntityDissiment extends EntityDivineGhast {
-    private static final double spawnLayer = 4;
+    private static final int spawnLayer = 4;
 
     public EntityDissiment(World par1World) {
         super(par1World);
-        this.isImmuneToFire = true;
-        this.experienceValue = 5;
         this.setSize(4.0F, 4.0F);
     }
 
