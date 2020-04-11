@@ -1406,7 +1406,7 @@ message.ayeraco.red=L'Ayeraco Rosso è stato chiamato
 message.ayeraco.yellow=L'Ayeraco Giallo è stato chiamato
 message.ayeraco.purple=L'Ayeraco Viola è stato chiamato
 message.ayeraco.spawn=L'Orda di Ayeraco è arrivata!
-message.standard=Grazie %s per aver scaricato e giocato &!
+message.standard=Grazie %s per aver scaricato e giocato %s!
 
 tooltip.uses=%s Usi Rimanenti
 tooltip.harvest=Livello di Raccoglimento: +
