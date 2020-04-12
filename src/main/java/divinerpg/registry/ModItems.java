@@ -2380,7 +2380,7 @@ public class ModItems {
 
         // Vethea food
         register(registry, new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(6, 0.6F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(6, 0.8F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea));
