@@ -67,68 +67,49 @@ public class ToolMaterialMod {
     public static final ToolMaterial TERRAN_MAUL = EnumHelper.addToolMaterial("drpg_terran_maul", 4, 1200, 4.0F, 15.0F, 10);
     public static final ToolMaterial WILDWOOD_BLADE = EnumHelper.addToolMaterial("drpg_wildwood_blade", 4, 2000, 4.0F, 26.0F, 22);
 
-
-
     // Shickaxes
-    public static ToolMaterial ArlemiteShick = addShickMaterial("arlemite_shick", 6, 12000, 13.0F, 8, 15,
-            ModItems.arlemiteIngot);
-    public static ToolMaterial DivineShick = addShickMaterial("divine_shick", 8, 20.0F, 9, 10);
-    public static ToolMaterial RupeeShick = addShickMaterial("rupee_shick", 6, 16.0F, 8, 15);
+    public static final ToolMaterial ARLEMITE_SHICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_shickaxe", 4, 12000, 13.0F, 8.0F, 15);
+    public static final ToolMaterial DIVINE_SHICKAXE = EnumHelper.addToolMaterial("drpg_divine_shickaxe", 8, -1, 20.0F, 10.0F, 10);
+    public static final ToolMaterial RUPEE_SHICKAXE = EnumHelper.addToolMaterial("drpg_rupee_shickaxe", 6, -1, 16.0F, 9.0F, 15);
 
     // Axes
-    public static ToolMaterial ApalachiaAxe = addAxeMaterial("apalachia_axe", 100, 6000, 40.0F, 9, 22, ModItems.apalachiaGem);
-    public static ToolMaterial ArlemiteAxe = addAxeMaterial("arlemite_axe", 3, 3000, 13.0F, 7, 10,
-            ModItems.arlemiteIngot);
-    public static ToolMaterial BedrockAxe = addAxeMaterial("bedrock_axe", 3, 20.0F, 6, 10);
-    public static ToolMaterial CorruptedAxe = addAxeMaterial("corrupted_axe", 3, 6000, 16.0F, 7, 10,
-            ModItems.corruptedStone);
-    public static ToolMaterial CyclopsAxe = addAxeMaterial("cyclops_axe", 0, 1000, 8.0F, 6, 10, ModItems.cyclopsEye);
-    public static ToolMaterial DivineAxe = addAxeMaterial("divine_axe", 8, 35000, 20.0F, 8, 10, ModItems.divineStone);
-    public static ToolMaterial EdenAxe = addAxeMaterial("eden_axe", 100, 6000, 20.0F, 7, 22, ModItems.edenGem);
-    public static ToolMaterial MortumAxe = addAxeMaterial("mortum_axe", 100, 6000, 55.0F, 11, 22, ModItems.mortumGem);
-    public static ToolMaterial RealmiteAxe = addAxeMaterial("realmite_axe", 3, 4000, 12.0F, 6, 10,
-            ModItems.realmiteIngot);
-    public static ToolMaterial RupeeAxe = addAxeMaterial("rupee_axe", 6, 2500, 16.0F, 7, 0, ModItems.rupeeIngot);
-    public static ToolMaterial SkythernAxe = addAxeMaterial("skythern_axe", 100, 6000, 48.0F, 10, 22, ModItems.skythernGem);
-    public static ToolMaterial WildwoodAxe = addAxeMaterial("wildwood_axe", 100, 6000, 28.0F, 8, 22, ModItems.wildwoodGem);
+    public static final ToolMaterial APALACHIA_AXE = EnumHelper.addToolMaterial("drpg_apalachia_axe", 9, 6000, 40.0F, 9.0F, 22);
+    public static final ToolMaterial ARLEMITE_AXE = EnumHelper.addToolMaterial("drpg_arlemite_axe", 3, 3000, 13.0F, 7.0F, 10);
+    public static final ToolMaterial BEDROCK_AXE = EnumHelper.addToolMaterial("drpg_bedrock_axe", 3, -1, 20.0F, 6.0F, 10);
+    public static final ToolMaterial CORRUPTED_AXE = EnumHelper.addToolMaterial("drpg_corrupted_axe", 3, 6000, 16.0F, 7.0F, 10);
+    public static final ToolMaterial DIVINE_AXE = EnumHelper.addToolMaterial("drpg_divine_axe", 8, 35000, 20.0F, 8.0F, 10);
+    public static final ToolMaterial EDEN_AXE = EnumHelper.addToolMaterial("drpg_eden_axe", 9, 6000, 20.0F, 7.0F, 22);
+    public static final ToolMaterial MORTUM_AXE = EnumHelper.addToolMaterial("drpg_mortum_axe", 9, 6000, 55.0F, 11.0F, 22);
+    public static final ToolMaterial REALMITE_AXE = EnumHelper.addToolMaterial("drpg_realmite_axe", 3, 4000, 12.0F, 6.0F, 10);
+    public static final ToolMaterial RUPEE_AXE = EnumHelper.addToolMaterial("drpg_rupee_axe", 6, 2500, 16.0F, 7.0F, 10);
+    public static final ToolMaterial SKYTHERN_AXE = EnumHelper.addToolMaterial("drpg_skythern_axe", 9, 6000, 48.0F, 10.0F, 22);
+    public static final ToolMaterial WILDWOOD_AXE = EnumHelper.addToolMaterial("drpg_wildwood_axe", 9, 6000, 28.0F, 8.0F, 22);
 
-    // Picks
-    public static ToolMaterial ApalachiaPick = addPickMaterial("apalachia_pick", 100, 6000, 40.0F, 7, 22, ModItems.apalachiaGem);
-    public static ToolMaterial ArlemitePick = addPickMaterial("arlemite_pick", 3, 3000, 13.0F, 5, 10,
-            ModItems.arlemiteIngot);
-    public static ToolMaterial BedrockPick = addPickMaterial("bedrock_pick", 3, 9.0F, 4, 10);
-    public static ToolMaterial CorruptedPick = addPickMaterial("corrupted_pick", 3, 6000, 16.0F, 5, 10,
-            ModItems.corruptedStone);
-    public static ToolMaterial CyclopsPick = addPickMaterial("cyclops_pick", 0, 1000, 8.0F, 4, 10, ModItems.cyclopsEye);
-    public static ToolMaterial DivinePick = addPickMaterial("divine_pick", 8, 35000, 20.0F, 6, 10,
-            ModItems.divineStone);
-    public static ToolMaterial EdenPick = addPickMaterial("eden_pick", 100, 6000, 20.0F, 5, 22, ModItems.edenGem);
-    public static ToolMaterial MortumPick = addPickMaterial("mortum_pick", 100, 6000, 55.0F, 9, 22, ModItems.mortumGem);
-    public static ToolMaterial RealmitePick = addPickMaterial("realmite_pick", 3, 4000, 12.0F, 4, 10,
-            ModItems.realmiteIngot);
-    public static ToolMaterial RupeePick = addPickMaterial("rupee_pick", 6, 2500, 16.0F, 5, 0, ModItems.rupeeIngot);
-    public static ToolMaterial SkythernPick = addPickMaterial("skythern_pick", 100, 6000, 48.0F, 8, 22, ModItems.skythernGem);
-    public static ToolMaterial WildwoodPick = addPickMaterial("wildwood_pick", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
+    // Pickaxes
+    public static final ToolMaterial APALACHIA_PICKAXE = EnumHelper.addToolMaterial("drpg_apalachia_pickaxe", 9, 6000, 40.0F, 7.0F, 22);
+    public static final ToolMaterial ARLEMITE_PICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_pickaxe", 3, 3000, 13.0F, 5.0F, 10);
+    public static final ToolMaterial BEDROCK_PICKAXE = EnumHelper.addToolMaterial("drpg_bedrock_pickaxe", 3, -1, 9.0F, 4.0F, 10);
+    public static final ToolMaterial CORRUPTED_PICKAXE = EnumHelper.addToolMaterial("drpg_corrupted_pickaxe", 3, 6000, 16.0F, 5.0F, 10);
+    public static final ToolMaterial DIVINE_PICKAXE = EnumHelper.addToolMaterial("drpg_divine_pickaxe", 8, 35000, 20.0F, 6.0F, 10);
+    public static final ToolMaterial EDEN_PICKAXE = EnumHelper.addToolMaterial("drpg_eden_pickaxe", 9, 6000, 20.0F, 5.0F, 22);
+    public static final ToolMaterial MORTUM_PICKAXE = EnumHelper.addToolMaterial("drpg_mortum_pickaxe", 9, 6000, 55.0F, 9.0F, 22);
+    public static final ToolMaterial REALMITE_PICKAXE = EnumHelper.addToolMaterial("drpg_realmite_pickaxe", 3, 4000, 12.0F, 4.0F, 10);
+    public static final ToolMaterial RUPEE_PICKAXE = EnumHelper.addToolMaterial("drpg_rupee_pickaxe", 6, 2500, 16.0F, 5.0F, 22);
+    public static final ToolMaterial SKYTHERN_PICKAXE = EnumHelper.addToolMaterial("drpg_skythern_pickaxe", 9, 6000, 48.0F, 8.0F, 22);
+    public static final ToolMaterial WILDWOOD_PICKAXE = EnumHelper.addToolMaterial("drpg_wildwood_pickaxe", 9, 6000, 28.0F, 6.0F, 22);
 
     // Shovels
-    public static ToolMaterial ApalachiaShovel = addShovelMaterial("apalachia_shovel", 100, 6000, 40.0F, 7, 22, ModItems.apalachiaGem);
-    public static ToolMaterial ArlemiteShovel = addShovelMaterial("arlemite_shovel", 3, 3000, 13.0F, 5, 10,
-            ModItems.arlemiteIngot);
-    public static ToolMaterial BedrockShovel = addShovelMaterial("bedrock_shovel", 3, 20.0F, 4, 10);
-    public static ToolMaterial CorruptedShovel = addShovelMaterial("corrupted_shovel", 3, 6000, 16.0F, 5, 10,
-            ModItems.corruptedStone);
-    public static ToolMaterial CyclopsShovel = addShovelMaterial("cyclops_shovel", 0, 1000, 8.0F, 4, 10,
-            ModItems.cyclopsEye);
-    public static ToolMaterial DivineShovel = addShovelMaterial("divine_shovel", 8, 35000, 20.0F, 6, 10,
-            ModItems.divineStone);
-    public static ToolMaterial EdenShovel = addShovelMaterial("eden_shovel", 100, 6000, 20.0F, 5, 22, ModItems.edenGem);
-    public static ToolMaterial MortumShovel = addShovelMaterial("mortum_shovel", 100, 6000, 55.0F, 9, 22, ModItems.mortumGem);
-    public static ToolMaterial RealmiteShovel = addShovelMaterial("realmite_shovel", 3, 4000, 12.0F, 4, 10,
-            ModItems.realmiteIngot);
-    public static ToolMaterial RupeeShovel = addShovelMaterial("rupee_shovel", 6, 2500, 16.0F, 5, 0,
-            ModItems.rupeeIngot);
-    public static ToolMaterial SkythernShovel = addShovelMaterial("skythern_shovel", 100, 6000, 48.0F, 8, 22, ModItems.skythernGem);
-    public static ToolMaterial WildwoodShovel = addShovelMaterial("wildwood_shovel", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
+    public static final ToolMaterial APALACHIA_SHOVEL = EnumHelper.addToolMaterial("drpg_apalachia_shovel", 9, 6000, 40.0F, 7.0F, 22);
+    public static final ToolMaterial ARLEMITE_SHOVEL = EnumHelper.addToolMaterial("drpg_arlemite_shovel", 3, 3000, 13.0F, 5.0F, 10);
+    public static final ToolMaterial BEDROCK_SHOVEL = EnumHelper.addToolMaterial("drpg_bedrock_shovel", 3, -1, 9.0F, 4.0F, 10);
+    public static final ToolMaterial CORRUPTED_SHOVEL = EnumHelper.addToolMaterial("drpg_corrupted_shovel", 3, 6000, 16.0F, 5.0F, 10);
+    public static final ToolMaterial DIVINE_SHOVEL = EnumHelper.addToolMaterial("drpg_divine_shovel", 8, 35000, 20.0F, 6.0F, 10);
+    public static final ToolMaterial EDEN_SHOVEL = EnumHelper.addToolMaterial("drpg_eden_shovel", 9, 6000, 20.0F, 5.0F, 22);
+    public static final ToolMaterial MORTUM_SHOVEL = EnumHelper.addToolMaterial("drpg_mortum_shovel", 9, 6000, 55.0F, 9.0F, 22);
+    public static final ToolMaterial REALMITE_SHOVEL = EnumHelper.addToolMaterial("drpg_realmite_shovel", 3, 4000, 12.0F, 4.0F, 10);
+    public static final ToolMaterial RUPEE_SHOVEL = EnumHelper.addToolMaterial("drpg_rupee_shovel", 6, 2500, 16.0F, 5.0F, 22);
+    public static final ToolMaterial SKYTHERN_SHOVEL = EnumHelper.addToolMaterial("drpg_skythern_shovel", 9, 6000, 48.0F, 8.0F, 22);
+    public static final ToolMaterial WILDWOOD_SHOVEL = EnumHelper.addToolMaterial("drpg_wildwood_shovel", 9, 6000, 28.0F, 6.0F, 22);
 
     //VETHEA
 
@@ -236,12 +217,69 @@ public class ToolMaterialMod {
     public static ToolMaterial Skythern = addMeleeMaterial("skythern", 2000, 31, 22, ModItems.skythernGem);
     public static ToolMaterial Slime = addMeleeMaterial("slime", 1000, 11, 22, Items.DIAMOND_SWORD);
     public static ToolMaterial Snowslash = addMeleeMaterial("snowslash", 150, 25, 15, ModItems.snowflake);
-
     public static ToolMaterial Storm = addMeleeMaterial("storm", 5, 22);
     public static ToolMaterial TerranDagger = addMeleeMaterial("terran_dagger", 350, 13, 10, ModItems.terranStone);
     public static ToolMaterial TerranKnife = addMeleeMaterial("terran_knife", 750, 12, 10, ModItems.terranStone);
     public static ToolMaterial TerranMaul = addMeleeMaterial("terran_maul", 1200, 15, 10, ModItems.terranStone);
     public static ToolMaterial Wildwood = addMeleeMaterial("wildwood", 2000, 26, 22, ModItems.wildwoodGem);
+
+    public static ToolMaterial ArlemiteShick = addShickMaterial("arlemite_shick", 6, 12000, 13.0F, 8, 15,
+            ModItems.arlemiteIngot);
+    public static ToolMaterial DivineShick = addShickMaterial("divine_shick", 8, 20.0F, 9, 10);
+    public static ToolMaterial RupeeShick = addShickMaterial("rupee_shick", 6, 16.0F, 8, 15);
+
+    public static ToolMaterial ApalachiaAxe = addAxeMaterial("apalachia_axe", 100, 6000, 40.0F, 9, 22, ModItems.apalachiaGem);
+    public static ToolMaterial ArlemiteAxe = addAxeMaterial("arlemite_axe", 3, 3000, 13.0F, 7, 10,
+            ModItems.arlemiteIngot);
+    public static ToolMaterial BedrockAxe = addAxeMaterial("bedrock_axe", 3, 20.0F, 6, 10);
+    public static ToolMaterial CorruptedAxe = addAxeMaterial("corrupted_axe", 3, 6000, 16.0F, 7, 10,
+            ModItems.corruptedStone);
+    public static ToolMaterial CyclopsAxe = addAxeMaterial("cyclops_axe", 0, 1000, 8.0F, 6, 10, ModItems.cyclopsEye);
+    public static ToolMaterial DivineAxe = addAxeMaterial("divine_axe", 8, 35000, 20.0F, 8, 10, ModItems.divineStone);
+    public static ToolMaterial EdenAxe = addAxeMaterial("eden_axe", 100, 6000, 20.0F, 7, 22, ModItems.edenGem);
+    public static ToolMaterial MortumAxe = addAxeMaterial("mortum_axe", 100, 6000, 55.0F, 11, 22, ModItems.mortumGem);
+    public static ToolMaterial RealmiteAxe = addAxeMaterial("realmite_axe", 3, 4000, 12.0F, 6, 10,
+            ModItems.realmiteIngot);
+    public static ToolMaterial RupeeAxe = addAxeMaterial("rupee_axe", 6, 2500, 16.0F, 7, 0, ModItems.rupeeIngot);
+    public static ToolMaterial SkythernAxe = addAxeMaterial("skythern_axe", 100, 6000, 48.0F, 10, 22, ModItems.skythernGem);
+    public static ToolMaterial WildwoodAxe = addAxeMaterial("wildwood_axe", 100, 6000, 28.0F, 8, 22, ModItems.wildwoodGem);
+
+    public static ToolMaterial ApalachiaPick = addPickMaterial("apalachia_pick", 100, 6000, 40.0F, 7, 22, ModItems.apalachiaGem);
+    public static ToolMaterial ArlemitePick = addPickMaterial("arlemite_pick", 3, 3000, 13.0F, 5, 10,
+            ModItems.arlemiteIngot);
+    public static ToolMaterial BedrockPick = addPickMaterial("bedrock_pick", 3, 9.0F, 4, 10);
+    public static ToolMaterial CorruptedPick = addPickMaterial("corrupted_pick", 3, 6000, 16.0F, 5, 10,
+            ModItems.corruptedStone);
+    public static ToolMaterial CyclopsPick = addPickMaterial("cyclops_pick", 0, 1000, 8.0F, 4, 10, ModItems.cyclopsEye);
+    public static ToolMaterial DivinePick = addPickMaterial("divine_pick", 8, 35000, 20.0F, 6, 10,
+            ModItems.divineStone);
+    public static ToolMaterial EdenPick = addPickMaterial("eden_pick", 100, 6000, 20.0F, 5, 22, ModItems.edenGem);
+    public static ToolMaterial MortumPick = addPickMaterial("mortum_pick", 100, 6000, 55.0F, 9, 22, ModItems.mortumGem);
+    public static ToolMaterial RealmitePick = addPickMaterial("realmite_pick", 3, 4000, 12.0F, 4, 10,
+            ModItems.realmiteIngot);
+    public static ToolMaterial RupeePick = addPickMaterial("rupee_pick", 6, 2500, 16.0F, 5, 0, ModItems.rupeeIngot);
+    public static ToolMaterial SkythernPick = addPickMaterial("skythern_pick", 100, 6000, 48.0F, 8, 22, ModItems.skythernGem);
+    public static ToolMaterial WildwoodPick = addPickMaterial("wildwood_pick", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
+
+    public static ToolMaterial ApalachiaShovel = addShovelMaterial("apalachia_shovel", 100, 6000, 40.0F, 7, 22, ModItems.apalachiaGem);
+    public static ToolMaterial ArlemiteShovel = addShovelMaterial("arlemite_shovel", 3, 3000, 13.0F, 5, 10,
+            ModItems.arlemiteIngot);
+    public static ToolMaterial BedrockShovel = addShovelMaterial("bedrock_shovel", 3, 20.0F, 4, 10);
+    public static ToolMaterial CorruptedShovel = addShovelMaterial("corrupted_shovel", 3, 6000, 16.0F, 5, 10,
+            ModItems.corruptedStone);
+    public static ToolMaterial CyclopsShovel = addShovelMaterial("cyclops_shovel", 0, 1000, 8.0F, 4, 10,
+            ModItems.cyclopsEye);
+    public static ToolMaterial DivineShovel = addShovelMaterial("divine_shovel", 8, 35000, 20.0F, 6, 10,
+            ModItems.divineStone);
+    public static ToolMaterial EdenShovel = addShovelMaterial("eden_shovel", 100, 6000, 20.0F, 5, 22, ModItems.edenGem);
+    public static ToolMaterial MortumShovel = addShovelMaterial("mortum_shovel", 100, 6000, 55.0F, 9, 22, ModItems.mortumGem);
+    public static ToolMaterial RealmiteShovel = addShovelMaterial("realmite_shovel", 3, 4000, 12.0F, 4, 10,
+            ModItems.realmiteIngot);
+    public static ToolMaterial RupeeShovel = addShovelMaterial("rupee_shovel", 6, 2500, 16.0F, 5, 0,
+            ModItems.rupeeIngot);
+    public static ToolMaterial SkythernShovel = addShovelMaterial("skythern_shovel", 100, 6000, 48.0F, 8, 22, ModItems.skythernGem);
+    public static ToolMaterial WildwoodShovel = addShovelMaterial("wildwood_shovel", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
+
 
      */
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
@@ -254,27 +292,6 @@ public class ToolMaterialMod {
         return EnumHelper.addToolMaterial(name, 0, -1, 0, damage - 5, enchantability);
     }
 
-    public static ToolMaterial addAxeMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-                                              float damage, int enchantability, Item repair) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 4, enchantability)
-                .setRepairItem(new ItemStack(repair, 1));
-    }
-
-    public static ToolMaterial addAxeMaterial(String name, int harvestLevel, float efficiency, float damage,
-                                              int enchantability) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 4, enchantability);
-    }
-
-    public static ToolMaterial addPickMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-                                               float damage, int enchantability, Item repair) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 3, enchantability)
-                .setRepairItem(new ItemStack(repair, 1));
-    }
-
-    public static ToolMaterial addPickMaterial(String name, int harvestLevel, float efficiency, float damage,
-                                               int enchantability) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 3, enchantability);
-    }
 
     public static ToolMaterial addShovelMaterial(String name, int harvestLevel, int maxUses, float efficiency,
                                                  float damage, int enchantability, Item repair) {
@@ -287,14 +304,5 @@ public class ToolMaterialMod {
         return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 2, enchantability);
     }
 
-    public static ToolMaterial addShickMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-                                                float damage, int enchantability, Item repair) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 1, enchantability)
-                .setRepairItem(new ItemStack(repair, 1));
-    }
 
-    public static ToolMaterial addShickMaterial(String name, int harvestLevel, float efficiency, float damage,
-                                                int enchantability) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 1, enchantability);
-    }
 }
