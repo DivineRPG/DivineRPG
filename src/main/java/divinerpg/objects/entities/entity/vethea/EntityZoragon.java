@@ -62,7 +62,7 @@ public class EntityZoragon extends EntityDivineGhast {
 
     @Override
     protected float getSoundVolume() {
-        return 10.0F;
+        return 2.0F;
     }
 
 }
