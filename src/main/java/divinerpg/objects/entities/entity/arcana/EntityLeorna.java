@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -14,11 +13,12 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityLeorna extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.leorna.plants", "message.leorna.nature", "message.leorna.lamona",
-            "message.leorna.hitchak", "message.leorna.zelus" };
-
     public EntityLeorna(World world) {
-        super(world);
+        super(world, "message.leorna.plants",
+                "message.leorna.nature",
+                "message.leorna.lamona",
+                "message.leorna.hitchak",
+                "message.leorna.zelus");
     }
 
     @Override
@@ -27,12 +27,6 @@ public class EntityLeorna extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.LEORNA_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.leorna.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override
@@ -45,7 +39,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
         list.addAll(getAllRecipies());
     }
 
-    public static MerchantRecipeList getAllRecipies(){
+    public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.eucalyptusRootSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.marsineSeeds)));

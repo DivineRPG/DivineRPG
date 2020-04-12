@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -16,11 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntityCaptainMerik extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
-            "message.merik.battles", "message.merik.phoenix" };
-
     public EntityCaptainMerik(World world) {
-        super(world);
+        super(world, "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
+                "message.merik.battles", "message.merik.phoenix");
     }
 
     @Override
@@ -29,12 +26,6 @@ public class EntityCaptainMerik extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.CAPTAIN_MERIK_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.captain_merik.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override
@@ -47,7 +38,7 @@ public class EntityCaptainMerik extends EntityDivineRPGVillager {
         list.addAll(getAllRecipies());
     }
 
-    public static List<MerchantRecipe> getAllRecipies(){
+    public static List<MerchantRecipe> getAllRecipies() {
         List<MerchantRecipe> list = new ArrayList<>();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.stormSword)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 12), new ItemStack(ModItems.enderScepter)));

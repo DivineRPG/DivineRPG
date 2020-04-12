@@ -1,7 +1,12 @@
 package divinerpg.utils;
 
+import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
     /**
@@ -299,15 +304,15 @@ public class LocalizeUtils {
         return text.getFormattedText();
     }
 
-    public static ITextComponent getChatComponent(String str) {
-        TextComponentString ret = new TextComponentString(str);
-        return ret;
-    }
-
-    public static ITextComponent getChatComponent(String str, String args) {
-        TextComponentString ret = new TextComponentString(args + str);
-        ret.getStyle().setColor(TextFormatting.WHITE);
-        return ret;
+    /**
+     * Creates message fro mserver to translate on client
+     *
+     * @param sender - player (mostly) to send message
+     * @param str    - lang key
+     * @return
+     */
+    public static ITextComponent getClientSideTranslation(ICommandSender sender, String str) {
+        return TextComponentHelper.createComponentTranslation(sender, str);
     }
 
     /**

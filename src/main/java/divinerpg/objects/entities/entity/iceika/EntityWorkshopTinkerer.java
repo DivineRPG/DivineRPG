@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -21,11 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
-            "message.merchant.burr" };
-
     public EntityWorkshopTinkerer(World worldIn) {
-        super(worldIn);
+        super(worldIn, "message.merchant.ho",
+                "message.merchant.out",
+                "message.merchant.in",
+                "message.merchant.burr");
         this.setSize(1.0F, 2.0F);
     }
 
@@ -36,12 +35,6 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
             CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.workshop_tinkerer.name")
-                + ": " + LocalizeUtils.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override

@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -13,11 +12,11 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityZelus extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.zelus.fine", "message.zelus.minions", "message.zelus.flower",
-            "message.zelus.plants" };
-
     public EntityZelus(World world) {
-        super(world);
+        super(world, "message.zelus.fine",
+                "message.zelus.minions",
+                "message.zelus.flower",
+                "message.zelus.plants");
     }
 
     @Override
@@ -26,12 +25,6 @@ public class EntityZelus extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.ZELUS_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.zelus.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override
@@ -44,7 +37,7 @@ public class EntityZelus extends EntityDivineRPGVillager {
         list.addAll(getAllRecipies());
     }
 
-    public static MerchantRecipeList getAllRecipies(){
+    public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.fyracryxEgg)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.seimerEgg)));

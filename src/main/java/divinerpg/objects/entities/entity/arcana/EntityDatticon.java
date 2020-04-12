@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -14,11 +13,12 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityDatticon extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.datticon.merik", "message.datticon.furnace",
-            "message.datticon.science", "message.datticon.plugged", "message.datticon.redstone" };
-
     public EntityDatticon(World world) {
-        super(world);
+        super(world, "message.datticon.merik",
+                "message.datticon.furnace",
+                "message.datticon.science",
+                "message.datticon.plugged",
+                "message.datticon.redstone");
     }
 
     @Override
@@ -27,12 +27,6 @@ public class EntityDatticon extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.DATTICON_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.datticon.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override

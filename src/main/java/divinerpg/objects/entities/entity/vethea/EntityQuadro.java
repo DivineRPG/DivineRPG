@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMob {
-    
+
     enum QuadroAbility {
         RANGED_SLOW(0), RANGED_FAST(1), MELEE_SLOW(2), MELEE_FAST(3);
 
@@ -43,16 +43,15 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
     public boolean dir;
 
     public EntityQuadro(World worldIn) {
-		super(worldIn);
-		this.setSize(1.2F, 2.2f);
-		this.ability = getRandomAbility();
+        super(worldIn);
+        this.setSize(1.2F, 2.2f);
+        this.ability = getRandomAbility();
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_QUADRO;
-	}
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_QUADRO;
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -63,8 +62,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
     }
 
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
@@ -136,9 +134,9 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
                 }
 
                 this.world.playSound(p, p.getPosition(), sound, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                if(!this.world.isRemote) {
-                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal(chatMessage)));
-                }
+
+                if (!world.isRemote)
+                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage));
 
             }
         }
@@ -195,7 +193,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
     public void setSwingingArms(boolean b) {
     }
 
-    
+
     @Override
     protected boolean isValidLightLevel() {
         return true;
@@ -213,7 +211,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
     }
 
     private QuadroAbility getRandomAbility() {
-        switch(this.rand.nextInt(4)) {
+        switch (this.rand.nextInt(4)) {
             case 0:
                 return QuadroAbility.RANGED_SLOW;
             case 1:

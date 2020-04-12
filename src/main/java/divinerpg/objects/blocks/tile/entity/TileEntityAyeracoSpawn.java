@@ -5,12 +5,12 @@ import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.registry.ModBlocks;
 import divinerpg.utils.LocalizeUtils;
-import divinerpg.utils.log.Logging;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
@@ -146,27 +146,39 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements IT
 
     /**
      * Prevent from double logging on client
+     *
      * @param formatting - format of message
      */
-    private void logAyeracoSpawn(TextFormatting formatting){
+    private void logAyeracoSpawn(TextFormatting formatting) {
         logAyeracoSpawn(formatting, null);
     }
 
     /**
      * Log ayeraco spawn, prevent from double client logging
+     *
      * @param formatting - message format
-     * @param name - special name
+     * @param name       - special name
      */
-    private void logAyeracoSpawn(TextFormatting formatting, String name){
-        if (world.isRemote)
-            return;
+    private void logAyeracoSpawn(TextFormatting formatting, String name) {
 
-        if (name == null){
-            name = formatting.name().toLowerCase();
+        if (world.getMinecraftServer() != null) {
+
+            if (name == null) {
+                name = formatting.name().toLowerCase();
+            }
+
+            final String langKey = "message.ayeraco." + name;
+
+            world.getMinecraftServer()
+                    .getPlayerList()
+                    .getPlayers()
+                    .forEach(x -> {
+                        ITextComponent text = LocalizeUtils.getClientSideTranslation(x, langKey);
+                        text.getStyle().setColor(formatting);
+
+                        x.sendMessage(text);
+                    });
         }
-
-        // Here creating the key like "message.ayeraco.blue"
-        Logging.broadcast(LocalizeUtils.normal("message.ayeraco." + name, formatting));
     }
 
     private void setBlock(BlockPos pos, Block block) {

@@ -2,18 +2,17 @@ package divinerpg.objects.items.twilight;
 
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.log.Logging;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextComponentBase;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
+import net.minecraftforge.server.command.TextComponentHelper;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +24,7 @@ public class ItemBossSpawner extends ItemMod {
 
     private final Predicate<DimensionType> canSpawn;
     private final Function<World, Entity>[] spawnderEntities;
-    private final ITextComponent cantSpawnMessage;
+    private final String langKey;
 
     public ItemBossSpawner(String name, String langKey, Predicate<DimensionType> canSpawn, Function<World, Entity>... spawnedEntities) {
         super(name);
@@ -34,8 +33,7 @@ public class ItemBossSpawner extends ItemMod {
         setMaxStackSize(1);
         this.setCreativeTab(DivineRPGTabs.spawner);
 
-        cantSpawnMessage = new TextComponentTranslation(langKey);
-        cantSpawnMessage.getStyle().setColor(TextFormatting.AQUA);
+        this.langKey = langKey;
     }
 
     @Override
@@ -44,8 +42,9 @@ public class ItemBossSpawner extends ItemMod {
 
         if (!world.isRemote) {
             if (!canSpawn.test(world.provider.getDimensionType())) {
-                Logging.message(player, cantSpawnMessage.getFormattedText());
-
+                TextComponentBase message = TextComponentHelper.createComponentTranslation(player, langKey);
+                message.getStyle().setColor(TextFormatting.AQUA);
+                player.sendMessage(message);
                 return EnumActionResult.FAIL;
             }
 

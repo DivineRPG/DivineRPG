@@ -58,7 +58,6 @@ public class ItemStaffStarlight extends RangedWeaponBase {
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType,
                                Class<? extends EntityThrowable> clazz) {
         RayTraceResult pos = PositionHelper.rayTrace(player, 32, 1);
-        int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
 
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK) {
             int blockX = pos.getBlockPos().getX();
@@ -85,18 +84,13 @@ public class ItemStaffStarlight extends RangedWeaponBase {
                             (double) blockZ + 0.5D));
                 }
             }
-
-            player.getLook(1);
         }
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-
         tooltip.add(LocalizeUtils.rangedDam(20));
-
         super.addInformation(stack, worldIn, tooltip, flagIn);
-
         tooltip.add(starsInfo.getFormattedText());
     }
 

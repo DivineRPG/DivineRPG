@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -25,11 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntityJackOMan extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.jackoman.boo", "message.jackoman.lost", "message.jackoman.hurah",
-            "message.jackoman.seen" };
-
     public EntityJackOMan(World worldIn) {
-        super(worldIn);
+        super(worldIn, "message.jackoman.boo",
+                "message.jackoman.lost",
+                "message.jackoman.hurah",
+                "message.jackoman.seen");
         this.setSize(0.8F, 2f);
     }
 
@@ -40,12 +39,6 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
             CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.jack_o_man.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     public static List<MerchantRecipe> getAllRecipies() {

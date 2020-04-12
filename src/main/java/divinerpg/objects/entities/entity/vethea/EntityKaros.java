@@ -24,26 +24,25 @@ import java.util.List;
 
 public class EntityKaros extends EntityDivineRPGBoss {
 
-    private int       ability;
+    private int ability;
     private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
-    private int       abilityCooldown;
+    private int abilityCooldown;
 
     private boolean hasLoadedBlocks = false;
 
-    private List<BlockPos> ceiling    = new ArrayList<BlockPos>();
-    private List<BlockPos> cannons    = new ArrayList<BlockPos>();
+    private List<BlockPos> ceiling = new ArrayList<BlockPos>();
+    private List<BlockPos> cannons = new ArrayList<BlockPos>();
 
     public EntityKaros(World worldIn) {
-		super(worldIn);
-		this.setSize(1F, 3f);
+        super(worldIn);
+        this.setSize(1F, 3f);
         ability = DEFAULT;
-	}
+    }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_KAROS;
-	}
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_KAROS;
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -62,8 +61,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
     }
 
 
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
@@ -90,7 +88,7 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     if (!this.world.isRemote) {
                         List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
                         for (EntityPlayer p : players) {
-                            p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.explosion")));
+                            p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.explosion"));
                         }
                     }
                     break;
@@ -113,9 +111,9 @@ public class EntityKaros extends EntityDivineRPGBoss {
         if (source.isExplosion()) {
             return false;
         } else {
-            return super.attackEntityFrom(source, par2);  
+            return super.attackEntityFrom(source, par2);
         }
-        
+
     }
 
     @Override
@@ -126,8 +124,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
                 List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
                 for (EntityPlayer p : players) {
                     this.world.playSound(p, p.getPosition(), ModSounds.KAROS_INTRO, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.game")));
-                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.begin")));
+                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.game"));
+                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.begin"));
                 }
             }
             for (int x = -40; x < 40; x++) {
@@ -135,10 +133,9 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     for (int z = -40; z < 40; z++) {
                         BlockPos currentPos = this.getPosition().add(x, y, z);
                         Block currentBlock = this.world.getBlockState(currentPos).getBlock();
-                        if(currentBlock == ModBlocks.helioticBeam) {
+                        if (currentBlock == ModBlocks.helioticBeam) {
                             ceiling.add(currentPos);
-                        }
-                        else if(currentBlock == ModBlocks.karosDispenser) {
+                        } else if (currentBlock == ModBlocks.karosDispenser) {
                             cannons.add(currentPos);
                         }
                     }
@@ -153,8 +150,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
             if ((this.abilityCooldown % 8) == 0) {
                 BlockPos currentPos = ceiling.get(this.rand.nextInt(ceiling.size()));
                 Block currentBlock = this.world.getBlockState(currentPos).getBlock();
-                if(currentBlock instanceof BlockHelioticBeam) {
-                    ((BlockHelioticBeam)currentBlock).dropBomb(this.world, currentPos);
+                if (currentBlock instanceof BlockHelioticBeam) {
+                    ((BlockHelioticBeam) currentBlock).dropBomb(this.world, currentPos);
                 }
 
             }
@@ -163,8 +160,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.rand.nextInt(cannons.size()));
                 Block currentBlock = this.world.getBlockState(currentPos).getBlock();
-                if(currentBlock instanceof BlockKarosDispenser) {
-                    ((BlockKarosDispenser)currentBlock).dispense(this.world, currentPos);
+                if (currentBlock instanceof BlockKarosDispenser) {
+                    ((BlockKarosDispenser) currentBlock).dispense(this.world, currentPos);
                 }
             }
         } else if (ability == FLOOR) {
@@ -174,8 +171,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     int var1 = (int) Math.round(Math.sin(var4) * i);
                     int var3 = (int) Math.round(Math.cos(var4) * i);
 
-                    BlockPos currentPos = new BlockPos((int)this.posX + var1, (int)this.posY - 1, (int)this.posZ + var3);
-                    if(this.world.getBlockState(currentPos).getBlock() == ModBlocks.karosHeatTileGreen) {
+                    BlockPos currentPos = new BlockPos((int) this.posX + var1, (int) this.posY - 1, (int) this.posZ + var3);
+                    if (this.world.getBlockState(currentPos).getBlock() == ModBlocks.karosHeatTileGreen) {
                         this.world.setBlockState(currentPos, ModBlocks.karosHeatTileRed.getDefaultState());
                     }
                     var4 += Math.PI / 8.0D;
@@ -192,40 +189,37 @@ public class EntityKaros extends EntityDivineRPGBoss {
     @Override
     protected SoundEvent getAmbientSound() {
         int s = this.rand.nextInt(4);
-        List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
-        for (EntityPlayer p : players) {
-            switch (s) {
-                case 0:
-                    if (!this.world.isRemote)
-                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.laugh")));
-                    break;
-                case 1:
-                    if (!this.world.isRemote)
-                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.doom")));
-                    break;
-                case 2:
-                    if (!this.world.isRemote)
-                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.cmon")));
-                    break;
-                default:
-                    if (!this.world.isRemote)
-                        p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.karos.weak")));
-                    break;
-            }
 
-        }
+        String langKey;
+        SoundEvent sound;
 
-        switch (s) {
+        switch (rand.nextInt(4)) {
             case 0:
-                return ModSounds.KAROS_LAUGH;
-            case 1:
-                return ModSounds.MEET_DOOM;
-            case 2:
-                return ModSounds.TRY_YOUR_BEST;
-            default:
-                return ModSounds.YOU_CANT_KILL_ME;
+                langKey = "message.karos.laugh";
+                sound = ModSounds.KAROS_LAUGH;
+                break;
 
+            case 1:
+                langKey = "message.karos.doom";
+                sound = ModSounds.MEET_DOOM;
+                break;
+
+            case 2:
+                langKey = "message.karos.cmon";
+                sound = ModSounds.TRY_YOUR_BEST;
+                break;
+
+            default:
+                langKey = "message.karos.weak";
+                sound = ModSounds.YOU_CANT_KILL_ME;
+                break;
         }
+
+        world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox()
+                .expand(30, 30, 30))
+                .forEach(x -> x.sendMessage(LocalizeUtils.getClientSideTranslation(x, langKey)));
+
+        return sound;
     }
 
     @Override

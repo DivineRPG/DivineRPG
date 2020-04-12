@@ -1,22 +1,13 @@
 package divinerpg.objects.entities.entity;
 
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAILookAtTradePlayer;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITradePlayer;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityVindicator;
@@ -29,20 +20,32 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public abstract class EntityDivineRPGVillager extends EntityVillager {
     private UUID lastBuyingPlayer;
     private EntityPlayer buyingPlayer;
     private MerchantRecipeList buyingList;
+    private final String[] messages;
 
-    public EntityDivineRPGVillager(World var1) {
-        super(var1);
+    protected EntityDivineRPGVillager(World world) {
+        this(world, new String[0]);
+    }
+
+    protected EntityDivineRPGVillager(World w, String... messages) {
+        super(w);
         this.setSize(1.0F, 2.0F);
         this.setCanPickUpLoot(false);
         this.addDefaultEquipmentAndRecipies(75);
+        this.messages = messages;
     }
 
     @Override
@@ -107,7 +110,15 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         }
     }
 
-    public abstract void extraInteract(EntityPlayer p);
+    public final void extraInteract(EntityPlayer player) {
+        ITextComponent message = new TextComponentString("");
+        ITextComponent npcName = LocalizeUtils.getClientSideTranslation(player, String.format("entity.%s.name", EntityList.getEntityString(this)));
+        npcName.getStyle().setColor(TextFormatting.AQUA);
+        message.appendSibling(npcName);
+        message.appendText(": ");
+        message.appendSibling(LocalizeUtils.getClientSideTranslation(player, messages[rand.nextInt(messages.length)]));
+        player.sendMessage(message);
+    }
 
     public abstract void addRecipies(MerchantRecipeList list);
 
@@ -129,7 +140,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         super.readEntityFromNBT(var1);
         if (var1.hasKey("Trades")) {
             NBTTagCompound var2 = var1.getCompoundTag("Trades");
-            if(this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
+            if (this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
                 this.buyingList = new InfiniteTradeList(var2);
             else
                 this.buyingList = new MerchantRecipeList(var2);
@@ -171,7 +182,7 @@ public abstract class EntityDivineRPGVillager extends EntityVillager {
         }
 
         for (int var3 = 0; var3 < par1 && var3 < rec.size(); ++var3) {
-            this.buyingList.add((MerchantRecipe) rec.get(var3));
+            this.buyingList.add(rec.get(var3));
         }
     }
 

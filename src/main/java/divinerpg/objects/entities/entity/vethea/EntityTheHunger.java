@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -15,11 +14,11 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityTheHunger extends EntityDivineRPGVillager {
-
-    private static final String[] MESSAGE = { "message.hunger.hungry", "message.hunger.closer", "message.hunger.fatten", "message.hunger.dinner" };
-
     public EntityTheHunger(World worldIn) {
-        super(worldIn);
+        super(worldIn, "message.hunger.hungry",
+                "message.hunger.closer",
+                "message.hunger.fatten",
+                "message.hunger.dinner");
         this.setSize(0.8F, 2f);
     }
 
@@ -29,12 +28,6 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.THE_HUNGER_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.livestock_merchant.name")
-                + ": " + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
 

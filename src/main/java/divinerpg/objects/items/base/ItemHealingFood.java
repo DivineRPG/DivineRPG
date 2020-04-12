@@ -36,7 +36,6 @@ public class ItemHealingFood extends ItemModFood {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(LocalizeUtils.i18n("tooltip.food.heal", healthGain));
-        list.add(LocalizeUtils.i18n("tooltip.food.satiety", getHealAmount(item)));
-        list.add(LocalizeUtils.i18n("tooltip.food.saturation", getHealAmount(item) * getSaturationModifier(item) * 2));
+        super.addInformation(item, worldIn, list, flagIn);
     }
 }

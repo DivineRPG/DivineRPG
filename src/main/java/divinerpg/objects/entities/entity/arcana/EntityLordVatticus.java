@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -13,11 +12,12 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityLordVatticus extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.vatticus.feel", "message.vatticus.noend",
-            "message.vatticus.strength", "message.vatticus.discover", "message.vatticus.magic" };
-
     public EntityLordVatticus(World world) {
-        super(world);
+        super(world, "message.vatticus.feel",
+                "message.vatticus.noend",
+                "message.vatticus.strength",
+                "message.vatticus.discover",
+                "message.vatticus.magic");
     }
 
     @Override
@@ -26,12 +26,6 @@ public class EntityLordVatticus extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.VATICUS_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.lord_vatticus.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override
@@ -44,7 +38,7 @@ public class EntityLordVatticus extends EntityDivineRPGVillager {
         list.addAll(getAllRecipies());
     }
 
-    public static MerchantRecipeList getAllRecipies(){
+    public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.collector, 16), new ItemStack(ModItems.chargedCollector)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModItems.kormaHelmet)));
@@ -58,8 +52,7 @@ public class EntityLordVatticus extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.staffOfEnrichment)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.wizardsBook)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 1), new ItemStack(ModItems.weakArcanaPotion, 4)));
-        list.add(
-                new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.strongArcanaPotion, 4)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModItems.strongArcanaPotion, 4)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 20), new ItemStack(ModItems.orbOfLight)));
         return list;
     }

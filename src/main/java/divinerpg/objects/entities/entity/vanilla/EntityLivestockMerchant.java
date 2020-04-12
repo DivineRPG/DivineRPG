@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,11 +17,12 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityLivestockMerchant extends EntityDivineRPGVillager {
-    private static final String[] MESSAGE = { "message.livestock.travel", "message.livestock.sell",
-            "message.livestock.hi", "message.livestock.snapper" };
 
     public EntityLivestockMerchant(World worldIn) {
-        super(worldIn);
+        super(worldIn, "message.livestock.travel",
+                "message.livestock.sell",
+                "message.livestock.hi",
+                "message.livestock.snapper");
         this.setSize(0.8F, 2f);
     }
 
@@ -35,17 +35,11 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
     }
 
     @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.livestock_merchant.name")
-                + ": " + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
-    }
-
-    @Override
     public void addRecipies(MerchantRecipeList list) {
         list.addAll(getAllRecipies());
     }
 
-    public static MerchantRecipeList getAllRecipies(){
+    public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.shadowCoins, 4),
                 new ItemStack(ModItems.ehuEgg, 2)));

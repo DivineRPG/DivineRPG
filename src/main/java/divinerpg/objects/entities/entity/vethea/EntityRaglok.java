@@ -21,32 +21,34 @@ import java.util.List;
 
 public class EntityRaglok extends EntityDivineRPGBoss {
 
-    private int       ability;
+    private int ability;
     private final int DEFAULT = 0, LIGHTNING = 1, BLIND = 2, BOMBS = 3, SLOW = 4;
     private double prevPlayerX, prevPlayerY, prevPlayerZ;
-    private int     abilityCooldown;
+    private int abilityCooldown;
     private boolean loaded = false;
-    private int     rangedAttackCounter;
+    private int rangedAttackCounter;
     private boolean avengeAbilityUsed = false;
+
     public EntityRaglok(World worldIn) {
-		super(worldIn);
-		this.setSize(3F, 5f);
-	}
+        super(worldIn);
+        this.setSize(3F, 5f);
+    }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_RAGLOK;
-	}
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_RAGLOK;
+    }
 
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (!loaded && !this.world.isRemote) {
             List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
+
             for (EntityPlayer p : players) {
-                p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.dare")));
+                p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.dare"));
             }
+
             this.playSound(ModSounds.RAGLOK_AWAKEN, 1.0F, 1.0F);
             loaded = true;
         }
@@ -56,11 +58,11 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
     public void manageAbilities() {
         EntityPlayer player = this.world.getClosestPlayerToEntity(this, 64.0D);
-        
-        if(player == null || player.isCreative() || avengeAbilityUsed) {
+
+        if (player == null || player.isCreative() || avengeAbilityUsed) {
             return;
         }
-        
+
         if (abilityCooldown == 0 || ability == DEFAULT) {
             abilityCooldown = 400;
             switch (this.rand.nextInt(4)) {
@@ -141,26 +143,26 @@ public class EntityRaglok extends EntityDivineRPGBoss {
                     case LIGHTNING:
                         this.playSound(ModSounds.RAGLOK_GUARDIAN, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.think")));
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.great")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.think"));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.great"));
                         }
                         break;
                     case BLIND:
                         this.playSound(ModSounds.RAGLOK_DARK, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.future")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.future"));
                         break;
                     case BOMBS:
                         this.playSound(ModSounds.RAGLOK_RAIN, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.rain")));
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.kill")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.rain"));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.kill"));
                         }
                         break;
                     case SLOW:
                         this.playSound(ModSounds.RAGLOK_NOTHING, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.compare")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.compare"));
                         break;
                     default:
                         break;
@@ -179,8 +181,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
     }
 
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
@@ -219,21 +220,21 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
     @Override
     public void onDeathUpdate() {
-        if(!avengeAbilityUsed) {
+        if (!avengeAbilityUsed) {
             if (!this.world.isRemote) {
                 List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
                 for (EntityPlayer p : players) {
-                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.raglok.avenge")));
+                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.avenge"));
                 }
             }
             EntityPlayer player = this.world.getClosestPlayerToEntity(this, 64.0D);
             if (player != null && !player.isCreative()) {
                 this.world.spawnEntity(new EntityLightningBolt(this.world, player.posX, player.posY, player.posZ, false));
             }
-            
+
             avengeAbilityUsed = true;
         }
-        
+
         super.onDeathUpdate();
     }
 }

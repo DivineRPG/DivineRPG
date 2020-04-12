@@ -168,7 +168,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
 
             if (playerIn.world.provider.getDimension() == 0) {
                 if (worldIn.getBlockLightOpacity(pos) > 7) {
-                    playerIn.sendMessage(LocalizeUtils.getChatComponent("You can only use the Nightmare Bed in a dark place."));
+                    playerIn.sendMessage(LocalizeUtils.getClientSideTranslation(playerIn, "message.nightmare_bed.restrict"));
                     return true;
                 }
                 EntityPlayer entityplayer1 = null;

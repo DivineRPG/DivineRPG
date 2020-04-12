@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -14,11 +13,10 @@ import net.minecraft.world.World;
 
 public class EntityWarGeneral extends EntityDivineRPGVillager {
 
-    private static final String[] MESSAGE = { "message.general.weapons", "message.general.merik",
-            "message.general.blade" };
-
     public EntityWarGeneral(World world) {
-        super(world);
+        super(world, "message.general.weapons",
+                "message.general.merik",
+                "message.general.blade");
     }
 
     @Override
@@ -27,12 +25,6 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
             player.openGui(DivineRPG.instance, GUIHandler.WAR_GENERAL_GUI_ID, this.world, getEntityId(), 0, 0);
         }
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void extraInteract(EntityPlayer player) {
-        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.war_general.name") + ": "
-                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override

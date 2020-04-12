@@ -29,12 +29,12 @@ import java.util.List;
 
 public class EntityWreck extends EntityDivineRPGBoss {
 
-    private final int MELEE   = 0, ARCANA = 1, RANGED = 2;
+    private final int MELEE = 0, ARCANA = 1, RANGED = 2;
     private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
-    private int       waitTick;
-    private int       abilityTimer;
+    private int waitTick;
+    private int abilityTimer;
     private boolean dead = false;
-    private boolean   loaded  = false;
+    private boolean loaded = false;
 
     private int ability;
     private int abilityType;
@@ -45,10 +45,9 @@ public class EntityWreck extends EntityDivineRPGBoss {
     }
 
     @Override
-	protected ResourceLocation getLootTable()
-	{
-		return DRPGLootTables.ENTITIES_WRECK;
-	}
+    protected ResourceLocation getLootTable() {
+        return DRPGLootTables.ENTITIES_WRECK;
+    }
 
     @Override
     protected void applyEntityAttributes() {
@@ -76,7 +75,8 @@ public class EntityWreck extends EntityDivineRPGBoss {
             abilityTimer--;
         }
 
-        if ((this.getAbilityType() == 1 && (this.getAbility() == CHARGE || this.getAbility() == PULL)) || (this.getAbilityType() == 2 && (this.getAbility() == FIRE || this.getAbility() == BOUNCE || this.getAbility() == FREEZE))) this.setAbility(DEFAULT);
+        if ((this.getAbilityType() == 1 && (this.getAbility() == CHARGE || this.getAbility() == PULL)) || (this.getAbilityType() == 2 && (this.getAbility() == FIRE || this.getAbility() == BOUNCE || this.getAbility() == FREEZE)))
+            this.setAbility(DEFAULT);
 
         if (this.getAbility() == DEFAULT && abilityTimer == 0) {
             abilityTimer = 200;
@@ -168,36 +168,36 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
                 switch (this.getAbility()) {
                     case CHARGE:
-                        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.charge")));
+                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.charge"));
                         break;
                     case PULL:
                         this.playSound(ModSounds.FEEL_SOUL_ARKSIANE, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.pull")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.pull"));
                         break;
                     case FIRE:
-                        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.fire")));
+                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.fire"));
                         break;
                     case FREEZE:
                         this.playSound(ModSounds.STOP_AT_ONCE, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.freeze")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.freeze"));
                         }
                         break;
                     case SPEED:
                         this.playSound(ModSounds.WRECK_SPEED, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.speed")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.speed"));
                         break;
                     case EXPLOSIONS:
                         this.playSound(ModSounds.EXPLOSIONS, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.explosion")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.explosion"));
                         break;
                     case STRENGTH:
                         this.playSound(ModSounds.WRECK_STRENGTH, 1.0F, 1.0F);
                         if (!this.world.isRemote)
-                            player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.strength")));
+                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.strength"));
                         break;
                     default:
                         break;
@@ -213,17 +213,16 @@ public class EntityWreck extends EntityDivineRPGBoss {
         if (!world.isRemote && !loaded) {
             List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(30, 30, 30));
             for (EntityPlayer p : players) {
-                p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.run")));
-                p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("message.wreck.smell")));
+                p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"));
+                p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.smell"));
             }
             this.playSound(ModSounds.WRECK_INTRO, 1.0F, 1.0F);
             loaded = true;
         }
 
-        if(dead) {
+        if (dead) {
             return;
-        }
-        else {
+        } else {
             EntityPlayer player = this.world.getClosestPlayerToEntity(this, 64.0D);
             if (this.getAbility() == PULL) {
                 if (player != null && !player.isCreative()) {
@@ -326,8 +325,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
     }
 
 
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
@@ -355,11 +353,12 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
     @Override
     public void onDeathUpdate() {
-        if(!this.dead) {
+        if (!this.dead) {
             this.dead = true;
         }
         super.onDeathUpdate();
     }
+
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
