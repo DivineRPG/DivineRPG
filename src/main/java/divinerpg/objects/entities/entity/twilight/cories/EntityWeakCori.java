@@ -1,11 +1,14 @@
 package divinerpg.objects.entities.entity.twilight.cories;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
+import divinerpg.objects.entities.ai.ILaunchThrowable;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -21,7 +24,18 @@ public class EntityWeakCori extends EntityDivineGhast {
     @Override
     protected AIDivineFireballAttack createShootAI() {
         return new AIDivineFireballAttack(this,
-                (world1, parent, x, y, z) -> new EntityCoriShot(world, parent, 30),
+                new ILaunchThrowable() {
+
+                    @Override
+                    public float getInaccuracy(World world) {
+                        return 0;
+                    }
+
+                    @Override
+                    public EntityThrowable createThowable(World world, EntityLivingBase parent, double x, double y, double z) {
+                        return new EntityCoriShot(world, parent, 30);
+                    }
+                },
                 ModSounds.CORI_SHOOT);
     }
 

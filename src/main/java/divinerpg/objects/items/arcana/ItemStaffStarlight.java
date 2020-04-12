@@ -3,7 +3,6 @@ package divinerpg.objects.items.arcana;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityStar;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
@@ -14,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -21,11 +22,24 @@ import java.util.List;
 
 public class ItemStaffStarlight extends RangedWeaponBase {
 
-    public ItemStaffStarlight(String name, int arcana) {
+    /**
+     * Amount of spawned entities
+     */
+    private final int count;
+
+    private final ITextComponent starsInfo;
+
+    /**
+     * @param name   name of ite,
+     * @param arcana - arcana consuming amount
+     * @param count  - count of spawning entities
+     */
+    public ItemStaffStarlight(String name, int arcana, int count) {
         super(name, EntityStar.class, null, ModSounds.STARLIGHT, SoundCategory.MASTER, -1, 0, null, arcana);
-        // ItemProjectileShooter.gunList.add(this);
+        this.count = count;
         this.setFull3D();
-        //        ItemStaff.staffList.add(this);
+
+        starsInfo = new TextComponentTranslation(count > 1 ? "tooltip.staff_of_starlight" : "tooltip.starlight");
     }
 
     @Override
@@ -42,7 +56,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
 
     @Override
     protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType,
-            Class<? extends EntityThrowable> clazz) {
+                               Class<? extends EntityThrowable> clazz) {
         RayTraceResult pos = PositionHelper.rayTrace(player, 32, 1);
         int x = pos.getBlockPos().getX(), y = pos.getBlockPos().getY() + 1, z = pos.getBlockPos().getZ();
 
@@ -66,16 +80,12 @@ public class ItemStaffStarlight extends RangedWeaponBase {
                 ++blockX;
 
             if (!world.isRemote) {
-
-                if (stack.getItem() == ModItems.staffOfStarlight) {
-                    for (int i = 0; i < 8; i++)
-                        world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
-                                (double) blockZ + 0.5D));
-                } else {
+                for (int i = 0; i < count; i++) {
                     world.spawnEntity(new EntityStar(world, (double) blockX + 0.5D, (double) blockY + 25D,
                             (double) blockZ + 0.5D));
                 }
             }
+
             player.getLook(1);
         }
     }
@@ -87,8 +97,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
 
-        tooltip.add(stack.getItem() == ModItems.staffOfStarlight ? "Drops several stars from the sky" :
-                "Drops a star from the sky");
+        tooltip.add(starsInfo.getFormattedText());
     }
 
 }

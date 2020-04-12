@@ -3,12 +3,13 @@ package divinerpg.enums;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.*;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ArmorInfo {
@@ -21,6 +22,11 @@ public class ArmorInfo {
      */
     public TextComponentBase dimensionName;
 
+    /**
+     * Predicate detects in which dimension powers will work
+     */
+    private Predicate<DimensionType> dimensionPredicate;
+
     public ArmorInfo(TextComponentBase... fullSetPerks) {
         FullSetPerks = new TextComponentString("");
 
@@ -31,8 +37,9 @@ public class ArmorInfo {
         FullSetPerks.getStyle().setColor(TextFormatting.GRAY);
     }
 
-    public ArmorInfo withDimension(TextComponentBase dimensionName) {
+    public ArmorInfo withDimension(TextComponentBase dimensionName, Predicate<DimensionType> dimensionPredicate) {
         this.dimensionName = dimensionName;
+        this.dimensionPredicate = dimensionPredicate;
         return this;
     }
 
@@ -53,7 +60,7 @@ public class ArmorInfo {
         }
 
         if (dimensionName != null) {
-            boolean isBoosted = worldIn != null && worldIn.provider != null && Objects.equals(worldIn.provider.getDimensionType().getName(), dimensionName.getFormattedText());
+            boolean isBoosted = worldIn != null && worldIn.provider != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.provider.getDimensionType());
 
             TextComponentString dimName = new TextComponentString(dimensionName.getFormattedText());
             if (isBoosted) {

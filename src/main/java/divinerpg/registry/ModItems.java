@@ -26,7 +26,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -1631,13 +1631,12 @@ public class ModItems {
     private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
 
     // Iceika
-    private static ArmorInfo santaInfo = new ArmorInfo(new TextComponentString("Massive Buff"),
+    private static ArmorInfo santaInfo = new ArmorInfo(new TextComponentTranslation("tooltip.armor_info.massive_buff"),
             getArmorAbility("speed", 2),
             getArmorAbility("melee_damage", 6),
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 80))
-            // todo remade
-            .withDimension(new TextComponentString("Iceika"));
+            .withDimension(new TextComponentTranslation("tooltip.armor_info.iceika"), x -> Objects.equals(x, ModDimensions.iceikaDimension));
 
     // Twilight
     private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
@@ -2263,8 +2262,8 @@ public class ModItems {
         register(registry, new ItemLaVekor());
         register(registry, new ItemMeriksMissile("meriks_missile"));
         register(registry, new ItemMeteorMash());
-        register(registry, new ItemStaffStarlight("starlight", 5));
-        register(registry, new ItemStaffStarlight("staff_of_starlight", 25));
+        register(registry, new ItemStaffStarlight("starlight", 5, 1));
+        register(registry, new ItemStaffStarlight("staff_of_starlight", 25, 8));
 
         // Arcana throwable
         register(registry, new ItemGrenade("grenade"));
@@ -2381,7 +2380,7 @@ public class ModItems {
 
         // Vethea food
         register(registry, new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(6, 0.6F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(6, 0.8F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea));

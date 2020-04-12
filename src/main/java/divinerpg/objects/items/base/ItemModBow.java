@@ -18,6 +18,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -100,9 +101,9 @@ public class ItemModBow extends ItemBow {
         tooltip.add(LocalizeUtils.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1)
-            tooltip.add(speed + " Times Faster");
+        	tooltip.add(new TextComponentTranslation("tooltip.bow_speed.faster", String.format("%s", speed)).getFormattedText());
         if (speed < 1)
-            tooltip.add((1 / speed) + " Times Slower");
+            tooltip.add(new TextComponentTranslation("tooltip.bow_speed.slower", String.format("%s", 1 / speed)).getFormattedText());
         tooltip.add(!unbreakable ? LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
                 LocalizeUtils.infiniteUses());
         if (arrowType.getArrowSpecial() == ArrowSpecial.POSION)
