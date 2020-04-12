@@ -5,8 +5,7 @@ import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -138,7 +137,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 
                 this.world.playSound(p, p.getPosition(), sound, SoundCategory.HOSTILE, 1.0F, 1.0F);
                 if(!this.world.isRemote) {
-                    p.sendMessage(Utils.getChatComponent(MessageLocalizer.normal(chatMessage)));
+                    p.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal(chatMessage)));
                 }
 
             }

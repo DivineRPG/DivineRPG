@@ -1,5 +1,11 @@
 package divinerpg.objects.entities.entity.iceika;
 
+import divinerpg.DivineRPG;
+import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.InfiniteTrade;
+import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ModItems;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,14 +19,6 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import divinerpg.objects.entities.entity.InfiniteTrade;
-import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
 
 public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merchant.ho", "message.merchant.out", "message.merchant.in",
@@ -42,8 +40,8 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.workshop_tinkerer.name")
-                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.workshop_tinkerer.name")
+                + ": " + LocalizeUtils.normal(MESSAGE[rand.nextInt(4)])));
     }
 
     @Override

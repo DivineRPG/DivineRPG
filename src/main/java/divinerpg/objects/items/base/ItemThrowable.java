@@ -3,7 +3,7 @@ package divinerpg.objects.items.base;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -30,7 +30,7 @@ public class ItemThrowable extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeKeys.rangedDam(bulletType.getDamage()));
+        list.add(LocalizeUtils.rangedDam(bulletType.getDamage()));
     }
 
     @Override

@@ -4,7 +4,7 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class ItemArcaniumSaber extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.arcanaConsumed(12));
-        tooltip.add(LocalizeKeys.meleeDam(22));
+        tooltip.add(LocalizeUtils.arcanaConsumed(12));
+        tooltip.add(LocalizeUtils.meleeDam(22));
     }
 }

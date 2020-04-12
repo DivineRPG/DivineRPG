@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.MessageLocalizer;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.log.Logging;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -166,7 +166,7 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements IT
         }
 
         // Here creating the key like "message.ayeraco.blue"
-        Logging.broadcast(MessageLocalizer.normal("message.ayeraco." + name, formatting));
+        Logging.broadcast(LocalizeUtils.normal("message.ayeraco." + name, formatting));
     }
 
     private void setBlock(BlockPos pos, Block block) {

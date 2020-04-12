@@ -3,8 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -55,8 +54,8 @@ public class ItemStaffEnrichment extends ItemMod {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipHelper.getInfoText("tooltip.staff_of_enrichment"));
-        list.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+        list.add(LocalizeUtils.i18n("tooltip.staff_of_enrichment"));
+        list.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
     }
 
 	@Override

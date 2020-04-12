@@ -6,7 +6,7 @@ import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -88,8 +88,8 @@ public class ItemMeriksMissile extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add("Explosive homing projectile");
-        list.add(LocalizeKeys.bowDam("8-25"));
-        list.add(LocalizeKeys.arcanaConsumed("10-50"));
-        list.add(LocalizeKeys.infiniteUses());
+        list.add(LocalizeUtils.bowDam("8-25"));
+        list.add(LocalizeUtils.arcanaConsumed("10-50"));
+        list.add(LocalizeUtils.infiniteUses());
     }
 }

@@ -1,5 +1,10 @@
 package divinerpg.objects.entities.entity.arcana;
 
+import divinerpg.DivineRPG;
+import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ModItems;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -9,13 +14,6 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
-import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
 
 public class EntityCaptainMerik extends EntityDivineRPGVillager {
     private static final String[] MESSAGE = { "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
@@ -35,8 +33,8 @@ public class EntityCaptainMerik extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.captain_merik.name") + ": "
-                + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
+        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.captain_merik.name") + ": "
+                + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override

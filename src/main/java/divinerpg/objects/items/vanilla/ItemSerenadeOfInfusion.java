@@ -1,13 +1,9 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -17,6 +13,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemSerenadeOfInfusion extends ItemMod {
 
@@ -29,8 +28,8 @@ public class ItemSerenadeOfInfusion extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_of_infusion"));
-        tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+        tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_infusion"));
+        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
     }
 
     @Override

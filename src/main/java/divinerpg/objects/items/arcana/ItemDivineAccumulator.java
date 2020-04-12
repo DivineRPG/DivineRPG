@@ -7,8 +7,7 @@ import divinerpg.networking.message.MessageDivineAccumulator;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -54,9 +53,9 @@ public class ItemDivineAccumulator extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipHelper.getInfoText("tooltip.divine_accumulator.launch"));
-        list.add(TooltipHelper.getInfoText("tooltip.divine_accumulator.fall"));
-        list.add(LocalizeKeys.arcanaConsumed(80));
-        list.add(LocalizeKeys.infiniteUses());
+        list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.launch"));
+        list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.fall"));
+        list.add(LocalizeUtils.arcanaConsumed(80));
+        list.add(LocalizeUtils.infiniteUses());
     }
 }

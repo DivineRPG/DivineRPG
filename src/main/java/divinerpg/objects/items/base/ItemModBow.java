@@ -5,7 +5,7 @@ import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -97,21 +97,21 @@ public class ItemModBow extends ItemBow {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeKeys.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
+        tooltip.add(LocalizeUtils.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1)
             tooltip.add(speed + " Times Faster");
         if (speed < 1)
             tooltip.add((1 / speed) + " Times Slower");
-        tooltip.add(!unbreakable ? LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
-                LocalizeKeys.infiniteUses());
+        tooltip.add(!unbreakable ? LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
+                LocalizeUtils.infiniteUses());
         if (arrowType.getArrowSpecial() == ArrowSpecial.POSION)
-            tooltip.add(LocalizeKeys.poison(2));
+            tooltip.add(LocalizeUtils.poison(2));
         if (arrowType.getArrowSpecial() == ArrowSpecial.FLAME)
-            tooltip.add(LocalizeKeys.burn(12));
+            tooltip.add(LocalizeUtils.burn(12));
         if (arrowType.getArrowSpecial() == ArrowSpecial.EXPLODE)
-            tooltip.add(LocalizeKeys.explosiveShots());
-        tooltip.add(this.needsArrow() ? LocalizeKeys.ammo(getArrowItem()) : LocalizeKeys.infiniteAmmo());
+            tooltip.add(LocalizeUtils.explosiveShots());
+        tooltip.add(this.needsArrow() ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
     }
 
     @Override

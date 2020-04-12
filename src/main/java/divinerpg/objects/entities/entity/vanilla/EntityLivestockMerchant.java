@@ -5,8 +5,7 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.MessageLocalizer;
-import divinerpg.utils.Utils;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -37,8 +36,8 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     public void extraInteract(EntityPlayer player) {
-        player.sendMessage(Utils.getChatComponent(MessageLocalizer.normal("entity.divinerpg.livestock_merchant.name")
-                + ": " + MessageLocalizer.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
+        player.sendMessage(LocalizeUtils.getChatComponent(LocalizeUtils.normal("entity.divinerpg.livestock_merchant.name")
+                + ": " + LocalizeUtils.normal(MESSAGE[rand.nextInt(MESSAGE.length)])));
     }
 
     @Override

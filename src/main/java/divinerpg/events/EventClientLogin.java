@@ -3,7 +3,7 @@ package divinerpg.events;
 import divinerpg.DivineRPG;
 import divinerpg.api.Reference;
 import divinerpg.config.Config;
-import divinerpg.utils.MessageLocalizer;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.Utils;
 import divinerpg.utils.log.Logging;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,11 +25,11 @@ public class EventClientLogin {
         if (!player.world.isRemote) {
             // Greetings
             if (Utils.isDeveloperName(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.DARK_RED + MessageLocalizer.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
+                Logging.message(player, TextFormatting.DARK_RED + LocalizeUtils.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
             } else if (Utils.isTesterName(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.BLUE + MessageLocalizer.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
+                Logging.message(player, TextFormatting.BLUE + LocalizeUtils.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
             } else if (Utils.isPatreon(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.YELLOW + MessageLocalizer.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
+                Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
             } else {
                 Logging.message(player, "Welcome " + player.getDisplayName().getFormattedText());
             }
@@ -74,7 +74,7 @@ public class EventClientLogin {
         boolean isOnline = UpdateChecker.pingGoogle();
         // Log message with is offline
         if (!isOnline && Config.canShowOverlay) {
-            Logging.message(player, TextFormatting.LIGHT_PURPLE + MessageLocalizer.normal("message.version.internet"));
+            Logging.message(player, TextFormatting.LIGHT_PURPLE + LocalizeUtils.normal("message.version.internet"));
         }
 
         // logging online status
@@ -97,8 +97,8 @@ public class EventClientLogin {
 
         if (Config.canShowOverlay && !githubAccessError) {
             if (haveUpdates) {
-                Logging.message(player, TextFormatting.RED + MessageLocalizer.normal("message.version.update"));
-                Logging.message(player, TextFormatting.WHITE + MessageLocalizer.version(newVersion));
+                Logging.message(player, TextFormatting.RED + LocalizeUtils.normal("message.version.update"));
+                Logging.message(player, TextFormatting.WHITE + LocalizeUtils.version(newVersion));
 
             } else {
                 Logging.message(player, TextFormatting.AQUA + player.getDisplayName().getFormattedText() + " has the most recent version of DivineRPG installed!");

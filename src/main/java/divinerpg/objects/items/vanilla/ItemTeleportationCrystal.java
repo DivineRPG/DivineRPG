@@ -2,9 +2,8 @@ package divinerpg.objects.items.vanilla;
 
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.SecondaryTeleporter;
-import divinerpg.utils.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -51,8 +50,8 @@ public class ItemTeleportationCrystal extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipHelper.getInfoText("tooltip.teleport_bed_spawn"));
-        list.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        list.add(LocalizeUtils.i18n("tooltip.teleport_bed_spawn"));
+        list.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 
     @Override

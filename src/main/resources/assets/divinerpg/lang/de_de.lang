@@ -1,4 +1,4 @@
-#Added by LiteWolf101 (Hinzugefügt von LiteWolf101)
+//Added by LiteWolf101 (Hinzugefügt von LiteWolf101)
 
 itemGroup.Blocks=DivineRPG: Blöcke
 itemGroup.Item=DivineRPG: Artikel
@@ -493,6 +493,10 @@ entity.divinerpg.eye.name=The Eye
 entity.divinerpg.ender_triplets.name=Ender Triplets
 entity.divinerpg.parasecta.name=Parasecta
 
+message.developer=Welcome DivineRPG developer! %s is on the DivineRPG dev team.
+message.tester=Welcome DivineRPG tester! %s kindly offered their time to help test DivineRPG. Thank you for your service!
+message.patreon=Welcome DivineRPG patreon! %s kindly supported the DivineRPG dev team, thank you for your help!
+
 tooltip.armor_info.fire_protection=Fire Protection
 tooltip.armor_info.no_fall=No Fall Damage
 tooltip.armor_info.fly=Flight
@@ -519,3 +523,5 @@ tooltip.armor_info.arcana_regen=Arcana Regeneration
 tooltip.armor_info.poison_protection=Poison Resistance
 tooltip.armor_info.freeze=Slows Hostile Mobs Within %s Blocks
 tooltip.armor_info.haste=Increased Mining Speed
+tooltip.bow_speed.slower=%sx Times Faster
+tooltip.bow_speed.faster=%sx Times Slower

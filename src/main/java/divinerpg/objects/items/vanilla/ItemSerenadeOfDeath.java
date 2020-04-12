@@ -4,8 +4,7 @@ import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDeath;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModSounds;
-import divinerpg.utils.LocalizeKeys;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -30,9 +29,9 @@ public class ItemSerenadeOfDeath extends ItemMod {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_of_death"));
-        tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
-        tooltip.add(LocalizeKeys.rangedDam(14));
+        tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_death"));
+        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+        tooltip.add(LocalizeUtils.rangedDam(14));
     }
 
     @Override

@@ -2,8 +2,14 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.*;
+import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
+import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
+import divinerpg.objects.entities.entity.arcana.EntityParatiku;
+import divinerpg.objects.entities.entity.arcana.EntitySeimer;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
+import divinerpg.objects.entities.entity.twilight.*;
+import divinerpg.objects.entities.entity.vanilla.*;
 import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
@@ -21,6 +27,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.DimensionType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,8 +35,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-import static divinerpg.utils.LocalizeKeys.getArmorAbility;
+import static divinerpg.utils.LocalizeUtils.getArmorAbility;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
@@ -1954,10 +1962,10 @@ public class ModItems {
         register(registry, new ItemMod("shadow_bar"));
 
         // Boss spawners
-        register(registry, new ItemCallOfTheWatcher("call_of_the_watcher"));
+        register(registry, new ItemBossSpawner("call_of_the_watcher", "message.watcher", x -> Objects.equals(x, DimensionType.NETHER), EntityTheWatcher::new));
         register(registry, new ItemHordeHorn("horde_horn"));
-        register(registry, new ItemInfernalFlame("infernal_flame"));
-        register(registry, new ItemMysteriousClock("mysterious_clock"));
+        register(registry, new ItemBossSpawner("infernal_flame", "message.king_of_scorchers", x -> Objects.equals(x, DimensionType.NETHER), EntityKingOfScorchers::new));
+        register(registry, new ItemBossSpawner("mysterious_clock", "message.ancient_entity", x -> Objects.equals(x, DimensionType.OVERWORLD), EntityAncientEntity::new));
         register(registry, new ItemMod("watching_eye"));
 
         // Ayeraco fragments
@@ -1975,13 +1983,13 @@ public class ModItems {
         register(registry, new ItemMod("green_diamond_chunk"));
 
         // Pet spawn eggs
-        register(registry, new ItemLivestockSpawnEgg("brown_grizzle_egg"));
-        register(registry, new ItemLivestockSpawnEgg("ehu_egg"));
-        register(registry, new ItemLivestockSpawnEgg("husk_egg"));
-        register(registry, new ItemLivestockSpawnEgg("smelter_egg"));
-        register(registry, new ItemLivestockSpawnEgg("snapper_egg"));
-        register(registry, new ItemLivestockSpawnEgg("stone_golem_egg"));
-        register(registry, new ItemLivestockSpawnEgg("white_grizzle_egg"));
+        register(registry, new ItemSpawnEgg("brown_grizzle_egg", EntityBrownGrizzle::new));
+        register(registry, new ItemSpawnEgg("ehu_egg", EntityEhu::new));
+        register(registry, new ItemSpawnEgg("husk_egg", EntityHusk::new));
+        register(registry, new ItemSpawnEgg("smelter_egg", EntitySmelter::new));
+        register(registry, new ItemSpawnEgg("snapper_egg", EntitySnapper::new));
+        register(registry, new ItemSpawnEgg("stone_golem_egg", EntityStoneGolem::new));
+        register(registry, new ItemSpawnEgg("white_grizzle_egg", EntityWhiteGrizzle::new));
 
         // Miscellaneous resources
         register(registry, new ItemMod("aqua_ball"));
@@ -2209,13 +2217,13 @@ public class ModItems {
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
 
         // Twilight boss spawners
-        register(registry, new ItemTwilightSpawner("eternal_archer_crystal"));
-        register(registry, new ItemTwilightSpawner("karot_crystal"));
-        register(registry, new ItemTwilightSpawner("reyvor_crystal"));
-        register(registry, new ItemTwilightSpawner("soul_fiend_crystal"));
-        register(registry, new ItemTwilightSpawner("twilight_demon_crystal"));
-        register(registry, new ItemTwilightSpawner("vamacheron_crystal"));
-        register(registry, new ItemTwilightSpawner("densos_crystal"));
+        register(registry, new ItemBossSpawner("eternal_archer_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityEternalArcher::new));
+        register(registry, new ItemBossSpawner("karot_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityKarot::new));
+        register(registry, new ItemBossSpawner("reyvor_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityReyvor::new, EntityDensos::new));
+        register(registry, new ItemBossSpawner("densos_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityReyvor::new, EntityDensos::new));
+        register(registry, new ItemBossSpawner("soul_fiend_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntitySoulFiend::new));
+        register(registry, new ItemBossSpawner("twilight_demon_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityTwilightDemon::new));
+        register(registry, new ItemBossSpawner("vamacheron_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityVamacheron::new));
 
         // Twilight portal item
         register(registry, new ItemTwilightClock("twilight_clock"));
@@ -2277,10 +2285,10 @@ public class ModItems {
         register(registry, new ItemWizardsBook("wizards_book"));
 
         // Arcana pet spawners
-        register(registry, new ItemZelusSpawnEgg("fyracryx_egg"));
-        register(registry, new ItemZelusSpawnEgg("paratiku_egg"));
-        register(registry, new ItemZelusSpawnEgg("seimer_egg"));
-        register(registry, new ItemZelusSpawnEgg("golem_of_rejuvenation_egg"));
+        register(registry, new ItemSpawnEgg("fyracryx_egg", EntityFyracryx::new));
+        register(registry, new ItemSpawnEgg("paratiku_egg", EntityParatiku::new));
+        register(registry, new ItemSpawnEgg("seimer_egg", EntitySeimer::new));
+        register(registry, new ItemSpawnEgg("golem_of_rejuvenation_egg", EntityGolemOfRejuvenation::new));
 
         // Arcana crops
         register(registry, new ItemAquamarine("aquamarine"));

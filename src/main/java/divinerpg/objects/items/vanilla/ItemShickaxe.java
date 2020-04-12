@@ -3,7 +3,7 @@ package divinerpg.objects.items.vanilla;
 import com.google.common.collect.Sets;
 import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -58,11 +58,11 @@ public class ItemShickaxe extends ItemTool {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-        infoList.add(LocalizeKeys.efficiency(toolMaterial.getEfficiency()));
+        infoList.add(LocalizeUtils.efficiency(toolMaterial.getEfficiency()));
         if (stack.getMaxDamage() > 0) {
-            infoList.add(LocalizeKeys.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+            infoList.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
         } else {
-            infoList.add(LocalizeKeys.infiniteUses());
+            infoList.add(LocalizeUtils.infiniteUses());
         }
     }
 

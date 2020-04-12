@@ -1,18 +1,5 @@
 package divinerpg.compat.jei;
 
-import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.IModPlugin;
-import mezz.jei.api.IModRegistry;
-import mezz.jei.api.JEIPlugin;
-import mezz.jei.api.recipe.IRecipeCategoryRegistration;
-import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
-import net.minecraft.item.ItemStack;
-import net.minecraft.village.MerchantRecipe;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import divinerpg.DivineRPG;
 import divinerpg.compat.jei.base.SmelterCategory;
 import divinerpg.compat.jei.base.TripleRecipeWrapper;
@@ -26,7 +13,19 @@ import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
-import divinerpg.utils.MessageLocalizer;
+import divinerpg.utils.LocalizeUtils;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.IModRegistry;
+import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.recipe.IRecipeCategoryRegistration;
+import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
+import net.minecraft.item.ItemStack;
+import net.minecraft.village.MerchantRecipe;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @JEIPlugin
 public class JEICompat implements IModPlugin {
@@ -38,61 +37,61 @@ public class JEICompat implements IModPlugin {
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiJackOMan.MERCHANT_GUI_TEXTURE,
                 JeiReferences.JACK_O_MAN_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.jack_o_man.name"),
+                LocalizeUtils.normal("entity.divinerpg.jack_o_man.name"),
                 ModItems.scythe));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopMerchant.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_MERCHANT_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.workshop_merchant.name"),
+                LocalizeUtils.normal("entity.divinerpg.workshop_merchant.name"),
                 ModItems.santaCap));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopTinkerer.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_TINKERER_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.workshop_tinkerer.name"),
+                LocalizeUtils.normal("entity.divinerpg.workshop_tinkerer.name"),
                 ModItems.frossivence));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiCaptainMerik.MERCHANT_GUI_TEXTURE,
                 JeiReferences.CAPITAIN_MERIC_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.captain_merik.name"),
+                LocalizeUtils.normal("entity.divinerpg.captain_merik.name"),
                 ModItems.starlight));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLivestockMerchant.MERCHANT_GUI_TEXTURE,
                 JeiReferences.LIVESTOCK_MERCHANT_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.livestock_merchant.name"),
+                LocalizeUtils.normal("entity.divinerpg.livestock_merchant.name"),
                 ModItems.shadowCoins));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWarGeneral.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WAR_GENERAL_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.war_general.name"),
+                LocalizeUtils.normal("entity.divinerpg.war_general.name"),
                 ModItems.arcaniteBlaster));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLeorna.MERCHANT_GUI_TEXTURE,
                 JeiReferences.LEORNA_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.leorna.name"),
+                LocalizeUtils.normal("entity.divinerpg.leorna.name"),
                 ModItems.firestockSeeds));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiDatticon.MERCHANT_GUI_TEXTURE,
                 JeiReferences.DATTICON_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.datticon.name"),
+                LocalizeUtils.normal("entity.divinerpg.datticon.name"),
                 new ItemStack(ModBlocks.demonFurnace)));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLordVatticus.MERCHANT_GUI_TEXTURE,
                 JeiReferences.LORD_VATTICUS_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.lord_vatticus.name"),
+                LocalizeUtils.normal("entity.divinerpg.lord_vatticus.name"),
                 ModItems.strongArcanaPotion));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiZelus.MERCHANT_GUI_TEXTURE,
                 JeiReferences.ZELUS_CATEGORY,
-                MessageLocalizer.normal("entity.divinerpg.zelus.name"),
+                LocalizeUtils.normal("entity.divinerpg.zelus.name"),
                 ModItems.golemOfRejuvenationEgg));
 
         registry.addRecipeCategories(new SmelterCategory(guiHelper,

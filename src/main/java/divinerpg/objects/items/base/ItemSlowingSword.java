@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.utils.LocalizeKeys;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +25,6 @@ public class ItemSlowingSword extends ItemModSword {
 
     @Override
     public void addAdditionalInformation(List l) {
-        l.add(LocalizeKeys.slow(2.5));
+        l.add(LocalizeUtils.slow(2.5));
     }
 }
