@@ -31,7 +31,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
     public int attackCounter = 0;
     private BlockPos spawnPosition;
     
-	//TODO - polish loot table/add spawn method
+	//TODO - add spawn method
 	public EntityTermasect(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);

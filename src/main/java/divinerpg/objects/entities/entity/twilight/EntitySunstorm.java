@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
 public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttackMob {
-	//TODO - polish loot table/add spawn method
+	//TODO - add spawn method
 	public EntitySunstorm(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);
