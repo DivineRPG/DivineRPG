@@ -2394,15 +2394,15 @@ public class ModItems {
 
         // Vethea weapons
         // Backsword
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerSword, "teaker_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisSword, "amthirmis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenSword, "darven_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileSword, "cermile_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalSword, "pardimal_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticSword, "quadrotic_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosSword, "karos_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisSword, "heliosis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeSword, "arksiane_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_BACKSWORD, "teaker_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_BACKSWORD, "amthirmis_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_BACKSWORD, "darven_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_BACKSWORD, "cermile_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_BACKSWORD, "pardimal_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_BACKSWORD, "quadrotic_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_BACKSWORD, "karos_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_BACKSWORD, "heliosis_backsword"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_BACKSWORD, "arksiane_backsword"));
 
         // Bow
         register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, () -> teakerArrow));
@@ -2429,16 +2429,16 @@ public class ModItems {
         register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, () -> ModItems.acid));
 
         // Claw
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerClaw, "teaker_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisClaw, "amthirmis_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenClaw, "darven_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileClaw, "cermile_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalClaw, "pardimal_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticClaw, "quadrotic_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosClaw, "karos_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisClaw, "heliosis_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeClaw, "arksiane_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.Everbright, "everbright"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_CLAW, "teaker_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_CLAW, "amthirmis_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_CLAW, "darven_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_CLAW, "cermile_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_CLAW, "pardimal_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_CLAW, "quadrotic_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_CLAW, "karos_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_CLAW, "heliosis_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_CLAW, "arksiane_claw"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.EVERBRIGHT, "everbright"));
 
         // Disk
         register(registry, new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK));
@@ -2452,17 +2452,17 @@ public class ModItems {
         register(registry, new ItemVetheanDisk("arksiane_disk", DiskType.ARKSIANE_DISK));
 
         // Hammer
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TeakerHammer, "teaker_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AmthirmisHammer, "amthirmis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DarvenHammer, "darven_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CermileHammer, "cermile_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PardimalHammer, "pardimal_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QuadroticHammer, "quadrotic_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosHammer, "karos_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HeliosisHammer, "heliosis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ArksianeHammer, "arksiane_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.Everlight, "everlight"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KarosRockmaul, "karos_rockmaul"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_HAMMER, "teaker_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_HAMMER, "amthirmis_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_HAMMER, "darven_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_HAMMER, "cermile_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_HAMMER, "pardimal_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_HAMMER, "quadrotic_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_HAMMER, "karos_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_HAMMER, "heliosis_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_HAMMER, "arksiane_hammer"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.EVERLIGHT, "everlight"));
+        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_ROCKMAUL, "karos_rockmaul"));
 
         // Staff
         register(registry, new ItemStaff(3, 10, "teaker_staff"));
@@ -2484,9 +2484,9 @@ public class ModItems {
         register(registry, new ItemVethean("ever_arrow"));
 
         // Vethea tools
-        register(registry, new ItemModShovel(ToolMaterialMod.DreamShovel, "dream_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.DreamPick, "dream_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.DreamAxe, "dream_axe"));
+        register(registry, new ItemModShovel(ToolMaterialMod.DREAM_SHOVEL, "dream_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.DREAM_PICKAXE, "dream_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.DREAM_AXE, "dream_axe"));
 
         // Vethea armor sets
         register(registry, new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo));

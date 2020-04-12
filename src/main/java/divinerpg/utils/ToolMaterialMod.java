@@ -112,47 +112,47 @@ public class ToolMaterialMod {
     public static final ToolMaterial WILDWOOD_SHOVEL = EnumHelper.addToolMaterial("drpg_wildwood_shovel", 9, 6000, 28.0F, 6.0F, 22);
 
     //VETHEA
-
     //Hammers
-    public static ToolMaterial TeakerHammer = addMeleeMaterial("teaker_hammer", 6, 0);
-    public static ToolMaterial AmthirmisHammer = addMeleeMaterial("amthirmis_hammer", 8, 0);
-    public static ToolMaterial DarvenHammer = addMeleeMaterial("darven_hammer", 12, 0);
-    public static ToolMaterial CermileHammer = addMeleeMaterial("cermile_hammer", 15, 0);
-    public static ToolMaterial PardimalHammer = addMeleeMaterial("pardimal_hammer", 19, 0);
-    public static ToolMaterial QuadroticHammer = addMeleeMaterial("quadrotic_hammer", 24, 0);
-    public static ToolMaterial KarosHammer = addMeleeMaterial("karos_hammer", 26, 0);
-    public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_hammer", 33, 0);
-    public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_hammer", 39, 0);
-    public static ToolMaterial Everlight = addMeleeMaterial("everlight", 44, 0);
-    public static ToolMaterial KarosRockmaul = addMeleeMaterial("karos_rockmaul", 46, 0);
+    public static final ToolMaterial TEAKER_HAMMER = EnumHelper.addToolMaterial("drpg_teaker_hammer", 4, -1, 4.0F, 6.0F, 0);
+    public static final ToolMaterial AMTHIRMIS_HAMMER = EnumHelper.addToolMaterial("drpg_amthirmis_hammer", 4, -1, 4.0F, 8.0F, 0);
+    public static final ToolMaterial DARVEN_HAMMER = EnumHelper.addToolMaterial("drpg_darven_hammer", 4, -1, 4.0F, 12.0F, 0);
+    public static final ToolMaterial CERMILE_HAMMER = EnumHelper.addToolMaterial("drpg_cermile_hammer", 4, -1, 4.0F, 15.0F, 0);
+    public static final ToolMaterial PARDIMAL_HAMMER = EnumHelper.addToolMaterial("drpg_pardimal_hammer", 4, -1, 4.0F, 19.0F, 0);
+    public static final ToolMaterial QUADROTIC_HAMMER = EnumHelper.addToolMaterial("drpg_quadrotic_hammer", 4, -1, 4.0F, 24.0F, 0);
+    public static final ToolMaterial KAROS_HAMMER = EnumHelper.addToolMaterial("drpg_karos_hammer", 4, -1, 4.0F, 26.0F, 0);
+    public static final ToolMaterial HELIOSIS_HAMMER = EnumHelper.addToolMaterial("drpg_heliosis_hammer", 4, -1, 4.0F, 33.0F, 0);
+    public static final ToolMaterial ARKSIANE_HAMMER = EnumHelper.addToolMaterial("drpg_arksiane_hammer", 4, -1, 4.0F, 39.0F, 0);
+    public static final ToolMaterial EVERLIGHT  = EnumHelper.addToolMaterial("drpg_everlight", 4, -1, 4.0F, 44.0F, 0);
+    public static final ToolMaterial KAROS_ROCKMAUL = EnumHelper.addToolMaterial("drpg_karos_rockmaul", 4, -1, 4.0F, 46.0F, 0);
 
     //Backswords
-    public static ToolMaterial TeakerSword = addMeleeMaterial("teaker_backsword", 4, 0);
-    public static ToolMaterial AmthirmisSword = addMeleeMaterial("amthirmis_backsword", 6, 0);
-    public static ToolMaterial DarvenSword = addMeleeMaterial("darven_backsword", 9, 0);
-    public static ToolMaterial CermileSword = addMeleeMaterial("cermile_backsword", 13, 0);
-    public static ToolMaterial PardimalSword = addMeleeMaterial("pardimal_backsword", 16, 0);
-    public static ToolMaterial QuadroticSword = addMeleeMaterial("quadrotic_backsword", 20, 0);
-    public static ToolMaterial KarosSword = addMeleeMaterial("karos_backsword", 22, 0);
-    public static ToolMaterial HeliosisSword = addMeleeMaterial("heliosis_backsword", 29, 0);
-    public static ToolMaterial ArksianeSword = addMeleeMaterial("arksiane_backsword", 37, 0);
+    public static final ToolMaterial TEAKER_BACKSWORD = EnumHelper.addToolMaterial("drpg_teaker_backsword", 4, -1, 4.0F, 4.0F, 0);
+    public static final ToolMaterial AMTHIRMIS_BACKSWORD = EnumHelper.addToolMaterial("drpg_amthirmis_backsword", 4, -1, 4.0F, 6.0F, 0);
+    public static final ToolMaterial DARVEN_BACKSWORD = EnumHelper.addToolMaterial("drpg_darven_backsword", 4, -1, 4.0F, 9.0F, 0);
+    public static final ToolMaterial CERMILE_BACKSWORD = EnumHelper.addToolMaterial("drpg_cermile_backsword", 4, -1, 4.0F, 13.0F, 0);
+    public static final ToolMaterial PARDIMAL_BACKSWORD = EnumHelper.addToolMaterial("drpg_pardimal_backsword", 4, -1, 4.0F, 16.0F, 0);
+    public static final ToolMaterial QUADROTIC_BACKSWORD = EnumHelper.addToolMaterial("drpg_quadrotic_backsword", 4, -1, 4.0F, 20.0F, 0);
+    public static final ToolMaterial KAROS_BACKSWORD = EnumHelper.addToolMaterial("drpg_karos_backsword", 4, -1, 4.0F, 22.0F, 0);
+    public static final ToolMaterial HELIOSIS_BACKSWORD = EnumHelper.addToolMaterial("drpg_heliosis_backsword", 4, -1, 4.0F, 29.0F, 0);
+    public static final ToolMaterial ARKSIANE_BACKSWORD = EnumHelper.addToolMaterial("drpg_arksiane_backsword", 4, -1, 4.0F, 37.0F, 0);
+
 
     //Claws
-    public static ToolMaterial TeakerClaw = addMeleeMaterial("teaker_claw", 3, 0);
-    public static ToolMaterial AmthirmisClaw = addMeleeMaterial("amthirmis_claw", 5, 0);
-    public static ToolMaterial DarvenClaw = addMeleeMaterial("darven_claw", 7, 0);
-    public static ToolMaterial CermileClaw = addMeleeMaterial("cermile_claw", 8, 0);
-    public static ToolMaterial PardimalClaw = addMeleeMaterial("pardimal_claw", 12, 0);
-    public static ToolMaterial QuadroticClaw = addMeleeMaterial("quadrotic_claw", 14, 0);
-    public static ToolMaterial KarosClaw = addMeleeMaterial("karos_claw", 19, 0);
-    public static ToolMaterial HeliosisClaw = addMeleeMaterial("heliosis_claw", 26, 0);
-    public static ToolMaterial ArksianeClaw = addMeleeMaterial("arksiane_claw", 35, 0);
-    public static ToolMaterial Everbright = addMeleeMaterial("everbright", 42, 0);
+    public static final ToolMaterial TEAKER_CLAW = EnumHelper.addToolMaterial("drpg_teaker_claw", 4, -1, 4.0F, -2.0F, 0);
+    public static final ToolMaterial AMTHIRMIS_CLAW = EnumHelper.addToolMaterial("drpg_amthirmis_claw", 4, -1, 4.0F, 5.0F, 0);
+    public static final ToolMaterial DARVEN_CLAW = EnumHelper.addToolMaterial("drpg_darven_claw", 4, -1, 4.0F, 7.0F, 0);
+    public static final ToolMaterial CERMILE_CLAW = EnumHelper.addToolMaterial("drpg_cermile_claw", 4, -1, 4.0F, 8.0F, 0);
+    public static final ToolMaterial PARDIMAL_CLAW = EnumHelper.addToolMaterial("drpg_pardimal_claw", 4, -1, 4.0F, 12.0F, 0);
+    public static final ToolMaterial QUADROTIC_CLAW = EnumHelper.addToolMaterial("drpg_quadrotic_claw", 4, -1, 4.0F, 14.0F, 0);
+    public static final ToolMaterial KAROS_CLAW = EnumHelper.addToolMaterial("drpg_karos_claw", 4, -1, 4.0F, 19.0F, 0);
+    public static final ToolMaterial HELIOSIS_CLAW = EnumHelper.addToolMaterial("drpg_heliosis_claw", 4, -1, 4.0F, 26.0F, 0);
+    public static final ToolMaterial ARKSIANE_CLAW = EnumHelper.addToolMaterial("drpg_arksiane_claw", 4, -1, 4.0F, 35.0F, 0);
+    public static final ToolMaterial EVERBRIGHT = EnumHelper.addToolMaterial("drpg_everbright", 4, -1, 4.0F, 42.0F, 0);
 
     //Tools
-    public static ToolMaterial DreamShovel = EnumHelper.addToolMaterial("dream_shovel", 3, 500, 13.0F, 4, 1);
-    public static ToolMaterial DreamPick = EnumHelper.addToolMaterial("dream_pick", 3, 500, 13.0F, 5, 1);
-    public static ToolMaterial DreamAxe = EnumHelper.addToolMaterial("dream_axe", 3, 500, 13.0F, 6, 1);
+    public static final ToolMaterial DREAM_SHOVEL = EnumHelper.addToolMaterial("dream_shovel", 3, 500, 13.0F, 4, 1);
+    public static final ToolMaterial DREAM_PICKAXE = EnumHelper.addToolMaterial("dream_pick", 3, 500, 13.0F, 5, 1);
+    public static final ToolMaterial DREAM_AXE = EnumHelper.addToolMaterial("dream_axe", 3, 500, 13.0F, 6, 1);
 
     /*
 
@@ -281,28 +281,48 @@ public class ToolMaterialMod {
     public static ToolMaterial WildwoodShovel = addShovelMaterial("wildwood_shovel", 100, 6000, 28.0F, 6, 22, ModItems.wildwoodGem);
 
 
+/*
+    public static ToolMaterial TeakerHammer = addMeleeMaterial("teaker_hammer", 6, 0);
+    public static ToolMaterial AmthirmisHammer = addMeleeMaterial("amthirmis_hammer", 8, 0);
+    public static ToolMaterial DarvenHammer = addMeleeMaterial("darven_hammer", 12, 0);
+    public static ToolMaterial CermileHammer = addMeleeMaterial("cermile_hammer", 15, 0);
+    public static ToolMaterial PardimalHammer = addMeleeMaterial("pardimal_hammer", 19, 0);
+    public static ToolMaterial QuadroticHammer = addMeleeMaterial("quadrotic_hammer", 24, 0);
+    public static ToolMaterial KarosHammer = addMeleeMaterial("karos_hammer", 26, 0);
+    public static ToolMaterial HeliosisHammer = addMeleeMaterial("heliosis_hammer", 33, 0);
+    public static ToolMaterial ArksianeHammer = addMeleeMaterial("arksiane_hammer", 39, 0);
+    public static ToolMaterial Everlight = addMeleeMaterial("everlight", 44, 0);
+    public static ToolMaterial KarosRockmaul = addMeleeMaterial("karos_rockmaul", 46, 0);
+
+    public static ToolMaterial TeakerSword = addMeleeMaterial("teaker_backsword", 4, 0);
+    public static ToolMaterial AmthirmisSword = addMeleeMaterial("amthirmis_backsword", 6, 0);
+    public static ToolMaterial DarvenSword = addMeleeMaterial("darven_backsword", 9, 0);
+    public static ToolMaterial CermileSword = addMeleeMaterial("cermile_backsword", 13, 0);
+    public static ToolMaterial PardimalSword = addMeleeMaterial("pardimal_backsword", 16, 0);
+    public static ToolMaterial QuadroticSword = addMeleeMaterial("quadrotic_backsword", 20, 0);
+    public static ToolMaterial KarosSword = addMeleeMaterial("karos_backsword", 22, 0);
+    public static ToolMaterial HeliosisSword = addMeleeMaterial("heliosis_backsword", 29, 0);
+    public static ToolMaterial ArksianeSword = addMeleeMaterial("arksiane_backsword", 37, 0);
+
+    public static ToolMaterial TeakerClaw = addMeleeMaterial("teaker_claw", 3, 0);
+    public static ToolMaterial AmthirmisClaw = addMeleeMaterial("amthirmis_claw", 5, 0);
+    public static ToolMaterial DarvenClaw = addMeleeMaterial("darven_claw", 7, 0);
+    public static ToolMaterial CermileClaw = addMeleeMaterial("cermile_claw", 8, 0);
+    public static ToolMaterial PardimalClaw = addMeleeMaterial("pardimal_claw", 12, 0);
+    public static ToolMaterial QuadroticClaw = addMeleeMaterial("quadrotic_claw", 14, 0);
+    public static ToolMaterial KarosClaw = addMeleeMaterial("karos_claw", 19, 0);
+    public static ToolMaterial HeliosisClaw = addMeleeMaterial("heliosis_claw", 26, 0);
+    public static ToolMaterial ArksianeClaw = addMeleeMaterial("arksiane_claw", 35, 0);
+    public static ToolMaterial Everbright = addMeleeMaterial("everbright", 42, 0);
+
+
      */
-    public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
-                                                Item repair) {
-        return EnumHelper.addToolMaterial(name, 0, maxUses, 0, damage - 5, enchantability)
-                .setRepairItem(new ItemStack(repair, 1));
-    }
 
     public static ToolMaterial addMeleeMaterial(String name, float damage, int enchantability) {
         return EnumHelper.addToolMaterial(name, 0, -1, 0, damage - 5, enchantability);
     }
 
 
-    public static ToolMaterial addShovelMaterial(String name, int harvestLevel, int maxUses, float efficiency,
-                                                 float damage, int enchantability, Item repair) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage - 2, enchantability)
-                .setRepairItem(new ItemStack(repair, 1));
-    }
-
-    public static ToolMaterial addShovelMaterial(String name, int harvestLevel, float efficiency, float damage,
-                                                 int enchantability) {
-        return EnumHelper.addToolMaterial(name, harvestLevel, -1, efficiency, damage - 2, enchantability);
-    }
 
 
 }
