@@ -43,6 +43,23 @@
                ]
             }
          ]
+      },
+      {
+         "name":"divinerpg:sunstorm",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:eden_blitz",
+               "weight":1,
+               "functions":[
+                  {
+                     "function":"set_count",
+                     "count":1
+                  }
+               ]
+            }
+         ]
       }
    ]
 }
