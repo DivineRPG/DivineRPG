@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemArcaniteBlade extends ItemModSword {
 
     public ItemArcaniteBlade() {
-        super(ToolMaterialMod.ArcaniteBlade, "arcanite_blade");
+        super(ToolMaterialMod.ARCANITE_BLADE, "arcanite_blade");
     }
 
     @Override

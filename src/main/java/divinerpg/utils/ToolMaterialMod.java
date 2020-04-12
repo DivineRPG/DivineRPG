@@ -10,42 +10,39 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ToolMaterialMod {
 
-    public static ToolMaterial Apalachia = addMeleeMaterial("apalachia", 2000, 29, 22, ModItems.apalachiaGem);
-    public static ToolMaterial AquaDagger = addMeleeMaterial("aqua_dagger", 2000, 10, 15, ModItems.aquaticIngot);
-    public static ToolMaterial AquaMaul = addMeleeMaterial("aquatic_maul", 4000, 18, 10, ModItems.aquaticIngot);
-    public static ToolMaterial AquaTrident = addMeleeMaterial("aqua_trident", 7000, 14, 15, ModItems.aquaticIngot);
-    public static ToolMaterial Aquaton = addMeleeMaterial("aquaton", 5000, 16, 15, ModItems.aquaticIngot);
-    public static ToolMaterial AquatoothMaul = addMeleeMaterial("aquatooth_maul", 3500, 18, 10,
-            ModItems.liopleurodonSkull);
-    public static ToolMaterial AquatoothSword = addMeleeMaterial("aquatooth_sword", 3500, 15, 10,
-            ModItems.liopleurodonSkull);
-    public static ToolMaterial ArcaniteBlade = addMeleeMaterial("arcanite_blade", 7000, 34, 15, null);
-    public static ToolMaterial Arlemite = addMeleeMaterial("arlemite", 4000, 12, 10, ModItems.arlemiteIngot);
-    public static ToolMaterial Bedrock = addMeleeMaterial("bedrock", 14000, 14, 22,
-            Item.getItemFromBlock(Blocks.BEDROCK));
-    public static ToolMaterial BedrockMaul = addMeleeMaterial("bedrock_maul", 14, 22);
-    public static ToolMaterial Bloodgem = addMeleeMaterial("bloodgem", 9, 15);
-    public static ToolMaterial Bluefire = addMeleeMaterial("bluefire", 3000, 20, 15, ModItems.shadowBar);
-    public static ToolMaterial CorruptedMaul = addMeleeMaterial("corrupted_maul", 6000, 13, 15,
-            ModItems.corruptedStone);
-    public static ToolMaterial CrabclawMaul = addMeleeMaterial("crabclaw_maul", 4000, 11, 15, ModItems.crabClaw);
-    public static ToolMaterial Cyclops = addMeleeMaterial("cyclops", 1000, 6, 10, ModItems.cyclopsEye);
-    public static ToolMaterial DeathBringer = addMeleeMaterial("death_bringer", 6000, 12, 15, ModItems.corruptedStone);
-    public static ToolMaterial Divine = addMeleeMaterial("divine", 19, 22);
-    public static ToolMaterial DualClaw = addMeleeMaterial("dual_claw", 4000, 12, 15, ModItems.crabClaw);
-    public static ToolMaterial Eden = addMeleeMaterial("eden", 2000, 24, 22, ModItems.edenGem);
-    public static ToolMaterial Ender = addMeleeMaterial("ender", 16, 16);
-    public static ToolMaterial Enderice = addMeleeMaterial("enderice", 19, 15);
-    public static ToolMaterial FlamingFury = addMeleeMaterial("flaming_fury", 6000, 26, 15, ModItems.moltenStone);
-    public static ToolMaterial Frossivence = addMeleeMaterial("frossivence", 270, 1, 0, ModItems.snowflake);
-    public static ToolMaterial Frost = addMeleeMaterial("frost", 5000, 10, 15, ModItems.iceStone);
-    public static ToolMaterial Frostking = addMeleeMaterial("frostking", 6000, 16, 15, ModItems.snowflake);
-    public static ToolMaterial FrozenMaul = addMeleeMaterial("frozen_maul", 17, 15);
-    public static ToolMaterial FuryMaul = addMeleeMaterial("fury_maul", 4000, 18, 15,
-            Item.getItemFromBlock(Blocks.BEDROCK));
-    public static ToolMaterial Glacier = addMeleeMaterial("glacier", 1000, 18, 15, ModItems.snowflake);
-    public static ToolMaterial Halite = addMeleeMaterial("halite", 2000, 36, 22, ModItems.mortumGem);
-    public static ToolMaterial IcicleBane = addMeleeMaterial("icicle_bane", 14, 15);
+    public static final ToolMaterial APALACHIA_BLADE = EnumHelper.addToolMaterial("drpg_apalachia_blade", 4, 2000, 4.0F, 29.0F, 22);
+    public static final ToolMaterial AQUA_DAGGER = EnumHelper.addToolMaterial("drpg_aqua_dagger", 4, 2000, 4.0F, 10.0F, 15);
+    public static final ToolMaterial AQUA_MAUL = EnumHelper.addToolMaterial("drpg_aqua_maul", 4, 4000, 4.0F, 18.0F, 10);
+    public static final ToolMaterial AQUA_TRIDENT = EnumHelper.addToolMaterial("drpg_aqua_trident", 4, 7000, 4.0F, 14.0F, 15);
+    public static final ToolMaterial AQUATON = EnumHelper.addToolMaterial("drpg_aquaton", 4, 5000, 4.0F, 16.0F, 15);
+    public static final ToolMaterial AQUATOOTH_MAUL = EnumHelper.addToolMaterial("drpg_aquatooth_maul", 4, 3500, 4.0F, 18.0F, 10);
+    public static final ToolMaterial AQUATOOTH_SWORD = EnumHelper.addToolMaterial("drpg_aquatooth_sword", 4, 3500, 4.0F, 15.0F, 10);
+    public static final ToolMaterial ARCANITE_BLADE = EnumHelper.addToolMaterial("drpg_arcanite_blade", 4, 7000, 4.0F, 34.0F, 15);
+    public static final ToolMaterial ARLEMITE_STABBER = EnumHelper.addToolMaterial("drpg_arlemite_stabber", 4, 4000, 4.0F, 12.0F, 10);
+    public static final ToolMaterial BEDROCK_SWORD = EnumHelper.addToolMaterial("drpg_bedrock_sword", 4, 14000, 4.0F, 14.0F, 2);
+    public static final ToolMaterial BEDROCK_MAUL = EnumHelper.addToolMaterial("drpg_bedrock_maul", 4, -1, 4.0F, 14.0F, 22);
+    public static final ToolMaterial BLOODGEM_SWORD = EnumHelper.addToolMaterial("drpg_bloodgem_sword", 4, -1, 4.0F, 9.0F, 15);
+    public static final ToolMaterial BLUEFIRE_SWORD = EnumHelper.addToolMaterial("drpg_bluefire_sword", 4, 3000, 4.0F, 20, 15);
+    public static final ToolMaterial CORRUPTED_MAUL = EnumHelper.addToolMaterial("drpg_corrupted_maul", 4, 6000, 4.0F, 13.0F, 15);
+    public static final ToolMaterial CRABCLAW_MAUL = EnumHelper.addToolMaterial("drpg_crabclaw_maul", 4, 4000, 4.0F, 11.0F, 15);
+    public static final ToolMaterial CYCLOPSIAN_SWORD = EnumHelper.addToolMaterial("drpg_cyclopsian_sword", 4, 1000, 4.0F, 6.0F, 10);
+    public static final ToolMaterial DEATH_BRINGER = EnumHelper.addToolMaterial("drpg_death_bringer", 4, 6000, 4.0F, 12.0F, 15);
+    public static final ToolMaterial DIVINE_SWORD = EnumHelper.addToolMaterial("drpg_divine_sword", 4, -1, 4.0F, 19.0F, 22);
+    public static final ToolMaterial DUAL_CLAW = EnumHelper.addToolMaterial("drpg_dual_claw", 4, 4000, 4.0F, 12.0F, 15);
+    public static final ToolMaterial EDEN_BLADE = EnumHelper.addToolMaterial("drpg_eden_blade", 4, 2000, 4.0F, 24.0F, 22);
+    public static final ToolMaterial ENDER_SWORD = EnumHelper.addToolMaterial("drpg_ender_sword", 4, -1, 4.0F, 16.0F, 16);
+    public static final ToolMaterial ENDERICE = EnumHelper.addToolMaterial("drpg_enderice", 4, -1, 4.0F, 19.0F, 15);
+    public static final ToolMaterial FLAMING_FURY = EnumHelper.addToolMaterial("drpg_flaming_fury", 4, 6000, 4.0F, 26.0F, 15);
+    public static final ToolMaterial FROSSIVENCE = EnumHelper.addToolMaterial("drpg_frossivence", 4, 270, 4.0F, 1.0F, 0);
+    public static final ToolMaterial FROST_SWORD = EnumHelper.addToolMaterial("drpg_frost_sword", 4, 5000, 4.0F, 10.0F, 15);
+    public static final ToolMaterial FROSTKING_SWORD = EnumHelper.addToolMaterial("drpg_frossivence", 4, 6000, 4.0F, 16.0F, 15);
+    public static final ToolMaterial FROZEN_MAUL = EnumHelper.addToolMaterial("drpg_frossivence", 4, -1, 4.0F, 17.0F, 15);
+    public static final ToolMaterial FURY_MAUL = EnumHelper.addToolMaterial("drpg_fury_maul", 4, 4000, 4.0F, 18.0F, 15);
+    public static final ToolMaterial GLACIER_SWORD = EnumHelper.addToolMaterial("drpg_glacier_sword", 4, 1000, 4.0F, 18.0F, 15);
+    public static final ToolMaterial HALITE_BLADE = EnumHelper.addToolMaterial("drpg_halite_blade", 4, 2000, 4.0F, 36.0F, 22);
+    public static final ToolMaterial ICICLE_BANE = EnumHelper.addToolMaterial("drpg_icicle_bane", 4, -1, 4.0F, 14.0F, 15);
+
+
     public static ToolMaterial Icine = addMeleeMaterial("icine", 22, 15);
     public static ToolMaterial Inferno = addMeleeMaterial("inferno", 12, 22);
     public static ToolMaterial JungleKnife = addMeleeMaterial("jungle_knife", 2000, 12, 10, ModItems.jungleStone);
@@ -176,6 +173,49 @@ public class ToolMaterialMod {
     public static ToolMaterial DreamPick = EnumHelper.addToolMaterial("dream_pick", 3, 500, 13.0F, 5, 1);
     public static ToolMaterial DreamAxe = EnumHelper.addToolMaterial("dream_axe", 3, 500, 13.0F, 6, 1);
 
+    /*
+
+
+    public static ToolMaterial Apalachia = addMeleeMaterial("apalachia", 2000, 29, 22, ModItems.apalachiaGem);
+    public static ToolMaterial AquaDagger = addMeleeMaterial("aqua_dagger", 2000, 10, 15, ModItems.aquaticIngot);
+    public static ToolMaterial AquaMaul = addMeleeMaterial("aquatic_maul", 4000, 18, 10, ModItems.aquaticIngot);
+    public static ToolMaterial AquaTrident = addMeleeMaterial("aqua_trident", 7000, 14, 15, ModItems.aquaticIngot);
+    public static ToolMaterial Aquaton = addMeleeMaterial("aquaton", 5000, 16, 15, ModItems.aquaticIngot);
+    public static ToolMaterial AquatoothMaul = addMeleeMaterial("aquatooth_maul", 3500, 18, 10,
+            ModItems.liopleurodonSkull);
+    public static ToolMaterial AquatoothSword = addMeleeMaterial("aquatooth_sword", 3500, 15, 10,
+            ModItems.liopleurodonSkull);
+    public static ToolMaterial ArcaniteBlade = addMeleeMaterial("arcanite_blade", 7000, 34, 15, null);
+    public static ToolMaterial Arlemite = addMeleeMaterial("arlemite", 4000, 12, 10, ModItems.arlemiteIngot);
+    public static ToolMaterial Bedrock = addMeleeMaterial("bedrock", 14000, 14, 22,
+            Item.getItemFromBlock(Blocks.BEDROCK));
+    public static ToolMaterial BedrockMaul = addMeleeMaterial("bedrock_maul", 14, 22);
+    public static ToolMaterial Bloodgem = addMeleeMaterial("bloodgem", 9, 15);
+    public static ToolMaterial Bluefire = addMeleeMaterial("bluefire", 3000, 20, 15, ModItems.shadowBar);
+    public static ToolMaterial CorruptedMaul = addMeleeMaterial("corrupted_maul", 6000, 13, 15,
+            ModItems.corruptedStone);
+    public static ToolMaterial CrabclawMaul = addMeleeMaterial("crabclaw_maul", 4000, 11, 15, ModItems.crabClaw);
+    public static ToolMaterial Cyclops = addMeleeMaterial("cyclops", 1000, 6, 10, ModItems.cyclopsEye);
+    public static ToolMaterial DeathBringer = addMeleeMaterial("death_bringer", 6000, 12, 15, ModItems.corruptedStone);
+
+
+
+    public static ToolMaterial Divine = addMeleeMaterial("divine", 19, 22);
+    public static ToolMaterial DualClaw = addMeleeMaterial("dual_claw", 4000, 12, 15, ModItems.crabClaw);
+    public static ToolMaterial Eden = addMeleeMaterial("eden", 2000, 24, 22, ModItems.edenGem);
+    public static ToolMaterial Ender = addMeleeMaterial("ender", 16, 16);
+    public static ToolMaterial Enderice = addMeleeMaterial("enderice", 19, 15);
+    public static ToolMaterial FlamingFury = addMeleeMaterial("flaming_fury", 6000, 26, 15, ModItems.moltenStone);
+    public static ToolMaterial Frossivence = addMeleeMaterial("frossivence", 270, 1, 0, ModItems.snowflake);
+    public static ToolMaterial Frost = addMeleeMaterial("frost", 5000, 10, 15, ModItems.iceStone);
+    public static ToolMaterial Frostking = addMeleeMaterial("frostking", 6000, 16, 15, ModItems.snowflake);
+    public static ToolMaterial FrozenMaul = addMeleeMaterial("frozen_maul", 17, 15);
+    public static ToolMaterial FuryMaul = addMeleeMaterial("fury_maul", 4000, 18, 15,
+            Item.getItemFromBlock(Blocks.BEDROCK));
+    public static ToolMaterial Glacier = addMeleeMaterial("glacier", 1000, 18, 15, ModItems.snowflake);
+    public static ToolMaterial Halite = addMeleeMaterial("halite", 2000, 36, 22, ModItems.mortumGem);
+    public static ToolMaterial IcicleBane = addMeleeMaterial("icicle_bane", 14, 15);
+     */
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
                                                 Item repair) {
         return EnumHelper.addToolMaterial(name, 0, maxUses, 0, damage - 5, enchantability)
