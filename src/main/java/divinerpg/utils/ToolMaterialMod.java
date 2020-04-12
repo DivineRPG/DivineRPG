@@ -171,6 +171,10 @@ public class ToolMaterialMod {
     public static ToolMaterial ArksianeClaw = addMeleeMaterial("arksiane_claw", 35, 0);
     public static ToolMaterial Everbright = addMeleeMaterial("everbright", 42, 0);
 
+    //Tools
+    public static ToolMaterial DreamShovel = EnumHelper.addToolMaterial("dream_shovel", 3, 500, 13.0F, 4, 1);
+    public static ToolMaterial DreamPick = EnumHelper.addToolMaterial("dream_pick", 3, 500, 13.0F, 5, 1);
+    public static ToolMaterial DreamAxe = EnumHelper.addToolMaterial("dream_axe", 3, 500, 13.0F, 6, 1);
 
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
                                                 Item repair) {

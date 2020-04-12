@@ -1490,6 +1490,14 @@ public class ModItems {
     @ObjectHolder("ever_arrow")
     public static final Item everArrow = null;
 
+    // Vethea tools
+    @ObjectHolder("dream_shovel")
+    public static final Item dreamShovel = null;
+    @ObjectHolder("dream_pickaxe")
+    public static final Item dreamPickaxe = null;
+    @ObjectHolder("dream_axe")
+    public static final Item dreamAxe = null;
+
     // Vethea armor sets
     @ObjectHolder("degraded_helmet")
     public static final Item degradedHelmet = null;
@@ -2474,6 +2482,11 @@ public class ModItems {
         register(registry, new ItemVethean("pardimal_arrow"));
         register(registry, new ItemVethean("karos_arrow"));
         register(registry, new ItemVethean("ever_arrow"));
+
+        // Vethea tools
+        register(registry, new ItemModShovel(ToolMaterialMod.DreamShovel, "dream_shovel"));
+        register(registry, new ItemModPickaxe(ToolMaterialMod.DreamPick, "dream_pickaxe"));
+        register(registry, new ItemModAxe(ToolMaterialMod.DreamAxe, "dream_axe"));
 
         // Vethea armor sets
         register(registry, new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo));
