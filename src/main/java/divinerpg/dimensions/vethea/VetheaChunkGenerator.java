@@ -107,11 +107,6 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         }
 
         //
-        // TODO remake FloorTexture
-        //
-
-
-        //
         // Level dependent structures
         //
         switch (position) {

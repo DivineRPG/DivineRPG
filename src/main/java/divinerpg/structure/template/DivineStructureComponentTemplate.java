@@ -62,8 +62,6 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
 
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
 
-        // TODO check if we really need it!
-
         //Hunger House data markers
          if (function.equals("TheHunger")) {
             EntityTheHunger theHunger = new EntityTheHunger(worldIn);

@@ -61,7 +61,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
     		generateStructure(rollum, world, random, chunkX, chunkZ, 50);
     		generateStructure(archer, world, random, chunkX, chunkZ, 50);
-        	//TODO fix these at a later date when litewolf has a better pc
 //            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
 //            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
             generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
