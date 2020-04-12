@@ -1498,8 +1498,8 @@ public class ModBlocks {
         // Vethea
 
         // Terrain
-        register(registry, new BlockModDirt("dream_dirt", 2.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt,2.5F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt,0.6F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs

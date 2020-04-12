@@ -15,6 +15,7 @@ public class BlockModDirt extends BlockMod {
 
     public BlockModDirt(String name, float hardness, @Nonnull MapColor mapColorIn) {
         super(EnumBlockType.DIRT, name, hardness, DivineRPGTabs.BlocksTab);
+        this.setHarvestLevel("shovel", 0);
         this.setMapColor(mapColorIn);
     }
 
