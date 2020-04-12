@@ -154,8 +154,8 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         {
             this.playLivingSound();
             EntityTermid termid = new EntityTermid(world);
-            //TODO - spawn closer to ground
             termid.setLocationAndAngles(this.posX + rand.nextInt(4), this.posY, this.posZ + rand.nextInt(4), this.rotationYaw, this.rotationPitch);
+            termid.motionY++;
             if(rand.nextInt(5) == 1) {
             world.spawnEntity(termid);
             }

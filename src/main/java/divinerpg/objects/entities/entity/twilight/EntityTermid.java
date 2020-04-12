@@ -54,4 +54,7 @@ public class EntityTermid extends EntityDivineRPGMob {
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_TERMID;
     }
+    
+    @Override
+    public void fall(float distance, float damageMultiplier){}
 }
