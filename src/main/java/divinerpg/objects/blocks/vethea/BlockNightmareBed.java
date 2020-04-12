@@ -25,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
@@ -33,6 +34,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -40,9 +42,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.Iterator;
-import java.util.Random;
+import java.util.*;
 
+// todo check replacement poses
 public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider {
     private NBTTagCompound persistentData;
 
@@ -247,21 +249,15 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
      * block, etc.
      */
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         EnumFacing enumfacing = state.getValue(FACING);
 
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
-        {
-            if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this)
-            {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT) {
+            if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this) {
                 worldIn.setBlockToAir(pos);
             }
-        }
-        else if (worldIn.getBlockState(pos.offset(enumfacing.getOpposite())).getBlock() != this)
-        {
-            if (!worldIn.isRemote)
-            {
+        } else if (worldIn.getBlockState(pos.offset(enumfacing.getOpposite())).getBlock() != this) {
+            if (!worldIn.isRemote) {
                 this.dropBlockAsItem(worldIn, pos, state, 0);
             }
 
@@ -270,35 +266,29 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     }
 
     @Deprecated
-	protected static boolean hasRoomForPlayer(World worldIn, BlockPos pos)
-    {
+    protected static boolean hasRoomForPlayer(World worldIn, BlockPos pos) {
         return worldIn.getBlockState(pos.down()).isTopSolid() && !worldIn.getBlockState(pos).getMaterial().isSolid() && !worldIn.getBlockState(pos.up()).getMaterial().isSolid();
     }
 
     /**
      * Spawns this Block's drops into the World as EntityItems.
      */
-    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
-    {
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD)
-        {
+    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
-            
+
             spawnAsEntity(worldIn, pos, new ItemStack(ModBlocks.nightmareBed, 1));
         }
     }
 
-    public EnumPushReaction getMobilityFlag(IBlockState state)
-    {
+    public EnumPushReaction getMobilityFlag(IBlockState state) {
         return EnumPushReaction.DESTROY;
     }
 
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         BlockPos blockpos = pos;
 
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
-        {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT) {
             blockpos = pos.offset(state.getValue(FACING));
         }
 
@@ -310,14 +300,11 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Called before the Block is set to air in the world. Called regardless of if the player's tool can actually
      * collect this block
      */
-    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player)
-    {
-        if (player.capabilities.isCreativeMode && state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
-        {
+    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
+        if (player.capabilities.isCreativeMode && state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT) {
             BlockPos blockpos = pos.offset(state.getValue(FACING));
 
-            if (worldIn.getBlockState(blockpos).getBlock() == this)
-            {
+            if (worldIn.getBlockState(blockpos).getBlock() == this) {
                 worldIn.setBlockToAir(blockpos);
             }
         }
@@ -327,16 +314,12 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Spawns the block's drops in the world. By the time this is called the Block has possibly been set to air via
      * Block.removedByPlayer
      */
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te, ItemStack stack)
-    {
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD && te instanceof TileEntityNightmareBed)
-        {
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te, ItemStack stack) {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD && te instanceof TileEntityNightmareBed) {
             TileEntityNightmareBed TileEntityNightmareBed = (TileEntityNightmareBed)te;
             ItemStack itemstack = TileEntityNightmareBed.getItemStack();
             spawnAsEntity(worldIn, pos, itemstack);
-        }
-        else
-        {
+        } else {
             super.harvestBlock(worldIn, player, pos, state, null, stack);
         }
     }
@@ -344,8 +327,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     /**
      * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
      */
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         super.breakBlock(worldIn, pos, state);
         worldIn.removeTileEntity(pos);
     }
@@ -353,8 +335,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     /**
      * Convert the given metadata into a BlockState for this Block
      */
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         EnumFacing enumfacing = EnumFacing.getHorizontal(meta);
         return (meta & 8) > 0 ? this.getDefaultState().withProperty(PART, BlockNightmareBed.EnumPartType.HEAD).withProperty(FACING, enumfacing).withProperty(OCCUPIED, Boolean.valueOf((meta & 4) > 0)) : this.getDefaultState().withProperty(PART, BlockNightmareBed.EnumPartType.FOOT).withProperty(FACING, enumfacing);
     }
@@ -363,14 +344,11 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Get the actual Block state of this Block at the given position. This applies properties not visible in the
      * metadata, such as fence connections.
      */
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT)
-        {
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT) {
             IBlockState iblockstate = worldIn.getBlockState(pos.offset(state.getValue(FACING)));
 
-            if (iblockstate.getBlock() == this)
-            {
+            if (iblockstate.getBlock() == this) {
                 state = state.withProperty(OCCUPIED, iblockstate.getValue(OCCUPIED));
             }
         }
@@ -382,8 +360,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
      * blockstate.
      */
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
+    public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
@@ -391,21 +368,18 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
      * blockstate.
      */
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     /**
      * Convert the BlockState into the correct metadata value
      */
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
         i = i | state.getValue(FACING).getHorizontalIndex();
 
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD)
-        {
+        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD) {
             i |= 8;
 
             if (state.getValue(OCCUPIED).booleanValue()) {
@@ -422,30 +396,26 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * <p>
      * Common values are {@code SOLID}, which is the default, and {@code UNDEFINED}, which represents something that
      * does not fit the other descriptions and will generally cause other things not to connect to the face.
-     * 
+     *
      * @return an approximation of the form of the given face
      */
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, PART, OCCUPIED);
     }
 
     /**
      * Returns a new instance of a block's tile entity class. Called on placing the block.
      */
-    public TileEntity createNewTileEntity(World worldIn, int meta)
-    {
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TileEntityNightmareBed();
     }
 
     @SideOnly(Side.CLIENT)
-    public static boolean isHeadPiece(int metadata)
-    {
+    public static boolean isHeadPiece(int metadata) {
         return (metadata & 8) != 0;
     }
 
@@ -459,15 +429,52 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
             this.name = name;
         }
 
-        public String toString()
-        {
+        public String toString() {
             return this.name;
         }
 
-        public String getName()
-        {
+        public String getName() {
             return this.name;
         }
     }
-    
+
+    /**
+     * Handling dimension change
+     *
+     * @param player  - player
+     * @param old     - old dim
+     * @param current - current dim
+     */
+    public static void onChangeDimension(EntityPlayer player, DimensionType old, DimensionType current) {
+        if (player == null || old == null || current == null)
+            return;
+
+        // we need different dimensions including vethea
+        if (old == current || old != ModDimensions.vetheaDimension && current != ModDimensions.vetheaDimension)
+            return;
+
+        if (!player.getEntityData().hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
+            player.getEntityData().setTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
+        }
+
+        NBTTagCompound tag = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+
+        List<String> tagNames = Arrays.asList("OverworldInv", "VetheaInv");
+
+        if (old == ModDimensions.vetheaDimension) {
+            Collections.reverse(tagNames);
+        }
+
+        String saveTo = tagNames.get(0);
+        tag.setTag(saveTo, player.inventory.writeToNBT(new NBTTagList()));
+        player.inventory.clear();
+
+        String loadFrom = tagNames.get(1);
+        NBTBase base = tag.getTag(loadFrom);
+        if (base instanceof NBTTagList) {
+            player.inventory.readFromNBT((NBTTagList) base);
+        }
+
+        player.inventoryContainer.detectAndSendChanges();
+    }
 }
