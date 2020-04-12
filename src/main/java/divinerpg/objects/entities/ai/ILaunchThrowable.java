@@ -31,6 +31,16 @@ public interface ILaunchThrowable {
     }
 
     /**
+     * Gets shoot inccuracy
+     *
+     * @param world
+     * @return
+     */
+    default float getInaccuracy(World world) {
+        return world.getDifficulty().getDifficultyId() * 4;
+    }
+
+    /**
      * Is taken from ghast shoot task
      */
     default Entity createFireball(EntityLivingBase parent, Entity target) {
@@ -43,9 +53,7 @@ public interface ILaunchThrowable {
         double d3 = target.posZ - parent.posZ;
         float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
 
-        int i = parent.world.getDifficulty().getDifficultyId() * 4;
-
-        fireball.shoot(d1, d2 + (double) f, d3, getVelocity(), i);
+        fireball.shoot(d1, d2 + (double) f, d3, getVelocity(), getInaccuracy(parent.world));
         return fireball;
     }
 }

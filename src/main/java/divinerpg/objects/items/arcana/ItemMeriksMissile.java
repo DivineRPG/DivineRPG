@@ -88,6 +88,7 @@ public class ItemMeriksMissile extends ItemMod {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add("Explosive homing projectile");
+        list.add(LocalizeUtils.i18n("tooltip.meriks_missile"));
         list.add(LocalizeUtils.bowDam("8-25"));
         list.add(LocalizeUtils.arcanaConsumed("10-50"));
         list.add(LocalizeUtils.infiniteUses());
