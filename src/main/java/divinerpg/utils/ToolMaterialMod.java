@@ -18,6 +18,7 @@ public class ToolMaterialMod {
     public static final ToolMaterial AQUATOOTH_MAUL = EnumHelper.addToolMaterial("drpg_aquatooth_maul", 4, 3500, 4.0F, 18.0F, 10);
     public static final ToolMaterial AQUATOOTH_SWORD = EnumHelper.addToolMaterial("drpg_aquatooth_sword", 4, 3500, 4.0F, 15.0F, 10);
     public static final ToolMaterial ARCANITE_BLADE = EnumHelper.addToolMaterial("drpg_arcanite_blade", 4, 7000, 4.0F, 34.0F, 15);
+    public static final ToolMaterial ARCANIUM_SABER = EnumHelper.addToolMaterial("drpg_arcanium_saber", 4, -1, 4.0F, 22.0F, 22);
     public static final ToolMaterial ARLEMITE_STABBER = EnumHelper.addToolMaterial("drpg_arlemite_stabber", 4, 4000, 4.0F, 12.0F, 10);
     public static final ToolMaterial BEDROCK_SWORD = EnumHelper.addToolMaterial("drpg_bedrock_sword", 4, 14000, 4.0F, 14.0F, 2);
     public static final ToolMaterial BEDROCK_MAUL = EnumHelper.addToolMaterial("drpg_bedrock_maul", 4, -1, 4.0F, 14.0F, 22);
@@ -41,33 +42,32 @@ public class ToolMaterialMod {
     public static final ToolMaterial GLACIER_SWORD = EnumHelper.addToolMaterial("drpg_glacier_sword", 4, 1000, 4.0F, 18.0F, 15);
     public static final ToolMaterial HALITE_BLADE = EnumHelper.addToolMaterial("drpg_halite_blade", 4, 2000, 4.0F, 36.0F, 22);
     public static final ToolMaterial ICICLE_BANE = EnumHelper.addToolMaterial("drpg_icicle_bane", 4, -1, 4.0F, 14.0F, 15);
+    public static final ToolMaterial ICINE_SWORD = EnumHelper.addToolMaterial("drpg_icine_sword", 4, -1, 4.0F, 22.0F, 15);
+    public static final ToolMaterial INFERNO_SWORD = EnumHelper.addToolMaterial("drpg_inferno_sword", 4, -1, 4.0F, 12.0F, 22);
+    public static final ToolMaterial JUNGLE_KNIFE = EnumHelper.addToolMaterial("drpg_jungle_knife", 4, 2000, 4.0F, 12.0F, 10);
+    public static final ToolMaterial JUNGLE_RAPIER = EnumHelper.addToolMaterial("drpg_jungle_rapier", 4, 1200, 4.0F, 16.0F, 10);
+    public static final ToolMaterial LIVICIA_SWORD = EnumHelper.addToolMaterial("drpg_livicia_sword", 4, 10000, 4.0F, 26.0F, 22);
+    public static final ToolMaterial MOLTEN_SWORD = EnumHelper.addToolMaterial("drpg_molten_sword", 4, 5000, 4.0F, 10.0F, 15);
+    public static final ToolMaterial MORTUM_BLADE = EnumHelper.addToolMaterial("drpg_mortum_blade", 4, 2000, 4.0F, 33.0F, 22);
+    public static final ToolMaterial OCEAN_KNIFE = EnumHelper.addToolMaterial("drpg_ocean_knife", 4, 2000, 4.0F, 14.0F, 10);
+    public static final ToolMaterial PALAVENCE = EnumHelper.addToolMaterial("drpg_palavence", 4, 60, 4.0F, 1.0F, 0);
+    public static final ToolMaterial POISON_SABER = EnumHelper.addToolMaterial("drpg_poison_saber", 4, 5000, 4.0F, 16.0F, 15);
+    public static final ToolMaterial REALMITE_SWORD = EnumHelper.addToolMaterial("drpg_realmite_sword", 4, 4000, 4.0F, 6.0F, 10);
+    public static final ToolMaterial RUPEE_RAPIER = EnumHelper.addToolMaterial("drpg_rupee_rapier", 4, 2500, 4.0F, 12.0F, 15);
+    public static final ToolMaterial SANDSLASH = EnumHelper.addToolMaterial("drpg_sandslash", 4, 100, 4.0F, 21.0F, 22);
+    public static final ToolMaterial SCORCHING_SWORD = EnumHelper.addToolMaterial("drpg_scorching_sword", 4, 500, 4.0F, 20.0F, 15);
+    public static final ToolMaterial SHARK_SWORD = EnumHelper.addToolMaterial("drpg_shark_sword",4, 2000, 4.0F, 14.0F, 15);
+    public static final ToolMaterial SHADOW_SABER = EnumHelper.addToolMaterial("drpg_shadow_saber", 4, -1, 4.0F, 20.0F, 22);
+    public static final ToolMaterial SKYTHERN_BLADE = EnumHelper.addToolMaterial("drpg_skytehrn_blade", 4, 2000, 4.0F, 31.0F, 22);
+    public static final ToolMaterial SLIME_SWORD = EnumHelper.addToolMaterial("drpg_slime_sword", 4, 1000, 4.0F, 11.0F, 22);
+    public static final ToolMaterial SNOWSLASH = EnumHelper.addToolMaterial("drpg_snowslash", 4, 150, 4.0F, 25.0F, 15);
+    public static final ToolMaterial STORM_SWORD = EnumHelper.addToolMaterial("drpg_storm_sword", 4, -1, 4.0F, 5.0F, 22);
+    public static final ToolMaterial TERRAN_DAGGER = EnumHelper.addToolMaterial("drpg_terran_dagger", 4, 350, 4.0F, 13.0F, 10);
+    public static final ToolMaterial TERRAN_KNIFE = EnumHelper.addToolMaterial("drpg_terran_knife", 4, 750, 4.0F, 12.0F, 10);
+    public static final ToolMaterial TERRAN_MAUL = EnumHelper.addToolMaterial("drpg_terran_maul", 4, 1200, 4.0F, 15.0F, 10);
+    public static final ToolMaterial WILDWOOD_BLADE = EnumHelper.addToolMaterial("drpg_wildwood_blade", 4, 2000, 4.0F, 26.0F, 22);
 
 
-    public static ToolMaterial Icine = addMeleeMaterial("icine", 22, 15);
-    public static ToolMaterial Inferno = addMeleeMaterial("inferno", 12, 22);
-    public static ToolMaterial JungleKnife = addMeleeMaterial("jungle_knife", 2000, 12, 10, ModItems.jungleStone);
-    public static ToolMaterial JungleRapier = addMeleeMaterial("jungle_rapier", 1200, 16, 10, ModItems.jungleStone);
-    public static ToolMaterial LiviciaSword = addMeleeMaterial("livicia_sword", 10000, 26, 22, ModItems.shadowStone);
-    public static ToolMaterial Molten = addMeleeMaterial("molten", 5000, 10, 15, ModItems.moltenStone);
-    public static ToolMaterial Mortum = addMeleeMaterial("mortum", 2000, 33, 22, ModItems.mortumGem);
-    public static ToolMaterial OceanKnife = addMeleeMaterial("ocean_knife", 2000, 14, 10, ModItems.aquaticIngot);
-    public static ToolMaterial Palavence = addMeleeMaterial("palavence", 60, 1, 0, null);
-    public static ToolMaterial PoisonSaber = addMeleeMaterial("poison_saber", 5000, 16, 15, ModItems.jungleStone);
-    public static ToolMaterial Realmite = addMeleeMaterial("realmite", 4000, 6, 10, ModItems.realmiteIngot);
-    public static ToolMaterial Rupee = addMeleeMaterial("rupee", 2500, 12, 15, ModItems.rupeeIngot);
-    public static ToolMaterial Saber = addMeleeMaterial("saber", 22, 22);
-    public static ToolMaterial Sandslash = addMeleeMaterial("sandslash", 100, 21, 22, ModItems.shadowBar);
-    public static ToolMaterial Scorching = addMeleeMaterial("scorching", 500, 20, 15, ModItems.purpleBlaze);
-    public static ToolMaterial ShadowSaber = addMeleeMaterial("shadow_saber", 20, 22);
-    public static ToolMaterial Shark = addMeleeMaterial("shark", 2000, 14, 15, ModItems.aquaticIngot);
-    public static ToolMaterial Skythern = addMeleeMaterial("skythern", 2000, 31, 22, ModItems.skythernGem);
-    public static ToolMaterial Slime = addMeleeMaterial("slime", 1000, 11, 22, Items.DIAMOND_SWORD);
-    public static ToolMaterial Snowslash = addMeleeMaterial("snowslash", 150, 25, 15, ModItems.snowflake);
-    public static ToolMaterial Storm = addMeleeMaterial("storm", 5, 22);
-    public static ToolMaterial TerranDagger = addMeleeMaterial("terran_dagger", 350, 13, 10, ModItems.terranStone);
-    public static ToolMaterial TerranKnife = addMeleeMaterial("terran_knife", 750, 12, 10, ModItems.terranStone);
-    public static ToolMaterial TerranMaul = addMeleeMaterial("terran_maul", 1200, 15, 10, ModItems.terranStone);
-    public static ToolMaterial Wildwood = addMeleeMaterial("wildwood", 2000, 26, 22, ModItems.wildwoodGem);
 
     // Shickaxes
     public static ToolMaterial ArlemiteShick = addShickMaterial("arlemite_shick", 6, 12000, 13.0F, 8, 15,
@@ -215,6 +215,34 @@ public class ToolMaterialMod {
     public static ToolMaterial Glacier = addMeleeMaterial("glacier", 1000, 18, 15, ModItems.snowflake);
     public static ToolMaterial Halite = addMeleeMaterial("halite", 2000, 36, 22, ModItems.mortumGem);
     public static ToolMaterial IcicleBane = addMeleeMaterial("icicle_bane", 14, 15);
+
+    public static ToolMaterial Icine = addMeleeMaterial("icine", 22, 15);
+    public static ToolMaterial Inferno = addMeleeMaterial("inferno", 12, 22);
+    public static ToolMaterial JungleKnife = addMeleeMaterial("jungle_knife", 2000, 12, 10, ModItems.jungleStone);
+    public static ToolMaterial JungleRapier = addMeleeMaterial("jungle_rapier", 1200, 16, 10, ModItems.jungleStone);
+    public static ToolMaterial LiviciaSword = addMeleeMaterial("livicia_sword", 10000, 26, 22, ModItems.shadowStone);
+    public static ToolMaterial Molten = addMeleeMaterial("molten", 5000, 10, 15, ModItems.moltenStone);
+    public static ToolMaterial Mortum = addMeleeMaterial("mortum", 2000, 33, 22, ModItems.mortumGem);
+    public static ToolMaterial OceanKnife = addMeleeMaterial("ocean_knife", 2000, 14, 10, ModItems.aquaticIngot);
+    public static ToolMaterial Palavence = addMeleeMaterial("palavence", 60, 1, 0, null);
+    public static ToolMaterial PoisonSaber = addMeleeMaterial("poison_saber", 5000, 16, 15, ModItems.jungleStone);
+    public static ToolMaterial Realmite = addMeleeMaterial("realmite", 4000, 6, 10, ModItems.realmiteIngot);
+    public static ToolMaterial Rupee = addMeleeMaterial("rupee", 2500, 12, 15, ModItems.rupeeIngot);
+    public static ToolMaterial Saber = addMeleeMaterial("saber", 22, 22);
+    public static ToolMaterial Sandslash = addMeleeMaterial("sandslash", 100, 21, 22, ModItems.shadowBar);
+    public static ToolMaterial Scorching = addMeleeMaterial("scorching", 500, 20, 15, ModItems.purpleBlaze);
+    public static ToolMaterial ShadowSaber = addMeleeMaterial("shadow_saber", 20, 22);
+    public static ToolMaterial Shark = addMeleeMaterial("shark", 2000, 14, 15, ModItems.aquaticIngot);
+    public static ToolMaterial Skythern = addMeleeMaterial("skythern", 2000, 31, 22, ModItems.skythernGem);
+    public static ToolMaterial Slime = addMeleeMaterial("slime", 1000, 11, 22, Items.DIAMOND_SWORD);
+    public static ToolMaterial Snowslash = addMeleeMaterial("snowslash", 150, 25, 15, ModItems.snowflake);
+
+    public static ToolMaterial Storm = addMeleeMaterial("storm", 5, 22);
+    public static ToolMaterial TerranDagger = addMeleeMaterial("terran_dagger", 350, 13, 10, ModItems.terranStone);
+    public static ToolMaterial TerranKnife = addMeleeMaterial("terran_knife", 750, 12, 10, ModItems.terranStone);
+    public static ToolMaterial TerranMaul = addMeleeMaterial("terran_maul", 1200, 15, 10, ModItems.terranStone);
+    public static ToolMaterial Wildwood = addMeleeMaterial("wildwood", 2000, 26, 22, ModItems.wildwoodGem);
+
      */
     public static ToolMaterial addMeleeMaterial(String name, int maxUses, float damage, int enchantability,
                                                 Item repair) {

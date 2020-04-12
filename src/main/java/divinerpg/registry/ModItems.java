@@ -1706,21 +1706,21 @@ public class ModItems {
         register(registry, new ItemSlowingSword(ToolMaterialMod.FROST_SWORD, "frost_sword"));
         register(registry, new ItemBurningSword(ToolMaterialMod.FLAMING_FURY, "flaming_fury", 15));
         register(registry, new ItemModSword(ToolMaterialMod.FURY_MAUL, "fury_maul"));
-        register(registry, new ItemBurningSword(ToolMaterialMod.Inferno, "inferno_sword", 12));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.JungleKnife, "jungle_knife", 2.5f));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.JungleRapier, "jungle_rapier", 4f));
-        register(registry, new ItemBurningSword(ToolMaterialMod.Molten, "molten_sword", 5));
-        register(registry, new ItemModSword(ToolMaterialMod.OceanKnife, "ocean_knife"));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.PoisonSaber, "poison_saber", 5));
-        register(registry, new ItemModSword(ToolMaterialMod.Realmite, "realmite_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.Rupee, "rupee_rapier"));
-        register(registry, new ItemModSword(ToolMaterialMod.Sandslash, "sandslash"));
-        register(registry, new ItemModSword(ToolMaterialMod.Scorching, "scorching_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.Shark, "shark_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.Slime, "slime_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.TerranDagger, "terran_dagger"));
-        register(registry, new ItemModSword(ToolMaterialMod.TerranKnife, "terran_knife"));
-        register(registry, new ItemModSword(ToolMaterialMod.TerranMaul, "terran_maul"));
+        register(registry, new ItemBurningSword(ToolMaterialMod.INFERNO_SWORD, "inferno_sword", 12));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.JUNGLE_KNIFE, "jungle_knife", 2.5f));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.JUNGLE_RAPIER, "jungle_rapier", 4f));
+        register(registry, new ItemBurningSword(ToolMaterialMod.MOLTEN_SWORD, "molten_sword", 5));
+        register(registry, new ItemModSword(ToolMaterialMod.OCEAN_KNIFE, "ocean_knife"));
+        register(registry, new ItemPoisonousSword(ToolMaterialMod.POISON_SABER, "poison_saber", 5));
+        register(registry, new ItemModSword(ToolMaterialMod.REALMITE_SWORD, "realmite_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.RUPEE_RAPIER, "rupee_rapier"));
+        register(registry, new ItemModSword(ToolMaterialMod.SANDSLASH, "sandslash"));
+        register(registry, new ItemModSword(ToolMaterialMod.SCORCHING_SWORD, "scorching_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.SHARK_SWORD, "shark_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.SLIME_SWORD, "slime_sword"));
+        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_DAGGER, "terran_dagger"));
+        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_KNIFE, "terran_knife"));
+        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_MAUL, "terran_maul"));
 
         register(registry, new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1));
         register(registry, new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1));
@@ -1751,8 +1751,8 @@ public class ModItems {
         register(registry, new ItemSerenadeOfInfusion("serenade_of_infusion"));
         register(registry, new ItemSerenadeStriker("serenade_striker"));
 
-        register(registry, new ItemHealingSword("massivence", ToolMaterialMod.Palavence, 1F));
-        register(registry, new ItemHealingSword("palavence", ToolMaterialMod.Palavence, 0.5F));
+        register(registry, new ItemHealingSword("massivence", ToolMaterialMod.PALAVENCE, 1F));
+        register(registry, new ItemHealingSword("palavence", ToolMaterialMod.PALAVENCE, 0.5F));
 
         // Vanilla dimension armor
 
@@ -2032,8 +2032,8 @@ public class ModItems {
         register(registry, new ItemSlowingSword(ToolMaterialMod.FROSTKING_SWORD, "frostking_sword"));
         register(registry, new ItemSlowingSword(ToolMaterialMod.FROZEN_MAUL, "frozen_maul"));
         register(registry, new ItemSlowingSword(ToolMaterialMod.GLACIER_SWORD, "glacier_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.Icine, "icine_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.Snowslash, "snowslash"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.ICINE_SWORD, "icine_sword"));
+        register(registry, new ItemSlowingSword(ToolMaterialMod.SNOWSLASH, "snowslash"));
         register(registry, new ItemSlowingSword(ToolMaterialMod.ICICLE_BANE, "icicle_bane"));
 
         register(registry, new ItemHealingSword("frossivence", ToolMaterialMod.FROSSIVENCE, 1F));
@@ -2133,10 +2133,10 @@ public class ModItems {
 
         // Twilight swords
         register(registry, new ItemModSword(ToolMaterialMod.EDEN_BLADE, "eden_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.Wildwood, "wildwood_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.WILDWOOD_BLADE, "wildwood_blade"));
         register(registry, new ItemModSword(ToolMaterialMod.APALACHIA_BLADE, "apalachia_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.Skythern, "skythern_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.Mortum, "mortum_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.SKYTHERN_BLADE, "skythern_blade"));
+        register(registry, new ItemModSword(ToolMaterialMod.MORTUM_BLADE, "mortum_blade"));
         register(registry, new ItemModSword(ToolMaterialMod.HALITE_BLADE, "halite_blade"));
 
         // Twilight bows
@@ -2249,11 +2249,11 @@ public class ModItems {
 
         // Arcana melee
         register(registry, new ItemArcaniteBlade());
-        register(registry, new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.Saber));
+        register(registry, new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.ARCANIUM_SABER));
         register(registry, new ItemEnderScepter("ender_scepter"));
-        register(registry, new ItemModSword(ToolMaterialMod.LiviciaSword, "livicia_sword"));
-        register(registry, new ItemStormSword("storm_sword", ToolMaterialMod.Storm));
-        register(registry, new ItemShadowSaber("shadow_saber", ToolMaterialMod.ShadowSaber));
+        register(registry, new ItemModSword(ToolMaterialMod.LIVICIA_SWORD, "livicia_sword"));
+        register(registry, new ItemStormSword("storm_sword", ToolMaterialMod.STORM_SWORD));
+        register(registry, new ItemShadowSaber("shadow_saber", ToolMaterialMod.SHADOW_SABER));
 
         // Arcana ranged
         register(registry, new ItemArcaniteBlaster());
