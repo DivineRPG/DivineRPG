@@ -1,6 +1,8 @@
 package divinerpg.utils;
 
+import divinerpg.registry.ModItems;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ToolMaterialMod {
@@ -19,7 +21,7 @@ public class ToolMaterialMod {
      * For instance, Apalachia Blade's material has 25 damage in its constructor, so the actual damage done is 29.
      * The base damage is 1, and the damage added by the blade is 25 + 3 = 28.
      */
-    public static final ToolMaterial APALACHIA_BLADE = EnumHelper.addToolMaterial("drpg_apalachia_blade", 4, 2000, 4.0F, 25.0F, 22);
+    public static final ToolMaterial APALACHIA_BLADE = EnumHelper.addToolMaterial("drpg_apalachia_blade", 4, 2000, 4.0F, 25.0F, 22).setRepairItem(makeRepairStack("apalachia_gem"));
     public static final ToolMaterial AQUA_DAGGER = EnumHelper.addToolMaterial("drpg_aqua_dagger", 4, 2000, 4.0F, 6.0F, 15);
     public static final ToolMaterial AQUA_MAUL = EnumHelper.addToolMaterial("drpg_aqua_maul", 4, 4000, 4.0F, 14.0F, 10);
     public static final ToolMaterial AQUA_TRIDENT = EnumHelper.addToolMaterial("drpg_aqua_trident", 4, 7000, 4.0F, 10.0F, 15);
@@ -326,10 +328,9 @@ public class ToolMaterialMod {
 
      */
 
-    public static ToolMaterial addMeleeMaterial(String name, float damage, int enchantability) {
-        return EnumHelper.addToolMaterial(name, 0, -1, 0, damage - 5, enchantability);
+    private static ItemStack makeRepairStack(String itemName) {
+        return new ItemStack(ModItems.getItemFromMap(itemName));
     }
-
 
 
 

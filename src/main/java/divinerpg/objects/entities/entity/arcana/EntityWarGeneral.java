@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -40,10 +41,10 @@ public class EntityWarGeneral extends EntityDivineRPGVillager {
     public static MerchantRecipeList getAllRecipies(){
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 6), new ItemStack(ModItems.divineAccumulator)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 17), new ItemStack(ModItems.meteorMash)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModItems.arcaniteBlaster)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 30), new ItemStack(ModItems.arcaniteBlade)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModItems.generalsStaff)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.dungeonTokens, 17), new ItemStack(ModWeapons.meteorMash)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModWeapons.arcaniteBlaster)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 30), new ItemStack(ModWeapons.arcaniteBlade)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 18), new ItemStack(ModWeapons.generalsStaff)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.arcaniumReflector)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.arcaniumAttractor)));
         return list;

@@ -4,6 +4,7 @@ import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAridWarrior;
 import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -48,7 +49,7 @@ public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModItems.shadowBow),
+            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModWeapons.shadowBow),
                     ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();

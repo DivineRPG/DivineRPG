@@ -13,6 +13,7 @@ import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModPlugin;
@@ -38,7 +39,7 @@ public class JEICompat implements IModPlugin {
                 GuiJackOMan.MERCHANT_GUI_TEXTURE,
                 JeiReferences.JACK_O_MAN_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.jack_o_man.name"),
-                ModItems.scythe));
+                ModWeapons.scythe));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopMerchant.MERCHANT_GUI_TEXTURE,
@@ -50,13 +51,13 @@ public class JEICompat implements IModPlugin {
                 GuiWorkshopTinkerer.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_TINKERER_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.workshop_tinkerer.name"),
-                ModItems.frossivence));
+                ModWeapons.frossivence));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiCaptainMerik.MERCHANT_GUI_TEXTURE,
                 JeiReferences.CAPITAIN_MERIC_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.captain_merik.name"),
-                ModItems.starlight));
+                ModWeapons.starlight));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLivestockMerchant.MERCHANT_GUI_TEXTURE,
@@ -68,7 +69,7 @@ public class JEICompat implements IModPlugin {
                 GuiWarGeneral.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WAR_GENERAL_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.war_general.name"),
-                ModItems.arcaniteBlaster));
+                ModWeapons.arcaniteBlaster));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLeorna.MERCHANT_GUI_TEXTURE,

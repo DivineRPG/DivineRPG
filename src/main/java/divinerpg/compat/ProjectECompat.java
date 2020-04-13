@@ -2,6 +2,7 @@ package divinerpg.compat;
 
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import moze_intel.projecte.api.ProjectEAPI;
 import net.minecraft.item.ItemStack;
 
@@ -56,7 +57,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.mortumGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.skythernGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.wildwoodGrass, 1, 0), 1L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.infernoSword, 1, 0), 4740L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModWeapons.infernoSword, 1, 0), 4740L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.arcaniumOre, 1, 0), 10304L);
         }
 
