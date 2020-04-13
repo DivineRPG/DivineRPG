@@ -1654,7 +1654,7 @@ public class ModBlocks {
                 			if(!(block instanceof BlockModDoor)) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
-                ModItems.itemList.add(itemBlock);
+                ModItems.itemMap.put(itemBlock.getRegistryName().getResourcePath(), itemBlock);
             }
             event.getRegistry().register(itemBlock);
         }}}}}}

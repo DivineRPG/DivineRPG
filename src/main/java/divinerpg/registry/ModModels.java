@@ -20,7 +20,7 @@ public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
-        for (Item item : ModItems.itemList) {
+        for (Item item : ModItems.itemMap.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
         registerTESRs();
