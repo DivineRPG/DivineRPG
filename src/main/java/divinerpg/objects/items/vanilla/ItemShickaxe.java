@@ -27,7 +27,7 @@ public class ItemShickaxe extends ItemTool {
     protected String name;
 
     public ItemShickaxe(ToolMaterial toolMaterial, String name) {
-        super(toolMaterial.getAttackDamage(), -2.8F, toolMaterial, Sets.newHashSet());
+        super(1.0F, -2.8F, toolMaterial, Sets.newHashSet());
         this.name = name;
         setCreativeTab(DivineRPGTabs.tools);
         setUnlocalizedName(name);
