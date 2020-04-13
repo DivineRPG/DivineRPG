@@ -35,6 +35,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 import static divinerpg.utils.LocalizeUtils.getArmorAbility;
@@ -42,7 +43,7 @@ import static divinerpg.utils.LocalizeUtils.getArmorAbility;
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModItems {
-    public static ArrayList<Item> itemList = new ArrayList<Item>();
+    public static HashMap<String, Item> itemMap = new HashMap<String, Item>();
 
     // Vanilla dimension weapons
     @ObjectHolder("aquatic_maul")
@@ -2558,11 +2559,14 @@ public class ModItems {
         // Shields
         register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> realmiteIngot, 1200));
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));
-
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        itemList.add(item);
+        itemMap.put(item.getRegistryName().getResourcePath(), item);
+    }
+
+    public Item getItemFromMap(String itemName) {
+        return itemMap.get(itemName);
     }
 }

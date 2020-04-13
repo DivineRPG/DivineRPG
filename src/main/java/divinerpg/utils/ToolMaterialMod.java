@@ -158,9 +158,9 @@ public class ToolMaterialMod {
     public static final ToolMaterial EVERBRIGHT = EnumHelper.addToolMaterial("drpg_everbright", 4, -1, 4.0F, 38.0F, 0);
 
     //Tools
-    public static final ToolMaterial DREAM_SHOVEL = EnumHelper.addToolMaterial("dream_shovel", 3, 500, 13.0F, 3, 1);
-    public static final ToolMaterial DREAM_PICKAXE = EnumHelper.addToolMaterial("dream_pick", 3, 500, 13.0F, 4, 1);
-    public static final ToolMaterial DREAM_AXE = EnumHelper.addToolMaterial("dream_axe", 3, 500, 13.0F, 5, 1);
+    public static final ToolMaterial DREAM_SHOVEL = EnumHelper.addToolMaterial("drpg_dream_shovel", 3, 500, 13.0F, 3, 1);
+    public static final ToolMaterial DREAM_PICKAXE = EnumHelper.addToolMaterial("drpg_dream_pickaxe", 3, 500, 13.0F, 4, 1);
+    public static final ToolMaterial DREAM_AXE = EnumHelper.addToolMaterial("drpg_dream_axe", 3, 500, 13.0F, 5, 1);
 
     /*
 
