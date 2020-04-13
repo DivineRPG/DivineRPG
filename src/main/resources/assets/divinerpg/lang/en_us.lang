@@ -1497,6 +1497,7 @@ message.ayeraco_horde=The Ayeraco Horde can only be spawned in The End.
 message.watcher=The Watcher can only be spawned in the Nether.
 message.ancient_entity=The Ancient Entity can only be spawned in the Overworld.
 message.nightmare_bed.restrict=You can only use the Nightmare Bed in a dark place.
+messaage.teleportation_star=You can't change initial position.
 message.standard=Thank you %s for downloading and playing DivineRPG!
 message.internet=Unable to check for latest version, you may want to check your internet connection!
 message.update=A DivineRPG update is avaliable.

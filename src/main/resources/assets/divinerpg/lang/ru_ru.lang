@@ -1499,6 +1499,7 @@ message.ayeraco_horde=Орда Айрако может быть призвана
 message.watcher=Смотритель может быть призвать только в Аду.
 message.ancient_entity=Древняя сущность может быть призвана только в обычном мире.
 message.nightmare_bed.restrict=Кровать кошмаров можно использовать только в тёмном месте.
+messaage.teleportation_star=Вы не можете изменить исходное положение.
 message.internet=Не удалось проверить наличие обновлений, проверьте Ваше подключение к интернету!
 message.update=Доступно обновление DivineRPG
 message.version=[Новая версия: %s]
