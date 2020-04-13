@@ -2,7 +2,7 @@ package divinerpg.api.armor;
 
 import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.cap.IArmorPowers;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +17,7 @@ public class ArmorEquippedEvent extends Event {
     private final Set<ResourceLocation> confirmed = new HashSet<>();
     private final Map<EntityEquipmentSlot, Set<Item>> items = new LinkedHashMap<>();
 
-    public ArmorEquippedEvent(EntityPlayer player) {
+    public ArmorEquippedEvent(Entity player) {
         IArmorPowers powers = DivineAPI.getArmorPowers(player);
 
         for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {

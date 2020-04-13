@@ -1,6 +1,6 @@
 package divinerpg.api.armor;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 
 @FunctionalInterface
 public interface IEquipped {
@@ -8,5 +8,5 @@ public interface IEquipped {
      * @param player
      * @param isOn
      */
-    void onEquppedChanged(EntityPlayer player, boolean isOn);
+    void onEquppedChanged(EntityLivingBase player, boolean isOn);
 }

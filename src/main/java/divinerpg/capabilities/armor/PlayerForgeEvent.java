@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.binded.IPlayerForgeEvent;
 import divinerpg.api.armor.registry.IForgeEvent;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
@@ -18,10 +18,10 @@ import java.util.Objects;
 
 public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
     private final IForgeEvent<T> base;
-    private final WeakReference<EntityPlayer> player;
+    private final WeakReference<EntityLivingBase> player;
     private boolean isListen = false;
 
-    public PlayerForgeEvent(IForgeEvent<T> base, EntityPlayer player) {
+    public PlayerForgeEvent(IForgeEvent<T> base, EntityLivingBase player) {
         this.base = base;
         this.player = new WeakReference<>(player);
 
@@ -30,7 +30,7 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
     }
 
     @Override
-    public EntityPlayer getPlayer() {
+    public EntityLivingBase getPlayer() {
         return player.get();
     }
 
@@ -44,6 +44,9 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
      */
     @Override
     public void subscribe() {
+        if (isListening())
+            return;
+
         Method eventHandlingMethod = DivineAPI.reflectionHelper.findMethod(this.getClass(), "handleEvent", Event.class);
         if (eventHandlingMethod == null) {
             DivineRPG.logger.log(Level.WARN, "Can't find 'handleEvent' method there, maybe it was renamed or signature was changed");
@@ -69,6 +72,9 @@ public class PlayerForgeEvent<T extends Event> implements IPlayerForgeEvent<T> {
      */
     @Override
     public void unsubscribe() {
+        if (!isListening())
+            return;
+
         MinecraftForge.EVENT_BUS.unregister(this);
         isListen = false;
     }

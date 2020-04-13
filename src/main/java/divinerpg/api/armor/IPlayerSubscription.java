@@ -1,6 +1,6 @@
 package divinerpg.api.armor;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 
 /**
  * Represents object linked to player.
@@ -13,7 +13,7 @@ public interface IPlayerSubscription {
      *
      * @return
      */
-    EntityPlayer getPlayer();
+    EntityLivingBase getPlayer();
 
     /**
      * Subscribe on Forge events

@@ -2,7 +2,7 @@ package divinerpg.api.armor.binded;
 
 import divinerpg.api.armor.IPlayerSubscription;
 import divinerpg.api.armor.registry.IForgeEvent;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -27,7 +27,7 @@ public interface IPlayerForgeEvent<T extends Event> extends IForgeEvent<T>, IPla
         if (event == null)
             return false;
 
-        EntityPlayer player = getPlayer();
+        EntityLivingBase player = getPlayer();
         if (player == null)
             return false;
 

@@ -2,6 +2,7 @@ package divinerpg.api;
 
 import divinerpg.api.armor.cap.IArmorPowers;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -30,10 +31,16 @@ public class ArmorHandlers {
     /**
      * Managing player's fly ability on server side
      *
-     * @param player - player
+     * @param entity - any entity
      * @param canFly - can we fly or not
      */
-    public static void onCanFlyChanged(EntityPlayer player, boolean canFly) {
+    public static void onCanFlyChanged(EntityLivingBase entity, boolean canFly) {
+        if (!(entity instanceof EntityPlayer)) {
+            return;
+        }
+
+        EntityPlayer player = (EntityPlayer) entity;
+
         // in creative mode we do not need any checks
         if (player.capabilities.isCreativeMode
                 || canFly == player.capabilities.allowFlying
@@ -165,7 +172,7 @@ public class ArmorHandlers {
      * @param speedMultiplier - Speed Multiplier 1 - regular speed, 2 - 2 times faster, etc. Negatives disables ability
      * @param force           - should force to set passed value to player
      */
-    public static void speedUpPlayer(EntityPlayer player, float speedMultiplier, boolean force) {
+    public static void speedUpPlayer(EntityLivingBase player, float speedMultiplier, boolean force) {
         IAttribute speedAttr = SharedMonsterAttributes.MOVEMENT_SPEED;
         IAttributeInstance playerSpeedAttribute = player.getEntityAttribute(speedAttr);
         AttributeModifier modifier = playerSpeedAttribute.getModifier(ARMOR_SPEED_UUID);
@@ -198,7 +205,7 @@ public class ArmorHandlers {
      *
      * @param player - player
      */
-    public static void removeSpeed(EntityPlayer player) {
+    public static void removeSpeed(EntityLivingBase player) {
         speedUpPlayer(player, -1, true);
     }
 

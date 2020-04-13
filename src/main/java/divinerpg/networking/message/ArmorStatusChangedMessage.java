@@ -3,8 +3,8 @@ package divinerpg.networking.message;
 import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.cap.IArmorPowers;
+import divinerpg.events.ArmorWearingEvents;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -56,14 +56,9 @@ public class ArmorStatusChangedMessage implements IMessage {
             }
 
             if (ctx.side == Side.SERVER) {
-                EntityPlayerMP player = ctx.getServerHandler().player;
-                IArmorPowers powers = DivineAPI.getArmorPowers(player);
-
-                if (player != null && powers != null) {
-                    powers.wearing().stream()
-                            .map(x -> new ArmorStatusChangedMessage(x, true))
-                            .forEach(x -> DivineRPG.network.sendTo(x, player));
-                }
+                // will recheck armor sets on any EntityPlayerSP creation
+                // After recheck send to client all info about wearnig sets
+                ArmorWearingEvents.recheckAllWearing(ctx.getServerHandler().player, true);
             }
 
             return null;

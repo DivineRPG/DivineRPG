@@ -6,7 +6,7 @@ import divinerpg.api.armor.binded.IPlayerArmorDescription;
 import divinerpg.api.armor.binded.IPlayerForgeEvent;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.networking.message.ArmorStatusChangedMessage;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 
@@ -17,12 +17,12 @@ import java.util.Objects;
 
 public class PlayerArmorDescription implements IPlayerArmorDescription {
 
-    private final WeakReference<EntityPlayer> player;
+    private final WeakReference<EntityLivingBase> player;
     private final IArmorDescription source;
     private final List<IPlayerForgeEvent<?>> handlers = new ArrayList<>();
     private final ResourceLocation id;
 
-    public PlayerArmorDescription(EntityPlayer player, IArmorDescription source) {
+    public PlayerArmorDescription(EntityLivingBase player, IArmorDescription source) {
         Objects.requireNonNull(player);
         Objects.requireNonNull(source);
 
@@ -58,7 +58,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
     }
 
     @Override
-    public EntityPlayer getPlayer() {
+    public EntityLivingBase getPlayer() {
         return player.get();
     }
 }

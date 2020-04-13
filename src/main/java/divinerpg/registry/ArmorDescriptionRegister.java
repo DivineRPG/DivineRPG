@@ -163,14 +163,16 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.santaPants)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.santaBoots)
                         .withHandler(LivingHurtEvent.class, event -> {
-                            if (event.getEntityLiving().world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
+                            if (event.getEntityLiving().world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
                                 ArmorHandlers.onPlayerReceiveDamage(event, ArmorHandlers::isMeeleeDamage, aFloat -> aFloat * 0.25F);
                                 ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6);
                             }
                         }).withHandler(TickEvent.PlayerTickEvent.class, event -> {
-                    if (event.player.world.provider.getDimension() == ModDimensions.iceikaDimension.getId()) {
+                    if (event.player.world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
                         ArmorHandlers.refillHunger(event);
                         ArmorHandlers.speedUpPlayer(event.player, 2, false);
+                    } else {
+                        ArmorHandlers.removeSpeed(event.player);
                     }
                 })
                         .setRegistryName(Reference.MODID, "santa")

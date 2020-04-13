@@ -6,7 +6,7 @@ import divinerpg.api.armor.IItemContainer;
 import divinerpg.api.armor.binded.IPlayerArmorDescription;
 import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.api.armor.registry.IArmorDescription;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 public class ArmorPowers implements IArmorPowers {
     private final Map<ResourceLocation, IPlayerArmorDescription> descriptions = new LinkedHashMap<>();
-    private final WeakReference<EntityPlayer> player;
+    private final WeakReference<EntityLivingBase> player;
 
     public ArmorPowers() {
         this(null);
@@ -31,7 +31,7 @@ public class ArmorPowers implements IArmorPowers {
         DivineRPG.logger.log(Level.DEBUG, Thread.currentThread().getStackTrace());
     }
 
-    public ArmorPowers(EntityPlayer player) {
+    public ArmorPowers(EntityLivingBase player) {
         this.player = new WeakReference<>(player);
 
         if (player != null) {
@@ -41,7 +41,7 @@ public class ArmorPowers implements IArmorPowers {
 
     @SubscribeEvent
     public void onCleanUp(EntityJoinWorldEvent e) {
-        EntityPlayer currentPlayer = this.player.get();
+        EntityLivingBase currentPlayer = this.player.get();
 
         // should unregister
         if (currentPlayer == null) {
