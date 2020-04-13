@@ -49,9 +49,12 @@ public class MessageArcanaBar implements IMessage {
 
             if (ctx.side == Side.CLIENT) {
                 IArcana capability = DivineAPI.getArcana(DivineRPG.proxy.getPlayer());
-                capability.setMaxArcana(msg.max);
-                capability.setRegenDelay(msg.delay);
-                capability.set(msg.arcana);
+
+                if (capability != null) {
+                    capability.setMaxArcana(msg.max);
+                    capability.setRegenDelay(msg.delay);
+                    capability.set(msg.arcana);
+                }
 
                 ArcanaRenderer.percantage = (msg.arcana / msg.max) * 100;
             }

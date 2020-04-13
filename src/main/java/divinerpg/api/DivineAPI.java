@@ -39,7 +39,11 @@ public class DivineAPI {
      * @param entity - any entity, but we are using player
      * @return - IArcana capability
      */
+    @Nullable
     public static IArcana getArcana(Entity entity) {
+        if (entity == null)
+            return null;
+
         return entity.getCapability(ARCANA_CAP, null);
     }
 
