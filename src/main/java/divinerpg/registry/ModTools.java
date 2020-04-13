@@ -1,5 +1,6 @@
 package divinerpg.registry;
 
+import divinerpg.DivineRPG;
 import divinerpg.objects.items.base.ItemModAxe;
 import divinerpg.objects.items.base.ItemModHoe;
 import divinerpg.objects.items.base.ItemModPickaxe;
@@ -121,6 +122,8 @@ public class ModTools {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
+        DivineRPG.logger.info("Registering DivineRPG tools");
+
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension tools
@@ -183,7 +186,6 @@ public class ModTools {
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        System.out.println(item.getRegistryName().getResourcePath());
         ModItems.itemMap.put(item.getRegistryName().getResourcePath(), item);
     }
 }

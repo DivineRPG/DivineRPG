@@ -505,7 +505,7 @@ public class ModWeapons {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        DivineRPG.logger.info("Registering DivineRPG items");
+        DivineRPG.logger.info("Registering DivineRPG weapons");
 
         IForgeRegistry<Item> registry = event.getRegistry();
 
@@ -767,7 +767,6 @@ public class ModWeapons {
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        System.out.println(item.getRegistryName().getResourcePath());
         ModItems.itemMap.put(item.getRegistryName().getResourcePath(), item);
     }
 }

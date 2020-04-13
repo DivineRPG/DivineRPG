@@ -1,6 +1,7 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
+import divinerpg.api.Reference;
 import divinerpg.enums.*;
 import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
 import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
@@ -1705,13 +1706,14 @@ public class ModItems {
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        System.out.println(item.getRegistryName().getResourcePath());
         itemMap.put(item.getRegistryName().getResourcePath(), item);
     }
 
     public static Item getItemFromMap(String itemName) {
-        System.out.println(itemName);
-        System.out.println(itemMap.get(itemName));
-        return itemMap.get(itemName);
+        Item item = itemMap.get(itemName);
+        if(item == null) {
+            DivineRPG.logger.error("Attempted to get item " + itemName + " from DivineRPG, but there was no such item.");
+        }
+        return item;
     }
 }
