@@ -9,6 +9,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
+import java.util.Random;
 import java.util.function.BiFunction;
 
 public class AIDivineFireballAttack extends EntityAIBase {
@@ -124,7 +125,13 @@ public class AIDivineFireballAttack extends EntityAIBase {
         if (parentEntity == null || parentEntity.world == null || event == null)
             return;
 
-        parentEntity.world.playSound(parentEntity.posX, parentEntity.posY, parentEntity.posZ, event, SoundCategory.HOSTILE, 10,
-                (parentEntity.world.rand.nextFloat() - parentEntity.world.rand.nextFloat()) * 0.2F + 1.0F, false);
+        Random rand = parentEntity.world.rand;
+
+        parentEntity.world.playSound(null,
+                parentEntity.getPosition(),
+                event,
+                SoundCategory.HOSTILE,
+                10,
+                (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
     }
 }
