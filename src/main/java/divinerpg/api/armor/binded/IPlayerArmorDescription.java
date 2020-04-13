@@ -13,11 +13,12 @@ public interface IPlayerArmorDescription extends IPlayerSubscription {
     List<IPlayerForgeEvent<?>> getHandlers();
 
     /**
-     * Change equipped status
+     * Changes armor set wearing status
      *
-     * @param isOn - is armor on
+     * @param isOn        - is armor on
+     * @param sendMessage - should send message to client
      */
-    void changeStatus(boolean isOn);
+    void changeStatus(boolean isOn, boolean sendMessage);
 
     @Override
     default void subscribe() {

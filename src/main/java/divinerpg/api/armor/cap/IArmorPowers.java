@@ -33,7 +33,17 @@ public interface IArmorPowers {
      *
      * @param id
      */
-    void putOn(ResourceLocation id);
+    default void putOn(ResourceLocation id) {
+        putOn(id, true);
+    }
+
+    /**
+     * Subscribes on armor set powers
+     *
+     * @param id          - armor set ID
+     * @param sendMessage - should send message to client
+     */
+    void putOn(ResourceLocation id, boolean sendMessage);
 
     /**
      * Removes armor from player
@@ -49,4 +59,5 @@ public interface IArmorPowers {
      * @return
      */
     Set<Item> currentItems(EntityEquipmentSlot slot);
+
 }

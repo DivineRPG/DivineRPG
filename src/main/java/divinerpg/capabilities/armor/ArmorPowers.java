@@ -6,6 +6,7 @@ import divinerpg.api.armor.IItemContainer;
 import divinerpg.api.armor.binded.IPlayerArmorDescription;
 import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.api.armor.registry.IArmorDescription;
+import divinerpg.networking.message.ArmorStatusChangedMessage;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class ArmorPowers implements IArmorPowers {
     private final Map<ResourceLocation, IPlayerArmorDescription> descriptions = new LinkedHashMap<>();
     private final WeakReference<EntityLivingBase> player;
+    private boolean wasInitialized;
 
     public ArmorPowers() {
         this(null);
@@ -50,8 +52,22 @@ public class ArmorPowers implements IArmorPowers {
         }
 
         // Same entity
-        if (e.getEntity() == currentPlayer)
+        if (e.getEntity() == currentPlayer) {
+
+            if (!wasInitialized) {
+                wasInitialized = true;
+
+                // Client side is creating more often
+                // So I send request from server to confirm
+                // what armor is equipped
+                if (currentPlayer.world.isRemote) {
+                    DivineRPG.network.sendToServer(new ArmorStatusChangedMessage(new ResourceLocation(""), true));
+                }
+            }
+
             return;
+        }
+
 
         // another entity, don't care
         if (Objects.equals(e.getEntity().getUniqueID(), currentPlayer.getUniqueID()))
@@ -69,13 +85,13 @@ public class ArmorPowers implements IArmorPowers {
     }
 
     @Override
-    public void putOn(ResourceLocation id) {
-        changeWearStatus(id, true);
+    public void putOn(ResourceLocation id, boolean sendMessage) {
+        changeWearStatus(id, true, sendMessage);
     }
 
     @Override
     public void takeOff(ResourceLocation id) {
-        changeWearStatus(id, false);
+        changeWearStatus(id, false, true);
     }
 
     @Override
@@ -96,7 +112,7 @@ public class ArmorPowers implements IArmorPowers {
     }
 
     @Nullable
-    private void changeWearStatus(ResourceLocation id, boolean isOn) {
+    private void changeWearStatus(ResourceLocation id, boolean isOn, boolean sendMessage) {
         if (player.get() != null) {
             IPlayerArmorDescription description = descriptions.computeIfAbsent(id, location -> {
                 // lazy creation of armor set. Further we manage (un)subscription that armor handler
@@ -107,7 +123,7 @@ public class ArmorPowers implements IArmorPowers {
             });
 
             if (description != null) {
-                description.changeStatus(isOn);
+                description.changeStatus(isOn, sendMessage);
             }
         }
     }

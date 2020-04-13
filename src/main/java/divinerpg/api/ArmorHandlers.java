@@ -43,9 +43,7 @@ public class ArmorHandlers {
 
         // in creative mode we do not need any checks
         if (player.capabilities.isCreativeMode
-                || canFly == player.capabilities.allowFlying
-                // Checking only on server
-                || isRemote(player)) {
+                || canFly == player.capabilities.allowFlying) {
             return;
         }
 

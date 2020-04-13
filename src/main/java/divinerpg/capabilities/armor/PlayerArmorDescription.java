@@ -39,7 +39,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
     }
 
     @Override
-    public void changeStatus(boolean isOn) {
+    public void changeStatus(boolean isOn, boolean sendMessage) {
         IEquipped handler = source.getEquippedHandler();
         if (handler != null) {
             handler.onEquppedChanged(getPlayer(), isOn);
@@ -52,7 +52,7 @@ public class PlayerArmorDescription implements IPlayerArmorDescription {
         }
 
         // sending message to client
-        if (getPlayer() instanceof EntityPlayerMP) {
+        if (sendMessage && getPlayer() instanceof EntityPlayerMP) {
             DivineRPG.network.sendTo(new ArmorStatusChangedMessage(id, isOn), (EntityPlayerMP) getPlayer());
         }
     }
