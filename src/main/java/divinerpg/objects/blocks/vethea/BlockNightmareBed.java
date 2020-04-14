@@ -7,6 +7,7 @@ import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.LocalizeUtils;
+import divinerpg.utils.NbtUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -453,11 +454,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         if (old == current || old != ModDimensions.vetheaDimension && current != ModDimensions.vetheaDimension)
             return;
 
-        if (!player.getEntityData().hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
-            player.getEntityData().setTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
-        }
-
-        NBTTagCompound tag = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+        NBTTagCompound tag = NbtUtil.getPersistedDivineTag(player);
 
         List<String> tagNames = Arrays.asList("OverworldInv", "VetheaInv");
 

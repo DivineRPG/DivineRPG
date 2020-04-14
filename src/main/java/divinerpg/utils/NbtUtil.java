@@ -1,14 +1,14 @@
 package divinerpg.utils;
 
 import divinerpg.api.Reference;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,44 +120,25 @@ public class NbtUtil {
     }
 
     /**
-     * Gets tag from persistant data.
+     * Gets unique Divine tag from player.
+     * Should always use that method to store data to prevent overwriting by other mods
      *
-     * @param e    - entity
-     * @param name - name of tag
+     * @param e - entity
      * @return
      */
-    @Nullable
-    public static <T extends NBTBase> T getFromEntity(Entity e, String name, Class<T> clazz) {
-        if (e == null || name == null || name.isEmpty()) {
-            return null;
+    public static NBTTagCompound getPersistedDivineTag(@Nonnull EntityPlayer e) {
+        NBTTagCompound playerData = e.getEntityData();
+
+        if (!playerData.hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
+            playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
         }
 
-        NBTTagCompound data = e.getEntityData();
-        // Creating unique name for entity data to prevent overriding
-        name = Reference.MODID + "_" + name;
+        NBTTagCompound persistantData = playerData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
 
-        NBTBase tag = data.getTag(name);
-
-        if (tag.getClass() == clazz)
-            return (T) tag;
-
-        return null;
-    }
-
-    /**
-     * Writes tag to persistent data.
-     *
-     * @param e
-     * @param tag
-     * @param name
-     */
-    public static void writePersistent(Entity e, NBTBase tag, String name) {
-        if (e == null || name == null || name.isEmpty() || tag == null) {
-            return;
+        if (!persistantData.hasKey(Reference.MODID)) {
+            persistantData.setTag(Reference.MODID, new NBTTagCompound());
         }
 
-        // Creating unique name for entity data to prevent overriding
-        name = Reference.MODID + "_" + name;
-        e.getEntityData().setTag(name, tag);
+        return persistantData.getCompoundTag(Reference.MODID);
     }
 }

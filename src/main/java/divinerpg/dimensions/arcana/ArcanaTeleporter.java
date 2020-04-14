@@ -1,8 +1,10 @@
 package divinerpg.dimensions.arcana;
 
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
+import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
+import divinerpg.utils.NbtUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,11 +19,45 @@ import net.minecraft.world.WorldServer;
 
 public class ArcanaTeleporter extends Teleporter {
 
+    /**
+     * Storing long value here
+     */
+    private final String ArcanaKeyPos = "ArcanaPos";
     protected WorldServer myWorld;
 
     public ArcanaTeleporter(WorldServer var1) {
         super(var1);
         this.myWorld = var1;
+    }
+
+    public static int getTopBlock(World world, int x, int z) {
+        for (int i = 128; i > 0; i--) {
+            if (world.getBlockState(new BlockPos(x, i, z)) != Blocks.AIR.getDefaultState()) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    @Override
+    public void placeEntity(World world, Entity entity, float yaw) {
+        super.placeEntity(world, entity, yaw);
+
+        if (world.provider.getDimensionType() == ModDimensions.arcanaDimension && entity instanceof EntityPlayer) {
+            NBTTagCompound tag = NbtUtil.getPersistedDivineTag((EntityPlayer) entity);
+            if (tag.hasKey(ArcanaKeyPos)) {
+                BlockPos pos = BlockPos.fromLong(tag.getLong(ArcanaKeyPos));
+
+                // using this value as precision of teleporting (7 blocks radius is enough I guess)
+                double precisionSq = 7 * 7;
+
+                if (entity.getPosition().distanceSq(pos) > precisionSq) {
+                    // Just using the old code here
+                    ItemTeleportationCrystal.teleportToDimension(entity, world.provider.getDimensionType(), pos);
+                }
+            }
+        }
     }
 
     public boolean findPortalBlockNearEntity(Entity entity, int yLimit) {
@@ -30,32 +66,32 @@ public class ArcanaTeleporter extends Teleporter {
         int y;
         double offset;
 
-        if(entity.dimension == ModDimensions.arcanaDimension.getId()) {
+        if (entity.dimension == ModDimensions.arcanaDimension.getId()) {
             offset = 2.0;
-        }
-        else {
+        } else {
             offset = 1.5;
         }
         for (y = 1; y < yLimit; y++) {
-            for(int x2 = chunkX; x2 < chunkX + 16; x2++) {
+            for (int x2 = chunkX; x2 < chunkX + 16; x2++) {
                 for (int z2 = chunkZ; z2 < chunkZ + 16; z2++) {
                     if (this.myWorld.getBlockState(new BlockPos(x2, y, z2)) == ModBlocks.arcanaPortal
                             .getDefaultState()) {
-                    	if(myWorld.provider.getDimension() == 0) {
-                    		entity.setLocationAndAngles(x2 + offset, getTopBlock(myWorld, x2, z2), z2 + offset, entity.rotationYaw, 0.0F);	
-                    	}else {
-                        entity.setLocationAndAngles(x2 + offset, y + 0.5D, z2 + offset, entity.rotationYaw, 0.0F);
+                        if (myWorld.provider.getDimension() == 0) {
+                            entity.setLocationAndAngles(x2 + offset, getTopBlock(myWorld, x2, z2), z2 + offset, entity.rotationYaw, 0.0F);
+                        } else {
+                            entity.setLocationAndAngles(x2 + offset, y + 0.5D, z2 + offset, entity.rotationYaw, 0.0F);
 
-                        if(entity instanceof EntityPlayer) {
-                        EntityPlayer player = (EntityPlayer)entity;
-                        NBTTagCompound portalPos = new NBTTagCompound();
-                        portalPos.setInteger("PortalPosX", x2);
-                        portalPos.setInteger("PortalPosY", y);
-                        portalPos.setInteger("PortalPosZ", z2);
-						player.writeToNBT(portalPos);
-                    	}
-                    	}
-                    	entity.motionX = entity.motionY = entity.motionZ = 0.0D;
+                            if (entity instanceof EntityPlayer) {
+
+                                //
+                                // Should save position here
+                                //
+
+                                NBTTagCompound tag = NbtUtil.getPersistedDivineTag((EntityPlayer) entity);
+                                tag.setLong(ArcanaKeyPos, entity.getPosition().toLong());
+                            }
+                        }
+                        entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                         return true;
                     }
                 }
@@ -66,19 +102,7 @@ public class ArcanaTeleporter extends Teleporter {
         return false;
 
     }
-    
-    public static int getTopBlock(World world, int x, int z)
-    {
-        for (int i = 128; i > 0; i--)
-        {
-            if (world.getBlockState(new BlockPos(x, i, z)) != Blocks.AIR.getDefaultState())
-            {
-                return i;
-            }
-        }
 
-        return 0;
-    }
     @Override
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
         if (entity.dimension == ModDimensions.arcanaDimension.getId()) {
@@ -88,7 +112,7 @@ public class ArcanaTeleporter extends Teleporter {
 
             // Find existing portal
             boolean foundPortal = findPortalBlockNearEntity(entity, 40);
-            if(foundPortal) {
+            if (foundPortal) {
                 return true;
             }
 
@@ -96,10 +120,10 @@ public class ArcanaTeleporter extends Teleporter {
             for (y = 8; y < 40; y += 8) {
                 if (this.myWorld.getBlockState(new BlockPos(chunkX + 7, y, chunkZ + 7)) != Blocks.AIR.getDefaultState()
                         && this.myWorld.getBlockState(new BlockPos(chunkX + 7, y + 8, chunkZ + 7)) != Blocks.AIR
-                                .getDefaultState()) {
+                        .getDefaultState()) {
                     generatePortalRoom(this.myWorld, new BlockPos(chunkX, y, chunkZ));
                     foundPortal = findPortalBlockNearEntity(entity, 40);
-                    if(foundPortal) {
+                    if (foundPortal) {
                         return true;
                     }
                 }
