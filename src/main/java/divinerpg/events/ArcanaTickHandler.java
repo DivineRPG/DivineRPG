@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArcanaTickHandler {	   
-	public static BlockPos vetheaSpawn;
     @SubscribeEvent
     public void onTick(PlayerTickEvent event) {
         if (event.phase == Phase.START) {
@@ -33,20 +32,13 @@ public class ArcanaTickHandler {
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         refillArcana(event.player);
-        if(event.player.dimension==ModDimensions.vetheaDimension.getId()) {	
-        	event.player.attemptTeleport(vetheaSpawn.getX(), vetheaSpawn.getY(), vetheaSpawn.getZ());	
-        }
     }
 
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         refillArcana(event.player);
         event.player.addExperienceLevel(0);
-        
-        if(event.toDim==ModDimensions.vetheaDimension.getId()) {	
-        	vetheaSpawn = event.player.getPosition();	
-        	event.player.setSpawnChunk(vetheaSpawn, true, ModDimensions.vetheaDimension.getId());
-        }
+
     }
 
     /**

@@ -5,7 +5,9 @@ import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -43,6 +45,15 @@ public class ArcanaTeleporter extends Teleporter {
                     		entity.setLocationAndAngles(x2 + offset, getTopBlock(myWorld, x2, z2), z2 + offset, entity.rotationYaw, 0.0F);	
                     	}else {
                         entity.setLocationAndAngles(x2 + offset, y + 0.5D, z2 + offset, entity.rotationYaw, 0.0F);
+
+                        if(entity instanceof EntityPlayer) {
+                        EntityPlayer player = (EntityPlayer)entity;
+                        NBTTagCompound portalPos = new NBTTagCompound();
+                        portalPos.setInteger("PortalPosX", x2);
+                        portalPos.setInteger("PortalPosY", y);
+                        portalPos.setInteger("PortalPosZ", z2);
+						player.writeToNBT(portalPos);
+                    	}
                     	}
                     	entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                         return true;
