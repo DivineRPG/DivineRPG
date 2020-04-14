@@ -99,6 +99,8 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
                 player.sendMessage(message);
             }
 
+            // failed during change position
+            hasInfo = false;
         }
 
         return hasInfo
@@ -111,15 +113,16 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         NBTTagCompound compound = getFromStack(stack);
 
         if (compound.hasKey(dimKey)) {
-            list.add(compound.getString(dimKey));
+            list.add(LocalizeUtils.i18n("tooltip.dimension", compound.getString(dimKey)));
         }
 
         if (compound.hasKey(posKey)) {
             BlockPos pos = BlockPos.fromLong(compound.getLong(posKey));
-            list.add(pos.toString());
+            list.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
         }
 
         list.add("");
         list.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
     }
 }
+

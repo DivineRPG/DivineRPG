@@ -1105,6 +1105,7 @@ item.arlemite_shield.name=Арлемитовый щит
 item.dream_shovel.name=Лопата мечты
 item.dream_pickaxe.name=Кирка мечты
 item.dream_axe.name=Топор мечты
+item.teleportation_star.name=Звезда телепортации
 
 death.attack.trap=%1$s попал в ловушку
 death.attack.spike=%1$s прогулялся по шипам
@@ -1574,6 +1575,8 @@ tooltip.brown_grizzle_egg=Яйцо призыва питомца Бурый гр
 tooltip.meriks_missile=Взрывной самонаводящийся снаряд
 tooltip.starlight=Сбрасывает звезду с неба
 tooltip.staff_of_starlight=Сбрасывает град звезд с неба
+tooltip.dimension=Измерение: %s
+tooltip.block_position=Координаты: x=%s, y=%s, z=%s
 
 tooltip.armor_info.fire_protection=Защита от огня
 tooltip.armor_info.no_fall=Поглощение урона от падения

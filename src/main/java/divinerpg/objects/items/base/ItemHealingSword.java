@@ -7,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -40,7 +39,7 @@ public class ItemHealingSword extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(new TextComponentTranslation("tooltip.heals", String.format("%s", healAmount / 2)).getFormattedText());
+        list.add(LocalizeUtils.i18n("tooltip.heals",  healAmount / 2));
         list.add(LocalizeUtils.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
     }
 }

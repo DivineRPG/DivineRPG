@@ -48,7 +48,7 @@ public class ItemModSword extends ItemSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(LocalizeUtils.meleeDam(material.getAttackDamage() + 5));
+        list.add(LocalizeUtils.meleeDam(material.getAttackDamage() + 4));
         addAdditionalInformation(list);
         if (item.getMaxDamage() > 0) {
             list.add(LocalizeUtils.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
