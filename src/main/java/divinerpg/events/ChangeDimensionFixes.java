@@ -2,6 +2,7 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModDimensions;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -9,7 +10,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class ChangeDimensionFixes {
 	
-
 	public static BlockPos vetheaSpawn;
 	
 	
@@ -20,7 +20,8 @@ public class ChangeDimensionFixes {
         	event.player.setSpawnChunk(vetheaSpawn, true, ModDimensions.vetheaDimension.getId());
         }
 		if(event.toDim==ModDimensions.arcanaDimension.getId()) {
-            NBTTagCompound portalPos = new NBTTagCompound();
+
+			NBTTagCompound portalPos = new NBTTagCompound();
 			event.player.readEntityFromNBT(portalPos);
             BlockPos pos = new BlockPos(portalPos.getInteger("PortalPosX"), portalPos.getInteger("PortalPosY"), portalPos.getInteger("PortalPosZ"));
             event.player.attemptTeleport(pos.getX(), pos.getY(), pos.getZ());
