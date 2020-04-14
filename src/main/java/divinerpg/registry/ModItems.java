@@ -338,6 +338,8 @@ public class ModItems {
     // Teleportation crystal
     @ObjectHolder("teleportation_crystal")
     public static final Item teleportationCrystal = null;
+    @ObjectHolder("teleportation_star")
+    public static final Item teleportationStar = null;
 
     // Vanilla misc items
 
@@ -1283,6 +1285,7 @@ public class ModItems {
 
         // Teleportation crystal
         register(registry, new ItemTeleportationCrystal("teleportation_crystal"));
+        register(registry, new ItemTeleportationStar("teleportation_star"));
 
         // Vanilla misc items
 

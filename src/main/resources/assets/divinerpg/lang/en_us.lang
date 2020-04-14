@@ -1101,6 +1101,7 @@ item.arlemite_shield.name=Arlemite Shield
 item.dream_shovel.name=Dream Shovel
 item.dream_pickaxe.name=Dream Pickaxe
 item.dream_axe.name=Dream Axe
+item.teleportation_star.name=Teleportation Star
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
