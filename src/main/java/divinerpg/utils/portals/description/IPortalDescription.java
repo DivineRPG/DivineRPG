@@ -5,7 +5,9 @@ import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Describes base portal functionality
@@ -24,6 +26,29 @@ public interface IPortalDescription {
      * @return
      */
     Block getPortal();
+
+    /**
+     * Max portal size on each direction including possible rotation.
+     * For example Nether portal has 4 block width (both z and x direction) + 4 tall (y direction
+     * So it will be 4 cube
+     *
+     * @return
+     */
+    BlockPos getMaxSize();
+
+    /**
+     * Optimization.
+     * Scan world by chunks of max portal size.
+     * As it understood we don't need to check all the blocks inside it.
+     * For different portal descriptions algorithm of checking could be different
+     *
+     * @param world - current world
+     * @param min   - chunk start (min cords of each dimension)
+     * @param max   - chunk end (start + getMaxSize())
+     * @return positions with any portal blocks location or empty list
+     */
+    @Nonnull
+    List<BlockPos> checkChunk(World world, BlockPos min, BlockPos max);
 
     /**
      * Creates portal in current position

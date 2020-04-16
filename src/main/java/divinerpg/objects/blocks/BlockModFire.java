@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.api.Reference;
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
@@ -25,12 +24,12 @@ public class BlockModFire extends BlockFire {
     }
 
     protected void lightPortal(World world, BlockPos pos, IBlockState state) {
-    	ModBlocks.edenPortal.makePortal(world, pos);
-    	ModBlocks.wildwoodPortal.makePortal(world, pos);
-    	ModBlocks.apalachiaPortal.makePortal(world, pos);
-    	ModBlocks.skythernPortal.makePortal(world, pos);
-    	ModBlocks.mortumPortal.makePortal(world, pos);
-    	ModBlocks.iceikaPortal.makePortal(world, pos);
+//    	ModBlocks.edenPortal.makePortal(world, pos);
+//    	ModBlocks.wildwoodPortal.makePortal(world, pos);
+//    	ModBlocks.apalachiaPortal.makePortal(world, pos);
+//    	ModBlocks.skythernPortal.makePortal(world, pos);
+//    	ModBlocks.mortumPortal.makePortal(world, pos);
+//    	ModBlocks.iceikaPortal.makePortal(world, pos);
     }
 
     @Override

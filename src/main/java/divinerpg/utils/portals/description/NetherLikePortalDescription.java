@@ -1,5 +1,6 @@
 package divinerpg.utils.portals.description;
 
+import com.google.common.collect.Iterables;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.BlockWorldState;
@@ -12,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -59,6 +61,27 @@ public class NetherLikePortalDescription implements IPortalDescription {
     }
 
     @Override
+    public BlockPos getMaxSize() {
+        return new BlockPos(4, 4, 4);
+    }
+
+    @Override
+    public List<BlockPos> checkChunk(World world, BlockPos min, BlockPos max) {
+        ArrayList<BlockPos> poses = new ArrayList<>();
+
+        Iterable<BlockPos> zDirPoses = BlockPos.getAllInBox(min, new BlockPos(min.getX(), min.getY(), max.getZ()));
+        Iterable<BlockPos> xDirPoses = BlockPos.getAllInBox(new BlockPos(min.getX(), max.getY(), min.getZ()), new BlockPos(max.getX(), max.getY(), min.getZ()));
+
+        Iterables.concat(zDirPoses, xDirPoses).forEach(x -> {
+            Block block = world.getBlockState(x).getBlock();
+            if (block == getFrame() || block == getPortal())
+                poses.add(x);
+        });
+
+        return poses;
+    }
+
+    @Override
     public BlockPattern.PatternHelper createPortal(World world, BlockPos pos) {
         // starting from botton right corener
         final BlockPos rightBottom = pos.east();
@@ -84,7 +107,7 @@ public class NetherLikePortalDescription implements IPortalDescription {
         );
 
         for (BlockPos x : platformBlocks) {
-            if (Stream.of(pos, pos.down()).allMatch(world::isAirBlock)) {
+            if (Stream.of(x, x.down()).allMatch(world::isAirBlock)) {
                 world.setBlockState(x, frame.getDefaultState());
             }
         }

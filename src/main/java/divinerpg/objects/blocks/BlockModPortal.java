@@ -3,7 +3,8 @@ package divinerpg.objects.blocks;
 import divinerpg.DivineRPG;
 import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
-import divinerpg.utils.DivineTeleporter;
+import divinerpg.events.TeleporterEvents;
+import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -11,9 +12,8 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,6 +24,7 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -33,7 +34,6 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 public class BlockModPortal extends BlockBreakable {
-
     public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.create("axis",
             EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
     protected static final AxisAlignedBB X_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D);
@@ -45,15 +45,14 @@ public class BlockModPortal extends BlockBreakable {
         return a == EnumFacing.Axis.X ? 1 : (a == EnumFacing.Axis.Z ? 2 : 0);
     }
 
-    private Supplier<Block> fireBlockSupplier;
-    private Supplier<Block> portalFrameSupplier;
-    private Block portalBlock = this;
+    DimensionType dimId;
 
     ParticleType portalParticle;
     protected String name;
-    protected int dimId;
+    //private Supplier<Block> fireBlockSupplier;
+    private Supplier<Block> portalFrameSupplier;
 
-    public BlockModPortal(String name, int dimId, Supplier<Block> fireBlockSupplier, Supplier<Block> portalFrameSupplier, ParticleType particle) {
+    public BlockModPortal(String name, DimensionType dimId, Supplier<Block> fireBlockSupplier, Supplier<Block> portalFrameSupplier, ParticleType particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
         this.setRegistryName(Reference.MODID, name);
@@ -61,8 +60,9 @@ public class BlockModPortal extends BlockBreakable {
         this.setTickRandomly(true);
         this.setCreativeTab(null);
         this.setBlockUnbreakable();
+
         this.dimId = dimId;
-        this.fireBlockSupplier = fireBlockSupplier;
+        //this.fireBlockSupplier = fireBlockSupplier;
         this.portalFrameSupplier = portalFrameSupplier;
         this.portalParticle = particle;
     }
@@ -86,13 +86,13 @@ public class BlockModPortal extends BlockBreakable {
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         switch (state.getValue(AXIS)) {
-        case X:
-            return X_AABB;
-        case Y:
-        default:
-            return Y_AABB;
-        case Z:
-            return Z_AABB;
+            case X:
+                return X_AABB;
+            case Y:
+            default:
+                return Y_AABB;
+            case Z:
+                return Z_AABB;
         }
     }
 
@@ -126,62 +126,31 @@ public class BlockModPortal extends BlockBreakable {
         return false;
     }
 
-    public boolean makePortal(World worldIn, BlockPos p) {
-        BlockModPortal.Size size = new BlockModPortal.Size(worldIn, p, EnumFacing.Axis.X);
-        if (size.isValid() && size.portalBlockCount == 0) {
-            size.placePortalBlocks();
-            return true;
-        } else {
-            BlockModPortal.Size size1 = new BlockModPortal.Size(worldIn, p, EnumFacing.Axis.Z);
-            if (size1.isValid() && size1.portalBlockCount == 0) {
-                size1.placePortalBlocks();
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
+        IPortalDescription description = getPortalDescription();
 
-        if (enumfacing$axis == EnumFacing.Axis.X) {
-            BlockModPortal.Size EdenBlock$size = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.X);
-
-            if (!EdenBlock$size.isValid()
-                    || EdenBlock$size.portalBlockCount < EdenBlock$size.width * EdenBlock$size.height) {
-                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-            }
-        } else if (enumfacing$axis == EnumFacing.Axis.Z) {
-            BlockModPortal.Size BlockModPortal$size1 = new BlockModPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
-
-            if (!BlockModPortal$size1.isValid() || BlockModPortal$size1.portalBlockCount < BlockModPortal$size1.width
-                    * BlockModPortal$size1.height) {
-                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-            }
-        }
+        BlockPattern.PatternHelper helper = description.matchFrame(worldIn, pos);
+        if (helper == null)
+            worldIn.setBlockToAir(pos);
     }
 
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
-        if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
-            EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-            thePlayer.mcServer.getWorld(thePlayer.dimension);
-            int dimensionID = dimId;
-            if (thePlayer.timeUntilPortal > 0) {
-                thePlayer.timeUntilPortal = 40;
+        if (worldIn.isRemote)
+            return;
+
+        boolean canTransfer = entity.timeUntilPortal <= 0;
+        entity.timeUntilPortal = 40;
+
+
+        if (canTransfer) {
+            DimensionType destination = dimId;
+            if (worldIn.provider.getDimensionType() == destination) {
+                destination = DimensionType.OVERWORLD;
             }
-            else if (thePlayer.dimension != dimensionID) {
-                thePlayer.timeUntilPortal = 40;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-                        new DivineTeleporter(thePlayer.mcServer.getWorld(dimensionID), this,
-                                portalFrameSupplier.get().getDefaultState()));
-            } else {
-                thePlayer.timeUntilPortal = 40;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-                        new DivineTeleporter(thePlayer.mcServer.getWorld(0), this, portalFrameSupplier.get().getDefaultState()));
-            }
+
+            TeleporterEvents.transferEntity(entity, destination);
         }
     }
 
@@ -222,7 +191,7 @@ public class BlockModPortal extends BlockBreakable {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos,
-            EnumFacing side) {
+                                        EnumFacing side) {
         pos = pos.offset(side);
         EnumFacing.Axis enumfacing$axis = null;
 
@@ -264,160 +233,29 @@ public class BlockModPortal extends BlockBreakable {
     @Override
     public IBlockState withRotation(IBlockState state, Rotation rot) {
         switch (rot) {
-        case COUNTERCLOCKWISE_90:
-        case CLOCKWISE_90:
+            case COUNTERCLOCKWISE_90:
+            case CLOCKWISE_90:
 
-            switch (state.getValue(AXIS)) {
-            case X:
-                return state.withProperty(AXIS, EnumFacing.Axis.Z);
-            case Z:
-                return state.withProperty(AXIS, EnumFacing.Axis.X);
+                switch (state.getValue(AXIS)) {
+                    case X:
+                        return state.withProperty(AXIS, EnumFacing.Axis.Z);
+                    case Z:
+                        return state.withProperty(AXIS, EnumFacing.Axis.X);
+                    default:
+                        return state;
+                }
             default:
                 return state;
-            }
-        default:
-            return state;
         }
     }
 
-    public class Size {
-        private final World world;
-        private final EnumFacing.Axis axis;
-        private final EnumFacing rightDir;
-        private final EnumFacing leftDir;
-        private int portalBlockCount;
-        private BlockPos bottomLeft;
-        private int height;
-        private int width;
+    private IPortalDescription getPortalDescription() {
+        IPortalDescription description = TeleporterEvents.descriptionsByBlock.get(portalFrameSupplier.get());
 
-        public Size(World worldIn, BlockPos pos, EnumFacing.Axis axis) {
-            this.world = worldIn;
-            this.axis = axis;
-
-            if (axis == EnumFacing.Axis.X) {
-                this.leftDir = EnumFacing.EAST;
-                this.rightDir = EnumFacing.WEST;
-            } else {
-                this.leftDir = EnumFacing.NORTH;
-                this.rightDir = EnumFacing.SOUTH;
-            }
-
-            for (BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0
-                    && this.isEmptyBlock(worldIn.getBlockState(pos.down()).getBlock()); pos = pos.down()) {
-            }
-
-            int i = this.getDistanceUntilEdge(pos, this.leftDir) - 1;
-
-            if (i >= 0) {
-                this.bottomLeft = pos.offset(this.leftDir, i);
-                this.width = this.getDistanceUntilEdge(this.bottomLeft, this.rightDir);
-
-                if (this.width < 2 || this.width > 21) {
-                    this.bottomLeft = null;
-                    this.width = 0;
-                }
-            }
-
-            if (this.bottomLeft != null) {
-                this.height = this.calculatePortalHeight();
-            }
+        if (description == null) {
+            throw new RuntimeException("Can't detect portal description for Divine portal for dimension :" + dimId.getName());
         }
 
-        protected int calculatePortalHeight() {
-            Block portalFrame = portalFrameSupplier.get();
-            label56:
-
-            for (this.height = 0; this.height < 21; ++this.height) {
-                for (int i = 0; i < this.width; ++i) {
-                    BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i).up(this.height);
-                    Block block = this.world.getBlockState(blockpos).getBlock();
-
-                    if (!this.isEmptyBlock(block)) {
-                        break label56;
-                    }
-
-                    if (block == portalBlock) {
-                        ++this.portalBlockCount;
-                    }
-
-                    if (i == 0) {
-                        block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
-
-                        if (block != portalFrame) {
-                            break label56;
-                        }
-                    } else if (i == this.width - 1) {
-                        block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
-
-                        if (block != portalFrame) {
-                            break label56;
-                        }
-                    }
-                }
-            }
-
-            for (int j = 0; j < this.width; ++j) {
-                if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-                        .getBlock() != portalFrame) {
-                    this.height = 0;
-                    break;
-                }
-            }
-
-            if (this.height <= 21 && this.height >= 3) {
-                return this.height;
-            } else {
-                this.bottomLeft = null;
-                this.width = 0;
-                this.height = 0;
-                return 0;
-            }
-        }
-
-        protected int getDistanceUntilEdge(BlockPos pos, EnumFacing facing) {
-            Block portalFrame = portalFrameSupplier.get();
-
-            int i;
-
-            for (i = 0; i < 22; ++i) {
-                BlockPos blockpos = pos.offset(facing, i);
-
-                if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-                        || this.world.getBlockState(blockpos.down()).getBlock() != portalFrame) {
-                    break;
-                }
-            }
-
-            Block block = this.world.getBlockState(pos.offset(facing, i)).getBlock();
-            return block == portalFrame ? i : 0;
-        }
-
-        public int getHeight() {
-            return this.height;
-        }
-
-        public int getWidth() {
-            return this.width;
-        }
-        @Deprecated
-        protected boolean isEmptyBlock(Block blockIn) {
-            return blockIn.getMaterial(blockIn.getDefaultState()) == Material.AIR || blockIn == fireBlockSupplier.get()
-                    || blockIn == portalBlock;
-        }
-
-        public boolean isValid()
-        {
-            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
-        }
-
-        public void placePortalBlocks() {
-            for (int i = 0; i < this.width; ++i) {
-                BlockPos blockpos = this.bottomLeft.offset(this.rightDir, i);
-                for (int j = 0; j < this.height; ++j) {
-                    this.world.setBlockState(blockpos.up(j),
-                            portalBlock.getDefaultState().withProperty(BlockModPortal.AXIS, this.axis), 2);
-                }
-            }
-        }
+        return description;
     }
 }
