@@ -5,6 +5,8 @@ import com.google.gson.JsonObject;
 import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.registry.ModBlocks;
 import io.netty.util.internal.ConcurrentSet;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
@@ -148,6 +150,26 @@ public class Utils {
 
     public static boolean bordersTar(World w, BlockPos pos) {
         return bordersTar(w, pos.getX(), pos.getY(), pos.getZ());
+    }
+
+    public static int getSurfaceBlockY(World world, int x, int z) {
+        int y = world.getChunkFromBlockCoords(new BlockPos(x, 0, z)).getTopFilledSegment() + 16;
+
+        BlockPos pos;
+        IBlockState state;
+        Block block;
+        do {
+            --y;
+            if (y < 0) {
+                break;
+            }
+
+            pos = new BlockPos(x, y, z);
+            state = world.getBlockState(pos);
+            block = state.getBlock();
+        } while (block.isAir(state, world, pos) || block.isReplaceable(world, pos) || block.isWood(world, pos) || block.isFoliage(world, pos) || block.isLeaves(state, world, pos) || block.canBeReplacedByLeaves(state, world, pos));
+
+        return y;
     }
 
     public class HatsInfo {

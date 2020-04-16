@@ -1,6 +1,7 @@
 package divinerpg.utils.portals;
 
 import divinerpg.events.TeleporterEvents;
+import divinerpg.utils.Utils;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
@@ -8,10 +9,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.ITeleporter;
 
 import javax.annotation.Nullable;
@@ -19,8 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
 
-public class ServerPortal implements ITeleporter {
+public class ServerPortal implements ITeleporter, ITickListener {
     /**
      * Searching XZ portal radius
      */
@@ -45,9 +45,10 @@ public class ServerPortal implements ITeleporter {
     /**
      * Can call every tick.
      */
-    public void recheckPortals(MinecraftServer server) {
+    public void tick(MinecraftServer server) {
         if (nextTickTime > 0) {
             nextTickTime--;
+            return;
         }
 
         if (server == null || activePortals.isEmpty())
@@ -55,23 +56,39 @@ public class ServerPortal implements ITeleporter {
 
         nextTickTime = recheckDelay;
 
-        activePortals.forEach((dimensionType, portalsMap) -> {
-            if (portalsMap == null || portalsMap.isEmpty())
+        checkMap(activePortals, x -> server.getWorld(x.getId()));
+        checkMap(activeOverworldPortals, x -> server.getWorld(DimensionType.OVERWORLD.getId()));
+    }
+
+    /**
+     * Check single map for active portals
+     *
+     * @param map          - map with active portals
+     * @param getWorldFunc - get world func where portals live
+     */
+    private void checkMap(Map<DimensionType, Map<BlockPos, BlockPattern.PatternHelper>> map,
+                          Function<DimensionType, World> getWorldFunc) {
+        if (map.isEmpty())
+            return;
+
+        map.forEach((dimensionType, blockPosPatternHelperMap) -> {
+            if (blockPosPatternHelperMap == null || blockPosPatternHelperMap.isEmpty())
                 return;
 
-            WorldServer world = server.getWorld(dimensionType.getId());
+
+            World world = getWorldFunc.apply(dimensionType);
             IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(dimensionType);
 
             if (world == null || description == null)
                 return;
 
-            new ArrayList<>(portalsMap.keySet())
+            new ArrayList<>(blockPosPatternHelperMap.keySet())
                     .forEach(x -> {
                         BlockPattern.PatternHelper working = description.matchWorkingPortal(world, x);
                         if (working == null) {
-                            portalsMap.remove(x);
+                            blockPosPatternHelperMap.remove(x);
                         } else {
-                            portalsMap.put(x, working);
+                            blockPosPatternHelperMap.put(x, working);
                         }
                     });
         });
@@ -101,7 +118,7 @@ public class ServerPortal implements ITeleporter {
             return;
 
         // search in cache
-        BlockPattern.PatternHelper portalMatch = findFromCache(cache, entityPosition);
+        BlockPattern.PatternHelper portalMatch = findFromCache(cache, entityPosition, 128);
 
         if (portalMatch == null) {
             portalMatch = scanWorld(world, description, entityPosition.add(-radius, -radius, -radius), entityPosition.add(radius, radius, radius));
@@ -123,6 +140,8 @@ public class ServerPortal implements ITeleporter {
         if (entity instanceof EntityPlayerMP) {
             ((EntityPlayerMP) entity).connection.setPlayerLocation(position.getX(), position.getY(), position.getZ(), entity.rotationYaw, entity.rotationPitch);
         }
+
+        entity.timeUntilPortal = entity.getPortalCooldown();
     }
 
     /**
@@ -132,12 +151,19 @@ public class ServerPortal implements ITeleporter {
      * @return
      */
     @Nullable
-    protected BlockPattern.PatternHelper findFromCache(Map<BlockPos, BlockPattern.PatternHelper> activePortals, BlockPos pos) {
-        int radius = 128;
-        AxisAlignedBB searchRadius = new AxisAlignedBB(pos.add(-radius, -radius, -radius), pos.add(radius, radius, radius));
+    protected BlockPattern.PatternHelper findFromCache(Map<BlockPos, BlockPattern.PatternHelper> activePortals, BlockPos pos, int radius) {
+        BlockPos min = pos.add(-radius, -radius, -radius);
+        AxisAlignedBB size = new AxisAlignedBB(min, pos.add(radius, radius, radius));
 
         for (Map.Entry<BlockPos, BlockPattern.PatternHelper> entry : activePortals.entrySet()) {
-            if (searchRadius.contains(new Vec3d(entry.getKey()))) {
+            BlockPos possiblePos = entry.getKey();
+
+            if (size.minX <= possiblePos.getX() && possiblePos.getX() <= size.maxX
+                    &&
+                    size.minY <= possiblePos.getY() && possiblePos.getY() <= size.maxY
+                    &&
+                    size.minZ <= possiblePos.getZ() && possiblePos.getZ() <= size.maxZ
+            ) {
                 return entry.getValue();
             }
         }
@@ -154,21 +180,24 @@ public class ServerPortal implements ITeleporter {
      */
     @Nullable
     protected BlockPattern.PatternHelper scanWorld(World world, IPortalDescription description, BlockPos min, BlockPos max) {
-        AxisAlignedBB range = new AxisAlignedBB(min, max);
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(min);
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
         BlockPos portalSize = description.getMaxSize();
 
-        while (range.intersects(new Vec3d(pos), new Vec3d(max))) {
-            for (BlockPos blockPos : description.checkChunk(world, pos, pos.add(portalSize))) {
-                BlockPattern.PatternHelper match = description.matchFrame(world, blockPos);
+        for (int x = min.getX(); x <= max.getX(); x += portalSize.getX() + 1) {
+            for (int z = min.getZ(); z <= max.getZ(); z += portalSize.getZ() + 1) {
+                for (int y = max.getY(); y >= min.getY(); y -= portalSize.getY() - 1) {
+                    pos.setPos(x, y, z);
 
-                if (match != null)
-                    return match;
+                    for (BlockPos blockPos : description.checkChunk(world, pos, pos.add(portalSize))) {
+                        BlockPattern.PatternHelper match = description.matchFrame(world, blockPos);
+
+                        if (match != null)
+                            return match;
+                    }
+                }
+
             }
-
-            pos.setPos(pos.getX() + 1 + portalSize.getX(), pos.getY() + 1 + portalSize.getY(), pos.getZ() + 1 + portalSize.getZ());
         }
-
 
         return null;
     }
@@ -184,22 +213,34 @@ public class ServerPortal implements ITeleporter {
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
         BlockPos size = description.getMaxSize().add(2, 2, 2);
 
-        if (min.getY() < 5 + size.getY()) {
-            min = min.add(0, 5 + size.getY() - min.getY(), 0);
+        if (min.getY() < 1) {
+            min = new BlockPos(min.getX(), 1, min.getZ());
         }
 
-        if (max.getY() > destination.getHeight() - 5 - size.getY()) {
-            max = max.add(0, max.getY() - destination.getHeight() - 5 - size.getY(), 0);
+        int seaLevel = destination.getSeaLevel();
+
+        if (max.getY() > seaLevel) {
+            max = max.add(0, seaLevel - max.getY(), 0);
         }
 
         for (int x = min.getX(); x <= max.getX(); x++) {
             for (int z = min.getX(); z <= max.getX(); z++) {
-                for (int y = max.getY(); y > min.getY(); y--) {
-                    pos.setPos(x, y, z);
 
-                    BlockPos topSurfacePos = findTopSurfacePos(destination, pos, pos.add(size), min.getY());
-                    if (topSurfacePos != null)
-                        return topSurfacePos;
+                pos.setPos(x, Utils.getSurfaceBlockY(destination, x, z) + 1, z);
+
+                if (pos.getY() == 0)
+                    continue;
+
+//                pos.setPos(x, seaLevel, z);
+//                BlockPos topPos = destination.getPrecipitationHeight(pos);
+//                destination.getHeight(topPos)
+//
+//
+//                if (destination.isAirBlock(topPos))
+//                    continue;
+
+                if (isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(size)))) {
+                    return pos.toImmutable();
                 }
             }
         }
@@ -209,41 +250,7 @@ public class ServerPortal implements ITeleporter {
         return e.getPosition();
     }
 
-    /**
-     * Find nearest surface position
-     *
-     * @param start
-     * @param end
-     * @return
-     */
-    @Nullable
-    private BlockPos findTopSurfacePos(World destination, BlockPos start, BlockPos end, int minY) {
-        AxisAlignedBB size = new AxisAlignedBB(start, end);
-
-        if (size.minY < minY) {
-            size = size.offset(0, minY - size.minY, 0);
-        }
-
-        if (size.maxY > destination.getHeight()) {
-            size = size.offset(0, destination.getHeight() - size.maxY, 0);
-        }
-
-        if (isAirBlocks(destination, size) && size.minY > minY) {
-            AxisAlignedBB temp = size.offset(0, -1, 0);
-
-            while (isAirBlocks(destination, temp) && temp.minY > minY) {
-                size = temp;
-                temp = temp.offset(0, -1, 0);
-            }
-
-            return new BlockPos(size.minX, size.minY, size.minZ);
-        }
-
-
-        return null;
-    }
-
-    private boolean isAirBlocks(World world, AxisAlignedBB size) {
+    protected boolean isAirBlocks(World world, AxisAlignedBB size) {
         AtomicBoolean result = new AtomicBoolean(true);
 
         BlockPos.getAllInBoxMutable(

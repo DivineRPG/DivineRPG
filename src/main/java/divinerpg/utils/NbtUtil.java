@@ -5,10 +5,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.Tuple;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.DimensionType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,5 +143,23 @@ public class NbtUtil {
         }
 
         return persistantData.getCompoundTag(Reference.MODID);
+    }
+
+    /**
+     * Read position/dimension from NBT tag
+     *
+     * @param tag    - NBT  tag
+     * @param dimKey - dimension tag name
+     * @param posKey - position tag name
+     * @return
+     */
+    @Nullable
+    public static Tuple<DimensionType, BlockPos> tryReaPosition(NBTTagCompound tag, String dimKey, String posKey) {
+        if (tag == null || dimKey == null || posKey == null
+                || !tag.hasKey(dimKey) || !tag.hasKey(posKey))
+            return null;
+
+        return new Tuple<>(DimensionType.byName(tag.getString(dimKey)),
+                BlockPos.fromLong(tag.getLong(posKey)));
     }
 }

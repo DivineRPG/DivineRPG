@@ -1,13 +1,11 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.dimensions.vethea.TeleporterVethea;
-import divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
+import divinerpg.events.TeleporterEvents;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.LocalizeUtils;
-import divinerpg.utils.NbtUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -22,28 +20,22 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.Random;
 
 // todo check replacement poses
 public class BlockNightmareBed extends BlockHorizontal implements ITileEntityProvider {
@@ -163,70 +155,82 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      * Called when the block is right clicked by a player.
      */
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (worldIn.isRemote) return true;
-        else {
-            EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
 
-            this.persistentData = playerIn.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+        if (!worldIn.isRemote) {
+            if (worldIn.getLight(pos) < 9845) {
+                DimensionType to = worldIn.provider.getDimensionType() == ModDimensions.vetheaDimension
+                        ? DimensionType.OVERWORLD
+                        : ModDimensions.vetheaDimension;
 
-            if (playerIn.world.provider.getDimension() == 0) {
-                if (worldIn.getBlockLightOpacity(pos) > 7) {
-                    playerIn.sendMessage(LocalizeUtils.getClientSideTranslation(playerIn, "message.nightmare_bed.restrict"));
-                    return true;
-                }
-                EntityPlayer entityplayer1 = null;
-                Iterator iterator = worldIn.playerEntities.iterator();
-
-                while (iterator.hasNext()) {
-                    EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
-
-                    if (entityplayer1 != null) {
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied"), true);
-                        return true;
-                    }
-
-                    this.persistentData.setTag("OverworldInv", playerIn.inventory.writeToNBT(new NBTTagList()));
-                    playerIn.getEntityData().setTag("PlayerPersisted", this.persistentData);
-                    playerIn.inventory.clear();
-                    NBTTagList inv = this.persistentData.getTagList("VetheaInv", 10);
-                    playerIn.inventory.readFromNBT(inv);
-                    playerIn.inventoryContainer.detectAndSendChanges();
-
-                    MPPlayer.timeUntilPortal = 10;
-                    int oldDimension = playerIn.getEntityWorld().provider.getDimension();
-                    EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
-                    MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
-                    WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
-                    playerIn.addExperienceLevel(0);
-                    if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
-                        pos = worldServer.getTopSolidOrLiquidBlock(pos);
-                    }
-                    double x = pos.getX(), y = 17, z = pos.getZ();
-                    worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, ModDimensions.vetheaDimension.getId(),
-                            new TeleporterVethea(worldServer));
-
-                    playerIn.setPositionAndUpdate(x, y, z);
-                    return true;
-                }
-                return true;
-            } else if (playerIn.world.provider.getDimension() == ModDimensions.vetheaDimension.getId()) {
-                int oldDimension = playerIn.getEntityWorld().provider.getDimension();
-                EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
-                MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
-                WorldServer worldServer = server.getWorld(0);
-                playerIn.addExperienceLevel(0);
-
-                if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
-                    pos = worldServer.getTopSolidOrLiquidBlock(pos);
-                }
-                double x = pos.getX(), y = pos.getY(), z = pos.getZ();
-                worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, 0,
-                        new TeleporterVetheaToOverworld(worldServer));
-                playerIn.setPositionAndUpdate(x, y, z);
-                return true;
+                TeleporterEvents.transferEntity(playerIn, to);
+            } else {
+                playerIn.sendMessage(LocalizeUtils.getClientSideTranslation(playerIn, "message.nightmare_bed.restrict"));
             }
         }
+
         return true;
+
+//        if (worldIn.isRemote) return true;
+//        else {
+//            EntityPlayerMP MPPlayer = (EntityPlayerMP) playerIn;
+//
+//            this.persistentData = playerIn.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+//
+//            if (playerIn.world.provider.getDimension() == 0) {
+
+//                EntityPlayer entityplayer1 = null;
+//                Iterator iterator = worldIn.playerEntities.iterator();
+//
+//                while (iterator.hasNext()) {
+//                    EntityPlayer entityplayer2 = (EntityPlayer) iterator.next();
+//
+//                    if (entityplayer1 != null) {
+//                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.bed.occupied"), true);
+//                        return true;
+//                    }
+//
+//                    this.persistentData.setTag("OverworldInv", playerIn.inventory.writeToNBT(new NBTTagList()));
+//                    playerIn.getEntityData().setTag("PlayerPersisted", this.persistentData);
+//                    playerIn.inventory.clear();
+//                    NBTTagList inv = this.persistentData.getTagList("VetheaInv", 10);
+//                    playerIn.inventory.readFromNBT(inv);
+//                    playerIn.inventoryContainer.detectAndSendChanges();
+//
+//                    MPPlayer.timeUntilPortal = 10;
+//                    int oldDimension = playerIn.getEntityWorld().provider.getDimension();
+//                    EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
+//                    MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
+//                    WorldServer worldServer = server.getWorld(ModDimensions.vetheaDimension.getId());
+//                    playerIn.addExperienceLevel(0);
+//                    if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
+//                        pos = worldServer.getTopSolidOrLiquidBlock(pos);
+//                    }
+//                    double x = pos.getX(), y = 17, z = pos.getZ();
+//                    worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, ModDimensions.vetheaDimension.getId(),
+//                            new TeleporterVethea(worldServer));
+//
+//                    playerIn.setPositionAndUpdate(x, y, z);
+//                    return true;
+//                }
+//                return true;
+//            } else if (playerIn.world.provider.getDimension() == ModDimensions.vetheaDimension.getId()) {
+//                int oldDimension = playerIn.getEntityWorld().provider.getDimension();
+//                EntityPlayerMP entityPlayerMP = (EntityPlayerMP) playerIn;
+//                MinecraftServer server = playerIn.getEntityWorld().getMinecraftServer();
+//                WorldServer worldServer = server.getWorld(0);
+//                playerIn.addExperienceLevel(0);
+//
+//                if (EntityPlayer.getBedSpawnLocation(worldServer, pos, true) == null) {
+//                    pos = worldServer.getTopSolidOrLiquidBlock(pos);
+//                }
+//                double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+//                worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, 0,
+//                        new TeleporterVetheaToOverworld(worldServer));
+//                playerIn.setPositionAndUpdate(x, y, z);
+//                return true;
+//            }
+//        }
+//        return true;
     }
 
     /**
@@ -317,7 +321,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
      */
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te, ItemStack stack) {
         if (state.getValue(PART) == BlockNightmareBed.EnumPartType.HEAD && te instanceof TileEntityNightmareBed) {
-            TileEntityNightmareBed TileEntityNightmareBed = (TileEntityNightmareBed)te;
+            TileEntityNightmareBed TileEntityNightmareBed = (TileEntityNightmareBed) te;
             ItemStack itemstack = TileEntityNightmareBed.getItemStack();
             spawnAsEntity(worldIn, pos, itemstack);
         } else {
@@ -437,41 +441,5 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         public String getName() {
             return this.name;
         }
-    }
-
-    /**
-     * Handling dimension change
-     *
-     * @param player  - player
-     * @param old     - old dim
-     * @param current - current dim
-     */
-    public static void onChangeDimension(EntityPlayer player, DimensionType old, DimensionType current) {
-        if (player == null || old == null || current == null)
-            return;
-
-        // we need different dimensions including vethea
-        if (old == current || old != ModDimensions.vetheaDimension && current != ModDimensions.vetheaDimension)
-            return;
-
-        NBTTagCompound tag = NbtUtil.getPersistedDivineTag(player);
-
-        List<String> tagNames = Arrays.asList("OverworldInv", "VetheaInv");
-
-        if (old == ModDimensions.vetheaDimension) {
-            Collections.reverse(tagNames);
-        }
-
-        String saveTo = tagNames.get(0);
-        tag.setTag(saveTo, player.inventory.writeToNBT(new NBTTagList()));
-        player.inventory.clear();
-
-        String loadFrom = tagNames.get(1);
-        NBTBase base = tag.getTag(loadFrom);
-        if (base instanceof NBTTagList) {
-            player.inventory.readFromNBT((NBTTagList) base);
-        }
-
-        player.inventoryContainer.detectAndSendChanges();
     }
 }
