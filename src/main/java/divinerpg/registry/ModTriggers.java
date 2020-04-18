@@ -3,6 +3,7 @@ package divinerpg.registry;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import divinerpg.DivineRPG;
 import divinerpg.events.advancementtriggers.AdvancementDivineBlock;
 import divinerpg.events.advancementtriggers.AdvancementDivineEye;
 import divinerpg.events.advancementtriggers.AdvancementDivineItem;
@@ -20,7 +21,7 @@ public class ModTriggers {
     public static final AdvancementDivineEye[] TRIGGER_ARRAY2 = new AdvancementDivineEye[] { DIVINERPG_EYE };
 
     public static void registerTriggers() {
-        System.out.println("Registering custom triggers");
+        DivineRPG.logger.info("Registering custom triggers");
 
         Method method;
 

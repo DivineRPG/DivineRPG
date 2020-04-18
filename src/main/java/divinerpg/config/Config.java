@@ -45,7 +45,7 @@ public class Config {
         apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_DIMENSION, 422, 2, 4096, "Apalachia dimension ID");
         skythernDimensionId = cfg.getInt("skythernId", CATEGORY_DIMENSION, 423, 2, 4096, "Skythern dimension ID");
         mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 424, 2, 4096, "Mortum dimension ID");
-        iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 7, 2, 4096, "Iceika dimension ID");
+        iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 425, 2, 4096, "Iceika dimension ID");
         arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 426, 2, 4096, "Arcana dimension ID");
         vetheaDimensionId = cfg.getInt("vetheaId", CATEGORY_DIMENSION, 427, 2, 4096, "Vethea dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase,
