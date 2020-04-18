@@ -51,7 +51,7 @@ public class ServerPortal implements ITeleporter, ITickListener {
             return;
         }
 
-        if (server == null || activePortals.isEmpty())
+        if (server == null)
             return;
 
         nextTickTime = recheckDelay;
@@ -84,6 +84,10 @@ public class ServerPortal implements ITeleporter, ITickListener {
 
             new ArrayList<>(blockPosPatternHelperMap.keySet())
                     .forEach(x -> {
+                        // do not need to check not loaded portals
+                        if (!world.isBlockLoaded(x))
+                            return;
+
                         BlockPattern.PatternHelper working = description.matchWorkingPortal(world, x);
                         if (working == null) {
                             blockPosPatternHelperMap.remove(x);
@@ -118,13 +122,15 @@ public class ServerPortal implements ITeleporter, ITickListener {
             return;
 
         // search in cache
-        BlockPattern.PatternHelper portalMatch = findFromCache(cache, entityPosition, 128);
+        BlockPattern.PatternHelper portalMatch = findFromCache(cache, entityPosition, radius * 2);
 
         if (portalMatch == null) {
             portalMatch = scanWorld(world, description, entityPosition.add(-radius, -radius, -radius), entityPosition.add(radius, radius, radius));
 
             if (portalMatch == null) {
-                entityPosition = findSuitablePosition(world, description, entity, entityPosition.add(-radius, -radius, -radius), entityPosition.add(radius, 256 - entityPosition.getY(), radius));
+                entityPosition = findSuitablePosition(world, description, entity,
+                        entityPosition.add(-radius, -radius, -radius),
+                        entityPosition.add(radius, 256 - entityPosition.getY(), radius));
                 portalMatch = description.createPortal(world, entityPosition);
             }
 
@@ -201,7 +207,7 @@ public class ServerPortal implements ITeleporter, ITickListener {
                         continue;
 
                     for (BlockPos blockPos : description.checkChunk(world, pos, pos.add(portalSize))) {
-                        BlockPattern.PatternHelper match = description.matchFrame(world, blockPos);
+                        BlockPattern.PatternHelper match = description.matchWorkingPortal(world, blockPos);
 
                         if (match != null)
                             return match;

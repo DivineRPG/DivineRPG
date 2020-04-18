@@ -34,7 +34,7 @@ public class TeleporterEvents {
      * Should call after ModDimensions.registerDimensions()
      */
     public static void initPortalDescriptions() {
-        ServerPortal portal = new ServerPortal(32, 20 * 10);
+        ServerPortal portal = new ServerPortal(128, 20 * 10);
 
         add(ModDimensions.edenDimension, new NetherLikePortalDescription(ModBlocks.divineRock, ModBlocks.edenPortal), portal);
         add(ModDimensions.wildWoodDimension, new NetherLikePortalDescription(ModBlocks.edenBlock, ModBlocks.wildwoodPortal), portal);
@@ -43,7 +43,7 @@ public class TeleporterEvents {
         add(ModDimensions.mortumDimension, new NetherLikePortalDescription(ModBlocks.skythernBlock, ModBlocks.mortumPortal), portal);
         add(ModDimensions.iceikaDimension, new NetherLikePortalDescription(Blocks.SNOW, ModBlocks.iceikaPortal), portal);
 
-        VetheaPortal vetheaPortal = new VetheaPortal(32, 20 * 60);
+        VetheaPortal vetheaPortal = new VetheaPortal(128, 20 * 60);
         add(ModDimensions.vetheaDimension, new VetheaPortalDescription(), vetheaPortal);
 
         ArcanaTeleporter teleporter = new ArcanaTeleporter(20 * 60);
