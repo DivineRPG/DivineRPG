@@ -75,7 +75,7 @@ public class DivineRPGTabs extends CreativeTabs {
 	public static DivineRPGTabs vethea = new DivineRPGTabs("Vethea") {
 		@Override
 		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() { return new ItemStack(ModItems.corruptedStone); }
+		public ItemStack getTabIconItem() { return new ItemStack(ModItems.dreamCake); }
 	};
 
 	public static void init() {
