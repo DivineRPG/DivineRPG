@@ -38,31 +38,50 @@ public class ItemTwilightClock extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
                                       EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-        pos = pos.offset(facing);
         ItemStack itemstack = player.getHeldItem(hand);
         if (!player.canPlayerEdit(pos, facing, itemstack)) {
             return EnumActionResult.FAIL;
         }
 
-        if (worldIn.isAirBlock(pos) && !worldIn.isRemote) {
+        BlockPos withOffset = pos.offset(facing);
 
-            worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
+        if (!worldIn.isRemote
+                && worldIn.isAirBlock(withOffset)
+                && worldIn.isAirBlock(pos.up())) {
+
+            worldIn.playSound(player, withOffset, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
                     itemRand.nextFloat() * 0.4F + 0.8F);
 
-            Block block = worldIn.getBlockState(pos.down()).getBlock();
+            Block block = worldIn.getBlockState(pos).getBlock();
 
             if (possibleBlocks.contains(block)) {
                 IPortalDescription description = TeleporterEvents.descriptionsByBlock.get(block);
                 if (description != null) {
-                    BlockPattern.PatternHelper match = description.matchFrame(worldIn, pos.down());
-                    if (match != null) {
-                        description.lightPortal(worldIn, match);
+                    Block frame = description.getFrame();
+                    BlockPos end = pos.add(0, description.getMaxSize().getY(), 0);
+                    boolean findFrame = false;
+
+                    while (!end.equals(pos)) {
+                        if (worldIn.getBlockState(end).getBlock() == frame) {
+                            findFrame = true;
+                            break;
+                        }
+
+                        end = end.down();
+                    }
+
+                    if (findFrame) {
+                        BlockPattern.PatternHelper match = description.matchFrame(worldIn, pos);
+                        if (match != null) {
+                            description.lightPortal(worldIn, match);
+
+                            return EnumActionResult.SUCCESS;
+                        }
                     }
                 }
             }
         }
 
-        return EnumActionResult.SUCCESS;
+        return EnumActionResult.FAIL;
     }
 }

@@ -106,10 +106,9 @@ public class NetherLikePortalDescription implements IPortalDescription {
                 rightBottom.west(2).south()
         );
 
-        for (BlockPos x : platformBlocks) {
-            if (Stream.of(x, x.down()).allMatch(world::isAirBlock)) {
-                world.setBlockState(x, frame.getDefaultState());
-            }
+        if (platformBlocks.stream().flatMap(x -> Stream.of(x, x.down()))
+                .anyMatch(world::isAirBlock)) {
+            platformBlocks.forEach(x -> world.setBlockState(x, frame.getDefaultState()));
         }
 
         lightPortal(world, leftTop, EnumFacing.SOUTH, EnumFacing.DOWN);

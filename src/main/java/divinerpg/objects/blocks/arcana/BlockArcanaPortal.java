@@ -1,19 +1,20 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.api.Reference;
-import divinerpg.dimensions.arcana.ArcanaTeleporter;
 import divinerpg.enums.EnumBlockType;
-import divinerpg.registry.ModBlocks;
+import divinerpg.events.TeleporterEvents;
+import divinerpg.registry.ModDimensions;
+import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -63,7 +64,7 @@ public class BlockArcanaPortal extends Block {
 
     @Override
     public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
-            List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
+                                      List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
     }
 
     @Override
@@ -78,45 +79,35 @@ public class BlockArcanaPortal extends Block {
 
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
-        if ((entity.getRidingEntity() == null) && ((entity instanceof EntityPlayerMP))) {
-            EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
-            thePlayer.mcServer.getWorld(thePlayer.dimension);
-            int dimensionID = dimId;
-            if (thePlayer.timeUntilPortal > 0) {
-                thePlayer.timeUntilPortal = 40;
-            } else if (thePlayer.dimension != dimensionID) {
-                thePlayer.timeUntilPortal = 40;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, dimensionID,
-                        new ArcanaTeleporter(thePlayer.mcServer.getWorld(dimensionID)));
-                thePlayer.addExperience(0);
-            } else {
-                thePlayer.timeUntilPortal = 40;
-                thePlayer.mcServer.getPlayerList().transferPlayerToDimension(thePlayer, 0,
-                        new ArcanaTeleporter(thePlayer.mcServer.getWorld(0)));
-                thePlayer.addExperience(0);
-            }
+        if (worldIn.isRemote)
+            return;
+
+        boolean canTransfer = entity.timeUntilPortal <= 0;
+        entity.timeUntilPortal = 40;
+
+        if (!canTransfer)
+            return;
+
+        DimensionType destination = ModDimensions.arcanaDimension;
+        if (destination == worldIn.provider.getDimensionType()) {
+            destination = DimensionType.OVERWORLD;
         }
+
+        TeleporterEvents.transferEntity(entity, destination);
     }
 
     @Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if (blockIn == ModBlocks.arcanaPortalFrame) {
-            int startX = pos.getX();
-            int startZ = pos.getZ();
-            /* Find upper left hand corner of portal */
-            while (world.getBlockState(new BlockPos(startX - 1, pos.getY(), startZ)).getBlock() == this)
-                startX--;
-            while (world.getBlockState(new BlockPos(startX, pos.getY(), startZ - 1)).getBlock() == this)
-                startZ--;
+        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
+        BlockPattern.PatternHelper portal = description.matchFrame(world, pos);
 
-            /* Replace portal blocks with air */
-            for (int scanZ = startZ; scanZ < startZ + 3; scanZ++) {
-                for (int scanX = startX; scanX < startX + 3; scanX++) {
-                    if (world.getBlockState(new BlockPos(scanX, pos.getY(), scanZ)).getBlock() == this) {
-                        world.setBlockState(new BlockPos(scanX, pos.getY(), scanZ), Blocks.AIR.getDefaultState());
-                    }
-                }
-            }
+        if (portal == null) {
+            BlockPos.getAllInBoxMutable(pos.add(-1, 0, -1), pos.add(1, 0, 1))
+                    .forEach(x -> {
+                        if (world.getBlockState(x).getBlock() == this) {
+                            world.setBlockToAir(x);
+                        }
+                    });
         }
     }
 

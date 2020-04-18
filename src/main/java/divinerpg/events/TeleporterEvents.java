@@ -6,9 +6,7 @@ import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.ITickListener;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.VetheaPortal;
-import divinerpg.utils.portals.description.IPortalDescription;
-import divinerpg.utils.portals.description.NetherLikePortalDescription;
-import divinerpg.utils.portals.description.VetheaPortalDescription;
+import divinerpg.utils.portals.description.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -47,6 +45,11 @@ public class TeleporterEvents {
 
         VetheaPortal vetheaPortal = new VetheaPortal(32, 20 * 60);
         add(ModDimensions.vetheaDimension, new VetheaPortalDescription(), vetheaPortal);
+
+        ArcanaTeleporter teleporter = new ArcanaTeleporter(20 * 60);
+        add(ModDimensions.arcanaDimension,
+                new ArcanaPortalRoomDescription(ModBlocks.arcanaPortalFrame, ModBlocks.arcanaPortal),
+                teleporter);
     }
 
     @SubscribeEvent

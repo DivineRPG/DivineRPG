@@ -6,7 +6,6 @@ package divinerpg;
 import divinerpg.api.Reference;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.events.ArcanaTickHandler;
-import divinerpg.events.ChangeDimensionFixes;
 import divinerpg.events.EventEntityDrop;
 import divinerpg.events.TeleporterEvents;
 import divinerpg.events.enchants.DiggingTaskFactory;
@@ -60,7 +59,6 @@ public class DivineRPG {
         proxy.registerTileEntities();
         proxy.RegisterTileEntityRender();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
-        MinecraftForge.EVENT_BUS.register(new ChangeDimensionFixes());
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initMessages();
         AttributeFixer.init();

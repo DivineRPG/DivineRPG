@@ -183,10 +183,22 @@ public class ServerPortal implements ITeleporter, ITickListener {
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
         BlockPos portalSize = description.getMaxSize();
 
-        for (int x = min.getX(); x <= max.getX(); x += portalSize.getX() + 1) {
-            for (int z = min.getZ(); z <= max.getZ(); z += portalSize.getZ() + 1) {
-                for (int y = max.getY(); y >= min.getY(); y -= portalSize.getY() - 1) {
+        if (max.getY() > world.getHeight()) {
+            max = new BlockPos(max.getX(), world.getHeight(), max.getZ());
+        }
+
+        if (min.getY() < 0) {
+            min = new BlockPos(min.getX(), 0, min.getZ());
+        }
+
+
+        for (int x = min.getX(); x <= max.getX(); x += portalSize.getX()) {
+            for (int z = min.getZ(); z <= max.getZ(); z += portalSize.getZ()) {
+                for (int y = max.getY(); y >= min.getY(); y -= portalSize.getY()) {
                     pos.setPos(x, y, z);
+
+                    if (world.isOutsideBuildHeight(pos))
+                        continue;
 
                     for (BlockPos blockPos : description.checkChunk(world, pos, pos.add(portalSize))) {
                         BlockPattern.PatternHelper match = description.matchFrame(world, blockPos);
@@ -230,14 +242,6 @@ public class ServerPortal implements ITeleporter, ITickListener {
 
                 if (pos.getY() == 0)
                     continue;
-
-//                pos.setPos(x, seaLevel, z);
-//                BlockPos topPos = destination.getPrecipitationHeight(pos);
-//                destination.getHeight(topPos)
-//
-//
-//                if (destination.isAirBlock(topPos))
-//                    continue;
 
                 if (isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(size)))) {
                     return pos.toImmutable();
