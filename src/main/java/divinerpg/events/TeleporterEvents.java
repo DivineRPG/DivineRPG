@@ -3,32 +3,24 @@ package divinerpg.events;
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
-import divinerpg.utils.portals.ITickListener;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.VetheaPortal;
 import divinerpg.utils.portals.description.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.util.ITeleporter;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class TeleporterEvents {
     public final static Map<Block, IPortalDescription> descriptionsByBlock = new HashMap<>();
     public final static Map<DimensionType, IPortalDescription> descriptionsByDimension = new HashMap<>();
     private final static Map<DimensionType, ITeleporter> teleporterMapByModdedDimension = new HashMap<>();
-    private final static Set<ITickListener> listeners = new HashSet<>();
 
     /**
      * Should call after ModDimensions.registerDimensions()
@@ -52,24 +44,10 @@ public class TeleporterEvents {
                 teleporter);
     }
 
-    @SubscribeEvent
-    public static void onTick(TickEvent.ServerTickEvent e) {
-        if (e.phase == TickEvent.Phase.END) {
-            MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-
-            if (server != null) {
-                listeners.forEach(x -> x.tick(server));
-            }
-        }
-    }
-
     private static void add(DimensionType type, IPortalDescription description, ITeleporter teleporter) {
         descriptionsByBlock.put(description.getFrame(), description);
         descriptionsByDimension.put(type, description);
         teleporterMapByModdedDimension.put(type, teleporter);
-
-        if (teleporter instanceof ITickListener)
-            listeners.add(((ITickListener) teleporter));
     }
 
     /**

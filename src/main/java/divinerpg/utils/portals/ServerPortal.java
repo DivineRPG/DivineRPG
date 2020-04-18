@@ -1,12 +1,12 @@
 package divinerpg.utils.portals;
 
+import com.google.common.collect.Lists;
 import divinerpg.events.TeleporterEvents;
 import divinerpg.utils.Utils;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
@@ -16,17 +16,19 @@ import net.minecraftforge.common.util.ITeleporter;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
-public class ServerPortal implements ITeleporter, ITickListener {
+public class ServerPortal implements ITeleporter {
     /**
      * Searching XZ portal radius
      */
     protected final int radius;
-    private final Map<DimensionType, Map<BlockPos, BlockPattern.PatternHelper>> activePortals;
-    private final Map<DimensionType, Map<BlockPos, BlockPattern.PatternHelper>> activeOverworldPortals;
+
+    private final Map<DimensionType, List<WorkingPortalInfo>> activePortals;
+    private final Map<DimensionType, List<WorkingPortalInfo>> activeOverworldPortals;
     /**
      * delay between portal recheck
      */
@@ -40,24 +42,6 @@ public class ServerPortal implements ITeleporter, ITickListener {
 
         activePortals = new HashMap<>();
         activeOverworldPortals = new HashMap<>();
-    }
-
-    /**
-     * Can call every tick.
-     */
-    public void tick(MinecraftServer server) {
-        if (nextTickTime > 0) {
-            nextTickTime--;
-            return;
-        }
-
-        if (server == null)
-            return;
-
-        nextTickTime = recheckDelay;
-
-        checkMap(activePortals, x -> server.getWorld(x.getId()));
-        checkMap(activeOverworldPortals, x -> server.getWorld(DimensionType.OVERWORLD.getId()));
     }
 
     /**
@@ -82,10 +66,13 @@ public class ServerPortal implements ITeleporter, ITickListener {
             if (world == null || description == null)
                 return;
 
+            BlockPos size = description.getMaxSize();
+
+
             new ArrayList<>(blockPosPatternHelperMap.keySet())
                     .forEach(x -> {
                         // do not need to check not loaded portals
-                        if (!world.isBlockLoaded(x))
+                        if (!world.isAreaLoaded(x.subtract(size), x.add(size)))
                             return;
 
                         BlockPattern.PatternHelper working = description.matchWorkingPortal(world, x);
@@ -107,7 +94,7 @@ public class ServerPortal implements ITeleporter, ITickListener {
 
         // non vanilla mod dimension
         DimensionType modDimension = destination;
-        Map<BlockPos, BlockPattern.PatternHelper> cache = activePortals.computeIfAbsent(modDimension, x -> new HashMap<>());
+        List<WorkingPortalInfo> cache = activePortals.computeIfAbsent(modDimension, x -> Lists.newArrayList());
 
         IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(destination);
 
@@ -115,14 +102,14 @@ public class ServerPortal implements ITeleporter, ITickListener {
         if (description == null) {
             description = TeleporterEvents.descriptionsByDimension.get(current);
             modDimension = current;
-            cache = activeOverworldPortals.computeIfAbsent(modDimension, x -> new HashMap<>());
+            cache = activeOverworldPortals.computeIfAbsent(modDimension, x -> Lists.newArrayList());
         }
 
         if (description == null)
             return;
 
         // search in cache
-        BlockPattern.PatternHelper portalMatch = findFromCache(cache, entityPosition, radius * 2);
+        BlockPattern.PatternHelper portalMatch = findFromCache(world, description, cache, entityPosition, radius * 2);
 
         if (portalMatch == null) {
             portalMatch = scanWorld(world, description, entityPosition.add(-radius, -radius, -radius), entityPosition.add(radius, radius, radius));
@@ -137,7 +124,7 @@ public class ServerPortal implements ITeleporter, ITickListener {
             if (portalMatch == null)
                 return;
 
-            cache.put(entityPosition, portalMatch);
+            cache.add(new WorkingPortalInfo(world, entityPosition, portalMatch));
         }
 
         BlockPos position = description.getPlayerPortalPosition(world, portalMatch);
@@ -153,28 +140,29 @@ public class ServerPortal implements ITeleporter, ITickListener {
     /**
      * Find nearest cached portal position
      *
-     * @param pos - player pos
+     * @param world         - world
+     * @param description   - current portal info
+     * @param activePortals - list of cached portals
+     * @param pos           - entity pos
+     * @param radius        - search radius, not diameter!
      * @return
      */
     @Nullable
-    protected BlockPattern.PatternHelper findFromCache(Map<BlockPos, BlockPattern.PatternHelper> activePortals, BlockPos pos, int radius) {
-        BlockPos min = pos.add(-radius, -radius, -radius);
-        AxisAlignedBB size = new AxisAlignedBB(min, pos.add(radius, radius, radius));
+    protected BlockPattern.PatternHelper findFromCache(World world,
+                                                       IPortalDescription description,
+                                                       List<WorkingPortalInfo> activePortals,
+                                                       BlockPos pos,
+                                                       int radius) {
+        // remove all portals not working
+        activePortals.removeIf(x -> !x.isWorking(world, description));
 
-        for (Map.Entry<BlockPos, BlockPattern.PatternHelper> entry : activePortals.entrySet()) {
-            BlockPos possiblePos = entry.getKey();
+        WorkingPortalInfo info = activePortals.stream()
+                .filter(x -> x.canUse(pos, radius * 2))
+                .findFirst().orElse(null);
 
-            if (size.minX <= possiblePos.getX() && possiblePos.getX() <= size.maxX
-                    &&
-                    size.minY <= possiblePos.getY() && possiblePos.getY() <= size.maxY
-                    &&
-                    size.minZ <= possiblePos.getZ() && possiblePos.getZ() <= size.maxZ
-            ) {
-                return entry.getValue();
-            }
-        }
-
-        return null;
+        return info == null
+                ? null
+                : info.getMatch();
     }
 
     /**
@@ -241,8 +229,14 @@ public class ServerPortal implements ITeleporter, ITickListener {
             max = max.add(0, seaLevel - max.getY(), 0);
         }
 
+        List<BlockPos> poses = new ArrayList<>();
+        int posesRadius = destination.rand.nextInt(70);
+
         for (int x = min.getX(); x <= max.getX(); x++) {
             for (int z = min.getX(); z <= max.getX(); z++) {
+
+                if (posesRadius == poses.size())
+                    break;
 
                 pos.setPos(x, Utils.getSurfaceBlockY(destination, x, z) + 1, z);
 
@@ -250,10 +244,15 @@ public class ServerPortal implements ITeleporter, ITickListener {
                     continue;
 
                 if (isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(size)))) {
-                    return pos.toImmutable();
+                    poses.add(pos.toImmutable());
                 }
             }
         }
+
+        if (!poses.isEmpty()) {
+            return poses.get(destination.rand.nextInt(poses.size()));
+        }
+
 
         BlockPos.getAllInBoxMutable(pos, pos.add(size)).forEach(destination::setBlockToAir);
 

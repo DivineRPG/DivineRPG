@@ -26,6 +26,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
     private final DimensionType arcanaDimType;
     private final BlockPattern fullPattern;
     private final BlockPattern fullSizePattern;
+    private final BlockPattern fullSizeFramePattern;
     private final BlockPattern framePattern;
     private final Block frame;
     private final Block portal;
@@ -83,6 +84,20 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
                         "?^^^^?")
                 .where('?', BlockWorldState.hasState(BlockStateMatcher.ANY))
                 .where('p', BlockWorldState.hasState(BlockStateMatcher.forBlock(getPortal())))
+                .where('^', BlockWorldState.hasState(southFrame))
+                .where('>', BlockWorldState.hasState(westFrame))
+                .where('v', BlockWorldState.hasState(northFrame))
+                .where('<', BlockWorldState.hasState(eastFrame))
+                .build();
+
+        this.fullSizeFramePattern = FactoryBlockPattern.start()
+                .aisle("?vvvv?",
+                        ">????<",
+                        ">????<",
+                        ">????<",
+                        ">????<",
+                        "?^^^^?")
+                .where('?', BlockWorldState.hasState(BlockStateMatcher.ANY))
                 .where('^', BlockWorldState.hasState(southFrame))
                 .where('>', BlockWorldState.hasState(westFrame))
                 .where('v', BlockWorldState.hasState(northFrame))
@@ -149,9 +164,6 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
 
             if (matchFrame != null)
                 lightPortal(world, matchFrame);
-            else {
-
-            }
         }
 
         return matchWorkingPortal(world, pos);
@@ -176,14 +188,18 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
     @Nullable
     @Override
     public BlockPattern.PatternHelper matchWorkingPortal(World world, BlockPos pos) {
-        return world.provider.getDimensionType() == arcanaDimType
-                ? fullSizePattern.match(world, pos)
-                : fullPattern.match(world, pos);
+        if (world.provider.getDimensionType() == arcanaDimType)
+            return fullSizePattern.match(world, pos);
+
+        return fullPattern.match(world, pos);
     }
 
     @Nullable
     @Override
     public BlockPattern.PatternHelper matchFrame(World world, BlockPos pos) {
+        if (world.provider.getDimensionType() == arcanaDimType)
+            return fullSizeFramePattern.match(world, pos);
+
         return framePattern.match(world, pos);
     }
 

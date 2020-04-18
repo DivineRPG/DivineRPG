@@ -97,17 +97,13 @@ public class BlockArcanaPortal extends Block {
     }
 
     @Override
-    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
-        BlockPattern.PatternHelper portal = description.matchFrame(world, pos);
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 
-        if (portal == null) {
-            BlockPos.getAllInBoxMutable(pos.add(-1, 0, -1), pos.add(1, 0, 1))
-                    .forEach(x -> {
-                        if (world.getBlockState(x).getBlock() == this) {
-                            world.setBlockToAir(x);
-                        }
-                    });
+        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
+        BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
+        if (frame == null) {
+            worldIn.setBlockToAir(pos);
         }
     }
 

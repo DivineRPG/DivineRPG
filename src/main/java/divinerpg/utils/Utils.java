@@ -6,6 +6,7 @@ import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.registry.ModBlocks;
 import io.netty.util.internal.ConcurrentSet;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
@@ -167,7 +168,15 @@ public class Utils {
             pos = new BlockPos(x, y, z);
             state = world.getBlockState(pos);
             block = state.getBlock();
-        } while (block.isAir(state, world, pos) || block.isReplaceable(world, pos) || block.isWood(world, pos) || block.isFoliage(world, pos) || block.isLeaves(state, world, pos) || block.canBeReplacedByLeaves(state, world, pos));
+
+        } while (block.isAir(state, world, pos)
+                || block.isReplaceable(world, pos)
+                || block.isWood(world, pos)
+                || block.isFoliage(world, pos)
+                // personally hate plants
+                || state.getMaterial() == Material.PLANTS
+                || block.isLeaves(state, world, pos)
+                || block.canBeReplacedByLeaves(state, world, pos));
 
         return y;
     }

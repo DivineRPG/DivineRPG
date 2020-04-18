@@ -5,6 +5,7 @@ import divinerpg.events.TeleporterEvents;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
@@ -13,7 +14,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -92,24 +92,13 @@ public class BlockArcanaPortalFrame extends BlockMod {
     }
 
     @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        worldIn.notifyNeighborsOfStateChange(pos, this, false);
-        super.breakBlock(worldIn, pos, state);
-    }
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 
-    @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
-
-        IPortalDescription description = getDescription();
-
+        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
         BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
         if (frame != null) {
             description.lightPortal(worldIn, frame);
         }
-    }
-
-    private IPortalDescription getDescription() {
-        return TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
     }
 }

@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class VetheaPortal extends ServerPortal {
     /**
@@ -135,22 +134,8 @@ public class VetheaPortal extends ServerPortal {
 
     @Nullable
     @Override
-    protected BlockPattern.PatternHelper findFromCache(Map<BlockPos, BlockPattern.PatternHelper> activePortals, BlockPos pos, int radius) {
-        return super.findFromCache(activePortals, pos, 1024);
-    }
-
-    @Nullable
-    @Override
-    protected BlockPattern.PatternHelper scanWorld(World world, IPortalDescription description, BlockPos min, BlockPos max) {
-        //
-        // getting here only if teleporting to vethea
-        //
-
-        // teleporting only on first floor
-//        min = new BlockPos(min.getX(), 17, min.getZ());
-//        max = new BlockPos(max.getX(), 17, max.getZ());
-
-        return super.scanWorld(world, description, min, max);
+    protected BlockPattern.PatternHelper findFromCache(World world, IPortalDescription description, List<WorkingPortalInfo> activePortals, BlockPos pos, int radius) {
+        return super.findFromCache(world, description, activePortals, pos, 1024);
     }
 
     @Override

@@ -3,6 +3,7 @@ package divinerpg.utils.portals.description;
 import com.google.common.collect.Sets;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.ServerPortal;
+import divinerpg.utils.portals.WorkingPortalInfo;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
@@ -11,7 +12,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
 public class ArcanaTeleporter extends ServerPortal {
@@ -21,8 +22,8 @@ public class ArcanaTeleporter extends ServerPortal {
 
     @Nullable
     @Override
-    protected BlockPattern.PatternHelper findFromCache(Map<BlockPos, BlockPattern.PatternHelper> activePortals, BlockPos pos, int radius) {
-        return super.findFromCache(activePortals, pos, 512);
+    protected BlockPattern.PatternHelper findFromCache(World world, IPortalDescription description, List<WorkingPortalInfo> activePortals, BlockPos pos, int radius) {
+        return super.findFromCache(world, description, activePortals, pos, 512);
     }
 
     @Nullable
