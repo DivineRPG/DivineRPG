@@ -10,6 +10,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -204,7 +205,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
     }
 
     @Override
-    public BlockPos getPlayerPortalPosition(World world, BlockPattern.PatternHelper fullMatch) {
+    public BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch) {
         return fullMatch.getFrontTopLeft()
                 .offset(fullMatch.getUp())
                 .offset(fullMatch.getUp().rotateYCCW())

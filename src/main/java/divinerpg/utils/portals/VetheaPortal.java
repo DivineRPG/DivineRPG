@@ -2,6 +2,7 @@ package divinerpg.utils.portals;
 
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.NbtUtil;
+import divinerpg.utils.PositionHelper;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
@@ -139,31 +140,17 @@ public class VetheaPortal extends ServerPortal {
     }
 
     @Override
-    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, BlockPos min, BlockPos max) {
-        //
-        // getting here only if teleporting to vethea
-        //
+    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, int radius) {
+        int floorHeight = 17;
 
-        // teleporting only on first floor
-        min = new BlockPos(min.getX(), 17, min.getZ());
-        max = new BlockPos(max.getX(), 17, max.getZ());
+        BlockPos center = new BlockPos(e.posX, floorHeight, e.posZ);
+        BlockPos portalSize = description.getMaxSize();
 
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-        BlockPos size = description.getMaxSize();
+        return PositionHelper.searchInRadius(destination, center, radius, pos -> {
+            if (pos.getY() != floorHeight)
+                return false;
 
-        for (int x = min.getX(); x <= max.getX(); x++) {
-            for (int z = min.getZ(); z <= max.getZ(); z++) {
-                for (int y = min.getY(); y <= max.getY(); y++) {
-                    pos.setPos(x, y, z);
-
-                    if (isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(size)))) {
-                        return pos;
-                    }
-                }
-            }
-        }
-
-        BlockPos.getAllInBoxMutable(min, min.add(size)).forEach(destination::setBlockToAir);
-        return min;
+            return isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(portalSize)));
+        });
     }
 }

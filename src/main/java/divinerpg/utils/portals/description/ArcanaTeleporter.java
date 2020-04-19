@@ -2,6 +2,7 @@ package divinerpg.utils.portals.description;
 
 import com.google.common.collect.Sets;
 import divinerpg.registry.ModDimensions;
+import divinerpg.utils.PositionHelper;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.WorkingPortalInfo;
 import net.minecraft.block.Block;
@@ -53,29 +54,33 @@ public class ArcanaTeleporter extends ServerPortal {
     }
 
     @Override
-    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, BlockPos min, BlockPos max) {
+    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, int radius) {
         if (destination.provider.getDimensionType() == ModDimensions.arcanaDimension) {
             ChunkPos chunkPos = new ChunkPos(e.getPosition());
 
-            for (int x = 0; x < 2; x++) {
-                for (int z = 0; z < 2; z++) {
-                    chunkPos = new ChunkPos(chunkPos.x + x, chunkPos.z + z);
+            // store here entity position
+            BlockPos.MutableBlockPos result = new BlockPos.MutableBlockPos(chunkPos.getBlock(7, 8, 7));
 
-                    BlockPos pos = chunkPos.getBlock(7, 8, 7);
+            // use BlockPos as ChunkPos. I know it's awfull
+            PositionHelper.searchInRadius(destination, new BlockPos(chunkPos.x, 8, chunkPos.z), radius / 16, x -> {
+                BlockPos block = new ChunkPos(x.getX(), x.getZ()).getBlock(7, 8, 7);
 
-                    while (pos.getY() <= 40) {
-                        // avoiding double high rooms
-                        if (!destination.isAirBlock(pos) && !destination.isAirBlock(pos.add(0, 0, 1))) {
-                            return chunkPos.getBlock(0, pos.getY(), 0);
-                        }
+                while (block.getY() < 40) {
+                    if (!destination.isAirBlock(block) && !destination.isAirBlock(block.add(0, 0, 1))) {
+                        result.setPos(block);
+                        return true;
                     }
+
+                    block = block.up(8);
                 }
-            }
 
+                return false;
+            });
 
-            return new ChunkPos(e.getPosition()).getBlock(0, 8, 0);
+            return result;
         }
 
-        return super.findSuitablePosition(destination, description, e, min, max);
+
+        return super.findSuitablePosition(destination, description, e, radius);
     }
 }

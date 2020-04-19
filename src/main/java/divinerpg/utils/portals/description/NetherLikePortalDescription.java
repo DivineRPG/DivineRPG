@@ -1,6 +1,7 @@
 package divinerpg.utils.portals.description;
 
 import com.google.common.collect.Iterables;
+import divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.BlockWorldState;
@@ -8,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -137,13 +139,30 @@ public class NetherLikePortalDescription implements IPortalDescription {
     }
 
     @Override
-    public BlockPos getPlayerPortalPosition(World world, BlockPattern.PatternHelper fullMatch) {
-        BlockPos result = fullMatch.getFrontTopLeft()
-                .offset(fullMatch.getUp(), 1)
-                .offset(fullMatch.getUp().getOpposite().rotateY(), 1)
-                .offset(fullMatch.getForwards(), 3);
+    public BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch) {
+        final BlockPos.MutableBlockPos topLeft = new BlockPos.MutableBlockPos(fullMatch.getFrontTopLeft());
+        {
+            BlockPos bottomBlock = topLeft.offset(fullMatch.getUp(), fullMatch.getHeight());
+            if (topLeft.getY() > bottomBlock.getY()) {
+                topLeft.setY(bottomBlock.getY());
+            }
 
-        return result;
+            bottomBlock = topLeft.offset(fullMatch.getForwards(), fullMatch.getWidth());
+            if (topLeft.getY() > bottomBlock.getY()) {
+                topLeft.setY(bottomBlock.getY());
+            }
+        }
+
+        return PositionHelper.searchInRadius(world, topLeft, 3, x -> {
+            if (x.getY() != topLeft.getY())
+                return false;
+
+            IBlockState state = world.getBlockState(x);
+            if (!state.isSideSolid(world, x, EnumFacing.UP))
+                return false;
+
+            return !world.getBlockState(x.up()).causesSuffocation() && !world.getBlockState(x.up(2)).causesSuffocation();
+        }).up();
     }
 
     private void lightPortal(World world, BlockPos topLeft, EnumFacing right, EnumFacing down) {

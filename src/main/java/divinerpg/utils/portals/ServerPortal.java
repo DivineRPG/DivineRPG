@@ -1,12 +1,15 @@
 package divinerpg.utils.portals;
 
 import com.google.common.collect.Lists;
+import divinerpg.DivineRPG;
 import divinerpg.events.TeleporterEvents;
+import divinerpg.utils.PositionHelper;
 import divinerpg.utils.Utils;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
@@ -19,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Function;
 
 public class ServerPortal implements ITeleporter {
     /**
@@ -34,55 +36,12 @@ public class ServerPortal implements ITeleporter {
      */
     protected int recheckDelay;
 
-    private long nextTickTime;
-
     public ServerPortal(int radius, int recheckDelay) {
         this.radius = radius;
         this.recheckDelay = recheckDelay;
 
         activePortals = new HashMap<>();
         activeOverworldPortals = new HashMap<>();
-    }
-
-    /**
-     * Check single map for active portals
-     *
-     * @param map          - map with active portals
-     * @param getWorldFunc - get world func where portals live
-     */
-    private void checkMap(Map<DimensionType, Map<BlockPos, BlockPattern.PatternHelper>> map,
-                          Function<DimensionType, World> getWorldFunc) {
-        if (map.isEmpty())
-            return;
-
-        map.forEach((dimensionType, blockPosPatternHelperMap) -> {
-            if (blockPosPatternHelperMap == null || blockPosPatternHelperMap.isEmpty())
-                return;
-
-
-            World world = getWorldFunc.apply(dimensionType);
-            IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(dimensionType);
-
-            if (world == null || description == null)
-                return;
-
-            BlockPos size = description.getMaxSize();
-
-
-            new ArrayList<>(blockPosPatternHelperMap.keySet())
-                    .forEach(x -> {
-                        // do not need to check not loaded portals
-                        if (!world.isAreaLoaded(x.subtract(size), x.add(size)))
-                            return;
-
-                        BlockPattern.PatternHelper working = description.matchWorkingPortal(world, x);
-                        if (working == null) {
-                            blockPosPatternHelperMap.remove(x);
-                        } else {
-                            blockPosPatternHelperMap.put(x, working);
-                        }
-                    });
-        });
     }
 
     @Override
@@ -115,23 +74,24 @@ public class ServerPortal implements ITeleporter {
             portalMatch = scanWorld(world, description, entityPosition.add(-radius, -radius, -radius), entityPosition.add(radius, radius, radius));
 
             if (portalMatch == null) {
-                entityPosition = findSuitablePosition(world, description, entity,
-                        entityPosition.add(-radius, -radius, -radius),
-                        entityPosition.add(radius, 256 - entityPosition.getY(), radius));
+                entityPosition = findSuitablePosition(world, description, entity, radius);
                 portalMatch = description.createPortal(world, entityPosition);
             }
 
-            if (portalMatch == null)
-                return;
-
-            cache.add(new WorkingPortalInfo(world, entityPosition, portalMatch));
+            if (portalMatch != null)
+                cache.add(new WorkingPortalInfo(world, entityPosition, portalMatch));
         }
 
-        BlockPos position = description.getPlayerPortalPosition(world, portalMatch);
-        entity.setLocationAndAngles(position.getX(), position.getY(), position.getZ(), entity.rotationYaw, entity.rotationPitch);
+        if (portalMatch != null) {
+            entityPosition = description.getPlayerPortalPosition(world, entity, portalMatch);
+        } else {
+            DivineRPG.logger.warn("Can't match portal on that cords: " + entityPosition.toString());
+        }
+
+        entity.setLocationAndAngles(entityPosition.getX(), entityPosition.getY(), entityPosition.getZ(), entity.rotationYaw, entity.rotationPitch);
 
         if (entity instanceof EntityPlayerMP) {
-            ((EntityPlayerMP) entity).connection.setPlayerLocation(position.getX(), position.getY(), position.getZ(), entity.rotationYaw, entity.rotationPitch);
+            ((EntityPlayerMP) entity).connection.setPlayerLocation(entityPosition.getX(), entityPosition.getY(), entityPosition.getZ(), entity.rotationYaw, entity.rotationPitch);
         }
 
         entity.timeUntilPortal = entity.getPortalCooldown();
@@ -211,52 +171,46 @@ public class ServerPortal implements ITeleporter {
     /**
      * Searches for nearest suitable portal spawn position
      *
-     * @param min - min radius search
-     * @param max - max radius search
+     * @param destination - destination world
+     * @param description - portal description
+     * @param e           - entity to place
+     * @param radius      - search radius
      * @return
      */
-    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, BlockPos min, BlockPos max) {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+    protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, int radius) {
+        final BlockPos entityPosition = e.getPosition();
+
+        BlockPos firstSolidBlock = PositionHelper.searchInRadius(destination, entityPosition, radius, blockPos -> {
+            blockPos.setY(Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX()));
+            return blockPos.getY() > 0 && destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP);
+        });
+
+        int possiblePosesCount = destination.rand.nextInt(60) + 10;
+        ArrayList<BlockPos> possiblePlaces = new ArrayList<>();
+
         BlockPos size = description.getMaxSize().add(2, 2, 2);
 
-        if (min.getY() < 1) {
-            min = new BlockPos(min.getX(), 1, min.getZ());
-        }
+        // search while find exactly places count
+        PositionHelper.searchInRadius(destination, firstSolidBlock, radius, blockPos -> {
+            blockPos.setY(Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX()));
 
-        int seaLevel = destination.getSeaLevel();
-
-        if (max.getY() > seaLevel) {
-            max = max.add(0, seaLevel - max.getY(), 0);
-        }
-
-        List<BlockPos> poses = new ArrayList<>();
-        int posesRadius = destination.rand.nextInt(70);
-
-        for (int x = min.getX(); x <= max.getX(); x++) {
-            for (int z = min.getX(); z <= max.getX(); z++) {
-
-                if (posesRadius == poses.size())
-                    break;
-
-                pos.setPos(x, Utils.getSurfaceBlockY(destination, x, z) + 1, z);
-
-                if (pos.getY() == 0)
-                    continue;
-
-                if (isAirBlocks(destination, new AxisAlignedBB(pos, pos.add(size)))) {
-                    poses.add(pos.toImmutable());
-                }
+            if (blockPos.getY() > 0
+                    && destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP)
+                    // have free space
+                    && isAirBlocks(destination, new AxisAlignedBB(blockPos, blockPos.add(size)))) {
+                possiblePlaces.add(blockPos.toImmutable());
             }
+
+            return possiblePlaces.size() < possiblePosesCount;
+        });
+
+        if (!possiblePlaces.isEmpty()) {
+            return possiblePlaces.get(destination.rand.nextInt(possiblePlaces.size()));
         }
 
-        if (!poses.isEmpty()) {
-            return poses.get(destination.rand.nextInt(poses.size()));
-        }
-
-
-        BlockPos.getAllInBoxMutable(pos, pos.add(size)).forEach(destination::setBlockToAir);
-
-        return e.getPosition();
+        BlockPos.getAllInBox(entityPosition.add(-3, 0, -3), entityPosition.add(3, 5, 3))
+                .forEach(destination::setBlockToAir);
+        return entityPosition;
     }
 
     protected boolean isAirBlocks(World world, AxisAlignedBB size) {

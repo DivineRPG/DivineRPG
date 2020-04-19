@@ -2,6 +2,7 @@ package divinerpg.utils.portals.description;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockPattern;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -94,5 +95,5 @@ public interface IPortalDescription {
      * @param fullMatch - portal match description (from createPortal() or matchWorkingPortal() methods)
      * @return
      */
-    BlockPos getPlayerPortalPosition(World world, BlockPattern.PatternHelper fullMatch);
+    BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch);
 }

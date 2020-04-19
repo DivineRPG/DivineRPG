@@ -5,10 +5,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.function.Predicate;
 
 public class PositionHelper {
     public static RayTraceResult rayTrace(EntityPlayer player, double blockReachDistance, int partialTicks) {
@@ -85,5 +88,45 @@ public class PositionHelper {
         }
 
         return null;
+    }
+
+    public static BlockPos searchInRadius(World world, BlockPos center, int radius, Predicate<BlockPos.MutableBlockPos> action) {
+        return searchInRadius(world, center, new BlockPos(radius, radius, radius), action);
+    }
+
+    /**
+     * Searches in radius from nearest an further
+     *
+     * @param center - search center
+     * @param radius - radius
+     * @param action - action on every pos
+     */
+    public static BlockPos searchInRadius(World world, BlockPos center, BlockPos radius, Predicate<BlockPos.MutableBlockPos> action) {
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        for (int xRadius = 0; xRadius <= Math.floor(radius.getX() / 2.0); xRadius++) {
+            for (int yRadius = 0; yRadius <= Math.floor(radius.getY() / 2.0); yRadius++) {
+                for (int zRadius = 0; zRadius <= Math.floor(radius.getZ() / 2.0); zRadius++) {
+
+                    for (int x = center.getX() - xRadius, xEnd = x + zRadius * 2; x < xEnd; x++) {
+                        for (int y = center.getY() - yRadius, yEnd = y + yRadius * 2; y < yEnd; y++) {
+                            for (int z = center.getZ() - zRadius, zEnd = z + zRadius * 2; z < zEnd; z++) {
+
+                                pos.setPos(x, y, z);
+
+                                if (world.isOutsideBuildHeight(pos))
+                                    continue;
+
+                                if (action.test(pos)) {
+                                    return pos;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return center;
     }
 }
