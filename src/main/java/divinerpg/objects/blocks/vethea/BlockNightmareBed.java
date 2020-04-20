@@ -157,7 +157,10 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (!worldIn.isRemote) {
-            if (worldIn.getLight(pos) < 9845) {
+            if(worldIn.provider.getDimension() != 0) {
+                playerIn.sendMessage(LocalizeUtils.getClientSideTranslation(playerIn, "message.nightmare_bed.overworld_only"));
+            }
+            else if (worldIn.getLight(pos) < 9845) {
                 DimensionType to = worldIn.provider.getDimensionType() == ModDimensions.vetheaDimension
                         ? DimensionType.OVERWORLD
                         : ModDimensions.vetheaDimension;
