@@ -41,11 +41,6 @@ public class ItemShickaxe extends ItemTool {
     }
 
     public boolean canHarvestBlock(IBlockState blockIn) {
-        // todo possible weak place
-        float hardness = blockIn.getBlockHardness(null, null);
-        if (hardness < 0)
-            return false;
-
         return blockIn.getBlock().getHarvestLevel(blockIn) <= toolMaterial.getHarvestLevel();
     }
 
