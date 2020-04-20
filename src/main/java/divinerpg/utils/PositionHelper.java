@@ -90,29 +90,27 @@ public class PositionHelper {
         return null;
     }
 
-    public static BlockPos searchInRadius(World world, BlockPos center, int radius, Predicate<BlockPos.MutableBlockPos> action) {
-        return searchInRadius(world, center, new BlockPos(radius, radius, radius), action);
+    public static BlockPos searchInRadius(World world, BlockPos center, int diameter, Predicate<BlockPos> action) {
+        return searchInRadius(world, center, new BlockPos(diameter, diameter, diameter), action);
     }
 
     /**
-     * Searches in radius from nearest an further
+     * Searches in range from nearest an further
      *
      * @param center - search center
-     * @param radius - radius
+     * @param range  - range
      * @param action - action on every pos
      */
-    public static BlockPos searchInRadius(World world, BlockPos center, BlockPos radius, Predicate<BlockPos.MutableBlockPos> action) {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+    public static BlockPos searchInRadius(World world, BlockPos center, BlockPos range, Predicate<BlockPos> action) {
+        for (int xRadius = 0; xRadius <= Math.floor(range.getX() / 2.0); xRadius++) {
+            for (int yRadius = 0; yRadius <= Math.floor(range.getY() / 2.0); yRadius++) {
+                for (int zRadius = 0; zRadius <= Math.floor(range.getZ() / 2.0); zRadius++) {
 
-        for (int xRadius = 0; xRadius <= Math.floor(radius.getX() / 2.0); xRadius++) {
-            for (int yRadius = 0; yRadius <= Math.floor(radius.getY() / 2.0); yRadius++) {
-                for (int zRadius = 0; zRadius <= Math.floor(radius.getZ() / 2.0); zRadius++) {
+                    for (int x = -1; x <= 1; x += 2) {
+                        for (int y = -1; y <= 1; y += 2) {
+                            for (int z = -1; z <= 1; z += 2) {
 
-                    for (int x = center.getX() - xRadius, xEnd = x + zRadius * 2; x < xEnd; x++) {
-                        for (int y = center.getY() - yRadius, yEnd = y + yRadius * 2; y < yEnd; y++) {
-                            for (int z = center.getZ() - zRadius, zEnd = z + zRadius * 2; z < zEnd; z++) {
-
-                                pos.setPos(x, y, z);
+                                BlockPos pos = center.add(x * xRadius, y * yRadius, z * zRadius);
 
                                 if (world.isOutsideBuildHeight(pos))
                                     continue;
@@ -125,8 +123,8 @@ public class PositionHelper {
                     }
                 }
             }
-        }
 
+        }
         return center;
     }
 }

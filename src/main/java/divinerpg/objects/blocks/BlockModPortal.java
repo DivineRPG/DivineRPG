@@ -3,7 +3,8 @@ package divinerpg.objects.blocks;
 import divinerpg.DivineRPG;
 import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
+import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -150,7 +151,11 @@ public class BlockModPortal extends BlockBreakable {
                 destination = DimensionType.OVERWORLD;
             }
 
-            TeleporterEvents.transferEntity(entity, destination);
+            if (dimId == ModDimensions.vetheaDimension) {
+                DimensionHelper.transferEntity(entity, destination);
+            } else {
+                DimensionHelper.transferEntityToDivineDims(entity, destination);
+            }
         }
     }
 
@@ -250,7 +255,7 @@ public class BlockModPortal extends BlockBreakable {
     }
 
     private IPortalDescription getPortalDescription() {
-        IPortalDescription description = TeleporterEvents.descriptionsByBlock.get(portalFrameSupplier.get());
+        IPortalDescription description = DimensionHelper.descriptionsByBlock.get(portalFrameSupplier.get());
 
         if (description == null) {
             throw new RuntimeException("Can't detect portal description for Divine portal for dimension :" + dimId.getName());

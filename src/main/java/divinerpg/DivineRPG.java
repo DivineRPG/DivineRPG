@@ -6,8 +6,8 @@ package divinerpg;
 import divinerpg.api.Reference;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.events.ArcanaTickHandler;
+import divinerpg.events.DimensionHelper;
 import divinerpg.events.EventEntityDrop;
-import divinerpg.events.TeleporterEvents;
 import divinerpg.events.enchants.DiggingTaskFactory;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
@@ -82,7 +82,7 @@ public class DivineRPG {
         Utils.loadHatInformation();
 
         MinecraftForge.EVENT_BUS.register(new DiggingTaskFactory());
-        TeleporterEvents.initPortalDescriptions();
+        DimensionHelper.initPortalDescriptions();
     }
 
     /** For Registering Commands */

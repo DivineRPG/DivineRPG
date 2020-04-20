@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.arcana;
 
 import divinerpg.api.Reference;
 import divinerpg.enums.EnumBlockType;
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
@@ -93,14 +93,14 @@ public class BlockArcanaPortal extends Block {
             destination = DimensionType.OVERWORLD;
         }
 
-        TeleporterEvents.transferEntity(entity, destination);
+        DimensionHelper.transferEntity(entity, destination);
     }
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 
-        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
+        IPortalDescription description = DimensionHelper.descriptionsByDimension.get(ModDimensions.arcanaDimension);
         BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
         if (frame == null) {
             worldIn.setBlockToAir(pos);

@@ -1,6 +1,6 @@
 package divinerpg.objects.items.iceika;
 
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -41,7 +41,7 @@ public class ItemSnowGlobe extends ItemMod {
             Block snow = Blocks.SNOW;
 
             if (worldIn.getBlockState(pos.down()).getBlock() == snow) {
-                IPortalDescription description = TeleporterEvents.descriptionsByBlock.get(snow);
+                IPortalDescription description = DimensionHelper.descriptionsByBlock.get(snow);
                 if (description != null) {
                     BlockPattern.PatternHelper match = description.matchFrame(worldIn, pos.down());
                     if (match != null) {

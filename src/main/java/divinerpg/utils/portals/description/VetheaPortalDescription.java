@@ -9,7 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -153,10 +152,5 @@ public class VetheaPortalDescription implements IPortalDescription {
     @Override
     public BlockPattern.PatternHelper matchFrame(World world, BlockPos pos) {
         return framePattern.match(world, pos);
-    }
-
-    @Override
-    public BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch) {
-        return getMiddle(fullMatch).offset(fullMatch.getUp().getOpposite(), 2);
     }
 }

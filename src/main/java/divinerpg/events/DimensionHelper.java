@@ -3,6 +3,7 @@ package divinerpg.events;
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModDimensions;
+import divinerpg.utils.DivineTeleporter;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.VetheaPortal;
 import divinerpg.utils.portals.description.*;
@@ -11,13 +12,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.util.ITeleporter;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Mod.EventBusSubscriber
-public class TeleporterEvents {
+public class DimensionHelper {
     public final static Map<Block, IPortalDescription> descriptionsByBlock = new HashMap<>();
     public final static Map<DimensionType, IPortalDescription> descriptionsByDimension = new HashMap<>();
     private final static Map<DimensionType, ITeleporter> teleporterMapByModdedDimension = new HashMap<>();
@@ -73,5 +72,31 @@ public class TeleporterEvents {
         }
 
         e.changeDimension(modDimension.getId(), teleporter);
+    }
+
+    /**
+     * Uses old Divine teleporter
+     *
+     * @param e           - entity
+     * @param destination - destination
+     */
+    public static void transferEntityToDivineDims(Entity e, DimensionType destination) {
+        if (e == null || destination == null || e.getServer() == null)
+            return;
+
+        DimensionType current = e.getEntityWorld().provider.getDimensionType();
+
+        IPortalDescription description = descriptionsByDimension.get(destination);
+        if (description == null) {
+            description = descriptionsByDimension.get(current);
+        }
+
+        if (description == null) {
+            DivineRPG.logger.warn(String.format("Unknown dimensions: 1) %s/n2)%s", current.getName(), destination.getName()));
+            return;
+        }
+
+        ITeleporter teleporter = new DivineTeleporter(e.getServer().getWorld(destination.getId()), description.getPortal(), description.getFrame().getDefaultState());
+        e.changeDimension(destination.getId(), teleporter);
     }
 }

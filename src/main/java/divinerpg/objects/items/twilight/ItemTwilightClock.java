@@ -1,6 +1,6 @@
 package divinerpg.objects.items.twilight;
 
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
@@ -55,7 +55,7 @@ public class ItemTwilightClock extends ItemMod {
             Block block = worldIn.getBlockState(pos).getBlock();
 
             if (possibleBlocks.contains(block)) {
-                IPortalDescription description = TeleporterEvents.descriptionsByBlock.get(block);
+                IPortalDescription description = DimensionHelper.descriptionsByBlock.get(block);
                 if (description != null) {
                     Block frame = description.getFrame();
                     BlockPos end = pos.add(0, description.getMaxSize().getY(), 0);

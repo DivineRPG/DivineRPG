@@ -1,8 +1,11 @@
 package divinerpg.utils.portals.description;
 
+import divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -95,5 +98,33 @@ public interface IPortalDescription {
      * @param fullMatch - portal match description (from createPortal() or matchWorkingPortal() methods)
      * @return
      */
-    BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch);
+    default BlockPos getPlayerPortalPosition(World world, Entity e, BlockPattern.PatternHelper fullMatch) {
+        BlockPos.MutableBlockPos bottom = new BlockPos.MutableBlockPos(fullMatch.getFrontTopLeft());
+        int minY = bottom.getY();
+
+        {
+            BlockPos offset = bottom.offset(fullMatch.getForwards(), fullMatch.getWidth());
+
+            if (minY > offset.getY()) {
+                minY = offset.getY();
+            }
+
+            offset = bottom.offset(fullMatch.getUp(), fullMatch.getWidth());
+
+            if (minY > offset.getY()) {
+                minY = offset.getY();
+            }
+        }
+
+        bottom.setY(minY);
+
+        return PositionHelper.searchInRadius(world, bottom, new BlockPos(6, 0, 6), x -> {
+
+            IBlockState state = world.getBlockState(x);
+            if (!state.isSideSolid(world, x, EnumFacing.UP))
+                return false;
+
+            return !world.getBlockState(x.up()).causesSuffocation() && !world.getBlockState(x.up(2)).causesSuffocation();
+        }).up();
+    }
 }

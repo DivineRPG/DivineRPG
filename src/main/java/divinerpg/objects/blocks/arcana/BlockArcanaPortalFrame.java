@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.enums.EnumBlockType;
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -95,7 +95,7 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 
-        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(ModDimensions.arcanaDimension);
+        IPortalDescription description = DimensionHelper.descriptionsByDimension.get(ModDimensions.arcanaDimension);
         BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
         if (frame != null) {
             description.lightPortal(worldIn, frame);

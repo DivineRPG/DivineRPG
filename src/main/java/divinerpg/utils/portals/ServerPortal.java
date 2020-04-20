@@ -2,7 +2,7 @@ package divinerpg.utils.portals;
 
 import com.google.common.collect.Lists;
 import divinerpg.DivineRPG;
-import divinerpg.events.TeleporterEvents;
+import divinerpg.events.DimensionHelper;
 import divinerpg.utils.PositionHelper;
 import divinerpg.utils.Utils;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -55,11 +55,11 @@ public class ServerPortal implements ITeleporter {
         DimensionType modDimension = destination;
         List<WorkingPortalInfo> cache = activePortals.computeIfAbsent(modDimension, x -> Lists.newArrayList());
 
-        IPortalDescription description = TeleporterEvents.descriptionsByDimension.get(destination);
+        IPortalDescription description = DimensionHelper.descriptionsByDimension.get(destination);
 
         // returning home
         if (description == null) {
-            description = TeleporterEvents.descriptionsByDimension.get(current);
+            description = DimensionHelper.descriptionsByDimension.get(current);
             modDimension = current;
             cache = activeOverworldPortals.computeIfAbsent(modDimension, x -> Lists.newArrayList());
         }
@@ -181,8 +181,16 @@ public class ServerPortal implements ITeleporter {
         final BlockPos entityPosition = e.getPosition();
 
         BlockPos firstSolidBlock = PositionHelper.searchInRadius(destination, entityPosition, radius, blockPos -> {
-            blockPos.setY(Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX()));
-            return blockPos.getY() > 0 && destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP);
+            int y = Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX());
+
+            if (y < 0)
+                return false;
+
+            if (y != blockPos.getY()) {
+                blockPos = new BlockPos(blockPos.getX(), y, blockPos.getZ());
+            }
+
+            return destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP);
         });
 
         int possiblePosesCount = destination.rand.nextInt(60) + 10;
@@ -192,10 +200,16 @@ public class ServerPortal implements ITeleporter {
 
         // search while find exactly places count
         PositionHelper.searchInRadius(destination, firstSolidBlock, radius, blockPos -> {
-            blockPos.setY(Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX()));
+            int y = Utils.getSurfaceBlockY(destination, blockPos.getX(), blockPos.getX());
 
-            if (blockPos.getY() > 0
-                    && destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP)
+            if (y <= 0)
+                return false;
+
+            if (y != blockPos.getY()) {
+                blockPos = new BlockPos(blockPos.getX(), y, blockPos.getZ());
+            }
+
+            if (destination.getBlockState(blockPos).isSideSolid(destination, blockPos, EnumFacing.UP)
                     // have free space
                     && isAirBlocks(destination, new AxisAlignedBB(blockPos, blockPos.add(size)))) {
                 possiblePlaces.add(blockPos.toImmutable());
