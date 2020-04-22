@@ -6,6 +6,7 @@ import divinerpg.networking.message.MessageArcanaBar;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.common.util.FakePlayer;
 
 public class Arcana implements IArcana {
     private int tickDelay = 1;
@@ -82,7 +83,8 @@ public class Arcana implements IArcana {
     }
 
     private void sendPacket(EntityPlayer player) {
-        if (player instanceof EntityPlayerMP)
+        if (!(player instanceof FakePlayer) && player instanceof EntityPlayerMP) {
             DivineRPG.network.sendTo(new MessageArcanaBar(this), (EntityPlayerMP) player);
+        }
     }
 }
