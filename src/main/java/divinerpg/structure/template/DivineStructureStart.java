@@ -47,25 +47,16 @@ public class DivineStructureStart extends StructureStart {
      * @param y        - height of structure
      * @param chunkZ   - chunk Z cord
      */
-    public DivineStructureStart(ResourceLocation location, TemplateManager manager, int chunkX, int y, int chunkZ) {
+    public DivineStructureStart(ResourceLocation location, TemplateManager manager, int chunkX, int y, int chunkZ, int structureSizeX, int structureSizeZ) {
         super(chunkX, chunkZ);
 
-        AtomicReference<File> folder = new AtomicReference<>();
-
-        if (!tryGetFile(location, folder))
-            return;
-
-        File[] files = folder.get().listFiles((FilenameFilter) new SuffixFileFilter(".nbt"));
-
-        for (File file : files) {
-            String fileName = file.getName();
-            fileName = fileName.substring(0, fileName.indexOf("."));
-
-            ResourceLocation partLocation = new ResourceLocation(location.getResourceDomain(), location.getResourcePath() + "/" + fileName);
-
-            BlockPos pos = fromString(fileName, chunkX, chunkZ).getBlock(0, y, 0);
-
-            components.add(new DivineStructureComponentTemplate(manager, partLocation, pos));
+        for(int x = 0; x < structureSizeX; x++) {
+            for(int z = 0; z < structureSizeZ; z++) {
+                String fileName = "[" + x + ", " + z + "]";
+                ResourceLocation partLocation = new ResourceLocation(location.getResourceDomain(), location.getResourcePath() + "/" + fileName);
+                BlockPos pos = fromString(fileName, chunkX, chunkZ).getBlock(0, y, 0);
+                components.add(new DivineStructureComponentTemplate(manager, partLocation, pos));
+            }
         }
 
         this.updateBoundingBox();

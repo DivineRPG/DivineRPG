@@ -116,31 +116,31 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Crypt1",
                         createForVethea(position, "crypt1"),
                         position * floorHeight + 10,
-                        20));
+                        20, 2, 2));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "Crypt2",
                         createForVethea(position, "crypt2"),
                         position * floorHeight + 12,
-                        20));
+                        20, 2, 1));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse1",
                         createForVethea(position, "hungerhouse1"),
                         surfaceLevel + 8,
-                        18));
+                        18, 1, 1));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse2",
                         createForVethea(position, "hungerhouse2"),
                         surfaceLevel + 6,
-                        18));
+                        18, 1, 1));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse3",
                         createForVethea(position, "hungerhouse3"),
                         surfaceLevel + 8,
-                        18));
+                        18, 1, 1));
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -161,19 +161,19 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Hive",
                         createForVethea(position, "hive"),
                         surfaceLevel,
-                        25));
+                        25, 3, 3));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "Pyramid1",
                         createForVethea(position, "pyramid"),
                         surfaceLevel,
-                        25));
+                        25, 3, 3));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "Pyramid2",
                         createForVethea(position, "pyramid2"),
                         surfaceLevel,
-                        25));
+                        25, 3, 3));
 
                 level.addWorldGen(new WorldGenEnhanced(
                         new TempleWorldGenerator(createForVethea(position, "tree3"),
@@ -191,13 +191,13 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Karosmadhouse",
                         createForVethea(position, "karosmadhouse"),
                         surfaceLevel,
-                        25));
+                        25, 2, 2));
 
                 level.addStructure(new DivineLargeStructure(world,
                         "QuadroticPost",
                         createForVethea(position, "quadroticpost"),
                         surfaceLevel,
-                        25));
+                        25, 2, 2));
 
                 for (int i = 7; i <= 8; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -213,27 +213,27 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Evergarden",
                         createForVethea(position, "evergarden"),
                         surfaceLevel,
-                        25));
+                        25, 2, 3));
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree1",
                         createForVethea(position, "layer4tree1"),
                         surfaceLevel,
-                        25));
+                        25, 2, 2));
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree2",
                         createForVethea(position, "layer4tree2"),
                         surfaceLevel,
-                        25));
+                        25, 2, 2));
                 level.addStructure(new DivineLargeStructure(world,
                         "RaglokChamber",
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
-                        25));
+                        25, 2, 2));
                 level.addStructure(new DivineLargeStructure(world,
                         "WreckHall",
                         createForVethea(position, "wreckhall"),
                         surfaceLevel,
-                        25));
+                        25, 2, 3));
 
                 addFlowers(level, surfaceLevel, ModBlocks.shimmer, ModBlocks.shineGrass, ModBlocks.dreamglow);
                 break;

@@ -18,7 +18,10 @@ public class DivineLargeStructure extends MapGenStructure {
     private final ResourceLocation folder;
     private int chunkDistance;
 
-    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int height, int chunkDistance) {
+    private final int structureSizeX;
+    private final int structureSizeZ;
+
+    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int height, int chunkDistance, int structureSizeX, int structureSizeZ) {
         this.structureName = structureName;
         this.folder = folder;
         this.manager = world.getSaveHandler().getStructureTemplateManager();
@@ -33,6 +36,8 @@ public class DivineLargeStructure extends MapGenStructure {
         }
 
         this.chunkDistance = chunkDistance;
+        this.structureSizeX = structureSizeX;
+        this.structureSizeZ = structureSizeZ;
     }
 
     @Override
@@ -79,6 +84,6 @@ public class DivineLargeStructure extends MapGenStructure {
 
     @Override
     protected StructureStart getStructureStart(int x, int z) {
-        return new DivineStructureStart(folder, manager, x, height, z);
+        return new DivineStructureStart(folder, manager, x, height, z, structureSizeX, structureSizeZ);
     }
 }
