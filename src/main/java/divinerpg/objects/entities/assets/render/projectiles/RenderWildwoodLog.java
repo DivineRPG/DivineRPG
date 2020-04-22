@@ -18,7 +18,7 @@ import net.minecraft.util.math.MathHelper;
 
 public class RenderWildwoodLog extends RenderProjectile<EntityWildwoodLog> {
 	//TODO - render as wildwood log item
-    private ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/blocks/wildwood_log.png");
+    private ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/blocks/wildwood_log_side.png");
 
     public RenderWildwoodLog(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);
