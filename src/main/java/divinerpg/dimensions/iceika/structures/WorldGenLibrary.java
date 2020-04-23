@@ -2,6 +2,7 @@ package divinerpg.dimensions.iceika.structures;
 
 import java.util.Random;
 
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.registry.DRPGLootTables;
@@ -29,7 +30,7 @@ public class WorldGenLibrary extends WorldGenerator{
 	}
 
 	@Override
-	public boolean generate(World w, Random r, BlockPos pos) {
+	public boolean generate(World w, Random rand, BlockPos pos) {
 		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		if(!locationIsValidSpawn(w, x, y, z))
 			return false;
@@ -75,7 +76,7 @@ public class WorldGenLibrary extends WorldGenerator{
 		w.setBlockState(new BlockPos(x + 15, y + 1, z + 5), ModBlocks.frostedChest.getDefaultState(), 0);
 		TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 15, y + 1, z + 5));
         if (tileentity1 instanceof TileEntityLockableLoot) {
-            ((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, w.rand.nextLong());
+        	((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
     	
 		EntityWorkshopMerchant mer = new EntityWorkshopMerchant(w);

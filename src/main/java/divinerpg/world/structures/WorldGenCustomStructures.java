@@ -67,6 +67,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
             generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
 //            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
+            generateStructure(house1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
             generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 13, 12);
             generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 11, 11);
             generateStructure(WORKSHOP_HOUSE_4, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 10);
@@ -74,7 +75,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             generateStructure(WORKSHOP_HOUSE_6, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 9);
 //            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
             generateStructure(library, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
-            generateStructure(house1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
         }
         	if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
             Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)

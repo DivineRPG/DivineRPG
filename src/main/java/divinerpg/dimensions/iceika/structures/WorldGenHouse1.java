@@ -2,6 +2,7 @@ package divinerpg.dimensions.iceika.structures;
 
 import java.util.Random;
 
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.registry.DRPGLootTables;
@@ -29,7 +30,7 @@ public class WorldGenHouse1 extends WorldGenerator{
 	}
 	
 	@Override
-	public boolean generate(World w, Random var2, BlockPos pos) {
+	public boolean generate(World w, Random rand, BlockPos pos) {
 		int x=pos.getX(), y=pos.getY(), z=pos.getZ();
 		if(!locationIsValidSpawn(w, x, y, z))
 			return false;
@@ -59,8 +60,8 @@ public class WorldGenHouse1 extends WorldGenerator{
 		WorldGenAPI.addBlock(w, x + 8, y - 1, z + 1, ModBlocks.workshopLamp);
 		WorldGenAPI.addBlock(w, x + 8, y - 1, z + 8, ModBlocks.workshopLamp);
 		WorldGenAPI.addBlock(w, x + 5, y, z + 5, ModBlocks.coalstoneFurnace);
-		w.setBlockState(new BlockPos(x + 4, y + 1, z + 5), ModBlocks.frostedChest.getDefaultState(), 0);
-		WorldGenAPI.addBlock(w, x + 6, y + 1, z + 9, ModBlocks.frostedGlass);
+        w.setBlockState(new BlockPos(x + 4, y + 1, z + 5), ModBlocks.frostedChest.getDefaultState(), 1);
+        WorldGenAPI.addBlock(w, x + 6, y + 1, z + 9, ModBlocks.frostedGlass);
 		WorldGenAPI.addBlock(w, x + 9, y + 1, z + 6, ModBlocks.frostedGlass);
 		WorldGenAPI.addBlock(w, x + 9, y + 1, z + 3, ModBlocks.frostedGlass);
 		WorldGenAPI.addBlock(w, x, y + 1, z + 7, ModBlocks.frostedGlass);
@@ -70,7 +71,7 @@ public class WorldGenHouse1 extends WorldGenerator{
 		
 		TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 4, y + 1, z + 5));
         if (tileentity1 instanceof TileEntityLockableLoot) {
-            ((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, w.rand.nextLong());
+        	((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
 		if(!w.isRemote){
 			mer.setLocationAndAngles(x + 3, y + 1, z + 3, 0.0F, 0.0F);
