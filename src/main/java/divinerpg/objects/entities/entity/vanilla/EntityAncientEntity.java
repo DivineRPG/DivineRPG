@@ -19,6 +19,7 @@ public class EntityAncientEntity extends EntityDivineRPGBoss {
     public EntityAncientEntity(World worldIn) {
         super(worldIn);
         this.setSize(4.0F, 6.5F);
+        this.experienceValue = 2000;
     }
 
     @Override
