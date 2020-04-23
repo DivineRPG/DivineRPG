@@ -4,11 +4,11 @@
             "name":"divinerpg:sun_storm",
             "rolls": 2,
             "entries": [
-            {
-               "type":"item",
-               "name":"divinerpg:eden_chunk",
-               "weight":1,
-               "functions": [
+                {
+                    "type": "item",
+                    "weight": 10,
+                    "name": "divinerpg:eden_chunk",
+                    "functions": [
                         {
                             "function": "set_count",
                             "count": {
@@ -16,17 +16,16 @@
                                 "max": 6
                             }
                         }
-                       ]
-                    }
-               ]},
+                    ]
+                },
                 {
                     "type": "item",
-                    "weight": 1,
+                    "weight": 5,
                     "name": "divinerpg:eden_blitz"
                 },
                 {
                     "type": "item",
-                    "weight": 1,
+                    "weight": 2,
                     "name": "divinerpg:forbidden_fruit",
                     "functions": [
                         {
