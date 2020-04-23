@@ -165,6 +165,8 @@ public class ModBlocks {
     public static final Block realmiteBricks = null;
     @ObjectHolder("redstone_bricks")
     public static final Block redstoneBricks = null;
+    @ObjectHolder("eden_bricks")
+    public static final Block edenBricks = null;
 
     // Minibricks
     @ObjectHolder("minibricks")
@@ -1104,6 +1106,7 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.ROCK, "purple_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "realmite_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "redstone_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "eden_bricks", 3.0F, IRON).setResistance(30.0F));
 
         // Minibricks
         register(registry, new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F));
