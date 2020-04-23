@@ -3,6 +3,7 @@ package divinerpg.objects.entities.assets.model.twilight;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class ModelSunstorm extends ModelBase
 {
@@ -263,6 +264,8 @@ public class ModelSunstorm extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
+	this.legR.rotateAngleX = (MathHelper.cos(f * 0.6662F) * 1.4F * f1);
+	this.legL.rotateAngleX = (MathHelper.cos(f * 0.6662F + 3.141593F) * 1.4F * f1);
   }
 
 }
