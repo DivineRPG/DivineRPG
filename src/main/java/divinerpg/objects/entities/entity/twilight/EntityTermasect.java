@@ -35,6 +35,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 	public EntityTermasect(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);
+		this.experienceValue = 1500;
 	}
 	
     

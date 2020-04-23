@@ -1,9 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.enums.ArrowType;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
@@ -12,20 +10,19 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
+import net.minecraft.world.World;
 
 public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttackMob {
 	//TODO - add spawn method
 	public EntitySunstorm(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);
+		this.experienceValue = 1000;
 	}
 	
 	@Override
@@ -36,17 +33,23 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
     }
 
 	@Override
-    public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		this.attackingPlayer = this.world.getNearestAttackablePlayer(this, 16D, 16D);
-        if (this.attackingPlayer != null && !this.world.isRemote) {
-            double tx = this.attackingPlayer.posX - this.posX;
-            double ty = this.attackingPlayer.getEntityBoundingBox().minY - this.posY;
-            double tz = this.attackingPlayer.posZ - this.posZ;
-            EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SUNSTORM);
-            shot.shoot(tx, ty, tz, 1.6f, 0);
-            this.world.spawnEntity(shot);
-            this.world.playSound((EntityPlayer) null, this.attackingPlayer.posX, this.attackingPlayer.posY,
-                    this.attackingPlayer.posZ, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.HOSTILE, 1.0F, 1.0F);
+    public void attackEntityWithRangedAttack(EntityLivingBase e, float f) {
+		double y = this.getEntityBoundingBox().minY + 2.7D;
+        double tx = e.posX - this.posX;
+        double ty = e.getEntityBoundingBox().minY - y;
+        double tz = e.posZ - this.posZ;
+
+        for (double h = -1.5; h < 1.5; h += 0.3) {
+            for (double r = 0; r < 1.5 - Math.abs(h); r += 0.3) {
+                for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 8) {
+                    EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SUNSTORM);
+                    shot.posX = this.posX + r * Math.cos(theta);
+                    shot.posY = this.posY + 5 + h;
+                    shot.posZ = this.posZ + r * Math.sin(theta);
+                    shot.shoot(tx, ty, tz, 0.9f, 5);
+                    world.spawnEntity(shot);
+                }
+            }
         }
     }
 

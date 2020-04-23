@@ -141,8 +141,7 @@ public class ModEntities {
                 buildEntityEntry(EntityEpiphite.class, "epiphite", WILDWOOD),
                 buildEntityEntry(EntityMage.class, "mage", WILDWOOD),
                 buildEntityEntry(EntityMoonWolf.class, "moon_wolf", WILDWOOD),
-                //TODO - add once bosses are finished
-//                buildEntityEntry(EntityTermid.class, "termid", WILDWOOD),
+                buildEntityEntry(EntityTermid.class, "termid", WILDWOOD),
                 buildEntityEntry(EntityVerek.class, "verek", WILDWOOD),
                 buildEntityEntry(EntityWildwoodCadillion.class, "wildwood_cadillion", WILDWOOD),
                 buildEntityEntry(EntityWildwoodGolem.class, "wildwood_golem", WILDWOOD),
@@ -252,9 +251,8 @@ public class ModEntities {
                 buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
                 buildEntityEntry(EntityReyvor.class, "reyvor", BOSS),
                 buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
-                //TODO - finish new bosses
-//                buildEntityEntry(EntitySunstorm.class, "sunstorm", BOSS),
-//                buildEntityEntry(EntityTermasect.class, "termasect", BOSS),
+                buildEntityEntry(EntitySunstorm.class, "sunstorm", BOSS),
+                buildEntityEntry(EntityTermasect.class, "termasect", BOSS),
                 buildEntityEntry(EntityTheWatcher.class, "the_watcher", BOSS),
                 buildEntityEntry(EntityTwilightDemon.class, "twilight_demon", BOSS),
                 buildEntityEntry(EntityVamacheron.class, "vamacheron", BOSS),
