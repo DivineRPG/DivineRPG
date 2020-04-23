@@ -1,5 +1,6 @@
 package divinerpg.world.structures;
 
+import divinerpg.DivineRPG;
 import divinerpg.config.Config;
 import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
 import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
@@ -46,6 +47,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
             DRPGLootTables.ICEIKA_CHEST_HUT);
 
+    public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
+
     private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
     private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
     private WorldGenLibrary library = new WorldGenLibrary();
@@ -85,6 +88,9 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
             }
         }
+        	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
+        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 25, ModBlocks.edenGrass, 10, 10);
+        	}
     }
 
     /** Generates a structure between y=13 and y=56 */
