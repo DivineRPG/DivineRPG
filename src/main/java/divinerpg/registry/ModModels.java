@@ -57,8 +57,9 @@ public class ModModels {
                 ModBlocks.vamacheronStatue);
 
         registerRenders(new ShieldsRender(),
+                ModItems.arlemite_shield,
                 ModItems.realmite_shield,
-                ModItems.arlemite_shield);
+                ModItems.rupee_shield);
     }
 
     private static void registerRenders(TileEntityItemStackRenderer teisr, Block... items) {

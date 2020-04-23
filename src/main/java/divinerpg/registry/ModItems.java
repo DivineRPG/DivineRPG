@@ -1057,10 +1057,12 @@ public class ModItems {
     public static final Item eucalyptusSlab = null;
 
     // shields
-    @ObjectHolder("realmite_shield")
-    public static final Item realmite_shield = null;
     @ObjectHolder("arlemite_shield")
     public static final Item arlemite_shield = null;
+    @ObjectHolder("realmite_shield")
+    public static final Item realmite_shield = null;
+    @ObjectHolder("rupee_shield")
+    public static final Item rupee_shield = null;
 
     // Armor information
     // Vanilla dimensions
@@ -1702,8 +1704,9 @@ public class ModItems {
         register(registry, new ItemModSlab("eucalyptus_double_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
 
         // Shields
-        register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> realmiteIngot, 1200));
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));
+        register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> realmiteIngot, 1200));
+        register(registry, new DivineShield("rupee_shield", DivineRPGTabs.armor, () -> rupeeIngot, 1200));
 
     }
 
