@@ -10,6 +10,12 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -33,6 +39,9 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
 
 	@Override
     public void attackEntityWithRangedAttack(EntityLivingBase e, float f) {
+		if(this.getDistance(e)<3) {
+        	e.setFire(3);
+        }
 		double y = this.getEntityBoundingBox().minY + 2.7D;
         double tx = e.posX - this.posX;
         double ty = e.getEntityBoundingBox().minY - y;
