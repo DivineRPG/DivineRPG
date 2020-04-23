@@ -1,13 +1,14 @@
 {
     "pools": [
         {
-            "rolls": 1,
+            "name":"divinerpg:sun_storm",
+            "rolls": 2,
             "entries": [
-                {
-                    "type": "item",
-                    "weight": 1,
-                    "name": "divinerpg:eden_soul",
-                    "functions": [
+            {
+               "type":"item",
+               "name":"divinerpg:eden_chunk",
+               "weight":1,
+               "functions": [
                         {
                             "function": "set_count",
                             "count": {
@@ -15,8 +16,9 @@
                                 "max": 6
                             }
                         }
-                    ]
-                },
+                       ]
+                    }
+               ]},
                 {
                     "type": "item",
                     "weight": 1,

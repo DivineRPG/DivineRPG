@@ -89,7 +89,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             }
         }
         	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
-        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 25, ModBlocks.edenGrass, 10, 10);
+        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 10, ModBlocks.edenGrass, 10, 10);
         	}
     }
 
