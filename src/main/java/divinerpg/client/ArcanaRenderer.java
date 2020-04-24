@@ -1,25 +1,24 @@
 package divinerpg.client;
 
+import divinerpg.api.DivineAPI;
 import divinerpg.api.Reference;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ArcanaRenderer {
-
     Minecraft mc = Minecraft.getMinecraft();
-
-    public static float percantage = 100;
-    public static boolean regen;
 
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
-        if(event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+        if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
             onTickRender();
         }
     }
@@ -36,8 +35,18 @@ public class ArcanaRenderer {
             int y = k - Config.arcanaY;
             int x = i - Config.arcanaX;
             gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);
-            gig.drawTexturedModalRect(x, y, 0, 9, (int) percantage, 18);
+            gig.drawTexturedModalRect(x, y, 0, 9, getPercents(), 18);
         }
     }
 
+    private int getPercents() {
+        IArcana arcana = DivineAPI.getArcana(mc.player);
+        if (arcana != null) {
+            float result = arcana.getArcana() / arcana.getMaxArcana() * 100;
+
+            return (int) MathHelper.clamp(Math.floor(result), 0, 100);
+        }
+
+        return 0;
+    }
 }
