@@ -22,12 +22,12 @@ public class ArcanaTickHandler {
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        refillArcana(event.player);
+//        refillArcana(event.player);
     }
 
     @SubscribeEvent
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        drainArcana(event.player);
+//        drainArcana(event.player);
     }
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
