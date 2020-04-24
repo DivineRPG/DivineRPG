@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nullable;
 
@@ -37,16 +38,17 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     private ResourceLocation loot;
 
     public EntityAyeraco(World worldIn) {
-        this(worldIn, new BlockPos(0,100,0), BossInfo.Color.BLUE, new ResourceLocation(""));
+        this(worldIn, new BlockPos(0, 100, 0), BossInfo.Color.BLUE, new ResourceLocation(""));
     }
 
     /**
      * Main constructor
+     *
      * @param world
-     * @param beam - beam location
+     * @param beam  - beam location
      * @param color
      */
-    public EntityAyeraco(World world, BlockPos beam, BossInfo.Color color, ResourceLocation loot){
+    public EntityAyeraco(World world, BlockPos beam, BossInfo.Color color, ResourceLocation loot) {
         super(world);
         beamLocation = beam;
         this.color = color;
@@ -61,7 +63,11 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         setLocationAndAngles(beam.getX(), beam.getY() + 4, beam.getZ(),
                 this.world.rand.nextFloat() * 360.0F, 0.0F);
 
-        group = AyeracoGroup.GetEmpty(world);
+        WorldServer serverWorld = world instanceof WorldServer
+                ? ((WorldServer) world)
+                : null;
+
+        group = new AyeracoGroup(serverWorld);
     }
 
     @Override
@@ -87,7 +93,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     protected void updateAITasks() {
         super.updateAITasks();
 
-        executeOnServerOnly(() -> group.processSpecialAbilities(this));
+        group.tick(this);
 
         if (getHealth() * 2 < getMaxHealth()) {
             if (this.halfHp == false) {
@@ -137,12 +143,10 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
             this.waitTick = 80;
             this.attacks = true;
 
-            executeOnServerOnly(() -> {
-                if (group.canTeleport(this)){
-                    this.waitTick = 0;
-                    this.teleportRandomUp();
-                }
-            });
+            if (group.canTeleport(this)) {
+                this.waitTick = 0;
+                this.teleportRandomUp();
+            }
         }
     }
 
@@ -162,14 +166,13 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     @Override
     public boolean attackEntityFrom(DamageSource damageSource, float par2) {
         if (isEntityInvulnerable(damageSource)
-        // ignoring local mobs damage. Maybe check for Ender Dragon?
-        || damageSource.getImmediateSource() instanceof EntityEnderTripletsFireball
-        // group exists only on server side
-        || (damageSource.isProjectile() && !world.isRemote && group.projectileProtected(this)) ){
+                // ignoring local mobs damage. Maybe check for Ender Dragon?
+                || damageSource.getImmediateSource() instanceof EntityEnderTripletsFireball
+                || (damageSource.isProjectile() && group.projectileProtected(this))) {
             return false;
         }
 
-        if (damageSource.getTrueSource() instanceof EntityPlayer){
+        if (damageSource.getTrueSource() instanceof EntityPlayer) {
             attacks = true;
         }
 
@@ -204,8 +207,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        // It is called only on actual server, so we need no worry
-        group.writeToNBT(compound);
+        compound.setTag("group", group.serializeNBT());
         compound.setLong("beamPos", beamLocation.toLong());
         compound.setString("barColor", color.name());
         compound.setString("lootTable", loot.toString());
@@ -215,8 +217,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        // It is called only on actual server, so we need no worry
-        group = new AyeracoGroup(compound, this.world);
+        group.deserializeNBT(compound.getCompoundTag("group"));
         beamLocation = BlockPos.fromLong(compound.getLong("beamPos"));
         color = BossInfo.Color.valueOf(compound.getString("barColor"));
         loot = new ResourceLocation(compound.getString("lootTable"));
@@ -225,7 +226,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     @Override
     public void onDeath(DamageSource cause) {
         super.onDeath(cause);
-        if (world.isBlockLoaded(beamLocation)){
+        if (world.isBlockLoaded(beamLocation)) {
             world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
         }
     }
@@ -243,9 +244,10 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
 
     /**
      * Should called before spawn entity in the world
+     *
      * @param group - group of ayeracos
      */
-    public void initGroup(AyeracoGroup group){
+    public void initGroup(AyeracoGroup group) {
         this.group = group;
     }
 
@@ -254,11 +256,5 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         this.motionY = 20;
         this.motionX = this.rand.nextInt(5);
         this.motionZ = this.rand.nextInt(5);
-    }
-
-    private void executeOnServerOnly(Runnable func){
-        if (!world.isRemote && func != null){
-            func.run();
-        }
     }
 }
