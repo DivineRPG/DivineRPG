@@ -48,6 +48,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             DRPGLootTables.ICEIKA_CHEST_HUT);
 
     public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
+    public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
 
     private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
     private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
@@ -90,6 +91,9 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
         	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
         		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 10, ModBlocks.edenGrass, 10, 10);
+        	}
+        	if(world.provider.getDimensionType() == ModDimensions.wildWoodDimension) {
+        		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, ModBlocks.wildwoodGrass, 10, 10);
         	}
     }
 
