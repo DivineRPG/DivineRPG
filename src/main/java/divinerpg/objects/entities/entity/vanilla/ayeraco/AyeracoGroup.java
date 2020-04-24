@@ -112,7 +112,7 @@ public class AyeracoGroup {
      *
      * @param ayeraco
      */
-    public void processSpecialAbilities(EntityLivingBase ayeraco) {
+    public void processSpecialAbilities(EntityAyeraco ayeraco) {
 
         List<EntityAyeraco> ayeracos = getAllLivingAyeracos();
 
