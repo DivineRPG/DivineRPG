@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
@@ -61,32 +62,20 @@ public abstract class EntityDivineGhast extends EntityFlying implements IMob {
             return target;
         }
 
-        Optional<UUID> optional = manager.get(TargetData);
-
-        // empty target
-        if (target == null && !optional.isPresent()) {
-            return target;
-        }
+        // getting id fro manager
+        UUID id = manager.get(TargetData).orNull();
 
         // same target ID return
-        if (target != null && Objects.equals(target.getUniqueID(), optional.get())) {
+        if (Objects.equals(target == null ? null : target.getUniqueID(), id)) {
             return target;
         }
 
-        // optimizing search on servers
-        if (world.getMinecraftServer() != null) {
-            Entity possibleTarget = world.getMinecraftServer().getEntityFromUuid(optional.get());
-            if (possibleTarget instanceof EntityLivingBase) {
-                target = ((EntityLivingBase) possibleTarget);
-            }
-        } else {
-            target = world.getLoadedEntityList().stream().filter(x -> Objects.equals(x.getUniqueID(), optional.get()) && x instanceof EntityLivingBase)
-                    .map(x -> ((EntityLivingBase) x))
-                    .findFirst().orElse(null);
-        }
+        // searches entity from id
+        target = findByUuid(world, id);
 
         // set here new target
         setAttackTarget(target);
+
         // returning it
         return target;
     }
@@ -95,11 +84,46 @@ public abstract class EntityDivineGhast extends EntityFlying implements IMob {
     public void setAttackTarget(@Nullable EntityLivingBase e) {
         super.setAttackTarget(e);
 
-        Optional<UUID> value = e == null || e.getUniqueID() == null
-                ? Optional.absent()
-                : Optional.of(e.getUniqueID());
+        Optional<UUID> uuid;
 
-        getDataManager().set(TargetData, value);
+        if (e == null) {
+            uuid = Optional.absent();
+        } else {
+            uuid = Optional.of(e.getUniqueID());
+        }
+
+        getDataManager().set(TargetData, uuid);
+    }
+
+    /**
+     * Searches entity on world. Optimized for server world
+     *
+     * @param world - world
+     * @param id    - UUID of entity
+     * @return
+     */
+    private EntityLivingBase findByUuid(World world, UUID id) {
+        if (world != null && id != null) {
+            MinecraftServer server = world.getMinecraftServer();
+
+            Entity result = server != null
+                    // optimizing search on servers
+                    ? server.getEntityFromUuid(id)
+                    // searching on clients
+                    : world
+                    .getLoadedEntityList()
+                    .stream()
+                    .filter(x -> Objects.equals(x.getUniqueID(), id))
+                    .findFirst()
+                    .orElse(null);
+
+            if (result instanceof EntityLivingBase) {
+                return ((EntityLivingBase) result);
+            }
+        }
+
+
+        return null;
     }
 
     @Override
