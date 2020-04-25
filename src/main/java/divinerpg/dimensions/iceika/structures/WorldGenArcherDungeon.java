@@ -28,7 +28,6 @@ public class WorldGenArcherDungeon extends WorldGenerator {
     @Override
     public boolean generate(World w, Random rand, BlockPos pos) {
 
-        // TODO - Convert iceika dungeons to NBT
         int x = pos.getX() + 5, y = pos.getY(), z = pos.getZ() + 5;
 
         if (!locationIsValidSpawn(w, x, y, z)) return false;
