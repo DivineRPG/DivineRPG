@@ -2,78 +2,70 @@ package divinerpg.objects.entities.entity.vanilla.ayeraco;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.util.INBTSerializable;
 
-import java.util.Optional;
 import java.util.UUID;
 
-public class EntityFinder {
+public class EntityFinder<T extends Entity> implements INBTSerializable<NBTTagCompound> {
+    private static String IdKey = "EntityId";
+    private final Class<T> clazz;
+    private final WorldServer world;
+    private UUID id;
 
-    private UUID uuid;
-    private Entity entity;
-    private World world;
-
-    public static EntityFinder GetEmpty(World world){
-        return new EntityFinder(new UUID(0,0), world);
-    }
-
-    /**
-     * Init from Unique ID of entity
-     * @param uuid - ID of entity
-     * @param world - current world
-     */
-    private EntityFinder(UUID uuid, World world){
-        this.uuid = uuid;
+    public EntityFinder(Class<T> clazz, WorldServer world, UUID id) {
+        this.clazz = clazz;
         this.world = world;
+        this.id = id;
     }
 
     /**
-     * Init from entity
-     * @param entity
+     * Only server side constructor
+     *
+     * @param clazz  - class of entity
+     * @param entity - entity instance
      */
-    public EntityFinder(Entity entity){
-        this(entity.getUniqueID(), entity.world);
-        this.entity = entity;
+    public EntityFinder(Class<T> clazz, T entity) {
+        this(clazz, ((WorldServer) entity.world), entity.getUniqueID());
     }
 
-    public EntityFinder(NBTTagCompound compound, String nbtKey, World world) {
-        this(compound.getUniqueId(nbtKey), world);
+    @Override
+    public NBTTagCompound serializeNBT() {
+        NBTTagCompound compound = new NBTTagCompound();
+
+        if (id != null)
+            compound.setUniqueId(IdKey, id);
+
+
+        return compound;
     }
 
+    @Override
+    public void deserializeNBT(NBTTagCompound nbt) {
+        if (nbt.hasKey(IdKey))
+            id = nbt.getUniqueId(IdKey);
+    }
 
-    public <T extends Entity> T getEntity(){
-        if (entity == null){
-            if (uuid != null) {
-                entity = find(uuid, this.world);
+    public boolean sameEntity(Entity e) {
+        if (id == null || e == null)
+            return false;
+
+        return id.equals(e.getUniqueID());
+    }
+
+    /**
+     * Attempts to find entity from world
+     *
+     * @return
+     */
+    public T get() {
+        if (world != null && id != null) {
+            Entity entity = world.getEntityFromUuid(id);
+            if (clazz.isInstance(entity)) {
+                return (T) entity;
             }
         }
 
-        return (T) entity;
-    }
-
-    boolean sameEntity(Entity e){
-        return e.getUniqueID().equals(uuid);
-    }
-
-    public void writeToNBT(NBTTagCompound compound, String nbtKey){
-        Entity entity = getEntity();
-        if (entity != null && !entity.isDead){
-            compound.setUniqueId(nbtKey, entity.getUniqueID());
-        }
-    }
-
-
-    /**
-     * Searches enriry from current world
-     * @param uuid - Unique ID of entity
-     * @param world - current world
-     * @param <T> - entity type
-     * @return
-     */
-    private <T extends Entity> T find(UUID uuid, World world){
-        Optional<Entity> first = world.loadedEntityList.stream()
-                .filter(x -> uuid.equals(x.getUniqueID())).findFirst();
-
-        return (T) first.orElse(null);
+        return null;
     }
 }

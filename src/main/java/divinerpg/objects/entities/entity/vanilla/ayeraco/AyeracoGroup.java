@@ -1,110 +1,72 @@
 package divinerpg.objects.entities.entity.vanilla.ayeraco;
 
-import com.google.common.collect.Lists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.Tuple;
-import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.util.INBTSerializable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class AyeracoGroup {
-    private EntityFinder red;
-    private EntityFinder green;
-    private EntityFinder blue;
-    private EntityFinder purple;
-    private EntityFinder yellow;
+public class AyeracoGroup implements INBTSerializable<NBTTagCompound> {
+    private EntityFinder<EntityAyeracoRed> red;
+    private EntityFinder<EntityAyeracoGreen> green;
+    private EntityFinder<EntityAyeracoBlue> blue;
+    private EntityFinder<EntityAyeracoPurple> purple;
+    private EntityFinder<EntityAyeracoYellow> yellow;
 
-    public static AyeracoGroup GetEmpty(World world){
-        return new AyeracoGroup(
-                EntityFinder.GetEmpty(world),
-                EntityFinder.GetEmpty(world),
-                EntityFinder.GetEmpty(world),
-                EntityFinder.GetEmpty(world),
-                EntityFinder.GetEmpty(world));
+    public AyeracoGroup(WorldServer world) {
+        this(world, null, null, null, null, null);
+    }
+
+    public AyeracoGroup(WorldServer world, UUID red, UUID green, UUID blue, UUID yellow, UUID purple) {
+        this.red = new EntityFinder<>(EntityAyeracoRed.class, world, red);
+        this.green = new EntityFinder<>(EntityAyeracoGreen.class, world, green);
+        this.blue = new EntityFinder<>(EntityAyeracoBlue.class, world, blue);
+        this.purple = new EntityFinder<>(EntityAyeracoPurple.class, world, purple);
+        this.yellow = new EntityFinder<>(EntityAyeracoYellow.class, world, yellow);
     }
 
     /**
-     * Initialization when entity is created from NBT
-     *
-     * @param compound - NBT
-     * @param world    - world where entity created
-     */
-    public AyeracoGroup(NBTTagCompound compound, World world) {
-        initFromNBT(compound, world);
-    }
-
-    /**
-     * Initializated ayeracos in that order: red, green, blue, yellow, purple
+     * Should call only on server side
      *
      * @param ayeracos
      */
-    public AyeracoGroup(ArrayList<EntityAyeraco> ayeracos) {
-        this(ayeracos.get(0), ayeracos.get(1), ayeracos.get(2), ayeracos.get(3), ayeracos.get(4));
-    }
-
-    private AyeracoGroup(EntityAyeraco red, EntityAyeraco green, EntityAyeraco blue, EntityAyeraco yellow, EntityAyeraco purple) {
-        this.red = new EntityFinder(red);
-        this.green = new EntityFinder(green);
-        this.blue = new EntityFinder(blue);
-        this.yellow = new EntityFinder(yellow);
-        this.purple = new EntityFinder(purple);
-    }
-
-    private AyeracoGroup(EntityFinder red, EntityFinder green, EntityFinder blue, EntityFinder yellow, EntityFinder purple) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        this.yellow = yellow;
-        this.purple = purple;
+    public AyeracoGroup(List<EntityAyeraco> ayeracos) {
+        this(((WorldServer) ayeracos.get(0).world),
+                ayeracos.get(0).getUniqueID(),
+                ayeracos.get(1).getUniqueID(),
+                ayeracos.get(2).getUniqueID(),
+                ayeracos.get(3).getUniqueID(),
+                ayeracos.get(4).getUniqueID());
     }
 
     /**
-     * For purple always, for anothers if purple health >= 50%
+     * Is purple ayeraco provides teleport ability
      *
      * @param ayeraco - current ayeraco
      * @return
      */
     public boolean canTeleport(EntityLivingBase ayeraco) {
-        return purple.sameEntity(ayeraco) || isHealthy(purple.getEntity());
+        EntityAyeraco superAyeraco = this.purple.get();
+        return superAyeraco == ayeraco || isHealthy(superAyeraco);
     }
 
     /**
-     * For green - always, for others if green health > 50%
+     * Is green ayeraco provides projectile potection
      *
      * @param ayeraco - current ayeraco
      * @return
      */
     public boolean projectileProtected(EntityLivingBase ayeraco) {
-        return green.sameEntity(ayeraco) || isHealthy(green.getEntity());
-    }
-
-    /**
-     * Writing the whole team to NBT tags
-     *
-     * @param compound - NBT
-     */
-    public void writeToNBT(NBTTagCompound compound) {
-        red.writeToNBT(compound, "redUUID");
-        green.writeToNBT(compound, "greenUUID");
-        blue.writeToNBT(compound, "blueUUID");
-        purple.writeToNBT(compound, "purpleUUID");
-        yellow.writeToNBT(compound, "yellowUUID");
-    }
-
-    private void initFromNBT(NBTTagCompound compound, World world) {
-        red = new EntityFinder(compound, "redUUID", world);
-        green = new EntityFinder(compound, "greenUUID", world);
-        blue = new EntityFinder(compound, "blueUUID", world);
-        purple = new EntityFinder(compound, "purpleUUID", world);
-        yellow = new EntityFinder(compound, "yellowUUID", world);
+        EntityAyeraco superAyeraco = this.green.get();
+        return superAyeraco == ayeraco || isHealthy(superAyeraco);
     }
 
     /**
@@ -112,65 +74,59 @@ public class AyeracoGroup {
      *
      * @param ayeraco
      */
-    public void processSpecialAbilities(EntityAyeraco ayeraco) {
+    public void tick(EntityAyeraco ayeraco) {
 
-        List<EntityAyeraco> ayeracos = getAllLivingAyeracos();
+        // works only with angry entities
+        if (!isAngry(ayeraco))
+            return;
+
+        List<? extends EntityAyeraco> livingAyeracos = Stream.of(red, green, blue, purple, yellow)
+                .map(EntityFinder::get)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        // entity is not ayeraco
+        if (!livingAyeracos.contains(ayeraco))
+            return;
 
         // Yellow adding speed
-        if (yellow.sameEntity(ayeraco) && isAngry(ayeraco)) {
+        if (yellow.sameEntity(ayeraco)) {
             PotionEffect effect = new PotionEffect(MobEffects.SPEED, 1, 1);
-            ayeracos.forEach(x -> x.addPotionEffect(effect));
+            livingAyeracos.forEach(x -> x.addPotionEffect(effect));
         }
 
         // Read is healing others
-        if (red.sameEntity(ayeraco) && isAngry(ayeraco)) {
-            ayeracos.forEach(x -> x.heal(0.3F));
+        if (red.sameEntity(ayeraco)) {
+            livingAyeracos.forEach(x -> x.heal(0.3F));
         }
 
         // The blue one adding strength
         if (blue.sameEntity(ayeraco) && isAngry(ayeraco)) {
             PotionEffect effect = new PotionEffect(MobEffects.STRENGTH, 1, 2);
-            ayeracos.forEach(x -> x.addPotionEffect(effect));
+            livingAyeracos.forEach(x -> x.addPotionEffect(effect));
         }
     }
 
-
-    /**
-     * Writes only leaving entity in NBT
-     *
-     * @param compound - NBT of entity
-     * @param entity   - one og the ayeraco group
-     * @param key      - ID of each color
-     */
-    private void writeEntity(NBTTagCompound compound, Entity entity, String key) {
-        if (checkNotDead(entity))
-            compound.setUniqueId(key, entity.getUniqueID());
+    @Override
+    public NBTTagCompound serializeNBT() {
+        NBTTagCompound compound = new NBTTagCompound();
+        compound.setTag("red", red.serializeNBT());
+        compound.setTag("green", green.serializeNBT());
+        compound.setTag("blue", blue.serializeNBT());
+        compound.setTag("purple", purple.serializeNBT());
+        compound.setTag("yellow", yellow.serializeNBT());
+        return compound;
     }
 
-    /**
-     * Should call on not remote worlds!
-     *
-     * @param compound - NBT
-     * @param key      - string key name of entity UUID
-     * @param world    - Not remote world!!!
-     * @return
-     */
-    private <T extends Entity> Tuple<UUID, T> readEntity(NBTTagCompound compound, String key, World world) {
-
-        if (key == null || key.isEmpty())
-            return null;
-
-        UUID uuid = compound.getUniqueId(key);
-        if (uuid == null) {
-            return null;
-        }
-
-        return new Tuple<>(uuid, find(uuid, world));
+    @Override
+    public void deserializeNBT(NBTTagCompound nbt) {
+        red.deserializeNBT(nbt.getCompoundTag("red"));
+        green.deserializeNBT(nbt.getCompoundTag("green"));
+        blue.deserializeNBT(nbt.getCompoundTag("blue"));
+        purple.deserializeNBT(nbt.getCompoundTag("purple"));
+        yellow.deserializeNBT(nbt.getCompoundTag("yellow"));
     }
 
-    private boolean checkNotDead(Entity e) {
-        return e != null && !e.isDead;
-    }
 
     /**
      * Health of entity is more 50%
@@ -192,28 +148,7 @@ public class AyeracoGroup {
         return checkNotDead(e) && e.getHealth() / e.getMaxHealth() <= 0.5F;
     }
 
-    /**
-     * Returns all living ayeracos
-     *
-     * @return
-     */
-    private List<EntityAyeraco> getAllLivingAyeracos() {
-        return Lists.newArrayList(red, green, blue, yellow, purple)
-                .stream().map(EntityFinder::<EntityAyeraco>getEntity).filter(this::checkNotDead).collect(Collectors.toList());
-    }
-
-    /**
-     * Searches enriry from current world
-     *
-     * @param uuid  - Unique ID of entity
-     * @param world - current world
-     * @param <T>   - entity type
-     * @return
-     */
-    private <T extends Entity> T find(UUID uuid, World world) {
-        Optional<Entity> first = world.loadedEntityList.stream()
-                .filter(x -> uuid.equals(x.getUniqueID())).findFirst();
-
-        return (T) first.orElse(null);
+    private boolean checkNotDead(Entity e) {
+        return e != null && !e.isDead;
     }
 }

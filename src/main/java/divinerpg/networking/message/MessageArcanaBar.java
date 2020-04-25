@@ -3,7 +3,6 @@ package divinerpg.networking.message;
 import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.client.ArcanaRenderer;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -55,8 +54,6 @@ public class MessageArcanaBar implements IMessage {
                     capability.setRegenDelay(msg.delay);
                     capability.set(msg.arcana);
                 }
-
-                ArcanaRenderer.percantage = (msg.arcana / msg.max) * 100;
             }
 
             return null;

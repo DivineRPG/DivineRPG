@@ -25,8 +25,7 @@ public class CapabilityArcana implements IStorage<IArcana> {
 
     @Override
     public void readNBT(Capability<IArcana> capability, IArcana instance, EnumFacing side, NBTBase nbt) {
-        // Compatibility for previous versions
-        if (NBTBase.getTagTypeName(nbt.getId()).equals("TAG_Compound")) {
+        if (nbt instanceof NBTTagCompound) {
             NBTTagCompound saved = (NBTTagCompound) nbt;
 
             instance.set(saved.getFloat(arcana));
