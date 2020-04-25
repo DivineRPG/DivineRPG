@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:awakened_halite_boots"
+  },
+  "pattern": [
+    "xxx",
+    "x x",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:wheat"
+    }
+  }
+}

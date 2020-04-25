@@ -74,4 +74,10 @@ public class ItemShickaxe extends ItemTool {
         stack.damageItem(1, attacker);
         return true;
     }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return this.getItemStackLimit(stack) == 1
+                && (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
+    }
 }

@@ -27,11 +27,17 @@ public class ItemModAxe extends ItemAxe {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-        infoList.add(LocalizeUtils.efficiency(toolMaterial.getEfficiency()));
-        if (stack.getMaxDamage() > 0) {
-            infoList.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
-        } else {
-            infoList.add(LocalizeUtils.infiniteUses());
-        }
-    }
+		infoList.add(LocalizeUtils.efficiency(toolMaterial.getEfficiency()));
+		if (stack.getMaxDamage() > 0) {
+			infoList.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
+		} else {
+			infoList.add(LocalizeUtils.infiniteUses());
+		}
+	}
+
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return this.getItemStackLimit(stack) == 1
+				&& (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
+	}
 }

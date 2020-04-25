@@ -32,6 +32,7 @@ import java.util.Collections;
 @Mod.EventBusSubscriber
 public class ArmorDescriptionRegister {
 
+    public static final ResourceLocation AWAKENED_HALITE = new ResourceLocation(Reference.MODID, "awakened_halite");
     public static final ResourceLocation CORRUPTED = new ResourceLocation(Reference.MODID, "corrupted");
     public static final ResourceLocation JACKOMAN = new ResourceLocation(Reference.MODID, "jackoman");
 
@@ -262,6 +263,17 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.haliteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 16))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "halite"))
+        );
+
+        registry.register(
+                new ArmorDescription()
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.awakened_haliteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.awakened_haliteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.awakened_haliteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.awakened_haliteBoots)
+                        .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 20))
+                        .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, AWAKENED_HALITE, x -> x * 1.5F))
+                        .setRegistryName(AWAKENED_HALITE)
         );
 
         registry.register(

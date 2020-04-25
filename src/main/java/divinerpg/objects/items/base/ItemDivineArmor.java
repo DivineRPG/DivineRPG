@@ -111,6 +111,12 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         return !unbreakable;
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return this.getItemStackLimit(stack) == 1
+                && (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
+    }
+
     protected String getDefaultItemName(String material, EntityEquipmentSlot slot) {
         if (slot == EntityEquipmentSlot.FEET) {
             return material + "_boots";

@@ -1,8 +1,8 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
-import divinerpg.enums.*;
+import divinerpg.enums.ArmorInfo;
+import divinerpg.enums.EnumArmor;
 import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
 import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
 import divinerpg.objects.entities.entity.arcana.EntityParatiku;
@@ -13,9 +13,16 @@ import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;
 import divinerpg.objects.items.iceika.ItemEggNog;
 import divinerpg.objects.items.iceika.ItemSnowGlobe;
-import divinerpg.objects.items.twilight.*;
-import divinerpg.objects.items.vanilla.*;
-import divinerpg.objects.items.vethea.*;
+import divinerpg.objects.items.twilight.ItemBossSpawner;
+import divinerpg.objects.items.twilight.ItemForbiddenFruit;
+import divinerpg.objects.items.twilight.ItemSkyFlower;
+import divinerpg.objects.items.twilight.ItemTwilightClock;
+import divinerpg.objects.items.vanilla.ItemHealingStone;
+import divinerpg.objects.items.vanilla.ItemHordeHorn;
+import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
+import divinerpg.objects.items.vanilla.ItemTeleportationStar;
+import divinerpg.objects.items.vethea.ItemNightmareBed;
+import divinerpg.objects.items.vethea.ItemVethean;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -30,7 +37,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -685,6 +691,15 @@ public class ModItems {
     @ObjectHolder("halite_boots")
     public static final Item haliteBoots = null;
 
+    @ObjectHolder("awakened_halite_helmet")
+    public static final Item awakened_haliteHelmet = null;
+    @ObjectHolder("awakened_halite_chestplate")
+    public static final Item awakened_haliteChestplate = null;
+    @ObjectHolder("awakened_halite_leggings")
+    public static final Item awakened_haliteLeggings = null;
+    @ObjectHolder("awakened_halite_boots")
+    public static final Item awakened_haliteBoots = null;
+
     // Twilight boss spawners
     @ObjectHolder("densos_crystal")
     public static final Item densosCrystal = null;
@@ -1070,7 +1085,7 @@ public class ModItems {
     private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
     private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 85));
     private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
-    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 20));
+    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50));
     private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
             getArmorAbility("jump_height", 2),
             getArmorAbility("no_fall"));
@@ -1103,6 +1118,8 @@ public class ModItems {
     private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
     private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
     private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
+    private static ArmorInfo awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20),
+            getArmorAbility("ranged_damage", 50));
 
     // Arcana
     private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
@@ -1482,6 +1499,11 @@ public class ModItems {
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo));
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo));
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
+
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.HEAD, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.CHEST, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.LEGS, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.FEET, awakened_halInfo));
 
         // Twilight boss spawners
         register(registry, new ItemBossSpawner("eternal_archer_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityEternalArcher::new));

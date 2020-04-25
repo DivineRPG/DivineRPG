@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:awakened_halite_leggings"
+  },
+  "pattern": [
+    "dHd",
+    "dhd",
+    "aha"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "h": {
+      "item": "divinerpg:halite_leggings"
+    },
+    "a": {
+      "item": "divinerpg:arcanium"
+    },
+    "d": {
+      "item": "divinerpg:divine_stone"
+    },
+    "H": {
+      "item": "divinerpg:corrupted_leggings"
+    }
+  }
+}

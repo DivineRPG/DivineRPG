@@ -57,6 +57,12 @@ public class ItemModSword extends ItemSword {
         }
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return this.getItemStackLimit(stack) == 1
+                && (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
+    }
+
     protected boolean canUseSpecialEffect(EntityPlayer player) {
         return false;
     }

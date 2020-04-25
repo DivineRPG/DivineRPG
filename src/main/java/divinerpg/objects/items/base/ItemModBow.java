@@ -227,6 +227,12 @@ public class ItemModBow extends ItemBow {
         }
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return this.getItemStackLimit(stack) == 1
+                && (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
+    }
+
     public ItemModBow setSound(net.minecraft.util.SoundEvent shootSound) {
         this.shootSound = shootSound;
         return this;

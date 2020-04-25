@@ -45,6 +45,7 @@ public enum EnumArmor {
     SKYTHERN("Skythern", "skythern", 0, 10, 78),
     MORTUM("Mortum", "mortum", 0, 10, 80),
     HALITE("Halite", "halite", 0, 12, 83),
+    AWAKEN_HALITE("Awaken Halite", "awakened_halite", 2000, 24, 87),
     SANTA("Santa", "santa", 0, 10, 0, true, false),
     KORMA("Korma", "korma", 0, 22, 78),
     VEMOS("Vemos", "vemos", 0, 22, 65),
