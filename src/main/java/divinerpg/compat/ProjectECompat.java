@@ -18,10 +18,10 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.divineShards, 1, 0), 640L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.corruptedShards, 1, 0), 1050L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.enderShards, 1, 0), 840L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.jungleShards, 1, 0), 320L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.jungleShards, 1, 0), 160L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.moltenShards, 1, 0), 640L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.terranShards, 1, 0), 640L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.iceShards, 1, 0), 640L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.terranShards, 1, 0), 620L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.iceShards, 1, 0), 653L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.watchingEye, 1, 0), 4096L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.twilightStone, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.edenSoul, 1, 0), 512L);
@@ -51,12 +51,14 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.mortumDirt, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.skythernDirt, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.wildwoodDirt, 1, 0), 1L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.dreamDirt, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.apalachiaGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.edenGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.frozenGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.mortumGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.skythernGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.wildwoodGrass, 1, 0), 1L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.dreamGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModWeapons.infernoSword, 1, 0), 4740L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModBlocks.arcaniumOre, 1, 0), 10304L);
         }
