@@ -10,10 +10,12 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -311,7 +313,15 @@ public class ArmorHandlers {
         return !source.isExplosion() && !source.isMagicDamage() && !source.isFireDamage() && !source.isProjectile()
                 && !source.isDamageAbsolute() && !source.isUnblockable();
     }
-
+    
+    public static void getStepAssist(LivingEvent.LivingUpdateEvent event)
+    {
+        if (event.getEntityLiving() instanceof EntityPlayer)
+        {
+                event.getEntityLiving().stepHeight = 1.0f;
+            }
+    }
+    
     /**
      * Checks wherever entity contains in remote world
      *

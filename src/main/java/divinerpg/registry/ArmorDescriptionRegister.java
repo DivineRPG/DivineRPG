@@ -218,6 +218,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.shadowBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpPlayer(event.player, 3, false))
+                        .withHandler(LivingEvent.LivingUpdateEvent.class,  event -> ArmorHandlers.getStepAssist(event))
                         .setRegistryName(new ResourceLocation(Reference.MODID, "shadow"))
         );
 
