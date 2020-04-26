@@ -85,6 +85,7 @@ public class ModOreDict {
         OreDictionary.registerOre("dirt", ModBlocks.skythernDirt);
         OreDictionary.registerOre("dirt", ModBlocks.mortumDirt);
         OreDictionary.registerOre("dirt", ModBlocks.frozenDirt);
+        OreDictionary.registerOre("dirt", ModBlocks.dreamDirt);
 
         OreDictionary.registerOre("chunkEden", ModItems.edenChunk);
         OreDictionary.registerOre("chunkWildwood", ModItems.wildwoodChunk);
