@@ -1068,11 +1068,6 @@ item.vemos_helmet.name=Elmo Vemos
 item.vemos_chestplate.name=Corazza Vemos
 item.vemos_leggings.name=Gambali Vemos
 item.vemos_boots.name=Stivali Vemos
-item.ayeraco_fragment_blue.name=Frammento di Ayeraco Blu
-item.ayeraco_fragment_green.name=Frammento di Ayeraco Verde
-item.ayeraco_fragment_purple.name=Frammento di Ayeraco Viola
-item.ayeraco_fragment_yellow.name=Frammento di Ayeraco Giallo
-item.ayeraco_fragment_red.name=Frammento di Ayeraco Rosso
 
 death.attack.trap=%1$s è caduto in una trappola
 death.attack.spike=%1$s ha camminato sulle spine

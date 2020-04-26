@@ -1,12 +1,12 @@
 {
    "pools":[
       {
-         "name":"divinerpg:ayeraco_fragment_red",
+         "name":"divinerpg:ayeraco_statue_red",
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:ayeraco_fragment_red",
+               "name":"divinerpg:ayeraco_statue_red",
                "weight":1
             }
          ]

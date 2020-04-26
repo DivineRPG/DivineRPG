@@ -415,18 +415,6 @@ public class ModItems {
     @ObjectHolder("watching_eye")
     public static final Item watchingEye = null;
 
-    // Ayeraco fragments
-    @ObjectHolder("ayeraco_fragment_blue")
-    public static final Item ayeracoFragmentBlue = null;
-    @ObjectHolder("ayeraco_fragment_green")
-    public static final Item ayeracoFragmentGreen = null;
-    @ObjectHolder("ayeraco_fragment_purple")
-    public static final Item ayeracoFragmentPurple = null;
-    @ObjectHolder("ayeraco_fragment_red")
-    public static final Item ayeracoFragmentRed = null;
-    @ObjectHolder("ayeraco_fragment_yellow")
-    public static final Item ayeracoFragmentYellow = null;
-
     // Diamond chunks
     @ObjectHolder("blue_diamond_chunk")
     public static final Item blueDiamondChunk = null;

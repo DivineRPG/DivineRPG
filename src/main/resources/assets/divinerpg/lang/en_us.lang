@@ -423,8 +423,6 @@ tile.dreamwrecker_spawner.name=Dream Wrecker Spawner
 
 container.iceika_chest=Iceika Chest
 
-
-
 item.steel_door.name=Steel Door
 item.soul_stone_door.name=Soul Stone Door
 item.soul_sludge_door.name=Soul Sludge Door
@@ -1088,11 +1086,6 @@ item.vemos_helmet.name=Vemos Helmet
 item.vemos_chestplate.name=Vemos Chestplate
 item.vemos_leggings.name=Vemos Leggings
 item.vemos_boots.name=Vemos Boots
-item.ayeraco_fragment_blue.name=Blue Ayeraco Scale
-item.ayeraco_fragment_green.name=Green Ayeraco Scale
-item.ayeraco_fragment_purple.name=Purple Ayeraco Scale
-item.ayeraco_fragment_yellow.name=Yellow Ayeraco Scale
-item.ayeraco_fragment_red.name=Red Ayeraco Scale
 item.golden_helmet.name=Golden Helmet
 item.golden_chestplate.name=Golden Chestplate
 item.golden_leggings.name=Golden Leggings
