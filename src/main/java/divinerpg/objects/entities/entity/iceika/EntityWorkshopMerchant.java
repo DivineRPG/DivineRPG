@@ -6,6 +6,7 @@ import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -52,7 +53,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.chocolateLog, 5, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.peppermints, 15, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.fruitCake, 3, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModItems.icicleBane, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModWeapons.icicleBane, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
                 new ItemStack(ModBlocks.greenChristmasLights, 16, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),

@@ -1,10 +1,11 @@
 package divinerpg.utils;
 
+import java.util.HashMap;
+
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModWeapons;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import java.util.HashMap;
 
 public class RecipesInfusionTable {
 
@@ -16,75 +17,75 @@ public class RecipesInfusionTable {
     }
 
     public void addRecipes() {
-        addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModItems.teakerBow));
-        addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModItems.amthirmisBow));
-        addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModItems.darvenBow));
-        addRecipe(ModItems.cermileLump, ModItems.bowTemplate, 8, new ItemStack(ModItems.cermileBow));
-        addRecipe(ModItems.pardimalLump, ModItems.bowTemplate, 11, new ItemStack(ModItems.pardimalBow));
-        addRecipe(ModItems.quadroticLump, ModItems.bowTemplate, 13, new ItemStack(ModItems.quadroticBow));
-        addRecipe(ModItems.karosLump, ModItems.bowTemplate, 18, new ItemStack(ModItems.karosBow));
-        addRecipe(ModItems.heliosisLump, ModItems.bowTemplate, 20, new ItemStack(ModItems.heliosisBow));
-        addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModItems.arksianeBow));
+        addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModWeapons.teakerBow));
+        addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModWeapons.amthirmisBow));
+        addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModWeapons.darvenBow));
+        addRecipe(ModItems.cermileLump, ModItems.bowTemplate, 8, new ItemStack(ModWeapons.cermileBow));
+        addRecipe(ModItems.pardimalLump, ModItems.bowTemplate, 11, new ItemStack(ModWeapons.pardimalBow));
+        addRecipe(ModItems.quadroticLump, ModItems.bowTemplate, 13, new ItemStack(ModWeapons.quadroticBow));
+        addRecipe(ModItems.karosLump, ModItems.bowTemplate, 18, new ItemStack(ModWeapons.karosBow));
+        addRecipe(ModItems.heliosisLump, ModItems.bowTemplate, 20, new ItemStack(ModWeapons.heliosisBow));
+        addRecipe(ModItems.arksianeLump, ModItems.bowTemplate, 24, new ItemStack(ModWeapons.arksianeBow));
 
-        addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModItems.teakerStaff));
-        addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModItems.amthirmisStaff));
-        addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModItems.darvenStaff));
-        addRecipe(ModItems.cermileLump, ModItems.staffTemplate, 6, new ItemStack(ModItems.cermileStaff));
-        addRecipe(ModItems.pardimalLump, ModItems.staffTemplate, 8, new ItemStack(ModItems.pardimalStaff));
-        addRecipe(ModItems.quadroticLump, ModItems.staffTemplate, 10, new ItemStack(ModItems.quadroticStaff));
-        addRecipe(ModItems.karosLump, ModItems.staffTemplate, 16, new ItemStack(ModItems.karosStaff));
-        addRecipe(ModItems.heliosisLump, ModItems.staffTemplate, 17, new ItemStack(ModItems.heliosisStaff));
-        addRecipe(ModItems.arksianeLump, ModItems.staffTemplate, 21, new ItemStack(ModItems.arksianeStaff));
+        addRecipe(ModItems.teakerLump, ModItems.staffTemplate, 2, new ItemStack(ModWeapons.teakerStaff));
+        addRecipe(ModItems.amthirmisLump, ModItems.staffTemplate, 3, new ItemStack(ModWeapons.amthirmisStaff));
+        addRecipe(ModItems.darvenLump, ModItems.staffTemplate, 4, new ItemStack(ModWeapons.darvenStaff));
+        addRecipe(ModItems.cermileLump, ModItems.staffTemplate, 6, new ItemStack(ModWeapons.cermileStaff));
+        addRecipe(ModItems.pardimalLump, ModItems.staffTemplate, 8, new ItemStack(ModWeapons.pardimalStaff));
+        addRecipe(ModItems.quadroticLump, ModItems.staffTemplate, 10, new ItemStack(ModWeapons.quadroticStaff));
+        addRecipe(ModItems.karosLump, ModItems.staffTemplate, 16, new ItemStack(ModWeapons.karosStaff));
+        addRecipe(ModItems.heliosisLump, ModItems.staffTemplate, 17, new ItemStack(ModWeapons.heliosisStaff));
+        addRecipe(ModItems.arksianeLump, ModItems.staffTemplate, 21, new ItemStack(ModWeapons.arksianeStaff));
 
-        addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModItems.teakerBacksword));
-        addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModItems.amthirmisBacksword));
-        addRecipe(ModItems.darvenLump, ModItems.backswordTemplate, 6, new ItemStack(ModItems.darvenBacksword));
-        addRecipe(ModItems.cermileLump, ModItems.backswordTemplate, 8, new ItemStack(ModItems.cermileBacksword));
-        addRecipe(ModItems.pardimalLump, ModItems.backswordTemplate, 11, new ItemStack(ModItems.pardimalBacksword));
-        addRecipe(ModItems.quadroticLump, ModItems.backswordTemplate, 13, new ItemStack(ModItems.quadroticBacksword));
-        addRecipe(ModItems.karosLump, ModItems.backswordTemplate, 18, new ItemStack(ModItems.karosBacksword));
-        addRecipe(ModItems.heliosisLump, ModItems.backswordTemplate, 20, new ItemStack(ModItems.heliosisBacksword));
-        addRecipe(ModItems.arksianeLump, ModItems.backswordTemplate, 24, new ItemStack(ModItems.arksianeBacksword));
+        addRecipe(ModItems.teakerLump, ModItems.backswordTemplate, 4, new ItemStack(ModWeapons.teakerBacksword));
+        addRecipe(ModItems.amthirmisLump, ModItems.backswordTemplate, 5, new ItemStack(ModWeapons.amthirmisBacksword));
+        addRecipe(ModItems.darvenLump, ModItems.backswordTemplate, 6, new ItemStack(ModWeapons.darvenBacksword));
+        addRecipe(ModItems.cermileLump, ModItems.backswordTemplate, 8, new ItemStack(ModWeapons.cermileBacksword));
+        addRecipe(ModItems.pardimalLump, ModItems.backswordTemplate, 11, new ItemStack(ModWeapons.pardimalBacksword));
+        addRecipe(ModItems.quadroticLump, ModItems.backswordTemplate, 13, new ItemStack(ModWeapons.quadroticBacksword));
+        addRecipe(ModItems.karosLump, ModItems.backswordTemplate, 18, new ItemStack(ModWeapons.karosBacksword));
+        addRecipe(ModItems.heliosisLump, ModItems.backswordTemplate, 20, new ItemStack(ModWeapons.heliosisBacksword));
+        addRecipe(ModItems.arksianeLump, ModItems.backswordTemplate, 24, new ItemStack(ModWeapons.arksianeBacksword));
 
-        addRecipe(ModItems.teakerLump, ModItems.clawTemplate, 2, new ItemStack(ModItems.teakerClaw));
-        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModItems.amthirmisClaw));
-        addRecipe(ModItems.darvenLump, ModItems.clawTemplate, 4, new ItemStack(ModItems.darvenClaw));
-        addRecipe(ModItems.cermileLump, ModItems.clawTemplate, 6, new ItemStack(ModItems.cermileClaw));
-        addRecipe(ModItems.pardimalLump, ModItems.clawTemplate, 8, new ItemStack(ModItems.pardimalClaw));
-        addRecipe(ModItems.quadroticLump, ModItems.clawTemplate, 10, new ItemStack(ModItems.quadroticClaw));
-        addRecipe(ModItems.karosLump, ModItems.clawTemplate, 16, new ItemStack(ModItems.karosClaw));
-        addRecipe(ModItems.heliosisLump, ModItems.clawTemplate, 17, new ItemStack(ModItems.heliosisClaw));
-        addRecipe(ModItems.arksianeLump, ModItems.clawTemplate, 21, new ItemStack(ModItems.arksianeClaw));
+        addRecipe(ModItems.teakerLump, ModItems.clawTemplate, 2, new ItemStack(ModWeapons.teakerClaw));
+        addRecipe(ModItems.amthirmisLump, ModItems.clawTemplate, 3, new ItemStack(ModWeapons.amthirmisClaw));
+        addRecipe(ModItems.darvenLump, ModItems.clawTemplate, 4, new ItemStack(ModWeapons.darvenClaw));
+        addRecipe(ModItems.cermileLump, ModItems.clawTemplate, 6, new ItemStack(ModWeapons.cermileClaw));
+        addRecipe(ModItems.pardimalLump, ModItems.clawTemplate, 8, new ItemStack(ModWeapons.pardimalClaw));
+        addRecipe(ModItems.quadroticLump, ModItems.clawTemplate, 10, new ItemStack(ModWeapons.quadroticClaw));
+        addRecipe(ModItems.karosLump, ModItems.clawTemplate, 16, new ItemStack(ModWeapons.karosClaw));
+        addRecipe(ModItems.heliosisLump, ModItems.clawTemplate, 17, new ItemStack(ModWeapons.heliosisClaw));
+        addRecipe(ModItems.arksianeLump, ModItems.clawTemplate, 21, new ItemStack(ModWeapons.arksianeClaw));
 
-        addRecipe(ModItems.teakerLump, ModItems.hammerTemplate, 7, new ItemStack(ModItems.teakerHammer));
-        addRecipe(ModItems.amthirmisLump, ModItems.hammerTemplate, 9, new ItemStack(ModItems.amthirmisHammer));
-        addRecipe(ModItems.darvenLump, ModItems.hammerTemplate, 11, new ItemStack(ModItems.darvenHammer));
-        addRecipe(ModItems.cermileLump, ModItems.hammerTemplate, 14, new ItemStack(ModItems.cermileHammer));
-        addRecipe(ModItems.pardimalLump, ModItems.hammerTemplate, 17, new ItemStack(ModItems.pardimalHammer));
-        addRecipe(ModItems.quadroticLump, ModItems.hammerTemplate, 19, new ItemStack(ModItems.quadroticHammer));
-        addRecipe(ModItems.karosLump, ModItems.hammerTemplate, 22, new ItemStack(ModItems.karosHammer));
-        addRecipe(ModItems.heliosisLump, ModItems.hammerTemplate, 27, new ItemStack(ModItems.heliosisHammer));
-        addRecipe(ModItems.arksianeLump, ModItems.hammerTemplate, 31, new ItemStack(ModItems.arksianeHammer));
+        addRecipe(ModItems.teakerLump, ModItems.hammerTemplate, 7, new ItemStack(ModWeapons.teakerHammer));
+        addRecipe(ModItems.amthirmisLump, ModItems.hammerTemplate, 9, new ItemStack(ModWeapons.amthirmisHammer));
+        addRecipe(ModItems.darvenLump, ModItems.hammerTemplate, 11, new ItemStack(ModWeapons.darvenHammer));
+        addRecipe(ModItems.cermileLump, ModItems.hammerTemplate, 14, new ItemStack(ModWeapons.cermileHammer));
+        addRecipe(ModItems.pardimalLump, ModItems.hammerTemplate, 17, new ItemStack(ModWeapons.pardimalHammer));
+        addRecipe(ModItems.quadroticLump, ModItems.hammerTemplate, 19, new ItemStack(ModWeapons.quadroticHammer));
+        addRecipe(ModItems.karosLump, ModItems.hammerTemplate, 22, new ItemStack(ModWeapons.karosHammer));
+        addRecipe(ModItems.heliosisLump, ModItems.hammerTemplate, 27, new ItemStack(ModWeapons.heliosisHammer));
+        addRecipe(ModItems.arksianeLump, ModItems.hammerTemplate, 31, new ItemStack(ModWeapons.arksianeHammer));
 
-        addRecipe(ModItems.teakerLump, ModItems.cannonTemplate, 7, new ItemStack(ModItems.teakerCannon));
-        addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModItems.amthirmisCannon));
-        addRecipe(ModItems.darvenLump, ModItems.cannonTemplate, 11, new ItemStack(ModItems.darvenCannon));
-        addRecipe(ModItems.cermileLump, ModItems.cannonTemplate, 14, new ItemStack(ModItems.cermileCannon));
-        addRecipe(ModItems.pardimalLump, ModItems.cannonTemplate, 17, new ItemStack(ModItems.pardimalCannon));
-        addRecipe(ModItems.quadroticLump, ModItems.cannonTemplate, 19, new ItemStack(ModItems.quadroticCannon));
-        addRecipe(ModItems.karosLump, ModItems.cannonTemplate, 22, new ItemStack(ModItems.karosCannon));
-        addRecipe(ModItems.heliosisLump, ModItems.cannonTemplate, 27, new ItemStack(ModItems.heliosisCannon));
-        addRecipe(ModItems.arksianeLump, ModItems.cannonTemplate, 31, new ItemStack(ModItems.arksianeCannon));
+        addRecipe(ModItems.teakerLump, ModItems.cannonTemplate, 7, new ItemStack(ModWeapons.teakerCannon));
+        addRecipe(ModItems.amthirmisLump, ModItems.cannonTemplate, 9, new ItemStack(ModWeapons.amthirmisCannon));
+        addRecipe(ModItems.darvenLump, ModItems.cannonTemplate, 11, new ItemStack(ModWeapons.darvenCannon));
+        addRecipe(ModItems.cermileLump, ModItems.cannonTemplate, 14, new ItemStack(ModWeapons.cermileCannon));
+        addRecipe(ModItems.pardimalLump, ModItems.cannonTemplate, 17, new ItemStack(ModWeapons.pardimalCannon));
+        addRecipe(ModItems.quadroticLump, ModItems.cannonTemplate, 19, new ItemStack(ModWeapons.quadroticCannon));
+        addRecipe(ModItems.karosLump, ModItems.cannonTemplate, 22, new ItemStack(ModWeapons.karosCannon));
+        addRecipe(ModItems.heliosisLump, ModItems.cannonTemplate, 27, new ItemStack(ModWeapons.heliosisCannon));
+        addRecipe(ModItems.arksianeLump, ModItems.cannonTemplate, 31, new ItemStack(ModWeapons.arksianeCannon));
 
-        addRecipe(ModItems.teakerLump, ModItems.diskTemplate, 4, new ItemStack(ModItems.teakerDisk));
-        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModItems.amthirmisDisk));
-        addRecipe(ModItems.darvenLump, ModItems.diskTemplate, 6, new ItemStack(ModItems.darvenDisk));
-        addRecipe(ModItems.cermileLump, ModItems.diskTemplate, 8, new ItemStack(ModItems.cermileDisk));
-        addRecipe(ModItems.pardimalLump, ModItems.diskTemplate, 11, new ItemStack(ModItems.pardimalDisk));
-        addRecipe(ModItems.quadroticLump, ModItems.diskTemplate, 13, new ItemStack(ModItems.quadroticDisk));
-        addRecipe(ModItems.karosLump, ModItems.diskTemplate, 18, new ItemStack(ModItems.karosDisk));
-        addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModItems.heliosisDisk));
-        addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModItems.arksianeDisk));
+        addRecipe(ModItems.teakerLump, ModItems.diskTemplate, 4, new ItemStack(ModWeapons.teakerDisk));
+        addRecipe(ModItems.amthirmisLump, ModItems.diskTemplate, 5, new ItemStack(ModWeapons.amthirmisDisk));
+        addRecipe(ModItems.darvenLump, ModItems.diskTemplate, 6, new ItemStack(ModWeapons.darvenDisk));
+        addRecipe(ModItems.cermileLump, ModItems.diskTemplate, 8, new ItemStack(ModWeapons.cermileDisk));
+        addRecipe(ModItems.pardimalLump, ModItems.diskTemplate, 11, new ItemStack(ModWeapons.pardimalDisk));
+        addRecipe(ModItems.quadroticLump, ModItems.diskTemplate, 13, new ItemStack(ModWeapons.quadroticDisk));
+        addRecipe(ModItems.karosLump, ModItems.diskTemplate, 18, new ItemStack(ModWeapons.karosDisk));
+        addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModWeapons.heliosisDisk));
+        addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModWeapons.arksianeDisk));
 
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModItems.degradedHelmet));
         addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));

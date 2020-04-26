@@ -5,6 +5,8 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
+import divinerpg.registry.ModTools;
+import divinerpg.registry.ModWeapons;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -59,9 +61,9 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 2, 0), new ItemStack(ModItems.darvenArrow, 32, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 4, 0), new ItemStack(ModItems.pardimalArrow, 32, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 6, 0), new ItemStack(ModItems.karosArrow, 32, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModItems.dreamShovel, 1, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModItems.dreamPickaxe, 1, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModItems.dreamAxe, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModTools.dreamShovel, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModTools.dreamPickaxe, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 10, 0), new ItemStack(ModTools.dreamAxe, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.cleanPearls, 15, 0), new ItemStack(ModItems.minersAmulet, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.polishedPearls, 20, 0), new ItemStack(ModItems.dreamFlint, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.polishedPearls, 5, 0), new ItemStack(ModItems.glisteningTemplate, 1, 0)));
@@ -70,6 +72,6 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.shinyPearls, 25, 0), new ItemStack(ModItems.bandOfHeivaHunting, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.shinyPearls, 1, 0), new ItemStack(ModItems.dreamSours, 4, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ModItems.shinyPearls, 5, 0), new ItemStack(ModItems.tormentedTemplate, 1, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ModItems.rockChunks, 25, 0), new ItemStack(ModItems.karosRockmaul, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ModItems.rockChunks, 25, 0), new ItemStack(ModWeapons.karosRockmaul, 1, 0)));
     }
 }

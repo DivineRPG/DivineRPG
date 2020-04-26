@@ -384,7 +384,7 @@ public class Config {
             put("vhraak_health", 100.0F);
             put("war_general_attack", 0.0F);
             put("war_general_health", 1000.0F);
-            put("weak_cori_attack", 30.0F);
+            put("weak_cori_attack", 0.0F);
             put("weak_cori_health", 35.0F);
             put("whale_attack", 8.0F);
             put("whale_health", 80.0F);
