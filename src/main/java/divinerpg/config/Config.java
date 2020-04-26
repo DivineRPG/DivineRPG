@@ -6,6 +6,9 @@ import divinerpg.proxy.CommonProxy;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.common.config.Configuration;
@@ -468,9 +471,28 @@ public class Config {
 
         Configuration config = CommonProxy.mobStatsConfig;
         Property property = config.get(id.getResourcePath(), id.getResourcePath() + "_health", 0F);
-        e.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(property.getDouble());
+        getOrRegister(e, SharedMonsterAttributes.MAX_HEALTH).setBaseValue(property.getDouble());
 
         property = config.get(id.getResourcePath(), id.getResourcePath() + "_attack", 0F);
-        e.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(property.getDouble());
+        getOrRegister(e, SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(property.getDouble());
+    }
+
+    /**
+     * Gets ettribute from entity enad register it if needed
+     *
+     * @param e    - current entity
+     * @param attr - attribute
+     * @return
+     */
+    private static IAttributeInstance getOrRegister(EntityLivingBase e, IAttribute attr) {
+        AbstractAttributeMap map = e.getAttributeMap();
+        IAttributeInstance instance = map.getAttributeInstance(attr);
+
+        if (instance == null) {
+            map.registerAttribute(attr);
+            instance = map.getAttributeInstance(attr);
+        }
+
+        return instance;
     }
 }
