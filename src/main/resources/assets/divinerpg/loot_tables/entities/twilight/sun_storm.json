@@ -50,6 +50,27 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "item",
+                    "weight": 10,
+                    "name": "divinerpg:eden_heart",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
                 }
             ]
         }
