@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -64,6 +65,10 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         if (attack && e instanceof EntityLiving) {
             ((EntityLiving) e).setRevengeTarget(this);
         }
+
+        e.attackEntityFrom(DamageSource.causeMobDamage(this),
+                (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
+
         return attack;
     }
 

@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -33,12 +32,6 @@ public class EntitySmelter extends EntityDivineRPGTameable implements IAttackTim
     @Override
     public float getEyeHeight() {
         return 3.2F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-
     }
 
     @Override
@@ -82,12 +75,12 @@ public class EntitySmelter extends EntityDivineRPGTameable implements IAttackTim
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-        boolean attack = entity.attackEntityFrom(DamageSource.causeMobDamage(this), 7.0F);
+        boolean attack = super.attackEntityAsMob(entity);
         if (attack) {
             entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F), 0.1D,
                     MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F));
             entity.setFire(5);
-            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(10));
+            this.dataManager.set(ATTACK_TIMER, 10);
         }
         return attack;
     }

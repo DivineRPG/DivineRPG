@@ -11,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -67,7 +66,7 @@ public class EntityStoneGolem extends EntityDivineRPGTameable implements IAttack
         if (this.isTamed()) {
             if (!itemstack.isEmpty()
                     && (itemstack.getItem() == Item.getItemFromBlock(Blocks.STONE)
-                            || itemstack.getItem() == Item.getItemFromBlock(Blocks.COBBLESTONE))
+                    || itemstack.getItem() == Item.getItemFromBlock(Blocks.COBBLESTONE))
                     && this.getHealth() < 20.0D) {
                 if (!player.capabilities.isCreativeMode) {
                     itemstack.shrink(1);
@@ -85,7 +84,7 @@ public class EntityStoneGolem extends EntityDivineRPGTameable implements IAttack
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-        boolean attack = entity.attackEntityFrom(DamageSource.causeMobDamage(this), 5.0F);
+        boolean attack = super.attackEntityAsMob(entity);
         if (attack) {
             entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F), 0.1D,
                     MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F));

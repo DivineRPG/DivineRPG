@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -56,11 +55,6 @@ public class EntityEhu extends EntityDivineRPGTameable {
         }
 
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 6.0F);
     }
 
     @Override

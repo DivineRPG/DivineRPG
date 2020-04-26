@@ -7,6 +7,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -44,7 +45,7 @@ public class EntityWraith extends EntityDivineRPGTameable {
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-        int damage = 9;
+        float damage = (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 
         if (this.isPotionActive(MobEffects.STRENGTH)) {
             damage += 3 << this.getActivePotionEffect(MobEffects.STRENGTH).getAmplifier();
@@ -60,6 +61,7 @@ public class EntityWraith extends EntityDivineRPGTameable {
         }
 
         boolean attacked = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+
         if (attacked) {
             if (knockback > 0) {
                 entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * knockback * 0.5F,

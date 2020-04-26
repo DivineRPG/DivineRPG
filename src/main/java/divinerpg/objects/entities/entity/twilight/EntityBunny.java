@@ -65,7 +65,8 @@ public class EntityBunny extends EntityDivineRPGTameable {
         if (this.isTamed()) {
             this.dataManager.set(TAMED_AND_ANGRY, true);
         }
-        return target.attackEntityFrom(DamageSource.causeMobDamage(this), 1);
+
+        return super.attackEntityAsMob(target);
     }
 
     public boolean isTamedAndAngry() {

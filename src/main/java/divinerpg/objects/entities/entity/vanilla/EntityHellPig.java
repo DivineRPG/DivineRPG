@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -19,7 +18,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -114,12 +112,6 @@ public class EntityHellPig extends EntityDivineRPGTameable {
         }
 
         return super.processInteract(player, hand);
-    }
-
-    @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        float damage = this.isTamed() ? 10.0F : 5.0F;
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
     }
 
     @Override

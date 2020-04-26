@@ -122,7 +122,7 @@ public class Config {
             put("bohemite_health", 60.0F);
             put("brown_grizzle_attack", 0.0F);
             put("brown_grizzle_health", 100.0F);
-            put("bunny_attack", 0.0F);
+            put("bunny_attack", 1.0F);
             put("bunny_health", 10.0F);
             put("captain_merik_attack", 0.0F);
             put("captain_merik_health", 1000.0F);
@@ -168,7 +168,7 @@ public class Config {
             put("eden_cadillion_health", 75.0F);
             put("eden_tomo_attack", 8.0F);
             put("eden_tomo_health", 100.0F);
-            put("ehu_attack", 0.0F);
+            put("ehu_attack", 6.0F);
             put("ehu_health", 60.0F);
             put("enchanted_archer_attack", 12.0F);
             put("enchanted_archer_health", 100.0F);
@@ -216,7 +216,7 @@ public class Config {
             put("hastreus_health", 80.0F);
             put("helio_attack", 40.0F);
             put("helio_health", 140.0F);
-            put("hell_pig_attack", 0.0F);
+            put("hell_pig_attack", 5.0F);
             put("hell_pig_health", 25.0F);
             put("hell_spider_attack", 9.0F);
             put("hell_spider_health", 50.0F);
@@ -230,7 +230,7 @@ public class Config {
             put("hive_soldier_health", 20.0F);
             put("hover_stinger_attack", 8.0F);
             put("hover_stinger_health", 40.0F);
-            put("husk_attack", 0.0F);
+            put("husk_attack", 8.0F);
             put("husk_health", 80.0F);
             put("jack_o_man_attack", 0.0F);
             put("jack_o_man_health", 1000.0F);
@@ -280,7 +280,7 @@ public class Config {
             put("megalith_health", 350.0F);
             put("miner_attack", 5.0F);
             put("miner_health", 40.0F);
-            put("moon_wolf_attack", 0.0F);
+            put("moon_wolf_attack", 1.0F);
             put("moon_wolf_health", 200.0F);
             put("mortum_cadillion_attack", 20.0F);
             put("mortum_cadillion_health", 130.0F);
@@ -320,7 +320,7 @@ public class Config {
             put("samek_health", 160.0F);
             put("scorcher_attack", 5.0F);
             put("scorcher_health", 75.0F);
-            put("seimer_attack", 0.0F);
+            put("seimer_attack", 6.0F);
             put("seimer_health", 150.0F);
             put("shadahier_attack", 6.0F);
             put("shadahier_health", 10.0F);
@@ -332,9 +332,9 @@ public class Config {
             put("skythern_fiend_health", 80.0F);
             put("skythern_golem_attack", 18.0F);
             put("skythern_golem_health", 300.0F);
-            put("smelter_attack", 0.0F);
+            put("smelter_attack", 7.0F);
             put("smelter_health", 120.0F);
-            put("snapper_attack", 0.0F);
+            put("snapper_attack", 4.0F);
             put("snapper_health", 150.0F);
             put("sorcerer_attack", 12.0F);
             put("sorcerer_health", 150.0F);
@@ -346,7 +346,7 @@ public class Config {
             put("soul_stealer_health", 140.0F);
             put("spellbinder_attack", 7.0F);
             put("spellbinder_health", 95.0F);
-            put("stone_golem_attack", 0.0F);
+            put("stone_golem_attack", 5.0F);
             put("stone_golem_health", 100.0F);
             put("sun_archer_attack", 9.0F);
             put("sun_archer_health", 60.0F);
@@ -388,7 +388,7 @@ public class Config {
             put("weak_cori_health", 35.0F);
             put("whale_attack", 8.0F);
             put("whale_health", 80.0F);
-            put("white_grizzle_attack", 0.0F);
+            put("white_grizzle_attack", 9.0F);
             put("white_grizzle_health", 100.0F);
             put("wildfire_attack", 8.0F);
             put("wildfire_health", 50.0F);
@@ -402,7 +402,7 @@ public class Config {
             put("workshop_merchant_health", 1000.0F);
             put("workshop_tinkerer_attack", 0.0F);
             put("workshop_tinkerer_health", 1000.0F);
-            put("wraith_attack", 0.0F);
+            put("wraith_attack", 9.0F);
             put("wraith_health", 100.0F);
             put("wreck_attack", 30.0F);
             put("wreck_health", 1024.0F);

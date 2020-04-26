@@ -199,11 +199,6 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 1);
-    }
-
-    @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
         if (this.isTamed()) {

@@ -3,12 +3,10 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
@@ -62,11 +60,6 @@ public class EntitySeimer extends EntityDivineRPGTameable {
             IArcana arcana = DivineAPI.getArcana(this.getOwner());
             arcana.fill((EntityPlayer) this.getOwner(), 1);
         }
-    }
-
-    @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 6);
     }
 
     @Override
