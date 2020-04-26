@@ -4,7 +4,6 @@ import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelWildfire;
 import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -50,7 +49,7 @@ public class RenderWildfire extends RenderLiving<EntityWildfire> {
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModWeapons.infernoBow),
+            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModItems.infernoBow),
                     ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();

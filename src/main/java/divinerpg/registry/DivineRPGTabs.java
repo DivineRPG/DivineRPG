@@ -20,22 +20,22 @@ public class DivineRPGTabs extends CreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModWeapons.vileStorm);
-		}
+            return new ItemStack(ModItems.vileStorm);
+        }
 	};
 	public static DivineRPGTabs swords = new DivineRPGTabs("Swords", "Melee Weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModWeapons.aquaton);
-		}
+            return new ItemStack(ModItems.aquaton);
+        }
 	};
 	public static DivineRPGTabs tools = new DivineRPGTabs("Tools") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModTools.rupeeShickaxe);
-		}
+            return new ItemStack(ModItems.rupeeShickaxe);
+        }
 	};
 	public static DivineRPGTabs items = new DivineRPGTabs("Materials", "Raw Materials") {
 		@Override

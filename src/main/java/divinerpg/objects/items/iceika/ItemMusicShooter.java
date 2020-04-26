@@ -2,7 +2,6 @@ package divinerpg.objects.items.iceika;
 
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -30,7 +29,7 @@ public class ItemMusicShooter extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (this == ModWeapons.soundOfCarols) {
+        if (this == ModItems.soundOfCarols) {
             tooltip.add(LocalizeUtils.rangedDam(16));
         } else {
             tooltip.add(LocalizeUtils.rangedDam(10));

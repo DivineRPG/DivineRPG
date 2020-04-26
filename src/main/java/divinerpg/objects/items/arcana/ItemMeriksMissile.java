@@ -6,7 +6,6 @@ import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModItems;
-import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -48,7 +47,7 @@ public class ItemMeriksMissile extends ItemMod {
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
-        if (stack.getItem() == ModWeapons.meriksMissile && entityLiving instanceof EntityPlayer) {
+        if (stack.getItem() == ModItems.meriksMissile && entityLiving instanceof EntityPlayer) {
             float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
             EntityPlayer player = (EntityPlayer) entityLiving;
             IArcana arcana = DivineAPI.getArcana(player);
