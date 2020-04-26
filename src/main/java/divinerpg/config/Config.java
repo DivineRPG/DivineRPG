@@ -428,11 +428,11 @@ public class Config {
             cfg.addCustomCategoryComment(name, comment);
 
             String attackValue = name + "_attack";
-            cfg.getFloat(attackValue, name, attrubutesMap.getOrDefault(attackValue, 0F), 0, Float.MAX_VALUE, "Attack value");
+            cfg.getFloat(attackValue, name, attrubutesMap.getOrDefault(attackValue, 1F), 1F, Float.MAX_VALUE, "Attack value");
             attrubutesMap.remove(attackValue);
 
             String healthValue = name + "_health";
-            cfg.getFloat(healthValue, name, attrubutesMap.getOrDefault(healthValue, 0F), 0, Float.MAX_VALUE, "Health value");
+            cfg.getFloat(healthValue, name, attrubutesMap.getOrDefault(healthValue, 1F), 1F, Float.MAX_VALUE, "Health value");
             attrubutesMap.remove(healthValue);
         }
     }
