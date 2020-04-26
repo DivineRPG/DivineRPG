@@ -1608,6 +1608,7 @@ tooltip.armor_info.freeze=Slows Hostile Mobs Within %s Blocks
 tooltip.armor_info.haste=Increased Mining Speed
 tooltip.armor_info.iceika=Iceika
 tooltip.armor_info.massive_buff=Massive Buff
+tooltip.armor_info.step_assist=Step Assist
 tooltip.bow_speed.slower=%sx Times Slower
 tooltip.bow_speed.faster=%sx Times Faster
 tooltip.food.satiety=Fills %s Hunger Points

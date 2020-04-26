@@ -1,7 +1,7 @@
-//Translated by Locomen_ - Russian Lead Translator
-//Перевод от Locomen_ - Куратор русского перевода
-//Предложения/пожелания по переводу направлять на контакты ниже.
-//vk.com/locomen | translate@locomen.ga | Discord(Locomen_#3035)
+#Translated by Locomen_ - Russian Lead Translator
+#Перевод от Locomen_ - Куратор русского перевода
+#Предложения/пожелания по переводу направлять на контакты ниже.
+#vk.com/locomen | translate@locomen.ga | Discord(Locomen_#3035)
 
 itemGroup.Blocks=DivineRPG: Блоки
 itemGroup.Ranged=DivineRPG: Стрелковое оружие
@@ -78,6 +78,9 @@ tile.pink_bricks.name=Розовые кирпичи
 tile.purple_bricks.name=Фиолетовые кирпичи
 tile.realmite_bricks.name=Реалмитовые кирпичи
 tile.redstone_bricks.name=Кирпичи из красного камня
+tile.eden_bricks.name=Кирпичи Эдема
+tile.wildwood_bricks.name=Кирпичи Дикого леса
+tile.apalachia_bricks.name=Кирпичи Апалачии
 tile.milk_stone_bricks.name=Кирпичи из молочного камня
 tile.rupee_minibricks.name=Рупиевые мини-кирпичи
 tile.realmite_minibricks.name=Реалмитовые мини-кирпичи
@@ -215,7 +218,7 @@ tile.crypt_wall.name=Стена склепа
 tile.smooth_glass.name=Гладкое стекло
 tile.village_lamp.name=Деревенская лампа
 tile.cell_lamp.name=Лампа в клетке
-tile.barred_door_block.name=Запрещённый блок двери
+tile.barred_door.name=Запрещённая дверь
 tile.firelight.name=Огненный свет
 tile.hyrewood_log.name=Хайровая древесина
 tile.mintwood_leaves.name=Мятная листва
@@ -277,7 +280,7 @@ tile.skythern_block.name=Блок Небесного терна
 tile.mortum_block.name=Блок Мортума
 tile.eden_sapling.name=Саженец Эдема
 tile.wildwood_sapling.name=Саженец Дикого леса
-tile.apalachia_sapling.name=Саженец Апалчии
+tile.apalachia_sapling.name=Саженец Апалачии
 tile.skythern_sapling.name=Саженец Небесного терна
 tile.mortum_sapling.name=Саженец Мортума
 tile.eden_leaves.name=Листва Эдема
@@ -360,10 +363,6 @@ tile.living_statue_spawner.name=Спаунер Живой статуи
 tile.roamer_spawner.name=Спаунер Бродяги
 tile.ancient_tile.name=Древняя плитка
 tile.star_bridge.name=Звёздный мост
-tile.soul_sludge_door.name=Дверь из осадка душ
-tile.ancient_brick_door.name=Дверь из древнего кирпича
-tile.soul_stone_door.name=Дверь из камня душ
-tile.degraded_brick_door.name=Дверь из ржавого кирпича
 tile.dramix_altar.name=Драмиксовый алтарь
 tile.parasecta_altar.name=Парасектовый алтарь
 tile.arcanium_extractor.name=Аркановый экстрактор
@@ -412,7 +411,6 @@ tile.apalachia_double_slab.name=Двойные полублоки Апалачи
 tile.skythern_double_slab.name=Двойные полублоки Небесного терна
 tile.mortum_double_slab.name=Двойные полублоки Мортума
 tile.white_mushroom_plant.name=Белый гриб
-tile.steel_door.name=Стальная дверь
 tile.truffle.name=Трюфель
 tile.luna_brick.name=Лунный кирпич
 tile.cracklespike.name=Потрескавшийся шип
@@ -1488,7 +1486,6 @@ message.wreck.speed=Скорость!
 message.wreck.explosion=Взрывы!
 message.wreck.strength=Сила!
 message.version.internet=Не удалось проверить наличие обновлений, проверьте Ваше подключение к интернету!
-message.version.update=Доступно обновление DivineRPG.
 message.ayeraco.green=Зелёный Айрако был призван
 message.ayeraco.blue=Синий Айрако был призван
 message.ayeraco.red=Красный Айрако был призван
@@ -1607,6 +1604,7 @@ tooltip.armor_info.freeze=Замедление враждебных мобов �
 tooltip.armor_info.haste=Увеличение скорости копания
 tooltip.armor_info.iceika=Работает только в Заснежье
 tooltip.armor_info.massive_buff=Массивное улучшнение
+tooltip.armor_info.step_assist=Автопрыжок
 tooltip.bow_speed.slower=В %sx раз(а) медленнее
 tooltip.bow_speed.faster=В %sx раз(а) быстрее
 tooltip.food.satiety=Восполняется %s едениц(ы) голода
