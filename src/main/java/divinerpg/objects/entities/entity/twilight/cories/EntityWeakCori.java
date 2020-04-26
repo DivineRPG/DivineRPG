@@ -33,7 +33,7 @@ public class EntityWeakCori extends EntityDivineGhast {
 
                     @Override
                     public EntityThrowable createThowable(World world, EntityLivingBase parent, double x, double y, double z) {
-                        return new EntityCoriShot(world, parent, 30);
+                        return new EntityCoriShot(world, parent, (float) parent.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
                     }
                 },
                 ModSounds.CORI_SHOOT);
@@ -42,12 +42,6 @@ public class EntityWeakCori extends EntityDivineGhast {
     @Override
     public float getEyeHeight() {
         return 0.8F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35);
     }
 
     @Override

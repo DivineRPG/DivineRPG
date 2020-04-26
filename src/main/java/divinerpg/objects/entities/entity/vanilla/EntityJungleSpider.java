@@ -6,7 +6,6 @@ import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -23,7 +22,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityJungleSpider extends EntityDivineRPGMob {
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(EntityJungleSpider.class,
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityJungleSpider.class,
             DataSerializers.BYTE);
 
     public EntityJungleSpider(World worldIn) {
@@ -50,8 +49,8 @@ public class EntityJungleSpider extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(45.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
+
+
     }
 
     @Override
@@ -92,8 +91,12 @@ public class EntityJungleSpider extends EntityDivineRPGMob {
         }
     }
 
+    public boolean isBesideClimbableBlock() {
+        return (this.dataManager.get(CLIMBING).byteValue() & 1) != 0;
+    }
+
     public void setBesideClimbableBlock(boolean climbing) {
-        byte b0 = ((Byte) this.dataManager.get(CLIMBING)).byteValue();
+        byte b0 = this.dataManager.get(CLIMBING).byteValue();
 
         if (climbing) {
             b0 = (byte) (b0 | 1);
@@ -102,10 +105,6 @@ public class EntityJungleSpider extends EntityDivineRPGMob {
         }
 
         this.dataManager.set(CLIMBING, Byte.valueOf(b0));
-    }
-
-    public boolean isBesideClimbableBlock() {
-        return (((Byte) this.dataManager.get(CLIMBING)).byteValue() & 1) != 0;
     }
 
     @Override

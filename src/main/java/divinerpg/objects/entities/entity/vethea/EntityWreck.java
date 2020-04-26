@@ -54,8 +54,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1024.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(30.0D);
+
 
     }
 
@@ -236,7 +235,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
     @Override
     public boolean attackEntityAsMob(Entity par1Entity) {
         if (this.getAbilityType() != MELEE) return false;
-        float amount = (float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+        float amount = (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 
         int knockback = 0;
 

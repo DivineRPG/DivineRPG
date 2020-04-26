@@ -1,7 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import com.google.common.base.Predicate;
-
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -9,7 +7,6 @@ import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,18 +28,11 @@ public class EntityEnchantedArcher extends EntityDivineRPGMob implements IRanged
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12);
-    }
-
-    @Override
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();
         this.targetTasks.addTask(2,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
         this.tasks.addTask(7, new EntityAIAttackRanged(this, 1, 15, 60, 15));
     }
 

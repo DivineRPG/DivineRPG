@@ -1,13 +1,10 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,8 +17,10 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+
 public class EntityKobblin extends EntityDivineRPGMob {
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(EntityKobblin.class,
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntityKobblin.class,
             DataSerializers.BOOLEAN);
 
     public EntityKobblin(World worldIn) {
@@ -43,8 +42,8 @@ public class EntityKobblin extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
+
+
     }
 
     public boolean needsSpecialAI() {

@@ -4,7 +4,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityMoonWolf extends EntityDivineRPGTameable {
-    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.<Float>createKey(EntityWolf.class,
+    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.createKey(EntityWolf.class,
             DataSerializers.FLOAT);
     private boolean isWet;
     private boolean isShaking;
@@ -39,7 +38,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.isTamed() ? 20 : 200);
+
     }
 
     @Override
@@ -70,7 +69,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
         if (this.isAngry()) {
             return SoundEvents.ENTITY_WOLF_GROWL;
         } else if (this.rand.nextInt(3) == 0) {
-            return this.isTamed() && ((Float) this.dataManager.get(DATA_HEALTH_ID)).floatValue() < 10.0F ?
+            return this.isTamed() && this.dataManager.get(DATA_HEALTH_ID) < 10.0F ?
                     SoundEvents.ENTITY_WOLF_WHINE : SoundEvents.ENTITY_WOLF_PANT;
         } else {
             return SoundEvents.ENTITY_WOLF_AMBIENT;
@@ -136,7 +135,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                     float f1 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
                     float f2 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
                     this.world.spawnParticle(EnumParticleTypes.WATER_SPLASH, this.posX + (double) f1,
-                            (double) (f + 0.8F), this.posZ + (double) f2, this.motionX, this.motionY, this.motionZ);
+                            f + 0.8F, this.posZ + (double) f2, this.motionX, this.motionY, this.motionZ);
                 }
             }
         }
@@ -212,7 +211,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood itemfood = (ItemFood) itemstack.getItem();
                     if (itemfood.isWolfsFavoriteMeat()
-                            && ((Float) this.dataManager.get(DATA_HEALTH_ID)).floatValue() < 200.0F) {
+                            && this.dataManager.get(DATA_HEALTH_ID).floatValue() < 200.0F) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }
@@ -225,7 +224,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.navigator.clearPath();
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
             }
         } else if (itemstack.getItem() == Items.BONE && !this.isAngry()) {
             if (!player.capabilities.isCreativeMode) {
@@ -236,7 +235,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
                         && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
                     this.setTamedBy(player);
                     this.navigator.clearPath();
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
                     this.playTameEffect(true);
@@ -268,7 +267,7 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
             return 1.5393804F;
         } else {
             return this.isTamed() ? (0.55F
-                    - (this.getMaxHealth() - ((Float) this.dataManager.get(DATA_HEALTH_ID)).floatValue()) * 0.02F)
+                    - (this.getMaxHealth() - this.dataManager.get(DATA_HEALTH_ID).floatValue()) * 0.02F)
                     * (float) Math.PI : ((float) Math.PI / 5F);
         }
     }
@@ -280,11 +279,11 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
     @Override
     public boolean isAngry() {
-        return (((Byte) this.dataManager.get(TAMED)).byteValue() & 2) != 0;
+        return (this.dataManager.get(TAMED).byteValue() & 2) != 0;
     }
 
     public void setAngry(boolean angry) {
-        byte b0 = ((Byte) this.dataManager.get(TAMED)).byteValue();
+        byte b0 = this.dataManager.get(TAMED).byteValue();
         if (angry) {
             this.dataManager.set(TAMED, Byte.valueOf((byte) (b0 | 2)));
         } else {

@@ -5,7 +5,6 @@ import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
@@ -30,12 +29,6 @@ public class EntityHusk extends EntityDivineRPGTameable {
     @Override
     public float getEyeHeight() {
         return 1.3F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80.0D);
     }
 
     @Override

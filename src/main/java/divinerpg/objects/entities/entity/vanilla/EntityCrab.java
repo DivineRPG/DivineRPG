@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -21,15 +20,7 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
     public float getEyeHeight() {
         return 0.6F;
     }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(45.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-    }
-
-    @Override
+@Override
     protected SoundEvent getAmbientSound() {
         return ModSounds.CRAB;
     }

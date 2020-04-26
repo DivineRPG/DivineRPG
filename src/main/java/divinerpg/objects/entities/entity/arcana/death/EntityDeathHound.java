@@ -2,7 +2,6 @@ package divinerpg.objects.entities.entity.arcana.death;
 
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -20,12 +19,6 @@ public class EntityDeathHound extends EntityDeathBase {
         return 0.75F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
-    }
 
     @Override
     protected SoundEvent getAmbientSound() {

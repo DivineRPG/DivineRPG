@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -29,13 +28,6 @@ public class EntitySnapper extends EntityDivineRPGTameable {
     @Override
     public float getEyeHeight() {
         return 0.4F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D / 1.4D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
     }
 
     @Override

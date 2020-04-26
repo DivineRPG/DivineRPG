@@ -7,7 +7,6 @@ import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -25,13 +24,6 @@ public class EntitySunArcher extends EntityDivineRPGMob implements IRangedAttack
     @Override
     public float getEyeHeight() {
         return 2.0F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9);
     }
 
     @Override

@@ -1,12 +1,9 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import java.util.List;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -14,6 +11,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityHastreus extends EntityDivineRPGMob {
 
@@ -27,12 +26,6 @@ public class EntityHastreus extends EntityDivineRPGMob {
         return 1.3F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    }
 
     @Override
     protected void initEntityAI() {

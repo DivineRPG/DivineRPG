@@ -6,9 +6,7 @@ import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -23,7 +21,7 @@ import net.minecraft.world.World;
 
 public class EntityBunny extends EntityDivineRPGTameable {
 
-    private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.<Boolean>createKey(EntityBunny.class,
+    private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.createKey(EntityBunny.class,
             DataSerializers.BOOLEAN);
 
     public EntityBunny(World worldIn) {
@@ -46,10 +44,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        if (!this.isTamed())
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
-        else
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
+        increaseHealthIfTimable();
     }
 
     @Override
@@ -74,7 +69,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
     }
 
     public boolean isTamedAndAngry() {
-        return ((Boolean) this.dataManager.get(TAMED_AND_ANGRY)).booleanValue();
+        return this.dataManager.get(TAMED_AND_ANGRY);
     }
 
     @Override
@@ -131,9 +126,9 @@ public class EntityBunny extends EntityDivineRPGTameable {
             if (!this.world.isRemote) {
                 if (this.rand.nextInt(3) == 0) {
                     setTamedBy(player);
-                    this.setAttackTarget((EntityLiving) null);
+                    this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
-                    this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
+
                     this.setHealth(20);
                     this.playTameEffect(true);
                     this.world.setEntityState(this, (byte) 7);

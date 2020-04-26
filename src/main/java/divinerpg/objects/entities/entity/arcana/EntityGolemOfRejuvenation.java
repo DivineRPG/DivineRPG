@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -28,12 +27,6 @@ public class EntityGolemOfRejuvenation extends EntityDivineRPGTameable {
     @Override
     public float getEyeHeight() {
         return 2.0F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
 
     @Override

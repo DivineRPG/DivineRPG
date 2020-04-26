@@ -1,7 +1,5 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import java.util.Calendar;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
@@ -9,9 +7,7 @@ import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -25,8 +21,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Calendar;
+
 public class EntityRainbour extends EntityPeacefulUntilAttacked {
-    private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
+    private static final DataParameter<Boolean> HANGING = EntityDataManager.createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;
 
@@ -49,8 +47,8 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(18.0D);
+
+
     }
 
     @Override
@@ -67,7 +65,7 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
     }
 
     public boolean getIsBatHanging() {
-        return ((Boolean) this.dataManager.get(HANGING)).booleanValue();
+        return this.dataManager.get(HANGING).booleanValue();
     }
 
     public void setIsBatHanging(boolean isHanging) {
@@ -106,11 +104,11 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
 
                 if (this.world.getNearestPlayerNotCreative(this, 4.0D) != null) {
                     this.setIsBatHanging(false);
-                    this.world.playEvent((EntityPlayer) null, 1025, blockpos, 0);
+                    this.world.playEvent(null, 1025, blockpos, 0);
                 }
             } else {
                 this.setIsBatHanging(false);
-                this.world.playEvent((EntityPlayer) null, 1025, blockpos, 0);
+                this.world.playEvent(null, 1025, blockpos, 0);
             }
         } else {
             if (this.spawnPosition != null
@@ -119,8 +117,8 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
             }
 
             if (this.spawnPosition == null || this.rand.nextInt(30) == 0
-                    || this.spawnPosition.distanceSq((double) ((int) this.posX), (double) ((int) this.posY),
-                            (double) ((int) this.posZ)) < 4.0D) {
+                    || this.spawnPosition.distanceSq((int) this.posX, (int) this.posY,
+                    (int) this.posZ) < 4.0D) {
                 this.spawnPosition = new BlockPos((int) this.posX + this.rand.nextInt(7) - this.rand.nextInt(7),
                         (int) this.posY + this.rand.nextInt(6) - 2,
                         (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
@@ -196,7 +194,7 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setBoolean("Hanging", ((Boolean) this.dataManager.get(HANGING)).booleanValue());
+        compound.setBoolean("Hanging", this.dataManager.get(HANGING).booleanValue());
     }
 
     @Override

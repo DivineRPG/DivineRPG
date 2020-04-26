@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity;
 
 import com.google.common.base.Optional;
+import divinerpg.config.Config;
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.AIDivineLookAround;
 import divinerpg.objects.entities.ai.AIDivineRandomFly;
@@ -42,6 +43,7 @@ public abstract class EntityDivineGhast extends EntityFlying implements IMob {
         super.applyEntityAttributes();
 
         getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(64);
+        Config.initEntityAttributes(this);
     }
 
     @Override

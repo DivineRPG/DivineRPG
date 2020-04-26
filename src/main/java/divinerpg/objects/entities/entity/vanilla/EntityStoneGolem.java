@@ -4,7 +4,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.objects.entities.entity.IAttackTimer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -18,7 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityStoneGolem extends EntityDivineRPGTameable implements IAttackTimer {
-    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.<Integer>createKey(EntityStoneGolem.class,
+    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.createKey(EntityStoneGolem.class,
             DataSerializers.VARINT);
 
     public EntityStoneGolem(World worldIn) {
@@ -39,7 +38,7 @@ public class EntityStoneGolem extends EntityDivineRPGTameable implements IAttack
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+
     }
 
     @Override

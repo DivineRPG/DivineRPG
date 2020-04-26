@@ -6,7 +6,6 @@ import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -33,12 +32,6 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
     @Override
     public float getEyeHeight() {
         return 0.85F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
     }
 
     @Override
@@ -94,7 +87,7 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
         double ty = e.getEntityBoundingBox().minY - this.posY;
         double tz = e.posZ - this.posZ;
         float dist = MathHelper.sqrt(this.getDistance(this)) * 0.5F;
-        this.world.playEvent((EntityPlayer) null, 1018, new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ),
+        this.world.playEvent(null, 1018, new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ),
                 0);
 
         EntityFyracryxFireball shot = new EntityFyracryxFireball(this.world, this, tx + this.rand.nextGaussian() * dist,

@@ -6,12 +6,7 @@ import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -41,20 +36,13 @@ public class EntityFrost extends EntityDivineRPGMob {
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-    }
-
-    @Override
     protected void initEntityAI() {
         this.tasks.addTask(4, new EntityFrost.AIFrostShotAttack(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D, 0.0F));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
     }
 
     @Override
@@ -140,7 +128,7 @@ public class EntityFrost extends EntityDivineRPGMob {
                     }
 
                     float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                    this.frost.world.playEvent((EntityPlayer) null, 1018,
+                    this.frost.world.playEvent(null, 1018,
                             new BlockPos((int) this.frost.posX, (int) this.frost.posY, (int) this.frost.posZ), 0);
 
                     EntityFrostShot entityShot = new EntityFrostShot(this.frost.world, this.frost,

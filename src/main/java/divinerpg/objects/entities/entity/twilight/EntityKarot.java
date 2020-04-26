@@ -1,15 +1,14 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class EntityKarot extends EntityDivineRPGBoss {
 
@@ -26,12 +25,6 @@ public class EntityKarot extends EntityDivineRPGBoss {
         return 3.7F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1250);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(32);
-    }
 
     @Override
     protected void initEntityAI() {

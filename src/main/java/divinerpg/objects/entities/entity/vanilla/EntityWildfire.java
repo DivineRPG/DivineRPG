@@ -1,7 +1,5 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import com.google.common.base.Predicate;
-
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -9,7 +7,6 @@ import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,15 +31,15 @@ public class EntityWildfire extends EntityDivineRPGMob implements IRangedAttackM
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+
+
     }
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
         this.targetTasks.addTask(7,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
         this.tasks.addTask(7, new EntityAIAttackRanged(this, 0.25F, 15, 10.0F));
     }
 

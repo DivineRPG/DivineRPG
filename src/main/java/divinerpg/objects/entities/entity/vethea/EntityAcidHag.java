@@ -3,9 +3,7 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
-
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -20,12 +18,6 @@ public class EntityAcidHag extends VetheaMob {
         this.addAttackingAI();
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
-    }
 
     @Override
     public void onLivingUpdate() {

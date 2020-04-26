@@ -3,12 +3,10 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
 public class EntityTermid extends EntityDivineRPGMob {
@@ -20,8 +18,8 @@ public class EntityTermid extends EntityDivineRPGMob {
 	@Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4);
+
+
     }
 
     @Override

@@ -3,8 +3,6 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -31,8 +29,8 @@ public class EntityAncientEntity extends EntityDivineRPGBoss {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(800.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+
+
     }
 
     @Override
@@ -41,7 +39,7 @@ public class EntityAncientEntity extends EntityDivineRPGBoss {
         if (this.getAttackTarget() != null) {
             this.getAttackTarget().addVelocity(this.motionX * 10.0D, 2.0D, this.motionZ * 10.0D);
             if (this.getAttackTarget() instanceof EntityPlayer) {
-                ((EntityLivingBase) getAttackTarget()).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
+                getAttackTarget().addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
                 playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
             }
             return true;

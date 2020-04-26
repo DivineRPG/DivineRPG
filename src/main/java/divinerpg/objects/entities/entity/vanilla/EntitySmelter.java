@@ -4,7 +4,6 @@ import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.objects.entities.entity.IAttackTimer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -17,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntitySmelter extends EntityDivineRPGTameable implements IAttackTimer {
-    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.<Integer>createKey(EntitySmelter.class,
+    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.createKey(EntitySmelter.class,
             DataSerializers.VARINT);
 
     public EntitySmelter(World worldIn) {
@@ -39,7 +38,7 @@ public class EntitySmelter extends EntityDivineRPGTameable implements IAttackTim
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+
     }
 
     @Override

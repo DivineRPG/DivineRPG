@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.passive.EntityHorse;
@@ -28,9 +27,9 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityHellPig extends EntityDivineRPGTameable {
-    private static final DataParameter<Float> HEALTH = EntityDataManager.<Float>createKey(EntityHellPig.class,
+    private static final DataParameter<Float> HEALTH = EntityDataManager.createKey(EntityHellPig.class,
             DataSerializers.FLOAT);
-    private static final DataParameter<Boolean> ANGRY = EntityDataManager.<Boolean>createKey(EntityHellPig.class,
+    private static final DataParameter<Boolean> ANGRY = EntityDataManager.createKey(EntityHellPig.class,
             DataSerializers.BOOLEAN);
 
     public EntityHellPig(World worldIn, EntityPlayer player) {
@@ -51,28 +50,20 @@ public class EntityHellPig extends EntityDivineRPGTameable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        setMaxHealth();
+        increaseHealthIfTimable();
     }
 
     @Override
     protected void entityInit() {
         super.entityInit();
-        dataManager.register(HEALTH, Float.valueOf(this.getHealth()));
-        dataManager.register(ANGRY, Boolean.valueOf(false));
+        dataManager.register(HEALTH, this.getHealth());
+        dataManager.register(ANGRY, Boolean.FALSE);
     }
 
     @Override
     protected void updateAITasks() {
         super.updateAITasks();
-        this.dataManager.set(HEALTH, Float.valueOf(this.getHealth()));
-    }
-
-    private void setMaxHealth() {
-        if (this.isTamed()) {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        } else {
-            this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
-        }
+        this.dataManager.set(HEALTH, this.getHealth());
     }
 
     @Override
@@ -92,7 +83,7 @@ public class EntityHellPig extends EntityDivineRPGTameable {
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
-                    if (food.isWolfsFavoriteMeat() && this.dataManager.get(HEALTH).floatValue() < 20.0F) {
+                    if (food.isWolfsFavoriteMeat() && this.dataManager.get(HEALTH) < 20.0F) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }
@@ -109,7 +100,7 @@ public class EntityHellPig extends EntityDivineRPGTameable {
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamedBy(player);
                     this.navigator.clearPath();
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(20.0F);
                     this.playTameEffect(true);
@@ -134,7 +125,7 @@ public class EntityHellPig extends EntityDivineRPGTameable {
     @Override
     public void setTamed(boolean tamed) {
         super.setTamed(tamed);
-        setMaxHealth();
+        increaseHealthIfTimable();
     }
 
     @Override
@@ -155,11 +146,11 @@ public class EntityHellPig extends EntityDivineRPGTameable {
     }
 
     public boolean isAngry() {
-        return ((Boolean) this.dataManager.get(ANGRY)).booleanValue();
+        return this.dataManager.get(ANGRY);
     }
 
     public void setAngry(boolean angry) {
-        this.dataManager.set(ANGRY, Boolean.valueOf(angry));
+        this.dataManager.set(ANGRY, angry);
     }
 
     @Override
@@ -180,9 +171,8 @@ public class EntityHellPig extends EntityDivineRPGTameable {
                 if (pig.isTamed() && pig.getOwner() == owner)
                     return false;
             }
-            return target instanceof EntityPlayer && owner instanceof EntityPlayer
-                    && !((EntityPlayer) owner).canAttackPlayer((EntityPlayer) target) ? false :
-                            !(target instanceof EntityHorse) || !((EntityHorse) target).isTame();
+            return (!(target instanceof EntityPlayer) || !(owner instanceof EntityPlayer)
+                    || ((EntityPlayer) owner).canAttackPlayer((EntityPlayer) target)) && (!(target instanceof EntityHorse) || !((EntityHorse) target).isTame());
         } else {
             return false;
         }

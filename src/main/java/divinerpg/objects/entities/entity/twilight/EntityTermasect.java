@@ -1,6 +1,5 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
 import divinerpg.registry.DRPGLootTables;
@@ -9,7 +8,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.MoverType;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -41,8 +39,8 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 	@Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1050);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14);
+
+
     }
 
     @Override
@@ -83,7 +81,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         double var1 = this.waypointX - this.posX;
         double var3 = this.waypointY - this.posY;
         double var5 = this.waypointZ - this.posZ;
-        double var7 = (double) MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
+        double var7 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
 
         if (var7 < 1.0D || var7 > 60.0D) {
             this.waypointX = this.posX + (double) ((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
@@ -206,9 +204,9 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 
                     this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
-                    this.motionX *= (double) f6;
-                    this.motionY *= (double) f6;
-                    this.motionZ *= (double) f6;
+                    this.motionX *= f6;
+                    this.motionY *= f6;
+                    this.motionZ *= f6;
                     blockpos$pooledmutableblockpos.release();
                 } else {
                     this.moveRelative(strafe, vertical, forward, 0.02F);
@@ -236,8 +234,8 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         }
 
         if (this.spawnPosition == null || this.rand.nextInt(30) == 0
-                || this.spawnPosition.distanceSq((double) ((int) this.posX), (double) ((int) this.posY),
-                        (double) ((int) this.posZ)) < 4.0D) {
+                || this.spawnPosition.distanceSq((int) this.posX, (int) this.posY,
+                (int) this.posZ) < 4.0D) {
             this.spawnPosition = new BlockPos((int) this.posX + this.rand.nextInt(7) - this.rand.nextInt(7),
                     (int) this.posY + this.rand.nextInt(6) - 2,
                     (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
@@ -246,7 +244,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         double d0 = (double) this.spawnPosition.getX() + 0.01D - this.posX;
         double d1 = (double) this.spawnPosition.getY() + 0.1D - this.posY;
         double d2 = (double) this.spawnPosition.getZ() + 0.01D - this.posZ;
-        double d3 = (double) MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
+        double d3 = MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
         this.motionX += d0 / d3 * 0.05D;
         this.motionY += d1 / d3 * 0.1D;
         this.motionZ += d2 / d3 * 0.05D;

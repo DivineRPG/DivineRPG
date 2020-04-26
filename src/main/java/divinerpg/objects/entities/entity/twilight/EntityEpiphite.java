@@ -4,7 +4,6 @@ import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -25,12 +24,6 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
         return 1.1F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14);
-    }
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {

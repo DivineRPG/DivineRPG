@@ -34,6 +34,7 @@ import java.io.File;
 
 public class CommonProxy {
     public static Configuration config;
+    public static Configuration mobStatsConfig;
 
     public EntityPlayer getPlayer() {
         return null;
@@ -60,6 +61,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         File directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg.cfg"));
+        mobStatsConfig = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg_mob_stats.cfg"));
         Config.readConfig();
 
         MinecraftForge.EVENT_BUS.register(new ModEntities());

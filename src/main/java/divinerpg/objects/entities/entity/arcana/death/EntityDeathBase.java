@@ -41,14 +41,6 @@ public abstract class EntityDeathBase extends EntityDivineRPGMob {
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(160.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6.0D);
-    }
-
-    @Override
     protected float getSoundVolume() {
         return 0.7F;
     }
@@ -70,7 +62,7 @@ public abstract class EntityDeathBase extends EntityDivineRPGMob {
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
-        float damage = (float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+        float damage = (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 
         if (this.isPotionActive(MobEffects.INSTANT_DAMAGE)) {
             damage += 3 << this.getActivePotionEffect(MobEffects.INSTANT_DAMAGE).getAmplifier();

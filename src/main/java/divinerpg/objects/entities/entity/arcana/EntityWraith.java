@@ -1,7 +1,5 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
@@ -9,7 +7,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,10 +16,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+
 public class EntityWraith extends EntityDivineRPGTameable {
     private BlockPos spawnPosition;
     private BlockPos currentFlightTarget;
     private int age;
+
     public EntityWraith(World world) {
         super(world);
         this.setSize(0.9F, 1.4F);
@@ -41,11 +41,6 @@ public class EntityWraith extends EntityDivineRPGTameable {
         return 1.5F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-    }
 
     @Override
     public boolean attackEntityAsMob(Entity entity) {
@@ -178,7 +173,7 @@ public class EntityWraith extends EntityDivineRPGTameable {
                     .getBlockState(
                             new BlockPos(MathHelper.floor(this.posX), (int) this.posY + 1, MathHelper.floor(this.posZ)))
                     .isNormalCube()) {
-                this.world.playEvent((EntityPlayer) null, 1025,
+                this.world.playEvent(null, 1025,
                         new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
             } else {
                 if (this.rand.nextInt(200) == 0) {
@@ -186,7 +181,7 @@ public class EntityWraith extends EntityDivineRPGTameable {
                 }
 
                 if (this.world.getClosestPlayerToEntity(this, 4.0D) != null) {
-                    this.world.playEvent((EntityPlayer) null, 1025,
+                    this.world.playEvent(null, 1025,
                             new BlockPos((int) this.posX, (int) this.posY, (int) this.posZ), 0);
                 }
             }

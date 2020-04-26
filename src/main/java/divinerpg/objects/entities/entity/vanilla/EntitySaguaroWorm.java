@@ -18,7 +18,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EntitySaguaroWorm extends EntityDivineRPGMob {
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(EntitySaguaroWorm.class,
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntitySaguaroWorm.class,
             DataSerializers.BOOLEAN);
 
     public EntitySaguaroWorm(World par1World) {
@@ -41,8 +41,8 @@ public class EntitySaguaroWorm extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4);
+
+
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
     }
 
@@ -73,7 +73,7 @@ public class EntitySaguaroWorm extends EntityDivineRPGMob {
             } else {
                 this.setProvoked(true);
                 if (this.ticksExisted % 50 == 0) {
-                    this.attack((EntityLivingBase) player);
+                    this.attack(player);
                 }
             }
         }
@@ -95,7 +95,7 @@ public class EntitySaguaroWorm extends EntityDivineRPGMob {
     }
 
     public boolean getProvoked() {
-        return ((Boolean) this.dataManager.get(PROVOKED)).booleanValue();
+        return this.dataManager.get(PROVOKED).booleanValue();
     }
 
     public void setProvoked(boolean provoked) {

@@ -1,19 +1,10 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import com.google.common.base.Predicate;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
@@ -48,15 +39,8 @@ public class EntityAlicanto extends EntityDivineRPGMob {
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 0.27F));
         this.targetTasks.addTask(2,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, (Predicate) null));
+                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(75.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
     }
 
     public void onUpdate() {

@@ -4,9 +4,7 @@ import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -21,7 +19,7 @@ import net.minecraft.world.World;
 
 public class EntityJungleBat extends EntityDivineRPGMob {
 
-    private static final DataParameter<Boolean> HANGING = EntityDataManager.<Boolean>createKey(EntityBat.class,
+    private static final DataParameter<Boolean> HANGING = EntityDataManager.createKey(EntityBat.class,
             DataSerializers.BOOLEAN);
     private BlockPos spawnPosition;
 
@@ -50,8 +48,8 @@ public class EntityJungleBat extends EntityDivineRPGMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+
+
     }
 
     @Override
@@ -93,7 +91,7 @@ public class EntityJungleBat extends EntityDivineRPGMob {
     }
 
     public boolean getIsBatHanging() {
-        return ((Boolean) this.dataManager.get(HANGING)).booleanValue();
+        return this.dataManager.get(HANGING).booleanValue();
     }
 
     public void setIsBatHanging(boolean isHanging) {
@@ -128,11 +126,11 @@ public class EntityJungleBat extends EntityDivineRPGMob {
 
                 if (this.world.getNearestPlayerNotCreative(this, 4.0D) != null) {
                     this.setIsBatHanging(false);
-                    this.world.playEvent((EntityPlayer) null, 1025, blockpos, 0);
+                    this.world.playEvent(null, 1025, blockpos, 0);
                 }
             } else {
                 this.setIsBatHanging(false);
-                this.world.playEvent((EntityPlayer) null, 1025, blockpos, 0);
+                this.world.playEvent(null, 1025, blockpos, 0);
             }
         } else {
             if (this.spawnPosition != null
@@ -141,8 +139,8 @@ public class EntityJungleBat extends EntityDivineRPGMob {
             }
 
             if (this.spawnPosition == null || this.rand.nextInt(30) == 0
-                    || this.spawnPosition.distanceSq((double) ((int) this.posX), (double) ((int) this.posY),
-                            (double) ((int) this.posZ)) < 4.0D) {
+                    || this.spawnPosition.distanceSq((int) this.posX, (int) this.posY,
+                    (int) this.posZ) < 4.0D) {
                 this.spawnPosition = new BlockPos((int) this.posX + this.rand.nextInt(7) - this.rand.nextInt(7),
                         (int) this.posY + this.rand.nextInt(6) - 2,
                         (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
@@ -205,7 +203,7 @@ public class EntityJungleBat extends EntityDivineRPGMob {
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setBoolean("Hanging", ((Boolean) this.dataManager.get(HANGING)).booleanValue());
+        compound.setBoolean("Hanging", this.dataManager.get(HANGING).booleanValue());
     }
 
     @Override

@@ -5,7 +5,6 @@ import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -30,11 +29,6 @@ public class EntitySeimer extends EntityDivineRPGTameable {
         return 0.6F;
     }
 
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
-    }
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {

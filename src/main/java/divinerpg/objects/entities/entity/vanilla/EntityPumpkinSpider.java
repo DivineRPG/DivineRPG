@@ -1,12 +1,9 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import javax.annotation.Nullable;
-
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -22,10 +19,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+
 public class EntityPumpkinSpider extends EntityDivineRPGMob {
-    private static final DataParameter<Boolean> CLIMBING = EntityDataManager.<Boolean>createKey(EntityPumpkinSpider.class,
+    private static final DataParameter<Boolean> CLIMBING = EntityDataManager.createKey(EntityPumpkinSpider.class,
             DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.<Boolean>createKey(EntityPumpkinSpider.class,
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntityPumpkinSpider.class,
             DataSerializers.BOOLEAN);
 
     public EntityPumpkinSpider(World worldIn) {
@@ -48,13 +47,6 @@ public class EntityPumpkinSpider extends EntityDivineRPGMob {
     @Override
     protected PathNavigate createNavigator(World worldIn) {
         return new PathNavigateClimber(this, worldIn);
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
     }
 
     @Override
@@ -89,7 +81,7 @@ public class EntityPumpkinSpider extends EntityDivineRPGMob {
     }
 
     public boolean isBesideClimbableBlock() {
-        return ((Boolean) this.dataManager.get(CLIMBING)).booleanValue();
+        return this.dataManager.get(CLIMBING).booleanValue();
     }
 
     @Override
@@ -125,7 +117,7 @@ public class EntityPumpkinSpider extends EntityDivineRPGMob {
     }
 
     public boolean getProvoked() {
-        return ((Boolean) this.dataManager.get(PROVOKED)).booleanValue();
+        return this.dataManager.get(PROVOKED).booleanValue();
     }
 
     @Nullable

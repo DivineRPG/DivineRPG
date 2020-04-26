@@ -5,7 +5,6 @@ import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
 import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -23,13 +22,6 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
     @Override
     public float getEyeHeight() {
         return 1.725F;
-    }
-
-    @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1100);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(24);
     }
 
     @Override

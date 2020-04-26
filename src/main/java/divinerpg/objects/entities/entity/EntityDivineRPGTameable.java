@@ -1,19 +1,12 @@
 package divinerpg.objects.entities.entity;
 
+import divinerpg.config.Config;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIOwnerHurtByTarget;
-import net.minecraft.entity.ai.EntityAIOwnerHurtTarget;
-import net.minecraft.entity.ai.EntityAISit;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
@@ -47,6 +40,17 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+        Config.initEntityAttributes(this);
+    }
+
+    /**
+     * Increased health if tamable
+     */
+    protected void increaseHealthIfTimable() {
+        if (this.isTamed()) {
+            IAttributeInstance attribute = getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
+            attribute.setBaseValue(attribute.getAttributeValue() * 2);
+        }
     }
 
     @Override
@@ -71,22 +75,19 @@ public abstract class EntityDivineRPGTameable extends EntityTameable {
     public boolean getCanSpawnHere() {
         return (this.world.getDifficulty() != EnumDifficulty.PEACEFUL);
     }
-    
-    protected void playTameEffect(boolean play)
-    {
+
+    protected void playTameEffect(boolean play) {
         EnumParticleTypes enumparticletypes = EnumParticleTypes.HEART;
 
-        if (!play)
-        {
+        if (!play) {
             enumparticletypes = EnumParticleTypes.SMOKE_NORMAL;
         }
 
-        for (int i = 0; i < 7; ++i)
-        {
+        for (int i = 0; i < 7; ++i) {
             double d0 = this.rand.nextGaussian() * 0.02D;
             double d1 = this.rand.nextGaussian() * 0.02D;
             double d2 = this.rand.nextGaussian() * 0.02D;
-            this.world.spawnParticle(enumparticletypes, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + 0.5D + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, d0, d1, d2);
+            this.world.spawnParticle(enumparticletypes, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + 0.5D + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, d0, d1, d2);
         }
     }
 }
