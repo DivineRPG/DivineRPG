@@ -10,7 +10,6 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +21,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ArmorHandlers {
@@ -173,31 +173,8 @@ public class ArmorHandlers {
      * @param force           - should force to set passed value to player
      */
     public static void speedUpPlayer(EntityLivingBase player, float speedMultiplier, boolean force) {
-        IAttribute speedAttr = SharedMonsterAttributes.MOVEMENT_SPEED;
-        IAttributeInstance playerSpeedAttribute = player.getEntityAttribute(speedAttr);
-        AttributeModifier modifier = playerSpeedAttribute.getModifier(ARMOR_SPEED_UUID);
-
-        speedMultiplier = (float) (speedMultiplier * playerSpeedAttribute.getBaseValue() - playerSpeedAttribute.getBaseValue());
-
-        // Detect if removing speed modifier
-        boolean isRemove = speedMultiplier < 0;
-
-        // changing step height on client
-        if (isRemote(player)) {
-            player.stepHeight = isRemove ? 0.6F : 1.0625F;
-        } else {
-            // Change speed on server
-
-            // removing speed modifier if can set faster
-            if (force || modifier == null || modifier.getAmount() < speedMultiplier) {
-                playerSpeedAttribute.removeModifier(ARMOR_SPEED_UUID);
-
-                if (!isRemove) {
-                    modifier = (new AttributeModifier(ARMOR_SPEED_UUID, "Armor speed modifier", speedMultiplier, 0));
-                    playerSpeedAttribute.applyModifier(modifier);
-                }
-            }
-        }
+        speedUpAttribute(player, SharedMonsterAttributes.MOVEMENT_SPEED, speedMultiplier, force,
+                isRemove -> player.stepHeight = isRemove ? 0.6F : 1.0625F);
     }
 
     /**
@@ -235,53 +212,39 @@ public class ArmorHandlers {
     /**
      * Should Speed up CLIENT SIDE player in water
      *
-     * @param player - player
-     * @param speed  - speed modifier
+     * @param player          - player
+     * @param speedMultiplier - speed modifier
+     * @param forced          - force change value
      */
-    public static void speedUpInWater(EntityPlayer player, float speed) {
-        if (player == null
-                // Should call on client
-                || !isRemote(player)
-                || !player.isInWater()) {
-            return;
-        }
-
-        // Motion should determine by client
-        // Server only receive position changed status
-        if (!isMaxSpeed(player.motionX, speed)) {
-            player.motionX *= speed;
-        }
-        if (!isMaxSpeed(player.motionZ, speed)) {
-            player.motionZ *= speed;
-        }
-
-        if (!isMaxSpeed(player.motionY, speed)) {
-            // max X/Z speed. If moving faster, should not change
-            // Y cord
-            double maxSpeed = 0.3D;
-
-            // managing Y pos if sneaking or just come out the water
-            // on full speed should stay on same Y level
-            if (player.isSneaking() ||
-                    player.motionX < maxSpeed && player.motionZ < maxSpeed) {
-                player.motionY *= speed;
-            }
-        }
+    public static void speedUpInWater(EntityLivingBase player, float speedMultiplier, boolean forced) {
+        speedUpAttribute(player, EntityPlayer.SWIM_SPEED, speedMultiplier, forced, null);
     }
 
-    /**
-     * Trying to check wherever player motion is more than passed maxSpeed
-     *
-     * @param motion - player motion (can be negative)
-     * @param speed  - speed (always not negative)
-     * @return is Player reached max speed
-     */
-    private static boolean isMaxSpeed(double motion, float speed) {
-        if (speed < 0) {
-            throw new IllegalArgumentException("Speed cannot be less than zero");
-        }
+    private static void speedUpAttribute(EntityLivingBase player, IAttribute attr, float speedMultiplier,
+                                         boolean forced, Consumer<Boolean> callBack) {
+        IAttributeInstance attribute = player.getEntityAttribute(attr);
+        if (attribute == null)
+            return;
 
-        return !(motion > -speed && motion < speed);
+        AttributeModifier modifier = attribute.getModifier(ARMOR_SPEED_UUID);
+
+        speedMultiplier = (float) (speedMultiplier * attribute.getBaseValue() - attribute.getBaseValue());
+
+        // Detect if removing speed modifier
+        boolean isRemove = speedMultiplier < 0;
+
+        // removing speed modifier if can set faster
+        if (forced || modifier == null || modifier.getAmount() < speedMultiplier) {
+            attribute.removeModifier(ARMOR_SPEED_UUID);
+
+            if (!isRemove) {
+                modifier = (new AttributeModifier(ARMOR_SPEED_UUID, "Armor speed modifier", speedMultiplier, 0));
+                attribute.applyModifier(modifier);
+            }
+
+            if (callBack != null)
+                callBack.accept(isRemove);
+        }
     }
 
     /**
@@ -313,15 +276,13 @@ public class ArmorHandlers {
         return !source.isExplosion() && !source.isMagicDamage() && !source.isFireDamage() && !source.isProjectile()
                 && !source.isDamageAbsolute() && !source.isUnblockable();
     }
-    
-    public static void getStepAssist(LivingEvent.LivingUpdateEvent event)
-    {
-        if (event.getEntityLiving() instanceof EntityPlayer)
-        {
-                event.getEntityLiving().stepHeight = 1.0f;
-            }
+
+    public static void getStepAssist(LivingEvent.LivingUpdateEvent event) {
+        if (event.getEntityLiving() instanceof EntityPlayer) {
+            event.getEntityLiving().stepHeight = 1.0f;
+        }
     }
-    
+
     /**
      * Checks wherever entity contains in remote world
      *

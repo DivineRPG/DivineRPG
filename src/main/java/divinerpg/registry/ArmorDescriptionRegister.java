@@ -277,14 +277,20 @@ public class ArmorDescriptionRegister {
                         .setRegistryName(AWAKENED_HALITE)
         );
 
+        IEquipped stopSpeedUpInWater = (player, isFullEquipped) -> {
+            if (!isFullEquipped) {
+                ArmorHandlers.speedUpInWater(player, 0, true);
+            }
+        };
+
         registry.register(
-                new ArmorDescription()
+                new ArmorDescription(stopSpeedUpInWater)
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModItems.aquastriveHelmet)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModItems.aquastriveChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModItems.aquastriveLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModItems.aquastriveBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event ->
-                                ArmorHandlers.speedUpInWater(event.player, 1.2F))
+                                ArmorHandlers.speedUpInWater(event.player, 5, false))
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .setRegistryName(new ResourceLocation(Reference.MODID, "aqua"))
