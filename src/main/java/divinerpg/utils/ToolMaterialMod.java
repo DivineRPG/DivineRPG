@@ -81,9 +81,9 @@ public class ToolMaterialMod {
     public static final ToolMaterial WILDWOOD_BLADE = EnumHelper.addToolMaterial("drpg_wildwood_blade", 4, 2000, 4.0F, 22.0F, 22).setRepairItem(makeRepairStack(ModItems.wildwoodGem));
 
     // Shickaxes
-    public static final ToolMaterial ARLEMITE_SHICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_shickaxe", 4, 12000, 13.0F, 8.0F, 15).setRepairItem(makeRepairStack(ModItems.arlemiteIngot));
-    public static final ToolMaterial DIVINE_SHICKAXE = EnumHelper.addToolMaterial("drpg_divine_shickaxe", 8, -1, 20.0F, 10.0F, 10);
-    public static final ToolMaterial RUPEE_SHICKAXE = EnumHelper.addToolMaterial("drpg_rupee_shickaxe", 6, -1, 16.0F, 9.0F, 15);
+    public static final ToolMaterial ARLEMITE_SHICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_shickaxe", 5, 12000, 13.0F, 8.0F, 15).setRepairItem(makeRepairStack(ModItems.arlemiteIngot));
+    public static final ToolMaterial DIVINE_SHICKAXE = EnumHelper.addToolMaterial("drpg_divine_shickaxe", 7, -1, 20.0F, 10.0F, 10);
+    public static final ToolMaterial RUPEE_SHICKAXE = EnumHelper.addToolMaterial("drpg_rupee_shickaxe", 4, -1, 16.0F, 9.0F, 15);
 
     // Axes
     public static final ToolMaterial APALACHIA_AXE = EnumHelper.addToolMaterial("drpg_apalachia_axe", 9, 6000, 40.0F, 9.0F, 22).setRepairItem(makeRepairStack(ModItems.apalachiaGem));
@@ -99,17 +99,17 @@ public class ToolMaterialMod {
     public static final ToolMaterial WILDWOOD_AXE = EnumHelper.addToolMaterial("drpg_wildwood_axe", 9, 6000, 28.0F, 8.0F, 22).setRepairItem(makeRepairStack(ModItems.wildwoodGem));
 
     // Pickaxes
-    public static final ToolMaterial APALACHIA_PICKAXE = EnumHelper.addToolMaterial("drpg_apalachia_pickaxe", 9, 6000, 40.0F, 7.0F, 22).setRepairItem(makeRepairStack(ModItems.apalachiaGem));
-    public static final ToolMaterial ARLEMITE_PICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_pickaxe", 3, 3000, 13.0F, 5.0F, 10).setRepairItem(makeRepairStack(ModItems.arlemiteIngot));
-    public static final ToolMaterial BEDROCK_PICKAXE = EnumHelper.addToolMaterial("drpg_bedrock_pickaxe", 3, -1, 9.0F, 4.0F, 10);
+    public static final ToolMaterial APALACHIA_PICKAXE = EnumHelper.addToolMaterial("drpg_apalachia_pickaxe", 8, 6000, 40.0F, 7.0F, 22).setRepairItem(makeRepairStack(ModItems.apalachiaGem));
+    public static final ToolMaterial ARLEMITE_PICKAXE = EnumHelper.addToolMaterial("drpg_arlemite_pickaxe", 5, 3000, 13.0F, 5.0F, 10).setRepairItem(makeRepairStack(ModItems.arlemiteIngot));
+    public static final ToolMaterial BEDROCK_PICKAXE = EnumHelper.addToolMaterial("drpg_bedrock_pickaxe", 5, -1, 9.0F, 4.0F, 10);
     public static final ToolMaterial CORRUPTED_PICKAXE = EnumHelper.addToolMaterial("drpg_corrupted_pickaxe", 3, 6000, 16.0F, 5.0F, 10).setRepairItem(makeRepairStack(ModItems.corruptedStone));
-    public static final ToolMaterial DIVINE_PICKAXE = EnumHelper.addToolMaterial("drpg_divine_pickaxe", 8, 35000, 20.0F, 6.0F, 10).setRepairItem(makeRepairStack(ModItems.divineStone));
-    public static final ToolMaterial EDEN_PICKAXE = EnumHelper.addToolMaterial("drpg_eden_pickaxe", 9, 6000, 20.0F, 5.0F, 22).setRepairItem(makeRepairStack(ModItems.edenChunk));
-    public static final ToolMaterial MORTUM_PICKAXE = EnumHelper.addToolMaterial("drpg_mortum_pickaxe", 9, 6000, 55.0F, 9.0F, 22).setRepairItem(makeRepairStack(ModItems.mortumChunk));
+    public static final ToolMaterial DIVINE_PICKAXE = EnumHelper.addToolMaterial("drpg_divine_pickaxe", 7, 35000, 20.0F, 6.0F, 10).setRepairItem(makeRepairStack(ModItems.divineStone));
+    public static final ToolMaterial EDEN_PICKAXE = EnumHelper.addToolMaterial("drpg_eden_pickaxe", 6, 6000, 20.0F, 5.0F, 22).setRepairItem(makeRepairStack(ModItems.edenChunk));
+    public static final ToolMaterial MORTUM_PICKAXE = EnumHelper.addToolMaterial("drpg_mortum_pickaxe", 10, 6000, 55.0F, 9.0F, 22).setRepairItem(makeRepairStack(ModItems.mortumChunk));
     public static final ToolMaterial REALMITE_PICKAXE = EnumHelper.addToolMaterial("drpg_realmite_pickaxe", 3, 4000, 12.0F, 4.0F, 10).setRepairItem(makeRepairStack(ModItems.realmiteIngot));
-    public static final ToolMaterial RUPEE_PICKAXE = EnumHelper.addToolMaterial("drpg_rupee_pickaxe", 6, 2500, 16.0F, 5.0F, 22).setRepairItem(makeRepairStack(ModItems.rupeeIngot));
+    public static final ToolMaterial RUPEE_PICKAXE = EnumHelper.addToolMaterial("drpg_rupee_pickaxe", 4, 2500, 16.0F, 5.0F, 22).setRepairItem(makeRepairStack(ModItems.rupeeIngot));
     public static final ToolMaterial SKYTHERN_PICKAXE = EnumHelper.addToolMaterial("drpg_skythern_pickaxe", 9, 6000, 48.0F, 8.0F, 22).setRepairItem(makeRepairStack(ModItems.skythernGem));
-    public static final ToolMaterial WILDWOOD_PICKAXE = EnumHelper.addToolMaterial("drpg_wildwood_pickaxe", 9, 6000, 28.0F, 6.0F, 22).setRepairItem(makeRepairStack(ModItems.wildwoodGem));
+    public static final ToolMaterial WILDWOOD_PICKAXE = EnumHelper.addToolMaterial("drpg_wildwood_pickaxe", 7, 6000, 28.0F, 6.0F, 22).setRepairItem(makeRepairStack(ModItems.wildwoodGem));
 
     // Shovels
     public static final ToolMaterial APALACHIA_SHOVEL = EnumHelper.addToolMaterial("drpg_apalachia_shovel", 9, 6000, 40.0F, 7.0F, 22).setRepairItem(makeRepairStack(ModItems.apalachiaGem));

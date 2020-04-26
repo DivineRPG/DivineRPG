@@ -1617,3 +1617,4 @@ tooltip.food.pet=Pet Food
 tooltip.food.heal=Replenishes %s Health
 
 enchantment.world_break=World Break
+tooltip.harvest_level=Harvest level: %s

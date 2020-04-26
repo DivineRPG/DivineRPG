@@ -1613,3 +1613,4 @@ tooltip.food.pet=Еда для питомцев
 tooltip.food.heal=Восстанавливает %s сердцев
 
 enchantment.world_break=Крушитель миров
+tooltip.harvest_level=Уровень добычи: %s

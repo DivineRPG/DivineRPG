@@ -1303,10 +1303,10 @@ public class ModBlocks {
         register(registry, new BlockMod("twilight_stone", 6.0F));
 
         // Ore
-        register(registry, new BlockTwilightOre("eden_ore", 9, 2000F, DIAMOND, () -> ModItems.edenFragments));
-        register(registry, new BlockTwilightOre("wildwood_ore", 9, 2000F, DIAMOND, () -> ModItems.wildwoodFragments));
-        register(registry, new BlockTwilightOre("apalachia_ore", 9, 2000F, DIAMOND, () -> ModItems.apalachiaFragments));
-        register(registry, new BlockTwilightOre("skythern_ore", 9, 2000F, DIAMOND, () -> ModItems.skythernFragments));
+        register(registry, new BlockTwilightOre("eden_ore", 5, 2000F, DIAMOND, () -> ModItems.edenFragments));
+        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, DIAMOND, () -> ModItems.wildwoodFragments));
+        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, DIAMOND, () -> ModItems.apalachiaFragments));
+        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, DIAMOND, () -> ModItems.skythernFragments));
         register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, () -> ModItems.mortumFragments));
 
         // Sapling

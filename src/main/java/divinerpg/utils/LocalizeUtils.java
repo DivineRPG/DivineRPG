@@ -35,6 +35,7 @@ public class LocalizeUtils {
             BowDamage = "tooltip.damage.ranged",
             RangedAndMeleeDamage = "tooltip.damage.both",
             Efficency = "tooltip.efficiency",
+            HarvestLevel = "tooltip.harvest_level",
             Poison = "tooltip.effect.poisons",
             BurnMobs = "tooltip.effect.burns",
             SlowMobs = "tooltip.effect.slows";
@@ -184,6 +185,16 @@ public class LocalizeUtils {
      */
     public static String efficiency(double eff) {
         return i18n(Efficency, eff);
+    }
+
+    /**
+     * Shows tool harvest level
+     *
+     * @param lvl - harvest level
+     * @return
+     */
+    public static String harvestLevel(int lvl) {
+        return i18n(HarvestLevel, lvl);
     }
 
     /**

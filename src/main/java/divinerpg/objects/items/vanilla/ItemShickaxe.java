@@ -54,6 +54,7 @@ public class ItemShickaxe extends ItemTool {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
         infoList.add(LocalizeUtils.efficiency(toolMaterial.getEfficiency()));
+        infoList.add(LocalizeUtils.harvestLevel(toolMaterial.getHarvestLevel()));
         if (stack.getMaxDamage() > 0) {
             infoList.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
         } else {
