@@ -3,14 +3,20 @@
     "item": "divinerpg:wildwood_block"
   },
   "pattern": [
-    "III",
-    "III",
-    "III"
+    "FIF",
+    "IBI",
+    "FIF"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
-    "I": {
+    "F": {
       "item": "divinerpg:wildwood_fragments"
+    },
+    "B": {
+      "item": "divinerpg:wildwood_heart"
+    },
+    "I": {
+      "item": "divinerpg:wildwood_soul"
     }
   }
 }
