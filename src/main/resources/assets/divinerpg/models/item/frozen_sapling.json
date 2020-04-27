@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/frozen_sapling"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/frozen_sapling"
+  }
 }

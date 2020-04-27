@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/skythern_sapling"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/skythern_sapling"
+  }
 }

@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/apalachia_sapling"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/apalachia_sapling"
+  }
 }

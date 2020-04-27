@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/wildwood_sapling"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:blocks/wildwood_sapling"
+  }
 }
