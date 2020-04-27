@@ -11,6 +11,7 @@ import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.registry.ModArmor;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
@@ -45,7 +46,7 @@ public class JEICompat implements IModPlugin {
                 GuiWorkshopMerchant.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_MERCHANT_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.workshop_merchant.name"),
-                ModItems.santaCap));
+                ModArmor.santaCap));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopTinkerer.MERCHANT_GUI_TEXTURE,

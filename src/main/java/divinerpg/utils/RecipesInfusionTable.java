@@ -2,6 +2,7 @@ package divinerpg.utils;
 
 import java.util.HashMap;
 
+import divinerpg.registry.ModArmor;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.item.Item;
@@ -87,40 +88,40 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.heliosisLump, ModItems.diskTemplate, 20, new ItemStack(ModWeapons.heliosisDisk));
         addRecipe(ModItems.arksianeLump, ModItems.diskTemplate, 24, new ItemStack(ModWeapons.arksianeDisk));
 
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModItems.degradedHelmet));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModItems.degradedHood));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 6, new ItemStack(ModItems.degradedMask));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 5, new ItemStack(ModItems.degradedBoots));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 9, new ItemStack(ModItems.degradedLeggings));
-        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 10, new ItemStack(ModItems.degradedChestplate));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 7, new ItemStack(ModArmor.degradedHelmet));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 8, new ItemStack(ModArmor.degradedHood));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 6, new ItemStack(ModArmor.degradedMask));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 5, new ItemStack(ModArmor.degradedBoots));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 9, new ItemStack(ModArmor.degradedLeggings));
+        addRecipe(ModItems.teakerLump, ModItems.degradedTemplate, 10, new ItemStack(ModArmor.degradedChestplate));
 
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 10, new ItemStack(ModItems.finishedHelmet));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 11, new ItemStack(ModItems.finishedHood));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 9, new ItemStack(ModItems.finishedMask));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 8, new ItemStack(ModItems.finishedBoots));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 12, new ItemStack(ModItems.finishedLeggings));
-        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 14, new ItemStack(ModItems.finishedChestplate));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 10, new ItemStack(ModArmor.finishedHelmet));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 11, new ItemStack(ModArmor.finishedHood));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 9, new ItemStack(ModArmor.finishedMask));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 8, new ItemStack(ModArmor.finishedBoots));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 12, new ItemStack(ModArmor.finishedLeggings));
+        addRecipe(ModItems.amthirmisLump, ModItems.finishedTemplate, 14, new ItemStack(ModArmor.finishedChestplate));
 
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 10, new ItemStack(ModItems.glisteningHelmet));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 11, new ItemStack(ModItems.glisteningHood));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 9, new ItemStack(ModItems.glisteningMask));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 8, new ItemStack(ModItems.glisteningBoots));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 12, new ItemStack(ModItems.glisteningLeggings));
-        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 14, new ItemStack(ModItems.glisteningChestplate));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 10, new ItemStack(ModArmor.glisteningHelmet));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 11, new ItemStack(ModArmor.glisteningHood));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 9, new ItemStack(ModArmor.glisteningMask));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 8, new ItemStack(ModArmor.glisteningBoots));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 12, new ItemStack(ModArmor.glisteningLeggings));
+        addRecipe(ModItems.darvenLump, ModItems.glisteningTemplate, 14, new ItemStack(ModArmor.glisteningChestplate));
 
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 10, new ItemStack(ModItems.demonizedHelmet));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 11, new ItemStack(ModItems.demonizedHood));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 9, new ItemStack(ModItems.demonizedMask));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 8, new ItemStack(ModItems.demonizedBoots));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 12, new ItemStack(ModItems.demonizedLeggings));
-        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 14, new ItemStack(ModItems.demonizedChestplate));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 10, new ItemStack(ModArmor.demonizedHelmet));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 11, new ItemStack(ModArmor.demonizedHood));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 9, new ItemStack(ModArmor.demonizedMask));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 8, new ItemStack(ModArmor.demonizedBoots));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 12, new ItemStack(ModArmor.demonizedLeggings));
+        addRecipe(ModItems.cermileLump, ModItems.demonizedTemplate, 14, new ItemStack(ModArmor.demonizedChestplate));
 
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 10, new ItemStack(ModItems.tormentedHelmet));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 11, new ItemStack(ModItems.tormentedHood));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 9, new ItemStack(ModItems.tormentedMask));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 8, new ItemStack(ModItems.tormentedBoots));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 12, new ItemStack(ModItems.tormentedLeggings));
-        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModItems.tormentedChestplate));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 10, new ItemStack(ModArmor.tormentedHelmet));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 11, new ItemStack(ModArmor.tormentedHood));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 9, new ItemStack(ModArmor.tormentedMask));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 8, new ItemStack(ModArmor.tormentedBoots));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 12, new ItemStack(ModArmor.tormentedLeggings));
+        addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModArmor.tormentedChestplate));
     }
 
     public void addRecipe(Item lump, Item template, int count, ItemStack res) {

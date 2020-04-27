@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ModArmor;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
@@ -45,10 +46,10 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
     public static List<MerchantRecipe> getAllRecipies(){
         List<MerchantRecipe> list = new ArrayList<>();
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaCap, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaTunic, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaPants, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModItems.santaBoots, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaCap, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaTunic, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaPants, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaBoots, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.eggNog, 2, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.chocolateLog, 5, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.peppermints, 15, 0)));

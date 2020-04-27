@@ -48,7 +48,7 @@ public class DivineRPGTabs extends CreativeTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.divineHelmet);
+			return new ItemStack(ModArmor.divineHelmet);
 		}
 	};
 	public static DivineRPGTabs spawner = new DivineRPGTabs("Spawner") {
