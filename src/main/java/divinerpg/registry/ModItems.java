@@ -1495,10 +1495,10 @@ public class ModItems {
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo));
         register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
 
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.HEAD, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.CHEST, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.LEGS, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKEN_HALITE, EntityEquipmentSlot.FEET, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.HEAD, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.CHEST, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.LEGS, awakened_halInfo));
+        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.FEET, awakened_halInfo));
 
         // Twilight boss spawners
         register(registry, new ItemBossSpawner("eternal_archer_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityEternalArcher::new));

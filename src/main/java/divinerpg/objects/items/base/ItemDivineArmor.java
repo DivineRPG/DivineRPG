@@ -64,14 +64,8 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
 
         this.name = itemName != null ? itemName : getDefaultItemName(this.armorMaterial.getType(), slot);
         setUnlocalizedName(this.name);
-
-        if (armorMaterial.isOverriden()) {
-            setRegistryName(this.name);
-            this.setCreativeTab(CreativeTabs.COMBAT);
-        } else {
-            setRegistryName(this.name);
-            this.setCreativeTab(DivineRPGTabs.armor);
-        }
+        setRegistryName(this.name);
+        this.setCreativeTab(DivineRPGTabs.armor);
     }
 
     @Override
