@@ -661,11 +661,11 @@ public class ModItems {
         register(registry, new ItemMod("watching_eye"));
 
         // Ayeraco fragments
-        register(registry, new ItemMod("ayeraco_fragment_blue"));
-        register(registry, new ItemMod("ayeraco_fragment_green"));
-        register(registry, new ItemMod("ayeraco_fragment_purple"));
-        register(registry, new ItemMod("ayeraco_fragment_red"));
-        register(registry, new ItemMod("ayeraco_fragment_yellow"));
+//        register(registry, new ItemMod("ayeraco_fragment_blue"));
+//        register(registry, new ItemMod("ayeraco_fragment_green"));
+//        register(registry, new ItemMod("ayeraco_fragment_purple"));
+//        register(registry, new ItemMod("ayeraco_fragment_red"));
+//        register(registry, new ItemMod("ayeraco_fragment_yellow"));
 
         // Diamond chunks
         register(registry, new ItemMod("blue_diamond_chunk"));
