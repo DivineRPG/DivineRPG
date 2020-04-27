@@ -25,6 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -1032,6 +1033,7 @@ public class ModBlocks {
     public static final Block nightmareBed = null;
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         DivineRPG.logger.info("Registering DivineRPG blocks");
@@ -1215,12 +1217,12 @@ public class ModBlocks {
         register(registry, new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE));
 
         // Ayeraco technical blocks
-        register(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));
-        register(registry, new BlockAyeracoBeam("ayeraco_beam_green", "green"));
-        register(registry, new BlockAyeracoBeam("ayeraco_beam_purple", "purple"));
-        register(registry, new BlockAyeracoBeam("ayeraco_beam_red", "red"));
-        register(registry, new BlockAyeracoBeam("ayeraco_beam_yellow", "yellow"));
-        register(registry, new BlockAyeracoSpawn());
+        registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));
+        registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_green", "green"));
+        registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_purple", "purple"));
+        registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_red", "red"));
+        registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_yellow", "yellow"));
+        registerItemlessBlock(registry, new BlockAyeracoSpawn());
 
         // Liquid
         register(registry, new BlockTar("tar", ModLiquids.tar));
@@ -1253,7 +1255,7 @@ public class ModBlocks {
         register(registry, new BlockModUnbreakable("icy_stone"));
         register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
         register(registry, new BlockMod("snow_bricks", 6.0F));
-        register(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f));
+        registerItemlessBlock(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f));
         register(registry, new BlockMod(EnumBlockType.ROCK, "workshop_bookcase", 1.5F));
         register(registry, new BlockMod(EnumBlockType.WOOL, "workshop_carpet", 0.1F));
         register(registry, new BlockModLamp(EnumBlockType.GLASS, "workshop_lamp", 0.3F));
@@ -1433,10 +1435,10 @@ public class ModBlocks {
         register(registry, new BlockModUnbreakable("soul_stone"));
 
         // Door
-        register(registry, new BlockArcanaDoor("ancient_brick_door", () -> ModItems.ancientKey));
-        register(registry, new BlockArcanaDoor("degraded_brick_door", () -> ModItems.degradedKey));
-        register(registry, new BlockArcanaDoor("soul_sludge_door",() ->  ModItems.sludgeKey));
-        register(registry, new BlockArcanaDoor("soul_stone_door", () -> ModItems.soulKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ModItems.ancientKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ModItems.degradedKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door",() ->  ModItems.sludgeKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ModItems.soulKey));
 
         // Spawner
         register(registry, new BlockArcanaSpawner("death_hound_spawner", "death_hound"));
@@ -1546,7 +1548,7 @@ public class ModBlocks {
         register(registry, new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Door
-        register(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
+        registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
 
         // Lighting
         register(registry, new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
@@ -1619,7 +1621,7 @@ public class ModBlocks {
         register(registry, new BlockAcid("lunic_acid", true).setCreativeTab(DivineRPGTabs.vethea));
 
         // Nightmare bed
-        register(registry, new BlockNightmareBed());
+        registerItemlessBlock(registry, new BlockNightmareBed());
 
         // Portal blocks
         // Portal
@@ -1632,41 +1634,37 @@ public class ModBlocks {
         register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
 
         //Slab
-        register(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));
-        register(registry, new BlockModSlab("wildwood_slab", BlockModPlank.EnumType.WILDWOOD, false));
-        register(registry, new BlockModSlab("apalachia_slab", BlockModPlank.EnumType.APALACHIA, false));
-        register(registry, new BlockModSlab("skythern_slab", BlockModPlank.EnumType.SKYTHERN, false));
-        register(registry, new BlockModSlab("mortum_slab", BlockModPlank.EnumType.MORTUM, false));
-        register(registry, new BlockModSlab("divine_slab", BlockModPlank.EnumType.DIVINE, false));
-        register(registry, new BlockModSlab("frozen_slab", BlockModPlank.EnumType.FROZEN, false));
-        register(registry, new BlockModSlab("eucalyptus_slab", BlockModPlank.EnumType.EUCALYPTUS, false));
+        registerItemlessBlock(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));
+        registerItemlessBlock(registry, new BlockModSlab("wildwood_slab", BlockModPlank.EnumType.WILDWOOD, false));
+        registerItemlessBlock(registry, new BlockModSlab("apalachia_slab", BlockModPlank.EnumType.APALACHIA, false));
+        registerItemlessBlock(registry, new BlockModSlab("skythern_slab", BlockModPlank.EnumType.SKYTHERN, false));
+        registerItemlessBlock(registry, new BlockModSlab("mortum_slab", BlockModPlank.EnumType.MORTUM, false));
+        registerItemlessBlock(registry, new BlockModSlab("divine_slab", BlockModPlank.EnumType.DIVINE, false));
+        registerItemlessBlock(registry, new BlockModSlab("frozen_slab", BlockModPlank.EnumType.FROZEN, false));
+        registerItemlessBlock(registry, new BlockModSlab("eucalyptus_slab", BlockModPlank.EnumType.EUCALYPTUS, false));
         
         //Double Slab
-        register(registry, new BlockModSlab("eden_double_slab", BlockModPlank.EnumType.EDEN, true));
-        register(registry, new BlockModSlab("wildwood_double_slab", BlockModPlank.EnumType.WILDWOOD, true));
-        register(registry, new BlockModSlab("apalachia_double_slab", BlockModPlank.EnumType.APALACHIA, true));
-        register(registry, new BlockModSlab("skythern_double_slab", BlockModPlank.EnumType.SKYTHERN, true));
-        register(registry, new BlockModSlab("mortum_double_slab", BlockModPlank.EnumType.MORTUM, true));
-        register(registry, new BlockModSlab("divine_double_slab", BlockModPlank.EnumType.DIVINE, true));
-        register(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
-        register(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
-
+        registerItemlessBlock(registry, new BlockModSlab("eden_double_slab", BlockModPlank.EnumType.EDEN, true));
+        registerItemlessBlock(registry, new BlockModSlab("wildwood_double_slab", BlockModPlank.EnumType.WILDWOOD, true));
+        registerItemlessBlock(registry, new BlockModSlab("apalachia_double_slab", BlockModPlank.EnumType.APALACHIA, true));
+        registerItemlessBlock(registry, new BlockModSlab("skythern_double_slab", BlockModPlank.EnumType.SKYTHERN, true));
+        registerItemlessBlock(registry, new BlockModSlab("mortum_double_slab", BlockModPlank.EnumType.MORTUM, true));
+        registerItemlessBlock(registry, new BlockModSlab("divine_double_slab", BlockModPlank.EnumType.DIVINE, true));
+        registerItemlessBlock(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
+        registerItemlessBlock(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority=EventPriority.HIGH)
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+        DivineRPG.logger.info("Registering DivineRPG block items");
+
         for(Block block: blockList) {
-        	if(!(block instanceof BlockModSlab)) {
-        		if(!(block instanceof BlockAyeracoSpawn)) {
-            		if(!(block instanceof BlockAyeracoBeam)) {
-            			if(!(block instanceof BlockNightmareBed)) {
-                			if(!(block instanceof BlockModDoor)) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
-            if(!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
+            if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
                 ModItems.itemMap.put(itemBlock.getRegistryName().getResourcePath(), itemBlock);
             }
             event.getRegistry().register(itemBlock);
-        }}}}}}
+        }
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {
@@ -1674,4 +1672,7 @@ public class ModBlocks {
         blockList.add(block);
     }
 
+    private static void registerItemlessBlock(IForgeRegistry<Block> registry, Block block) {
+        registry.register(block);
+    }
 }
