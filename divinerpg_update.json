@@ -1,6 +1,7 @@
 {
 	"homepage": "https://github.com/NicosaurusRex99/DivineRPG/releases",
 	"1.12.2": {
+        "1.12.2-1.6.0.2": "Bug Fixes",
         "1.12.2-1.6.0.1": "Quick vethea fixes",
         "1.12.2-1.6": "Vethea fixes and new content",
         "1.12.2-1.5.2": "bug fixes/vethea tweaks",
@@ -21,8 +22,8 @@
 		"1.4.0": "Ported to 1.7.10"
 	},
 	"promos": {
-		"1.12.2-latest": "1.12.2-1.6.0.1",
-		"1.12.2-recommended": "1.12.2-1.6.0.1",
+		"1.12.2-latest": "1.12.2-1.6.0.2",
+		"1.12.2-recommended": "1.12.2-1.6.0.2",
 		"1.7.10-latest": "1.4.1.4",
 		"1.7.10-recommended": "1.4.1.4"
 	}

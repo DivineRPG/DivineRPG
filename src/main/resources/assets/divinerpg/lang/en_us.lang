@@ -1098,6 +1098,20 @@ item.dream_shovel.name=Dream Shovel
 item.dream_pickaxe.name=Dream Pickaxe
 item.dream_axe.name=Dream Axe
 item.teleportation_star.name=Teleportation Star
+item.eden_heart.name=Heart of the Sunstorm
+item.wildwood_heart.name=Heart of the Termasect
+item.apalachia_heart.name=Heart of the Apalachia
+item.skythern_heart.name=Heart of the Skythern
+item.mortum_heart.name=Heart of the Mortum
+item.awakened_halite_helmet.name=Awakened Halite Helmet
+item.awakened_halite_chestplate.name=Awakened Halite Chestplate
+item.awakened_halite_leggings.name=Awakened Halite Leggings
+item.awakened_halite_boots.name=Awakened Halite Boots
+item.king_helmet.name=The King's Crown
+item.king_chestplate.name=The King's Chestplate
+item.king_leggings.name=The King's Leggings
+item.king_boots.name=The King's Boots
+
 
 death.attack.trap=%1$s fell into a trap
 death.attack.spike=%1$s walked on spikes
