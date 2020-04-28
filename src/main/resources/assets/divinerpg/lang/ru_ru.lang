@@ -230,6 +230,9 @@ tile.karos_heat_tile_red.name=Горячая красная плитка Кар�
 tile.firewood_log.name=Огненная древесина
 tile.bacterial_acid.name=Бактериальная кислота
 tile.acid_block.name=Кислотный блок
+tile.sunstorm_spawner.name=Спавнер Солнечного шторма
+tile.termasect_spawner.name=Спавнер Термасекта
+
 tile.lunic_acid.name=Лунная кислота
 tile.firewood_leaves.name=Огненная листва
 tile.hyrewood_leaves.name=Хайровая листва
@@ -1102,6 +1105,20 @@ item.dream_shovel.name=Лопата мечты
 item.dream_pickaxe.name=Кирка мечты
 item.dream_axe.name=Топор мечты
 item.teleportation_star.name=Звезда телепортации
+item.eden_heart.name=Серце Солнечного шторма
+item.wildwood_heart.name=Сердце Термасекта
+item.apalachia_heart.name=Сердце Апалачии
+item.skythern_heart.name=Сердце Небесного терна
+item.mortum_heart.name=Сердце Мортума
+item.awakened_halite_helmet.name=Пробужденный халитовый шлем
+item.awakened_halite_chestplate.name=Пробужденный халитовый нагрудник
+item.awakened_halite_leggings.name=Пробужденные халитовые поножи
+item.awakened_halite_boots.name=Пробужденные халитовые ботинки
+item.king_helmet.name=Королевская корона
+item.king_chestplate.name=Королевский нагрудник
+item.king_leggings.name=Королевские поножи
+item.king_boots.name=Королевские ботинки
+
 
 death.attack.trap=%1$s попал в ловушку
 death.attack.spike=%1$s прогулялся по шипам
