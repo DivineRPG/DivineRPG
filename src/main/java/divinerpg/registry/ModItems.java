@@ -744,7 +744,7 @@ public class ModItems {
         register(registry, new ItemFastFood(7, 1.0F, true, "enriched_magic_meat"));
         register(registry, new ItemForbiddenFruit());
         register(registry, new ItemModFood(16, 0.2F, "fruit_cake"));
-        register(registry, new ItemModFood(5, 0.4F, true, "hot_pumpkin_pie"));
+        register(registry, new ItemModFood(10, 0.4F, false, "hot_pumpkin_pie"));
         register(registry, new ItemFastFood(5, 1.0F, true, "magic_meat"));
         register(registry, new ItemFastFood(1, 2.0F, false, "moonbulb"));
         register(registry, new ItemModFood(1, 0.3F, "peppermints"));
