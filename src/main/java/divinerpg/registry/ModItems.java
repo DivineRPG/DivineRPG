@@ -272,6 +272,17 @@ public class ModItems {
     public static final Item skythernSoul = null;
     @ObjectHolder("mortum_soul")
     public static final Item mortumSoul = null;
+    
+    @ObjectHolder("eden_heart")
+    public static final Item edenHeart = null;
+    @ObjectHolder("wildwood_heart")
+    public static final Item wildwoodHeart = null;
+    @ObjectHolder("apalachia_heart")
+    public static final Item apalachiaHeart = null;
+    @ObjectHolder("skythern_heart")
+    public static final Item skythernHeart = null;
+    @ObjectHolder("mortum_heart")
+    public static final Item mortumHeart = null;
 
     // Twilight fragments
     @ObjectHolder("eden_fragments")
