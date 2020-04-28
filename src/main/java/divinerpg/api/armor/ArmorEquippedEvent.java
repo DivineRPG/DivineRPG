@@ -5,6 +5,7 @@ import divinerpg.api.armor.cap.IArmorPowers;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
@@ -28,6 +29,21 @@ public class ArmorEquippedEvent extends Event {
             }
 
             items.put(slot, slotItems);
+        }
+    }
+
+    public ArmorEquippedEvent(Map<EntityEquipmentSlot, ItemStack> items) {
+        for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
+            HashSet<Item> slotItems = new HashSet<>();
+
+            ItemStack stack = items.get(slot);
+            slotItems.add(stack.getItem());
+
+            if (stack.getItem() instanceof IItemContainer) {
+                slotItems.addAll(((IItemContainer) stack.getItem()).getItems(stack));
+            }
+
+            this.items.put(slot, slotItems);
         }
     }
 

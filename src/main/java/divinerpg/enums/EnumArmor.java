@@ -1,7 +1,6 @@
 package divinerpg.enums;
 
 import divinerpg.api.Reference;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -54,7 +53,8 @@ public enum EnumArmor {
     FINISHED("Finished", "finished", 0, 0, 33),
     GLISTENING("Glistening", "glistening", 0, 0, 50),
     DEMONIZED("Demonized", "demonized", 0, 0, 60),
-    TORMENTED("Tormented", "tormented", 0, 0, 77);
+    TORMENTED("Tormented", "tormented", 0, 0, 77),
+    KING("King", "king", 0, 0, 65);
 
     private ArmorMaterial armorMaterial;
     private String type;
@@ -99,7 +99,7 @@ public enum EnumArmor {
     public int getDamageReduction() {
         return damageReduction;
     }
-    
+
     private static Item getRepairItem(String itemName) {
         return ModItems.getItemFromMap(itemName);
     }

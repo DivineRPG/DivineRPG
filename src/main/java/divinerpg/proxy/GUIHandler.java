@@ -4,9 +4,11 @@ import divinerpg.objects.blocks.tile.container.*;
 import divinerpg.objects.blocks.tile.container.gui.*;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.objects.entities.container.gui.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerMerchant;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
@@ -40,103 +42,125 @@ public class GUIHandler implements IGuiHandler {
     public static final int ARCANIUM_EXTRACTOR_GUI_ID = 23;
     public static final int INFUSION_TABLE_GUI_ID = 24;
     public static final int DREAM_LAMP_GUI_ID = 25;
+    public static final int KingCompressorGuiId = 26;
 
     @Nullable
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if (ID == COALSTONE_FURNACE_GUI_ID) {
-            return new CoalstoneFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == MOLTEN_FURNACE_GUI_ID) {
-            return new MoltenFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == OCEANFIRE_FURNACE_GUI_ID) {
-            return new OceanfireFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == WHITEFIRE_FURNACE_GUI_ID) {
-            return new WhitefireFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == DEMON_FURNACE_GUI_ID) {
-            return new DemonFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == FROSTED_CHEST_GUI_ID) {
-            return new FrostedChestGUI(player.inventory,
-                    (TileEntityFrostedChest) world.getTileEntity(new BlockPos(x, y, z)), player);
-        } else if (ID == WORKSHOP_MERCHANT_GUI_ID) {
-            return new GuiWorkshopMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == WORKSHOP_TINKERER_GUI_ID) {
-            return new GuiWorkshopTinkerer(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == JACK_O_MAN_GUI_ID) {
-            return new GuiJackOMan(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == LIVESTOCK_MERCHANT_GUI_ID) {
-            return new GuiLivestockMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == THE_HUNGER_GUI_ID) {
-            return new GuiTheHunger(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == PRESENT_BOX_GUI_ID) {
-            return new PresentBoxGUI(player.inventory,
-                    (TileEntityPresentBox) world.getTileEntity(new BlockPos(x, y, z)), player);
-        } else if (ID == BONE_CHEST_GUI_ID) {
-            return new BoneChestGUI(player.inventory, (TileEntityBoneChest) world.getTileEntity(new BlockPos(x, y, z)),
-                    player);
-        } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
-            return new AltarOfCorruptionGUI(player.inventory, world,
-                    (TileEntityAltarOfCorruption) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == EDEN_CHEST_GUI_ID) {
-            return new EdenChestGUI(player.inventory, (TileEntityEdenChest) world.getTileEntity(new BlockPos(x, y, z)),
-                    player);
-        } else if (ID == CAPTAIN_MERIK_GUI_ID) {
-            return new GuiCaptainMerik(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == DATTICON_GUI_ID) {
-            return new GuiDatticon(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == LEORNA_GUI_ID) {
-            return new GuiLeorna(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == VATICUS_GUI_ID) {
-            return new GuiLordVatticus(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == WAR_GENERAL_GUI_ID) {
-            return new GuiWarGeneral(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == ZELUS_GUI_ID) {
-            return new GuiZelus(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == GREENLIGHT_FURNACE_GUI_ID) {
-            return new GreenlightFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == MOONLIGHT_FURNACE_GUI_ID) {
-            return new MoonlightFurnaceGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == ARCANIUM_EXTRACTOR_GUI_ID) {
-            return new ArcaniumExtractorGUI(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == INFUSION_TABLE_GUI_ID) {
-            return new InfusionTableGUI(new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z))));
-        } else if (ID == DREAM_LAMP_GUI_ID) {
-            return new DreamLampGUI(new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp)world.getTileEntity(new BlockPos(x, y, z))));
+        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
+        Entity entityByID = world.getEntityByID(x);
+
+        switch (ID) {
+            case COALSTONE_FURNACE_GUI_ID:
+                return new CoalstoneFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case MOLTEN_FURNACE_GUI_ID:
+                return new MoltenFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case OCEANFIRE_FURNACE_GUI_ID:
+                return new OceanfireFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case WHITEFIRE_FURNACE_GUI_ID:
+                return new WhitefireFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case DEMON_FURNACE_GUI_ID:
+                return new DemonFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case FROSTED_CHEST_GUI_ID:
+                return new FrostedChestGUI(player.inventory, (TileEntityFrostedChest) tileEntity, player);
+            case WORKSHOP_MERCHANT_GUI_ID:
+                return new GuiWorkshopMerchant(player.inventory, (IMerchant) entityByID, world);
+            case WORKSHOP_TINKERER_GUI_ID:
+                return new GuiWorkshopTinkerer(player.inventory, (IMerchant) entityByID, world);
+            case JACK_O_MAN_GUI_ID:
+                return new GuiJackOMan(player.inventory, (IMerchant) entityByID, world);
+            case LIVESTOCK_MERCHANT_GUI_ID:
+                return new GuiLivestockMerchant(player.inventory, (IMerchant) entityByID, world);
+            case THE_HUNGER_GUI_ID:
+                return new GuiTheHunger(player.inventory, (IMerchant) entityByID, world);
+            case PRESENT_BOX_GUI_ID:
+                return new PresentBoxGUI(player.inventory, (TileEntityPresentBox) tileEntity, player);
+            case BONE_CHEST_GUI_ID:
+                return new BoneChestGUI(player.inventory, (TileEntityBoneChest) tileEntity, player);
+            case ALTAR_OF_CORRUPTION_GUI_ID:
+                return new AltarOfCorruptionGUI(player.inventory, world, (TileEntityAltarOfCorruption) tileEntity);
+            case EDEN_CHEST_GUI_ID:
+                return new EdenChestGUI(player.inventory, (TileEntityEdenChest) tileEntity, player);
+            case CAPTAIN_MERIK_GUI_ID:
+                return new GuiCaptainMerik(player.inventory, (IMerchant) entityByID, world);
+            case DATTICON_GUI_ID:
+                return new GuiDatticon(player.inventory, (IMerchant) entityByID, world);
+            case LEORNA_GUI_ID:
+                return new GuiLeorna(player.inventory, (IMerchant) entityByID, world);
+            case VATICUS_GUI_ID:
+                return new GuiLordVatticus(player.inventory, (IMerchant) entityByID, world);
+            case WAR_GENERAL_GUI_ID:
+                return new GuiWarGeneral(player.inventory, (IMerchant) entityByID, world);
+            case ZELUS_GUI_ID:
+                return new GuiZelus(player.inventory, (IMerchant) entityByID, world);
+            case GREENLIGHT_FURNACE_GUI_ID:
+                return new GreenlightFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case MOONLIGHT_FURNACE_GUI_ID:
+                return new MoonlightFurnaceGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case ARCANIUM_EXTRACTOR_GUI_ID:
+                return new ArcaniumExtractorGUI(player.inventory, (TileEntityModFurnace) tileEntity);
+            case INFUSION_TABLE_GUI_ID:
+                return new InfusionTableGUI(new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable) tileEntity));
+            case DREAM_LAMP_GUI_ID:
+                return new DreamLampGUI(new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp) tileEntity));
+            case KingCompressorGuiId:
+                return new KIngCompressionGUI(new KingCompressorContainer(player.inventory, (TileEntityKingCompressior) tileEntity));
+
+            default:
+                return null;
         }
-        return null;
     }
 
     @Nullable
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if (ID == COALSTONE_FURNACE_GUI_ID || ID == MOLTEN_FURNACE_GUI_ID || ID == OCEANFIRE_FURNACE_GUI_ID
-                || ID == WHITEFIRE_FURNACE_GUI_ID || ID == DEMON_FURNACE_GUI_ID || ID == GREENLIGHT_FURNACE_GUI_ID
-                || ID == MOONLIGHT_FURNACE_GUI_ID || ID == ARCANIUM_EXTRACTOR_GUI_ID) {
-            return new ContainerModFurnace(player.inventory,
-                    (TileEntityModFurnace) world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == FROSTED_CHEST_GUI_ID || ID == PRESENT_BOX_GUI_ID || ID == BONE_CHEST_GUI_ID
-                || ID == EDEN_CHEST_GUI_ID) {
-            return new ContainerModChest(player.inventory,
-                    (TileEntityModChest) world.getTileEntity(new BlockPos(x, y, z)), player);
-        } else if (ID == WORKSHOP_MERCHANT_GUI_ID || ID == WORKSHOP_TINKERER_GUI_ID || ID == JACK_O_MAN_GUI_ID
-                || ID == LIVESTOCK_MERCHANT_GUI_ID || ID == CAPTAIN_MERIK_GUI_ID || ID == DATTICON_GUI_ID
-                || ID == LEORNA_GUI_ID || ID == VATICUS_GUI_ID || ID == WAR_GENERAL_GUI_ID || ID == ZELUS_GUI_ID
-                || ID == THE_HUNGER_GUI_ID) {
-            return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
-        } else if (ID == ALTAR_OF_CORRUPTION_GUI_ID) {
-            return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
-        } else if (ID == INFUSION_TABLE_GUI_ID) {
-            return new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable)world.getTileEntity(new BlockPos(x, y, z)));
-        } else if (ID == DREAM_LAMP_GUI_ID) {
-            return new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp)world.getTileEntity(new BlockPos(x, y, z)));
+        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
+
+        switch (ID) {
+            case COALSTONE_FURNACE_GUI_ID:
+            case MOLTEN_FURNACE_GUI_ID:
+            case OCEANFIRE_FURNACE_GUI_ID:
+            case WHITEFIRE_FURNACE_GUI_ID:
+            case DEMON_FURNACE_GUI_ID:
+            case GREENLIGHT_FURNACE_GUI_ID:
+            case ARCANIUM_EXTRACTOR_GUI_ID:
+            case MOONLIGHT_FURNACE_GUI_ID:
+                return new ContainerModFurnace(player.inventory, (TileEntityModFurnace) tileEntity);
+
+            case FROSTED_CHEST_GUI_ID:
+            case PRESENT_BOX_GUI_ID:
+            case BONE_CHEST_GUI_ID:
+            case EDEN_CHEST_GUI_ID:
+                return new ContainerModChest(player.inventory, (TileEntityModChest) tileEntity, player);
+
+            case WORKSHOP_MERCHANT_GUI_ID:
+            case WORKSHOP_TINKERER_GUI_ID:
+            case JACK_O_MAN_GUI_ID:
+            case LIVESTOCK_MERCHANT_GUI_ID:
+            case CAPTAIN_MERIK_GUI_ID:
+            case DATTICON_GUI_ID:
+            case LEORNA_GUI_ID:
+            case VATICUS_GUI_ID:
+            case WAR_GENERAL_GUI_ID:
+            case ZELUS_GUI_ID:
+            case THE_HUNGER_GUI_ID:
+                return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
+
+            case ALTAR_OF_CORRUPTION_GUI_ID:
+                return new ContainerAltarOfCorruption(player.inventory, world, new BlockPos(x, y, z));
+
+            case INFUSION_TABLE_GUI_ID:
+                return new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable) tileEntity);
+
+            case DREAM_LAMP_GUI_ID:
+                return new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp) tileEntity);
+
+            case KingCompressorGuiId:
+                return new KingCompressorContainer(player.inventory, (TileEntityKingCompressior) tileEntity);
+
+            default:
+                return null;
         }
-        return null;
+
     }
 }

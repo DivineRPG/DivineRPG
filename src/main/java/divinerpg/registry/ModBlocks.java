@@ -545,7 +545,7 @@ public class ModBlocks {
     @ObjectHolder("mortum_planks")
     public static final Block mortumPlanks = null;
 
- // Stairs
+    // Stairs
     @ObjectHolder("eden_stairs")
     public static final Block edenStairs = null;
     @ObjectHolder("wildwood_stairs")
@@ -556,12 +556,12 @@ public class ModBlocks {
     public static final Block skythernStairs = null;
     @ObjectHolder("mortum_stairs")
     public static final Block mortumStairs = null;
-    
+
     // Slab
     @ObjectHolder("eden_slab")
     public static final Block edenSlab = null;
     @ObjectHolder("wildwood_slab")
-    public static final Block wildwoodSlab= null;
+    public static final Block wildwoodSlab = null;
     @ObjectHolder("apalachia_slab")
     public static final Block apalachiaSlab = null;
     @ObjectHolder("skythern_slab")
@@ -579,7 +579,7 @@ public class ModBlocks {
     @ObjectHolder("eden_double_slab")
     public static final Block edenDoubleSlab = null;
     @ObjectHolder("wildwood_double_slab")
-    public static final Block wildwoodDoubleSlab= null;
+    public static final Block wildwoodDoubleSlab = null;
     @ObjectHolder("apalachia_double_slab")
     public static final Block apalachiaDoubleSlab = null;
     @ObjectHolder("skythern_double_slab")
@@ -592,7 +592,7 @@ public class ModBlocks {
     public static final Block frozenDoubleSlab = null;
     @ObjectHolder("eucalyptus_double_slab")
     public static final Block eucalyptusDoubleSlab = null;
-    
+
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static final Block edenBlock = null;
@@ -1034,6 +1034,12 @@ public class ModBlocks {
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
 
+    @ObjectHolder("king_compression")
+    public static final Block king_compression = null;
+
+    @ObjectHolder("king_compression_still")
+    public static final Block king_compression_still = null;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         DivineRPG.logger.info("Registering DivineRPG blocks");
@@ -1412,7 +1418,7 @@ public class ModBlocks {
         register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MapColor.BLUE));
 
         // Grass
-        register(registry, new BlockModGrass("arcanite_grass", () -> arcaniteDirt,0.5F, MapColor.BLUE));
+        register(registry, new BlockModGrass("arcanite_grass", () -> arcaniteDirt, 0.5F, MapColor.BLUE));
 
         // Ore
         register(registry, new BlockMod("arcanium_ore", 3.0F));
@@ -1437,7 +1443,7 @@ public class ModBlocks {
         // Door
         registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ModItems.ancientKey));
         registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ModItems.degradedKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door",() ->  ModItems.sludgeKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ModItems.sludgeKey));
         registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ModItems.soulKey));
 
         // Spawner
@@ -1510,7 +1516,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt,0.6F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt, 0.6F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs
@@ -1551,7 +1557,7 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
 
         // Lighting
-        register(registry, new BlockModLamp(EnumBlockType.GLASS,"fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockModLamp(EnumBlockType.GLASS, "firelight", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Structure
@@ -1642,7 +1648,7 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModSlab("divine_slab", BlockModPlank.EnumType.DIVINE, false));
         registerItemlessBlock(registry, new BlockModSlab("frozen_slab", BlockModPlank.EnumType.FROZEN, false));
         registerItemlessBlock(registry, new BlockModSlab("eucalyptus_slab", BlockModPlank.EnumType.EUCALYPTUS, false));
-        
+
         //Double Slab
         registerItemlessBlock(registry, new BlockModSlab("eden_double_slab", BlockModPlank.EnumType.EDEN, true));
         registerItemlessBlock(registry, new BlockModSlab("wildwood_double_slab", BlockModPlank.EnumType.WILDWOOD, true));
@@ -1652,13 +1658,16 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModSlab("divine_double_slab", BlockModPlank.EnumType.DIVINE, true));
         registerItemlessBlock(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
         registerItemlessBlock(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
+
+        register(registry, new KingCompressor("king_compression", true));
+        register(registry, new KingCompressor("king_compression_still", false));
     }
 
-    @SubscribeEvent(priority=EventPriority.HIGH)
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
         DivineRPG.logger.info("Registering DivineRPG block items");
 
-        for(Block block: blockList) {
+        for (Block block : blockList) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
                 ModItems.itemMap.put(itemBlock.getRegistryName().getResourcePath(), itemBlock);

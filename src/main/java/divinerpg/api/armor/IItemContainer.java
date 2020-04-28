@@ -12,14 +12,25 @@ import java.util.stream.Collectors;
 public interface IItemContainer {
 
     /**
-     * @return Containing items in object
+     * Containing items in object
+     *
+     * @param item - current item
+     * @return
      */
-    Set<ItemStack> getAbsorbedItemStacks();
+    Set<ItemStack> getAbsorbedItemStacks(ItemStack item);
+
+    /**
+     * Absorb current stack
+     *
+     * @param stack    - item stack
+     * @param toAbsorb - item to absorb
+     */
+    void absorb(ItemStack stack, ItemStack toAbsorb);
 
     /**
      * @return Unique containing items
      */
-    default Set<Item> getItems() {
-        return getAbsorbedItemStacks().stream().map(ItemStack::getItem).collect(Collectors.toSet());
+    default Set<Item> getItems(ItemStack item) {
+        return getAbsorbedItemStacks(item).stream().map(ItemStack::getItem).collect(Collectors.toSet());
     }
 }

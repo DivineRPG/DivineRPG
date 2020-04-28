@@ -10,6 +10,7 @@ import divinerpg.networking.message.ArmorStatusChangedMessage;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -99,12 +100,12 @@ public class ArmorPowers implements IArmorPowers {
         Set<Item> items = new HashSet<>();
 
         if (player.get() != null) {
-            Item item = player.get().getItemStackFromSlot(slot).getItem();
+            ItemStack stack = player.get().getItemStackFromSlot(slot);
 
-            items.add(item);
+            items.add(stack.getItem());
 
-            if (item instanceof IItemContainer) {
-                items.addAll(((IItemContainer) item).getItems());
+            if (stack.getItem() instanceof IItemContainer) {
+                items.addAll(((IItemContainer) stack.getItem()).getItems(stack));
             }
         }
 

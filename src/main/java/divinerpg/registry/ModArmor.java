@@ -1,21 +1,13 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.enums.*;
-import divinerpg.objects.entities.entity.projectiles.EntitySoundOfCarols;
-import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
-import divinerpg.objects.items.arcana.*;
-import divinerpg.objects.items.base.*;
-import divinerpg.objects.items.iceika.ItemMusicShooter;
-import divinerpg.objects.items.iceika.ItemSerenadeOfIce;
-import divinerpg.objects.items.twilight.ItemTwilightBlitz;
-import divinerpg.objects.items.vanilla.*;
-import divinerpg.objects.items.vethea.*;
-import divinerpg.utils.ToolMaterialMod;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
+import divinerpg.enums.ArmorInfo;
+import divinerpg.enums.EnumArmor;
+import divinerpg.objects.items.base.ItemDivineArmor;
+import divinerpg.objects.items.vanilla.KingArmorItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -380,6 +372,15 @@ public class ModArmor {
     @ObjectHolder("awakened_halite_boots")
     public static final Item awakened_haliteBoots = null;
 
+    @ObjectHolder("king_helmet")
+    public static final Item king_helmet = null;
+    @ObjectHolder("king_chestplate")
+    public static final Item king_chestplate = null;
+    @ObjectHolder("king_leggings")
+    public static final Item king_leggings = null;
+    @ObjectHolder("king_boots")
+    public static final Item king_boots = null;
+
     // Arcana armor sets
     @ObjectHolder("korma_helmet")
     public static final Item kormaHelmet = null;
@@ -488,6 +489,7 @@ public class ModArmor {
     private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
     private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
     private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
+    private static ArmorInfo kingInfo = new ArmorInfo(new TextComponentString("Absorbs super-power from other sets"));
 
     // Iceika
     private static ArmorInfo santaInfo = new ArmorInfo(new TextComponentTranslation("tooltip.armor_info.massive_buff"),
@@ -774,6 +776,11 @@ public class ModArmor {
         register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST));
         register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS));
         register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET));
+
+        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.HEAD, kingInfo));
+        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.CHEST, kingInfo));
+        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.LEGS, kingInfo));
+        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.FEET, kingInfo));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
