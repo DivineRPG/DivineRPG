@@ -15,6 +15,8 @@ import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.*;
 import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.objects.blocks.vethea.*;
+import divinerpg.objects.entities.entity.twilight.EntitySunstorm;
+import divinerpg.objects.entities.entity.twilight.EntityTermasect;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -1667,10 +1669,13 @@ public class ModBlocks {
 
         register(registry, new KingCompressor("king_compression", true));
         register(registry, new KingCompressor("king_compression_still", false));
-        
-        //newSpawners
-        register(registry, new BlockSingleUseSpawner("sunstorm_spawner"));
-        register(registry, new BlockSingleUseSpawner("termasect_spawner"));
+
+        //
+        // newSpawners
+        // todo pass more than zero to set delay in ticks
+        //
+        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 0));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 0));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

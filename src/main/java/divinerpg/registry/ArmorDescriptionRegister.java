@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.api.ArmorHandlers;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.Reference;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.api.armor.IEquipped;
 import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.api.armor.registry.IArmorDescription;
@@ -374,7 +375,11 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.kormaChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.kormaLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.kormaBoots)
-                        .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.heal(1))
+                        .withHandler(TickEvent.PlayerTickEvent.class, event -> {
+                            IArcana arcana = DivineAPI.getArcana(event.player);
+                            if (arcana != null)
+                                arcana.fill(event.player, 1);
+                        })
                         .setRegistryName(new ResourceLocation(Reference.MODID, "korma"))
         );
 

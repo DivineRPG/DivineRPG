@@ -180,7 +180,7 @@ public class KingCompressorContainer extends Container {
             return 0;
 
         double value = cookTime * 1.0 / tile.getCookTimeLength();
-        int precantages = (int) Math.floor(value * 100);
+        int precantages = (int) Math.ceil(value * 100);
         return MathHelper.clamp(precantages, 0, 100);
     }
 

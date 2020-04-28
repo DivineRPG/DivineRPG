@@ -32,10 +32,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TileEntityKingCompressior extends ModUpdatableTileEntity implements ITickable, IInteractionObject, IFuelProvider {
@@ -109,7 +106,10 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
 
     @Override
     public void onFinished() {
-        onFinish(getPossibleOperation());
+
+        if (!world.isRemote)
+            onFinish(getPossibleOperation());
+
         markDirty();
     }
 
@@ -178,6 +178,15 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
                 return true;
 
             case Infusion:
+                // checking max size of abrobing items
+                for (ItemStack stack : Arrays.stream(EntityEquipmentSlot.values())
+                        .map(x -> getStackInSlot(x.getSlotIndex()))
+                        .filter(x -> !x.isEmpty() && x.getItem() instanceof IItemContainer)
+                        .collect(Collectors.toList())
+                ) {
+                    if (((IItemContainer) stack.getItem()).getAbsorbedItemStacks(stack).size() >= maxAbsorbedCount)
+                        return false;
+                }
             case Absorning:
                 // can absorb power set inside
                 return getCurrentSetPowerNames()

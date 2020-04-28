@@ -322,8 +322,8 @@ public class LocalizeUtils {
      * @param str    - lang key
      * @return
      */
-    public static ITextComponent getClientSideTranslation(ICommandSender sender, String str) {
-        return TextComponentHelper.createComponentTranslation(sender, str);
+    public static ITextComponent getClientSideTranslation(ICommandSender sender, String str, final Object... args) {
+        return TextComponentHelper.createComponentTranslation(sender, str, args);
     }
 
     /**

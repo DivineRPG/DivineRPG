@@ -1627,3 +1627,4 @@ tooltip.food.heal=Replenishes %s Health
 
 enchantment.world_break=World Break
 tooltip.harvest_level=Harvest level: %s
+summon.single_use_spawner.delay=Summoning in %s ticks
