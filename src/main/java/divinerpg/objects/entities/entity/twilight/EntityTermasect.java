@@ -151,11 +151,13 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         if (this.isEntityAlive() && this.rand.nextInt(1000) < this.livingSoundTime++)
         {
             this.playLivingSound();
-            EntityTermid termid = new EntityTermid(world);
-            termid.setLocationAndAngles(this.posX + rand.nextInt(4), this.posY, this.posZ + rand.nextInt(4), this.rotationYaw, this.rotationPitch);
-            termid.motionY++;
-            if(rand.nextInt(5) == 1) {
-            world.spawnEntity(termid);
+            if(!this.world.isRemote) {
+                EntityTermid termid = new EntityTermid(world);
+                termid.setLocationAndAngles(this.posX + rand.nextInt(4), this.posY, this.posZ + rand.nextInt(4), this.rotationYaw, this.rotationPitch);
+                termid.motionY++;
+                if (rand.nextInt(5) == 1) {
+                    world.spawnEntity(termid);
+                }
             }
         }
     }
