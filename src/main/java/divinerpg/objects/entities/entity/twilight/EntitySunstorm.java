@@ -40,9 +40,9 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
         double ty = e.getEntityBoundingBox().minY - y;
         double tz = e.posZ - this.posZ;
 
-        for (double h = -1.5; h < 1.5; h += 0.3) {
-            for (double r = 0; r < 1.5 - Math.abs(h); r += 0.3) {
-                for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 8) {
+        for (double h = -1.5; h < 1.5; h += 0.5) {
+            for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
+                for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
                     EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SUNSTORM);
                     shot.posX = this.posX + r * Math.cos(theta);
                     shot.posY = this.posY + 5 + h;
