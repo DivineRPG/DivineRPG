@@ -29,6 +29,11 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.apalachiaSoul, 1, 0), 2048L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.skythernSoul, 1, 0), 4096L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.mortumSoul, 1, 0), 8192L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.edenFragments, 1, 0), 1024L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.wildwoodFragments, 1, 0), 2048L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.apalachiaFragments, 1, 0), 4096L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.skythernFragments, 1, 0), 8192L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.mortumFragments, 1, 0), 16384);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.bloodgem, 1, 0), 380L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.purpleBlaze, 1, 0), 64L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ModItems.bluefireStone, 1, 0), 796L);
