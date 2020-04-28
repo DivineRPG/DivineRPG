@@ -25,20 +25,6 @@
                 },
                 {
                     "type": "item",
-                    "weight": 2,
-                    "name": "divinerpg:forbidden_fruit",
-                    "functions": [
-                        {
-                            "function": "set_count",
-                            "count": {
-                                "min": 3,
-                                "max": 6
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "item",
                     "weight": 1,
                     "name": "divinerpg:teleportation_star",
                     "functions": [
