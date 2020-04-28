@@ -1289,8 +1289,8 @@ entity.divinerpg.bohemite.name=Bohemite
 entity.divinerpg.spinarus.name=Spinarus
 entity.divinerpg.wreck.name=Wreck
 entity.divinerpg.wreck_form.name=Wreck
-entity.divinerpg.sunstorm.name=Sunstorm: Champion of Light
-entity.divinerpg.termasect.name=Termasect: Forest Scourge
+entity.divinerpg.sunstorm.name=Sunstorm
+entity.divinerpg.termasect.name=Termasect
 entity.divinerpg.termid.name=Termid
 
 advancement.craft_divine_sword=A Divine Plan
