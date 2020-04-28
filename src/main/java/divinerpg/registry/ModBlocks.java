@@ -1039,6 +1039,12 @@ public class ModBlocks {
 
     @ObjectHolder("king_compression_still")
     public static final Block king_compression_still = null;
+    
+    //newSpawners
+    @ObjectHolder("sunstorm_spawner")
+    public static final Block sunstormSpawner = null;
+    @ObjectHolder("termasect_spawner")
+    public static final Block termasectSpawner = null;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -1661,6 +1667,10 @@ public class ModBlocks {
 
         register(registry, new KingCompressor("king_compression", true));
         register(registry, new KingCompressor("king_compression_still", false));
+        
+        //newSpawners
+        register(registry, new BlockSingleUseSpawner("sunstorm_spawner"));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner"));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

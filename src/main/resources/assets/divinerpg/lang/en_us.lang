@@ -225,6 +225,8 @@ tile.karos_heat_tile_red.name=Karos Heat Tile Red
 tile.firewood_log.name=Firewood Log
 tile.bacterial_acid.name=Bacterial Acid
 tile.acid_block.name=Acid Block
+tile.sunstorm_spawner.name=Sunstorm Spawner
+tile.termasect_spawner.name=Termasect Spawner
 
 tile.lunic_acid.name=Lunic Acid
 tile.firewood_leaves.name=Firewood Leaves
