@@ -130,7 +130,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 
                 ++this.attackCounter;
 
-                if (this.attackCounter == 20) {
+                if (this.attackCounter == 5) {
                     EntityWildwoodLog shot = new EntityWildwoodLog(this.world, this);
                     shot.shoot(tx, ty, tz, 4.0f, 1);
                     if (!this.world.isRemote)
