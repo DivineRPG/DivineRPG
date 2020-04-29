@@ -31,9 +31,8 @@ public class EntityEnchantedArcher extends EntityDivineRPGMob implements IRanged
     protected void initEntityAI() {
         super.initEntityAI();
         addAttackingAI();
-        this.targetTasks.addTask(2,
-                new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
-        this.tasks.addTask(7, new EntityAIAttackRanged(this, 1, 15, 60, 15));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
+        this.tasks.addTask(0, new EntityAIAttackRanged(this, 1, 15, 60, 15));
     }
 
     @Override
