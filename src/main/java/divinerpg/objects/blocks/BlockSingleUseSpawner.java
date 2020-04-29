@@ -24,7 +24,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-
 import java.util.List;
 import java.util.Random;
 
@@ -32,12 +31,39 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
     private final Class<? extends Entity> entityClass;
     private final int delay;
     private String name;
+    private int nearDistance;
+    private BlockPos spawnOffset;
 
-    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay) {
+    /**
+     * @param name         - name of block
+     * @param entityClass  - entity to spwan class
+     * @param delay        - possible delay. Pass zero to remove
+     * @param nearDistance - auto spawn when player is within distance. Pass zero to disable
+     */
+    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay, int nearDistance) {
+        this(name, entityClass, delay, nearDistance, BlockPos.ORIGIN);
+    }
+
+    /**
+     * @param name         - name of block
+     * @param entityClass  - entity to spwan class
+     * @param delay        - possible delay. Pass zero to remove
+     * @param nearDistance - auto spawn when player is within distance. Pass zero to disable
+     * @param spawnOffset  - initial spawn offset for entity position
+     */
+    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay, int nearDistance, BlockPos spawnOffset) {
         super(EnumBlockType.IRON, name, 1);
         this.entityClass = entityClass;
         this.delay = delay;
-        this.name=name;
+        this.name = name;
+        this.nearDistance = nearDistance;
+        this.spawnOffset = spawnOffset;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new TileEntitySingleUseSpawner(entityClass, delay, nearDistance, spawnOffset);
     }
 
     @Override
@@ -78,12 +104,6 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
         return BlockRenderLayer.CUTOUT;
     }
 
-    @Nullable
-    @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntitySingleUseSpawner(entityClass, delay);
-    }
-
     @Override
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         super.randomDisplayTick(stateIn, worldIn, pos, rand);
@@ -102,10 +122,9 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
                 Math.random(),
                 Math.random());
     }
-    
+
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
-    {
-    	tooltip.add(new TextComponentTranslation("tooltip.spawner." + name).getFormattedText());
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
+        tooltip.add(new TextComponentTranslation("tooltip.spawner." + name).getFormattedText());
     }
 }
