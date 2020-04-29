@@ -25,6 +25,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -1041,7 +1042,7 @@ public class ModBlocks {
 
     @ObjectHolder("king_compression_still")
     public static final Block king_compression_still = null;
-    
+
     //newSpawners
     @ObjectHolder("sunstorm_spawner")
     public static final Block sunstormSpawner = null;
@@ -1672,10 +1673,11 @@ public class ModBlocks {
 
         //
         // newSpawners
-        // todo pass more than zero to set delay in ticks
         //
-        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 0));
-        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 0));
+        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 20 * 5, 5));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 20 * 5, 5,
+                // should spawn above
+                new BlockPos(0, 11, 0)));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

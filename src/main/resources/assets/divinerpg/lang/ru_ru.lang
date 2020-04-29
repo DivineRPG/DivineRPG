@@ -1632,4 +1632,4 @@ tooltip.food.heal=Восстанавливает %s сердцев
 
 enchantment.world_break=Крушитель миров
 tooltip.harvest_level=Уровень добычи: %s
-summon.single_use_spawner.delay=Summoning in %s ticks
+summon.single_use_spawner.delay=Will summon in %s seconds

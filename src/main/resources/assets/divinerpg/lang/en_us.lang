@@ -1630,4 +1630,4 @@ tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks 
 
 enchantment.world_break=World Break
 tooltip.harvest_level=Harvest level: %s
-summon.single_use_spawner.delay=Summoning in %s ticks
+summon.single_use_spawner.delay=Will summon in %s seconds
