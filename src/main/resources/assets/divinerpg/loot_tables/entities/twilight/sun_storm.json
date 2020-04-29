@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 10,
-                    "name": "divinerpg:eden_chunk",
+                    "name": "divinerpg:eden_fragments",
                     "functions": [
                         {
                             "function": "set_count",
