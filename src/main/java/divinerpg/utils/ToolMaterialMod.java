@@ -1,9 +1,12 @@
 package divinerpg.utils;
 
+import divinerpg.api.Reference;
 import divinerpg.registry.ModItems;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -165,6 +168,56 @@ public class ToolMaterialMod {
     public static final ToolMaterial DREAM_SHOVEL = EnumHelper.addToolMaterial("drpg_dream_shovel", 3, 500, 13.0F, 3, 1);
     public static final ToolMaterial DREAM_PICKAXE = EnumHelper.addToolMaterial("drpg_dream_pickaxe", 3, 500, 13.0F, 4, 1);
     public static final ToolMaterial DREAM_AXE = EnumHelper.addToolMaterial("drpg_dream_axe", 3, 500, 13.0F, 5, 1);
+
+    //Armor materials
+    public static final ArmorMaterial ANGELIC_ARMOR = EnumHelper.addArmorMaterial("drpg_angelic_armor", Reference.MODID + ":angelic", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial APALACHIA_ARMOR = EnumHelper.addArmorMaterial("drpg_apalachia_armor", Reference.MODID + ":apalachia", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial AQUASTRIVE_ARMOR = EnumHelper.addArmorMaterial("drpg_aquastrive_armor", Reference.MODID + ":aquastrive", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial ARLEMITE_ARMOR = EnumHelper.addArmorMaterial("drpg_arlemite_armor", Reference.MODID + ":arlemite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial BEDROCK_ARMOR = EnumHelper.addArmorMaterial("drpg_bedrock_armor", Reference.MODID + ":bedrock", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial CORRUPTED_ARMOR = EnumHelper.addArmorMaterial("drpg_corrupted_armor", Reference.MODID + ":corrupted", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial DIVINE_ARMOR = EnumHelper.addArmorMaterial("drpg_divine_armor", Reference.MODID + ":divine", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial EDEN_ARMOR = EnumHelper.addArmorMaterial("drpg_eden_armor", Reference.MODID + ":eden", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial ELITE_REALMITE_ARMOR = EnumHelper.addArmorMaterial("drpg_elite_realmite_armor", Reference.MODID + ":elite_realmite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_ender_armor", Reference.MODID + ":ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial RED_ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_red_ender_armor", Reference.MODID + ":red_ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial YELLOW_ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_yellow_ender_armor", Reference.MODID + ":yellow_ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial GREEN_ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_green_ender_armor", Reference.MODID + ":green_ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial GRAY_ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_gray_ender_armor", Reference.MODID + ":gray_ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial BLUE_ENDER_ARMOR = EnumHelper.addArmorMaterial("drpg_blue_ender_armor", Reference.MODID + ":blue_ender", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial FROZEN_ARMOR = EnumHelper.addArmorMaterial("drpg_frozen_armor", Reference.MODID + ":frozen", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial HALITE_ARMOR = EnumHelper.addArmorMaterial("drpg_halite_armor", Reference.MODID + ":halite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial INFERNO_ARMOR = EnumHelper.addArmorMaterial("drpg_inferno_armor", Reference.MODID + ":inferno", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial JACK_O_MAN_ARMOR = EnumHelper.addArmorMaterial("drpg_jack_o_man_armor", Reference.MODID + ":jack_o_man", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial JUNGLE_ARMOR = EnumHelper.addArmorMaterial("drpg_jungle_armor", Reference.MODID + ":jungle", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial KORMA_ARMOR = EnumHelper.addArmorMaterial("drpg_korma_armor", Reference.MODID + ":korma", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial KRAKEN_ARMOR = EnumHelper.addArmorMaterial("drpg_kraken_armor", Reference.MODID + ":kraken", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial MORTUM_ARMOR = EnumHelper.addArmorMaterial("drpg_mortum_armor", Reference.MODID + ":mortum", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial NETHERITE_ARMOR = EnumHelper.addArmorMaterial("drpg_netherite_armor", Reference.MODID + ":netherite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial REALMITE_ARMOR = EnumHelper.addArmorMaterial("drpg_realmite_armor", Reference.MODID + ":realmite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_rupee_armor", Reference.MODID + ":rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial RED_RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_red_rupee_armor", Reference.MODID + ":red_rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial YELLOW_RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_yellow_rupee_armor", Reference.MODID + ":yellow_rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial GREEN_RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_green_rupee_armor", Reference.MODID + ":green_rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial GRAY_RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_gray_rupee_armor", Reference.MODID + ":gray_rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial BLUE_RUPEE_ARMOR = EnumHelper.addArmorMaterial("drpg_blue_rupee_armor", Reference.MODID + ":blue_rupee", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial SANTA_ARMOR = EnumHelper.addArmorMaterial("drpg_santa_armor", Reference.MODID + ":santa", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial SHADOW_ARMOR = EnumHelper.addArmorMaterial("drpg_shadow_armor", Reference.MODID + ":shadow", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial SKELEMAN_ARMOR = EnumHelper.addArmorMaterial("drpg_skeleman_armor", Reference.MODID + ":skeleman", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial SKYTHERN_ARMOR = EnumHelper.addArmorMaterial("drpg_skythern_armor", Reference.MODID + ":skythern", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial TERRAN_ARMOR = EnumHelper.addArmorMaterial("drpg_terran_armor", Reference.MODID + ":terran", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial VEMOS_ARMOR = EnumHelper.addArmorMaterial("drpg_vemos_armor", Reference.MODID + ":vemos", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial WILDWOOD_ARMOR = EnumHelper.addArmorMaterial("drpg_wildwood_armor", Reference.MODID + ":wildwood", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial WITHER_REAPER_ARMOR = EnumHelper.addArmorMaterial("drpg_wither_reaper_armor", Reference.MODID + ":wither_reaper", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+
+    public static final ArmorMaterial AWAKENED_HALITE_ARMOR = EnumHelper.addArmorMaterial("drpg_awakened_halite_armor", Reference.MODID + ":awakened_halite", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial KING_ARMOR = EnumHelper.addArmorMaterial("drpg_king_armor", Reference.MODID + ":king", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+
+    public static final ArmorMaterial DEGRADED_ARMOR = EnumHelper.addArmorMaterial("drpg_degraded_armor", Reference.MODID + ":degraded", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial FINISHED_ARMOR = EnumHelper.addArmorMaterial("drpg_finished_armor", Reference.MODID + ":finished", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial GLISTENING_ARMOR = EnumHelper.addArmorMaterial("drpg_glistening_armor", Reference.MODID + ":glistening", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial DEMONIZED_ARMOR = EnumHelper.addArmorMaterial("drpg_demonized_armor", Reference.MODID + ":demonized", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial TORMENTED_ARMOR = EnumHelper.addArmorMaterial("drpg_tormented_armor", Reference.MODID + ":tormented", 500, new int[] {4, 4, 4, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
 
     private static ItemStack makeRepairStack(String itemName) {
         return new ItemStack(ModItems.getItemFromMap(itemName));
