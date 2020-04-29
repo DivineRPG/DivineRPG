@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -22,7 +23,7 @@ public class EntityWildwoodLog extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult result) {
 		if(!world.isRemote) {
-			world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, new ItemStack(ModBlocks.wildwoodLog)));
+			world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, new ItemStack(getBlock())));
 		}
 		if (result.entityHit != null) {
 	        result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 8.0F);
@@ -30,5 +31,9 @@ public class EntityWildwoodLog extends EntityThrowable {
 	    if (!this.world.isRemote) {
 	        this.setDead();
 	    }
+	}
+	
+	public static Block getBlock() {
+		return ModBlocks.wildwoodLog;
 	}
 }
