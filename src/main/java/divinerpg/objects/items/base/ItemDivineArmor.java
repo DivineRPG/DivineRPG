@@ -35,15 +35,13 @@ public class ItemDivineArmor extends ItemArmor implements IFullSetInfo {
         setUnlocalizedName(name);
         setRegistryName(name);
 
-        System.out.println(armorMaterial.getDamageReductionAmount(EntityEquipmentSlot.CHEST));
         this.setCreativeTab(DivineRPGTabs.armor);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        super.addInformation(item, worldIn, list, flagIn);
-        list.addAll(armorInfo.toString(item, worldIn, 99, 99));
+        list.addAll(armorInfo.toString(item, worldIn));
     }
 
     @Override
