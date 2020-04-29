@@ -118,9 +118,10 @@ public class EntityTermasect extends EntityDivineRPGBoss {
         double var9 = 100.0D;
 
         if (this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < var9 * var9) {
-            double tx = this.targetedEntity.posX - this.posX;
-            double ty = this.targetedEntity.getEntityBoundingBox().minY - this.posY;
-            double tz = this.targetedEntity.posZ - this.posZ;
+            double y = this.getEntityBoundingBox().minY + 2.8D;
+            double tx = targetedEntity.posX - this.posX;
+            double ty = targetedEntity.getEntityBoundingBox().minY - y;
+            double tz = targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float) Math.atan2(tx, tz)) * 180.0F / (float) Math.PI;
 
             if (this.canEntityBeSeen(this.targetedEntity)) {

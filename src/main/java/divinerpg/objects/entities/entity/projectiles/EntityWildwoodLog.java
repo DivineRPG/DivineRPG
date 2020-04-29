@@ -16,6 +16,7 @@ public class EntityWildwoodLog extends EntityThrowable {
 
 	public EntityWildwoodLog(World worldIn) {
 		super(worldIn);
+		this.setSize(0.25f, 0.25f);
 	}
 	public EntityWildwoodLog(World worldIn, EntityLivingBase entity) {
 	    super(worldIn, entity);
