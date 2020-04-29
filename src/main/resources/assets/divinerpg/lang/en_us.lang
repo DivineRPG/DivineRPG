@@ -1625,6 +1625,9 @@ tooltip.food.saturation=%s Saturation
 tooltip.food.pet=Pet Food
 tooltip.food.heal=Replenishes %s Health
 
+tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player right clicks the block
+tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks the block
+
 enchantment.world_break=World Break
 tooltip.harvest_level=Harvest level: %s
 summon.single_use_spawner.delay=Summoning in %s ticks

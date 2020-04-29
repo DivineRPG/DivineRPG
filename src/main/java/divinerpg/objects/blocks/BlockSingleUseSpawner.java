@@ -6,6 +6,7 @@ import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.tile.entity.TileEntitySingleUseSpawner;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -17,21 +18,26 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+
+import java.util.List;
 import java.util.Random;
 
 public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvider {
     private final Class<? extends Entity> entityClass;
     private final int delay;
+    private String name;
 
     public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay) {
         super(EnumBlockType.IRON, name, 1);
         this.entityClass = entityClass;
         this.delay = delay;
+        this.name=name;
     }
 
     @Override
@@ -95,5 +101,11 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
                 Math.random(),
                 Math.random(),
                 Math.random());
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced)
+    {
+    	tooltip.add(new TextComponentTranslation("tooltip.spawner." + name).getFormattedText());
     }
 }
