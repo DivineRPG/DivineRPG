@@ -36,7 +36,8 @@ public class ModSpawns {
                 && !entity.world.isRemote
                 && entity.world.getBlockState(entity.getPosition()) == Blocks.WATER.getDefaultState()
                 && (entity.world.getBiome(entity.getPosition()) == Biomes.OCEAN
-                        || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)) {
+                        || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)
+                && entity.world.getLoadedEntityList().size() < 50) {
 
             if (entity.getRNG().nextInt(1500) == 0) {
                 EntityShark shark = new EntityShark(entity.world);
