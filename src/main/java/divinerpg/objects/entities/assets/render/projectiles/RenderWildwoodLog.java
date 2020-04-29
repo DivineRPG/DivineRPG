@@ -38,7 +38,7 @@ public class RenderWildwoodLog extends RenderProjectile<EntityWildwoodLog> {
         if (entity.getBlock() != null)
         {
             IBlockState iblockstate = entity.getBlock().getDefaultState();
-            GL11.glScaled(1, 1, 1);
+            GL11.glScaled(3, 3, 3);
             if (iblockstate.getRenderType() == EnumBlockRenderType.MODEL)
             {
                 World world = entity.world;
