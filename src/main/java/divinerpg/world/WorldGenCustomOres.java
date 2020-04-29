@@ -11,6 +11,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -37,6 +38,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     private WorldGenerator waterLake = new WorldGenLakes(Blocks.WATER);
     private WorldGenerator tarLake = new WorldGenLakes(ModBlocks.tar);
+    private WorldGenerator twilightStoneLake = new WorldGenLakes(ModBlocks.twilightStone);
 
     private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{
         put(DimensionType.NETHER.getId(), WorldGenCustomOres::genNether);
@@ -62,49 +64,56 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // HELPING METHODS
     ///////////////////////////
 
-    private void spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
-                          int chunkX, int chunkZ, OreInfo info) {
+    private boolean spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
+                             int chunkX, int chunkZ, OreInfo info) {
+        return spawnOre(world, random, ore, replacing, chunkX, chunkZ, info.getMinY(), info.getMaxY(), info.getVienSize(), info.getTries());
+    }
 
-        int minY = info.getMinY();
-        int height = getHeightOrThrow(minY, info.getMaxY());
-        WorldGenMinable gen = new WorldGenMinable(ore, info.getVienSize(), replacing);
+    private boolean spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
+                             int chunkX, int chunkZ, int minY, int maxY, int veinSize, int tries) {
+
+        int height = getHeightOrThrow(minY, maxY);
+        WorldGenMinable gen = new WorldGenMinable(ore, veinSize, replacing);
 
         // Inserting forge hook here
         if (!TerrainGen.generateOre(world, random, gen, new BlockPos(chunkX * 16, 0, chunkZ * 16),
                 OreGenEvent.GenerateMinable.EventType.CUSTOM))
-            return;
+            return false;
 
-        int tries = info.getTries();
+        boolean result = false;
+
         for (int i = 0; i < tries; i++) {
             BlockPos pos = new BlockPos(
                     chunkX * 16 + random.nextInt(16),
                     minY + random.nextInt(height + 1),
                     chunkZ * 16 + random.nextInt(16));
 
-            gen.generate(world, random, pos);
+            result |= gen.generate(world, random, pos);
         }
+
+        return result;
     }
 
-    private void spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
-        spawnOre(world, random, ore.getDefaultState(), twilightPredicate, chunkX, chunkZ, Config.twilight);
+    private boolean spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
+        return spawnOre(world, random, ore.getDefaultState(), twilightPredicate, chunkX, chunkZ, Config.twilight);
     }
 
     /**
      * @param chance - in one of passed chanses will spawn lake
      */
-    private void generateLake(World world, Random random, WorldGenerator generator, int chunkX, int chunkZ,
-                              int minY, int maxY, int chance) {
+    private boolean generateLake(World world, Random random, WorldGenerator generator, int chunkX, int chunkZ,
+                                 int minY, int maxY, int chance) {
 
         // we are not lucky
         if (random.nextInt(chance) != 0)
-            return;
+            return false;
 
         BlockPos pos = new BlockPos(chunkX * 16 + random.nextInt(16),
                 minY + random.nextInt(getHeightOrThrow(minY, maxY) + 1),
                 chunkZ * 16 + random.nextInt(16));
 
         // But here offset is needed. It's a magic, isn't it?
-        generator.generate(world, random, pos.add(8, 0, 8));
+        return generator.generate(world, random, pos.add(8, 0, 8));
     }
 
     /**
@@ -164,7 +173,20 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void genMortum(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.mortumOre, chunkX, chunkZ);
+        int chance = MathHelper.clamp(300 / Config.twilight.getTries(), 1, Integer.MAX_VALUE);
+
+        if (generateLake(world, random, twilightStoneLake, chunkX, chunkZ, 50, 70, chance)) {
+            spawnOre(world,
+                    random,
+                    ModBlocks.mortumOre.getDefaultState(),
+                    twilightPredicate,
+                    chunkX,
+                    chunkZ,
+                    50,
+                    70,
+                    Config.twilight.getVienSize() * 3,
+                    Config.twilight.getTries() * 3);
+        }
     }
 
     @FunctionalInterface
