@@ -540,10 +540,10 @@ public class ModArmor {
         register(registry, new ItemDivineArmor(prefix + "_boots", material, EntityEquipmentSlot.FEET, info));
     }
 
-    private static void registerVetheanArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo info) {
-        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EntityEquipmentSlot.HEAD, info));
-        register(registry, new ItemDivineArmor(prefix + "_hood", material, EntityEquipmentSlot.HEAD, info));
-        register(registry, new ItemDivineArmor(prefix + "_mask", material, EntityEquipmentSlot.HEAD, info));
+    private static void registerVetheanArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo helmetInfo, ArmorInfo hoodInfo, ArmorInfo maskInfo, ArmorInfo info) {
+        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EntityEquipmentSlot.HEAD, helmetInfo));
+        register(registry, new ItemDivineArmor(prefix + "_hood", material, EntityEquipmentSlot.HEAD, hoodInfo));
+        register(registry, new ItemDivineArmor(prefix + "_mask", material, EntityEquipmentSlot.HEAD, maskInfo));
         register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EntityEquipmentSlot.CHEST, info));
         register(registry, new ItemDivineArmor(prefix + "_leggings", material, EntityEquipmentSlot.LEGS, info));
         register(registry, new ItemDivineArmor(prefix + "_boots", material, EntityEquipmentSlot.FEET, info));
@@ -606,50 +606,21 @@ public class ModArmor {
         registerArmorSet(registry, "apalachia", ToolMaterialMod.APALACHIA_ARMOR, apInfo);
         registerArmorSet(registry, "skythern", ToolMaterialMod.SKYTHERN_ARMOR, skyInfo);
         registerArmorSet(registry, "mortum", ToolMaterialMod.MORTUM_ARMOR, mortInfo);
-        registerArmorSet(registry, "halite", ToolMaterialMod.HALITE_ARMOR, mortInfo);
+        registerArmorSet(registry, "halite", ToolMaterialMod.HALITE_ARMOR, halInfo);
         registerArmorSet(registry, "awakened_halite", ToolMaterialMod.AWAKENED_HALITE_ARMOR, awakened_halInfo);
 
         // Arcana armor sets
         registerArmorSet(registry, "korma", ToolMaterialMod.KORMA_ARMOR, kormInfo);
         registerArmorSet(registry, "vemos", ToolMaterialMod.VEMOS_ARMOR, vemInfo);
 
-
         // Vethea armor sets
-        register(registry, new ItemDivineArmor("degraded_helmet", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        register(registry, new ItemDivineArmor("degraded_hood", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        register(registry, new ItemDivineArmor("degraded_mask", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        register(registry, new ItemDivineArmor("degraded_chestplate", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.CHEST, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("degraded_leggings", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.LEGS, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("degraded_boots", ToolMaterialMod.DEGRADED_ARMOR, EntityEquipmentSlot.FEET, new ArmorInfo()));
+        registerVetheanArmorSet(registry, "degraded", ToolMaterialMod.DEGRADED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "finished", ToolMaterialMod.FINISHED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "glistening", ToolMaterialMod.GLISTENING_ARMOR, glisteningHelmInfo, glisteningHoodInfo, glisteningMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "demonized", ToolMaterialMod.DEMONIZED_ARMOR, demonizedHelmInfo, demonizedHoodInfo, demonizedMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "tormented", ToolMaterialMod.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
 
-        register(registry, new ItemDivineArmor("finished_helmet", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        register(registry, new ItemDivineArmor("finished_hood", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        register(registry, new ItemDivineArmor("finished_mask", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        register(registry, new ItemDivineArmor("finished_chestplate", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.CHEST, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("finished_leggings", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.LEGS, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("finished_boots", ToolMaterialMod.FINISHED_ARMOR, EntityEquipmentSlot.FEET, new ArmorInfo()));
-
-        register(registry, new ItemDivineArmor("glistening_helmet", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.HEAD, glisteningHelmInfo));
-        register(registry, new ItemDivineArmor("glistening_hood", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.HEAD, glisteningHoodInfo));
-        register(registry, new ItemDivineArmor("glistening_mask", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.HEAD, glisteningMaskInfo));
-        register(registry, new ItemDivineArmor("glistening_chestplate", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.CHEST, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("glistening_leggings", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.LEGS, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("glistening_boots", ToolMaterialMod.GLISTENING_ARMOR, EntityEquipmentSlot.FEET, new ArmorInfo()));
-
-        register(registry, new ItemDivineArmor("demonized_helmet", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.HEAD, demonizedHelmInfo));
-        register(registry, new ItemDivineArmor("demonized_hood", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.HEAD, demonizedHoodInfo));
-        register(registry, new ItemDivineArmor("demonized_mask", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.HEAD, demonizedMaskInfo));
-        register(registry, new ItemDivineArmor("demonized_chestplate", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.CHEST, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("demonized_leggings", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.LEGS, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("demonized_boots", ToolMaterialMod.DEMONIZED_ARMOR, EntityEquipmentSlot.FEET, new ArmorInfo()));
-
-        register(registry, new ItemDivineArmor("tormented_helmet", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.HEAD, tormentedHelmInfo));
-        register(registry, new ItemDivineArmor("tormented_hood", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.HEAD, tormentedHoodInfo));
-        register(registry, new ItemDivineArmor("tormented_mask", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.HEAD, tormentedMaskInfo));
-        register(registry, new ItemDivineArmor("tormented_chestplate", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.CHEST, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("tormented_leggings", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.LEGS, new ArmorInfo()));
-        register(registry, new ItemDivineArmor("tormented_boots", ToolMaterialMod.TORMENTED_ARMOR, EntityEquipmentSlot.FEET, new ArmorInfo()));
-
+        // King armor
         register(registry, new KingArmorItem("king_helmet", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
         register(registry, new KingArmorItem("king_chestplate", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
         register(registry, new KingArmorItem("king_leggings", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
