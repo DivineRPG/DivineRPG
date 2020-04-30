@@ -39,7 +39,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModBlocks {
-    private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
+    private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3, EDEN = 6, WILDWOOD = 7, APALACHIA = 8, SKYTHERN = 9, MORTUM = 10;
     private static List<Block> blockList = new ArrayList<Block>();
     private static List<Item> blockItemList = new ArrayList<>();
     // Vanilla dimensions
@@ -1320,10 +1320,10 @@ public class ModBlocks {
 
         // Ore
         register(registry, new BlockTwilightOre("eden_ore", 5, 2000F, DIAMOND, () -> ModItems.edenFragments));
-        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, DIAMOND, () -> ModItems.wildwoodFragments));
-        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, DIAMOND, () -> ModItems.apalachiaFragments));
-        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, DIAMOND, () -> ModItems.skythernFragments));
-        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, () -> ModItems.mortumFragments));
+        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, EDEN, () -> ModItems.wildwoodFragments));
+        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, WILDWOOD, () -> ModItems.apalachiaFragments));
+        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, APALACHIA, () -> ModItems.skythernFragments));
+        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, SKYTHERN, () -> ModItems.mortumFragments));
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
