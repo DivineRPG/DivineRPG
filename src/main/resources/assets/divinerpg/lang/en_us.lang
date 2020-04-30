@@ -227,6 +227,8 @@ tile.bacterial_acid.name=Bacterial Acid
 tile.acid_block.name=Acid Block
 tile.sunstorm_spawner.name=Sunstorm Spawner
 tile.termasect_spawner.name=Termasect Spawner
+tile.sunstorm_statue.name=Sunstorm Statue
+tile.termasect_statue.name=Termasect Statue
 
 tile.lunic_acid.name=Lunic Acid
 tile.firewood_leaves.name=Firewood Leaves
