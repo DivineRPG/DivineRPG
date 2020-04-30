@@ -1588,6 +1588,7 @@ tooltip.starlight=Drops a star from the sky
 tooltip.staff_of_starlight=Drops several stars from the sky
 tooltip.dimension=Dimension: %s
 tooltip.block_position=Block Position: x=%s, y=%s, z=%s
+tooltip.harvest_level=Harvest level: %s
 
 tooltip.armor_info.fire_protection=Fire Protection
 tooltip.armor_info.no_fall=No Fall Damage
@@ -1629,5 +1630,6 @@ tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player right clicks th
 tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks the block
 
 enchantment.world_break=World Break
-tooltip.harvest_level=Harvest level: %s
+enchantment.double_dealing_damage=Double Dealing Damage
+
 summon.single_use_spawner.delay=Will summon in %s seconds
