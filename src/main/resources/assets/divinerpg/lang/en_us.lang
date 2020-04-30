@@ -1629,7 +1629,7 @@ tooltip.food.heal=Replenishes %s Health
 tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player right clicks the block
 tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks the block
 
-enchantment.world_break=World Break
-enchantment.double_dealing_damage=Double Dealing Damage
+enchantment.world_break=Rive
+enchantment.double_dealing_damage=Aftershock
 
 summon.single_use_spawner.delay=Will summon in %s seconds
