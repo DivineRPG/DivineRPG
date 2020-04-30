@@ -349,6 +349,10 @@ public class ModBlocks {
     public static final Block twilightDemonStatue = null;
     @ObjectHolder("vamacheron_statue")
     public static final Block vamacheronStatue = null;
+    @ObjectHolder("termasect_statue")
+    public static final Block termasect_statue = null;
+    @ObjectHolder("sunstorm_statue")
+    public static final Block sunstorm_statue = null;
 
     // Liquid
     @ObjectHolder("tar")
@@ -1230,6 +1234,9 @@ public class ModBlocks {
         register(registry, new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE));
         register(registry, new BlockStatue("twilight_demon_statue", StatueType.TWILIGHT_DEMON_STATUE));
         register(registry, new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE));
+
+        register(registry, new BlockStatue("termasect_statue", StatueType.TERMASECT_STATUE));
+        register(registry, new BlockStatue("sunstorm_statue", StatueType.SUNSTORM_STATUE));
 
         // Ayeraco technical blocks
         registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));

@@ -54,12 +54,16 @@ public class ModModels {
                 ModBlocks.reyvorStatue,
                 ModBlocks.theWatcherStatue,
                 ModBlocks.twilightDemonStatue,
-                ModBlocks.vamacheronStatue);
+                ModBlocks.vamacheronStatue,
+                ModBlocks.termasect_statue,
+                ModBlocks.sunstorm_statue
+        );
 
         registerRenders(new ShieldsRender(),
                 ModItems.arlemite_shield,
                 ModItems.realmite_shield,
-                ModItems.rupee_shield);
+                ModItems.rupee_shield
+        );
     }
 
     private static void registerRenders(TileEntityItemStackRenderer teisr, Block... items) {

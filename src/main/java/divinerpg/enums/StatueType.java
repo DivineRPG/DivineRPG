@@ -31,7 +31,10 @@ public enum StatueType {
     RED_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_red.png")),
     GREEN_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_green.png")),
     PURPLE_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_purple.png")),
-    YELLOW_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_yellow.png"));
+    YELLOW_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_yellow.png")),
+
+    TERMASECT_STATUE(new ModelTermasect(), new ResourceLocation(Reference.MODID, "textures/entity/termasect.png")),
+    SUNSTORM_STATUE(new ModelSunstorm(), new ResourceLocation(Reference.MODID, "textures/entity/sunstorm.png"));
 
     private final ItemModel model;
     private final ResourceLocation texture;

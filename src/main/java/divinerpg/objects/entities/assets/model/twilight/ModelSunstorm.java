@@ -1,13 +1,11 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import net.minecraft.client.model.ModelBase;
+import divinerpg.objects.entities.assets.model.ItemModel;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelSunstorm extends ModelBase
-{
-  //fields
+public class ModelSunstorm extends ItemModel {
+    //fields
     ModelRenderer legR;
     ModelRenderer legL;
     ModelRenderer body;
@@ -218,50 +216,47 @@ public class ModelSunstorm extends ModelBase
       backSpine3.mirror = true;
       setRotation(backSpine3, -0.3839724F, 0F, 0F);
   }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5);
-    legR.render(f5);
-    legL.render(f5);
-    body.render(f5);
-    armL.render(f5);
-    armR.render(f5);
-    staffPoleL.render(f5);
-    staffCapL.render(f5);
-    staffPoleR.render(f5);
-    staffCapR.render(f5);
-    neck.render(f5);
-    head.render(f5);
-    rayMid.render(f5);
-    rayL.render(f5);
-    rayR.render(f5);
-    headSideL.render(f5);
-    headSideR.render(f5);
-    staffProng1L.render(f5);
-    staffProng2L.render(f5);
-    staffProng3L.render(f5);
-    staffProng4L.render(f5);
-    staffProng1R.render(f5);
-    staffProng2R.render(f5);
-    staffProng3R.render(f5);
-    staffProng4R.render(f5);
-    armSpikeL.render(f5);
-    armSpikeR.render(f5);
-    backSpine1.render(f5);
-    backSpine2.render(f5);
-    backSpine3.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
+
+    @Override
+    protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        legR.render(scale);
+        legL.render(scale);
+        body.render(scale);
+        armL.render(scale);
+        armR.render(scale);
+        staffPoleL.render(scale);
+        staffCapL.render(scale);
+        staffPoleR.render(scale);
+        staffCapR.render(scale);
+        neck.render(scale);
+        head.render(scale);
+        rayMid.render(scale);
+        rayL.render(scale);
+        rayR.render(scale);
+        headSideL.render(scale);
+        headSideR.render(scale);
+        staffProng1L.render(scale);
+        staffProng2L.render(scale);
+        staffProng3L.render(scale);
+        staffProng4L.render(scale);
+        staffProng1R.render(scale);
+        staffProng2R.render(scale);
+        staffProng3R.render(scale);
+        staffProng4R.render(scale);
+        armSpikeL.render(scale);
+        armSpikeR.render(scale);
+        backSpine1.render(scale);
+        backSpine2.render(scale);
+        backSpine3.render(scale);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
 	this.legR.rotateAngleX = (MathHelper.cos(f * 0.6662F) * 1.4F * f1);
