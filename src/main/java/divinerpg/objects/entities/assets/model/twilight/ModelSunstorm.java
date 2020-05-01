@@ -219,7 +219,8 @@ public class ModelSunstorm extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        legR.render(scale);
+        this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	legR.render(scale);
         legL.render(scale);
         body.render(scale);
         armL.render(scale);
