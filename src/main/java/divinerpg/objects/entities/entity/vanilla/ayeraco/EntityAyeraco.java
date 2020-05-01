@@ -33,11 +33,10 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
      * EntityAyeraco group refference. Exists only on server side!!!
      */
     private AyeracoGroup group;
-    private BossInfo.Color color;
     private ResourceLocation loot;
 
     public EntityAyeraco(World worldIn) {
-        this(worldIn, new BlockPos(0, 100, 0), BossInfo.Color.BLUE, new ResourceLocation(""));
+        this(worldIn, new BlockPos(0, 100, 0), new ResourceLocation(""));
     }
 
     /**
@@ -47,10 +46,9 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
      * @param beam  - beam location
      * @param color
      */
-    public EntityAyeraco(World world, BlockPos beam, BossInfo.Color color, ResourceLocation loot) {
+    public EntityAyeraco(World world, BlockPos beam, ResourceLocation loot) {
         super(world);
         beamLocation = beam;
-        this.color = color;
         this.loot = loot;
         this.setSize(2.8F, 1.2F);
         this.waitTick = 0;
@@ -201,7 +199,6 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         compound.setTag("group", group.serializeNBT());
         compound.setLong("beamPos", beamLocation.toLong());
-        compound.setString("barColor", color.name());
         compound.setString("lootTable", loot.toString());
         return super.writeToNBT(compound);
     }
@@ -211,7 +208,6 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         super.readEntityFromNBT(compound);
         group.deserializeNBT(compound.getCompoundTag("group"));
         beamLocation = BlockPos.fromLong(compound.getLong("beamPos"));
-        color = BossInfo.Color.valueOf(compound.getString("barColor"));
         loot = new ResourceLocation(compound.getString("lootTable"));
     }
 
@@ -221,11 +217,6 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
         if (world.isBlockLoaded(beamLocation)) {
             world.setBlockState(beamLocation, Blocks.AIR.getDefaultState());
         }
-    }
-
-    @Override
-    public BossInfo.Color getBarColor() {
-        return this.color;
     }
 
     @Nullable
