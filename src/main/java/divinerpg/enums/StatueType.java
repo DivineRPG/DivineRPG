@@ -1,15 +1,21 @@
 package divinerpg.enums;
 
 import divinerpg.api.Reference;
-import divinerpg.objects.entities.assets.model.ItemModel;
 import divinerpg.objects.entities.assets.model.arcana.ModelDramix;
 import divinerpg.objects.entities.assets.model.arcana.ModelParasecta;
-import divinerpg.objects.entities.assets.model.twilight.*;
+import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
+import divinerpg.objects.entities.assets.model.twilight.ModelEternalArcher;
+import divinerpg.objects.entities.assets.model.twilight.ModelKarot;
+import divinerpg.objects.entities.assets.model.twilight.ModelSoulFiend;
+import divinerpg.objects.entities.assets.model.twilight.ModelSunstorm;
+import divinerpg.objects.entities.assets.model.twilight.ModelTermasect;
+import divinerpg.objects.entities.assets.model.twilight.ModelTwilightDemon;
+import divinerpg.objects.entities.assets.model.twilight.ModelVamacheron;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAncientEntity;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
 import divinerpg.objects.entities.assets.model.vanilla.ModelKingScorcher;
 import divinerpg.objects.entities.assets.model.vanilla.ModelTheWatcher;
-import divinerpg.objects.entities.assets.model.vethea.ModelKaros;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.util.ResourceLocation;
 
 public enum StatueType {
@@ -19,7 +25,7 @@ public enum StatueType {
     DENSOS_STATUE(new ModelDensos(), new ResourceLocation(Reference.MODID, "textures/entity/densos.png")),
     DRAMIX_STATUE(new ModelDramix(), new ResourceLocation(Reference.MODID, "textures/entity/dramix.png")),
     ETERNAL_ARCHER_STATUE(new ModelEternalArcher(), new ResourceLocation(Reference.MODID, "textures/entity/eternal_archer.png")),
-    KAROT_STATUE(new ModelKaros(), new ResourceLocation(Reference.MODID, "textures/entity/karos.png")),
+    KAROT_STATUE(new ModelKarot(), new ResourceLocation(Reference.MODID, "textures/entity/karot.png")),
     KING_OF_SCORCHERS_STATUE(new ModelKingScorcher(), new ResourceLocation(Reference.MODID, "textures/entity/king_of_scorchers.png")),
     PARASECTA_STATUE(new ModelParasecta(), new ResourceLocation(Reference.MODID, "textures/entity/parasecta.png")),
     REYVOR_STATUE(new ModelDensos(), new ResourceLocation(Reference.MODID, "textures/entity/reyvor.png")),
@@ -36,10 +42,10 @@ public enum StatueType {
     TERMASECT_STATUE(new ModelTermasect(), new ResourceLocation(Reference.MODID, "textures/entity/termasect.png")),
     SUNSTORM_STATUE(new ModelSunstorm(), new ResourceLocation(Reference.MODID, "textures/entity/sunstorm.png"));
 
-    private final ItemModel model;
+    private final ModelBase model;
     private final ResourceLocation texture;
 
-    StatueType(ItemModel model, ResourceLocation texture) {
+    StatueType(ModelBase model, ResourceLocation texture) {
         this.model = model;
         this.texture = texture;
     }
@@ -59,7 +65,7 @@ public enum StatueType {
         return values()[ordinal];
     }
 
-    public ItemModel getModel() {
+    public ModelBase getModel() {
         return this.model;
     }
 }
