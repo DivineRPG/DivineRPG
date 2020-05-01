@@ -104,7 +104,8 @@ public class ModelTwilightDemon extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        this.head.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	this.head.render(scale);
         this.body.render(scale);
         this.rightarm.render(scale);
         this.leftarm.render(scale);
