@@ -183,7 +183,8 @@ public class ModelAncientEntity extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        head.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	head.render(scale);
         legr.render(scale);
         legl.render(scale);
         legL2B.render(scale);
