@@ -7,6 +7,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 import javax.annotation.Nullable;
 
@@ -87,5 +88,10 @@ public class EntityKarot extends EntityDivineRPGBoss {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_KAROT;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.WHITE;
     }
 }

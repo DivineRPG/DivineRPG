@@ -5,6 +5,7 @@ import divinerpg.registry.DRPGLootTables;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 public class EntityVamacheron extends EntityDivineRPGBoss {
 
@@ -33,5 +34,10 @@ public class EntityVamacheron extends EntityDivineRPGBoss {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_VAMACHERON;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.RED;
     }
 }

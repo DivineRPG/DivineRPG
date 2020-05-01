@@ -11,6 +11,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 public class EntitySoulFiend extends EntityDivineRPGBoss {
 
@@ -68,5 +69,10 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_SOUL_FIEND;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.YELLOW;
     }
 }

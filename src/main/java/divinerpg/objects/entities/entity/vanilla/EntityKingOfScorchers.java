@@ -17,6 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,4 +135,9 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements ILaunc
         return DRPGLootTables.ENTITIES_KING_OF_SCORCHERS;
     }
 
+    @Override
+    public Color getBarColor() {
+        return Color.RED;
+    }
+    
 }

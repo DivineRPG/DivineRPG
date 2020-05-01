@@ -10,6 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 public class EntityDramix extends EntityDivineRPGBoss {
 
@@ -62,5 +63,10 @@ public class EntityDramix extends EntityDivineRPGBoss {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_DRAMIX;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.BLUE;
     }
 }
