@@ -372,14 +372,14 @@ public class ModArmor {
     @ObjectHolder("awakened_halite_boots")
     public static final Item awakened_haliteBoots = null;
 
-    @ObjectHolder("king_helmet")
-    public static final Item king_helmet = null;
-    @ObjectHolder("king_chestplate")
-    public static final Item king_chestplate = null;
-    @ObjectHolder("king_leggings")
-    public static final Item king_leggings = null;
-    @ObjectHolder("king_boots")
-    public static final Item king_boots = null;
+//    @ObjectHolder("king_helmet")
+//    public static final Item king_helmet = null;
+//    @ObjectHolder("king_chestplate")
+//    public static final Item king_chestplate = null;
+//    @ObjectHolder("king_leggings")
+//    public static final Item king_leggings = null;
+//    @ObjectHolder("king_boots")
+//    public static final Item king_boots = null;
 
     // Arcana armor sets
     @ObjectHolder("korma_helmet")
@@ -777,10 +777,10 @@ public class ModArmor {
         register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS));
         register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET));
 
-        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.HEAD, kingInfo));
-        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.CHEST, kingInfo));
-        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.LEGS, kingInfo));
-        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.FEET, kingInfo));
+//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.HEAD, kingInfo));
+//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.CHEST, kingInfo));
+//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.LEGS, kingInfo));
+//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.FEET, kingInfo));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

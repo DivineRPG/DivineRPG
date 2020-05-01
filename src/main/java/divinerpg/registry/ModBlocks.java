@@ -1041,11 +1041,11 @@ public class ModBlocks {
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
 
-    @ObjectHolder("king_compression")
-    public static final Block king_compression = null;
-
-    @ObjectHolder("king_compression_still")
-    public static final Block king_compression_still = null;
+//    @ObjectHolder("king_compression")
+//    public static final Block king_compression = null;
+//
+//    @ObjectHolder("king_compression_still")
+//    public static final Block king_compression_still = null;
 
     //newSpawners
     @ObjectHolder("sunstorm_spawner")
@@ -1675,8 +1675,8 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
         registerItemlessBlock(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
 
-        register(registry, new KingCompressor("king_compression", true));
-        register(registry, new KingCompressor("king_compression_still", false));
+//        register(registry, new KingCompressor("king_compression", true));
+//        register(registry, new KingCompressor("king_compression_still", false));
 
         //
         // newSpawners
