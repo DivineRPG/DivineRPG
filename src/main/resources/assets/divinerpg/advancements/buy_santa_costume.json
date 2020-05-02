@@ -1,0 +1,58 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:santa_tunic"
+    },
+    "title":{
+      "translate":"advancement.buy_santa_costume"
+    },
+    "frame":"goal",
+    "description":{
+      "translate":"advancement.buy_santa_costume.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:talk_to_workshop_merchant",
+  "criteria": {
+    "santa_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:santa_boots"
+          }
+        ]
+      }
+    },
+    "santa_pants": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:santa_pants"
+          }
+        ]
+      }
+    },
+    "santa_tunic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:santa_tunic"
+          }
+        ]
+      }
+    },
+    "santa_cap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:santa_cap"
+          }
+        ]
+      }
+    }
+  }
+}

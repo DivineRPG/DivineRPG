@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_arcana",
    "criteria":{
       "kill_boss_parasecta":{
          "trigger":"minecraft:player_killed_entity",

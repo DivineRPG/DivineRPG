@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.enter_apalachia"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.enter_apalachia.desc"
       },

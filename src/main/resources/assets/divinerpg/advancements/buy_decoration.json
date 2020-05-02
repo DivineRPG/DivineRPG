@@ -1,0 +1,128 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:present_box"
+    },
+    "title":{
+      "translate":"advancement.buy_decoration"
+    },
+    "frame":"goal",
+    "description":{
+      "translate":"advancement.buy_decoration.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:talk_to_workshop_merchant",
+  "criteria": {
+    "present_box": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:present_box"
+          }
+        ]
+      }
+    },
+    "blue_candy_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:blue_candy_cane"
+          }
+        ]
+      }
+    },
+    "green_candy_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:green_candy_cane"
+          }
+        ]
+      }
+    },
+    "pink_candy_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:pink_candy_cane"
+          }
+        ]
+      }
+    },
+    "red_candy_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:red_candy_cane"
+          }
+        ]
+      }
+    },
+    "yellow_candy_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:yellow_candy_cane"
+          }
+        ]
+      }
+    },
+    "blue_christmas_lights": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:blue_christmas_lights"
+          }
+        ]
+      }
+    },
+    "green_christmas_lights": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:green_christmas_lights"
+          }
+        ]
+      }
+    },
+    "red_christmas_lights": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:red_christmas_lights"
+          }
+        ]
+      }
+    },
+    "purple_christmas_lights": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:purple_christmas_lights"
+          }
+        ]
+      }
+    },
+    "yellow_christmas_lights": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:yellow_christmas_lights"
+          }
+        ]
+      }
+    }
+  }
+}

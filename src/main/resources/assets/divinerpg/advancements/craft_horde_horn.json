@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:horde_horn"
+    },
+    "title": {
+      "translate": "advancement.craft_horde_horn"
+    },
+    "description": {
+      "translate": "advancement.craft_horde_horn.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:enter_end",
+  "criteria": {
+    "horde_horn": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:horde_horn"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,13 +6,13 @@
       "title":{
          "translate":"advancement.use_sound_of_music"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.use_sound_of_music.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_nether",
    "criteria":{
       "use_sound_of_music":{
          "trigger":"minecraft:item_durability_changed",

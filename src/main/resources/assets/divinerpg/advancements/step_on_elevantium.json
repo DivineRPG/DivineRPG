@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.step_on_elevantium"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.step_on_elevantium.desc"
       },
