@@ -1644,6 +1644,6 @@ tooltip.food.pet=Еда для питомцев
 tooltip.food.heal=Восстанавливает %s сердцев
 
 enchantment.world_break=Крушитель миров
-enchantment.double_dealing_damage=Удвоение урона
+enchantment.double_dealing_damage=Расщепитель
 
 summon.single_use_spawner.delay=Будет призван через %s секунд
