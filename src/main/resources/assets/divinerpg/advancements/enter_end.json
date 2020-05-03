@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancement.enter_end.desc"
-    }
+    },
+    "announce_to_chat":false
   },
   "parent": "divinerpg:root",
   "criteria":{

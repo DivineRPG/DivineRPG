@@ -15,7 +15,7 @@
   "parent": "divinerpg:enter_arcana",
    "criteria":{
       "use_demon_furnace":{
-         "trigger":"divinerpg:block",
+         "trigger":"minecraft:placed_block",
          "conditions":{
             "block":"divinerpg:demon_furnace"
          }

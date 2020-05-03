@@ -4,21 +4,21 @@
          "item":"divinerpg:storm_sword"
       },
       "title":{
-         "translate":"advancement.use_storm_sword"
+         "translate":"advancement.get_storm_sword"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
-         "translate":"advancement.use_storm_sword.desc"
+         "translate":"advancement.get_storm_sword.desc"
       },
       "announce_to_chat":true
    },
    "parent":"divinerpg:enter_arcana",
    "criteria":{
       "use_storm_sword":{
-         "trigger":"divinerpg:item",
+         "trigger":"minecraft:inventory_changed",
          "conditions":{
-            "item":{
-               "item":"divinerpg:storm_sword"
+            "item": {
+               "item": "divinerpg:storm_sword"
             }
          }
       }

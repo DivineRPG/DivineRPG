@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.use_staff_of_enrichment"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.use_staff_of_enrichment.desc"
       },

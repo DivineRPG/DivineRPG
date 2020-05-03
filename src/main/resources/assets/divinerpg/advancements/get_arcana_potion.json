@@ -4,18 +4,18 @@
          "item":"divinerpg:weak_arcana_potion"
       },
       "title":{
-         "translate":"advancement.drink_arcana_potion"
+         "translate":"advancement.get_arcana_potion"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
-         "translate":"advancement.drink_arcana_potion.desc"
+         "translate":"advancement.get_arcana_potion.desc"
       },
       "announce_to_chat":true
    },
    "parent":"divinerpg:enter_arcana",
    "criteria":{
       "drink_arcana_potion":{
-         "trigger":"minecraft:consume_item",
+         "trigger":"minecraft:inventory_changed",
          "conditions":{
             "item":{
                "item":"divinerpg:weak_arcana_potion"
