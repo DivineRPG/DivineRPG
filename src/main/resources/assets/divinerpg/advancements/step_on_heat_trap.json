@@ -6,7 +6,6 @@
     "title": {
       "translate": "advancement.step_on_heat_trap"
     },
-    "frame": "challenge",
     "description": {
       "translate": "advancement.step_on_heat_trap.desc"
     },

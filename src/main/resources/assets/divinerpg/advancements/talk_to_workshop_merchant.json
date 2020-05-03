@@ -1,12 +1,11 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:present_box"
+         "item":"divinerpg:snowflake"
       },
       "title":{
          "translate":"advancement.talk_to_workshop_merchant"
       },
-      "frame":"challenge",
       "description":{
          "translate":"advancement.talk_to_workshop_merchant.desc"
       },

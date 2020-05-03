@@ -6,7 +6,6 @@
     "title": {
       "translate": "advancement.talk_to_workshop_tinkerer"
     },
-    "frame": "challenge",
     "description": {
       "translate": "advancement.talk_to_workshop_tinkerer.desc"
     },

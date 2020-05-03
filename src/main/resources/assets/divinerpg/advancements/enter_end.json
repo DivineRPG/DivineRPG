@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:watching_eye"
+    },
+    "title": {
+      "translate": "advancement.enter_end"
+    },
+    "description": {
+      "translate": "advancement.enter_end.desc"
+    }
+  },
+  "parent": "divinerpg:root",
+  "criteria":{
+    "enter_end":{
+      "trigger":"minecraft:changed_dimension",
+      "conditions":{
+        "to":"the_end"
+      }
+    }
+  }
+}

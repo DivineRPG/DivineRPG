@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.destroy_frosted_chest"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.destroy_frosted_chest.desc"
       },

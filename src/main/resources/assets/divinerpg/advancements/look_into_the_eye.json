@@ -6,7 +6,6 @@
       "title":{
          "translate":"advancement.look_into_the_eye"
       },
-      "frame":"challenge",
       "description":{
          "translate":"advancement.look_into_the_eye.desc"
       },

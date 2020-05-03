@@ -6,13 +6,12 @@
       "title":{
          "translate":"advancement.kill_twlight_bunny"
       },
-      "frame":"challenge",
       "description":{
          "translate":"advancement.kill_twlight_bunny.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_eden",
    "criteria":{
       "kill_twilight_bunny":{
          "trigger":"minecraft:player_killed_entity",
