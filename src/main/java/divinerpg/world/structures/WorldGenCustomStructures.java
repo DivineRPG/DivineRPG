@@ -102,7 +102,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, ModBlocks.wildwoodGrass, 10, 10);
         	}
         	if(world.provider.getDimensionType() == ModDimensions.skythernDimension) {
-        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 5, ModBlocks.skythernGrass, 10, 10);
+        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, ModBlocks.skythernGrass, 10, 10);
         	}
     }
 
