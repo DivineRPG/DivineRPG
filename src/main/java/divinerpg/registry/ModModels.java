@@ -56,7 +56,8 @@ public class ModModels {
                 ModBlocks.twilightDemonStatue,
                 ModBlocks.vamacheronStatue,
                 ModBlocks.termasect_statue,
-                ModBlocks.sunstorm_statue
+                ModBlocks.sunstorm_statue,
+                ModBlocks.experienced_cori_statue
         );
 
         registerRenders(new ShieldsRender(),

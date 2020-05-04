@@ -229,6 +229,7 @@ tile.bacterial_acid.name=Bacterial Acid
 tile.acid_block.name=Acid Block
 tile.sunstorm_spawner.name=Sunstorm Spawner
 tile.termasect_spawner.name=Termasect Spawner
+tile.experienced_cori_spawner.name=Experienced Cori Spawner
 
 tile.lunic_acid.name=Lunic Acid
 tile.firewood_leaves.name=Firewood Leaves
@@ -424,6 +425,7 @@ tile.cracklespike.name=Crackle Spike
 tile.green_gemtop.name=Green Gem Top
 tile.purple_gemtop.name=Purple Gem Top
 tile.dreamwrecker_spawner.name=Dream Wrecker Spawner
+tile.experienced_cori_statue.name=Experienced Cori Statue
 
 container.iceika_chest=Iceika Chest
 
@@ -1294,6 +1296,7 @@ entity.divinerpg.wreck_form.name=Wreck
 entity.divinerpg.sunstorm.name=Sunstorm
 entity.divinerpg.termasect.name=Termasect
 entity.divinerpg.termid.name=Termid
+entity.divinerpg.experienced_cori.name=Experienced Cori
 
 advancement.divine_equipment=Trying to become a God
 advancement.divine_equipment.desc=Craft divine armor and tools
@@ -1392,6 +1395,7 @@ advancement.kill_boss_ayeraco_blue=Floaty Blue Boi
 advancement.kill_boss_the_watcher=Overseeing Eye
 advancement.kill_boss_sunstorm=Champion of Light
 advancement.kill_boss_termasect=Forest Scourge
+advancement.kill_boss_experienced_cori=Observer of the Skies
 advancement.kill_boss_ayeraco_green.desc=Kill a Green Ayeraco
 advancement.kill_boss_soul_fiend.desc=Kill a Soul Fiend
 advancement.kill_boss_densos.desc=Kill the Densos
@@ -1409,6 +1413,7 @@ advancement.kill_boss_ayeraco_blue.desc=Kill a Blue Ayeraco
 advancement.kill_boss_the_watcher.desc=Kill the Watcher
 advancement.kill_boss_sunstorm.desc=Kill the Sunsorm
 advancement.kill_boss_termasect.desc=Kill the Termasect
+advancement.kill_boss_experienced_cori.desc=Kill the Experienced Cori
 
 fluid.tar=Tar
 
@@ -1640,6 +1645,7 @@ tooltip.food.heal=Replenishes %s Health
 
 tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player right clicks the block
 tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks the block
+tooltip.spawner.experienced_cori_spawner=Spawns Experienced Cori when the player right clicks the block
 
 enchantment.world_break=Rive
 enchantment.double_dealing_damage=Aftershock
