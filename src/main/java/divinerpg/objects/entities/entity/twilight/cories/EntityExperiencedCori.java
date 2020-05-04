@@ -4,6 +4,7 @@ import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
+import divinerpg.objects.entities.entity.twilight.EntityTermid;
 import divinerpg.registry.DRPGLootTables;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
@@ -113,5 +114,26 @@ public class EntityExperiencedCori extends EntityDivineGhast {
     public void onUpdate() {
         super.onUpdate();
         this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+    }
+    
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        if (this.isEntityAlive() && this.rand.nextInt(1000) < this.livingSoundTime++)
+        {
+            this.playLivingSound();
+            if(!this.world.isRemote) {
+                EntityWeakCori weak = new EntityWeakCori(world);
+                EntityAdvancedCori advanced = new EntityAdvancedCori(world);
+                weak.setLocationAndAngles(this.posX + rand.nextInt(8), this.posY, this.posZ + rand.nextInt(8), this.rotationYaw, this.rotationPitch);
+                advanced.setLocationAndAngles(this.posX + rand.nextInt(4), this.posY, this.posZ + rand.nextInt(4), this.rotationYaw, this.rotationPitch);
+                if (rand.nextInt(10) == 1) {
+                    world.spawnEntity(weak);
+                }
+                if (rand.nextInt(20) == 1) {
+                    world.spawnEntity(advanced);
+                }
+            }
+        }
     }
 }

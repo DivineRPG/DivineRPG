@@ -262,6 +262,8 @@ public class ModBlocks {
     public static final Block wildwoodBricks = null;
     @ObjectHolder("apalachia_bricks")
     public static final Block apalachiaBricks = null;
+    @ObjectHolder("skythern_bricks")
+    public static final Block skythernBricks = null;
 
     // Minibricks
     @ObjectHolder("minibricks")
@@ -1225,6 +1227,7 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.ROCK, "eden_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "wildwood_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "apalachia_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "skythern_bricks", 3.0F, IRON).setResistance(30.0F));
 
         // Minibricks
         register(registry, new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F));
