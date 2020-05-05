@@ -3,11 +3,11 @@
  */
 package divinerpg;
 
+import org.apache.logging.log4j.LogManager;
+
 import divinerpg.api.Reference;
 import divinerpg.api.armor.registry.IArmorDescription;
-import divinerpg.events.ArcanaTickHandler;
-import divinerpg.events.DimensionHelper;
-import divinerpg.events.EventEntityDrop;
+import divinerpg.events.*;
 import divinerpg.events.enchants.DiggingTaskFactory;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
@@ -17,17 +17,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.registries.RegistryBuilder;
-import org.apache.logging.log4j.LogManager;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, updateJSON = Reference.UPDATE_URL, dependencies = "required:forge@[14.23.5.2768,)")
 public class DivineRPG {
@@ -57,7 +51,6 @@ public class DivineRPG {
         ModLiquids.registerFluids();
         proxy.preInit(event);
         proxy.registerTileEntities();
-        proxy.RegisterTileEntityRender();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         ModMessages.initMessages();
