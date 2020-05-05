@@ -13,13 +13,15 @@
       "announce_to_chat":true
    },
    "parent":"divinerpg:enter_arcana",
-   "criteria":{
-      "use_storm_sword":{
-         "trigger":"minecraft:inventory_changed",
-         "conditions":{
-            "item": {
-               "item": "divinerpg:storm_sword"
-            }
+   "criteria": {
+      "use_storm_sword": {
+         "trigger": "minecraft:inventory_changed",
+         "conditions": {
+            "items": [
+               {
+                  "item": "divinerpg:storm_sword"
+               }
+            ]
          }
       }
    }

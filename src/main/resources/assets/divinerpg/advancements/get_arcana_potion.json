@@ -13,13 +13,15 @@
       "announce_to_chat":true
    },
    "parent":"divinerpg:enter_arcana",
-   "criteria":{
-      "drink_arcana_potion":{
-         "trigger":"minecraft:inventory_changed",
-         "conditions":{
-            "item":{
-               "item":"divinerpg:weak_arcana_potion"
-            }
+   "criteria": {
+      "drink_arcana_potion": {
+         "trigger": "minecraft:inventory_changed",
+         "conditions": {
+            "items": [
+               {
+                  "item": "divinerpg:weak_arcana_potion"
+               }
+            ]
          }
       }
    }
