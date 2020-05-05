@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_shield"
+  },
+  "pattern": [
+    "ppp",
+    "prp",
+    " p "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "divinerpg:apalachia_chunk"
+    },
+    "p": {
+      "item": "divinerpg:apalachia_planks"
+    }
+  }
+}

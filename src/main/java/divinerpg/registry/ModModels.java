@@ -80,7 +80,13 @@ public class ModModels {
         registerRenders(new ShieldsRender(),
                 ModItems.arlemite_shield,
                 ModItems.realmite_shield,
-                ModItems.rupee_shield
+                ModItems.rupee_shield,
+                ModItems.halite_shield,
+                ModItems.eden_shield,
+                ModItems.wildwood_shield,
+                ModItems.apalachia_shield,
+                ModItems.skythern_shield,
+                ModItems.mortum_shield
         );
     }
 

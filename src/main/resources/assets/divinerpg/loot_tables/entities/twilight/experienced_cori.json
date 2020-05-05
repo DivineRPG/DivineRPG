@@ -7,7 +7,7 @@
             {
                "type":"item",
                "name":"divinerpg:skythern_fragments",
-               "weight":1,
+               "weight": 10,
                "functions":[
                   {
                      "function":"set_count",
@@ -28,7 +28,7 @@
             {
                "type": "item",
                "name": "divinerpg:skythern_heart",
-               "weight": 1,
+               "weight": 10,
                "functions": [
                   {
                      "function": "set_count",
@@ -55,6 +55,23 @@
             {
                "type":"item",
                "name": "divinerpg:skythern_blitz",
+               "weight": 5,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": 1
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"divinerpg:experienced_cori",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name": "divinerpg:halite_shield",
                "weight": 1,
                "functions": [
                   {
