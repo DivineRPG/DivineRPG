@@ -97,9 +97,6 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntitySingleUseSpawner.class, Reference.MODID + ":te_single_use_spawner");
     }
 
-    public void RegisterTileEntityRender() {
-    }
-
     public void spawnParticle(World world, ParticleType particle, double z, double x, double y, double velX,
             double velY, double velZ) {
     }
