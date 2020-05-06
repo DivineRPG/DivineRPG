@@ -134,10 +134,10 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
             case KingSetCreation:
                 absorbedSets.clear();
 
-                setInventorySlotContents(EntityEquipmentSlot.HEAD.getSlotIndex(), new ItemStack(ModArmor.king_helmet));
-                setInventorySlotContents(EntityEquipmentSlot.CHEST.getSlotIndex(), new ItemStack(ModArmor.king_chestplate));
-                setInventorySlotContents(EntityEquipmentSlot.LEGS.getSlotIndex(), new ItemStack(ModArmor.king_leggings));
-                setInventorySlotContents(EntityEquipmentSlot.FEET.getSlotIndex(), new ItemStack(ModArmor.king_boots));
+//                setInventorySlotContents(EntityEquipmentSlot.HEAD.getSlotIndex(), new ItemStack(ModArmor.king_helmet));
+//                setInventorySlotContents(EntityEquipmentSlot.CHEST.getSlotIndex(), new ItemStack(ModArmor.king_chestplate));
+//                setInventorySlotContents(EntityEquipmentSlot.LEGS.getSlotIndex(), new ItemStack(ModArmor.king_leggings));
+//                setInventorySlotContents(EntityEquipmentSlot.FEET.getSlotIndex(), new ItemStack(ModArmor.king_boots));
                 break;
 
             case Infusion:
@@ -228,12 +228,12 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
     public void changeBurnState(boolean isBurning) {
         TileEntity tileentity = world.getTileEntity(pos);
 
-        Block block = isBurning
-                ? ModBlocks.king_compression
-                : ModBlocks.king_compression_still;
+//        Block block = isBurning
+//                ? ModBlocks.king_compression
+//                : ModBlocks.king_compression_still;
 
         keepInventory = true;
-        world.setBlockState(pos, block.getDefaultState(), 3);
+//        world.setBlockState(pos, block.getDefaultState(), 3);
         keepInventory = false;
 
         if (tileentity != null) {

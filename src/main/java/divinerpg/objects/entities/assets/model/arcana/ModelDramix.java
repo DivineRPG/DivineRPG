@@ -57,7 +57,8 @@ public class ModelDramix extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        Leg_Right.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, null);
+    	Leg_Right.render(scale);
         Leg_Left.render(scale);
         Arm_Right.render(scale);
         Arm_Left.render(scale);

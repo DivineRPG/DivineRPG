@@ -1294,8 +1294,8 @@ entity.divinerpg.bohemite.name=Богемит
 entity.divinerpg.spinarus.name=Спинарус
 entity.divinerpg.wreck.name=Крушитель
 entity.divinerpg.wreck_form.name=Крушитель
-entity.divinerpg.sunstorm.name=Солнечный шторм: Чемпион света
-entity.divinerpg.termasect.name=Термасект: Лесное зло
+entity.divinerpg.sunstorm.name=Солнечный шторм
+entity.divinerpg.termasect.name=Термасект
 entity.divinerpg.termid.name=Термид
 
 advancement.craft_divine_sword=Божественный план
@@ -1593,6 +1593,7 @@ tooltip.starlight=Сбрасывает звезду с неба
 tooltip.staff_of_starlight=Сбрасывает град звезд с неба
 tooltip.dimension=Измерение: %s
 tooltip.block_position=Координаты: x=%s, y=%s, z=%s
+tooltip.harvest_level=Уровень добычи: %s
 
 tooltip.armor_info.fire_protection=Защита от огня
 tooltip.armor_info.no_fall=Поглощение урона от падения
@@ -1610,7 +1611,7 @@ tooltip.armor_info.block_protection=Защита от урона нанесён�
 tooltip.armor_info.night_vision=Ночное видение
 tooltip.armor_info.explosion_protection=Защита от взрывов
 tooltip.armor_info.ranged_protection=Защита от дальных аттакак на %s%%
-tooltip.armor_info.melee_protection=Зищата в ближнем бою на %s%%
+tooltip.armor_info.melee_protection=Защита в ближнем бою на %s%%
 tooltip.armor_info.arcana_protection=Защита от урона Арканой на %s%%
 tooltip.armor_info.underwater=Дыхание под водой
 tooltip.armor_info.scythe_damage=Увеличение урона косой в %s раз(а)
@@ -1621,15 +1622,16 @@ tooltip.armor_info.poison_protection=Защита от зелий
 tooltip.armor_info.freeze=Замедление враждебных мобов в пределах %s блоков
 tooltip.armor_info.haste=Увеличение скорости копания
 tooltip.armor_info.iceika=Работает только в Заснежье
-tooltip.armor_info.massive_buff=Массивное улучшнение
+tooltip.armor_info.massive_buff=Массивное улучшение
 tooltip.armor_info.step_assist=Автопрыжок
 tooltip.bow_speed.slower=В %sx раз(а) медленнее
 tooltip.bow_speed.faster=В %sx раз(а) быстрее
-tooltip.food.satiety=Восполняется %s едениц(ы) голода
+tooltip.food.satiety=Восполняет %s едениц(ы) голода
 tooltip.food.saturation=%s насыщения
 tooltip.food.pet=Еда для питомцев
 tooltip.food.heal=Восстанавливает %s сердцев
 
 enchantment.world_break=Крушитель миров
-tooltip.harvest_level=Уровень добычи: %s
-summon.single_use_spawner.delay=Will summon in %s seconds
+enchantment.double_dealing_damage=Удвоение урона
+
+summon.single_use_spawner.delay=Будет призван через %s секунд

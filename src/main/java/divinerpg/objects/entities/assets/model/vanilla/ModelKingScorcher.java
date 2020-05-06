@@ -295,7 +295,8 @@ public class ModelKingScorcher extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        part1.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	part1.render(scale);
         part2.render(scale);
         part3.render(scale);
         part4.render(scale);

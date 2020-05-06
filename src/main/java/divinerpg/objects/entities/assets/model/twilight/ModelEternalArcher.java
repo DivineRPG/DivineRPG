@@ -125,7 +125,8 @@ public class ModelEternalArcher extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        head.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, null);
+    	head.render(scale);
         shoulder6.render(scale);
 //        armsRight[0].render(scale);
 //        armsLeft[2].render(scale);

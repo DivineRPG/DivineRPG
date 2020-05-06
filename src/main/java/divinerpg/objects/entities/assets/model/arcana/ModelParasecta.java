@@ -141,7 +141,8 @@ public class ModelParasecta extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        foot6.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, null);
+    	foot6.render(scale);
         wing2.render(scale);
         wing1.render(scale);
         body.render(scale);

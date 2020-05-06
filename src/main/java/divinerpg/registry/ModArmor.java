@@ -375,14 +375,14 @@ public class ModArmor {
     @ObjectHolder("awakened_halite_boots")
     public static final Item awakened_haliteBoots = null;
 
-    @ObjectHolder("king_helmet")
-    public static final Item king_helmet = null;
-    @ObjectHolder("king_chestplate")
-    public static final Item king_chestplate = null;
-    @ObjectHolder("king_leggings")
-    public static final Item king_leggings = null;
-    @ObjectHolder("king_boots")
-    public static final Item king_boots = null;
+//    @ObjectHolder("king_helmet")
+//    public static final Item king_helmet = null;
+//    @ObjectHolder("king_chestplate")
+//    public static final Item king_chestplate = null;
+//    @ObjectHolder("king_leggings")
+//    public static final Item king_leggings = null;
+//    @ObjectHolder("king_boots")
+//    public static final Item king_boots = null;
 
     // Arcana armor sets
     @ObjectHolder("korma_helmet")
@@ -621,10 +621,10 @@ public class ModArmor {
         registerVetheanArmorSet(registry, "tormented", ToolMaterialMod.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
 
         // King armor
-        register(registry, new KingArmorItem("king_helmet", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
-        register(registry, new KingArmorItem("king_chestplate", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
-        register(registry, new KingArmorItem("king_leggings", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
-        register(registry, new KingArmorItem("king_boots", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.FEET, kingInfo));
+        //register(registry, new KingArmorItem("king_helmet", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
+        //register(registry, new KingArmorItem("king_chestplate", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
+        //register(registry, new KingArmorItem("king_leggings", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
+        //register(registry, new KingArmorItem("king_boots", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.FEET, kingInfo));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

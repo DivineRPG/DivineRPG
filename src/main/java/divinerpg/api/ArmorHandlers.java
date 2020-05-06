@@ -174,7 +174,11 @@ public class ArmorHandlers {
      */
     public static void speedUpPlayer(EntityLivingBase player, float speedMultiplier, boolean force) {
         speedUpAttribute(player, SharedMonsterAttributes.MOVEMENT_SPEED, speedMultiplier, force,
-                isRemove -> player.stepHeight = isRemove ? 0.6F : 1.0625F);
+                isRemove -> {
+                    if (player.world.isRemote) {
+                        player.stepHeight = isRemove ? 0.6F : 1.625F;
+                    }
+                });
     }
 
     /**

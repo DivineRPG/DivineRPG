@@ -39,7 +39,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
 public class ModBlocks {
-    private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3;
+    private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3, EDEN = 6, WILDWOOD = 7, APALACHIA = 8, SKYTHERN = 9, MORTUM = 10;
     private static List<Block> blockList = new ArrayList<Block>();
     private static List<Item> blockItemList = new ArrayList<>();
     // Vanilla dimensions
@@ -349,6 +349,10 @@ public class ModBlocks {
     public static final Block twilightDemonStatue = null;
     @ObjectHolder("vamacheron_statue")
     public static final Block vamacheronStatue = null;
+    @ObjectHolder("termasect_statue")
+    public static final Block termasect_statue = null;
+    @ObjectHolder("sunstorm_statue")
+    public static final Block sunstorm_statue = null;
 
     // Liquid
     @ObjectHolder("tar")
@@ -1037,11 +1041,11 @@ public class ModBlocks {
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
 
-    @ObjectHolder("king_compression")
-    public static final Block king_compression = null;
-
-    @ObjectHolder("king_compression_still")
-    public static final Block king_compression_still = null;
+//    @ObjectHolder("king_compression")
+//    public static final Block king_compression = null;
+//
+//    @ObjectHolder("king_compression_still")
+//    public static final Block king_compression_still = null;
 
     //newSpawners
     @ObjectHolder("sunstorm_spawner")
@@ -1231,6 +1235,9 @@ public class ModBlocks {
         register(registry, new BlockStatue("twilight_demon_statue", StatueType.TWILIGHT_DEMON_STATUE));
         register(registry, new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE));
 
+        register(registry, new BlockStatue("termasect_statue", StatueType.TERMASECT_STATUE));
+        register(registry, new BlockStatue("sunstorm_statue", StatueType.SUNSTORM_STATUE));
+
         // Ayeraco technical blocks
         registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));
         registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_green", "green"));
@@ -1320,10 +1327,10 @@ public class ModBlocks {
 
         // Ore
         register(registry, new BlockTwilightOre("eden_ore", 5, 2000F, DIAMOND, () -> ModItems.edenFragments));
-        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, DIAMOND, () -> ModItems.wildwoodFragments));
-        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, DIAMOND, () -> ModItems.apalachiaFragments));
-        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, DIAMOND, () -> ModItems.skythernFragments));
-        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, DIAMOND, () -> ModItems.mortumFragments));
+        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, EDEN, () -> ModItems.wildwoodFragments));
+        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, WILDWOOD, () -> ModItems.apalachiaFragments));
+        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, APALACHIA, () -> ModItems.skythernFragments));
+        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, SKYTHERN, () -> ModItems.mortumFragments));
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
@@ -1668,8 +1675,8 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
         registerItemlessBlock(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
 
-        register(registry, new KingCompressor("king_compression", true));
-        register(registry, new KingCompressor("king_compression_still", false));
+//        register(registry, new KingCompressor("king_compression", true));
+//        register(registry, new KingCompressor("king_compression_still", false));
 
         //
         // newSpawners

@@ -12,6 +12,11 @@ public class EntityAyeracoRed extends EntityAyeraco {
     }
 
     public EntityAyeracoRed(World world, BlockPos beam) {
-        super(world, beam, Color.RED, DRPGLootTables.ENTITIES_AYERACO_RED);
+        super(world, beam, DRPGLootTables.ENTITIES_AYERACO_RED);
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.RED;
     }
 }

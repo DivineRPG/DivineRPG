@@ -274,7 +274,8 @@ public class ModelAyeraco extends ItemModel {
 
     @Override
     protected void render(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        BodyLower.render(scale);
+    	setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	BodyLower.render(scale);
         Neck.render(scale);
         Head.render(scale);
         Tail.render(scale);

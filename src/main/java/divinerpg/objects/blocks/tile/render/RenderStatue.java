@@ -29,7 +29,7 @@ public class RenderStatue extends TileEntitySpecialRenderer<TileEntityStatue> {
         GL11.glScaled(0.5, 0.5, 0.5);
         GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(180, 1.0F, 0.0F, 0.0F);
-        te.statueType.getModel().render(0.0625F);
+        te.statueType.getModel().render(null, 0, 0, 0, 0, 0, 0.0625F);
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();
     }

@@ -29,47 +29,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @Mod.EventBusSubscriber
 public class ModSpawns {
-    public static void init(LivingSpawnEvent event) {
-        EntityLivingBase entity = event.getEntityLiving();
-        if (entity.world.getGameRules().getBoolean("doMobSpawning") && entity.world.provider.getDimension() == 0
-                && entity instanceof EntityWaterMob && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL
-                && !entity.world.isRemote
-                && entity.world.getBlockState(entity.getPosition()) == Blocks.WATER.getDefaultState()
-                && (entity.world.getBiome(entity.getPosition()) == Biomes.OCEAN
-                        || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)
-                && entity.world.getLoadedEntityList().size() < 50) {
 
-            if (entity.getRNG().nextInt(1500) == 0) {
-                EntityShark shark = new EntityShark(entity.world);
-                shark.copyLocationAndAnglesFrom(entity);
-                entity.world.spawnEntity(shark);
-                entity.setDead();
-
-                if (Config.debug == true) {
-                    DivineRPG.logger.info(shark.getName() + " just spawned at " + entity.getPosition());
-                }
-            } else if (entity.getRNG().nextInt(2500) == 0) {
-                EntityWhale whale = new EntityWhale(entity.world);
-                whale.copyLocationAndAnglesFrom(entity);
-                entity.world.spawnEntity(whale);
-                entity.setDead();
-
-                if (Config.debug == true) {
-                    DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());
-                }
-            } else if (entity.getRNG().nextInt(2500) == 0) {
-                EntityLiopleurodon liopleurodon = new EntityLiopleurodon(entity.world);
-                liopleurodon.copyLocationAndAnglesFrom(entity);
-                entity.world.spawnEntity(liopleurodon);
-                entity.setDead();
-
-                if (Config.debug == true) {
-                    DivineRPG.logger.info(liopleurodon.getName() + " just spawned at " + entity.getPosition());
-                }
-            }
-        }
-    }
-    @Deprecated	
+    @Deprecated
     public static void initSpawns() {	
         for (Biome biome : ForgeRegistries.BIOMES.getValues())
             if (biome.equals(ModBiomes.Iceika)) {
@@ -216,9 +177,4 @@ public class ModSpawns {
                 }
             }
     }
-    @SubscribeEvent
-    public static void onLivingSpawn(LivingSpawnEvent event) {
-        ModSpawns.init(event);
-    }
-
 }

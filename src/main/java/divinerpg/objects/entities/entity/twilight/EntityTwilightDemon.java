@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraft.world.BossInfo.Color;
 
 public class EntityTwilightDemon extends EntityDivineRPGBoss {
 
@@ -82,5 +83,10 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
     @Override
     protected ResourceLocation getLootTable() {
         return DRPGLootTables.ENTITIES_TWILIGHT_DEMON;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.RED;
     }
 }
