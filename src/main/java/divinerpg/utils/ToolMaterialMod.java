@@ -213,11 +213,11 @@ public class ToolMaterialMod {
     public static final ArmorMaterial AWAKENED_HALITE_ARMOR = EnumHelper.addArmorMaterial("drpg_awakened_halite_armor", Reference.MODID + ":awakened_halite", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
     public static final ArmorMaterial KING_ARMOR = EnumHelper.addArmorMaterial("drpg_king_armor", Reference.MODID + ":king", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
 
-    public static final ArmorMaterial DEGRADED_ARMOR = EnumHelper.addArmorMaterial("drpg_degraded_armor", Reference.MODID + ":degraded", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
-    public static final ArmorMaterial FINISHED_ARMOR = EnumHelper.addArmorMaterial("drpg_finished_armor", Reference.MODID + ":finished", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
-    public static final ArmorMaterial GLISTENING_ARMOR = EnumHelper.addArmorMaterial("drpg_glistening_armor", Reference.MODID + ":glistening", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
-    public static final ArmorMaterial DEMONIZED_ARMOR = EnumHelper.addArmorMaterial("drpg_demonized_armor", Reference.MODID + ":demonized", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
-    public static final ArmorMaterial TORMENTED_ARMOR = EnumHelper.addArmorMaterial("drpg_tormented_armor", Reference.MODID + ":tormented", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial DEGRADED_ARMOR = EnumHelper.addArmorMaterial("drpg_degraded_armor", Reference.MODID + ":degraded", 25, new int[] {2, 4, 5, 3},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
+    public static final ArmorMaterial FINISHED_ARMOR = EnumHelper.addArmorMaterial("drpg_finished_armor", Reference.MODID + ":finished", 30, new int[] {3, 5, 6, 3},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3F);
+    public static final ArmorMaterial GLISTENING_ARMOR = EnumHelper.addArmorMaterial("drpg_glistening_armor", Reference.MODID + ":glistening", 35, new int[] {3, 6, 7, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3F);
+    public static final ArmorMaterial DEMONIZED_ARMOR = EnumHelper.addArmorMaterial("drpg_demonized_armor", Reference.MODID + ":demonized", 40, new int[] {4, 7, 8, 4},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4F);
+    public static final ArmorMaterial TORMENTED_ARMOR = EnumHelper.addArmorMaterial("drpg_tormented_armor", Reference.MODID + ":tormented", 45, new int[] {4, 8, 9, 5},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4F);
 
     private static ItemStack makeRepairStack(String itemName) {
         return new ItemStack(ModItems.getItemFromMap(itemName));
