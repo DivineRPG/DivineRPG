@@ -20,7 +20,7 @@ public class ToolMaterialMod {
      * Shovels: add 2.5
      * Pickaxes: add 2
      * Shickaxe: add 2
-     * Axes: add 1 (the massively increased values of vanilla axes are hardcoded in the axe class.
+     * Axes: add 1 (the massively increased values of vanilla axes are hardcoded in the axe class)
      *
      * It should be noted that the base attack damage is 1 (i.e. fist damage) and the values above are already modified to account for that.
      * For instance, Apalachia Blade's material has 25 damage in its constructor, so the actual damage done is 29.
