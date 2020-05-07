@@ -1,20 +1,9 @@
 package divinerpg.enums;
 
 import divinerpg.api.Reference;
-import divinerpg.objects.entities.assets.model.arcana.ModelDramix;
-import divinerpg.objects.entities.assets.model.arcana.ModelParasecta;
-import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
-import divinerpg.objects.entities.assets.model.twilight.ModelEternalArcher;
-import divinerpg.objects.entities.assets.model.twilight.ModelKarot;
-import divinerpg.objects.entities.assets.model.twilight.ModelSoulFiend;
-import divinerpg.objects.entities.assets.model.twilight.ModelSunstorm;
-import divinerpg.objects.entities.assets.model.twilight.ModelTermasect;
-import divinerpg.objects.entities.assets.model.twilight.ModelTwilightDemon;
-import divinerpg.objects.entities.assets.model.twilight.ModelVamacheron;
-import divinerpg.objects.entities.assets.model.vanilla.ModelAncientEntity;
-import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
-import divinerpg.objects.entities.assets.model.vanilla.ModelKingScorcher;
-import divinerpg.objects.entities.assets.model.vanilla.ModelTheWatcher;
+import divinerpg.objects.entities.assets.model.arcana.*;
+import divinerpg.objects.entities.assets.model.twilight.*;
+import divinerpg.objects.entities.assets.model.vanilla.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.util.ResourceLocation;
 
@@ -40,7 +29,8 @@ public enum StatueType {
     YELLOW_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(Reference.MODID, "textures/entity/ayeraco_yellow.png")),
 
     TERMASECT_STATUE(new ModelTermasect(), new ResourceLocation(Reference.MODID, "textures/entity/termasect.png")),
-    SUNSTORM_STATUE(new ModelSunstorm(), new ResourceLocation(Reference.MODID, "textures/entity/sunstorm.png"));
+    SUNSTORM_STATUE(new ModelSunstorm(), new ResourceLocation(Reference.MODID, "textures/entity/sunstorm.png")),
+    EXPERIENCED_CORI_STATUE(new ModelExperiencedCori(), new ResourceLocation(Reference.MODID, "textures/entity/experienced_cori.png"));
 
     private final ModelBase model;
     private final ResourceLocation texture;

@@ -1,0 +1,31 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:eden_heart"
+    },
+    "title":{
+      "translate":"advancement.kill_boss_sunstorm"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.kill_boss_sunstorm.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:enter_eden",
+  "criteria":{
+    "kill_boss_sunstorm":{
+      "trigger":"minecraft:player_killed_entity",
+      "conditions":{
+        "entity":{
+          "type":"divinerpg:sunstorm"
+        }
+      }
+    }
+  },
+  "rewards":{
+    "loot":[
+      "divinerpg:kill_boss/sunstorm"
+    ]
+  }
+}

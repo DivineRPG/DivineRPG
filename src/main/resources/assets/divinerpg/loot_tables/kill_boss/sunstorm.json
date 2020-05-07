@@ -1,0 +1,15 @@
+{
+  "pools":[
+    {
+      "name":"divinerpg:sunstorm_statue",
+      "rolls":1,
+      "entries":[
+        {
+          "type":"item",
+          "name":"divinerpg:sunstorm_statue",
+          "weight":1
+        }
+      ]
+    }
+  ]
+}

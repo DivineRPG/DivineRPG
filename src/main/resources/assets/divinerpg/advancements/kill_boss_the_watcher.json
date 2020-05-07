@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_nether",
    "criteria":{
       "kill_boss_the_watcher":{
          "trigger":"minecraft:player_killed_entity",

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_shield"
+  },
+  "pattern": [
+    "ppp",
+    "prp",
+    " z "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "divinerpg:netherite_chunk"
+    },
+    "p": {
+      "item": "divinerpg:mortum_planks"
+    },
+    "z": {
+      "item": "divinerpg:mortum_chunk"
+    }
+  }
+}

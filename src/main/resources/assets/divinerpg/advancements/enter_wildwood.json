@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.enter_wildwood"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.enter_wildwood.desc"
       },

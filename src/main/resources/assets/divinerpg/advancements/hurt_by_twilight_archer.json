@@ -10,7 +10,7 @@
          "translate":"advancement.hurt_by_twilight_archer.desc"
       }
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_mortum",
    "criteria":{
       "hurt_by_twilight_archer":{
          "trigger":"minecraft:entity_hurt_player",

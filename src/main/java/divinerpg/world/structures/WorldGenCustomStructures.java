@@ -54,6 +54,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
     public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
     public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
+    public static final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/experienced_cori_dungeon");
 
     private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
     private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
@@ -99,6 +100,9 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         	}
         	if(world.provider.getDimensionType() == ModDimensions.wildWoodDimension) {
         		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, ModBlocks.wildwoodGrass, 10, 10);
+        	}
+        	if(world.provider.getDimensionType() == ModDimensions.skythernDimension) {
+        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, ModBlocks.skythernGrass, 10, 10);
         	}
     }
 

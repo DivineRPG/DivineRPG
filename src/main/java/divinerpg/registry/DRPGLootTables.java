@@ -78,6 +78,7 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_ENCHANTED_WARRIOR = registerTable("entities/twilight/enchanted_warrior");
     public static final ResourceLocation ENTITIES_EPIPHITE = registerTable("entities/twilight/epiphite");
     public static final ResourceLocation ENTITIES_ETERNAL_ARCHER = registerTable("entities/twilight/eternal_archer");
+    public static final ResourceLocation ENTITIES_EXPERIENCED_CORI = registerTable("entities/twilight/experienced_cori");
     public static final ResourceLocation ENTITIES_GREENFEET = registerTable("entities/twilight/greenfeet");
     public static final ResourceLocation ENTITIES_KAROT = registerTable("entities/twilight/karot");
     public static final ResourceLocation ENTITIES_MADIVEL = registerTable("entities/twilight/madivel");

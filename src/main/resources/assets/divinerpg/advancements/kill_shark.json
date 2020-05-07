@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.kill_shark"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.kill_shark.desc"
       },

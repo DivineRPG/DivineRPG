@@ -6,7 +6,6 @@
       "title":{
          "translate":"advancement.eat_chicken_dinner"
       },
-      "frame":"challenge",
       "description":{
          "translate":"advancement.eat_chicken_dinner.desc"
       },

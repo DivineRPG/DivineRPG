@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:craft_horde_horn",
    "criteria":{
       "kill_boss_ayeraco_red":{
          "trigger":"minecraft:player_killed_entity",

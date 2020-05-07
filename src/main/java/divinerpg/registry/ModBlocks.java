@@ -1,5 +1,8 @@
 package divinerpg.registry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import divinerpg.DivineRPG;
 import divinerpg.dimensions.TwilightTree;
 import divinerpg.dimensions.eden.EdenTree;
@@ -9,14 +12,101 @@ import divinerpg.dimensions.wildwood.WildWoodTree;
 import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.StatueType;
-import divinerpg.objects.blocks.*;
-import divinerpg.objects.blocks.arcana.*;
-import divinerpg.objects.blocks.iceika.*;
-import divinerpg.objects.blocks.twilight.*;
-import divinerpg.objects.blocks.vanilla.*;
-import divinerpg.objects.blocks.vethea.*;
+import divinerpg.objects.blocks.BlockBeaconBase;
+import divinerpg.objects.blocks.BlockMod;
+import divinerpg.objects.blocks.BlockModBridge;
+import divinerpg.objects.blocks.BlockModDirt;
+import divinerpg.objects.blocks.BlockModDoor;
+import divinerpg.objects.blocks.BlockModFire;
+import divinerpg.objects.blocks.BlockModGlass;
+import divinerpg.objects.blocks.BlockModGrass;
+import divinerpg.objects.blocks.BlockModLadder;
+import divinerpg.objects.blocks.BlockModLamp;
+import divinerpg.objects.blocks.BlockModLeaves;
+import divinerpg.objects.blocks.BlockModLight;
+import divinerpg.objects.blocks.BlockModLog;
+import divinerpg.objects.blocks.BlockModOre;
+import divinerpg.objects.blocks.BlockModPlank;
+import divinerpg.objects.blocks.BlockModPortal;
+import divinerpg.objects.blocks.BlockModSapling;
+import divinerpg.objects.blocks.BlockModSlab;
+import divinerpg.objects.blocks.BlockModSpawner;
+import divinerpg.objects.blocks.BlockModStairs;
+import divinerpg.objects.blocks.BlockModTorch;
+import divinerpg.objects.blocks.BlockModUnbreakable;
+import divinerpg.objects.blocks.BlockModVine;
+import divinerpg.objects.blocks.BlockSingleUseSpawner;
+import divinerpg.objects.blocks.BlockStatue;
+import divinerpg.objects.blocks.arcana.BlockAcceleron;
+import divinerpg.objects.blocks.arcana.BlockAquaMarine;
+import divinerpg.objects.blocks.arcana.BlockArcanaDoor;
+import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
+import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
+import divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
+import divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
+import divinerpg.objects.blocks.arcana.BlockDemonFurnace;
+import divinerpg.objects.blocks.arcana.BlockDramixAltar;
+import divinerpg.objects.blocks.arcana.BlockElevantium;
+import divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
+import divinerpg.objects.blocks.arcana.BlockFirestock;
+import divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
+import divinerpg.objects.blocks.arcana.BlockHeatTrap;
+import divinerpg.objects.blocks.arcana.BlockHitchak;
+import divinerpg.objects.blocks.arcana.BlockLamona;
+import divinerpg.objects.blocks.arcana.BlockMarsine;
+import divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
+import divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
+import divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
+import divinerpg.objects.blocks.arcana.BlockParasectaAltar;
+import divinerpg.objects.blocks.arcana.BlockPinfly;
+import divinerpg.objects.blocks.arcana.BlockVeilo;
+import divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
+import divinerpg.objects.blocks.iceika.BlockCandyCane;
+import divinerpg.objects.blocks.iceika.BlockChristmasLights;
+import divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
+import divinerpg.objects.blocks.iceika.BlockFrostedChest;
+import divinerpg.objects.blocks.iceika.BlockPresentBox;
+import divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import divinerpg.objects.blocks.twilight.BlockBrambles;
+import divinerpg.objects.blocks.twilight.BlockEdenChest;
+import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
+import divinerpg.objects.blocks.twilight.BlockMoonbulb;
+import divinerpg.objects.blocks.twilight.BlockPinkGlowbone;
+import divinerpg.objects.blocks.twilight.BlockPurpleGlowbone;
+import divinerpg.objects.blocks.twilight.BlockSkyPlant;
+import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
+import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
+import divinerpg.objects.blocks.twilight.BlockTwilightOre;
+import divinerpg.objects.blocks.vanilla.BlockAltarOfCorruption;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoBeam;
+import divinerpg.objects.blocks.vanilla.BlockAyeracoSpawn;
+import divinerpg.objects.blocks.vanilla.BlockBoneChest;
+import divinerpg.objects.blocks.vanilla.BlockHotSpike;
+import divinerpg.objects.blocks.vanilla.BlockLightFence;
+import divinerpg.objects.blocks.vanilla.BlockMobPumpkin;
+import divinerpg.objects.blocks.vanilla.BlockNetheriteOre;
+import divinerpg.objects.blocks.vanilla.BlockSpike;
+import divinerpg.objects.blocks.vanilla.BlockTar;
+import divinerpg.objects.blocks.vanilla.BlockTomatoPlant;
+import divinerpg.objects.blocks.vanilla.BlockWhiteMushroomPlant;
+import divinerpg.objects.blocks.vethea.BlockAcid;
+import divinerpg.objects.blocks.vethea.BlockDreamLamp;
+import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
+import divinerpg.objects.blocks.vethea.BlockHiveEgg;
+import divinerpg.objects.blocks.vethea.BlockInfusionTable;
+import divinerpg.objects.blocks.vethea.BlockKarosAltar;
+import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
+import divinerpg.objects.blocks.vethea.BlockKarosHeatTile;
+import divinerpg.objects.blocks.vethea.BlockLunicAltar;
+import divinerpg.objects.blocks.vethea.BlockNightmareBed;
+import divinerpg.objects.blocks.vethea.BlockQuadroticAltar;
+import divinerpg.objects.blocks.vethea.BlockRaglokAltar;
+import divinerpg.objects.blocks.vethea.BlockVetheaLog;
+import divinerpg.objects.blocks.vethea.BlockVetheaPortal;
+import divinerpg.objects.blocks.vethea.BlockWreckAltar;
 import divinerpg.objects.entities.entity.twilight.EntitySunstorm;
 import divinerpg.objects.entities.entity.twilight.EntityTermasect;
+import divinerpg.objects.entities.entity.twilight.cories.EntityExperiencedCori;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -32,9 +122,6 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
@@ -175,6 +262,8 @@ public class ModBlocks {
     public static final Block wildwoodBricks = null;
     @ObjectHolder("apalachia_bricks")
     public static final Block apalachiaBricks = null;
+    @ObjectHolder("skythern_bricks")
+    public static final Block skythernBricks = null;
 
     // Minibricks
     @ObjectHolder("minibricks")
@@ -353,6 +442,8 @@ public class ModBlocks {
     public static final Block termasect_statue = null;
     @ObjectHolder("sunstorm_statue")
     public static final Block sunstorm_statue = null;
+    @ObjectHolder("experienced_cori_statue")
+    public static final Block experienced_cori_statue = null;
 
     // Liquid
     @ObjectHolder("tar")
@@ -1052,6 +1143,8 @@ public class ModBlocks {
     public static final Block sunstormSpawner = null;
     @ObjectHolder("termasect_spawner")
     public static final Block termasectSpawner = null;
+    @ObjectHolder("experienced_cori_spawner")
+    public static final Block experiencedCoriSpawner = null;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -1134,6 +1227,7 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.ROCK, "eden_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "wildwood_bricks", 3.0F, IRON).setResistance(30.0F));
         register(registry, new BlockMod(EnumBlockType.ROCK, "apalachia_bricks", 3.0F, IRON).setResistance(30.0F));
+        register(registry, new BlockMod(EnumBlockType.ROCK, "skythern_bricks", 3.0F, IRON).setResistance(30.0F));
 
         // Minibricks
         register(registry, new BlockMod(EnumBlockType.ROCK, "minibricks", 3.0F, IRON).setResistance(30.0F));
@@ -1237,6 +1331,7 @@ public class ModBlocks {
 
         register(registry, new BlockStatue("termasect_statue", StatueType.TERMASECT_STATUE));
         register(registry, new BlockStatue("sunstorm_statue", StatueType.SUNSTORM_STATUE));
+        register(registry, new BlockStatue("experienced_cori_statue", StatueType.EXPERIENCED_CORI_STATUE));
 
         // Ayeraco technical blocks
         registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));
@@ -1682,9 +1777,8 @@ public class ModBlocks {
         // newSpawners
         //
         register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 20 * 5, 5));
-        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 20 * 5, 5,
-                // should spawn above
-                new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
