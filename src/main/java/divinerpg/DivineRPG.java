@@ -3,25 +3,22 @@
  */
 package divinerpg;
 
+import divinerpg.events.enchants.WorldBreakEnchantHandler;
 import org.apache.logging.log4j.LogManager;
 
 import divinerpg.api.Reference;
 import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.events.*;
-import divinerpg.events.enchants.DiggingTaskFactory;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
 import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -61,6 +58,7 @@ public class DivineRPG {
         proxy.registerTileEntities();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
+        MinecraftForge.EVENT_BUS.register(new WorldBreakEnchantHandler());
         ModMessages.initMessages();
         AttributeFixer.patchMaximumHealth();
     }
@@ -81,8 +79,7 @@ public class DivineRPG {
         }
         ModSpawns.initSpawns();
         Utils.loadHatInformation();
-
-        MinecraftForge.EVENT_BUS.register(new DiggingTaskFactory());
+        
         DimensionHelper.initPortalDescriptions();
     }
 
