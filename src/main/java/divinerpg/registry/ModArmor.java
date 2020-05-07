@@ -2,10 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ArmorInfo;
-import divinerpg.utils.ToolMaterialMod;
 import divinerpg.objects.items.base.ItemDivineArmor;
-import divinerpg.objects.items.vanilla.KingArmorItem;
-import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;

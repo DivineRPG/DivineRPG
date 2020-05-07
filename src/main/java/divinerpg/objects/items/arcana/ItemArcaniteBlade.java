@@ -4,7 +4,7 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.LocalizeUtils;
-import divinerpg.utils.ToolMaterialMod;
+import divinerpg.registry.ToolMaterialMod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

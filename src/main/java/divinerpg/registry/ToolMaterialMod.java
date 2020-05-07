@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg.registry;
 
 import divinerpg.api.Reference;
 import divinerpg.registry.ModItems;
@@ -26,6 +26,7 @@ public class ToolMaterialMod {
      * For instance, Apalachia Blade's material has 25 damage in its constructor, so the actual damage done is 29.
      * The base damage is 1, and the damage added by the blade is 25 + 3 = 28.
      */
+    //Swords
     public static final ToolMaterial APALACHIA_BLADE = EnumHelper.addToolMaterial("drpg_apalachia_blade", 4, 2000, 4.0F, 25.0F, 22).setRepairItem(makeRepairStack("apalachia_gem"));
     public static final ToolMaterial AQUA_DAGGER = EnumHelper.addToolMaterial("drpg_aqua_dagger", 4, 2000, 4.0F, 6.0F, 15).setRepairItem(makeRepairStack("aquatic_ingot"));
     public static final ToolMaterial AQUA_MAUL = EnumHelper.addToolMaterial("drpg_aqua_maul", 4, 4000, 4.0F, 14.0F, 10).setRepairItem(makeRepairStack("aquatic_ingot"));
@@ -210,8 +211,6 @@ public class ToolMaterialMod {
     public static final ArmorMaterial VEMOS_ARMOR = EnumHelper.addArmorMaterial("drpg_vemos_armor", Reference.MODID + ":vemos", 28, new int[] {4, 5, 6, 5}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3F);
     public static final ArmorMaterial WILDWOOD_ARMOR = EnumHelper.addArmorMaterial("drpg_wildwood_armor", Reference.MODID + ":wildwood", 34, new int[] {4, 5, 7, 4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3F);
     public static final ArmorMaterial WITHER_REAPER_ARMOR = EnumHelper.addArmorMaterial("drpg_wither_reaper_armor", Reference.MODID + ":wither_reaper", 34, new int[] {3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
-
-    //public static final ArmorMaterial KING_ARMOR = EnumHelper.addArmorMaterial("drpg_king_armor", Reference.MODID + ":king", 500, new int[] {1, 1, 1, 1},  1, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
 
     public static final ArmorMaterial DEGRADED_ARMOR = EnumHelper.addArmorMaterial("drpg_degraded_armor", Reference.MODID + ":degraded", 25, new int[] {2, 4, 5, 3},  10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2F);
     public static final ArmorMaterial FINISHED_ARMOR = EnumHelper.addArmorMaterial("drpg_finished_armor", Reference.MODID + ":finished", 30, new int[] {3, 5, 6, 3},  10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3F);
