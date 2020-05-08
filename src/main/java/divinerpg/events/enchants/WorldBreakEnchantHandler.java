@@ -54,7 +54,7 @@ public class WorldBreakEnchantHandler {
     }
 
     private void tryToBreakBlock(World world, EntityPlayer player, BlockPos pos, IBlockState blockState, ItemStack tool) {
-        if(blockState.getBlockHardness(world, pos) < 0 || blockState.getBlock() == Blocks.AIR) {
+        if(blockState.getBlock() == Blocks.AIR || blockState.getBlockHardness(world, pos) < 0) {
             return;
         }
 
