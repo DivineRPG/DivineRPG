@@ -46,9 +46,9 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
     public static List<MerchantRecipe> getAllRecipies(){
         List<MerchantRecipe> list = new ArrayList<>();
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaCap, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaTunic, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaPants, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaHelmet, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaChestplate, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaLeggings, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaBoots, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.eggNog, 2, 0)));
         list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.chocolateLog, 5, 0)));

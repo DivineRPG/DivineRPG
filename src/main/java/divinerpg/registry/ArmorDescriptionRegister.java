@@ -160,9 +160,9 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.santaCap)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.santaTunic)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.santaPants)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.santaHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.santaChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.santaLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.santaBoots)
                         .withHandler(LivingHurtEvent.class, event -> {
                             if (event.getEntityLiving().world.provider.getDimensionType() == ModDimensions.iceikaDimension) {

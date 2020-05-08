@@ -299,12 +299,12 @@ public class ModArmor {
     public static final Item witherReaperBoots = null;
 
     // Iceika dimension armor
-    @ObjectHolder("santa_cap")
-    public static final Item santaCap = null;
-    @ObjectHolder("santa_tunic")
-    public static final Item santaTunic = null;
-    @ObjectHolder("santa_pants")
-    public static final Item santaPants = null;
+    @ObjectHolder("santa_helmet")
+    public static final Item santaHelmet = null;
+    @ObjectHolder("santa_chestplate")
+    public static final Item santaChestplate = null;
+    @ObjectHolder("santa_leggings")
+    public static final Item santaLeggings = null;
     @ObjectHolder("santa_boots")
     public static final Item santaBoots = null;
 
@@ -546,13 +546,6 @@ public class ModArmor {
         register(registry, new ItemDivineArmor(prefix + "_boots", material, EntityEquipmentSlot.FEET, info));
     }
 
-    private static void registerArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo info, String[] suffixes) {
-        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[0], material, EntityEquipmentSlot.HEAD, info));
-        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[1], material, EntityEquipmentSlot.CHEST, info));
-        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[2], material, EntityEquipmentSlot.LEGS, info));
-        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[3], material, EntityEquipmentSlot.FEET, info));
-    }
-
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         DivineRPG.logger.info("Registering DivineRPG armor");
@@ -595,7 +588,7 @@ public class ModArmor {
         registerArmorSet(registry, "wither_reaper", ToolMaterialMod.WITHER_REAPER_ARMOR, witherReaperInfo);
 
         // Iceika dimension armor
-        registerArmorSet(registry, "santa", ToolMaterialMod.SANTA_ARMOR, santaInfo, new String[] {"cap", "tunic", "pants", "boots"});
+        registerArmorSet(registry, "santa", ToolMaterialMod.SANTA_ARMOR, santaInfo);
 
         // Twilight armor
         registerArmorSet(registry, "eden", ToolMaterialMod.EDEN_ARMOR, edenInfo);

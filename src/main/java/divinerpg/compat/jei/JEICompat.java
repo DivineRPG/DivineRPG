@@ -46,7 +46,7 @@ public class JEICompat implements IModPlugin {
                 GuiWorkshopMerchant.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_MERCHANT_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.workshop_merchant.name"),
-                ModArmor.santaCap));
+                ModArmor.santaHelmet));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopTinkerer.MERCHANT_GUI_TEXTURE,

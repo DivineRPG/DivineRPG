@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/santa_cap"
+    "layer0": "divinerpg:items/santa_chestplate"
   }
 }

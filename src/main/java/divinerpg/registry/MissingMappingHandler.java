@@ -18,36 +18,32 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBlocks(MissingMappings<Block> event) {
         for(MissingMappings.Mapping<Block> mapping: event.getAllMappings()) {
-            ResourceLocation oldKey = mapping.key;
-            if (!oldKey.getResourceDomain().equals(Reference.MODID))
-                continue;
-
-            switch (oldKey.getResourcePath()) {
-                case "karos_cannon":
-                    mapping.remap(ModBlocks.karosDispenser);
-                    break;
-
-                case "ayeraco_statue":
-                    mapping.remap(ModBlocks.ayeracoBlueStatue);
-                    break;
+            if(mapping.key.equals(new ResourceLocation("divinerpg:karos_cannon"))) {
+                mapping.remap(ModBlocks.karosDispenser);
+            }
+            else if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
+                mapping.remap(ModBlocks.ayeracoBlueStatue);
             }
         }
     }
 
-    @SubscribeEvent
+
+     @SubscribeEvent
     public static void handleMissingItems(MissingMappings<Item> event) {
-        for (MissingMappings.Mapping<Item> mapping : event.getAllMappings()) {
-            ResourceLocation oldKey = mapping.key;
-            if (!oldKey.getResourceDomain().equals(Reference.MODID))
-                continue;
-
-            switch (oldKey.getResourcePath()) {
-
-                case "ayeraco_statue":
-                    mapping.remap(Item.getItemFromBlock(ModBlocks.ayeracoBlueStatue));
-                    break;
-            }
-        }
+         for(MissingMappings.Mapping<Item> mapping: event.getAllMappings()) {
+             if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
+                 mapping.remap(Item.getItemFromBlock(ModBlocks.ayeracoBlueStatue));
+             }
+             else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_cap"))) {
+                 mapping.remap(ModArmor.santaHelmet);
+             }
+             else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_tunic"))) {
+                 mapping.remap(ModArmor.santaChestplate);
+             }
+             else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_pants"))) {
+                 mapping.remap(ModArmor.santaLeggings);
+             }
+         }
     }
 
     @SubscribeEvent
