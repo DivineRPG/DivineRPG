@@ -117,6 +117,7 @@ public class Config {
             put("ayeraco_green_attack", 5.0F);
             put("ayeraco_green_health", 600.0F);
             put("ayeraco_purple_attack", 5.0F);
+            put("ayeraco_purple_attack", 5.0F);
             put("ayeraco_purple_health", 600.0F);
             put("ayeraco_red_attack", 5.0F);
             put("ayeraco_red_health", 600.0F);
@@ -136,15 +137,15 @@ public class Config {
             put("bunny_health", 10.0F);
             put("captain_merik_attack", 0.0F);
             put("captain_merik_health", 1000.0F);
-            put("cave_crawler_attack", 4.0F);
+            put("cave_crawler_attack", 7.0F);
             put("cave_crawler_health", 30.0F);
-            put("caveclops_attack", 6.0F);
+            put("caveclops_attack", 8.0F);
             put("caveclops_health", 60.0F);
             put("crab_attack", 6.0F);
             put("crab_health", 45.0F);
             put("crypt_keeper_attack", 2.0F);
             put("crypt_keeper_health", 20.0F);
-            put("cyclops_attack", 5.0F);
+            put("cyclops_attack", 8.0F);
             put("cyclops_health", 35.0F);
             put("cymesoid_attack", 8.0F);
             put("cymesoid_health", 25.0F);
@@ -158,7 +159,7 @@ public class Config {
             put("demon_of_darkness_health", 200.0F);
             put("densos_attack", 28.0F);
             put("densos_health", 1000.0F);
-            put("desert_crawler_attack", 6.0F);
+            put("desert_crawler_attack", 8.0F);
             put("desert_crawler_health", 40.0F);
             put("dissiment_attack", 0.0F);
             put("dissiment_health", 70.0F);
@@ -192,7 +193,7 @@ public class Config {
             put("ender_watcher_health", 50.0F);
             put("ent_attack", 20.0F);
             put("ent_health", 50.0F);
-            put("enthralled_dramcryx_attack", 7.0F);
+            put("enthralled_dramcryx_attack", 12.0F);
             put("enthralled_dramcryx_health", 80.0F);
             put("epiphite_attack", 14.0F);
             put("epiphite_health", 100.0F);
@@ -216,7 +217,7 @@ public class Config {
             put("galroid_health", 100.0F);
             put("glacide_attack", 12.0F);
             put("glacide_health", 80.0F);
-            put("glacon_attack", 7.0F);
+            put("glacon_attack", 8.0F);
             put("glacon_health", 60.0F);
             put("golem_of_rejuvenation_attack", 0.0F);
             put("golem_of_rejuvenation_health", 30.0F);
@@ -248,7 +249,7 @@ public class Config {
             put("jack_o_man_health", 1000.0F);
             put("jungle_bat_attack", 5.0F);
             put("jungle_bat_health", 20.0F);
-            put("jungle_dramcryx_attack", 7.0F);
+            put("jungle_dramcryx_attack", 9.0F);
             put("jungle_dramcryx_health", 40.0F);
             put("jungle_spider_attack", 7.0F);
             put("jungle_spider_health", 45.0F);
@@ -290,7 +291,7 @@ public class Config {
             put("mandragora_health", 35.0F);
             put("megalith_attack", 20.0F);
             put("megalith_health", 350.0F);
-            put("miner_attack", 5.0F);
+            put("miner_attack", 7.0F);
             put("miner_health", 40.0F);
             put("moon_wolf_attack", 1.0F);
             put("moon_wolf_health", 200.0F);
@@ -308,7 +309,7 @@ public class Config {
             put("parasecta_health", 1000.0F);
             put("paratiku_attack", 0.0F);
             put("paratiku_health", 100.0F);
-            put("pumpkin_spider_attack", 7.0F);
+            put("pumpkin_spider_attack", 9.0F);
             put("pumpkin_spider_health", 50.0F);
             put("quadro_attack", 8.0F);
             put("quadro_health", 4000.0F);
@@ -324,9 +325,9 @@ public class Config {
             put("roamer_health", 110.0F);
             put("rollum_attack", 5.0F);
             put("rollum_health", 180.0F);
-            put("rotatick_attack", 6.0F);
+            put("rotatick_attack", 8.0F);
             put("rotatick_health", 40.0F);
-            put("saguaro_worm_attack", 4.0F);
+            put("saguaro_worm_attack", 6.0F);
             put("saguaro_worm_health", 80.0F);
             put("samek_attack", 20.0F);
             put("samek_health", 160.0F);
@@ -370,9 +371,9 @@ public class Config {
             put("termasect_health", 1050.0F);
             put("termid_attack", 4.0F);
             put("termid_health", 40.0F);
-            put("the_eye_attack", 10.0F);
+            put("the_eye_attack", 12.0F);
             put("the_eye_health", 40.0F);
-            put("the_grue_attack", 10.0F);
+            put("the_grue_attack", 12.0F);
             put("the_grue_health", 30.0F);
             put("the_hunger_attack", 0.0F);
             put("the_hunger_health", 1000.0F);
