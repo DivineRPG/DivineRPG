@@ -125,7 +125,7 @@ public class Config {
             put("ayeraco_yellow_health", 600.0F);
             put("basilisk_attack", 10.0F);
             put("basilisk_health", 500.0F);
-            put("behemoth_attack", 9.0F);
+            put("behemoth_attack", 14.0F);
             put("behemoth_health", 180.0F);
             put("biphron_attack", 14.0F);
             put("biphron_health", 40.0F);
