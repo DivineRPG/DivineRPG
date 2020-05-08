@@ -6,6 +6,7 @@
       "title":{
          "translate":"advancement.tame_zelus_pet"
       },
+      "frame":"goal",
       "description":{
          "translate":"advancement.tame_zelus_pet.desc"
       }

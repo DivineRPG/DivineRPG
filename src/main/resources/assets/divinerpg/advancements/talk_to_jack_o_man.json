@@ -6,7 +6,6 @@
       "title":{
          "translate":"advancement.talk_to_jack_o_man"
       },
-      "frame":"challenge",
       "description":{
          "translate":"advancement.talk_to_jack_o_man.desc"
       },

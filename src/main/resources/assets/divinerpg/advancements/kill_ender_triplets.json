@@ -6,13 +6,13 @@
       "title":{
          "translate":"advancement.kill_ender_triplets"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.kill_ender_triplets.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_end",
    "criteria":{
       "kill_ender_triplets":{
          "trigger":"minecraft:player_killed_entity",

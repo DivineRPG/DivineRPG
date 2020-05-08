@@ -6,7 +6,7 @@
       "title":{
          "translate":"advancement.use_altar_of_corruption"
       },
-      "frame":"challenge",
+      "frame":"goal",
       "description":{
          "translate":"advancement.use_altar_of_corruption.desc"
       },

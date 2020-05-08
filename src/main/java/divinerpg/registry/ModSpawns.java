@@ -2,17 +2,109 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.Config;
-import divinerpg.objects.entities.entity.arcana.*;
-import divinerpg.objects.entities.entity.iceika.*;
-import divinerpg.objects.entities.entity.twilight.*;
+import divinerpg.objects.entities.entity.arcana.EntityCaptainMerik;
+import divinerpg.objects.entities.entity.arcana.EntityDatticon;
+import divinerpg.objects.entities.entity.arcana.EntityLeorna;
+import divinerpg.objects.entities.entity.arcana.EntityLordVatticus;
+import divinerpg.objects.entities.entity.arcana.EntityWarGeneral;
+import divinerpg.objects.entities.entity.arcana.EntityZelus;
+import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
+import divinerpg.objects.entities.entity.iceika.EntityFractite;
+import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
+import divinerpg.objects.entities.entity.iceika.EntityFrosty;
+import divinerpg.objects.entities.entity.iceika.EntityGlacide;
+import divinerpg.objects.entities.entity.iceika.EntityHastreus;
+import divinerpg.objects.entities.entity.iceika.EntityRollum;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaGolem;
+import divinerpg.objects.entities.entity.twilight.EntityApalachiaTomo;
+import divinerpg.objects.entities.entity.twilight.EntityBasilisk;
+import divinerpg.objects.entities.entity.twilight.EntityBehemoth;
+import divinerpg.objects.entities.entity.twilight.EntityBunny;
+import divinerpg.objects.entities.entity.twilight.EntityDemonOfDarkness;
+import divinerpg.objects.entities.entity.twilight.EntityEdenCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityEdenTomo;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedArcher;
+import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
+import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
+import divinerpg.objects.entities.entity.twilight.EntityGreenfeet;
+import divinerpg.objects.entities.entity.twilight.EntityMadivel;
+import divinerpg.objects.entities.entity.twilight.EntityMegalith;
+import divinerpg.objects.entities.entity.twilight.EntityMoonWolf;
+import divinerpg.objects.entities.entity.twilight.EntityMortumCadillion;
+import divinerpg.objects.entities.entity.twilight.EntitySamek;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernArcher;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernFiend;
+import divinerpg.objects.entities.entity.twilight.EntitySkythernGolem;
+import divinerpg.objects.entities.entity.twilight.EntitySoulStealer;
+import divinerpg.objects.entities.entity.twilight.EntitySunArcher;
+import divinerpg.objects.entities.entity.twilight.EntityTwilightArcher;
+import divinerpg.objects.entities.entity.twilight.EntityVerek;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodCadillion;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodGolem;
+import divinerpg.objects.entities.entity.twilight.EntityWildwoodTomo;
 import divinerpg.objects.entities.entity.twilight.cories.EntityAdvancedCori;
 import divinerpg.objects.entities.entity.twilight.cories.EntityWeakCori;
 import divinerpg.objects.entities.entity.twilight.mage.EntityMage;
 import divinerpg.objects.entities.entity.twilight.mage.EntityMystic;
 import divinerpg.objects.entities.entity.twilight.mage.EntitySorcerer;
 import divinerpg.objects.entities.entity.twilight.mage.EntitySpellbinder;
-import divinerpg.objects.entities.entity.vanilla.*;
-import divinerpg.objects.entities.entity.vethea.*;
+import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityCaveclops;
+import divinerpg.objects.entities.entity.vanilla.EntityCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityCyclops;
+import divinerpg.objects.entities.entity.vanilla.EntityDesertCrawler;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderTriplets;
+import divinerpg.objects.entities.entity.vanilla.EntityEnderWatcher;
+import divinerpg.objects.entities.entity.vanilla.EntityEnthralledDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityFrost;
+import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
+import divinerpg.objects.entities.entity.vanilla.EntityHellPig;
+import divinerpg.objects.entities.entity.vanilla.EntityHellSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleBat;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleDramcryx;
+import divinerpg.objects.entities.entity.vanilla.EntityJungleSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityKingCrab;
+import divinerpg.objects.entities.entity.vanilla.EntityKobblin;
+import divinerpg.objects.entities.entity.vanilla.EntityLiopleurodon;
+import divinerpg.objects.entities.entity.vanilla.EntityMiner;
+import divinerpg.objects.entities.entity.vanilla.EntityPumpkinSpider;
+import divinerpg.objects.entities.entity.vanilla.EntityRainbour;
+import divinerpg.objects.entities.entity.vanilla.EntityRotatick;
+import divinerpg.objects.entities.entity.vanilla.EntitySaguaroWorm;
+import divinerpg.objects.entities.entity.vanilla.EntityScorcher;
+import divinerpg.objects.entities.entity.vanilla.EntityShark;
+import divinerpg.objects.entities.entity.vanilla.EntityTheEye;
+import divinerpg.objects.entities.entity.vanilla.EntityTheGrue;
+import divinerpg.objects.entities.entity.vanilla.EntityWhale;
+import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
+import divinerpg.objects.entities.entity.vethea.EntityAcidHag;
+import divinerpg.objects.entities.entity.vethea.EntityBiphron;
+import divinerpg.objects.entities.entity.vethea.EntityBohemite;
+import divinerpg.objects.entities.entity.vethea.EntityCymesoid;
+import divinerpg.objects.entities.entity.vethea.EntityDissiment;
+import divinerpg.objects.entities.entity.vethea.EntityDreamwrecker;
+import divinerpg.objects.entities.entity.vethea.EntityDuo;
+import divinerpg.objects.entities.entity.vethea.EntityGalroid;
+import divinerpg.objects.entities.entity.vethea.EntityGorgosion;
+import divinerpg.objects.entities.entity.vethea.EntityHelio;
+import divinerpg.objects.entities.entity.vethea.EntityHoverStinger;
+import divinerpg.objects.entities.entity.vethea.EntityLheiva;
+import divinerpg.objects.entities.entity.vethea.EntityLorga;
+import divinerpg.objects.entities.entity.vethea.EntityLorgaflight;
+import divinerpg.objects.entities.entity.vethea.EntityMandragora;
+import divinerpg.objects.entities.entity.vethea.EntityMysteriousManLayer1;
+import divinerpg.objects.entities.entity.vethea.EntityMysteriousManLayer3;
+import divinerpg.objects.entities.entity.vethea.EntityShadahier;
+import divinerpg.objects.entities.entity.vethea.EntityTocaxin;
+import divinerpg.objects.entities.entity.vethea.EntityTwins;
+import divinerpg.objects.entities.entity.vethea.EntityVermenous;
+import divinerpg.objects.entities.entity.vethea.EntityVhraak;
+import divinerpg.objects.entities.entity.vethea.EntityZone;
+import divinerpg.objects.entities.entity.vethea.EntityZoragon;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntityWaterMob;
@@ -21,7 +113,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -176,5 +268,47 @@ public class ModSpawns {
                     EntityRegistry.addSpawn(EntityPumpkinSpider.class, 20, 1, 1, EnumCreatureType.MONSTER, biome);
                 }
             }
+    }
+    
+    @SubscribeEvent
+	public static void onLivingSpawn(CheckSpawn event) {
+    	EntityLivingBase entity = event.getEntityLiving();	
+        if (entity.world.getGameRules().getBoolean("doMobSpawning") && entity.world.provider.getDimension() == 0	
+                && entity instanceof EntityWaterMob && entity.world.getDifficulty() != EnumDifficulty.PEACEFUL	
+                && !entity.world.isRemote	
+                && entity.world.getBlockState(entity.getPosition()) == Blocks.WATER.getDefaultState()	
+                && (entity.world.getBiome(entity.getPosition()) == Biomes.OCEAN	
+                        || entity.world.getBiome(entity.getPosition()) == Biomes.DEEP_OCEAN)) {	
+
+
+            if (entity.getRNG().nextInt(150) == 0) {	    @Deprecated
+                EntityShark shark = new EntityShark(entity.world);	
+                shark.copyLocationAndAnglesFrom(entity);	
+                entity.world.spawnEntity(shark);	
+                entity.setDead();	
+
+                if (Config.debug == true) {	
+                    DivineRPG.logger.info(shark.getName() + " just spawned at " + entity.getPosition());	
+                }	
+            } else if (entity.getRNG().nextInt(250) == 0) {	
+                EntityWhale whale = new EntityWhale(entity.world);	
+                whale.copyLocationAndAnglesFrom(entity);	
+                entity.world.spawnEntity(whale);	
+                entity.setDead();	
+
+                if (Config.debug == true) {	
+                    DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());	
+                }	
+            } else if (entity.getRNG().nextInt(250) == 0) {	
+                EntityLiopleurodon liopleurodon = new EntityLiopleurodon(entity.world);	
+                liopleurodon.copyLocationAndAnglesFrom(entity);	
+                entity.world.spawnEntity(liopleurodon);	
+                entity.setDead();	
+
+                if (Config.debug == true) {	
+                    DivineRPG.logger.info(liopleurodon.getName() + " just spawned at " + entity.getPosition());	
+                }	
+            }
+        }
     }
 }

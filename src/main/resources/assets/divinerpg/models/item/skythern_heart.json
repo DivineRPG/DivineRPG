@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/skythern_heart"
+    "layer0": "divinerpg:items/experienced_cori_heart"
   }
 }

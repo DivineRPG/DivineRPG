@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_shield"
+  },
+  "pattern": [
+    "ppp",
+    "prp",
+    " p "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "divinerpg:wildwood_chunk"
+    },
+    "p": {
+      "item": "divinerpg:wildwood_planks"
+    }
+  }
+}

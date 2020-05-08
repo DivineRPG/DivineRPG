@@ -50,7 +50,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         InitLog.init();
         Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
     }
@@ -78,23 +77,6 @@ public class ClientProxy extends CommonProxy {
         OBJLoader.INSTANCE.addDomain(Reference.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         PreInitLog.init();
-    }
-
-    @Override
-    public void RegisterTileEntityRender() {
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityArcaniumExtractor.class, new RenderArcaniumExtractor());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNightmareBed.class, new RenderNightmareBed());
     }
 
     @Override

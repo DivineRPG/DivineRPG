@@ -39,6 +39,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static divinerpg.utils.LocalizeUtils.getArmorAbility;
 
@@ -624,7 +625,20 @@ public class ModItems {
     public static final Item realmite_shield = null;
     @ObjectHolder("rupee_shield")
     public static final Item rupee_shield = null;
+    @ObjectHolder("halite_shield")
+    public static final Item halite_shield = null;
 
+    @ObjectHolder("eden_shield")
+    public static final Item eden_shield = null;
+    @ObjectHolder("wildwood_shield")
+    public static final Item wildwood_shield = null;
+    @ObjectHolder("apalachia_shield")
+    public static final Item apalachia_shield = null;
+    @ObjectHolder("skythern_shield")
+    public static final Item skythern_shield = null;
+    @ObjectHolder("mortum_shield")
+    public static final Item mortum_shield = null;
+    
     @SubscribeEvent(priority=EventPriority.HIGH)
     public static void registerItems(RegistryEvent.Register<Item> event) {
         DivineRPG.logger.info("Registering DivineRPG items");
@@ -977,6 +991,12 @@ public class ModItems {
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));
         register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> realmiteIngot, 1200));
         register(registry, new DivineShield("rupee_shield", DivineRPGTabs.armor, () -> rupeeIngot, 1200));
+        register(registry, new DivineShield("halite_shield", DivineRPGTabs.armor, () -> Item.getItemFromBlock(Blocks.AIR), 0));
+        register(registry, new DivineShield("eden_shield", DivineRPGTabs.armor, () -> edenChunk, 1200));
+        register(registry, new DivineShield("wildwood_shield", DivineRPGTabs.armor, () -> wildwoodChunk, 2400));
+        register(registry, new DivineShield("apalachia_shield", DivineRPGTabs.armor, () -> apalachiaChunk, 4800));
+        register(registry, new DivineShield("skythern_shield", DivineRPGTabs.armor, () -> skythernChunk, 9600));
+        register(registry, new DivineShield("mortum_shield", DivineRPGTabs.armor, () -> mortumChunk, 19200));
 
     }
 

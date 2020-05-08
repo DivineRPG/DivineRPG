@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_bricks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_gem"
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

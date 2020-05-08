@@ -17,6 +17,7 @@ import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.twilight.*;
 import divinerpg.objects.entities.entity.twilight.cories.EntityAdvancedCori;
+import divinerpg.objects.entities.entity.twilight.cories.EntityExperiencedCori;
 import divinerpg.objects.entities.entity.twilight.cories.EntityWeakCori;
 import divinerpg.objects.entities.entity.twilight.mage.EntityMage;
 import divinerpg.objects.entities.entity.twilight.mage.EntityMystic;
@@ -241,6 +242,7 @@ public class ModEntities {
                 buildEntityEntry(EntityDensos.class, "densos", BOSS),
                 buildEntityEntry(EntityDramix.class, "dramix", BOSS),
                 buildEntityEntry(EntityEternalArcher.class, "eternal_archer", BOSS),
+                buildEntityEntry(EntityExperiencedCori.class, "experienced_cori", BOSS),
                 buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
                 buildEntityEntry(EntityKarot.class, "karot", BOSS),
                 buildEntityEntry(EntityKaros.class, "karos", BOSS),
@@ -450,6 +452,7 @@ public class ModEntities {
         registerRender(EntityEnchantedWarrior.class, RenderEnchantedWarrior::new);
         registerRender(EntityEpiphite.class, RenderEpiphite::new);
         registerRender(EntityEternalArcher.class, RenderEternalArcher::new);
+        registerRender(EntityExperiencedCori.class, RenderExperiencedCori::new);
         registerRender(EntityGreenfeet.class, RenderGreenfeet::new);
         registerRender(EntityKarot.class, RenderKarot::new);
         registerRender(EntityMadivel.class, RenderMadivel::new);

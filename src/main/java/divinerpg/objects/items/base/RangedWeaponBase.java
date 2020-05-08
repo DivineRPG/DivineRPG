@@ -100,7 +100,13 @@ public class RangedWeaponBase extends ItemMod {
             tooltip.add(LocalizeUtils.rangedDam(bulletType.getDamage()));
         }
 
-        addAmmoInfo(tooltip);
+        EntityPlayer player = DivineRPG.proxy.getPlayer();
+        if (!needsAmmo() || player == null) {
+            tooltip.add(LocalizeUtils.infiniteAmmo());
+        } else {
+            ItemStack ammo = findAmmo(player);
+            tooltip.add(LocalizeUtils.ammo(getAmmo(), ammo != null));
+        }
 
         tooltip.add(stack.getMaxDamage() == -1 ? LocalizeUtils.infiniteUses() :
                 LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
@@ -160,16 +166,6 @@ public class RangedWeaponBase extends ItemMod {
     @SideOnly(Side.CLIENT)
     public boolean isFull3D() {
         return true;
-    }
-
-    private void addAmmoInfo(List<String> list) {
-        EntityPlayer player = DivineRPG.proxy.getPlayer();
-        if (!needsAmmo() || player == null) {
-            list.add(LocalizeUtils.infiniteAmmo());
-        } else {
-            ItemStack ammo = findAmmo(player);
-            list.add(LocalizeUtils.ammo(getAmmo(), ammo != null));
-        }
     }
 
     private Item getAmmo() {

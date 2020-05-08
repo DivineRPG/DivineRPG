@@ -1,0 +1,15 @@
+{
+  "pools":[
+    {
+      "name":"divinerpg:experienced_cori_statue",
+      "rolls":1,
+      "entries":[
+        {
+          "type":"item",
+          "name":"divinerpg:experienced_cori_statue",
+          "weight":1
+        }
+      ]
+    }
+  ]
+}

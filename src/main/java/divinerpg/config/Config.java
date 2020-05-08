@@ -198,6 +198,8 @@ public class Config {
             put("epiphite_health", 100.0F);
             put("eternal_archer_attack", 2.0F);
             put("eternal_archer_health", 1550.0F);
+            put("experienced_cori_attack", 16.0F);
+            put("experienced_cori_health", 1150.0F);
             put("fake_vhraak_attack", 30.0F);
             put("fake_vhraak_health", 100.0F);
             put("fractite_attack", 0.0F);

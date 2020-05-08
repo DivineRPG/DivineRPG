@@ -76,4 +76,9 @@ public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacke
         return world.provider.getDimension() == 0 && this.posY > 45.0D && this.posY < (double) this.world.getSeaLevel()
                 && isInWater();
     }
+    @Override
+    protected boolean canDespawn()
+    {
+        return true;
+    }
 }

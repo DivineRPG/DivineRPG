@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:root",
+   "parent":"divinerpg:enter_mortum",
    "criteria":{
       "kill_boss_twilight_demon":{
          "trigger":"minecraft:player_killed_entity",
