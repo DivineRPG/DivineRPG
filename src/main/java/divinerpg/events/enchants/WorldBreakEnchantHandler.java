@@ -61,6 +61,7 @@ public class WorldBreakEnchantHandler {
         if(block.canHarvestBlock(world, pos, player)) {
             block.harvestBlock(world, player, pos, blockState, null, tool);
             world.destroyBlock(pos, false);
+            tool.damageItem(1, player);
         }
     }
 

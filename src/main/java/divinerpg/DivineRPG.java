@@ -79,7 +79,6 @@ public class DivineRPG {
         }
         ModSpawns.initSpawns();
         Utils.loadHatInformation();
-        
         DimensionHelper.initPortalDescriptions();
     }
 
