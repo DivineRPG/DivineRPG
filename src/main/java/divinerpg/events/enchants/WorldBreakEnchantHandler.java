@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.EnumFacing;
@@ -53,7 +54,7 @@ public class WorldBreakEnchantHandler {
     }
 
     private void tryToBreakBlock(World world, EntityPlayer player, BlockPos pos, IBlockState blockState, ItemStack tool) {
-        if(blockState.getBlockHardness(world, pos) < 0) {
+        if(blockState.getBlockHardness(world, pos) < 0 || blockState.getBlock() == Blocks.AIR) {
             return;
         }
 
