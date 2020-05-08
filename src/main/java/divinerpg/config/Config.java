@@ -193,7 +193,7 @@ public class Config {
             put("ender_watcher_health", 50.0F);
             put("ent_attack", 20.0F);
             put("ent_health", 50.0F);
-            put("enthralled_dramcryx_attack", 12.0F);
+            put("enthralled_dramcryx_attack", 14.0F);
             put("enthralled_dramcryx_health", 80.0F);
             put("epiphite_attack", 14.0F);
             put("epiphite_health", 100.0F);
@@ -373,7 +373,7 @@ public class Config {
             put("termid_health", 40.0F);
             put("the_eye_attack", 12.0F);
             put("the_eye_health", 40.0F);
-            put("the_grue_attack", 12.0F);
+            put("the_grue_attack", 13.0F);
             put("the_grue_health", 30.0F);
             put("the_hunger_attack", 0.0F);
             put("the_hunger_health", 1000.0F);
