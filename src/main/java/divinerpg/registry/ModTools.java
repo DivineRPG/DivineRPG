@@ -6,7 +6,6 @@ import divinerpg.objects.items.base.ItemModHoe;
 import divinerpg.objects.items.base.ItemModPickaxe;
 import divinerpg.objects.items.base.ItemModShovel;
 import divinerpg.objects.items.vanilla.ItemShickaxe;
-import divinerpg.utils.ToolMaterialMod;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

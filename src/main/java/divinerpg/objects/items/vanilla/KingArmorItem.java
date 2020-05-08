@@ -29,8 +29,8 @@ import java.util.stream.Collectors;
 public class KingArmorItem extends ItemDivineArmor implements IItemContainer {
     private final String ItemsKey = "ItemsKey";
 
-    public KingArmorItem(EnumArmor armorMaterial, EntityEquipmentSlot slot, ArmorInfo info) {
-        super(null, armorMaterial, slot, info);
+    public KingArmorItem(String name, ArmorMaterial armorMaterial, EntityEquipmentSlot slot, ArmorInfo info) {
+        super(name, armorMaterial, slot, info);
     }
 
     @Override
@@ -83,6 +83,7 @@ public class KingArmorItem extends ItemDivineArmor implements IItemContainer {
         setAbsorbedItems(stack, newSet);
     }
 
+    /*
     @Override
     public void damageArmor(EntityLivingBase livingBase, ItemStack stack, DamageSource source, int par4, int par5) {
         // getting all absorbed items
@@ -102,7 +103,7 @@ public class KingArmorItem extends ItemDivineArmor implements IItemContainer {
 
         // saving items after damage
         setAbsorbedItems(stack, stacks);
-    }
+    }*/
 
     @Override
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {

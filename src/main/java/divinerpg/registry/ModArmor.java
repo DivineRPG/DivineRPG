@@ -2,11 +2,10 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ArmorInfo;
-import divinerpg.enums.EnumArmor;
 import divinerpg.objects.items.base.ItemDivineArmor;
-import divinerpg.objects.items.vanilla.KingArmorItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.RegistryEvent;
@@ -99,6 +98,7 @@ public class ModArmor {
     public static final Item enderLeggings = null;
     @ObjectHolder("ender_boots")
     public static final Item enderBoots = null;
+
 
     @ObjectHolder("blue_ender_helmet")
     public static final Item blueEnderHelmet = null;
@@ -530,6 +530,29 @@ public class ModArmor {
     private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2.2));
     private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
 
+    private static void registerArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo info) {
+        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EntityEquipmentSlot.HEAD, info));
+        register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EntityEquipmentSlot.CHEST, info));
+        register(registry, new ItemDivineArmor(prefix + "_leggings", material, EntityEquipmentSlot.LEGS, info));
+        register(registry, new ItemDivineArmor(prefix + "_boots", material, EntityEquipmentSlot.FEET, info));
+    }
+
+    private static void registerVetheanArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo helmetInfo, ArmorInfo hoodInfo, ArmorInfo maskInfo, ArmorInfo info) {
+        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EntityEquipmentSlot.HEAD, helmetInfo));
+        register(registry, new ItemDivineArmor(prefix + "_hood", material, EntityEquipmentSlot.HEAD, hoodInfo));
+        register(registry, new ItemDivineArmor(prefix + "_mask", material, EntityEquipmentSlot.HEAD, maskInfo));
+        register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EntityEquipmentSlot.CHEST, info));
+        register(registry, new ItemDivineArmor(prefix + "_leggings", material, EntityEquipmentSlot.LEGS, info));
+        register(registry, new ItemDivineArmor(prefix + "_boots", material, EntityEquipmentSlot.FEET, info));
+    }
+
+    private static void registerArmorSet(IForgeRegistry<Item> registry, String prefix, ArmorMaterial material, ArmorInfo info, String[] suffixes) {
+        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[0], material, EntityEquipmentSlot.HEAD, info));
+        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[1], material, EntityEquipmentSlot.CHEST, info));
+        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[2], material, EntityEquipmentSlot.LEGS, info));
+        register(registry, new ItemDivineArmor(prefix + "_" + suffixes[3], material, EntityEquipmentSlot.FEET, info));
+    }
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         DivineRPG.logger.info("Registering DivineRPG armor");
@@ -537,250 +560,68 @@ public class ModArmor {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension armor
+        registerArmorSet(registry, "angelic", ToolMaterialMod.ANGELIC_ARMOR, angelicInfo);
+        registerArmorSet(registry, "aquastrive", ToolMaterialMod.AQUASTRIVE_ARMOR, aquastriveInfo);
+        registerArmorSet(registry, "arlemite", ToolMaterialMod.ARLEMITE_ARMOR, arlemiteInfo);
+        registerArmorSet(registry, "bedrock", ToolMaterialMod.BEDROCK_ARMOR, bedrockInfo);
+        registerArmorSet(registry, "corrupted", ToolMaterialMod.CORRUPTED_ARMOR, corruptedInfo);
+        registerArmorSet(registry, "divine", ToolMaterialMod.DIVINE_ARMOR, divineInfo);
+        registerArmorSet(registry, "elite_realmite", ToolMaterialMod.ELITE_REALMITE_ARMOR, eliteRealmiteInfo);
+        registerArmorSet(registry, "ender", ToolMaterialMod.ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "blue_ender", ToolMaterialMod.BLUE_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "gray_ender", ToolMaterialMod.GRAY_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "green_ender", ToolMaterialMod.GREEN_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "red_ender", ToolMaterialMod.RED_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "yellow_ender", ToolMaterialMod.YELLOW_ENDER_ARMOR, enderInfo);
 
-        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.HEAD, angelicInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.CHEST, angelicInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.LEGS, angelicInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ANGELIC, EntityEquipmentSlot.FEET, angelicInfo));
+        registerArmorSet(registry, "frozen", ToolMaterialMod.FROZEN_ARMOR, frozenInfo);
+        registerArmorSet(registry, "inferno", ToolMaterialMod.INFERNO_ARMOR, infernoInfo);
+        registerArmorSet(registry, "jack_o_man", ToolMaterialMod.JACK_O_MAN_ARMOR, jackomanInfo);
+        registerArmorSet(registry, "jungle", ToolMaterialMod.JUNGLE_ARMOR, jungleInfo);
+        registerArmorSet(registry, "kraken", ToolMaterialMod.KRAKEN_ARMOR, krakenInfo);
+        registerArmorSet(registry, "netherite", ToolMaterialMod.NETHERITE_ARMOR, netheriteInfo);
+        registerArmorSet(registry, "realmite", ToolMaterialMod.REALMITE_ARMOR, new ArmorInfo());
 
-        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.HEAD, aquastriveInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.CHEST, aquastriveInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.LEGS, aquastriveInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AQUATIC, EntityEquipmentSlot.FEET, aquastriveInfo));
+        registerArmorSet(registry, "rupee", ToolMaterialMod.RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "blue_rupee", ToolMaterialMod.BLUE_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "gray_rupee", ToolMaterialMod.GRAY_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "green_rupee", ToolMaterialMod.GREEN_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "red_rupee", ToolMaterialMod.RED_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "yellow_rupee", ToolMaterialMod.YELLOW_RUPEE_ARMOR, rupeeInfo);
 
-        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.HEAD, arlemiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.CHEST, arlemiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.LEGS, arlemiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ARLEMITE, EntityEquipmentSlot.FEET, arlemiteInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.HEAD, bedrockInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.CHEST, bedrockInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.LEGS, bedrockInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.BEDROCK, EntityEquipmentSlot.FEET, bedrockInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.HEAD, corruptedInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.CHEST, corruptedInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.LEGS, corruptedInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.CORRUPTED, EntityEquipmentSlot.FEET, corruptedInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.HEAD, divineInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.CHEST, divineInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.LEGS, divineInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.DIVINE, EntityEquipmentSlot.FEET, divineInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.HEAD, eliteRealmiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.CHEST, eliteRealmiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.LEGS, eliteRealmiteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ELITE_REALMITE, EntityEquipmentSlot.FEET, eliteRealmiteInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_BLUE, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GRAY, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_GREEN, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_RED, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.HEAD, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.CHEST, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.LEGS, enderInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.ENDER_YELLOW, EntityEquipmentSlot.FEET, enderInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.HEAD, frozenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.CHEST, frozenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.LEGS, frozenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.FROZEN, EntityEquipmentSlot.FEET, frozenInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.HEAD, infernoInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.CHEST, infernoInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.LEGS, infernoInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.INFERNO, EntityEquipmentSlot.FEET, infernoInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.HEAD, jackomanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.CHEST, jackomanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.LEGS, jackomanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JACKOMAN, EntityEquipmentSlot.FEET, jackomanInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.HEAD, jungleInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.CHEST, jungleInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.LEGS, jungleInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.JUNGLE, EntityEquipmentSlot.FEET, jungleInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.HEAD, krakenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.CHEST, krakenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.LEGS, krakenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KRAKEN, EntityEquipmentSlot.FEET, krakenInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.HEAD, netheriteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.CHEST, netheriteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.LEGS, netheriteInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.NETHERITE, EntityEquipmentSlot.FEET, netheriteInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.HEAD));
-        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.REALMITE, EntityEquipmentSlot.FEET));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_BLUE, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GRAY, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_GREEN, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_YELLOW, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.HEAD, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.CHEST, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.LEGS, rupeeInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.RUPEE_RED, EntityEquipmentSlot.FEET, rupeeInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.HEAD, shadowInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.CHEST, shadowInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.LEGS, shadowInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SHADOW, EntityEquipmentSlot.FEET, shadowInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.HEAD, skelemanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.CHEST, skelemanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.LEGS, skelemanInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKELEMAN, EntityEquipmentSlot.FEET, skelemanInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.HEAD, terranInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.CHEST, terranInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.LEGS, terranInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.TERRAN, EntityEquipmentSlot.FEET, terranInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.HEAD, witherReaperInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.CHEST, witherReaperInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.LEGS, witherReaperInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WITHER_REAPER, EntityEquipmentSlot.FEET, witherReaperInfo));
+        registerArmorSet(registry, "shadow", ToolMaterialMod.SHADOW_ARMOR, shadowInfo);
+        registerArmorSet(registry, "skeleman", ToolMaterialMod.SKELEMAN_ARMOR, skelemanInfo);
+        registerArmorSet(registry, "terran", ToolMaterialMod.TERRAN_ARMOR, terranInfo);
+        registerArmorSet(registry, "wither_reaper", ToolMaterialMod.WITHER_REAPER_ARMOR, witherReaperInfo);
 
         // Iceika dimension armor
-        register(registry, new ItemDivineArmor("santa_boots", EnumArmor.SANTA, EntityEquipmentSlot.FEET, santaInfo));
-        register(registry, new ItemDivineArmor("santa_pants", EnumArmor.SANTA, EntityEquipmentSlot.LEGS, santaInfo));
-        register(registry, new ItemDivineArmor("santa_tunic", EnumArmor.SANTA, EntityEquipmentSlot.CHEST, santaInfo));
-        register(registry, new ItemDivineArmor("santa_cap", EnumArmor.SANTA, EntityEquipmentSlot.HEAD, santaInfo));
+        registerArmorSet(registry, "santa", ToolMaterialMod.SANTA_ARMOR, santaInfo, new String[] {"cap", "tunic", "pants", "boots"});
 
         // Twilight armor
-        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.HEAD, edenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.CHEST, edenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.LEGS, edenInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.EDEN, EntityEquipmentSlot.FEET, edenInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.HEAD, wildInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.CHEST, wildInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.LEGS, wildInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.WILD, EntityEquipmentSlot.FEET, wildInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.HEAD, apInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.CHEST, apInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.LEGS, apInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.APALACHIA, EntityEquipmentSlot.FEET, apInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.HEAD, skyInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.CHEST, skyInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.LEGS, skyInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.SKYTHERN, EntityEquipmentSlot.FEET, skyInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.HEAD, mortInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.CHEST, mortInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.LEGS, mortInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.MORTUM, EntityEquipmentSlot.FEET, mortInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.HEAD, halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.CHEST, halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.LEGS, halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.HALITE, EntityEquipmentSlot.FEET, halInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.HEAD, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.CHEST, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.LEGS, awakened_halInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.AWAKENED_HALITE, EntityEquipmentSlot.FEET, awakened_halInfo));
+        registerArmorSet(registry, "eden", ToolMaterialMod.EDEN_ARMOR, edenInfo);
+        registerArmorSet(registry, "wildwood", ToolMaterialMod.WILDWOOD_ARMOR, wildInfo);
+        registerArmorSet(registry, "apalachia", ToolMaterialMod.APALACHIA_ARMOR, apInfo);
+        registerArmorSet(registry, "skythern", ToolMaterialMod.SKYTHERN_ARMOR, skyInfo);
+        registerArmorSet(registry, "mortum", ToolMaterialMod.MORTUM_ARMOR, mortInfo);
+        registerArmorSet(registry, "halite", ToolMaterialMod.HALITE_ARMOR, halInfo);
+        registerArmorSet(registry, "awakened_halite", ToolMaterialMod.AWAKENED_HALITE_ARMOR, awakened_halInfo);
 
         // Arcana armor sets
-        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.HEAD, kormInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.CHEST, kormInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.LEGS, kormInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.KORMA, EntityEquipmentSlot.FEET, kormInfo));
-
-        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.HEAD, vemInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.CHEST, vemInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.LEGS, vemInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.VEMOS, EntityEquipmentSlot.FEET, vemInfo));
+        registerArmorSet(registry, "korma", ToolMaterialMod.KORMA_ARMOR, kormInfo);
+        registerArmorSet(registry, "vemos", ToolMaterialMod.VEMOS_ARMOR, vemInfo);
 
         // Vethea armor sets
-        register(registry, new ItemDivineArmor("degraded_helmet", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        register(registry, new ItemDivineArmor("degraded_hood", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        register(registry, new ItemDivineArmor("degraded_mask", EnumArmor.DEGRADED, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.DEGRADED, EntityEquipmentSlot.FEET));
+        registerVetheanArmorSet(registry, "degraded", ToolMaterialMod.DEGRADED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "finished", ToolMaterialMod.FINISHED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "glistening", ToolMaterialMod.GLISTENING_ARMOR, glisteningHelmInfo, glisteningHoodInfo, glisteningMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "demonized", ToolMaterialMod.DEMONIZED_ARMOR, demonizedHelmInfo, demonizedHoodInfo, demonizedMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "tormented", ToolMaterialMod.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
 
-        register(registry, new ItemDivineArmor("finished_helmet", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHelmInfo));
-        register(registry, new ItemDivineArmor("finished_hood", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicHoodInfo));
-        register(registry, new ItemDivineArmor("finished_mask", EnumArmor.FINISHED, EntityEquipmentSlot.HEAD, basicMaskInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.FINISHED, EntityEquipmentSlot.FEET));
-
-        register(registry, new ItemDivineArmor("glistening_helmet", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHelmInfo));
-        register(registry, new ItemDivineArmor("glistening_hood", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningHoodInfo));
-        register(registry, new ItemDivineArmor("glistening_mask", EnumArmor.GLISTENING, EntityEquipmentSlot.HEAD, glisteningMaskInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.GLISTENING, EntityEquipmentSlot.FEET));
-
-        register(registry, new ItemDivineArmor("demonized_helmet", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHelmInfo));
-        register(registry, new ItemDivineArmor("demonized_hood", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedHoodInfo));
-        register(registry, new ItemDivineArmor("demonized_mask", EnumArmor.DEMONIZED, EntityEquipmentSlot.HEAD, demonizedMaskInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.DEMONIZED, EntityEquipmentSlot.FEET));
-
-        register(registry, new ItemDivineArmor("tormented_helmet", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHelmInfo));
-        register(registry, new ItemDivineArmor("tormented_hood", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedHoodInfo));
-        register(registry, new ItemDivineArmor("tormented_mask", EnumArmor.TORMENTED, EntityEquipmentSlot.HEAD, tormentedMaskInfo));
-        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.CHEST));
-        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.LEGS));
-        register(registry, new ItemDivineArmor(EnumArmor.TORMENTED, EntityEquipmentSlot.FEET));
-
-//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.HEAD, kingInfo));
-//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.CHEST, kingInfo));
-//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.LEGS, kingInfo));
-//        register(registry, new KingArmorItem(EnumArmor.KING, EntityEquipmentSlot.FEET, kingInfo));
+        // King armor
+        //register(registry, new KingArmorItem("king_helmet", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
+        //register(registry, new KingArmorItem("king_chestplate", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
+        //register(registry, new KingArmorItem("king_leggings", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
+        //register(registry, new KingArmorItem("king_boots", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.FEET, kingInfo));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

@@ -43,21 +43,9 @@ public class ArmorInfo {
         return this;
     }
 
-    public List<String> toString(ItemStack item, @Nullable World worldIn, double fullReduction, double damageReduction) {
+    public List<String> toString(ItemStack item, @Nullable World worldIn) {
         TextComponentString result = new TextComponentString("");
         result.getStyle().setColor(TextFormatting.GRAY);
-
-        if (fullReduction <= 0) {
-            result.appendText(LocalizeUtils.noProtection());
-        } else {
-            result.appendText(LocalizeUtils.damageReduction(Math.round(damageReduction * 100), Math.round(fullReduction)));
-        }
-
-        if (item.getMaxDamage() <= 0) {
-            result.appendText(LocalizeUtils.infiniteUses());
-        } else {
-            result.appendText(LocalizeUtils.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
-        }
 
         if (dimensionName != null) {
             boolean isBoosted = worldIn != null && worldIn.provider != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.provider.getDimensionType());
@@ -75,7 +63,6 @@ public class ArmorInfo {
 
             FullSetPerks.getSiblings().forEach(result::appendSibling);
         }
-
 
         return result.getSiblings().stream().map(ITextComponent::getFormattedText).collect(Collectors.toList());
     }
