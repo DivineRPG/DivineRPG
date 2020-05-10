@@ -3,13 +3,19 @@
     "item": "divinerpg:mortum_block"
   },
   "pattern": [
-    "III",
-    "III",
-    "III"
+    "FIF",
+    "IBI",
+    "FIF"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
+      "item": "divinerpg:mortum_soul"
+    },
+    "B": {
+      "item": "divinerpg:mortum_heart"
+    },
+    "F": {
       "item": "divinerpg:mortum_fragments"
     }
   }
