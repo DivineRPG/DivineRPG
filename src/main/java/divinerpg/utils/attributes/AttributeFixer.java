@@ -1,7 +1,6 @@
 package divinerpg.utils.attributes;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.DivineAPI;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;

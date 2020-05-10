@@ -5,7 +5,6 @@ import static divinerpg.enums.ParticleType.FROST;
 import java.util.List;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFrostShot;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +14,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

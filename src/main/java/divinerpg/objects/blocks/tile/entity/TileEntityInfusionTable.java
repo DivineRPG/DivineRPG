@@ -2,7 +2,6 @@ package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.utils.RecipesInfusionTable;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;

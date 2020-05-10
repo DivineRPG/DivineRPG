@@ -5,7 +5,6 @@ import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;

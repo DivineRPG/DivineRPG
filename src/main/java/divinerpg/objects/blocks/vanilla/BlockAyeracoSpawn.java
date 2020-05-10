@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

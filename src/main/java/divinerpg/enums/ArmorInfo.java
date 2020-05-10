@@ -1,6 +1,5 @@
 package divinerpg.enums;
 
-import divinerpg.utils.LocalizeUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.*;
 import net.minecraft.world.DimensionType;

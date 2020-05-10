@@ -1,13 +1,9 @@
 package divinerpg.utils;
 
-import divinerpg.config.Config;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 
 /**
  * Created by LiteWolf101 on Jan

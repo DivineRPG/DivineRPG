@@ -2,7 +2,6 @@ package divinerpg.dimensions.iceika.structures;
 
 import java.util.Random;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.registry.DRPGLootTables;

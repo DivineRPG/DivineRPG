@@ -6,7 +6,6 @@ import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

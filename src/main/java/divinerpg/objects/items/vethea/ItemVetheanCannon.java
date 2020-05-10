@@ -3,7 +3,6 @@ package divinerpg.objects.items.vethea;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundCategory;

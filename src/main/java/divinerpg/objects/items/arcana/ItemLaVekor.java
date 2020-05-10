@@ -2,7 +2,6 @@ package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModSounds;
 import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;

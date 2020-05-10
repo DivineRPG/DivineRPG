@@ -3,7 +3,6 @@ package divinerpg.objects.entities.assets.render.twilight;
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
 import divinerpg.objects.entities.entity.twilight.EntityDensos;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,7 +1,6 @@
 package divinerpg.objects.items.iceika;
 
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;

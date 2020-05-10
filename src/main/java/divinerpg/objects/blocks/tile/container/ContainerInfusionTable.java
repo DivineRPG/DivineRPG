@@ -1,17 +1,13 @@
 package divinerpg.objects.blocks.tile.container;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
-import divinerpg.utils.RecipesInfusionTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerEnchantment;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.world.World;
 
 public class ContainerInfusionTable extends Container {

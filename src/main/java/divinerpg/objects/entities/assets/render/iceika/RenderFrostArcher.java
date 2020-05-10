@@ -2,7 +2,6 @@ package divinerpg.objects.entities.assets.render.iceika;
 
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;

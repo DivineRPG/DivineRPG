@@ -3,7 +3,6 @@ package divinerpg.objects.entities.assets.render.vanilla;
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

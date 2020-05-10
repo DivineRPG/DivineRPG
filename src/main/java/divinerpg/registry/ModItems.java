@@ -1,8 +1,6 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.enums.ArmorInfo;
-import divinerpg.enums.EnumArmor;
 import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
 import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
 import divinerpg.objects.entities.entity.arcana.EntityParatiku;
@@ -25,10 +23,8 @@ import divinerpg.objects.items.vethea.ItemNightmareBed;
 import divinerpg.objects.items.vethea.ItemVethean;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,9 +35,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.function.Supplier;
-
-import static divinerpg.utils.LocalizeUtils.getArmorAbility;
 
 /**
  * Registers most items for the mod, except for tools and weapons which go in ModTools and ModWeapons respectively.

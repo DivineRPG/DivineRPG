@@ -13,7 +13,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
@@ -44,7 +43,6 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
      *
      * @param world
      * @param beam  - beam location
-     * @param color
      */
     public EntityAyeraco(World world, BlockPos beam, ResourceLocation loot) {
         super(world);

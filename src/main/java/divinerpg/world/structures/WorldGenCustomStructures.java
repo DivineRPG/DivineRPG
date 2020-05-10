@@ -1,6 +1,5 @@
 package divinerpg.world.structures;
 
-import divinerpg.DivineRPG;
 import divinerpg.config.Config;
 import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
 import divinerpg.dimensions.iceika.structures.WorldGenHouse1;

@@ -1,9 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public abstract class VetheaMob extends EntityDivineRPGMob {

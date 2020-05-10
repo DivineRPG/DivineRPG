@@ -1,24 +1,14 @@
 package divinerpg.objects.items.base;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-import divinerpg.api.Reference;
 import divinerpg.api.armor.IFullSetInfo;
 import divinerpg.enums.ArmorInfo;
-import divinerpg.enums.EnumArmor;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

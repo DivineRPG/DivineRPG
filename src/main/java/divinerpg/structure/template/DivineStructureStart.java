@@ -5,10 +5,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicReference;

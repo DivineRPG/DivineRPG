@@ -23,10 +23,7 @@ import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraft.tileentity.TileEntityDropper;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.RegistryDefaulted;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class BlockKarosDispenser extends BlockModUnbreakable {
 

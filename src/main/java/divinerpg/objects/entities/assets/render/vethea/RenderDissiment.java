@@ -3,7 +3,6 @@ package divinerpg.objects.entities.assets.render.vethea;
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.vethea.ModelDissiment;
 import divinerpg.objects.entities.entity.vethea.EntityDissiment;
-import divinerpg.objects.entities.entity.vethea.EntityZoragon;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

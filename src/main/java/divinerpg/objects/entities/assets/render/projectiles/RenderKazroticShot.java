@@ -1,7 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
 import divinerpg.objects.entities.entity.projectiles.EntityKazroticShot;
-import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 

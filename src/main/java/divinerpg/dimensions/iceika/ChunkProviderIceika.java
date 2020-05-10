@@ -1,13 +1,9 @@
 package divinerpg.dimensions.iceika;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import divinerpg.DivineRPG;
-import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
-import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -23,7 +19,6 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkProviderIceika implements  IChunkGenerator
 {

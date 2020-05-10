@@ -1,6 +1,5 @@
 package divinerpg.objects.items.vethea;
 
-import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.objects.blocks.vethea.BlockNightmareBed;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;

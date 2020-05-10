@@ -1,6 +1,5 @@
 package divinerpg.registry;
 
-import divinerpg.enums.WoodType;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModOreDict {

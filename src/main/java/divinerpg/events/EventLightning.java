@@ -2,7 +2,6 @@ package divinerpg.events;
 
 import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
