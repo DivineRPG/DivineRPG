@@ -8,6 +8,8 @@ import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -26,8 +28,8 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
 	@Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-
-
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(64.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1D);
     }
 
 	@Override
