@@ -1239,29 +1239,29 @@ public class ModBlocks {
         register(registry, new BlockMod(EnumBlockType.ROCK, "rupee_minibricks", 3.0F, IRON).setResistance(30.0F));
 
         // Lamps
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "aqua_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "arlemite_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "blaze_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "bluefire_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "diamond_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "divine_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "draken_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "eden_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ender_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ender_stone_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "gold_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ice_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "jungle_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "kraken_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "lapis_lazuli_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "lava_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "milky_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "molten_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "netherite_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "realmite_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "redstone_ore_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "rupee_lamp", 3.0F).setResistance(30.0F));
-        register(registry, new BlockModLamp(EnumBlockType.GLASS, "terran_lamp", 3.0F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "aqua_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "arlemite_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "blaze_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "bluefire_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "diamond_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "divine_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "draken_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "eden_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ender_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ender_stone_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "gold_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "ice_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "jungle_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "kraken_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "lapis_lazuli_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "lava_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "milky_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "molten_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "netherite_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "realmite_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "redstone_ore_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "rupee_lamp", 0.3F).setResistance(30.0F));
+        register(registry, new BlockModLamp(EnumBlockType.GLASS, "terran_lamp", 0.3F).setResistance(30.0F));
 
         // Powered fences
         register(registry, new BlockLightFence(MapColor.BLUE, "blue_fence", false, 0.5F));
