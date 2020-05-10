@@ -144,7 +144,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_cap",
+                    "name": "divinerpg:santa_helmet",
                     "weight": 1,
                     "functions": [
                         {
@@ -158,7 +158,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_tunic",
+                    "name": "divinerpg:santa_chestplate",
                     "weight": 1,
                     "functions": [
                         {
@@ -172,7 +172,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "divinerpg:santa_pants",
+                    "name": "divinerpg:santa_leggings",
                     "weight": 1,
                     "functions": [
                         {

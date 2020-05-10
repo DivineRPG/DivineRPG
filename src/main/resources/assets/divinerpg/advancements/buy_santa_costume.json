@@ -1,7 +1,7 @@
 {
   "display":{
     "icon":{
-      "item":"divinerpg:santa_tunic"
+      "item":"divinerpg:santa_chestplate"
     },
     "title":{
       "translate":"advancement.buy_santa_costume"
@@ -29,7 +29,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:santa_pants"
+            "item": "divinerpg:santa_leggings"
           }
         ]
       }
@@ -39,7 +39,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:santa_tunic"
+            "item": "divinerpg:santa_chestplate"
           }
         ]
       }
@@ -49,7 +49,7 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:santa_cap"
+            "item": "divinerpg:santa_helmet"
           }
         ]
       }
