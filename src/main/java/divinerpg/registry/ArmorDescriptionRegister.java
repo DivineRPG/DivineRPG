@@ -141,7 +141,7 @@ public class ArmorDescriptionRegister {
         );
 
         registry.register(
-                new ArmorDescription(ArmorHandlers::onCanFlyChanged)
+                new ArmorDescription()
                         .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.divineHelmet)
                         .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.divineChestplate)
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.divineLeggings)
