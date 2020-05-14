@@ -29,21 +29,28 @@
       },
       {
          "name":"divinerpg:ender_triplets",
-         "conditions":[
-            {
-               "condition":"killed_by_player"
-            },
-            {
-               "condition":"random_chance",
-               "chance":0.05
-            }
-         ],
          "rolls":1,
          "entries":[
             {
                "type":"item",
-               "name":"minecraft:end_portal_frame",
-               "weight":1
+               "name":"minecraft:ender_eye",
+               "weight":1,
+               "functions":[
+                  {
+                     "function":"set_count",
+                     "count":{
+                        "min":0,
+                        "max":3
+                     }
+                  },
+                  {
+                     "function":"looting_enchant",
+                     "count":{
+                        "min":0,
+                        "max":3
+                     }
+                  }
+               ]
             }
          ]
       }

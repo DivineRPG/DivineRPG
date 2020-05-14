@@ -44,21 +44,6 @@ public class EntityEnderTriplets extends EntityDivineGhast {
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource damageSource, float par2) {
-        if (this.isEntityInvulnerable(damageSource)) {
-            return false;
-        } else if ("fireball".equals(damageSource.getDamageType())
-                && damageSource.getTrueSource() instanceof EntityPlayer) {
-            super.attackEntityFrom(damageSource, 1000.0F);
-            // EntityPlayer player = (EntityPlayer)damageSource.getTrueSource();
-            // player.triggerAchievement(DivineRPGAchievements.tripleDanger);
-            return true;
-        } else {
-            return super.attackEntityFrom(damageSource, par2);
-        }
-    }
-
-    @Override
     protected float getSoundVolume() {
         return 10.0F;
     }
