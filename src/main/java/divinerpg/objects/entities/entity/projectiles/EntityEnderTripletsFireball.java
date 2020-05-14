@@ -24,7 +24,7 @@ public class EntityEnderTripletsFireball extends EntityFireball {
     protected void onImpact(RayTraceResult result) {
         if (!this.world.isRemote) {
             if (result.entityHit != null) {
-                result.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 6);
+                result.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 8);
             }
             this.world.createExplosion(null, this.posX, this.posY, this.posZ, 2F, false);
             this.setDead();
