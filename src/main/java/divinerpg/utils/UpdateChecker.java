@@ -18,7 +18,6 @@ public class UpdateChecker {
         else if(updateCheckResult.status == ForgeVersion.Status.OUTDATED) {
             updateTarget = updateCheckResult.target.toString();
             updateAvailable = true;
-            System.out.println(updateTarget);
         }
     }
 

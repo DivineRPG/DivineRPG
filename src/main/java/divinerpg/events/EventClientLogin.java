@@ -34,7 +34,7 @@ public class EventClientLogin {
             } else if (Utils.isPatreon(player.getUniqueID())) {
                 Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
             }
-            
+
             // Update checker
             sendUpdateCheckerMessage(player);
         }
