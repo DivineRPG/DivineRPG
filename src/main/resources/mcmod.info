@@ -6,7 +6,7 @@
     "version": "1.12.2-1.6.3",
     "mcversion": "${mcversion}",
     "url": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg/",
-    "updateUrl": "",
+    "updateJSON": "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/versions.json",
     "authors": ["Eternaldoom", "RadioactiveStud", "XolovA"],
     "credits": "XolovA, RadioactiveStud, Eternaldoom, BossLetsPlays, sheenrox82, Declan, Insanity414all, The_SlayerMC, Mazetar, TLHPoE, Laorwick, BlueEyes9, Sactage, Wufflez and NicosaurusRex99",
     "logoFile": "logo.png",

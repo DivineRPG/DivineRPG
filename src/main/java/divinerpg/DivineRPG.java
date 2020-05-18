@@ -4,6 +4,8 @@
 package divinerpg;
 
 import divinerpg.events.enchants.WorldBreakEnchantHandler;
+import divinerpg.utils.UpdateChecker;
+import net.minecraftforge.common.ForgeVersion;
 import org.apache.logging.log4j.LogManager;
 
 import divinerpg.api.Reference;
@@ -37,7 +39,6 @@ public class DivineRPG {
     public static CommonProxy proxy;
 
     public static org.apache.logging.log4j.Logger logger;
-
     public static SimpleNetworkWrapper network = new SimpleNetworkWrapper(Reference.MODID);
 
     static {
@@ -80,6 +81,8 @@ public class DivineRPG {
         ModSpawns.initSpawns();
         Utils.loadHatInformation();
         DimensionHelper.initPortalDescriptions();
+
+        UpdateChecker.checkForUpdates();
     }
 
     /** For Registering Commands */
