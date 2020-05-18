@@ -51,8 +51,8 @@ public class ModEntities {
     public static void registerEnities(RegistryEvent.Register<EntityEntry> event) {
         IForgeRegistry<EntityEntry> registry = event.getRegistry();
 
-        registry.registerAll(initProjectiles());
-        registry.registerAll(initMobs());
+        registry.registerAll(createProjectileEntries());
+        registry.registerAll(createMobEntries());
     }
 
     public static EntityEntry buildEntityEntry(Class entityClass, String entityID, SpawnEggColors.Dimension dimension) { 
@@ -68,7 +68,7 @@ public class ModEntities {
                 .tracker(250, 5, true).build();
     }
 
-    public static EntityEntry[] initMobs() {
+    public static EntityEntry[] createMobEntries() {
         EntityEntry[] divineMobs;
         divineMobs = new EntityEntry[]{
                 // Overworld
@@ -264,7 +264,7 @@ public class ModEntities {
         return divineMobs;
     }
 
-    public static EntityEntry[] initProjectiles() {
+    public static EntityEntry[] createProjectileEntries() {
         // Projectiles
         EntityEntry[] divineProjectiles = {buildProjectileEntry(EntityCaveRock.class, "cave_rock"),
                 buildProjectileEntry(EntitySerenadeOfDeath.class, "serenade_of_death"),
