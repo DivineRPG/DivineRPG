@@ -3,7 +3,7 @@
     "modid": "divinerpg",
     "name": "DivineRPG",
     "description": "Adds a magic system ♦ Pets ♦ 8 new dimensions ♦ Over 100 new mobs ♦ New bosses ♦ Hundreds of new Weapons, Armor/costumes, Tools, and Materials in all sorts of different styles.",
-    "version": "1.12.2-1.6.3",
+    "version": "1.6.3",
     "mcversion": "${mcversion}",
     "url": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg/",
     "updateJSON": "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json",
