@@ -3,17 +3,16 @@
 #Предложения/пожелания по переводу направлять на контакты ниже.
 #vk.com/locomen | Discord(Locomen_#3035)
 
-itemGroup.Blocks=DivineRPG: Блоки
-itemGroup.Ranged=DivineRPG: Стрелковое оружие
-itemGroup.Swords=DivineRPG: Холодное оружие
-itemGroup.Tools=DivineRPG: Инструменты
-itemGroup.Materials=DivineRPG: Материалы
-itemGroup.Armor=DivineRPG: Броня
-itemGroup.Spawner=DivineRPG: Спаунеры
-itemGroup.Utility=DivineRPG: Полезности
-itemGroup.Herbalism=DivineRPG: Продовольствие
-itemGroup.Vethea=DivineRPG: Везея
-
+itemGroup.divinerpg_blocks=DivineRPG: Блоки
+itemGroup.divinerpg_ranged_weapons=DivineRPG: Стрелковое оружие
+itemGroup.divinerpg_melee_weapons=DivineRPG: Холодное оружие
+itemGroup.divinerpg_tools=DivineRPG: Инструменты
+itemGroup.divinerpg_materials=DivineRPG: Материалы
+itemGroup.divinerpg_armor=DivineRPG: Броня
+itemGroup.divinerpg_boss_spawners=DivineRPG: Спавнеры
+itemGroup.divinerpg_utility=DivineRPG: Полезности
+itemGroup.divinerpg_food_and_agriculture=DivineRPG: Продовольствие
+itemGroup.divinerpg_vethea=DivineRPG: Везея
 
 tile.divine_sapling.name=Божественный саженец
 tile.rupee_ore.name=Рупиевая руда
@@ -82,6 +81,7 @@ tile.redstone_bricks.name=Кирпичи из красного камня
 tile.eden_bricks.name=Кирпичи Эдема
 tile.wildwood_bricks.name=Кирпичи Дикого леса
 tile.apalachia_bricks.name=Кирпичи Апалачии
+tile.skythern_bricks.name=Кирпичи Небесного терна
 tile.milk_stone_bricks.name=Кирпичи из молочного камня
 tile.rupee_minibricks.name=Рупиевые мини-кирпичи
 tile.realmite_minibricks.name=Реалмитовые мини-кирпичи
@@ -128,7 +128,6 @@ tile.green_fence_on.name=Зелёный забор
 tile.ayeraco_spawn.name=Вызов Айрако
 tile.sunstorm_statue.name=Статуя Солнечного шторма
 tile.termasect_statue.name=Статуя Термасекта
-tile.experienced_cori_statue.name=Статуя Королевской Кори
 tile.king_of_scorchers_statue.name=Статуя Короля лихачей
 tile.ancient_entity_statue.name=Статуя Древней сущности
 tile.ayeraco_statue_blue.name=Статуя синего Айрако
@@ -236,6 +235,7 @@ tile.bacterial_acid.name=Бактериальная кислота
 tile.acid_block.name=Кислотный блок
 tile.sunstorm_spawner.name=Спавнер Солнечного шторма
 tile.termasect_spawner.name=Спавнер Термасекта
+tile.experienced_cori_spawner.name=Спавнер Королевской Кори
 
 tile.lunic_acid.name=Лунная кислота
 tile.firewood_leaves.name=Огненная листва
@@ -431,11 +431,9 @@ tile.cracklespike.name=Потрескавшийся шип
 tile.green_gemtop.name=Зелёная жемчужина
 tile.purple_gemtop.name=Фиолетовая жемчужина
 tile.dreamwrecker_spawner.name=Спаунер Крушителей снов
-tile.experienced_cori_spawner.name=Спавнер Королевской Кори
-
+tile.experienced_cori_statue.name=Статуя Королевской Кори
 
 container.iceika_chest=Ледяной сундук
-
 
 item.steel_door.name=Стальная дверь
 item.soul_stone_door.name=Дверь из камня душ
@@ -1138,7 +1136,6 @@ death.attack.spike=%1$s прогулялся по шипам
 death.attack.acid=%1$s решил поплавать в кислоте
 death.attack.arcana=%1$s был убит МаГиеЙ
 
-
 entity.divinerpg.acid_hag.name=Кислотная ведьма
 entity.divinerpg.advanced_cori.name=Улучшенная кори
 entity.divinerpg.alicanto.name=Аликанто
@@ -1313,7 +1310,6 @@ entity.divinerpg.termasect.name=Термасект
 entity.divinerpg.termid.name=Термид
 entity.divinerpg.experienced_cori.name=Королевская Кори
 
-
 advancement.divine_equipment=Попытка стать богом
 advancement.divine_equipment.desc=Создайте божественную броню и инструменты
 advancement.craft_divine_sword=Божественный план
@@ -1431,9 +1427,7 @@ advancement.kill_boss_sunstorm.desc=Убейте Солнечного шторм
 advancement.kill_boss_termasect.desc=Убейте Термасекта
 advancement.kill_boss_experienced_cori.desc=Убейте Королевскую Кори
 
-
 fluid.tar=Тар
-
 
 message.jackoman.boo=БУУ!
 message.jackoman.lost=Кажется я потерял голову.
@@ -1555,7 +1549,6 @@ message.developer=%s, Добро пожаловать разбработчик D
 message.tester=Добро пожаловать тестер DivineRPG! %s, команда разработчиков благодарна вам за помощь в улучшении мода.
 message.patreon=Добро пожаловать %s! Команда разработчиков DivineRPG, благодарит вас за финансовую поддержку!
 
-
 tooltip.uses=Применений осталось: %s
 tooltip.harvest=Уровень добычи: +
 tooltip.uses.infinite=Бесконечное применение
@@ -1626,10 +1619,6 @@ tooltip.dimension=Измерение: %s
 tooltip.block_position=Координаты: x=%s, y=%s, z=%s
 tooltip.harvest_level=Уровень добычи: %s
 
-tooltip.spawner.sunstorm_spawner=Призывает Солнечного шторма нажатием ПКМ по блоку
-tooltip.spawner.termasect_spawner=Призывает Термасекта нажатием ПКМ по блоку
-tooltip.spawner.experienced_cori_spawner=Призывает Королевскую Кори нажатием ПКМ по блоку
-
 tooltip.armor_info.fire_protection=Защита от огня
 tooltip.armor_info.no_fall=Поглощение урона от падения
 tooltip.armor_info.fly=Полёт
@@ -1661,14 +1650,16 @@ tooltip.armor_info.massive_buff=Массивное улучшение
 tooltip.armor_info.step_assist=Автопрыжок
 tooltip.bow_speed.slower=В %sx раз(а) медленнее
 tooltip.bow_speed.faster=В %sx раз(а) быстрее
-tooltip.food.satiety=Восполняет %s едениц(ы) голода
+tooltip.food.satiety=Восполняет %s единиц(ы) голода
 tooltip.food.saturation=%s насыщения
 tooltip.food.pet=Еда для питомцев
 tooltip.food.heal=Восстанавливает %s сердeц
 
+tooltip.spawner.sunstorm_spawner=Призывает Солнечного шторма нажатием ПКМ по блоку
+tooltip.spawner.termasect_spawner=Призывает Термасекта нажатием ПКМ по блоку
+tooltip.spawner.experienced_cori_spawner=Призывает Королевскую Кори нажатием ПКМ по блоку
 
 enchantment.world_break=Крушитель миров
 enchantment.double_dealing_damage=Расщепитель
-
 
 summon.single_use_spawner.delay=Будет призван через %s секунд
