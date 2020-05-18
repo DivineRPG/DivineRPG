@@ -10,8 +10,7 @@ public class UpdateChecker {
 
     public static void checkForUpdates() {
         ForgeVersion.CheckResult updateCheckResult = ForgeVersion.getResult(Loader.instance().activeModContainer());
-        System.out.println(updateCheckResult.status);
-
+        
         if(updateCheckResult.status == ForgeVersion.Status.FAILED) {
             return;
         }
