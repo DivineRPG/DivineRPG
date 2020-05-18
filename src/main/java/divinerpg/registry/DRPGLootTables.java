@@ -98,7 +98,7 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_SOUL_STEALER = registerTable("entities/twilight/soul_stealer");
     public static final ResourceLocation ENTITIES_SPELLBINDER = registerTable("entities/twilight/spellbinder");
     public static final ResourceLocation ENTITIES_SUN_ARCHER = registerTable("entities/twilight/sun_archer");
-    public static final ResourceLocation ENTITIES_SUNSTORM = registerTable("entities/twilight/sun_storm");
+    public static final ResourceLocation ENTITIES_SUNSTORM = registerTable("entities/twilight/sunstorm");
     public static final ResourceLocation ENTITIES_TERMASECT = registerTable("entities/twilight/termasect");
     public static final ResourceLocation ENTITIES_TERMID = registerTable("entities/twilight/termid");
     public static final ResourceLocation ENTITIES_TWILIGHT_ARCHER = registerTable("entities/twilight/twilight_archer");

@@ -24,17 +24,23 @@
                      }
                   }
                ]
-            },
+            }
+         ]
+      },
+      {
+         "name":"divinerpg:termasect_heart_drop",
+         "rolls": 1,
+         "entries": [
             {
                "type": "item",
-               "name": "divinerpg:wildwood_heart",
                "weight": 1,
+               "name": "divinerpg:wildwood_heart",
                "functions": [
                   {
                      "function": "set_count",
                      "count": {
-                        "min": 0,
-                        "max": 3
+                        "min": 1,
+                        "max": 4
                      }
                   },
                   {
@@ -69,7 +75,7 @@
          ]
       },
       {
-         "name":"divinerpg:sunstorm",
+         "name":"divinerpg:termasect",
          "rolls":1,
          "entries":[
             {

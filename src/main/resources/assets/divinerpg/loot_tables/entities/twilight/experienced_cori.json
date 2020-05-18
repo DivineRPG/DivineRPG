@@ -27,14 +27,31 @@
             },
             {
                "type": "item",
+               "name": "divinerpg:halite_shield",
+               "weight": 1,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": 1
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name":"divinerpg:experienced_cori_heart_drop",
+         "rolls": 1,
+         "entries": [
+            {
+               "type": "item",
+               "weight": 1,
                "name": "divinerpg:skythern_heart",
-               "weight": 20,
                "functions": [
                   {
                      "function": "set_count",
                      "count": {
-                        "min": 0,
-                        "max": 3
+                        "min": 1,
+                        "max": 4
                      }
                   },
                   {
@@ -43,17 +60,6 @@
                         "min": 0,
                         "max": 1
                      }
-                  }
-               ]
-            },
-            {
-               "type": "item",
-               "name": "divinerpg:halite_shield",
-               "weight": 1,
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": 1
                   }
                ]
             }

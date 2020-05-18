@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name":"divinerpg:sun_storm",
+            "name":"divinerpg:sunstorm",
             "rolls": 2,
             "entries": [
                 {
@@ -36,17 +36,23 @@
                             }
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name":"divinerpg:sunstorm_heart_drop",
+            "rolls": 1,
+            "entries": [
                 {
                     "type": "item",
-                    "weight": 10,
+                    "weight": 1,
                     "name": "divinerpg:eden_heart",
                     "functions": [
                         {
                             "function": "set_count",
                             "count": {
-                                "min": 0,
-                                "max": 3
+                                "min": 1,
+                                "max": 4
                             }
                         },
                         {
