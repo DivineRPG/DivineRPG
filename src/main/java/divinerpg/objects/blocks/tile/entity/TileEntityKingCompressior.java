@@ -50,10 +50,9 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
     private int cookTime = 0;
 
     public TileEntityKingCompressior() {
-        kingCreationLimit = (int) (DivineAPI.getArmorDescriptionRegistry().getKeys().size() * (Config.kingCreationPercentage / 100.0));
-        maxAbsorbedCount = Config.maxAbsorbedCount <= 0
-                ? DivineAPI.getArmorDescriptionRegistry().getKeys().size()
-                : Config.maxAbsorbedCount;
+        //Currently unused
+        kingCreationLimit = -1;
+        maxAbsorbedCount = -1;
 
         container = NonNullList.withSize(EntityEquipmentSlot.values().length * 2 + 1, ItemStack.EMPTY);
     }

@@ -31,7 +31,6 @@ public class Config {
     private static final String CATEGORY_GENERAL = "general";
     private static final String CATEGORY_GUI = "GUI";
     private static final String CATEGORY_WORLD_GEN = "World Gen";
-    private static final String CategoryKing = "King armor";
     public static int mobSpawnMultiplier = 5;
     public static boolean isBeaconBase = true;
     public static boolean UpdateChecker = true;
@@ -85,12 +84,6 @@ public class Config {
         cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
         arcanaX = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
         arcanaY = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");
-
-        cfg.addCustomCategoryComment(CategoryKing, "King armor settings");
-        kingCreationPercentage = cfg.getInt("kingArmorCreatePercantage", CategoryKing, 50, 10, 70,
-                "Peracantage of all existing super-powers set neede to create king armor");
-        maxAbsorbedCount = cfg.getInt("kingArmorMaxAbsorb", CategoryKing, 0, 0, 100,
-                "How much items king armor can accept. Set 0 to remove restriction");
     }
 
     private static void initMobStats(Configuration cfg) {
