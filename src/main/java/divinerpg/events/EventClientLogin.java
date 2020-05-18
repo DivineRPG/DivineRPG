@@ -33,10 +33,8 @@ public class EventClientLogin {
                 Logging.message(player, TextFormatting.BLUE + LocalizeUtils.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
             } else if (Utils.isPatreon(player.getUniqueID())) {
                 Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
-            } else {
-                Logging.message(player, "Welcome " + player.getDisplayName().getFormattedText());
             }
-
+            
             // Update checker
             sendUpdateCheckerMessage(player);
         }
