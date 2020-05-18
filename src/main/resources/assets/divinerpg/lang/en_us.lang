@@ -1,13 +1,13 @@
-itemGroup.Blocks=DivineRPG: Blocks
-itemGroup.Ranged=DivineRPG: Ranged Weapons
-itemGroup.Swords=DivineRPG: Melee Weapons
-itemGroup.Tools=DivineRPG: Tools
-itemGroup.Materials=DivineRPG: Raw Materials
-itemGroup.Armor=DivineRPG: Armor
-itemGroup.Spawner=DivineRPG: Spawner
-itemGroup.Utility=DivineRPG: Utility
-itemGroup.Herbalism=DivineRPG: Herbalism
-itemGroup.Vethea=DivineRPG: Vethea
+itemGroup.divinerpg_blocks=DivineRPG: Blocks
+itemGroup.divinerpg_ranged_weapons=DivineRPG: Ranged Weapons
+itemGroup.divinerpg_melee_weapons=DivineRPG: Melee Weapons
+itemGroup.divinerpg_tools=DivineRPG: Tools
+itemGroup.divinerpg_materials=DivineRPG: Raw Materials
+itemGroup.divinerpg_armor=DivineRPG: Armor
+itemGroup.divinerpg_boss_spawners=DivineRPG: Spawner
+itemGroup.divinerpg_utility=DivineRPG: Utility
+itemGroup.divinerpg_food_and_agriculture=DivineRPG: Food and Agriculture
+itemGroup.divinerpg_vethea=DivineRPG: Vethea
 
 tile.divine_sapling.name=Divine Sapling
 tile.rupee_ore.name=Rupee Ore
