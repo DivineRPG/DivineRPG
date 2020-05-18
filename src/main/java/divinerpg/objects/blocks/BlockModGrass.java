@@ -9,10 +9,12 @@ import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -79,7 +81,31 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     }
 
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        /*
+        BlockPos blockpos = pos.up();
 
+        label35:
+        for(int i = 0; i < 128; ++i) {
+            BlockPos blockpos1 = blockpos;
+
+            for(int j = 0; j < i / 16; ++j) {
+                blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+                if (worldIn.getBlockState(blockpos1.down()).getBlock() != this || worldIn.getBlockState(blockpos1).isNormalCube()) {
+                    continue label35;
+                }
+            }
+
+            if (worldIn.isAirBlock(blockpos1)) {
+                if (rand.nextInt(8) == 0) {
+                    worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
+                } else {
+                    IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
+                    if (Blocks.TALLGRASS.canBlockStay(worldIn, blockpos1, iblockstate1)) {
+                        worldIn.setBlockState(blockpos1, iblockstate1, 3);
+                    }
+                }
+            }
+        }*/
     }
 
     @Override
@@ -146,4 +172,6 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         return this.mapColor;
     }
+
+
 }
