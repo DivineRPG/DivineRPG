@@ -230,6 +230,7 @@ tile.bacterial_acid.name=Bacterial Acid
 tile.acid_block.name=Acid Block
 tile.sunstorm_spawner.name=Sunstorm Spawner
 tile.termasect_spawner.name=Termasect Spawner
+tile.eternal_archer_spawner.name=Eternal Archer Spawner
 tile.experienced_cori_spawner.name=Experienced Cori Spawner
 
 tile.lunic_acid.name=Lunic Acid
@@ -1650,9 +1651,10 @@ tooltip.food.saturation=%s Saturation
 tooltip.food.pet=Pet Food
 tooltip.food.heal=Replenishes %s Health
 
-tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player right clicks the block
-tooltip.spawner.termasect_spawner=Spawns Termasect when the player right clicks the block
-tooltip.spawner.experienced_cori_spawner=Spawns Experienced Cori when the player right clicks the block
+tooltip.spawner.sunstorm_spawner=Spawns Sunstorm when the player is nearby
+tooltip.spawner.termasect_spawner=Spawns Termasect when the player is nearby
+tooltip.spawner.eternal_archer_spawner=Spawns Eternal when the player is nearby
+tooltip.spawner.experienced_cori_spawner=Spawns Experienced Cori when the player is nearby
 
 enchantment.world_break=Rive
 enchantment.double_dealing_damage=Aftershock
