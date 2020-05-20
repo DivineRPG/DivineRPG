@@ -20,7 +20,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public class ModDimensions {
     public static DimensionType edenDimension;
-    public static DimensionType wildWoodDimension;
+    public static DimensionType wildwoodDimension;
     public static DimensionType apalachiaDimension;
     public static DimensionType skythernDimension;
     public static DimensionType mortumDimension;
@@ -45,7 +45,7 @@ public class ModDimensions {
     private static void registerDimensionTypes() {
         edenDimension = DimensionType.register(Reference.MODID + ":eden", "_eden", GeneralConfig.dimensionIDs.edenDimensionID,
                 WorldProviderEden.class, false);
-        wildWoodDimension = DimensionType.register(Reference.MODID + ":wildwood", "_wildwood",
+        wildwoodDimension = DimensionType.register(Reference.MODID + ":wildwood", "_wildwood",
                 GeneralConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildWood.class, false);
         apalachiaDimension = DimensionType.register(Reference.MODID + ":apalachia", "_apalachia",
                 GeneralConfig.dimensionIDs.apalachiaDimensionID, WorldProviderApalachia.class, false);
@@ -63,7 +63,7 @@ public class ModDimensions {
 
     private static void registerDimensions() {
         DimensionManager.registerDimension(GeneralConfig.dimensionIDs.edenDimensionID, edenDimension);
-        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.wildwoodDimensionID, wildWoodDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.wildwoodDimensionID, wildwoodDimension);
         DimensionManager.registerDimension(GeneralConfig.dimensionIDs.apalachiaDimensionID, apalachiaDimension);
         DimensionManager.registerDimension(GeneralConfig.dimensionIDs.skythernDimensionID, skythernDimension);
         DimensionManager.registerDimension(GeneralConfig.dimensionIDs.mortumDimensionID, mortumDimension);

@@ -28,7 +28,7 @@ public class DimensionHelper {
         ServerPortal portal = new ServerPortal(128, 20 * 10);
 
         add(ModDimensions.edenDimension, new NetherLikePortalDescription(ModBlocks.divineRock, ModBlocks.edenPortal), portal);
-        add(ModDimensions.wildWoodDimension, new NetherLikePortalDescription(ModBlocks.edenBlock, ModBlocks.wildwoodPortal), portal);
+        add(ModDimensions.wildwoodDimension, new NetherLikePortalDescription(ModBlocks.edenBlock, ModBlocks.wildwoodPortal), portal);
         add(ModDimensions.apalachiaDimension, new NetherLikePortalDescription(ModBlocks.wildwoodBlock, ModBlocks.apalachiaPortal), portal);
         add(ModDimensions.skythernDimension, new NetherLikePortalDescription(ModBlocks.apalachiaBlock, ModBlocks.skythernPortal), portal);
         add(ModDimensions.mortumDimension, new NetherLikePortalDescription(ModBlocks.skythernBlock, ModBlocks.mortumPortal), portal);

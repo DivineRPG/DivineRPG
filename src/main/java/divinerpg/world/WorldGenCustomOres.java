@@ -44,7 +44,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
         put(DimensionType.NETHER.getId(), WorldGenCustomOres::genNether);
         put(DimensionType.OVERWORLD.getId(), WorldGenCustomOres::genOverworld);
         put(ModDimensions.edenDimension.getId(), WorldGenCustomOres::genEden);
-        put(ModDimensions.wildWoodDimension.getId(), WorldGenCustomOres::genWild);
+        put(ModDimensions.wildwoodDimension.getId(), WorldGenCustomOres::genWild);
         put(ModDimensions.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
         put(ModDimensions.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
         put(ModDimensions.mortumDimension.getId(), WorldGenCustomOres::genMortum);

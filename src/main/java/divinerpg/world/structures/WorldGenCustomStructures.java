@@ -98,7 +98,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
         		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, ModBlocks.edenGrass, 10, 10);
         	}
-        	if(world.provider.getDimensionType() == ModDimensions.wildWoodDimension) {
+        	if(world.provider.getDimensionType() == ModDimensions.wildwoodDimension) {
         		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, ModBlocks.wildwoodGrass, 10, 10);
         	}
         	if(world.provider.getDimensionType() == ModDimensions.apalachiaDimension) {

@@ -62,7 +62,7 @@ public class WorldProviderWildWood extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.wildWoodDimension;
+		return ModDimensions.wildwoodDimension;
 	}
 	@Nullable
     @Override
