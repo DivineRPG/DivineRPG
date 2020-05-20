@@ -17,7 +17,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public void init() {
-        this.biomeProvider = new BiomeProviderSingle(ModBiomes.Apalachia);
+        this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeApalachia);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}

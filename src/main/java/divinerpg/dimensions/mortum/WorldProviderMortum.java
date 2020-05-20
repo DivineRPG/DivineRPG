@@ -16,7 +16,7 @@ public class WorldProviderMortum extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.Mortum);
+		this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeMortum);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}

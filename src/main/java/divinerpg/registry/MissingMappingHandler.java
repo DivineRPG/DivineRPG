@@ -28,7 +28,7 @@ public class MissingMappingHandler {
     }
 
 
-     @SubscribeEvent
+    @SubscribeEvent
     public static void handleMissingItems(MissingMappings<Item> event) {
          for(MissingMappings.Mapping<Item> mapping: event.getAllMappings()) {
              if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
@@ -50,7 +50,7 @@ public class MissingMappingHandler {
     public static void handleMissingBiomes(MissingMappings<Biome> event) {
         for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
             if (mapping.key.equals(new ResourceLocation(Reference.MODID, "arksiane"))) {
-                mapping.remap(ModBiomes.Vethea);
+                mapping.remap(ModBiomes.biomeVethea);
             }
         }
     }

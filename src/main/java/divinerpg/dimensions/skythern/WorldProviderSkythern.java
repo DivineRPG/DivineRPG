@@ -18,7 +18,7 @@ public class WorldProviderSkythern extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.Skythern);
+		this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeSkythern);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
