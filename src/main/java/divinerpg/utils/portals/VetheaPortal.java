@@ -1,7 +1,6 @@
 package divinerpg.utils.portals;
 
-import divinerpg.config.Config;
-import divinerpg.config.MainConfig;
+import divinerpg.config.GeneralConfig;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.NbtUtil;
 import divinerpg.utils.PositionHelper;
@@ -58,7 +57,7 @@ public class VetheaPortal extends ServerPortal {
         int sourceDimension = e.getEntity().getEntityWorld().provider.getDimension();
         int destinationDimension = e.getDimension();
 
-        int vetheaID = MainConfig.dimensionIDs.vetheaDimensionID;
+        int vetheaID = GeneralConfig.dimensionIDs.vetheaDimensionID;
 
         if (vetheaID != sourceDimension && vetheaID != destinationDimension)
             return;

@@ -30,7 +30,6 @@ public class Config {
     public static final OreInfo twilight = new OreInfo("twilightOres", 10, 4, 15, 100);
     private static final String CATEGORY_GUI = "GUI";
     private static final String CATEGORY_WORLD_GEN = "World Gen";
-    public static int arcanaX, arcanaY;
     public static boolean generateHuts = true;
     public static boolean generateTrees = true;
     public static boolean generateTar = true;
@@ -41,9 +40,6 @@ public class Config {
         generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, true, "Generate livestock merchant huts in the overworld");
         generateTrees = cfg.getBoolean("generateTrees", CATEGORY_WORLD_GEN, true, "Generate divine trees in the overworld");
         generateTar = cfg.getBoolean("generateTar", CATEGORY_WORLD_GEN, true, "Generate tar lakes in the overworld");
-        cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
-        arcanaX = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
-        arcanaY = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");
     }
 
     private static void initMobStats(Configuration cfg) {

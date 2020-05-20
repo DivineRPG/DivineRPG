@@ -2,8 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.api.Reference;
-import divinerpg.config.Config;
-import divinerpg.config.MainConfig;
+import divinerpg.config.GeneralConfig;
 import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
 import divinerpg.objects.entities.assets.render.projectiles.*;
@@ -317,7 +316,7 @@ public class ModEntities {
                 buildProjectileEntry(EntityWreckShot.class, "wreck_shot"),
         buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")};
 
-        if (MainConfig.debugMode) {
+        if (GeneralConfig.generalOptions.debugMode) {
             DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
         }
 

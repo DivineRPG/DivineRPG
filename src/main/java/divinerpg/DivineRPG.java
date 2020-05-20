@@ -3,10 +3,9 @@
  */
 package divinerpg;
 
-import divinerpg.config.MainConfig;
+import divinerpg.config.GeneralConfig;
 import divinerpg.events.enchants.WorldBreakEnchantHandler;
 import divinerpg.utils.UpdateChecker;
-import net.minecraftforge.common.ForgeVersion;
 import org.apache.logging.log4j.LogManager;
 
 import divinerpg.api.Reference;
@@ -71,7 +70,7 @@ public class DivineRPG {
         ModOreDict.init();
         ModTriggers.registerTriggers();
         ModSmelting.init();
-        MinecraftForge.EVENT_BUS.register(new MainConfig());
+        MinecraftForge.EVENT_BUS.register(new GeneralConfig());
     }
 
     @Mod.EventHandler

@@ -1,7 +1,7 @@
 package divinerpg.registry;
 
 import divinerpg.api.Reference;
-import divinerpg.config.MainConfig;
+import divinerpg.config.GeneralConfig;
 import divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import divinerpg.dimensions.arcana.WorldProviderArcana;
 import divinerpg.dimensions.eden.WorldProviderEden;
@@ -43,32 +43,32 @@ public class ModDimensions {
     }
 
     private static void registerDimensionTypes() {
-        edenDimension = DimensionType.register(Reference.MODID + ":eden", "_eden", MainConfig.dimensionIDs.edenDimensionID,
+        edenDimension = DimensionType.register(Reference.MODID + ":eden", "_eden", GeneralConfig.dimensionIDs.edenDimensionID,
                 WorldProviderEden.class, false);
         wildWoodDimension = DimensionType.register(Reference.MODID + ":wildwood", "_wildwood",
-                MainConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildWood.class, false);
+                GeneralConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildWood.class, false);
         apalachiaDimension = DimensionType.register(Reference.MODID + ":apalachia", "_apalachia",
-                MainConfig.dimensionIDs.apalachiaDimensionID, WorldProviderApalachia.class, false);
+                GeneralConfig.dimensionIDs.apalachiaDimensionID, WorldProviderApalachia.class, false);
         skythernDimension = DimensionType.register(Reference.MODID + ":skythern", "_skythern",
-                MainConfig.dimensionIDs.skythernDimensionID, WorldProviderSkythern.class, false);
-        mortumDimension = DimensionType.register(Reference.MODID + ":mortum", "_mortum", MainConfig.dimensionIDs.mortumDimensionID,
+                GeneralConfig.dimensionIDs.skythernDimensionID, WorldProviderSkythern.class, false);
+        mortumDimension = DimensionType.register(Reference.MODID + ":mortum", "_mortum", GeneralConfig.dimensionIDs.mortumDimensionID,
                 WorldProviderMortum.class, false);
-        iceikaDimension = DimensionType.register(Reference.MODID + ":iceika", "_iceika", MainConfig.dimensionIDs.iceikaDimensionID,
+        iceikaDimension = DimensionType.register(Reference.MODID + ":iceika", "_iceika", GeneralConfig.dimensionIDs.iceikaDimensionID,
                 WorldProviderIceika.class, false);
-        arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", MainConfig.dimensionIDs.arcanaDimensionID,
+        arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", GeneralConfig.dimensionIDs.arcanaDimensionID,
                 WorldProviderArcana.class, false);
-        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", MainConfig.dimensionIDs.vetheaDimensionID, 
+        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", GeneralConfig.dimensionIDs.vetheaDimensionID,
         		VetheaWorldProvider.class, false); //VetheaWorldProvider = new, WorldProviderVethea = old
     }
 
     private static void registerDimensions() {
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.edenDimensionID, edenDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.wildwoodDimensionID, wildWoodDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.apalachiaDimensionID, apalachiaDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.skythernDimensionID, skythernDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.mortumDimensionID, mortumDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.iceikaDimensionID, iceikaDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.arcanaDimensionID, arcanaDimension);
-        DimensionManager.registerDimension(MainConfig.dimensionIDs.vetheaDimensionID, vetheaDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.edenDimensionID, edenDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.wildwoodDimensionID, wildWoodDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.apalachiaDimensionID, apalachiaDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.skythernDimensionID, skythernDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.mortumDimensionID, mortumDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.iceikaDimensionID, iceikaDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.arcanaDimensionID, arcanaDimension);
+        DimensionManager.registerDimension(GeneralConfig.dimensionIDs.vetheaDimensionID, vetheaDimension);
     }
 }

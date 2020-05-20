@@ -8,21 +8,28 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
-@Config(modid = Reference.MODID, name="divinerpg/main")
-public class MainConfig {
+@Config(modid = Reference.MODID, name="divinerpg/general_config")
+public class GeneralConfig {
 
-    @Config.Name("Debug mode")
-    @Config.Comment("Prints a bunch of extra, mostly unvetted information. Keep this disabled unless instructed")
-    public static boolean debugMode = false;
+    @Config.Name("General Options")
+    @Config.Comment("Configure general settings here")
+    public static GeneralOptions generalOptions = new GeneralOptions();
 
-    @Config.Name("Welcome messages")
-    @Config.Comment("Set to false to disable the welcome messages for special players")
-    public static boolean welcomeMessages = true;
+    public static class GeneralOptions {
+        @Config.Name("Debug mode")
+        @Config.Comment("Prints a bunch of extra, mostly unvetted information. Keep this disabled unless instructed")
+        public boolean debugMode = false;
+
+        @Config.Name("Welcome messages")
+        @Config.Comment("Set to false to disable the welcome messages for special players")
+        public boolean welcomeMessages = true;
+    }
 
     @Config.Name("Dimension IDs")
     @Config.Comment("Configure DivineRPG dimension IDs here. Don't change these unless you know what you're doing")
     @Config.RequiresMcRestart
     public static DimensionIDs dimensionIDs = new DimensionIDs();
+
     public static class DimensionIDs {
         @Config.Name("Eden")
         public int edenDimensionID = 420;
@@ -42,11 +49,23 @@ public class MainConfig {
         public int vetheaDimensionID = 427;
     }
 
+    @Config.Name("GUI Options")
+    @Config.Comment("Configure GUI settings here")
+    public static GUIOptions guiOptions = new GUIOptions();
+
+    public static class GUIOptions {
+        @Config.Name("ArcanaX")
+        @Config.RangeInt(min = 1, max = 255)
+        public int arcanaX = 111;
+        @Config.Name("ArcanaY")
+        @Config.RangeInt(min = 1, max = 255)
+        public int arcanaY = 18;
+    }
+
     @SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.getModID().equals(Reference.MODID)) {
             ConfigManager.sync(Reference.MODID, Config.Type.INSTANCE);
-            System.out.println("Sync done");
         }
     }
 }
