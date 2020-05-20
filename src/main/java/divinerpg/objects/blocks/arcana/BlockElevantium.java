@@ -1,9 +1,9 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -19,7 +19,7 @@ public class BlockElevantium extends BlockMod {
             0.9375F);
 
     public BlockElevantium(String name) {
-        super(EnumBlockType.IRON, name, 3f, DivineRPGTabs.utility);
+        super(name, 3F, Material.IRON, DivineRPGTabs.utility);
         this.setTickRandomly(true);
         setResistance(20);
     }

@@ -3,8 +3,8 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
@@ -16,7 +16,7 @@ public class BlockModOre extends BlockMod {
     private Random rand;
 
     public BlockModOre(String name, float hardness, float resistance, int harvestLevel, Supplier<Item> drop) {
-        super(EnumBlockType.ROCK, name, hardness, DivineRPGTabs.BlocksTab);
+        super(name, hardness, Material.ROCK);
         this.setHarvestLevel("pickaxe", harvestLevel);
         this.setResistance(resistance);
         this.dropItemSupplier = drop;

@@ -1,6 +1,5 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -14,7 +13,7 @@ public class BlockModDirt extends BlockMod {
     private MapColor mapColor;
 
     public BlockModDirt(String name, float hardness, @Nonnull MapColor mapColorIn) {
-        super(EnumBlockType.DIRT, name, hardness, DivineRPGTabs.BlocksTab);
+        super(name, hardness, Material.GROUND);
         this.setHarvestLevel("shovel", 0);
         this.setMapColor(mapColorIn);
     }

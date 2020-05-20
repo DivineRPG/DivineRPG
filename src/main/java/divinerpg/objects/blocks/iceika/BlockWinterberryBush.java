@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     public boolean isGrown;
 
     public BlockWinterberryBush(boolean grown, String name) {
-        super(EnumBlockType.LEAVES, name, 0.2F);
+        super(name, 0.2F, Material.LEAVES);
         this.isGrown = grown;
         setTickRandomly(true);
         this.setLightOpacity(1);

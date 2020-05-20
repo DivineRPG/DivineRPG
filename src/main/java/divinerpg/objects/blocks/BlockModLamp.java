@@ -1,11 +1,11 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.enums.EnumBlockType;
+import net.minecraft.block.material.Material;
 
 public class BlockModLamp extends BlockMod {
 
-    public BlockModLamp(EnumBlockType blockType, String name, float hardness) {
-        super(blockType, name, hardness);
+    public BlockModLamp(String name, float hardness) {
+        super(name, hardness, Material.REDSTONE_LIGHT);
         this.setLightLevel(1.0F);
     }
 }

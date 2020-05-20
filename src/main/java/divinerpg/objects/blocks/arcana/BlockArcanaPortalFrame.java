@@ -1,12 +1,12 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.events.DimensionHelper;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -30,7 +30,7 @@ public class BlockArcanaPortalFrame extends BlockMod {
     protected static final AxisAlignedBB AABB_BLOCK = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.8125D, 1.0D);
 
     public BlockArcanaPortalFrame(String name) {
-        super(EnumBlockType.ROCK, name, 5.0F);
+        super(name, 5.0F, Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

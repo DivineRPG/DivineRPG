@@ -3,18 +3,15 @@ package divinerpg.objects.blocks;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.twilight.BlockBrambles;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -30,7 +27,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     private MapColor mapColor;
 
     public BlockModGrass(String name, Supplier<BlockModDirt> dirtSupplier, float hardness,  @Nonnull MapColor mapColorIn) {
-        super(EnumBlockType.GRASS, name, hardness);
+        super(name, hardness, Material.GRASS);
         this.setMapColor(mapColorIn);
         this.dirtSupplier = dirtSupplier;
         setTickRandomly(true);

@@ -1,17 +1,22 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.enums.EnumBlockType;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockBeaconBase extends BlockMod {
 
     public BlockBeaconBase(String name, float hardness) {
-        super(EnumBlockType.ROCK, name, hardness);
+        this(name, hardness, Material.ROCK);
     }
 
-    public BlockBeaconBase(EnumBlockType blockType, String name, float hardness, int harvest) {
-        super(blockType, name, hardness, harvest);
+    public BlockBeaconBase(String name, float hardness, Material material) {
+        this(name, hardness, material, 0);
+    }
+
+    public BlockBeaconBase(String name, float hardness, Material material, int harvestLevel) {
+        super(name, hardness, material);
+        this.setHarvestLevel("pickaxe", harvestLevel);
     }
 
     @Override

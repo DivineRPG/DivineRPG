@@ -1,11 +1,11 @@
 package divinerpg.objects.blocks.vethea;
 
 import divinerpg.DivineRPG;
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.objects.blocks.tile.entity.TileEntityDreamLamp;
 import divinerpg.proxy.GUIHandler;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +22,7 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
     public static final PropertyBool POWERED = PropertyBool.create("powered");
 
     public BlockDreamLamp(String name) {
-        super(EnumBlockType.LAMP, name, 3.0F);
+        super(name, 3.0F, Material.REDSTONE_LIGHT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(POWERED, false));
     }
 

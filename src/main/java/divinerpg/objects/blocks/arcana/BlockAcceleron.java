@@ -1,9 +1,9 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -23,7 +23,7 @@ public class BlockAcceleron extends BlockMod {
 
     @Deprecated
 	public BlockAcceleron(String name) {
-        super(EnumBlockType.ROCK, name, 3.0F, DivineRPGTabs.utility);
+        super(name, 3.0F, Material.ROCK, DivineRPGTabs.utility);
         slipperiness = 1.2f;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }

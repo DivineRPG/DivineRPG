@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import divinerpg.enums.EnumBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -31,7 +30,7 @@ public abstract class BlockModDoubleCrop extends BlockMod implements IPlantable 
     private Random rand;
 
     public BlockModDoubleCrop(String name) {
-        super(EnumBlockType.PLANT, name, 0F);
+        super(name, 0F, Material.PLANTS);
         this.setTickRandomly(true);
         setCreativeTab(null);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)));

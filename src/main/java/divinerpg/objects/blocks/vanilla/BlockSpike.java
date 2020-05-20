@@ -1,8 +1,8 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.utils.Utils;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +21,7 @@ public class BlockSpike extends BlockMod {
             0.9375D);
 
     public BlockSpike(String name) {
-        super(EnumBlockType.ROCK, name, 3);
+        super(name, 3, Material.IRON);
     }
 
     @Override

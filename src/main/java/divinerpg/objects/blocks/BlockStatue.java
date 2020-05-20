@@ -1,10 +1,10 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.StatueType;
 import divinerpg.objects.blocks.tile.entity.TileEntityStatue;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -25,7 +25,7 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
     public StatueType statueType;
 
     public BlockStatue(String name, StatueType statueType) {
-        super(EnumBlockType.ROCK, name, 6.0F);
+        super(name, 6.0F, Material.ROCK);
         this.statueType = statueType;
         this.hasTileEntity = true;
         setHarvestLevel("pickaxe", 0);

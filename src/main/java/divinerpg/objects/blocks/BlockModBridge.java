@@ -2,7 +2,7 @@ package divinerpg.objects.blocks;
 
 import javax.annotation.Nullable;
 
-import divinerpg.enums.EnumBlockType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockModBridge extends BlockModPowered {
 
     public BlockModBridge(String name, float hardness) {
-        super(EnumBlockType.GLASS, name, hardness);
+        super(name, hardness, Material.GLASS);
     }
 
     @Override

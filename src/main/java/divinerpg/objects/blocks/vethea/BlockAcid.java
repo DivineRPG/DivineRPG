@@ -1,9 +1,9 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.enums.EnumBlockType;
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.Utils;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,7 @@ public class BlockAcid extends BlockMod {
     }
 
     public BlockAcid(String name, boolean decays, boolean poison) {
-        super(EnumBlockType.SNOW, name, 0.1F, DivineRPGTabs.vethea);
+        super(name, 0.1F, Material.SNOW, DivineRPGTabs.vethea);
         this.setTickRandomly(true);
         this.decays = decays;
         this.poison = poison;

@@ -2,8 +2,8 @@ package divinerpg.objects.blocks;
 
 import java.util.Random;
 
-import divinerpg.enums.EnumBlockType;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public abstract class BlockModPowered extends BlockMod {
     public static final PropertyBool POWERED = PropertyBool.create("powered");
 
-    public BlockModPowered(EnumBlockType blockType, String name, float hardness) {
-        super(blockType, name, hardness);
+    public BlockModPowered(String name, float hardness, Material material) {
+        super(name, hardness, material);
         this.setDefaultState(this.blockState.getBaseState().withProperty(POWERED, false));
     }
 

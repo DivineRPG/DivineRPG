@@ -1,10 +1,10 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.enums.EnumBlockType;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.tile.entity.TileEntitySingleUseSpawner;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -52,7 +52,7 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
      * @param spawnOffset  - initial spawn offset for entity position
      */
     public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay, int nearDistance, BlockPos spawnOffset) {
-        super(EnumBlockType.IRON, name, 1);
+        super(name, 1, Material.IRON);
         this.entityClass = entityClass;
         this.delay = delay;
         this.name = name;

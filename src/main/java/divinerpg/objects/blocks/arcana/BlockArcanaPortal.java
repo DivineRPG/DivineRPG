@@ -1,11 +1,11 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.api.Reference;
-import divinerpg.enums.EnumBlockType;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
@@ -32,7 +32,7 @@ public class BlockArcanaPortal extends Block {
 
     public BlockArcanaPortal(String name, int dimId) {
         super(Material.PORTAL);
-        this.setSoundType(EnumBlockType.PORTAL.getSound());
+        this.setSoundType(SoundType.STONE);
         this.setUnlocalizedName(name);
         this.setRegistryName(Reference.MODID, name);
         this.setCreativeTab(null);
