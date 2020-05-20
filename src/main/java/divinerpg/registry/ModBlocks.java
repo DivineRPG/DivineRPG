@@ -77,21 +77,7 @@ import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.objects.blocks.vanilla.*;
-import divinerpg.objects.blocks.vethea.BlockAcid;
-import divinerpg.objects.blocks.vethea.BlockDreamLamp;
-import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
-import divinerpg.objects.blocks.vethea.BlockHiveEgg;
-import divinerpg.objects.blocks.vethea.BlockInfusionTable;
-import divinerpg.objects.blocks.vethea.BlockKarosAltar;
-import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
-import divinerpg.objects.blocks.vethea.BlockKarosHeatTile;
-import divinerpg.objects.blocks.vethea.BlockLunicAltar;
-import divinerpg.objects.blocks.vethea.BlockNightmareBed;
-import divinerpg.objects.blocks.vethea.BlockQuadroticAltar;
-import divinerpg.objects.blocks.vethea.BlockRaglokAltar;
-import divinerpg.objects.blocks.vethea.BlockVetheaLog;
-import divinerpg.objects.blocks.vethea.BlockVetheaPortal;
-import divinerpg.objects.blocks.vethea.BlockWreckAltar;
+import divinerpg.objects.blocks.vethea.*;
 import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
 import divinerpg.objects.entities.entity.twilight.EntitySunstorm;
 import divinerpg.objects.entities.entity.twilight.EntityTermasect;
@@ -1669,8 +1655,8 @@ public class ModBlocks {
         registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
 
         // Lighting
-        register(registry, new BlockMod("fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("firelight", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockLightCrystal("fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockLightCrystal("firelight", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Structure
         // General
