@@ -28,42 +28,14 @@ public class Config {
     public static final OreInfo arlemite = new OreInfo("arlemite", 5, 4, 1, 16);
     public static final OreInfo nether = new OreInfo("netherOres", 10, 4, 1, 256);
     public static final OreInfo twilight = new OreInfo("twilightOres", 10, 4, 15, 100);
-    private static final String CATEGORY_GENERAL = "general";
     private static final String CATEGORY_GUI = "GUI";
     private static final String CATEGORY_WORLD_GEN = "World Gen";
-    public static int mobSpawnMultiplier = 5;
-    public static boolean welcomeMessages = true;
-    public static boolean debug = false;
     public static int arcanaX, arcanaY;
     public static boolean generateHuts = true;
     public static boolean generateTrees = true;
     public static boolean generateTar = true;
 
-    private static final String CATEGORY_DIMENSION = "Dimension";
-    public static int edenDimensionId = 420;
-    public static int wildWoodDimensionId = 421;
-    public static int apalachiaDimensionId = 422;
-    public static int skythernDimensionId = 423;
-    public static int mortumDimensionId = 424;
-    public static int iceikaDimensionId = 425;
-    public static int arcanaDimensionId = 426;
-    public static int vetheaDimensionId = 427;
-
     private static void initGeneralConfig(Configuration cfg) {
-        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
-        cfg.addCustomCategoryComment(CATEGORY_DIMENSION, "Dimension related configuration");
-        edenDimensionId = cfg.getInt("edenId", CATEGORY_DIMENSION, 420, 2, 4096, "Eden dimension ID");
-        wildWoodDimensionId = cfg.getInt("wildWoodId", CATEGORY_DIMENSION, 421, 2, 4096, "Wild Wood dimension ID");
-        apalachiaDimensionId = cfg.getInt("apalachiaId", CATEGORY_DIMENSION, 422, 2, 4096, "Apalachia dimension ID");
-        skythernDimensionId = cfg.getInt("skythernId", CATEGORY_DIMENSION, 423, 2, 4096, "Skythern dimension ID");
-        mortumDimensionId = cfg.getInt("mortumId", CATEGORY_DIMENSION, 424, 2, 4096, "Mortum dimension ID");
-        iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 425, 2, 4096, "Iceika dimension ID");
-        arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 426, 2, 4096, "Arcana dimension ID");
-        vetheaDimensionId = cfg.getInt("vetheaId", CATEGORY_DIMENSION, 427, 2, 4096, "Vethea dimension ID");
-        welcomeMessages = cfg.getBoolean("welcomeMessages", CATEGORY_GENERAL, welcomeMessages,
-                "Set to false to disable welcome messages for special players");
-        debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug,
-                "Keep this disabled unless a developer asks for it");
         cfg.addCustomCategoryComment(CATEGORY_WORLD_GEN, "World gen variables");
         Arrays.asList(arlemite, rupee, realmite, nether, twilight).forEach(oreInfo -> oreInfo.init(cfg, CATEGORY_WORLD_GEN));
         generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, true, "Generate livestock merchant huts in the overworld");

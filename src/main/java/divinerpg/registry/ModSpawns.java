@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.Config;
+import divinerpg.config.MainConfig;
 import divinerpg.objects.entities.entity.arcana.EntityCaptainMerik;
 import divinerpg.objects.entities.entity.arcana.EntityDatticon;
 import divinerpg.objects.entities.entity.arcana.EntityLeorna;
@@ -287,7 +288,7 @@ public class ModSpawns {
                 entity.world.spawnEntity(shark);	
                 entity.setDead();	
 
-                if (Config.debug == true) {	
+                if (MainConfig.debugMode == true) {
                     DivineRPG.logger.info(shark.getName() + " just spawned at " + entity.getPosition());	
                 }	
             } else if (entity.getRNG().nextInt(250) == 0) {	
@@ -296,7 +297,7 @@ public class ModSpawns {
                 entity.world.spawnEntity(whale);	
                 entity.setDead();	
 
-                if (Config.debug == true) {	
+                if (MainConfig.debugMode == true) {
                     DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());	
                 }	
             } else if (entity.getRNG().nextInt(250) == 0) {	
@@ -305,7 +306,7 @@ public class ModSpawns {
                 entity.world.spawnEntity(liopleurodon);	
                 entity.setDead();	
 
-                if (Config.debug == true) {	
+                if (MainConfig.debugMode == true) {
                     DivineRPG.logger.info(liopleurodon.getName() + " just spawned at " + entity.getPosition());	
                 }	
             }

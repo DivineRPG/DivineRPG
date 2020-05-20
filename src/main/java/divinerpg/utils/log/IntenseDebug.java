@@ -2,6 +2,7 @@ package divinerpg.utils.log;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.Config;
+import divinerpg.config.MainConfig;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,7 +16,7 @@ public class IntenseDebug {
 
     @SideOnly(Side.CLIENT)
 public static void init() {
-	if (Config.debug) {
+	if (MainConfig.debugMode) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValuesCollection()) {
 			DivineRPG.logger.info("Biome: " + biome.getBiomeName());
 		}

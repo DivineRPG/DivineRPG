@@ -1,6 +1,7 @@
 package divinerpg.utils.portals;
 
 import divinerpg.config.Config;
+import divinerpg.config.MainConfig;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.NbtUtil;
 import divinerpg.utils.PositionHelper;
@@ -57,7 +58,9 @@ public class VetheaPortal extends ServerPortal {
         int sourceDimension = e.getEntity().getEntityWorld().provider.getDimension();
         int destinationDimension = e.getDimension();
 
-        if (Config.vetheaDimensionId != sourceDimension && Config.vetheaDimensionId != destinationDimension)
+        int vetheaID = MainConfig.dimensionIDs.vetheaDimensionID;
+
+        if (vetheaID != sourceDimension && vetheaID != destinationDimension)
             return;
 
         EntityPlayer player = (EntityPlayer) e.getEntity();
@@ -65,7 +68,7 @@ public class VetheaPortal extends ServerPortal {
 
         List<String> tagNames = Arrays.asList("OverworldInv", "VetheaInv");
 
-        if (sourceDimension == Config.vetheaDimensionId) {
+        if (sourceDimension == vetheaID) {
             Collections.reverse(tagNames);
         }
 
