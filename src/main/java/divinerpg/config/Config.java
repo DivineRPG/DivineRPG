@@ -32,9 +32,7 @@ public class Config {
     private static final String CATEGORY_GUI = "GUI";
     private static final String CATEGORY_WORLD_GEN = "World Gen";
     public static int mobSpawnMultiplier = 5;
-    public static boolean isBeaconBase = true;
     public static boolean welcomeMessages = true;
-    public static boolean canShowOverlay = true;
     public static boolean debug = false;
     public static int arcanaX, arcanaY;
     public static boolean generateHuts = true;
@@ -51,9 +49,6 @@ public class Config {
     public static int arcanaDimensionId = 426;
     public static int vetheaDimensionId = 427;
 
-    public static int kingCreationPercentage = 50;
-    public static int maxAbsorbedCount = 0;
-
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
         cfg.addCustomCategoryComment(CATEGORY_DIMENSION, "Dimension related configuration");
@@ -65,22 +60,15 @@ public class Config {
         iceikaDimensionId = cfg.getInt("iceikaId", CATEGORY_DIMENSION, 425, 2, 4096, "Iceika dimension ID");
         arcanaDimensionId = cfg.getInt("arcanaId", CATEGORY_DIMENSION, 426, 2, 4096, "Arcana dimension ID");
         vetheaDimensionId = cfg.getInt("vetheaId", CATEGORY_DIMENSION, 427, 2, 4096, "Vethea dimension ID");
-        isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase,
-                "Set to false to make DivineRPG blocks non-beacon objects");
         welcomeMessages = cfg.getBoolean("welcomeMessages", CATEGORY_GENERAL, welcomeMessages,
                 "Set to false to disable welcome messages for special players");
-        canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay,
-                "Set to false to disable the overlay");
         debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug,
-                "Dont enable this unless instructed by a developer");
-        mobSpawnMultiplier = cfg.getInt("Mob Spawn Multiplier", CATEGORY_GENERAL, 5, 1, 32,
-                "If you are experiencing lag i would recommend lowering this number");
+                "Keep this disabled unless a developer asks for it");
         cfg.addCustomCategoryComment(CATEGORY_WORLD_GEN, "World gen variables");
         Arrays.asList(arlemite, rupee, realmite, nether, twilight).forEach(oreInfo -> oreInfo.init(cfg, CATEGORY_WORLD_GEN));
-
-        generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, generateHuts, "Generate livestock merchant huts in the overworld?");
-        generateTrees = cfg.getBoolean("generateTrees", CATEGORY_WORLD_GEN, generateTrees, "Generate divine trees in the overworld?");
-        generateTar = cfg.getBoolean("generateTar", CATEGORY_WORLD_GEN, generateTar, "Generate tar lakes in the overworld?");
+        generateHuts = cfg.getBoolean("generateHuts", CATEGORY_WORLD_GEN, true, "Generate livestock merchant huts in the overworld");
+        generateTrees = cfg.getBoolean("generateTrees", CATEGORY_WORLD_GEN, true, "Generate divine trees in the overworld");
+        generateTar = cfg.getBoolean("generateTar", CATEGORY_WORLD_GEN, true, "Generate tar lakes in the overworld");
         cfg.addCustomCategoryComment(CATEGORY_GUI, "GUI Config options");
         arcanaX = cfg.getInt("arcanaX", CATEGORY_GUI, 111, 1, 255, "Arcana gui width");
         arcanaY = cfg.getInt("arcanaY", CATEGORY_GUI, 18, 1, 255, "Arcana gui height");
@@ -253,7 +241,6 @@ public class Config {
             put(new ResourceLocation(Reference.MODID, "zone"), new MobStatInfo(120.0, 0.0, 0.0));
             put(new ResourceLocation(Reference.MODID, "zoragon"), new MobStatInfo(70.0, 0.0, 0.0));
             put(new ResourceLocation(Reference.MODID, "moon_wolf"), new MobStatInfo(200.0, 1.0, 0.0));
-
         }};
 
         defaultModStates.forEach((location, mobStatInfo) -> {
