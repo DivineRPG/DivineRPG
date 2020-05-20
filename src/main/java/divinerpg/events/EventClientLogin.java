@@ -30,10 +30,6 @@ public class EventClientLogin {
                 } else if (Utils.isPatreon(player.getUniqueID())) {
                     Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
                 }
-                else {
-                    System.out.println("Yes wcmessages is still true");
-                    Logging.message(player, "Enjoy your useless welcome message " + player.getName());
-                }
             }
 
             // Update checker

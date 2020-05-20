@@ -21,6 +21,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/**
+ * Configuration options that have not yet been converted to the annotated config system. Includes world gen and mob stats
+ */
 public class Config {
     public static final Map<ResourceLocation, MobStatInfo> mobStats = new HashMap<>();
     public static final OreInfo realmite = new OreInfo("realmite", 5, 8, 1, 48);
