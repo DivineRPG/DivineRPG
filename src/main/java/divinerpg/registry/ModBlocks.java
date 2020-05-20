@@ -104,6 +104,7 @@ import divinerpg.objects.blocks.vethea.BlockRaglokAltar;
 import divinerpg.objects.blocks.vethea.BlockVetheaLog;
 import divinerpg.objects.blocks.vethea.BlockVetheaPortal;
 import divinerpg.objects.blocks.vethea.BlockWreckAltar;
+import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
 import divinerpg.objects.entities.entity.twilight.EntitySunstorm;
 import divinerpg.objects.entities.entity.twilight.EntityTermasect;
 import divinerpg.objects.entities.entity.twilight.cories.EntityExperiencedCori;
@@ -1149,6 +1150,8 @@ public class ModBlocks {
     public static final Block sunstormSpawner = null;
     @ObjectHolder("termasect_spawner")
     public static final Block termasectSpawner = null;
+    @ObjectHolder("eternal_archer_spawner")
+    public static final Block eternalArcherSpawner = null;
     @ObjectHolder("experienced_cori_spawner")
     public static final Block experiencedCoriSpawner = null;
 
@@ -1788,6 +1791,7 @@ public class ModBlocks {
         //
         register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 20 * 5, 5));
         register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, 20 * 5, 5));
         register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
     }
 

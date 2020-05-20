@@ -7,7 +7,7 @@
                "condition":"killed_by_player"
             }
          ],
-         "rolls":1,
+         "rolls":2,
          "entries":[
             {
                "type":"item",
@@ -22,6 +22,33 @@
          ]
       },
       {
+            "name":"divinerpg:apalachia_heart_drop",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "divinerpg:apalachia_heart",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 4
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
          "name":"divinerpg:eternal_archer",
          "conditions":[
             {
