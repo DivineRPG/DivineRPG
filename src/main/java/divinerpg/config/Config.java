@@ -33,7 +33,7 @@ public class Config {
     private static final String CATEGORY_WORLD_GEN = "World Gen";
     public static int mobSpawnMultiplier = 5;
     public static boolean isBeaconBase = true;
-    public static boolean UpdateChecker = true;
+    public static boolean welcomeMessages = true;
     public static boolean canShowOverlay = true;
     public static boolean debug = false;
     public static int arcanaX, arcanaY;
@@ -67,8 +67,8 @@ public class Config {
         vetheaDimensionId = cfg.getInt("vetheaId", CATEGORY_DIMENSION, 427, 2, 4096, "Vethea dimension ID");
         isBeaconBase = cfg.getBoolean("beaconBase", CATEGORY_GENERAL, isBeaconBase,
                 "Set to false to make DivineRPG blocks non-beacon objects");
-        UpdateChecker = cfg.getBoolean("UpdateChecker", CATEGORY_GENERAL, UpdateChecker,
-                "Set to false to disable the update checker");
+        welcomeMessages = cfg.getBoolean("welcomeMessages", CATEGORY_GENERAL, welcomeMessages,
+                "Set to false to disable welcome messages for special players");
         canShowOverlay = cfg.getBoolean("canShowOverlay", CATEGORY_GENERAL, canShowOverlay,
                 "Set to false to disable the overlay");
         debug = cfg.getBoolean("debug mode", CATEGORY_GENERAL, debug,

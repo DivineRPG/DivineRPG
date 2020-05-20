@@ -26,13 +26,15 @@ public class EventClientLogin {
         EntityPlayer player = evt.player;
 
         if (!player.world.isRemote) {
-            // Greetings
-            if (Utils.isDeveloperName(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.DARK_RED + LocalizeUtils.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
-            } else if (Utils.isTesterName(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.BLUE + LocalizeUtils.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
-            } else if (Utils.isPatreon(player.getUniqueID())) {
-                Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
+            //Send welcome messages
+            if(Config.welcomeMessages) {
+                if (Utils.isDeveloperName(player.getUniqueID())) {
+                    Logging.message(player, TextFormatting.DARK_RED + LocalizeUtils.normal("Welcome DivineRPG developer! " + player.getName() + " is on the DivineRPG dev team"));
+                } else if (Utils.isTesterName(player.getUniqueID())) {
+                    Logging.message(player, TextFormatting.BLUE + LocalizeUtils.normal("Welcome DivineRPG tester! " + player.getName() + " kindly offered their time to help test DivineRPG. Thank you for your service!"));
+                } else if (Utils.isPatreon(player.getUniqueID())) {
+                    Logging.message(player, TextFormatting.YELLOW + LocalizeUtils.normal("Welcome DivineRPG patreon! " + player.getName() + " kindly supported the DivineRPG dev team, thank you for your help!"));
+                }
             }
 
             // Update checker
@@ -42,7 +44,7 @@ public class EventClientLogin {
 
     private void sendUpdateCheckerMessage(EntityPlayer player) {
         if(UpdateChecker.isUpdateAvailable()) {
-            Logging.message(player, TextFormatting.LIGHT_PURPLE + LocalizeUtils.normal("DivineRPG is out of date, the latest version is " + UpdateChecker.getUpdateTarget()));
+            Logging.message(player, TextFormatting.LIGHT_PURPLE + LocalizeUtils.normal("DivineRPG is out of date. The latest version is " + UpdateChecker.getUpdateTarget()));
         }
     }
 }
