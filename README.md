@@ -25,13 +25,13 @@ Discord: https://discord.gg/R9Zc32D
 
 ### Credits
 * XolovA - original creator
-* Scimiguy - current owner
+* Scimiguy - current owner and coding assistant
 ***
 ##### Main Team
 * NicosasurusRex99 - Developer
 * krwminer - Developer
 * Wufflez/Litewolf101 - Developer
-* Immortallis - Developer
+* AstralScourge - Developer
 * Dash - Developer
 
 ##### Special Thanks to
