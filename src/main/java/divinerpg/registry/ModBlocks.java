@@ -36,36 +36,8 @@ import divinerpg.objects.blocks.BlockModUnbreakable;
 import divinerpg.objects.blocks.BlockModVine;
 import divinerpg.objects.blocks.BlockSingleUseSpawner;
 import divinerpg.objects.blocks.BlockStatue;
-import divinerpg.objects.blocks.arcana.BlockAcceleron;
-import divinerpg.objects.blocks.arcana.BlockAquaMarine;
-import divinerpg.objects.blocks.arcana.BlockArcanaDoor;
-import divinerpg.objects.blocks.arcana.BlockArcanaPortal;
-import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
-import divinerpg.objects.blocks.arcana.BlockArcanaSpawner;
-import divinerpg.objects.blocks.arcana.BlockArcaniumExtractor;
-import divinerpg.objects.blocks.arcana.BlockDemonFurnace;
-import divinerpg.objects.blocks.arcana.BlockDramixAltar;
-import divinerpg.objects.blocks.arcana.BlockElevantium;
-import divinerpg.objects.blocks.arcana.BlockEucalyptusRoot;
-import divinerpg.objects.blocks.arcana.BlockFirestock;
-import divinerpg.objects.blocks.arcana.BlockGreenlightFurnace;
-import divinerpg.objects.blocks.arcana.BlockHeatTrap;
-import divinerpg.objects.blocks.arcana.BlockHitchak;
-import divinerpg.objects.blocks.arcana.BlockLamona;
-import divinerpg.objects.blocks.arcana.BlockMarsine;
-import divinerpg.objects.blocks.arcana.BlockMoltenFurnace;
-import divinerpg.objects.blocks.arcana.BlockMoonlightFurnace;
-import divinerpg.objects.blocks.arcana.BlockOceanfireFurnace;
-import divinerpg.objects.blocks.arcana.BlockParasectaAltar;
-import divinerpg.objects.blocks.arcana.BlockPinfly;
-import divinerpg.objects.blocks.arcana.BlockVeilo;
-import divinerpg.objects.blocks.arcana.BlockWhitefireFurnace;
-import divinerpg.objects.blocks.iceika.BlockCandyCane;
-import divinerpg.objects.blocks.iceika.BlockChristmasLights;
-import divinerpg.objects.blocks.iceika.BlockCoalstoneFurnace;
-import divinerpg.objects.blocks.iceika.BlockFrostedChest;
-import divinerpg.objects.blocks.iceika.BlockPresentBox;
-import divinerpg.objects.blocks.iceika.BlockWinterberryBush;
+import divinerpg.objects.blocks.arcana.*;
+import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.BlockBrambles;
 import divinerpg.objects.blocks.twilight.BlockEdenChest;
 import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
@@ -76,6 +48,7 @@ import divinerpg.objects.blocks.twilight.BlockSkyPlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.blocks.twilight.BlockTwilightGrass;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
+import divinerpg.objects.blocks.twilight.grass.*;
 import divinerpg.objects.blocks.vanilla.*;
 import divinerpg.objects.blocks.vethea.*;
 import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
@@ -1330,8 +1303,8 @@ public class ModBlocks {
         // Iceika
 
         // Terrain
-        register(registry, new BlockModDirt("frozen_dirt", 2.5F, MapColor.WHITE_STAINED_HARDENED_CLAY));
-        register(registry, new BlockModGrass("frozen_grass", () -> frozenDirt, 2.5F, MapColor.LIGHT_BLUE));
+        register(registry, new BlockModDirt("frozen_dirt", 0.5F, MapColor.WHITE_STAINED_HARDENED_CLAY));
+        register(registry, new BlockFrozenGrass("frozen_grass", 0.6F));
         register(registry, new BlockMod("frozen_stone", 6.0F));
         register(registry, new BlockModLog("frozen_log", MapColor.WHITE_STAINED_HARDENED_CLAY).setHardness(5.0F));
         register(registry, new BlockModLeaves("brittle_leaves", 0.1F, () -> frozenSapling,
@@ -1387,19 +1360,18 @@ public class ModBlocks {
         // Twilight dimensions
 
         // Dirt
-        register(registry, new BlockModDirt("eden_dirt", 5.0F, MapColor.YELLOW));
-        register(registry, new BlockModDirt("wildwood_dirt", 5.0F, MapColor.BLUE));
-        register(registry, new BlockModDirt("apalachia_dirt", 5.0F, MapColor.PURPLE));
-        register(registry, new BlockModDirt("skythern_dirt", 5.0F, MapColor.GRAY));
-        register(registry, new BlockModDirt("mortum_dirt", 5.0F, MapColor.BLACK));
+        register(registry, new BlockModDirt("eden_dirt", 0.5F, MapColor.YELLOW));
+        register(registry, new BlockModDirt("wildwood_dirt", 0.5F, MapColor.BLUE));
+        register(registry, new BlockModDirt("apalachia_dirt", 0.5F, MapColor.PURPLE));
+        register(registry, new BlockModDirt("skythern_dirt", 0.5F, MapColor.GRAY));
+        register(registry, new BlockModDirt("mortum_dirt", 0.5F, MapColor.BLACK));
 
         // Grass
-        register(registry, new BlockModGrass("eden_grass", () -> edenDirt, 5.0F, MapColor.YELLOW));
-        register(registry, new BlockModGrass("wildwood_grass", () -> wildwoodDirt, 5.0F, MapColor.BLUE));
-        register(registry, new BlockModGrass("apalachia_grass", () -> apalachiaDirt, 5.0F, MapColor.PURPLE));
-        register(registry, new BlockModGrass("skythern_grass", () -> skythernDirt, 5.0F, MapColor.CLOTH));
-        register(registry, new BlockModGrass("mortum_grass", () -> mortumDirt, 5.0F, MapColor.BLACK));
-
+        register(registry, new BlockEdenGrass("eden_grass", 0.6F));
+        register(registry, new BlockWildwoodGrass("wildwood_grass", 0.6F));
+        register(registry, new BlockApalachiaGrass("apalachia_grass", 0.6F));
+        register(registry, new BlockSkythernGrass("skythern_grass", 0.6F));
+        register(registry, new BlockMortumGrass("mortum_grass", 0.6F));
         // Stone
         register(registry, new BlockMod("twilight_stone", 6.0F));
 
@@ -1516,7 +1488,7 @@ public class ModBlocks {
         register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MapColor.BLUE));
 
         // Grass
-        register(registry, new BlockModGrass("arcanite_grass", () -> arcaniteDirt, 0.5F, MapColor.BLUE));
+        register(registry, new BlockArcaniteGrass("arcanite_grass", 0.6F));
 
         // Ore
         register(registry, new BlockMod("arcanium_ore", 3.0F));
@@ -1614,7 +1586,7 @@ public class ModBlocks {
 
         // Terrain
         register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGrass("dream_grass", () -> dreamDirt, 0.6F, MapColor.LIGHT_BLUE).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockDreamGrass("dream_grass", 0.6F).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs

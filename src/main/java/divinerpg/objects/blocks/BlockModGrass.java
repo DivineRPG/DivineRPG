@@ -1,5 +1,6 @@
 package divinerpg.objects.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -8,10 +9,13 @@ import divinerpg.objects.blocks.twilight.BlockModDoublePlant;
 import divinerpg.objects.blocks.twilight.BlockTwilightFlower;
 import divinerpg.objects.items.base.ItemModSeeds;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -22,7 +26,9 @@ import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nonnull;
 
-public class BlockModGrass extends BlockMod implements IGrowable {
+public abstract class BlockModGrass extends BlockMod implements IGrowable {
+
+    protected ArrayList<Supplier<Block>> growablePlantsList = new ArrayList<Supplier<Block>>();
     protected Supplier<BlockModDirt> dirtSupplier;
     private MapColor mapColor;
 
@@ -30,8 +36,8 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         super(name, hardness, Material.GRASS);
         this.setMapColor(mapColorIn);
         this.dirtSupplier = dirtSupplier;
-        setTickRandomly(true);
-        setHarvestLevel("shovel", 3);
+        this.setHarvestLevel("shovel", 0);
+        this.setTickRandomly(true);
     }
 
     @Override
@@ -70,15 +76,18 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     }
 
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
-        return true;
+        return this.growablePlantsList.size() > 0;
     }
 
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        return true;
+        return this.growablePlantsList.size() > 0;
     }
 
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-        /*
+        if(this.growablePlantsList.size() <= 0) {
+            return;
+        }
+
         BlockPos blockpos = pos.up();
 
         label35:
@@ -93,16 +102,21 @@ public class BlockModGrass extends BlockMod implements IGrowable {
             }
 
             if (worldIn.isAirBlock(blockpos1)) {
-                if (rand.nextInt(8) == 0) {
-                    worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
-                } else {
-                    IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
-                    if (Blocks.TALLGRASS.canBlockStay(worldIn, blockpos1, iblockstate1)) {
-                        worldIn.setBlockState(blockpos1, iblockstate1, 3);
+                Block flower = growablePlantsList.get(rand.nextInt(growablePlantsList.size())).get();
+                if(flower != null && flower instanceof BlockBush) {
+                    IBlockState flowerState = flower.getDefaultState();
+                    //Currently doesn't actually plant tallgrass
+                    if(((BlockBush)flower).canBlockStay(worldIn, blockpos1, flowerState)) {
+                        worldIn.setBlockState(blockpos1, flowerState, 3);
+                        System.out.println(blockpos1);
                     }
                 }
             }
-        }*/
+        }
+    }
+
+    protected void addGrowablePlant(Supplier<Block> blockSupplier) {
+        this.growablePlantsList.add(blockSupplier);
     }
 
     @Override
@@ -110,7 +124,6 @@ public class BlockModGrass extends BlockMod implements IGrowable {
             IPlantable plantable) {
 
         if (plantable instanceof BlockModCrop) {
-
             // get itemStack with seed from plants
             ItemStack item = ((BlockModCrop) plantable).getItem(((World) world), pos, state);
             if (item != null) {
