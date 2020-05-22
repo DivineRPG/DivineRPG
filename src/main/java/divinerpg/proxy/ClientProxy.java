@@ -5,7 +5,6 @@ import divinerpg.client.ArcanaRenderer;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
-import divinerpg.events.EventTooltip;
 import divinerpg.objects.entities.assets.render.PlayerHatRender;
 import divinerpg.particle.*;
 import divinerpg.registry.ModEntities;
@@ -54,7 +53,6 @@ public class ClientProxy extends CommonProxy {
         super.postInit(e);
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
-        MinecraftForge.EVENT_BUS.register(new EventTooltip());
 
         PostInitLog.init();
         IntenseDebug.init();
