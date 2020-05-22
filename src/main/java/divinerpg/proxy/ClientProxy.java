@@ -52,7 +52,6 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
 
         DebugLogging.postInitStageLog();
-        DebugLogging.listEverythingInRegistries();
         RenderPlayer renderPlayer = Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default");
         if (renderPlayer != null) {
             renderPlayer.addLayer(new PlayerHatRender(renderPlayer));
