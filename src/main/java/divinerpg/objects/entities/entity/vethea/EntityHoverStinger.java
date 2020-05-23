@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -22,7 +22,7 @@ public class EntityHoverStinger extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_HOVER_STINGER;
+        return LootTableRegistry.ENTITIES_HOVER_STINGER;
     }
 
     @Override

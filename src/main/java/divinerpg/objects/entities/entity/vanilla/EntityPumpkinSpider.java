@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
@@ -158,7 +158,7 @@ public class EntityPumpkinSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_PUMPKIN_SPIDER;
+        return LootTableRegistry.ENTITIES_PUMPKIN_SPIDER;
     }
 
     @Override

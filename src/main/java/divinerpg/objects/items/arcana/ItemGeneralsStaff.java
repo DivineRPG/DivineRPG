@@ -2,7 +2,7 @@ package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ItemGeneralsStaff extends RangedWeaponBase {
     public ItemGeneralsStaff() {
-        super("generals_staff", EntityGeneralsStaff.class, null, ModSounds.STARLIGHT, SoundCategory.MASTER, -1, 12,
+        super("generals_staff", EntityGeneralsStaff.class, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 12,
                 null, 20);
         //        ItemStaff.staffList.add(this);
     }

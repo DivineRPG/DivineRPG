@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -28,22 +28,22 @@ public class EntityDungeonDemon extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DUNGEON_PRISONER;
+        return SoundRegistry.DUNGEON_PRISONER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return SoundRegistry.DUNGEON_PRISONER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return SoundRegistry.DUNGEON_PRISONER_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DUNGEON_DEMON;
+        return LootTableRegistry.ENTITIES_DUNGEON_DEMON;
     }
 
     @Override

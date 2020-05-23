@@ -1,9 +1,9 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
-import divinerpg.registry.ModTriggers;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
+import divinerpg.registry.TriggerRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
@@ -48,7 +48,7 @@ public class EntityTheEye extends EntityDivineRPGMob {
             if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0, false, true));
                 if (player instanceof EntityPlayerMP) {
-                    ModTriggers.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
+                    TriggerRegistry.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
                 }
             }
         }
@@ -61,22 +61,22 @@ public class EntityTheEye extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.THE_EYE;
+        return SoundRegistry.THE_EYE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.THE_EYE_HURT;
+        return SoundRegistry.THE_EYE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.THE_EYE_HURT;
+        return SoundRegistry.THE_EYE_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_THE_EYE;
+        return LootTableRegistry.ENTITIES_THE_EYE;
     }
 
     @Override

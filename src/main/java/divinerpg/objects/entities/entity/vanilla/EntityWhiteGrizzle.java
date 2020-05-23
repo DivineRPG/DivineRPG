@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -69,16 +69,16 @@ public class EntityWhiteGrizzle extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.GRIZZLE;
+        return SoundRegistry.GRIZZLE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GRIZZLE_HURT;
+        return SoundRegistry.GRIZZLE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GRIZZLE_HURT;
+        return SoundRegistry.GRIZZLE_HURT;
     }
 }

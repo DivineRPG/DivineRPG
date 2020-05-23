@@ -2,7 +2,7 @@ package divinerpg.objects.items.vanilla;
 
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,7 +38,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
                 stack.damageItem(1, player);
             }
             player.setHealth(player.getMaxHealth());
-            player.playSound(ModSounds.HEAL, 1, 1);
+            player.playSound(SoundRegistry.HEAL, 1, 1);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
         } else {
             return super.onItemRightClick(world, player, hand);

@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.ai.EntityBehemothEatWood;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -45,21 +45,21 @@ public class EntityBehemoth extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ENDIKU;
+        return SoundRegistry.ENDIKU;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ENDIKU_HURT;
+        return SoundRegistry.ENDIKU_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ENDIKU_HURT;
+        return SoundRegistry.ENDIKU_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_BEHEMOTH;
+        return LootTableRegistry.ENTITIES_BEHEMOTH;
     }
 }

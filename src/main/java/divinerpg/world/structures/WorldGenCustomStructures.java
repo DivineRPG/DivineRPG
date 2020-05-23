@@ -5,9 +5,9 @@ import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
 import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
 import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
 import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.DimensionRegistry;
+import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -30,26 +30,26 @@ import java.util.Random;
 public class WorldGenCustomStructures implements IWorldGenerator {
     //Iceika
     public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
-            DRPGLootTables.ICEIKA_CHEST_DUNGEON);
+            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
     public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum",
-            DRPGLootTables.ICEIKA_CHEST_DUNGEON);
+            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1");
     public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2");
     public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
     public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
-            DRPGLootTables.ICEIKA_CHEST_HUT);
+            LootTableRegistry.ICEIKA_CHEST_HUT);
 
     public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
     public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
@@ -68,7 +68,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
             IChunkProvider chunkProvider) {
 
-        if (world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+        if (world.provider.getDimensionType() == DimensionRegistry.iceikaDimension) {
     		generateStructure(rollum, world, random, chunkX, chunkZ, 50);
     		generateStructure(archer, world, random, chunkX, chunkZ, 50);
 //            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
@@ -95,16 +95,16 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
             }
         }
-        	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
+        	if(world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
         		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.edenGrass, 10, 10);
         	}
-        	if(world.provider.getDimensionType() == ModDimensions.wildwoodDimension) {
+        	if(world.provider.getDimensionType() == DimensionRegistry.wildwoodDimension) {
         		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, BlockRegistry.wildwoodGrass, 10, 10);
         	}
-        	if(world.provider.getDimensionType() == ModDimensions.apalachiaDimension) {
+        	if(world.provider.getDimensionType() == DimensionRegistry.apalachiaDimension) {
         		generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.apalachiaGrass, 10, 10);
         	}
-        	if(world.provider.getDimensionType() == ModDimensions.skythernDimension) {
+        	if(world.provider.getDimensionType() == DimensionRegistry.skythernDimension) {
         		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, BlockRegistry.skythernGrass, 10, 10);
         	}
     }

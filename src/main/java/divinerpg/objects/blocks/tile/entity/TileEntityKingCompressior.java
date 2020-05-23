@@ -128,10 +128,10 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
             case KingSetCreation:
                 absorbedSets.clear();
 
-//                setInventorySlotContents(EntityEquipmentSlot.HEAD.getSlotIndex(), new ItemStack(ModArmor.king_helmet));
-//                setInventorySlotContents(EntityEquipmentSlot.CHEST.getSlotIndex(), new ItemStack(ModArmor.king_chestplate));
-//                setInventorySlotContents(EntityEquipmentSlot.LEGS.getSlotIndex(), new ItemStack(ModArmor.king_leggings));
-//                setInventorySlotContents(EntityEquipmentSlot.FEET.getSlotIndex(), new ItemStack(ModArmor.king_boots));
+//                setInventorySlotContents(EntityEquipmentSlot.HEAD.getSlotIndex(), new ItemStack(ArmorRegistry.king_helmet));
+//                setInventorySlotContents(EntityEquipmentSlot.CHEST.getSlotIndex(), new ItemStack(ArmorRegistry.king_chestplate));
+//                setInventorySlotContents(EntityEquipmentSlot.LEGS.getSlotIndex(), new ItemStack(ArmorRegistry.king_leggings));
+//                setInventorySlotContents(EntityEquipmentSlot.FEET.getSlotIndex(), new ItemStack(ArmorRegistry.king_boots));
                 break;
 
             case Infusion:

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -47,22 +47,22 @@ public class EntityShadahier extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_SHADAHIER;
+        return LootTableRegistry.ENTITIES_SHADAHIER;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.SHADAHIER;
+        return SoundRegistry.SHADAHIER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.SHADAHIER_HURT;
+        return SoundRegistry.SHADAHIER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.SHADAHIER_HURT;
+        return SoundRegistry.SHADAHIER_HURT;
     }
 
 }

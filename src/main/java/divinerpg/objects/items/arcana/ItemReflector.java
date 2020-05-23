@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.projectiles.EntityReflector;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -18,7 +18,7 @@ public class ItemReflector extends RangedWeaponBase {
 		super("arcanium_reflector",
 				EntityReflector.class,
 				null,
-				ModSounds.REFLECTOR,
+				SoundRegistry.REFLECTOR,
 				SoundCategory.MASTER,
 				-1,
 				0,

@@ -42,7 +42,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import static divinerpg.utils.SpawnEggColors.Dimension.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
-public class ModEntities {
+public class EntityRegistry {
     private static int mobID = 500;
     private static int projectileID = 0;
 

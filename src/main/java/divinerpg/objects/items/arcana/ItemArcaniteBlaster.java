@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class ItemArcaniteBlaster extends RangedWeaponBase {
     public ItemArcaniteBlaster() {
-        super("arcanite_blaster", null, BulletType.ARCANITE_BLASTER, ModSounds.GHAST_CANNON, SoundCategory.PLAYERS,
+        super("arcanite_blaster", null, BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON, SoundCategory.PLAYERS,
                 6500, 7, null, 20);
     }
 

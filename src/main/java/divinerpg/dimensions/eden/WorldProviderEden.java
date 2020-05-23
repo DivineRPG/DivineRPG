@@ -1,9 +1,9 @@
 package divinerpg.dimensions.eden;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
-import divinerpg.registry.ModBiomes;
+import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -19,7 +19,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeEden);
+		this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeEden);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
@@ -68,7 +68,7 @@ public class WorldProviderEden extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.edenDimension;
+		return DimensionRegistry.edenDimension;
 	}
 	@Nullable
     @Override

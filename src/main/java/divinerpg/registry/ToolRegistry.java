@@ -19,7 +19,7 @@ import net.minecraftforge.registries.IForgeRegistry;
  */
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
-public class ModTools {
+public class ToolRegistry {
 
     @ObjectHolder("arlemite_shovel")
     public static final Item arlemiteShovel = null;
@@ -126,61 +126,61 @@ public class ModTools {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension tools
-        register(registry, new ItemModShovel(ToolMaterialMod.ARLEMITE_SHOVEL, "arlemite_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.ARLEMITE_PICKAXE, "arlemite_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.ARLEMITE_AXE, "arlemite_axe"));
-        register(registry, new ItemModHoe(ToolMaterialMod.ARLEMITE_PICKAXE, "arlemite_hoe"));
-        register(registry, new ItemShickaxe(ToolMaterialMod.ARLEMITE_SHICKAXE, "arlemite_shickaxe"));
+        register(registry, new ItemModShovel(MaterialRegistry.ARLEMITE_SHOVEL, "arlemite_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.ARLEMITE_PICKAXE, "arlemite_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.ARLEMITE_AXE, "arlemite_axe"));
+        register(registry, new ItemModHoe(MaterialRegistry.ARLEMITE_PICKAXE, "arlemite_hoe"));
+        register(registry, new ItemShickaxe(MaterialRegistry.ARLEMITE_SHICKAXE, "arlemite_shickaxe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.BEDROCK_SHOVEL, "bedrock_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.BEDROCK_PICKAXE, "bedrock_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.BEDROCK_AXE, "bedrock_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.BEDROCK_SHOVEL, "bedrock_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.BEDROCK_PICKAXE, "bedrock_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.BEDROCK_AXE, "bedrock_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.CORRUPTED_SHOVEL, "corrupted_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.CORRUPTED_PICKAXE, "corrupted_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.CORRUPTED_AXE, "corrupted_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.CORRUPTED_SHOVEL, "corrupted_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.CORRUPTED_PICKAXE, "corrupted_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.CORRUPTED_AXE, "corrupted_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.DIVINE_SHOVEL, "divine_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.DIVINE_PICKAXE, "divine_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.DIVINE_AXE, "divine_axe"));
-        register(registry, new ItemShickaxe(ToolMaterialMod.DIVINE_SHICKAXE, "divine_shickaxe"));
+        register(registry, new ItemModShovel(MaterialRegistry.DIVINE_SHOVEL, "divine_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.DIVINE_PICKAXE, "divine_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.DIVINE_AXE, "divine_axe"));
+        register(registry, new ItemShickaxe(MaterialRegistry.DIVINE_SHICKAXE, "divine_shickaxe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.REALMITE_SHOVEL, "realmite_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.REALMITE_PICKAXE, "realmite_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.REALMITE_AXE, "realmite_axe"));
-        register(registry, new ItemModHoe(ToolMaterialMod.REALMITE_PICKAXE, "realmite_hoe"));
+        register(registry, new ItemModShovel(MaterialRegistry.REALMITE_SHOVEL, "realmite_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.REALMITE_PICKAXE, "realmite_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.REALMITE_AXE, "realmite_axe"));
+        register(registry, new ItemModHoe(MaterialRegistry.REALMITE_PICKAXE, "realmite_hoe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.RUPEE_SHOVEL, "rupee_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.RUPEE_PICKAXE, "rupee_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.RUPEE_AXE, "rupee_axe"));
-        register(registry, new ItemModHoe(ToolMaterialMod.RUPEE_PICKAXE, "rupee_hoe"));
-        register(registry, new ItemShickaxe(ToolMaterialMod.RUPEE_SHICKAXE, "rupee_shickaxe"));
+        register(registry, new ItemModShovel(MaterialRegistry.RUPEE_SHOVEL, "rupee_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.RUPEE_PICKAXE, "rupee_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.RUPEE_AXE, "rupee_axe"));
+        register(registry, new ItemModHoe(MaterialRegistry.RUPEE_PICKAXE, "rupee_hoe"));
+        register(registry, new ItemShickaxe(MaterialRegistry.RUPEE_SHICKAXE, "rupee_shickaxe"));
 
         // Twilight tools
-        register(registry, new ItemModShovel(ToolMaterialMod.EDEN_SHOVEL, "eden_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.EDEN_PICKAXE, "eden_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.EDEN_AXE, "eden_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.EDEN_SHOVEL, "eden_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.EDEN_PICKAXE, "eden_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.EDEN_AXE, "eden_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.WILDWOOD_SHOVEL, "wildwood_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.WILDWOOD_PICKAXE, "wildwood_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.WILDWOOD_AXE, "wildwood_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.WILDWOOD_SHOVEL, "wildwood_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.WILDWOOD_PICKAXE, "wildwood_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.WILDWOOD_AXE, "wildwood_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.APALACHIA_SHOVEL, "apalachia_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.APALACHIA_PICKAXE, "apalachia_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.APALACHIA_AXE, "apalachia_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.APALACHIA_SHOVEL, "apalachia_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.APALACHIA_PICKAXE, "apalachia_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.APALACHIA_AXE, "apalachia_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.SKYTHERN_SHOVEL, "skythern_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.SKYTHERN_PICKAXE, "skythern_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.SKYTHERN_AXE, "skythern_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.SKYTHERN_SHOVEL, "skythern_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.SKYTHERN_PICKAXE, "skythern_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.SKYTHERN_AXE, "skythern_axe"));
 
-        register(registry, new ItemModShovel(ToolMaterialMod.MORTUM_SHOVEL, "mortum_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.MORTUM_PICKAXE, "mortum_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.MORTUM_AXE, "mortum_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.MORTUM_SHOVEL, "mortum_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.MORTUM_PICKAXE, "mortum_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.MORTUM_AXE, "mortum_axe"));
 
         // Vethea tools
-        register(registry, new ItemModShovel(ToolMaterialMod.DREAM_SHOVEL, "dream_shovel"));
-        register(registry, new ItemModPickaxe(ToolMaterialMod.DREAM_PICKAXE, "dream_pickaxe"));
-        register(registry, new ItemModAxe(ToolMaterialMod.DREAM_AXE, "dream_axe"));
+        register(registry, new ItemModShovel(MaterialRegistry.DREAM_SHOVEL, "dream_shovel"));
+        register(registry, new ItemModPickaxe(MaterialRegistry.DREAM_PICKAXE, "dream_pickaxe"));
+        register(registry, new ItemModAxe(MaterialRegistry.DREAM_AXE, "dream_axe"));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

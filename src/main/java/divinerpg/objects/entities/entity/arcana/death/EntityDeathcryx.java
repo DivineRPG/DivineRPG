@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana.death;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
@@ -31,21 +31,21 @@ public class EntityDeathcryx extends EntityDeathBase {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATHCRYX;
+        return SoundRegistry.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DEATHCRYX_HURT;
+        return SoundRegistry.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATHCRYX_HURT;
+        return SoundRegistry.DEATHCRYX_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DEATHCRYX;
+        return LootTableRegistry.ENTITIES_DEATHCRYX;
     }
 }

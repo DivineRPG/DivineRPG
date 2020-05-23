@@ -8,7 +8,7 @@ import net.minecraft.world.storage.loot.LootTableList;
  * Created by LiteWolf101 on Feb
  * /18/2019
  */
-public class DRPGLootTables {
+public class LootTableRegistry {
     public static final ResourceLocation ICEIKA_CHEST_DUNGEON = registerTable("chests/iceika/iceika_chest_dungeon");
     public static final ResourceLocation ICEIKA_CHEST_HUT = registerTable("chests/iceika/iceika_chest_hut");
 

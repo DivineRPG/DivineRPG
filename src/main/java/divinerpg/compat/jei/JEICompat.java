@@ -11,10 +11,10 @@ import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ModArmor;
-import divinerpg.registry.ModWeapons;
+import divinerpg.registry.WeaponRegistry;
 import divinerpg.utils.LocalizeUtils;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModPlugin;
@@ -40,25 +40,25 @@ public class JEICompat implements IModPlugin {
                 GuiJackOMan.MERCHANT_GUI_TEXTURE,
                 JeiReferences.JACK_O_MAN_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.jack_o_man.name"),
-                ModWeapons.scythe));
+                WeaponRegistry.scythe));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopMerchant.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_MERCHANT_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.workshop_merchant.name"),
-                ModArmor.santaHelmet));
+                ArmorRegistry.santaHelmet));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiWorkshopTinkerer.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WORKSHOP_TINKERER_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.workshop_tinkerer.name"),
-                ModWeapons.frossivence));
+                WeaponRegistry.frossivence));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiCaptainMerik.MERCHANT_GUI_TEXTURE,
                 JeiReferences.CAPITAIN_MERIC_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.captain_merik.name"),
-                ModWeapons.starlight));
+                WeaponRegistry.starlight));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLivestockMerchant.MERCHANT_GUI_TEXTURE,
@@ -70,7 +70,7 @@ public class JEICompat implements IModPlugin {
                 GuiWarGeneral.MERCHANT_GUI_TEXTURE,
                 JeiReferences.WAR_GENERAL_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.war_general.name"),
-                ModWeapons.arcaniteBlaster));
+                WeaponRegistry.arcaniteBlaster));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLeorna.MERCHANT_GUI_TEXTURE,

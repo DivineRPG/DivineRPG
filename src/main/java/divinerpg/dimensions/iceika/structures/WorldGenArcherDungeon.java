@@ -2,7 +2,7 @@ package divinerpg.dimensions.iceika.structures;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockableLoot;
@@ -62,10 +62,10 @@ public class WorldGenArcherDungeon extends WorldGenerator {
         TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 24, y + 1, z - 4));
         TileEntity tileentity2 = w.getTileEntity(new BlockPos(x + 19, y + 1, z - 4));
         if (tileentity1 instanceof TileEntityLockableLoot) {
-            ((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
+            ((TileEntityLockableLoot) tileentity1).setLootTable(LootTableRegistry.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
         if (tileentity2 instanceof TileEntityFrostedChest) {
-            ((TileEntityLockableLoot) tileentity2).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
+            ((TileEntityLockableLoot) tileentity2).setLootTable(LootTableRegistry.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
         return true;
     }

@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-public class ModLiquids {
+public class LiquidRegistry {
 
     public static Fluid tar = new FluidLiquid("tar",
             new ResourceLocation(DivineRPG.MODID, "blocks/liquid_tar_still"),

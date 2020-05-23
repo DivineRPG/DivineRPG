@@ -24,7 +24,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.registries.RegistryBuilder;
@@ -60,13 +59,13 @@ public class DivineRPG {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        ModLiquids.registerFluids();
+        LiquidRegistry.registerFluids();
         proxy.preInit(event);
         proxy.registerTileEntities();
         MinecraftForge.EVENT_BUS.register(new ArcanaTickHandler());
         MinecraftForge.EVENT_BUS.register(new EventEntityDrop());
         MinecraftForge.EVENT_BUS.register(new WorldBreakEnchantHandler());
-        ModMessages.initMessages();
+        MessageRegistry.initMessages();
         AttributeFixer.patchMaximumHealth();
     }
 
@@ -74,8 +73,8 @@ public class DivineRPG {
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
         ModOreDict.init();
-        ModTriggers.registerTriggers();
-        ModSmelting.init();
+        TriggerRegistry.registerTriggers();
+        SmeltingRecipeRegistry.init();
         MinecraftForge.EVENT_BUS.register(new GeneralConfig());
     }
 
@@ -85,7 +84,7 @@ public class DivineRPG {
         if (Loader.isModLoaded("projecte")) {
             divinerpg.compat.ProjectECompat.init();
         }
-        ModSpawns.initSpawns();
+        EntitySpawnRegistry.initSpawns();
         Utils.loadHatInformation();
         DimensionHelper.initPortalDescriptions();
 

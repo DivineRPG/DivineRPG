@@ -1,6 +1,6 @@
 package divinerpg.dimensions.mortum;
 
-import divinerpg.registry.ModBiomes;
+import divinerpg.registry.BiomeRegistry;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
@@ -10,13 +10,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 
 public class WorldProviderMortum extends WorldProvider {
 	
 	@Override
 	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeMortum);
+		this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeMortum);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
@@ -68,7 +68,7 @@ public class WorldProviderMortum extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.mortumDimension;
+		return DimensionRegistry.mortumDimension;
 	}
 	@Nullable
     @Override

@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
-public class ModBiomes {
+public class BiomeRegistry {
 
     @ObjectHolder("divinerpg:eden")
     public static final Biome biomeEden = new BiomeEden();

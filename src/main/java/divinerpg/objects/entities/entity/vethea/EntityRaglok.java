@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityRaglokBomb;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -36,7 +36,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_RAGLOK;
+        return LootTableRegistry.ENTITIES_RAGLOK;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
                 p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.dare"));
             }
 
-            this.playSound(ModSounds.RAGLOK_AWAKEN, 1.0F, 1.0F);
+            this.playSound(SoundRegistry.RAGLOK_AWAKEN, 1.0F, 1.0F);
             loaded = true;
         }
 
@@ -141,26 +141,26 @@ public class EntityRaglok extends EntityDivineRPGBoss {
                 EntityPlayer player = (EntityPlayer) list.get(var1);
                 switch (ability) {
                     case LIGHTNING:
-                        this.playSound(ModSounds.RAGLOK_GUARDIAN, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.RAGLOK_GUARDIAN, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.think"));
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.great"));
                         }
                         break;
                     case BLIND:
-                        this.playSound(ModSounds.RAGLOK_DARK, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.RAGLOK_DARK, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.future"));
                         break;
                     case BOMBS:
-                        this.playSound(ModSounds.RAGLOK_RAIN, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.RAGLOK_RAIN, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.rain"));
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.kill"));
                         }
                         break;
                     case SLOW:
-                        this.playSound(ModSounds.RAGLOK_NOTHING, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.RAGLOK_NOTHING, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.compare"));
                         break;
@@ -214,7 +214,7 @@ public class EntityRaglok extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.RAGLOK_AVENGE;
+        return SoundRegistry.RAGLOK_AVENGE;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -47,22 +47,22 @@ public class EntityDramix extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DRAMIX;
+        return SoundRegistry.DRAMIX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.DRAMIX_HURT;
+        return SoundRegistry.DRAMIX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DRAMIX_HURT;
+        return SoundRegistry.DRAMIX_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DRAMIX;
+        return LootTableRegistry.ENTITIES_DRAMIX;
     }
     
     @Override

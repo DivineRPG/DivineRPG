@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -34,12 +34,12 @@ public class EntityDensos extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DENSOS;
+        return SoundRegistry.DENSOS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DENSOS_HURT;
+        return SoundRegistry.DENSOS_HURT;
     }
 
     @Override
@@ -49,6 +49,6 @@ public class EntityDensos extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DENSOS;
+        return LootTableRegistry.ENTITIES_DENSOS;
     }
 }

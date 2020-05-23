@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -37,22 +37,22 @@ public class EntityGlacon extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.GLACIDE;
+        return SoundRegistry.GLACIDE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GLACIDE_HURT;
+        return SoundRegistry.GLACIDE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GLACIDE_HURT;
+        return SoundRegistry.GLACIDE_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_GLACON;
+        return LootTableRegistry.ENTITIES_GLACON;
     }
 
     @Override

@@ -5,8 +5,8 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.armor.cap.IArmorPowers;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ArmorDescriptionRegister;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.ArmorDescriptionRegistry;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ public class ItemScythe extends RangedWeaponBase {
         super(name,
                 null,
                 BulletType.SCYTHE_SHOT,
-                ModSounds.DEEP_LAUGH,
+                SoundRegistry.DEEP_LAUGH,
                 SoundCategory.MASTER,
                 -1,
                 0,
@@ -59,6 +59,6 @@ public class ItemScythe extends RangedWeaponBase {
         if (powers == null)
             return false;
 
-        return powers.wearing(ArmorDescriptionRegister.JACKOMAN);
+        return powers.wearing(ArmorDescriptionRegistry.JACKOMAN);
     }
 }

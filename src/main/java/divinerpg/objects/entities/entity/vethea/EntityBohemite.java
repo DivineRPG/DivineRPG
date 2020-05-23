@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -30,21 +30,21 @@ public class EntityBohemite extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_BOHEMITE;
+        return LootTableRegistry.ENTITIES_BOHEMITE;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.BOHEMITE;
+        return SoundRegistry.BOHEMITE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.BOHEMITE_HURT;
+        return SoundRegistry.BOHEMITE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.BOHEMITE_HURT;
+        return SoundRegistry.BOHEMITE_HURT;
     }
 }

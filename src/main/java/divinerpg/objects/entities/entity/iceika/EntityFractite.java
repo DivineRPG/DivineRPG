@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.iceika;
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -32,7 +32,7 @@ public class EntityFractite extends EntityDivineGhast {
         return new AIDivineFireballAttack(this,
                 (world1, parent, x, y, z, fireballStrength) ->
                         new EntityFractiteShot(world1, this, x, y, z),
-                ModSounds.FRACTITE_ATTACK);
+                SoundRegistry.FRACTITE_ATTACK);
     }
 
     @Override
@@ -42,21 +42,21 @@ public class EntityFractite extends EntityDivineGhast {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.FRACTITE;
+        return SoundRegistry.FRACTITE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.FRACTITE_HURT;
+        return SoundRegistry.FRACTITE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.FRACTITE_HURT;
+        return SoundRegistry.FRACTITE_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_FRACTITE;
+        return LootTableRegistry.ENTITIES_FRACTITE;
     }
 }

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -39,21 +39,21 @@ public class EntityHelio extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_HELIO;
+        return LootTableRegistry.ENTITIES_HELIO;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HELIO;
+        return SoundRegistry.HELIO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.HELIO_HURT;
+        return SoundRegistry.HELIO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.HELIO_HURT;
+        return SoundRegistry.HELIO_HURT;
     }
 }

@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -199,7 +199,7 @@ public class EntityScorcher extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.SCORCHER;
+        return SoundRegistry.SCORCHER;
     }
 
     @Override
@@ -214,6 +214,6 @@ public class EntityScorcher extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SCORCHER;
+        return LootTableRegistry.ENTITIES_SCORCHER;
     }
 }

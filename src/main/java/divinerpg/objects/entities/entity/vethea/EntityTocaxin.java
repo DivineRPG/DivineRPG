@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -49,21 +49,21 @@ public class EntityTocaxin extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_TOCAXIN;
+        return LootTableRegistry.ENTITIES_TOCAXIN;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.TOCAXIN;
+        return SoundRegistry.TOCAXIN;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.TOCAXIN_HURT;
+        return SoundRegistry.TOCAXIN_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.TOCAXIN_HURT;
+        return SoundRegistry.TOCAXIN_HURT;
     }
 }

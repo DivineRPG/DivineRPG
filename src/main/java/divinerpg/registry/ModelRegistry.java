@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = DivineRPG.MODID)
-public class ModModels {
+public class ModelRegistry {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {

@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityDissimentShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -35,22 +35,22 @@ public class EntityDissiment extends EntityDivineGhast {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DISSIMENT;
+        return SoundRegistry.DISSIMENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DISSIMENT_HURT;
+        return SoundRegistry.DISSIMENT_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DISSIMENT_HURT;
+        return SoundRegistry.DISSIMENT_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DISSIMENT;
+        return LootTableRegistry.ENTITIES_DISSIMENT;
     }
 
     @Override

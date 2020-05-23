@@ -1127,14 +1127,14 @@ public class BlockRegistry {
         // Mob pumpkins
         register(registry, new BlockMobPumpkin("blaze_pumpkin", SoundEvents.ENTITY_BLAZE_AMBIENT));
         register(registry, new BlockMobPumpkin("creeper_pumpkin", SoundEvents.ENTITY_CREEPER_PRIMED));
-        register(registry, new BlockMobPumpkin("cyclops_pumpkin", ModSounds.CYCLOPS));
+        register(registry, new BlockMobPumpkin("cyclops_pumpkin", SoundRegistry.CYCLOPS));
         register(registry, new BlockMobPumpkin("ender_pumpkin", SoundEvents.ENTITY_ENDERMEN_SCREAM));
         register(registry, new BlockMobPumpkin("ender_watcher_pumpkin", SoundEvents.ENTITY_ENDERMEN_AMBIENT));
-        register(registry, new BlockMobPumpkin("frost_pumpkin", ModSounds.FROST));
+        register(registry, new BlockMobPumpkin("frost_pumpkin", SoundRegistry.FROST));
         register(registry, new BlockMobPumpkin("ghast_pumpkin", SoundEvents.ENTITY_GHAST_SCREAM));
-        register(registry, new BlockMobPumpkin("glacon_pumpkin", ModSounds.GLACIDE));
-        register(registry, new BlockMobPumpkin("hellspider_pumpkin", ModSounds.HELL_SPIDER));
-        register(registry, new BlockMobPumpkin("jungle_spider_pumpkin", ModSounds.HELL_SPIDER));
+        register(registry, new BlockMobPumpkin("glacon_pumpkin", SoundRegistry.GLACIDE));
+        register(registry, new BlockMobPumpkin("hellspider_pumpkin", SoundRegistry.HELL_SPIDER));
+        register(registry, new BlockMobPumpkin("jungle_spider_pumpkin", SoundRegistry.HELL_SPIDER));
         register(registry, new BlockMobPumpkin("skeleton_pumpkin", SoundEvents.ENTITY_SKELETON_AMBIENT));
         register(registry, new BlockMobPumpkin("spider_pumpkin", SoundEvents.ENTITY_SPIDER_AMBIENT));
         register(registry, new BlockMobPumpkin("zombie_pumpkin", SoundEvents.ENTITY_ZOMBIE_AMBIENT));
@@ -1298,7 +1298,7 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockAyeracoSpawn());
 
         // Liquid
-        register(registry, new BlockTar("tar", ModLiquids.tar));
+        register(registry, new BlockTar("tar", LiquidRegistry.tar));
 
         // Iceika
 
@@ -1542,7 +1542,7 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("stained_glass8", 0.3F).setUnlocalizedName("stained_glass"));
 
         // Portal blocks
-        register(registry, new BlockArcanaPortal("arcana_portal", ModDimensions.arcanaDimension.getId()));
+        register(registry, new BlockArcanaPortal("arcana_portal", DimensionRegistry.arcanaDimension.getId()));
         register(registry, new BlockArcanaPortalFrame("arcana_portal_frame"));
         register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 
@@ -1701,13 +1701,13 @@ public class BlockRegistry {
 
         // Portal blocks
         // Portal
-        register(registry, new BlockModPortal("iceika_portal", ModDimensions.iceikaDimension, () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
-        register(registry, new BlockModPortal("eden_portal", ModDimensions.edenDimension, () -> blueFire, () -> divineRock, ParticleType.EDEN_PORTAL));
-        register(registry, new BlockModPortal("wildwood_portal", ModDimensions.wildwoodDimension, () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
-        register(registry, new BlockModPortal("apalachia_portal", ModDimensions.apalachiaDimension, () -> blueFire, () -> wildwoodBlock, ParticleType.APALACHIA_PORTAL));
-        register(registry, new BlockModPortal("skythern_portal", ModDimensions.skythernDimension, () -> blueFire, () -> apalachiaBlock, ParticleType.SKYTHERN_PORTAL));
-        register(registry, new BlockModPortal("mortum_portal", ModDimensions.mortumDimension, () -> blueFire, () -> skythernBlock, ParticleType.MORTUM_PORTAL));
-        register(registry, new BlockVetheaPortal("vethea_portal", ModDimensions.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
+        register(registry, new BlockModPortal("iceika_portal", DimensionRegistry.iceikaDimension, () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
+        register(registry, new BlockModPortal("eden_portal", DimensionRegistry.edenDimension, () -> blueFire, () -> divineRock, ParticleType.EDEN_PORTAL));
+        register(registry, new BlockModPortal("wildwood_portal", DimensionRegistry.wildwoodDimension, () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
+        register(registry, new BlockModPortal("apalachia_portal", DimensionRegistry.apalachiaDimension, () -> blueFire, () -> wildwoodBlock, ParticleType.APALACHIA_PORTAL));
+        register(registry, new BlockModPortal("skythern_portal", DimensionRegistry.skythernDimension, () -> blueFire, () -> apalachiaBlock, ParticleType.SKYTHERN_PORTAL));
+        register(registry, new BlockModPortal("mortum_portal", DimensionRegistry.mortumDimension, () -> blueFire, () -> skythernBlock, ParticleType.MORTUM_PORTAL));
+        register(registry, new BlockVetheaPortal("vethea_portal", DimensionRegistry.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
 
         //Slab
         registerItemlessBlock(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));

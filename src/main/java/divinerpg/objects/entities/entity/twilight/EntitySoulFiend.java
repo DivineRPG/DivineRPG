@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -68,7 +68,7 @@ public class EntitySoulFiend extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SOUL_FIEND;
+        return LootTableRegistry.ENTITIES_SOUL_FIEND;
     }
     
     @Override

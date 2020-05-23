@@ -4,7 +4,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityBouncingProjectile;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ public class ItemStaff extends RangedWeaponBase {
 	public ItemStaff(int dam,
 					 int arcana,
 					 String name) {
-		super(name, null, null, ModSounds.STAFF,
+		super(name, null, null, SoundRegistry.STAFF,
 				SoundCategory.PLAYERS,
 				-1,
 				0,

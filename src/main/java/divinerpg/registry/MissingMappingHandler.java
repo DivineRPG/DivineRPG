@@ -35,13 +35,13 @@ public class MissingMappingHandler {
                  mapping.remap(Item.getItemFromBlock(BlockRegistry.ayeracoBlueStatue));
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_cap"))) {
-                 mapping.remap(ModArmor.santaHelmet);
+                 mapping.remap(ArmorRegistry.santaHelmet);
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_tunic"))) {
-                 mapping.remap(ModArmor.santaChestplate);
+                 mapping.remap(ArmorRegistry.santaChestplate);
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_pants"))) {
-                 mapping.remap(ModArmor.santaLeggings);
+                 mapping.remap(ArmorRegistry.santaLeggings);
              }
          }
     }
@@ -50,7 +50,7 @@ public class MissingMappingHandler {
     public static void handleMissingBiomes(MissingMappings<Biome> event) {
         for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
             if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "arksiane"))) {
-                mapping.remap(ModBiomes.biomeVethea);
+                mapping.remap(BiomeRegistry.biomeVethea);
             }
         }
     }

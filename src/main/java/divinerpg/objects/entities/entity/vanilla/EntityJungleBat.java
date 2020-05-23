@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityBat;
@@ -208,7 +208,7 @@ public class EntityJungleBat extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_JUNGLE_BAT;
+        return LootTableRegistry.ENTITIES_JUNGLE_BAT;
     }
 
     @Override

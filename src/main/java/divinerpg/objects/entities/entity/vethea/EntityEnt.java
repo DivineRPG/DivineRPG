@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -24,21 +24,21 @@ public class EntityEnt extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_ENT;
+        return LootTableRegistry.ENTITIES_ENT;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ENT;
+        return SoundRegistry.ENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ENT_HURT;
+        return SoundRegistry.ENT_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ENT_HURT;
+        return SoundRegistry.ENT_HURT;
     }
 }

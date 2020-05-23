@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.MobEffects;
@@ -51,11 +51,11 @@ public class EntitySoulStealer extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.INSECT;
+        return SoundRegistry.INSECT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SOUL_STEALER;
+        return LootTableRegistry.ENTITIES_SOUL_STEALER;
     }
 }

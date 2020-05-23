@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
@@ -111,7 +111,7 @@ public class EntityTheWatcher extends EntityDivineRPGBoss {
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 20) {
-                    this.playSound(ModSounds.ROAR, 10.0F, 0.9F);
+                    this.playSound(SoundRegistry.ROAR, 10.0F, 0.9F);
                 }
 
                 ++this.attackCounter;
@@ -232,16 +232,16 @@ public class EntityTheWatcher extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ROAR;
+        return SoundRegistry.ROAR;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ROAR;
+        return SoundRegistry.ROAR;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_THE_WATCHER;
+        return LootTableRegistry.ENTITIES_THE_WATCHER;
     }
 }

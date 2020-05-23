@@ -5,7 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ModSmelting {
+public class SmeltingRecipeRegistry {
     public static void init() {
         GameRegistry.addSmelting(BlockRegistry.realmiteOre, new ItemStack(ItemRegistry.realmiteIngot), 0.7F);
         GameRegistry.addSmelting(BlockRegistry.arlemiteOre, new ItemStack(ItemRegistry.arlemiteIngot), 1.0F);

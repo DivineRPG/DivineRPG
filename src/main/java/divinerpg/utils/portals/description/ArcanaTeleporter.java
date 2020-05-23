@@ -1,7 +1,7 @@
 package divinerpg.utils.portals.description;
 
 import com.google.common.collect.Sets;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.PositionHelper;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.WorkingPortalInfo;
@@ -55,7 +55,7 @@ public class ArcanaTeleporter extends ServerPortal {
 
     @Override
     protected BlockPos findSuitablePosition(World destination, IPortalDescription description, Entity e, int radius) {
-        if (destination.provider.getDimensionType() == ModDimensions.arcanaDimension) {
+        if (destination.provider.getDimensionType() == DimensionRegistry.arcanaDimension) {
             ChunkPos chunkPos = new ChunkPos(e.getPosition());
 
             // store here entity position

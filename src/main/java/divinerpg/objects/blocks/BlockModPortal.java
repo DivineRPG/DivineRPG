@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.DimensionHelper;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -150,7 +150,7 @@ public class BlockModPortal extends BlockBreakable {
                 destination = DimensionType.OVERWORLD;
             }
 
-            if (dimId == ModDimensions.vetheaDimension) {
+            if (dimId == DimensionRegistry.vetheaDimension) {
                 DimensionHelper.transferEntity(entity, destination);
             } else {
                 DimensionHelper.transferEntityToDivineDims(entity, destination);

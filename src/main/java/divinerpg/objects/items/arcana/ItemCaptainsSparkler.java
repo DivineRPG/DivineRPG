@@ -2,7 +2,7 @@ package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.entities.entity.projectiles.EntitySparkler;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemCaptainsSparkler extends RangedWeaponBase {
 
     public ItemCaptainsSparkler(String name) {
-        super(name, EntitySparkler.class, null, ModSounds.SPARKLER, SoundCategory.MASTER, -1, 4, null, 7);
+        super(name, EntitySparkler.class, null, SoundRegistry.SPARKLER, SoundCategory.MASTER, -1, 4, null, 7);
     }
 
     @Override

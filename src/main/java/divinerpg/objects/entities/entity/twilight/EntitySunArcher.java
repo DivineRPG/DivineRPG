@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
@@ -70,6 +70,6 @@ public class EntitySunArcher extends EntityDivineRPGMob implements IRangedAttack
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SUN_ARCHER;
+        return LootTableRegistry.ENTITIES_SUN_ARCHER;
     }
 }

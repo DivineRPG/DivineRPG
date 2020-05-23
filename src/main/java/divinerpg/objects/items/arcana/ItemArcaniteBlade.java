@@ -4,7 +4,7 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.LocalizeUtils;
-import divinerpg.registry.ToolMaterialMod;
+import divinerpg.registry.MaterialRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemArcaniteBlade extends ItemModSword {
 
     public ItemArcaniteBlade() {
-        super(ToolMaterialMod.ARCANITE_BLADE, "arcanite_blade");
+        super(MaterialRegistry.ARCANITE_BLADE, "arcanite_blade");
     }
 
     @Override

@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -28,22 +28,22 @@ public class EntityRazorback extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.RAZORBACK;
+        return SoundRegistry.RAZORBACK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.RAZORBACK_HURT;
+        return SoundRegistry.RAZORBACK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.RAZORBACK_HURT;
+        return SoundRegistry.RAZORBACK_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_RAZORBACK;
+        return LootTableRegistry.ENTITIES_RAZORBACK;
     }
 
     @Override

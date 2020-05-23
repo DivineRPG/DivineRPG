@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -57,17 +57,17 @@ public class EntityLiopleurodon extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LIOPLEURODON;
+        return SoundRegistry.LIOPLEURODON;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LIOPLEURODON_HURT;
+        return SoundRegistry.LIOPLEURODON_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LIOPLEURODON_HURT;
+        return SoundRegistry.LIOPLEURODON_HURT;
     }
 
     @Override
@@ -111,6 +111,6 @@ public class EntityLiopleurodon extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_LIOPLEURODON;
+        return LootTableRegistry.ENTITIES_LIOPLEURODON;
     }
 }

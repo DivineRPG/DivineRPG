@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -116,22 +116,22 @@ public class EntityLorgaflight extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_LORGAFLIGHT;
+        return LootTableRegistry.ENTITIES_LORGAFLIGHT;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LORGAFLIGHT;
+        return SoundRegistry.LORGAFLIGHT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LORGAFLIGHT_HURT;
+        return SoundRegistry.LORGAFLIGHT_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LORGAFLIGHT_HURT;
+        return SoundRegistry.LORGAFLIGHT_HURT;
     }
 
 }

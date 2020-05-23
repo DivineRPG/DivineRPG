@@ -6,7 +6,7 @@ import divinerpg.api.arcana.IArcana;
 import divinerpg.networking.message.MessageDivineAccumulator;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,7 +41,7 @@ public class ItemDivineAccumulator extends ItemMod {
         if (arcana.getArcana() >= 80) {
             if (!world.isRemote) {
                 DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
-                world.playSound(player, player.getPosition(), ModSounds.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
+                world.playSound(player, player.getPosition(), SoundRegistry.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
                 arcana.consume(player, 80);
             }
             player.motionY = 2;

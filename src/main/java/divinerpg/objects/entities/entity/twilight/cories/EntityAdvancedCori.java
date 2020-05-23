@@ -4,8 +4,8 @@ import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -36,7 +36,7 @@ public class EntityAdvancedCori extends EntityDivineGhast {
                         return new EntityCoriShot(world, parent, (float) parent.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
                     }
                 },
-                ModSounds.CORI_SHOOT);
+                SoundRegistry.CORI_SHOOT);
     }
 
     @Override
@@ -51,21 +51,21 @@ public class EntityAdvancedCori extends EntityDivineGhast {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.CORI_IDLE;
+        return SoundRegistry.CORI_IDLE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CORI_HURT;
+        return SoundRegistry.CORI_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.CORI_HURT;
+        return SoundRegistry.CORI_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ADVANCED_CORI;
+        return LootTableRegistry.ENTITIES_ADVANCED_CORI;
     }
 }

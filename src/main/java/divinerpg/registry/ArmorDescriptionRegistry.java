@@ -30,7 +30,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.Collections;
 
 @Mod.EventBusSubscriber
-public class ArmorDescriptionRegister {
+public class ArmorDescriptionRegistry {
 
     public static final ResourceLocation AWAKENED_HALITE = new ResourceLocation(DivineRPG.MODID, "awakened_halite");
     public static final ResourceLocation CORRUPTED = new ResourceLocation(DivineRPG.MODID, "corrupted");
@@ -45,36 +45,36 @@ public class ArmorDescriptionRegister {
         registry.register(
                 new ArmorDescription()
                         .withPossibleItems(EntityEquipmentSlot.HEAD,
-                                ModArmor.rupeeHelmet,
-                                ModArmor.blueRupeeHelmet,
-                                ModArmor.grayRupeeHelmet,
-                                ModArmor.greenRupeeHelmet,
-                                ModArmor.redRupeeHelmet,
-                                ModArmor.yellowRupeeHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.rupeeChestplate,
-                                ModArmor.blueRupeeChestplate,
-                                ModArmor.grayRupeeChestplate,
-                                ModArmor.greenRupeeChestplate,
-                                ModArmor.redRupeeChestplate,
-                                ModArmor.yellowRupeeChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.rupeeLeggings,
-                                ModArmor.blueRupeeLeggings,
-                                ModArmor.grayRupeeLeggings,
-                                ModArmor.greenRupeeLeggings,
-                                ModArmor.redRupeeLeggings,
-                                ModArmor.yellowRupeeLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.rupeeBoots,
-                                ModArmor.blueRupeeBoots,
-                                ModArmor.grayRupeeBoots,
-                                ModArmor.greenRupeeBoots,
-                                ModArmor.redRupeeBoots,
-                                ModArmor.yellowRupeeBoots)
+                                ArmorRegistry.rupeeHelmet,
+                                ArmorRegistry.blueRupeeHelmet,
+                                ArmorRegistry.grayRupeeHelmet,
+                                ArmorRegistry.greenRupeeHelmet,
+                                ArmorRegistry.redRupeeHelmet,
+                                ArmorRegistry.yellowRupeeHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.rupeeChestplate,
+                                ArmorRegistry.blueRupeeChestplate,
+                                ArmorRegistry.grayRupeeChestplate,
+                                ArmorRegistry.greenRupeeChestplate,
+                                ArmorRegistry.redRupeeChestplate,
+                                ArmorRegistry.yellowRupeeChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.rupeeLeggings,
+                                ArmorRegistry.blueRupeeLeggings,
+                                ArmorRegistry.grayRupeeLeggings,
+                                ArmorRegistry.greenRupeeLeggings,
+                                ArmorRegistry.redRupeeLeggings,
+                                ArmorRegistry.yellowRupeeLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.rupeeBoots,
+                                ArmorRegistry.blueRupeeBoots,
+                                ArmorRegistry.grayRupeeBoots,
+                                ArmorRegistry.greenRupeeBoots,
+                                ArmorRegistry.redRupeeBoots,
+                                ArmorRegistry.yellowRupeeBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, ArmorHandlers::isMeeleeDamage, f -> {
                             float multiplier = 0.25F;
 //                            IArmorPowers powers = DivineAPI.getArmorPowers(e.getEntity());
 //
 //                            if (powers != null) {
-//                                if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ModArmor.rupee_shield)){
+//                                if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ArmorRegistry.rupee_shield)){
 //                                    multiplier /= 2;
 //                                }
 //                            }
@@ -87,50 +87,50 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.enderHelmet,
-                                ModArmor.blueEnderHelmet,
-                                ModArmor.grayEnderHelmet,
-                                ModArmor.greenEnderHelmet,
-                                ModArmor.redEnderHelmet,
-                                ModArmor.yellowEnderHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.enderChestplate,
-                                ModArmor.blueEnderChestplate,
-                                ModArmor.grayEnderChestplate,
-                                ModArmor.greenEnderChestplate,
-                                ModArmor.redEnderChestplate,
-                                ModArmor.yellowEnderChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.enderLeggings,
-                                ModArmor.blueEnderLeggings,
-                                ModArmor.grayEnderLeggings,
-                                ModArmor.greenEnderLeggings,
-                                ModArmor.redEnderLeggings,
-                                ModArmor.yellowEnderLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.enderBoots,
-                                ModArmor.blueEnderBoots,
-                                ModArmor.grayEnderBoots,
-                                ModArmor.greenEnderBoots,
-                                ModArmor.redEnderBoots,
-                                ModArmor.yellowEnderBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.enderHelmet,
+                                ArmorRegistry.blueEnderHelmet,
+                                ArmorRegistry.grayEnderHelmet,
+                                ArmorRegistry.greenEnderHelmet,
+                                ArmorRegistry.redEnderHelmet,
+                                ArmorRegistry.yellowEnderHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.enderChestplate,
+                                ArmorRegistry.blueEnderChestplate,
+                                ArmorRegistry.grayEnderChestplate,
+                                ArmorRegistry.greenEnderChestplate,
+                                ArmorRegistry.redEnderChestplate,
+                                ArmorRegistry.yellowEnderChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.enderLeggings,
+                                ArmorRegistry.blueEnderLeggings,
+                                ArmorRegistry.grayEnderLeggings,
+                                ArmorRegistry.greenEnderLeggings,
+                                ArmorRegistry.redEnderLeggings,
+                                ArmorRegistry.yellowEnderLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.enderBoots,
+                                ArmorRegistry.blueEnderBoots,
+                                ArmorRegistry.grayEnderBoots,
+                                ArmorRegistry.greenEnderBoots,
+                                ArmorRegistry.redEnderBoots,
+                                ArmorRegistry.yellowEnderBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onCancelPlayerReceiveDamage(e, DamageSource::isExplosion))
                         .setRegistryName(DivineRPG.MODID, "ender")
         );
 
         registry.register(
                 new ArmorDescription(ArmorHandlers::onCanFlyChanged)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.angelicHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.angelicChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.angelicLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.angelicBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.angelicHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.angelicChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.angelicLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.angelicBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.onCanFlyChanged(e.player, true))
                         .setRegistryName(DivineRPG.MODID, "angelic")
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.bedrockHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.bedrockChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.bedrockLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.bedrockBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.bedrockHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.bedrockChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.bedrockLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.bedrockBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event,
                                 source -> source.isFireDamage() || source.isExplosion() || source == DamageSource.LAVA))
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
@@ -141,10 +141,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.divineHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.divineChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.divineLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.divineBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.divineHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.divineChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.divineLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.divineBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
@@ -159,17 +159,17 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.santaHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.santaChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.santaLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.santaBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.santaHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.santaChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.santaLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.santaBoots)
                         .withHandler(LivingHurtEvent.class, event -> {
-                            if (event.getEntityLiving().world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+                            if (event.getEntityLiving().world.provider.getDimensionType() == DimensionRegistry.iceikaDimension) {
                                 ArmorHandlers.onPlayerReceiveDamage(event, ArmorHandlers::isMeeleeDamage, aFloat -> aFloat * 0.25F);
                                 ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6);
                             }
                         }).withHandler(TickEvent.PlayerTickEvent.class, event -> {
-                    if (event.player.world.provider.getDimensionType() == ModDimensions.iceikaDimension) {
+                    if (event.player.world.provider.getDimensionType() == DimensionRegistry.iceikaDimension) {
                         ArmorHandlers.refillHunger(event);
                         ArmorHandlers.speedUpPlayer(event.player, 2, false);
                     } else {
@@ -181,20 +181,20 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.skelemanHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.skelemanChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.skelemanLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.skelemanBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.skelemanHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.skelemanChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.skelemanLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.skelemanBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::refillHunger)
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "skeleman"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.terranHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.terranChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.terranLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.terranBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.terranHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.terranChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.terranLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.terranBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(new PotionEffect(MobEffects.HASTE,
                                 20, 2, true, false)))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "terrain"))
@@ -202,20 +202,20 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.frozenHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.frozenChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.frozenLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.frozenBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.frozenHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.frozenChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.frozenLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.frozenBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.frozeNearMobs(event, 10, 6))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "frozen"))
         );
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.shadowHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.shadowChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.shadowLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.shadowBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.shadowHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.shadowChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.shadowLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.shadowBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpPlayer(event.player, 3, false))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "shadow"))
@@ -223,10 +223,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.arlemiteHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.arlemiteChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.arlemiteLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.arlemiteBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.arlemiteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.arlemiteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.arlemiteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.arlemiteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onPlayerReceiveDamage(event,
                                 source -> source.isProjectile() || source.damageType.equals("thrown"),
                                 aFloat -> {
@@ -246,10 +246,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.skythernHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.skythernChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.skythernLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.skythernBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.skythernHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.skythernChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.skythernLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.skythernBoots)
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.5, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "skythernm"))
@@ -257,20 +257,20 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.haliteHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.haliteChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.haliteLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.haliteBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.haliteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.haliteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.haliteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.haliteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 16))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "halite"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.awakened_haliteHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.awakened_haliteChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.awakened_haliteLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.awakened_haliteBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.awakened_haliteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.awakened_haliteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.awakened_haliteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.awakened_haliteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 20))
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, AWAKENED_HALITE, x -> x * 1.5F))
                         .setRegistryName(AWAKENED_HALITE)
@@ -284,10 +284,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUpInWater)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.aquastriveHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.aquastriveChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.aquastriveLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.aquastriveBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.aquastriveHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.aquastriveChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.aquastriveLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.aquastriveBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpInWater(event.player, 5, false))
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
@@ -297,10 +297,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.krakenHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.krakenChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.krakenLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.krakenBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.krakenHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.krakenChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.krakenLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.krakenBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "kraken"))
@@ -308,10 +308,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.netheriteHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.netheriteChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.netheriteLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.netheriteBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.netheriteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.netheriteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.netheriteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.netheriteBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
@@ -321,10 +321,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.infernoHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.infernoChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.infernoLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.infernoBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.infernoHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.infernoChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.infernoLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.infernoBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
@@ -334,10 +334,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.mortumHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.mortumChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.mortumLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.mortumBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.mortumHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.mortumChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.mortumLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.mortumBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(
                                 new PotionEffect(MobEffects.NIGHT_VISION, 210, 10, true, false)))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "mortum"))
@@ -345,20 +345,20 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.eliteRealmiteHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.eliteRealmiteChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.eliteRealmiteLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.eliteRealmiteBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.eliteRealmiteHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.eliteRealmiteChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.eliteRealmiteLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.eliteRealmiteBoots)
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "realmite"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.wildwoodHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.wildwoodChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.wildwoodLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.wildwoodBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.wildwoodHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.wildwoodChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.wildwoodLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.wildwoodBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
                             EntityPlayer player = event.player;
                             if (player.isInWater()) {
@@ -370,10 +370,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.kormaHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.kormaChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.kormaLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.kormaBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.kormaHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.kormaChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.kormaLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.kormaBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
                             IArcana arcana = DivineAPI.getArcana(event.player);
                             if (arcana != null)
@@ -384,40 +384,40 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.vemosHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.vemosChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.vemosLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.vemosBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.vemosHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.vemosChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.vemosLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.vemosBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.heal(0.1F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "vemos"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.jungleHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.jungleChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.jungleLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.jungleBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.jungleHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.jungleChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.jungleLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.jungleBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, DamageSource::isMagicDamage))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "jungle"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.witherReaperHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.witherReaperChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.witherReaperLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.witherReaperBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.witherReaperHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.witherReaperChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.witherReaperLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.witherReaperBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.WITHER)))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "wither"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.apalachiaHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.apalachiaChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.apalachiaLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.apalachiaBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.apalachiaHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.apalachiaChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.apalachiaLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.apalachiaBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event,
                                 s -> s.equals(DamageSource.CACTUS)
                                         || s.equals(DamageSource.FALLING_BLOCK)
@@ -429,10 +429,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.edenHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.edenChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.edenLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.edenBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.edenHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.edenChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.edenLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.edenBoots)
                         .withHandler(BlockEvent.HarvestDropsEvent.class, event -> {
                             if (event.getState().getBlock() instanceof BlockTwilightOre && !event.isSilkTouching()) {
                                 ItemStack fragment = event.getDrops().get(0);
@@ -444,89 +444,89 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.corruptedHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.corruptedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.corruptedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.corruptedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.corruptedHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.corruptedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.corruptedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.corruptedBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddRangedDamage(event, CORRUPTED, x -> x * 1.5F))
                         .setRegistryName(CORRUPTED)
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.jackOManHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.jackOManChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.jackOManLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.jackOManBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.jackOManHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.jackOManChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.jackOManLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.jackOManBoots)
                         .setRegistryName(JACKOMAN)
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.degradedHood)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.degradedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.degradedHood)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.degradedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.degradedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedHood"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.degradedHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.degradedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.degradedHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.degradedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.degradedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedHelmet"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.degradedMask)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.degradedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.degradedMask)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.degradedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.degradedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.82F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedMask"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.finishedHood)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.finishedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.finishedHood)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.finishedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.finishedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedHood"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.finishedHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.finishedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.finishedHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.finishedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.finishedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedHelmet"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.finishedMask)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.finishedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.finishedMask)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.finishedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.finishedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.773F))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedMask"))
         );
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.glisteningHood)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.glisteningChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.glisteningLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.glisteningBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.glisteningHood)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.glisteningChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.glisteningLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.7F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
@@ -535,10 +535,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.glisteningHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.glisteningChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.glisteningLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.glisteningBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.glisteningHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.glisteningChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.glisteningLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.7F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 3);
@@ -548,10 +548,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.glisteningMask)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.glisteningChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.glisteningLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.glisteningBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.glisteningMask)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.glisteningChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.glisteningLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.7F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.4F, false))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "glisteningMask"))
@@ -559,10 +559,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.demonizedHood)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.demonizedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.demonizedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.demonizedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.demonizedHood)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.demonizedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.demonizedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
@@ -570,10 +570,10 @@ public class ArmorDescriptionRegister {
         );
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.demonizedHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.demonizedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.demonizedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.demonizedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.demonizedHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.demonizedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.demonizedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.625F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 6);
@@ -583,10 +583,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.demonizedMask)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.demonizedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.demonizedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.demonizedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.demonizedMask)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.demonizedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.demonizedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.625F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.8F, false))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "demonizedMask"))
@@ -594,10 +594,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.tormentedHood)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.tormentedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.tormentedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.tormentedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.tormentedHood)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.tormentedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.tormentedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.4, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
@@ -606,10 +606,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription()
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.tormentedHelmet)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.tormentedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.tormentedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.tormentedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.tormentedHelmet)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.tormentedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.tormentedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.348F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 9);
@@ -619,10 +619,10 @@ public class ArmorDescriptionRegister {
 
         registry.register(
                 new ArmorDescription(stopSpeedUp)
-                        .withPossibleItems(EntityEquipmentSlot.HEAD, ModArmor.tormentedMask)
-                        .withPossibleItems(EntityEquipmentSlot.CHEST, ModArmor.tormentedChestplate)
-                        .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.tormentedLeggings)
-                        .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.tormentedBoots)
+                        .withPossibleItems(EntityEquipmentSlot.HEAD, ArmorRegistry.tormentedMask)
+                        .withPossibleItems(EntityEquipmentSlot.CHEST, ArmorRegistry.tormentedChestplate)
+                        .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.tormentedLeggings)
+                        .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.348F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 2.2F, false))
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "tormentedMask"))

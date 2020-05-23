@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -33,21 +33,21 @@ public class EntityDemonOfDarkness extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEMON_OF_DARKNESS;
+        return SoundRegistry.DEMON_OF_DARKNESS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GROWL_HURT;
+        return SoundRegistry.GROWL_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GROWL_HURT;
+        return SoundRegistry.GROWL_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DEMON_OF_DARKNESS;
+        return LootTableRegistry.ENTITIES_DEMON_OF_DARKNESS;
     }
 }

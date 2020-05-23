@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -69,7 +69,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.GOLEM;
+        return SoundRegistry.GOLEM;
     }
 
     @Override

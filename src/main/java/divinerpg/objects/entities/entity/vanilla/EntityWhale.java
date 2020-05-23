@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -23,21 +23,21 @@ public class EntityWhale extends EntityDivineRPGSwimming {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.WHALE;
+        return SoundRegistry.WHALE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.WHALE_HURT;
+        return SoundRegistry.WHALE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.WHALE_HURT;
+        return SoundRegistry.WHALE_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WHALE;
+        return LootTableRegistry.ENTITIES_WHALE;
     }
 }

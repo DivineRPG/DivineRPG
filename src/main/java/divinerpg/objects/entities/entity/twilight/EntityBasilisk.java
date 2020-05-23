@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -42,21 +42,21 @@ public class EntityBasilisk extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.MUCKY;
+        return SoundRegistry.MUCKY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GROWL_HURT;
+        return SoundRegistry.GROWL_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GROWL_HURT;
+        return SoundRegistry.GROWL_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_BASILISK;
+        return LootTableRegistry.ENTITIES_BASILISK;
     }
 }

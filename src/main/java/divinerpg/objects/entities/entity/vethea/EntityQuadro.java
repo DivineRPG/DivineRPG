@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -50,7 +50,7 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_QUADRO;
+        return LootTableRegistry.ENTITIES_QUADRO;
     }
 
     @Override
@@ -96,39 +96,39 @@ public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMo
                 String chatMessage;
                 switch (s) {
                     case 0:
-                        sound = ModSounds.QUADRO_DIE_BEFORE;
+                        sound = SoundRegistry.QUADRO_DIE_BEFORE;
                         chatMessage = "message.quadro.die";
                         break;
                     case 1:
-                        sound = ModSounds.QUADRO_ENOUGH;
+                        sound = SoundRegistry.QUADRO_ENOUGH;
                         chatMessage = "message.quadro.enough";
                         break;
                     case 2:
-                        sound = ModSounds.QUADRO_INCOMING_PUNCH;
+                        sound = SoundRegistry.QUADRO_INCOMING_PUNCH;
                         chatMessage = "message.quadro.punch";
                         break;
                     case 3:
-                        sound = ModSounds.QUADRO_IS_NEXT;
+                        sound = SoundRegistry.QUADRO_IS_NEXT;
                         chatMessage = "message.quadro.next";
                         break;
                     case 4:
-                        sound = ModSounds.QUADRO_KILL_MINE;
+                        sound = SoundRegistry.QUADRO_KILL_MINE;
                         chatMessage = "message.quadro.mine";
                         break;
                     case 5:
-                        sound = ModSounds.QUADRO_MY_KILL;
+                        sound = SoundRegistry.QUADRO_MY_KILL;
                         chatMessage = "message.quadro.kill";
                         break;
                     case 6:
-                        sound = ModSounds.QUADRO_NO_DIE;
+                        sound = SoundRegistry.QUADRO_NO_DIE;
                         chatMessage = "message.quadro.no";
                         break;
                     case 7:
-                        sound = ModSounds.QUADRO_SIT_DOWN;
+                        sound = SoundRegistry.QUADRO_SIT_DOWN;
                         chatMessage = "message.quadro.sit"; //deserve
                         break;
                     default:
-                        sound = ModSounds.QUADRO_TASTE_FIST;
+                        sound = SoundRegistry.QUADRO_TASTE_FIST;
                         chatMessage = "message.quadro.taste";
                         break;
                 }

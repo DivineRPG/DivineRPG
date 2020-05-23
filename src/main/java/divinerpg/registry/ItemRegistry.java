@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**
- * Registers most items for the mod, except for tools and weapons which go in ModTools and ModWeapons respectively.
+ * Registers most items for the mod, except for tools and weapons which go in ToolRegistry and WeaponRegistry respectively.
  * This class registers its items prior to those due to its event priority being higher.
  */
 @Mod.EventBusSubscriber
@@ -806,12 +806,12 @@ public class ItemRegistry {
         register(registry, new ItemMod("mortum_dust"));
 
         // Twilight boss spawners
-        register(registry, new ItemBossSpawner("karot_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityKarot::new));
-        register(registry, new ItemBossSpawner("reyvor_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityReyvor::new, EntityDensos::new));
-        register(registry, new ItemBossSpawner("densos_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityReyvor::new, EntityDensos::new));
-        register(registry, new ItemBossSpawner("soul_fiend_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntitySoulFiend::new));
-        register(registry, new ItemBossSpawner("twilight_demon_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityTwilightDemon::new));
-        register(registry, new ItemBossSpawner("vamacheron_crystal", "tooltip.mortum_only", x -> Objects.equals(x, ModDimensions.mortumDimension), EntityVamacheron::new));
+        register(registry, new ItemBossSpawner("karot_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityKarot::new));
+        register(registry, new ItemBossSpawner("reyvor_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityReyvor::new, EntityDensos::new));
+        register(registry, new ItemBossSpawner("densos_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityReyvor::new, EntityDensos::new));
+        register(registry, new ItemBossSpawner("soul_fiend_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntitySoulFiend::new));
+        register(registry, new ItemBossSpawner("twilight_demon_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityTwilightDemon::new));
+        register(registry, new ItemBossSpawner("vamacheron_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityVamacheron::new));
 
         // Twilight portal item
         register(registry, new ItemTwilightClock("twilight_clock"));

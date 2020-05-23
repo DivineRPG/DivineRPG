@@ -5,7 +5,7 @@ import com.google.common.base.Predicate;
 import divinerpg.config.Config;
 import divinerpg.config.OreInfo;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -43,11 +43,11 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{
         put(DimensionType.NETHER.getId(), WorldGenCustomOres::genNether);
         put(DimensionType.OVERWORLD.getId(), WorldGenCustomOres::genOverworld);
-        put(ModDimensions.edenDimension.getId(), WorldGenCustomOres::genEden);
-        put(ModDimensions.wildwoodDimension.getId(), WorldGenCustomOres::genWild);
-        put(ModDimensions.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
-        put(ModDimensions.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
-        put(ModDimensions.mortumDimension.getId(), WorldGenCustomOres::genMortum);
+        put(DimensionRegistry.edenDimension.getId(), WorldGenCustomOres::genEden);
+        put(DimensionRegistry.wildwoodDimension.getId(), WorldGenCustomOres::genWild);
+        put(DimensionRegistry.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
+        put(DimensionRegistry.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
+        put(DimensionRegistry.mortumDimension.getId(), WorldGenCustomOres::genMortum);
     }};
 
     @Override

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityLadyLunaSparkler;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -54,7 +54,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_LADY_LUNA;
+        return LootTableRegistry.ENTITIES_LADY_LUNA;
     }
 
     @Override

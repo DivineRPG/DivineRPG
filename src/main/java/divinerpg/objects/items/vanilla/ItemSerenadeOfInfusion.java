@@ -2,7 +2,7 @@ package divinerpg.objects.items.vanilla;
 
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
             stack.damageItem(1, player);
         }
         player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 80, 2, true, false));
-        player.playSound(ModSounds.HEAL, 1, 1);
+        player.playSound(SoundRegistry.HEAL, 1, 1);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 }

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -50,7 +50,7 @@ public class EntityTermid extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_TERMID;
+        return LootTableRegistry.ENTITIES_TERMID;
     }
     
     @Override

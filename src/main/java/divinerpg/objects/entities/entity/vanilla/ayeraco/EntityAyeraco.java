@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.vanilla.ayeraco;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -85,7 +85,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
 
         if (getHealth() * 2 < getMaxHealth()) {
             if (this.halfHp == false) {
-                this.playSound(ModSounds.AYERACO_HALF_HEALTH, 20.0F,
+                this.playSound(SoundRegistry.AYERACO_HALF_HEALTH, 20.0F,
                         0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
                 this.halfHp = true;
             }
@@ -180,17 +180,17 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.AYERACO;
+        return SoundRegistry.AYERACO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.AYERACO_HURT;
+        return SoundRegistry.AYERACO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.AYERACO_HURT;
+        return SoundRegistry.AYERACO_HURT;
     }
 
     @Override
@@ -233,7 +233,7 @@ public class EntityAyeraco extends EntityDivineRPGBoss {
     }
 
     protected void teleportRandomUp() {
-        this.playSound(ModSounds.AYERACO_TELEPORT, 2.0F, 0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
+        this.playSound(SoundRegistry.AYERACO_TELEPORT, 2.0F, 0.4F / (this.rand.nextFloat() * 0.4F + 0.8F));
         this.motionY = 20;
         this.motionX = this.rand.nextInt(5);
         this.motionZ = this.rand.nextInt(5);

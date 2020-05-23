@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +31,7 @@ public class ItemHealingSword extends ItemModSword {
                 stack.damageItem(1, player);
             }
             player.heal(healAmount);
-            player.playSound(ModSounds.HEAL, 1, 1);
+            player.playSound(SoundRegistry.HEAL, 1, 1);
         }
         return super.onItemRightClick(world, player, hand);
     }

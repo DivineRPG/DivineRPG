@@ -4,7 +4,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +24,7 @@ public class ItemCorruptedCannon extends RangedWeaponBase {
         super(name,
                 null,
                 null,
-                ModSounds.GHAST_CANNON,
+                SoundRegistry.GHAST_CANNON,
                 SoundCategory.MASTER,
                 -1,
                 4,

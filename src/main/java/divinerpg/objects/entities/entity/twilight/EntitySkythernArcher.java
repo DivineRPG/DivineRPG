@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -56,21 +56,21 @@ public class EntitySkythernArcher extends EntityDivineRPGMob implements IRangedA
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ARCHER;
+        return SoundRegistry.ARCHER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.HIGH_HIT;
+        return SoundRegistry.HIGH_HIT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.HIGH_HIT;
+        return SoundRegistry.HIGH_HIT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SKYTHERN_ARCHER;
+        return LootTableRegistry.ENTITIES_SKYTHERN_ARCHER;
     }
 }

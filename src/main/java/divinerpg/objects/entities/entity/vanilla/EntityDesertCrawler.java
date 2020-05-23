@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -28,22 +28,22 @@ public class EntityDesertCrawler extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.CRAWLER;
+        return SoundRegistry.CRAWLER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CRAWLER_HURT;
+        return SoundRegistry.CRAWLER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.CRAWLER_HURT;
+        return SoundRegistry.CRAWLER_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DESERT_CRAWLER;
+        return LootTableRegistry.ENTITIES_DESERT_CRAWLER;
     }
 
     @Override

@@ -2,7 +2,7 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.DivineTeleporter;
 import divinerpg.utils.portals.ServerPortal;
 import divinerpg.utils.portals.VetheaPortal;
@@ -22,23 +22,23 @@ public class DimensionHelper {
     private final static Map<DimensionType, ITeleporter> teleporterMapByModdedDimension = new HashMap<>();
 
     /**
-     * Should call after ModDimensions.registerDimensions()
+     * Should call after DimensionRegistry.registerDimensions()
      */
     public static void initPortalDescriptions() {
         ServerPortal portal = new ServerPortal(128, 20 * 10);
 
-        add(ModDimensions.edenDimension, new NetherLikePortalDescription(BlockRegistry.divineRock, BlockRegistry.edenPortal), portal);
-        add(ModDimensions.wildwoodDimension, new NetherLikePortalDescription(BlockRegistry.edenBlock, BlockRegistry.wildwoodPortal), portal);
-        add(ModDimensions.apalachiaDimension, new NetherLikePortalDescription(BlockRegistry.wildwoodBlock, BlockRegistry.apalachiaPortal), portal);
-        add(ModDimensions.skythernDimension, new NetherLikePortalDescription(BlockRegistry.apalachiaBlock, BlockRegistry.skythernPortal), portal);
-        add(ModDimensions.mortumDimension, new NetherLikePortalDescription(BlockRegistry.skythernBlock, BlockRegistry.mortumPortal), portal);
-        add(ModDimensions.iceikaDimension, new NetherLikePortalDescription(Blocks.SNOW, BlockRegistry.iceikaPortal), portal);
+        add(DimensionRegistry.edenDimension, new NetherLikePortalDescription(BlockRegistry.divineRock, BlockRegistry.edenPortal), portal);
+        add(DimensionRegistry.wildwoodDimension, new NetherLikePortalDescription(BlockRegistry.edenBlock, BlockRegistry.wildwoodPortal), portal);
+        add(DimensionRegistry.apalachiaDimension, new NetherLikePortalDescription(BlockRegistry.wildwoodBlock, BlockRegistry.apalachiaPortal), portal);
+        add(DimensionRegistry.skythernDimension, new NetherLikePortalDescription(BlockRegistry.apalachiaBlock, BlockRegistry.skythernPortal), portal);
+        add(DimensionRegistry.mortumDimension, new NetherLikePortalDescription(BlockRegistry.skythernBlock, BlockRegistry.mortumPortal), portal);
+        add(DimensionRegistry.iceikaDimension, new NetherLikePortalDescription(Blocks.SNOW, BlockRegistry.iceikaPortal), portal);
 
         VetheaPortal vetheaPortal = new VetheaPortal(128, 20 * 60);
-        add(ModDimensions.vetheaDimension, new VetheaPortalDescription(), vetheaPortal);
+        add(DimensionRegistry.vetheaDimension, new VetheaPortalDescription(), vetheaPortal);
 
         ArcanaTeleporter teleporter = new ArcanaTeleporter(20 * 60);
-        add(ModDimensions.arcanaDimension,
+        add(DimensionRegistry.arcanaDimension,
                 new ArcanaPortalRoomDescription(BlockRegistry.arcanaPortalFrame, BlockRegistry.arcanaPortal),
                 teleporter);
     }

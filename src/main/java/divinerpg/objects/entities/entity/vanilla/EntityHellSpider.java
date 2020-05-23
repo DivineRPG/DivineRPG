@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -121,7 +121,7 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HELL_SPIDER;
+        return SoundRegistry.HELL_SPIDER;
     }
 
     @Override
@@ -136,6 +136,6 @@ public class EntityHellSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_HELL_SPIDER;
+        return LootTableRegistry.ENTITIES_HELL_SPIDER;
     }
 }

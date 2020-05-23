@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityStar;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -35,7 +35,7 @@ public class ItemStaffStarlight extends RangedWeaponBase {
      * @param count  - count of spawning entities
      */
     public ItemStaffStarlight(String name, int arcana, int count) {
-        super(name, EntityStar.class, null, ModSounds.STARLIGHT, SoundCategory.MASTER, -1, 0, null, arcana);
+        super(name, EntityStar.class, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 0, null, arcana);
         this.count = count;
         this.setFull3D();
 

@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityMeteor;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemMeteorMash extends RangedWeaponBase {
 
     public ItemMeteorMash() {
-        super("meteor_mash", null, null, ModSounds.STARLIGHT, SoundCategory.MASTER, -1, 0, null, 35);
+        super("meteor_mash", null, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 0, null, 35);
         //        ItemStaff.staffList.add(this);
     }
 

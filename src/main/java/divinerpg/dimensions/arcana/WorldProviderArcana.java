@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 
 public class WorldProviderArcana extends WorldProvider {
 
@@ -59,7 +59,7 @@ public class WorldProviderArcana extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return ModDimensions.arcanaDimension;
+        return DimensionRegistry.arcanaDimension;
     }
 
     @Nullable

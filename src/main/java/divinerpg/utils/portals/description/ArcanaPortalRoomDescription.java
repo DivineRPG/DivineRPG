@@ -2,7 +2,7 @@ package divinerpg.utils.portals.description;
 
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.state.BlockWorldState;
@@ -36,7 +36,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
     public ArcanaPortalRoomDescription(Block frame, Block portal) {
         this.frame = frame;
         this.portal = portal;
-        this.arcanaDimType = ModDimensions.arcanaDimension;
+        this.arcanaDimType = DimensionRegistry.arcanaDimension;
 
         BlockStateMatcher southFrame = BlockStateMatcher.forBlock(getFrame())
                 .where(BlockHorizontal.FACING, enumFacing -> Objects.equals(enumFacing, EnumFacing.SOUTH));

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -63,21 +63,21 @@ public class EntityVhraak extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_VHRAAK;
+        return LootTableRegistry.ENTITIES_VHRAAK;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.VHRAAK;
+        return SoundRegistry.VHRAAK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.VHRAAK_HURT;
+        return SoundRegistry.VHRAAK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.VHRAAK_HURT;
+        return SoundRegistry.VHRAAK_HURT;
     }
 }

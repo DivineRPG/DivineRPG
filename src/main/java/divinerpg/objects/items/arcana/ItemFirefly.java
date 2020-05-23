@@ -2,7 +2,7 @@ package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.entities.entity.projectiles.EntityFirefly;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemFirefly extends RangedWeaponBase {
 
     public ItemFirefly() {
-        super("firefly", EntityFirefly.class, null, ModSounds.FIREFLY, SoundCategory.PLAYERS, -1, 0, null, 5);
+        super("firefly", EntityFirefly.class, null, SoundRegistry.FIREFLY, SoundCategory.PLAYERS, -1, 0, null, 5);
     }
 
     @Override

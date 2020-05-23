@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -30,7 +30,7 @@ public class ItemArcaniumSaber extends ItemModSword {
         if (arcana.getArcana() < 12) {
             return false;
         } else {
-            player.playSound(ModSounds.ARCANIUM_SABER, 1, 1);
+            player.playSound(SoundRegistry.ARCANIUM_SABER, 1, 1);
             arcana.consume(player, 12);
             return true;
         }

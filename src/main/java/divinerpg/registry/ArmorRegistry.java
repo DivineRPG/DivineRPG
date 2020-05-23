@@ -24,7 +24,7 @@ import static divinerpg.utils.LocalizeUtils.getArmorAbility;
  */
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
-public class ModArmor {
+public class ArmorRegistry {
 
     // Vanilla dimension armor
     @ObjectHolder("angelic_helmet")
@@ -497,7 +497,7 @@ public class ModArmor {
             getArmorAbility("melee_damage", 6),
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 80))
-            .withDimension(new TextComponentTranslation("tooltip.armor_info.iceika"), x -> Objects.equals(x, ModDimensions.iceikaDimension));
+            .withDimension(new TextComponentTranslation("tooltip.armor_info.iceika"), x -> Objects.equals(x, DimensionRegistry.iceikaDimension));
 
     // Twilight
     private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
@@ -553,68 +553,68 @@ public class ModArmor {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension armor
-        registerArmorSet(registry, "angelic", ToolMaterialMod.ANGELIC_ARMOR, angelicInfo);
-        registerArmorSet(registry, "aquastrive", ToolMaterialMod.AQUASTRIVE_ARMOR, aquastriveInfo);
-        registerArmorSet(registry, "arlemite", ToolMaterialMod.ARLEMITE_ARMOR, arlemiteInfo);
-        registerArmorSet(registry, "bedrock", ToolMaterialMod.BEDROCK_ARMOR, bedrockInfo);
-        registerArmorSet(registry, "corrupted", ToolMaterialMod.CORRUPTED_ARMOR, corruptedInfo);
-        registerArmorSet(registry, "divine", ToolMaterialMod.DIVINE_ARMOR, divineInfo);
-        registerArmorSet(registry, "elite_realmite", ToolMaterialMod.ELITE_REALMITE_ARMOR, eliteRealmiteInfo);
-        registerArmorSet(registry, "ender", ToolMaterialMod.ENDER_ARMOR, enderInfo);
-        registerArmorSet(registry, "blue_ender", ToolMaterialMod.BLUE_ENDER_ARMOR, enderInfo);
-        registerArmorSet(registry, "gray_ender", ToolMaterialMod.GRAY_ENDER_ARMOR, enderInfo);
-        registerArmorSet(registry, "green_ender", ToolMaterialMod.GREEN_ENDER_ARMOR, enderInfo);
-        registerArmorSet(registry, "red_ender", ToolMaterialMod.RED_ENDER_ARMOR, enderInfo);
-        registerArmorSet(registry, "yellow_ender", ToolMaterialMod.YELLOW_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "angelic", MaterialRegistry.ANGELIC_ARMOR, angelicInfo);
+        registerArmorSet(registry, "aquastrive", MaterialRegistry.AQUASTRIVE_ARMOR, aquastriveInfo);
+        registerArmorSet(registry, "arlemite", MaterialRegistry.ARLEMITE_ARMOR, arlemiteInfo);
+        registerArmorSet(registry, "bedrock", MaterialRegistry.BEDROCK_ARMOR, bedrockInfo);
+        registerArmorSet(registry, "corrupted", MaterialRegistry.CORRUPTED_ARMOR, corruptedInfo);
+        registerArmorSet(registry, "divine", MaterialRegistry.DIVINE_ARMOR, divineInfo);
+        registerArmorSet(registry, "elite_realmite", MaterialRegistry.ELITE_REALMITE_ARMOR, eliteRealmiteInfo);
+        registerArmorSet(registry, "ender", MaterialRegistry.ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "blue_ender", MaterialRegistry.BLUE_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "gray_ender", MaterialRegistry.GRAY_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "green_ender", MaterialRegistry.GREEN_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "red_ender", MaterialRegistry.RED_ENDER_ARMOR, enderInfo);
+        registerArmorSet(registry, "yellow_ender", MaterialRegistry.YELLOW_ENDER_ARMOR, enderInfo);
 
-        registerArmorSet(registry, "frozen", ToolMaterialMod.FROZEN_ARMOR, frozenInfo);
-        registerArmorSet(registry, "inferno", ToolMaterialMod.INFERNO_ARMOR, infernoInfo);
-        registerArmorSet(registry, "jack_o_man", ToolMaterialMod.JACK_O_MAN_ARMOR, jackomanInfo);
-        registerArmorSet(registry, "jungle", ToolMaterialMod.JUNGLE_ARMOR, jungleInfo);
-        registerArmorSet(registry, "kraken", ToolMaterialMod.KRAKEN_ARMOR, krakenInfo);
-        registerArmorSet(registry, "netherite", ToolMaterialMod.NETHERITE_ARMOR, netheriteInfo);
-        registerArmorSet(registry, "realmite", ToolMaterialMod.REALMITE_ARMOR, new ArmorInfo());
+        registerArmorSet(registry, "frozen", MaterialRegistry.FROZEN_ARMOR, frozenInfo);
+        registerArmorSet(registry, "inferno", MaterialRegistry.INFERNO_ARMOR, infernoInfo);
+        registerArmorSet(registry, "jack_o_man", MaterialRegistry.JACK_O_MAN_ARMOR, jackomanInfo);
+        registerArmorSet(registry, "jungle", MaterialRegistry.JUNGLE_ARMOR, jungleInfo);
+        registerArmorSet(registry, "kraken", MaterialRegistry.KRAKEN_ARMOR, krakenInfo);
+        registerArmorSet(registry, "netherite", MaterialRegistry.NETHERITE_ARMOR, netheriteInfo);
+        registerArmorSet(registry, "realmite", MaterialRegistry.REALMITE_ARMOR, new ArmorInfo());
 
-        registerArmorSet(registry, "rupee", ToolMaterialMod.RUPEE_ARMOR, rupeeInfo);
-        registerArmorSet(registry, "blue_rupee", ToolMaterialMod.BLUE_RUPEE_ARMOR, rupeeInfo);
-        registerArmorSet(registry, "gray_rupee", ToolMaterialMod.GRAY_RUPEE_ARMOR, rupeeInfo);
-        registerArmorSet(registry, "green_rupee", ToolMaterialMod.GREEN_RUPEE_ARMOR, rupeeInfo);
-        registerArmorSet(registry, "red_rupee", ToolMaterialMod.RED_RUPEE_ARMOR, rupeeInfo);
-        registerArmorSet(registry, "yellow_rupee", ToolMaterialMod.YELLOW_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "rupee", MaterialRegistry.RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "blue_rupee", MaterialRegistry.BLUE_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "gray_rupee", MaterialRegistry.GRAY_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "green_rupee", MaterialRegistry.GREEN_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "red_rupee", MaterialRegistry.RED_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(registry, "yellow_rupee", MaterialRegistry.YELLOW_RUPEE_ARMOR, rupeeInfo);
 
-        registerArmorSet(registry, "shadow", ToolMaterialMod.SHADOW_ARMOR, shadowInfo);
-        registerArmorSet(registry, "skeleman", ToolMaterialMod.SKELEMAN_ARMOR, skelemanInfo);
-        registerArmorSet(registry, "terran", ToolMaterialMod.TERRAN_ARMOR, terranInfo);
-        registerArmorSet(registry, "wither_reaper", ToolMaterialMod.WITHER_REAPER_ARMOR, witherReaperInfo);
+        registerArmorSet(registry, "shadow", MaterialRegistry.SHADOW_ARMOR, shadowInfo);
+        registerArmorSet(registry, "skeleman", MaterialRegistry.SKELEMAN_ARMOR, skelemanInfo);
+        registerArmorSet(registry, "terran", MaterialRegistry.TERRAN_ARMOR, terranInfo);
+        registerArmorSet(registry, "wither_reaper", MaterialRegistry.WITHER_REAPER_ARMOR, witherReaperInfo);
 
         // Iceika dimension armor
-        registerArmorSet(registry, "santa", ToolMaterialMod.SANTA_ARMOR, santaInfo);
+        registerArmorSet(registry, "santa", MaterialRegistry.SANTA_ARMOR, santaInfo);
 
         // Twilight armor
-        registerArmorSet(registry, "eden", ToolMaterialMod.EDEN_ARMOR, edenInfo);
-        registerArmorSet(registry, "wildwood", ToolMaterialMod.WILDWOOD_ARMOR, wildInfo);
-        registerArmorSet(registry, "apalachia", ToolMaterialMod.APALACHIA_ARMOR, apInfo);
-        registerArmorSet(registry, "skythern", ToolMaterialMod.SKYTHERN_ARMOR, skyInfo);
-        registerArmorSet(registry, "mortum", ToolMaterialMod.MORTUM_ARMOR, mortInfo);
-        registerArmorSet(registry, "halite", ToolMaterialMod.HALITE_ARMOR, halInfo);
-        registerArmorSet(registry, "awakened_halite", ToolMaterialMod.AWAKENED_HALITE_ARMOR, awakened_halInfo);
+        registerArmorSet(registry, "eden", MaterialRegistry.EDEN_ARMOR, edenInfo);
+        registerArmorSet(registry, "wildwood", MaterialRegistry.WILDWOOD_ARMOR, wildInfo);
+        registerArmorSet(registry, "apalachia", MaterialRegistry.APALACHIA_ARMOR, apInfo);
+        registerArmorSet(registry, "skythern", MaterialRegistry.SKYTHERN_ARMOR, skyInfo);
+        registerArmorSet(registry, "mortum", MaterialRegistry.MORTUM_ARMOR, mortInfo);
+        registerArmorSet(registry, "halite", MaterialRegistry.HALITE_ARMOR, halInfo);
+        registerArmorSet(registry, "awakened_halite", MaterialRegistry.AWAKENED_HALITE_ARMOR, awakened_halInfo);
 
         // Arcana armor sets
-        registerArmorSet(registry, "korma", ToolMaterialMod.KORMA_ARMOR, kormInfo);
-        registerArmorSet(registry, "vemos", ToolMaterialMod.VEMOS_ARMOR, vemInfo);
+        registerArmorSet(registry, "korma", MaterialRegistry.KORMA_ARMOR, kormInfo);
+        registerArmorSet(registry, "vemos", MaterialRegistry.VEMOS_ARMOR, vemInfo);
 
         // Vethea armor sets
-        registerVetheanArmorSet(registry, "degraded", ToolMaterialMod.DEGRADED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
-        registerVetheanArmorSet(registry, "finished", ToolMaterialMod.FINISHED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
-        registerVetheanArmorSet(registry, "glistening", ToolMaterialMod.GLISTENING_ARMOR, glisteningHelmInfo, glisteningHoodInfo, glisteningMaskInfo, new ArmorInfo());
-        registerVetheanArmorSet(registry, "demonized", ToolMaterialMod.DEMONIZED_ARMOR, demonizedHelmInfo, demonizedHoodInfo, demonizedMaskInfo, new ArmorInfo());
-        registerVetheanArmorSet(registry, "tormented", ToolMaterialMod.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "degraded", MaterialRegistry.DEGRADED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "finished", MaterialRegistry.FINISHED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "glistening", MaterialRegistry.GLISTENING_ARMOR, glisteningHelmInfo, glisteningHoodInfo, glisteningMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "demonized", MaterialRegistry.DEMONIZED_ARMOR, demonizedHelmInfo, demonizedHoodInfo, demonizedMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(registry, "tormented", MaterialRegistry.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
 
         // King armor
-        //register(registry, new KingArmorItem("king_helmet", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
-        //register(registry, new KingArmorItem("king_chestplate", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
-        //register(registry, new KingArmorItem("king_leggings", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
-        //register(registry, new KingArmorItem("king_boots", ToolMaterialMod.KING_ARMOR, EntityEquipmentSlot.FEET, kingInfo));
+        //register(registry, new KingArmorItem("king_helmet", MaterialRegistry.KING_ARMOR, EntityEquipmentSlot.HEAD, kingInfo));
+        //register(registry, new KingArmorItem("king_chestplate", MaterialRegistry.KING_ARMOR, EntityEquipmentSlot.CHEST, kingInfo));
+        //register(registry, new KingArmorItem("king_leggings", MaterialRegistry.KING_ARMOR, EntityEquipmentSlot.LEGS, kingInfo));
+        //register(registry, new KingArmorItem("king_boots", MaterialRegistry.KING_ARMOR, EntityEquipmentSlot.FEET, kingInfo));
     }
 
     private static void register(IForgeRegistry<Item> registry, Item item) {

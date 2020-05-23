@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight.mage;
 
 import divinerpg.enums.BulletType;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -14,6 +14,6 @@ public class EntitySpellbinder extends EntityMageBase {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SPELLBINDER;
+        return LootTableRegistry.ENTITIES_SPELLBINDER;
     }
 }

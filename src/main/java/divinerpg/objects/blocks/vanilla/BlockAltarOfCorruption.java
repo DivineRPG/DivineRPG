@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityAltarOfCorruption;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModTriggers;
+import divinerpg.registry.TriggerRegistry;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -101,7 +101,7 @@ public class BlockAltarOfCorruption extends BlockContainer {
             if (tileentity instanceof TileEntityAltarOfCorruption) {
                 playerIn.openGui(DivineRPG.instance, GUIHandler.ALTAR_OF_CORRUPTION_GUI_ID, worldIn, pos.getX(),
                         pos.getY(), pos.getZ());
-                ModTriggers.DIVINERPG_BLOCK.trigger((EntityPlayerMP) playerIn, this);
+                TriggerRegistry.DIVINERPG_BLOCK.trigger((EntityPlayerMP) playerIn, this);
             }
             return true;
         }

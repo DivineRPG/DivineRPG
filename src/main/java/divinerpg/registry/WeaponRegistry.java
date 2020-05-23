@@ -29,7 +29,7 @@ import net.minecraftforge.registries.IForgeRegistry;
  */
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
-public class ModWeapons {
+public class WeaponRegistry {
 
     // Vanilla dimension weapons
     @ObjectHolder("aquatic_maul")
@@ -495,52 +495,52 @@ public class ModWeapons {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         // Vanilla dimension weapons
-        register(registry, new ItemModSword(ToolMaterialMod.AQUA_DAGGER, "aquatic_dagger"));
-        register(registry, new ItemModSword(ToolMaterialMod.AQUA_MAUL, "aquatic_maul"));
-        register(registry, new ItemModSword(ToolMaterialMod.AQUA_TRIDENT, "aquatic_trident"));
-        register(registry, new ItemModSword(ToolMaterialMod.AQUATON, "aquaton"));
-        register(registry, new ItemModSword(ToolMaterialMod.AQUATOOTH_MAUL, "aquatooth_maul"));
-        register(registry, new ItemModSword(ToolMaterialMod.AQUATOOTH_SWORD, "aquatooth_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ARLEMITE_STABBER, "arlemite_stabber"));
-        register(registry, new ItemModSword(ToolMaterialMod.BEDROCK_SWORD, "bedrock_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.BEDROCK_MAUL, "bedrock_maul"));
-        register(registry, new ItemModSword(ToolMaterialMod.BLOODGEM_SWORD, "bloodgem_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.BLUEFIRE_SWORD, "bluefire_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.CORRUPTED_MAUL, "corrupted_maul"));
-        register(registry, new ItemModSword(ToolMaterialMod.CRABCLAW_MAUL, "crabclaw_maul"));
-        register(registry, new ItemModSword(ToolMaterialMod.CYCLOPSIAN_SWORD, "cyclopsian_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DEATH_BRINGER, "death_bringer"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "blue_divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "gray_divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "green_divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "red_divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DIVINE_SWORD, "yellow_divine_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.DUAL_CLAW, "dual_claw"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "black_ender_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "blue_ender_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "ender_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "green_ender_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "red_ender_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.ENDER_SWORD, "yellow_ender_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.FROST_SWORD, "frost_sword"));
-        register(registry, new ItemBurningSword(ToolMaterialMod.FLAMING_FURY, "flaming_fury", 15));
-        register(registry, new ItemModSword(ToolMaterialMod.FURY_MAUL, "fury_maul"));
-        register(registry, new ItemBurningSword(ToolMaterialMod.INFERNO_SWORD, "inferno_sword", 12));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.JUNGLE_KNIFE, "jungle_knife", 2.5f));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.JUNGLE_RAPIER, "jungle_rapier", 4f));
-        register(registry, new ItemBurningSword(ToolMaterialMod.MOLTEN_SWORD, "molten_sword", 5));
-        register(registry, new ItemModSword(ToolMaterialMod.OCEAN_KNIFE, "ocean_knife"));
-        register(registry, new ItemPoisonousSword(ToolMaterialMod.POISON_SABER, "poison_saber", 5));
-        register(registry, new ItemModSword(ToolMaterialMod.REALMITE_SWORD, "realmite_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.RUPEE_RAPIER, "rupee_rapier"));
-        register(registry, new ItemModSword(ToolMaterialMod.SANDSLASH, "sandslash"));
-        register(registry, new ItemModSword(ToolMaterialMod.SCORCHING_SWORD, "scorching_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.SHARK_SWORD, "shark_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.SLIME_SWORD, "slime_sword"));
-        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_DAGGER, "terran_dagger"));
-        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_KNIFE, "terran_knife"));
-        register(registry, new ItemModSword(ToolMaterialMod.TERRAN_MAUL, "terran_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUA_DAGGER, "aquatic_dagger"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUA_MAUL, "aquatic_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUA_TRIDENT, "aquatic_trident"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUATON, "aquaton"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUATOOTH_MAUL, "aquatooth_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.AQUATOOTH_SWORD, "aquatooth_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ARLEMITE_STABBER, "arlemite_stabber"));
+        register(registry, new ItemModSword(MaterialRegistry.BEDROCK_SWORD, "bedrock_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.BEDROCK_MAUL, "bedrock_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.BLOODGEM_SWORD, "bloodgem_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.BLUEFIRE_SWORD, "bluefire_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.CORRUPTED_MAUL, "corrupted_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.CRABCLAW_MAUL, "crabclaw_maul"));
+        register(registry, new ItemModSword(MaterialRegistry.CYCLOPSIAN_SWORD, "cyclopsian_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DEATH_BRINGER, "death_bringer"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "blue_divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "gray_divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "green_divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "red_divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DIVINE_SWORD, "yellow_divine_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.DUAL_CLAW, "dual_claw"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "black_ender_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "blue_ender_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "ender_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "green_ender_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "red_ender_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.ENDER_SWORD, "yellow_ender_sword"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.FROST_SWORD, "frost_sword"));
+        register(registry, new ItemBurningSword(MaterialRegistry.FLAMING_FURY, "flaming_fury", 15));
+        register(registry, new ItemModSword(MaterialRegistry.FURY_MAUL, "fury_maul"));
+        register(registry, new ItemBurningSword(MaterialRegistry.INFERNO_SWORD, "inferno_sword", 12));
+        register(registry, new ItemPoisonousSword(MaterialRegistry.JUNGLE_KNIFE, "jungle_knife", 2.5f));
+        register(registry, new ItemPoisonousSword(MaterialRegistry.JUNGLE_RAPIER, "jungle_rapier", 4f));
+        register(registry, new ItemBurningSword(MaterialRegistry.MOLTEN_SWORD, "molten_sword", 5));
+        register(registry, new ItemModSword(MaterialRegistry.OCEAN_KNIFE, "ocean_knife"));
+        register(registry, new ItemPoisonousSword(MaterialRegistry.POISON_SABER, "poison_saber", 5));
+        register(registry, new ItemModSword(MaterialRegistry.REALMITE_SWORD, "realmite_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.RUPEE_RAPIER, "rupee_rapier"));
+        register(registry, new ItemModSword(MaterialRegistry.SANDSLASH, "sandslash"));
+        register(registry, new ItemModSword(MaterialRegistry.SCORCHING_SWORD, "scorching_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.SHARK_SWORD, "shark_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.SLIME_SWORD, "slime_sword"));
+        register(registry, new ItemModSword(MaterialRegistry.TERRAN_DAGGER, "terran_dagger"));
+        register(registry, new ItemModSword(MaterialRegistry.TERRAN_KNIFE, "terran_knife"));
+        register(registry, new ItemModSword(MaterialRegistry.TERRAN_MAUL, "terran_maul"));
 
         register(registry, new ItemModBow("bluefire_bow", ArrowType.BLUEFIRE_ARROW, -1));
         register(registry, new ItemModBow("ender_bow", ArrowType.ENDER_ARROW, -1));
@@ -554,16 +554,16 @@ public class ModWeapons {
         register(registry, new ItemVileStorm("vile_storm"));
 
         register(registry, new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT));
-        register(registry, new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, ModSounds.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new RangedWeaponBase("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
         register(registry, new ItemCorruptedCannon("corrupted_cannon"));
         register(registry, new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT));
-        register(registry, new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, ModSounds.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
-        register(registry, new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT, ModSounds.STAFF, 600, 0));
-        register(registry, new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, ModSounds.FROST_CANNON, () -> Items.SNOWBALL, 15000, 0));
-        register(registry, new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT, ModSounds.GHAST_CANNON, 100, 20));
-        register(registry, new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, ModSounds.BLITZ, () -> Items.GOLD_NUGGET, -1, 0));
+        register(registry, new RangedWeaponBase("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 1000, 12));
+        register(registry, new RangedWeaponBase("cyclopsian_staff", BulletType.CYCLOPSIAN_STAFF_SHOT, SoundRegistry.STAFF, 600, 0));
+        register(registry, new RangedWeaponBase("frost_cannon", BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON, () -> Items.SNOWBALL, 15000, 0));
+        register(registry, new RangedWeaponBase("ghast_cannon", BulletType.GHAST_CANNON_SHOT, SoundRegistry.GHAST_CANNON, 100, 20));
+        register(registry, new RangedWeaponBase("golden_fury", BulletType.GOLDEN_FURY_SHOT, SoundRegistry.BLITZ, () -> Items.GOLD_NUGGET, -1, 0));
         register(registry, new ItemAnchor("liopleurodon_anchor", BulletType.LIOPLEURODON_ANCHOR_SHOT));
-        register(registry, new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, ModSounds.GHAST_CANNON, 100, 0));
+        register(registry, new RangedWeaponBase("maelstrom", BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON, 100, 0));
         register(registry, new ItemAnchor("shark_anchor", BulletType.SHARK_ANCHOR_SHOT));
 
         register(registry, new ItemSerenadeOfDeath("serenade_of_death"));
@@ -571,20 +571,20 @@ public class ModWeapons {
         register(registry, new ItemSerenadeOfInfusion("serenade_of_infusion"));
         register(registry, new ItemSerenadeStriker("serenade_striker"));
 
-        register(registry, new ItemHealingSword("massivence", ToolMaterialMod.PALAVENCE, 1F));
-        register(registry, new ItemHealingSword("palavence", ToolMaterialMod.PALAVENCE, 0.5F));
+        register(registry, new ItemHealingSword("massivence", MaterialRegistry.PALAVENCE, 1F));
+        register(registry, new ItemHealingSword("palavence", MaterialRegistry.PALAVENCE, 0.5F));
 
         // Iceika
         // Iceika dimension weapons - melee
-        register(registry, new ItemSlowingSword(ToolMaterialMod.ENDERICE, "enderice"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.FROSTKING_SWORD, "frostking_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.FROZEN_MAUL, "frozen_maul"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.GLACIER_SWORD, "glacier_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.ICINE_SWORD, "icine_sword"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.SNOWSLASH, "snowslash"));
-        register(registry, new ItemSlowingSword(ToolMaterialMod.ICICLE_BANE, "icicle_bane"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.ENDERICE, "enderice"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.FROSTKING_SWORD, "frostking_sword"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.FROZEN_MAUL, "frozen_maul"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.GLACIER_SWORD, "glacier_sword"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.ICINE_SWORD, "icine_sword"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.SNOWSLASH, "snowslash"));
+        register(registry, new ItemSlowingSword(MaterialRegistry.ICICLE_BANE, "icicle_bane"));
 
-        register(registry, new ItemHealingSword("frossivence", ToolMaterialMod.FROSSIVENCE, 1F));
+        register(registry, new ItemHealingSword("frossivence", MaterialRegistry.FROSSIVENCE, 1F));
 
         // Iceika dimension weapons - ranged
         register(registry, new ItemModBow("snowstorm_bow", ArrowType.SNOWSTORM_ARROW, -1));
@@ -592,22 +592,22 @@ public class ModWeapons {
 
         register(registry, new ItemThrowable("snowflake_shuriken", BulletType.SNOWFLAKE_SHURIKEN_SHOT));
 
-        register(registry, new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, ModSounds.FRACTITE_CANNON, () -> ItemRegistry.iceShards, 10000, 0));
-        register(registry, new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, ModSounds.FROSTCLAW_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
+        register(registry, new RangedWeaponBase("fractite_cannon", BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON, () -> ItemRegistry.iceShards, 10000, 0));
+        register(registry, new RangedWeaponBase("frostclaw_cannon", BulletType.FROSTCLAW_CANNON_SHOT, SoundRegistry.FROSTCLAW_CANNON, () -> Item.getItemFromBlock(Blocks.CACTUS), 10000, 0));
 
-        register(registry, new ItemMusicShooter("sound_of_music", ModSounds.SOUND_OF_MUSIC, EntitySoundOfMusic.class));
-        register(registry, new ItemMusicShooter("sound_of_carols", ModSounds.SOUND_OF_CAROLS, EntitySoundOfCarols.class));
+        register(registry, new ItemMusicShooter("sound_of_music", SoundRegistry.SOUND_OF_MUSIC, EntitySoundOfMusic.class));
+        register(registry, new ItemMusicShooter("sound_of_carols", SoundRegistry.SOUND_OF_CAROLS, EntitySoundOfCarols.class));
 
         register(registry, new ItemSerenadeOfIce("serenade_of_ice"));
 
         // Twilight Dimensions
         // Twilight swords
-        register(registry, new ItemModSword(ToolMaterialMod.EDEN_BLADE, "eden_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.WILDWOOD_BLADE, "wildwood_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.APALACHIA_BLADE, "apalachia_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.SKYTHERN_BLADE, "skythern_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.MORTUM_BLADE, "mortum_blade"));
-        register(registry, new ItemModSword(ToolMaterialMod.HALITE_BLADE, "halite_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.EDEN_BLADE, "eden_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.WILDWOOD_BLADE, "wildwood_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.APALACHIA_BLADE, "apalachia_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.SKYTHERN_BLADE, "skythern_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.MORTUM_BLADE, "mortum_blade"));
+        register(registry, new ItemModSword(MaterialRegistry.HALITE_BLADE, "halite_blade"));
 
         // Twilight bows
         register(registry, new ItemModBow("eden_bow", ArrowType.EDEN_ARROW, -1, () -> ItemRegistry.edenArrow));
@@ -635,21 +635,21 @@ public class ModWeapons {
         register(registry, new ItemTwilightBlitz("halite_blitz", BulletType.HALITE_BLITZ_SHOT, () -> ItemRegistry.mortumDust));
 
         // Twilight phasers
-        register(registry, new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        register(registry, new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        register(registry, new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        register(registry, new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        register(registry, new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
-        register(registry, new RangedWeaponBase("halite_phaser", BulletType.HALITE_PHASER_SHOT, ModSounds.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("eden_phaser", BulletType.EDEN_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
+        register(registry, new RangedWeaponBase("halite_phaser", BulletType.HALITE_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
 
         // Arcana
         // Arcana melee
         register(registry, new ItemArcaniteBlade());
-        register(registry, new ItemArcaniumSaber("arcanium_saber", ToolMaterialMod.ARCANIUM_SABER));
+        register(registry, new ItemArcaniumSaber("arcanium_saber", MaterialRegistry.ARCANIUM_SABER));
         register(registry, new ItemEnderScepter("ender_scepter"));
-        register(registry, new ItemModSword(ToolMaterialMod.LIVICIA_SWORD, "livicia_sword"));
-        register(registry, new ItemStormSword("storm_sword", ToolMaterialMod.STORM_SWORD));
-        register(registry, new ItemShadowSaber("shadow_saber", ToolMaterialMod.SHADOW_SABER));
+        register(registry, new ItemModSword(MaterialRegistry.LIVICIA_SWORD, "livicia_sword"));
+        register(registry, new ItemStormSword("storm_sword", MaterialRegistry.STORM_SWORD));
+        register(registry, new ItemShadowSaber("shadow_saber", MaterialRegistry.SHADOW_SABER));
 
         // Arcana ranged
         register(registry, new ItemArcaniteBlaster());
@@ -667,15 +667,15 @@ public class ModWeapons {
 
         // Vethea weapons
         // Backsword
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_BACKSWORD, "teaker_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_BACKSWORD, "amthirmis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_BACKSWORD, "darven_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_BACKSWORD, "cermile_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_BACKSWORD, "pardimal_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_BACKSWORD, "quadrotic_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_BACKSWORD, "karos_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_BACKSWORD, "heliosis_backsword"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_BACKSWORD, "arksiane_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.TEAKER_BACKSWORD, "teaker_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.AMTHIRMIS_BACKSWORD, "amthirmis_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.DARVEN_BACKSWORD, "darven_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.CERMILE_BACKSWORD, "cermile_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.PARDIMAL_BACKSWORD, "pardimal_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.QUADROTIC_BACKSWORD, "quadrotic_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.KAROS_BACKSWORD, "karos_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.HELIOSIS_BACKSWORD, "heliosis_backsword"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.ARKSIANE_BACKSWORD, "arksiane_backsword"));
 
         // Bow
         register(registry, new ItemVetheanBow("teaker_bow", ArrowType.TEAKER_ARROW, -1, () -> ItemRegistry.teakerArrow));
@@ -702,16 +702,16 @@ public class ModWeapons {
         register(registry, new ItemVetheanCannon("eversight", BulletType.EVERSIGHT_SHOT, () -> ItemRegistry.acid));
 
         // Claw
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_CLAW, "teaker_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_CLAW, "amthirmis_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_CLAW, "darven_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_CLAW, "cermile_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_CLAW, "pardimal_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_CLAW, "quadrotic_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_CLAW, "karos_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_CLAW, "heliosis_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_CLAW, "arksiane_claw"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.EVERBRIGHT, "everbright"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.TEAKER_CLAW, "teaker_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.AMTHIRMIS_CLAW, "amthirmis_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.DARVEN_CLAW, "darven_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.CERMILE_CLAW, "cermile_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.PARDIMAL_CLAW, "pardimal_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.QUADROTIC_CLAW, "quadrotic_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.KAROS_CLAW, "karos_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.HELIOSIS_CLAW, "heliosis_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.ARKSIANE_CLAW, "arksiane_claw"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.EVERBRIGHT, "everbright"));
 
         // Disk
         register(registry, new ItemVetheanDisk("teaker_disk", DiskType.TEAKER_DISK));
@@ -725,17 +725,17 @@ public class ModWeapons {
         register(registry, new ItemVetheanDisk("arksiane_disk", DiskType.ARKSIANE_DISK));
 
         // Hammer
-        register(registry, new ItemVetheanSword(ToolMaterialMod.TEAKER_HAMMER, "teaker_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.AMTHIRMIS_HAMMER, "amthirmis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.DARVEN_HAMMER, "darven_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.CERMILE_HAMMER, "cermile_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.PARDIMAL_HAMMER, "pardimal_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.QUADROTIC_HAMMER, "quadrotic_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_HAMMER, "karos_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.HELIOSIS_HAMMER, "heliosis_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.ARKSIANE_HAMMER, "arksiane_hammer"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.EVERLIGHT, "everlight"));
-        register(registry, new ItemVetheanSword(ToolMaterialMod.KAROS_ROCKMAUL, "karos_rockmaul"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.TEAKER_HAMMER, "teaker_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.AMTHIRMIS_HAMMER, "amthirmis_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.DARVEN_HAMMER, "darven_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.CERMILE_HAMMER, "cermile_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.PARDIMAL_HAMMER, "pardimal_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.QUADROTIC_HAMMER, "quadrotic_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.KAROS_HAMMER, "karos_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.HELIOSIS_HAMMER, "heliosis_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.ARKSIANE_HAMMER, "arksiane_hammer"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.EVERLIGHT, "everlight"));
+        register(registry, new ItemVetheanSword(MaterialRegistry.KAROS_ROCKMAUL, "karos_rockmaul"));
 
         // Staff
         register(registry, new ItemStaff(3, 10, "teaker_staff"));

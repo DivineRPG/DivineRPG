@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -87,7 +87,7 @@ public class EntityKarot extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_KAROT;
+        return LootTableRegistry.ENTITIES_KAROT;
     }
     
     @Override

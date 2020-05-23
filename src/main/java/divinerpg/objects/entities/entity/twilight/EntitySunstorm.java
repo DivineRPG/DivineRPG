@@ -4,8 +4,8 @@ import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.ai.AISunstormAttack;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
@@ -82,7 +82,7 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
     
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.SPARKLER;
+        return SoundRegistry.SPARKLER;
     }
 
     @Override
@@ -97,6 +97,6 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SUNSTORM;
+        return LootTableRegistry.ENTITIES_SUNSTORM;
     }
 }

@@ -7,7 +7,7 @@ import divinerpg.enums.ParticleType;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
@@ -45,7 +45,7 @@ public class ItemArcanaCharge extends ItemMod {
     IArcana arcana = DivineAPI.getArcana(p);
     ItemStack stack = p.getHeldItem(hand);
         if (b == BlockRegistry.arcaniumPower && arcana.getArcana()>=200) {
-            w.playSound(p, pos, ModSounds.STARLIGHT, SoundCategory.PLAYERS, 1, 1);
+            w.playSound(p, pos, SoundRegistry.STARLIGHT, SoundCategory.PLAYERS, 1, 1);
             arcana.consume(p, 200);
 
             Block lastb1 = null;

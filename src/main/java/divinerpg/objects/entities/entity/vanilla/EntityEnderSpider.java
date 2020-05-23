@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.ResourceLocation;
@@ -32,12 +32,12 @@ public class EntityEnderSpider extends EntityEnderman {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HELL_SPIDER;
+        return SoundRegistry.HELL_SPIDER;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ENDER_SPIDER;
+        return LootTableRegistry.ENTITIES_ENDER_SPIDER;
     }
 
     @Override

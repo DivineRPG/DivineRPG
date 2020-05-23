@@ -1,7 +1,7 @@
 package divinerpg.utils.portals;
 
 import divinerpg.config.GeneralConfig;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.NbtUtil;
 import divinerpg.utils.PositionHelper;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -88,7 +88,7 @@ public class VetheaPortal extends ServerPortal {
     public void placeEntity(World world, Entity entity, float yaw) {
         DimensionType destination = world.provider.getDimensionType();
 
-        if (destination != ModDimensions.vetheaDimension) {
+        if (destination != DimensionRegistry.vetheaDimension) {
             // going home
             if (entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entity;

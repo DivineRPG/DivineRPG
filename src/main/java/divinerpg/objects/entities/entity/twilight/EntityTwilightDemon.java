@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -72,17 +72,17 @@ public class EntityTwilightDemon extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.INSECT;
+        return SoundRegistry.INSECT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.INSECT;
+        return SoundRegistry.INSECT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_TWILIGHT_DEMON;
+        return LootTableRegistry.ENTITIES_TWILIGHT_DEMON;
     }
     
     @Override

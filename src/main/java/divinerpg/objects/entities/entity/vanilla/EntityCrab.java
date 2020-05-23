@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -22,22 +22,22 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
     }
 @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.CRAB;
+        return SoundRegistry.CRAB;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CRAB_HURT;
+        return SoundRegistry.CRAB_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.CRAB_HURT;
+        return SoundRegistry.CRAB_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_CRAB;
+        return LootTableRegistry.ENTITIES_CRAB;
     }
 
     @Override

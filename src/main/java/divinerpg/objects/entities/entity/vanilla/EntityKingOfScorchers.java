@@ -5,8 +5,8 @@ import divinerpg.objects.entities.ai.ILaunchThrowable;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -122,17 +122,17 @@ public class EntityKingOfScorchers extends EntityDivineRPGBoss implements ILaunc
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.KING_OF_SCORCHERS;
+        return SoundRegistry.KING_OF_SCORCHERS;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.KING_OF_SCORCHERS_HURT;
+        return SoundRegistry.KING_OF_SCORCHERS_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_KING_OF_SCORCHERS;
+        return LootTableRegistry.ENTITIES_KING_OF_SCORCHERS;
     }
 
     @Override

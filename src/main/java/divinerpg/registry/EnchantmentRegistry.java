@@ -12,7 +12,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber
 @GameRegistry.ObjectHolder(DivineRPG.MODID)
-public class EnchantRegister {
+public class EnchantmentRegistry {
     @GameRegistry.ObjectHolder("world_break")
     public static final Enchantment world_break = null;
     @GameRegistry.ObjectHolder("double_dealing_damage")

@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.util.DamageSource;
@@ -42,22 +42,22 @@ public class EntityTheGrue extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATHCRYX;
+        return SoundRegistry.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DEATHCRYX_HURT;
+        return SoundRegistry.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATHCRYX_HURT;
+        return SoundRegistry.DEATHCRYX_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_THE_GRUE;
+        return LootTableRegistry.ENTITIES_THE_GRUE;
     }
 
     @Override

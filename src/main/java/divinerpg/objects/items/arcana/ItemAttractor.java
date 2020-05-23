@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ItemAttractor extends RangedWeaponBase {
     public ItemAttractor() {
-        super("arcanium_attractor", EntityAttractor.class, null, ModSounds.REFLECTOR, SoundCategory.PLAYERS, -1, 0,
+        super("arcanium_attractor", EntityAttractor.class, null, SoundRegistry.REFLECTOR, SoundCategory.PLAYERS, -1, 0,
                 null, 20);
         setCreativeTab(DivineRPGTabs.utility);
     }

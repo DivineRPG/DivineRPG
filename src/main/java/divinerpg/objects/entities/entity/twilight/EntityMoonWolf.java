@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -298,6 +298,6 @@ public class EntityMoonWolf extends EntityDivineRPGTameable {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_MOON_WOLF;
+        return LootTableRegistry.ENTITIES_MOON_WOLF;
     }
 }

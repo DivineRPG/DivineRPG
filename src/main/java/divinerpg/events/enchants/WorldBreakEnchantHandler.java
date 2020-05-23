@@ -1,6 +1,6 @@
 package divinerpg.events.enchants;
 
-import divinerpg.registry.EnchantRegister;
+import divinerpg.registry.EnchantmentRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -35,7 +35,7 @@ public class WorldBreakEnchantHandler {
             return;
         }
 
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantRegister.world_break, itemStack);
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.world_break, itemStack);
         if(level < 1) {
             return;
         }

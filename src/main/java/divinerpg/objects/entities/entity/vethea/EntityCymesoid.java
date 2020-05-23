@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -46,21 +46,21 @@ public class EntityCymesoid extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_CYMESOID;
+        return LootTableRegistry.ENTITIES_CYMESOID;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.CYMESOID;
+        return SoundRegistry.CYMESOID;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CYMESOID_HURT;
+        return SoundRegistry.CYMESOID_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.CYMESOID_HURT;
+        return SoundRegistry.CYMESOID_HURT;
     }
 }

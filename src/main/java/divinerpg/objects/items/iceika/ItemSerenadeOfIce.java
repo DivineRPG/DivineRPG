@@ -3,7 +3,7 @@ package divinerpg.objects.items.iceika;
 import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfIce;
 import divinerpg.objects.items.base.RangedWeaponBase;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ public class ItemSerenadeOfIce extends RangedWeaponBase {
         super(name,
                 EntitySerenadeOfIce.class,
                 null,
-                ModSounds.SERENADE,
+                SoundRegistry.SERENADE,
                 SoundCategory.MASTER,
                 100,
                 0,

@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -58,7 +58,7 @@ public class VetheaWorldProvider extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return ModDimensions.vetheaDimension;
+        return DimensionRegistry.vetheaDimension;
     }
 
     @Nullable

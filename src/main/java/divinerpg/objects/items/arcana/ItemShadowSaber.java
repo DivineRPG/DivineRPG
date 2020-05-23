@@ -3,7 +3,7 @@ package divinerpg.objects.items.arcana;
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,7 +32,7 @@ public class ItemShadowSaber extends ItemModSword {
             EntityPlayer player = (EntityPlayer) hitter;
             IArcana arcana = DivineAPI.getArcana(player);
             if (arcana.getArcana() >= 12) {
-                player.playSound(ModSounds.SHADOW_SABER, 1, 1);
+                player.playSound(SoundRegistry.SHADOW_SABER, 1, 1);
                 player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5 * 20, 1));
                 arcana.consume(player, 12);
             }

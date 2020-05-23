@@ -7,8 +7,8 @@ import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
 import divinerpg.objects.entities.assets.render.PlayerHatRender;
 import divinerpg.particle.*;
-import divinerpg.registry.ModEntities;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.EntityRegistry;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.log.DebugLogging;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
@@ -42,7 +42,7 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent e) {
         super.init(e);
         DebugLogging.initStageLog();
-        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
+        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", SoundRegistry.ICEIKA_MUSIC, 1200, 12000);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        ModEntities.initModels();
+        EntityRegistry.initModels();
         OBJLoader.INSTANCE.addDomain(DivineRPG.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         DebugLogging.preInitStageLog();

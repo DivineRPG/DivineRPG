@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityBat;
@@ -199,22 +199,22 @@ public class EntityRainbour extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.RAINBOUR;
+        return SoundRegistry.RAINBOUR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.RAINBOUR_HURT;
+        return SoundRegistry.RAINBOUR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.RAINBOUR_HURT;
+        return SoundRegistry.RAINBOUR_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_RAINBOUR;
+        return LootTableRegistry.ENTITIES_RAINBOUR;
     }
 
     @Override

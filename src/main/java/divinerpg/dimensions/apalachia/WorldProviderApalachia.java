@@ -1,9 +1,9 @@
 package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
-import divinerpg.registry.ModBiomes;
+import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
@@ -17,7 +17,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public void init() {
-        this.biomeProvider = new BiomeProviderSingle(ModBiomes.biomeApalachia);
+        this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeApalachia);
 		this.nether = false;
 		this.hasSkyLight = true;
 	}
@@ -61,7 +61,7 @@ public class WorldProviderApalachia extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.apalachiaDimension;
+		return DimensionRegistry.apalachiaDimension;
 	}
 	@Nullable
     @Override

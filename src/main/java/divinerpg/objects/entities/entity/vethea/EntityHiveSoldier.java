@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -23,21 +23,21 @@ public class EntityHiveSoldier extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_HIVE_SOLDIER;
+        return LootTableRegistry.ENTITIES_HIVE_SOLDIER;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.HOVER_STINGER;
+        return SoundRegistry.HOVER_STINGER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.HOVER_STINGER_HURT;
+        return SoundRegistry.HOVER_STINGER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.HOVER_STINGER_HURT;
+        return SoundRegistry.HOVER_STINGER_HURT;
     }
 }

@@ -1,10 +1,10 @@
 package divinerpg.dimensions.iceika;
 
-import divinerpg.registry.ModBiomes;
+import divinerpg.registry.BiomeRegistry;
 import net.minecraft.world.biome.BiomeProviderSingle;
 
 public class BiomeProviderIceika extends BiomeProviderSingle {
 	public BiomeProviderIceika() {
-		super(ModBiomes.biomeIceika);
+		super(BiomeRegistry.biomeIceika);
 	}
 }

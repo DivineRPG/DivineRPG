@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +17,7 @@ public class EntityHellBat extends EntityBat
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return DRPGLootTables.ENTITIES_HELL_BAT;
+		return LootTableRegistry.ENTITIES_HELL_BAT;
 	}
 
     @Override

@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class ModMessages {
+public class MessageRegistry {
     private static int i = 0;
 
     public static void initMessages() {

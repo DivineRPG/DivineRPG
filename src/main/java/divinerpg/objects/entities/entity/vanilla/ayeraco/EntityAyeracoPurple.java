@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla.ayeraco;
 
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
@@ -12,7 +12,7 @@ public class EntityAyeracoPurple extends EntityAyeraco {
     }
 
     public EntityAyeracoPurple(World world, BlockPos beam) {
-        super(world, beam, DRPGLootTables.ENTITIES_AYERACO_PURPLE);
+        super(world, beam, LootTableRegistry.ENTITIES_AYERACO_PURPLE);
     }
     
     @Override

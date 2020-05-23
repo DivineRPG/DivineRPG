@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.entity.EntityDivineGhast;
 import divinerpg.objects.entities.entity.projectiles.EntityZoragonBomb;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -35,22 +35,22 @@ public class EntityZoragon extends EntityDivineGhast {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ZORAGON;
+        return SoundRegistry.ZORAGON;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ZORAGON_HURT;
+        return SoundRegistry.ZORAGON_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ZORAGON_HURT;
+        return SoundRegistry.ZORAGON_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ZORAGON;
+        return LootTableRegistry.ENTITIES_ZORAGON;
     }
 
     @Override

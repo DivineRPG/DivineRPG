@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -78,6 +78,6 @@ public class EntityEternalArcher extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ETERNAL_ARCHER;
+        return LootTableRegistry.ENTITIES_ETERNAL_ARCHER;
     }
 }

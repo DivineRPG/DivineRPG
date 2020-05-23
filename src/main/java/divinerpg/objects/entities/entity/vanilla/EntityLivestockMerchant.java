@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -60,17 +60,17 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LIVESTOCK_MERCHANT;
+        return SoundRegistry.LIVESTOCK_MERCHANT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LIVESTOCK_MERCHANT_HURT;
+        return SoundRegistry.LIVESTOCK_MERCHANT_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LIVESTOCK_MERCHANT_HURT;
+        return SoundRegistry.LIVESTOCK_MERCHANT_HURT;
     }
 
     @Override

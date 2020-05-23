@@ -9,7 +9,7 @@ import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModTriggers;
+import divinerpg.registry.TriggerRegistry;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -44,7 +44,7 @@ public class BlockFrostedChest extends BlockModChest {
             ItemStack stack) {
         super.harvestBlock(world, player, pos, state, te, stack);
         if (player instanceof EntityPlayerMP) {
-            ModTriggers.DIVINERPG_BLOCK.trigger((EntityPlayerMP) player, this);
+            TriggerRegistry.DIVINERPG_BLOCK.trigger((EntityPlayerMP) player, this);
         }
     }
 

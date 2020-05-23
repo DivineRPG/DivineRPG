@@ -11,8 +11,8 @@ import divinerpg.capabilities.armor.ArmorPowers;
 import divinerpg.config.Config;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.blocks.tile.entity.*;
-import divinerpg.registry.ModDimensions;
-import divinerpg.registry.ModEntities;
+import divinerpg.registry.DimensionRegistry;
+import divinerpg.registry.EntityRegistry;
 import divinerpg.world.WorldGenCustomOres;
 import divinerpg.world.WorldGenTreeGenerator;
 import divinerpg.world.structures.WorldGenCustomStructures;
@@ -62,9 +62,9 @@ public class CommonProxy {
         mobStatsConfig = new Configuration(new File(directory.getPath(), "DivineRPG/divinerpg_mob_stats.cfg"));
         Config.readConfig();
 
-        MinecraftForge.EVENT_BUS.register(new ModEntities());
+        MinecraftForge.EVENT_BUS.register(new EntityRegistry());
 
-        ModDimensions.init();
+        DimensionRegistry.init();
     }
 
     @Deprecated

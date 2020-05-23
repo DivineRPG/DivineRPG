@@ -4,7 +4,7 @@ import divinerpg.events.DimensionHelper;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -112,7 +112,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         if (!worldIn.isRemote) {
             if (worldIn.provider.getDimensionType() == DimensionType.OVERWORLD) {
                 if (worldIn.getLight(pos) < 7) {
-                    DimensionHelper.transferEntity(playerIn, ModDimensions.vetheaDimension);
+                    DimensionHelper.transferEntity(playerIn, DimensionRegistry.vetheaDimension);
                 } else {
                     playerIn.sendMessage(LocalizeUtils.getClientSideTranslation(playerIn, "message.nightmare_bed.restrict"));
                 }

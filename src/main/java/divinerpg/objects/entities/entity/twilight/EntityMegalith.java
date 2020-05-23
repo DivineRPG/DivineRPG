@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -62,21 +62,21 @@ public class EntityMegalith extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.MEGALITH;
+        return SoundRegistry.MEGALITH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.MEGALITH_HURT;
+        return SoundRegistry.MEGALITH_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.MEGALITH_HURT;
+        return SoundRegistry.MEGALITH_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_MEGALITH;
+        return LootTableRegistry.ENTITIES_MEGALITH;
     }
 }

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class ToolMaterialMod {
+public class MaterialRegistry {
 
     /**
      * All damage values are for the base material, which are increased depending on the type of tool.

@@ -2,7 +2,7 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
-import divinerpg.registry.ModWeapons;
+import divinerpg.registry.WeaponRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
@@ -18,7 +18,7 @@ public class EventLightning {
 		Entity entity = evt.getEntity();
 		if(entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
-			if(player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModWeapons.stormSword) {
+			if(player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponRegistry.stormSword) {
 				evt.setCanceled(true);
 			}
 		} else if(entity instanceof EntityEpiphite) {

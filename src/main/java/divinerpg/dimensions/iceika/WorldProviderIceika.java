@@ -1,5 +1,6 @@
 package divinerpg.dimensions.iceika;
 
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -10,7 +11,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 import divinerpg.proxy.ClientProxy;
-import divinerpg.registry.ModDimensions;
 
 public class WorldProviderIceika extends WorldProvider {
 	
@@ -78,7 +78,7 @@ public class WorldProviderIceika extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ModDimensions.iceikaDimension;
+		return DimensionRegistry.iceikaDimension;
 	}
 	@Nullable
     @Override

@@ -11,7 +11,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.ICriterionTrigger;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
-public class ModTriggers {
+public class TriggerRegistry {
     public static final AdvancementDivineItem DIVINERPG_ITEM = new AdvancementDivineItem("divinerpg:item");
     public static final AdvancementDivineBlock DIVINERPG_BLOCK = new AdvancementDivineBlock("divinerpg:block");
     public static final AdvancementDivineEye DIVINERPG_EYE = new AdvancementDivineEye("divinerpg:eye");

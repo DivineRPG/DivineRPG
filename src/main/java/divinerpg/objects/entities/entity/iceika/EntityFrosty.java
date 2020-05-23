@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.objects.entities.entity.EntityPeacefulUntilAttacked;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -47,17 +47,17 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.FROSTY;
+        return SoundRegistry.FROSTY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.FROSTY_HURT;
+        return SoundRegistry.FROSTY_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.FROSTY_HURT;
+        return SoundRegistry.FROSTY_HURT;
     }
 
     @Override
@@ -67,6 +67,6 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_FROSTY;
+        return LootTableRegistry.ENTITIES_FROSTY;
     }
 }

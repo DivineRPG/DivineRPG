@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.projectiles.EntityMandragoraProjectile;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,28 +48,28 @@ public class EntityMandragora extends VetheaMob {
         double tz = e.posZ - this.posZ;
         EntityMandragoraProjectile p = new EntityMandragoraProjectile(this.world, this);
 //        p.setThrowableHeading(tx, ty, tz, 1.3f, 15);
-        this.playSound(ModSounds.MANDRAGORA, 2.0F, 2.0F);
+        this.playSound(SoundRegistry.MANDRAGORA, 2.0F, 2.0F);
         if(!world.isRemote)this.world.spawnEntity(p);
     }
 
     @Override
 	protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_MANDRAGORA;
+        return LootTableRegistry.ENTITIES_MANDRAGORA;
     }    
     
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA;
     }
 
     

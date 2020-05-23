@@ -1,9 +1,9 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -150,21 +150,21 @@ public class EntityBunny extends EntityDivineRPGTameable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.BUNNY;
+        return SoundRegistry.BUNNY;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.BUNNY_HURT;
+        return SoundRegistry.BUNNY_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.BUNNY_HURT;
+        return SoundRegistry.BUNNY_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_BUNNY;
+        return LootTableRegistry.ENTITIES_BUNNY;
     }
 }

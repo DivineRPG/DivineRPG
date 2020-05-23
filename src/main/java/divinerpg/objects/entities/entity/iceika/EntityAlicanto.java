@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -102,21 +102,21 @@ public class EntityAlicanto extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : ModSounds.ALICANTO;
+        return this.rand.nextInt(4) != 0 ? null : SoundRegistry.ALICANTO;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ALICANTO_HURT;
+        return SoundRegistry.ALICANTO_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ALICANTO_HURT;
+        return SoundRegistry.ALICANTO_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ALICANTO;
+        return LootTableRegistry.ENTITIES_ALICANTO;
     }
 }

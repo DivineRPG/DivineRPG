@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -123,17 +123,17 @@ public class EntityKobblin extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.KOBBLIN;
+        return SoundRegistry.KOBBLIN;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.KOBBLIN;
+        return SoundRegistry.KOBBLIN;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_KOBBLIN;
+        return LootTableRegistry.ENTITIES_KOBBLIN;
     }
 
     @Override

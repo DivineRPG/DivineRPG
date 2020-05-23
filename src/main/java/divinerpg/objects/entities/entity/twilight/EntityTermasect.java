@@ -2,8 +2,8 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -126,7 +126,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 20) {
-                    this.playSound(ModSounds.ROAR, 10.0F, 0.9F);
+                    this.playSound(SoundRegistry.ROAR, 10.0F, 0.9F);
                 }
 
                 ++this.attackCounter;
@@ -274,7 +274,7 @@ public class EntityTermasect extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_TERMASECT;
+        return LootTableRegistry.ENTITIES_TERMASECT;
     }
 
 }

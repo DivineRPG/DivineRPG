@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana.death;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.init.MobEffects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -22,21 +22,21 @@ public class EntityDeathHound extends EntityDeathBase {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATH_HOUND;
+        return SoundRegistry.DEATH_HOUND;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.DEATH_HOUND_HURT;
+        return SoundRegistry.DEATH_HOUND_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATH_HOUND;
+        return SoundRegistry.DEATH_HOUND;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DEATH_HOUND;
+        return LootTableRegistry.ENTITIES_DEATH_HOUND;
     }
 }

@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -59,21 +59,21 @@ public class EntityZone extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_ZONE;
+        return LootTableRegistry.ENTITIES_ZONE;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ZONE;
+        return SoundRegistry.ZONE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ZONE_HURT;
+        return SoundRegistry.ZONE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ZONE_HURT;
+        return SoundRegistry.ZONE_HURT;
     }
 }

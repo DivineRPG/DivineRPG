@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -51,22 +51,22 @@ public class EntityAridWarrior extends EntityDivineRPGMob implements IRangedAtta
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.ARID_WARRIOR;
+        return SoundRegistry.ARID_WARRIOR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.ARID_WARRIOR_HURT;
+        return SoundRegistry.ARID_WARRIOR_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.ARID_WARRIOR_HURT;
+        return SoundRegistry.ARID_WARRIOR_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_ARID_WARRIOR;
+        return LootTableRegistry.ENTITIES_ARID_WARRIOR;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -29,21 +29,21 @@ public class EntityShark extends EntityDivineRPGSwimming {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.SHARK;
+        return SoundRegistry.SHARK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.SHARK_HURT;
+        return SoundRegistry.SHARK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.SHARK_HURT;
+        return SoundRegistry.SHARK_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_SHARK;
+        return LootTableRegistry.ENTITIES_SHARK;
     }
 }

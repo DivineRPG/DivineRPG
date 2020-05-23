@@ -18,7 +18,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
 
-public class ModDimensions {
+public class DimensionRegistry {
     public static DimensionType edenDimension;
     public static DimensionType wildwoodDimension;
     public static DimensionType apalachiaDimension;

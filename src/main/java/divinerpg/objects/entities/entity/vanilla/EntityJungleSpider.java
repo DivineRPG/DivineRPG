@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -133,7 +133,7 @@ public class EntityJungleSpider extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.JUNGLE_SPIDER;
+        return SoundRegistry.JUNGLE_SPIDER;
     }
 
     @Override
@@ -148,7 +148,7 @@ public class EntityJungleSpider extends EntityDivineRPGMob {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_JUNGLE_SPIDER;
+        return LootTableRegistry.ENTITIES_JUNGLE_SPIDER;
     }
 
     @Override

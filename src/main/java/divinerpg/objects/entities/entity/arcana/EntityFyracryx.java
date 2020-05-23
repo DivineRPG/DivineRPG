@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.objects.entities.entity.projectiles.EntityFyracryxFireball;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -36,17 +36,17 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DEATHCRYX;
+        return SoundRegistry.DEATHCRYX;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.DEATHCRYX_HURT;
+        return SoundRegistry.DEATHCRYX_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DEATHCRYX;
+        return SoundRegistry.DEATHCRYX;
     }
 
     @Override

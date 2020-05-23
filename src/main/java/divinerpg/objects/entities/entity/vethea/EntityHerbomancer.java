@@ -42,7 +42,7 @@ public class EntityHerbomancer extends VetheaMob {
             var2.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rand.nextFloat() * 360.0F, 0.0F);
             this.world.spawnEntity(var2);
             this.world.spawnParticle(EnumParticleTypes.REDSTONE, var2.posX, var2.posY + 0.5D, var2.posZ, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D, this.rand.nextGaussian() * 2.0D - 1.0D);
-//            this.world.playSound(var2, var2.getPosition(), ModSounds.KAROT, SoundCategory.HOSTILE, 10.0F, 1.0F);
+//            this.world.playSound(var2, var2.getPosition(), SoundRegistry.KAROT, SoundCategory.HOSTILE, 10.0F, 1.0F);
             this.spawnTick = 40;
         }
 

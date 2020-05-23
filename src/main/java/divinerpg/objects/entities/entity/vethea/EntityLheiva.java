@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -44,21 +44,21 @@ public class EntityLheiva extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_LHEIVA;
+        return LootTableRegistry.ENTITIES_LHEIVA;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LHEIVA;
+        return SoundRegistry.LHEIVA;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LHEIVA_HURT;
+        return SoundRegistry.LHEIVA_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LHEIVA_HURT;
+        return SoundRegistry.LHEIVA_HURT;
     }
 }

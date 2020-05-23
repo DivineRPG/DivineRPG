@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -50,21 +50,21 @@ public class EntityGalroid extends VetheaMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_GALROID;
+        return LootTableRegistry.ENTITIES_GALROID;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.GALROID;
+        return SoundRegistry.GALROID;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.GALROID_HURT;
+        return SoundRegistry.GALROID_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.GALROID_HURT;
+        return SoundRegistry.GALROID_HURT;
     }
 }

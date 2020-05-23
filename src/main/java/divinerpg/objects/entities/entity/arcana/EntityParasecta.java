@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -49,17 +49,17 @@ public class EntityParasecta extends EntityDivineRPGBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : ModSounds.PARASECTA;
+        return this.rand.nextInt(4) != 0 ? null : SoundRegistry.PARASECTA;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.PARASECTA_HURT;
+        return SoundRegistry.PARASECTA_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.PARASECTA_HURT;
+        return SoundRegistry.PARASECTA_HURT;
     }
 
     @Override
@@ -108,6 +108,6 @@ public class EntityParasecta extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_PARASECTA;
+        return LootTableRegistry.ENTITIES_PARASECTA;
     }
 }

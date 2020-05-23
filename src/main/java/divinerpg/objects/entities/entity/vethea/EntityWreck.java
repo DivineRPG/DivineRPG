@@ -4,8 +4,8 @@ import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckBouncingProjectile;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckExplosiveShot;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -46,7 +46,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_WRECK;
+        return LootTableRegistry.ENTITIES_WRECK;
     }
 
     @Override
@@ -170,7 +170,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
                         player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.charge"));
                         break;
                     case PULL:
-                        this.playSound(ModSounds.FEEL_SOUL_ARKSIANE, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.FEEL_SOUL_ARKSIANE, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.pull"));
                         break;
@@ -178,23 +178,23 @@ public class EntityWreck extends EntityDivineRPGBoss {
                         player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.fire"));
                         break;
                     case FREEZE:
-                        this.playSound(ModSounds.STOP_AT_ONCE, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.STOP_AT_ONCE, 1.0F, 1.0F);
                         if (!this.world.isRemote) {
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.freeze"));
                         }
                         break;
                     case SPEED:
-                        this.playSound(ModSounds.WRECK_SPEED, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.WRECK_SPEED, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.speed"));
                         break;
                     case EXPLOSIONS:
-                        this.playSound(ModSounds.EXPLOSIONS, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.EXPLOSIONS, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.explosion"));
                         break;
                     case STRENGTH:
-                        this.playSound(ModSounds.WRECK_STRENGTH, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.WRECK_STRENGTH, 1.0F, 1.0F);
                         if (!this.world.isRemote)
                             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.strength"));
                         break;
@@ -215,7 +215,7 @@ public class EntityWreck extends EntityDivineRPGBoss {
                 p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"));
                 p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.smell"));
             }
-            this.playSound(ModSounds.WRECK_INTRO, 1.0F, 1.0F);
+            this.playSound(SoundRegistry.WRECK_INTRO, 1.0F, 1.0F);
             loaded = true;
         }
 

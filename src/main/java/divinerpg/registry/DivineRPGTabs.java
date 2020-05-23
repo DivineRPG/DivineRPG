@@ -18,21 +18,21 @@ public class DivineRPGTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModWeapons.vileStorm);
+			return new ItemStack(WeaponRegistry.vileStorm);
 		}
 	};
 	public static final CreativeTabs swords = new CreativeTabs("divinerpg_melee_weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModWeapons.aquaton);
+			return new ItemStack(WeaponRegistry.aquaton);
 		}
 	};
 	public static final CreativeTabs tools = new CreativeTabs("divinerpg_tools") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModTools.rupeeShickaxe);
+			return new ItemStack(ToolRegistry.rupeeShickaxe);
 		}
 	};
 	public static final CreativeTabs items = new CreativeTabs("divinerpg_materials") {
@@ -46,7 +46,7 @@ public class DivineRPGTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModArmor.divineHelmet);
+			return new ItemStack(ArmorRegistry.divineHelmet);
 		}
 	};
 	public static final CreativeTabs spawner = new CreativeTabs("divinerpg_boss_spawners") {

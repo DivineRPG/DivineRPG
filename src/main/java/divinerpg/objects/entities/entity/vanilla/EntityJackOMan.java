@@ -3,9 +3,9 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModArmor;
-import divinerpg.registry.ModSounds;
-import divinerpg.registry.ModWeapons;
+import divinerpg.registry.ArmorRegistry;
+import divinerpg.registry.SoundRegistry;
+import divinerpg.registry.WeaponRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -46,27 +46,27 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
         List<MerchantRecipe> list = new ArrayList<>();
 
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModArmor.skelemanHelmet, 1, 0)));
+                new ItemStack(ArmorRegistry.skelemanHelmet, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModArmor.skelemanChestplate, 1, 0)));
+                new ItemStack(ArmorRegistry.skelemanChestplate, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModArmor.skelemanLeggings, 1, 0)));
+                new ItemStack(ArmorRegistry.skelemanLeggings, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 40), new ItemStack(Items.SPIDER_EYE, 60),
-                new ItemStack(ModArmor.skelemanBoots, 1, 0)));
+                new ItemStack(ArmorRegistry.skelemanBoots, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModArmor.jackOManHelmet)));
+                new ItemStack(ArmorRegistry.jackOManHelmet)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModArmor.jackOManChestplate)));
+                new ItemStack(ArmorRegistry.jackOManChestplate)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModArmor.jackOManLeggings)));
+                new ItemStack(ArmorRegistry.jackOManLeggings)));
         list.add(new MerchantRecipe(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10),
-                new ItemStack(ModArmor.jackOManBoots)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 3, 1), new ItemStack(ModArmor.witherReaperHelmet)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ModArmor.witherReaperChestplate)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ModArmor.witherReaperLeggings)));
-        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ModArmor.witherReaperBoots)));
+                new ItemStack(ArmorRegistry.jackOManBoots)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 3, 1), new ItemStack(ArmorRegistry.witherReaperHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 5, 1), new ItemStack(ArmorRegistry.witherReaperChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 4, 1), new ItemStack(ArmorRegistry.witherReaperLeggings)));
+        list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ArmorRegistry.witherReaperBoots)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new ItemStack(Items.ENDER_EYE, 60),
-                new ItemStack(ModWeapons.scythe)));
+                new ItemStack(WeaponRegistry.scythe)));
 
         return list;
     }
@@ -107,17 +107,17 @@ public class EntityJackOMan extends EntityDivineRPGVillager {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.JACKOMAN;
+        return SoundRegistry.JACKOMAN;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.JACKOMAN;
+        return SoundRegistry.JACKOMAN;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.JACKOMAN;
+        return SoundRegistry.JACKOMAN;
     }
 
     @Override

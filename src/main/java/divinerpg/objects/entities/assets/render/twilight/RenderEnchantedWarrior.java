@@ -3,7 +3,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedWarrior;
 import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
-import divinerpg.registry.ModWeapons;
+import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -48,7 +48,7 @@ public class RenderEnchantedWarrior extends RenderLiving<EntityEnchantedWarrior>
             GlStateManager.rotate(90, 0, 1, 0);
             GlStateManager.rotate(45, 0, 0, -1);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(ModWeapons.apalachiaBlade),
+            Minecraft.getMinecraft().getItemRenderer().renderItem(entity, new ItemStack(WeaponRegistry.apalachiaBlade),
                     ItemCameraTransforms.TransformType.NONE);
             GlStateManager.popMatrix();
             GlStateManager.disableRescaleNormal();

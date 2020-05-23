@@ -5,7 +5,7 @@ import java.util.Random;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.tileentity.TileEntity;
@@ -75,7 +75,7 @@ public class WorldGenLibrary extends WorldGenerator{
 		w.setBlockState(new BlockPos(x + 15, y + 1, z + 5), BlockRegistry.frostedChest.getDefaultState(), 0);
 		TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 15, y + 1, z + 5));
         if (tileentity1 instanceof TileEntityLockableLoot) {
-        	((TileEntityLockableLoot) tileentity1).setLootTable(DRPGLootTables.ICEIKA_CHEST_DUNGEON, rand.nextLong());
+        	((TileEntityLockableLoot) tileentity1).setLootTable(LootTableRegistry.ICEIKA_CHEST_DUNGEON, rand.nextLong());
         }
     	
 		EntityWorkshopMerchant mer = new EntityWorkshopMerchant(w);

@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -37,7 +37,7 @@ public class EntityDungeonPrisoner extends EntityDivineRPGMob {
     @Override
     public boolean attackEntityAsMob(Entity entity) {
         EntityDungeonDemon demon = new EntityDungeonDemon(this.world);
-        this.playSound(ModSounds.DUNGEON_PRISONER_CHANGE, 1, 1);
+        this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE, 1, 1);
         demon.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
         this.world.spawnEntity(demon);
         this.setDead();
@@ -46,22 +46,22 @@ public class EntityDungeonPrisoner extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.DUNGEON_PRISONER;
+        return SoundRegistry.DUNGEON_PRISONER;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return SoundRegistry.DUNGEON_PRISONER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DUNGEON_PRISONER_HURT;
+        return SoundRegistry.DUNGEON_PRISONER_HURT;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DUNGEON_PRISONER;
+        return LootTableRegistry.ENTITIES_DUNGEON_PRISONER;
     }
 
     @Override

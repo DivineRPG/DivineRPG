@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -113,17 +113,17 @@ public class EntityWraith extends EntityDivineRPGTameable {
     @Nullable
     @Override
     public SoundEvent getAmbientSound() {
-        return this.getIsBatHanging() && this.rand.nextInt(4) != 0 ? null : ModSounds.WRAITH;
+        return this.getIsBatHanging() && this.rand.nextInt(4) != 0 ? null : SoundRegistry.WRAITH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return ModSounds.WRAITH_HURT;
+        return SoundRegistry.WRAITH_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.WRAITH_HURT;
+        return SoundRegistry.WRAITH_HURT;
     }
 
     @Override

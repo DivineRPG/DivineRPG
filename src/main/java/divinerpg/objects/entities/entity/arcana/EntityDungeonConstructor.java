@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -50,17 +50,17 @@ public class EntityDungeonConstructor extends EntityDivineRPGMob {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.CONSTRUCTOR_HURT;
+        return SoundRegistry.CONSTRUCTOR_HURT;
     }
 
     @Override
     public boolean attackEntityAsMob(Entity par1Entity) {
-        par1Entity.playSound(ModSounds.CONSTRUCTOR_PUNCH, 1, 1);
+        par1Entity.playSound(SoundRegistry.CONSTRUCTOR_PUNCH, 1, 1);
         return super.attackEntityAsMob(par1Entity);
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_DUNGEON_CONSTRUCTOR;
+        return LootTableRegistry.ENTITIES_DUNGEON_CONSTRUCTOR;
     }
 }

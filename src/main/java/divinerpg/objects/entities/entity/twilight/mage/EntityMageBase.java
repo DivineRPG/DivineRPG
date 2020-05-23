@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.twilight.mage;
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineRPGMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -54,18 +54,18 @@ public abstract class EntityMageBase extends EntityDivineRPGMob {
                 shot.shoot(tx, ty, tz, 1.6f, 0);
                 this.world.spawnEntity(shot);
                 this.world.playSound(null, this.attackingPlayer.posX, this.attackingPlayer.posY,
-                        this.attackingPlayer.posZ, ModSounds.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                        this.attackingPlayer.posZ, SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }
         }
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.INSECT;
+        return SoundRegistry.INSECT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.INSECT;
+        return SoundRegistry.INSECT;
     }
 }

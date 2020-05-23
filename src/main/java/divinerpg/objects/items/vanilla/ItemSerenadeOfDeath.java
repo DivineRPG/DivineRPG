@@ -3,7 +3,7 @@ package divinerpg.objects.items.vanilla;
 import divinerpg.objects.entities.entity.projectiles.EntitySerenadeOfDeath;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
         ItemStack stack = player.getHeldItem(hand);
 
         if (!world.isRemote) {
-            world.playSound(null, player.getPosition(), ModSounds.SERENADE, SoundCategory.MASTER, 1, 1);
+            world.playSound(null, player.getPosition(), SoundRegistry.SERENADE, SoundCategory.MASTER, 1, 1);
             EntityThrowable bullet = new EntitySerenadeOfDeath(world, player);
             bullet.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(bullet);

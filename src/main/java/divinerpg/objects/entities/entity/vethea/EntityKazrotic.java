@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.projectiles.EntityKazroticShot;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -58,22 +58,22 @@ public class EntityKazrotic extends VetheaMob implements IRangedAttackMob {
     @Override
     protected ResourceLocation getLootTable()
     {
-        return DRPGLootTables.ENTITIES_KAZROTIC;
+        return LootTableRegistry.ENTITIES_KAZROTIC;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.KAZROTIC;
+        return SoundRegistry.KAZROTIC;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.KAZROTIC_HURT;
+        return SoundRegistry.KAZROTIC_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.KAZROTIC_HURT;
+        return SoundRegistry.KAZROTIC_HURT;
     }
 
 	@Override

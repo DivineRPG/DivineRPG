@@ -3,7 +3,7 @@ package divinerpg.structure.template;
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
-import divinerpg.registry.DRPGLootTables;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -75,7 +75,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.CRYPT_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.CRYPT_LOOT, rand.nextLong());
             }
         }
         else if (function.equals("CryptKeeper")) {
@@ -96,11 +96,11 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
                 TileEntity tileentity = worldIn.getTileEntity(blockpos);
                 if (tileentity instanceof TileEntityChest) {
                     if (function.equals("TempleLootBottom")) {
-                        ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.TEMPLE_LOOT_BOTTOM, rand.nextLong());
+                        ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.TEMPLE_LOOT_BOTTOM, rand.nextLong());
                     } else if (function.equals("TempleLootMiddle")) {
-                        ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.TEMPLE_LOOT_MIDDLE, rand.nextLong());
+                        ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.TEMPLE_LOOT_MIDDLE, rand.nextLong());
                     } else if (function.equals("TempleLootTop")) {
-                        ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.TEMPLE_LOOT_TOP, rand.nextLong());
+                        ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.TEMPLE_LOOT_TOP, rand.nextLong());
                     }
                 }
             }
@@ -116,7 +116,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.QUADROTIC_POST_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.QUADROTIC_POST_LOOT, rand.nextLong());
             }
         }
 
@@ -125,7 +125,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.KAROS_MADHOUSE_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.KAROS_MADHOUSE_LOOT, rand.nextLong());
             }
         }
 
@@ -134,7 +134,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.RAGLOK_CHAMBER_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.RAGLOK_CHAMBER_LOOT, rand.nextLong());
             }
         }
 
@@ -143,7 +143,7 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
             BlockPos blockpos = pos.down();
             TileEntity tileentity = worldIn.getTileEntity(blockpos);
             if (tileentity instanceof TileEntityChest) {
-                ((TileEntityChest) tileentity).setLootTable(DRPGLootTables.WRECK_HALL_LOOT, rand.nextLong());
+                ((TileEntityChest) tileentity).setLootTable(LootTableRegistry.WRECK_HALL_LOOT, rand.nextLong());
             }
         }
     }

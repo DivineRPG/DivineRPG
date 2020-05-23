@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.twilight;
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
-import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -54,12 +54,12 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.REYVOR;
+        return SoundRegistry.REYVOR;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.REYVOR_HURT;
+        return SoundRegistry.REYVOR_HURT;
     }
 
     @Override
@@ -69,6 +69,6 @@ public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMo
 
     @Override
     protected ResourceLocation getLootTable() {
-        return DRPGLootTables.ENTITIES_REYVOR;
+        return LootTableRegistry.ENTITIES_REYVOR;
     }
 }
