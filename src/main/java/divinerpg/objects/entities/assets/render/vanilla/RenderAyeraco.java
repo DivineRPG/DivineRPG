@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAyeraco;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeraco;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -15,7 +15,7 @@ public class RenderAyeraco extends RenderLiving<EntityAyeraco> {
 
     public RenderAyeraco(RenderManager rendermanagerIn, String color) {
         super(rendermanagerIn, new ModelAyeraco(), 0);
-        this.texture = new ResourceLocation(Reference.MODID, String.format("textures/entity/ayeraco_%s.png", color));
+        this.texture = new ResourceLocation(DivineRPG.MODID, String.format("textures/entity/ayeraco_%s.png", color));
     }
 
     @Override

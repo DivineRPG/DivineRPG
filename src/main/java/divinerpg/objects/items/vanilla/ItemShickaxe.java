@@ -1,7 +1,7 @@
 package divinerpg.objects.items.vanilla;
 
 import com.google.common.collect.Sets;
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +31,7 @@ public class ItemShickaxe extends ItemTool {
         this.name = name;
         setCreativeTab(DivineRPGTabs.tools);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
 
         this.setHarvestLevel("pickaxe", toolMaterial.getHarvestLevel());
         this.setHarvestLevel("shovel", toolMaterial.getHarvestLevel());

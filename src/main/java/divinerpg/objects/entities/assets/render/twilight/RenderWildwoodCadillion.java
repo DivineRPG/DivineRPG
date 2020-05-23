@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelCadillion;
 import divinerpg.objects.entities.entity.twilight.EntityWildwoodCadillion;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderWildwoodCadillion extends RenderLiving<EntityWildwoodCadillion> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/wildwood_cadillion.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_cadillion.png");
 
     public RenderWildwoodCadillion(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCadillion(), 0);

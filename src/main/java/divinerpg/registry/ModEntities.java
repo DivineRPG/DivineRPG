@@ -1,7 +1,6 @@
 package divinerpg.registry;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.config.GeneralConfig;
 import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
@@ -42,7 +41,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import static divinerpg.utils.SpawnEggColors.Dimension.*;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID)
 public class ModEntities {
     private static int mobID = 500;
     private static int projectileID = 0;
@@ -58,13 +57,13 @@ public class ModEntities {
     public static EntityEntry buildEntityEntry(Class entityClass, String entityID, SpawnEggColors.Dimension dimension) { 
         SpawnEggColors colors = SpawnEggColors.getColorsForDimension(dimension);
         return EntityEntryBuilder.create().entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), mobID++).name(Reference.MODID + "." + entityID).tracker(128, 3, true)
+                .id(new ResourceLocation(DivineRPG.MODID, entityID), mobID++).name(DivineRPG.MODID + "." + entityID).tracker(128, 3, true)
                 .egg(colors.getPrimaryColor(), colors.getSecondaryColor()).build();
     }
 
     public static EntityEntry buildProjectileEntry(Class entityClass, String entityID) {
         return EntityEntryBuilder.create().entity(entityClass)
-                .id(new ResourceLocation(Reference.MODID, entityID), projectileID++).name(Reference.MODID + "." + entityID)
+                .id(new ResourceLocation(DivineRPG.MODID, entityID), projectileID++).name(DivineRPG.MODID + "." + entityID)
                 .tracker(250, 5, true).build();
     }
 
@@ -317,7 +316,7 @@ public class ModEntities {
         buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")};
 
         if (GeneralConfig.generalOptions.debugMode) {
-            DivineRPG.logger.info(Reference.MODID + " entities have been loaded");
+            DivineRPG.logger.info(DivineRPG.MODID + " entities have been loaded");
         }
 
         return divineProjectiles;

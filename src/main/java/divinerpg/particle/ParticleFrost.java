@@ -1,6 +1,6 @@
 package divinerpg.particle;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -22,7 +22,7 @@ public class ParticleFrost extends Particle {
 
     public ParticleFrost(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
-        this.particleTexture = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(new ResourceLocation(Reference.MODID, "particle/frost").toString());
+        this.particleTexture = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(new ResourceLocation(DivineRPG.MODID, "particle/frost").toString());
         this.motionX = 0;
         this.motionY = 0;
         this.motionZ = 0;

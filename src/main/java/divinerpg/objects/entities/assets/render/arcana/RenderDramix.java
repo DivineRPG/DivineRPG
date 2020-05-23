@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelDramix;
 import divinerpg.objects.entities.entity.arcana.EntityDramix;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderDramix extends RenderLiving<EntityDramix> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/dramix.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png");
 
     public RenderDramix(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelDramix(), 0.84F);

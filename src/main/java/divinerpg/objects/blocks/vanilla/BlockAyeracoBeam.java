@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoBeam;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -22,7 +22,7 @@ public class BlockAyeracoBeam extends BlockContainer {
         this.tex = tex;
 
         // Need to register it!
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
     }
 
@@ -47,6 +47,6 @@ public class BlockAyeracoBeam extends BlockContainer {
     @Override
     public TileEntity createNewTileEntity(World var1, int var2) {
         return new TileEntityAyeracoBeam(
-                new ResourceLocation(Reference.MODID + ":textures/blocks/beam_" + tex + ".png"));
+                new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_" + tex + ".png"));
     }
 }

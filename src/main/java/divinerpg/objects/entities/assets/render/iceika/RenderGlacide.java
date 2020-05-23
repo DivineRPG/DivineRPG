@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.iceika.ModelGlacide;
 import divinerpg.objects.entities.entity.iceika.EntityGlacide;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderGlacide extends RenderLiving<EntityGlacide> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/glacon.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png");
 
     public RenderGlacide(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelGlacide(), 0);

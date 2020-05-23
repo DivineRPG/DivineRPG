@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelRotatick;
 import divinerpg.objects.entities.entity.vanilla.EntityRotatick;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderRotatick extends RenderLiving<EntityRotatick> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/rotatick.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/rotatick.png");
 
     public RenderRotatick(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRotatick(), 0);

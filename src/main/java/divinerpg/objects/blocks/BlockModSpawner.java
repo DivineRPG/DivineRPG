@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.Lazy;
 import net.minecraft.block.Block;
@@ -22,7 +22,7 @@ public class BlockModSpawner extends BlockMobSpawner {
     public BlockModSpawner(String name, String mobName) {
         this.mobName = mobName;
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(5.0F);
         this.setTickRandomly(true);
@@ -66,7 +66,7 @@ public class BlockModSpawner extends BlockMobSpawner {
         spawnerNBT.setString("SpawnPotentials", mobName);
 
         NBTTagCompound compound2 = new NBTTagCompound();
-        compound2.setString("id", Reference.MODID + ":" + mobName);
+        compound2.setString("id", DivineRPG.MODID + ":" + mobName);
 
         spawnerNBT.setTag("SpawnData", compound2);
 

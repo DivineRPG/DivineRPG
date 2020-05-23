@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 
@@ -163,6 +163,6 @@ public class DRPGLootTables {
     public static final ResourceLocation ENTITIES_ZORAGON = registerTable("entities/vethea/zoragon");
 
     private static ResourceLocation registerTable(String path) {
-        return LootTableList.register(new ResourceLocation(Reference.MODID, path));
+        return LootTableList.register(new ResourceLocation(DivineRPG.MODID, path));
     }
 }

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -15,7 +15,7 @@ public class BlockModFence extends BlockFence  {
 	public BlockModFence(MapColor mapColor, String name) {
 		super(Material.WOOD, mapColor);
 		setUnlocalizedName(name);
-		setRegistryName(Reference.MODID, name);
+		setRegistryName(DivineRPG.MODID, name);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);
 	}
 

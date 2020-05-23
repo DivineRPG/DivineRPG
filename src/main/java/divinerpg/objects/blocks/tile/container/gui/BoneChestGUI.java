@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityModChest;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class BoneChestGUI extends GuiContainer {
     private static final ResourceLocation GUI_BONE_CHEST = new ResourceLocation(
-            Reference.MODID + ":textures/gui/bone_chest_gui.png");
+            DivineRPG.MODID + ":textures/gui/bone_chest_gui.png");
     private final InventoryPlayer playerInventory;
     private final TileEntityModChest te;
 

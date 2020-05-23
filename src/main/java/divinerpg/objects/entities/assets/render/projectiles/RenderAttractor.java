@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityAttractor;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,7 +16,7 @@ public class RenderAttractor extends Render<EntityAttractor> {
         super(manager);
     }
 
-    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/blank.png");
+    ResourceLocation location = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png");
 
     public void doRender(EntityAttractor entity, double x, double y, double z, float entityYaw,
                          float partialTicks) {

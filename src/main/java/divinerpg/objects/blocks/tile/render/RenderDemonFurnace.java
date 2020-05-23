@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import divinerpg.objects.blocks.tile.model.ModelDemonFurnace;
 import divinerpg.registry.ModBlocks;
@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class RenderDemonFurnace extends TileEntitySpecialRenderer<TileEntityDemonFurnace> {
     public static final int[] facingToRotation = new int[]{180, 90, 0, 270};
-    public static ResourceLocation FURNACE_ON = new ResourceLocation(Reference.MODID, "textures/model/demon_furnace_on.png");
+    public static ResourceLocation FURNACE_ON = new ResourceLocation(DivineRPG.MODID, "textures/model/demon_furnace_on.png");
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    public static ResourceLocation FURNACE_OFF = new ResourceLocation(Reference.MODID, "textures/model/demon_furnace.png");
+    public static ResourceLocation FURNACE_OFF = new ResourceLocation(DivineRPG.MODID, "textures/model/demon_furnace.png");
 
     private static ModelDemonFurnace model = new ModelDemonFurnace();
 

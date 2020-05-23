@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.arcana.EntityLordVatticus;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderLordVatticus extends RenderLiving<EntityLordVatticus> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/lord_vatticus.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/lord_vatticus.png");
 
     public RenderLordVatticus(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelBiped(), 0);

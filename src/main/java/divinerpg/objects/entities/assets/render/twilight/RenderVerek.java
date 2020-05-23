@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelSamek;
 import divinerpg.objects.entities.entity.twilight.EntityVerek;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderVerek extends RenderLiving<EntityVerek> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/verek.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/verek.png");
 
     public RenderVerek(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelSamek(), 0);

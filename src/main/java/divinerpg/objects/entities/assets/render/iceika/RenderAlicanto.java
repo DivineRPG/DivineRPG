@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.iceika.ModelAlicanto;
 import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderAlicanto extends RenderLiving<EntityAlicanto> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/alicanto.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png");
 
     public RenderAlicanto(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelAlicanto(), 0);

@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.ModItems;
 import divinerpg.utils.Lazy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,7 +25,7 @@ public class DivineShield extends ItemShield {
         setCreativeTab(tab);
         setMaxDamage(damage);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
     }
 
     @Override

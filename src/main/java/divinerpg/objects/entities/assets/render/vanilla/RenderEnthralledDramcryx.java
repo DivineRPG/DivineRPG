@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnthralledDramcryx;
 import divinerpg.objects.entities.entity.vanilla.EntityEnthralledDramcryx;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderEnthralledDramcryx extends RenderLiving<EntityEnthralledDramcryx> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/enthralled_dramcryx.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/enthralled_dramcryx.png");
 
     public RenderEnthralledDramcryx(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEnthralledDramcryx(), 0);

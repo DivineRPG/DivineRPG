@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelGreenfeet;
 import divinerpg.objects.entities.entity.twilight.EntityGreenfeet;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderGreenfeet extends RenderLiving<EntityGreenfeet> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/greenfeet.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/greenfeet.png");
 
     public RenderGreenfeet(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelGreenfeet(), 0);

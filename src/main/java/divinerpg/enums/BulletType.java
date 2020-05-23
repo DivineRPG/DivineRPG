@@ -1,6 +1,6 @@
 package divinerpg.enums;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 
 import java.awt.*;
@@ -127,11 +127,11 @@ public enum BulletType {
     }
 
     private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation(Reference.MODID, "textures/projectiles/" + name + ".png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");
     }
 
     private static ResourceLocation ItemLoc(String name) {
-        return new ResourceLocation(Reference.MODID, "textures/items/" + name + ".png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/items/" + name + ".png");
     }
 
     private static ResourceLocation VanillaItemLoc(String name) {

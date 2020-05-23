@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
@@ -16,7 +16,7 @@ public class BlockModFire extends BlockFire {
         setLightLevel(1.0F);
         setCreativeTab(null);
         setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
     }
 
     protected boolean canNeighborBurn(World world, BlockPos pos) {

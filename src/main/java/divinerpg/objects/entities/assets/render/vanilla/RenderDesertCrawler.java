@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelCrawler;
 import divinerpg.objects.entities.entity.vanilla.EntityDesertCrawler;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderDesertCrawler extends RenderLiving<EntityDesertCrawler> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/desert_crawler.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/desert_crawler.png");
 
     public RenderDesertCrawler(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCrawler(), 0);

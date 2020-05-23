@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelTheWatcher;
 import divinerpg.objects.entities.entity.vanilla.EntityTheWatcher;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 import javax.annotation.Nullable;
 
 public class RenderTheWatcher extends RenderLiving<EntityTheWatcher> {
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/the_watcher.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png");
 
     public RenderTheWatcher(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTheWatcher(), 0);

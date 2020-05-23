@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityEdenChest;
 import divinerpg.objects.blocks.tile.model.ModelEdenChest;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderEdenChest extends TileEntitySpecialRenderer<TileEntityEdenChest> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(
-            Reference.MODID + ":textures/model/eden_chest.png");
+            DivineRPG.MODID + ":textures/model/eden_chest.png");
     private final ModelEdenChest MODEL = new ModelEdenChest();
 
     @Override

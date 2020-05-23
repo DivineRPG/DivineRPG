@@ -1,6 +1,6 @@
 package divinerpg.dimensions.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -15,7 +15,7 @@ public class BiomeArcana extends Biome {
 
     public BiomeArcana() {
         super(properties);
-        this.setRegistryName(Reference.MODID, "arcana");
+        this.setRegistryName(DivineRPG.MODID, "arcana");
 
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();

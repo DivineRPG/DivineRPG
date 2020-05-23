@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelSkythernFiend;
 import divinerpg.objects.entities.entity.twilight.EntitySkythernFiend;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderSkythernFiend extends RenderLiving<EntitySkythernFiend> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/skythern_fiend.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_fiend.png");
 
     public RenderSkythernFiend(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelSkythernFiend(), 0);

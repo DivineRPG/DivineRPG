@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
@@ -56,7 +56,7 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     public void generateStructure(World world, BlockPos pos){
         MinecraftServer mcServer = world.getMinecraftServer();
         TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
-        ResourceLocation location = new ResourceLocation(Reference.MODID, structureName);
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
         Template template = manager.get(mcServer, location);
         if (template != null){
             IBlockState state = world.getBlockState(pos);

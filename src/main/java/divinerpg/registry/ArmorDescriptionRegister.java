@@ -3,7 +3,6 @@ package divinerpg.registry;
 import divinerpg.DivineRPG;
 import divinerpg.api.ArmorHandlers;
 import divinerpg.api.DivineAPI;
-import divinerpg.api.Reference;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.api.armor.IEquipped;
 import divinerpg.api.armor.cap.IArmorPowers;
@@ -33,9 +32,9 @@ import java.util.Collections;
 @Mod.EventBusSubscriber
 public class ArmorDescriptionRegister {
 
-    public static final ResourceLocation AWAKENED_HALITE = new ResourceLocation(Reference.MODID, "awakened_halite");
-    public static final ResourceLocation CORRUPTED = new ResourceLocation(Reference.MODID, "corrupted");
-    public static final ResourceLocation JACKOMAN = new ResourceLocation(Reference.MODID, "jackoman");
+    public static final ResourceLocation AWAKENED_HALITE = new ResourceLocation(DivineRPG.MODID, "awakened_halite");
+    public static final ResourceLocation CORRUPTED = new ResourceLocation(DivineRPG.MODID, "corrupted");
+    public static final ResourceLocation JACKOMAN = new ResourceLocation(DivineRPG.MODID, "jackoman");
 
     @SubscribeEvent
     public static void registerArmors(RegistryEvent.Register<IArmorDescription> registryEvent) {
@@ -82,7 +81,7 @@ public class ArmorDescriptionRegister {
 
                             return f * multiplier;
                         }))
-                        .setRegistryName(Reference.MODID, "rupee")
+                        .setRegistryName(DivineRPG.MODID, "rupee")
         );
 
 
@@ -113,7 +112,7 @@ public class ArmorDescriptionRegister {
                                 ModArmor.redEnderBoots,
                                 ModArmor.yellowEnderBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onCancelPlayerReceiveDamage(e, DamageSource::isExplosion))
-                        .setRegistryName(Reference.MODID, "ender")
+                        .setRegistryName(DivineRPG.MODID, "ender")
         );
 
         registry.register(
@@ -123,7 +122,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.angelicLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.angelicBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.onCanFlyChanged(e.player, true))
-                        .setRegistryName(Reference.MODID, "angelic")
+                        .setRegistryName(DivineRPG.MODID, "angelic")
         );
 
         registry.register(
@@ -137,7 +136,7 @@ public class ArmorDescriptionRegister {
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
-                        }).setRegistryName(Reference.MODID, "bedrock")
+                        }).setRegistryName(DivineRPG.MODID, "bedrock")
         );
 
         registry.register(
@@ -149,7 +148,7 @@ public class ArmorDescriptionRegister {
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 6))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(Reference.MODID, "divine")
+                        .setRegistryName(DivineRPG.MODID, "divine")
         );
 
         IEquipped stopSpeedUp = (player, isFullEquipped) -> {
@@ -177,7 +176,7 @@ public class ArmorDescriptionRegister {
                         ArmorHandlers.removeSpeed(event.player);
                     }
                 })
-                        .setRegistryName(Reference.MODID, "santa")
+                        .setRegistryName(DivineRPG.MODID, "santa")
         );
 
         registry.register(
@@ -187,7 +186,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.skelemanLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.skelemanBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::refillHunger)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "skeleman"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "skeleman"))
         );
 
         registry.register(
@@ -198,7 +197,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.terranBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(new PotionEffect(MobEffects.HASTE,
                                 20, 2, true, false)))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "terrain"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "terrain"))
         );
 
         registry.register(
@@ -208,7 +207,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.frozenLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.frozenBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> ArmorHandlers.frozeNearMobs(event, 10, 6))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "frozen"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "frozen"))
         );
 
         registry.register(
@@ -219,7 +218,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.shadowBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event ->
                                 ArmorHandlers.speedUpPlayer(event.player, 3, false))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "shadow"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "shadow"))
         );
 
         registry.register(
@@ -242,7 +241,7 @@ public class ArmorDescriptionRegister {
 
                                     return aFloat * multiplier;
                                 }))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "arlemite"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "arlemite"))
         );
 
         registry.register(
@@ -253,7 +252,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.skythernBoots)
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.5, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "skythernm"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "skythernm"))
         );
 
         registry.register(
@@ -263,7 +262,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.haliteLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.haliteBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onAddMeleeDamage(event, amount -> amount + 16))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "halite"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "halite"))
         );
 
         registry.register(
@@ -293,7 +292,7 @@ public class ArmorDescriptionRegister {
                                 ArmorHandlers.speedUpInWater(event.player, 5, false))
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "aqua"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "aqua"))
         );
 
         registry.register(
@@ -304,7 +303,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.krakenBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, ArmorHandlers::breatheUnderwater)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.DROWN)))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "kraken"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "kraken"))
         );
 
         registry.register(
@@ -317,7 +316,7 @@ public class ArmorDescriptionRegister {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "netherite"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "netherite"))
         );
 
         registry.register(
@@ -330,7 +329,7 @@ public class ArmorDescriptionRegister {
                             event.player.extinguish();
                             event.player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 40, 0, true, false));
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "inferno"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "inferno"))
         );
 
         registry.register(
@@ -341,7 +340,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.mortumBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.addPotionEffect(
                                 new PotionEffect(MobEffects.NIGHT_VISION, 210, 10, true, false)))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "mortum"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "mortum"))
         );
 
         registry.register(
@@ -351,7 +350,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.eliteRealmiteLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.eliteRealmiteBoots)
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "realmite"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "realmite"))
         );
 
         registry.register(
@@ -366,7 +365,7 @@ public class ArmorDescriptionRegister {
                                 player.heal(0.25F);
                             }
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "wildwood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "wildwood"))
         );
 
         registry.register(
@@ -380,7 +379,7 @@ public class ArmorDescriptionRegister {
                             if (arcana != null)
                                 arcana.fill(event.player, 1);
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "korma"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "korma"))
         );
 
         registry.register(
@@ -390,7 +389,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.vemosLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.vemosBoots)
                         .withHandler(TickEvent.PlayerTickEvent.class, event -> event.player.heal(0.1F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "vemos"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "vemos"))
         );
 
         registry.register(
@@ -400,7 +399,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.jungleLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.jungleBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, DamageSource::isMagicDamage))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "jungle"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "jungle"))
         );
 
         registry.register(
@@ -410,7 +409,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.witherReaperLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.witherReaperBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.WITHER)))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "wither"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "wither"))
         );
 
         registry.register(
@@ -425,7 +424,7 @@ public class ArmorDescriptionRegister {
                                         || s.equals(DamageSource.ANVIL)
                                         || s.equals(DamageSource.IN_WALL)
                                         || s.equals(Utils.trapSource)))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "apalachia"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "apalachia"))
         );
 
         registry.register(
@@ -440,7 +439,7 @@ public class ArmorDescriptionRegister {
                                 event.getDrops().addAll(Collections.nCopies(3, fragment.copy()));
                             }
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "eden"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "eden"))
         );
 
         registry.register(
@@ -469,7 +468,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.82F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "degradedHood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedHood"))
         );
 
         registry.register(
@@ -479,7 +478,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.82F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "degradedHelmet"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedHelmet"))
         );
 
         registry.register(
@@ -489,7 +488,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.degradedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.degradedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.82F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "degradedMask"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "degradedMask"))
         );
 
         registry.register(
@@ -499,7 +498,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.773F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "finishedHood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedHood"))
         );
 
         registry.register(
@@ -509,7 +508,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.773F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "finishedHelmet"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedHelmet"))
         );
 
         registry.register(
@@ -519,7 +518,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ModArmor.finishedLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.finishedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.773F))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "finishedMask"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "finishedMask"))
         );
 
         registry.register(
@@ -531,7 +530,7 @@ public class ArmorDescriptionRegister {
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.7F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.2, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "glisteningHood"))
         );
 
         registry.register(
@@ -544,7 +543,7 @@ public class ArmorDescriptionRegister {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.7F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 3);
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningHelmet"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "glisteningHelmet"))
         );
 
         registry.register(
@@ -555,7 +554,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.glisteningBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.7F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.4F, false))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "glisteningMask"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "glisteningMask"))
         );
 
         registry.register(
@@ -567,7 +566,7 @@ public class ArmorDescriptionRegister {
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.625F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.3, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "demonizedHood"))
         );
         registry.register(
                 new ArmorDescription()
@@ -579,7 +578,7 @@ public class ArmorDescriptionRegister {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.625F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 6);
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedHelmet"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "demonizedHelmet"))
         );
 
         registry.register(
@@ -590,7 +589,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.demonizedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.625F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 1.8F, false))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "demonizedMask"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "demonizedMask"))
         );
 
         registry.register(
@@ -602,7 +601,7 @@ public class ArmorDescriptionRegister {
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, DamageSource::isMagicDamage, x -> x * 0.348F))
                         .withHandler(LivingEvent.LivingJumpEvent.class, event -> event.getEntityLiving().addVelocity(0, 0.4, 0))
                         .withHandler(LivingFallEvent.class, ArmorHandlers::disableFallDamage)
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHood"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "tormentedHood"))
         );
 
         registry.register(
@@ -615,7 +614,7 @@ public class ArmorDescriptionRegister {
                             ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && !x.isProjectile(), x -> x * 0.348F);
                             ArmorHandlers.onAddMeleeDamage(e, x -> x + 9);
                         })
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedHelmet"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "tormentedHelmet"))
         );
 
         registry.register(
@@ -626,7 +625,7 @@ public class ArmorDescriptionRegister {
                         .withPossibleItems(EntityEquipmentSlot.FEET, ModArmor.tormentedBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onPlayerReceiveDamage(e, x -> !x.isMagicDamage() && x.isProjectile(), x -> x * 0.348F))
                         .withHandler(TickEvent.PlayerTickEvent.class, e -> ArmorHandlers.speedUpPlayer(e.player, 2.2F, false))
-                        .setRegistryName(new ResourceLocation(Reference.MODID, "tormentedMask"))
+                        .setRegistryName(new ResourceLocation(DivineRPG.MODID, "tormentedMask"))
         );
     }
 }

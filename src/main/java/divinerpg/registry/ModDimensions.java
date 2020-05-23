@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.config.GeneralConfig;
 import divinerpg.dimensions.apalachia.WorldProviderApalachia;
 import divinerpg.dimensions.arcana.WorldProviderArcana;
@@ -43,21 +43,21 @@ public class ModDimensions {
     }
 
     private static void registerDimensionTypes() {
-        edenDimension = DimensionType.register(Reference.MODID + ":eden", "_eden", GeneralConfig.dimensionIDs.edenDimensionID,
+        edenDimension = DimensionType.register(DivineRPG.MODID + ":eden", "_eden", GeneralConfig.dimensionIDs.edenDimensionID,
                 WorldProviderEden.class, false);
-        wildwoodDimension = DimensionType.register(Reference.MODID + ":wildwood", "_wildwood",
+        wildwoodDimension = DimensionType.register(DivineRPG.MODID + ":wildwood", "_wildwood",
                 GeneralConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildWood.class, false);
-        apalachiaDimension = DimensionType.register(Reference.MODID + ":apalachia", "_apalachia",
+        apalachiaDimension = DimensionType.register(DivineRPG.MODID + ":apalachia", "_apalachia",
                 GeneralConfig.dimensionIDs.apalachiaDimensionID, WorldProviderApalachia.class, false);
-        skythernDimension = DimensionType.register(Reference.MODID + ":skythern", "_skythern",
+        skythernDimension = DimensionType.register(DivineRPG.MODID + ":skythern", "_skythern",
                 GeneralConfig.dimensionIDs.skythernDimensionID, WorldProviderSkythern.class, false);
-        mortumDimension = DimensionType.register(Reference.MODID + ":mortum", "_mortum", GeneralConfig.dimensionIDs.mortumDimensionID,
+        mortumDimension = DimensionType.register(DivineRPG.MODID + ":mortum", "_mortum", GeneralConfig.dimensionIDs.mortumDimensionID,
                 WorldProviderMortum.class, false);
-        iceikaDimension = DimensionType.register(Reference.MODID + ":iceika", "_iceika", GeneralConfig.dimensionIDs.iceikaDimensionID,
+        iceikaDimension = DimensionType.register(DivineRPG.MODID + ":iceika", "_iceika", GeneralConfig.dimensionIDs.iceikaDimensionID,
                 WorldProviderIceika.class, false);
-        arcanaDimension = DimensionType.register(Reference.MODID + ":arcana", "_arcana", GeneralConfig.dimensionIDs.arcanaDimensionID,
+        arcanaDimension = DimensionType.register(DivineRPG.MODID + ":arcana", "_arcana", GeneralConfig.dimensionIDs.arcanaDimensionID,
                 WorldProviderArcana.class, false);
-        vetheaDimension = DimensionType.register(Reference.MODID + ":vethea", "_vethea", GeneralConfig.dimensionIDs.vetheaDimensionID,
+        vetheaDimension = DimensionType.register(DivineRPG.MODID + ":vethea", "_vethea", GeneralConfig.dimensionIDs.vetheaDimensionID,
         		VetheaWorldProvider.class, false); //VetheaWorldProvider = new, WorldProviderVethea = old
     }
 

@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -24,7 +24,7 @@ public class ItemModSeeds extends Item implements IPlantable {
 
     public ItemModSeeds(String name, Supplier<Block> cropSupplier, Supplier<Block> soilSupplier) {
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.cropSupplier = cropSupplier;
         this.soilSupplier = soilSupplier;
         setCreativeTab(DivineRPGTabs.food);

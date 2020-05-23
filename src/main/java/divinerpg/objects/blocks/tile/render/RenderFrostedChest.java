@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.objects.blocks.tile.model.ModelFrostedChest;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class RenderFrostedChest extends TileEntitySpecialRenderer<TileEntityFrostedChest> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(
-            Reference.MODID + ":textures/model/frosted_chest.png");
+            DivineRPG.MODID + ":textures/model/frosted_chest.png");
     private final ModelFrostedChest MODEL = new ModelFrostedChest();
 
     @Override

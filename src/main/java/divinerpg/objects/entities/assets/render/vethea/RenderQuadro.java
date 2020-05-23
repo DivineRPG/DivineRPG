@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelQuadro;
 import divinerpg.objects.entities.entity.vethea.EntityQuadro;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderQuadro extends RenderLiving<EntityQuadro> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/quadro.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png");
 
     public RenderQuadro(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelQuadro(), 1F);

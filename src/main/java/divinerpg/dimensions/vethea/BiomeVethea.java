@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,7 +22,7 @@ public class BiomeVethea extends Biome {
 
     public BiomeVethea() {
         super(properties);
-        this.setRegistryName(Reference.MODID, "Vethea");
+        this.setRegistryName(DivineRPG.MODID, "Vethea");
 
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();

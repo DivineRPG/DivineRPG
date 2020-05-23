@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.ContainerDreamLamp;
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import divinerpg.registry.ModItems;
@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 public class DreamLampGUI extends GuiContainer {
     private TileEntityInfusionTable TeDreamLamp;
 
-    private ResourceLocation texture = new ResourceLocation(Reference.MODID + ":textures/gui/dream_lamp.png");
+    private ResourceLocation texture = new ResourceLocation(DivineRPG.MODID + ":textures/gui/dream_lamp.png");
     private IInventory blockInv;
     private IInventory playerInv;
 

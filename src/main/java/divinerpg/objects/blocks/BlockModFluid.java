@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumBlockRenderType;
@@ -11,7 +11,7 @@ public class BlockModFluid extends BlockFluidClassic {
     public BlockModFluid(String name, Fluid fluid, Material material) {
         super(fluid, material);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
     }
 
     @Override

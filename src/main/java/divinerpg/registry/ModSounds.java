@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID)
 public final class ModSounds {
     private static ArrayList<SoundEvent> SOUND_EVENTS = new ArrayList<SoundEvent>();
 
@@ -228,7 +228,7 @@ public final class ModSounds {
     public static final SoundEvent ICEIKA_MUSIC = createEvent("iceika_music");
 
     private static SoundEvent createEvent(String sound) {
-        ResourceLocation soundLocation = new ResourceLocation(Reference.MODID, sound);
+        ResourceLocation soundLocation = new ResourceLocation(DivineRPG.MODID, sound);
         SoundEvent event = new SoundEvent(soundLocation).setRegistryName(soundLocation);
         SOUND_EVENTS.add(event);
         return event;

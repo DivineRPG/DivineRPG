@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.MapColor;
@@ -19,7 +19,7 @@ public class BlockModLog extends BlockLog {
 	public BlockModLog(String name, @Nonnull MapColor mapColorIn) {
 		super();
 		setUnlocalizedName(name);
-		setRegistryName(Reference.MODID, name);
+		setRegistryName(DivineRPG.MODID, name);
 		setHardness(3.0F);
 		setResistance(5);
 		this.setCreativeTab(DivineRPGTabs.BlocksTab);

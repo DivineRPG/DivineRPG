@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelSpinarusBody;
 import divinerpg.objects.entities.entity.vethea.EntitySpinarus;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderSpinarus extends RenderLiving<EntitySpinarus> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/spinarus.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/spinarus.png");
 //	private final ModelSpinarusHead modelEntity2;
 //	private final ModelSpinarusTail modelEntity3;
 

@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -31,7 +30,7 @@ public abstract class BlockModChest extends BlockContainer  {
     public BlockModChest(String name, Material material) {
         super(material);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }

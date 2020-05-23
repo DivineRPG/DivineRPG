@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class GuiDatticon extends GuiDivineMerchant {
-    public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(Reference.MODID,
+    public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(DivineRPG.MODID,
             "textures/gui/datticon.png");
     private static String merchantName = new TextComponentTranslation("entity.divinerpg.datticon.name")
             .getFormattedText();

@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.client.render.*;
 import divinerpg.objects.blocks.tile.entity.*;
 import divinerpg.objects.blocks.tile.render.*;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import java.util.Arrays;
 import java.util.Objects;
 
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MODID)
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = DivineRPG.MODID)
 public class ModModels {
 
     @SubscribeEvent

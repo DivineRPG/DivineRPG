@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelKarot;
 import divinerpg.objects.entities.entity.twilight.EntityKarot;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderKarot extends RenderLiving<EntityKarot> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/karot.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png");
 
     public RenderKarot(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelKarot(), 0);

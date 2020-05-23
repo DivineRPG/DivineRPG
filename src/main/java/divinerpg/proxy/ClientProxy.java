@@ -1,6 +1,6 @@
 package divinerpg.proxy;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.client.ArcanaRenderer;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
@@ -62,7 +62,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
         ModEntities.initModels();
-        OBJLoader.INSTANCE.addDomain(Reference.MODID);
+        OBJLoader.INSTANCE.addDomain(DivineRPG.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         DebugLogging.preInitStageLog();
     }

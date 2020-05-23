@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAridWarrior;
 import divinerpg.objects.entities.entity.vanilla.EntityAridWarrior;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/arid_warrior.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/arid_warrior.png");
 
     public RenderAridWarrior(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelAridWarrior(), 0);

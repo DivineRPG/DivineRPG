@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJungleBat;
 import divinerpg.objects.entities.entity.vanilla.EntityJungleBat;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderJungleBat extends RenderLiving<EntityJungleBat> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/jungle_bat.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_bat.png");
 
     public RenderJungleBat(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelJungleBat(), 0);

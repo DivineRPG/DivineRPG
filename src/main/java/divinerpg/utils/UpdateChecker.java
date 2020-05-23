@@ -1,11 +1,11 @@
 package divinerpg.utils;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.fml.common.Loader;
 
 public class UpdateChecker {
-    private static String updateTarget = Reference.VERSION;
+    private static String updateTarget = DivineRPG.VERSION;
     private static boolean updateAvailable = false;
 
     public static void checkForUpdates() {

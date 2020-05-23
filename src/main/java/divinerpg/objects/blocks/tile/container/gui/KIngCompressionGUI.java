@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.KingCompressorContainer;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class KIngCompressionGUI extends GuiContainer {
-    private final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/king_compression_gui.png");
+    private final ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/gui/king_compression_gui.png");
     private KingCompressorContainer container;
 
     public KIngCompressionGUI(KingCompressorContainer inventorySlotsIn) {

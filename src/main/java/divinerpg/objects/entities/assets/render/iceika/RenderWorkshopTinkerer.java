@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.iceika.ModelWorkshop;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderWorkshopTinkerer extends RenderLiving<EntityWorkshopTinkerer> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/workshop_tinkerer.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_tinkerer.png");
 
     public RenderWorkshopTinkerer(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelWorkshop(), 0);

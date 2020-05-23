@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
 import divinerpg.objects.entities.entity.twilight.EntityReyvor;
 import divinerpg.registry.ModWeapons;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.annotation.Nullable;
 
 public class RenderReyvor extends RenderLiving<EntityReyvor> {
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/reyvor.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/reyvor.png");
 
 
     public RenderReyvor(RenderManager rendermanagerIn) {

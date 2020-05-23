@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -31,7 +31,7 @@ public class BlockModCrop extends BlockCrops {
     public BlockModCrop(String name, double maxHeight) {
         super();
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
 
         // Stages starting with zero
         double step = maxHeight / ((double) getMaxAge() + 1);

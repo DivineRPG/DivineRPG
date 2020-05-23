@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelRaglok;
 import divinerpg.objects.entities.entity.vethea.EntityRaglok;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderRaglok extends RenderLiving<EntityRaglok> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/raglok_gogdure.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok_gogdure.png");
 
     public RenderRaglok(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRaglok(), 1F);

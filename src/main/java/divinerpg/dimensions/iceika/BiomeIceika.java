@@ -1,6 +1,6 @@
 package divinerpg.dimensions.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
@@ -29,7 +29,7 @@ public class BiomeIceika extends Biome {
 
     public BiomeIceika() {
         super(properties);
-        this.setRegistryName(Reference.MODID, "iceika");
+        this.setRegistryName(DivineRPG.MODID, "iceika");
 
         this.topBlock = ModBlocks.frozenGrass.getDefaultState();
         this.fillerBlock = ModBlocks.frozenDirt.getDefaultState();

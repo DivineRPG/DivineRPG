@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.client.Minecraft;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderFrostArcher extends RenderLiving<EntityFrostArcher> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/frost_archer.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/frost_archer.png");
 
     public RenderFrostArcher(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelBiped(), 1);

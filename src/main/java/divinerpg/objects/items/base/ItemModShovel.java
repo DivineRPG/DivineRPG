@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,7 +17,7 @@ public class ItemModShovel extends ItemSpade {
 
 	public ItemModShovel(ToolMaterial material, String name) {
 		super(material);
-		setRegistryName(Reference.MODID, name);
+		setRegistryName(DivineRPG.MODID, name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 

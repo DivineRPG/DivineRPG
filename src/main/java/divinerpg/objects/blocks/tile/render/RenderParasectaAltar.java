@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityParasectaAltar;
 import divinerpg.objects.blocks.tile.model.ModelParasectaAltar;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderParasectaAltar extends TileEntitySpecialRenderer<TileEntityParasectaAltar> {
-    private static ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/model/parasecta_altar.png");
+    private static ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/parasecta_altar.png");
     private static ModelParasectaAltar model = new ModelParasectaAltar();
 
     public void render(TileEntityParasectaAltar te, double x, double y, double z, float partialTicks, int destroyStage,

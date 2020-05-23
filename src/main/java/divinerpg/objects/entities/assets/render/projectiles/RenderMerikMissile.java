@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -58,7 +58,7 @@ public class RenderMerikMissile extends Render<EntityMerikMissile> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMerikMissile entity) {
-        ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/meriks_missile.png");
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png");
         return location;
     }
     

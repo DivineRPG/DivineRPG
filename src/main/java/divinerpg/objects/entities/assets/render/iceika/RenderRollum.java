@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.iceika;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.iceika.ModelRollum;
 import divinerpg.objects.entities.entity.iceika.EntityRollum;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderRollum extends RenderLiving<EntityRollum> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/rollum.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/rollum.png");
 
     public RenderRollum(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRollum(), 0);

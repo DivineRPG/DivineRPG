@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderJackOMan extends RenderLiving<EntityJackOMan> {
 
-    public static ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/entity/jackoman.png");
+    public static ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/jackoman.png");
 
     public RenderJackOMan(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelJackOMan(), 0.5F);

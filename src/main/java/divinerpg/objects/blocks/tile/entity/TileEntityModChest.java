@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.BlockModChest;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import net.minecraft.entity.player.EntityPlayer;
@@ -105,7 +105,7 @@ public abstract class TileEntityModChest extends TileEntityLockableLoot implemen
 
     @Override
     public String getGuiID() {
-        return Reference.MODID + this.customName;
+        return DivineRPG.MODID + this.customName;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
@@ -50,7 +50,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.saplingSupplier = () -> null;
         this.setMapColor(mapColorIn);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setTickRandomly(true);

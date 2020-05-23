@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.ModDimensions;
@@ -56,7 +55,7 @@ public class BlockModPortal extends BlockBreakable {
     public BlockModPortal(String name, DimensionType dimId, Supplier<Block> fireBlockSupplier, Supplier<Block> portalFrameSupplier, ParticleType particle) {
         super(Material.PORTAL, false);
         this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.X));
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
         this.setCreativeTab(null);
