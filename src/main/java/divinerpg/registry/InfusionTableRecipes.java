@@ -5,7 +5,7 @@ import java.util.HashMap;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class InfusionTableRecipes {
+public final class InfusionTableRecipes {
 
     public static HashMap<InfusionRecipe, Item> recipes = new HashMap<InfusionRecipe, Item>();
     public static InfusionTableRecipes instance = new InfusionTableRecipes();
