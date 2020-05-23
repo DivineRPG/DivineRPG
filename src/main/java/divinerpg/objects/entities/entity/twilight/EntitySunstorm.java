@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.enums.BulletType;
+import divinerpg.objects.entities.ai.AISunstormAttack;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import divinerpg.registry.DRPGLootTables;
@@ -9,7 +10,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -28,7 +31,6 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(64.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1D);
     }
 
 	@Override
@@ -62,8 +64,9 @@ public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttack
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        addAttackingAI();
-        this.tasks.addTask(0, new EntityAIAttackRanged(this, 0.27F, 50, 10));
+        this.tasks.addTask(0, new AISunstormAttack(this, 0.27F, 50, 10));
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, null));
     }
 
     @Override
