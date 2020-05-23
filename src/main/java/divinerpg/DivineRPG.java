@@ -72,9 +72,9 @@ public class DivineRPG {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.init(e);
-        ModOreDict.init();
+        OreDictionaryHandler.registerOreDictionaryEntries();
         TriggerRegistry.registerTriggers();
-        SmeltingRecipeRegistry.init();
+        SmeltingRecipeRegistry.registerSmeltingRecipes();
         MinecraftForge.EVENT_BUS.register(new GeneralConfig());
     }
 

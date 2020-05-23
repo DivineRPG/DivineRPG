@@ -2,8 +2,8 @@ package divinerpg.registry;
 
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ModOreDict {
-    public static void init() {
+public class OreDictionaryHandler {
+    public static void registerOreDictionaryEntries() {
         OreDictionary.registerOre("logWood", BlockRegistry.edenLog);
         OreDictionary.registerOre("logWood", BlockRegistry.wildwoodLog);
         OreDictionary.registerOre("logWood", BlockRegistry.apalachiaLog);
