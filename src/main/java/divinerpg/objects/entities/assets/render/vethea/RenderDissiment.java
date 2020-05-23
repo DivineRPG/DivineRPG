@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelDissiment;
 import divinerpg.objects.entities.entity.vethea.EntityDissiment;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class RenderDissiment extends RenderLiving<EntityDissiment> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/dissiment.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/dissiment.png");
 
     public RenderDissiment(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelDissiment(), 1F);

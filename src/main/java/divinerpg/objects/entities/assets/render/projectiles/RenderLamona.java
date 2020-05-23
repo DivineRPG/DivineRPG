@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityLamona;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderLamona extends Render<EntityLamona> {
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/items/lamona.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/items/lamona.png");
 
     public RenderLamona(RenderManager manager) {
         super(manager);

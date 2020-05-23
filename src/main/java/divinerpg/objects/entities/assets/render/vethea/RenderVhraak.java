@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelVhraak;
 import divinerpg.objects.entities.entity.vethea.EntityVhraak;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderVhraak extends RenderLiving<EntityVhraak> {
 
 
-	ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/vhraak.png");
+	ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/vhraak.png");
 
 	public RenderVhraak(RenderManager rendermanagerIn) {
 		super(rendermanagerIn, new ModelVhraak(), 1F);

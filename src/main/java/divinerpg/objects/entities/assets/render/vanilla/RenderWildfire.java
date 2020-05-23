@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelWildfire;
 import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderWildfire extends RenderLiving<EntityWildfire> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/wildfire.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/wildfire.png");
 
     public RenderWildfire(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelWildfire(), 0);

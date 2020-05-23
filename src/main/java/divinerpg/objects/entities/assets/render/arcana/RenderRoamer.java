@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelRoamer;
 import divinerpg.objects.entities.entity.arcana.EntityRoamer;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderRoamer extends RenderLiving<EntityRoamer> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/roamer.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/roamer.png");
 
     public RenderRoamer(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRoamer(), 0);

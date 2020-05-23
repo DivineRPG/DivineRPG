@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelZone;
 import divinerpg.objects.entities.entity.vethea.EntityZone;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderZone extends RenderLiving<EntityZone> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/zone.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/zone.png");
 
     public RenderZone(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelZone(), 1F);

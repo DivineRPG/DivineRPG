@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnderTriplets;
 import divinerpg.objects.entities.entity.vanilla.EntityEnderTriplets;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderEnderTriplets extends RenderLiving<EntityEnderTriplets> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/ender_triplets.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_triplets.png");
 
     public RenderEnderTriplets(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEnderTriplets(), 0);

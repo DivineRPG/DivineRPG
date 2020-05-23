@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.BlockModPlank;
 import divinerpg.objects.blocks.BlockModSlab;
 import divinerpg.registry.DivineRPGTabs;
@@ -37,7 +37,7 @@ public class ItemModSlab extends ItemBlock
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         
     }

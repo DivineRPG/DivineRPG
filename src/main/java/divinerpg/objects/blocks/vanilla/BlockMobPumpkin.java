@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
@@ -19,7 +19,7 @@ public class BlockMobPumpkin extends BlockHorizontal {
         super(Material.GOURD);
         this.pumpkinSound = soundIn;
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setTickRandomly(true);
         setHardness(1.0F);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);

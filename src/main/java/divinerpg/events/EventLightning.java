@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.entity.Entity;
@@ -10,7 +10,7 @@ import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID)
 public class EventLightning {
 	
 	@SubscribeEvent

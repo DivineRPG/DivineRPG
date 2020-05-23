@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelMandragora;
 import divinerpg.objects.entities.entity.vethea.EntityMandragora;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderMandragora extends RenderLiving<EntityMandragora> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/mandragora.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/mandragora.png");
 
     public RenderMandragora(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelMandragora(), 1F);

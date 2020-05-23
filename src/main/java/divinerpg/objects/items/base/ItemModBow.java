@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
@@ -50,7 +50,7 @@ public class ItemModBow extends ItemBow {
     public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
         setMaxDamage(uses);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;
         this.setCreativeTab(DivineRPGTabs.ranged);

@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -49,7 +49,7 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBiomes(MissingMappings<Biome> event) {
         for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
-            if (mapping.key.equals(new ResourceLocation(Reference.MODID, "arksiane"))) {
+            if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "arksiane"))) {
                 mapping.remap(ModBiomes.biomeVethea);
             }
         }

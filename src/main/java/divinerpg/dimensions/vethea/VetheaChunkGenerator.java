@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.ModBlocks;
 import divinerpg.structure.template.DivineLargeStructure;
 import net.minecraft.block.Block;
@@ -247,11 +247,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
     }
 
     private ResourceLocation createForVethea(int level, String structureFolder) {
-        return new ResourceLocation(Reference.MODID, String.format("vethea/%slevel/%s", level, structureFolder));
+        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/%slevel/%s", level, structureFolder));
     }
 
     private ResourceLocation createForAllLevels(String structureName) {
-        return new ResourceLocation(Reference.MODID, String.format("vethea/all_floors/%s", structureName));
+        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/all_floors/%s", structureName));
     }
 
     @Override

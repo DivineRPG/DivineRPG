@@ -1,12 +1,12 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntitySoundOfMusic;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSoundOfMusic extends RenderProjectile<EntitySoundOfMusic> {
-    private ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/projectiles/music.png");
+    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/music.png");
 
     public RenderSoundOfMusic(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

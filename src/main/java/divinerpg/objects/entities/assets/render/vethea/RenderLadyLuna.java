@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelLadyLuna;
 import divinerpg.objects.entities.entity.vethea.EntityLadyLuna;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -22,10 +22,10 @@ public class RenderLadyLuna extends RenderLiving<EntityLadyLuna> {
     protected ResourceLocation getEntityTexture(EntityLadyLuna entity) {
         EntityLadyLuna boss = entity;
         if (boss.getProtectionType() == EntityLadyLuna.ProtectionType.ARCANA)
-            return new ResourceLocation(Reference.MODID, "textures/entity/lady_luna_arcanic.png");
+            return new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna_arcanic.png");
         else if (boss.getProtectionType() == EntityLadyLuna.ProtectionType.RANGED)
-            return new ResourceLocation(Reference.MODID, "textures/entity/lady_luna_ranged.png");
-        return new ResourceLocation(Reference.MODID, "textures/entity/lady_luna.png");
+            return new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna_ranged.png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna.png");
     }
 
 }

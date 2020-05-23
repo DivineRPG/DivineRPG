@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityDramixAltar;
 import divinerpg.objects.blocks.tile.model.ModelDramixAltar;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDramixAltar extends TileEntitySpecialRenderer<TileEntityDramixAltar> {
-    private static ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/model/dramix_altar.png");
+    private static ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/dramix_altar.png");
     private static ModelDramixAltar model = new ModelDramixAltar();
 
     public void render(TileEntityDramixAltar te, double x, double y, double z, float partialTicks, int destroyStage,

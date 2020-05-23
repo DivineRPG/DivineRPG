@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelParasecta;
 import divinerpg.objects.entities.entity.arcana.EntityParasecta;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderParasecta extends RenderLiving<EntityParasecta> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/parasecta.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png");
 
     public RenderParasecta(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelParasecta(), 1.05F);

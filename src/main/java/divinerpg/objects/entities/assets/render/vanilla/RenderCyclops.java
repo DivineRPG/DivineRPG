@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelCyclops;
 import divinerpg.objects.entities.entity.vanilla.EntityCyclops;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 
 public class RenderCyclops extends RenderLiving<EntityCyclops> {
 
-    ResourceLocation cyclopsLoc = new ResourceLocation(Reference.MODID, "textures/entity/cyclops.png");
-    ResourceLocation angryCyclopsLoc = new ResourceLocation(Reference.MODID, "textures/entity/angry_cyclops.png");
+    ResourceLocation cyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/cyclops.png");
+    ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
 
     public RenderCyclops(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCyclops(), 0);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelTheHunger;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderTheHunger extends RenderLiving<EntityTheHunger> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/the_hunger.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/the_hunger.png");
 
     public RenderTheHunger(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTheHunger(), 0);

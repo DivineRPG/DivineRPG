@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelHelio;
 import divinerpg.objects.entities.entity.vethea.EntityHelio;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderHelio extends RenderLiving<EntityHelio> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/helio.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/helio.png");
 
     public RenderHelio(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelHelio(), 1F);

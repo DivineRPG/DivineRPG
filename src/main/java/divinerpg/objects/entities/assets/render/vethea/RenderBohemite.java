@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelBohemite;
 import divinerpg.objects.entities.entity.vethea.EntityBohemite;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderBohemite extends RenderLiving<EntityBohemite> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/bohemite.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/bohemite.png");
 
     public RenderBohemite(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelBohemite(), 1F);

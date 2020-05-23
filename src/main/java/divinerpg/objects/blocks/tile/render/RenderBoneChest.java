@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityBoneChest;
 import divinerpg.objects.blocks.tile.model.ModelBoneChest;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderBoneChest extends TileEntitySpecialRenderer<TileEntityBoneChest> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(
-            Reference.MODID + ":textures/model/bone_chest.png");
+            DivineRPG.MODID + ":textures/model/bone_chest.png");
     private final ModelBoneChest MODEL = new ModelBoneChest();
 
     @Override

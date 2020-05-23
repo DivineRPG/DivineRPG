@@ -1,8 +1,8 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
+import divinerpg.DivineRPG;
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.api.Reference;
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -20,7 +20,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class RenderWildwoodLog extends RenderProjectile<EntityWildwoodLog> {
-    private ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/blocks/wildwood_log_side.png");
+    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/blocks/wildwood_log_side.png");
 
     public RenderWildwoodLog(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

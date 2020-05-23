@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.vethea;
 
 import java.util.Random;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.vethea.EntityHiveQueen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -28,7 +28,7 @@ public class BlockHiveEgg extends Block {
         super(Material.DRAGON_EGG, MapColor.BLACK);
         this.setHardness(5.0F);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

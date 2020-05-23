@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,7 +24,7 @@ public class ItemModSword extends ItemSword {
     public ItemModSword(ToolMaterial material, String name) {
         super(material);
         this.material = material;
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.swords);
 

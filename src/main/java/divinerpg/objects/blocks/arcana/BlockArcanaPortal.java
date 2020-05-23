@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -34,7 +34,7 @@ public class BlockArcanaPortal extends Block {
         super(Material.PORTAL);
         this.setSoundType(SoundType.STONE);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(null);
         setLightLevel(1.0F);
         setBlockUnbreakable();

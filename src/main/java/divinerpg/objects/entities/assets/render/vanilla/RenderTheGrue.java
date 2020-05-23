@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelTheGrue;
 import divinerpg.objects.entities.entity.vanilla.EntityTheGrue;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.annotation.Nullable;
 
 public class RenderTheGrue extends RenderLiving<EntityTheGrue> {
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/the_grue.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/the_grue.png");
 
     public RenderTheGrue(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTheGrue(), 0);

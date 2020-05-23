@@ -1,6 +1,6 @@
 package divinerpg.dimensions;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -27,7 +27,7 @@ public class TwilightBiomeBase extends Biome {
 
     public TwilightBiomeBase(BiomeProperties properties, String name) {
         super(properties);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
     }
 
     @Override

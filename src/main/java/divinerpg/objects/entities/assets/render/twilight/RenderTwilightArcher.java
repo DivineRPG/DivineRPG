@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelTwilightArcher;
 import divinerpg.objects.entities.entity.twilight.EntityTwilightArcher;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderTwilightArcher extends RenderLiving<EntityTwilightArcher> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/twilight_archer.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png");
 
     public RenderTwilightArcher(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTwilightArcher(), 0);

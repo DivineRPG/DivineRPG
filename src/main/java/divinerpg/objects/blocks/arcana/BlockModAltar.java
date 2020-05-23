@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
@@ -16,7 +16,7 @@ public abstract class BlockModAltar extends BlockContainer implements ITileEntit
     public BlockModAltar(String name) {
         super(Material.ROCK);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setCreativeTab(DivineRPGTabs.BlocksTab);
         setBlockUnbreakable();
         setResistance(6000000F);

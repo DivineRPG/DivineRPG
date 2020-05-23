@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -59,7 +58,7 @@ public class TileEntityStupidSpawner extends TileEntity implements ITickable {
                                         this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).expand(8, 6, 8))
                         .size();
                 if (c < 8) {
-                    ResourceLocation mobLoc = new ResourceLocation(Reference.MODID, this.entityName);
+                    ResourceLocation mobLoc = new ResourceLocation(DivineRPG.MODID, this.entityName);
                     for (int i = 0; i < 4; i++) {
                         Entity e = EntityList.createEntityByIDFromName(mobLoc, this.world);
                         if (e != null && e instanceof EntityLiving) {

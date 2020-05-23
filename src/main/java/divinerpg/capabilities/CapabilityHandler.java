@@ -1,6 +1,6 @@
 package divinerpg.capabilities;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.api.arcana.ArcanaProvider;
 import divinerpg.api.armor.cap.ArmorProvider;
 import net.minecraft.entity.Entity;
@@ -11,8 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class CapabilityHandler
 {
-    public static final ResourceLocation ARCANA_CAP = new ResourceLocation(Reference.MODID, "arcana");
-    public static final ResourceLocation ArmorCapabilityID = new ResourceLocation(Reference.MODID, "armor");
+    public static final ResourceLocation ARCANA_CAP = new ResourceLocation(DivineRPG.MODID, "arcana");
+    public static final ResourceLocation ArmorCapabilityID = new ResourceLocation(DivineRPG.MODID, "armor");
 
     @SubscribeEvent
     public void attachCapability(final AttachCapabilitiesEvent<Entity> event) {

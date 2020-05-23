@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -30,7 +30,7 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
      */
     public BlockTwilightFlower(String name, Supplier<Block> grassSupplier, double width, double height, MapColor mapColorIn) {
         super(Material.PLANTS, mapColorIn);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         this.grassSupplier = grassSupplier;
         setCreativeTab(DivineRPGTabs.BlocksTab);

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockVine;
 
@@ -9,7 +9,7 @@ public class BlockModVine extends BlockVine {
     public BlockModVine(String name) {
         super();
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         this.setHardness(2);
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false))

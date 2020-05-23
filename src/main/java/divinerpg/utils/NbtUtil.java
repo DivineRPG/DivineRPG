@@ -1,6 +1,6 @@
 package divinerpg.utils;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -138,11 +138,11 @@ public class NbtUtil {
 
         NBTTagCompound persistantData = playerData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
 
-        if (!persistantData.hasKey(Reference.MODID)) {
-            persistantData.setTag(Reference.MODID, new NBTTagCompound());
+        if (!persistantData.hasKey(DivineRPG.MODID)) {
+            persistantData.setTag(DivineRPG.MODID, new NBTTagCompound());
         }
 
-        return persistantData.getCompoundTag(Reference.MODID);
+        return persistantData.getCompoundTag(DivineRPG.MODID);
     }
 
     /**

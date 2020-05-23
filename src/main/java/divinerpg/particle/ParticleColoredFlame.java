@@ -1,6 +1,6 @@
 package divinerpg.particle;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -30,7 +30,7 @@ public class ParticleColoredFlame extends Particle {
         this.particleBlue = b;
         this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D)) + 4;
         this.particleTexture = Minecraft.getMinecraft().getTextureMapBlocks()
-                .getAtlasSprite(new ResourceLocation(Reference.MODID, "particle/flame").toString());
+                .getAtlasSprite(new ResourceLocation(DivineRPG.MODID, "particle/flame").toString());
     }
 
     public int getFXLayer() {

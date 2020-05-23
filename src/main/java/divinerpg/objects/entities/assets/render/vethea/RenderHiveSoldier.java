@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelHiveSoldier;
 import divinerpg.objects.entities.entity.vethea.EntityHiveSoldier;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderHiveSoldier extends RenderLiving<EntityHiveSoldier> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/hive_soldier.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_soldier.png");
 
     public RenderHiveSoldier(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelHiveSoldier(), 1F);

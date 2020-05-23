@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedWarrior;
 import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderEnchantedWarrior extends RenderLiving<EntityEnchantedWarrior> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/enchanted_warrior.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png");
 
     public RenderEnchantedWarrior(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEnchantedWarrior(), 0);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelDensos;
 import divinerpg.objects.entities.entity.twilight.EntityDensos;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderDensos extends RenderLiving<EntityDensos> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/densos.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png");
 
     public RenderDensos(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelDensos(), 0.5F);

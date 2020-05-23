@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelAncientEntity;
 import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderAncientEntity extends RenderLiving<EntityAncientEntity> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/ancient_entity.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png");
 
     public RenderAncientEntity(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelAncientEntity(), 0);

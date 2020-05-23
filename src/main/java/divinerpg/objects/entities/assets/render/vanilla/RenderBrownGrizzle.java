@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelGrizzle;
 import divinerpg.objects.entities.entity.vanilla.EntityBrownGrizzle;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderBrownGrizzle extends RenderLiving<EntityBrownGrizzle> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/brown_grizzle.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/brown_grizzle.png");
 
     public RenderBrownGrizzle(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelGrizzle(), 0);

@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockTorch;
@@ -21,7 +20,7 @@ public class BlockModTorch extends BlockTorch {
         super();
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setLightLevel(1);
         this.setHardness(0.0F);
         this.flameParticle = particle;

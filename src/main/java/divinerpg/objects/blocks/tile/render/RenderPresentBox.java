@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityPresentBox;
 import divinerpg.objects.blocks.tile.model.ModelPresentBox;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class RenderPresentBox extends TileEntitySpecialRenderer<TileEntityPresentBox> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(
-            Reference.MODID + ":textures/model/present_box.png");
+            DivineRPG.MODID + ":textures/model/present_box.png");
     private final ModelPresentBox MODEL = new ModelPresentBox();
 
     @Override

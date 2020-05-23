@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityGeneralsStaff;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,7 +16,7 @@ public class RenderStaff extends Render<EntityGeneralsStaff> {
         super(manager);
     }
 
-    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/projectiles/generals_staff.png");
+    ResourceLocation location = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png");
 
     public void doRender(EntityGeneralsStaff entity, double x, double y, double z, float entityYaw,
                          float partialTicks) {

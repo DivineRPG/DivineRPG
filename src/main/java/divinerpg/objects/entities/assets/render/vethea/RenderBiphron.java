@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelBiphron;
 import divinerpg.objects.entities.entity.vethea.EntityBiphron;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderBiphron extends RenderLiving<EntityBiphron> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/biphron.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/biphron.png");
 
     public RenderBiphron(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelBiphron(), 1F);

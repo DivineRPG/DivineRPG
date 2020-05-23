@@ -1,7 +1,7 @@
 package divinerpg.client;
 
+import divinerpg.DivineRPG;
 import divinerpg.api.DivineAPI;
-import divinerpg.api.Reference;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.config.GeneralConfig;
 import net.minecraft.client.Minecraft;
@@ -31,7 +31,7 @@ public class ArcanaRenderer {
             ScaledResolution scaledresolution = new ScaledResolution(mc);
             int i = scaledresolution.getScaledWidth();
             int k = scaledresolution.getScaledHeight();
-            this.mc.getTextureManager().bindTexture(new ResourceLocation(Reference.MODID, "textures/gui/arcana_bar.png"));
+            this.mc.getTextureManager().bindTexture(new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png"));
             int y = k - GeneralConfig.guiOptions.arcanaY;
             int x = i - GeneralConfig.guiOptions.arcanaX;
             gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);

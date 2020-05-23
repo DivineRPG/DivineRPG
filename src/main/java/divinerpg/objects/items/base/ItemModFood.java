@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,7 +26,7 @@ public class ItemModFood extends ItemFood {
     public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
         super(healAmount, saturation, isWolfFood);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.food);
 
         petFood = new TextComponentTranslation("tooltip.food.pet");

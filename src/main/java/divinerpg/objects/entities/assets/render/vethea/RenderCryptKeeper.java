@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderCryptKeeper extends RenderLiving<EntityCryptKeeper> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/crypt_keeper.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/crypt_keeper.png");
 
     public RenderCryptKeeper(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCryptKeeper(), 1F);

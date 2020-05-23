@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityStupidSpawner;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockMobSpawner;
@@ -15,7 +15,7 @@ public class BlockStupidSpawner extends BlockMobSpawner  {
         this.mobName = mobName;
         this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
         setHardness(5.0F);
         this.setTickRandomly(true);

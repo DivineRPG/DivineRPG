@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.arcana.EntityLivingStatue;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderLivingStatue extends RenderLiving<EntityLivingStatue> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/living_statue.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/living_statue.png");
 
     public RenderLivingStatue(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelBiped(), 0);

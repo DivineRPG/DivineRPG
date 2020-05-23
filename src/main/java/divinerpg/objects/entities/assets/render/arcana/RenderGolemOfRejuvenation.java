@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelRejuvGolem;
 import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 import javax.annotation.Nullable;
 
 public class RenderGolemOfRejuvenation extends RenderLiving<EntityGolemOfRejuvenation> {
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/golem_of_rejuvenation.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png");
 
     public RenderGolemOfRejuvenation(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRejuvGolem(), 0.5F);

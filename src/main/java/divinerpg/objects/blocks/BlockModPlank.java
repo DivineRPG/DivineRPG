@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -24,7 +24,7 @@ public class BlockModPlank extends Block
         super(Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, type));
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
     }
 

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import net.minecraft.client.model.ModelBed;
 import net.minecraft.client.renderer.GlStateManager;
@@ -43,7 +43,7 @@ public class RenderNightmareBed extends TileEntitySpecialRenderer<TileEntityNigh
         }
         else
         {
-            ResourceLocation resourcelocation = new ResourceLocation(Reference.MODID, "textures/blocks/nightmare.png");
+            ResourceLocation resourcelocation = new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare.png");
             
 
             if (resourcelocation != null)
@@ -119,7 +119,7 @@ public class RenderNightmareBed extends TileEntitySpecialRenderer<TileEntityNigh
 
         for (EnumDyeColor enumdyecolor : aenumdyecolor)
         {
-            TEXTURES[enumdyecolor.getMetadata()] = new ResourceLocation(Reference.MODID, "textures/entity/bed/nightmare.png");
+            TEXTURES[enumdyecolor.getMetadata()] = new ResourceLocation(DivineRPG.MODID, "textures/entity/bed/nightmare.png");
         }
     }
 }

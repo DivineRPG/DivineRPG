@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelRainbour;
 import divinerpg.objects.entities.entity.vanilla.EntityRainbour;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 
 public class RenderRainbour extends RenderLiving<EntityRainbour> {
 
-    ResourceLocation rainbourLoc = new ResourceLocation(Reference.MODID, "textures/entity/rainbour.png");
-    ResourceLocation angryRainbourLoc = new ResourceLocation(Reference.MODID, "textures/entity/angry_rainbour.png");
+    ResourceLocation rainbourLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/rainbour.png");
+    ResourceLocation angryRainbourLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_rainbour.png");
 
     public RenderRainbour(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRainbour(), 0);

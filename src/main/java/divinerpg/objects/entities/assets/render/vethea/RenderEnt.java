@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelEnt;
 import divinerpg.objects.entities.entity.vethea.EntityEnt;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderEnt extends RenderLiving<EntityEnt> {
 
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/ent.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ent.png");
 
     public RenderEnt(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEnt(), 1F);

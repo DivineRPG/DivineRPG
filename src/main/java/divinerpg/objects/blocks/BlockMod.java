@@ -1,10 +1,9 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.BlockSoundTypeMap;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -21,7 +20,7 @@ public class BlockMod extends Block  {
     public BlockMod(String name, float hardness, Material material, CreativeTabs tab) {
         super(material);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setHardness(hardness);
         this.setCreativeTab(tab);
         this.setSoundType(BlockSoundTypeMap.soundTypeForMaterial(material));

@@ -1,12 +1,12 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityShuriken;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderShuriken extends RenderProjectile<EntityShuriken> {
-    private ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/items/shuriken.png");
+    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/items/shuriken.png");
 
     public RenderShuriken(RenderManager manager, float scaleIn) {
         super(manager, scaleIn);

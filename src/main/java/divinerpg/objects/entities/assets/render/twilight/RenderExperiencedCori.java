@@ -2,9 +2,9 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import javax.annotation.Nullable;
 
+import divinerpg.DivineRPG;
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.api.Reference;
 import divinerpg.objects.entities.assets.model.twilight.ModelExperiencedCori;
 import divinerpg.objects.entities.entity.twilight.cories.EntityExperiencedCori;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderExperiencedCori extends RenderLiving<EntityExperiencedCori> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/experienced_cori.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
 
     public RenderExperiencedCori(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelExperiencedCori(), 0);

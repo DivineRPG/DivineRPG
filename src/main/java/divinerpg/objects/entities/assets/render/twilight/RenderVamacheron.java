@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelVamacheron;
 import divinerpg.objects.entities.entity.twilight.EntityVamacheron;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderVamacheron extends RenderLiving<EntityVamacheron> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/vamecheron.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/vamecheron.png");
 
     public RenderVamacheron(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelVamacheron(), 0.5F);

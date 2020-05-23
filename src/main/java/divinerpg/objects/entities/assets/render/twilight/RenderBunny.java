@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelBunny;
 import divinerpg.objects.entities.entity.twilight.EntityBunny;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 import javax.annotation.Nullable;
 
 public class RenderBunny extends RenderLiving<EntityBunny> {
-    private static final ResourceLocation bunnyLoc = new ResourceLocation(Reference.MODID, "textures/entity/bunny.png");
+    private static final ResourceLocation bunnyLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/bunny.png");
     private static final ResourceLocation tamedBunnyLoc = new ResourceLocation(
             "divinerpg:textures/entity/tamed_bunny.png");
     private static final ResourceLocation tamedAngryBunnyLoc = new ResourceLocation(

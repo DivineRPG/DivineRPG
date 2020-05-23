@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.ContainerModChest;
 import divinerpg.objects.blocks.tile.entity.TileEntityModChest;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class PresentBoxGUI extends GuiContainer {
     private static final ResourceLocation GUI_PRESENT_BOX = new ResourceLocation(
-            Reference.MODID + ":textures/gui/present_box_gui.png");
+            DivineRPG.MODID + ":textures/gui/present_box_gui.png");
     private final InventoryPlayer playerInventory;
     private final TileEntityModChest te;
 

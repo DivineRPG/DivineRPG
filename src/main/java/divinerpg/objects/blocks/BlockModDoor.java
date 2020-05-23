@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
@@ -22,7 +22,7 @@ public class BlockModDoor extends BlockDoor {
     public BlockModDoor(String name, Material materialIn, float hardness) {
         super(materialIn);
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setHardness(hardness);
         this.setCreativeTab(DivineRPGTabs.BlocksTab);
     }

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,7 +23,7 @@ public class EntitySpinarus extends EntityMob {
         this.setHealth(this.getMaxHealth());
     }
 
-    public static final ResourceLocation LOOT = new ResourceLocation(Reference.MODID, "entities/vethea/spinarus");
+    public static final ResourceLocation LOOT = new ResourceLocation(DivineRPG.MODID, "entities/vethea/spinarus");
 
     private ResourceLocation deathLootTable = LOOT;
     protected boolean isMaster() {

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container.gui;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.ContainerInfusionTable;
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -15,7 +15,7 @@ import java.awt.*;
 public class InfusionTableGUI extends GuiContainer {
     private TileEntityInfusionTable TeInfusionTable;
 
-    private ResourceLocation texture = new ResourceLocation(Reference.MODID + ":textures/gui/infusion_table.png");
+    private ResourceLocation texture = new ResourceLocation(DivineRPG.MODID + ":textures/gui/infusion_table.png");
 
     public InfusionTableGUI(ContainerInfusionTable container) {
         super(container);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEpiphite;
 import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderEpiphite extends RenderLiving<EntityEpiphite> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/epiphite.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/epiphite.png");
 
     public RenderEpiphite(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEpiphite(), 0);

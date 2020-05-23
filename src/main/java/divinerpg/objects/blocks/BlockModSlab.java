@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -26,7 +26,7 @@ public class BlockModSlab extends BlockSlab {
         super(Material.WOOD);
         IBlockState iblockstate = this.blockState.getBaseState();
         this.isDouble = isDouble;
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
         
         if (!this.isDouble())

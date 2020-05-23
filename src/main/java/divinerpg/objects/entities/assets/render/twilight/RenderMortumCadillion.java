@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelCadillion;
 import divinerpg.objects.entities.entity.twilight.EntityMortumCadillion;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderMortumCadillion extends RenderLiving<EntityMortumCadillion> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/mortum_cadillion.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png");
 
     public RenderMortumCadillion(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCadillion(), 0);

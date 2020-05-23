@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelLheiva;
 import divinerpg.objects.entities.entity.vethea.EntityLheiva;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderLheiva extends RenderLiving<EntityLheiva> {
 
 
-	ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/lheiva.png");
+	ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/lheiva.png");
 
 	public RenderLheiva(RenderManager rendermanagerIn) {
 		super(rendermanagerIn, new ModelLheiva(), 1F);

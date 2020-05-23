@@ -1,6 +1,6 @@
 package divinerpg.registry;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.dimensions.apalachia.BiomeApalachia;
 import divinerpg.dimensions.arcana.BiomeArcana;
 import divinerpg.dimensions.eden.BiomeEden;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID)
 public class ModBiomes {
 
     @ObjectHolder("divinerpg:eden")

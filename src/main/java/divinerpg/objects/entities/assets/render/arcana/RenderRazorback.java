@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelRazorback;
 import divinerpg.objects.entities.entity.arcana.EntityRazorback;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderRazorback extends RenderLiving<EntityRazorback> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/razorback.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/razorback.png");
 
     public RenderRazorback(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRazorback(), 0);

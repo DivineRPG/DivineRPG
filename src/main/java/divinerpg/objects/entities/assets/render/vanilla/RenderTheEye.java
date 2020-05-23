@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelTheEye;
 import divinerpg.objects.entities.entity.vanilla.EntityTheEye;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderTheEye extends RenderLiving<EntityTheEye> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/the_eye.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/the_eye.png");
 
     public RenderTheEye(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTheEye(), 0);

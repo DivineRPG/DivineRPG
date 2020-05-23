@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJungleSpider;
 import divinerpg.objects.entities.entity.vanilla.EntityJungleSpider;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderJungleSpider extends RenderLiving<EntityJungleSpider> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/jungle_spider.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_spider.png");
 
     public RenderJungleSpider(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelJungleSpider(), 0);

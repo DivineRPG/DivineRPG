@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelTwilightDemon;
 import divinerpg.objects.entities.entity.twilight.EntityTwilightDemon;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderTwilightDemon extends RenderLiving<EntityTwilightDemon> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/twilight_demon.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png");
 
     public RenderTwilightDemon(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelTwilightDemon(), 0);

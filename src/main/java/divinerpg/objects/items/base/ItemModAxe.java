@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,7 +18,7 @@ public class ItemModAxe extends ItemAxe {
 	public ItemModAxe(ToolMaterial material, String name) {
 		// Eskl decided the speed multiplier (the / 5 thing)
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
-		setRegistryName(Reference.MODID, name);
+		setRegistryName(DivineRPG.MODID, name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.tools);
 

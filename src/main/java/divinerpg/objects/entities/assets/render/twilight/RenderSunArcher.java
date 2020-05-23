@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelSunArcher;
 import divinerpg.objects.entities.entity.twilight.EntitySunArcher;
 import divinerpg.registry.ModWeapons;
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class RenderSunArcher extends RenderLiving<EntitySunArcher> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/sun_archer.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/sun_archer.png");
 
     public RenderSunArcher(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelSunArcher(), 0);

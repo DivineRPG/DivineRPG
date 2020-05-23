@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityAyeracoSpawn;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -15,15 +15,15 @@ import org.lwjgl.opengl.GL12;
 public class RenderAyeracoSpawn extends TileEntitySpecialRenderer<TileEntityAyeracoSpawn> {
 
     private static ResourceLocation greenTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/green_ayeraco_symbol.png");
+            DivineRPG.MODID + ":textures/model/green_ayeraco_symbol.png");
     private static ResourceLocation redTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/red_ayeraco_symbol.png");
+            DivineRPG.MODID + ":textures/model/red_ayeraco_symbol.png");
     private static ResourceLocation yellowTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/yellow_ayeraco_symbol.png");
+            DivineRPG.MODID + ":textures/model/yellow_ayeraco_symbol.png");
     private static ResourceLocation blueTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/blue_ayeraco_symbol.png");
+            DivineRPG.MODID + ":textures/model/blue_ayeraco_symbol.png");
     private static ResourceLocation purpleTexture = new ResourceLocation(
-            Reference.MODID + ":textures/model/purple_ayeraco_symbol.png");
+            DivineRPG.MODID + ":textures/model/purple_ayeraco_symbol.png");
 
     public void render(TileEntityAyeracoSpawn te, double x, double y, double z, float partialTicks, int destroyStage,
             float alpha) {

@@ -1,11 +1,9 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import com.google.common.collect.Sets;
-import divinerpg.api.DivineAPI;
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.api.armor.ArmorEquippedEvent;
 import divinerpg.api.armor.IItemContainer;
-import divinerpg.config.Config;
 import divinerpg.objects.blocks.tile.container.KingCompressorContainer;
 import divinerpg.objects.blocks.tile.entity.base.IFuelProvider;
 import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
@@ -33,7 +31,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TileEntityKingCompressior extends ModUpdatableTileEntity implements ITickable, IInteractionObject, IFuelProvider {
-    private final ResourceLocation id = new ResourceLocation(Reference.MODID, "king_compressor");
+    private final ResourceLocation id = new ResourceLocation(DivineRPG.MODID, "king_compressor");
     private final NonNullList<ItemStack> container;
     /**
      * Amount of registered power sets need to create king set

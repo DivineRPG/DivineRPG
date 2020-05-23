@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.arcana;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.ModelLeorna;
 import divinerpg.objects.entities.entity.arcana.EntityLeorna;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderLeorna extends RenderLiving<EntityLeorna> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/leorna.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png");
 
     public RenderLeorna(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelLeorna(), 0);

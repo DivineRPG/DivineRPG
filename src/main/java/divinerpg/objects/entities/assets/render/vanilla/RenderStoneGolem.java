@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelStoneGolem;
 import divinerpg.objects.entities.entity.vanilla.EntityStoneGolem;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderStoneGolem extends RenderLiving<EntityStoneGolem> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/stone_golem.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/stone_golem.png");
 
     public RenderStoneGolem(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelStoneGolem(), 0);

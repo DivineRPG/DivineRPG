@@ -1,7 +1,6 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.api.Reference;
 import divinerpg.objects.blocks.tile.entity.TileEntityKingCompressior;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.DivineRPGTabs;
@@ -28,7 +27,7 @@ public class KingCompressor extends BlockContainer {
     public KingCompressor(String name, boolean isBurning) {
         super(Material.ROCK, MapColor.BLACK);
 
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
 
         if (isBurning)

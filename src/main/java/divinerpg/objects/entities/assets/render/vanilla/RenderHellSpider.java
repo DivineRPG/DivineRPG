@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelHellSpider;
 import divinerpg.objects.entities.entity.vanilla.EntityHellSpider;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderHellSpider extends RenderLiving<EntityHellSpider> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/hell_spider.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_spider.png");
 
     public RenderHellSpider(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelHellSpider(), 0.6F);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vethea;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelKazrotic;
 import divinerpg.objects.entities.entity.vethea.EntityKazrotic;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class RenderKazrotic extends RenderLiving<EntityKazrotic> {
 
 
-	ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/kazrotic.png");
+	ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/kazrotic.png");
 
 	public RenderKazrotic(RenderManager rendermanagerIn) {
 		super(rendermanagerIn, new ModelKazrotic(), 1F);

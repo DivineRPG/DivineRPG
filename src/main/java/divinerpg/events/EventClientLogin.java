@@ -1,8 +1,7 @@
 package divinerpg.events;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.config.GeneralConfig;
-import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.MessageUtils;
 import divinerpg.utils.UpdateChecker;
 import divinerpg.utils.Utils;
@@ -13,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID, value = Side.CLIENT)
 public class EventClientLogin {
 
     @SubscribeEvent

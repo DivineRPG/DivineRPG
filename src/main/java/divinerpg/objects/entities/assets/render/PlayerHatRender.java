@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,10 +15,10 @@ import java.util.UUID;
 public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
     private ModelHat modelHat;
     private RenderPlayer renderManager;
-    private ResourceLocation dev = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_red.png");
-    private ResourceLocation tester = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_blue.png");
-    private ResourceLocation artist = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_purple.png");
-    private ResourceLocation patreon = new ResourceLocation(Reference.MODID, "textures/model/devhats/hat_yellow.png");
+    private ResourceLocation dev = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_red.png");
+    private ResourceLocation tester = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_blue.png");
+    private ResourceLocation artist = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_purple.png");
+    private ResourceLocation patreon = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png");
 
     public PlayerHatRender(RenderPlayer renderManager) {
         this.renderManager = renderManager;

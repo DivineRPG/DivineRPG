@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.projectiles.EntityGrenade;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGrenade extends Render<EntityGrenade> {
-    ResourceLocation location = new ResourceLocation(Reference.MODID, "textures/items/grenade.png");
+    ResourceLocation location = new ResourceLocation(DivineRPG.MODID, "textures/items/grenade.png");
 
     public RenderGrenade(RenderManager manager) {
         super(manager);

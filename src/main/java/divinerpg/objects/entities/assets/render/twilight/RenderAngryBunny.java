@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.twilight;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelAngryBunny;
 import divinerpg.objects.entities.entity.twilight.EntityAngryBunny;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public class RenderAngryBunny extends RenderLiving<EntityAngryBunny> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/angry_bunny.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png");
 
     public RenderAngryBunny(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelAngryBunny(), 0);

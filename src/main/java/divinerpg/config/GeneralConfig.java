@@ -1,14 +1,14 @@
 package divinerpg.config;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = Reference.MODID)
-@Config(modid = Reference.MODID, name="divinerpg/general_config")
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID)
+@Config(modid = DivineRPG.MODID, name="divinerpg/general_config")
 public class GeneralConfig {
 
     @Config.Name("General Options")
@@ -64,8 +64,8 @@ public class GeneralConfig {
 
     @SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equals(Reference.MODID)) {
-            ConfigManager.sync(Reference.MODID, Config.Type.INSTANCE);
+        if (event.getModID().equals(DivineRPG.MODID)) {
+            ConfigManager.sync(DivineRPG.MODID, Config.Type.INSTANCE);
         }
     }
 }

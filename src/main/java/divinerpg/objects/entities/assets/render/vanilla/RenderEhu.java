@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
-import divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelEhu;
 import divinerpg.objects.entities.entity.vanilla.EntityEhu;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderEhu extends RenderLiving<EntityEhu> {
 
-    ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/entity/ehu.png");
+    ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu.png");
 
     public RenderEhu(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelEhu(), 0);
