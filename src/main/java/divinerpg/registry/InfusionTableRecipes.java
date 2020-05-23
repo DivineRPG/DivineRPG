@@ -1,23 +1,20 @@
-package divinerpg.utils;
+package divinerpg.registry;
 
 import java.util.HashMap;
 
-import divinerpg.registry.ModArmor;
-import divinerpg.registry.ModItems;
-import divinerpg.registry.ModWeapons;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class RecipesInfusionTable {
+public class InfusionTableRecipes {
 
     public static HashMap<InfusionRecipe, Item> recipes = new HashMap<InfusionRecipe, Item>();
-    public static RecipesInfusionTable instance = new RecipesInfusionTable();
+    public static InfusionTableRecipes instance = new InfusionTableRecipes();
 
-    private RecipesInfusionTable() {
+    private InfusionTableRecipes() {
         this.addRecipes();
     }
 
-    public void addRecipes() {
+    private void addRecipes() {
         addRecipe(ModItems.teakerLump, ModItems.bowTemplate, 4, new ItemStack(ModWeapons.teakerBow));
         addRecipe(ModItems.amthirmisLump, ModItems.bowTemplate, 5, new ItemStack(ModWeapons.amthirmisBow));
         addRecipe(ModItems.darvenLump, ModItems.bowTemplate, 6, new ItemStack(ModWeapons.darvenBow));
@@ -124,13 +121,17 @@ public class RecipesInfusionTable {
         addRecipe(ModItems.pardimalLump, ModItems.tormentedTemplate, 14, new ItemStack(ModArmor.tormentedChestplate));
     }
 
-    public void addRecipe(Item lump, Item template, int count, ItemStack res) {
+    private void addRecipe(Item lump, Item template, int count, ItemStack res) {
         recipes.put(new InfusionRecipe(lump, template, count), res.getItem());
     }
 
     public Item getOutput(Item lump, Item template, int count) {
-        if(recipes.containsKey(new InfusionRecipe(lump, template, count)))return recipes.get(new InfusionRecipe(lump, template, count));
-        return null;
+        if(recipes.containsKey(new InfusionRecipe(lump, template, count))) {
+            return recipes.get(new InfusionRecipe(lump, template, count));
+        }
+        else {
+            return null;
+        }
     }
 
     private static class InfusionRecipe {
@@ -139,14 +140,14 @@ public class RecipesInfusionTable {
         private final int lumpCount;
 
         public InfusionRecipe(Item lump, Item template, int lumpCount) {
-            this.lump=lump;
-            this.template=template;
-            this.lumpCount=lumpCount;
+            this.lump = lump;
+            this.template = template;
+            this.lumpCount = lumpCount;
         }
 
         @Override
         public int hashCode() {
-            return Item.getIdFromItem(template)*200 + Item.getIdFromItem(lump) + lumpCount;
+            return Item.getIdFromItem(template) * 200 + Item.getIdFromItem(lump) + lumpCount;
         }
 
         @Override

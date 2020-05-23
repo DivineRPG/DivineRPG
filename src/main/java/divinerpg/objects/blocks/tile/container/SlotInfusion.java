@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container;
 
-import divinerpg.utils.RecipesInfusionTable;
+import divinerpg.registry.InfusionTableRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.SlotFurnaceOutput;
@@ -24,7 +24,7 @@ public class SlotInfusion extends SlotFurnaceOutput {
                 if(!inputStack.isEmpty() && !templateStack.isEmpty()) {
                     Item item1 = inventory.getStackInSlot(0).getItem();
                     Item item2 = inventory.getStackInSlot(1).getItem();
-                    RecipesInfusionTable x = RecipesInfusionTable.instance;
+                    InfusionTableRecipes x = InfusionTableRecipes.instance;
                     Item item = x.getOutput(item1, item2, inputStackSize);
                     if(item != null) {
                         inventory.decrStackSize(0, inputStackSize);

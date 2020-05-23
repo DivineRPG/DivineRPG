@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import divinerpg.utils.RecipesInfusionTable;
+import divinerpg.registry.InfusionTableRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
@@ -55,7 +55,7 @@ public class TileEntityInfusionTable extends TileEntity implements ITickable, II
             Item template = inventory.get(1).getItem();
             int inputCount = inventory.get(0).getCount();
 
-            RecipesInfusionTable x = RecipesInfusionTable.instance;
+            InfusionTableRecipes x = InfusionTableRecipes.instance;
             Item item = x.getOutput(input, template, inputCount);
             if(item != null) {
                 inventory.set(2, new ItemStack(item));
