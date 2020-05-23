@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockHitchak extends BlockArcanaCrop {
@@ -16,11 +16,11 @@ public class BlockHitchak extends BlockArcanaCrop {
 
     @Override
     public Item getSeed() {
-        return ModItems.hitchakSeeds;
+        return ItemRegistry.hitchakSeeds;
     }
 
     @Override
     public Item getCrop() {
-        return ModItems.hitchak;
+        return ItemRegistry.hitchak;
     }
 }

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -25,12 +25,12 @@ public class TileEntityArcaniumExtractor extends TileEntityModFurnace {
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
         return (index == 0 && stack.getItem() == Item.getItemFromBlock(BlockRegistry.arcaniumOre))
-                || (index == 1 && stack.getItem() == ModItems.chargedCollector);
+                || (index == 1 && stack.getItem() == ItemRegistry.chargedCollector);
     }
 
     @Override
     public int getItemBurnTime(ItemStack stack) {
-        if (stack == null || stack.getItem() != ModItems.chargedCollector)
+        if (stack == null || stack.getItem() != ItemRegistry.chargedCollector)
             return 0;
         return 400;
     }
@@ -39,6 +39,6 @@ public class TileEntityArcaniumExtractor extends TileEntityModFurnace {
     public ItemStack getSmeltingResult(ItemStack stack) {
         if (stack == null || stack.getItem() != Item.getItemFromBlock(BlockRegistry.arcaniumOre))
             return ItemStack.EMPTY;
-        return new ItemStack(ModItems.arcanium);
+        return new ItemStack(ItemRegistry.arcanium);
     }
 }

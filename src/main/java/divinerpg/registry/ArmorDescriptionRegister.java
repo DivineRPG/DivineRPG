@@ -234,7 +234,7 @@ public class ArmorDescriptionRegister {
 
                                     IArmorPowers powers = DivineAPI.getArmorPowers(event.getEntity());
                                     if (powers != null) {
-                                        if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ModItems.arlemite_shield)) {
+                                        if (powers.currentItems(EntityEquipmentSlot.OFFHAND).contains(ItemRegistry.arlemite_shield)) {
                                             multiplier /= 2;
                                         }
                                     }

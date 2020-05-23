@@ -5,8 +5,8 @@ import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ModArmor;
-import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
@@ -46,31 +46,31 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
     public static List<MerchantRecipe> getAllRecipies(){
         List<MerchantRecipe> list = new ArrayList<>();
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaHelmet, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaChestplate, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaLeggings, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModArmor.santaBoots, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.eggNog, 2, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.chocolateLog, 5, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.peppermints, 15, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(ModItems.fruitCake, 3, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 20), new ItemStack(ModWeapons.icicleBane, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ModArmor.santaHelmet, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ModArmor.santaChestplate, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ModArmor.santaLeggings, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ModArmor.santaBoots, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(ItemRegistry.eggNog, 2, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(ItemRegistry.chocolateLog, 5, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(ItemRegistry.peppermints, 15, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(ItemRegistry.fruitCake, 3, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 20), new ItemStack(ModWeapons.icicleBane, 1, 0)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3),
                 new ItemStack(BlockRegistry.greenChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3),
                 new ItemStack(BlockRegistry.redChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3),
                 new ItemStack(BlockRegistry.blueChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3),
                 new ItemStack(BlockRegistry.yellowChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3),
                 new ItemStack(BlockRegistry.purpleChristmasLights, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 9), new ItemStack(BlockRegistry.presentBox, 1)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(BlockRegistry.blueCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(BlockRegistry.greenCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(BlockRegistry.pinkCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(BlockRegistry.redCandyCane, 4)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.iceStone, 3), new ItemStack(BlockRegistry.yellowCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 9), new ItemStack(BlockRegistry.presentBox, 1)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.blueCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.greenCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.pinkCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.redCandyCane, 4)));
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.yellowCandyCane, 4)));
         return list;
     }
 

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vethea;
 
 import divinerpg.objects.entities.entity.vethea.EntityLadyLuna;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
@@ -12,7 +12,7 @@ public class BlockLunicAltar extends BlockVetheaAltar {
     }
 
     protected Item acceptedItem() {
-        return ModItems.moonClock;
+        return ItemRegistry.moonClock;
     }
 
     protected EntityLiving getBoss(World world) {

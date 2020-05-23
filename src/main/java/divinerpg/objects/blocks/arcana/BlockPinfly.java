@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockPinfly extends BlockStackPlant {
@@ -9,10 +9,10 @@ public class BlockPinfly extends BlockStackPlant {
     }
 
     public Item getSeedDrop() {
-        return ModItems.pinflySeeds;
+        return ItemRegistry.pinflySeeds;
     }
 
     public Item getFlowerDrop() {
-        return ModItems.pinfly;
+        return ItemRegistry.pinfly;
     }
 }

@@ -7,7 +7,7 @@ import divinerpg.api.armor.IItemContainer;
 import divinerpg.objects.blocks.tile.container.KingCompressorContainer;
 import divinerpg.objects.blocks.tile.entity.base.IFuelProvider;
 import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -351,7 +351,7 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
      * @return
      */
     public int getBurnTime(@Nonnull ItemStack stack) {
-        if (stack.getItem() == ModItems.shadowStone) {
+        if (stack.getItem() == ItemRegistry.shadowStone) {
             return getCookTimeLength() / 2;
         }
 

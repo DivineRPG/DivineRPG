@@ -1,7 +1,7 @@
 package divinerpg.objects.items.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.utils.Lazy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -49,7 +49,7 @@ public class DivineShield extends ItemShield {
         ActionResult<ItemStack> result = super.onItemRightClick(worldIn, playerIn, handIn);
         Item item = result.getResult().getItem();
 
-        if (item == ModItems.realmite_shield) {
+        if (item == ItemRegistry.realmite_shield) {
             playerIn.fallDistance = 0;
         }
 

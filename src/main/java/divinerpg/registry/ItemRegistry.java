@@ -42,7 +42,7 @@ import java.util.Objects;
  */
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
-public class ModItems {
+public class ItemRegistry {
     public static HashMap<String, Item> itemMap = new HashMap<String, Item>();
 
     // Teleportation crystal

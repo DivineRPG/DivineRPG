@@ -619,6 +619,6 @@ public class ModArmor {
 
     private static void register(IForgeRegistry<Item> registry, Item item) {
         registry.register(item);
-        ModItems.itemMap.put(item.getRegistryName().getResourcePath(), item);
+        ItemRegistry.itemMap.put(item.getRegistryName().getResourcePath(), item);
     }
 }

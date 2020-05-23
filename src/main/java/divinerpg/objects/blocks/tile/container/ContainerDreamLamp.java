@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.container;
 
 import divinerpg.objects.blocks.tile.entity.TileEntityDreamLamp;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -51,7 +51,7 @@ public class ContainerDreamLamp extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if(itemstack.getItem() != ModItems.acid) {
+            if(itemstack.getItem() != ItemRegistry.acid) {
                 return ItemStack.EMPTY;
             }
             if (index == 0 && !this.mergeItemStack(itemstack1, 1, 37, false))

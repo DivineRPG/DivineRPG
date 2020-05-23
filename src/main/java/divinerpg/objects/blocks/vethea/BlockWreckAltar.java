@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vethea;
 
 import divinerpg.objects.entities.entity.vethea.EntityWreck;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
@@ -12,7 +12,7 @@ public class BlockWreckAltar extends BlockVetheaAltar {
     }
 
     protected Item acceptedItem() {
-        return ModItems.dreamFlint;
+        return ItemRegistry.dreamFlint;
     }
 
     protected EntityLiving getBoss(World world) {

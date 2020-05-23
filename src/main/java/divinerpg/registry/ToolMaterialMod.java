@@ -218,7 +218,7 @@ public class ToolMaterialMod {
     public static final ArmorMaterial TORMENTED_ARMOR = EnumHelper.addArmorMaterial("drpg_tormented_armor", DivineRPG.MODID + ":tormented", 45, new int[] {4, 8, 9, 5},  10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 4F);
 
     private static ItemStack makeRepairStack(String itemName) {
-        return new ItemStack(ModItems.getItemFromMap(itemName));
+        return new ItemStack(ItemRegistry.getItemFromMap(itemName));
     }
 
     private static ItemStack makeRepairStack(Item item) {

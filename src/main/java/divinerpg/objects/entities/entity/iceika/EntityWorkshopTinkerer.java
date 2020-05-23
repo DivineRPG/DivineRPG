@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ModWeapons;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,33 +45,33 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 
     public static List<MerchantRecipe> getAllRecipies(){
         ArrayList<MerchantRecipe> list = new ArrayList<>();
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 1), new ItemStack(ModWeapons.shuriken, 16, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 1), new ItemStack(ModWeapons.shuriken, 16, 0),
                 new ItemStack(ModWeapons.snowflakeShuriken, 16, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 4), new ItemStack(ModWeapons.serenadeStriker, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 4), new ItemStack(ModWeapons.serenadeStriker, 1, 0),
                 new ItemStack(ModWeapons.serenadeOfIce, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 7), new ItemStack(ModWeapons.slimeSword, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 7), new ItemStack(ModWeapons.slimeSword, 1, 0),
                 new ItemStack(ModWeapons.glacierSword, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModWeapons.shadowBow, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 12), new ItemStack(ModWeapons.shadowBow, 1, 0),
                 new ItemStack(ModWeapons.icicleBow, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 6), new ItemStack(ModWeapons.massivence, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ModWeapons.massivence, 1, 0),
                 new ItemStack(ModWeapons.frossivence, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModWeapons.crabclawCannon, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 12), new ItemStack(ModWeapons.crabclawCannon, 1, 0),
                 new ItemStack(ModWeapons.frostclawCannon, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 12), new ItemStack(ModWeapons.frostCannon, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 12), new ItemStack(ModWeapons.frostCannon, 1, 0),
                 new ItemStack(ModWeapons.fractiteCannon, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModWeapons.frostSword, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 15), new ItemStack(ModWeapons.frostSword, 1, 0),
                 new ItemStack(ModWeapons.frostkingSword, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 18), new ItemStack(ModWeapons.soundOfMusic, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 18), new ItemStack(ModWeapons.soundOfMusic, 1, 0),
                 new ItemStack(ModWeapons.soundOfCarols, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 25), new ItemStack(ModWeapons.enderSword, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 25), new ItemStack(ModWeapons.enderSword, 1, 0),
                 new ItemStack(ModWeapons.enderice, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 30), new ItemStack(ModWeapons.bluefireBow, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 30), new ItemStack(ModWeapons.bluefireBow, 1, 0),
                 new ItemStack(ModWeapons.snowstormBow, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 45), new ItemStack(ModWeapons.bedrockMaul, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 45), new ItemStack(ModWeapons.bedrockMaul, 1, 0),
                 new ItemStack(ModWeapons.frozenMaul, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 40), new ItemStack(ModWeapons.divineSword, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 40), new ItemStack(ModWeapons.divineSword, 1, 0),
                 new ItemStack(ModWeapons.icineSword, 1, 0)));
-        list.add(new InfiniteTrade(new ItemStack(ModItems.snowflake, 15), new ItemStack(ModWeapons.sandslash, 1, 0),
+        list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 15), new ItemStack(ModWeapons.sandslash, 1, 0),
                 new ItemStack(ModWeapons.snowslash, 1, 0)));
         return list;
     }

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -120,7 +120,7 @@ public class EntityBunny extends EntityDivineRPGTameable {
                 }
                 return true;
             }
-        } else if (held != null && held.getItem() == ModItems.edenSparkles) {
+        } else if (held != null && held.getItem() == ItemRegistry.edenSparkles) {
             if (!player.capabilities.isCreativeMode) {
                 held.shrink(1);
             }

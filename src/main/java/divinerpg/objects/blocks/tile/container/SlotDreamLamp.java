@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.container;
 
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ public class SlotDreamLamp extends Slot {
     }
 
     public boolean isItemValid(ItemStack stack) {
-        return stack.getItem() == ModItems.acid;
+        return stack.getItem() == ItemRegistry.acid;
     }
 
 }

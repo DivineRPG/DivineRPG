@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockAquaMarine extends BlockArcanaCrop {
@@ -16,11 +16,11 @@ public class BlockAquaMarine extends BlockArcanaCrop {
 
     @Override
     public Item getSeed() {
-        return ModItems.aquamarineSeeds;
+        return ItemRegistry.aquamarineSeeds;
     }
 
     @Override
     public Item getCrop() {
-        return ModItems.aquamarine;
+        return ItemRegistry.aquamarine;
     }
 }

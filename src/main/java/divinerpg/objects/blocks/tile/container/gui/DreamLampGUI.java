@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.container.gui;
 import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.container.ContainerDreamLamp;
 import divinerpg.objects.blocks.tile.entity.TileEntityInfusionTable;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.inventory.IInventory;
@@ -37,7 +37,7 @@ public class DreamLampGUI extends GuiContainer {
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-        if(this.blockInv.getStackInSlot(0) != ItemStack.EMPTY && this.blockInv.getStackInSlot(0).getItem() == ModItems.acid) this.drawTexturedModalRect(k+81, l+31, 176, 0, 13, 13);
+        if(this.blockInv.getStackInSlot(0) != ItemStack.EMPTY && this.blockInv.getStackInSlot(0).getItem() == ItemRegistry.acid) this.drawTexturedModalRect(k+81, l+31, 176, 0, 13, 13);
     }
 
     @Override

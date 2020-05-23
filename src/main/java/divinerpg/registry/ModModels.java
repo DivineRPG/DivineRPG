@@ -23,7 +23,7 @@ public class ModModels {
 
     @SubscribeEvent
     public static void registerItemModels(ModelRegistryEvent event) {
-        for (Item item : ModItems.itemMap.values()) {
+        for (Item item : ItemRegistry.itemMap.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
         registerTESRs();
@@ -39,7 +39,7 @@ public class ModModels {
         Item.getItemFromBlock(BlockRegistry.dramixAltar).setTileEntityItemStackRenderer(new RenderItemDramixAltar());
         Item.getItemFromBlock(BlockRegistry.parasectaAltar).setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
         Item.getItemFromBlock(BlockRegistry.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-        ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
+        ItemRegistry.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
@@ -78,15 +78,15 @@ public class ModModels {
         );
 
         registerRenders(new ShieldsRender(),
-                ModItems.arlemite_shield,
-                ModItems.realmite_shield,
-                ModItems.rupee_shield,
-                ModItems.halite_shield,
-                ModItems.eden_shield,
-                ModItems.wildwood_shield,
-                ModItems.apalachia_shield,
-                ModItems.skythern_shield,
-                ModItems.mortum_shield
+                ItemRegistry.arlemite_shield,
+                ItemRegistry.realmite_shield,
+                ItemRegistry.rupee_shield,
+                ItemRegistry.halite_shield,
+                ItemRegistry.eden_shield,
+                ItemRegistry.wildwood_shield,
+                ItemRegistry.apalachia_shield,
+                ItemRegistry.skythern_shield,
+                ItemRegistry.mortum_shield
         );
     }
 

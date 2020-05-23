@@ -42,7 +42,7 @@ public class ItemStaff extends RangedWeaponBase {
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(LocalizeUtils.arcanaDam(damage));
         list.add(LocalizeUtils.i18n("tooltip.staff.bounce"));
-		/*if(stack.getItem() == ModItems.evernight)
+		/*if(stack.getItem() == ItemRegistry.evernight)
 			list.add(LocalizeUtils.i18n("tooltip.staff.evernight.damage"));*/
         super.addInformation(stack, worldIn, list, flagIn);
         //list.add(TooltipLocalizer.vethean());
@@ -52,7 +52,7 @@ public class ItemStaff extends RangedWeaponBase {
 	protected void spawnEntity(World world, EntityPlayer player, ItemStack stack, BulletType bulletType, Class<? extends EntityThrowable> clazz) {
 		Item item = stack.getItem();
 
-		/**if (item == ModItems.evernight){
+		/**if (item == ItemRegistry.evernight){
 			player.attackEntityFrom(Utils.arcanaSource, 20);
 			EntityThrowable projectile = new EntityEvernightProjectile(world, player, this.damage);
 			projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0.4F);

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.objects.blocks.BlockModCrop;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockWhiteMushroomPlant extends BlockModCrop {
@@ -16,11 +16,11 @@ public class BlockWhiteMushroomPlant extends BlockModCrop {
 
     @Override
     protected Item getSeed() {
-        return ModItems.whiteMushroomSeeds;
+        return ItemRegistry.whiteMushroomSeeds;
     }
 
     @Override
     protected Item getCrop() {
-        return ModItems.whiteMushroom;
+        return ItemRegistry.whiteMushroom;
     }
 }

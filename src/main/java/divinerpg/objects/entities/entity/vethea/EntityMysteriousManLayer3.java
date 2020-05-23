@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.entity.EntityGifterNPC;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -21,7 +21,7 @@ public class EntityMysteriousManLayer3 extends EntityGifterNPC {
 
     @Override
     protected ItemStack getGift() {
-        return new ItemStack(ModItems.pardimalLump, 10);
+        return new ItemStack(ItemRegistry.pardimalLump, 10);
     }
 
     @Override

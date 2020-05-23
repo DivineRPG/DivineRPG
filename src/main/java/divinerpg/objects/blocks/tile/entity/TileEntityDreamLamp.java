@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.objects.blocks.vethea.BlockDreamLamp;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,9 +28,9 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
         if(!this.world.isRemote) {
             ItemStack acidStack = inventory.get(0);
             boolean powerOn = false;
-            if (!acidStack.isEmpty() && acidStack.getItem() == ModItems.acid) {
+            if (!acidStack.isEmpty() && acidStack.getItem() == ItemRegistry.acid) {
                 powerOn = true;
-            } else if (acidStack.isEmpty() || acidStack.getItem() != ModItems.acid) {
+            } else if (acidStack.isEmpty() || acidStack.getItem() != ItemRegistry.acid) {
                 powerOn = false;
             }
 
@@ -113,7 +113,7 @@ public class TileEntityDreamLamp extends TileEntity implements ITickable, IInven
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        return stack != ItemStack.EMPTY && stack.getItem() == ModItems.acid;
+        return stack != ItemStack.EMPTY && stack.getItem() == ItemRegistry.acid;
     }
 
     @Override

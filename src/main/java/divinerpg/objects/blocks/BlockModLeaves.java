@@ -3,7 +3,7 @@ package divinerpg.objects.blocks;
 import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -278,7 +278,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
             if (chance < 40) chance = 40;
         }
         if (this == BlockRegistry.edenLeaves && rand.nextInt(1500) == 0) {
-            drops.add(new ItemStack(ModItems.forbiddenFruit));
+            drops.add(new ItemStack(ItemRegistry.forbiddenFruit));
         }
         this.captureDrops(true);
         if (world instanceof World)

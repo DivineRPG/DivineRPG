@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockLamona extends BlockArcanaCrop {
@@ -16,11 +16,11 @@ public class BlockLamona extends BlockArcanaCrop {
 
     @Override
     public Item getSeed() {
-        return ModItems.lamonaSeeds;
+        return ItemRegistry.lamonaSeeds;
     }
 
     @Override
     public Item getCrop() {
-        return ModItems.lamona;
+        return ItemRegistry.lamona;
     }
 }

@@ -1114,7 +1114,7 @@ public class BlockRegistry {
         register(registry, new BlockModOre("arlemite_ore", 3.0F, 2000F, DIAMOND, () -> null));
         register(registry, new BlockModOre("realmite_ore", 3.0F, 2000F, IRON, () -> null));
         register(registry, new BlockModOre("rupee_ore", 3.0F, 2000F, DIAMOND, () -> null));
-        register(registry, new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, () -> ModItems.bloodgem));
+        register(registry, new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, () -> ItemRegistry.bloodgem));
         register(registry, new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND));
 
         // Compressed ore blocks
@@ -1376,11 +1376,11 @@ public class BlockRegistry {
         register(registry, new BlockMod("twilight_stone", 6.0F));
 
         // Ore
-        register(registry, new BlockTwilightOre("eden_ore", 5, 2000F, DIAMOND, () -> ModItems.edenFragments));
-        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, EDEN, () -> ModItems.wildwoodFragments));
-        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, WILDWOOD, () -> ModItems.apalachiaFragments));
-        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, APALACHIA, () -> ModItems.skythernFragments));
-        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, SKYTHERN, () -> ModItems.mortumFragments));
+        register(registry, new BlockTwilightOre("eden_ore", 5, 2000F, DIAMOND, () -> ItemRegistry.edenFragments));
+        register(registry, new BlockTwilightOre("wildwood_ore", 6, 2000F, EDEN, () -> ItemRegistry.wildwoodFragments));
+        register(registry, new BlockTwilightOre("apalachia_ore", 7, 2000F, WILDWOOD, () -> ItemRegistry.apalachiaFragments));
+        register(registry, new BlockTwilightOre("skythern_ore", 8, 2000F, APALACHIA, () -> ItemRegistry.skythernFragments));
+        register(registry, new BlockTwilightOre("mortum_ore", 9, 2000F, SKYTHERN, () -> ItemRegistry.mortumFragments));
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
@@ -1511,10 +1511,10 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("soul_stone"));
 
         // Door
-        registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ModItems.ancientKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ModItems.degradedKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ModItems.sludgeKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ModItems.soulKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ItemRegistry.ancientKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ItemRegistry.degradedKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ItemRegistry.sludgeKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ItemRegistry.soulKey));
 
         // Spawner
         register(registry, new BlockArcanaSpawner("death_hound_spawner", "death_hound"));
@@ -1748,7 +1748,7 @@ public class BlockRegistry {
         for (Block block : blockList) {
             Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
             if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
-                ModItems.itemMap.put(itemBlock.getRegistryName().getResourcePath(), itemBlock);
+                ItemRegistry.itemMap.put(itemBlock.getRegistryName().getResourcePath(), itemBlock);
             }
             event.getRegistry().register(itemBlock);
         }

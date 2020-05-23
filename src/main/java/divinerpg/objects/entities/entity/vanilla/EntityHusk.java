@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class EntityHusk extends EntityDivineRPGTameable {
                 if (itemstack.getItem() instanceof ItemFood) {
                     ItemFood food = (ItemFood) itemstack.getItem();
                     if (food == Items.CARROT || food == Items.APPLE
-                            || food == ModItems.moonbulb && this.getHealth() < this.getMaxHealth()) {
+                            || food == ItemRegistry.moonbulb && this.getHealth() < this.getMaxHealth()) {
                         if (!player.capabilities.isCreativeMode) {
                             itemstack.shrink(1);
                         }

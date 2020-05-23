@@ -6,7 +6,7 @@ import java.util.Random;
 
 import divinerpg.objects.blocks.BlockMod;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -35,7 +35,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         if (this == BlockRegistry.ripeWinterberryBush) {
-            return ModItems.winterberry;
+            return ItemRegistry.winterberry;
         }
         return null;
     }

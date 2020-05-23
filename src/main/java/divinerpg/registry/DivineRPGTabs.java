@@ -39,7 +39,7 @@ public class DivineRPGTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.rupeeIngot);
+			return new ItemStack(ItemRegistry.rupeeIngot);
 		}
 	};
 	public static final CreativeTabs armor = new CreativeTabs("divinerpg_armor") {
@@ -53,28 +53,28 @@ public class DivineRPGTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.callOfTheWatcher);
+			return new ItemStack(ItemRegistry.callOfTheWatcher);
 		}
 	};
 	public static final CreativeTabs utility = new CreativeTabs("divinerpg_utility") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.snowGlobe);
+			return new ItemStack(ItemRegistry.snowGlobe);
 		}
 	};
 	public static final CreativeTabs food = new CreativeTabs("divinerpg_food_and_agriculture") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.bacon);
+			return new ItemStack(ItemRegistry.bacon);
 		}
 	};
 	public static final CreativeTabs vethea = new CreativeTabs("divinerpg_vethea") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.dreamCake);
+			return new ItemStack(ItemRegistry.dreamCake);
 		}
 	};
 

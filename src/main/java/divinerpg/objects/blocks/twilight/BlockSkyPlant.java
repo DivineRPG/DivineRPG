@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.twilight;
 
 import divinerpg.objects.blocks.BlockModCrop;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
 public class BlockSkyPlant extends BlockModCrop {
@@ -16,11 +16,11 @@ public class BlockSkyPlant extends BlockModCrop {
 
     @Override
     protected Item getSeed() {
-        return ModItems.skyPlantSeeds;
+        return ItemRegistry.skyPlantSeeds;
     }
 
     @Override
     protected Item getCrop() {
-        return ModItems.skyFlower;
+        return ItemRegistry.skyFlower;
     }
 }

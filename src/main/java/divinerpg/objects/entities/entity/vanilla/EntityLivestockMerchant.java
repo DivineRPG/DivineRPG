@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -41,20 +41,20 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
 
     public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.ehuEgg, 2)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ModItems.shadowCoins, 7),
-                new ItemStack(ModItems.huskEgg, 2)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ModItems.shadowCoins, 3),
-                new ItemStack(ModItems.stoneGolemEgg, 1)));
-        list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ModItems.shadowCoins, 5),
-                new ItemStack(ModItems.smelterEgg, 1)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.jungleStone, 2), new ItemStack(ModItems.shadowCoins, 4),
-                new ItemStack(ModItems.snapperEgg, 3)));
-        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.whiteGrizzleEgg, 2)));
-        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ModItems.shadowCoins, 8),
-                new ItemStack(ModItems.brownGrizzleEgg, 2)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ItemRegistry.shadowCoins, 4),
+                new ItemStack(ItemRegistry.ehuEgg, 2)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 64, 0), new ItemStack(ItemRegistry.shadowCoins, 7),
+                new ItemStack(ItemRegistry.huskEgg, 2)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.STONE, 64), new ItemStack(ItemRegistry.shadowCoins, 3),
+                new ItemStack(ItemRegistry.stoneGolemEgg, 1)));
+        list.add(new MerchantRecipe(new ItemStack(Blocks.NETHER_BRICK, 32), new ItemStack(ItemRegistry.shadowCoins, 5),
+                new ItemStack(ItemRegistry.smelterEgg, 1)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.jungleStone, 2), new ItemStack(ItemRegistry.shadowCoins, 4),
+                new ItemStack(ItemRegistry.snapperEgg, 3)));
+        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8),
+                new ItemStack(ItemRegistry.whiteGrizzleEgg, 2)));
+        list.add(new MerchantRecipe(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8),
+                new ItemStack(ItemRegistry.brownGrizzleEgg, 2)));
         return list;
     }
 

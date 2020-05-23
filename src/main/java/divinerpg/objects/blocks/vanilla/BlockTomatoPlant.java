@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.objects.blocks.BlockModCrop;
-import divinerpg.registry.ModItems;
+import divinerpg.registry.ItemRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -53,11 +53,11 @@ public class BlockTomatoPlant extends BlockModCrop {
 
     @Override
     protected Item getSeed() {
-        return ModItems.tomatoSeeds;
+        return ItemRegistry.tomatoSeeds;
     }
 
     @Override
     protected Item getCrop() {
-        return ModItems.tomato;
+        return ItemRegistry.tomato;
     }
 }
