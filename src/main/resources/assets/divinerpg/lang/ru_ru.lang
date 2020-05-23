@@ -235,6 +235,7 @@ tile.bacterial_acid.name=Бактериальная кислота
 tile.acid_block.name=Кислотный блок
 tile.sunstorm_spawner.name=Спавнер Солнечного шторма
 tile.termasect_spawner.name=Спавнер Термасекта
+tile.eternal_archer_spawner.name=Спавнер Вечного лучника
 tile.experienced_cori_spawner.name=Спавнер Королевской Кори
 
 tile.lunic_acid.name=Лунная кислота
@@ -1655,9 +1656,10 @@ tooltip.food.saturation=%s насыщения
 tooltip.food.pet=Еда для питомцев
 tooltip.food.heal=Восстанавливает %s сердeц
 
-tooltip.spawner.sunstorm_spawner=Призывает Солнечного шторма нажатием ПКМ по блоку
-tooltip.spawner.termasect_spawner=Призывает Термасекта нажатием ПКМ по блоку
-tooltip.spawner.experienced_cori_spawner=Призывает Королевскую Кори нажатием ПКМ по блоку
+tooltip.spawner.sunstorm_spawner=Призывает Солнечного шторма, когда игрок находится рядом
+tooltip.spawner.termasect_spawner=Призывает Термасекта, когда игрок находится рядом
+tooltip.spawner.eternal_archer_spawner=Призывает Вечного лучника, когда игрок находится рядом
+tooltip.spawner.experienced_cori_spawner=Призывает Королевскую Кори, когда игрок находится рядом
 
 enchantment.world_break=Крушитель миров
 enchantment.double_dealing_damage=Расщепитель
