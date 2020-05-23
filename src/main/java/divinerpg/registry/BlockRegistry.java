@@ -1587,7 +1587,7 @@ public class BlockRegistry {
         // Terrain
         register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
         register(registry, new BlockDreamGrass("dream_grass", 0.6F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("dream_stone", 6.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockMod("dream_stone", 1.5F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Logs
         register(registry, new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea));

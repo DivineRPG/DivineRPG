@@ -39,6 +39,9 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 3, 0), new ItemStack(ItemRegistry.dreamMelon, 4, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 5, 0), new ItemStack(ItemRegistry.dreamPie, 5, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 10, 0), new ItemStack(ItemRegistry.dreamCake, 8, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 10, 0), new ItemStack(ToolRegistry.dreamShovel, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 10, 0), new ItemStack(ToolRegistry.dreamPickaxe, 1, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 10, 0), new ItemStack(ToolRegistry.dreamAxe, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 5, 0), new ItemStack(ItemRegistry.barredDoor, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 3, 0), new ItemStack(ItemRegistry.diskTemplate, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 3, 0), new ItemStack(ItemRegistry.cannonTemplate, 1, 0)));
@@ -61,9 +64,6 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 2, 0), new ItemStack(ItemRegistry.darvenArrow, 32, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 4, 0), new ItemStack(ItemRegistry.pardimalArrow, 32, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 6, 0), new ItemStack(ItemRegistry.karosArrow, 32, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 10, 0), new ItemStack(ToolRegistry.dreamShovel, 1, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 10, 0), new ItemStack(ToolRegistry.dreamPickaxe, 1, 0)));
-        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 10, 0), new ItemStack(ToolRegistry.dreamAxe, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.cleanPearls, 15, 0), new ItemStack(ItemRegistry.minersAmulet, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.polishedPearls, 20, 0), new ItemStack(ItemRegistry.dreamFlint, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.polishedPearls, 5, 0), new ItemStack(ItemRegistry.glisteningTemplate, 1, 0)));
