@@ -16,13 +16,7 @@ import java.util.List;
 public class ItemMusicShooter extends RangedWeaponBase {
 
     public ItemMusicShooter(String name, SoundEvent event, Class<? extends EntityThrowable> clazz) {
-        super(name,
-                clazz,
-                null,
-                event,
-                SoundCategory.MASTER,
-                4000,
-                0,
+        super(name, clazz,null, event, SoundCategory.MASTER,4000, 0,
                 () -> null,
                 0);
     }

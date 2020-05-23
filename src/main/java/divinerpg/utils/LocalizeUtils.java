@@ -16,7 +16,6 @@ public class LocalizeUtils {
             InfiniteUses = new TextComponentTranslation("tooltip.uses.infinite"),
             NoProtection = new TextComponentTranslation("tooltip.noprotection"),
             InfiniteAmmo = new TextComponentTranslation("tooltip.ammo.infinite"),
-            CannotBlock = new TextComponentTranslation("tooltip.noblock"),
             ExposiveShoots = new TextComponentTranslation("tooltip.shots.explosive"),
             HomingShoots = new TextComponentTranslation("tooltip.shots.homing"),
             SingleUse = new TextComponentTranslation("tooltip.uses.single");
