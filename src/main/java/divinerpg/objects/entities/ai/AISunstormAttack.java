@@ -58,6 +58,10 @@ public class AISunstormAttack extends EntityAIBase
     public boolean shouldExecute()
     {
         EntityLivingBase entitylivingbase = this.entityHost.getAttackTarget();
+        if(entitylivingbase == null) {
+            return false;
+        }
+
         double distance = this.entityHost.getDistanceSq(entitylivingbase.posX, entitylivingbase.getEntityBoundingBox().minY, entitylivingbase.posZ);
         if(distance < 4 || entitylivingbase == null) {
         	return false;
