@@ -538,7 +538,6 @@ public class ModEntities {
         registerRender(EntityQuadro.class, RenderQuadro::new);
         registerRender(EntityRaglok.class, RenderRaglok::new);
         registerRender(EntityShadahier.class, RenderShadahier::new);
-        registerRender(EntitySpinarus.class, RenderSpinarus::new);
         registerRender(EntityTempleGuardian.class, RenderTempleGuardian::new);
         registerRender(EntityTheHunger.class, RenderTheHunger::new);
         registerRender(EntityTocaxin.class, RenderTocaxin::new);

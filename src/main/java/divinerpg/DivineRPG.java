@@ -45,8 +45,6 @@ public class DivineRPG {
 
     public static org.apache.logging.log4j.Logger logger;
 
-
-
     public static SimpleNetworkWrapper network = new SimpleNetworkWrapper(MODID);
 
     static {
@@ -94,23 +92,12 @@ public class DivineRPG {
         UpdateChecker.checkForUpdates();
     }
 
-    /** For Registering Commands */
-    @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent event) {
-
-    }
-
     /**
      * Creating new registry here
      */
     @SubscribeEvent
     public void createRegistries(RegistryEvent.NewRegistry event) {
         logger.info("Creating registries");
-
-//        new RegistryBuilder<IPoweredArmor>()
-//                .setName(new ResourceLocation(APIReference.MODID, "powers"))
-//                .setType(IPoweredArmor.class)
-//                .create();
 
         new RegistryBuilder<IArmorDescription>()
                 .setName(new ResourceLocation(MODID, "armor_descriptions"))
