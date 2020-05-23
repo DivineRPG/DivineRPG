@@ -7,7 +7,7 @@
                "condition":"killed_by_player"
             }
          ],
-         "rolls":2,
+         "rolls":1,
          "entries":[
             {
                "type":"item",

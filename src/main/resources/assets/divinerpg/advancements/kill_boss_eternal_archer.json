@@ -1,7 +1,7 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:halite_helmet"
+         "item":"divinerpg:apalachia_heart"
       },
       "title":{
          "translate":"advancement.kill_boss_eternal_archer"
@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_mortum",
+   "parent":"divinerpg:enter_apalachia",
    "criteria":{
       "kill_boss_eternal_archer":{
          "trigger":"minecraft:player_killed_entity",
