@@ -2,7 +2,7 @@ package divinerpg.dimensions.mortum;
 
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -12,8 +12,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class WorldGenMortumStone extends WorldGenerator {
     
     private int numberOfBlocks;
-    private final IBlockState stone = ModBlocks.twilightStone.getDefaultState();
-    private final IBlockState grass = ModBlocks.mortumGrass.getDefaultState();
+    private final IBlockState stone = BlockRegistry.twilightStone.getDefaultState();
+    private final IBlockState grass = BlockRegistry.mortumGrass.getDefaultState();
     private final BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
     public WorldGenMortumStone(int var2) {

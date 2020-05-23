@@ -4,7 +4,7 @@ import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.TwilightTree;
 import divinerpg.dimensions.WorldGenPlants;
 import divinerpg.dimensions.eden.WorldGenConeUp;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -17,18 +17,18 @@ public class BiomeSkythern extends TwilightBiomeBase {
         super(new BiomeProperties("Skythern"), "skythern");
 
         this.genTree = new TwilightTree(false, 5,
-                () -> ModBlocks.skythernLog.getDefaultState(),
-                () -> ModBlocks.skythernLeaves.getDefaultState(),
-                () -> ModBlocks.skythernSapling);
+                () -> BlockRegistry.skythernLog.getDefaultState(),
+                () -> BlockRegistry.skythernLeaves.getDefaultState(),
+                () -> BlockRegistry.skythernSapling);
         this.genLargeTree = new SkythernTreeLarge(true, 5);
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
-        this.brush = new WorldGenPlants(ModBlocks.skythernBrush, ModBlocks.skythernGrass);
-        this.bloom = new WorldGenPlants(ModBlocks.dustLily, ModBlocks.skythernGrass);
-        this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.dustBrambles,
-                ModBlocks.skythernGrass);
+        this.genConeUp = new WorldGenConeUp(BlockRegistry.divineMossStone);
+        this.brush = new WorldGenPlants(BlockRegistry.skythernBrush, BlockRegistry.skythernGrass);
+        this.bloom = new WorldGenPlants(BlockRegistry.dustLily, BlockRegistry.skythernGrass);
+        this.blossom = new WorldGenTwilightDoublePlants(BlockRegistry.dustBrambles,
+                BlockRegistry.skythernGrass);
 
-        this.topBlock = ModBlocks.skythernGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.skythernDirt.getDefaultState();
+        this.topBlock = BlockRegistry.skythernGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.skythernDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();

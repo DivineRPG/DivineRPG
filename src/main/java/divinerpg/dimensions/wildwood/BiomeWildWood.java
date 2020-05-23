@@ -1,7 +1,7 @@
 package divinerpg.dimensions.wildwood;
 
 import divinerpg.dimensions.TwilightBiomeBase;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;
@@ -22,15 +22,15 @@ public class BiomeWildWood extends TwilightBiomeBase {
         genTree = new WildWoodTree(false, 5);
         genLargeTree = new LargeWildWoodTree(true, 5);
         genLakes = new WorldGenLakes(Blocks.WATER);
-        blossom = new WorldGenTwilightSinglePlants(ModBlocks.moonlightFern,
-                ModBlocks.wildwoodGrass);
-        bloom = new WorldGenTwilightSinglePlants(ModBlocks.moonBud,
-                ModBlocks.wildwoodGrass);
+        blossom = new WorldGenTwilightSinglePlants(BlockRegistry.moonlightFern,
+                BlockRegistry.wildwoodGrass);
+        bloom = new WorldGenTwilightSinglePlants(BlockRegistry.moonBud,
+                BlockRegistry.wildwoodGrass);
         brush = new WorldGenTwilightDoublePlants(
-                ModBlocks.wildwoodTallgrass, ModBlocks.wildwoodGrass);
+                BlockRegistry.wildwoodTallgrass, BlockRegistry.wildwoodGrass);
 
-        this.topBlock = ModBlocks.wildwoodGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.wildwoodDirt.getDefaultState();
+        this.topBlock = BlockRegistry.wildwoodGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.wildwoodDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();

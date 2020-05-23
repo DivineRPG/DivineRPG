@@ -73,7 +73,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber
 @ObjectHolder("divinerpg")
-public class ModBlocks {
+public class BlockRegistry {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3, EDEN = 6, WILDWOOD = 7, APALACHIA = 8, SKYTHERN = 9, MORTUM = 10;
     private static List<Block> blockList = new ArrayList<Block>();
     private static List<Item> blockItemList = new ArrayList<>();
@@ -1388,16 +1388,16 @@ public class ModBlocks {
         register(registry, new BlockModSapling("apalachia_sapling", () -> apalachiaGrass, () -> apalachiaDirt,
                 new TwilightTree(true,
                         5,
-                        () -> ModBlocks.apalachiaLog.getDefaultState(),
-                        () -> ModBlocks.apalachiaLeaves.getDefaultState(),
-                        () -> ModBlocks.apalachiaSapling)
+                        () -> BlockRegistry.apalachiaLog.getDefaultState(),
+                        () -> BlockRegistry.apalachiaLeaves.getDefaultState(),
+                        () -> BlockRegistry.apalachiaSapling)
         ));
         register(registry, new BlockModSapling("skythern_sapling", () -> skythernGrass, () -> skythernDirt,
                 new TwilightTree(true,
                         5,
-                        () -> ModBlocks.skythernLog.getDefaultState(),
-                        () -> ModBlocks.skythernLeaves.getDefaultState(),
-                        () -> ModBlocks.skythernSapling)));
+                        () -> BlockRegistry.skythernLog.getDefaultState(),
+                        () -> BlockRegistry.skythernLeaves.getDefaultState(),
+                        () -> BlockRegistry.skythernSapling)));
         register(registry, new BlockModSapling("mortum_sapling", () -> mortumGrass, () -> mortumDirt, new MortumTree(true)));
 
         // Logs

@@ -2,7 +2,7 @@ package divinerpg.dimensions.eden;
 
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public class WorldGenConeUp extends WorldGenerator {
         int y = pos.getY();
         int z = pos.getZ();
         int var2 = rand.nextInt(4) + height;
-        if (world.getBlockState(pos.down()).getBlock() != ModBlocks.edenGrass) {
+        if (world.getBlockState(pos.down()).getBlock() != BlockRegistry.edenGrass) {
             return false;
         }
         for (int i = 0; i < var2; i++) {

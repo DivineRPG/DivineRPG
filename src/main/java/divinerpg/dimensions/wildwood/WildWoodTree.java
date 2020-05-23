@@ -3,7 +3,7 @@ package divinerpg.dimensions.wildwood;
 import java.util.Random;
 
 import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
@@ -27,9 +27,9 @@ public class WildWoodTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        IBlockState log = ModBlocks.wildwoodLog.getDefaultState();
-        IBlockState leaves = ModBlocks.wildwoodLeaves.getDefaultState();
-        boolean isSoil = ((BlockModSapling) ModBlocks.wildwoodSapling).canPlaceBlockAt(worldIn, position);
+        IBlockState log = BlockRegistry.wildwoodLog.getDefaultState();
+        IBlockState leaves = BlockRegistry.wildwoodLeaves.getDefaultState();
+        boolean isSoil = ((BlockModSapling) BlockRegistry.wildwoodSapling).canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;
         int treeTopPos = position.getY() + treeHeight;
 
@@ -109,7 +109,7 @@ public class WildWoodTree extends WorldGenAbstractTree {
     private void placeVine(World world, Random rand, BlockPos pos, PropertyBool property) {
         if (!isSapling && rand.nextInt(3) > 0 && world.isAirBlock(pos)) {
             this.setBlockAndNotifyAdequately(world, pos,
-                    ModBlocks.wildwoodVine.getDefaultState().withProperty(property, Boolean.valueOf(true)));
+                    BlockRegistry.wildwoodVine.getDefaultState().withProperty(property, Boolean.valueOf(true)));
         }
     }
 

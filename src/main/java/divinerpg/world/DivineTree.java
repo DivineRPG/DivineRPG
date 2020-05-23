@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
@@ -63,8 +63,8 @@ public class DivineTree extends WorldGenAbstractTree {
             if (!canGenerate) {
                 return false;
             } else {
-                IBlockState logState = ModBlocks.divineLog.getDefaultState();
-                IBlockState leavesState = ModBlocks.divineLeaves.getDefaultState();
+                IBlockState logState = BlockRegistry.divineLog.getDefaultState();
+                IBlockState leavesState = BlockRegistry.divineLeaves.getDefaultState();
                 BlockPos down = blockPos.down();
                 IBlockState blockState = worldIn.getBlockState(down);
                 Block block = blockState.getBlock();

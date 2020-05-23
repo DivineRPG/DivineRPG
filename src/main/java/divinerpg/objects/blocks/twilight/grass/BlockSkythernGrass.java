@@ -1,16 +1,16 @@
 package divinerpg.objects.blocks.twilight.grass;
 
 import divinerpg.objects.blocks.BlockModGrass;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.MapColor;
 
 public class BlockSkythernGrass extends BlockModGrass {
 
     public BlockSkythernGrass(String name, float hardness) {
-        super(name, () -> ModBlocks.skythernDirt, hardness, MapColor.CLOTH);
+        super(name, () -> BlockRegistry.skythernDirt, hardness, MapColor.CLOTH);
 
-        this.addGrowablePlant(() -> ModBlocks.dustBrambles);
-        this.addGrowablePlant(() -> ModBlocks.dustLily);
-        this.addGrowablePlant(() -> ModBlocks.skythernBrush);
+        this.addGrowablePlant(() -> BlockRegistry.dustBrambles);
+        this.addGrowablePlant(() -> BlockRegistry.dustLily);
+        this.addGrowablePlant(() -> BlockRegistry.skythernBrush);
     }
 }

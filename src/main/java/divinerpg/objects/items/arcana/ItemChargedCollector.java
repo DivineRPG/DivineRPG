@@ -2,7 +2,7 @@ package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.entities.entity.arcana.EntityDungeonConstructor;
 import divinerpg.objects.items.base.ItemMod;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ public class ItemChargedCollector extends ItemMod {
             float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
             Block block = world.getBlockState(pos).getBlock();
-            if (block == ModBlocks.dramixAltar) {
+            if (block == BlockRegistry.dramixAltar) {
                 ItemStack stack = player.getHeldItem(hand);
                 int x = pos.getX(), y = pos.getY(), z = pos.getZ();
                 EntityDungeonConstructor con = new EntityDungeonConstructor(world);

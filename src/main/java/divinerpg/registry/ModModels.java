@@ -30,15 +30,15 @@ public class ModModels {
     }
 
     public static void registerTESRs() {
-        Item.getItemFromBlock(ModBlocks.boneChest).setTileEntityItemStackRenderer(new RenderItemBoneChest());
-        Item.getItemFromBlock(ModBlocks.edenChest).setTileEntityItemStackRenderer(new RenderItemEdenChest());
-        Item.getItemFromBlock(ModBlocks.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
-        Item.getItemFromBlock(ModBlocks.presentBox).setTileEntityItemStackRenderer(new RenderItemPresentBox());
-        Item.getItemFromBlock(ModBlocks.demonFurnace).setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
-        Item.getItemFromBlock(ModBlocks.arcaniumExtractor).setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
-        Item.getItemFromBlock(ModBlocks.dramixAltar).setTileEntityItemStackRenderer(new RenderItemDramixAltar());
-        Item.getItemFromBlock(ModBlocks.parasectaAltar).setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
-        Item.getItemFromBlock(ModBlocks.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+        Item.getItemFromBlock(BlockRegistry.boneChest).setTileEntityItemStackRenderer(new RenderItemBoneChest());
+        Item.getItemFromBlock(BlockRegistry.edenChest).setTileEntityItemStackRenderer(new RenderItemEdenChest());
+        Item.getItemFromBlock(BlockRegistry.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
+        Item.getItemFromBlock(BlockRegistry.presentBox).setTileEntityItemStackRenderer(new RenderItemPresentBox());
+        Item.getItemFromBlock(BlockRegistry.demonFurnace).setTileEntityItemStackRenderer(new RenderItemDemonFurnace());
+        Item.getItemFromBlock(BlockRegistry.arcaniumExtractor).setTileEntityItemStackRenderer(new RenderItemArcaniumExtractor());
+        Item.getItemFromBlock(BlockRegistry.dramixAltar).setTileEntityItemStackRenderer(new RenderItemDramixAltar());
+        Item.getItemFromBlock(BlockRegistry.parasectaAltar).setTileEntityItemStackRenderer(new RenderItemParasectaAltar());
+        Item.getItemFromBlock(BlockRegistry.frostedChest).setTileEntityItemStackRenderer(new RenderItemFrostedChest());
         ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
@@ -55,26 +55,26 @@ public class ModModels {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNightmareBed.class, new RenderNightmareBed());
 
         registerRenders(new RenderItemStatue(),
-                ModBlocks.ancientEntityStatue,
-                ModBlocks.ayeracoRedStatue,
-                ModBlocks.ayeracoGreenStatue,
-                ModBlocks.ayeracoBlueStatue,
-                ModBlocks.ayeracoYellowStatue,
-                ModBlocks.ayeracoPurpleStatue,
-                ModBlocks.densosStatue,
-                ModBlocks.dramixStatue,
-                ModBlocks.eternalArcherStatue,
-                ModBlocks.karotStatue,
-                ModBlocks.kingOfScorchersStatue,
-                ModBlocks.parasectaStatue,
-                ModBlocks.soulFiendStatue,
-                ModBlocks.reyvorStatue,
-                ModBlocks.theWatcherStatue,
-                ModBlocks.twilightDemonStatue,
-                ModBlocks.vamacheronStatue,
-                ModBlocks.termasect_statue,
-                ModBlocks.sunstorm_statue,
-                ModBlocks.experienced_cori_statue
+                BlockRegistry.ancientEntityStatue,
+                BlockRegistry.ayeracoRedStatue,
+                BlockRegistry.ayeracoGreenStatue,
+                BlockRegistry.ayeracoBlueStatue,
+                BlockRegistry.ayeracoYellowStatue,
+                BlockRegistry.ayeracoPurpleStatue,
+                BlockRegistry.densosStatue,
+                BlockRegistry.dramixStatue,
+                BlockRegistry.eternalArcherStatue,
+                BlockRegistry.karotStatue,
+                BlockRegistry.kingOfScorchersStatue,
+                BlockRegistry.parasectaStatue,
+                BlockRegistry.soulFiendStatue,
+                BlockRegistry.reyvorStatue,
+                BlockRegistry.theWatcherStatue,
+                BlockRegistry.twilightDemonStatue,
+                BlockRegistry.vamacheronStatue,
+                BlockRegistry.termasect_statue,
+                BlockRegistry.sunstorm_statue,
+                BlockRegistry.experienced_cori_statue
         );
 
         registerRenders(new ShieldsRender(),

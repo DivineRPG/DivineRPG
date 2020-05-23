@@ -1,7 +1,7 @@
 package divinerpg.dimensions.skythern;
 
 import divinerpg.dimensions.wildwood.LargeWildWoodTree;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 
 /**
  * Created by LiteWolf101 on 10/8/2018.
@@ -9,6 +9,6 @@ import divinerpg.registry.ModBlocks;
 public class SkythernTreeLarge extends LargeWildWoodTree {
 
     public SkythernTreeLarge(boolean notify, int minTrunkHeight) {
-        super(notify, minTrunkHeight, ModBlocks.skythernLog.getDefaultState(), ModBlocks.skythernLeaves.getDefaultState(), ModBlocks.skythernGrass);
+        super(notify, minTrunkHeight, BlockRegistry.skythernLog.getDefaultState(), BlockRegistry.skythernLeaves.getDefaultState(), BlockRegistry.skythernGrass);
     }
 }

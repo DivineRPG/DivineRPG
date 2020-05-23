@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.objects.blocks.BlockModFurnace;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 
@@ -20,7 +20,7 @@ public class TileEntityDemonFurnace extends TileEntityModFurnace {
     }
 
     public void updateBlockState(boolean isBurning) {
-        BlockModFurnace.updateBlock(isBurning ? ModBlocks.demonFurnaceOn : ModBlocks.demonFurnace, world, pos);
+        BlockModFurnace.updateBlock(isBurning ? BlockRegistry.demonFurnaceOn : BlockRegistry.demonFurnace, world, pos);
     }
 
     @Override

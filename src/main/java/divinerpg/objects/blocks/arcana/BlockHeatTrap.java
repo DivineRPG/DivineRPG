@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.blocks.BlockModUnbreakable;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -41,19 +41,19 @@ public class BlockHeatTrap extends BlockModUnbreakable {
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        if (this == ModBlocks.heatTrapOn) {
-            world.setBlockState(pos, ModBlocks.heatTrap.getDefaultState());
+        if (this == BlockRegistry.heatTrapOn) {
+            world.setBlockState(pos, BlockRegistry.heatTrap.getDefaultState());
         }
     }
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entityIn) {
         super.onEntityCollidedWithBlock(world, pos, state, entityIn);
-        if (this == ModBlocks.heatTrap) {
-            world.setBlockState(pos, ModBlocks.heatTrapOn.getDefaultState());
+        if (this == BlockRegistry.heatTrap) {
+            world.setBlockState(pos, BlockRegistry.heatTrapOn.getDefaultState());
         }
 
-        if (this == ModBlocks.heatTrapOn && entityIn instanceof EntityPlayerMP) {
+        if (this == BlockRegistry.heatTrapOn && entityIn instanceof EntityPlayerMP) {
             entityIn.attackEntityFrom(Utils.trapSource, 16);
             entityIn.setFire(15);
         }

@@ -1,7 +1,7 @@
 package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -28,8 +28,8 @@ public class BiomeVethea extends Biome {
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.topBlock = ModBlocks.dreamGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.dreamDirt.getDefaultState();
+        this.topBlock = BlockRegistry.dreamGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.dreamDirt.getDefaultState();
         this.flowers.clear();
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 0;

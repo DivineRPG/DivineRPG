@@ -11,8 +11,8 @@ import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModArmor;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModItems;
 import divinerpg.registry.ModWeapons;
 import divinerpg.utils.LocalizeUtils;
@@ -82,7 +82,7 @@ public class JEICompat implements IModPlugin {
                 GuiDatticon.MERCHANT_GUI_TEXTURE,
                 JeiReferences.DATTICON_CATEGORY,
                 LocalizeUtils.normal("entity.divinerpg.datticon.name"),
-                new ItemStack(ModBlocks.demonFurnace)));
+                new ItemStack(BlockRegistry.demonFurnace)));
 
         registry.addRecipeCategories(new VillagerCategory(guiHelper,
                 GuiLordVatticus.MERCHANT_GUI_TEXTURE,
@@ -117,18 +117,18 @@ public class JEICompat implements IModPlugin {
         registerVillagerRecepies(registry, EntityDatticon.getAllRecipies(), JeiReferences.DATTICON_CATEGORY);
         registerVillagerRecepies(registry, EntityLordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
         registerVillagerRecepies(registry, EntityZelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);
-        registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(ModBlocks.arcaniumOre),
+        registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(BlockRegistry.arcaniumOre),
                 new ItemStack(ModItems.chargedCollector), new ItemStack(ModItems.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
 
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.demonFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.greenlightFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.moltenFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.moonlightFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.whitefireFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.coalstoneFurnace), VanillaRecipeCategoryUid.SMELTING);
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.oceanfireFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.demonFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.greenlightFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.moltenFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.moonlightFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.whitefireFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.coalstoneFurnace), VanillaRecipeCategoryUid.SMELTING);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.oceanfireFurnace), VanillaRecipeCategoryUid.SMELTING);
 
-        registry.addRecipeCatalyst(new ItemStack(ModBlocks.arcaniumExtractor), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.arcaniumExtractor), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
     }
 
     private void registerVillagerRecepies(IModRegistry registry, List<MerchantRecipe> receipes, String name){

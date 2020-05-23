@@ -6,7 +6,7 @@ import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
 import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
 import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModDimensions;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.block.Block;
@@ -73,18 +73,18 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     		generateStructure(archer, world, random, chunkX, chunkZ, 50);
 //            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
 //            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
-            generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-            generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-            generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, ModBlocks.frozenGrass);
-//            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
-            generateStructure(house1, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 14, 14);
-            generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 13, 12);
-            generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 11, 11);
-            generateStructure(WORKSHOP_HOUSE_4, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 10);
-            generateStructure(WORKSHOP_HOUSE_5, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 12, 8);
-            generateStructure(WORKSHOP_HOUSE_6, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 10, 9);
-//            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
-            generateStructure(library, world, random, chunkX, chunkZ, 10, ModBlocks.frozenGrass, 19, 11);
+            generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+            generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+            generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+//            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 14, 14);
+            generateStructure(house1, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 14, 14);
+            generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 13, 12);
+            generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 11, 11);
+            generateStructure(WORKSHOP_HOUSE_4, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 10, 10);
+            generateStructure(WORKSHOP_HOUSE_5, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 12, 8);
+            generateStructure(WORKSHOP_HOUSE_6, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 10, 9);
+//            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 19, 11);
+            generateStructure(library, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 19, 11);
         }
         	if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
             Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)
@@ -96,16 +96,16 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             }
         }
         	if(world.provider.getDimensionType() == ModDimensions.edenDimension) {
-        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, ModBlocks.edenGrass, 10, 10);
+        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.edenGrass, 10, 10);
         	}
         	if(world.provider.getDimensionType() == ModDimensions.wildwoodDimension) {
-        		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, ModBlocks.wildwoodGrass, 10, 10);
+        		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, BlockRegistry.wildwoodGrass, 10, 10);
         	}
         	if(world.provider.getDimensionType() == ModDimensions.apalachiaDimension) {
-        		generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, ModBlocks.apalachiaGrass, 10, 10);
+        		generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.apalachiaGrass, 10, 10);
         	}
         	if(world.provider.getDimensionType() == ModDimensions.skythernDimension) {
-        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, ModBlocks.skythernGrass, 10, 10);
+        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, BlockRegistry.skythernGrass, 10, 10);
         	}
     }
 

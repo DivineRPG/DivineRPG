@@ -3,8 +3,8 @@ package divinerpg.objects.items.arcana;
 import divinerpg.objects.entities.entity.arcana.EntityDramix;
 import divinerpg.objects.entities.entity.arcana.EntityParasecta;
 import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +34,7 @@ public class ItemWizardsBook extends ItemMod {
             double spawnY = rtr.getBlockPos().getY() + 1;
             double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
 
-            if (block == ModBlocks.parasectaAltar) {
+            if (block == BlockRegistry.parasectaAltar) {
                 EntityParasecta parasecta = new EntityParasecta(world);
                 parasecta.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(parasecta);
@@ -43,7 +43,7 @@ public class ItemWizardsBook extends ItemMod {
                 return EnumActionResult.PASS;
             }
 
-            if (block == ModBlocks.dramixAltar) {
+            if (block == BlockRegistry.dramixAltar) {
                 EntityDramix dramix = new EntityDramix(world);
                 dramix.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(dramix);

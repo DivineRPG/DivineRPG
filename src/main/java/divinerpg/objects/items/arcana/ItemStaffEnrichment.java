@@ -1,8 +1,8 @@
 package divinerpg.objects.items.arcana;
 
 import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
@@ -37,8 +37,8 @@ public class ItemStaffEnrichment extends ItemMod {
 			Block var11 = world.getBlockState(pos).getBlock();
 			Block var12 = world.getBlockState(pos.up()).getBlock();
 
-			if(var11 == ModBlocks.arcaniteDirt) {
-				Block var13 = ModBlocks.arcaniteGrass;
+			if(var11 == BlockRegistry.arcaniteDirt) {
+				Block var13 = BlockRegistry.arcaniteGrass;
 				player.playSound(SoundEvents.BLOCK_METAL_STEP, 0.8f, 0.8f);
 				if (world.isRemote) {
 					return EnumActionResult.PASS;

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.objects.blocks.BlockModCrop;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -14,10 +14,10 @@ public class BlockArcanaCrop extends BlockModCrop {
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        if (ModBlocks.arcaniteGrass == null)
+        if (BlockRegistry.arcaniteGrass == null)
             return false;
 
-        return state == ModBlocks.arcaniteGrass.getDefaultState();
+        return state == BlockRegistry.arcaniteGrass.getDefaultState();
     }
 
     @Override

@@ -24,12 +24,12 @@ public class BlockModFire extends BlockFire {
     }
 
     protected void lightPortal(World world, BlockPos pos, IBlockState state) {
-//    	ModBlocks.edenPortal.makePortal(world, pos);
-//    	ModBlocks.wildwoodPortal.makePortal(world, pos);
-//    	ModBlocks.apalachiaPortal.makePortal(world, pos);
-//    	ModBlocks.skythernPortal.makePortal(world, pos);
-//    	ModBlocks.mortumPortal.makePortal(world, pos);
-//    	ModBlocks.iceikaPortal.makePortal(world, pos);
+//    	BlockRegistry.edenPortal.makePortal(world, pos);
+//    	BlockRegistry.wildwoodPortal.makePortal(world, pos);
+//    	BlockRegistry.apalachiaPortal.makePortal(world, pos);
+//    	BlockRegistry.skythernPortal.makePortal(world, pos);
+//    	BlockRegistry.mortumPortal.makePortal(world, pos);
+//    	BlockRegistry.iceikaPortal.makePortal(world, pos);
     }
 
     @Override

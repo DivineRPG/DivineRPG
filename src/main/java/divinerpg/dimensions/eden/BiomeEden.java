@@ -2,7 +2,7 @@ package divinerpg.dimensions.eden;
 
 import divinerpg.dimensions.LargeTwilightTree;
 import divinerpg.dimensions.TwilightBiomeBase;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -18,18 +18,18 @@ public class BiomeEden extends TwilightBiomeBase {
 
         this.genTree = new EdenTree(false, 3);
         this.genLargeTree = new LargeTwilightTree(false, 7,
-                ModBlocks.edenLog.getDefaultState(),
-                ModBlocks.edenLeaves.getDefaultState(),
-                ModBlocks.edenGrass);
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
+                BlockRegistry.edenLog.getDefaultState(),
+                BlockRegistry.edenLeaves.getDefaultState(),
+                BlockRegistry.edenGrass);
+        this.genConeUp = new WorldGenConeUp(BlockRegistry.divineMossStone);
         this.genLakes = new WorldGenLakes(Blocks.WATER);
-        this.brush = new WorldGenTwilightSinglePlants(ModBlocks.edenBrush, ModBlocks.edenGrass);
-        this.bloom = new WorldGenTwilightSinglePlants(ModBlocks.sunbloom, ModBlocks.edenGrass);
-        this.blossom = new WorldGenTwilightSinglePlants(ModBlocks.sunBlossom,
-                ModBlocks.edenGrass);
+        this.brush = new WorldGenTwilightSinglePlants(BlockRegistry.edenBrush, BlockRegistry.edenGrass);
+        this.bloom = new WorldGenTwilightSinglePlants(BlockRegistry.sunbloom, BlockRegistry.edenGrass);
+        this.blossom = new WorldGenTwilightSinglePlants(BlockRegistry.sunBlossom,
+                BlockRegistry.edenGrass);
 
-        this.topBlock = ModBlocks.edenGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.edenDirt.getDefaultState();
+        this.topBlock = BlockRegistry.edenGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.edenDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();

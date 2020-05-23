@@ -3,8 +3,7 @@ package divinerpg.dimensions.vethea;
 import java.util.Iterator;
 import java.util.Random;
 
-import divinerpg.dimensions.vethea.WorldGenVetheaTree;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -71,7 +70,7 @@ public abstract class WorldGenVetheaForestTree extends WorldGenVetheaTree {
                 return false;
             } else {
                 IBlockState state = worldIn.getBlockState(position.down());
-                if (state.getBlock() == ModBlocks.dreamGrass || state.getBlock() == ModBlocks.dreamDirt) {
+                if (state.getBlock() == BlockRegistry.dreamGrass || state.getBlock() == BlockRegistry.dreamDirt) {
                     state.getBlock().onPlantGrow(state, worldIn, position.down(), position);
                     boolean k2 = true;
                     boolean l2 = false;

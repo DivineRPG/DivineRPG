@@ -1,7 +1,7 @@
 package divinerpg.dimensions.mortum;
 
 import divinerpg.dimensions.wildwood.LargeWildWoodTree;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class MortumTreeLarge extends LargeWildWoodTree {
 
     public MortumTreeLarge(boolean notify, int minTrunkHeight) {
-        super(notify, minTrunkHeight, ModBlocks.mortumLog.getDefaultState(), ModBlocks.mortumLeaves.getDefaultState(), ModBlocks.mortumGrass);
+        super(notify, minTrunkHeight, BlockRegistry.mortumLog.getDefaultState(), BlockRegistry.mortumLeaves.getDefaultState(), BlockRegistry.mortumGrass);
     }
 
     @Override

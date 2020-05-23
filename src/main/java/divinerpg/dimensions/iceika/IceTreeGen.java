@@ -1,6 +1,6 @@
 package divinerpg.dimensions.iceika;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -33,7 +33,7 @@ public class IceTreeGen extends WorldGenAbstractTree {
      */
     @Override
     protected boolean canGrowInto(Block blockType) {
-        return blockType == ModBlocks.frozenDirt || blockType == ModBlocks.frozenGrass;
+        return blockType == BlockRegistry.frozenDirt || blockType == BlockRegistry.frozenGrass;
     }
 
     /**
@@ -45,7 +45,7 @@ public class IceTreeGen extends WorldGenAbstractTree {
     @Override
     protected void setDirtAt(World worldIn, BlockPos pos) {
         if (!canGrowInto(worldIn.getBlockState(pos).getBlock())) {
-            setBlockAndNotifyAdequately(worldIn, pos, ModBlocks.frozenGrass.getDefaultState());
+            setBlockAndNotifyAdequately(worldIn, pos, BlockRegistry.frozenGrass.getDefaultState());
         }
     }
 
@@ -68,11 +68,11 @@ public class IceTreeGen extends WorldGenAbstractTree {
         // placing dirt below saplings
         BlockPos.getAllInBox(position.down(), position.add(1, -1, 1)).forEach(x -> setDirtAt(worldIn, x));
 
-        IBlockState leaves = ModBlocks.brittleLeaves.getDefaultState();
+        IBlockState leaves = BlockRegistry.brittleLeaves.getDefaultState();
         genLeaves(worldIn, rand, leaves, height - (1 + rand.nextInt(12)), height, position.add(1, 0, 1));
 
         BlockPos.getAllInBox(position.add(0, 0, 0), position.add(1, height - rand.nextInt(3), 1))
-                .forEach(x -> setBlockAndNotifyAdequately(worldIn, x, ModBlocks.frozenLog.getDefaultState()));
+                .forEach(x -> setBlockAndNotifyAdequately(worldIn, x, BlockRegistry.frozenLog.getDefaultState()));
 
         return true;
     }
@@ -135,7 +135,7 @@ public class IceTreeGen extends WorldGenAbstractTree {
                         .forEach(p -> {
                             Block block = blockMap.get(p);
                             // null is possible on current sapling position
-                            if (block != null && block != ModBlocks.frozenSapling || !canGrowInto(blockMap.get(p.down())))
+                            if (block != null && block != BlockRegistry.frozenSapling || !canGrowInto(blockMap.get(p.down())))
                                 isMatch.set(false);
                         });
 

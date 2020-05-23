@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.objects.blocks.BlockModDoubleCrop;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ public abstract class BlockStackPlant extends BlockModDoubleCrop {
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
-        return block == this || (block == ModBlocks.arcaniteGrass
+        return block == this || (block == BlockRegistry.arcaniteGrass
                 && Utils.bordersTar(worldIn, pos.getX(), pos.getY() - 1, pos.getZ()));
     }
 

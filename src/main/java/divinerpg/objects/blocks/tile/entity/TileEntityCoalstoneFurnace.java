@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.objects.blocks.BlockModFurnace;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 
 public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
 
@@ -18,6 +18,6 @@ public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
     }
 
     public void updateBlockState(boolean isBurning) {
-        BlockModFurnace.updateBlock(isBurning ? ModBlocks.coalstoneFurnaceOn : ModBlocks.coalstoneFurnace, world, pos);
+        BlockModFurnace.updateBlock(isBurning ? BlockRegistry.coalstoneFurnaceOn : BlockRegistry.coalstoneFurnace, world, pos);
     }
 }

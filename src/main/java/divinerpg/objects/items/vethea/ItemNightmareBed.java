@@ -2,8 +2,8 @@ package divinerpg.objects.items.vethea;
 
 import divinerpg.objects.blocks.vethea.BlockNightmareBed;
 import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -62,7 +62,7 @@ public class ItemNightmareBed extends ItemMod{
 
                 if (flag2 && flag3 && worldIn.getBlockState(pos.down()).isTopSolid() && worldIn.getBlockState(blockpos.down()).isTopSolid())
                 {
-                    IBlockState iblockstate2 = ModBlocks.nightmareBed.getDefaultState().withProperty(BlockNightmareBed.OCCUPIED, Boolean.valueOf(false)).withProperty(BlockNightmareBed.FACING, enumfacing).withProperty(BlockNightmareBed.PART, BlockNightmareBed.EnumPartType.FOOT);
+                    IBlockState iblockstate2 = BlockRegistry.nightmareBed.getDefaultState().withProperty(BlockNightmareBed.OCCUPIED, Boolean.valueOf(false)).withProperty(BlockNightmareBed.FACING, enumfacing).withProperty(BlockNightmareBed.PART, BlockNightmareBed.EnumPartType.FOOT);
                     worldIn.setBlockState(pos, iblockstate2, 10);
                     worldIn.setBlockState(blockpos, iblockstate2.withProperty(BlockNightmareBed.PART, BlockNightmareBed.EnumPartType.HEAD), 10);
                     SoundType soundtype = iblockstate2.getBlock().getSoundType(iblockstate2, worldIn, pos, player);

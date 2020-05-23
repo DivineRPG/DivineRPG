@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.vanilla;
 
 import divinerpg.objects.blocks.BlockModFluid;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -76,12 +76,12 @@ public class BlockTar extends BlockModFluid {
         if (touchingWater) {
             Integer integer = (Integer)state.getValue(LEVEL);
             if (integer == 0) {
-                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, BlockRegistry.asphalt.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }
             else if (integer <= 4) {
-                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.asphalt.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, BlockRegistry.asphalt.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }
@@ -89,7 +89,7 @@ public class BlockTar extends BlockModFluid {
         else if (touchingLava) {
             Integer integer = (Integer)state.getValue(LEVEL);
             if (integer <= 4) {
-                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, ModBlocks.twilightStone.getDefaultState()));
+                worldIn.setBlockState(pos, fireFluidPlaceBlockEvent(worldIn, pos, pos, BlockRegistry.twilightStone.getDefaultState()));
                 this.triggerMixEffects(worldIn, pos);
                 return true;
             }

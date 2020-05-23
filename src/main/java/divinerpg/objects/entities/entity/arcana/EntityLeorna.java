@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -49,7 +49,7 @@ public class EntityLeorna extends EntityDivineRPGVillager {
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModItems.hitchakSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModItems.veiloSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModItems.lamonaSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.arcaniteDirt, 9)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(BlockRegistry.arcaniteDirt, 9)));
         return list;
     }
 

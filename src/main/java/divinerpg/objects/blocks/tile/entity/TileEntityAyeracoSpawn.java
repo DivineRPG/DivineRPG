@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.entity;
 import com.google.common.collect.Lists;
 import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -40,27 +40,27 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements IT
                 redBeam = getBeamLocation(5, -12);
                 yellowBeam = getBeamLocation(-5, -12);
                 purpleBeam = getBeamLocation(-8, 8);
-                setBlock(greenBeam, ModBlocks.ayeracoBeamGreen);
+                setBlock(greenBeam, BlockRegistry.ayeracoBeamGreen);
                 logAyeracoSpawn(TextFormatting.GREEN);
                 break;
 
             case 430:
-                setBlock(blueBeam, ModBlocks.ayeracoBeamBlue);
+                setBlock(blueBeam, BlockRegistry.ayeracoBeamBlue);
                 logAyeracoSpawn(TextFormatting.BLUE);
                 break;
 
             case 300:
-                setBlock(redBeam, ModBlocks.ayeracoBeamRed);
+                setBlock(redBeam, BlockRegistry.ayeracoBeamRed);
                 logAyeracoSpawn(TextFormatting.RED);
                 break;
 
             case 210:
-                setBlock(yellowBeam, ModBlocks.ayeracoBeamYellow);
+                setBlock(yellowBeam, BlockRegistry.ayeracoBeamYellow);
                 logAyeracoSpawn(TextFormatting.YELLOW);
                 break;
 
             case 145:
-                setBlock(purpleBeam, ModBlocks.ayeracoBeamPurple);
+                setBlock(purpleBeam, BlockRegistry.ayeracoBeamPurple);
                 logAyeracoSpawn(TextFormatting.DARK_PURPLE, "purple");
                 break;
 

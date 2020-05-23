@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityLadyLunaSparkler;
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -103,7 +103,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
 
         if(this.world.getBlockState(current).getBlock() == Blocks.AIR) {
             if(belowState.isOpaqueCube() && belowState.isFullCube()) {
-                this.world.setBlockState(current, ModBlocks.lunicAcid.getDefaultState());
+                this.world.setBlockState(current, BlockRegistry.lunicAcid.getDefaultState());
                 acidPositions.add(current);
             }
         }
@@ -113,7 +113,7 @@ public class EntityLadyLuna extends EntityDivineRPGBoss {
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();
 
-                if (this.world.getBlockState(pos).getBlock() != ModBlocks.lunicAcid) iter.remove();
+                if (this.world.getBlockState(pos).getBlock() != BlockRegistry.lunicAcid) iter.remove();
                 else if (this.rand.nextInt(4) == 0) {
                     EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(this.world, this);
                     e.setPosition(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);

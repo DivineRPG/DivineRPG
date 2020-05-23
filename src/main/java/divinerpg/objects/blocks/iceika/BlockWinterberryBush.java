@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import divinerpg.objects.blocks.BlockMod;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModItems;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -34,7 +34,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (this == ModBlocks.ripeWinterberryBush) {
+        if (this == BlockRegistry.ripeWinterberryBush) {
             return ModItems.winterberry;
         }
         return null;
@@ -62,14 +62,14 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     @Override
     public void onBlockDestroyedByPlayer(World w, BlockPos pos, IBlockState state) {
         if (isGrown) {
-            w.setBlockState(pos, ModBlocks.winterberryBush.getDefaultState());
+            w.setBlockState(pos, BlockRegistry.winterberryBush.getDefaultState());
         }
     }
 
     @Override
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        if (this == ModBlocks.winterberryBush) {
+        if (this == BlockRegistry.winterberryBush) {
             ret.add(new ItemStack(this, 1));
         }
         return ret;
@@ -82,8 +82,8 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
 
     @Override
     public void updateTick(World w, BlockPos pos, IBlockState state, Random r) {
-        if (r.nextInt(2) == 0 && w.getBlockState(pos) == ModBlocks.winterberryBush) {
-            w.setBlockState(pos, ModBlocks.ripeWinterberryBush.getDefaultState());
+        if (r.nextInt(2) == 0 && w.getBlockState(pos) == BlockRegistry.winterberryBush) {
+            w.setBlockState(pos, BlockRegistry.ripeWinterberryBush.getDefaultState());
         }
     }
 }

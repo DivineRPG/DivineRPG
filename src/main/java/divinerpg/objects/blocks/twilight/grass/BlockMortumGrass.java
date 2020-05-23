@@ -1,16 +1,16 @@
 package divinerpg.objects.blocks.twilight.grass;
 
 import divinerpg.objects.blocks.BlockModGrass;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.MapColor;
 
 public class BlockMortumGrass extends BlockModGrass {
 
     public BlockMortumGrass(String name, float hardness) {
-        super(name, () -> ModBlocks.mortumDirt, hardness, MapColor.BLACK);
+        super(name, () -> BlockRegistry.mortumDirt, hardness, MapColor.BLACK);
 
-        this.addGrowablePlant(() -> ModBlocks.demonBrambles);
-        this.addGrowablePlant(() -> ModBlocks.eyePlant);
-        this.addGrowablePlant(() -> ModBlocks.mortumBrush);
+        this.addGrowablePlant(() -> BlockRegistry.demonBrambles);
+        this.addGrowablePlant(() -> BlockRegistry.eyePlant);
+        this.addGrowablePlant(() -> BlockRegistry.mortumBrush);
     }
 }

@@ -1,7 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.objects.blocks.BlockModFurnace;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 
 public class TileEntityOceanfireFurnace extends TileEntityModFurnace {
 
@@ -18,6 +18,6 @@ public class TileEntityOceanfireFurnace extends TileEntityModFurnace {
     }
 
     public void updateBlockState(boolean isBurning) {
-        BlockModFurnace.updateBlock(isBurning ? ModBlocks.oceanfireFurnaceOn : ModBlocks.oceanfireFurnace, world, pos);
+        BlockModFurnace.updateBlock(isBurning ? BlockRegistry.oceanfireFurnaceOn : BlockRegistry.oceanfireFurnace, world, pos);
     }
 }

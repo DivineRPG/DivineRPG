@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -98,15 +98,15 @@ public class VetheaLevelGenerators {
 
         // stone levels
         BlockPos.getAllInBoxMutable(0, startHeight, 0, maxWidth, maxStoneLevel, maxWidth)
-                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), ModBlocks.dreamStone.getDefaultState()));
+                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), BlockRegistry.dreamStone.getDefaultState()));
 
         // dirt level (1)
         BlockPos.getAllInBoxMutable(0, dirtLevel, 0, maxWidth, dirtLevel, maxWidth)
-                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), ModBlocks.dreamDirt.getDefaultState()));
+                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), BlockRegistry.dreamDirt.getDefaultState()));
 
 
         // earth level (1)
         BlockPos.getAllInBoxMutable(0, earthLevel, 0, maxWidth, earthLevel, maxWidth)
-                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), ModBlocks.dreamGrass.getDefaultState()));
+                .forEach(x -> chunkPrimer.setBlockState(x.getX(), x.getY(), x.getZ(), BlockRegistry.dreamGrass.getDefaultState()));
     }
 }

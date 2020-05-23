@@ -11,7 +11,7 @@ public class DivineRPGTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModBlocks.edenOre);
+			return new ItemStack(BlockRegistry.edenOre);
 		}
 	};
 	public static final CreativeTabs ranged = new CreativeTabs("divinerpg_ranged_weapons") {

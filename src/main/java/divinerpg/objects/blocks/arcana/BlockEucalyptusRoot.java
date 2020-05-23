@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.arcana;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModItems;
 import net.minecraft.item.Item;
 
@@ -22,6 +22,6 @@ public class BlockEucalyptusRoot extends BlockArcanaCrop {
 
     @Override
     public Item getCrop() {
-        return Item.getItemFromBlock(ModBlocks.eucalyptusLog);
+        return Item.getItemFromBlock(BlockRegistry.eucalyptusLog);
     }
 }

@@ -3,7 +3,7 @@ package divinerpg.dimensions.mortum;
 import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.WorldGenPlants;
 import divinerpg.dimensions.eden.WorldGenConeUp;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,13 +20,13 @@ public class BiomeMortum extends TwilightBiomeBase {
 
         this.genTree = new MortumTree(false, 5);
         this.genLargeTree = new MortumTreeLarge(true, 5);
-        this.genConeUp = new WorldGenConeUp(ModBlocks.divineMossStone);
-        this.brush = new WorldGenPlants(ModBlocks.mortumBrush, ModBlocks.mortumGrass);
-        this.bloom = new WorldGenPlants(ModBlocks.eyePlant, ModBlocks.mortumGrass);
-        this.blossom = new WorldGenTwilightDoublePlants(ModBlocks.demonBrambles, ModBlocks.mortumGrass);
+        this.genConeUp = new WorldGenConeUp(BlockRegistry.divineMossStone);
+        this.brush = new WorldGenPlants(BlockRegistry.mortumBrush, BlockRegistry.mortumGrass);
+        this.bloom = new WorldGenPlants(BlockRegistry.eyePlant, BlockRegistry.mortumGrass);
+        this.blossom = new WorldGenTwilightDoublePlants(BlockRegistry.demonBrambles, BlockRegistry.mortumGrass);
 
-        this.topBlock = ModBlocks.mortumGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.mortumDirt.getDefaultState();
+        this.topBlock = BlockRegistry.mortumGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.mortumDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();

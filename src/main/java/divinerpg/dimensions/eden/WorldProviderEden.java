@@ -2,7 +2,7 @@ package divinerpg.dimensions.eden;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.ModBiomes;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -26,7 +26,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-        return new IslandChunkGeneratorBase(this.world, ModBlocks.twilightStone, ModBlocks.edenGrass, ModBlocks.edenDirt);
+        return new IslandChunkGeneratorBase(this.world, BlockRegistry.twilightStone, BlockRegistry.edenGrass, BlockRegistry.edenDirt);
 	}
 	
 	@Override

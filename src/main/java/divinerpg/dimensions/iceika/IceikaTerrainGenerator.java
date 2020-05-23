@@ -2,7 +2,7 @@ package divinerpg.dimensions.iceika;
 
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -205,7 +205,7 @@ public class IceikaTerrainGenerator {
                                 if (height < 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.BEDROCK.getDefaultState());
                                 } else if ((d15 += d16) > 0.0D) {
-                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, ModBlocks.frozenStone.getDefaultState());
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, BlockRegistry.frozenStone.getDefaultState());
                                 }
                             }
 

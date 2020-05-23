@@ -2,7 +2,7 @@ package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.ModBiomes;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -24,7 +24,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new IslandChunkGeneratorBase(this.world, ModBlocks.twilightStone, ModBlocks.apalachiaGrass, ModBlocks.apalachiaDirt);
+		return new IslandChunkGeneratorBase(this.world, BlockRegistry.twilightStone, BlockRegistry.apalachiaGrass, BlockRegistry.apalachiaDirt);
 	}
 	
     @Override

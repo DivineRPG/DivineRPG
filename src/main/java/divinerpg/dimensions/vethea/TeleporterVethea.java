@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -78,7 +78,7 @@ public class TeleporterVethea extends Teleporter {
 
 	public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
 		//System.out.println(var2 + " " + var3 + " " + var4 + " " + var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock());
-		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == ModBlocks.vetheaPortal) {
+		if(var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock() == BlockRegistry.vetheaPortal) {
 			return true;
 		}
 		return false;
@@ -224,18 +224,18 @@ public class TeleporterVethea extends Teleporter {
 			}
 		}
 
-		IBlockState portalState = ModBlocks.vetheaPortal.getDefaultState().withProperty(BlockPortal.AXIS, EnumFacing.Axis.Z);
+		IBlockState portalState = BlockRegistry.vetheaPortal.getDefaultState().withProperty(BlockPortal.AXIS, EnumFacing.Axis.Z);
 
-		world.setBlockState(new BlockPos(x + 1, y, z), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x, y, z), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 2, y, z), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 1, z - 1), ModBlocks.mortumBlock.getDefaultState());
-	    world.setBlockState(new BlockPos(x + 1, y + 1, z + 1), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 2, z - 2), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 2, z + 2), ModBlocks.mortumBlock.getDefaultState());
-	    world.setBlockState(new BlockPos(x + 1, y + 3, z + 1), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 3, z - 1), ModBlocks.mortumBlock.getDefaultState());
-		world.setBlockState(new BlockPos(x + 1, y + 4, z), ModBlocks.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y, z), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x, y, z), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 2, y, z), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 1, z - 1), BlockRegistry.mortumBlock.getDefaultState());
+	    world.setBlockState(new BlockPos(x + 1, y + 1, z + 1), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 2, z - 2), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 2, z + 2), BlockRegistry.mortumBlock.getDefaultState());
+	    world.setBlockState(new BlockPos(x + 1, y + 3, z + 1), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 3, z - 1), BlockRegistry.mortumBlock.getDefaultState());
+		world.setBlockState(new BlockPos(x + 1, y + 4, z), BlockRegistry.mortumBlock.getDefaultState());
 		world.setBlockState(new BlockPos(x + 1, y + 1, z), portalState, 2);
 		world.setBlockState(new BlockPos(x + 1, y + 2, z + 1), portalState, 2);
 		world.setBlockState(new BlockPos(x + 1, y + 2, z), portalState, 2);

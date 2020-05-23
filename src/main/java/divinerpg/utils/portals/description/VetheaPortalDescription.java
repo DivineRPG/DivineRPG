@@ -2,7 +2,7 @@ package divinerpg.utils.portals.description;
 
 import com.google.common.collect.Iterables;
 import divinerpg.objects.blocks.BlockModPortal;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
@@ -48,12 +48,12 @@ public class VetheaPortalDescription implements IPortalDescription {
 
     @Override
     public Block getFrame() {
-        return ModBlocks.mortumBlock;
+        return BlockRegistry.mortumBlock;
     }
 
     @Override
     public Block getPortal() {
-        return ModBlocks.vetheaPortal;
+        return BlockRegistry.vetheaPortal;
     }
 
     @Override

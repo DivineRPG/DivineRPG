@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,10 +20,10 @@ public abstract class WorldGenVetheaTree extends WorldGenAbstractTree {
     @Override
     protected boolean canGrowInto(Block blockType) {
         Block[] logs = {
-                ModBlocks.dreamwoodLog,
-                ModBlocks.firewoodLog,
-                ModBlocks.hyrewoodLog,
-                ModBlocks.mintwoodLog
+                BlockRegistry.dreamwoodLog,
+                BlockRegistry.firewoodLog,
+                BlockRegistry.hyrewoodLog,
+                BlockRegistry.mintwoodLog
         };
 
         for(Block log: logs) {
@@ -33,13 +33,13 @@ public abstract class WorldGenVetheaTree extends WorldGenAbstractTree {
         }
 
         Material material = blockType.getDefaultState().getMaterial();
-        return material == Material.AIR || material == Material.LEAVES || blockType == ModBlocks.dreamGrass || blockType == ModBlocks.dreamDirt;
+        return material == Material.AIR || material == Material.LEAVES || blockType == BlockRegistry.dreamGrass || blockType == BlockRegistry.dreamDirt;
     }
 
     @Override
     protected void setDirtAt(World worldIn, BlockPos pos) {
-        if (worldIn.getBlockState(pos).getBlock() != ModBlocks.dreamDirt) {
-            this.setBlockAndNotifyAdequately(worldIn, pos, ModBlocks.dreamDirt.getDefaultState());
+        if (worldIn.getBlockState(pos).getBlock() != BlockRegistry.dreamDirt) {
+            this.setBlockAndNotifyAdequately(worldIn, pos, BlockRegistry.dreamDirt.getDefaultState());
         }
     }
 

@@ -3,20 +3,20 @@ package divinerpg.dimensions.arcana.components;
 import java.util.Random;
 
 import divinerpg.dimensions.arcana.ArcanaChunkPrimer;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 
 public class DungeonComponent08 extends DungeonComponentBase {
     @Override
     public boolean generate(ArcanaChunkPrimer chunk, Random rand, int i, int j, int k) {
-        Block dungeonBricks = ModBlocks.degradedBrick;
-        Block ancientbricks = ModBlocks.ancientBrick;
-        Block soulStone = ModBlocks.soulStone;
-        Block ancientstone = ModBlocks.ancientStone;
-        Block arcaniumSoulSludge = ModBlocks.soulSludge;
-        Block arcaniteMetal = ModBlocks.arcaniumMetal;
-        Block arcanaPower = ModBlocks.arcaniumPower;
+        Block dungeonBricks = BlockRegistry.degradedBrick;
+        Block ancientbricks = BlockRegistry.ancientBrick;
+        Block soulStone = BlockRegistry.soulStone;
+        Block ancientstone = BlockRegistry.ancientStone;
+        Block arcaniumSoulSludge = BlockRegistry.soulSludge;
+        Block arcaniteMetal = BlockRegistry.arcaniumMetal;
+        Block arcanaPower = BlockRegistry.arcaniumPower;
 
         for (int n = 0; n < 16; n++) {
             for (int m = 0; m < 16; m++) {
@@ -583,8 +583,8 @@ public class DungeonComponent08 extends DungeonComponentBase {
         this.setBlock(chunk, i + 6, j + 0, k + 14, dungeonBricks);
         this.setBlock(chunk, i + 6, j + 0, k + 15, ancientbricks);
         this.setBlock(chunk, i + 6, j + 1, k + 0, arcaniteMetal);
-        this.setBlock(chunk, i + 6, j + 1, k + 7, ModBlocks.dungeonLamp);
-        this.setBlock(chunk, i + 6, j + 1, k + 8, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 6, j + 1, k + 7, BlockRegistry.dungeonLamp);
+        this.setBlock(chunk, i + 6, j + 1, k + 8, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 6, j + 1, k + 15, arcaniteMetal);
         this.setBlock(chunk, i + 6, j + 2, k + 0, arcaniteMetal);
         this.setBlock(chunk, i + 6, j + 2, k + 7, dungeonBricks);
@@ -749,8 +749,8 @@ public class DungeonComponent08 extends DungeonComponentBase {
         this.setBlock(chunk, i + 9, j + 0, k + 14, dungeonBricks);
         this.setBlock(chunk, i + 9, j + 0, k + 15, ancientbricks);
         this.setBlock(chunk, i + 9, j + 1, k + 0, arcaniteMetal);
-        this.setBlock(chunk, i + 9, j + 1, k + 7, ModBlocks.dungeonLamp);
-        this.setBlock(chunk, i + 9, j + 1, k + 8, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 9, j + 1, k + 7, BlockRegistry.dungeonLamp);
+        this.setBlock(chunk, i + 9, j + 1, k + 8, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 9, j + 1, k + 15, arcaniteMetal);
         this.setBlock(chunk, i + 9, j + 2, k + 0, arcaniteMetal);
         this.setBlock(chunk, i + 9, j + 2, k + 7, dungeonBricks);
@@ -781,8 +781,8 @@ public class DungeonComponent08 extends DungeonComponentBase {
         this.setBlock(chunk, i + 9, j + 12, k + 11, dungeonBricks);
         this.setBlock(chunk, i + 9, j + 12, k + 15, ancientbricks);
         this.setBlock(chunk, i + 9, j + 13, k + 0, ancientstone);
-        this.setBlock(chunk, i + 9, j + 13, k + 4, ModBlocks.dungeonLamp);
-        this.setBlock(chunk, i + 9, j + 13, k + 11, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 9, j + 13, k + 4, BlockRegistry.dungeonLamp);
+        this.setBlock(chunk, i + 9, j + 13, k + 11, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 9, j + 13, k + 15, ancientstone);
         this.setBlock(chunk, i + 9, j + 14, k + 0, ancientstone);
         this.setBlock(chunk, i + 9, j + 14, k + 15, ancientstone);
@@ -893,12 +893,12 @@ public class DungeonComponent08 extends DungeonComponentBase {
         this.setBlock(chunk, i + 11, j + 12, k + 13, dungeonBricks);
         this.setBlock(chunk, i + 11, j + 12, k + 15, ancientbricks);
         this.setBlock(chunk, i + 11, j + 13, k + 0, ancientstone);
-        this.setBlock(chunk, i + 11, j + 13, k + 2, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 11, j + 13, k + 2, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 11, j + 13, k + 4, dungeonBricks);
-        this.setBlock(chunk, i + 11, j + 13, k + 6, ModBlocks.dungeonLamp);
-        this.setBlock(chunk, i + 11, j + 13, k + 9, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 11, j + 13, k + 6, BlockRegistry.dungeonLamp);
+        this.setBlock(chunk, i + 11, j + 13, k + 9, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 11, j + 13, k + 11, dungeonBricks);
-        this.setBlock(chunk, i + 11, j + 13, k + 13, ModBlocks.dungeonLamp);
+        this.setBlock(chunk, i + 11, j + 13, k + 13, BlockRegistry.dungeonLamp);
         this.setBlock(chunk, i + 11, j + 13, k + 15, ancientstone);
         this.setBlock(chunk, i + 11, j + 14, k + 0, ancientstone);
         this.setBlock(chunk, i + 11, j + 14, k + 4, dungeonBricks);

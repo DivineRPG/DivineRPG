@@ -1,7 +1,7 @@
 package divinerpg.dimensions.iceika;
 
 import divinerpg.DivineRPG;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
@@ -31,8 +31,8 @@ public class BiomeIceika extends Biome {
         super(properties);
         this.setRegistryName(DivineRPG.MODID, "iceika");
 
-        this.topBlock = ModBlocks.frozenGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.frozenDirt.getDefaultState();
+        this.topBlock = BlockRegistry.frozenGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.frozenDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();
@@ -117,14 +117,14 @@ public class BiomeIceika extends Biome {
 
                 if (iblockstate2.getMaterial() == Material.AIR) {
                     j = -1;
-                } else if (iblockstate2.getBlock() == ModBlocks.frozenStone) {
+                } else if (iblockstate2.getBlock() == BlockRegistry.frozenStone) {
                     if (j == -1) {
                         if (k <= 0) {
                             topBlock = AIR;
                             fillerBlock = STONE;
                         } else if (currentY >= seaLevel - 4 && currentY <= seaLevel + 1) {
-                            topBlock = ModBlocks.frozenGrass.getDefaultState();
-                            fillerBlock = ModBlocks.frozenDirt.getDefaultState();
+                            topBlock = BlockRegistry.frozenGrass.getDefaultState();
+                            fillerBlock = BlockRegistry.frozenDirt.getDefaultState();
                         }
 
                         if (currentY < seaLevel && (topBlock == null || topBlock.getMaterial() == Material.AIR)) {
@@ -141,7 +141,7 @@ public class BiomeIceika extends Biome {
                             chunkPrimerIn.setBlockState(chunkZ, currentY, chunkX, topBlock);
                         } else if (currentY < seaLevel - 7 - k) {
                             topBlock = AIR;
-                            fillerBlock = ModBlocks.frozenStone.getDefaultState();
+                            fillerBlock = BlockRegistry.frozenStone.getDefaultState();
                         } else {
                             chunkPrimerIn.setBlockState(chunkZ, currentY, chunkX, fillerBlock);
                         }

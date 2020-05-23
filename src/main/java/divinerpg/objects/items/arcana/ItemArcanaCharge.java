@@ -5,8 +5,8 @@ import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
 import divinerpg.enums.ParticleType;
 import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
@@ -44,7 +44,7 @@ public class ItemArcanaCharge extends ItemMod {
     Block b = w.getBlockState(pos).getBlock();
     IArcana arcana = DivineAPI.getArcana(p);
     ItemStack stack = p.getHeldItem(hand);
-        if (b == ModBlocks.arcaniumPower && arcana.getArcana()>=200) {
+        if (b == BlockRegistry.arcaniumPower && arcana.getArcana()>=200) {
             w.playSound(p, pos, ModSounds.STARLIGHT, SoundCategory.PLAYERS, 1, 1);
             arcana.consume(p, 200);
 
@@ -53,7 +53,7 @@ public class ItemArcanaCharge extends ItemMod {
               lastb1 = null;
                 for (int z = pos.getZ() - 1; z <= pos.getZ() + 1; z++) {
                     Block b1 = w.getBlockState(new BlockPos(x, pos.getY(), z)).getBlock();
-                    if (b1 == ModBlocks.arcaniumPower && lastb1 == Blocks.AIR) {
+                    if (b1 == BlockRegistry.arcaniumPower && lastb1 == Blocks.AIR) {
                         w.setBlockState(new BlockPos(x, pos.getY() - 1, z + 1), Blocks.AIR.getDefaultState());
                         w.setBlockState(new BlockPos(x, pos.getY() - 2, z + 1), Blocks.AIR.getDefaultState());
                         w.setBlockState(new BlockPos(x, pos.getY() - 1, z), Blocks.AIR.getDefaultState());
@@ -61,7 +61,7 @@ public class ItemArcanaCharge extends ItemMod {
                         particles(w, x, pos.getY() - 1, z + 0.5);
                         lastb1 = b1;
                         break;
-                    } else if (lastb1 == ModBlocks.arcaniumPower && b1 == Blocks.AIR) {
+                    } else if (lastb1 == BlockRegistry.arcaniumPower && b1 == Blocks.AIR) {
                         w.setBlockState(new BlockPos(x, pos.getY() - 1, z - 2), Blocks.AIR.getDefaultState());
                         w.setBlockState(new BlockPos(x, pos.getY() - 2, z - 2), Blocks.AIR.getDefaultState());
                         w.setBlockState(new BlockPos(x, pos.getY() - 1, z - 1), Blocks.AIR.getDefaultState());
@@ -79,7 +79,7 @@ public class ItemArcanaCharge extends ItemMod {
                 lastb1 = null;
                 for (int x = pos.getX() - 1; x <= pos.getX() + 1; x++) {
                     Block b1 = w.getBlockState(new BlockPos(x, pos.getY(), z)).getBlock();
-                    if (b1 == ModBlocks.arcaniumPower && lastb1 == Blocks.AIR) {
+                    if (b1 == BlockRegistry.arcaniumPower && lastb1 == Blocks.AIR) {
                         
                        
                         w.setBlockState(new BlockPos(x + 1, pos.getY() - 1, z), Blocks.AIR.getDefaultState());
@@ -89,7 +89,7 @@ public class ItemArcanaCharge extends ItemMod {
                         particles(w, x + 0.5, pos.getY() - 1, z);
                         lastb1 = b1;
                         break;
-                    } else if (lastb1 == ModBlocks.arcaniumPower && b1 == Blocks.AIR) {
+                    } else if (lastb1 == BlockRegistry.arcaniumPower && b1 == Blocks.AIR) {
                         DivineRPG.logger.info(x + " " + pos.getY() + " " + z);
                         w.setBlockState(new BlockPos(x - 2, pos.getY() - 1, z), Blocks.AIR.getDefaultState());
                         w.setBlockState(new BlockPos(x - 2, pos.getY() - 2, z), Blocks.AIR.getDefaultState());

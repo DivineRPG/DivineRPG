@@ -860,11 +860,11 @@ public class ModItems {
         register(registry, new ItemKey("sludge_key"));
 
         // Doors
-        register(registry, new ItemModDoor(ModBlocks.ancientBrickDoor, "ancient_brick_door"));
-        register(registry, new ItemModDoor(ModBlocks.degradedBrickDoor, "degraded_brick_door"));
-        register(registry, new ItemModDoor(ModBlocks.soulSludgeDoor, "soul_sludge_door"));
-        register(registry, new ItemModDoor(ModBlocks.soulStoneDoor, "soul_stone_door"));
-        register(registry, new ItemModDoor(ModBlocks.steelDoor, "steel_door"));
+        register(registry, new ItemModDoor(BlockRegistry.ancientBrickDoor, "ancient_brick_door"));
+        register(registry, new ItemModDoor(BlockRegistry.degradedBrickDoor, "degraded_brick_door"));
+        register(registry, new ItemModDoor(BlockRegistry.soulSludgeDoor, "soul_sludge_door"));
+        register(registry, new ItemModDoor(BlockRegistry.soulStoneDoor, "soul_stone_door"));
+        register(registry, new ItemModDoor(BlockRegistry.steelDoor, "steel_door"));
 
         // Arcana potions
         register(registry, new ItemArcanaPotion("weak_arcana_potion", 100));
@@ -877,20 +877,20 @@ public class ModItems {
         register(registry, new ItemMod("dungeon_tokens"));
 
         // Seeds
-        register(registry, new ItemArcanaSeeds("aquamarine_seeds", () -> ModBlocks.aquamarinePlant));
-        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds", () -> ModBlocks.eucalyptusPlant));
-        register(registry, new ItemArcanaSeeds("firestock_seeds", () -> ModBlocks.firestockPlant));
-        register(registry, new ItemArcanaSeeds("hitchak_seeds", () -> ModBlocks.hitchakPlant));
-        register(registry, new ItemArcanaSeeds("lamona_seeds", () -> ModBlocks.lamonaPlant));
-        register(registry, new ItemArcanaSeeds("marsine_seeds", () -> ModBlocks.marsinePlant));
-        register(registry, new ItemModSeeds("moonbulb_seeds", () -> ModBlocks.moonbulbPlant, () -> Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("pinfly_seeds", () -> ModBlocks.pinflyPlant));
-        register(registry, new ItemModSeeds("pink_glowbone_seeds", () -> ModBlocks.pinkGlowbonePlant, () -> Blocks.GRASS));
-        register(registry, new ItemModSeeds("purple_glowbone_seeds", () -> ModBlocks.purpleGlowbonePlant, () -> Blocks.GRASS));
-        register(registry, new ItemModSeeds("sky_plant_seeds", () -> ModBlocks.skyPlant, () -> Blocks.GRASS));
-        register(registry, new ItemModSeeds("tomato_seeds", () -> ModBlocks.tomatoPlant, () -> Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("veilo_seeds", () -> ModBlocks.veiloPlant));
-        register(registry, new ItemModSeeds("white_mushroom_seeds", () -> ModBlocks.whiteMushroomPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("aquamarine_seeds", () -> BlockRegistry.aquamarinePlant));
+        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds", () -> BlockRegistry.eucalyptusPlant));
+        register(registry, new ItemArcanaSeeds("firestock_seeds", () -> BlockRegistry.firestockPlant));
+        register(registry, new ItemArcanaSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
+        register(registry, new ItemArcanaSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
+        register(registry, new ItemArcanaSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
+        register(registry, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
+        register(registry, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemArcanaSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
+        register(registry, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant, () -> Blocks.FARMLAND));
 
         // Vethea
         // Vethea pearls
@@ -950,7 +950,7 @@ public class ModItems {
         register(registry, new ItemNightmareBed());
 
         // Vethea door
-        register(registry, new ItemModDoor(ModBlocks.barredDoor, "barred_door"));
+        register(registry, new ItemModDoor(BlockRegistry.barredDoor, "barred_door"));
 
         // Vethea miscellaneous
         register(registry, new ItemVethean("acid"));
@@ -959,23 +959,23 @@ public class ModItems {
         register(registry, new ItemVethean("rock_chunks"));
 
         //Slabs
-        register(registry, new ItemModSlab("eden_slab", ModBlocks.edenSlab, ModBlocks.edenSlab, ModBlocks.edenDoubleSlab));
-        register(registry, new ItemModSlab("wildwood_slab", ModBlocks.wildwoodSlab, ModBlocks.wildwoodSlab, ModBlocks.wildwoodDoubleSlab));
-        register(registry, new ItemModSlab("apalachia_slab", ModBlocks.apalachiaSlab, ModBlocks.apalachiaSlab, ModBlocks.apalachiaDoubleSlab));
-        register(registry, new ItemModSlab("skythern_slab", ModBlocks.skythernSlab, ModBlocks.skythernSlab, ModBlocks.skythernDoubleSlab));
-        register(registry, new ItemModSlab("mortum_slab", ModBlocks.mortumSlab, ModBlocks.mortumSlab, ModBlocks.mortumDoubleSlab));
-        register(registry, new ItemModSlab("divine_slab", ModBlocks.divineSlab, ModBlocks.divineSlab, ModBlocks.divineDoubleSlab));
-        register(registry, new ItemModSlab("frozen_slab", ModBlocks.frozenSlab, ModBlocks.frozenSlab, ModBlocks.frozenDoubleSlab));
-        register(registry, new ItemModSlab("eucalyptus_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
+        register(registry, new ItemModSlab("eden_slab", BlockRegistry.edenSlab, BlockRegistry.edenSlab, BlockRegistry.edenDoubleSlab));
+        register(registry, new ItemModSlab("wildwood_slab", BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodDoubleSlab));
+        register(registry, new ItemModSlab("apalachia_slab", BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaDoubleSlab));
+        register(registry, new ItemModSlab("skythern_slab", BlockRegistry.skythernSlab, BlockRegistry.skythernSlab, BlockRegistry.skythernDoubleSlab));
+        register(registry, new ItemModSlab("mortum_slab", BlockRegistry.mortumSlab, BlockRegistry.mortumSlab, BlockRegistry.mortumDoubleSlab));
+        register(registry, new ItemModSlab("divine_slab", BlockRegistry.divineSlab, BlockRegistry.divineSlab, BlockRegistry.divineDoubleSlab));
+        register(registry, new ItemModSlab("frozen_slab", BlockRegistry.frozenSlab, BlockRegistry.frozenSlab, BlockRegistry.frozenDoubleSlab));
+        register(registry, new ItemModSlab("eucalyptus_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
 
-        register(registry, new ItemModSlab("eden_double_slab", ModBlocks.edenSlab, ModBlocks.edenSlab, ModBlocks.edenDoubleSlab));
-        register(registry, new ItemModSlab("wildwood_double_slab", ModBlocks.wildwoodSlab, ModBlocks.wildwoodSlab, ModBlocks.wildwoodDoubleSlab));
-        register(registry, new ItemModSlab("apalachia_double_slab", ModBlocks.apalachiaSlab, ModBlocks.apalachiaSlab, ModBlocks.apalachiaDoubleSlab));
-        register(registry, new ItemModSlab("skythern_double_slab", ModBlocks.skythernSlab, ModBlocks.skythernSlab, ModBlocks.skythernDoubleSlab));
-        register(registry, new ItemModSlab("mortum_double_slab", ModBlocks.mortumSlab, ModBlocks.mortumSlab, ModBlocks.mortumDoubleSlab));
-        register(registry, new ItemModSlab("divine_double_slab", ModBlocks.divineSlab, ModBlocks.divineSlab, ModBlocks.divineDoubleSlab));
-        register(registry, new ItemModSlab("frozen_double_slab", ModBlocks.frozenSlab, ModBlocks.frozenSlab, ModBlocks.frozenDoubleSlab));
-        register(registry, new ItemModSlab("eucalyptus_double_slab", ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusSlab, ModBlocks.eucalyptusDoubleSlab));
+        register(registry, new ItemModSlab("eden_double_slab", BlockRegistry.edenSlab, BlockRegistry.edenSlab, BlockRegistry.edenDoubleSlab));
+        register(registry, new ItemModSlab("wildwood_double_slab", BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodDoubleSlab));
+        register(registry, new ItemModSlab("apalachia_double_slab", BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaDoubleSlab));
+        register(registry, new ItemModSlab("skythern_double_slab", BlockRegistry.skythernSlab, BlockRegistry.skythernSlab, BlockRegistry.skythernDoubleSlab));
+        register(registry, new ItemModSlab("mortum_double_slab", BlockRegistry.mortumSlab, BlockRegistry.mortumSlab, BlockRegistry.mortumDoubleSlab));
+        register(registry, new ItemModSlab("divine_double_slab", BlockRegistry.divineSlab, BlockRegistry.divineSlab, BlockRegistry.divineDoubleSlab));
+        register(registry, new ItemModSlab("frozen_double_slab", BlockRegistry.frozenSlab, BlockRegistry.frozenSlab, BlockRegistry.frozenDoubleSlab));
+        register(registry, new ItemModSlab("eucalyptus_double_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
 
         // Shields
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));

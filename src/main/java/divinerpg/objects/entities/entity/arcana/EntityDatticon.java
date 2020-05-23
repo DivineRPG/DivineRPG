@@ -3,7 +3,7 @@ package divinerpg.objects.entities.entity.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
 import divinerpg.proxy.GUIHandler;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -41,16 +41,16 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 
     public static MerchantRecipeList getAllRecipies() {
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(ModBlocks.starBridge, 16)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.arcaniteTubes, 16)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(ModBlocks.moltenFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.greenlightFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(ModBlocks.oceanfireFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(ModBlocks.moonlightFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(ModBlocks.whitefireFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(ModBlocks.demonFurnace)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.elevantium, 9)));
-        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(ModBlocks.acceleron, 3)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 8), new ItemStack(BlockRegistry.starBridge, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(BlockRegistry.arcaniteTubes, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 2), new ItemStack(BlockRegistry.moltenFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(BlockRegistry.greenlightFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 4), new ItemStack(BlockRegistry.oceanfireFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 5), new ItemStack(BlockRegistry.moonlightFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 7), new ItemStack(BlockRegistry.whitefireFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 9), new ItemStack(BlockRegistry.demonFurnace)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(BlockRegistry.elevantium, 9)));
+        list.add(new MerchantRecipe(new ItemStack(ModItems.arcanium, 3), new ItemStack(BlockRegistry.acceleron, 3)));
 
         return list;
     }

@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.render;
 import divinerpg.DivineRPG;
 import divinerpg.objects.blocks.tile.entity.TileEntityDemonFurnace;
 import divinerpg.objects.blocks.tile.model.ModelDemonFurnace;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -28,7 +28,7 @@ public class RenderDemonFurnace extends TileEntitySpecialRenderer<TileEntityDemo
         World world = te.getWorld();
         if (world != null) {
             IBlockState state = world.getBlockState(te.getPos());
-            if (state.getBlock() == ModBlocks.demonFurnaceOn) {
+            if (state.getBlock() == BlockRegistry.demonFurnaceOn) {
                 texture = FURNACE_ON;
             }
             rotation = facingToRotation[state.getValue(FACING).getHorizontalIndex()];

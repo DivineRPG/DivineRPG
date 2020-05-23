@@ -1,6 +1,6 @@
 package divinerpg.dimensions.vethea;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -40,7 +40,7 @@ public class WorldGenVetheanPillarNew extends WorldGenerator {
                         0,
                         Math.cos(j) * i);
 
-                worldIn.setBlockState(position, ModBlocks.dreamStone.getDefaultState());
+                worldIn.setBlockState(position, BlockRegistry.dreamStone.getDefaultState());
             }
         }
     }

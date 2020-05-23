@@ -3,7 +3,7 @@ package divinerpg.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.mojang.util.UUIDTypeAdapter;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import io.netty.util.internal.ConcurrentSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -139,7 +139,7 @@ public class Utils {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
                 for (int k = z - 4; k <= z + 4; ++k) {
-                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == ModBlocks.tar) {
+                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == BlockRegistry.tar) {
                         return true;
                     }
                 }

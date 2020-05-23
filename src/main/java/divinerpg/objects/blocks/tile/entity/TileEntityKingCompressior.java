@@ -223,8 +223,8 @@ public class TileEntityKingCompressior extends ModUpdatableTileEntity implements
         TileEntity tileentity = world.getTileEntity(pos);
 
 //        Block block = isBurning
-//                ? ModBlocks.king_compression
-//                : ModBlocks.king_compression_still;
+//                ? BlockRegistry.king_compression
+//                : BlockRegistry.king_compression_still;
 
         keepInventory = true;
 //        world.setBlockState(pos, block.getDefaultState(), 3);

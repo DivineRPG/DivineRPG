@@ -1,7 +1,7 @@
 package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.structure.template.DivineLargeStructure;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
@@ -44,17 +44,17 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         //
         // Crystal lakes
         //
-        WorldGenMinable large = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(),
+        WorldGenMinable large = new WorldGenMinable(BlockRegistry.fireCrystal.getDefaultState(),
                 50,
-                BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
 
-        WorldGenMinable meduim = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(),
+        WorldGenMinable meduim = new WorldGenMinable(BlockRegistry.fireCrystal.getDefaultState(),
                 45,
-                BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
 
-        WorldGenMinable small = new WorldGenMinable(ModBlocks.fireCrystal.getDefaultState(),
+        WorldGenMinable small = new WorldGenMinable(BlockRegistry.fireCrystal.getDefaultState(),
                 20,
-                BlockStateMatcher.forBlock(ModBlocks.dreamGrass));
+                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
 
         // surface Y pos for current floor
         int surfaceLevel = position * floorHeight + roofHeight;
@@ -153,7 +153,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         new WorldGenVillageIsland(),
                         30));*/
 
-                addFlowers(level, surfaceLevel, ModBlocks.greenGemtop, ModBlocks.purpleGemtop, ModBlocks.yellowDulah, ModBlocks.greenDulah);
+                addFlowers(level, surfaceLevel, BlockRegistry.greenGemtop, BlockRegistry.purpleGemtop, BlockRegistry.yellowDulah, BlockRegistry.greenDulah);
                 break;
 
             case 1:
@@ -183,7 +183,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         new TempleWorldGenerator(createForVethea(0, "tree3"),
                                 true), 10, surfaceLevel));
 
-                addFlowers(level, surfaceLevel, ModBlocks.fernite, ModBlocks.dreamglow, ModBlocks.shimmer);
+                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);
                 break;
 
             case 2:
@@ -205,7 +205,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                                     true), 24, surfaceLevel));
                 }
 
-                addFlowers(level, surfaceLevel, ModBlocks.shineGrass, ModBlocks.cracklespike, ModBlocks.bulbatobe);
+                addFlowers(level, surfaceLevel, BlockRegistry.shineGrass, BlockRegistry.cracklespike, BlockRegistry.bulbatobe);
                 break;
 
             case 3:
@@ -235,7 +235,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         surfaceLevel,
                         25, 2, 3));
 
-                addFlowers(level, surfaceLevel, ModBlocks.shimmer, ModBlocks.shineGrass, ModBlocks.dreamglow);
+                addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);
                 break;
         }
     }

@@ -1,7 +1,7 @@
 package divinerpg.utils.portals.description;
 
 import divinerpg.objects.blocks.arcana.BlockArcanaPortalFrame;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModDimensions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -232,10 +232,10 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         IBlockState eastPortalState = getFrame().getDefaultState()
                 .withProperty(BlockArcanaPortalFrame.FACING, EnumFacing.EAST);
 
-        IBlockState dungeonBricks = ModBlocks.degradedBrick.getDefaultState();
-        IBlockState ancientbricks = ModBlocks.ancientBrick.getDefaultState();
-        IBlockState ancientTile = ModBlocks.ancientTile.getDefaultState();
-        IBlockState arcanaPower = ModBlocks.arcaniumPower.getDefaultState();
+        IBlockState dungeonBricks = BlockRegistry.degradedBrick.getDefaultState();
+        IBlockState ancientbricks = BlockRegistry.ancientBrick.getDefaultState();
+        IBlockState ancientTile = BlockRegistry.ancientTile.getDefaultState();
+        IBlockState arcanaPower = BlockRegistry.arcaniumPower.getDefaultState();
 
         for (int n = 0; n < 16; n++) {
             for (int m = 0; m < 16; m++) {
@@ -370,7 +370,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         world.setBlockState(new BlockPos(x + 0, y + 7, z + 14), dungeonBricks);
         world.setBlockState(new BlockPos(x + 0, y + 7, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 0), ancientbricks);
-        world.setBlockState(new BlockPos(x + 1, y + 0, z + 1), ModBlocks.dungeonLamp.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y + 0, z + 1), BlockRegistry.dungeonLamp.getDefaultState());
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 2), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 3), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 4), dungeonBricks);
@@ -383,7 +383,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 11), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 12), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 13), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 1, y + 0, z + 14), ModBlocks.dungeonLamp.getDefaultState());
+        world.setBlockState(new BlockPos(x + 1, y + 0, z + 14), BlockRegistry.dungeonLamp.getDefaultState());
         world.setBlockState(new BlockPos(x + 1, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 1, y + 1, z + 0), dungeonBricks);
         world.setBlockState(new BlockPos(x + 1, y + 1, z + 15), dungeonBricks);
@@ -784,7 +784,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         world.setBlockState(new BlockPos(x + 13, y + 7, z + 0), dungeonBricks);
         world.setBlockState(new BlockPos(x + 13, y + 7, z + 15), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 0), ancientbricks);
-        world.setBlockState(new BlockPos(x + 14, y + 0, z + 1), ModBlocks.dungeonLamp.getDefaultState());
+        world.setBlockState(new BlockPos(x + 14, y + 0, z + 1), BlockRegistry.dungeonLamp.getDefaultState());
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 2), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 3), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 4), dungeonBricks);
@@ -797,7 +797,7 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 11), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 12), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 13), dungeonBricks);
-        world.setBlockState(new BlockPos(x + 14, y + 0, z + 14), ModBlocks.dungeonLamp.getDefaultState());
+        world.setBlockState(new BlockPos(x + 14, y + 0, z + 14), BlockRegistry.dungeonLamp.getDefaultState());
         world.setBlockState(new BlockPos(x + 14, y + 0, z + 15), ancientbricks);
         world.setBlockState(new BlockPos(x + 14, y + 1, z + 0), dungeonBricks);
         world.setBlockState(new BlockPos(x + 14, y + 1, z + 15), dungeonBricks);

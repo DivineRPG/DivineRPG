@@ -3,7 +3,7 @@ package divinerpg.dimensions.mortum;
 import java.util.Random;
 
 import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -26,7 +26,7 @@ public class MortumTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        boolean isSoil = ((BlockModSapling) ModBlocks.mortumSapling).canPlaceBlockAt(worldIn, position);
+        boolean isSoil = ((BlockModSapling) BlockRegistry.mortumSapling).canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;
         int treeTopPos = position.getY() + treeHeight;
         IBlockState groundState = worldIn.getBlockState(position.down());
@@ -34,7 +34,7 @@ public class MortumTree extends WorldGenAbstractTree {
         
 
         if(worldIn.getBlockState(position) == Blocks.AIR.getDefaultState()) { 
-        if(groundState == ModBlocks.mortumDirt.getDefaultState() || groundState == ModBlocks.mortumGrass.getDefaultState()) {
+        if(groundState == BlockRegistry.mortumDirt.getDefaultState() || groundState == BlockRegistry.mortumGrass.getDefaultState()) {
         if (position.getY() < 1 || treeTopPos + 1 > 256 || !isSoil) {
             return false;
         }
@@ -70,8 +70,8 @@ public class MortumTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.mortumLog.getDefaultState();
-        IBlockState leaves = ModBlocks.mortumLeaves.getDefaultState();
+        IBlockState log = BlockRegistry.mortumLog.getDefaultState();
+        IBlockState leaves = BlockRegistry.mortumLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;

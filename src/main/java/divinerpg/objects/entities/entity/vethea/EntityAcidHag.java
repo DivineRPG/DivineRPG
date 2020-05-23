@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ModSounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -29,7 +29,7 @@ public class EntityAcidHag extends VetheaMob {
 
         if(this.world.getBlockState(current).getBlock() == Blocks.AIR) {
             if(belowState.isOpaqueCube() && belowState.isFullCube()) {
-                this.world.setBlockState(current, ModBlocks.acidBlock.getDefaultState());
+                this.world.setBlockState(current, BlockRegistry.acidBlock.getDefaultState());
             }
         }
     }

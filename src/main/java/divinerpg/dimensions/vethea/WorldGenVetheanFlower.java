@@ -2,7 +2,7 @@ package divinerpg.dimensions.vethea;
 
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,7 +21,7 @@ public class WorldGenVetheanFlower extends WorldGenerator {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		if(w.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == ModBlocks.dreamGrass){
+		if(w.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == BlockRegistry.dreamGrass){
 			for (int l = 0; l < 30; ++l) {
 	            int i = x + r.nextInt(8) - r.nextInt(8);
 	            int j = y + r.nextInt(4) - r.nextInt(4);

@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.tile.entity;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockBed;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -42,6 +42,6 @@ public class TileEntityNightmareBed extends TileEntity
 
     public ItemStack getItemStack()
     {
-        return new ItemStack(Item.getItemFromBlock(ModBlocks.nightmareBed), 1);
+        return new ItemStack(Item.getItemFromBlock(BlockRegistry.nightmareBed), 1);
     }
 }

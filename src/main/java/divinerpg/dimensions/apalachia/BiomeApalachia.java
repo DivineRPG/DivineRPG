@@ -2,7 +2,7 @@ package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.TwilightTree;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
 import divinerpg.world.features.WorldGenTwilightSinglePlants;
 import net.minecraft.init.Blocks;
@@ -21,20 +21,20 @@ public class BiomeApalachia extends TwilightBiomeBase {
         super(new BiomeProperties("Apalachia"), "apalachia");
 
         genTree = new TwilightTree(false, 5,
-                () -> ModBlocks.apalachiaLog.getDefaultState(),
-                () -> ModBlocks.apalachiaLeaves.getDefaultState(),
-                () -> ModBlocks.apalachiaSapling);
+                () -> BlockRegistry.apalachiaLog.getDefaultState(),
+                () -> BlockRegistry.apalachiaLeaves.getDefaultState(),
+                () -> BlockRegistry.apalachiaSapling);
         genLargeTree = new ApalachiaTreeLarge(true, 5);
         genLakes = new WorldGenLakes(Blocks.WATER);
-        blossom = new WorldGenTwilightDoublePlants(ModBlocks.duskFlower,
-                ModBlocks.apalachiaGrass);
-        brush = new WorldGenTwilightSinglePlants(ModBlocks.apalachiaTallgrass,
-                ModBlocks.apalachiaGrass);
-        bloom = new WorldGenTwilightSinglePlants(ModBlocks.duskBloom,
-                ModBlocks.apalachiaGrass);
+        blossom = new WorldGenTwilightDoublePlants(BlockRegistry.duskFlower,
+                BlockRegistry.apalachiaGrass);
+        brush = new WorldGenTwilightSinglePlants(BlockRegistry.apalachiaTallgrass,
+                BlockRegistry.apalachiaGrass);
+        bloom = new WorldGenTwilightSinglePlants(BlockRegistry.duskBloom,
+                BlockRegistry.apalachiaGrass);
 
-        this.topBlock = ModBlocks.apalachiaGrass.getDefaultState();
-        this.fillerBlock = ModBlocks.apalachiaDirt.getDefaultState();
+        this.topBlock = BlockRegistry.apalachiaGrass.getDefaultState();
+        this.fillerBlock = BlockRegistry.apalachiaDirt.getDefaultState();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableCaveCreatureList.clear();

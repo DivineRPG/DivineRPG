@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import divinerpg.objects.blocks.BlockModUnbreakable;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -41,15 +41,15 @@ public class BlockKarosHeatTile extends BlockModUnbreakable {
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-        if (this == ModBlocks.karosHeatTileRed) {
-            world.setBlockState(pos, ModBlocks.karosHeatTileGreen.getDefaultState());
+        if (this == BlockRegistry.karosHeatTileRed) {
+            world.setBlockState(pos, BlockRegistry.karosHeatTileGreen.getDefaultState());
         }
     }
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entityIn) {
         super.onEntityCollidedWithBlock(world, pos, state, entityIn);
-        if (this == ModBlocks.karosHeatTileRed && entityIn instanceof EntityPlayerMP) {
+        if (this == BlockRegistry.karosHeatTileRed && entityIn instanceof EntityPlayerMP) {
             entityIn.attackEntityFrom(Utils.trapSource, 6);
             entityIn.setFire(5);
         }

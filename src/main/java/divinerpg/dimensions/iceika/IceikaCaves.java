@@ -2,7 +2,7 @@ package divinerpg.dimensions.iceika;
 
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
@@ -135,7 +135,7 @@ public class IceikaCaves extends MapGenBase {
 
                                         if (yDiff > -0.7D && xDiff * xDiff + yDiff * yDiff + zDiff * zDiff < 1D) {
                                             IBlockState state = primer.getBlockState(px, py, pz);
-                                            if (state.getBlock() == ModBlocks.frozenStone || state.getBlock() == ModBlocks.frozenDirt || state.getBlock() == ModBlocks.frozenGrass)
+                                            if (state.getBlock() == BlockRegistry.frozenStone || state.getBlock() == BlockRegistry.frozenDirt || state.getBlock() == BlockRegistry.frozenGrass)
                                                 primer.setBlockState(px, py, pz, BLOCK_AIR);
                                         }
                                     }

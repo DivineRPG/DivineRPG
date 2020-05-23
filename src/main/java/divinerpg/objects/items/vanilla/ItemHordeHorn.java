@@ -1,8 +1,8 @@
 package divinerpg.objects.items.vanilla;
 
 import divinerpg.objects.items.twilight.ItemBossSpawner;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -32,7 +32,7 @@ public class ItemHordeHorn extends ItemBossSpawner {
             pos = pos.add(facing.getFrontOffsetX(), facing.getFrontOffsetY(), facing.getFrontOffsetZ());
             if (world.getBlockState(pos) == Blocks.AIR.getDefaultState()) {
                 world.playSound(null, pos, ModSounds.AYERACO_SPAWN, SoundCategory.MASTER, 20.0F, 1.0F);
-                world.setBlockState(pos, ModBlocks.ayeracoSpawn.getDefaultState());
+                world.setBlockState(pos, BlockRegistry.ayeracoSpawn.getDefaultState());
 
                 if (!player.isCreative()) {
                     player.getHeldItemMainhand().shrink(1);

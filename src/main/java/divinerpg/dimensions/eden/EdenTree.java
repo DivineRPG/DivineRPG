@@ -3,7 +3,7 @@ package divinerpg.dimensions.eden;
 import java.util.Random;
 
 import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public class EdenTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        boolean isSoil = ((BlockModSapling) ModBlocks.edenSapling).canPlaceBlockAt(worldIn, position);
+        boolean isSoil = ((BlockModSapling) BlockRegistry.edenSapling).canPlaceBlockAt(worldIn, position);
         int treeHeight = rand.nextInt(3) + minTreeHeight;
         int treeTopPos = position.getY() + treeHeight;
 
@@ -73,8 +73,8 @@ public class EdenTree extends WorldGenAbstractTree {
     }
 
     private void buildTrunk(World world, BlockPos pos, int treeHeight) {
-        IBlockState log = ModBlocks.edenLog.getDefaultState();
-        IBlockState leaves = ModBlocks.edenLeaves.getDefaultState();
+        IBlockState log = BlockRegistry.edenLog.getDefaultState();
+        IBlockState leaves = BlockRegistry.edenLeaves.getDefaultState();
         Random random = new Random();
         int rand = random.nextInt(1) + 1;
         int extraHeight = treeHeight + rand;

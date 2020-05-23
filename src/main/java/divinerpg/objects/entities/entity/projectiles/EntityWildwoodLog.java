@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -33,6 +33,6 @@ public class EntityWildwoodLog extends EntityThrowable {
 	}
 	
 	public static Block getBlock() {
-		return ModBlocks.wildwoodLog;
+		return BlockRegistry.wildwoodLog;
 	}
 }

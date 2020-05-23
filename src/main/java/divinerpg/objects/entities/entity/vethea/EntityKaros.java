@@ -3,8 +3,8 @@ package divinerpg.objects.entities.entity.vethea;
 import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
 import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
 import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModBlocks;
 import divinerpg.registry.ModSounds;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
@@ -131,9 +131,9 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     for (int z = -40; z < 40; z++) {
                         BlockPos currentPos = this.getPosition().add(x, y, z);
                         Block currentBlock = this.world.getBlockState(currentPos).getBlock();
-                        if (currentBlock == ModBlocks.helioticBeam) {
+                        if (currentBlock == BlockRegistry.helioticBeam) {
                             ceiling.add(currentPos);
-                        } else if (currentBlock == ModBlocks.karosDispenser) {
+                        } else if (currentBlock == BlockRegistry.karosDispenser) {
                             cannons.add(currentPos);
                         }
                     }
@@ -170,8 +170,8 @@ public class EntityKaros extends EntityDivineRPGBoss {
                     int var3 = (int) Math.round(Math.cos(var4) * i);
 
                     BlockPos currentPos = new BlockPos((int) this.posX + var1, (int) this.posY - 1, (int) this.posZ + var3);
-                    if (this.world.getBlockState(currentPos).getBlock() == ModBlocks.karosHeatTileGreen) {
-                        this.world.setBlockState(currentPos, ModBlocks.karosHeatTileRed.getDefaultState());
+                    if (this.world.getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTileGreen) {
+                        this.world.setBlockState(currentPos, BlockRegistry.karosHeatTileRed.getDefaultState());
                     }
                     var4 += Math.PI / 8.0D;
                 }

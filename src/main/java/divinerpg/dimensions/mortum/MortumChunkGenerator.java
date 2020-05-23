@@ -1,6 +1,6 @@
 package divinerpg.dimensions.mortum;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -27,18 +27,18 @@ import java.util.List;
 import java.util.Random;
 
 public class MortumChunkGenerator implements IChunkGenerator {
-    protected static final IBlockState field_185982_a = ModBlocks.mortumDirt.getDefaultState();
+    protected static final IBlockState field_185982_a = BlockRegistry.mortumDirt.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
     protected static final IBlockState BEDROCK = Blocks.AIR.getDefaultState();
-    protected static final IBlockState GRAVEL = ModBlocks.mortumDirt.getDefaultState();
+    protected static final IBlockState GRAVEL = BlockRegistry.mortumDirt.getDefaultState();
     private final Random rand;
     private final World world;
     private final boolean mapFeaturesEnabled;
     private final WorldType terrainType;
     private final double[] heightMap;
     private final float[] field_185999_r;
-    private final WorldGenerator quartzGen = new WorldGenMinable(ModBlocks.mortumOre.getDefaultState(), 7, BlockMatcher.forBlock(ModBlocks.twilightStone));
-    private final WorldGenerator coarseGen = new WorldGenMinable(ModBlocks.twilightStone.getDefaultState(), 70, BlockMatcher.forBlock(ModBlocks.mortumDirt));
+    private final WorldGenerator quartzGen = new WorldGenMinable(BlockRegistry.mortumOre.getDefaultState(), 7, BlockMatcher.forBlock(BlockRegistry.twilightStone));
+    private final WorldGenerator coarseGen = new WorldGenMinable(BlockRegistry.twilightStone.getDefaultState(), 70, BlockMatcher.forBlock(BlockRegistry.mortumDirt));
     public NoiseGeneratorOctaves field_185983_b;
     public NoiseGeneratorOctaves field_185984_c;
     public NoiseGeneratorOctaves field_185985_d;
@@ -51,7 +51,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
     private NoiseGeneratorOctaves field_185993_l;
     private NoiseGeneratorPerlin field_185994_m;
     private ChunkGeneratorSettings settings;
-    private IBlockState oceanBlock = ModBlocks.tar.getDefaultState();
+    private IBlockState oceanBlock = BlockRegistry.tar.getDefaultState();
     private double[] field_186002_u = new double[256];
     private MapGenBase caveGenerator = new MapGenCaves();
     private MapGenBase ravineGenerator = new MapGenRavine();
@@ -149,7 +149,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
                 int i1 = this.rand.nextInt(16) + 8;
                 int j1 = this.rand.nextInt(256);
                 int k1 = this.rand.nextInt(16) + 8;
-                (new WorldGenLakes(ModBlocks.tar)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
+                (new WorldGenLakes(BlockRegistry.tar)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
             }
 
         if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
@@ -160,7 +160,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
                 int k3 = this.rand.nextInt(16) + 8;
 
                 if (l2 < this.world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0) {
-                    (new WorldGenLakes(ModBlocks.tar)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
+                    (new WorldGenLakes(BlockRegistry.tar)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
                 }
             }
 
@@ -196,11 +196,11 @@ public class MortumChunkGenerator implements IChunkGenerator {
                     BlockPos blockpos2 = blockpos1.down();
 
                     if (this.world.canBlockFreezeWater(blockpos2)) {
-                        this.world.setBlockState(blockpos2, ModBlocks.tar.getDefaultState(), 2);
+                        this.world.setBlockState(blockpos2, BlockRegistry.tar.getDefaultState(), 2);
                     }
 
                     if (this.world.canSnowAt(blockpos1, true)) {
-                        this.world.setBlockState(blockpos1, ModBlocks.tar.getDefaultState(), 2);
+                        this.world.setBlockState(blockpos1, BlockRegistry.tar.getDefaultState(), 2);
                     }
                 }
             }
@@ -331,18 +331,18 @@ public class MortumChunkGenerator implements IChunkGenerator {
 
                 if (iblockstate2.getMaterial() == Material.AIR) {
                     j = -1;
-                } else if (iblockstate2.getBlock() == ModBlocks.tar) {
+                } else if (iblockstate2.getBlock() == BlockRegistry.tar) {
                     if (j == -1) {
                         if (k <= 0) {
                             iblockstate = AIR;
-                            iblockstate1 = ModBlocks.tar.getDefaultState();
+                            iblockstate1 = BlockRegistry.tar.getDefaultState();
                         } else if (j1 >= i - 4 && j1 <= i + 1) {
                             iblockstate = Biome.topBlock;
                             iblockstate1 = Biome.fillerBlock;
                         }
 
                         if (j1 < i && (iblockstate == null || iblockstate.getMaterial() == Material.AIR)) {
-                            iblockstate1 = ModBlocks.tar.getDefaultState();
+                            iblockstate1 = BlockRegistry.tar.getDefaultState();
                         }
 
                         j = k;
@@ -351,7 +351,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
                             chunkPrimerIn.setBlockState(i1, j1, l, iblockstate);
                         } else if (j1 < i - 7 - k) {
                             iblockstate = AIR;
-                            iblockstate1 = ModBlocks.tar.getDefaultState();
+                            iblockstate1 = BlockRegistry.tar.getDefaultState();
                             chunkPrimerIn.setBlockState(i1, j1, l, GRAVEL);
                         } else {
                             chunkPrimerIn.setBlockState(i1, j1, l, iblockstate1);
@@ -362,7 +362,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
 
                         if (j == 0 && iblockstate1.getBlock() == Blocks.SAND) {
                             j = rand.nextInt(4) + Math.max(0, j1 - 63);
-                            iblockstate1 = ModBlocks.tar.getDefaultState();
+                            iblockstate1 = BlockRegistry.tar.getDefaultState();
                         }
                     }
                 }

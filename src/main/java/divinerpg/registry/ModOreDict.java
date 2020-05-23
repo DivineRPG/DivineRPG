@@ -4,42 +4,42 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModOreDict {
     public static void init() {
-        OreDictionary.registerOre("logWood", ModBlocks.edenLog);
-        OreDictionary.registerOre("logWood", ModBlocks.wildwoodLog);
-        OreDictionary.registerOre("logWood", ModBlocks.apalachiaLog);
-        OreDictionary.registerOre("logWood", ModBlocks.skythernLog);
-        OreDictionary.registerOre("logWood", ModBlocks.mortumLog);
-        OreDictionary.registerOre("logWood", ModBlocks.divineLog);
-        OreDictionary.registerOre("logWood", ModBlocks.eucalyptusLog);
-        OreDictionary.registerOre("logWood", ModBlocks.frozenLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.edenLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.wildwoodLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.apalachiaLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.skythernLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.mortumLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.divineLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.eucalyptusLog);
+        OreDictionary.registerOre("logWood", BlockRegistry.frozenLog);
 
-        OreDictionary.registerOre("stone", ModBlocks.divineRock);
-        OreDictionary.registerOre("stone", ModBlocks.frozenStone);
-        OreDictionary.registerOre("stone", ModBlocks.twilightStone);
-        OreDictionary.registerOre("stone", ModBlocks.milkStone);
+        OreDictionary.registerOre("stone", BlockRegistry.divineRock);
+        OreDictionary.registerOre("stone", BlockRegistry.frozenStone);
+        OreDictionary.registerOre("stone", BlockRegistry.twilightStone);
+        OreDictionary.registerOre("stone", BlockRegistry.milkStone);
 
-        OreDictionary.registerOre("cobblestone", ModBlocks.coalstone);
-        OreDictionary.registerOre("cobblestone", ModBlocks.icyStone);
+        OreDictionary.registerOre("cobblestone", BlockRegistry.coalstone);
+        OreDictionary.registerOre("cobblestone", BlockRegistry.icyStone);
 
-        OreDictionary.registerOre("blockRupee", ModBlocks.rupeeBlock);
+        OreDictionary.registerOre("blockRupee", BlockRegistry.rupeeBlock);
         OreDictionary.registerOre("ingotRupee", ModItems.rupeeIngot);
-        OreDictionary.registerOre("blockArlemite", ModBlocks.arlemiteBlock);
+        OreDictionary.registerOre("blockArlemite", BlockRegistry.arlemiteBlock);
         OreDictionary.registerOre("ingotArlemite", ModItems.arlemiteIngot);
-        OreDictionary.registerOre("blockRealmite", ModBlocks.realmiteBlock);
+        OreDictionary.registerOre("blockRealmite", BlockRegistry.realmiteBlock);
         OreDictionary.registerOre("ingotRealmite", ModItems.realmiteIngot);
-        OreDictionary.registerOre("blockBloodgem", ModBlocks.bloodgemBlock);
+        OreDictionary.registerOre("blockBloodgem", BlockRegistry.bloodgemBlock);
         OreDictionary.registerOre("gemBlood", ModItems.bloodgem);
-        OreDictionary.registerOre("blockEden", ModBlocks.edenBlock);
-        OreDictionary.registerOre("blockWildwood", ModBlocks.wildwoodBlock);
-        OreDictionary.registerOre("blockApalachia", ModBlocks.apalachiaBlock);
-        OreDictionary.registerOre("blockSkythern", ModBlocks.skythernBlock);
-        OreDictionary.registerOre("blockMortum", ModBlocks.mortumBlock);
-        OreDictionary.registerOre("blockNetherite", ModBlocks.netheriteBlock);
+        OreDictionary.registerOre("blockEden", BlockRegistry.edenBlock);
+        OreDictionary.registerOre("blockWildwood", BlockRegistry.wildwoodBlock);
+        OreDictionary.registerOre("blockApalachia", BlockRegistry.apalachiaBlock);
+        OreDictionary.registerOre("blockSkythern", BlockRegistry.skythernBlock);
+        OreDictionary.registerOre("blockMortum", BlockRegistry.mortumBlock);
+        OreDictionary.registerOre("blockNetherite", BlockRegistry.netheriteBlock);
         OreDictionary.registerOre("ingotNetherite", ModItems.netheriteIngot);
         OreDictionary.registerOre("ingotAquatic", ModItems.aquaticIngot);
 
-        OreDictionary.registerOre("torch", ModBlocks.aquaTorch);
-        OreDictionary.registerOre("torch", ModBlocks.skeletonTorch);
+        OreDictionary.registerOre("torch", BlockRegistry.aquaTorch);
+        OreDictionary.registerOre("torch", BlockRegistry.skeletonTorch);
 
         OreDictionary.registerOre("doorSteel", ModItems.steelDoor);
         OreDictionary.registerOre("door", ModItems.steelDoor);
@@ -48,43 +48,43 @@ public class ModOreDict {
         OreDictionary.registerOre("door", ModItems.soulSludgeDoor);
         OreDictionary.registerOre("door", ModItems.soulStoneDoor);
 
-        OreDictionary.registerOre("treeLeaves", ModBlocks.apalachiaLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.brittleLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.divineLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.edenLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.mortumLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.skythernLeaves);
-        OreDictionary.registerOre("treeLeaves", ModBlocks.wildwoodLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.apalachiaLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.brittleLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.divineLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.edenLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.mortumLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.skythernLeaves);
+        OreDictionary.registerOre("treeLeaves", BlockRegistry.wildwoodLeaves);
 
-        OreDictionary.registerOre("vine", ModBlocks.wildwoodVine);
-        OreDictionary.registerOre("vine", ModBlocks.weedwoodVine);
-        OreDictionary.registerOre("vine", ModBlocks.blossomedWeedwoodVine);
+        OreDictionary.registerOre("vine", BlockRegistry.wildwoodVine);
+        OreDictionary.registerOre("vine", BlockRegistry.weedwoodVine);
+        OreDictionary.registerOre("vine", BlockRegistry.blossomedWeedwoodVine);
 
-        OreDictionary.registerOre("treeSapling", ModBlocks.divineSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.edenSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.apalachiaSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.skythernSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.mortumSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.wildwoodSapling);
-        OreDictionary.registerOre("treeSapling", ModBlocks.frozenSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.divineSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.edenSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.apalachiaSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.skythernSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.mortumSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.wildwoodSapling);
+        OreDictionary.registerOre("treeSapling", BlockRegistry.frozenSapling);
 
-        OreDictionary.registerOre("blockGlass", ModBlocks.frostedGlass);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass2);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass3);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass4);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass5);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass6);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass7);
-        OreDictionary.registerOre("blockGlass", ModBlocks.stainedGlass8);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.frostedGlass);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass2);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass3);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass4);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass5);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass6);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass7);
+        OreDictionary.registerOre("blockGlass", BlockRegistry.stainedGlass8);
 
-        OreDictionary.registerOre("dirt", ModBlocks.edenDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.wildwoodDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.apalachiaDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.skythernDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.mortumDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.frozenDirt);
-        OreDictionary.registerOre("dirt", ModBlocks.dreamDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.edenDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.wildwoodDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.apalachiaDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.skythernDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.mortumDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.frozenDirt);
+        OreDictionary.registerOre("dirt", BlockRegistry.dreamDirt);
 
         OreDictionary.registerOre("chunkEden", ModItems.edenChunk);
         OreDictionary.registerOre("chunkWildwood", ModItems.wildwoodChunk);
@@ -120,23 +120,23 @@ public class ModOreDict {
         OreDictionary.registerOre("shards", ModItems.moltenShards);
         OreDictionary.registerOre("shards", ModItems.terranShards);
 
-        OreDictionary.registerOre("plankWood", ModBlocks.edenPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.wildwoodPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.apalachiaPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.skythernPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.mortumPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.frozenPlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.divinePlanks);
-        OreDictionary.registerOre("plankWood", ModBlocks.eucalyptusPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.edenPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.wildwoodPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.apalachiaPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.skythernPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.mortumPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.frozenPlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.divinePlanks);
+        OreDictionary.registerOre("plankWood", BlockRegistry.eucalyptusPlanks);
 
-        OreDictionary.registerOre("slabWood", ModBlocks.edenSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.wildwoodSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.apalachiaSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.skythernSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.mortumSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.frozenSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.divineSlab);
-        OreDictionary.registerOre("slabWood", ModBlocks.eucalyptusSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.edenSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.wildwoodSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.apalachiaSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.skythernSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.mortumSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.frozenSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.divineSlab);
+        OreDictionary.registerOre("slabWood", BlockRegistry.eucalyptusSlab);
 
     }
 }

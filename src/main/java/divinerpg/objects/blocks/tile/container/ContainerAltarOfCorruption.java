@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.tile.container;
 import java.util.List;
 import java.util.Random;
 
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
@@ -275,7 +275,7 @@ public class ContainerAltarOfCorruption extends Container {
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
-        if (this.worldPointer.getBlockState(this.position).getBlock() != ModBlocks.altarOfCorruption) {
+        if (this.worldPointer.getBlockState(this.position).getBlock() != BlockRegistry.altarOfCorruption) {
             return false;
         } else {
             return playerIn.getDistanceSq((double) this.position.getX() + 0.5D, (double) this.position.getY() + 0.5D,

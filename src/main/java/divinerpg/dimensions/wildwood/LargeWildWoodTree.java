@@ -1,7 +1,7 @@
 package divinerpg.dimensions.wildwood;
 
 import divinerpg.dimensions.LargeTwilightTree;
-import divinerpg.registry.ModBlocks;
+import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class LargeWildWoodTree extends LargeTwilightTree {
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight) {
-        this(notify, minTrunkHeight, ModBlocks.wildwoodLog.getDefaultState(), ModBlocks.wildwoodLeaves.getDefaultState(), ModBlocks.wildwoodGrass);
+        this(notify, minTrunkHeight, BlockRegistry.wildwoodLog.getDefaultState(), BlockRegistry.wildwoodLeaves.getDefaultState(), BlockRegistry.wildwoodGrass);
     }
 
     public LargeWildWoodTree(boolean notify, int minTrunkHeight, IBlockState logState, IBlockState leavesState, Block grassBlock) {

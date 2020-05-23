@@ -2,8 +2,8 @@ package divinerpg.dimensions.iceika.structures;
 
 import java.util.Random;
 
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DRPGLootTables;
-import divinerpg.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -91,7 +91,7 @@ public class WorldGenAPI {
 	
 	public static void placeIceikaChest(World w, int x, int y, int z, int meta){
 		Random r = new Random();
-		w.setBlockState(new BlockPos(x, y, z), ModBlocks.frostedChest.getDefaultState(), meta);
+		w.setBlockState(new BlockPos(x, y, z), BlockRegistry.frostedChest.getDefaultState(), meta);
 		TileEntityLockableLoot chest = (TileEntityLockableLoot)w.getTileEntity(new BlockPos(x, y, z));
 		if(chest != null && !w.isRemote){
 				chest.setLootTable(DRPGLootTables.ICEIKA_CHEST_HUT, r.nextLong());

@@ -19,10 +19,10 @@ public class MissingMappingHandler {
     public static void handleMissingBlocks(MissingMappings<Block> event) {
         for(MissingMappings.Mapping<Block> mapping: event.getAllMappings()) {
             if(mapping.key.equals(new ResourceLocation("divinerpg:karos_cannon"))) {
-                mapping.remap(ModBlocks.karosDispenser);
+                mapping.remap(BlockRegistry.karosDispenser);
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
-                mapping.remap(ModBlocks.ayeracoBlueStatue);
+                mapping.remap(BlockRegistry.ayeracoBlueStatue);
             }
         }
     }
@@ -32,7 +32,7 @@ public class MissingMappingHandler {
     public static void handleMissingItems(MissingMappings<Item> event) {
          for(MissingMappings.Mapping<Item> mapping: event.getAllMappings()) {
              if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
-                 mapping.remap(Item.getItemFromBlock(ModBlocks.ayeracoBlueStatue));
+                 mapping.remap(Item.getItemFromBlock(BlockRegistry.ayeracoBlueStatue));
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_cap"))) {
                  mapping.remap(ModArmor.santaHelmet);
