@@ -213,8 +213,6 @@ public class EntityRegistry {
                 buildEntityEntry(EntityGalroid.class, "galroid", VETHEA),
                 buildEntityEntry(EntityGorgosion.class, "gorgosion", VETHEA),
                 buildEntityEntry(EntityHelio.class, "helio", VETHEA),
-                buildEntityEntry(EntityHerbomancer.class, "herbomancer", VETHEA),
-                buildEntityEntry(EntityHerbomancerMinion.class, "herbomancer_minion", VETHEA),
                 buildEntityEntry(EntityHiveSoldier.class, "hive_soldier", VETHEA),
                 buildEntityEntry(EntityHoverStinger.class, "hover_stinger", VETHEA),
                 buildEntityEntry(EntityKazrotic.class, "kazrotic", VETHEA),

@@ -17,14 +17,14 @@ public class RenderGalroid extends RenderLiving<EntityGalroid> {
         super(rendermanagerIn, new ModelGalroid(), 1F);
     }
 
-    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityGalroid entity) {
         if (entity.getIsInvulnerable()) {
             return invulnerable;
         }
-
-        return regular;
+        else {
+            return regular;
+        }
     }
 
 }

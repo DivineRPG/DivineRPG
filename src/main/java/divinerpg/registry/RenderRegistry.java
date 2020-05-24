@@ -1,9 +1,9 @@
 package divinerpg.registry;
 
-import com.google.common.eventbus.Subscribe;
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.*;
 import divinerpg.objects.entities.assets.render.RenderDivineMob;
+import divinerpg.objects.entities.assets.render.RenderDivineVillager;
 import divinerpg.objects.entities.assets.render.arcana.*;
 import divinerpg.objects.entities.assets.render.iceika.*;
 import divinerpg.objects.entities.assets.render.projectiles.*;
@@ -231,41 +231,39 @@ public class RenderRegistry {
         registerRender(EntityBohemite.class, manager -> new RenderDivineMob(manager, new ModelBohemite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/bohemite.png")));
         registerRender(EntityCryptKeeper.class, manager -> new RenderDivineMob(manager, new ModelCryptKeeper(), new ResourceLocation(DivineRPG.MODID, "textures/entity/crypt_keeper.png")));
         registerRender(EntityCymesoid.class, manager -> new RenderDivineMob(manager, new ModelCymesoid(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cymesoid.png")));
-        registerRender(EntityDissiment.class, RenderDissiment::new);
+        registerRender(EntityDissiment.class, manager -> new RenderDissiment(manager));
         registerRender(EntityDreamwrecker.class, manager -> new RenderDivineMob(manager, new ModelDreamwrecker(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dreamwrecker.png")));
         registerRender(EntityDuo.class, manager -> new RenderDivineMob(manager, new ModelDuo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/duo.png")));
         registerRender(EntityEnt.class, manager -> new RenderDivineMob(manager, new ModelEnt(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ent.png")));
         registerRender(EntityFakeVhraak.class, manager -> new RenderDivineMob(manager, new ModelVhraak(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vhraak.png")));
-        registerRender(EntityGalroid.class, RenderGalroid::new);
+        registerRender(EntityGalroid.class, manager -> new RenderGalroid(manager));
         registerRender(EntityGorgosion.class, manager -> new RenderDivineMob(manager, new ModelGorgosion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/gorgosion.png")));
         registerRender(EntityHelio.class, manager -> new RenderDivineMob(manager, new ModelHelio(), new ResourceLocation(DivineRPG.MODID, "textures/entity/helio.png")));
-        registerRender(EntityHerbomancer.class, RenderHerbomancer::new);
-        registerRender(EntityHerbomancerMinion.class, RenderHerbomancerMinion::new);
-        registerRender(EntityHiveQueen.class, RenderHiveQueen::new);
+        registerRender(EntityHiveQueen.class, manager -> new RenderDivineMob(manager, new ModelHiveQueen(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
         registerRender(EntityHiveSoldier.class, manager -> new RenderDivineMob(manager, new ModelHiveSoldier(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_soldier.png")));
         registerRender(EntityHoverStinger.class, manager -> new RenderDivineMob(manager, new ModelHoverStinger(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hover_stinger.png")));
-        registerRender(EntityKaros.class, RenderKaros::new);
-        registerRender(EntityKazrotic.class, RenderKazrotic::new);
-        registerRender(EntityLadyLuna.class, RenderLadyLuna::new);
+        registerRender(EntityKaros.class, manager -> new RenderDivineMob(manager, new ModelKaros(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
+        registerRender(EntityKazrotic.class, manager -> new RenderDivineMob(manager, new ModelKazrotic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/kazrotic.png")));
+        registerRender(EntityLadyLuna.class, manager -> new RenderLadyLuna(manager));
         registerRender(EntityLheiva.class, manager -> new RenderDivineMob(manager, new ModelLheiva(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lheiva.png")));
         registerRender(EntityLorga.class, manager -> new RenderDivineMob(manager, new ModelLorga(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lorga.png")));
         registerRender(EntityLorgaflight.class, manager -> new RenderDivineMob(manager, new ModelLorgaflight(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lorgaflight.png")));
         registerRender(EntityMandragora.class, manager -> new RenderDivineMob(manager, new ModelMandragora(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mandragora.png")));
-        registerRender(EntityMysteriousManLayer1.class, RenderMysteriousManLayer1::new);
-        registerRender(EntityMysteriousManLayer2.class, RenderMysteriousManLayer2::new);
-        registerRender(EntityMysteriousManLayer3.class, RenderMysteriousManLayer3::new);
-        registerRender(EntityQuadro.class, RenderQuadro::new);
-        registerRender(EntityRaglok.class, RenderRaglok::new);
+        registerRender(EntityMysteriousManLayer1.class, manager -> new RenderDivineMob(manager, new ModelMysteriousMan(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_1.png")));
+        registerRender(EntityMysteriousManLayer2.class, manager -> new RenderDivineMob(manager, new ModelMysteriousMan(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_2.png")));
+        registerRender(EntityMysteriousManLayer3.class, manager -> new RenderDivineMob(manager, new ModelMysteriousMan(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_3.png")));
+        registerRender(EntityQuadro.class, manager -> new RenderDivineMob(manager, new ModelQuadro(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
+        registerRender(EntityRaglok.class, manager -> new RenderDivineMob(manager, new ModelRaglok(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
         registerRender(EntityShadahier.class, manager -> new RenderDivineMob(manager, new ModelShadahier(), new ResourceLocation(DivineRPG.MODID, "textures/entity/shadahier.png")));
         registerRender(EntityTempleGuardian.class, manager -> new RenderDivineMob(manager, new ModelBiped(), new ResourceLocation(DivineRPG.MODID, "textures/entity/temple_guardian.png")));
-        registerRender(EntityTheHunger.class, RenderTheHunger::new);
+        registerRender(EntityTheHunger.class, manager -> new RenderDivineVillager(manager, new ModelTheHunger(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_hunger.png")));
         registerRender(EntityTocaxin.class, manager -> new RenderDivineMob(manager, new ModelTocaxin(), new ResourceLocation(DivineRPG.MODID, "textures/entity/tocaxin.png")));
         registerRender(EntityTwins.class, manager -> new RenderDivineMob(manager, new ModelTwins(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twins.png")));
         registerRender(EntityVermenous.class, manager -> new RenderDivineMob(manager, new ModelVermenous(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vermenous.png")));
         registerRender(EntityVhraak.class, manager -> new RenderDivineMob(manager, new ModelVhraak(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vhraak.png")));
-        registerRender(EntityWreck.class, RenderWreck::new);
+        registerRender(EntityWreck.class, manager -> new RenderWreck(manager));
         registerRender(EntityZone.class, manager -> new RenderDivineMob(manager, new ModelZone(), new ResourceLocation(DivineRPG.MODID, "textures/entity/zone.png")));
-        registerRender(EntityZoragon.class, RenderZoragon::new);
+        registerRender(EntityZoragon.class, manager -> new RenderZoragon(manager));
     }
 
     /**
