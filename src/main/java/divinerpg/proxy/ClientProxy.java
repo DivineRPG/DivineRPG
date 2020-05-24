@@ -61,7 +61,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        EntityRegistry.initModels();
         OBJLoader.INSTANCE.addDomain(DivineRPG.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
         DebugLogging.preInitStageLog();
