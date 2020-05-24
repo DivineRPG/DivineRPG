@@ -2,7 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.*;
-import divinerpg.objects.entities.assets.model.twilight.ModelSamek;
+import divinerpg.objects.entities.assets.model.twilight.*;
 import divinerpg.objects.entities.assets.model.vethea.*;
 import divinerpg.objects.entities.assets.render.RenderDivineFlyingMob;
 import divinerpg.objects.entities.assets.render.RenderDivineMob;
@@ -157,25 +157,26 @@ public class RenderRegistry {
         registerRender(EntityWorkshopMerchant.class, RenderWorkshopMerchant::new);
 
         // Twilight
-        registerRender(EntityAdvancedCori.class, RenderAdvancedCori::new);
-        registerRender(EntityAngryBunny.class, RenderAngryBunny::new);
-        registerRender(EntityApalachiaCadillion.class, RenderApalachiaCadillion::new);
-        registerRender(EntityApalachiaGolem.class, RenderApalachiaGolem::new);
-        registerRender(EntityApalachiaTomo.class, RenderApalachiaTomo::new);
-        registerRender(EntityBasilisk.class, RenderBasilisk::new);
-        registerRender(EntityBehemoth.class, RenderBehemoth::new);
-        registerRender(EntityBunny.class, RenderBunny::new);
-        registerRender(EntityDemonOfDarkness.class, RenderDemonOfDarkness::new);
-        registerRender(EntityDensos.class, RenderDensos::new);
-        registerRender(EntityEdenCadillion.class, RenderEdenCadillion::new);
-        registerRender(EntityEdenTomo.class, RenderEdenTomo::new);
-        registerRender(EntityEnchantedArcher.class, RenderEnchantedArcher::new);
-        registerRender(EntityEnchantedWarrior.class, RenderEnchantedWarrior::new);
-        registerRender(EntityEpiphite.class, RenderEpiphite::new);
-        registerRender(EntityEternalArcher.class, RenderEternalArcher::new);
-        registerRender(EntityExperiencedCori.class, RenderExperiencedCori::new);
-        registerRender(EntityGreenfeet.class, RenderGreenfeet::new);
-        registerRender(EntityKarot.class, RenderKarot::new);
+        // Must fix, advanced cori should have a different model
+        registerRender(EntityAdvancedCori.class, manager -> new RenderDivineFlyingMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/advanced_cori.png")));
+        registerRender(EntityAngryBunny.class, manager -> new RenderDivineMob(manager, new ModelAngryBunny(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
+        registerRender(EntityApalachiaCadillion.class, manager -> new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
+        registerRender(EntityApalachiaGolem.class, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
+        registerRender(EntityApalachiaTomo.class, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
+        registerRender(EntityBasilisk.class, manager -> new RenderDivineMob(manager, new ModelBasilisk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/basilisk.png")));
+        registerRender(EntityBehemoth.class, manager -> new RenderDivineMob(manager, new ModelBehemoth(), new ResourceLocation(DivineRPG.MODID, "textures/entity/behemoth.png")));
+        registerRender(EntityBunny.class, manager -> new RenderBunny(manager));
+        registerRender(EntityDemonOfDarkness.class, manager -> new RenderDivineMob(manager, new ModelDemonOfDarkness(), new ResourceLocation(DivineRPG.MODID, "textures/entity/demon_of_darkness.png")));
+        registerRender(EntityDensos.class, manager -> new RenderDensos(manager));
+        registerRender(EntityEdenCadillion.class, manager -> new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_cadillion.png")));
+        registerRender(EntityEdenTomo.class, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_tomo.png")));
+        registerRender(EntityEnchantedArcher.class, manager -> new RenderEnchantedArcher(manager));
+        registerRender(EntityEnchantedWarrior.class, manager -> new RenderEnchantedWarrior(manager));
+        registerRender(EntityEpiphite.class, manager -> new RenderDivineMob(manager, new ModelEpiphite(), 1.25F, new ResourceLocation(DivineRPG.MODID, "textures/entity/epiphite.png")));
+        registerRender(EntityEternalArcher.class, manager -> new RenderEternalArcher(manager));
+        registerRender(EntityExperiencedCori.class, manager -> new RenderDivineFlyingMob(manager, new ModelExperiencedCori(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
+        registerRender(EntityGreenfeet.class, manager -> new RenderDivineMob(manager, new ModelGreenfeet(), new ResourceLocation(DivineRPG.MODID, "textures/entity/greenfeet.png")));
+        registerRender(EntityKarot.class, manager -> new RenderDivineMob(manager, new ModelKarot(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
         registerRender(EntityMadivel.class, RenderMadivel::new);
         registerRender(EntityMage.class, RenderMage::new);
         registerRender(EntityMegalith.class, RenderMegalith::new);
