@@ -22,21 +22,32 @@ public class OreDictionaryHandler {
         OreDictionary.registerOre("cobblestone", BlockRegistry.icyStone);
 
         OreDictionary.registerOre("blockRupee", BlockRegistry.rupeeBlock);
+        OreDictionary.registerOre("oreRupee", BlockRegistry.rupeeOre);
         OreDictionary.registerOre("ingotRupee", ItemRegistry.rupeeIngot);
         OreDictionary.registerOre("blockArlemite", BlockRegistry.arlemiteBlock);
+        OreDictionary.registerOre("oreArlemite", BlockRegistry.arlemiteOre);
         OreDictionary.registerOre("ingotArlemite", ItemRegistry.arlemiteIngot);
         OreDictionary.registerOre("blockRealmite", BlockRegistry.realmiteBlock);
+        OreDictionary.registerOre("oreRealmite", BlockRegistry.realmiteOre);
         OreDictionary.registerOre("ingotRealmite", ItemRegistry.realmiteIngot);
         OreDictionary.registerOre("blockBloodgem", BlockRegistry.bloodgemBlock);
+        OreDictionary.registerOre("oreBloodgem", BlockRegistry.bloodgemOre);
         OreDictionary.registerOre("gemBlood", ItemRegistry.bloodgem);
         OreDictionary.registerOre("blockEden", BlockRegistry.edenBlock);
+        OreDictionary.registerOre("oreEden", BlockRegistry.edenOre);
         OreDictionary.registerOre("blockWildwood", BlockRegistry.wildwoodBlock);
+        OreDictionary.registerOre("oreWildwood", BlockRegistry.wildwoodOre);
         OreDictionary.registerOre("blockApalachia", BlockRegistry.apalachiaBlock);
+        OreDictionary.registerOre("oreApalachia", BlockRegistry.apalachiaOre);
         OreDictionary.registerOre("blockSkythern", BlockRegistry.skythernBlock);
+        OreDictionary.registerOre("oreSkythern", BlockRegistry.skythernOre);
         OreDictionary.registerOre("blockMortum", BlockRegistry.mortumBlock);
+        OreDictionary.registerOre("oreMortum", BlockRegistry.mortumOre);
         OreDictionary.registerOre("blockNetherite", BlockRegistry.netheriteBlock);
+        OreDictionary.registerOre("oreNetherite", BlockRegistry.netheriteOre);
         OreDictionary.registerOre("ingotNetherite", ItemRegistry.netheriteIngot);
         OreDictionary.registerOre("ingotAquatic", ItemRegistry.aquaticIngot);
+        OreDictionary.registerOre("oreArcanium", BlockRegistry.arcaniumOre);
 
         OreDictionary.registerOre("torch", BlockRegistry.aquaTorch);
         OreDictionary.registerOre("torch", BlockRegistry.skeletonTorch);
