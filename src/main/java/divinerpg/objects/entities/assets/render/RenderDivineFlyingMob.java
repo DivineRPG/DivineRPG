@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
+
+import divinerpg.objects.entities.entity.EntityDivineGhast;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,29 +11,29 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineMob extends RenderLiving<EntityDivineRPGMob> {
+public class RenderDivineFlyingMob extends RenderLiving<EntityDivineGhast> {
 
     private ResourceLocation texture;
     private float scaleFactor;
 
-    public RenderDivineMob(RenderManager renderManager, ModelBase model, ResourceLocation texture) {
+    public RenderDivineFlyingMob(RenderManager renderManager, ModelBase model, ResourceLocation texture) {
         super(renderManager, model, 1F);
         this.texture = texture;
         this.scaleFactor = 1F;
     }
 
-    public RenderDivineMob(RenderManager renderManager, ModelBase model, float scaleFactor, ResourceLocation texture) {
+    public RenderDivineFlyingMob(RenderManager renderManager, ModelBase model, float scaleFactor, ResourceLocation texture) {
         super(renderManager, model, 1F);
         this.texture = texture;
         this.scaleFactor = scaleFactor;
     }
 
     @Override
-    protected void preRenderCallback(EntityDivineRPGMob mob, float partialTickTime) {
+    protected void preRenderCallback(EntityDivineGhast mob, float partialTickTime) {
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineRPGMob entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineGhast entity) {
         return texture;
     }
 
