@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.arcana.*;
+import divinerpg.objects.entities.assets.model.iceika.*;
 import divinerpg.objects.entities.assets.model.twilight.*;
 import divinerpg.objects.entities.assets.model.vethea.*;
 import divinerpg.objects.entities.assets.render.RenderDivineFlyingMob;
@@ -146,15 +147,17 @@ public class RenderRegistry {
         registerRender(EntityWildfire.class, RenderWildfire::new);
 
         // Iceika
-        registerRender(EntityAlicanto.class, RenderAlicanto::new);
-        registerRender(EntityFrostArcher.class, RenderFrostArcher::new);
-        registerRender(EntityFractite.class, RenderFractite::new);
-        registerRender(EntityFrosty.class, RenderFrosty::new);
-        registerRender(EntityGlacide.class, RenderGlacide::new);
-        registerRender(EntityHastreus.class, RenderHastreus::new);
-        registerRender(EntityRollum.class, RenderRollum::new);
-        registerRender(EntityWorkshopTinkerer.class, RenderWorkshopTinkerer::new);
-        registerRender(EntityWorkshopMerchant.class, RenderWorkshopMerchant::new);
+        registerRender(EntityAlicanto.class, manager -> new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
+        registerRender(EntityFractite.class, manager -> new RenderDivineFlyingMob(manager, new ModelFractite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
+        registerRender(EntityFrostArcher.class, manager -> new RenderFrostArcher(manager));
+        registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
+        registerRender(EntityFrosty.class, manager -> new RenderFrosty(manager));
+        registerRender(EntityGlacide.class, manager -> new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacide.png")));
+        registerRender(EntityHastreus.class, manager -> new RenderDivineMob(manager, new ModelHastreus(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hastreus.png")));
+        registerRender(EntityRollum.class, manager -> new RenderDivineMob(manager, new ModelRollum(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rollum.png")));
+        registerRender(EntityWorkshopMerchant.class, manager -> new RenderDivineVillager(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_merchant.png")));
+        registerRender(EntityWorkshopTinkerer.class, manager -> new RenderDivineVillager(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_tinkerer.png")));
+
 
         // Twilight
         // Must fix, advanced cori should have a different model
