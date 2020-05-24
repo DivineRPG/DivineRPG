@@ -127,21 +127,21 @@ public class RenderRegistry {
         registerRender(EntityLiopleurodon.class, manager -> new RenderDivineMob(manager, new ModelLiopleurodon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/liopleurodon.png")));
         registerRender(EntityLivestockMerchant.class, manager -> new RenderDivineVillager(manager, new ModelLivestockMerchant(), new ResourceLocation(DivineRPG.MODID, "textures/entity/livestock_merchant.png")));
         registerRender(EntityMiner.class, manager -> new RenderMiner(manager));
-        registerRender(EntityPumpkinSpider.class, RenderPumpkinSpider::new);
-        registerRender(EntityRainbour.class, RenderRainbour::new);
-        registerRender(EntityRotatick.class, RenderRotatick::new);
-        registerRender(EntitySaguaroWorm.class, RenderSaguaroWorm::new);
-        registerRender(EntityScorcher.class, RenderScorcher::new);
-        registerRender(EntityShark.class, RenderShark::new);
-        registerRender(EntitySmelter.class, RenderSmelter::new);
-        registerRender(EntitySnapper.class, RenderSnapper::new);
-        registerRender(EntityStoneGolem.class, RenderStoneGolem::new);
-        registerRender(EntityTheEye.class, RenderTheEye::new);
-        registerRender(EntityTheGrue.class, RenderTheGrue::new);
-        registerRender(EntityTheWatcher.class, RenderTheWatcher::new);
-        registerRender(EntityWhale.class, RenderWhale::new);
-        registerRender(EntityWhiteGrizzle.class, RenderWhiteGrizzle::new);
-        registerRender(EntityWildfire.class, RenderWildfire::new);
+        registerRender(EntityPumpkinSpider.class, manager -> new RenderDivineMob(manager, new ModelPumpkinSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/pumpkin_spider.png")));
+        registerRender(EntityRainbour.class, manager -> new RenderRainbour(manager));
+        registerRender(EntityRotatick.class, manager -> new RenderDivineMob(manager, new ModelRotatick(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rotatick.png")));
+        registerRender(EntitySaguaroWorm.class, manager -> new RenderDivineMob(manager, new ModelSaguaroWorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/saguaro_worm.png")));
+        registerRender(EntityScorcher.class, manager -> new RenderDivineMob(manager, new ModelScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/scorcher.png")));
+        registerRender(EntityShark.class, manager -> new RenderDivineMob(manager, new ModelShark(), new ResourceLocation(DivineRPG.MODID, "textures/entity/shark.png")));
+        registerRender(EntitySmelter.class, manager -> new RenderDivinePet(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/smelter.png")));
+        registerRender(EntitySnapper.class, manager -> new RenderDivinePet(manager, new ModelSnapper(), new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper.png")));
+        registerRender(EntityStoneGolem.class, manager -> new RenderDivinePet(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/stone_golem.png")));
+        registerRender(EntityTheEye.class, manager -> new RenderDivineMob(manager, new ModelTheEye(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_eye.png")));
+        registerRender(EntityTheGrue.class, manager -> new RenderDivineMob(manager, new ModelTheGrue(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_grue.png")));
+        registerRender(EntityTheWatcher.class, manager -> new RenderDivineMob(manager, new ModelTheWatcher(), 3F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
+        registerRender(EntityWhale.class, manager -> new RenderDivineMob(manager, new ModelWhale(), new ResourceLocation(DivineRPG.MODID, "textures/entity/whale.png")));
+        registerRender(EntityWhiteGrizzle.class, manager -> new RenderDivinePet(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/white_grizzle.png")));
+        registerRender(EntityWildfire.class, manager -> new RenderWildfire(manager));
 
         // Iceika
         registerRender(EntityAlicanto.class, manager -> new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
