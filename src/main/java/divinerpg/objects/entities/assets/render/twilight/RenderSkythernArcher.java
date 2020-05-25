@@ -20,7 +20,7 @@ public class RenderSkythernArcher extends RenderLiving<EntitySkythernArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_archer.png");
 
     public RenderSkythernArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEnchantedArcher(), 0);
+        super(rendermanagerIn, new ModelEnchantedArcher(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

@@ -20,7 +20,7 @@ public class RenderEnchantedWarrior extends RenderLiving<EntityEnchantedWarrior>
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png");
 
     public RenderEnchantedWarrior(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEnchantedWarrior(), 0);
+        super(rendermanagerIn, new ModelEnchantedWarrior(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

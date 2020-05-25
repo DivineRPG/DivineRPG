@@ -20,7 +20,7 @@ public class RenderWildfire extends RenderLiving<EntityWildfire> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/wildfire.png");
 
     public RenderWildfire(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelWildfire(), 0);
+        super(rendermanagerIn, new ModelWildfire(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

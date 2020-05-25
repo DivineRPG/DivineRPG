@@ -22,7 +22,7 @@ public class RenderEternalArcher extends RenderLiving<EntityEternalArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png");
 
     public RenderEternalArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEternalArcher(), 0);
+        super(rendermanagerIn, new ModelEternalArcher(), 1F);
         addLayer(new HandsLayer(this));
     }
 

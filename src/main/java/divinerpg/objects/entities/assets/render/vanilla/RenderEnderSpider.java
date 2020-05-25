@@ -13,7 +13,7 @@ public class RenderEnderSpider extends RenderLiving<EntityEnderSpider> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_spider.png");
 
     public RenderEnderSpider(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEnderSpider(), 0);
+        super(rendermanagerIn, new ModelEnderSpider(), 1F);
     }
 
     @Nullable

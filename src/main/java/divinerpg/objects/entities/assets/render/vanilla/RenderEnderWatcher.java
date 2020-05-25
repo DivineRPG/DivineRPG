@@ -14,7 +14,7 @@ public class RenderEnderWatcher extends RenderLiving<EntityEnderWatcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_watcher.png");
 
     public RenderEnderWatcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEnderWatcher(), 0);
+        super(rendermanagerIn, new ModelEnderWatcher(), 1F);
     }
 
     @Nullable

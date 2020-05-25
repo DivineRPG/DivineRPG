@@ -20,7 +20,7 @@ public class RenderFrostArcher extends RenderLiving<EntityFrostArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/frost_archer.png");
 
     public RenderFrostArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelBiped(), 1);
+        super(rendermanagerIn, new ModelBiped(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

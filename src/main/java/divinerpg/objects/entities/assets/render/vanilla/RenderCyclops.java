@@ -15,7 +15,7 @@ public class RenderCyclops extends RenderLiving<EntityCyclops> {
     ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
 
     public RenderCyclops(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelCyclops(), 0);
+        super(rendermanagerIn, new ModelCyclops(), 1F);
     }
 
     @Nullable

@@ -16,7 +16,7 @@ public class RenderHellPig extends RenderLiving<EntityHellPig> {
     ResourceLocation tamedHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/tamed_hell_pig.png");
 
     public RenderHellPig(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelPig(), 0);
+        super(rendermanagerIn, new ModelPig(), 1F);
     }
 
     @Nullable

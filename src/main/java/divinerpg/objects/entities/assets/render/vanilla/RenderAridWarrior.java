@@ -20,7 +20,7 @@ public class RenderAridWarrior extends RenderLiving<EntityAridWarrior> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/arid_warrior.png");
 
     public RenderAridWarrior(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelAridWarrior(), 0);
+        super(rendermanagerIn, new ModelAridWarrior(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

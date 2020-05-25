@@ -20,7 +20,7 @@ public class RenderEnchantedArcher extends RenderLiving<EntityEnchantedArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png");
 
     public RenderEnchantedArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelEnchantedArcher(), 0);
+        super(rendermanagerIn, new ModelEnchantedArcher(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

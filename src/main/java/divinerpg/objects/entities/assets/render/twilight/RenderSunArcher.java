@@ -20,7 +20,7 @@ public class RenderSunArcher extends RenderLiving<EntitySunArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/sun_archer.png");
 
     public RenderSunArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelSunArcher(), 0);
+        super(rendermanagerIn, new ModelSunArcher(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

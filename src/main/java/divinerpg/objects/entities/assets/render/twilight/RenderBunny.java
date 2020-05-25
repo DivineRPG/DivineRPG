@@ -20,7 +20,7 @@ public class RenderBunny extends RenderLiving<EntityBunny> {
     private float scale = 1;
 
     public RenderBunny(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelBunny(), 0);
+        super(rendermanagerIn, new ModelBunny(), 1F);
     }
 
     @Nullable

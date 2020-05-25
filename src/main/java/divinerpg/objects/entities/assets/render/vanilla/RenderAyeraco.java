@@ -14,7 +14,7 @@ public class RenderAyeraco extends RenderLiving<EntityAyeraco> {
     private ResourceLocation texture;
 
     public RenderAyeraco(RenderManager rendermanagerIn, String color) {
-        super(rendermanagerIn, new ModelAyeraco(), 0);
+        super(rendermanagerIn, new ModelAyeraco(), 1F);
         this.texture = new ResourceLocation(DivineRPG.MODID, String.format("textures/entity/ayeraco_%s.png", color));
     }
 

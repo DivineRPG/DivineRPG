@@ -14,7 +14,7 @@ public class RenderFrosty extends RenderLiving<EntityFrosty> {
     ResourceLocation angryFrostyLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_frosty.png");
 
     public RenderFrosty(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelFrosty(), 0);
+        super(rendermanagerIn, new ModelFrosty(), 1F);
     }
 
     @Nullable

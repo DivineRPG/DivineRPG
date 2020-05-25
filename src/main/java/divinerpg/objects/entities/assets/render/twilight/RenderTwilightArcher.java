@@ -20,7 +20,7 @@ public class RenderTwilightArcher extends RenderLiving<EntityTwilightArcher> {
     ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png");
 
     public RenderTwilightArcher(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelTwilightArcher(), 0);
+        super(rendermanagerIn, new ModelTwilightArcher(), 1F);
         addLayer(new MainHandLayer(this));
     }
 

@@ -15,7 +15,7 @@ public class RenderRainbour extends RenderLiving<EntityRainbour> {
     ResourceLocation angryRainbourLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_rainbour.png");
 
     public RenderRainbour(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelRainbour(), 0);
+        super(rendermanagerIn, new ModelRainbour(), 1F);
     }
 
     @Nullable

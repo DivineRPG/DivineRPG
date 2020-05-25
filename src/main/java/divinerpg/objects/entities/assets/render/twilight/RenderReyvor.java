@@ -20,7 +20,7 @@ public class RenderReyvor extends RenderLiving<EntityReyvor> {
 
 
     public RenderReyvor(RenderManager rendermanagerIn) {
-        super(rendermanagerIn, new ModelDensos(), 0);
+        super(rendermanagerIn, new ModelDensos(), 0.5F);
         addLayer(new MainHandLayer(this));
     }
 
