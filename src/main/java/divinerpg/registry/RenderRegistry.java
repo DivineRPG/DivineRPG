@@ -47,28 +47,28 @@ public class RenderRegistry {
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
         // Projectiles
-        registerRender(EntityAttractor.class, RenderAttractor::new);
-        registerRender(EntityBouncingProjectile.class, RenderBouncingProjectile::new);
-        registerRender(EntityCaveRock.class, manager -> new RenderCaveRock(manager, 1f));
-        registerRender(EntityCoriShot.class, manager -> new RenderCoriShot(manager, 1f));
-        registerRender(EntityCorruptedBullet.class, manager -> new RenderCorruptedBullet(manager, 1f));
+        registerRender(EntityAttractor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        registerRender(EntityBouncingProjectile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/bouncing_projectile.png")));
+        registerRender(EntityCaveRock.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cave_rock.png")));
+        registerRender(EntityCoriShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cori_shot.png")));
+        registerRender(EntityCorruptedBullet.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/corrupted_bullet.png")));
         registerRender(EntityDisk.class, RenderDisk::new);
-        registerRender(EntityDissimentShot.class, manager -> new RenderDissimentShot(manager, 1f));
+        registerRender(EntityDissimentShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
         registerRender(EntityDivineArrow.class, RenderDivineArrow::new);
-        registerRender(EntityEnderTripletsFireball.class, manager -> new RenderEnderTripletsFireball(manager, 1f));
-        registerRender(EntityFirefly.class, RenderFirefly::new);
-        registerRender(EntityFractiteShot.class, manager -> new RenderFractiteShot(manager, 1.0f));
-        registerRender(EntityFrostShot.class, manager -> new RenderFrostShot(manager, 0.75f));
-        registerRender(EntityFyracryxFireball.class, RenderFyracryxFireball::new);
-        registerRender(EntityGeneralsStaff.class, RenderStaff::new);
-        registerRender(EntityGrenade.class, RenderGrenade::new);
-        registerRender(EntityKazroticShot.class, manager -> new RenderKazroticShot(manager, 1f));
-        registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderKingofScorchersMeteor(manager, 1f));
-        registerRender(EntityKingOfScorchersShot.class, manager -> new RenderKingofScorchersShot(manager, 1f));
+        registerRender(EntityEnderTripletsFireball.class, manager -> new RenderDivineFireball(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/ender_triplets_fireball.png")));
+        registerRender(EntityFirefly.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/firefly.png")));
+        registerRender(EntityFractiteShot.class, manager -> new RenderDivineFireball(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/fractite_shot.png")));
+        registerRender(EntityFrostShot.class, manager -> new RenderDivineFireball(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
+        registerRender(EntityFyracryxFireball.class, manager -> new RenderDivineFireball(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
+        registerRender(EntityGeneralsStaff.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png")));
+        registerRender(EntityGrenade.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/grenade.png")));
+        registerRender(EntityKazroticShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
+        registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
+        registerRender(EntityKingOfScorchersShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
         registerRender(EntityLadyLunaSparkler.class, RenderShooterBullet::new);
-        registerRender(EntityLamona.class, RenderLamona::new);
+        registerRender(EntityLamona.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/lamona.png")));
         registerRender(EntityMandragoraProjectile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/mandragora_projectile.png")));
-        registerRender(EntityMerikMissile.class, RenderMerikMissile::new);
+        registerRender(EntityMerikMissile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png")));
         registerRender(EntityMeteor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meteor.png")));
         registerRender(EntityRaglokBomb.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/raglok_bomb.png")));
         registerRender(EntityReflector.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
@@ -88,7 +88,7 @@ public class RenderRegistry {
         registerRender(EntityWreckExplosiveShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_explosive_shot.png")));
         registerRender(EntityWreckShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_shot.png")));
         registerRender(EntityZoragonBomb.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/zoragon_bomb.png")));
-        registerRender(EntityWildwoodLog.class, manager -> new RenderWildwoodLog(manager, 1f));
+        registerRender(EntityWildwoodLog.class, manager -> new RenderWildwoodLog(manager));
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
 
         // Vanilla
