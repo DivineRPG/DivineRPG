@@ -88,7 +88,7 @@ public class RenderRegistry {
         registerRender(EntityWreckExplosiveShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_explosive_shot.png")));
         registerRender(EntityWreckShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_shot.png")));
         registerRender(EntityZoragonBomb.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/zoragon_bomb.png")));
-        registerRender(EntityWildwoodLog.class, manager -> new RenderWildwoodLog(manager));
+        registerRender(EntityWildwoodLog.class, manager -> new RenderWildwoodLog(manager, 1F));
         registerRender(EntityFrostCloud.class, manager -> new RenderFrostCloud(manager));
 
         // Vanilla
