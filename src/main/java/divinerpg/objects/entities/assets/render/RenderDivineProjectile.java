@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.assets.render.projectiles;
+package divinerpg.objects.entities.assets.render;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,10 +11,10 @@ import net.minecraft.entity.Entity;
 /**
  * Core Renderer base on work from LiteWolf101 on Feb 08, 2019
  */
-public abstract class RenderProjectile<T extends Entity> extends Render<T> {
+public abstract class RenderDivineProjectile<T extends Entity> extends Render<T> {
     private final float scale;
 
-    public RenderProjectile(RenderManager manager, float scaleIn) {
+    public RenderDivineProjectile(RenderManager manager, float scaleIn) {
         super(manager);
         this.scale = scaleIn;
     }

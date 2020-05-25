@@ -1,14 +1,10 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.assets.render.projectiles.RenderProjectile;
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderDivineThrowable extends RenderProjectile<EntityThrowable> {
+public class RenderDivineThrowable extends RenderDivineProjectile<EntityThrowable> {
     private ResourceLocation texture;
     private float scaleFactor;
 

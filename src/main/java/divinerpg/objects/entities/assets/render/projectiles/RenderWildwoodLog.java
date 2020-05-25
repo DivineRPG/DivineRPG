@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.assets.render.projectiles;
 
 import divinerpg.DivineRPG;
+import divinerpg.objects.entities.assets.render.RenderDivineProjectile;
 import org.lwjgl.opengl.GL11;
 
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
@@ -19,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class RenderWildwoodLog extends RenderProjectile<EntityWildwoodLog> {
+public class RenderWildwoodLog extends RenderDivineProjectile<EntityWildwoodLog> {
     private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/blocks/wildwood_log_side.png");
 
     public RenderWildwoodLog(RenderManager manager, float scaleIn) {
