@@ -1,7 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.objects.entities.entity.vanilla.EntityAncientEntity;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineMob extends RenderLiving<EntityDivineRPGMob> {
+public class RenderDivineMob extends RenderLiving<EntityDivineMob> {
 
     private ResourceLocation texture;
     private float scaleFactor;
@@ -29,11 +28,11 @@ public class RenderDivineMob extends RenderLiving<EntityDivineRPGMob> {
     }
 
     @Override
-    protected void preRenderCallback(EntityDivineRPGMob mob, float partialTickTime) {
+    protected void preRenderCallback(EntityDivineMob mob, float partialTickTime) {
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineRPGMob entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineMob entity) {
         return texture;
     }
 

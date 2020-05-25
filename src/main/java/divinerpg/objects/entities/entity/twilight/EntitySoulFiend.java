@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntitySoulFiendShot;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
@@ -13,7 +13,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntitySoulFiend extends EntityDivineRPGBoss {
+public class EntitySoulFiend extends EntityDivineBoss {
 
     public EntitySoulFiend(World worldIn) {
         super(worldIn);

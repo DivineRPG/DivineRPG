@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
@@ -12,7 +12,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityWarGeneral extends EntityDivineRPGVillager {
+public class EntityWarGeneral extends EntityDivineVillager {
 
     public EntityWarGeneral(World world) {
         super(world, "message.general.weapons",

@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -16,7 +16,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityLivestockMerchant extends EntityDivineRPGVillager {
+public class EntityLivestockMerchant extends EntityDivineVillager {
 
     public EntityLivestockMerchant(World worldIn) {
         super(worldIn, "message.livestock.travel",

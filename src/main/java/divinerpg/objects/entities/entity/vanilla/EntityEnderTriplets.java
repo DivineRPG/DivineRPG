@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 
-public class EntityEnderTriplets extends EntityDivineGhast {
+public class EntityEnderTriplets extends EntityDivineFlyingMob {
 
     public EntityEnderTriplets(World worldIn) {
         super(worldIn);

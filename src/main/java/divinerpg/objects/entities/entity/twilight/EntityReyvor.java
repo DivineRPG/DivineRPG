@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.enums.ArrowType;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -16,7 +16,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityReyvor extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityReyvor extends EntityDivineBoss implements IRangedAttackMob {
 
     public EntityReyvor(World worldIn) {
         super(worldIn);

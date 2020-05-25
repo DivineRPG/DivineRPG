@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
@@ -15,7 +15,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityTheHunger extends EntityDivineRPGVillager {
+public class EntityTheHunger extends EntityDivineVillager {
     public EntityTheHunger(World worldIn) {
         super(worldIn, "message.hunger.hungry",
                 "message.hunger.closer",

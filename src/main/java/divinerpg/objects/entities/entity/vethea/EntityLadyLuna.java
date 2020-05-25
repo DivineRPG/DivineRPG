@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityLadyLunaSparkler;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.BlockRegistry;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityLadyLuna extends EntityDivineRPGBoss {
+public class EntityLadyLuna extends EntityDivineBoss {
 
     public enum ProtectionType {
         ARCANA(0), RANGED(1), MELEE(2);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityGreenfeet extends EntityDivineRPGMob {
+public class EntityGreenfeet extends EntityDivineMob {
 
     public EntityGreenfeet(World worldIn) {
         super(worldIn);

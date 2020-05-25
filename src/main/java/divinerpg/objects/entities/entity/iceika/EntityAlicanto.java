@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityAlicanto extends EntityDivineRPGMob {
+public class EntityAlicanto extends EntityDivineMob {
 
     private BlockPos currentFlightTarget;
     private int flyTimer;

@@ -1,7 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -10,7 +9,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineVillager extends RenderLiving<EntityDivineRPGVillager> {
+public class RenderDivineVillager extends RenderLiving<EntityDivineVillager> {
 
     private ResourceLocation texture;
 
@@ -19,7 +18,7 @@ public class RenderDivineVillager extends RenderLiving<EntityDivineRPGVillager> 
         this.texture = texture;
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineRPGVillager entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineVillager entity) {
         return texture;
     }
 

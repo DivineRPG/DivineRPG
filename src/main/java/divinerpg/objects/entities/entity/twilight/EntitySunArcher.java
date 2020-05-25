@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.enums.ArrowType;
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntitySunArcher extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob {
 
     public EntitySunArcher(World worldIn) {
         super(worldIn);

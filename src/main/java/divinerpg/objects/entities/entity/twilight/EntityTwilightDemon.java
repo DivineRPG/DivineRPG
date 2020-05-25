@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.enums.BulletType;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightDemonShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -13,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntityTwilightDemon extends EntityDivineRPGBoss {
+public class EntityTwilightDemon extends EntityDivineBoss {
 
     int shooting;
 

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -18,7 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityTermasect extends EntityDivineRPGBoss {
+public class EntityTermasect extends EntityDivineBoss {
 	public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;

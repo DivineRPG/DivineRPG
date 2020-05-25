@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityAngryBunny extends EntityDivineRPGMob {
+public class EntityAngryBunny extends EntityDivineMob {
     public EntityAngryBunny(World worldIn) {
         super(worldIn);
         this.setSize(1.1F, 1.8F);

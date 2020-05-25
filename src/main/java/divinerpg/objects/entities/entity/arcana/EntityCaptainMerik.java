@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityCaptainMerik extends EntityDivineRPGVillager {
+public class EntityCaptainMerik extends EntityDivineVillager {
     public EntityCaptainMerik(World world) {
         super(world, "message.merik.sword", "message.merik.datticon", "message.merik.hurry",
                 "message.merik.battles", "message.merik.phoenix");

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityGlacon extends EntityDivineRPGMob {
+public class EntityGlacon extends EntityDivineMob {
 
     public EntityGlacon(World worldIn) {
         super(worldIn);

@@ -8,7 +8,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-public abstract class EntityGifterNPC extends EntityDivineRPGMob {
+public abstract class EntityGifterNPC extends EntityDivineMob {
 
     public EntityGifterNPC(World worldIn) {
         super(worldIn);

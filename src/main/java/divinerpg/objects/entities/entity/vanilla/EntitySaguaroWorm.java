@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntitySaguaroWormShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntitySaguaroWorm extends EntityDivineRPGMob {
+public class EntitySaguaroWorm extends EntityDivineMob {
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntitySaguaroWorm.class,
             DataSerializers.BOOLEAN);
 

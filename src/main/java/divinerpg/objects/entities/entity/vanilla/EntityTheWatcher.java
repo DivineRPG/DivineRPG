@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityTheWatcher extends EntityDivineRPGBoss {
+public class EntityTheWatcher extends EntityDivineBoss {
 
     public int courseChangeCooldown = 0;
     public double waypointX;

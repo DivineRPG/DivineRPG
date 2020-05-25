@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityGlacide extends EntityDivineRPGMob {
+public class EntityGlacide extends EntityDivineMob {
     public EntityGlacide(World worldIn) {
         super(worldIn);
         this.setSize(0.9F, 2.0F);

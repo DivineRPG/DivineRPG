@@ -30,17 +30,17 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public abstract class EntityDivineRPGVillager extends EntityVillager {
+public abstract class EntityDivineVillager extends EntityVillager {
     private UUID lastBuyingPlayer;
     private EntityPlayer buyingPlayer;
     private MerchantRecipeList buyingList;
     private final String[] messages;
 
-    protected EntityDivineRPGVillager(World world) {
+    protected EntityDivineVillager(World world) {
         this(world, new String[0]);
     }
 
-    protected EntityDivineRPGVillager(World w, String... messages) {
+    protected EntityDivineVillager(World w, String... messages) {
         super(w);
         this.setSize(1.0F, 2.0F);
         this.setCanPickUpLoot(false);

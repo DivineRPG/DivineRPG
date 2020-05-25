@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla.ayeraco;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nullable;
 
-public class EntityAyeraco extends EntityDivineRPGBoss {
+public class EntityAyeraco extends EntityDivineBoss {
     private int waitTick;
     private BlockPos currentFlightTarget;
     private boolean attacks;

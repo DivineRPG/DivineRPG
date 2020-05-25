@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityFractiteShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityFractite extends EntityDivineGhast {
+public class EntityFractite extends EntityDivineFlyingMob {
 
     public EntityFractite(World worldIn) {
         super(worldIn);

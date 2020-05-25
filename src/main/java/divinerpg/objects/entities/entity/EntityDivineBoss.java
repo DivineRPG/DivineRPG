@@ -6,12 +6,12 @@ import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGBoss extends EntityDivineRPGMob {
+public abstract class EntityDivineBoss extends EntityDivineMob {
     private BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE,
             BossInfo.Overlay.PROGRESS));
     private int deathTicks;
 
-    public EntityDivineRPGBoss(World par1World) {
+    public EntityDivineBoss(World par1World) {
         super(par1World);
     }
 

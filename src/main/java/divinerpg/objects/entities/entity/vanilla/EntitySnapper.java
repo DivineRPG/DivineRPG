@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -11,7 +11,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class EntitySnapper extends EntityDivineRPGTameable {
+public class EntitySnapper extends EntityDivineTameable {
 
     public EntitySnapper(World worldIn) {
         super(worldIn);

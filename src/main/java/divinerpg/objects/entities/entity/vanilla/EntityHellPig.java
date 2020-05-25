@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
@@ -24,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityHellPig extends EntityDivineRPGTameable {
+public class EntityHellPig extends EntityDivineTameable {
     private static final DataParameter<Float> HEALTH = EntityDataManager.createKey(EntityHellPig.class,
             DataSerializers.FLOAT);
     private static final DataParameter<Boolean> ANGRY = EntityDataManager.createKey(EntityHellPig.class,

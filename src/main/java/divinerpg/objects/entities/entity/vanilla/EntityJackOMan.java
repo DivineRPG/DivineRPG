@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityJackOMan extends EntityDivineRPGVillager {
+public class EntityJackOMan extends EntityDivineVillager {
     public EntityJackOMan(World worldIn) {
         super(worldIn, "message.jackoman.boo",
                 "message.jackoman.lost",

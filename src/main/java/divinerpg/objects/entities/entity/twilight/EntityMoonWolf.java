@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityMoonWolf extends EntityDivineRPGTameable {
+public class EntityMoonWolf extends EntityDivineTameable {
     private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.createKey(EntityWolf.class,
             DataSerializers.FLOAT);
     private boolean isWet;

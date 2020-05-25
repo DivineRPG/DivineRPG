@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityPumpkinSpider extends EntityDivineRPGMob {
+public class EntityPumpkinSpider extends EntityDivineMob {
     private static final DataParameter<Boolean> CLIMBING = EntityDataManager.createKey(EntityPumpkinSpider.class,
             DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntityPumpkinSpider.class,

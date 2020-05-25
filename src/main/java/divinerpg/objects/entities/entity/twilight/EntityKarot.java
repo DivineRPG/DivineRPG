@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -11,7 +11,7 @@ import net.minecraft.world.BossInfo.Color;
 
 import javax.annotation.Nullable;
 
-public class EntityKarot extends EntityDivineRPGBoss {
+public class EntityKarot extends EntityDivineBoss {
 
     private int spawnTick;
 

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityWraith extends EntityDivineRPGTameable {
+public class EntityWraith extends EntityDivineTameable {
     private BlockPos spawnPosition;
     private BlockPos currentFlightTarget;
     private int age;

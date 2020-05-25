@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGSwimming;
+import divinerpg.objects.entities.entity.EntityDivineWaterMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityWhale extends EntityDivineRPGSwimming {
+public class EntityWhale extends EntityDivineWaterMob {
 
     public EntityWhale(World worldIn) {
         super(worldIn);

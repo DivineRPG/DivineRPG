@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.objects.entities.entity.projectiles.EntityFyracryxFireball;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAttackMob {
+public class EntityFyracryx extends EntityDivineTameable implements IRangedAttackMob {
 
     public EntityFyracryx(World par1World) {
         super(par1World);

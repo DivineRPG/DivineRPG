@@ -6,9 +6,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGSwimming extends EntityPeacefulUntilAttacked {
+public abstract class EntityDivineWaterMob extends EntityPeacefulUntilAttacked {
 
-    public EntityDivineRPGSwimming(World par1World) {
+    public EntityDivineWaterMob(World par1World) {
         super(par1World);
     }
 

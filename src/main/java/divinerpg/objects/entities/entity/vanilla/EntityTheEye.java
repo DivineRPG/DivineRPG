@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import divinerpg.registry.TriggerRegistry;
@@ -14,7 +14,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class EntityTheEye extends EntityDivineRPGMob {
+public class EntityTheEye extends EntityDivineMob {
     private boolean hasPotion = false;
 
     public EntityTheEye(World worldIn) {

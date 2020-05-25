@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.util.DamageSource;
@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityRoamer extends EntityDivineRPGMob {
+public class EntityRoamer extends EntityDivineMob {
 
     public EntityRoamer(World world) {
         super(world);

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.blocks.vethea.BlockHelioticBeam;
 import divinerpg.objects.blocks.vethea.BlockKarosDispenser;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityKaros extends EntityDivineRPGBoss {
+public class EntityKaros extends EntityDivineBoss {
 
     private int ability;
     private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;

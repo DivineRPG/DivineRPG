@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntityCaveRock;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -14,7 +14,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityCaveclops extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob {
 
     public EntityCaveclops(World worldIn) {
         super(worldIn);

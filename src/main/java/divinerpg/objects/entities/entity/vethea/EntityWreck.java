@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckBouncingProjectile;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckExplosiveShot;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckShot;
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class EntityWreck extends EntityDivineRPGBoss {
+public class EntityWreck extends EntityDivineBoss {
 
     private final int MELEE = 0, ARCANA = 1, RANGED = 2;
     private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;

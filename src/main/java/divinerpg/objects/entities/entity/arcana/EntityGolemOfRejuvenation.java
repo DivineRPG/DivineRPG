@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +10,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityGolemOfRejuvenation extends EntityDivineRPGTameable {
+public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     private int healTimer;
 
     public EntityGolemOfRejuvenation(World world) {

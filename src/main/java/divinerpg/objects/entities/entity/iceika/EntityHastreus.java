@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.iceika;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class EntityHastreus extends EntityDivineRPGMob {
+public class EntityHastreus extends EntityDivineMob {
 
     public EntityHastreus(World worldIn) {
         super(worldIn);

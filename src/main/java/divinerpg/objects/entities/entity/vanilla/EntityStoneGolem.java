@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.objects.entities.entity.IAttackTimer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -15,7 +15,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityStoneGolem extends EntityDivineRPGTameable implements IAttackTimer {
+public class EntityStoneGolem extends EntityDivineTameable implements IAttackTimer {
     private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.createKey(EntityStoneGolem.class,
             DataSerializers.VARINT);
 

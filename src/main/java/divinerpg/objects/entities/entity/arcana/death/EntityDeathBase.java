@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana.death;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,7 +16,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class EntityDeathBase extends EntityDivineRPGMob {
+public abstract class EntityDeathBase extends EntityDivineMob {
     private final Potion potionEffect;
 
     private EntityDeathBase(World w) {

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.vanilla;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersMeteor;
 import divinerpg.objects.entities.entity.projectiles.EntityKingOfScorchersShot;
 import divinerpg.registry.LootTableRegistry;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EntityKingOfScorchers extends EntityDivineRPGBoss implements ILaunchThrowable {
+public class EntityKingOfScorchers extends EntityDivineBoss implements ILaunchThrowable {
     public EntityKingOfScorchers(World worldIn) {
         super(worldIn);
         this.setSize(2.0F, 2.5F);

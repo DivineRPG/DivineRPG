@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
+public class EntityWorkshopTinkerer extends EntityDivineVillager {
     public EntityWorkshopTinkerer(World worldIn) {
         super(worldIn, "message.merchant.ho",
                 "message.merchant.out",

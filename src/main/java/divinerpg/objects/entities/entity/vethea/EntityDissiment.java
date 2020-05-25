@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDissimentShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityDissiment extends EntityDivineGhast {
+public class EntityDissiment extends EntityDivineFlyingMob {
     private static final int spawnLayer = 4;
 
     public EntityDissiment(World par1World) {

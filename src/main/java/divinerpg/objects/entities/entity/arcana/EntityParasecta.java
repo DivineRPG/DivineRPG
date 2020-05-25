@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +12,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityParasecta extends EntityDivineRPGBoss {
+public class EntityParasecta extends EntityDivineBoss {
 
     private BlockPos currentFlightTarget;
 

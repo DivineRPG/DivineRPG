@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityAgeable;
@@ -13,7 +13,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityEhu extends EntityDivineRPGTameable {
+public class EntityEhu extends EntityDivineTameable {
 
     public EntityEhu(World worldIn) {
         super(worldIn);

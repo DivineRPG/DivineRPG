@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.vethea;
 
 import divinerpg.enums.ArrowType;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class EntityQuadro extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
 
     enum QuadroAbility {
         RANGED_SLOW(0), RANGED_FAST(1), MELEE_SLOW(2), MELEE_FAST(3);

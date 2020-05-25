@@ -1,12 +1,12 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityHiveQueen extends EntityDivineRPGBoss {
+public class EntityHiveQueen extends EntityDivineBoss {
 
     private int spawnTick;
     private int deathTicks;

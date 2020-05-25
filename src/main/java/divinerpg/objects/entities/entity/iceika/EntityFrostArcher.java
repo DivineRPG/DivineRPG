@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.iceika;
 
 import divinerpg.enums.ArrowType;
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityFrostArcher extends EntityDivineRPGMob implements IRangedAttackMob {
+public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackMob {
 
     public EntityFrostArcher(World worldIn) {
         super(worldIn);

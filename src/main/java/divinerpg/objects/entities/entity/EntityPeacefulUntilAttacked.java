@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public abstract class EntityPeacefulUntilAttacked extends EntityDivineRPGMob {
+public abstract class EntityPeacefulUntilAttacked extends EntityDivineMob {
 
     private int angerLevel;
     private UUID angerTargetUUID;

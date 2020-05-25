@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,7 +12,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntityDramix extends EntityDivineRPGBoss {
+public class EntityDramix extends EntityDivineBoss {
 
     public EntityDramix(World world) {
         super(world);

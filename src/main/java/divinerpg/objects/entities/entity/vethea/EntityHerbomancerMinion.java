@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vethea;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityHerbomancerMinion extends EntityDivineRPGMob {
+public class EntityHerbomancerMinion extends EntityDivineMob {
 	
     public float jumpHeight;
     public float height;

@@ -24,10 +24,10 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class EntityDivineGhast extends EntityFlying implements IMob {
-    private static DataParameter<Optional<UUID>> TargetData = EntityDataManager.createKey(EntityDivineGhast.class, DataSerializers.OPTIONAL_UNIQUE_ID);
+public abstract class EntityDivineFlyingMob extends EntityFlying implements IMob {
+    private static DataParameter<Optional<UUID>> TargetData = EntityDataManager.createKey(EntityDivineFlyingMob.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 
-    protected EntityDivineGhast(World world) {
+    protected EntityDivineFlyingMob(World world) {
         super(world);
 
         this.moveHelper = new GhastLikeMoveHelper(this);

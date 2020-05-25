@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight;
 
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.ai.AISunstormAttack;
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -20,7 +20,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntitySunstorm extends EntityDivineRPGBoss implements IRangedAttackMob {
+public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob {
 	public EntitySunstorm(World par1World) {
 		super(par1World);
 		this.setSize(0.9F, 3F);

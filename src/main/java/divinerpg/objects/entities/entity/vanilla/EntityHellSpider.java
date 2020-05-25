@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
@@ -18,7 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityHellSpider extends EntityDivineRPGMob {
+public class EntityHellSpider extends EntityDivineMob {
 
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityHellSpider.class,
             DataSerializers.BYTE);

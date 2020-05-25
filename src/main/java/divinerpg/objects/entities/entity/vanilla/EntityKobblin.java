@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.Block;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityKobblin extends EntityDivineRPGMob {
+public class EntityKobblin extends EntityDivineMob {
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntityKobblin.class,
             DataSerializers.BOOLEAN);
 

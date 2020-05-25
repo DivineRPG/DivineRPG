@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight.cories;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -18,7 +18,7 @@ import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntityExperiencedCori extends EntityDivineGhast {
+public class EntityExperiencedCori extends EntityDivineFlyingMob {
 	private BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE,
             BossInfo.Overlay.PROGRESS));
     private int deathTicks;

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityJungleBat extends EntityDivineRPGMob {
+public class EntityJungleBat extends EntityDivineMob {
 
     private static final DataParameter<Boolean> HANGING = EntityDataManager.createKey(EntityBat.class,
             DataSerializers.BOOLEAN);

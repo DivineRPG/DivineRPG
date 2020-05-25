@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.twilight.mage;
 
 import divinerpg.enums.BulletType;
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntityTwilightMageShot;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -11,7 +11,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public abstract class EntityMageBase extends EntityDivineRPGMob {
+public abstract class EntityMageBase extends EntityDivineMob {
     private final BulletType bullet;
 
     private EntityMageBase(World worldIn) {

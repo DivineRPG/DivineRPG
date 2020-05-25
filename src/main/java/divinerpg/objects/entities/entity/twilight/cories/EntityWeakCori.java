@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.twilight.cories;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityWeakCori extends EntityDivineGhast {
+public class EntityWeakCori extends EntityDivineFlyingMob {
 
     public EntityWeakCori(World worldIn) {
         super(worldIn);

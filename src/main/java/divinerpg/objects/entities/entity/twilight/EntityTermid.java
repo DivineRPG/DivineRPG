@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.init.SoundEvents;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityTermid extends EntityDivineRPGMob {
+public class EntityTermid extends EntityDivineMob {
 	public EntityTermid(World par1World) {
 		super(par1World);
 		this.setSize(0.4F, 1.2F);

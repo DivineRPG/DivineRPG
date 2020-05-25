@@ -1,8 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivinePet extends RenderLiving<EntityDivineRPGTameable> {
+public class RenderDivinePet extends RenderLiving<EntityDivineTameable> {
 
     private ResourceLocation texture;
     private float scaleFactor;
@@ -30,11 +28,11 @@ public class RenderDivinePet extends RenderLiving<EntityDivineRPGTameable> {
     }
 
     @Override
-    protected void preRenderCallback(EntityDivineRPGTameable mob, float partialTickTime) {
+    protected void preRenderCallback(EntityDivineTameable mob, float partialTickTime) {
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineRPGTameable entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineTameable entity) {
         return texture;
     }
 

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -19,7 +19,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityBunny extends EntityDivineRPGTameable {
+public class EntityBunny extends EntityDivineTameable {
 
     private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.createKey(EntityBunny.class,
             DataSerializers.BOOLEAN);

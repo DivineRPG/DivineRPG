@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntityAncientEntity extends EntityDivineRPGBoss {
+public class EntityAncientEntity extends EntityDivineBoss {
 
     public EntityAncientEntity(World worldIn) {
         super(worldIn);

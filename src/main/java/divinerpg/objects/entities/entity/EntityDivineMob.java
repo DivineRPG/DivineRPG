@@ -8,9 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGMob extends EntityMob {
+public abstract class EntityDivineMob extends EntityMob {
 
-    public EntityDivineRPGMob(World par1World) {
+    public EntityDivineMob(World par1World) {
         super(par1World);
     }
 

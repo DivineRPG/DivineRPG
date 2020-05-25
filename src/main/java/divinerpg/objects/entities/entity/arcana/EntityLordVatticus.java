@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.EntityDivineRPGVillager;
+import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ArmorRegistry;
@@ -12,7 +12,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityLordVatticus extends EntityDivineRPGVillager {
+public class EntityLordVatticus extends EntityDivineVillager {
     public EntityLordVatticus(World world) {
         super(world, "message.vatticus.feel",
                 "message.vatticus.noend",

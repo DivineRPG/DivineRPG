@@ -1,13 +1,13 @@
 package divinerpg.objects.entities.entity.twilight;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGBoss;
+import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo.Color;
 
-public class EntityVamacheron extends EntityDivineRPGBoss {
+public class EntityVamacheron extends EntityDivineBoss {
 
     public EntityVamacheron(World worldIn) {
         super(worldIn);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.arcana;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityParatiku extends EntityDivineRPGTameable {
+public class EntityParatiku extends EntityDivineTameable {
     private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityParatiku.class, DataSerializers.BYTE);
     /**
      * Coordinates of where the Paratiku spawned.

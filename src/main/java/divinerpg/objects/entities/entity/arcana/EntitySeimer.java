@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.arcana;
 
 import divinerpg.api.DivineAPI;
 import divinerpg.api.arcana.IArcana;
-import divinerpg.objects.entities.entity.EntityDivineRPGTameable;
+import divinerpg.objects.entities.entity.EntityDivineTameable;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class EntitySeimer extends EntityDivineRPGTameable {
+public class EntitySeimer extends EntityDivineTameable {
 
     public EntitySeimer(World par1World) {
         super(par1World);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineRPGMob;
+import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.Entity;
@@ -21,7 +21,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityJungleSpider extends EntityDivineRPGMob {
+public class EntityJungleSpider extends EntityDivineMob {
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityJungleSpider.class,
             DataSerializers.BYTE);
 

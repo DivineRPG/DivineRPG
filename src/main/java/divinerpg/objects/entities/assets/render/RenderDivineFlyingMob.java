@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.assets.render;
 
 
-import divinerpg.objects.entities.entity.EntityDivineGhast;
+import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineFlyingMob extends RenderLiving<EntityDivineGhast> {
+public class RenderDivineFlyingMob extends RenderLiving<EntityDivineFlyingMob> {
 
     private ResourceLocation texture;
     private float scaleFactor;
@@ -29,11 +29,11 @@ public class RenderDivineFlyingMob extends RenderLiving<EntityDivineGhast> {
     }
 
     @Override
-    protected void preRenderCallback(EntityDivineGhast mob, float partialTickTime) {
+    protected void preRenderCallback(EntityDivineFlyingMob mob, float partialTickTime) {
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineGhast entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineFlyingMob entity) {
         return texture;
     }
 

@@ -14,8 +14,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public abstract class EntityDivineRPGTameable extends EntityTameable {
-    public EntityDivineRPGTameable(World world) {
+public abstract class EntityDivineTameable extends EntityTameable {
+    public EntityDivineTameable(World world) {
         super(world);
         setTamed(false);
     }
