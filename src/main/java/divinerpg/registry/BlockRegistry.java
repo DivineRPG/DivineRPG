@@ -1115,7 +1115,7 @@ public class BlockRegistry {
         register(registry, new BlockModOre("realmite_ore", 3.0F, 2000F, IRON, () -> null));
         register(registry, new BlockModOre("rupee_ore", 3.0F, 2000F, DIAMOND, () -> null));
         register(registry, new BlockModOre("bloodgem_ore", 3.0F, 2000F, DIAMOND, () -> ItemRegistry.bloodgem));
-        register(registry, new BlockNetheriteOre("netherite_ore", 3.0F, 2000F, DIAMOND));
+        register(registry, new BlockModOre("netherite_ore", 3.0F, 2000F, DIAMOND, () -> null));
 
         // Compressed ore blocks
         register(registry, new BlockBeaconBase("arlemite_block", 5.0F, Material.IRON, 3));
