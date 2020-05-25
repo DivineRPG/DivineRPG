@@ -2,14 +2,6 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.GeneralConfig;
-import divinerpg.objects.entities.assets.model.vethea.*;
-import divinerpg.objects.entities.assets.render.RenderDivineMob;
-import divinerpg.objects.entities.assets.render.arcana.*;
-import divinerpg.objects.entities.assets.render.iceika.*;
-import divinerpg.objects.entities.assets.render.projectiles.*;
-import divinerpg.objects.entities.assets.render.twilight.*;
-import divinerpg.objects.entities.assets.render.vanilla.*;
-import divinerpg.objects.entities.assets.render.vethea.*;
 import divinerpg.objects.entities.entity.EntityFrostCloud;
 import divinerpg.objects.entities.entity.arcana.*;
 import divinerpg.objects.entities.entity.arcana.death.EntityDeathHound;

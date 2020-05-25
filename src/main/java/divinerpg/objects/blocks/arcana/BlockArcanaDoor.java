@@ -21,7 +21,7 @@ public class BlockArcanaDoor extends BlockModDoor {
     private Supplier<Item> keyItem;
 
     public BlockArcanaDoor(String name, Supplier<Item> key) {
-        super(name, Material.ROCK, -1F);
+        super(name, Material.ROCK, -1F, () -> Items.AIR);
         this.setResistance(6000000F);
         this.keyItem = key;
     }

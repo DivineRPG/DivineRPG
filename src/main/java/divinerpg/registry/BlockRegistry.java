@@ -1328,7 +1328,7 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("icy_stone"));
         register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
         register(registry, new BlockMod("snow_bricks", 6.0F));
-        registerItemlessBlock(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f));
+        registerItemlessBlock(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f, () -> ItemRegistry.steelDoor));
         register(registry, new BlockMod("workshop_bookcase", 1.5F));
         register(registry, new BlockMod("workshop_carpet", 0.1F, Material.CLOTH));
         register(registry, new BlockModLamp("workshop_lamp", 0.3F));
@@ -1624,7 +1624,7 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea));
 
         // Door
-        registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f));
+        registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f, () -> ItemRegistry.barredDoor));
 
         // Lighting
         register(registry, new BlockLightCrystal("fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
