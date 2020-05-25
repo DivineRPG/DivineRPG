@@ -115,6 +115,7 @@ public class RenderRegistry {
         registerRender(EntityHellPig.class, manager -> new RenderHellPig(manager));
         registerRender(EntityHellSpider.class, manager -> new RenderDivineMob(manager, new ModelHellSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_spider.png")));
         registerRender(EntityHusk.class, manager -> new RenderDivinePet(manager, new ModelHusk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/husk.png")));
+        registerRender(EntityJackOMan.class, manager -> new RenderDivineVillager(manager, new ModelJackOMan(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jack_o_man.png")));
         registerRender(EntityJungleBat.class, manager -> new RenderDivineMob(manager, new ModelJungleBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_bat.png")));
         registerRender(EntityJungleDramcryx.class, manager -> new RenderDivineMob(manager, new ModelDramcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_dramcryx.png")));
         registerRender(EntityJungleSpider.class, manager -> new RenderDivineMob(manager, new ModelJungleSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_spider.png")));
