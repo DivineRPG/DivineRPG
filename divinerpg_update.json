@@ -2,15 +2,15 @@
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg",
 	"1.12.2": {
 		"1.6.3": "Armor rebalance, various changes and fixes",
-        "1.12.2-1.6.2.1": "bug fixes",
-        "1.12.2-1.6.2": "bug fixes",
-        "1.12.2-1.6.1": "Sunstorm/Termasect",
-        "1.12.2-1.6.0.2": "bug fixes",
-        "1.12.2-1.6.0.1": "Quick vethea fixes",
-        "1.12.2-1.6": "Vethea fixes and new content",
-        "1.12.2-1.5.2": "bug fixes/vethea tweaks",
-        "1.12.2-1.5.1": "bug fixes",
-		"1.12.2-1.5": "Ported to 1.12"
+        "1.6.2.1": "bug fixes",
+        "1.6.2": "bug fixes",
+        "1.6.1": "Sunstorm/Termasect",
+        "1.6.0.2": "bug fixes",
+        "1.6.0.1": "Quick vethea fixes",
+        "1.6": "Vethea fixes and new content",
+        "1.5.2": "bug fixes/vethea tweaks",
+        "1.5.1": "bug fixes",
+		"1.5": "Ported to 1.12"
 	},
 	"1.7.10": {
 		"1.4.1.4": "bug fixes",
