@@ -1,6 +1,7 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg",
 	"1.12.2": {
+		"1.6.3.1": "Test version for update checker",
 		"1.6.3": "Armor rebalance, various changes and fixes",
         "1.6.2.1": "bug fixes",
         "1.6.2": "bug fixes",
@@ -26,8 +27,8 @@
 		"1.4.0": "Ported to 1.7.10"
 	},
 	"promos": {
-		"1.12.2-latest": "1.6.3",
-		"1.12.2-recommended": "1.6.3",
+		"1.12.2-latest": "1.6.3.1",
+		"1.12.2-recommended": "1.6.3.1",
 		"1.7.10-latest": "1.4.1.4",
 		"1.7.10-recommended": "1.4.1.4"
 	}
