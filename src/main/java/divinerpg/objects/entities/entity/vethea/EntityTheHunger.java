@@ -71,6 +71,7 @@ public class EntityTheHunger extends EntityDivineVillager {
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.shinyPearls, 40, 0), new ItemStack(ItemRegistry.moonClock, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.shinyPearls, 25, 0), new ItemStack(ItemRegistry.bandOfHeivaHunting, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.shinyPearls, 1, 0), new ItemStack(ItemRegistry.dreamSours, 4, 0)));
+        recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.shinyPearls, 4, 0), new ItemStack(ItemRegistry.everArrow, 32, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.shinyPearls, 5, 0), new ItemStack(ItemRegistry.tormentedTemplate, 1, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.rockChunks, 25, 0), new ItemStack(WeaponRegistry.karosRockmaul, 1, 0)));
     }
