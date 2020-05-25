@@ -1,54 +1,42 @@
 package divinerpg.objects.items.twilight;
 
 import divinerpg.objects.items.base.ItemFastFood;
+import divinerpg.objects.items.base.ItemModFood;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemForbiddenFruit extends ItemFastFood {
+public class ItemForbiddenFruit extends ItemModFood {
+
 	public ItemForbiddenFruit() {
-		super(2, 1, false, "forbidden_fruit");
+	    super(3, 0.5F, false, "forbidden_fruit");
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
-    {
-        if (entityLiving instanceof EntityPlayer)
-        {
-        	EntityPlayer entityplayer = (EntityPlayer)entityLiving;
-            entityplayer.getFoodStats().addStats(this, stack);
-            worldIn.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-            this.onFoodEaten(stack, worldIn, entityplayer);
-            entityplayer.addStat(StatList.getObjectUseStats(this));
-            
-            entityplayer.addExperience(2);
-            
-            
-            try {
-                Thread.sleep(5000); // 1 second
-                stack.shrink(stack.getCount());
-                entityplayer.inventory.dropAllItems();
-            } catch (InterruptedException ex) {
-                System.out.print("forbidden fruit failed");
-            }
-            if (entityplayer instanceof EntityPlayerMP)
-            {
-                CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP)entityplayer, stack);
-                
-               
+    protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+        if (!worldIn.isRemote) {
+            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, 0));
+
+            switch(itemRand.nextInt(3)) {
+                case 0:
+                    player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 120, 1));
+                    break;
+                case 1:
+                    player.addPotionEffect(new PotionEffect(MobEffects.POISON, 120, 1));
+                    break;
+                default:
+                    player.setFire(6);
+                    break;
             }
         }
-        entityLiving.heal(4);
-        
-        
-        stack.shrink(1);
-        return stack;
     }
 
 }
