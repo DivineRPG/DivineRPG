@@ -21,7 +21,7 @@ public enum StatueType {
     SOUL_FIEND_STATUE(new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")),
     THE_WATCHER_STATUE(new ModelTheWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")),
     TWILIGHT_DEMON_STATUE(new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")),
-    VAMACHERON_STATUE(new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamecheron.png")),
+    VAMACHERON_STATUE(new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")),
 
     RED_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")),
     GREEN_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")),
