@@ -146,7 +146,7 @@ public class RenderRegistry {
         registerRender(EntityFractite.class, manager -> new RenderDivineFlyingMob(manager, new ModelFractite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
         registerRender(EntityFrostArcher.class, manager -> new RenderFrostArcher(manager));
         registerRender(EntityFrosty.class, manager -> new RenderFrosty(manager));
-        registerRender(EntityGlacide.class, manager -> new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacide.png")));
+        registerRender(EntityGlacide.class, manager -> new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
         registerRender(EntityHastreus.class, manager -> new RenderDivineMob(manager, new ModelHastreus(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hastreus.png")));
         registerRender(EntityRollum.class, manager -> new RenderDivineMob(manager, new ModelRollum(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rollum.png")));
         registerRender(EntityWorkshopMerchant.class, manager -> new RenderDivineVillager(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_merchant.png")));
