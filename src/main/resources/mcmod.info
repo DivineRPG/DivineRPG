@@ -3,7 +3,7 @@
     "modid": "divinerpg",
     "name": "DivineRPG",
     "description": "Adds a bunch of stuff",
-    "version": "1.6.3",
+    "version": "1.6.3.1",
     "mcversion": "1.12.2",
     "url": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg/",
     "updateJSON": "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/divinerpg_update.json",
