@@ -103,6 +103,7 @@ public class RenderRegistry {
         registerRender(EntityCaveclops.class, manager -> new RenderDivineMob(manager, new ModelCyclops(), new ResourceLocation(DivineRPG.MODID, "textures/entity/caveclops.png")));
         registerRender(EntityCaveCrawler.class, manager -> new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cave_crawler.png")));
         registerRender(EntityCrab.class, manager -> new RenderDivineMob(manager, new ModelCrab(), new ResourceLocation(DivineRPG.MODID, "textures/entity/crab.png")));
+        registerRender(EntityCyclops.class, manager -> new RenderCyclops(manager));
         registerRender(EntityDesertCrawler.class, manager -> new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/desert_crawler.png")));
         registerRender(EntityEhu.class, manager -> new RenderDivinePet(manager, new ModelEhu(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu.png")));
         registerRender(EntityEnderSpider.class, manager -> new RenderEnderSpider(manager));
