@@ -61,7 +61,7 @@ public class RenderRegistry {
         registerRender(EntityFrostShot.class, manager -> new RenderDivineFireball(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
         registerRender(EntityFyracryxFireball.class, manager -> new RenderDivineFireball(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
         registerRender(EntityGeneralsStaff.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png")));
-        registerRender(EntityGrenade.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/grenade.png")));
+        registerRender(EntityGrenade.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/grenade.png")));
         registerRender(EntityKazroticShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
         registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
         registerRender(EntityKingOfScorchersShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
