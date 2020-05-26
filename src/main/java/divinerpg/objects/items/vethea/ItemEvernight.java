@@ -22,23 +22,6 @@ public class ItemEvernight extends ItemStaff {
     @Override
     protected void doPreUsageEffects(World world, EntityPlayer player) {
         player.attackEntityFrom(Utils.arcanaSource, 20);
-
-        if(world.isRemote) {
-            return;
-        }
-
-        for(int x = -8; x < 8; x++) {
-            for(int y = -8; y < 8; y++) {
-                for(int z = -8; z < 8; z++) {
-                    BlockPos pos = new BlockPos(player.getPosition().add(x, y, z));
-                    Block block = world.getBlockState(pos).getBlock();
-
-                    if(block instanceof BlockKarosDispenser) {
-                        ((BlockKarosDispenser)block).dispense(world, pos);
-                    }
-                }
-            }
-        }
     }
 
     @Override
