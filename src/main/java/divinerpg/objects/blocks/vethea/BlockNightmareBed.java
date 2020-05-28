@@ -5,6 +5,7 @@ import divinerpg.objects.blocks.tile.entity.TileEntityNightmareBed;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.registry.DimensionRegistry;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -182,14 +183,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        BlockPos blockpos = pos;
-
-        if (state.getValue(PART) == BlockNightmareBed.EnumPartType.FOOT) {
-            blockpos = pos.offset(state.getValue(FACING));
-        }
-
-        TileEntity tileentity = worldIn.getTileEntity(blockpos);
-        return new ItemStack(BlockRegistry.nightmareBed, 1);
+        return new ItemStack(ItemRegistry.nightmareBed);
     }
 
     /**
