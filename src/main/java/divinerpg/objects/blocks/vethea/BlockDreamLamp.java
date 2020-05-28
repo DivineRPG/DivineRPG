@@ -64,8 +64,6 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
             return true;
         }
 
-        TileEntityDreamLamp entity = (TileEntityDreamLamp)worldIn.getTileEntity(pos);
-
         playerIn.openGui(DivineRPG.instance, GUIHandler.DREAM_LAMP_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }

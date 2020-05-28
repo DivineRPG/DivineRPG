@@ -32,8 +32,6 @@ public class BlockInfusionTable extends BlockModUnbreakable implements ITileEnti
             return true;
         }
 
-        TileEntityInfusionTable entity = (TileEntityInfusionTable)worldIn.getTileEntity(pos);
-
         playerIn.openGui(DivineRPG.instance, GUIHandler.INFUSION_TABLE_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
