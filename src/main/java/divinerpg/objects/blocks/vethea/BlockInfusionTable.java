@@ -19,7 +19,6 @@ public class BlockInfusionTable extends BlockModUnbreakable implements ITileEnti
     public BlockInfusionTable(String name) {
         super(name);
         setCreativeTab(DivineRPGTabs.vethea);
-
     }
 
     @Override
@@ -29,11 +28,11 @@ public class BlockInfusionTable extends BlockModUnbreakable implements ITileEnti
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        TileEntityInfusionTable entity = (TileEntityInfusionTable)worldIn.getTileEntity(pos);
-
-        if(entity == null || playerIn.isSneaking()) {
-            System.out.println("Tile entity is null!");
+        if(playerIn.isSneaking()) {
+            return true;
         }
+
+        TileEntityInfusionTable entity = (TileEntityInfusionTable)worldIn.getTileEntity(pos);
 
         playerIn.openGui(DivineRPG.instance, GUIHandler.INFUSION_TABLE_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;

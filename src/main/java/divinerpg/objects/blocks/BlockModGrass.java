@@ -108,7 +108,6 @@ public abstract class BlockModGrass extends BlockMod implements IGrowable {
                     //Currently doesn't actually plant tallgrass
                     if(((BlockBush)flower).canBlockStay(worldIn, blockpos1, flowerState)) {
                         worldIn.setBlockState(blockpos1, flowerState, 3);
-                        System.out.println(blockpos1);
                     }
                 }
             }

@@ -60,11 +60,11 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        TileEntityDreamLamp entity = (TileEntityDreamLamp)worldIn.getTileEntity(pos);
-
-        if(entity == null || playerIn.isSneaking()) {
-            System.out.println("Tile entity is null!");
+        if(playerIn.isSneaking()) {
+            return true;
         }
+
+        TileEntityDreamLamp entity = (TileEntityDreamLamp)worldIn.getTileEntity(pos);
 
         playerIn.openGui(DivineRPG.instance, GUIHandler.DREAM_LAMP_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
