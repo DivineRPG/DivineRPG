@@ -20,8 +20,8 @@ import java.util.function.Supplier;
 public class BlockArcanaDoor extends BlockModDoor {
     private Supplier<Item> keyItem;
 
-    public BlockArcanaDoor(String name, Supplier<Item> key) {
-        super(name, Material.ROCK, -1F, () -> Items.AIR);
+    public BlockArcanaDoor(String name, Supplier<Item> key, Supplier<Item> doorItem) {
+        super(name, Material.ROCK, -1F, doorItem);
         this.setResistance(6000000F);
         this.keyItem = key;
     }
@@ -82,11 +82,5 @@ public class BlockArcanaDoor extends BlockModDoor {
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Items.AIR;
-    }
-
-    @Override
-    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
-                                  EntityPlayer player) {
-        return new ItemStack(this);
     }
 }

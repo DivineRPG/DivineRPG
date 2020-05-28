@@ -1511,10 +1511,10 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("soul_stone"));
 
         // Door
-        registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ItemRegistry.ancientKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ItemRegistry.degradedKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ItemRegistry.sludgeKey));
-        registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ItemRegistry.soulKey));
+        registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ItemRegistry.ancientKey, () -> ItemRegistry.ancientBrickDoor));
+        registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ItemRegistry.degradedKey, () -> ItemRegistry.degradedBrickDoor));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ItemRegistry.sludgeKey, () -> ItemRegistry.soulSludgeDoor));
+        registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ItemRegistry.soulKey, () -> ItemRegistry.soulStoneDoor));
 
         // Spawner
         register(registry, new BlockArcanaSpawner("death_hound_spawner", "death_hound"));

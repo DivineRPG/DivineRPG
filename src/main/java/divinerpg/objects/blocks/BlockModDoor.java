@@ -49,14 +49,13 @@ public class BlockModDoor extends BlockDoor {
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return (state.getValue(HALF) == BlockDoor.EnumDoorHalf.LOWER) ? doorItem.get() :
-                Items.AIR;
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+        return new ItemStack(doorItem.get());
     }
 
     @Override
-    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos,
-            EntityPlayer player) {
-        return new ItemStack(this);
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return (state.getValue(HALF) == BlockDoor.EnumDoorHalf.LOWER) ? doorItem.get() :
+                Items.AIR;
     }
 }
