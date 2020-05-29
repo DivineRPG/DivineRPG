@@ -70,7 +70,6 @@ public class VetheaLevelGenerators {
 
     public void generateChunk(World world, ChunkPrimer chunkPrimer, int x, int z) {
         generateFloors(chunkPrimer);
-        //System.out.println("Floor generated");
         structures.forEach(gen -> gen.generate(world, x, z, chunkPrimer));
     }
 

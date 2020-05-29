@@ -4,6 +4,7 @@ import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -21,26 +22,23 @@ import java.util.Random;
 
 public class DivineStructureComponentTemplate extends StructureComponentTemplate {
 
+    private static PlacementSettings DEFAULT_PLACEMENT_SETTINGS = new PlacementSettings(); //need to figure out structure block
     private ResourceLocation location;
 
     /**
      * NBT ctor
      */
     public DivineStructureComponentTemplate() {
-
+        this.placeSettings = DEFAULT_PLACEMENT_SETTINGS;
     }
 
     public DivineStructureComponentTemplate(TemplateManager manager, ResourceLocation location, BlockPos start) {
-        this(manager, location, start, null);
+        this(manager, location, start, DEFAULT_PLACEMENT_SETTINGS);
     }
 
-    public DivineStructureComponentTemplate(TemplateManager manager, ResourceLocation location, BlockPos start, @Nullable PlacementSettings settings) {
+    public DivineStructureComponentTemplate(TemplateManager manager, ResourceLocation location, BlockPos start, PlacementSettings settings) {
         super(0);
         this.location = location;
-
-        if (settings == null)
-            settings = this.placeSettings;
-
         Template template = manager.getTemplate(null, location);
         setup(template, start, settings);
     }
@@ -56,7 +54,6 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
     @Override
     protected void writeStructureToNBT(NBTTagCompound tagCompound) {
         super.writeStructureToNBT(tagCompound);
-
         tagCompound.setString("TmpRes", location.toString());
     }
 
