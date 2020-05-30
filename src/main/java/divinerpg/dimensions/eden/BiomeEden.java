@@ -14,7 +14,7 @@ import java.awt.*;
 public class BiomeEden extends TwilightBiomeBase {
 
     public BiomeEden() {
-        super(new BiomeProperties("eden"), "eden");
+        super(new BiomeProperties("Eden"), "eden");
 
         this.genTree = new EdenTree(false, 3);
         this.genLargeTree = new LargeTwilightTree(false, 7,
