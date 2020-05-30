@@ -51,7 +51,7 @@ public class RenderRegistry {
         registerRender(EntityBouncingProjectile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/bouncing_projectile.png")));
         registerRender(EntityCaveRock.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cave_rock.png")));
         registerRender(EntityCoriShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cori_shot.png")));
-        registerRender(EntityCorruptedBullet.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/corrupted_bullet.png")));
+        registerRender(EntityCorruptedBullet.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/corrupted_bullet.png")));
         registerRender(EntityDisk.class, RenderDisk::new);
         registerRender(EntityDissimentShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
         registerRender(EntityDivineArrow.class, RenderDivineArrow::new);
