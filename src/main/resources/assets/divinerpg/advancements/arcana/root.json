@@ -1,0 +1,23 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:arcana_portal_frame"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.temp"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.temp.desc"
+      },
+      "background":"divinerpg:textures/blocks/ancient_brick.png",
+      "announce_to_chat":true
+   },
+   "criteria":{
+      "divinerpg":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "dimension":"arcana"
+         }
+      }
+   }
+}

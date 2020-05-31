@@ -1,0 +1,20 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:rupee_ingot"
+      },
+      "title":{
+         "translate":"advancement.look_into_the_eye"
+      },
+      "description":{
+         "translate":"advancement.look_into_the_eye.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:overworld/root",
+   "criteria":{
+      "look_into_the_eye":{
+         "trigger":"divinerpg:eye"
+      }
+   }
+}
