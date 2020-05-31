@@ -37,15 +37,10 @@
          ]
       },
       {
-         "name":"divinerpg:ancient_entity",
+         "name":"divinerpg:ancient_entity_statue_drop",
          "conditions":[
             {
                "condition":"killed_by_player"
-            },
-            {
-               "condition":"random_chance_with_looting",
-               "chance":0.025,
-               "looting_multiplier":0.01
             }
          ],
          "rolls":1,

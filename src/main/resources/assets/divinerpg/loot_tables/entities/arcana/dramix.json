@@ -21,6 +21,22 @@
                ]
             }
          ]
+      },
+      {
+         "name":"divinerpg:dramix_statue_drop",
+         "conditions":[
+            {
+               "condition":"killed_by_player"
+            }
+         ],
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:dramix_statue",
+               "weight":1
+            }
+         ]
       }
    ]
 }

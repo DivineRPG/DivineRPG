@@ -49,26 +49,21 @@
                 }
             ]
         },
-      {
-         "name":"divinerpg:soul_fiend",
-         "conditions":[
-            {
-               "condition":"killed_by_player"
-            },
-            {
-               "condition":"random_chance_with_looting",
-               "chance":0.025,
-               "looting_multiplier":0.01
-            }
-         ],
-         "rolls":1,
-         "entries":[
-            {
-               "type":"item",
-               "name":"divinerpg:soul_fiend_statue",
-               "weight":1
-            }
-         ]
-      }
+     {
+       "name":"divinerpg:soul_fiend_statue_drop",
+       "conditions":[
+         {
+           "condition":"killed_by_player"
+         }
+       ],
+       "rolls":1,
+       "entries":[
+         {
+           "type":"item",
+           "name":"divinerpg:soul_fiend_statue",
+           "weight":1
+         }
+       ]
+     }
    ]
 }

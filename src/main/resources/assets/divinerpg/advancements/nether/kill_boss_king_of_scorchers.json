@@ -22,10 +22,5 @@
             }
          }
       }
-   },
-   "rewards":{
-      "loot":[
-         "divinerpg:kill_boss/king_of_scorchers"
-      ]
    }
 }
