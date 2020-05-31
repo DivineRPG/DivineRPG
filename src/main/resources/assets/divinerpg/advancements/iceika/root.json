@@ -1,0 +1,23 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:snow_globe"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.temp"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.temp.desc"
+      },
+      "background":"divinerpg:textures/blocks/frozen_dirt.png",
+      "announce_to_chat":true
+   },
+   "criteria":{
+      "divinerpg":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "dimension":"iceika"
+         }
+      }
+   }
+}

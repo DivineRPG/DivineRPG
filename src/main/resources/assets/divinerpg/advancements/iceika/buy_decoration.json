@@ -12,7 +12,7 @@
     },
     "announce_to_chat":true
   },
-  "parent":"divinerpg:talk_to_workshop_merchant",
+  "parent":"divinerpg:iceika/talk_to_workshop_merchant",
   "criteria": {
     "present_box": {
       "trigger": "minecraft:inventory_changed",

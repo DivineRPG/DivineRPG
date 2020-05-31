@@ -11,7 +11,7 @@
     },
     "announce_to_chat": true
   },
-  "parent": "divinerpg:destroy_frosted_chest",
+  "parent": "divinerpg:iceika/destroy_frosted_chest",
    "criteria":{
       "talk_to_workshop_tinkerer":{
          "trigger":"minecraft:villager_trade",

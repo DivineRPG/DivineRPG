@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_iceika",
+   "parent":"divinerpg:iceika/root",
    "criteria":{
       "destroy_frosted_chest":{
          "trigger":"divinerpg:block",
