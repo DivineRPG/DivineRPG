@@ -4,11 +4,11 @@
          "item":"divinerpg:altar_of_corruption"
       },
       "title":{
-         "translate":"advancement.use_altar_of_corruption"
+         "translate":"advancement.divinerpg.overworld.use_altar_of_corruption"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.use_altar_of_corruption.desc"
+         "translate":"advancement.divinerpg.overworld.use_altar_of_corruption.desc"
       },
       "announce_to_chat":true
    },

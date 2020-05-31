@@ -4,10 +4,10 @@
       "item": "divinerpg:horde_horn"
     },
     "title": {
-      "translate": "advancement.craft_horde_horn"
+      "translate": "advancement.divinerpg.end.craft_horde_horn"
     },
     "description": {
-      "translate": "advancement.craft_horde_horn.desc"
+      "translate": "advancement.divinerpg.end.craft_horde_horn.desc"
     },
     "announce_to_chat": true
   },

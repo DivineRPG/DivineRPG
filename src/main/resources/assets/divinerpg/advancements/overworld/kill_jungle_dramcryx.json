@@ -4,11 +4,11 @@
          "item":"divinerpg:jungle_shards"
       },
       "title":{
-         "translate":"advancement.kill_jungle_dramcryx"
+         "translate":"advancement.divinerpg.overworld.kill_jungle_dramcryx"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_jungle_dramcryx.desc"
+         "translate":"advancement.divinerpg.overworld.kill_jungle_dramcryx.desc"
       },
       "announce_to_chat":true
    },

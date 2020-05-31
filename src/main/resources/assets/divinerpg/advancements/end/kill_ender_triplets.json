@@ -4,11 +4,11 @@
          "item":"divinerpg:ender_shards"
       },
       "title":{
-         "translate":"advancement.kill_ender_triplets"
+         "translate":"advancement.divinerpg.end.kill_ender_triplets"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.kill_ender_triplets.desc"
+         "translate":"advancement.divinerpg.end.kill_ender_triplets.desc"
       },
       "announce_to_chat":true
    },

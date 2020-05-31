@@ -4,11 +4,11 @@
       "item": "divinerpg:divine_helmet"
     },
     "title":{
-      "translate":"advancement.divine_equipment"
+      "translate":"advancement.divinerpg.overworld.divine_equipment"
     },
     "frame": "challenge",
     "description":{
-      "translate":"advancement.divine_equipment.desc"
+      "translate":"advancement.divinerpg.overworld.divine_equipment.desc"
     },
     "announce_to_chat":true
   },

@@ -4,11 +4,11 @@
          "item":"divinerpg:bluefire_stone"
       },
       "title":{
-         "translate":"advancement.kill_boss_the_watcher"
+         "translate":"advancement.divinerpg.nether.kill_boss_the_watcher"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_the_watcher.desc"
+         "translate":"advancement.divinerpg.nether.kill_boss_the_watcher.desc"
       },
       "announce_to_chat":true
    },

@@ -4,10 +4,10 @@
          "item":"divinerpg:rupee_shickaxe"
       },
       "title":{
-         "translate":"advancement.divinerpg"
+         "translate":"advancement.divinerpg.overworld.root"
       },
       "description":{
-         "translate":"advancement.divinerpg.desc"
+         "translate":"advancement.divinerpg.overworld.root.desc"
       },
       "background":"divinerpg:textures/blocks/divine_rock.png",
       "announce_to_chat":false

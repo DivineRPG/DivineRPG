@@ -4,11 +4,11 @@
          "item":"divinerpg:sandslash"
       },
       "title":{
-         "translate":"advancement.kill_boss_ancient_entity"
+         "translate":"advancement.divinerpg.overworld.kill_boss_ancient_entity"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_ancient_entity.desc"
+         "translate":"advancement.divinerpg.overworld.kill_boss_ancient_entity.desc"
       },
       "announce_to_chat":true
    },

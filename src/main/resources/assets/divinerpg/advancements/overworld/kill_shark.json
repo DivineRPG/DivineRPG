@@ -4,11 +4,11 @@
          "item":"divinerpg:shark_fin"
       },
       "title":{
-         "translate":"advancement.kill_shark"
+         "translate":"advancement.divinerpg.overworld.kill_shark"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.kill_shark.desc"
+         "translate":"advancement.divinerpg.overworld.kill_shark.desc"
       },
       "announce_to_chat":true
    },

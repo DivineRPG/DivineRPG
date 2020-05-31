@@ -4,11 +4,11 @@
          "item":"divinerpg:fury_fire"
       },
       "title":{
-         "translate":"advancement.kill_boss_king_of_scorchers"
+         "translate":"advancement.divinerpg.nether.kill_boss_king_of_scorchers"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_king_of_scorchers.desc"
+         "translate":"advancement.divinerpg.nether.kill_boss_king_of_scorchers.desc"
       },
       "announce_to_chat":true
    },

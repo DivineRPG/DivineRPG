@@ -4,11 +4,11 @@
       "item":"divinerpg:eden_lamp"
     },
     "title":{
-      "translate":"advancement.get_lamps"
+      "translate":"advancement.divinerpg.overworld.get_lamps"
     },
     "frame":"goal",
     "description":{
-      "translate":"advancement.get_lamps.desc"
+      "translate":"advancement.divinerpg.overworld.get_lamps.desc"
     },
     "announce_to_chat":true
   },

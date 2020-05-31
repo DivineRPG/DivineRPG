@@ -4,10 +4,10 @@
          "item":"divinerpg:ehu_egg"
       },
       "title":{
-         "translate":"advancement.tame_livestock_pet"
+         "translate":"advancement.divinerpg.overworld.tame_livestock_pet"
       },
       "description":{
-         "translate":"advancement.tame_livestock_pet.desc"
+         "translate":"advancement.divinerpg.overworld.tame_livestock_pet.desc"
       }
    },
    "parent":"divinerpg:overworld/root",

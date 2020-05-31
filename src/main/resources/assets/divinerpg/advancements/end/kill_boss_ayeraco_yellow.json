@@ -4,11 +4,11 @@
          "item":"divinerpg:ayeraco_statue_yellow"
       },
       "title":{
-         "translate":"advancement.kill_boss_ayeraco_yellow"
+         "translate":"advancement.divinerpg.end.kill_boss_ayeraco_yellow"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_ayeraco_yellow.desc"
+         "translate":"advancement.divinerpg.end.kill_boss_ayeraco_yellow.desc"
       },
       "announce_to_chat":true
    },

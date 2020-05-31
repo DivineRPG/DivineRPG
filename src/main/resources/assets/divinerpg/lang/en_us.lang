@@ -1306,26 +1306,68 @@ entity.divinerpg.termasect.name=Termasect
 entity.divinerpg.termid.name=Termid
 entity.divinerpg.experienced_cori.name=Experienced Cori
 
-advancement.divine_equipment=Trying to become a God
-advancement.divine_equipment.desc=Craft divine armor and tools
-advancement.craft_divine_sword=A Divine Plan
-advancement.craft_divine_sword.desc=Craft a Divine Sword
+advancement.divinerpg.overworld.root=DivineRPG
+advancement.divinerpg.overworld.root.desc=The journey begins...
+advancement.divinerpg.overworld.craft_divine_sword=A Divine Plan
+advancement.divinerpg.overworld.craft_divine_sword.desc=Craft a Divine Sword
+advancement.divinerpg.overworld.divine_equipment=Trying to become a God
+advancement.divinerpg.overworld.divine_equipment.desc=Craft divine armor and tools
+advancement.divinerpg.overworld.eat_chicken_dinner=A Meal to Remember
+advancement.divinerpg.overworld.eat_chicken_dinner.desc=Eat a Chicken Dinner
+advancement.divinerpg.overworld.get_lamps=Little light
+advancement.divinerpg.overworld.get_lamps.desc=Get every lamp from DivineRPG
+advancement.divinerpg.overworld.kill_boss_ancient_entity=What even?
+advancement.divinerpg.overworld.kill_boss_ancient_entity.desc=Kill an Ancient Entity
+advancement.divinerpg.overworld.kill_jungle_dramcryx=Death to all Jungle Stegosaurous!
+advancement.divinerpg.overworld.kill_jungle_dramcryx.desc=Kill a Jungle Dramcryx
+advancement.divinerpg.overworld.kill_shark=Feeding on the Fish
+advancement.divinerpg.overworld.kill_shark.desc=Kill a Shark (#SaveTheSharks)
+advancement.divinerpg.overworld.look_into_the_eye=Eye of Evil
+advancement.divinerpg.overworld.look_into_the_eye.desc=Look into the eye of The Eye
+advancement.divinerpg.overworld.talk_to_jack_o_man=Halloween Spirit
+advancement.divinerpg.overworld.talk_to_jack_o_man.desc=Talk to a Jack-O-Man
+advancement.divinerpg.overworld.tame_livestock_pet=Pet Collector
+advancement.divinerpg.overworld.tame_livestock_pet.desc=Tame a pet from the Livestock Merchant
+advancement.divinerpg.overworld.use_altar_of_corruption=Perfectly Corrupted
+advancement.divinerpg.overworld.use_altar_of_corruption.desc=Use the Altar Of Corruption
+advancement.divinerpg.overworld.wear_angelic_armor=When Pigs Fly
+advancement.divinerpg.overworld.wear_angelic_armor.desc=Wear a full Angelic armor set
+
+advancement.divinerpg.nether.kill_boss_king_of_scorchers=Your highness
+advancement.divinerpg.nether.kill_boss_king_of_scorchers.desc=Kill The King of Scorchers
+advancement.divinerpg.nether.kill_boss_the_watcher=Overseeing Eye
+advancement.divinerpg.nether.kill_boss_the_watcher.desc=Kill the Watcher
+advancement.divinerpg.nether.use_sound_of_music=Off Key
+advancement.divinerpg.nether.use_sound_of_music.desc=Shoot a Sound of Music
+
+advancement.divinerpg.end.craft_horde_horn=How does it work?
+advancement.divinerpg.end.craft_horde_horn.desc=Craft a Horde Horn
+advancement.divinerpg.end.kill_boss_ayeraco_blue=Floaty Blue Boi
+advancement.divinerpg.end.kill_boss_ayeraco_blue.desc=Kill a Blue Ayeraco
+advancement.divinerpg.end.kill_boss_ayeraco_green=Floaty Green Boi
+advancement.divinerpg.end.kill_boss_ayeraco_green.desc=Kill a Green Ayeraco
+advancement.divinerpg.end.kill_boss_ayeraco_purple=Floaty Purple Boi
+advancement.divinerpg.end.kill_boss_ayeraco_purple.desc=Kill a Purple Ayeraco
+advancement.divinerpg.end.kill_boss_ayeraco_red=Floaty Red Boi
+advancement.divinerpg.end.kill_boss_ayeraco_red.desc=Kill a Red Ayeraco
+advancement.divinerpg.end.kill_boss_ayeraco_yellow=Floaty Yellow Boi
+advancement.divinerpg.end.kill_boss_ayeraco_yellow.desc=Kill a Yellow Ayeraco
+advancement.divinerpg.end.kill_ender_triplets=Triple The Danger
+advancement.divinerpg.end.kill_ender_triplets.desc=Kill an Ender Triplet
+
 advancement.buy_decoration=Preparation for Christmas
 advancement.buy_decoration.desc=Buy all the decorations from a Workshop Merchant
 advancement.buy_santa_costume=Time to give out gifts
 advancement.buy_santa_costume.desc=Buy a Santa costume from a Workshop Merchant
-advancement.get_lamps=Little light
-advancement.get_lamps.desc=Get every lamp from DivineRPG
+
 advancement.destroy_frosted_chest=Frozen Goods
 advancement.destroy_frosted_chest.desc=Destroy a Frosted Chest
 advancement.divinerpg=DivineRPG
 advancement.divinerpg.desc=The Journey Begins...
 advancement.get_arcana_potion=Yuk!
 advancement.get_arcana_potion.desc=Buy an Weak Arcana potion
-advancement.eat_chicken_dinner=A Meal to Remember
-advancement.eat_chicken_dinner.desc=Eat a Chicken Dinner
-advancement.craft_horde_horn=How does it work?
-advancement.craft_horde_horn.desc=Craft a Horde Horn
+
+
 advancement.enter_nether=Hot place
 advancement.enter_nether.desc=Enter the Nether
 advancement.enter_end=Humble creatures
@@ -1350,75 +1392,62 @@ advancement.kill_boss_dramix=Dungeon Master
 advancement.kill_boss_dramix.desc=Kill Dramix
 advancement.kill_boss_parasecta=Evil Disease
 advancement.kill_boss_parasecta.desc=Kill Parasecta
-advancement.kill_ender_triplets=Triple The Danger
-advancement.kill_ender_triplets.desc=Kill an Ender Triplet
-advancement.kill_jungle_dramcryx=Death to all Jungle Stegosaurous!
-advancement.kill_jungle_dramcryx.desc=Kill a Jungle Dramcryx
-advancement.kill_shark=Feeding on the Fish
-advancement.kill_shark.desc=Kill a Shark (#SaveTheSharks)
+
+
+
 advancement.kill_twlight_bunny=Friend or Foe?
 advancement.kill_twlight_bunny.desc=Make a Bunny angry
-advancement.look_into_the_eye=Eye of Evil
-advancement.look_into_the_eye.desc=Look into the eye of The Eye
+
 advancement.step_on_elevantium=Sky High
 advancement.step_on_elevantium.desc=Jump on an Elevantium Block
 advancement.step_on_heat_trap=Hotter than Hell
 advancement.step_on_heat_trap.desc=Touch a Heat Trap
-advancement.talk_to_jack_o_man=Halloween Spirit
-advancement.talk_to_jack_o_man.desc=Talk to a Jack-O-Man
+
 advancement.talk_to_workshop_merchant=A Lil' Gift
 advancement.talk_to_workshop_merchant.desc=Trade with a Workshop Merchant
 advancement.talk_to_workshop_tinkerer=A Lil' Tinkerin'
 advancement.talk_to_workshop_tinkerer.desc=Trade with a Workshop Tinkerer
-advancement.tame_livestock_pet=Pet Collector
-advancement.tame_livestock_pet.desc=Tame a pet from the Livestock Merchant
+
 advancement.tame_zelus_pet=My Little Creature
 advancement.tame_zelus_pet.desc=Tame a pet from Zelus
-advancement.use_altar_of_corruption=Perfectly Corrupted
-advancement.use_altar_of_corruption.desc=Use the Altar Of Corruption
+
 advancement.use_demon_furnace=Total Demonization
 advancement.use_demon_furnace.desc=Use the Demon Furnace
-advancement.use_sound_of_music=Off Key
-advancement.use_sound_of_music.desc=Shoot a Sound of Music
+
 advancement.use_staff_of_enrichment=Enrichment
 advancement.use_staff_of_enrichment.desc=Use a Staff of Enrichment on Arcanite Dirt
 advancement.get_storm_sword=All Hell Loose
 advancement.get_storm_sword.desc=Buy a Storm Sword
-advancement.wear_angelic_armor=When Pigs Fly
-advancement.wear_angelic_armor.desc=Wear a full Angelic armor set
-advancement.kill_boss_ayeraco_green=Floaty Green Boi
+
+
 advancement.kill_boss_soul_fiend=Spider Master
 advancement.kill_boss_densos=5 Eyes
 advancement.kill_boss_vamacheron=Uni...What????
 advancement.kill_boss_reyvor=Legolas
 advancement.kill_boss_twilight_demon=Exorcism
-advancement.kill_boss_ayeraco_yellow=Floaty Yellow Boi
-advancement.kill_boss_ayeraco_red=Floaty Red Boi
+
 advancement.kill_boss_eternal_archer=6 Bows
 advancement.kill_boss_karot=Anger Management Problems
-advancement.kill_boss_ayeraco_purple=Floaty Purple Boi
-advancement.kill_boss_ancient_entity=What even?
-advancement.kill_boss_king_of_scorchers=Your highness
-advancement.kill_boss_ayeraco_blue=Floaty Blue Boi
-advancement.kill_boss_the_watcher=Overseeing Eye
+
+
+
 advancement.kill_boss_sunstorm=Champion of Light
 advancement.kill_boss_termasect=Forest Scourge
 advancement.kill_boss_experienced_cori=Observer of the Skies
-advancement.kill_boss_ayeraco_green.desc=Kill a Green Ayeraco
+
 advancement.kill_boss_soul_fiend.desc=Kill a Soul Fiend
 advancement.kill_boss_densos.desc=Kill the Densos
 advancement.kill_boss_vamacheron.desc=Kill a Vamacheron
 advancement.kill_boss_reyvor.desc=Kill the Reyvor
 advancement.kill_boss_twilight_demon.desc=Kill a Twilight Demon
-advancement.kill_boss_ayeraco_yellow.desc=Kill a Yellow Ayeraco
-advancement.kill_boss_ayeraco_red.desc=Kill a Red Ayeraco
+
+
 advancement.kill_boss_eternal_archer.desc=Kill an Eternal Archer
 advancement.kill_boss_karot.desc=Kill a Karot
-advancement.kill_boss_ayeraco_purple.desc=Kill a Purple Ayeraco
-advancement.kill_boss_ancient_entity.desc=Kill an Ancient Entity
-advancement.kill_boss_king_of_scorchers.desc=Kill The King of Scorchers
-advancement.kill_boss_ayeraco_blue.desc=Kill a Blue Ayeraco
-advancement.kill_boss_the_watcher.desc=Kill the Watcher
+
+
+
+
 advancement.kill_boss_sunstorm.desc=Kill the Sunsorm
 advancement.kill_boss_termasect.desc=Kill the Termasect
 advancement.kill_boss_experienced_cori.desc=Kill the Experienced Cori
