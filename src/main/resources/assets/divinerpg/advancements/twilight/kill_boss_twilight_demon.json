@@ -1,31 +1,31 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:apalachia_heart"
+         "item":"divinerpg:halite_bow"
       },
       "title":{
-         "translate":"advancement.kill_boss_eternal_archer"
+         "translate":"advancement.kill_boss_twilight_demon"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_eternal_archer.desc"
+         "translate":"advancement.kill_boss_twilight_demon.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_apalachia",
+   "parent":"divinerpg:twilight/enter_mortum",
    "criteria":{
-      "kill_boss_eternal_archer":{
+      "kill_boss_twilight_demon":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:eternal_archer"
+               "type":"divinerpg:twilight_demon"
             }
          }
       }
    },
    "rewards":{
       "loot":[
-         "divinerpg:kill_boss/eternal_archer"
+         "divinerpg:kill_boss/twilight_demon"
       ]
    }
 }

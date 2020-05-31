@@ -12,7 +12,7 @@
     },
     "announce_to_chat":true
   },
-  "parent":"divinerpg:enter_wildwood",
+  "parent":"divinerpg:twilight/enter_wildwood",
   "criteria":{
     "kill_boss_termasect":{
       "trigger":"minecraft:player_killed_entity",

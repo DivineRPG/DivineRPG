@@ -1,23 +1,23 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:eden_block"
+      "item": "divinerpg:skythern_block"
     },
     "title": {
-      "translate": "advancement.enter_eden"
+      "translate": "advancement.enter_skythern"
     },
     "frame": "goal",
     "description": {
-      "translate": "advancement.enter_eden.desc"
+      "translate": "advancement.enter_skythern.desc"
     },
     "announce_to_chat": true
   },
-  "parent": "divinerpg:root",
+  "parent": "divinerpg:twilight/enter_apalachia",
    "criteria":{
-      "enter_eden":{
+      "enter_skythern":{
          "trigger":"minecraft:changed_dimension",
          "conditions":{
-            "to":"divinerpg:eden"
+            "to":"divinerpg:skythern"
          }
       }
    }

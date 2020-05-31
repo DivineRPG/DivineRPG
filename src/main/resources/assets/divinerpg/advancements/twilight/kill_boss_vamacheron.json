@@ -1,31 +1,31 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:halite_bow"
+         "item":"divinerpg:halite_blade"
       },
       "title":{
-         "translate":"advancement.kill_boss_twilight_demon"
+         "translate":"advancement.kill_boss_vamacheron"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_twilight_demon.desc"
+         "translate":"advancement.kill_boss_vamacheron.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_mortum",
+   "parent":"divinerpg:twilight/enter_mortum",
    "criteria":{
-      "kill_boss_twilight_demon":{
+      "kill_boss_vamacheron":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:twilight_demon"
+               "type":"divinerpg:vamacheron"
             }
          }
       }
    },
    "rewards":{
       "loot":[
-         "divinerpg:kill_boss/twilight_demon"
+         "divinerpg:kill_boss/vamacheron"
       ]
    }
 }

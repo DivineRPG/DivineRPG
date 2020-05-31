@@ -11,7 +11,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_eden",
+   "parent": "divinerpg:twilight/enter_eden",
    "criteria":{
       "kill_twilight_bunny":{
          "trigger":"minecraft:player_killed_entity",

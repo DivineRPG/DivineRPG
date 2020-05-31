@@ -1,23 +1,23 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:apalachia_block"
+         "item":"divinerpg:wildwood_block"
       },
       "title":{
-         "translate":"advancement.enter_apalachia"
+         "translate":"advancement.enter_wildwood"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.enter_apalachia.desc"
+         "translate":"advancement.enter_wildwood.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_wildwood",
+   "parent":"divinerpg:twilight/enter_eden",
    "criteria":{
-      "enter_apalachia":{
+      "enter_wildwood":{
          "trigger":"minecraft:changed_dimension",
          "conditions":{
-            "to":"divinerpg:apalachia"
+            "to":"divinerpg:wildwood"
          }
       }
    }

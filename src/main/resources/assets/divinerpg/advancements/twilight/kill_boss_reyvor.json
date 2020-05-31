@@ -1,31 +1,31 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:halite_blade"
+         "item":"divinerpg:halite_leggings"
       },
       "title":{
-         "translate":"advancement.kill_boss_vamacheron"
+         "translate":"advancement.kill_boss_reyvor"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_vamacheron.desc"
+         "translate":"advancement.kill_boss_reyvor.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_mortum",
+   "parent":"divinerpg:twilight/enter_mortum",
    "criteria":{
-      "kill_boss_vamacheron":{
+      "kill_boss_reyvor":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:vamacheron"
+               "type":"divinerpg:reyvor"
             }
          }
       }
    },
    "rewards":{
       "loot":[
-         "divinerpg:kill_boss/vamacheron"
+         "divinerpg:kill_boss/reyvor"
       ]
    }
 }

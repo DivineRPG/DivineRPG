@@ -12,7 +12,7 @@
     },
     "announce_to_chat":true
   },
-  "parent":"divinerpg:enter_skythern",
+  "parent":"divinerpg:twilight/enter_skythern",
   "criteria":{
     "kill_boss_termasect":{
       "trigger":"minecraft:player_killed_entity",

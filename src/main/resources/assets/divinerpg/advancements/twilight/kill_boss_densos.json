@@ -12,7 +12,7 @@
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_mortum",
+   "parent":"divinerpg:twilight/enter_mortum",
    "criteria":{
       "kill_boss_densos":{
          "trigger":"minecraft:player_killed_entity",

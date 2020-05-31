@@ -1,31 +1,31 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:halite_phaser"
+         "item":"divinerpg:halite_slicer"
       },
       "title":{
-         "translate":"advancement.kill_boss_karot"
+         "translate":"advancement.kill_boss_soul_fiend"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_karot.desc"
+         "translate":"advancement.kill_boss_soul_fiend.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:enter_mortum",
+   "parent":"divinerpg:twilight/enter_mortum",
    "criteria":{
-      "kill_boss_karot":{
+      "kill_boss_soul_fiend":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:karot"
+               "type":"divinerpg:soul_fiend"
             }
          }
       }
    },
    "rewards":{
       "loot":[
-         "divinerpg:kill_boss/karot"
+         "divinerpg:kill_boss/soul_fiend"
       ]
    }
 }
