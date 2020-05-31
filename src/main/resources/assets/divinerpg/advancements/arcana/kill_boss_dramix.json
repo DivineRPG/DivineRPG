@@ -4,11 +4,11 @@
          "item":"divinerpg:dungeon_tokens"
       },
       "title":{
-         "translate":"advancement.kill_boss_dramix"
+         "translate":"advancement.divinerpg.arcana.kill_boss_dramix"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_dramix.desc"
+         "translate":"advancement.divinerpg.arcana.kill_boss_dramix.desc"
       },
       "announce_to_chat":true
    },

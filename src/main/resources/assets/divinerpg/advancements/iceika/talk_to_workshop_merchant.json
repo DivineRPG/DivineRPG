@@ -4,10 +4,10 @@
          "item":"divinerpg:snowflake"
       },
       "title":{
-         "translate":"advancement.talk_to_workshop_merchant"
+         "translate":"advancement.divinerpg.iceika.talk_to_workshop_merchant"
       },
       "description":{
-         "translate":"advancement.talk_to_workshop_merchant.desc"
+         "translate":"advancement.divinerpg.iceika.talk_to_workshop_merchant.desc"
       },
       "announce_to_chat":true
    },

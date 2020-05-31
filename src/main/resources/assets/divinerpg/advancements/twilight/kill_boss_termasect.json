@@ -4,11 +4,11 @@
       "item":"divinerpg:wildwood_heart"
     },
     "title":{
-      "translate":"advancement.kill_boss_termasect"
+      "translate":"advancement.divinerpg.twilight.kill_boss_termasect"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.kill_boss_termasect.desc"
+      "translate":"advancement.divinerpg.twilight.kill_boss_termasect.desc"
     },
     "announce_to_chat":true
   },

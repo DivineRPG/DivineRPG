@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_slicer"
       },
       "title":{
-         "translate":"advancement.kill_boss_soul_fiend"
+         "translate":"advancement.divinerpg.twilight.kill_boss_soul_fiend"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_soul_fiend.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_soul_fiend.desc"
       },
       "announce_to_chat":true
    },

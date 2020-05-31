@@ -4,11 +4,11 @@
       "item":"divinerpg:eden_heart"
     },
     "title":{
-      "translate":"advancement.kill_boss_sunstorm"
+      "translate":"advancement.divinerpg.twilight.kill_boss_sunstorm"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.kill_boss_sunstorm.desc"
+      "translate":"advancement.divinerpg.twilight.kill_boss_sunstorm.desc"
     },
     "announce_to_chat":true
   },

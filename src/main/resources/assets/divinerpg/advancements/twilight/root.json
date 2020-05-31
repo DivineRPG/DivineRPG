@@ -4,10 +4,10 @@
       "item":"divinerpg:apalachia_blade"
     },
     "title":{
-      "translate":"advancement.divinerpg.temp"
+      "translate":"advancement.divinerpg.twilight.root"
     },
     "description":{
-      "translate":"advancement.divinerpg.temp.desc"
+      "translate":"advancement.divinerpg.twilight.root.desc"
     },
     "background":"divinerpg:textures/blocks/twilight_stone.png",
     "announce_to_chat":true

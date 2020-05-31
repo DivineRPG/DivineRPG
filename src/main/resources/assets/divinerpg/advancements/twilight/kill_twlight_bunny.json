@@ -4,10 +4,10 @@
          "item":"divinerpg:eden_soul"
       },
       "title":{
-         "translate":"advancement.kill_twlight_bunny"
+         "translate":"advancement.divinerpg.twilight.kill_twlight_bunny"
       },
       "description":{
-         "translate":"advancement.kill_twlight_bunny.desc"
+         "translate":"advancement.divinerpg.twilight.kill_twlight_bunny.desc"
       },
       "announce_to_chat":true
    },

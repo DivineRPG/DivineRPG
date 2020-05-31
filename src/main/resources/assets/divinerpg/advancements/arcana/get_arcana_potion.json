@@ -4,11 +4,11 @@
          "item":"divinerpg:weak_arcana_potion"
       },
       "title":{
-         "translate":"advancement.get_arcana_potion"
+         "translate":"advancement.divinerpg.arcana.get_arcana_potion"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.get_arcana_potion.desc"
+         "translate":"advancement.divinerpg.arcana.get_arcana_potion.desc"
       },
       "announce_to_chat":true
    },

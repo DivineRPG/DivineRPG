@@ -4,10 +4,10 @@
          "item":"divinerpg:twilight_bow"
       },
       "title":{
-         "translate":"advancement.hurt_by_twilight_archer"
+         "translate":"advancement.divinerpg.twilight.hurt_by_twilight_archer"
       },
       "description":{
-         "translate":"advancement.hurt_by_twilight_archer.desc"
+         "translate":"advancement.divinerpg.twilight.hurt_by_twilight_archer.desc"
       }
    },
    "parent":"divinerpg:twilight/enter_mortum",

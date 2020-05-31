@@ -4,11 +4,11 @@
          "item":"divinerpg:wildwood_block"
       },
       "title":{
-         "translate":"advancement.enter_wildwood"
+         "translate":"advancement.divinerpg.twilight.enter_wildwood"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.enter_wildwood.desc"
+         "translate":"advancement.divinerpg.twilight.enter_wildwood.desc"
       },
       "announce_to_chat":true
    },

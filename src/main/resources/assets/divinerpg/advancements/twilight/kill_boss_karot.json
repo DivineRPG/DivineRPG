@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_phaser"
       },
       "title":{
-         "translate":"advancement.kill_boss_karot"
+         "translate":"advancement.divinerpg.twilight.kill_boss_karot"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_karot.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_karot.desc"
       },
       "announce_to_chat":true
    },

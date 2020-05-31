@@ -4,10 +4,10 @@
          "item":"divinerpg:arcana_portal_frame"
       },
       "title":{
-         "translate":"advancement.divinerpg.temp"
+         "translate":"advancement.divinerpg.arcana.root"
       },
       "description":{
-         "translate":"advancement.divinerpg.temp.desc"
+         "translate":"advancement.divinerpg.arcana.root.desc"
       },
       "background":"divinerpg:textures/blocks/ancient_brick.png",
       "announce_to_chat":true

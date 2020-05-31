@@ -4,11 +4,11 @@
       "item":"divinerpg:present_box"
     },
     "title":{
-      "translate":"advancement.buy_decoration"
+      "translate":"advancement.divinerpg.iceika.buy_decoration"
     },
     "frame":"goal",
     "description":{
-      "translate":"advancement.buy_decoration.desc"
+      "translate":"advancement.divinerpg.iceika.buy_decoration.desc"
     },
     "announce_to_chat":true
   },

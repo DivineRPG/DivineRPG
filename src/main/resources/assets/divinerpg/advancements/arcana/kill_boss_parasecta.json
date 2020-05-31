@@ -4,11 +4,11 @@
          "item":"divinerpg:wizards_book"
       },
       "title":{
-         "translate":"advancement.kill_boss_parasecta"
+         "translate":"advancement.divinerpg.arcana.kill_boss_parasecta"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_parasecta.desc"
+         "translate":"advancement.divinerpg.arcana.kill_boss_parasecta.desc"
       },
       "announce_to_chat":true
    },

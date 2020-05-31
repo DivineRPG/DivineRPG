@@ -4,11 +4,11 @@
       "item": "divinerpg:eden_block"
     },
     "title": {
-      "translate": "advancement.enter_eden"
+      "translate": "advancement.divinerpg.twilight.enter_eden"
     },
     "frame": "goal",
     "description": {
-      "translate": "advancement.enter_eden.desc"
+      "translate": "advancement.divinerpg.twilight.enter_eden.desc"
     },
     "announce_to_chat": true
   },

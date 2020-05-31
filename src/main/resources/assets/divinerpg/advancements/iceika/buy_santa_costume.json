@@ -4,11 +4,11 @@
       "item":"divinerpg:santa_chestplate"
     },
     "title":{
-      "translate":"advancement.buy_santa_costume"
+      "translate":"advancement.divinerpg.iceika.buy_santa_costume"
     },
     "frame":"goal",
     "description":{
-      "translate":"advancement.buy_santa_costume.desc"
+      "translate":"advancement.divinerpg.iceika.buy_santa_costume.desc"
     },
     "announce_to_chat":true
   },

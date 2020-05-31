@@ -4,11 +4,11 @@
       "item":"divinerpg:skythern_heart"
     },
     "title":{
-      "translate":"advancement.kill_boss_experienced_cori"
+      "translate":"advancement.divinerpg.twilight.kill_boss_experienced_cori"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.kill_boss_experienced_cori.desc"
+      "translate":"advancement.divinerpg.twilight.kill_boss_experienced_cori.desc"
     },
     "announce_to_chat":true
   },

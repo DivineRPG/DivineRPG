@@ -4,10 +4,10 @@
       "item": "divinerpg:heat_trap_on"
     },
     "title": {
-      "translate": "advancement.step_on_heat_trap"
+      "translate": "advancement.divinerpg.arcana.step_on_heat_trap"
     },
     "description": {
-      "translate": "advancement.step_on_heat_trap.desc"
+      "translate": "advancement.divinerpg.arcana.step_on_heat_trap.desc"
     },
     "announce_to_chat": true
   },

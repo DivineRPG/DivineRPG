@@ -1355,102 +1355,76 @@ advancement.divinerpg.end.kill_boss_ayeraco_yellow.desc=Kill a Yellow Ayeraco
 advancement.divinerpg.end.kill_ender_triplets=Triple The Danger
 advancement.divinerpg.end.kill_ender_triplets.desc=Kill an Ender Triplet
 
-advancement.buy_decoration=Preparation for Christmas
-advancement.buy_decoration.desc=Buy all the decorations from a Workshop Merchant
-advancement.buy_santa_costume=Time to give out gifts
-advancement.buy_santa_costume.desc=Buy a Santa costume from a Workshop Merchant
+advancement.divinerpg.iceika.root=Iceika
+advancement.divinerpg.iceika.root.desc=The frozen land
+advancement.divinerpg.iceika.buy_decoration=Preparation for Christmas
+advancement.divinerpg.iceika.buy_decoration.desc=Buy all the decorations from a Workshop Merchant
+advancement.divinerpg.iceika.buy_santa_costume=Time to give out gifts
+advancement.divinerpg.iceika.buy_santa_costume.desc=Buy a Santa costume from a Workshop Merchant
+advancement.divinerpg.iceika.destroy_frosted_chest=Frozen Goods
+advancement.divinerpg.iceika.destroy_frosted_chest.desc=Destroy a Frosted Chest
+advancement.divinerpg.iceika.talk_to_workshop_merchant=A Lil' Gift
+advancement.divinerpg.iceika.talk_to_workshop_merchant.desc=Talk to a Workshop Merchant
+advancement.divinerpg.iceika.talk_to_workshop_tinkerer=A Lil' Tinkerin'
+advancement.divinerpg.iceika.talk_to_workshop_tinkerer.desc=Talk to a Workshop Tinkerer
 
-advancement.destroy_frosted_chest=Frozen Goods
-advancement.destroy_frosted_chest.desc=Destroy a Frosted Chest
-advancement.divinerpg=DivineRPG
-advancement.divinerpg.desc=The Journey Begins...
-advancement.get_arcana_potion=Yuk!
-advancement.get_arcana_potion.desc=Buy an Weak Arcana potion
+advancement.divinerpg.arcana.root=Arcana
+advancement.divinerpg.arcana.root.desc=What lies within?
+advancement.divinerpg.arcana.get_arcana_potion=Yuk!
+advancement.divinerpg.arcana.get_arcana_potion.desc=Buy a Weak Arcana potion
+advancement.divinerpg.arcana.get_storm_sword=All Hell Loose
+advancement.divinerpg.arcana.get_storm_sword.desc=Buy a Storm Sword
+advancement.divinerpg.arcana.kill_boss_dramix=Dungeon Master
+advancement.divinerpg.arcana.kill_boss_dramix.desc=Kill Dramix
+advancement.divinerpg.arcana.kill_boss_parasecta=Evil Disease
+advancement.divinerpg.arcana.kill_boss_parasecta.desc=Kill Parasecta
+advancement.divinerpg.arcana.step_on_elevantium=Sky High
+advancement.divinerpg.arcana.step_on_elevantium.desc=Jump on an Elevantium Block
+advancement.divinerpg.arcana.step_on_heat_trap=Hotter than Hell
+advancement.divinerpg.arcana.step_on_heat_trap.desc=Touch a Heat Trap
+advancement.divinerpg.arcana.tame_zelus_pet=My Little Creature
+advancement.divinerpg.arcana.tame_zelus_pet.desc=Tame a pet from Zelus
+advancement.divinerpg.arcana.use_demon_furnace=Total Demonization
+advancement.divinerpg.arcana.use_demon_furnace.desc=Use the Demon Furnace
+advancement.divinerpg.arcana.use_staff_of_enrichment=Enrichment
+advancement.divinerpg.arcana.use_staff_of_enrichment.desc=Use a Staff of Enrichment on Arcanite Dirt
 
-
-advancement.enter_nether=Hot place
-advancement.enter_nether.desc=Enter the Nether
-advancement.enter_end=Humble creatures
-advancement.enter_end.desc=Enter the End
-advancement.enter_apalachia=Purple Planet
-advancement.enter_apalachia.desc=Enter the Apalachia dimension
-advancement.enter_arcana=What Lies Within
-advancement.enter_arcana.desc=Enter The Dungeon Of Arcana
-advancement.enter_eden=1001 Possibilities
-advancement.enter_eden.desc=Enter the Eden dimension
-advancement.enter_iceika=Frozen Land
-advancement.enter_iceika.desc=Enter the Iceika dimension
-advancement.enter_mortum=Dark Another Day
-advancement.enter_mortum.desc=Enter the Mortum Dimension
-advancement.enter_skythern=Colourless Land
-advancement.enter_skythern.desc=Enter the Skythern dimension
-advancement.enter_wildwood=Forest Islands
-advancement.enter_wildwood.desc=Enter the Wildwood dimension
-advancement.hurt_by_twilight_archer=Arrow to the Knee
-advancement.hurt_by_twilight_archer.desc=Get shot by a Twilight Archer
-advancement.kill_boss_dramix=Dungeon Master
-advancement.kill_boss_dramix.desc=Kill Dramix
-advancement.kill_boss_parasecta=Evil Disease
-advancement.kill_boss_parasecta.desc=Kill Parasecta
-
-
-
-advancement.kill_twlight_bunny=Friend or Foe?
-advancement.kill_twlight_bunny.desc=Make a Bunny angry
-
-advancement.step_on_elevantium=Sky High
-advancement.step_on_elevantium.desc=Jump on an Elevantium Block
-advancement.step_on_heat_trap=Hotter than Hell
-advancement.step_on_heat_trap.desc=Touch a Heat Trap
-
-advancement.talk_to_workshop_merchant=A Lil' Gift
-advancement.talk_to_workshop_merchant.desc=Trade with a Workshop Merchant
-advancement.talk_to_workshop_tinkerer=A Lil' Tinkerin'
-advancement.talk_to_workshop_tinkerer.desc=Trade with a Workshop Tinkerer
-
-advancement.tame_zelus_pet=My Little Creature
-advancement.tame_zelus_pet.desc=Tame a pet from Zelus
-
-advancement.use_demon_furnace=Total Demonization
-advancement.use_demon_furnace.desc=Use the Demon Furnace
-
-advancement.use_staff_of_enrichment=Enrichment
-advancement.use_staff_of_enrichment.desc=Use a Staff of Enrichment on Arcanite Dirt
-advancement.get_storm_sword=All Hell Loose
-advancement.get_storm_sword.desc=Buy a Storm Sword
-
-
-advancement.kill_boss_soul_fiend=Spider Master
-advancement.kill_boss_densos=5 Eyes
-advancement.kill_boss_vamacheron=Uni...What????
-advancement.kill_boss_reyvor=Legolas
-advancement.kill_boss_twilight_demon=Exorcism
-
-advancement.kill_boss_eternal_archer=6 Bows
-advancement.kill_boss_karot=Anger Management Problems
-
-
-
-advancement.kill_boss_sunstorm=Champion of Light
-advancement.kill_boss_termasect=Forest Scourge
-advancement.kill_boss_experienced_cori=Observer of the Skies
-
-advancement.kill_boss_soul_fiend.desc=Kill a Soul Fiend
-advancement.kill_boss_densos.desc=Kill the Densos
-advancement.kill_boss_vamacheron.desc=Kill a Vamacheron
-advancement.kill_boss_reyvor.desc=Kill the Reyvor
-advancement.kill_boss_twilight_demon.desc=Kill a Twilight Demon
-
-
-advancement.kill_boss_eternal_archer.desc=Kill an Eternal Archer
-advancement.kill_boss_karot.desc=Kill a Karot
-
-
-
-
-advancement.kill_boss_sunstorm.desc=Kill the Sunsorm
-advancement.kill_boss_termasect.desc=Kill the Termasect
-advancement.kill_boss_experienced_cori.desc=Kill the Experienced Cori
+advancement.divinerpg.twilight.root=Twilight Dimensions
+advancement.divinerpg.twilight.root.desc=Taste the rainbow
+advancement.divinerpg.twilight.enter_apalachia=Purple Planet
+advancement.divinerpg.twilight.enter_apalachia.desc=Enter the Apalachia dimension
+advancement.divinerpg.twilight.enter_eden=1001 Possibilities
+advancement.divinerpg.twilight.enter_eden.desc=Enter the Eden dimension
+advancement.divinerpg.twilight.enter_mortum=Dark Another Day
+advancement.divinerpg.twilight.enter_mortum.desc=Enter the Mortum Dimension
+advancement.divinerpg.twilight.enter_skythern=Colourless Land
+advancement.divinerpg.twilight.enter_skythern.desc=Enter the Skythern dimension
+advancement.divinerpg.twilight.enter_wildwood=Forest Islands
+advancement.divinerpg.twilight.enter_wildwood.desc=Enter the Wildwood dimension
+advancement.divinerpg.twilight.hurt_by_twilight_archer=Arrow to the Knee
+advancement.divinerpg.twilight.hurt_by_twilight_archer.desc=Get shot by a Twilight Archer
+advancement.divinerpg.twilight.kill_boss_densos=5 Eyes
+advancement.divinerpg.twilight.kill_boss_densos.desc=Kill the Densos
+advancement.divinerpg.twilight.kill_boss_eternal_archer=6 Bows
+advancement.divinerpg.twilight.kill_boss_eternal_archer.desc=Kill an Eternal Archer
+advancement.divinerpg.twilight.kill_boss_experienced_cori=Observer of the Skies
+advancement.divinerpg.twilight.kill_boss_experienced_cori.desc=Kill the Experienced Cori
+advancement.divinerpg.twilight.kill_boss_karot=Anger Management Problems
+advancement.divinerpg.twilight.kill_boss_karot.desc=Kill a Karot
+advancement.divinerpg.twilight.kill_boss_reyvor=Legolas
+advancement.divinerpg.twilight.kill_boss_reyvor.desc=Kill the Reyvor
+advancement.divinerpg.twilight.kill_boss_soul_fiend=Spider Master
+advancement.divinerpg.twilight.kill_boss_soul_fiend.desc=Kill a Soul Fiend
+advancement.divinerpg.twilight.kill_boss_sunstorm=Champion of Light
+advancement.divinerpg.twilight.kill_boss_sunstorm.desc=Kill the Sunstorm
+advancement.divinerpg.twilight.kill_boss_termasect=Forest Scourge
+advancement.divinerpg.twilight.kill_boss_termasect.desc=Kill the Termasect
+advancement.divinerpg.twilight.kill_boss_twilight_demon=Exorcism
+advancement.divinerpg.twilight.kill_boss_twilight_demon.desc=Kill a Twilight Demon
+advancement.divinerpg.twilight.kill_boss_vamacheron=Uni...What????
+advancement.divinerpg.twilight.kill_boss_vamacheron.desc=Kill a Vamacheron
+advancement.divinerpg.twilight.kill_twlight_bunny=Friend or Foe?
+advancement.divinerpg.twilight.kill_twlight_bunny.desc=Make a Bunny angry
 
 fluid.tar=Tar
 

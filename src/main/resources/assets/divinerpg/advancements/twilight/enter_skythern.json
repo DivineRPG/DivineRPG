@@ -4,11 +4,11 @@
       "item": "divinerpg:skythern_block"
     },
     "title": {
-      "translate": "advancement.enter_skythern"
+      "translate": "advancement.divinerpg.twilight.enter_skythern"
     },
     "frame": "goal",
     "description": {
-      "translate": "advancement.enter_skythern.desc"
+      "translate": "advancement.divinerpg.twilight.enter_skythern.desc"
     },
     "announce_to_chat": true
   },

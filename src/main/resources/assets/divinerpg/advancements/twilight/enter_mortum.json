@@ -4,11 +4,11 @@
          "item":"divinerpg:mortum_block"
       },
       "title":{
-         "translate":"advancement.enter_mortum"
+         "translate":"advancement.divinerpg.twilight.enter_mortum"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.enter_mortum.desc"
+         "translate":"advancement.divinerpg.twilight.enter_mortum.desc"
       },
       "announce_to_chat":true
    },

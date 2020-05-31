@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_chestplate"
       },
       "title":{
-         "translate":"advancement.kill_boss_densos"
+         "translate":"advancement.divinerpg.twilight.kill_boss_densos"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_densos.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_densos.desc"
       },
       "announce_to_chat":true
    },

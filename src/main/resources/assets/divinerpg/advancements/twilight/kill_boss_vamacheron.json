@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_blade"
       },
       "title":{
-         "translate":"advancement.kill_boss_vamacheron"
+         "translate":"advancement.divinerpg.twilight.kill_boss_vamacheron"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_vamacheron.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_vamacheron.desc"
       },
       "announce_to_chat":true
    },

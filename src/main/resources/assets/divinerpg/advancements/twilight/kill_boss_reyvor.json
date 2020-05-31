@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_leggings"
       },
       "title":{
-         "translate":"advancement.kill_boss_reyvor"
+         "translate":"advancement.divinerpg.twilight.kill_boss_reyvor"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_reyvor.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_reyvor.desc"
       },
       "announce_to_chat":true
    },

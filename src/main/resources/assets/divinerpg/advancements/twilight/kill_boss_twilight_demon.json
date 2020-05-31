@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_bow"
       },
       "title":{
-         "translate":"advancement.kill_boss_twilight_demon"
+         "translate":"advancement.divinerpg.twilight.kill_boss_twilight_demon"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.kill_boss_twilight_demon.desc"
+         "translate":"advancement.divinerpg.twilight.kill_boss_twilight_demon.desc"
       },
       "announce_to_chat":true
    },
