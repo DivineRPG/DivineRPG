@@ -16,7 +16,7 @@ public class DebugLogging {
 
     @SideOnly(Side.CLIENT)
     public static void preInitStageLog() {
-        if(GeneralConfig.generalOptions.debugMode == true) {
+        if(GeneralConfig.generalOptions.enableDebugMode == true) {
             DivineRPG.logger.info(DivineRPG.MODID + " is now loading");}
         if(Loader.isModLoaded("p455w0rdslib")) {
             DivineRPG.logger.info("O.o it's TheRealP455w0rd's mods");
@@ -25,7 +25,7 @@ public class DebugLogging {
 
     @SideOnly(Side.CLIENT)
     public static void initStageLog() {
-        if(GeneralConfig.generalOptions.debugMode == true) {
+        if(GeneralConfig.generalOptions.enableDebugMode == true) {
             DivineRPG.logger.info(DivineRPG.MODID + " is almost loaded");
         }
     }
@@ -33,7 +33,7 @@ public class DebugLogging {
 
     @SideOnly(Side.CLIENT)
     public static void postInitStageLog() {
-        if(GeneralConfig.generalOptions.debugMode == true) {
+        if(GeneralConfig.generalOptions.enableDebugMode == true) {
             DivineRPG.logger.info(DivineRPG.MODID + " has just finished loading");
             listEverythingInRegistries();
         }
@@ -41,7 +41,7 @@ public class DebugLogging {
 
     @SideOnly(Side.CLIENT)
     public static void listEverythingInRegistries() {
-        if (GeneralConfig.generalOptions.debugMode) {
+        if (GeneralConfig.generalOptions.enableDebugMode) {
             for (Biome biome : ForgeRegistries.BIOMES.getValuesCollection()) {
                 DivineRPG.logger.info("Biome: " + biome.getBiomeName());
             }

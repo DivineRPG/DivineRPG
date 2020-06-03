@@ -18,11 +18,15 @@ public class GeneralConfig {
     public static class GeneralOptions {
         @Config.Name("Debug mode")
         @Config.Comment("Prints a bunch of extra, mostly unvetted information. Keep this disabled unless instructed")
-        public boolean debugMode = false;
+        public boolean enableDebugMode = false;
+
+        @Config.Name("Player hats")
+        @Config.Comment("Set to false to disable player hats for special players")
+        public boolean enablePlayerHats = true;
 
         @Config.Name("Welcome messages")
         @Config.Comment("Set to false to disable the welcome messages for special players")
-        public boolean welcomeMessages = true;
+        public boolean enableWelcomeMessages = true;
     }
 
     @Config.Name("Dimension IDs")

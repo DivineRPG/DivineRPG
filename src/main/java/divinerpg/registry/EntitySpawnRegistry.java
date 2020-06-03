@@ -287,7 +287,7 @@ public class EntitySpawnRegistry {
                 entity.world.spawnEntity(shark);	
                 entity.setDead();	
 
-                if (GeneralConfig.generalOptions.debugMode == true) {
+                if (GeneralConfig.generalOptions.enableDebugMode == true) {
                     DivineRPG.logger.info(shark.getName() + " just spawned at " + entity.getPosition());	
                 }	
             } else if (entity.getRNG().nextInt(250) == 0) {	
@@ -296,7 +296,7 @@ public class EntitySpawnRegistry {
                 entity.world.spawnEntity(whale);	
                 entity.setDead();	
 
-                if (GeneralConfig.generalOptions.debugMode == true) {
+                if (GeneralConfig.generalOptions.enableDebugMode == true) {
                     DivineRPG.logger.info(whale.getName() + " just spawned at " + entity.getPosition());	
                 }	
             } else if (entity.getRNG().nextInt(250) == 0) {	
@@ -305,7 +305,7 @@ public class EntitySpawnRegistry {
                 entity.world.spawnEntity(liopleurodon);	
                 entity.setDead();	
 
-                if (GeneralConfig.generalOptions.debugMode == true) {
+                if (GeneralConfig.generalOptions.enableDebugMode == true) {
                     DivineRPG.logger.info(liopleurodon.getName() + " just spawned at " + entity.getPosition());	
                 }	
             }

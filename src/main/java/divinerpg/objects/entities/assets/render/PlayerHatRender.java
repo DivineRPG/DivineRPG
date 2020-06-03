@@ -1,6 +1,7 @@
 package divinerpg.objects.entities.assets.render;
 
 import divinerpg.DivineRPG;
+import divinerpg.config.GeneralConfig;
 import divinerpg.objects.entities.assets.model.ModelHat;
 import divinerpg.utils.Utils;
 import net.minecraft.client.renderer.GlStateManager;
@@ -27,9 +28,14 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
 
     @Override
     public void doRenderLayer(EntityPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        ResourceLocation texture = getTexture(player);
-        if (texture == null)
+        if(GeneralConfig.generalOptions.enablePlayerHats == false) {
             return;
+        }
+
+        ResourceLocation texture = getTexture(player);
+        if (texture == null) {
+            return;
+        }
 
         GlStateManager.pushMatrix();
 
@@ -64,7 +70,7 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
             }
         }
 
-        return null;
+        return dev;
     }
 
     @Override

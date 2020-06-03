@@ -20,19 +20,12 @@ import divinerpg.objects.entities.entity.vanilla.*;
 import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
 import divinerpg.objects.entities.entity.vethea.*;
 import divinerpg.utils.SpawnEggColors;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static divinerpg.utils.SpawnEggColors.Dimension.*;
@@ -309,7 +302,7 @@ public class EntityRegistry {
                 buildProjectileEntry(EntityWreckShot.class, "wreck_shot"),
         buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")};
 
-        if (GeneralConfig.generalOptions.debugMode) {
+        if (GeneralConfig.generalOptions.enableDebugMode) {
             DivineRPG.logger.info(DivineRPG.MODID + " entities have been loaded");
         }
 

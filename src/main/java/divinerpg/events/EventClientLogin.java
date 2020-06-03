@@ -21,7 +21,7 @@ public class EventClientLogin {
 
         if (!player.world.isRemote) {
             //Send welcome messages
-            if(GeneralConfig.generalOptions.welcomeMessages) {
+            if(GeneralConfig.generalOptions.enableWelcomeMessages) {
                 if (Utils.isDeveloperName(player.getUniqueID())) {
                     MessageUtils.sendMessageToPlayer(player, "Welcome DivineRPG developer " + player.getName() + "!", TextFormatting.DARK_RED);
                 } else if (Utils.isTesterName(player.getUniqueID())) {
