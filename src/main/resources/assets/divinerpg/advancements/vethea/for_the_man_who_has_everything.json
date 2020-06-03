@@ -1,0 +1,25 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:dirty_pearls"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.for_the_man_who_has_everything"
+    },
+    "description":{
+      "translate":"advancement.divinerpg.vethea.for_the_man_who_has_everything.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/root",
+  "criteria":{
+    "for_the_man_who_has_everything":{
+      "trigger":"minecraft:villager_trade",
+      "conditions":{
+        "villager":{
+          "type":"divinerpg:the_hunger"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:amthirmis_lump"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.crypt_raider"
+    },
+    "frame":"goal",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.crypt_raider.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "obtain_amthirmis_lump": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:amthirmis_lump"
+          }
+        ]
+      }
+    }
+  }
+}

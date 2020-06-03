@@ -1,0 +1,68 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:eversight"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.ever_cry_never_life"
+    },
+    "frame":"goal",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.ever_cry_never_life.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/kill_boss_lady_luna",
+  "criteria": {
+    "obtain_everbright": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:everbright"
+          }
+        ]
+      }
+    },
+    "obtain_everfright": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:everfright"
+          }
+        ]
+      }
+    },
+    "obtain_everlight": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:everlight"
+          }
+        ]
+      }
+    },
+    "obtain_evernight": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:evernight"
+          }
+        ]
+      }
+    },
+    "obtain_eversight": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:eversight"
+          }
+        ]
+      }
+    }
+  }
+}

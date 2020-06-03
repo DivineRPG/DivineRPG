@@ -1,0 +1,26 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:hyrewood_log"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.an_elm_on_nightmare_street"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.an_elm_on_nightmare_street.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria":{
+    "kill_boss_ayeraco_purple":{
+      "trigger":"minecraft:player_killed_entity",
+      "conditions":{
+        "entity":{
+          "type":"divinerpg:ent"
+        }
+      }
+    }
+  }
+}

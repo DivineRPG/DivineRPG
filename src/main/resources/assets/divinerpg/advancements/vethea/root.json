@@ -1,0 +1,23 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:arksiane_lump"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.root"
+    },
+    "description":{
+      "translate":"advancement.divinerpg.vethea.root.desc"
+    },
+    "background":"divinerpg:textures/blocks/dream_stone.png",
+    "announce_to_chat":true
+  },
+  "criteria":{
+    "divinerpg":{
+      "trigger":"minecraft:changed_dimension",
+      "conditions":{
+        "dimension":"vethea"
+      }
+    }
+  }
+}

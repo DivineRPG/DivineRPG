@@ -1,0 +1,26 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:moon_clock"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.kill_boss_lady_luna"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.kill_boss_lady_luna.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/unlimited_power",
+  "criteria":{
+    "kill_lady_luna":{
+      "trigger":"minecraft:player_killed_entity",
+      "conditions":{
+        "entity":{
+          "type":"divinerpg:lady_luna"
+        }
+      }
+    }
+  }
+}

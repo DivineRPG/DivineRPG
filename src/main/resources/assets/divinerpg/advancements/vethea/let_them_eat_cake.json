@@ -1,0 +1,25 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:dream_cake"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.let_them_eat_cake"
+    },
+    "description":{
+      "translate":"advancement.divinerpg.vethea.let_them_eat_cake.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria":{
+    "eat_chicken_dinner":{
+      "trigger":"minecraft:consume_item",
+      "conditions":{
+        "item":{
+          "item":"divinerpg:dream_cake"
+        }
+      }
+    }
+  }
+}

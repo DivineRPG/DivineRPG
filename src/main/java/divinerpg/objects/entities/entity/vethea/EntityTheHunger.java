@@ -7,7 +7,9 @@ import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ToolRegistry;
 import divinerpg.registry.WeaponRegistry;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -28,6 +30,7 @@ public class EntityTheHunger extends EntityDivineVillager {
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
             player.openGui(DivineRPG.instance, GUIHandler.THE_HUNGER_GUI_ID, this.world, getEntityId(), 0, 0);
+            CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
         }
         return super.processInteract(player, hand);
     }

@@ -1426,6 +1426,35 @@ advancement.divinerpg.twilight.kill_boss_vamacheron.desc=Kill a Vamacheron
 advancement.divinerpg.twilight.kill_twlight_bunny=Friend or Foe?
 advancement.divinerpg.twilight.kill_twlight_bunny.desc=Make a Bunny angry
 
+advancement.divinerpg.vethea.root=Vethea
+advancement.divinerpg.vethea.root.desc=Find your remaining sense of pain
+advancement.divinerpg.vethea.an_elm_on_nightmare_street=An Elm on Nightmare Street
+advancement.divinerpg.vethea.an_elm_on_nightmare_street.desc=Be careful when breaking trees
+advancement.divinerpg.vethea.crypt_raider=Crypt Raider
+advancement.divinerpg.vethea.crypt_raider.desc=Obtain an Amthirmis Lump from a crypt
+advancement.divinerpg.vethea.ever_cry_never_life=Ever Cry, Never Life
+advancement.divinerpg.vethea.ever_cry_never_life.desc=Obtain every "ever" weapon from Lady Luna. You really don't feel pain, do you?
+advancement.divinerpg.vethea.for_the_man_who_has_everything=For the Man Who Has Everything
+advancement.divinerpg.vethea.for_the_man_who_has_everything.desc=Find and talk to The Hunger
+advancement.divinerpg.vethea.getting_out_of_hand=Getting Out of Hand
+advancement.divinerpg.vethea.getting_out_of_hand.desc=Kill Quadro
+advancement.divinerpg.vethea.i_am_mad_scientist=I am Mad Scientist
+advancement.divinerpg.vethea.i_am_mad_scientist.desc=Kill Dr. Karos
+advancement.divinerpg.vethea.let_them_eat_cake=Let Them Eat Cake
+advancement.divinerpg.vethea.let_them_eat_cake.desc=Eat a dream cake
+advancement.divinerpg.vethea.licensed_to_kill=Licensed to Kill
+advancement.divinerpg.vethea.licensed_to_kill.desc=Kill an L'Heiva
+advancement.divinerpg.vethea.one_maul_to_rule_them_all=One Maul to Rule Them All
+advancement.divinerpg.vethea.one_maul_to_rule_them_all.desc=Obtain a Karos Rockmaul
+advancement.divinerpg.vethea.swiss_cheese=Swiss Cheese
+advancement.divinerpg.vethea.swiss_cheese.desc=Kill Raglok Gog'dure
+advancement.divinerpg.vethea.temple_of_doom=Temple of Doom
+advancement.divinerpg.vethea.temple_of_doom.desc=Obtain a Cermile Lump from a temple
+advancement.divinerpg.vethea.the_first_hive_monarch=The First Hive Monarch
+advancement.divinerpg.vethea.the_first_hive_monarch.desc=Kill the Hive Queen
+advancement.divinerpg.vethea.unlimited_power=Unlimited Power
+advancement.divinerpg.vethea.unlimited_power.desc=Kill Wreck
+
 fluid.tar=Tar
 
 message.jackoman.boo=BOO!

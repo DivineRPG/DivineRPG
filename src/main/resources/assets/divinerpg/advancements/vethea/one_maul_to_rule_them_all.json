@@ -1,0 +1,28 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:karos_rockmaul"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.one_maul_to_rule_them_all"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.one_maul_to_rule_them_all.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/i_am_mad_scientist",
+  "criteria": {
+    "obtain_karos_rockmaul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:karos_rockmaul"
+          }
+        ]
+      }
+    }
+  }
+}
