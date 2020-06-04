@@ -11,12 +11,12 @@
          "entries":[
             {
                "type":"item",
-               "name":"divinerpg:halite_blitz",
+               "name":"divinerpg:halite_boots",
                "weight":1
             },
             {
                "type":"item",
-               "name":"divinerpg:halite_bow",
+               "name":"divinerpg:halite_helmet",
                "weight":1
             }
          ]

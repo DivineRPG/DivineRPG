@@ -9,16 +9,16 @@
          ],
          "rolls":1,
          "entries":[
-            {
-               "type":"item",
-               "name":"divinerpg:halite_boots",
-               "weight":1
-            },
-            {
-               "type":"item",
-               "name":"divinerpg:halite_helmet",
-               "weight":1
-            }
+          {
+            "type":"item",
+            "name":"divinerpg:halite_blitz",
+            "weight":1
+          },
+          {
+            "type":"item",
+            "name":"divinerpg:halite_bow",
+            "weight":1
+          }
          ]
       },
       {
