@@ -11,7 +11,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.ArrayList;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
-public final class SoundRegistry {
+public class SoundRegistry {
     private static ArrayList<SoundEvent> SOUND_EVENTS = new ArrayList<SoundEvent>();
 
     public static final SoundEvent ACID_HAG = createEvent("acid_hag");
