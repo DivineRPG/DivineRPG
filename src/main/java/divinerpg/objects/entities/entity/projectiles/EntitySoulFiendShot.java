@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.BulletType;
-import divinerpg.objects.entities.entity.twilight.EntitySoulSpider;
+import divinerpg.objects.entities.entity.mortum.EntitySoulSpider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;

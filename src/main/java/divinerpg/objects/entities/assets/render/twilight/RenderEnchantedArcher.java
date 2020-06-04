@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedArcher;
-import divinerpg.objects.entities.entity.twilight.EntityEnchantedArcher;
+import divinerpg.objects.entities.entity.apalachia.EntityEnchantedArcher;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

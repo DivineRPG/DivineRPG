@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.model.twilight;
 
-import divinerpg.objects.entities.entity.twilight.EntityBunny;
+import divinerpg.objects.entities.entity.eden.EntityBunny;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

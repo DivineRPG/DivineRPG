@@ -1,7 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.twilight.EntityEpiphite;
+import divinerpg.objects.entities.entity.wildwood.EntityEpiphite;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelBunny;
-import divinerpg.objects.entities.entity.twilight.EntityBunny;
+import divinerpg.objects.entities.entity.eden.EntityBunny;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

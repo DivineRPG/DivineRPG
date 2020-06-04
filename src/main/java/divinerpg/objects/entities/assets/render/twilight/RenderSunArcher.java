@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelSunArcher;
-import divinerpg.objects.entities.entity.twilight.EntitySunArcher;
+import divinerpg.objects.entities.entity.eden.EntitySunArcher;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

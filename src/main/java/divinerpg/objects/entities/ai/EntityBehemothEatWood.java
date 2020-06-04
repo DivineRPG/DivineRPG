@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.ai;
 
-import divinerpg.objects.entities.entity.twilight.EntityBehemoth;
+import divinerpg.objects.entities.entity.wildwood.EntityBehemoth;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.ai.EntityAIBase;

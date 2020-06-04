@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.model.twilight;
 
 import org.lwjgl.opengl.GL11;
 
-import divinerpg.objects.entities.entity.twilight.EntityMoonWolf;
+import divinerpg.objects.entities.entity.wildwood.EntityMoonWolf;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

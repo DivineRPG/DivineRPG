@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEnchantedWarrior;
-import divinerpg.objects.entities.entity.twilight.EntityEnchantedWarrior;
+import divinerpg.objects.entities.entity.apalachia.EntityEnchantedWarrior;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

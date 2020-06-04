@@ -2,7 +2,7 @@ package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
-import divinerpg.objects.entities.entity.twilight.EntityTermid;
+import divinerpg.objects.entities.entity.wildwood.EntityTermid;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
