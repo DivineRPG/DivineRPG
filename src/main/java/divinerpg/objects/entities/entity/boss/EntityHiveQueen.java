@@ -3,8 +3,10 @@ package divinerpg.objects.entities.entity.boss;
 import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.vethea.EntityHiveSoldier;
 import divinerpg.objects.entities.entity.vethea.EntityHoverStinger;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
@@ -19,7 +21,12 @@ public class EntityHiveQueen extends EntityDivineBoss {
         this.spawnTick = 80;
         this.setSize(1.5F, 4.0F);
     }
-    
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LootTableRegistry.ENTITIES_HIVE_QUEEN;
+    }
+
     @Override
     public Color getBarColor() {
         return Color.YELLOW;
@@ -28,7 +35,6 @@ public class EntityHiveQueen extends EntityDivineBoss {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-
 
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20);
