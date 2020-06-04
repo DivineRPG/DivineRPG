@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity;
 
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
+import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityList;
@@ -140,7 +141,7 @@ public abstract class EntityDivineVillager extends EntityVillager {
         super.readEntityFromNBT(var1);
         if (var1.hasKey("Trades")) {
             NBTTagCompound var2 = var1.getCompoundTag("Trades");
-            if (this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
+            if (this instanceof EntityTheHunger || this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
                 this.buyingList = new InfiniteTradeList(var2);
             else
                 this.buyingList = new MerchantRecipeList(var2);
