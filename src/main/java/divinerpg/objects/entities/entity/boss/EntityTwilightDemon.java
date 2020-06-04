@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.twilight;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.EntityDivineBoss;

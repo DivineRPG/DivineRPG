@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelLadyLuna;
-import divinerpg.objects.entities.entity.vethea.EntityLadyLuna;
+import divinerpg.objects.entities.entity.boss.EntityLadyLuna;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

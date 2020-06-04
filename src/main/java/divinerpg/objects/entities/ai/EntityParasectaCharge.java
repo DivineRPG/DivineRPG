@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.ai;
 
-import divinerpg.objects.entities.entity.arcana.EntityParasecta;
+import divinerpg.objects.entities.entity.boss.EntityParasecta;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;

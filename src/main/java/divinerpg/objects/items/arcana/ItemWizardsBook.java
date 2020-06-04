@@ -1,7 +1,7 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.objects.entities.entity.arcana.EntityDramix;
-import divinerpg.objects.entities.entity.arcana.EntityParasecta;
+import divinerpg.objects.entities.entity.boss.EntityDramix;
+import divinerpg.objects.entities.entity.boss.EntityParasecta;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;

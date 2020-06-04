@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.objects.entities.entity.vanilla.ayeraco.EntityAyeraco;
+import divinerpg.objects.entities.entity.boss.ayeraco.EntityAyeraco;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;

@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vethea;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityWreckBouncingProjectile;

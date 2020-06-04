@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.objects.entities.entity.vethea.EntityWreck;
+import divinerpg.objects.entities.entity.boss.EntityWreck;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;

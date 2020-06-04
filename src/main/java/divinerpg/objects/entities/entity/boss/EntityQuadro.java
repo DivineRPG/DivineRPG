@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vethea;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.enums.ArrowType;
 import divinerpg.objects.entities.entity.EntityDivineBoss;

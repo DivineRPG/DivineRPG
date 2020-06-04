@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vethea.ModelWreckForm1;
-import divinerpg.objects.entities.entity.vethea.EntityWreck;
+import divinerpg.objects.entities.entity.boss.EntityWreck;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

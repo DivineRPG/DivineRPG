@@ -1,9 +1,11 @@
-package divinerpg.objects.entities.entity.twilight.cories;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;
 import divinerpg.objects.entities.entity.EntityDivineFlyingMob;
 import divinerpg.objects.entities.entity.projectiles.EntityCoriShot;
+import divinerpg.objects.entities.entity.twilight.cories.EntityAdvancedCori;
+import divinerpg.objects.entities.entity.twilight.cories.EntityWeakCori;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.EntityLivingBase;

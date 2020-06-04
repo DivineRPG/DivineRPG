@@ -5,7 +5,7 @@ import divinerpg.objects.entities.entity.arcana.EntityFyracryx;
 import divinerpg.objects.entities.entity.arcana.EntityGolemOfRejuvenation;
 import divinerpg.objects.entities.entity.arcana.EntityParatiku;
 import divinerpg.objects.entities.entity.arcana.EntitySeimer;
-import divinerpg.objects.entities.entity.twilight.*;
+import divinerpg.objects.entities.entity.boss.*;
 import divinerpg.objects.entities.entity.vanilla.*;
 import divinerpg.objects.items.arcana.*;
 import divinerpg.objects.items.base.*;

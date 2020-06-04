@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.twilight.ModelEternalArcher;
-import divinerpg.objects.entities.entity.twilight.EntityEternalArcher;
+import divinerpg.objects.entities.entity.boss.EntityEternalArcher;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;

@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vanilla.ayeraco;
+package divinerpg.objects.entities.entity.boss.ayeraco;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

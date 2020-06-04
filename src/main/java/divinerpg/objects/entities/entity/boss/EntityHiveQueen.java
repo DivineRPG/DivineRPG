@@ -1,6 +1,8 @@
-package divinerpg.objects.entities.entity.vethea;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
+import divinerpg.objects.entities.entity.vethea.EntityHiveSoldier;
+import divinerpg.objects.entities.entity.vethea.EntityHoverStinger;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.BossInfo.Color;

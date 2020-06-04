@@ -1,6 +1,6 @@
 package divinerpg.objects.blocks.vethea;
 
-import divinerpg.objects.entities.entity.vethea.EntityKaros;
+import divinerpg.objects.entities.entity.boss.EntityKaros;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;

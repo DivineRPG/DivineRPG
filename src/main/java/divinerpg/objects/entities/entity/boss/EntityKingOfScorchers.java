@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.ai.AIDivineFireballAttack;
 import divinerpg.objects.entities.ai.ILaunchThrowable;

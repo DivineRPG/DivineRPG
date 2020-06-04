@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vanilla.ayeraco;
+package divinerpg.objects.entities.entity.boss.ayeraco;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
 import divinerpg.objects.entities.entity.projectiles.EntityEnderTripletsFireball;

@@ -2,7 +2,7 @@ package divinerpg.objects.blocks.tile.entity;
 
 import com.google.common.collect.Lists;
 import divinerpg.objects.blocks.tile.entity.base.ModUpdatableTileEntity;
-import divinerpg.objects.entities.entity.vanilla.ayeraco.*;
+import divinerpg.objects.entities.entity.boss.ayeraco.*;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.block.Block;

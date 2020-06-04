@@ -1,23 +1,26 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
-import divinerpg.objects.entities.entity.projectiles.EntityWatcherShot;
+import divinerpg.objects.entities.entity.projectiles.EntityWildwoodLog;
+import divinerpg.objects.entities.entity.twilight.EntityTermid;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.MoverType;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.BossInfo.Color;
 import net.minecraft.world.World;
 
-public class EntityTheWatcher extends EntityDivineBoss {
-
-    public int courseChangeCooldown = 0;
+public class EntityTermasect extends EntityDivineBoss {
+	public int courseChangeCooldown = 0;
     public double waypointX;
     public double waypointY;
     public double waypointZ;
@@ -26,25 +29,37 @@ public class EntityTheWatcher extends EntityDivineBoss {
     public int prevAttackCounter = 0;
     public int attackCounter = 0;
     private BlockPos spawnPosition;
-
-    public EntityTheWatcher(World worldIn) {
-        super(worldIn);
-        this.setSize(4.0F, 4.0F);
-        this.isImmuneToFire = true;
-        this.experienceValue = 5000;
-    }
-
-    @Override
-    public float getEyeHeight() {
-        return 2.6F;
-    }
-
-
-    @Override
+    
+	public EntityTermasect(World par1World) {
+		super(par1World);
+		this.setSize(5.9F, 8F);
+		this.experienceValue = 1500;
+	}
+	
+    
+	@Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
 
+
     }
+
+    @Override
+    protected void initEntityAI() {
+        super.initEntityAI();
+        addAttackingAI();
+    }
+
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.UNDEFINED;
+    }
+    
+    @Override
+    public Color getBarColor() {
+        return Color.BLUE;
+    }
+
 
     @Override
     public void onUpdate() {
@@ -104,9 +119,10 @@ public class EntityTheWatcher extends EntityDivineBoss {
         double var9 = 100.0D;
 
         if (this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < var9 * var9) {
-            double tx = this.targetedEntity.posX - this.posX;
-            double ty = this.targetedEntity.getEntityBoundingBox().minY - this.posY;
-            double tz = this.targetedEntity.posZ - this.posZ;
+            double y = this.getEntityBoundingBox().minY + 2.8D;
+            double tx = targetedEntity.posX - this.posX;
+            double ty = targetedEntity.getEntityBoundingBox().minY - y;
+            double tz = targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float) Math.atan2(tx, tz)) * 180.0F / (float) Math.PI;
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
@@ -116,9 +132,9 @@ public class EntityTheWatcher extends EntityDivineBoss {
 
                 ++this.attackCounter;
 
-                if (this.attackCounter == 20) {
-                    EntityWatcherShot shot = new EntityWatcherShot(this.world, this);
-                    shot.shoot(tx, ty, tz, 1.6f, 12);
+                if (this.attackCounter == 5) {
+                    EntityWildwoodLog shot = new EntityWildwoodLog(this.world, this);
+                    shot.shoot(tx, ty, tz, 4.0f, 1);
                     if (!this.world.isRemote)
                         this.world.spawnEntity(shot);
                     this.attackCounter = -40;
@@ -132,6 +148,18 @@ public class EntityTheWatcher extends EntityDivineBoss {
 
             if (this.attackCounter > 0) {
                 --this.attackCounter;
+            }
+        }
+        if (this.isEntityAlive() && this.rand.nextInt(1000) < this.livingSoundTime++)
+        {
+            this.playLivingSound();
+            if(!this.world.isRemote) {
+                EntityTermid termid = new EntityTermid(world);
+                termid.setLocationAndAngles(this.posX + rand.nextInt(4), this.posY, this.posZ + rand.nextInt(4), this.rotationYaw, this.rotationPitch);
+                termid.motionY++;
+                if (rand.nextInt(5) == 1) {
+                    world.spawnEntity(termid);
+                }
             }
         }
     }
@@ -229,19 +257,25 @@ public class EntityTheWatcher extends EntityDivineBoss {
         this.moveForward = 0.001F;
         this.rotationYaw += f1;
     }
+    
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.BLOCK_WOOD_STEP;
+    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ROAR;
+        return SoundEvents.BLOCK_WOOD_HIT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.ROAR;
+        return SoundEvents.BLOCK_WOOD_BREAK;
     }
 
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTableRegistry.ENTITIES_THE_WATCHER;
+        return LootTableRegistry.ENTITIES_TERMASECT;
     }
+
 }

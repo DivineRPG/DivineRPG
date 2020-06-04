@@ -1,6 +1,7 @@
-package divinerpg.objects.entities.entity.twilight;
+package divinerpg.objects.entities.entity.boss;
 
 import divinerpg.objects.entities.entity.EntityDivineBoss;
+import divinerpg.objects.entities.entity.twilight.EntityAngryBunny;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;

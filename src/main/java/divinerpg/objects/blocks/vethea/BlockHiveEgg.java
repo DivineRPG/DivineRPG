@@ -3,7 +3,7 @@ package divinerpg.objects.blocks.vethea;
 import java.util.Random;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.vethea.EntityHiveQueen;
+import divinerpg.objects.entities.entity.boss.EntityHiveQueen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;
