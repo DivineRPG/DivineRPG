@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.nether;
 
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;

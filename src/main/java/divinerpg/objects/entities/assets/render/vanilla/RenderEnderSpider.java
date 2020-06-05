@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnderSpider;
-import divinerpg.objects.entities.entity.vanilla.EntityEnderSpider;
+import divinerpg.objects.entities.entity.end.EntityEnderSpider;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

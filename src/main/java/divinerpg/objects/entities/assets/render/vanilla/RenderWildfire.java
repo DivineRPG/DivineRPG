@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelWildfire;
-import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
+import divinerpg.objects.entities.entity.nether.EntityWildfire;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

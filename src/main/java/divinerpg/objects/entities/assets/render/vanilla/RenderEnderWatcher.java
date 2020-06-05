@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelEnderWatcher;
-import divinerpg.objects.entities.entity.vanilla.EntityEnderWatcher;
+import divinerpg.objects.entities.entity.end.EntityEnderWatcher;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

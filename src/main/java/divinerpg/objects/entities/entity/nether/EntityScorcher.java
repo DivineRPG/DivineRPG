@@ -1,4 +1,4 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.nether;
 
 import divinerpg.objects.entities.entity.EntityDivineMob;
 import divinerpg.objects.entities.entity.projectiles.EntityScorcherShot;

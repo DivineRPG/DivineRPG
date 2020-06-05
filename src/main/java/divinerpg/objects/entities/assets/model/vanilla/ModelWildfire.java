@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.model.vanilla;
 
-import divinerpg.objects.entities.entity.vanilla.EntityWildfire;
+import divinerpg.objects.entities.entity.nether.EntityWildfire;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

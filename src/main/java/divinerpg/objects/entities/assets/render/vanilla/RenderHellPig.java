@@ -1,7 +1,7 @@
 package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.vanilla.EntityHellPig;
+import divinerpg.objects.entities.entity.nether.EntityHellPig;
 import net.minecraft.client.model.ModelPig;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
