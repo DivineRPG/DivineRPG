@@ -12,8 +12,10 @@ import divinerpg.dimensions.vethea.VetheaWorldProvider;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
 import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
-import divinerpg.structure.template.DivineStructureComponentTemplate;
-import divinerpg.structure.template.DivineStructureStart;
+import divinerpg.structure.base.DivineStructureComponentTemplate;
+import divinerpg.structure.base.DivineStructureStart;
+import divinerpg.structure.vethea.WreckHallComponent;
+import divinerpg.structure.vethea.WreckHallStart;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
@@ -35,6 +37,10 @@ public class DimensionRegistry {
     }
 
     private static void registerStructures() {
+
+        MapGenStructureIO.registerStructure(WreckHallStart.class, "DRPGWreckHall");
+        MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
+
         MapGenStructureIO.registerStructure(DivineStructureStart.class, "DrpgSS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponentTemplate.class, "DrpgCmp");
 

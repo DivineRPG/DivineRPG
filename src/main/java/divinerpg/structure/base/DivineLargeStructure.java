@@ -1,4 +1,4 @@
-package divinerpg.structure.template;
+package divinerpg.structure.base;
 
 import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
@@ -11,24 +11,22 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class DivineLargeStructure extends MapGenStructure {
-    private final String structureName;
-    private final TemplateManager manager;
-    private final int height;
-    private final ResourceLocation folder;
+public abstract class DivineLargeStructure extends MapGenStructure {
+    protected final String structureName;
+    protected final TemplateManager manager;
+    protected final int height;
+    protected final ResourceLocation folder;
     private int chunkDistance;
 
-    private final int structureSizeX;
-    private final int structureSizeZ;
 
-    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int height, int chunkDistance, int structureSizeX, int structureSizeZ) {
+    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int height, int chunkDistance) {
         this.structureName = structureName;
         this.folder = folder;
         this.manager = world.getSaveHandler().getStructureTemplateManager();
         this.height = height;
 
         if (chunkDistance < 2) {
-            DivineRPG.logger.warn(String.format("Spaces beetween structure %s can be closer than 2 chunks, but there is %s",
+            DivineRPG.logger.warn(String.format("Spaces between structure %s can be closer than 2 chunks, but there is %s",
                     getStructureName(),
                     chunkDistance));
 
@@ -36,8 +34,6 @@ public class DivineLargeStructure extends MapGenStructure {
         }
 
         this.chunkDistance = chunkDistance;
-        this.structureSizeX = structureSizeX;
-        this.structureSizeZ = structureSizeZ;
     }
 
     @Override
@@ -80,10 +76,5 @@ public class DivineLargeStructure extends MapGenStructure {
         k += (random.nextInt(smallerParameter) + random.nextInt(smallerParameter)) / 2;
         l += (random.nextInt(smallerParameter) + random.nextInt(smallerParameter)) / 2;
         return chunkX == k && chunkZ == l;
-    }
-
-    @Override
-    protected StructureStart getStructureStart(int x, int z) {
-        return new DivineStructureStart(folder, manager, x, height, z, structureSizeX, structureSizeZ);
     }
 }

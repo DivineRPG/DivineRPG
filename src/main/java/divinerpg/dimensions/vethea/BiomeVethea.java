@@ -37,6 +37,7 @@ public class BiomeVethea extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
+       /*
         WorldGenerator genHyrewoodTree = new WorldGenHyrewoodTree(false);
         WorldGenerator genFirewoodTree = new WorldGenFirewoodTree(false);
 
@@ -69,6 +70,6 @@ public class BiomeVethea extends Biome {
             int z = currentZ + rand.nextInt(16) + 8;
             BlockPos treePos = new BlockPos(x, LAYER_4_GROUND_HEIGHT, z);
             genFirewoodTree.generate(worldIn, rand, treePos);
-        }
+        }*/
     }
 }

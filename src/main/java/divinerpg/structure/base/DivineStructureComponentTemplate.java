@@ -1,4 +1,4 @@
-package divinerpg.structure.template;
+package divinerpg.structure.base;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
@@ -6,6 +6,7 @@ import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -20,9 +21,9 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import java.util.Random;
 
-public class DivineStructureComponentTemplate extends StructureComponentTemplate {
+public abstract class DivineStructureComponentTemplate extends StructureComponentTemplate {
 
-    private static PlacementSettings DEFAULT_PLACEMENT_SETTINGS = new PlacementSettings(); //need to figure out structure block
+    private static PlacementSettings DEFAULT_PLACEMENT_SETTINGS = new PlacementSettings().setIgnoreEntities(true).setReplacedBlock(Blocks.AIR);
     private ResourceLocation location;
 
     /**
@@ -57,55 +58,13 @@ public class DivineStructureComponentTemplate extends StructureComponentTemplate
         tagCompound.setString("TmpRes", location.toString());
     }
 
-    @Override
-    protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
-        switch (function) {
-            case "TheHunger":
-                spawnPersistentEntity(worldIn, pos, new EntityTheHunger(worldIn));
-                break;
-            case "CryptLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.CRYPT_LOOT);
-                break;
-            case "CryptKeeper":
-                spawnPersistentEntity(worldIn, pos, new EntityCryptKeeper(worldIn));
-                break;
-            case "TempleLootBottom":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.TEMPLE_LOOT_BOTTOM);
-                break;
-            case "TempleLootMiddle":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.TEMPLE_LOOT_MIDDLE);
-                break;
-            case "TempleLootTop":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.TEMPLE_LOOT_TOP);
-                break;
-            case "TempleGuardian":
-                spawnPersistentEntity(worldIn, pos, new EntityTempleGuardian(worldIn));
-                break;
-            case "QuadroticPostLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.QUADROTIC_POST_LOOT);
-                break;
-            case "KarosMadhouseLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.KAROS_MADHOUSE_LOOT);
-                break;
-            case "RaglokChamberLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.RAGLOK_CHAMBER_LOOT);
-                break;
-            case "WreckHallLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.WRECK_HALL_LOOT);
-                break;
-            default:
-                DivineRPG.logger.warn("Unknown data marker: " + function + ", please report this.");
-                break;
-        }
-    }
-
-    private void spawnPersistentEntity(World world, BlockPos pos, EntityLiving entity) {
+    protected void spawnPersistentEntity(World world, BlockPos pos, EntityLiving entity) {
         entity.enablePersistence();
         entity.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
         world.spawnEntity(entity);
     }
 
-    private void populateLootChestBelow(World world, BlockPos pos, Random rand, ResourceLocation lootTable) {
+    protected void populateLootChestBelow(World world, BlockPos pos, Random rand, ResourceLocation lootTable) {
         BlockPos chestPosition = pos.down();
         TileEntity tileEntity = world.getTileEntity(chestPosition);
         if(tileEntity instanceof TileEntityChest) {

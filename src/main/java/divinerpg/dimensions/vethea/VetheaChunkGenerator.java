@@ -2,7 +2,8 @@ package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.structure.template.DivineLargeStructure;
+import divinerpg.structure.base.DivineLargeStructure;
+import divinerpg.structure.vethea.WreckHall;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.EnumCreatureType;
@@ -112,6 +113,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         switch (position) {
             case 0:
 
+                /*
                 level.addStructure(new DivineLargeStructure(world,
                         "Crypt1",
                         createForVethea(position, "crypt1"),
@@ -140,7 +142,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "HungerHouse3",
                         createForVethea(position, "hungerhouse3"),
                         surfaceLevel + 8,
-                        18, 1, 1));
+                        18, 1, 1));*/
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -157,6 +159,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 break;
 
             case 1:
+                /*
                 level.addStructure(new DivineLargeStructure(world,
                         "Hive",
                         createForVethea(position, "hive"),
@@ -173,8 +176,9 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "Pyramid2",
                         createForVethea(position, "pyramid2"),
                         surfaceLevel,
-                        25, 3, 3));
+                        25, 3, 3));*/
 
+                /*
                 level.addWorldGen(new WorldGenEnhanced(
                         new TempleWorldGenerator(createForVethea(position, "tree3"),
                                 true), 10, surfaceLevel));
@@ -183,10 +187,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         new TempleWorldGenerator(createForVethea(0, "tree3"),
                                 true), 10, surfaceLevel));
 
-                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);
+                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);*/
                 break;
 
             case 2:
+                /*
                 level.addStructure(new DivineLargeStructure(world,
                         "Karosmadhouse",
                         createForVethea(position, "karosmadhouse"),
@@ -197,7 +202,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "QuadroticPost",
                         createForVethea(position, "quadroticpost"),
                         surfaceLevel,
-                        25, 2, 2));
+                        25, 2, 2));*/
 
                 for (int i = 7; i <= 8; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -209,6 +214,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 break;
 
             case 3:
+                /*
                 level.addStructure(new DivineLargeStructure(world,
                         "Evergarden",
                         createForVethea(position, "evergarden"),
@@ -228,14 +234,10 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "RaglokChamber",
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
-                        25, 2, 2));
-                level.addStructure(new DivineLargeStructure(world,
-                        "WreckHall",
-                        createForVethea(position, "wreckhall"),
-                        surfaceLevel,
-                        25, 2, 3));
+                        25, 2, 2));*/
+                level.addStructure(new WreckHall(world));
 
-                addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);
+               /* addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);*/
                 break;
         }
     }
