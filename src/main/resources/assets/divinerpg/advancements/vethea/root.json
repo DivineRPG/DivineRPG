@@ -16,7 +16,7 @@
     "divinerpg":{
       "trigger":"minecraft:changed_dimension",
       "conditions":{
-        "dimension":"vethea"
+        "to": "divinerpg:vethea"
       }
     }
   }

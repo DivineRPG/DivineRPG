@@ -17,7 +17,7 @@
       "enter_eden":{
          "trigger":"minecraft:changed_dimension",
          "conditions":{
-            "to":"divinerpg:eden"
+           "to": "divinerpg:eden"
          }
       }
    }
