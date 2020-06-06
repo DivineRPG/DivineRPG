@@ -1,4 +1,4 @@
-package divinerpg.structure.vethea;
+package divinerpg.structure.vethea.wreckhall;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
@@ -31,7 +31,7 @@ public class WreckHallComponent extends DivineStructureComponentTemplate {
         switch (function) {
             case "WreckHallLoot":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.WRECK_HALL_LOOT);
-                System.out.println("Chest populated at " + pos);
+                System.out.println("Wreck chest populated at " + pos);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");

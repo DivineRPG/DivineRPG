@@ -1,4 +1,4 @@
-package divinerpg.structure.vethea;
+package divinerpg.structure.vethea.wreckhall;
 
 import divinerpg.DivineRPG;
 import divinerpg.structure.base.DivineLargeStructure;

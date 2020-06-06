@@ -14,8 +14,10 @@ import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
 import divinerpg.structure.base.DivineStructureStart;
-import divinerpg.structure.vethea.WreckHallComponent;
-import divinerpg.structure.vethea.WreckHallStart;
+import divinerpg.structure.vethea.raglokchamber.RaglokChamberComponent;
+import divinerpg.structure.vethea.raglokchamber.RaglokChamberStart;
+import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
+import divinerpg.structure.vethea.wreckhall.WreckHallStart;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
@@ -40,6 +42,8 @@ public class DimensionRegistry {
 
         MapGenStructureIO.registerStructure(WreckHallStart.class, "DRPGWreckHall");
         MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
+        MapGenStructureIO.registerStructure(RaglokChamberStart.class, "DRPGRaglokChamber");
+        MapGenStructureIO.registerStructureComponent(RaglokChamberComponent.class, "DRPGRaglokChamberComponent");
 
         MapGenStructureIO.registerStructure(DivineStructureStart.class, "DrpgSS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponentTemplate.class, "DrpgCmp");

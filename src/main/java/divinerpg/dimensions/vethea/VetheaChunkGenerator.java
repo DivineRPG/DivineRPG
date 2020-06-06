@@ -2,8 +2,8 @@ package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
-import divinerpg.structure.base.DivineLargeStructure;
-import divinerpg.structure.vethea.WreckHall;
+import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
+import divinerpg.structure.vethea.wreckhall.WreckHall;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.EnumCreatureType;
@@ -235,6 +235,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
                         25, 2, 2));*/
+                level.addStructure(new RaglokChamber(world));
                 level.addStructure(new WreckHall(world));
 
                /* addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);*/
