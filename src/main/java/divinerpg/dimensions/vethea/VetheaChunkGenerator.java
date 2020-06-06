@@ -2,7 +2,11 @@ package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.structure.vethea.crypt1.Crypt1;
+import divinerpg.structure.vethea.crypt2.Crypt2;
 import divinerpg.structure.vethea.evergarden.Evergarden;
+import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
+import divinerpg.structure.vethea.quadroticpost.QuadroticPost;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
 import divinerpg.structure.vethea.wreckhall.WreckHall;
 import net.minecraft.block.Block;
@@ -114,19 +118,10 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         switch (position) {
             case 0:
 
+                level.addStructure(new Crypt1(world, 10));
+                level.addStructure(new Crypt2(world, 12));
+
                 /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "Crypt1",
-                        createForVethea(position, "crypt1"),
-                        position * floorHeight + 10,
-                        20, 2, 2));
-
-                level.addStructure(new DivineLargeStructure(world,
-                        "Crypt2",
-                        createForVethea(position, "crypt2"),
-                        position * floorHeight + 12,
-                        20, 2, 1));
-
                 level.addStructure(new DivineLargeStructure(world,
                         "HungerHouse1",
                         createForVethea(position, "hungerhouse1"),
@@ -192,18 +187,9 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 break;
 
             case 2:
-                /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "Karosmadhouse",
-                        createForVethea(position, "karosmadhouse"),
-                        surfaceLevel,
-                        25, 2, 2));
 
-                level.addStructure(new DivineLargeStructure(world,
-                        "QuadroticPost",
-                        createForVethea(position, "quadroticpost"),
-                        surfaceLevel,
-                        25, 2, 2));*/
+                level.addStructure(new QuadroticPost(world, 112));
+                level.addStructure(new KarosMadhouse(world, 112));
 
                 for (int i = 7; i <= 8; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -216,7 +202,6 @@ public class VetheaChunkGenerator implements IChunkGenerator {
 
             case 3:
                 /*
-
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree1",
                         createForVethea(position, "layer4tree1"),
@@ -232,7 +217,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 level.addStructure(new RaglokChamber(world, 160));
                 level.addStructure(new WreckHall(world, 160));
 
-               /* addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);*/
+                addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);
                 break;
         }
     }
