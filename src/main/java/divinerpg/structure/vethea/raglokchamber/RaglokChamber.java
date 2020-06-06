@@ -11,7 +11,7 @@ public class RaglokChamber extends DivineLargeStructure {
     private final int ALTITUDE = 160;
 
     public RaglokChamber(World world) {
-        super(world, "RaglokChamber", new ResourceLocation(DivineRPG.MODID, "vethea/3level/raglokchamber"), 15);
+        super(world, "RaglokChamber", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/raglokchamber"), 15);
     }
 
     @Override

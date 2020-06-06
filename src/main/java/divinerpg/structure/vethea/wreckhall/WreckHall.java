@@ -11,7 +11,7 @@ public class WreckHall extends DivineLargeStructure {
     private final int ALTITUDE = 160;
 
     public WreckHall(World world) {
-        super(world, "WreckHall", new ResourceLocation(DivineRPG.MODID, "vethea/3level/wreckhall"), 15);
+        super(world, "WreckHall", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/wreckhall"), 15);
     }
 
     @Override
