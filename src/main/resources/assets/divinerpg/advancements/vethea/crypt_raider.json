@@ -6,7 +6,6 @@
     "title":{
       "translate":"advancement.divinerpg.vethea.crypt_raider"
     },
-    "frame":"goal",
     "description":{
       "translate":"advancement.divinerpg.vethea.crypt_raider.desc"
     },

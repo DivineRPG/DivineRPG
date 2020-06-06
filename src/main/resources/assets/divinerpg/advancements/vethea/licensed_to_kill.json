@@ -6,7 +6,6 @@
     "title":{
       "translate":"advancement.divinerpg.vethea.licensed_to_kill"
     },
-    "frame":"challenge",
     "description":{
       "translate":"advancement.divinerpg.vethea.licensed_to_kill.desc"
     },

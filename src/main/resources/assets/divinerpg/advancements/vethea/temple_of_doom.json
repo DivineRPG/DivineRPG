@@ -6,7 +6,6 @@
     "title":{
       "translate":"advancement.divinerpg.vethea.temple_of_doom"
     },
-    "frame":"goal",
     "description":{
       "translate":"advancement.divinerpg.vethea.temple_of_doom.desc"
     },
