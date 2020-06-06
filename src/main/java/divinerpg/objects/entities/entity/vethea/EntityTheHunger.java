@@ -30,7 +30,6 @@ public class EntityTheHunger extends EntityDivineVillager {
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         if (!this.world.isRemote) {
             player.openGui(DivineRPG.instance, GUIHandler.THE_HUNGER_GUI_ID, this.world, getEntityId(), 0, 0);
-            CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP) player, this, ItemStack.EMPTY);
         }
         return super.processInteract(player, hand);
     }
