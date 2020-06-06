@@ -14,16 +14,14 @@ import java.util.Random;
 public abstract class DivineLargeStructure extends MapGenStructure {
     protected final String structureName;
     protected final TemplateManager manager;
-    protected final int height;
     protected final ResourceLocation folder;
     private int chunkDistance;
 
 
-    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int height, int chunkDistance) {
+    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int chunkDistance) {
         this.structureName = structureName;
         this.folder = folder;
         this.manager = world.getSaveHandler().getStructureTemplateManager();
-        this.height = height;
 
         if (chunkDistance < 2) {
             DivineRPG.logger.warn(String.format("Spaces between structure %s can be closer than 2 chunks, but there is %s",
