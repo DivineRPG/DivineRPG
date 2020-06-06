@@ -20,11 +20,11 @@ public class GeneralConfig {
         @Config.Comment("Prints a bunch of extra, mostly unvetted information. Keep this disabled unless instructed")
         public boolean enableDebugMode = false;
 
-        @Config.Name("Player hats")
+        @Config.Name("Enable player hats")
         @Config.Comment("Set to false to disable player hats for special players")
         public boolean enablePlayerHats = true;
 
-        @Config.Name("Welcome messages")
+        @Config.Name("Enable welcome messages")
         @Config.Comment("Set to false to disable the welcome messages for special players")
         public boolean enableWelcomeMessages = true;
     }
