@@ -72,31 +72,4 @@ public class DivineStructureStart extends StructureStart {
 
         return new ChunkPos(xOffset + Integer.parseInt(numbers[0]), zOffset + Integer.parseInt(numbers[1]));
     }
-
-    /**
-     * Tries to load resource folder
-     *
-     * @param structureFolder - location of folder with structures
-     * @param result          - result reference
-     * @return - Is loaded successfullt
-     */
-    private boolean tryGetFile(ResourceLocation structureFolder, AtomicReference<File> result) {
-        // Find URL of resource
-        URL folder = this.getClass().getResource("/assets/" + structureFolder.getResourceDomain() + "/structures/" + structureFolder.getResourcePath());
-        File dir;
-        try {
-            // creating File
-            dir = new File(folder.toURI());
-            // checking if it is a directory
-            if (!dir.isDirectory())
-                return false;
-
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        result.set(dir);
-        return true;
-    }
 }
