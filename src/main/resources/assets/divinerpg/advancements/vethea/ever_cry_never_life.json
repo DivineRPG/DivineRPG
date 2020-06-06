@@ -12,7 +12,7 @@
     },
     "announce_to_chat":true
   },
-  "parent":"divinerpg:vethea/kill_boss_lady_luna",
+  "parent":"divinerpg:vethea/lunar_emissary",
   "criteria": {
     "obtain_everbright": {
       "trigger": "minecraft:inventory_changed",
