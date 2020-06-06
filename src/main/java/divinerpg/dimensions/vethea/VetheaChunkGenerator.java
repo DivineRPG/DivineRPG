@@ -235,8 +235,8 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         createForVethea(position, "raglokchamber"),
                         surfaceLevel,
                         25, 2, 2));*/
-                level.addStructure(new RaglokChamber(world));
-                level.addStructure(new WreckHall(world));
+                level.addStructure(new RaglokChamber(world, 160));
+                level.addStructure(new WreckHall(world, 160));
 
                /* addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);*/
                 break;
