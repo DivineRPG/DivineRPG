@@ -8,6 +8,8 @@ import divinerpg.structure.vethea.evergarden.Evergarden;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPost;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
+import divinerpg.structure.vethea.temple1.Temple1;
+import divinerpg.structure.vethea.temple2.Temple2;
 import divinerpg.structure.vethea.wreckhall.WreckHall;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
@@ -155,24 +157,17 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 break;
 
             case 1:
+
+                level.addStructure(new Temple1(world, 64));
+                level.addStructure(new Temple2(world, 64));
+
                 /*
                 level.addStructure(new DivineLargeStructure(world,
                         "Hive",
                         createForVethea(position, "hive"),
                         surfaceLevel,
                         25, 3, 3));
-
-                level.addStructure(new DivineLargeStructure(world,
-                        "Pyramid1",
-                        createForVethea(position, "pyramid"),
-                        surfaceLevel,
-                        25, 3, 3));
-
-                level.addStructure(new DivineLargeStructure(world,
-                        "Pyramid2",
-                        createForVethea(position, "pyramid2"),
-                        surfaceLevel,
-                        25, 3, 3));*/
+*/
 
                 /*
                 level.addWorldGen(new WorldGenEnhanced(
