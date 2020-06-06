@@ -2,6 +2,7 @@ package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.structure.vethea.evergarden.Evergarden;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
 import divinerpg.structure.vethea.wreckhall.WreckHall;
 import net.minecraft.block.Block;
@@ -215,11 +216,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
 
             case 3:
                 /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "Evergarden",
-                        createForVethea(position, "evergarden"),
-                        surfaceLevel,
-                        25, 2, 3));
+
                 level.addStructure(new DivineLargeStructure(world,
                         "4Tree1",
                         createForVethea(position, "layer4tree1"),
@@ -229,12 +226,9 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         "4Tree2",
                         createForVethea(position, "layer4tree2"),
                         surfaceLevel,
-                        25, 2, 2));
-                level.addStructure(new DivineLargeStructure(world,
-                        "RaglokChamber",
-                        createForVethea(position, "raglokchamber"),
-                        surfaceLevel,
                         25, 2, 2));*/
+
+                level.addStructure(new Evergarden(world, 160));
                 level.addStructure(new RaglokChamber(world, 160));
                 level.addStructure(new WreckHall(world, 160));
 

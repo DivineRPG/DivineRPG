@@ -14,11 +14,14 @@ import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
 import divinerpg.structure.base.DivineStructureStart;
+import divinerpg.structure.vethea.evergarden.EvergardenComponent;
+import divinerpg.structure.vethea.evergarden.EvergardenStart;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamberComponent;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamberStart;
 import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
 import divinerpg.structure.vethea.wreckhall.WreckHallStart;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
 
@@ -44,9 +47,8 @@ public class DimensionRegistry {
         MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
         MapGenStructureIO.registerStructure(RaglokChamberStart.class, "DRPGRaglokChamber");
         MapGenStructureIO.registerStructureComponent(RaglokChamberComponent.class, "DRPGRaglokChamberComponent");
-
-        MapGenStructureIO.registerStructure(DivineStructureStart.class, "DrpgSS");
-        MapGenStructureIO.registerStructureComponent(DivineStructureComponentTemplate.class, "DrpgCmp");
+        MapGenStructureIO.registerStructure(EvergardenStart.class, "DRPGEvergarden");
+        MapGenStructureIO.registerStructureComponent(EvergardenComponent.class, "DRPGEvergardenComponent");
 
         MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");
