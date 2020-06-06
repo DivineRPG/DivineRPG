@@ -20,6 +20,8 @@ import divinerpg.structure.vethea.crypt2.Crypt2Component;
 import divinerpg.structure.vethea.crypt2.Crypt2Start;
 import divinerpg.structure.vethea.evergarden.EvergardenComponent;
 import divinerpg.structure.vethea.evergarden.EvergardenStart;
+import divinerpg.structure.vethea.hive.HiveComponent;
+import divinerpg.structure.vethea.hive.HiveStart;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseComponent;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseStart;
@@ -63,16 +65,19 @@ public class DimensionRegistry {
         MapGenStructureIO.registerStructureComponent(Temple1Component.class, "DRPGTemple1Component");
         MapGenStructureIO.registerStructure(Temple2Start.class, "DRPGTemple2");
         MapGenStructureIO.registerStructureComponent(Temple2Component.class, "DRPGTemple2Component");
+        MapGenStructureIO.registerStructure(HiveStart.class, "DRPGHive");
+        MapGenStructureIO.registerStructureComponent(HiveComponent.class, "DRPGHiveComponent");
         MapGenStructureIO.registerStructure(QuadroticPostStart.class, "DRPGQuadroticPost");
         MapGenStructureIO.registerStructureComponent(QuadroticPostComponent.class, "DRPGQuadroticPostComponent");
         MapGenStructureIO.registerStructure(KarosMadhouseStart.class, "DRPGKarosMadhouse");
         MapGenStructureIO.registerStructureComponent(KarosMadhouseComponent.class, "DRPGKarosMadhouseComponent");
-        MapGenStructureIO.registerStructure(WreckHallStart.class, "DRPGWreckHall");
-        MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
         MapGenStructureIO.registerStructure(RaglokChamberStart.class, "DRPGRaglokChamber");
         MapGenStructureIO.registerStructureComponent(RaglokChamberComponent.class, "DRPGRaglokChamberComponent");
+        MapGenStructureIO.registerStructure(WreckHallStart.class, "DRPGWreckHall");
+        MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
         MapGenStructureIO.registerStructure(EvergardenStart.class, "DRPGEvergarden");
         MapGenStructureIO.registerStructureComponent(EvergardenComponent.class, "DRPGEvergardenComponent");
+
         MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");
     }

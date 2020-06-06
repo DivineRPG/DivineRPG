@@ -5,6 +5,7 @@ import divinerpg.registry.BlockRegistry;
 import divinerpg.structure.vethea.crypt1.Crypt1;
 import divinerpg.structure.vethea.crypt2.Crypt2;
 import divinerpg.structure.vethea.evergarden.Evergarden;
+import divinerpg.structure.vethea.hive.Hive;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPost;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
@@ -148,28 +149,16 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                                     true), 24, surfaceLevel));
                 }
 
-               /* level.addStructure(new DrpgLegacyStructure("VetheaVillage",
-                        5,
-                        new WorldGenVillageIsland(),
-                        30));*/
-
                 addFlowers(level, surfaceLevel, BlockRegistry.greenGemtop, BlockRegistry.purpleGemtop, BlockRegistry.yellowDulah, BlockRegistry.greenDulah);
                 break;
 
             case 1:
 
+                level.addStructure(new Hive(world, 64));
                 level.addStructure(new Temple1(world, 64));
                 level.addStructure(new Temple2(world, 64));
 
-                /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "Hive",
-                        createForVethea(position, "hive"),
-                        surfaceLevel,
-                        25, 3, 3));
-*/
 
-                /*
                 level.addWorldGen(new WorldGenEnhanced(
                         new TempleWorldGenerator(createForVethea(position, "tree3"),
                                 true), 10, surfaceLevel));
@@ -178,7 +167,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                         new TempleWorldGenerator(createForVethea(0, "tree3"),
                                 true), 10, surfaceLevel));
 
-                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);*/
+                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);
                 break;
 
             case 2:
@@ -196,18 +185,6 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 break;
 
             case 3:
-                /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "4Tree1",
-                        createForVethea(position, "layer4tree1"),
-                        surfaceLevel,
-                        25, 2, 2));
-                level.addStructure(new DivineLargeStructure(world,
-                        "4Tree2",
-                        createForVethea(position, "layer4tree2"),
-                        surfaceLevel,
-                        25, 2, 2));*/
-
                 level.addStructure(new Evergarden(world, 160));
                 level.addStructure(new RaglokChamber(world, 160));
                 level.addStructure(new WreckHall(world, 160));
@@ -224,7 +201,7 @@ public class VetheaChunkGenerator implements IChunkGenerator {
     }
 
     private ResourceLocation createForVethea(int level, String structureFolder) {
-        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/%slevel/%s", level, structureFolder));
+        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/layer%s/%s", level + 1, structureFolder));
     }
 
     private ResourceLocation createForAllLevels(String structureName) {
