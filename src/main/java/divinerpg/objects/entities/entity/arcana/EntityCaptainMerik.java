@@ -35,7 +35,7 @@ public class EntityCaptainMerik extends EntityDivineVillager {
     }
 
     @Override
-    public void addRecipies(MerchantRecipeList list) {
+    public void addRecipes(MerchantRecipeList list) {
         list.addAll(getAllRecipies());
     }
 

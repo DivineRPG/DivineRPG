@@ -31,7 +31,6 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.UUID;
 
 public abstract class EntityDivineVillager extends EntityVillager {
     private MerchantRecipeList buyingList;
@@ -121,7 +120,7 @@ public abstract class EntityDivineVillager extends EntityVillager {
         player.sendMessage(message);
     }
 
-    public abstract void addRecipies(MerchantRecipeList list);
+    public abstract void addRecipes(MerchantRecipeList list);
 
     @Override
     public EntityVillager createChild(EntityAgeable ageable) {
@@ -172,7 +171,7 @@ public abstract class EntityDivineVillager extends EntityVillager {
     private void addDefaultEquipmentAndRecipies(int par1) {
         MerchantRecipeList rec = new MerchantRecipeList();
 
-        addRecipies(rec);
+        addRecipes(rec);
 
         if (this.buyingList == null) {
             this.buyingList = new MerchantRecipeList();

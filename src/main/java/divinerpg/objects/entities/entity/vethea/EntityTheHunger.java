@@ -36,7 +36,7 @@ public class EntityTheHunger extends EntityDivineVillager {
 
 
     @Override
-    public void addRecipies(MerchantRecipeList recipes) {
+    public void addRecipes(MerchantRecipeList recipes) {
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 1, 0), new ItemStack(ItemRegistry.dreamCarrot, 2, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 3, 0), new ItemStack(ItemRegistry.dreamMelon, 4, 0)));
         recipes.add(new MerchantRecipe(new ItemStack(ItemRegistry.dirtyPearls, 5, 0), new ItemStack(ItemRegistry.dreamPie, 5, 0)));
