@@ -70,7 +70,7 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
             }
         }
 
-        return dev;
+        return null;
     }
 
     @Override
