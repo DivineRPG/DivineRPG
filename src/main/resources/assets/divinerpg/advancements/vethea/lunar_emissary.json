@@ -4,11 +4,11 @@
       "item":"divinerpg:moon_clock"
     },
     "title":{
-      "translate":"advancement.divinerpg.vethea.kill_boss_lady_luna"
+      "translate":"advancement.divinerpg.vethea.lunar_emissary"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.divinerpg.vethea.kill_boss_lady_luna.desc"
+      "translate":"advancement.divinerpg.vethea.lunar_emissary.desc"
     },
     "announce_to_chat":true
   },

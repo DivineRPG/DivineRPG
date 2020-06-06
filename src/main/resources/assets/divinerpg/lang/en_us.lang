@@ -1444,6 +1444,8 @@ advancement.divinerpg.vethea.let_them_eat_cake=Let Them Eat Cake
 advancement.divinerpg.vethea.let_them_eat_cake.desc=Eat a dream cake
 advancement.divinerpg.vethea.licensed_to_kill=Licensed to Kill
 advancement.divinerpg.vethea.licensed_to_kill.desc=Kill an L'Heiva
+advancement.divinerpg.vethea.lunar_emissary=Lunar Emissary
+advancement.divinerpg.vethea.lunar_emissary.desc=Kill Lady Luna
 advancement.divinerpg.vethea.one_maul_to_rule_them_all=One Maul to Rule Them All
 advancement.divinerpg.vethea.one_maul_to_rule_them_all.desc=Obtain a Karos Rockmaul
 advancement.divinerpg.vethea.swiss_cheese=Swiss Cheese
@@ -1454,8 +1456,7 @@ advancement.divinerpg.vethea.the_first_hive_monarch=The First Hive Monarch
 advancement.divinerpg.vethea.the_first_hive_monarch.desc=Kill the Hive Queen
 advancement.divinerpg.vethea.unlimited_power=Unlimited Power
 advancement.divinerpg.vethea.unlimited_power.desc=Kill Wreck
-advancement.divinerpg.vethea.kill_boss_lady_luna=The girl of my dreams
-advancement.divinerpg.vethea.kill_boss_lady_luna.desc=Kill the Lady Luna
+
 
 fluid.tar=Tar
 
