@@ -6,6 +6,9 @@ import divinerpg.structure.vethea.crypt1.Crypt1;
 import divinerpg.structure.vethea.crypt2.Crypt2;
 import divinerpg.structure.vethea.evergarden.Evergarden;
 import divinerpg.structure.vethea.hive.Hive;
+import divinerpg.structure.vethea.hungerhouse.HungerHouse1;
+import divinerpg.structure.vethea.hungerhouse.HungerHouse2;
+import divinerpg.structure.vethea.hungerhouse.HungerHouse3;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPost;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
@@ -124,24 +127,9 @@ public class VetheaChunkGenerator implements IChunkGenerator {
                 level.addStructure(new Crypt1(world, 10));
                 level.addStructure(new Crypt2(world, 12));
 
-                /*
-                level.addStructure(new DivineLargeStructure(world,
-                        "HungerHouse1",
-                        createForVethea(position, "hungerhouse1"),
-                        surfaceLevel + 8,
-                        18, 1, 1));
-
-                level.addStructure(new DivineLargeStructure(world,
-                        "HungerHouse2",
-                        createForVethea(position, "hungerhouse2"),
-                        surfaceLevel + 6,
-                        18, 1, 1));
-
-                level.addStructure(new DivineLargeStructure(world,
-                        "HungerHouse3",
-                        createForVethea(position, "hungerhouse3"),
-                        surfaceLevel + 8,
-                        18, 1, 1));*/
+                level.addStructure(new HungerHouse1(world, 24));
+                level.addStructure(new HungerHouse2(world, 22));
+                level.addStructure(new HungerHouse3(world, 24));
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(

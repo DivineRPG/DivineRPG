@@ -22,6 +22,8 @@ import divinerpg.structure.vethea.evergarden.EvergardenComponent;
 import divinerpg.structure.vethea.evergarden.EvergardenStart;
 import divinerpg.structure.vethea.hive.HiveComponent;
 import divinerpg.structure.vethea.hive.HiveStart;
+import divinerpg.structure.vethea.hungerhouse.HungerHouseComponent;
+import divinerpg.structure.vethea.hungerhouse.HungerHouseStart;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseComponent;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseStart;
@@ -61,6 +63,8 @@ public class DimensionRegistry {
         MapGenStructureIO.registerStructureComponent(Crypt1Component.class, "DRPGCrypt1Component");
         MapGenStructureIO.registerStructure(Crypt2Start.class, "DRPGCrypt2");
         MapGenStructureIO.registerStructureComponent(Crypt2Component.class, "DRPGCrypt2Component");
+        MapGenStructureIO.registerStructure(HungerHouseStart.class, "DRPGHungerHouse");
+        MapGenStructureIO.registerStructureComponent(HungerHouseComponent.class, "DRPGHungerHouseComponent");
         MapGenStructureIO.registerStructure(Temple1Start.class, "DRPGTemple1");
         MapGenStructureIO.registerStructureComponent(Temple1Component.class, "DRPGTemple1Component");
         MapGenStructureIO.registerStructure(Temple2Start.class, "DRPGTemple2");
