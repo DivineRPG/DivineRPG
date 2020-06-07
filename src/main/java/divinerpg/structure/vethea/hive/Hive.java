@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Hive extends DivineFixedAltitudeStructure {
 
-    public Hive(World world, int spawnAltitude) {
-        super(world, "Hive", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/hive"), 15, spawnAltitude);
+    public Hive(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "Hive", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/hive"), chunkDistance, spawnAltitude);
     }
 
     @Override

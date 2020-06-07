@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Temple1 extends DivineFixedAltitudeStructure {
 
-    public Temple1(World world, int spawnAltitude) {
-        super(world, "Temple1", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/temple1"), 15, spawnAltitude);
+    public Temple1(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "Temple1", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/temple1"), chunkDistance, spawnAltitude);
     }
 
     @Override

@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Crypt1 extends DivineFixedAltitudeStructure {
 
-    public Crypt1(World world, int spawnAltitude) {
-        super(world, "Crypt1", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt1"), 15, spawnAltitude);
+    public Crypt1(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "Crypt1", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt1"), chunkDistance, spawnAltitude);
     }
 
     @Override

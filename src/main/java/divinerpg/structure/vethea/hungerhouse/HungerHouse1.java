@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class HungerHouse1 extends DivineFixedAltitudeStructure {
 
-    public HungerHouse1(World world, int spawnAltitude) {
-        super(world, "HungerHouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/hungerhouse1"), 15, spawnAltitude);
+    public HungerHouse1(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "HungerHouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/hungerhouse1"), chunkDistance, spawnAltitude);
     }
 
     @Override

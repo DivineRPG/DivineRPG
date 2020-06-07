@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class WreckHall extends DivineFixedAltitudeStructure {
 
-    public WreckHall(World world, int spawnAltitude) {
-        super(world, "WreckHall", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/wreckhall"), 15, spawnAltitude);
+    public WreckHall(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "WreckHall", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/wreckhall"), chunkDistance, spawnAltitude);
     }
 
     @Override

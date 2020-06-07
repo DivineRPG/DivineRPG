@@ -8,8 +8,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Evergarden extends DivineFixedAltitudeStructure {
 
-    public Evergarden(World world, int spawnAltitude) {
-        super(world, "Evergarden", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/evergarden"), 15, spawnAltitude);
+    public Evergarden(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "Evergarden", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/evergarden"), chunkDistance, spawnAltitude);
     }
 
     @Override

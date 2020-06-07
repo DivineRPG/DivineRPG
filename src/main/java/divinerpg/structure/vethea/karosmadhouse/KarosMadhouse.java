@@ -9,8 +9,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class KarosMadhouse extends DivineFixedAltitudeStructure {
 
-    public KarosMadhouse(World world, int spawnAltitude) {
-        super(world, "KarosMadhouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/karosmadhouse"), 15, spawnAltitude);
+    public KarosMadhouse(World world, int chunkDistance, int spawnAltitude) {
+        super(world, "KarosMadhouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/karosmadhouse"), chunkDistance, spawnAltitude);
     }
 
     @Override
