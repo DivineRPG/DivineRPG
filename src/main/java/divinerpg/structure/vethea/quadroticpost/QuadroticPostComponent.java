@@ -28,7 +28,6 @@ public class QuadroticPostComponent extends DivineStructureComponentTemplate {
         switch (function) {
             case "QuadroticPostLoot":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.QUADROTIC_POST_LOOT);
-                System.out.println("Quadrotic chest populated at " + pos);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");

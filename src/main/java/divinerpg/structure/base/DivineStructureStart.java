@@ -52,7 +52,6 @@ public abstract class DivineStructureStart extends StructureStart {
                 String fileName = "[" + x + ", " + z + "]";
                 ResourceLocation partLocation = new ResourceLocation(location.getResourceDomain(), location.getResourcePath() + "/" + fileName);
                 BlockPos pos = fromString(fileName, chunkX, chunkZ).getBlock(0, y, 0);
-                System.out.println(partLocation);
                 components.add(this.getComponent(manager, partLocation, pos));
             }
         }

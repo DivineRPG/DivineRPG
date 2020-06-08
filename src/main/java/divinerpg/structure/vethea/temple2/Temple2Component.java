@@ -29,7 +29,6 @@ public class Temple2Component extends DivineStructureComponentTemplate {
         switch (function) {
             case "TempleLootBottom":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.TEMPLE_LOOT_BOTTOM);
-                System.out.println("Temple loot bottom at " + pos);
                 break;
             case "TempleLootMiddle":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.TEMPLE_LOOT_MIDDLE);

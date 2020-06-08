@@ -28,7 +28,6 @@ public class KarosMadhouseComponent extends DivineStructureComponentTemplate {
         switch (function) {
             case "KarosMadhouseLoot":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.KAROS_MADHOUSE_LOOT);
-                System.out.println("Karos chest populated at " + pos);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");

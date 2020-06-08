@@ -31,7 +31,6 @@ public class WreckHallComponent extends DivineStructureComponentTemplate {
         switch (function) {
             case "WreckHallLoot":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.WRECK_HALL_LOOT);
-                System.out.println("Wreck chest populated at " + pos);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");

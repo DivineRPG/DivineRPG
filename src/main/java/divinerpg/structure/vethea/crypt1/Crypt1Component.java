@@ -29,7 +29,6 @@ public class Crypt1Component extends DivineStructureComponentTemplate {
         switch (function) {
             case "CryptLoot":
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.CRYPT_LOOT);
-                System.out.println("Crypt chest populated at " + pos);
                 break;
             case "CryptKeeper":
                 spawnPersistentEntity(worldIn, pos, new EntityCryptKeeper(worldIn));
