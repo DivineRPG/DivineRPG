@@ -1438,12 +1438,12 @@ advancement.divinerpg.vethea.an_elm_on_nightmare_street.desc=Будьте ост
 advancement.divinerpg.vethea.crypt_raider=Расхититель склепов
 advancement.divinerpg.vethea.crypt_raider.desc=Получить глыбу Амчирмиса из склепа
 advancement.divinerpg.vethea.ever_cry_never_life=Всегда плачь, никогда не живи
-advancement.divinerpg.vethea.ever_cry_never_life.desc=Получите ВСЕ оружие от Леди Луны. Ты действительно не чувствуешь боли, не так ли?
+advancement.divinerpg.vethea.ever_cry_never_life.desc=Прочувствуйте ВСЁ оружие Леди Луны. Ты действительно не чувствуешь боли, не так ли?
 advancement.divinerpg.vethea.for_the_man_who_has_everything=Для человека, у которого есть все
-advancement.divinerpg.vethea.for_the_man_who_has_everything.desc=Найди и поговори с Голодом
+advancement.divinerpg.vethea.for_the_man_who_has_everything.desc=Найди местного торговца "Голод" и поговори с ним
 advancement.divinerpg.vethea.getting_out_of_hand=Выход из-под контроля
 advancement.divinerpg.vethea.getting_out_of_hand.desc=Убейте Квадро
-advancement.divinerpg.vethea.i_am_mad_scientist=Я сумасшедший ученый
+advancement.divinerpg.vethea.i_am_mad_scientist=Я СуМасШедШий уЧеНыЙ
 advancement.divinerpg.vethea.i_am_mad_scientist.desc=Убейте Кароса
 advancement.divinerpg.vethea.let_them_eat_cake=Каждому по кусочку
 advancement.divinerpg.vethea.let_them_eat_cake.desc=Съешьте торт мечты
@@ -1459,8 +1459,8 @@ advancement.divinerpg.vethea.the_first_hive_monarch=Первый монарх у
 advancement.divinerpg.vethea.the_first_hive_monarch.desc=Убейте Королеву Улья
 advancement.divinerpg.vethea.unlimited_power=Безграничная мощь
 advancement.divinerpg.vethea.unlimited_power.desc=Убейте Крушителя
-advancement.divinerpg.vethea.kill_boss_lady_luna=Девушка моей мечты
-advancement.divinerpg.vethea.kill_boss_lady_luna.desc=Убейье Леди Луну
+advancement.divinerpg.vethea.lunar_emissary=Девушка моей мечты
+advancement.divinerpg.vethea.lunar_emissary.desc=Убейье Леди Луну
 
 fluid.tar=Смола
 
