@@ -4,10 +4,10 @@
          "item":"divinerpg:scythe"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.talk_to_jack_o_man"
+         "translate":"advancement.divinerpg.overworld.halloween_spirit"
       },
       "description":{
-         "translate":"advancement.divinerpg.overworld.talk_to_jack_o_man.desc"
+         "translate":"advancement.divinerpg.overworld.halloween_spirit.desc"
       },
       "announce_to_chat":true
    },

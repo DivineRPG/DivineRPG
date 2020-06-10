@@ -4,11 +4,11 @@
          "item":"divinerpg:divine_sword"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.craft_divine_sword"
+         "translate":"advancement.divinerpg.overworld.a_divine_plan"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.overworld.craft_divine_sword.desc"
+         "translate":"advancement.divinerpg.overworld.a_divine_plan.desc"
       },
       "announce_to_chat":true
    },

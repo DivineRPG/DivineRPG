@@ -4,11 +4,11 @@
          "item":"divinerpg:sound_of_music"
       },
       "title":{
-         "translate":"advancement.divinerpg.nether.use_sound_of_music"
+         "translate":"advancement.divinerpg.nether.off_key"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.nether.use_sound_of_music.desc"
+         "translate":"advancement.divinerpg.nether.off_key.desc"
       },
       "announce_to_chat":true
    },

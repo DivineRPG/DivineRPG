@@ -4,11 +4,11 @@
          "item":"divinerpg:angelic_helmet"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.wear_angelic_armor"
+         "translate":"advancement.divinerpg.overworld.when_pigs_fly"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.overworld.wear_angelic_armor.desc"
+         "translate":"advancement.divinerpg.overworld.when_pigs_fly.desc"
       },
       "announce_to_chat":true
    },

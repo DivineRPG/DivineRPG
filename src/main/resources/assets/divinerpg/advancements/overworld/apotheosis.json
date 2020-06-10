@@ -4,11 +4,11 @@
       "item": "divinerpg:divine_helmet"
     },
     "title":{
-      "translate":"advancement.divinerpg.overworld.divine_equipment"
+      "translate":"advancement.divinerpg.overworld.apotheosis"
     },
     "frame": "challenge",
     "description":{
-      "translate":"advancement.divinerpg.overworld.divine_equipment.desc"
+      "translate":"advancement.divinerpg.overworld.apotheosis.desc"
     },
     "announce_to_chat":true
   },

@@ -1,24 +1,24 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:fury_fire"
+         "item":"divinerpg:bluefire_stone"
       },
       "title":{
-         "translate":"advancement.divinerpg.nether.kill_boss_king_of_scorchers"
+         "translate":"advancement.divinerpg.nether.overseeing_eye"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.nether.kill_boss_king_of_scorchers.desc"
+         "translate":"advancement.divinerpg.nether.overseeing_eye.desc"
       },
       "announce_to_chat":true
    },
    "parent":"minecraft:nether/root",
    "criteria":{
-      "kill_boss_king_of_scorchers":{
+      "kill_boss_the_watcher":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:king_of_scorchers"
+               "type":"divinerpg:the_watcher"
             }
          }
       }

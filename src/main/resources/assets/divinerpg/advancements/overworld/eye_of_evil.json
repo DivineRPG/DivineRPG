@@ -4,10 +4,10 @@
          "item":"divinerpg:rupee_ingot"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.look_into_the_eye"
+         "translate":"advancement.divinerpg.overworld.eye_of_evil"
       },
       "description":{
-         "translate":"advancement.divinerpg.overworld.look_into_the_eye.desc"
+         "translate":"advancement.divinerpg.overworld.eye_of_evil.desc"
       },
       "announce_to_chat":true
    },

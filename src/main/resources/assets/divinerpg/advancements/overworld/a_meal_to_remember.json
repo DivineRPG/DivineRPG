@@ -4,10 +4,10 @@
          "item":"divinerpg:chicken_dinner"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.eat_chicken_dinner"
+         "translate":"advancement.divinerpg.overworld.a_meal_to_remember"
       },
       "description":{
-         "translate":"advancement.divinerpg.overworld.eat_chicken_dinner.desc"
+         "translate":"advancement.divinerpg.overworld.a_meal_to_remember.desc"
       },
       "announce_to_chat":true
    },
