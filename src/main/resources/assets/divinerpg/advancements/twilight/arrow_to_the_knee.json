@@ -4,13 +4,13 @@
          "item":"divinerpg:twilight_bow"
       },
       "title":{
-         "translate":"advancement.divinerpg.twilight.hurt_by_twilight_archer"
+         "translate":"advancement.divinerpg.twilight.arrow_to_the_knee"
       },
       "description":{
-         "translate":"advancement.divinerpg.twilight.hurt_by_twilight_archer.desc"
+         "translate":"advancement.divinerpg.twilight.arrow_to_the_knee.desc"
       }
    },
-   "parent":"divinerpg:twilight/enter_mortum",
+   "parent":"divinerpg:twilight/dark_another_day",
    "criteria":{
       "hurt_by_twilight_archer":{
          "trigger":"minecraft:entity_hurt_player",

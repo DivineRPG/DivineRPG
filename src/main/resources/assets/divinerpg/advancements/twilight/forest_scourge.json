@@ -4,15 +4,15 @@
       "item":"divinerpg:wildwood_heart"
     },
     "title":{
-      "translate":"advancement.divinerpg.twilight.kill_boss_termasect"
+      "translate":"advancement.divinerpg.twilight.forest_scourge"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.divinerpg.twilight.kill_boss_termasect.desc"
+      "translate":"advancement.divinerpg.twilight.forest_scourge.desc"
     },
     "announce_to_chat":true
   },
-  "parent":"divinerpg:twilight/enter_wildwood",
+  "parent":"divinerpg:twilight/forest_islands",
   "criteria":{
     "kill_boss_termasect":{
       "trigger":"minecraft:player_killed_entity",

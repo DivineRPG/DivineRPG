@@ -4,15 +4,15 @@
          "item":"divinerpg:halite_bow"
       },
       "title":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_twilight_demon"
+         "translate":"advancement.divinerpg.twilight.exorcism"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_twilight_demon.desc"
+         "translate":"advancement.divinerpg.twilight.exorcism.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:twilight/enter_mortum",
+   "parent":"divinerpg:twilight/dark_another_day",
    "criteria":{
       "kill_boss_twilight_demon":{
          "trigger":"minecraft:player_killed_entity",

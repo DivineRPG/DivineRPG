@@ -4,15 +4,15 @@
       "item": "divinerpg:skythern_block"
     },
     "title": {
-      "translate": "advancement.divinerpg.twilight.enter_skythern"
+      "translate": "advancement.divinerpg.twilight.colourless_land"
     },
     "frame": "goal",
     "description": {
-      "translate": "advancement.divinerpg.twilight.enter_skythern.desc"
+      "translate": "advancement.divinerpg.twilight.colourless_land.desc"
     },
     "announce_to_chat": true
   },
-  "parent": "divinerpg:twilight/enter_apalachia",
+  "parent": "divinerpg:twilight/purple_planet",
    "criteria":{
       "enter_skythern":{
          "trigger":"minecraft:changed_dimension",

@@ -4,14 +4,14 @@
          "item":"divinerpg:eden_soul"
       },
       "title":{
-         "translate":"advancement.divinerpg.twilight.kill_twlight_bunny"
+         "translate":"advancement.divinerpg.twilight.friend_or_foe"
       },
       "description":{
-         "translate":"advancement.divinerpg.twilight.kill_twlight_bunny.desc"
+         "translate":"advancement.divinerpg.twilight.friend_or_foe.desc"
       },
       "announce_to_chat":true
    },
-   "parent": "divinerpg:twilight/enter_eden",
+   "parent": "divinerpg:twilight/1001_possibilities",
    "criteria":{
       "kill_twilight_bunny":{
          "trigger":"minecraft:player_killed_entity",
