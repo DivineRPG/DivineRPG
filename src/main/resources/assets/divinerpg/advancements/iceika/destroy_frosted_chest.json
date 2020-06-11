@@ -14,10 +14,14 @@
    },
    "parent":"divinerpg:iceika/root",
    "criteria":{
-      "destroy_frosted_chest":{
-         "trigger":"divinerpg:block",
+      "obtain_snowflake":{
+         "trigger":"minecraft:inventory_changed",
          "conditions":{
-            "block":"divinerpg:frosted_chest"
+            "items":[
+               {
+                  "item":"divinerpg:snowflake"
+               }
+            ]
          }
       }
    }

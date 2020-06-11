@@ -4,11 +4,11 @@
          "item":"divinerpg:shark_fin"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.kill_shark"
+         "translate":"advancement.divinerpg.overworld.feeding_on_the_fish"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.overworld.kill_shark.desc"
+         "translate":"advancement.divinerpg.overworld.feeding_on_the_fish.desc"
       },
       "announce_to_chat":true
    },
