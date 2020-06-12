@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:spike_block"
+    "item": "divinerpg:spike_block",
+    "count": 5
   },
   "pattern": [
     "x x",
