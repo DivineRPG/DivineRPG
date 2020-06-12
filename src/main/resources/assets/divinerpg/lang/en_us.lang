@@ -1340,16 +1340,8 @@ advancement.divinerpg.nether.overseeing_eye.desc=Kill the Watcher
 
 advancement.divinerpg.end.craft_horde_horn=How does it work?
 advancement.divinerpg.end.craft_horde_horn.desc=Craft a Horde Horn
-advancement.divinerpg.end.kill_boss_ayeraco_blue=Floaty Blue Boi
-advancement.divinerpg.end.kill_boss_ayeraco_blue.desc=Kill a Blue Ayeraco
-advancement.divinerpg.end.kill_boss_ayeraco_green=Floaty Green Boi
-advancement.divinerpg.end.kill_boss_ayeraco_green.desc=Kill a Green Ayeraco
-advancement.divinerpg.end.kill_boss_ayeraco_purple=Floaty Purple Boi
-advancement.divinerpg.end.kill_boss_ayeraco_purple.desc=Kill a Purple Ayeraco
-advancement.divinerpg.end.kill_boss_ayeraco_red=Floaty Red Boi
-advancement.divinerpg.end.kill_boss_ayeraco_red.desc=Kill a Red Ayeraco
-advancement.divinerpg.end.kill_boss_ayeraco_yellow=Floaty Yellow Boi
-advancement.divinerpg.end.kill_boss_ayeraco_yellow.desc=Kill a Yellow Ayeraco
+advancement.divinerpg.end.kill_boss_ayeraco_horde=Kill Ayeraco Horde
+advancement.divinerpg.end.kill_boss_ayeraco_blue.desc=Kill the Ayeraco Horde
 advancement.divinerpg.end.kill_ender_triplets=Triple The Danger
 advancement.divinerpg.end.kill_ender_triplets.desc=Kill an Ender Triplet
 
