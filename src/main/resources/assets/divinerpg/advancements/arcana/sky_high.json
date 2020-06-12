@@ -4,11 +4,11 @@
          "item":"divinerpg:elevantium"
       },
       "title":{
-         "translate":"advancement.divinerpg.arcana.step_on_elevantium"
+         "translate":"advancement.divinerpg.arcana.sky_high"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.arcana.step_on_elevantium.desc"
+         "translate":"advancement.divinerpg.arcana.sky_high.desc"
       },
       "announce_to_chat":true
    },

@@ -4,11 +4,11 @@
          "item":"divinerpg:storm_sword"
       },
       "title":{
-         "translate":"advancement.divinerpg.arcana.get_storm_sword"
+         "translate":"advancement.divinerpg.arcana.the_tempest"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.arcana.get_storm_sword.desc"
+         "translate":"advancement.divinerpg.arcana.the_tempest.desc"
       },
       "announce_to_chat":true
    },

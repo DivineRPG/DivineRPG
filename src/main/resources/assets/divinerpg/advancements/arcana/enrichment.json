@@ -4,11 +4,11 @@
          "item":"divinerpg:staff_of_enrichment"
       },
       "title":{
-         "translate":"advancement.divinerpg.arcana.use_staff_of_enrichment"
+         "translate":"advancement.divinerpg.arcana.enrichment"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.arcana.use_staff_of_enrichment.desc"
+         "translate":"advancement.divinerpg.arcana.enrichment.desc"
       },
       "announce_to_chat":true
    },

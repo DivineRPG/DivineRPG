@@ -4,11 +4,11 @@
          "item":"divinerpg:seimer_egg"
       },
       "title":{
-         "translate":"advancement.divinerpg.arcana.tame_zelus_pet"
+         "translate":"advancement.divinerpg.arcana.my_little_creature"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.arcana.tame_zelus_pet.desc"
+         "translate":"advancement.divinerpg.arcana.my_little_creature.desc"
       }
    },
    "parent":"divinerpg:arcana/root",

@@ -1,24 +1,24 @@
 {
    "display":{
       "icon":{
-         "item":"divinerpg:wizards_book"
+         "item":"divinerpg:dungeon_tokens"
       },
       "title":{
-         "translate":"advancement.divinerpg.arcana.kill_boss_parasecta"
+         "translate":"advancement.divinerpg.arcana.dungeon_master"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.arcana.kill_boss_parasecta.desc"
+         "translate":"advancement.divinerpg.arcana.dungeon_master.desc"
       },
       "announce_to_chat":true
    },
    "parent":"divinerpg:arcana/root",
    "criteria":{
-      "kill_boss_parasecta":{
+      "kill_boss_dramix":{
          "trigger":"minecraft:player_killed_entity",
          "conditions":{
             "entity":{
-               "type":"divinerpg:parasecta"
+               "type":"divinerpg:dramix"
             }
          }
       }

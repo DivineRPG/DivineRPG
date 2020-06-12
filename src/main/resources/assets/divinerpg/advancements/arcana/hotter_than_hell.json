@@ -4,16 +4,16 @@
       "item": "divinerpg:heat_trap_on"
     },
     "title": {
-      "translate": "advancement.divinerpg.arcana.step_on_heat_trap"
+      "translate": "advancement.divinerpg.arcana.hotter_than_hell"
     },
     "description": {
-      "translate": "advancement.divinerpg.arcana.step_on_heat_trap.desc"
+      "translate": "advancement.divinerpg.arcana.hotter_than_hell.desc"
     },
     "announce_to_chat": true
   },
   "parent": "divinerpg:arcana/root",
    "criteria":{
-      "step_on_elevantium":{
+      "step_on_heat_trap":{
          "trigger":"minecraft:enter_block",
          "conditions":{
             "block":"divinerpg:heat_trap_on"
