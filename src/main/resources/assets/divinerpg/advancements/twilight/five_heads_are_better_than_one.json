@@ -4,11 +4,11 @@
          "item":"divinerpg:halite_chestplate"
       },
       "title":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_densos"
+         "translate":"advancement.divinerpg.twilight.five_heads_are_better_than_one"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_densos.desc"
+         "translate":"advancement.divinerpg.twilight.five_heads_are_better_than_one.desc"
       },
       "announce_to_chat":true
    },

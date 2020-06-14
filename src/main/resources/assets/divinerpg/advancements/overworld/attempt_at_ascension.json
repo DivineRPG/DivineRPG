@@ -4,15 +4,15 @@
       "item": "divinerpg:divine_helmet"
     },
     "title":{
-      "translate":"advancement.divinerpg.overworld.apotheosis"
+      "translate":"advancement.divinerpg.overworld.attempt_at_ascension"
     },
     "frame": "challenge",
     "description":{
-      "translate":"advancement.divinerpg.overworld.apotheosis.desc"
+      "translate":"advancement.divinerpg.overworld.attempt_at_ascension.desc"
     },
     "announce_to_chat":true
   },
-  "parent": "divinerpg:overworld/craft_divine_sword",
+  "parent": "divinerpg:overworld/a_divine_plan",
   "criteria": {
     "divine_helmet": {
       "trigger": "minecraft:inventory_changed",

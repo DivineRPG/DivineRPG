@@ -4,14 +4,14 @@
       "item": "divinerpg:frozen_maul"
     },
     "title": {
-      "translate": "advancement.divinerpg.iceika.talk_to_workshop_tinkerer"
+      "translate": "advancement.divinerpg.iceika.a_lil_tinkering"
     },
     "description": {
-      "translate": "advancement.divinerpg.iceika.talk_to_workshop_tinkerer.desc"
+      "translate": "advancement.divinerpg.iceika.a_lil_tinkering.desc"
     },
     "announce_to_chat": true
   },
-  "parent": "divinerpg:iceika/destroy_frosted_chest",
+  "parent": "divinerpg:iceika/frozen_goods",
    "criteria":{
       "talk_to_workshop_tinkerer":{
          "trigger":"minecraft:villager_trade",

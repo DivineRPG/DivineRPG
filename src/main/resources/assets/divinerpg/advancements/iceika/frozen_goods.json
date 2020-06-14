@@ -4,11 +4,11 @@
          "item":"divinerpg:frosted_chest"
       },
       "title":{
-         "translate":"advancement.divinerpg.iceika.destroy_frosted_chest"
+         "translate":"advancement.divinerpg.iceika.frozen_goods"
       },
       "frame":"goal",
       "description":{
-         "translate":"advancement.divinerpg.iceika.destroy_frosted_chest.desc"
+         "translate":"advancement.divinerpg.iceika.frozen_goods.desc"
       },
       "announce_to_chat":true
    },
