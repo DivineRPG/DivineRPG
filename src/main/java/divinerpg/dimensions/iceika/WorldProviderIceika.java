@@ -1,5 +1,6 @@
 package divinerpg.dimensions.iceika;
 
+import divinerpg.proxy.ClientProxy;
 import divinerpg.registry.DimensionRegistry;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.world.DimensionType;
@@ -10,26 +11,38 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import divinerpg.proxy.ClientProxy;
-
 public class WorldProviderIceika extends WorldProvider {
-	
-	@Override
-	public void init() {
-		this.biomeProvider = new BiomeProviderIceika();
-		this.nether = false;
-		this.hasSkyLight = true;
-	}
-	
-	@Override
-	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderIceika(this.world, this.world.getSeed() + this.getDimension());
-	}
+
+    @Override
+    public void init() {
+        this.biomeProvider = new BiomeProviderIceika();
+        this.nether = false;
+        this.hasSkyLight = false;
+    }
+
+    @Override
+    protected void generateLightBrightnessTable() {
+        int length = this.lightBrightnessTable.length;
+        float min = 0.02F;
+        float max = 1F;
+        float step = (max - min) / (length - 1);
+        lightBrightnessTable[0] = min;
+
+        for (int i = 1; i < length; i++) {
+            lightBrightnessTable[i] = lightBrightnessTable[i - 1] + step;
+        }
+
+        lightBrightnessTable[length - 1] = max;
+    }
+
+    @Override
+    public IChunkGenerator createChunkGenerator() {
+        return new ChunkProviderIceika(this.world, this.world.getSeed() + this.getDimension());
+    }
 
     @Nullable
     @SideOnly(Side.CLIENT)
-    public float[] calcSunriseSunsetColors(float celestialAngle, float partialTicks)
-    {
+    public float[] calcSunriseSunsetColors(float celestialAngle, float partialTicks) {
         return null;
     }
 
@@ -38,8 +51,7 @@ public class WorldProviderIceika extends WorldProvider {
         return false;
     }
 
-    public float calculateCelestialAngle(long worldTime, float partialTicks)
-    {
+    public float calculateCelestialAngle(long worldTime, float partialTicks) {
         return 0.5f;
     }
 
@@ -54,36 +66,36 @@ public class WorldProviderIceika extends WorldProvider {
         return false;
     }
 
-	@Override
+    @Override
     public boolean isSurfaceWorld() {
         return false;
     }
 
-	@Override
+    @Override
     @SideOnly(Side.CLIENT)
     public float getCloudHeight() {
         return 8.0F;
     }
 
-	@Override
+    @Override
     public int getAverageGroundLevel() {
         return 72;
     }
 
-	@Override
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean doesXZShowFog(int x, int z) {
         return false;
     }
 
-	@Override
-	public DimensionType getDimensionType() {
-		return DimensionRegistry.iceikaDimension;
-	}
-	@Nullable
     @Override
-	public String getSaveFolder()
-    {
+    public DimensionType getDimensionType() {
+        return DimensionRegistry.iceikaDimension;
+    }
+
+    @Nullable
+    @Override
+    public String getSaveFolder() {
         return "Iceika";
     }
 }
