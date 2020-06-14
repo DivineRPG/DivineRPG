@@ -4,11 +4,10 @@
          "item":"divinerpg:jungle_shards"
       },
       "title":{
-         "translate":"advancement.divinerpg.overworld.death_to_all_jungle_stegosauruses"
+         "translate":"advancement.divinerpg.overworld.jungle_stegosaurus_slayer"
       },
-      "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.overworld.death_to_all_jungle_stegosauruses.desc"
+         "translate":"advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc"
       },
       "announce_to_chat":true
    },
