@@ -4,11 +4,11 @@
          "item":"divinerpg:apalachia_heart"
       },
       "title":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_eternal_archer"
+         "translate":"advancement.divinerpg.twilight.archaic_bowman"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.twilight.kill_boss_eternal_archer.desc"
+         "translate":"advancement.divinerpg.twilight.archaic_bowman.desc"
       },
       "announce_to_chat":true
    },

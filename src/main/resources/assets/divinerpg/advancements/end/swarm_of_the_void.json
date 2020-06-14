@@ -4,15 +4,15 @@
          "item":"divinerpg:ayeraco_statue_blue"
       },
       "title":{
-         "translate":"advancement.divinerpg.end.kill_boss_ayeraco_horde"
+         "translate":"advancement.divinerpg.end.swarm_of_the_void"
       },
       "frame":"challenge",
       "description":{
-         "translate":"advancement.divinerpg.end.kill_boss_ayeraco_horde.desc"
+         "translate":"advancement.divinerpg.end.swarm_of_the_void.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:end/craft_horde_horn",
+   "parent":"divinerpg:end/blown_away",
    "criteria": {
       "ayeraco_blue": {
          "trigger": "minecraft:player_killed_entity",

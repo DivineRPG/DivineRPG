@@ -4,14 +4,14 @@
          "item":"divinerpg:snowflake"
       },
       "title":{
-         "translate":"advancement.divinerpg.iceika.talk_to_workshop_merchant"
+         "translate":"advancement.divinerpg.iceika.a_lil_gift"
       },
       "description":{
-         "translate":"advancement.divinerpg.iceika.talk_to_workshop_merchant.desc"
+         "translate":"advancement.divinerpg.iceika.a_lil_gift.desc"
       },
       "announce_to_chat":true
    },
-   "parent":"divinerpg:iceika/destroy_frosted_chest",
+   "parent":"divinerpg:iceika/frozen_goods",
    "criteria":{
       "talk_to_workshop_merchant":{
          "trigger":"minecraft:villager_trade",
