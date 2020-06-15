@@ -21,7 +21,7 @@ public class DoubleDealDamage {
         if (!(entity instanceof EntityLivingBase))
             return;
 
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.double_dealing_damage, ((EntityLivingBase) entity).getHeldItemMainhand());
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.AFTERSHOCK, ((EntityLivingBase) entity).getHeldItemMainhand());
         if (level < 1)
             return;
 

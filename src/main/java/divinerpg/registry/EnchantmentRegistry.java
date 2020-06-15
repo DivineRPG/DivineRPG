@@ -13,16 +13,16 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber
 @GameRegistry.ObjectHolder(DivineRPG.MODID)
 public class EnchantmentRegistry {
-    @GameRegistry.ObjectHolder("world_break")
-    public static final Enchantment world_break = null;
-    @GameRegistry.ObjectHolder("double_dealing_damage")
-    public static final Enchantment double_dealing_damage = null;
+    @GameRegistry.ObjectHolder("rive")
+    public static final Enchantment RIVE = null;
+    @GameRegistry.ObjectHolder("aftershock")
+    public static final Enchantment AFTERSHOCK = null;
 
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> e) {
         IForgeRegistry<Enchantment> registry = e.getRegistry();
 
-        registry.register(new WorldBreakEnchant().setRegistryName(DivineRPG.MODID, "world_break"));
-        registry.register(new DoubleDealDamageEnchant().setRegistryName(DivineRPG.MODID, "double_dealing_damage"));
+        registry.register(new WorldBreakEnchant().setRegistryName(DivineRPG.MODID, "rive"));
+        registry.register(new DoubleDealDamageEnchant().setRegistryName(DivineRPG.MODID, "aftershock"));
     }
 }

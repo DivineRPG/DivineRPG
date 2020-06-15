@@ -2,6 +2,7 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -51,6 +52,18 @@ public class MissingMappingHandler {
         for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
             if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "arksiane"))) {
                 mapping.remap(BiomeRegistry.biomeVethea);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void handleMissingEnchantments(MissingMappings<Enchantment> event) {
+        for(MissingMappings.Mapping<Enchantment> mapping: event.getAllMappings()) {
+            if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "world_break"))) {
+                mapping.remap(EnchantmentRegistry.RIVE);
+            }
+            else if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "double_dealing_damage"))) {
+                mapping.remap(EnchantmentRegistry.AFTERSHOCK);
             }
         }
     }

@@ -35,7 +35,7 @@ public class WorldBreakEnchantHandler {
             return;
         }
 
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.world_break, itemStack);
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE, itemStack);
         if(level < 1) {
             return;
         }
