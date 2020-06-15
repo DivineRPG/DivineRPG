@@ -15,7 +15,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.apache.commons.io.IOUtils;
 
-import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -155,55 +154,31 @@ public class Utils {
     }
 
     public static int getSurfaceBlockY(World world, int x, int z) {
-        return getSurfaceBlockY(world, x, z, null);
-    }
+        int y = world.getChunkFromBlockCoords(new BlockPos(x, 0, z)).getTopFilledSegment() + 16;
 
-    public static int getSurfaceBlockY(World world, int x, int z, @Nullable Block topBlock) {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, 0, z);
+        BlockPos pos;
         IBlockState state;
         Block block;
+        do {
+            --y;
+            if (y < 0) {
+                break;
+            }
 
-
-        for (int i = world.getChunkFromBlockCoords(new BlockPos(x, 0, z)).getTopFilledSegment() + 16; i > 0; i--) {
-            pos.setY(i);
+            pos = new BlockPos(x, y, z);
             state = world.getBlockState(pos);
             block = state.getBlock();
 
-            if (topBlock != null) {
-                if (topBlock == block) {
-                    return i;
-                } else {
-                    continue;
-                }
-            }
+        } while (block.isAir(state, world, pos)
+                || block.isReplaceable(world, pos)
+                || block.isWood(world, pos)
+                || block.isFoliage(world, pos)
+                // personally hate plants
+                || state.getMaterial() == Material.PLANTS
+                || block.isLeaves(state, world, pos)
+                || block.canBeReplacedByLeaves(state, world, pos));
 
-            if (block.isAir(state, world, pos)
-                    || block.isReplaceable(world, pos)
-                    || block.isWood(world, pos)
-                    || block.isFoliage(world, pos)
-                    // personally hate plants
-                    || state.getMaterial() == Material.PLANTS
-                    || block.isLeaves(state, world, pos)
-                    || block.canBeReplacedByLeaves(state, world, pos)) {
-                return i;
-            }
-        }
-
-        return 0;
-    }
-
-    /**
-     * Returns index of coords.
-     *
-     * @param x - x cord
-     * @param y - y cord
-     * @param z - z cord
-     * @return
-     */
-    public static int getIndex(int x, int y, int z, int max) {
-        return x
-                + ((max + 1) * y)
-                + ((max + 1) * (max + 1) * z);
+        return y;
     }
 
     public class HatsInfo {

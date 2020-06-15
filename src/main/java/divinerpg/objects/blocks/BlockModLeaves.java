@@ -1,10 +1,9 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
-import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.utils.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -34,7 +33,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
     private Supplier<Block> saplingSupplier;
     private MapColor mapColor;
     private final int radius;
-    private int[] surroundings;
+    private int[][][] surroundings;
 
     public BlockModLeaves(String name, float hardness, @Nonnull MapColor mapColorIn) {
         this(name, hardness, () -> null, mapColorIn);
@@ -58,8 +57,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
         this.saplingSupplier = saplingSupplier;
 
-        int dim = radius * 2 + 1;
-        surroundings = new int[Utils.getIndex(dim, dim, dim, radius * 2) + 1];
+        surroundings = new int[radius * 2 + 1][radius * 2 + 1][radius * 2 + 1];
     }
 
     @Override
@@ -78,7 +76,6 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         // Forge: extend range to account for neighbor checks in world.markAndNotifyBlock -> world.updateObservingBlocksAt
         if (worldIn.isAreaLoaded(pos, radius + 2)) {
             BlockPos.MutableBlockPos current = new BlockPos.MutableBlockPos();
-            int diameter = radius * 2;
 
             for (int x = -radius; x <= radius; x++) {
                 for (int y = -radius; y <= radius; y++) {
@@ -99,40 +96,40 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
                                 : -1;
 
 
-                        this.surroundings[Utils.getIndex(xIndex, yIndex, zIndex, diameter)] = index;
+                        this.surroundings[xIndex][yIndex][zIndex] = index;
                     }
                 }
             }
 
             for (int i3 = 1; i3 < radius; ++i3) {
-                for (int x = 1; x < diameter; ++x) {
-                    for (int y = 1; y < diameter; ++y) {
-                        for (int z = 1; z < diameter; ++z) {
+                for (int x = 1; x < radius * 2; ++x) {
+                    for (int y = 1; y < radius * 2; ++y) {
+                        for (int z = 1; z < radius * 2; ++z) {
 
-                            if (this.surroundings[Utils.getIndex(x, y, z, diameter)] == i3 - 1) {
+                            if (this.surroundings[x][y][z] == i3 - 1) {
 
-                                if (this.surroundings[Utils.getIndex(x - 1, y, z, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x - 1, y, z, diameter)] = i3;
+                                if (this.surroundings[x - 1][y][z] == -2) {
+                                    this.surroundings[x - 1][y][z] = i3;
                                 }
 
-                                if (this.surroundings[Utils.getIndex(x + 1, y, z, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x + 1, y, z, diameter)] = i3;
+                                if (this.surroundings[x + 1][y][z] == -2) {
+                                    this.surroundings[x + 1][y][z] = i3;
                                 }
 
-                                if (this.surroundings[Utils.getIndex(x, y - 1, z, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x, y - 1, z, diameter)] = i3;
+                                if (this.surroundings[x][y - 1][z] == -2) {
+                                    this.surroundings[x][y - 1][z] = i3;
                                 }
 
-                                if (this.surroundings[Utils.getIndex(x, y + 1, z, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x, y + 1, z, diameter)] = i3;
+                                if (this.surroundings[x][y + 1][z] == -2) {
+                                    this.surroundings[x][y + 1][z] = i3;
                                 }
 
-                                if (this.surroundings[Utils.getIndex(x, y, z + 1, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x, y, z + 1, diameter)] = i3;
+                                if (this.surroundings[x][y][z + 1] == -2) {
+                                    this.surroundings[x][y][z + 1] = i3;
                                 }
 
-                                if (this.surroundings[Utils.getIndex(x, y, z - 1, diameter)] == -2) {
-                                    this.surroundings[Utils.getIndex(x, y, z - 1, diameter)] = i3;
+                                if (this.surroundings[x][y][z - 1] == -2) {
+                                    this.surroundings[x][y][z - 1] = i3;
                                 }
                             }
                         }
@@ -140,7 +137,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
                 }
             }
 
-            if (this.surroundings[Utils.getIndex(radius, radius, radius, diameter)] >= 0) {
+            if (this.surroundings[radius][radius][radius] >= 0) {
                 worldIn.setBlockState(pos, state.withProperty(CHECK_DECAY, false), 4);
             } else {
                 this.destroy(worldIn, pos);

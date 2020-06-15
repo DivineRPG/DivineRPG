@@ -10,10 +10,10 @@ import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.vethea.VetheaWorldProvider;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
-import divinerpg.structure.iceika.archer.ArcherStructureComponent;
-import divinerpg.structure.iceika.archer.ArcherStructureStart;
 import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
+import divinerpg.structure.base.DivineStructureComponentTemplate;
+import divinerpg.structure.base.DivineStructureStart;
 import divinerpg.structure.vethea.crypt1.Crypt1Component;
 import divinerpg.structure.vethea.crypt1.Crypt1Start;
 import divinerpg.structure.vethea.crypt2.Crypt2Component;
@@ -24,6 +24,7 @@ import divinerpg.structure.vethea.hive.HiveComponent;
 import divinerpg.structure.vethea.hive.HiveStart;
 import divinerpg.structure.vethea.hungerhouse.HungerHouseComponent;
 import divinerpg.structure.vethea.hungerhouse.HungerHouseStart;
+import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseComponent;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseStart;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPostComponent;
@@ -37,6 +38,7 @@ import divinerpg.structure.vethea.temple2.Temple2Start;
 import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
 import divinerpg.structure.vethea.wreckhall.WreckHallStart;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.DimensionManager;
 
@@ -79,8 +81,6 @@ public class DimensionRegistry {
         MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
         MapGenStructureIO.registerStructure(EvergardenStart.class, "DRPGEvergarden");
         MapGenStructureIO.registerStructureComponent(EvergardenComponent.class, "DRPGEvergardenComponent");
-        MapGenStructureIO.registerStructure(ArcherStructureStart.class, "DRPGIceikaArcher");
-        MapGenStructureIO.registerStructureComponent(ArcherStructureComponent.class, "DRPGIceikaArcherComponent");
 
         MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");

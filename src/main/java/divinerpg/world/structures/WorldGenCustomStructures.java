@@ -1,18 +1,17 @@
 package divinerpg.world.structures;
 
 import divinerpg.config.Config;
-import divinerpg.dimensions.iceika.structures.IceikaDungeon;
+import divinerpg.dimensions.iceika.structures.WorldGenArcherDungeon;
 import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
 import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
-import divinerpg.registry.BlockRegistry;
+import divinerpg.dimensions.iceika.structures.WorldGenRollumDungeon;
 import divinerpg.registry.DimensionRegistry;
 import divinerpg.registry.LootTableRegistry;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.DRPGStructureHandler;
-import divinerpg.utils.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -23,127 +22,96 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by LiteWolf101 on Jan /27/2019
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
-    //vanilla
-    public final DRPGStructureHandler HUT = new DRPGStructureHandler("iceika/hut");
-
     //Iceika
-//    public final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
-//            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
-//    public final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum",
-//            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
+    public static final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
+            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
+    public static final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum",
+            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
+    public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("coalstone_lamp_1");
+    public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("coalstone_lamp_2");
+    public static final DRPGStructureHandler COALSTONE_LAMP_3 = new DRPGStructureHandler("coalstone_lamp_3");
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_1 = new DRPGStructureHandler("workshop_house_1",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_2 = new DRPGStructureHandler("workshop_house_2",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_3 = new DRPGStructureHandler("workshop_house_3",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("workshop_house_4",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("workshop_house_5",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("workshop_house_6",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
+    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("workshop_library",
+            LootTableRegistry.ICEIKA_CHEST_HUT);
 
-    public final List<DRPGStructureHandler> Lamps = new ArrayList<DRPGStructureHandler>() {{
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_1"));
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_2"));
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_3"));
-    }};
+    public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
+    public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
+    public static final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
+    public static final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/experienced_cori_dungeon");
 
-    public final List<DRPGStructureHandler> Houses = new ArrayList<DRPGStructureHandler>() {{
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_1", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_2", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_3", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_4", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_5", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_6", LootTableRegistry.ICEIKA_CHEST_HUT));
-
-        add(new DRPGStructureHandler("iceika/workshop_library", LootTableRegistry.ICEIKA_CHEST_HUT));
-    }};
-
-    public final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
-    public final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
-    public final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
-    public final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/experienced_cori_dungeon");
-
-    private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
-    private WorldGenerator archer = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
-
+    private WorldGenRollumDungeon rollum = new WorldGenRollumDungeon();
+    private WorldGenArcherDungeon archer = new WorldGenArcherDungeon();
     private WorldGenLibrary library = new WorldGenLibrary();
     private WorldGenHouse1 house1 = new WorldGenHouse1();
-
+    
+    //vanilla
+    public static final DRPGStructureHandler HUT = new DRPGStructureHandler("hut");
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-                         IChunkProvider chunkProvider) {
+            IChunkProvider chunkProvider) {
 
         if (world.provider.getDimensionType() == DimensionRegistry.iceikaDimension) {
-
-            final BlockPos chunkStart = new ChunkPos(chunkX, chunkZ).getBlock(0, 0, 0);
-            generateStructure(rollum, world, random, chunkX, chunkZ, 50);
-            generateStructure(archer, world, random, chunkX, chunkZ, 50);
-
-            Lamps.stream()
-                    .filter(x -> random.nextInt(25) == 0)
-                    .forEach(x -> {
-                        // causes light update, more offset
-                        BlockPos pos = randomPos(world, chunkStart, x.getSize(world), 8);
-                        int size = 3;
-
-                        // check the platform
-                        boolean canPlace = StreamSupport.stream(BlockPos.getAllInBox(pos, pos.add(size, 0, size)).spliterator(), false)
-                                .allMatch(p -> world.getBlockState(p).getBlock() == BlockRegistry.frozenGrass);
-
-                        if (!canPlace)
-                            return;
-
-                        x.generateStructure(world, pos);
-                    });
-
-            Houses.stream()
-                    .filter(x -> random.nextInt(10) == 0)
-                    .forEach(x -> {
-                        BlockPos size = x.getSize(world);
-                        BlockPos pos = randomPos(world, chunkStart, size, 1);
-
-                        // check the platform
-                        boolean canPlace = StreamSupport.stream(BlockPos.getAllInBox(pos, pos.add(size.getX(), 0, size.getZ())).spliterator(), false)
-                                .allMatch(p -> world.getBlockState(p).getBlock() == BlockRegistry.frozenGrass);
-
-                        if (!canPlace)
-                            return;
-
-                        x.generateStructure(world, pos);
-                    });
-
+    		generateStructure(rollum, world, random, chunkX, chunkZ, 50);
+    		generateStructure(archer, world, random, chunkX, chunkZ, 50);
+//            generateStructure(ICEIKA_DUNGEON, world, random, chunkX, chunkZ, 50);
+//            generateStructure(ICEIKA_DUNGEON_ROLLUM, world, random, chunkX, chunkZ, 50);
+            generateStructure(COALSTONE_LAMP_1, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+            generateStructure(COALSTONE_LAMP_2, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+            generateStructure(COALSTONE_LAMP_3, world, random, chunkX, chunkZ, 25, BlockRegistry.frozenGrass);
+//            generateStructure(WORKSHOP_HOUSE_1, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 14, 14);
             generateStructure(house1, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 14, 14);
+            generateStructure(WORKSHOP_HOUSE_2, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 13, 12);
+            generateStructure(WORKSHOP_HOUSE_3, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 11, 11);
+            generateStructure(WORKSHOP_HOUSE_4, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 10, 10);
+            generateStructure(WORKSHOP_HOUSE_5, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 12, 8);
+            generateStructure(WORKSHOP_HOUSE_6, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 10, 9);
+//            generateStructure(WORKSHOP_LIBRARY, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 19, 11);
             generateStructure(library, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass, 19, 11);
         }
-        if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
+        	if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
             Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)
                     .getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16), world.getBiomeProvider());
             if (Config.generateHuts && world.getWorldType() != WorldType.FLAT
                     && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
-                    || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
+                            || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
                 generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
             }
         }
-        if (world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
-            generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.edenGrass, 10, 10);
-        }
-        if (world.provider.getDimensionType() == DimensionRegistry.wildwoodDimension) {
-            generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, BlockRegistry.wildwoodGrass, 10, 10);
-        }
-        if (world.provider.getDimensionType() == DimensionRegistry.apalachiaDimension) {
-            generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.apalachiaGrass, 10, 10);
-        }
-        if (world.provider.getDimensionType() == DimensionRegistry.skythernDimension) {
-            generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, BlockRegistry.skythernGrass, 10, 10);
-        }
+        	if(world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
+        		generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.edenGrass, 10, 10);
+        	}
+        	if(world.provider.getDimensionType() == DimensionRegistry.wildwoodDimension) {
+        		generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, BlockRegistry.wildwoodGrass, 10, 10);
+        	}
+        	if(world.provider.getDimensionType() == DimensionRegistry.apalachiaDimension) {
+        		generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.apalachiaGrass, 10, 10);
+        	}
+        	if(world.provider.getDimensionType() == DimensionRegistry.skythernDimension) {
+        		generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, BlockRegistry.skythernGrass, 10, 10);
+        	}
     }
 
-    /**
-     * Generates a structure between y=13 and y=56
-     */
+    /** Generates a structure between y=13 and y=56 */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
-                                   int chance) {
+            int chance) {
         int x = chunkX * 16 + 1;
         int z = chunkZ * 16 + 1;
         int y = random.nextInt(43) + 13;
@@ -153,11 +121,21 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    /**
-     * Generates a structure with the specified blocks in a given area
-     */
+    /** Generates a structure only on the specified topblock */
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
-                                   int chance, Block topBlock, int xCheckDist, int zCheckDist) {
+            int chance, Block topBlock) {
+        int x = chunkX * 16 + 1;
+        int z = chunkZ * 16 + 1;
+        int y = calculateGenerationHeight(world, x, z, topBlock);
+        BlockPos pos = new BlockPos(x, y, z);
+        if (random.nextInt(chance) == 0) {
+            generator.generate(world, random, pos);
+        }
+    }
+
+    /** Generates a structure with the specified blocks in a given area */
+    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ,
+            int chance, Block topBlock, int xCheckDist, int zCheckDist) {
         int x = chunkX * 16 + 1;
         int z = chunkZ * 16 + 1;
         int y = calculateGenerationHeight(world, x, z, topBlock);
@@ -169,7 +147,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    private int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
+    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
         int y = world.getHeight();
         boolean foundGround = false;
         while (!foundGround && y-- >= 15) {
@@ -188,25 +166,5 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             }
         }
         return true;
-    }
-
-    private BlockPos randomPos(World world, BlockPos chunkStart, BlockPos size, int minOffset) {
-        int x = chunkStart.getX() + minOffset;
-        int z = chunkStart.getZ() + minOffset;
-
-        int xOffset = 32 - size.getX() - (minOffset * 2);
-        int zOffset = 32 - size.getZ() - (minOffset * 2);
-
-        if (xOffset > 1) {
-            x += world.rand.nextInt(xOffset);
-        }
-
-        if (zOffset > 1) {
-            z += world.rand.nextInt(zOffset);
-        }
-
-        int y = Utils.getSurfaceBlockY(world, chunkStart.getX(), chunkStart.getZ(), BlockRegistry.frozenGrass);
-
-        return new BlockPos(x, y, z);
     }
 }
