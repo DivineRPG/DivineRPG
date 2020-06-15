@@ -293,7 +293,6 @@ public class EntityRegistry {
                 buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
                 buildProjectileEntry(EntityMeteor.class, "meteor"),
                 buildProjectileEntry(EntityStar.class, "star"),
-                buildProjectileEntry(EntityLamona.class, "lamona"),
                 buildProjectileEntry(EntityFirefly.class, "firefly"),
                 buildProjectileEntry(EntityReflector.class, "reflector"),
                 buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),

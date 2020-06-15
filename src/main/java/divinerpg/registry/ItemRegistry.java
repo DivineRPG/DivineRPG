@@ -847,7 +847,7 @@ public class ItemRegistry {
         // Arcana crops
         register(registry, new ItemAquamarine("aquamarine"));
         register(registry, new ItemMod("firestock"));
-        register(registry, new ItemLamona());
+        register(registry, new ItemMod("lamona"));
         register(registry, new ItemMod("marsine"));
         register(registry, new ItemModFood(2, 0.3F, "pinfly").setPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 2), 1.0F));
         register(registry, new ItemMod("veilo"));

@@ -75,7 +75,6 @@ public class RenderRegistry {
         registerRender(EntityKingOfScorchersMeteor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
         registerRender(EntityKingOfScorchersShot.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
         registerRender(EntityLadyLunaSparkler.class, RenderShooterBullet::new);
-        registerRender(EntityLamona.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/lamona.png")));
         registerRender(EntityMandragoraProjectile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/mandragora_projectile.png")));
         registerRender(EntityMerikMissile.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png")));
         registerRender(EntityMeteor.class, manager -> new RenderDivineThrowable(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meteor.png")));
