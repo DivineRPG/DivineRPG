@@ -19,6 +19,7 @@ import net.minecraftforge.common.util.FakePlayer;
 public class TileEntitySingleUseSpawner extends TileEntity implements ITickable {
 
     private ResourceLocation entityId;
+    private int defaultDelay;
     private int delay;
     private int blockReachDistance;
     private boolean isActivated = false;
@@ -46,7 +47,8 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
                                       int blockReachDistance,
                                       BlockPos baseOffset) {
         this.entityId = EntityList.getKey(entityClass);
-        this.delay = delay;
+        this.defaultDelay = delay;
+        this.delay = 0;
         this.blockReachDistance = blockReachDistance;
         this.baseOffset = baseOffset;
     }
@@ -74,8 +76,6 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
 
     @Override
     public void update() {
-        tryActivateByNearPlayer();
-
         if (!isActivated)
             return;
 
@@ -88,9 +88,6 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
         // should spawn only on server side
         if (world.isRemote)
             return;
-
-        // always remove block
-        removeBlock();
 
         if (world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             return;
@@ -117,21 +114,8 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
             world.spawnEntity(entity);
         else
             DivineRPG.logger.warn("Can't summon entity, there is no free place here");
-    }
 
-    /**
-     * Searches for player nearby and activate spawner
-     */
-    private void tryActivateByNearPlayer() {
-        if (blockReachDistance <= 0 || isActivated)
-            return;
-
-        EntityPlayer player = world.getNearestAttackablePlayer(pos, blockReachDistance, blockReachDistance);
-
-        if (player == null || player instanceof FakePlayer)
-            return;
-
-        activate(player);
+        deactivate();
     }
 
     /**
@@ -144,6 +128,7 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
             return;
 
         isActivated = true;
+        delay = defaultDelay;
 
         if (!world.isRemote && delay > 0) {
             //
@@ -159,6 +144,10 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
 
             player.sendMessage(msg);
         }
+    }
+
+    private void deactivate() {
+        this.isActivated = false;
     }
 
     protected Entity getRelocatedEntity(Entity e) {
@@ -181,7 +170,4 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
         return isActivated;
     }
 
-    private void removeBlock() {
-        world.setBlockToAir(pos);
-    }
 }
