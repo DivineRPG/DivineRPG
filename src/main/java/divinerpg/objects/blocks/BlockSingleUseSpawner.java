@@ -122,9 +122,4 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
                 Math.random(),
                 Math.random());
     }
-
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        tooltip.add(new TextComponentTranslation("tooltip.spawner." + name).getFormattedText());
-    }
 }
