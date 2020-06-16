@@ -20,25 +20,25 @@
 - Made rive and aftershock registry names match their English names
 
 ## Fixes:
--Fixed the vethean crypts generating with grass in them
--Fixed pick block not working for mod doors and nightmare bed
--Fixed grenade and corrupted bullet missing textures
--Fixed Hive Queen not dropping anything
--Fixed the Hunger's trades not being infinite
+- Fixed the vethean crypts generating with grass in them
+- Fixed pick block not working for mod doors and nightmare bed
+- Fixed grenade and corrupted bullet missing textures
+- Fixed Hive Queen not dropping anything
+- Fixed the Hunger's trades not being infinite
 
 ## Miscellaneous:
--Changed several item textures:
-   -All Twilight Souls
-   -All Shards (except Corrupted and Ender)
-   -Shuriken
-   -Snowflake Shuriken
-   -Vile Storm
-   -Liopleurodon Teeth
-   -Moonbulb
-   -Sunstorm Heart
-   -Corrupted Maul
--Capitalised Eden biome name
--Stopped root advancement from announcing itself in chat whenever joining a world for the first time
+- Changed several item textures:
+   - All Twilight Souls
+   - All Shards (except Corrupted and Ender)
+   - Shuriken
+   - Snowflake Shuriken
+   - Vile Storm
+   - Liopleurodon Teeth
+   - Moonbulb
+   - Sunstorm Heart
+   - Corrupted Maul
+- Capitalised Eden biome name
+- Stopped root advancement from announcing itself in chat whenever joining a world for the first time
 
 # 1.6.3.1 - Patch update
 
