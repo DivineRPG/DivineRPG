@@ -4,11 +4,11 @@
       "item":"divinerpg:hive_egg"
     },
     "title":{
-      "translate":"advancement.divinerpg.vethea.the_first_hive_monarch"
+      "translate":"advancement.divinerpg.vethea.royal_beeswax"
     },
     "frame":"challenge",
     "description":{
-      "translate":"advancement.divinerpg.vethea.the_first_hive_monarch.desc"
+      "translate":"advancement.divinerpg.vethea.royal_beeswax.desc"
     },
     "announce_to_chat":true
   },
