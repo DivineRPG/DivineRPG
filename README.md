@@ -35,6 +35,7 @@ Discord: https://discord.gg/R9Zc32D
 * Dash - Developer
 
 ##### Special Thanks to
+* Zachtoplasm - Texture Artist
 * Dizzlepop12 - A few models/textures
 * THEVOLCO - German Translations
 * ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
