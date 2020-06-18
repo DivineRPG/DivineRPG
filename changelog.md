@@ -1,44 +1,44 @@
 # DivineRPG 1.6.4 changelog:
 
 ## Changes:
--Organized dimensional advancements into their own sections.
--Added advancements for Vethea
--Renamed some advancements
--Removed the mod's duplicate nether and end entry advancements. The mod's nether and end advancements are now in their respective vanilla sections
--NPC advancements now require trading with them instead of just speaking with them
--Made advancement IDs correspond to their English names instead of the general task
--Merged the ayeraco horde advancements into a single one for defeating all five of them
--Frozen Goods advancement now requires obtaining a snowflake instead of breaking a frosted chest
--Boss advancements no longer give out statues when obtained
--Changed boss statue drop rate to 100%
--Twilight boss spawners are now reusable. No more need to find multiple structures
--Added a configuration option to disable player hats
--Halite armor can now be repaired with mortum chunks
--Swapped halite drops of Eternal Archer (now drops bow and blitz) and Twilight Demon (now drops helmet and boots) for consistency and ease of obtaining halite armor
--Made most Vethean structures slightly more common
--Removed throwable Lamona because it caused lag and Minecraft's lighting system isn't meant to handle light from entities
--Made rive and aftershock registry names match their English names
+- Organized dimensional advancements into their own sections.
+- Added advancements for Vethea
+- Renamed some advancements
+- Removed the mod's duplicate nether and end entry advancements. The mod's nether and end advancements are now in their respective vanilla sections
+- NPC advancements now require trading with them instead of just speaking with them
+- Made advancement IDs correspond to their English names instead of the general task
+- Merged the ayeraco horde advancements into a single one for defeating all five of them
+- Frozen Goods advancement now requires obtaining a snowflake instead of breaking a frosted chest
+- Boss advancements no longer give out statues when obtained
+- Changed boss statue drop rate to 100%
+- Twilight boss spawners are now reusable. No more need to find multiple structures
+- Added a configuration option to disable player hats
+- Halite armor can now be repaired with mortum chunks
+- Swapped halite drops of Eternal Archer (now drops bow and blitz) and Twilight Demon (now drops helmet and boots) for consistency and ease of obtaining halite armor
+- Made most Vethean structures slightly more common
+- Removed throwable Lamona because it caused lag and Minecraft's lighting system isn't meant to handle light from entities
+- Made rive and aftershock registry names match their English names
 
 ## Fixes:
--Fixed the vethean crypts generating with grass in them
--Fixed pick block not working for mod doors and nightmare bed
--Fixed grenade and corrupted bullet missing textures
--Fixed Hive Queen not dropping anything
--Fixed the Hunger's trades not being infinite
+- Fixed the vethean crypts generating with grass in them
+- Fixed pick block not working for mod doors and nightmare bed
+- Fixed grenade and corrupted bullet missing textures
+- Fixed Hive Queen not dropping anything
+- Fixed the Hunger's trades not being infinite
 
 ## Miscellaneous:
--Changed several item textures:
-   -All Twilight Souls
-   -All Shards (except Corrupted and Ender)
-   -Shuriken
-   -Snowflake Shuriken
-   -Vile Storm
-   -Liopleurodon Teeth
-   -Moonbulb
-   -Sunstorm Heart
-   -Corrupted Maul
--Capitalised Eden biome name
--Stopped root advancement from announcing itself in chat whenever joining a world for the first time
+- Changed several item textures:
+   - All Twilight Souls
+   - All Shards (except Corrupted and Ender)
+   - Shuriken
+   - Snowflake Shuriken
+   - Vile Storm
+   - Liopleurodon Teeth
+   - Moonbulb
+   - Sunstorm Heart
+   - Corrupted Maul
+- Capitalised Eden biome name
+- Stopped root advancement from announcing itself in chat whenever joining a world for the first time
 
 # 1.6.3.1 - Patch update
 
@@ -50,7 +50,7 @@
 - Removed netherite ore contact damage and cactus effect
 
 # 1.6.3 changelog
-Additions
+## Additions
 - Added Experienced Cori (Nico). Drops the halite shield
 - Added structures for Experienced Cori and Eternal Archer in Skythern and Apalachia, respectively (Nico). Thanks to Velocityraptor for Experienced Cori structure
 - Added twilight shields (Nico). Thanks to Linx145 for shield textures
