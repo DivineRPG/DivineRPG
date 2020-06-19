@@ -18,7 +18,16 @@ public interface IStructure {
 
     /**
      * Default preset of placement settings
+     *
      * @param pos - template pos
      */
     PlacementSettings getSettings(BlockPos pos);
+
+    /**
+     * Returns size of structure
+     *
+     * @param world
+     * @return
+     */
+    BlockPos getSize(World world);
 }

@@ -1,7 +1,6 @@
 package divinerpg.utils;
 
 import divinerpg.DivineRPG;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockableLoot;
@@ -18,8 +17,7 @@ import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
-import java.lang.reflect.Field;
-import java.util.List;
+import javax.annotation.Nullable;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -42,7 +40,7 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     /*
         For special needs whateber i need to put special loot tables for special chests
      */
-    public DRPGStructureHandler(String name, Function<TileEntityChestArgs,ResourceLocation> lootTableFunc) {
+    public DRPGStructureHandler(String name, Function<TileEntityChestArgs, ResourceLocation> lootTableFunc) {
         this.structureName = name;
         this.lootTableFunc = lootTableFunc;
     }
@@ -53,71 +51,38 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
         return true;
     }
 
-    public void generateStructure(World world, BlockPos pos){
-        MinecraftServer mcServer = world.getMinecraftServer();
-        TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
-        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
-        Template template = manager.get(mcServer, location);
-        if (template != null){
-            IBlockState state = world.getBlockState(pos);
-            world.notifyBlockUpdate(pos, state, state, 3);
-            template.addBlocksToWorldChunk(world, pos, getSettings(pos));
+    public void generateStructure(World world, BlockPos pos) {
+        Template template = load(world);
 
-            generateLoot(world, template, pos);
+        if (template != null) {
+            PlacementSettings placementSettings = getSettings(pos);
+            template.addBlocksToWorld(world, pos, placementSettings);
+            generateLoot(world, template, pos, placementSettings);
         }
     }
 
-    public void generateLoot(World world, Template template, BlockPos pos) {
+    public void generateLoot(World world, Template template, BlockPos pos, PlacementSettings placementSettings) {
         if (lootTableFunc == null)
             return;
 
-        List<Template.BlockInfo> allBlocks;
+        BlockPos.getAllInBox(BlockPos.ORIGIN, template.getSize()).forEach(x -> {
+            BlockPos templatePos = Template.transformedBlockPos(placementSettings, x).add(pos);
 
-        /*
-            We can't accept to all temple blocks, so I use reflection here
-            Maybe we can inject loot directly in structure NBT?..
-         */
-        try {
-            Field field = template.getClass().getDeclaredField("blocks");
-            field.setAccessible(true);
+            TileEntity tile = world.getTileEntity(templatePos);
 
-            allBlocks = (List<Template.BlockInfo>) field.get(template);
+            if (tile instanceof TileEntityLockableLoot) {
+                // Getting loot table from current chest
+                ResourceLocation lootTable = lootTableFunc.apply(new TileEntityChestArgs(world, (TileEntityLockableLoot) tile, templatePos));
 
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return;
-
-        } catch (NoSuchFieldException e) {
-            System.out.println("Template class was changed, need to change code. Exception is below:\n" + e.toString());
-            return;
-        }
-
-        if (allBlocks == null)
-            return;
+                if (lootTable != null)
+                    ((TileEntityLockableLoot) tile).setLootTable(lootTable, world.rand.nextLong());
+                else {
+                    System.out.println("Can't find loot table for tile entity :" + templatePos.toString());
+                }
+            }
 
 
-        allBlocks
-                .forEach(blockInfo -> {
-                    if (blockInfo.tileentityData == null)
-                        return;
-
-                    // Get correct blockpos from seed-relative
-                    BlockPos correct = blockInfo.pos.add(pos.getX(), pos.getY(), pos.getZ());
-
-                    TileEntity tileEntity = world.getTileEntity(correct);
-
-                    if (tileEntity instanceof TileEntityLockableLoot){
-                        // Getting loot table from current chest
-                        ResourceLocation lootTable = lootTableFunc.apply(new TileEntityChestArgs(world, (TileEntityLockableLoot)tileEntity, correct));
-
-                        if (lootTable != null)
-                            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, world.rand.nextLong());
-                        else {
-                            System.out.println("Can't find loot table for tile entity :" + correct.toString());
-                        }
-                    }
-                });
-
+        });
     }
 
     @Override
@@ -131,13 +96,30 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
                 .setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
     }
 
-    public class TileEntityChestArgs{
+    @Override
+    public BlockPos getSize(World world) {
+        Template template = load(world);
+        if (template != null) {
+            return template.getSize();
+        }
+        return null;
+    }
+
+    @Nullable
+    private Template load(World world) {
+        MinecraftServer mcServer = world.getMinecraftServer();
+        TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
+        return manager.get(mcServer, location);
+    }
+
+    public class TileEntityChestArgs {
 
         private World world;
         private TileEntityLockableLoot tileEntity;
         private BlockPos pos;
 
-        public TileEntityChestArgs(World world, TileEntityLockableLoot tileEntity, BlockPos pos){
+        public TileEntityChestArgs(World world, TileEntityLockableLoot tileEntity, BlockPos pos) {
             this.world = world;
             this.tileEntity = tileEntity;
             this.pos = pos;

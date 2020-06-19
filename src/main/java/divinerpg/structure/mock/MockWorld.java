@@ -72,4 +72,10 @@ public class MockWorld extends World {
         storage.addEntity(entityIn);
         return true;
     }
+
+    @Nullable
+    @Override
+    public TileEntity getTileEntity(BlockPos pos) {
+        return null;
+    }
 }

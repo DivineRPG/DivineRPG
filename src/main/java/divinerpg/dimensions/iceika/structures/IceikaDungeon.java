@@ -3,6 +3,7 @@ package divinerpg.dimensions.iceika.structures;
 import divinerpg.objects.blocks.tile.entity.TileEntityFrostedChest;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.LootTableRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityLockableLoot;
@@ -12,7 +13,13 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class WorldGenRollumDungeon extends WorldGenerator {
+public class IceikaDungeon extends WorldGenerator {
+    private Block spawner;
+
+    public IceikaDungeon(Block spawner) {
+
+        this.spawner = spawner;
+    }
 
     public boolean locationIsValidSpawn(World w, int x, int y, int z) {
         for (int i = 0; i < 10; i++) {
@@ -28,8 +35,10 @@ public class WorldGenRollumDungeon extends WorldGenerator {
     @Override
     public boolean generate(World w, Random rand, BlockPos pos) {
 
-        // todo too big
-        int x = pos.getX() + 5, y = pos.getY(), z = pos.getZ() + 5;
+        int x = pos.getX() + 1;
+        int y = pos.getY();
+        int z = pos.getZ() + 6;
+
         if (!locationIsValidSpawn(w, x, y, z)) return false;
         WorldGenAPI.addRectangle(6, 4, 5, w, x, y, z, BlockRegistry.icyBricks);
         WorldGenAPI.addRectangle(8, 8, 5, w, x + 5, y, z - 2, BlockRegistry.icyBricks);
@@ -53,12 +62,12 @@ public class WorldGenRollumDungeon extends WorldGenerator {
         WorldGenAPI.addRectangle(6, 6, 1, w, x + 19, y, z - 4, BlockRegistry.icyStone);
         WorldGenAPI.addRectangle(2, 4, 3, w, x + 21, y + 1, z + 2, Blocks.AIR);
         WorldGenAPI.addRectangle(2, 4, 1, w, x + 21, y, z + 2, BlockRegistry.icyStone);
-        WorldGenAPI.addBlock(w, x + 20, y, z - 1, BlockRegistry.rollumSpawner);
-        WorldGenAPI.addBlock(w, x + 23, y, z - 1, BlockRegistry.rollumSpawner);
-        WorldGenAPI.addBlock(w, x + 8, y, z + 1, BlockRegistry.rollumSpawner);
+        WorldGenAPI.addBlock(w, x + 20, y, z - 1, spawner);
+        WorldGenAPI.addBlock(w, x + 23, y, z - 1, spawner);
+        WorldGenAPI.addBlock(w, x + 8, y, z + 1, spawner);
         w.setBlockState(new BlockPos(x + 24, y + 1, z - 4), BlockRegistry.frostedChest.getDefaultState(), 1);
         w.setBlockState(new BlockPos(x + 19, y + 1, z - 4), BlockRegistry.frostedChest.getDefaultState(), 1);
-        WorldGenAPI.addRectangle(10, 2, 3, w, x - 5, y + 1, z + 1, Blocks.AIR);
+        WorldGenAPI.addRectangle(10, 2, 3, w, x, y + 1, z + 1, Blocks.AIR);
         TileEntity tileentity1 = w.getTileEntity(new BlockPos(x + 24, y + 1, z - 4));
         TileEntity tileentity2 = w.getTileEntity(new BlockPos(x + 19, y + 1, z - 4));
         if (tileentity1 instanceof TileEntityLockableLoot) {

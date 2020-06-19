@@ -3,15 +3,15 @@
  */
 package divinerpg;
 
-import divinerpg.config.GeneralConfig;
-import divinerpg.events.enchants.WorldBreakEnchantHandler;
-import divinerpg.utils.UpdateChecker;
-import org.apache.logging.log4j.LogManager;
-
 import divinerpg.api.armor.registry.IArmorDescription;
-import divinerpg.events.*;
+import divinerpg.config.GeneralConfig;
+import divinerpg.events.ArcanaTickHandler;
+import divinerpg.events.DimensionHelper;
+import divinerpg.events.EventEntityDrop;
+import divinerpg.events.enchants.WorldBreakEnchantHandler;
 import divinerpg.proxy.CommonProxy;
 import divinerpg.registry.*;
+import divinerpg.utils.UpdateChecker;
 import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraft.util.ResourceLocation;
@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.registries.RegistryBuilder;
+import org.apache.logging.log4j.LogManager;
 
 @Mod(modid = DivineRPG.MODID, name = DivineRPG.NAME, version = DivineRPG.VERSION, updateJSON = DivineRPG.UPDATE_URL)
 public class DivineRPG {
@@ -55,7 +56,9 @@ public class DivineRPG {
         logger = LogManager.getLogger();
     }
 
-    /** Init Methods */
+    /**
+     * Init Methods
+     */
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
@@ -89,6 +92,21 @@ public class DivineRPG {
         DimensionHelper.initPortalDescriptions();
 
         UpdateChecker.checkForUpdates();
+
+//        Map<String, WorldGenerator> structures = new HashMap<>();
+//
+//        structures.put("rollum", new WorldGenRollumDungeon());
+//        structures.put("archer", new WorldGenArcherDungeon());
+//
+//        structures.forEach((s, generator) -> {
+//            WorldStorage storage = new WorldStorage();
+//            MockWorld world = new MockWorld(storage);
+//            generator.generate(world, world.rand, BlockPos.ORIGIN);
+//
+//            storage.getChunks().map(DivineTemplate::new).forEach(x -> {
+//                x.writeToFile(new File("C:\\Users\\oshi4\\OneDrive\\Документы\\structure\\" + s + "\\" + x.chunkPos.toString() + ".nbt"));
+//            });
+//        });
     }
 
     /**
