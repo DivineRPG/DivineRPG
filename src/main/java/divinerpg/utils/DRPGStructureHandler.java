@@ -1,8 +1,11 @@
 package divinerpg.utils;
 
 import divinerpg.DivineRPG;
+import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
@@ -15,9 +18,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -58,6 +64,21 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
             PlacementSettings placementSettings = getSettings(pos);
             template.addBlocksToWorld(world, pos, placementSettings);
             generateLoot(world, template, pos, placementSettings);
+
+            Map<BlockPos, String> map = template.getDataBlocks(pos, placementSettings);
+            Iterator var16 = map.entrySet().iterator();
+
+            while(var16.hasNext()) {
+                Map.Entry<BlockPos, String> entry = (Map.Entry)var16.next();
+                if ("LivestockMerchant".equals(entry.getValue())) {
+                    BlockPos spawnPos = (BlockPos)entry.getKey();
+                    EntityLivestockMerchant merchant = new EntityLivestockMerchant(world);
+                    merchant.enablePersistence();
+                    merchant.moveToBlockPosAndAngles(spawnPos, 0.0F, 0.0F);
+                    world.spawnEntity(merchant);
+                    world.setBlockToAir(spawnPos);
+                }
+            }
         }
     }
 

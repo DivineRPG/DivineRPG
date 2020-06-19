@@ -33,7 +33,7 @@ import java.util.stream.StreamSupport;
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
     //vanilla
-    public final DRPGStructureHandler HUT = new DRPGStructureHandler("iceika/hut");
+    public final DRPGStructureHandler HUT = new DRPGStructureHandler("overworld/livestock_merchant_hut");
 
     //Iceika
 //    public final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
@@ -122,7 +122,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if (Config.generateHuts && world.getWorldType() != WorldType.FLAT
                     && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
                     || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
-                generateStructure(HUT, world, random, chunkX, chunkZ, 1, Blocks.GRASS, 2, 2);
+                generateStructure(HUT, world, random, chunkX, chunkZ, 70, Blocks.GRASS, 2, 2);
             }
         }
         if (world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
