@@ -122,20 +122,20 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if (Config.generateHuts && world.getWorldType() != WorldType.FLAT
                     && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
                     || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
-                generateStructure(HUT, world, random, chunkX, chunkZ, 20, Blocks.GRASS, 11, 11);
+                generateStructure(HUT, world, random, chunkX, chunkZ, 1, Blocks.GRASS, 2, 2);
             }
         }
         if (world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
-            generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.edenGrass, 10, 10);
+            generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.edenGrass, 10, 10);
         }
         if (world.provider.getDimensionType() == DimensionRegistry.wildwoodDimension) {
-            generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 5, BlockRegistry.wildwoodGrass, 10, 10);
+            generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 28, BlockRegistry.wildwoodGrass, 10, 10);
         }
         if (world.provider.getDimensionType() == DimensionRegistry.apalachiaDimension) {
-            generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 5, BlockRegistry.apalachiaGrass, 10, 10);
+            generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.apalachiaGrass, 10, 10);
         }
         if (world.provider.getDimensionType() == DimensionRegistry.skythernDimension) {
-            generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 8, BlockRegistry.skythernGrass, 10, 10);
+            generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.skythernGrass, 10, 10);
         }
     }
 
@@ -180,14 +180,18 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     }
 
     public boolean locationIsValidSpawn(World world, int x, int y, int z, int distX, int distZ, Block topBlock) {
-        for (int i = 0; i < distX; i++) {
-            for (int l = 0; l < distZ; l++) {
-                if (world.getBlockState(new BlockPos(x + i, y, z + l)).getBlock() != topBlock) {
-                    return false;
-                }
+        /*
+            Check if block (3, 3) away from the selected generation point is equivalent to the grass block.
+            This is to ensure flatness in some cases (e.g. to avoid spawning it in a steep hillside).
+            However, the checked block is close enough to ensure that generation of the structure is not relegated to entirely flat areas which are probably harder to find.
+            Will need tweaking later
+         */
+        if(world.getBlockState(new BlockPos(x, y, z)).getBlock() == topBlock) {
+            if(world.getBlockState(new BlockPos(x + 3, y, z + 3)).getBlock() == topBlock) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private BlockPos randomPos(World world, BlockPos chunkStart, BlockPos size, int minOffset) {
