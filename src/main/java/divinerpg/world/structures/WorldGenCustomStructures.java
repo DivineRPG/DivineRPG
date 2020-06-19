@@ -119,10 +119,12 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
             Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)
                     .getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16), world.getBiomeProvider());
-            if (Config.generateHuts && world.getWorldType() != WorldType.FLAT
-                    && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)
-                    || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
-                generateStructure(HUT, world, random, chunkX, chunkZ, 70, Blocks.GRASS, 2, 2);
+            if (Config.generateHuts && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
+                int hutChance = 120;
+                if(world.getWorldType() == WorldType.FLAT) {
+                    hutChance = 700;
+                }
+                generateStructure(HUT, world, random, chunkX, chunkZ, hutChance, Blocks.GRASS, 2, 2);
             }
         }
         if (world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
@@ -172,9 +174,13 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     private int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
         int y = world.getHeight();
         boolean foundGround = false;
-        while (!foundGround && y-- >= 15) {
+        while (!foundGround) {
+            y--;
+            if(y <= 1) {
+                break;
+            }
             Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-            foundGround = block == topBlock;
+            foundGround = (block == topBlock);
         }
         return y;
     }
