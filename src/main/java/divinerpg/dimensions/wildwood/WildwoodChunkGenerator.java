@@ -2,6 +2,7 @@ package divinerpg.dimensions.wildwood;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -10,7 +11,7 @@ import net.minecraft.world.biome.Biome;
 
 public class WildwoodChunkGenerator extends IslandChunkGeneratorBase {
 
-    private static final DRPGStructureHandler wildwoodStructure = new DRPGStructureHandler("twilight/termasect_nest");
+
 
     public WildwoodChunkGenerator(World world) {
         super(world, BlockRegistry.twilightStone, BlockRegistry.wildwoodGrass, BlockRegistry.wildwoodDirt);
@@ -32,9 +33,9 @@ public class WildwoodChunkGenerator extends IslandChunkGeneratorBase {
             int x = baseX + rand.nextInt(16);
             int z = baseZ + rand.nextInt(16);
             int y = world.getHeight(x, z);
-            
+
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.wildwoodGrass) {
-                wildwoodStructure.generate(world, this.rand, new BlockPos(x, y, z));
+                StructureRegistry.TERMASECT_NEST.generate(world, this.rand, new BlockPos(x, y, z));
                 System.out.println("Wildwood structure generated at: " + x + " " + y + " " + z);
             }
         }

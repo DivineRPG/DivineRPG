@@ -2,6 +2,7 @@ package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -9,8 +10,6 @@ import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 
 public class ApalachiaChunkGenerator extends IslandChunkGeneratorBase {
-
-    private static final DRPGStructureHandler apalachiaStructure = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
 
     public ApalachiaChunkGenerator(World world) {
         super(world, BlockRegistry.twilightStone, BlockRegistry.apalachiaGrass, BlockRegistry.apalachiaDirt);
@@ -34,7 +33,7 @@ public class ApalachiaChunkGenerator extends IslandChunkGeneratorBase {
             int y = world.getHeight(x, z);
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.apalachiaGrass) {
-                apalachiaStructure.generate(world, this.rand, new BlockPos(x, y, z));
+                StructureRegistry.ETERNAL_ARCHER_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
                 System.out.println("Apalachia structure generated at: " + x + " " + y + " " + z);
             }
         }

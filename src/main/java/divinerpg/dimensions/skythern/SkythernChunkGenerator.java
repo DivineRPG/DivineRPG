@@ -2,6 +2,7 @@ package divinerpg.dimensions.skythern;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,7 +35,7 @@ public class SkythernChunkGenerator extends IslandChunkGeneratorBase {
             int y = world.getHeight(x, z);
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.skythernGrass) {
-                skythernStructure.generate(world, this.rand, new BlockPos(x, y, z));
+                StructureRegistry.EXPERIENCED_CORI_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
                 System.out.println("Skythern structure generated at: " + x + " " + y + " " + z);
             }
         }
