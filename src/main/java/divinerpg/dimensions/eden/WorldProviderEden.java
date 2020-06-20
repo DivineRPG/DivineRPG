@@ -26,7 +26,7 @@ public class WorldProviderEden extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-        return new IslandChunkGeneratorBase(this.world, BlockRegistry.twilightStone, BlockRegistry.edenGrass, BlockRegistry.edenDirt);
+        return new EdenChunkGenerator(this.world);
 	}
 	
 	@Override

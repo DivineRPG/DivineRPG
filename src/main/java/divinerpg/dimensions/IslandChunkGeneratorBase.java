@@ -21,8 +21,8 @@ public class IslandChunkGeneratorBase implements IChunkGenerator {
 
     private final NoiseGeneratorOctaves noiseGen1;
     private final NoiseGeneratorOctaves perlinNoise1;
-    private final Random rand;
-    private final World world;
+    protected final Random rand;
+    protected final World world;
 
     private static final IBlockState AIR = Blocks.AIR.getDefaultState();
     private final IBlockState STONE;
@@ -62,7 +62,7 @@ public class IslandChunkGeneratorBase implements IChunkGenerator {
         int z = chunkZ * 16;
 
         BlockPos pos = new BlockPos(x, 0, z);
-        Biome biome = this.world.getBiome(pos.add(16, 0, 16));
+        Biome biome = this.world.getBiome(pos);
 
         this.rand.setSeed(this.world.getSeed());
         long k = this.rand.nextLong() / 2L * 2L + 1L;

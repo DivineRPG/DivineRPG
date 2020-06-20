@@ -113,7 +113,7 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
 
     @Override
     public PlacementSettings getSettings(BlockPos pos) {
-        return new PlacementSettings().setChunk(new ChunkPos(pos)).setIgnoreEntities(false)
+        return new PlacementSettings().setIgnoreEntities(false)
                 .setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
     }
 
