@@ -29,7 +29,7 @@ import java.util.Random;
 public class MortumChunkGenerator implements IChunkGenerator {
     protected static final IBlockState field_185982_a = BlockRegistry.mortumDirt.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
-    protected static final IBlockState BEDROCK = Blocks.AIR.getDefaultState();
+    protected static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     protected static final IBlockState GRAVEL = BlockRegistry.mortumDirt.getDefaultState();
     private final Random rand;
     private final World world;
