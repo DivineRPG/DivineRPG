@@ -4,6 +4,8 @@ package divinerpg.dimensions.iceika;
 import java.util.List;
 import java.util.Random;
 
+import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -23,7 +25,7 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 public class ChunkProviderIceika implements  IChunkGenerator
 {
 
-    private final World worldObj;
+    private final World world;
     private Random rand;
     private Biome[] biomesForGeneration;
 
@@ -32,9 +34,9 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 	public ChunkProviderIceika(World world, long seed)
 	{
-        this.worldObj = world;
+        this.world = world;
         this.rand = new Random((seed + 516) * 314);
-        terraingen.setup(worldObj, rand);
+        terraingen.setup(world, rand);
 		caveGenerator = new IceikaCaves();
 	}
 
@@ -44,7 +46,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		int k = i + 1;
 		int l = 17;
 		int i1 = i + 1;
-		int j = worldObj.getSeaLevel(); //sea level
+		int j = world.getSeaLevel(); //sea level
 
 		for (int j1 = 0; j1 < i; ++j1)
 			for (int k1 = 0; k1 < i; ++k1)
@@ -73,19 +75,19 @@ public class ChunkProviderIceika implements  IChunkGenerator
         ChunkPrimer chunkprimer = new ChunkPrimer();
 
         // Setup biomes for terraingen
-        this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
+        this.biomesForGeneration = this.world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
         generateTerrain(x, z, chunkprimer);
         terraingen.setBiomesForGeneration(biomesForGeneration);
         terraingen.generate(x, z, chunkprimer);
 
 		// Setup biomes again for actual biome decoration
-		this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
+		this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
 		// This will replace stone with the biome specific stones
 		terraingen.replaceBiomeBlocks(x, z, chunkprimer, this, biomesForGeneration);
 
-		caveGenerator.generate(worldObj, x, z, chunkprimer);
+		caveGenerator.generate(world, x, z, chunkprimer);
 
-        Chunk chunk = new Chunk(this.worldObj, chunkprimer, x, z);
+        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
 
         byte[] biomeArray = chunk.getBiomeArray();
         for (int i = 0; i < biomeArray.length; ++i) {
@@ -99,7 +101,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	@Override
 	public List<SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) 
 	{
-		Biome biome = this.worldObj.getBiomeProvider().getBiome(pos);
+		Biome biome = this.world.getBiomeProvider().getBiome(pos);
 
 		return biome != null ? biome.getSpawnableList(creatureType) : null;
 	}
@@ -131,59 +133,83 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	@Override
 	public void populate(int chunkX, int chunkZ)
 	{
-		int x = chunkX * 16;
-		int z = chunkZ * 16;
+		this.rand.setSeed(this.world.getSeed());
+		long k = this.rand.nextLong() / 2L * 2L + 1L;
+		long l = this.rand.nextLong() / 2L * 2L + 1L;
+		this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
 
-		BlockPos pos = new BlockPos(x, 0, z);
-        ChunkPos chunkpos = new ChunkPos(x, z);
+		int baseX = chunkX * 16 + 1;
+		int baseZ = chunkZ * 16 + 1;
+		BlockPos pos = new BlockPos(baseX, 0, baseZ);
+		Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
-		Biome biome = this.worldObj.getBiome(pos.add(16, 0, 16));
+		if(this.rand.nextInt(35) == 0) {
+			int x = baseX + rand.nextInt(16);
+			int z = baseZ + rand.nextInt(16);
+			int y = world.getHeight(x, z);
 
-        this.rand.setSeed(this.worldObj.getSeed());
-        long k = this.rand.nextLong() / 2L * 2L + 1L;
-        long l = this.rand.nextLong() / 2L * 2L + 1L;
-        this.rand.setSeed((long)x * k + (long)z * l ^ this.worldObj.getSeed());
-		biome.decorate(this.worldObj, this.rand, pos);
-		
-		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, x + 8, z + 8, 16, 16, this.rand);
+			if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.frozenGrass) {
+				int houseNumber = this.rand.nextInt(StructureRegistry.WORKSHOP_HOUSES.length);
+				StructureRegistry.WORKSHOP_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y, z));
+				System.out.println("Iceika house " + houseNumber + " structure generated at: " + x + " " + y + " " + z);
+			}
+		}
+		else if(this.rand.nextInt(15) == 0) {
+			int x = baseX + rand.nextInt(16);
+			int z = baseZ + rand.nextInt(16);
+			int y = world.getHeight(x, z);
 
+			if(this.world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == BlockRegistry.frozenGrass) {
+				int lampNumber = this.rand.nextInt(StructureRegistry.COALSTONE_LAMPS.length);
+				StructureRegistry.COALSTONE_LAMPS[lampNumber].generate(world, this.rand, new BlockPos(x, y, z));
+				System.out.println("Coalstone lamp " + lampNumber + " structure generated at: " + x + " " + y + " " + z);
+			}
+		}
 
+		this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
+		biome.decorate(this.world, this.rand, pos);
+		WorldEntitySpawner.performWorldGenSpawning(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
+
+		//Old code starts here, will probably need tweaking and rearranging
+
+		/*
 		boolean flag = false;
 
-		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.worldObj, this.rand, x, z, flag);
+		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
+		//Create lakes
 		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && !flag)
-			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.worldObj, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
+			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 			{
 				int i1 = this.rand.nextInt(16) + 8;
 				int j1 = this.rand.nextInt(256);
 				int k1 = this.rand.nextInt(16) + 8;
-				(new WorldGenLakes(Blocks.WATER)).generate(this.worldObj, this.rand, pos.add(i1, j1, k1));
+				(new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, pos.add(i1, j1, k1));
 			}
 		pos = pos.add(8, 0, 8);
 
-		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.worldObj, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
+		//Create snow and freeze top of water areas
+		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
 		{
 			for (int k2 = 0; k2 < 16; ++k2)
 			{
 				for (int j3 = 0; j3 < 16; ++j3)
 				{
-					BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(pos.add(k2, 0, j3));
+					BlockPos blockpos1 = this.world.getPrecipitationHeight(pos.add(k2, 0, j3));
 					BlockPos blockpos2 = blockpos1.down();
 
-					if (this.worldObj.canBlockFreezeWater(blockpos2))
+					if (this.world.canBlockFreezeWater(blockpos2))
 					{
-						this.worldObj.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 3);
+						this.world.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 3);
 					}
 
-					if (this.worldObj.canSnowAt(blockpos1, true))
+					if (this.world.canSnowAt(blockpos1, true))
 					{
-						this.worldObj.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 3);
+						this.world.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 3);
 					}
 				}
 			}
-		}//Forge: End ICE
-
+		}*/
 	}
 
 }
