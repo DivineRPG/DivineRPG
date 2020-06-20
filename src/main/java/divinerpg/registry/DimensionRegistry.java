@@ -10,8 +10,8 @@ import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.vethea.VetheaWorldProvider;
 import divinerpg.dimensions.wildwood.WorldProviderWildWood;
-import divinerpg.structure.iceika.archer.ArcherStructureComponent;
-import divinerpg.structure.iceika.archer.ArcherStructureStart;
+import divinerpg.structure.iceika.archerdungeon.ArcherDungeonComponent;
+import divinerpg.structure.iceika.archerdungeon.ArcherDungeonStart;
 import divinerpg.structure.legacy.DivineLegacyStructureStart;
 import divinerpg.structure.legacy.DivineStructureComponent;
 import divinerpg.structure.vethea.crypt1.Crypt1Component;
@@ -79,8 +79,8 @@ public class DimensionRegistry {
         MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
         MapGenStructureIO.registerStructure(EvergardenStart.class, "DRPGEvergarden");
         MapGenStructureIO.registerStructureComponent(EvergardenComponent.class, "DRPGEvergardenComponent");
-        MapGenStructureIO.registerStructure(ArcherStructureStart.class, "DRPGIceikaArcher");
-        MapGenStructureIO.registerStructureComponent(ArcherStructureComponent.class, "DRPGIceikaArcherComponent");
+        MapGenStructureIO.registerStructure(ArcherDungeonStart.class, "DRPGIceikaArcher");
+        MapGenStructureIO.registerStructureComponent(ArcherDungeonComponent.class, "DRPGIceikaArcherComponent");
 
         MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
         MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");

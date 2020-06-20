@@ -36,7 +36,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public final DRPGStructureHandler HUT = new DRPGStructureHandler("overworld/livestock_merchant_hut");
 
     //private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
-   // private WorldGenerator archer = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
+   // private WorldGenerator archerdungeon = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
 
     //private WorldGenLibrary library = new WorldGenLibrary();
     //private WorldGenHouse1 house1 = new WorldGenHouse1();

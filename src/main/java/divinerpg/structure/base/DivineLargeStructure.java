@@ -15,23 +15,11 @@ public abstract class DivineLargeStructure extends MapGenStructure {
     protected final String structureName;
     protected final TemplateManager manager;
     protected final ResourceLocation folder;
-    private int chunkDistance;
-
 
     public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int chunkDistance) {
         this.structureName = structureName;
         this.folder = folder;
         this.manager = world.getSaveHandler().getStructureTemplateManager();
-
-        if (chunkDistance < 2) {
-            DivineRPG.logger.warn(String.format("Spaces between structure %s can be closer than 2 chunks, but there is %s",
-                    getStructureName(),
-                    chunkDistance));
-
-            chunkDistance = 2;
-        }
-
-        this.chunkDistance = chunkDistance;
     }
 
     @Override
@@ -39,40 +27,38 @@ public abstract class DivineLargeStructure extends MapGenStructure {
         return structureName;
     }
 
-    @Nullable
-    @Override
-    public BlockPos getNearestStructurePos(World world, BlockPos blockPos, boolean findUnexplored) {
-        this.world = world;
-
-        // todo think about step by structure size
-        return findNearestStructurePosBySpacing(world, this, blockPos, this.chunkDistance, 8, 10387312, false, 100, findUnexplored);
-    }
-
     @Override
     protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-        int i = chunkX;
-        int j = chunkZ;
-        if (chunkX < 0) {
-            i = chunkX - chunkDistance - 1;
-        }
-
-        if (chunkZ < 0) {
-            j = chunkZ - chunkDistance - 1;
-        }
-
-        int k = i / chunkDistance;
-        int l = j / chunkDistance;
-
-        int folderHash = folder.hashCode();
-
-        Random random = this.world.setRandomSeed(k, l, folderHash);
-        k *= chunkDistance;
-        l *= chunkDistance;
-
-        int smallerParameter = (int) (chunkDistance * 0.75);
-
-        k += (random.nextInt(smallerParameter) + random.nextInt(smallerParameter)) / 2;
-        l += (random.nextInt(smallerParameter) + random.nextInt(smallerParameter)) / 2;
-        return chunkX == k && chunkZ == l;
+        return this.rand.nextDouble() < 0.03; //hardcoded lol
     }
+
+    //Copied from mineshaft class. Cryptic code is fun
+    public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
+        boolean i = true;
+        int j = pos.getX() >> 4;
+        int k = pos.getZ() >> 4;
+
+        for(int l = 0; l <= 1000; ++l) {
+            for(int i1 = -l; i1 <= l; ++i1) {
+                boolean flag = i1 == -l || i1 == l;
+
+                for(int j1 = -l; j1 <= l; ++j1) {
+                    boolean flag1 = j1 == -l || j1 == l;
+                    if (flag || flag1) {
+                        int k1 = j + i1;
+                        int l1 = k + j1;
+                        this.rand.setSeed((long)(k1 ^ l1) ^ worldIn.getSeed());
+                        this.rand.nextInt();
+                        if (this.canSpawnStructureAtCoords(k1, l1) && (!findUnexplored || !worldIn.isChunkGeneratedAt(k1, l1))) {
+                            return new BlockPos((k1 << 4) + 8, 64, (l1 << 4) + 8);
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+
 }

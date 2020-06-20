@@ -96,7 +96,7 @@ public class DivineRPG {
 //        Map<String, WorldGenerator> structures = new HashMap<>();
 //
 //        structures.put("rollum", new WorldGenRollumDungeon());
-//        structures.put("archer", new WorldGenArcherDungeon());
+//        structures.put("archerdungeon", new WorldGenArcherDungeon());
 //
 //        structures.forEach((s, generator) -> {
 //            WorldStorage storage = new WorldStorage();

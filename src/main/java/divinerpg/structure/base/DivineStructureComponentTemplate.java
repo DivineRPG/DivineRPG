@@ -5,11 +5,13 @@ import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -69,6 +71,14 @@ public abstract class DivineStructureComponentTemplate extends StructureComponen
         TileEntity tileEntity = world.getTileEntity(chestPosition);
         if(tileEntity instanceof TileEntityChest) {
             ((TileEntityChest)tileEntity).setLootTable(lootTable, rand.nextLong());
+        }
+    }
+
+    protected void spawnLootChestAtLocation(World world, BlockPos pos, Random rand, Block chest, ResourceLocation lootTable) {
+        world.setBlockState(pos, chest.getDefaultState());
+        TileEntity tileEntity = world.getTileEntity(pos);
+        if(tileEntity instanceof TileEntityLockableLoot) {
+            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, rand.nextLong());
         }
     }
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
+import divinerpg.structure.iceika.archerdungeon.ArcherDungeon;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -22,7 +23,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 
-public class ChunkProviderIceika implements  IChunkGenerator
+public class ChunkProviderIceika implements IChunkGenerator
 {
 
     private final World world;
@@ -32,12 +33,16 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	private final MapGenBase caveGenerator;
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
 
+    private ArcherDungeon archerDungeonGenerator;
+
 	public ChunkProviderIceika(World world, long seed)
 	{
         this.world = world;
         this.rand = new Random((seed + 516) * 314);
         terraingen.setup(world, rand);
 		caveGenerator = new IceikaCaves();
+
+		this.archerDungeonGenerator = new ArcherDungeon(world);
 	}
 
 
@@ -87,9 +92,12 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 		caveGenerator.generate(world, x, z, chunkprimer);
 
-        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
+		//Generate archer dungeon
+		this.archerDungeonGenerator.generate(this.world, x, z, chunkprimer);
 
+        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] biomeArray = chunk.getBiomeArray();
+
         for (int i = 0; i < biomeArray.length; ++i) {
             biomeArray[i] = (byte)Biome.getIdForBiome(this.biomesForGeneration[i]);
         }
@@ -115,7 +123,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 	@Override
 	public void recreateStructures(Chunk p_180514_1_, int x, int z)
 	{
-
+		//HANDLE LATER!
 	}
 
 	@Override
@@ -143,6 +151,9 @@ public class ChunkProviderIceika implements  IChunkGenerator
 		BlockPos pos = new BlockPos(baseX, 0, baseZ);
 		Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
+		ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
+		this.archerDungeonGenerator.generateStructure(this.world, this.rand, chunkpos);
+
 		if(this.rand.nextInt(35) == 0) {
 			int x = baseX + rand.nextInt(16);
 			int z = baseZ + rand.nextInt(16);
@@ -150,7 +161,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 			if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.frozenGrass) {
 				int houseNumber = this.rand.nextInt(StructureRegistry.WORKSHOP_HOUSES.length);
-				StructureRegistry.WORKSHOP_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y, z));
+				StructureRegistry.WORKSHOP_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y - 1, z));
 				System.out.println("Iceika house " + houseNumber + " structure generated at: " + x + " " + y + " " + z);
 			}
 		}
@@ -161,7 +172,7 @@ public class ChunkProviderIceika implements  IChunkGenerator
 
 			if(this.world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == BlockRegistry.frozenGrass) {
 				int lampNumber = this.rand.nextInt(StructureRegistry.COALSTONE_LAMPS.length);
-				StructureRegistry.COALSTONE_LAMPS[lampNumber].generate(world, this.rand, new BlockPos(x, y, z));
+				StructureRegistry.COALSTONE_LAMPS[lampNumber].generate(world, this.rand, new BlockPos(x, y - 1, z));
 				System.out.println("Coalstone lamp " + lampNumber + " structure generated at: " + x + " " + y + " " + z);
 			}
 		}

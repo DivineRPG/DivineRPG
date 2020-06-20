@@ -26,5 +26,11 @@ public class StructureRegistry {
     public static final DRPGStructureHandler[] WORKSHOP_HOUSES = {WORKSHOP_HOUSE_1, WORKSHOP_HOUSE_2, WORKSHOP_HOUSE_3, WORKSHOP_HOUSE_4, WORKSHOP_HOUSE_5, WORKSHOP_HOUSE_6, WORKSHOP_LIBRARY};
 
 
+    //Temp stuff
+    public static final DRPGStructureHandler ARCHER_DUNGEON = new DRPGStructureHandler("iceika_dungeon");
+    public static final DRPGStructureHandler ROLLUM_DUNGEON = new DRPGStructureHandler("iceika_dungeon_rollum");
+
+
+
 
 }
