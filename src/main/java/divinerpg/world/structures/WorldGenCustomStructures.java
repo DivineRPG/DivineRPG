@@ -35,85 +35,18 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     //vanilla
     public final DRPGStructureHandler HUT = new DRPGStructureHandler("overworld/livestock_merchant_hut");
 
-    //Iceika
-//    public final DRPGStructureHandler ICEIKA_DUNGEON = new DRPGStructureHandler("iceika_dungeon",
-//            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
-//    public final DRPGStructureHandler ICEIKA_DUNGEON_ROLLUM = new DRPGStructureHandler("iceika_dungeon_rollum",
-//            LootTableRegistry.ICEIKA_CHEST_DUNGEON);
+    //private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
+   // private WorldGenerator archer = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
 
-    public final List<DRPGStructureHandler> Lamps = new ArrayList<DRPGStructureHandler>() {{
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_1"));
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_2"));
-        add(new DRPGStructureHandler("iceika/lamps/coalstone_lamp_3"));
-    }};
-
-    public final List<DRPGStructureHandler> Houses = new ArrayList<DRPGStructureHandler>() {{
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_1", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_2", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_3", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_4", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_5", LootTableRegistry.ICEIKA_CHEST_HUT));
-        add(new DRPGStructureHandler("iceika/houses/workshop_house_6", LootTableRegistry.ICEIKA_CHEST_HUT));
-
-        add(new DRPGStructureHandler("iceika/workshop_library", LootTableRegistry.ICEIKA_CHEST_HUT));
-    }};
-
-    private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
-    private WorldGenerator archer = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
-
-    private WorldGenLibrary library = new WorldGenLibrary();
-    private WorldGenHouse1 house1 = new WorldGenHouse1();
+    //private WorldGenLibrary library = new WorldGenLibrary();
+    //private WorldGenHouse1 house1 = new WorldGenHouse1();
 
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
                          IChunkProvider chunkProvider) {
-
-        if (world.provider.getDimensionType() == DimensionRegistry.iceikaDimension) {
-
-            final BlockPos chunkStart = new ChunkPos(chunkX, chunkZ).getBlock(0, 0, 0);
-            generateUndergroundStructure(rollum, world, random, chunkX, chunkZ, 50, 100, 30);
-            generateUndergroundStructure(archer, world, random, chunkX, chunkZ, 50, 100, 30);
-
-            Lamps.stream()
-                    .filter(x -> random.nextInt(25) == 0)
-                    .forEach(x -> {
-                        // causes light update, more offset
-                        BlockPos pos = randomPos(world, chunkStart, x.getSize(world), 8);
-                        int size = 3;
-
-                        // check the platform
-                        boolean canPlace = StreamSupport.stream(BlockPos.getAllInBox(pos, pos.add(size, 0, size)).spliterator(), false)
-                                .allMatch(p -> world.getBlockState(p).getBlock() == BlockRegistry.frozenGrass);
-
-                        if (!canPlace)
-                            return;
-
-                        x.generateStructure(world, pos);
-                    });
-
-            Houses.stream()
-                    .filter(x -> random.nextInt(10) == 0)
-                    .forEach(x -> {
-                        BlockPos size = x.getSize(world);
-                        BlockPos pos = randomPos(world, chunkStart, size, 1);
-
-                        // check the platform
-                        boolean canPlace = StreamSupport.stream(BlockPos.getAllInBox(pos, pos.add(size.getX(), 0, size.getZ())).spliterator(), false)
-                                .allMatch(p -> world.getBlockState(p).getBlock() == BlockRegistry.frozenGrass);
-
-                        if (!canPlace)
-                            return;
-
-                        x.generateStructure(world, pos);
-                    });
-
-            generateStructure(house1, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass);
-            generateStructure(library, world, random, chunkX, chunkZ, 10, BlockRegistry.frozenGrass);
-        }
-        if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
-            Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ)
-                    .getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16), world.getBiomeProvider());
+        if (world.provider.getDimension() == 0) {
+            Biome biome = world.getChunkFromChunkCoords(chunkX, chunkZ).getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16), world.getBiomeProvider());
             if (Config.generateHuts && (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.hasType(biome, BiomeDictionary.Type.SAVANNA))) {
                 int hutChance = 120;
                 if(world.getWorldType() == WorldType.FLAT) {
@@ -121,16 +54,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 }
                 generateStructure(HUT, world, random, chunkX, chunkZ, hutChance, Blocks.GRASS);
             }
-        }
-    }
-
-    private void generateUndergroundStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int minAltitude, int maxAltitude, int chance) {
-        int x = chunkX * 16 + 1;
-        int y = random.nextInt(maxAltitude - minAltitude) + minAltitude;
-        int z = chunkZ * 16 + 1;
-        BlockPos pos = new BlockPos(x, y, z);
-        if (random.nextInt(chance) == 0) {
-            generator.generate(world, random, pos);
         }
     }
 
@@ -177,25 +100,5 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             }
         }
         return false;
-    }
-
-    private BlockPos randomPos(World world, BlockPos chunkStart, BlockPos size, int minOffset) {
-        int x = chunkStart.getX() + minOffset;
-        int z = chunkStart.getZ() + minOffset;
-
-        int xOffset = 32 - size.getX() - (minOffset * 2);
-        int zOffset = 32 - size.getZ() - (minOffset * 2);
-
-        if (xOffset > 1) {
-            x += world.rand.nextInt(xOffset);
-        }
-
-        if (zOffset > 1) {
-            z += world.rand.nextInt(zOffset);
-        }
-
-        int y = Utils.getSurfaceBlockY(world, chunkStart.getX(), chunkStart.getZ(), BlockRegistry.frozenGrass);
-
-        return new BlockPos(x, y, z);
     }
 }
