@@ -24,7 +24,7 @@ public class WorldProviderWildWood extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new IslandChunkGeneratorBase(this.world, BlockRegistry.twilightStone, BlockRegistry.wildwoodGrass, BlockRegistry.wildwoodDirt);
+		return new WildwoodChunkGenerator(world);
 	}
 	
     @Override

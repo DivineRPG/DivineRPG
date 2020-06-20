@@ -1,6 +1,7 @@
 package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
+import divinerpg.dimensions.eden.EdenChunkGenerator;
 import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
@@ -24,7 +25,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new IslandChunkGeneratorBase(this.world, BlockRegistry.twilightStone, BlockRegistry.apalachiaGrass, BlockRegistry.apalachiaDirt);
+		return new ApalachiaChunkGenerator(world);
 	}
 	
     @Override

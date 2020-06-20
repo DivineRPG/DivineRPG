@@ -1,4 +1,4 @@
-package divinerpg.dimensions.eden;
+package divinerpg.dimensions.apalachia;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 
-public class EdenChunkGenerator extends IslandChunkGeneratorBase {
+public class ApalachiaChunkGenerator extends IslandChunkGeneratorBase {
 
-    private static final DRPGStructureHandler edenStructure = new DRPGStructureHandler("twilight/sunstorm_dungeon");
+    private static final DRPGStructureHandler apalachiaStructure = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
 
-    public EdenChunkGenerator(World world) {
-        super(world, BlockRegistry.twilightStone, BlockRegistry.edenGrass, BlockRegistry.edenDirt);
+    public ApalachiaChunkGenerator(World world) {
+        super(world, BlockRegistry.twilightStone, BlockRegistry.apalachiaGrass, BlockRegistry.apalachiaDirt);
     }
 
     @Override
@@ -33,9 +33,9 @@ public class EdenChunkGenerator extends IslandChunkGeneratorBase {
             int z = baseZ + rand.nextInt(16);
             int y = world.getHeight(x, z);
 
-            if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.edenGrass) {
-                edenStructure.generate(world, this.rand, new BlockPos(x, y, z));
-                System.out.println("Eden structure generated at: " + x + " " + y + " " + z);
+            if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.apalachiaGrass) {
+                apalachiaStructure.generate(world, this.rand, new BlockPos(x, y, z));
+                System.out.println("Apalachia structure generated at: " + x + " " + y + " " + z);
             }
         }
 

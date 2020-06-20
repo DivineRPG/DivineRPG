@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class IslandChunkGeneratorBase implements IChunkGenerator {
+public abstract class IslandChunkGeneratorBase implements IChunkGenerator {
 
     private final NoiseGeneratorOctaves noiseGen1;
     private final NoiseGeneratorOctaves perlinNoise1;
@@ -54,23 +54,6 @@ public class IslandChunkGeneratorBase implements IChunkGenerator {
         chunk.generateSkylightMap();
 
         return chunk;
-    }
-
-    @Override
-    public void populate(int chunkX, int chunkZ) {
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
-
-        BlockPos pos = new BlockPos(x, 0, z);
-        Biome biome = this.world.getBiome(pos);
-
-        this.rand.setSeed(this.world.getSeed());
-        long k = this.rand.nextLong() / 2L * 2L + 1L;
-        long l = this.rand.nextLong() / 2L * 2L + 1L;
-        this.rand.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
-        biome.decorate(this.world, this.rand, pos);
-
-        WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);
     }
 
     @Override

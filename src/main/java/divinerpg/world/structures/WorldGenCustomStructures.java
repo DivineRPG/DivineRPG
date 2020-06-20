@@ -58,11 +58,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         add(new DRPGStructureHandler("iceika/workshop_library", LootTableRegistry.ICEIKA_CHEST_HUT));
     }};
 
-    public final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
-    public final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
-    public final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
-    public final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/experienced_cori_dungeon");
-
     private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
     private WorldGenerator archer = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
 
@@ -126,18 +121,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 }
                 generateStructure(HUT, world, random, chunkX, chunkZ, hutChance, Blocks.GRASS);
             }
-        }
-       // if (world.provider.getDimensionType() == DimensionRegistry.edenDimension) {
-        //    generateStructure(SUNSTORM_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.edenGrass);
-       // }
-        if (world.provider.getDimensionType() == DimensionRegistry.wildwoodDimension) {
-            generateStructure(TERMASECT_NEST, world, random, chunkX, chunkZ, 28, BlockRegistry.wildwoodGrass);
-        }
-        if (world.provider.getDimensionType() == DimensionRegistry.apalachiaDimension) {
-            generateStructure(ETERNAL_ARCHER_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.apalachiaGrass);
-        }
-        if (world.provider.getDimensionType() == DimensionRegistry.skythernDimension) {
-            generateStructure(EXPERIENCED_CORI_DUNGEON, world, random, chunkX, chunkZ, 28, BlockRegistry.skythernGrass);
         }
     }
 
