@@ -22,7 +22,7 @@ public class Temple2Component extends DivineStructureComponentTemplate {
     }
 
     public Temple2Component(TemplateManager manager, ResourceLocation location, Rotation rotation, BlockPos start) {
-        super(manager, location, start, new PlacementSettings().setRotation(rotation));
+        super(manager, location, start, new PlacementSettings().setReplacedBlock(Blocks.AIR).setRotation(rotation));
     }
 
     @Override
