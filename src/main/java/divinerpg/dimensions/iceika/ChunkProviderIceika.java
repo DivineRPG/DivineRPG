@@ -169,7 +169,6 @@ public class ChunkProviderIceika implements IChunkGenerator
 			if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.frozenGrass) {
 				int houseNumber = this.rand.nextInt(StructureRegistry.WORKSHOP_HOUSES.length);
 				StructureRegistry.WORKSHOP_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y - 1, z));
-				System.out.println("Iceika house " + houseNumber + " structure generated at: " + x + " " + y + " " + z);
 			}
 		}
 		else if(this.rand.nextInt(15) == 0) {
@@ -180,7 +179,6 @@ public class ChunkProviderIceika implements IChunkGenerator
 			if(this.world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == BlockRegistry.frozenGrass) {
 				int lampNumber = this.rand.nextInt(StructureRegistry.COALSTONE_LAMPS.length);
 				StructureRegistry.COALSTONE_LAMPS[lampNumber].generate(world, this.rand, new BlockPos(x, y - 1, z));
-				System.out.println("Coalstone lamp " + lampNumber + " structure generated at: " + x + " " + y + " " + z);
 			}
 		}
 

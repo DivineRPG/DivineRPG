@@ -34,7 +34,6 @@ public class ApalachiaChunkGenerator extends IslandChunkGeneratorBase {
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.apalachiaGrass) {
                 StructureRegistry.ETERNAL_ARCHER_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
-                System.out.println("Apalachia structure generated at: " + x + " " + y + " " + z);
             }
         }
 
