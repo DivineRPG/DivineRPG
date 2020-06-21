@@ -51,22 +51,10 @@ public abstract class DivineStructureStart extends StructureStart {
             for(int z = 0; z < structureSizeZ; z++) {
                 String fileName = "[" + x + ", " + z + "]";
                 ResourceLocation partLocation = new ResourceLocation(location.getResourceDomain(), location.getResourcePath() + "/" + fileName);
-                BlockPos pos = fromString(fileName, chunkX, chunkZ).getBlock(0, y, 0);
+                BlockPos pos = new ChunkPos(chunkX + x, chunkZ + z).getBlock(0, y, 0);
                 components.add(this.getComponent(manager, partLocation, pos));
             }
         }
-    }
-    /**
-     * Parse from ChunkPos.ToString
-     *
-     * @param chunkPosRaw - raw string
-     * @return
-     */
-    private ChunkPos fromString(String chunkPosRaw, int xOffset, int zOffset) {
-        chunkPosRaw = chunkPosRaw.replaceAll("[\\[\\] ]", "");
-        String[] numbers = chunkPosRaw.split("[,]");
-
-        return new ChunkPos(xOffset + Integer.parseInt(numbers[0]), zOffset + Integer.parseInt(numbers[1]));
     }
 
     protected abstract StructureComponentTemplate getComponent(TemplateManager manager, ResourceLocation location, BlockPos pos);
