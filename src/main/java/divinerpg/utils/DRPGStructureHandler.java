@@ -53,15 +53,16 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        generateStructure(worldIn, position);
+        Rotation rotation = WorldGenUtils.getRandomRotation(rand);
+        generateStructure(worldIn, rotation, position);
         return true;
     }
 
-    public void generateStructure(World world, BlockPos pos) {
+    public void generateStructure(World world, Rotation rotation, BlockPos pos) {
         Template template = load(world);
 
         if (template != null) {
-            PlacementSettings placementSettings = getSettings(pos);
+            PlacementSettings placementSettings = getSettings(pos, rotation);
             template.addBlocksToWorld(world, pos, placementSettings);
             generateLoot(world, template, pos, placementSettings);
 
@@ -112,9 +113,8 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     }
 
     @Override
-    public PlacementSettings getSettings(BlockPos pos) {
-        return new PlacementSettings().setIgnoreEntities(false)
-                .setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
+    public PlacementSettings getSettings(BlockPos pos, Rotation rotation) {
+        return new PlacementSettings().setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(rotation);
     }
 
     @Override

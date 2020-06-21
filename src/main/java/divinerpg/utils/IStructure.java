@@ -1,5 +1,6 @@
 package divinerpg.utils;
 
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -21,7 +22,7 @@ public interface IStructure {
      *
      * @param pos - template pos
      */
-    PlacementSettings getSettings(BlockPos pos);
+    PlacementSettings getSettings(BlockPos pos, Rotation rotation);
 
     /**
      * Returns size of structure
