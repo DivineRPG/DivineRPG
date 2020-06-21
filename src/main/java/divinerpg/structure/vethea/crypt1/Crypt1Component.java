@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
-import net.minecraft.init.Blocks;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -29,10 +29,10 @@ public class Crypt1Component extends DivineStructureComponentTemplate {
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
         switch (function) {
             case "CryptLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.CRYPT_LOOT);
+                WorldGenUtils.populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.CRYPT_LOOT);
                 break;
             case "CryptKeeper":
-                spawnPersistentEntity(worldIn, pos, new EntityCryptKeeper(worldIn));
+                WorldGenUtils.spawnPersistentEntity(worldIn, pos, new EntityCryptKeeper(worldIn));
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");

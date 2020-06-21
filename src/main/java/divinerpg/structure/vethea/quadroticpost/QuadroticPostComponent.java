@@ -3,6 +3,7 @@ package divinerpg.structure.vethea.quadroticpost;
 import divinerpg.DivineRPG;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -28,7 +29,7 @@ public class QuadroticPostComponent extends DivineStructureComponentTemplate {
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
         switch (function) {
             case "QuadroticPostLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.QUADROTIC_POST_LOOT);
+                WorldGenUtils.populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.QUADROTIC_POST_LOOT);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");

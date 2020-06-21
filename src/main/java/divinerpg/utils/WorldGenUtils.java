@@ -1,6 +1,12 @@
 package divinerpg.utils;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityLockableLoot;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -61,5 +67,50 @@ public class WorldGenUtils {
     public static Rotation getRandomRotation(Random random) {
         Rotation[] rotations = Rotation.values();
         return rotations[random.nextInt(rotations.length)];
+    }
+
+    /**
+     * Spawns a persistent entity at the given location.
+     *
+     * @param world the world to spawn the entity in
+     * @param pos the position to spawn the entity at
+     * @param entity the entity to spawn
+     */
+    public static void spawnPersistentEntity(World world, BlockPos pos, EntityLiving entity) {
+        entity.enablePersistence();
+        entity.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
+        world.spawnEntity(entity);
+    }
+
+    /**
+     * Populates the loot chest below the given position.
+     *
+     * @param world the world
+     * @param pos the position above the chest
+     * @param rand the seeded random number generator
+     * @param lootTable the loot table to fill it with
+     */
+    public static void populateLootChestBelow(World world, BlockPos pos, Random rand, ResourceLocation lootTable) {
+        BlockPos chestPosition = pos.down();
+        TileEntity tileEntity = world.getTileEntity(chestPosition);
+        if(tileEntity instanceof TileEntityLockableLoot) {
+            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, rand.nextLong());
+        }
+    }
+
+    /**
+     * Populates the loot chest at the given position.
+     *
+     * @param world the world
+     * @param pos the position of the chest
+     * @param rand the seeded random number generator
+     * @param lootTable the loot table to fill it with
+     */
+    public static void spawnLootChestAtLocation(World world, BlockPos pos, Random rand, Block chest, ResourceLocation lootTable) {
+        world.setBlockState(pos, chest.getDefaultState());
+        TileEntity tileEntity = world.getTileEntity(pos);
+        if(tileEntity instanceof TileEntityLockableLoot) {
+            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, rand.nextLong());
+        }
     }
 }

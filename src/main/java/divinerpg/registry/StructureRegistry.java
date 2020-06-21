@@ -51,8 +51,8 @@ public class StructureRegistry {
     public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("iceika/houses/workshop_house_4");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("iceika/houses/workshop_house_5");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("iceika/houses/workshop_house_6");
-    public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("iceika/workshop_library");
-    public static final DRPGStructureHandler[] WORKSHOP_HOUSES = {WORKSHOP_HOUSE_1, WORKSHOP_HOUSE_2, WORKSHOP_HOUSE_3, WORKSHOP_HOUSE_4, WORKSHOP_HOUSE_5, WORKSHOP_HOUSE_6, WORKSHOP_LIBRARY};
+    //public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("iceika/workshop_library"); //Leave out for now because it's big
+    public static final DRPGStructureHandler[] WORKSHOP_HOUSES = {WORKSHOP_HOUSE_1, WORKSHOP_HOUSE_2, WORKSHOP_HOUSE_3, WORKSHOP_HOUSE_4, WORKSHOP_HOUSE_5, WORKSHOP_HOUSE_6};
 
     public static void registerLargeStructures() {
         MapGenStructureIO.registerStructure(Crypt1Start.class, "DRPGCrypt1");
