@@ -1,4 +1,4 @@
-package divinerpg.structure.iceika.archerdungeon;
+package divinerpg.structure.iceika.rollum;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
@@ -14,20 +14,20 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import java.util.Random;
 
-public class ArcherDungeonComponent extends DivineStructureComponentTemplate {
+public class RollumDungeonComponent extends DivineStructureComponentTemplate {
 
-    public ArcherDungeonComponent() {
+    public RollumDungeonComponent() {
 
     }
 
-    public ArcherDungeonComponent(TemplateManager templateManager, ResourceLocation location, Rotation rotation, BlockPos pos) {
+    public RollumDungeonComponent(TemplateManager templateManager, ResourceLocation location, Rotation rotation, BlockPos pos) {
         super(templateManager, location, pos, new PlacementSettings().setRotation(rotation));
     }
 
     @Override
     protected void handleDataMarker(String function, BlockPos blockPos, World world, Random random, StructureBoundingBox structureBoundingBox) {
         switch (function) {
-            case "FrostArcherDungeonLoot":
+            case "RollumDungeonLoot":
                 spawnLootChestAtLocation(world, blockPos, random, BlockRegistry.frostedChest, LootTableRegistry.ICEIKA_CHEST_DUNGEON);
                 break;
             default:

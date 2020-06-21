@@ -27,11 +27,6 @@ public abstract class DivineLargeStructure extends MapGenStructure {
         return structureName;
     }
 
-    @Override
-    protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-        return this.rand.nextDouble() < 0.03; //hardcoded lol
-    }
-
     //Copied from mineshaft class. Cryptic code is fun
     public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
         boolean i = true;

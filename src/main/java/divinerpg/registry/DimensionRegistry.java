@@ -51,39 +51,8 @@ public class DimensionRegistry {
     public static DimensionType vetheaDimension;
 
     public static void init() {
-        registerStructures();
         registerDimensionTypes();
         registerDimensions();
-    }
-
-    private static void registerStructures() {
-        MapGenStructureIO.registerStructure(Crypt1Start.class, "DRPGCrypt1");
-        MapGenStructureIO.registerStructureComponent(Crypt1Component.class, "DRPGCrypt1Component");
-        MapGenStructureIO.registerStructure(Crypt2Start.class, "DRPGCrypt2");
-        MapGenStructureIO.registerStructureComponent(Crypt2Component.class, "DRPGCrypt2Component");
-        MapGenStructureIO.registerStructure(HungerHouseStart.class, "DRPGHungerHouse");
-        MapGenStructureIO.registerStructureComponent(HungerHouseComponent.class, "DRPGHungerHouseComponent");
-        MapGenStructureIO.registerStructure(Temple1Start.class, "DRPGTemple1");
-        MapGenStructureIO.registerStructureComponent(Temple1Component.class, "DRPGTemple1Component");
-        MapGenStructureIO.registerStructure(Temple2Start.class, "DRPGTemple2");
-        MapGenStructureIO.registerStructureComponent(Temple2Component.class, "DRPGTemple2Component");
-        MapGenStructureIO.registerStructure(HiveStart.class, "DRPGHive");
-        MapGenStructureIO.registerStructureComponent(HiveComponent.class, "DRPGHiveComponent");
-        MapGenStructureIO.registerStructure(QuadroticPostStart.class, "DRPGQuadroticPost");
-        MapGenStructureIO.registerStructureComponent(QuadroticPostComponent.class, "DRPGQuadroticPostComponent");
-        MapGenStructureIO.registerStructure(KarosMadhouseStart.class, "DRPGKarosMadhouse");
-        MapGenStructureIO.registerStructureComponent(KarosMadhouseComponent.class, "DRPGKarosMadhouseComponent");
-        MapGenStructureIO.registerStructure(RaglokChamberStart.class, "DRPGRaglokChamber");
-        MapGenStructureIO.registerStructureComponent(RaglokChamberComponent.class, "DRPGRaglokChamberComponent");
-        MapGenStructureIO.registerStructure(WreckHallStart.class, "DRPGWreckHall");
-        MapGenStructureIO.registerStructureComponent(WreckHallComponent.class, "DRPGWreckHallComponent");
-        MapGenStructureIO.registerStructure(EvergardenStart.class, "DRPGEvergarden");
-        MapGenStructureIO.registerStructureComponent(EvergardenComponent.class, "DRPGEvergardenComponent");
-        MapGenStructureIO.registerStructure(ArcherDungeonStart.class, "DRPGIceikaArcher");
-        MapGenStructureIO.registerStructureComponent(ArcherDungeonComponent.class, "DRPGIceikaArcherComponent");
-
-        MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
-        MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");
     }
 
     private static void registerDimensionTypes() {

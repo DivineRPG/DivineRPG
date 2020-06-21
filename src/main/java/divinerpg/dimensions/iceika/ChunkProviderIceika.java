@@ -7,6 +7,7 @@ import java.util.Random;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeon;
+import divinerpg.structure.iceika.rollum.RollumDungeon;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -34,6 +35,7 @@ public class ChunkProviderIceika implements IChunkGenerator
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
 
     private ArcherDungeon archerDungeonGenerator;
+    private RollumDungeon rollumDungeonGenerator;
 
 	public ChunkProviderIceika(World world, long seed)
 	{
@@ -43,6 +45,7 @@ public class ChunkProviderIceika implements IChunkGenerator
 		caveGenerator = new IceikaCaves();
 
 		this.archerDungeonGenerator = new ArcherDungeon(world);
+		this.rollumDungeonGenerator = new RollumDungeon(world);
 	}
 
 
@@ -94,6 +97,7 @@ public class ChunkProviderIceika implements IChunkGenerator
 
 		//Generate archer dungeon
 		this.archerDungeonGenerator.generate(this.world, x, z, chunkprimer);
+		this.rollumDungeonGenerator.generate(this.world, x, z, chunkprimer);
 
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] biomeArray = chunk.getBiomeArray();
@@ -153,6 +157,7 @@ public class ChunkProviderIceika implements IChunkGenerator
 
 		ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
 		this.archerDungeonGenerator.generateStructure(this.world, this.rand, chunkpos);
+		this.rollumDungeonGenerator.generateStructure(this.world, this.rand, chunkpos);
 
 		if(this.rand.nextInt(35) == 0) {
 			int x = baseX + rand.nextInt(16);

@@ -40,10 +40,6 @@ public class ItemTwilightClock extends ItemMod {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
                                       EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-        StructureRegistry.ARCHER_DUNGEON.generate(worldIn, new Random(), pos);
-        StructureRegistry.ROLLUM_DUNGEON.generate(worldIn, new Random(), pos.add(64, 0, 64));
-
         ItemStack itemstack = player.getHeldItem(hand);
         if (!player.canPlayerEdit(pos, facing, itemstack)) {
             return EnumActionResult.FAIL;
