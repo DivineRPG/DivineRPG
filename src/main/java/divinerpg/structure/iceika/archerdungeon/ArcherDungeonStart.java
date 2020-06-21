@@ -12,7 +12,6 @@ import java.util.Random;
 public class ArcherDungeonStart extends DivineStructureStart {
 
     public ArcherDungeonStart() {
-        System.out.println("stop calling this bull");
     }
 
     public ArcherDungeonStart(ResourceLocation location, TemplateManager templateManager, Rotation rotation, int offset, int chunkX, int chunkZ) {

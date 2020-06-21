@@ -10,7 +10,6 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 public class RollumDungeonStart extends DivineStructureStart {
 
     public RollumDungeonStart() {
-        System.out.println("stop calling this bull");
     }
 
     public RollumDungeonStart(ResourceLocation location, TemplateManager templateManager, Rotation rotation, int offset, int chunkX, int chunkZ) {
