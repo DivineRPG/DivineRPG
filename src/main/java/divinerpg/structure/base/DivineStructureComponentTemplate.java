@@ -71,25 +71,4 @@ public abstract class DivineStructureComponentTemplate extends StructureComponen
         tagCompound.setString("TmpRes", location.toString());
     }
 
-    protected void spawnPersistentEntity(World world, BlockPos pos, EntityLiving entity) {
-        entity.enablePersistence();
-        entity.moveToBlockPosAndAngles(pos, 0.0F, 0.0F);
-        world.spawnEntity(entity);
-    }
-
-    protected void populateLootChestBelow(World world, BlockPos pos, Random rand, ResourceLocation lootTable) {
-        BlockPos chestPosition = pos.down();
-        TileEntity tileEntity = world.getTileEntity(chestPosition);
-        if(tileEntity instanceof TileEntityChest) {
-            ((TileEntityChest)tileEntity).setLootTable(lootTable, rand.nextLong());
-        }
-    }
-
-    protected void spawnLootChestAtLocation(World world, BlockPos pos, Random rand, Block chest, ResourceLocation lootTable) {
-        world.setBlockState(pos, chest.getDefaultState());
-        TileEntity tileEntity = world.getTileEntity(pos);
-        if(tileEntity instanceof TileEntityLockableLoot) {
-            ((TileEntityLockableLoot)tileEntity).setLootTable(lootTable, rand.nextLong());
-        }
-    }
 }

@@ -1,7 +1,10 @@
 package divinerpg.utils;
 
 import divinerpg.DivineRPG;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
+import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.registry.LootTableRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
@@ -54,57 +57,62 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
         Rotation rotation = WorldGenUtils.getRandomRotation(rand);
-        generateStructure(worldIn, rotation, position);
+        generateStructure(worldIn, rand, rotation, position);
         return true;
     }
 
-    public void generateStructure(World world, Rotation rotation, BlockPos pos) {
+    public void generateStructure(World world, Random random, Rotation rotation, BlockPos pos) {
         Template template = load(world);
 
         if (template != null) {
             PlacementSettings placementSettings = getSettings(pos, rotation);
             template.addBlocksToWorld(world, pos, placementSettings);
-            generateLoot(world, template, pos, placementSettings);
 
             Map<BlockPos, String> map = template.getDataBlocks(pos, placementSettings);
             Iterator var16 = map.entrySet().iterator();
 
-            while(var16.hasNext()) {
-                Map.Entry<BlockPos, String> entry = (Map.Entry)var16.next();
-                if ("LivestockMerchant".equals(entry.getValue())) {
-                    BlockPos spawnPos = (BlockPos)entry.getKey();
-                    EntityLivestockMerchant merchant = new EntityLivestockMerchant(world);
-                    merchant.enablePersistence();
-                    merchant.moveToBlockPosAndAngles(spawnPos, 0.0F, 0.0F);
-                    world.spawnEntity(merchant);
-                    world.setBlockToAir(spawnPos);
-                }
+            if(var16.hasNext()) {
+                handleDataMarkers(world, random, var16);
             }
         }
     }
 
-    public void generateLoot(World world, Template template, BlockPos pos, PlacementSettings placementSettings) {
-        if (lootTableFunc == null)
-            return;
+    private void handleDataMarkers(World world, Random random, Iterator iterator) {
+        while(iterator.hasNext()) {
+            Map.Entry<BlockPos, String> entry = (Map.Entry)iterator.next();
+            BlockPos pos = entry.getKey();
 
-        BlockPos.getAllInBox(BlockPos.ORIGIN, template.getSize()).forEach(x -> {
-            BlockPos templatePos = Template.transformedBlockPos(placementSettings, x).add(pos);
-
-            TileEntity tile = world.getTileEntity(templatePos);
-
-            if (tile instanceof TileEntityLockableLoot) {
-                // Getting loot table from current chest
-                ResourceLocation lootTable = lootTableFunc.apply(new TileEntityChestArgs(world, (TileEntityLockableLoot) tile, templatePos));
-
-                if (lootTable != null)
-                    ((TileEntityLockableLoot) tile).setLootTable(lootTable, world.rand.nextLong());
-                else {
-                    System.out.println("Can't find loot table for tile entity :" + templatePos.toString());
-                }
+            switch(entry.getValue()) {
+                case "LivestockMerchant":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLivestockMerchant(world));
+                    break;
+                case "WorkshopMerchant":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWorkshopMerchant(world));
+                    break;
+                case "WorkshopTinkerer":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWorkshopTinkerer(world));
+                    break;
+                case "WorkshopHouse1Loot":
+                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
+                    break;
+                case "WorkshopHouse2Loot":
+                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
+                    break;
+                case "WorkshopHouse3Loot":
+                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
+                    break;
+                case "WorkshopHouse4Loot":
+                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
+                    break;
+                default:
+                    DivineRPG.logger.warn("Unexpected data marker: " + entry.getValue() + " in a structure, please report this.");
+                    break;
             }
 
-
-        });
+            if(world.getBlockState(pos).getBlock() == Blocks.STRUCTURE_BLOCK) {
+                world.setBlockToAir(pos);
+            }
+        }
     }
 
     @Override

@@ -3,6 +3,7 @@ package divinerpg.structure.vethea.raglokchamber;
 import divinerpg.DivineRPG;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -28,7 +29,7 @@ public class RaglokChamberComponent extends DivineStructureComponentTemplate {
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
         switch (function) {
             case "RaglokChamberLoot":
-                populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.RAGLOK_CHAMBER_LOOT);
+                WorldGenUtils.populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.RAGLOK_CHAMBER_LOOT);
                 break;
             default:
                 DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");

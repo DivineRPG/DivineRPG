@@ -34,7 +34,6 @@ public class EdenChunkGenerator extends IslandChunkGeneratorBase {
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.edenGrass) {
                 StructureRegistry.SUNSTORM_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
-                System.out.println("Eden structure generated at: " + x + " " + y + " " + z);
             }
         }
 

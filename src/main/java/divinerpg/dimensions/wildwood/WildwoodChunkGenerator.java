@@ -36,7 +36,6 @@ public class WildwoodChunkGenerator extends IslandChunkGeneratorBase {
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.wildwoodGrass) {
                 StructureRegistry.TERMASECT_NEST.generate(world, this.rand, new BlockPos(x, y, z));
-                System.out.println("Wildwood structure generated at: " + x + " " + y + " " + z);
             }
         }
 
