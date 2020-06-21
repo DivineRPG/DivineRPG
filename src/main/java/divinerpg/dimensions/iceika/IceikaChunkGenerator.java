@@ -26,7 +26,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 
-public class ChunkProviderIceika implements IChunkGenerator
+public class IceikaChunkGenerator implements IChunkGenerator
 {
 
     private final World world;
@@ -39,7 +39,7 @@ public class ChunkProviderIceika implements IChunkGenerator
     private ArcherDungeon archerDungeonGenerator;
     private RollumDungeon rollumDungeonGenerator;
 
-	public ChunkProviderIceika(World world, long seed)
+	public IceikaChunkGenerator(World world, long seed)
 	{
         this.world = world;
         this.rand = new Random((seed + 516) * 314);

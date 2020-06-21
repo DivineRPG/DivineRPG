@@ -37,7 +37,7 @@ public class WorldProviderIceika extends WorldProvider {
 
     @Override
     public IChunkGenerator createChunkGenerator() {
-        return new ChunkProviderIceika(this.world, this.world.getSeed() + this.getDimension());
+        return new IceikaChunkGenerator(this.world, this.world.getSeed() + this.getDimension());
     }
 
     @Nullable
