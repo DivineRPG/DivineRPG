@@ -7,6 +7,7 @@ import divinerpg.registry.LootTableRegistry;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -21,8 +22,8 @@ public class HungerHouseComponent extends DivineStructureComponentTemplate {
         this.placeSettings = new PlacementSettings();
     }
 
-    public HungerHouseComponent(TemplateManager manager, ResourceLocation location, BlockPos start) {
-        super(manager, location, start, new PlacementSettings());
+    public HungerHouseComponent(TemplateManager manager, ResourceLocation location, Rotation rotation, BlockPos start) {
+        super(manager, location, start, new PlacementSettings().setRotation(rotation));
     }
 
     @Override

@@ -5,9 +5,11 @@ import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.structure.base.DivineStructureComponentTemplate;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import java.util.Random;
@@ -18,8 +20,8 @@ public class ArcherDungeonComponent extends DivineStructureComponentTemplate {
 
     }
 
-    public ArcherDungeonComponent(TemplateManager templateManager, ResourceLocation location, BlockPos pos) {
-        super(templateManager, location, pos);
+    public ArcherDungeonComponent(TemplateManager templateManager, ResourceLocation location, Rotation rotation, BlockPos pos) {
+        super(templateManager, location, pos, new PlacementSettings().setRotation(rotation));
     }
 
     @Override

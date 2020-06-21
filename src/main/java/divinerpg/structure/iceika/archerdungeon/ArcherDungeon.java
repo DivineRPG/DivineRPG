@@ -3,7 +3,9 @@ package divinerpg.structure.iceika.archerdungeon;
 import divinerpg.DivineRPG;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.structure.vethea.crypt1.Crypt1Start;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureStart;
 
@@ -14,12 +16,9 @@ public class ArcherDungeon extends DivineLargeStructure {
 
     @Override
     protected StructureStart getStructureStart(int x, int z) {
-        this.rand.setSeed(this.world.getSeed());
-        long k = this.rand.nextLong() / 2L * 2L + 1L;
-        long l = this.rand.nextLong() / 2L * 2L + 1L;
-        this.rand.setSeed((long)x * k + (long)z * l ^ this.world.getSeed());
+        WorldGenUtils.seedRandomWithWorldAndChunks(this.rand, this.world, x, z);
+        Rotation rotation = WorldGenUtils.getRandomRotation(this.rand);
         int offset = this.rand.nextInt(30);
-
-        return new ArcherDungeonStart(folder, manager, offset, x, z);
+        return new ArcherDungeonStart(folder, manager, rotation, offset, x, z);
     }
 }

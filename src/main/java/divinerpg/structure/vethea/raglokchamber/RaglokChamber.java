@@ -3,7 +3,9 @@ package divinerpg.structure.vethea.raglokchamber;
 import divinerpg.DivineRPG;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.base.DivineLargeStructure;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureStart;
 
@@ -14,7 +16,9 @@ public class RaglokChamber extends DivineFixedAltitudeStructure {
     }
 
     @Override
-    protected StructureStart getStructureStart(int x, int z) {
-        return new RaglokChamberStart(folder, manager, x, spawnAltitude, z);
+    protected StructureStart getStructureStart(int chunkX, int chunkZ) {
+        WorldGenUtils.seedRandomWithWorldAndChunks(this.rand, this.world, chunkX, chunkZ);
+        Rotation rotation = WorldGenUtils.getRandomRotation(this.rand);
+        return new RaglokChamberStart(folder, manager, rotation, chunkX, spawnAltitude, chunkZ);
     }
 }

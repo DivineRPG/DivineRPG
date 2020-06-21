@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -21,6 +22,8 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 
 public abstract class DivineStructureComponentTemplate extends StructureComponentTemplate {
@@ -43,7 +46,15 @@ public abstract class DivineStructureComponentTemplate extends StructureComponen
         super(0);
         this.location = location;
         Template template = manager.getTemplate(null, location);
+
         this.setup(template, start, settings);
+    }
+
+    @Override
+    public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
+        //Rotation[] rotations = Rotation.values();
+        //this.placeSettings.setRotation(rotations[randomIn.nextInt(rotations.length)]);
+        return super.addComponentParts(worldIn, randomIn, structureBoundingBoxIn);
     }
 
     @Override
