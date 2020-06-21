@@ -40,9 +40,9 @@ public abstract class DivineStructureStart extends StructureStart {
      * @param y        - height of structure
      * @param chunkZ   - chunk Z cord
      */
-    public DivineStructureStart(ResourceLocation location, TemplateManager manager, int chunkX, int y, int chunkZ, int structureSizeX, int structureSizeZ) {
+    public DivineStructureStart(ResourceLocation location, TemplateManager manager, int chunkX, int altitude, int chunkZ, int structureSizeX, int structureSizeZ) {
         super(chunkX, chunkZ);
-        this.setupComponents(location, manager, chunkX, y, chunkZ, structureSizeX, structureSizeZ);
+        this.setupComponents(location, manager, chunkX, altitude, chunkZ, structureSizeX, structureSizeZ);
         this.updateBoundingBox();
     }
 

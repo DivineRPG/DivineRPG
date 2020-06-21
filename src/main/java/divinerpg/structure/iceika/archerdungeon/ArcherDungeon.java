@@ -14,6 +14,12 @@ public class ArcherDungeon extends DivineLargeStructure {
 
     @Override
     protected StructureStart getStructureStart(int x, int z) {
-        return new ArcherDungeonStart(folder, manager, x, z);
+        this.rand.setSeed(this.world.getSeed());
+        long k = this.rand.nextLong() / 2L * 2L + 1L;
+        long l = this.rand.nextLong() / 2L * 2L + 1L;
+        this.rand.setSeed((long)x * k + (long)z * l ^ this.world.getSeed());
+        int offset = this.rand.nextInt(30);
+
+        return new ArcherDungeonStart(folder, manager, offset, x, z);
     }
 }
