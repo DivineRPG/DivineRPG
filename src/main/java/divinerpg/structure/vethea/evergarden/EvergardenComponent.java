@@ -26,6 +26,6 @@ public class EvergardenComponent extends DivineStructureComponentTemplate {
 
     @Override
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb) {
-        DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");
+        DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");
     }
 }

@@ -33,8 +33,9 @@ public class Crypt1Component extends DivineStructureComponentTemplate {
                 break;
             case "CryptKeeper":
                 spawnPersistentEntity(worldIn, pos, new EntityCryptKeeper(worldIn));
+                break;
             default:
-                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");
+                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");
                 break;
         }
     }

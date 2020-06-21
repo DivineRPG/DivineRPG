@@ -31,7 +31,7 @@ public class RaglokChamberComponent extends DivineStructureComponentTemplate {
                 populateLootChestBelow(worldIn, pos, rand, LootTableRegistry.RAGLOK_CHAMBER_LOOT);
                 break;
             default:
-                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");
+                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");
                 break;
         }
     }

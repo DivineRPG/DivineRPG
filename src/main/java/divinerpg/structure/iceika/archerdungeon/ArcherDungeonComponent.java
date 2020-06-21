@@ -31,7 +31,7 @@ public class ArcherDungeonComponent extends DivineStructureComponentTemplate {
                 spawnLootChestAtLocation(world, blockPos, random, BlockRegistry.frostedChest, LootTableRegistry.ICEIKA_CHEST_DUNGEON);
                 break;
             default:
-                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure, please report this.");
+                DivineRPG.logger.warn("Unexpected data marker: " + function + " in a structure with class name " + this.getClass().toString() + ", please report this.");
                 break;
         }
     }
