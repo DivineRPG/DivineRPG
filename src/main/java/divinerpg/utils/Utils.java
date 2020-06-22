@@ -38,6 +38,7 @@ public class Utils {
     private static Set<UUID> TESTER_LIST = new ConcurrentSet<>();
     private static Set<UUID> PATRON_LIST = new ConcurrentSet<>();
     private static Set<UUID> ARTIST_LIST = new ConcurrentSet<>();
+    private static Set<UUID> FRIEND_LIST = new ConcurrentSet<>();
 
     public static boolean isDeveloperName(UUID name) {
         return DEV_LIST.contains(name);
@@ -53,6 +54,10 @@ public class Utils {
 
     public static boolean isArtist(UUID name) {
         return ARTIST_LIST.contains(name);
+    }
+    
+    public static boolean isFriend(UUID name) {
+        return FRIEND_LIST.contains(name);
     }
 
     /**
@@ -82,6 +87,7 @@ public class Utils {
             TESTER_LIST.clear();
             PATRON_LIST.clear();
             ARTIST_LIST.clear();
+            FRIEND_LIST.clear();
 
             if (rawJson != null) {
                 try {
@@ -92,6 +98,7 @@ public class Utils {
                         TESTER_LIST.addAll(info.tester);
                         PATRON_LIST.addAll(info.patreon);
                         ARTIST_LIST.addAll(info.artists);
+                        FRIEND_LIST.addAll(info.friend);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -211,5 +218,6 @@ public class Utils {
         public List<UUID> tester;
         public List<UUID> patreon;
         public List<UUID> artists;
+        public List<UUID> friend;
     }
 }

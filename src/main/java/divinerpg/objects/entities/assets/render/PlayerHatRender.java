@@ -20,6 +20,7 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
     private ResourceLocation tester = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_blue.png");
     private ResourceLocation artist = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_purple.png");
     private ResourceLocation patreon = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png");
+    private ResourceLocation friend = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_pink.png");
 
     public PlayerHatRender(RenderPlayer renderManager) {
         this.renderManager = renderManager;
@@ -64,9 +65,13 @@ public class PlayerHatRender implements LayerRenderer<EntityPlayer> {
             if (Utils.isTesterName(id)) {
                 return tester;
             }
-            
+
             if (Utils.isArtist(id)) {
                 return artist;
+            }
+            
+            if (Utils.isFriend(id)) {
+                return friend;
             }
         }
 
