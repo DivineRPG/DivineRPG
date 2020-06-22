@@ -186,9 +186,6 @@ public class IceikaChunkGenerator implements IChunkGenerator
 		biome.decorate(this.world, this.rand, pos);
 		WorldEntitySpawner.performWorldGenSpawning(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
 
-		//Old code starts here, will probably need tweaking and rearranging
-
-		/*
 		boolean flag = false;
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
@@ -225,7 +222,7 @@ public class IceikaChunkGenerator implements IChunkGenerator
 					}
 				}
 			}
-		}*/
+		}
 	}
 
 }
