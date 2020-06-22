@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
+import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -85,6 +86,9 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
             switch(entry.getValue()) {
                 case "LivestockMerchant":
                     WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLivestockMerchant(world));
+                    break;
+                case "TheHunger":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityTheHunger(world));
                     break;
                 case "WorkshopMerchant":
                     WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWorkshopMerchant(world));

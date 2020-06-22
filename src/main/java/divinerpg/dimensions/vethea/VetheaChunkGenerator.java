@@ -2,13 +2,11 @@ package divinerpg.dimensions.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import divinerpg.structure.vethea.crypt1.Crypt1;
 import divinerpg.structure.vethea.crypt2.Crypt2;
 import divinerpg.structure.vethea.evergarden.Evergarden;
 import divinerpg.structure.vethea.hive.Hive;
-import divinerpg.structure.vethea.hungerhouse.HungerHouse1;
-import divinerpg.structure.vethea.hungerhouse.HungerHouse2;
-import divinerpg.structure.vethea.hungerhouse.HungerHouse3;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouse;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPost;
 import divinerpg.structure.vethea.raglokchamber.RaglokChamber;
@@ -21,6 +19,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -40,9 +39,11 @@ public class VetheaChunkGenerator implements IChunkGenerator {
     private World world;
     private int floorHeight = 48;
     private int roofHeight = 16;
+    protected Random rand;
 
     public VetheaChunkGenerator(World world) {
         this.world = world;
+        this.rand = new Random();
 
         for (int i = 0; i < 4; i++) {
             VetheaLevelGenerators level = new VetheaLevelGenerators(floorHeight * i, roofHeight);
@@ -52,7 +53,6 @@ public class VetheaChunkGenerator implements IChunkGenerator {
     }
 
     private void customize(VetheaLevelGenerators level, int position) {
-
         //
         // Crystal lakes
         //
@@ -126,10 +126,6 @@ public class VetheaChunkGenerator implements IChunkGenerator {
 
                 level.addStructure(new Crypt1(world, 10));
                 level.addStructure(new Crypt2(world, 12));
-
-                level.addStructure(new HungerHouse1(world, 18, 24));
-                level.addStructure(new HungerHouse2(world, 18, 22));
-                level.addStructure(new HungerHouse3(world, 18, 24));
 
                 for (int i = 4; i <= 6; i++) {
                     level.addWorldGen(new WorldGenEnhanced(
@@ -210,13 +206,28 @@ public class VetheaChunkGenerator implements IChunkGenerator {
         Random random = world.setRandomSeed(chunkX, chunkZ, 10387313);
         levels.forEach(level -> level.populate(world, random, chunkX, chunkZ));
 
-        // Decorator code
-        int x = chunkX * 16 + 1;
-        int z = chunkZ * 16 + 1;
-        BlockPos pos = new BlockPos(x, 0, z);
-        Biome biome = this.world.getBiome(pos);
-        biome.decorate(this.world, random, pos);
+        this.rand.setSeed(this.world.getSeed());
+        long k = this.rand.nextLong() / 2L * 2L + 1L;
+        long l = this.rand.nextLong() / 2L * 2L + 1L;
+        this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
 
+        int baseX = chunkX * 16 + 1;
+        int baseZ = chunkZ * 16 + 1;
+        BlockPos pos = new BlockPos(baseX, 0, baseZ);
+        Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
+
+        if(this.rand.nextInt(100) == 0) {
+            int x = baseX + this.rand.nextInt(16);
+            int z = baseZ + this.rand.nextInt(16);
+            int y = 20 + this.rand.nextInt(8);
+
+            int houseNumber = this.rand.nextInt(StructureRegistry.HUNGER_HOUSES.length);
+            StructureRegistry.HUNGER_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y, z));
+        }
+
+        this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
+        biome.decorate(this.world, this.rand, pos);
+        WorldEntitySpawner.performWorldGenSpawning(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
     }
 
     @Override

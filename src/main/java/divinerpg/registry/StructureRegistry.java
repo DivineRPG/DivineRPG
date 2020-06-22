@@ -14,8 +14,6 @@ import divinerpg.structure.vethea.evergarden.EvergardenComponent;
 import divinerpg.structure.vethea.evergarden.EvergardenStart;
 import divinerpg.structure.vethea.hive.HiveComponent;
 import divinerpg.structure.vethea.hive.HiveStart;
-import divinerpg.structure.vethea.hungerhouse.HungerHouseComponent;
-import divinerpg.structure.vethea.hungerhouse.HungerHouseStart;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseComponent;
 import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseStart;
 import divinerpg.structure.vethea.quadroticpost.QuadroticPostComponent;
@@ -51,16 +49,19 @@ public class StructureRegistry {
     public static final DRPGStructureHandler WORKSHOP_HOUSE_4 = new DRPGStructureHandler("iceika/houses/workshop_house_4");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_5 = new DRPGStructureHandler("iceika/houses/workshop_house_5");
     public static final DRPGStructureHandler WORKSHOP_HOUSE_6 = new DRPGStructureHandler("iceika/houses/workshop_house_6");
-    //public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("iceika/workshop_library"); //Leave out for now because it's big
+    //public static final DRPGStructureHandler WORKSHOP_LIBRARY = new DRPGStructureHandler("iceika/workshop_library"); //Left out for now because it's too big
     public static final DRPGStructureHandler[] WORKSHOP_HOUSES = {WORKSHOP_HOUSE_1, WORKSHOP_HOUSE_2, WORKSHOP_HOUSE_3, WORKSHOP_HOUSE_4, WORKSHOP_HOUSE_5, WORKSHOP_HOUSE_6};
+
+    public static final DRPGStructureHandler HUNGER_HOUSE_1 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_1");
+    public static final DRPGStructureHandler HUNGER_HOUSE_2 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_2");
+    public static final DRPGStructureHandler HUNGER_HOUSE_3 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_3");
+    public static final DRPGStructureHandler[] HUNGER_HOUSES = {HUNGER_HOUSE_1, HUNGER_HOUSE_2, HUNGER_HOUSE_3};
 
     public static void registerLargeStructures() {
         MapGenStructureIO.registerStructure(Crypt1Start.class, "DRPGCrypt1");
         MapGenStructureIO.registerStructureComponent(Crypt1Component.class, "DRPGCrypt1Component");
         MapGenStructureIO.registerStructure(Crypt2Start.class, "DRPGCrypt2");
         MapGenStructureIO.registerStructureComponent(Crypt2Component.class, "DRPGCrypt2Component");
-        MapGenStructureIO.registerStructure(HungerHouseStart.class, "DRPGHungerHouse");
-        MapGenStructureIO.registerStructureComponent(HungerHouseComponent.class, "DRPGHungerHouseComponent");
         MapGenStructureIO.registerStructure(Temple1Start.class, "DRPGTemple1");
         MapGenStructureIO.registerStructureComponent(Temple1Component.class, "DRPGTemple1Component");
         MapGenStructureIO.registerStructure(Temple2Start.class, "DRPGTemple2");
