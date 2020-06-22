@@ -188,11 +188,11 @@ public class IceikaChunkGenerator implements IChunkGenerator
 
 		boolean flag = false;
 
-		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
+		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, chunkX, chunkZ, flag);
 
 		//Create lakes
 		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && !flag)
-			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
+			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 			{
 				int i1 = this.rand.nextInt(16) + 8;
 				int j1 = this.rand.nextInt(256);
@@ -202,7 +202,7 @@ public class IceikaChunkGenerator implements IChunkGenerator
 		pos = pos.add(8, 0, 8);
 
 		//Create snow and freeze top of water areas
-		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
+		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, chunkX, chunkZ, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
 		{
 			for (int k2 = 0; k2 < 16; ++k2)
 			{
