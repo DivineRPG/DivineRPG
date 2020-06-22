@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.hive;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.utils.WorldGenUtils;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Hive extends DivineFixedAltitudeStructure {
 
-    public Hive(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "Hive", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/hive"), chunkDistance, spawnAltitude);
+    public Hive(World world, int spawnAltitude) {
+        super(world, "Hive", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/hive"), StructureRarities.HIVE_RARITY, spawnAltitude);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package divinerpg.structure.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,16 +16,28 @@ public abstract class DivineLargeStructure extends MapGenStructure {
     protected final String structureName;
     protected final TemplateManager manager;
     protected final ResourceLocation folder;
+    protected final int generationChance;
 
-    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int chunkDistance) {
+    public DivineLargeStructure(World world, String structureName, ResourceLocation folder, int chance) {
         this.structureName = structureName;
         this.folder = folder;
         this.manager = world.getSaveHandler().getStructureTemplateManager();
+        this.generationChance = chance;
     }
 
     @Override
     public String getStructureName() {
         return structureName;
+    }
+
+    @Override
+    protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+        WorldGenUtils.seedRandomWithOffset(this.rand, this.getResourceLocationHashCode(), this.world, chunkX, chunkZ);
+        return this.rand.nextInt(this.generationChance) == 0;
+    }
+
+    protected int getResourceLocationHashCode() {
+        return this.folder.hashCode();
     }
 
     //Copied from mineshaft class. Cryptic code is fun
@@ -54,6 +67,4 @@ public abstract class DivineLargeStructure extends MapGenStructure {
 
         return null;
     }
-
-
 }

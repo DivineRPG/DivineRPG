@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.karosmadhouse;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.utils.WorldGenUtils;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class KarosMadhouse extends DivineFixedAltitudeStructure {
 
-    public KarosMadhouse(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "KarosMadhouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/karosmadhouse"), chunkDistance, spawnAltitude);
+    public KarosMadhouse(World world, int spawnAltitude) {
+        super(world, "KarosMadhouse", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/karosmadhouse"), StructureRarities.KAROS_MADHOUSE_RARITY, spawnAltitude);
     }
 
     @Override

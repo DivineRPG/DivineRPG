@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.evergarden;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
@@ -10,8 +11,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Evergarden extends DivineFixedAltitudeStructure {
 
-    public Evergarden(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "Evergarden", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/evergarden"), chunkDistance, spawnAltitude);
+    public Evergarden(World world, int spawnAltitude) {
+        super(world, "Evergarden", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/evergarden"), StructureRarities.EVERGARDEN_RARITY, spawnAltitude);
     }
 
     @Override

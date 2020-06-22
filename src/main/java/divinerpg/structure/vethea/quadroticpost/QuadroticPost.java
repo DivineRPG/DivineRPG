@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.quadroticpost;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.utils.WorldGenUtils;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class QuadroticPost extends DivineFixedAltitudeStructure {
 
-    public QuadroticPost(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "QuadroticPost", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/quadroticpost"), chunkDistance, spawnAltitude);
+    public QuadroticPost(World world, int spawnAltitude) {
+        super(world, "QuadroticPost", new ResourceLocation(DivineRPG.MODID, "vethea/layer3/quadroticpost"), StructureRarities.QUADROTIC_POST_RARITY, spawnAltitude);
     }
 
     @Override

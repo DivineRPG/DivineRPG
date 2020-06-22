@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.raglokchamber;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.utils.WorldGenUtils;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class RaglokChamber extends DivineFixedAltitudeStructure {
 
-    public RaglokChamber(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "RaglokChamber", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/raglokchamber"), chunkDistance, spawnAltitude);
+    public RaglokChamber(World world, int spawnAltitude) {
+        super(world, "RaglokChamber", new ResourceLocation(DivineRPG.MODID, "vethea/layer4/raglokchamber"), StructureRarities.RAGLOK_CHAMBER_RARITY, spawnAltitude);
     }
 
     @Override

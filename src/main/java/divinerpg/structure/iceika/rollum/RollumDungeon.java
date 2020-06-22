@@ -1,6 +1,7 @@
 package divinerpg.structure.iceika.rollum;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineLargeStructure;
 import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
@@ -10,13 +11,7 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class RollumDungeon extends DivineLargeStructure {
     public RollumDungeon(World world) {
-        super(world, "RollumDungeon", new ResourceLocation(DivineRPG.MODID, "iceika/dungeons/rollum"), 500000);
-    }
-
-    @Override
-    protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-        WorldGenUtils.seedRandomWithOffset(this.rand, WorldGenUtils.ROLLUM_DUNGEON_OFFSET, this.world, chunkX, chunkZ);
-        return this.rand.nextInt(110) == 0;
+        super(world, "RollumDungeon", new ResourceLocation(DivineRPG.MODID, "iceika/dungeons/rollum"), StructureRarities.ROLLUM_DUNGEON_RARITY);
     }
 
     @Override

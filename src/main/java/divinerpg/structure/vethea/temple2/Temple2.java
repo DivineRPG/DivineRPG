@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.temple2;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.utils.WorldGenUtils;
 import net.minecraft.util.ResourceLocation;
@@ -10,8 +11,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Temple2 extends DivineFixedAltitudeStructure {
 
-    public Temple2(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "Temple2", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/temple2"), chunkDistance, spawnAltitude);
+    public Temple2(World world, int spawnAltitude) {
+        super(world, "Temple2", new ResourceLocation(DivineRPG.MODID, "vethea/layer2/temple2"), StructureRarities.TEMPLE_2_RARITY, spawnAltitude);
     }
 
     @Override

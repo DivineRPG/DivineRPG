@@ -1,6 +1,7 @@
 package divinerpg.structure.vethea.crypt2;
 
 import divinerpg.DivineRPG;
+import divinerpg.structure.StructureRarities;
 import divinerpg.structure.base.DivineFixedAltitudeStructure;
 import divinerpg.structure.vethea.evergarden.EvergardenStart;
 import divinerpg.utils.WorldGenUtils;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 public class Crypt2 extends DivineFixedAltitudeStructure {
 
-    public Crypt2(World world, int chunkDistance, int spawnAltitude) {
-        super(world, "Crypt2", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/Crypt2"), chunkDistance, spawnAltitude);
+    public Crypt2(World world, int spawnAltitude) {
+        super(world, "Crypt2", new ResourceLocation(DivineRPG.MODID, "vethea/layer1/Crypt2"), StructureRarities.CRYPT_2_RARITY, spawnAltitude);
     }
 
     @Override
