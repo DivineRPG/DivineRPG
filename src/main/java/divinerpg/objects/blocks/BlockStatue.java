@@ -9,12 +9,10 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -24,10 +22,12 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public StatueType statueType;
 
-    public BlockStatue(String name, StatueType statueType) {
+    private SoundEvent statueSound;
+    public BlockStatue(String name, StatueType statueType, SoundEvent soundIn) {
         super(name, 6.0F, Material.ROCK);
         this.statueType = statueType;
         this.hasTileEntity = true;
+        this.statueSound = soundIn;
         setHarvestLevel("pickaxe", 0);
     }
 
@@ -117,6 +117,17 @@ public class BlockStatue extends BlockMod implements ITileEntityProvider {
 
             worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
         }
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+                                    EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (!player.isSneaking()) {
+            if (this.statueSound != null) {
+                world.playSound(null, pos, this.statueSound, SoundCategory.BLOCKS, 20.0F, 1.0F);
+            }
+        }
+        return true;
     }
 
     @Override

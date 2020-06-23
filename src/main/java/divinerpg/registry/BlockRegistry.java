@@ -1265,29 +1265,26 @@ public class BlockRegistry {
         register(registry, new BlockWhiteMushroomPlant());
 
         // Boss statues
-        register(registry, new BlockStatue("ancient_entity_statue", StatueType.ANCIENT_ENTITY_STATUE));
-
-        register(registry, new BlockStatue("ayeraco_statue_blue", StatueType.BLUE_AYERACO_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue_red", StatueType.RED_AYERACO_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue_yellow", StatueType.YELLOW_AYERACO_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue_green", StatueType.GREEN_AYERACO_STATUE));
-        register(registry, new BlockStatue("ayeraco_statue_purple", StatueType.PURPLE_AYERACO_STATUE));
-
-        register(registry, new BlockStatue("densos_statue", StatueType.DENSOS_STATUE));
-        register(registry, new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE));
-        register(registry, new BlockStatue("eternal_archer_statue", StatueType.ETERNAL_ARCHER_STATUE));
-        register(registry, new BlockStatue("karot_statue", StatueType.KAROT_STATUE));
-        register(registry, new BlockStatue("king_of_scorchers_statue", StatueType.KING_OF_SCORCHERS_STATUE));
-        register(registry, new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE));
-        register(registry, new BlockStatue("reyvor_statue", StatueType.REYVOR_STATUE));
-        register(registry, new BlockStatue("soul_fiend_statue", StatueType.SOUL_FIEND_STATUE));
-        register(registry, new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE));
-        register(registry, new BlockStatue("twilight_demon_statue", StatueType.TWILIGHT_DEMON_STATUE));
-        register(registry, new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE));
-
-        register(registry, new BlockStatue("termasect_statue", StatueType.TERMASECT_STATUE));
-        register(registry, new BlockStatue("sunstorm_statue", StatueType.SUNSTORM_STATUE));
-        register(registry, new BlockStatue("experienced_cori_statue", StatueType.EXPERIENCED_CORI_STATUE));
+        register(registry, new BlockStatue("ancient_entity_statue", StatueType.ANCIENT_ENTITY_STATUE, SoundEvents.ENTITY_IRONGOLEM_DEATH));
+        register(registry, new BlockStatue("ayeraco_statue_blue", StatueType.BLUE_AYERACO_STATUE, SoundRegistry.AYERACO));
+        register(registry, new BlockStatue("ayeraco_statue_red", StatueType.RED_AYERACO_STATUE, SoundRegistry.AYERACO));
+        register(registry, new BlockStatue("ayeraco_statue_yellow", StatueType.YELLOW_AYERACO_STATUE, SoundRegistry.AYERACO));
+        register(registry, new BlockStatue("ayeraco_statue_green", StatueType.GREEN_AYERACO_STATUE, SoundRegistry.AYERACO));
+        register(registry, new BlockStatue("ayeraco_statue_purple", StatueType.PURPLE_AYERACO_STATUE, SoundRegistry.AYERACO));
+        register(registry, new BlockStatue("densos_statue", StatueType.DENSOS_STATUE, SoundRegistry.DENSOS));
+        register(registry, new BlockStatue("dramix_statue", StatueType.DRAMIX_STATUE, SoundRegistry.DRAMIX));
+        register(registry, new BlockStatue("eternal_archer_statue", StatueType.ETERNAL_ARCHER_STATUE, SoundRegistry.ARCHER));
+        register(registry, new BlockStatue("karot_statue", StatueType.KAROT_STATUE, null));
+        register(registry, new BlockStatue("king_of_scorchers_statue", StatueType.KING_OF_SCORCHERS_STATUE, SoundRegistry.KING_OF_SCORCHERS));
+        register(registry, new BlockStatue("parasecta_statue", StatueType.PARASECTA_STATUE, SoundRegistry.PARASECTA));
+        register(registry, new BlockStatue("reyvor_statue", StatueType.REYVOR_STATUE, SoundRegistry.REYVOR));
+        register(registry, new BlockStatue("soul_fiend_statue", StatueType.SOUL_FIEND_STATUE, null));
+        register(registry, new BlockStatue("the_watcher_statue", StatueType.THE_WATCHER_STATUE, SoundRegistry.ROAR));
+        register(registry, new BlockStatue("twilight_demon_statue", StatueType.TWILIGHT_DEMON_STATUE, SoundRegistry.INSECT));
+        register(registry, new BlockStatue("vamacheron_statue", StatueType.VAMACHERON_STATUE, null));
+        register(registry, new BlockStatue("termasect_statue", StatueType.TERMASECT_STATUE, SoundEvents.BLOCK_WOOD_STEP));
+        register(registry, new BlockStatue("sunstorm_statue", StatueType.SUNSTORM_STATUE, SoundRegistry.SPARKLER));
+        register(registry, new BlockStatue("experienced_cori_statue", StatueType.EXPERIENCED_CORI_STATUE, SoundRegistry.CORI));
 
         // Ayeraco technical blocks
         registerItemlessBlock(registry, new BlockAyeracoBeam("ayeraco_beam_blue", "blue"));
