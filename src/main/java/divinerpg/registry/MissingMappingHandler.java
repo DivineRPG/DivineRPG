@@ -18,7 +18,7 @@ public class MissingMappingHandler {
 
     @SubscribeEvent
     public static void handleMissingBlocks(MissingMappings<Block> event) {
-        for(MissingMappings.Mapping<Block> mapping: event.getAllMappings()) {
+        for(MissingMappings.Mapping<Block> mapping: event.getMappings()) {
             if(mapping.key.equals(new ResourceLocation("divinerpg:karos_cannon"))) {
                 mapping.remap(BlockRegistry.karosDispenser);
             }
@@ -31,7 +31,7 @@ public class MissingMappingHandler {
 
     @SubscribeEvent
     public static void handleMissingItems(MissingMappings<Item> event) {
-         for(MissingMappings.Mapping<Item> mapping: event.getAllMappings()) {
+         for(MissingMappings.Mapping<Item> mapping: event.getMappings()) {
              if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
                  mapping.remap(Item.getItemFromBlock(BlockRegistry.ayeracoBlueStatue));
              }
@@ -49,7 +49,7 @@ public class MissingMappingHandler {
 
     @SubscribeEvent
     public static void handleMissingBiomes(MissingMappings<Biome> event) {
-        for(MissingMappings.Mapping<Biome> mapping: event.getAllMappings()) {
+        for(MissingMappings.Mapping<Biome> mapping: event.getMappings()) {
             if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "arksiane"))) {
                 mapping.remap(BiomeRegistry.biomeVethea);
             }
@@ -58,7 +58,7 @@ public class MissingMappingHandler {
 
     @SubscribeEvent
     public static void handleMissingEnchantments(MissingMappings<Enchantment> event) {
-        for(MissingMappings.Mapping<Enchantment> mapping: event.getAllMappings()) {
+        for(MissingMappings.Mapping<Enchantment> mapping: event.getMappings()) {
             if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "world_break"))) {
                 mapping.remap(EnchantmentRegistry.RIVE);
             }
