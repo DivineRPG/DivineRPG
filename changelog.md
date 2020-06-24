@@ -1,3 +1,18 @@
+# DivineRPG 1.6.4.1 changelog:
+
+## Additions
+- Statue sounds on right click (Locomen)
+
+## Changes
+- Resprites (Zachtoplasm)
+
+## Fixes
+- Rewrites to world generation (AstralScourge)
+
+## Misc
+- Just Enough resources support (NicosaurusRex99)
+
+
 # DivineRPG 1.6.4 changelog:
 
 ## Changes:
