@@ -27,8 +27,10 @@ minecraft {
 }
 
 repositories {
-    maven { url = "https://minecraft.curseforge.com/api/maven/" }
+    maven { url = "https://minecraft.curseforge.com/api/maven/"}
 	maven { url = "http://dvs1.progwml6.com/files/maven"}
+	maven { url = "https://modmaven.k-4u.nl"}
+    maven { url uri('localmaven')}
 	}
 
 dependencies {
@@ -36,8 +38,8 @@ dependencies {
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
-    // at runtime, use the full JEI jar
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    deobfCompile "just-enough-resources-jer:JustEnoughResources:1.12.2:0.8.5.27"
 
     compile fileTree([dir: 'libs', include: '*.jar'])
 }

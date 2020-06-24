@@ -4,6 +4,7 @@
 package divinerpg;
 
 import divinerpg.api.armor.registry.IArmorDescription;
+import divinerpg.compat.JERCompat;
 import divinerpg.config.GeneralConfig;
 import divinerpg.events.ArcanaTickHandler;
 import divinerpg.events.DimensionHelper;
@@ -79,6 +80,10 @@ public class DivineRPG {
         TriggerRegistry.registerTriggers();
         SmeltingRecipeRegistry.registerSmeltingRecipes();
         MinecraftForge.EVENT_BUS.register(new GeneralConfig());
+        
+        if (Loader.isModLoaded("jeresources")) {
+            JERCompat.onInit(e);;
+        }
     }
 
     @Mod.EventHandler
