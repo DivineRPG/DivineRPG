@@ -4,8 +4,6 @@ import divinerpg.structure.iceika.archerdungeon.ArcherDungeonComponent;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeonStart;
 import divinerpg.structure.iceika.rollum.RollumDungeonComponent;
 import divinerpg.structure.iceika.rollum.RollumDungeonStart;
-import divinerpg.structure.legacy.DivineLegacyStructureStart;
-import divinerpg.structure.legacy.DivineStructureComponent;
 import divinerpg.structure.vethea.crypt1.Crypt1Component;
 import divinerpg.structure.vethea.crypt1.Crypt1Start;
 import divinerpg.structure.vethea.crypt2.Crypt2Component;
@@ -28,9 +26,6 @@ import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
 import divinerpg.structure.vethea.wreckhall.WreckHallStart;
 import divinerpg.utils.DRPGStructureHandler;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class StructureRegistry {
     public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
@@ -82,9 +77,6 @@ public class StructureRegistry {
         MapGenStructureIO.registerStructureComponent(ArcherDungeonComponent.class, "DRPGFrostArcherDungeonComponent");
         MapGenStructureIO.registerStructure(RollumDungeonStart.class, "DRPGRollumDungeon");
         MapGenStructureIO.registerStructureComponent(RollumDungeonComponent.class, "DRPGRollumDungeonComponent");
-
-        MapGenStructureIO.registerStructure(DivineLegacyStructureStart.class, "DrpgLegacySS");
-        MapGenStructureIO.registerStructureComponent(DivineStructureComponent.class, "DrpgLegacyCmp");
     }
 
 
