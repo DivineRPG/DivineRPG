@@ -1,9 +1,6 @@
 package divinerpg.world.structures;
 
 import divinerpg.config.Config;
-import divinerpg.dimensions.iceika.structures.IceikaDungeon;
-import divinerpg.dimensions.iceika.structures.WorldGenHouse1;
-import divinerpg.dimensions.iceika.structures.WorldGenLibrary;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
 import divinerpg.registry.LootTableRegistry;
@@ -32,15 +29,8 @@ import java.util.stream.StreamSupport;
  * Created by LiteWolf101 on Jan /27/2019
  */
 public class WorldGenCustomStructures implements IWorldGenerator {
-    //vanilla
+
     public final DRPGStructureHandler HUT = new DRPGStructureHandler("overworld/livestock_merchant_hut");
-
-    //private WorldGenerator rollum = new IceikaDungeon(BlockRegistry.rollumSpawner);
-   // private WorldGenerator archerdungeon = new IceikaDungeon(BlockRegistry.frostArcherSpawner);
-
-    //private WorldGenLibrary library = new WorldGenLibrary();
-    //private WorldGenHouse1 house1 = new WorldGenHouse1();
-
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
