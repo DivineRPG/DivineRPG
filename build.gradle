@@ -39,7 +39,7 @@ dependencies {
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
-    deobfCompile "just-enough-resources-jer:JustEnoughResources:1.12.2:0.8.5.27"
+    deobfCompile "just-enough-resources-jer:JustEnoughResources:1.12.2:0.8.9.48"
 
     compile fileTree([dir: 'libs', include: '*.jar'])
 }
