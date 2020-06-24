@@ -35,9 +35,9 @@ public class IceikaChunkGenerator implements IChunkGenerator
 
 	private final MapGenBase caveGenerator;
     private IceikaTerrainGenerator terraingen = new IceikaTerrainGenerator();
-
+/*
     private ArcherDungeon archerDungeonGenerator;
-    private RollumDungeon rollumDungeonGenerator;
+    private RollumDungeon rollumDungeonGenerator;*/
 
 	public IceikaChunkGenerator(World world, long seed)
 	{
@@ -46,8 +46,8 @@ public class IceikaChunkGenerator implements IChunkGenerator
         terraingen.setup(world, rand);
 		caveGenerator = new IceikaCaves();
 
-		this.archerDungeonGenerator = new ArcherDungeon(world);
-		this.rollumDungeonGenerator = new RollumDungeon(world);
+	//	this.archerDungeonGenerator = new ArcherDungeon(world);
+//		this.rollumDungeonGenerator = new RollumDungeon(world);
 	}
 
 
@@ -98,8 +98,11 @@ public class IceikaChunkGenerator implements IChunkGenerator
 		caveGenerator.generate(world, x, z, chunkprimer);
 
 		//Generate archer dungeon
+
+		/*
 		this.archerDungeonGenerator.generate(this.world, x, z, chunkprimer);
 		this.rollumDungeonGenerator.generate(this.world, x, z, chunkprimer);
+		*/
 
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] biomeArray = chunk.getBiomeArray();
@@ -158,6 +161,7 @@ public class IceikaChunkGenerator implements IChunkGenerator
 		Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
 		ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
+		/*
 		this.archerDungeonGenerator.generateStructure(this.world, this.rand, chunkpos);
 		this.rollumDungeonGenerator.generateStructure(this.world, this.rand, chunkpos);
 
@@ -180,12 +184,13 @@ public class IceikaChunkGenerator implements IChunkGenerator
 				int lampNumber = this.rand.nextInt(StructureRegistry.COALSTONE_LAMPS.length);
 				StructureRegistry.COALSTONE_LAMPS[lampNumber].generate(world, this.rand, new BlockPos(x, y - 1, z));
 			}
-		}
+		}*/
 
 		this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
 		biome.decorate(this.world, this.rand, pos);
 		WorldEntitySpawner.performWorldGenSpawning(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
 
+		/*
 		boolean flag = false;
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, chunkX, chunkZ, flag);
@@ -222,7 +227,7 @@ public class IceikaChunkGenerator implements IChunkGenerator
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 }
