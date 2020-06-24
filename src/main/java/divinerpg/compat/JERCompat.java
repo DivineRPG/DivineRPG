@@ -5,6 +5,7 @@ import java.lang.reflect.Constructor;
 import javax.annotation.Nullable;
 
 import divinerpg.config.Config;
+import divinerpg.objects.blocks.twilight.grass.BlockApalachiaGrass;
 import divinerpg.objects.entities.entity.apalachia.*;
 import divinerpg.objects.entities.entity.arcana.*;
 import divinerpg.objects.entities.entity.arcana.death.*;
@@ -24,11 +25,14 @@ import jeresources.api.*;
 import jeresources.api.distributions.DistributionSquare;
 import jeresources.api.drop.PlantDrop;
 import jeresources.api.restrictions.*;
+import jeresources.entry.PlantEntry;
+import jeresources.registry.PlantRegistry;
 import jeresources.util.LogHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 public class JERCompat {
@@ -233,10 +237,13 @@ public class JERCompat {
 		mobRegistry.register(new EntityWildwoodGolem(world), LootTableRegistry.ENTITIES_WILDWOOD_GOLEM);
 		mobRegistry.register(new EntityWildwoodTomo(world), LootTableRegistry.ENTITIES_WILDWOOD_TOMO);
 	}
-	
+
 	private static void initPlants() {
 		IPlantRegistry plantRegistry = jerAPI.getPlantRegistry();
-		//TODO - plants
+		plantRegistry.register(new ItemStack(ItemRegistry.moonbulbSeeds), new PlantDrop(new ItemStack(ItemRegistry.moonbulb), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.tomatoSeeds), new PlantDrop(new ItemStack(ItemRegistry.tomato), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.whiteMushroomSeeds), new PlantDrop(new ItemStack(ItemRegistry.whiteMushroom), 1, 1));
+		
 	}
 	
 	@Nullable
