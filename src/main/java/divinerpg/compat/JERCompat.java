@@ -16,6 +16,9 @@ import divinerpg.objects.entities.entity.iceika.*;
 import divinerpg.objects.entities.entity.mortum.*;
 import divinerpg.objects.entities.entity.nether.*;
 import divinerpg.objects.entities.entity.skythern.*;
+import divinerpg.objects.entities.entity.vanilla.*;
+import divinerpg.objects.entities.entity.vethea.*;
+import divinerpg.objects.entities.entity.wildwood.*;
 import divinerpg.registry.*;
 import jeresources.api.*;
 import jeresources.api.distributions.DistributionSquare;
@@ -32,7 +35,6 @@ public class JERCompat {
 	@JERPlugin
 	public static IJERAPI jerAPI;
 	
-	@SuppressWarnings("unchecked")
 	public static void onInit(FMLInitializationEvent event) {
 		World fakeWorld = jerAPI.getWorld();
 		initDungeonLoot();
@@ -154,7 +156,7 @@ public class JERCompat {
 		mobRegistry.register(new EntityTwilightArcher(world), LootTableRegistry.ENTITIES_TWILIGHT_ARCHER);
 		
 		//NETHER
-		mobRegistry.register(new EntityHellBat(world), LootTableRegistry.ENTITIES_HELL_BAT);
+//		mobRegistry.register(new EntityHellBat(world), LootTableRegistry.ENTITIES_HELL_BAT);
 		mobRegistry.register(new EntityHellPig(world), LootTableRegistry.ENTITIES_HELL_PIG);
 		mobRegistry.register(new EntityHellSpider(world), LootTableRegistry.ENTITIES_HELL_SPIDER);
 		mobRegistry.register(new EntityScorcher(world), LootTableRegistry.ENTITIES_SCORCHER);
@@ -170,10 +172,66 @@ public class JERCompat {
 		mobRegistry.register(new EntitySkythernGolem(world), LootTableRegistry.ENTITIES_SKYTHERN_GOLEM);
 		
 		//VANILLA
+		mobRegistry.register(new EntityAridWarrior(world), LootTableRegistry.ENTITIES_ARID_WARRIOR);
+		mobRegistry.register(new EntityCaveclops(world), LootTableRegistry.ENTITIES_CAVECLOPS);
+		mobRegistry.register(new EntityCaveCrawler(world), LootTableRegistry.ENTITIES_CAVE_CRAWLER);
+		mobRegistry.register(new EntityCrab(world), LootTableRegistry.ENTITIES_CRAB);
+		mobRegistry.register(new EntityCyclops(world), LootTableRegistry.ENTITIES_CYCLOPS);
+		mobRegistry.register(new EntityDesertCrawler(world), LootTableRegistry.ENTITIES_DESERT_CRAWLER);
+		mobRegistry.register(new EntityEnthralledDramcryx(world), LootTableRegistry.ENTITIES_ENTHRALLED_DRAMCRYX);
+		mobRegistry.register(new EntityFrost(world), LootTableRegistry.ENTITIES_FROST);
+		mobRegistry.register(new EntityGlacon(world), LootTableRegistry.ENTITIES_GLACON);
+		mobRegistry.register(new EntityJungleBat(world), LootTableRegistry.ENTITIES_JUNGLE_BAT);
+		mobRegistry.register(new EntityJungleDramcryx(world), LootTableRegistry.ENTITIES_JUNGLE_DRAMCRYX);
+		mobRegistry.register(new EntityJungleSpider(world), LootTableRegistry.ENTITIES_JUNGLE_SPIDER);
+		mobRegistry.register(new EntityKingCrab(world), LootTableRegistry.ENTITIES_KING_CRAB);
+		mobRegistry.register(new EntityKobblin(world), LootTableRegistry.ENTITIES_KOBBLIN);
+		mobRegistry.register(new EntityLiopleurodon(world), LootTableRegistry.ENTITIES_LIOPLEURODON);
+		mobRegistry.register(new EntityMiner(world), LootTableRegistry.ENTITIES_MINER);
+		mobRegistry.register(new EntityPumpkinSpider(world), LootTableRegistry.ENTITIES_PUMPKIN_SPIDER);
+		mobRegistry.register(new EntityRainbour(world), LootTableRegistry.ENTITIES_RAINBOUR);
+		mobRegistry.register(new EntityRotatick(world), LootTableRegistry.ENTITIES_ROTATICK);
+		mobRegistry.register(new EntitySaguaroWorm(world), LootTableRegistry.ENTITIES_SAGUARO_WORM);
+		mobRegistry.register(new EntityShark(world), LootTableRegistry.ENTITIES_SHARK);
+		mobRegistry.register(new EntityTheEye(world), LootTableRegistry.ENTITIES_THE_EYE);
+		mobRegistry.register(new EntityTheGrue(world), LootTableRegistry.ENTITIES_THE_GRUE);
+		mobRegistry.register(new EntityWhale(world), LootTableRegistry.ENTITIES_WHALE);
 		
 		//VETHEA
+		mobRegistry.register(new EntityAcidHag(world), LootTableRegistry.ENTITIES_ACID_HAG);
+		mobRegistry.register(new EntityBiphron(world), LootTableRegistry.ENTITIES_BIPHRON);
+		mobRegistry.register(new EntityBohemite(world), LootTableRegistry.ENTITIES_BOHEMITE);
+		mobRegistry.register(new EntityCymesoid(world), LootTableRegistry.ENTITIES_CYMESOID);
+		mobRegistry.register(new EntityDissiment(world), LootTableRegistry.ENTITIES_DISSIMENT);
+		mobRegistry.register(new EntityDreamwrecker(world), LootTableRegistry.ENTITIES_DREAMWRECKER);
+		mobRegistry.register(new EntityDuo(world), LootTableRegistry.ENTITIES_DUO);
+		mobRegistry.register(new EntityEnt(world), LootTableRegistry.ENTITIES_ENT);
+		mobRegistry.register(new EntityGalroid(world), LootTableRegistry.ENTITIES_GALROID);
+		mobRegistry.register(new EntityHelio(world), LootTableRegistry.ENTITIES_HELIO);
+		mobRegistry.register(new EntityHiveSoldier(world), LootTableRegistry.ENTITIES_HIVE_SOLDIER);
+		mobRegistry.register(new EntityHoverStinger(world), LootTableRegistry.ENTITIES_HOVER_STINGER);
+		mobRegistry.register(new EntityKazrotic(world), LootTableRegistry.ENTITIES_KAZROTIC);
+		mobRegistry.register(new EntityLheiva(world), LootTableRegistry.ENTITIES_LHEIVA);
+		mobRegistry.register(new EntityLorga(world), LootTableRegistry.ENTITIES_LORGA);
+		mobRegistry.register(new EntityMandragora(world), LootTableRegistry.ENTITIES_MANDRAGORA);
+		mobRegistry.register(new EntityShadahier(world), LootTableRegistry.ENTITIES_SHADAHIER);
+		mobRegistry.register(new EntityTocaxin(world), LootTableRegistry.ENTITIES_TOCAXIN);
+		mobRegistry.register(new EntityTwins(world), LootTableRegistry.ENTITIES_TWINS);
+		mobRegistry.register(new EntityVermenous(world), LootTableRegistry.ENTITIES_VERMENOUS);
+		mobRegistry.register(new EntityVhraak(world), LootTableRegistry.ENTITIES_VHRAAK);
+		mobRegistry.register(new EntityZone(world), LootTableRegistry.ENTITIES_ZONE);
+		mobRegistry.register(new EntityZoragon(world), LootTableRegistry.ENTITIES_ZORAGON);
 		
 		//WILDWOOD
+		mobRegistry.register(new EntityBehemoth(world), LootTableRegistry.ENTITIES_BEHEMOTH);
+		mobRegistry.register(new EntityEpiphite(world), LootTableRegistry.ENTITIES_EPIPHITE);
+		mobRegistry.register(new EntityMage(world), LootTableRegistry.ENTITIES_MAGE);
+		mobRegistry.register(new EntityMoonWolf(world), LootTableRegistry.ENTITIES_MOON_WOLF);
+		mobRegistry.register(new EntityTermid(world), LootTableRegistry.ENTITIES_TERMID);
+		mobRegistry.register(new EntityVerek(world), LootTableRegistry.ENTITIES_VEREK);
+		mobRegistry.register(new EntityWildwoodCadillion(world), LootTableRegistry.ENTITIES_WILDWOOD_CADILLION);
+		mobRegistry.register(new EntityWildwoodGolem(world), LootTableRegistry.ENTITIES_WILDWOOD_GOLEM);
+		mobRegistry.register(new EntityWildwoodTomo(world), LootTableRegistry.ENTITIES_WILDWOOD_TOMO);
 	}
 	
 	private static void initPlants() {
