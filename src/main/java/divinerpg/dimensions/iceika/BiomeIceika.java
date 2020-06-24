@@ -80,22 +80,15 @@ public class BiomeIceika extends Biome {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
+        int currentX = pos.getX();
+        int currentZ = pos.getZ();
 
-        BlockPos.MutableBlockPos mutPos = new BlockPos.MutableBlockPos(0, 0, 0);
-
-        for (int i = 0; i < 40; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = worldIn.getSeaLevel() + rand.nextInt(60);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            genIceTree.generate(worldIn, rand, mutPos);
-        }
-        for (int i = 0; i < 1; i++) {
-            int rx = pos.getX() + rand.nextInt(16) + 8;
-            int ry = worldIn.getSeaLevel() + rand.nextInt(60);
-            int rz = pos.getZ() + rand.nextInt(16) + 8;
-            mutPos.setPos(rx, ry, rz);
-            tallGrass.generate(worldIn, rand, mutPos);
+        for(int k = 0; k < rand.nextInt(3); k++) {
+            int x = currentX + rand.nextInt(16) + 8;
+            int z = currentZ + rand.nextInt(16) + 8;
+            int y = worldIn.getHeight(x, z);
+            BlockPos treePos = new BlockPos(x, y, z);
+            genIceTree.generate(worldIn, rand, treePos);
         }
     }
 
