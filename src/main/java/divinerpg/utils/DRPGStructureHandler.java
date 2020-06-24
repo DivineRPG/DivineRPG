@@ -58,7 +58,10 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
         Rotation rotation = WorldGenUtils.getRandomRotation(rand);
-        generateStructure(worldIn, rand, rotation, position);
+        System.out.println("Attempting to generate structure at " + position + " with rotation " + rotation.toString() + " with size " + this.getSize(worldIn));
+        BlockPos size = this.getSize(worldIn);
+        BlockPos adjustedPosition = adjustForRotation(position, size, rotation);
+        generateStructure(worldIn, rand, rotation, adjustedPosition);
         return true;
     }
 
@@ -75,6 +78,25 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
             if(var16.hasNext()) {
                 handleDataMarkers(world, random, var16);
             }
+        }
+    }
+
+    /*
+     * Adjust where the structure starts generating to account for rotations and prevent cascading world generation.
+     */
+    private BlockPos adjustForRotation(BlockPos position, BlockPos size, Rotation rotation) {
+        switch(rotation) {
+            case NONE:
+                return position;
+            case CLOCKWISE_90:
+                return position.add(size.getZ(), 0, 0);
+            case CLOCKWISE_180:
+                return position.add(size.getX(), 0, size.getZ());
+            case COUNTERCLOCKWISE_90:
+                return position.add(0, 0, size.getX());
+            default:
+                DivineRPG.logger.warn("Invalid structure rotation passed in somehow, please report this.");
+                return position;
         }
     }
 
