@@ -17,7 +17,6 @@ public class WorldProviderIceika extends WorldProvider {
     public void init() {
         this.biomeProvider = new BiomeProviderIceika();
         this.nether = false;
-        this.hasSkyLight = false;
     }
 
     @Override
