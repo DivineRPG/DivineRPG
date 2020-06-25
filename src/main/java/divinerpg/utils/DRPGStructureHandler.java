@@ -58,7 +58,6 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
         Rotation rotation = WorldGenUtils.getRandomRotation(rand);
-        System.out.println("Attempting to generate structure at " + position + " with rotation " + rotation.toString() + " with size " + this.getSize(worldIn));
         BlockPos size = this.getSize(worldIn);
         BlockPos adjustedPosition = adjustForRotation(position, size, rotation);
         generateStructure(worldIn, rand, rotation, adjustedPosition);
