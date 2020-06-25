@@ -25,6 +25,9 @@ public class MissingMappingHandler {
             else if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
                 mapping.remap(BlockRegistry.ayeracoBlueStatue);
             }
+            else if(mapping.key.equals(new ResourceLocation("divinerpg:tar"))) {
+                mapping.remap(BlockRegistry.smolderingTar);
+            }
         }
     }
 
@@ -43,6 +46,9 @@ public class MissingMappingHandler {
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_pants"))) {
                  mapping.remap(ArmorRegistry.santaLeggings);
+             }
+             else if(mapping.key.equals(new ResourceLocation("divinerpg:tar"))) {
+                 mapping.remap(Item.getItemFromBlock(BlockRegistry.smolderingTar));
              }
          }
     }

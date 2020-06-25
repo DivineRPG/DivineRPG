@@ -147,7 +147,7 @@ public class Utils {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
                 for (int k = z - 4; k <= z + 4; ++k) {
-                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == BlockRegistry.tar) {
+                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == BlockRegistry.smolderingTar) {
                         return true;
                     }
                 }

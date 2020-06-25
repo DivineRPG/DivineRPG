@@ -37,7 +37,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private Predicate<IBlockState> twilightPredicate = BlockMatcher.forBlock(BlockRegistry.twilightStone);
 
     private WorldGenerator waterLake = new WorldGenLakes(Blocks.WATER);
-    private WorldGenerator tarLake = new WorldGenLakes(BlockRegistry.tar);
+    private WorldGenerator tarLake = new WorldGenLakes(BlockRegistry.smolderingTar);
     private WorldGenerator twilightStoneLake = new WorldGenLakes(BlockRegistry.twilightStone);
 
     private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{

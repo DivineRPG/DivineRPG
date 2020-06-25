@@ -1441,8 +1441,7 @@ advancement.divinerpg.vethea.temple_of_doom.desc=Obtain a Cermile Lump from a te
 advancement.divinerpg.vethea.unlimited_power=Unlimited Power
 advancement.divinerpg.vethea.unlimited_power.desc=Kill Wreck
 
-
-fluid.tar=Tar
+fluid.smoldering_tar=Smoldering Tar
 
 message.jackoman.boo=BOO!
 message.jackoman.lost=I seem to have lost my head.

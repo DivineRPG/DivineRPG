@@ -8,7 +8,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class LiquidRegistry {
 
-    public static Fluid tar = new FluidLiquid("divinerpg_tar",
+    public static Fluid tar = new FluidLiquid("smoldering_tar",
             new ResourceLocation(DivineRPG.MODID, "blocks/liquid_tar_still"),
             new ResourceLocation(DivineRPG.MODID, "blocks/liquid_tar_flow"))
             // more than lava
