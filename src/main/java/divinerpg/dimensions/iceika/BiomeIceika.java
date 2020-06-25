@@ -84,8 +84,8 @@ public class BiomeIceika extends Biome {
         int currentZ = pos.getZ();
 
         for(int k = 0; k < rand.nextInt(3); k++) {
-            int x = currentX + rand.nextInt(16) + 8;
-            int z = currentZ + rand.nextInt(16) + 8;
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
             int y = worldIn.getHeight(x, z);
             BlockPos treePos = new BlockPos(x, y, z);
             genIceTree.generate(worldIn, rand, treePos);
