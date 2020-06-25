@@ -2,10 +2,10 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "all": "divinerpg:blocks/divinerpg_tar"
+            "all": "divinerpg:blocks/tar"
         },
         "model": "forge:fluid",
-        "custom": { "fluid": "divinerpg_tar" },
+        "custom": { "fluid": "tar" },
         "uvlock": false
     },
     "variants": {

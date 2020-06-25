@@ -394,7 +394,7 @@ public class BlockRegistry {
     public static final Block experienced_cori_statue = null;
 
     // Liquid
-    @ObjectHolder("divinerpg_tar")
+    @ObjectHolder("tar")
     public static final Block tar = null;
 
     // Ayeraco technical blocks
@@ -1295,7 +1295,7 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockAyeracoSpawn());
 
         // Liquid
-        register(registry, new BlockTar("divinerpg_tar", LiquidRegistry.tar));
+        register(registry, new BlockTar("tar", LiquidRegistry.tar));
 
         // Iceika
 
