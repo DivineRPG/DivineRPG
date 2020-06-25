@@ -53,81 +53,6 @@ public abstract class EntityDivineFlyingMob extends EntityFlying implements IMob
         getDataManager().register(TargetData, Optional.absent());
     }
 
-    @Nullable
-    @Override
-    public EntityLivingBase getAttackTarget() {
-        EntityLivingBase target = super.getAttackTarget();
-        EntityDataManager manager = getDataManager();
-
-        // is manager wisn't changed, return super method result
-        if (!manager.isDirty()) {
-            return target;
-        }
-
-        // getting id fro manager
-        UUID id = manager.get(TargetData).orNull();
-
-        // same target ID return
-        if (Objects.equals(target == null ? null : target.getUniqueID(), id)) {
-            return target;
-        }
-
-        // searches entity from id
-        target = findByUuid(world, id);
-
-        // set here new target
-        setAttackTarget(target);
-
-        // returning it
-        return target;
-    }
-
-    @Override
-    public void setAttackTarget(@Nullable EntityLivingBase e) {
-        super.setAttackTarget(e);
-
-        Optional<UUID> uuid;
-
-        if (e == null) {
-            uuid = Optional.absent();
-        } else {
-            uuid = Optional.of(e.getUniqueID());
-        }
-
-        getDataManager().set(TargetData, uuid);
-    }
-
-    /**
-     * Searches entity on world. Optimized for server world
-     *
-     * @param world - world
-     * @param id    - UUID of entity
-     * @return
-     */
-    private EntityLivingBase findByUuid(World world, UUID id) {
-        if (world != null && id != null) {
-            MinecraftServer server = world.getMinecraftServer();
-
-            Entity result = server != null
-                    // optimizing search on servers
-                    ? server.getEntityFromUuid(id)
-                    // searching on clients
-                    : world
-                    .getLoadedEntityList()
-                    .stream()
-                    .filter(x -> Objects.equals(x.getUniqueID(), id))
-                    .findFirst()
-                    .orElse(null);
-
-            if (result instanceof EntityLivingBase) {
-                return ((EntityLivingBase) result);
-            }
-        }
-
-
-        return null;
-    }
-
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
@@ -148,10 +73,11 @@ public abstract class EntityDivineFlyingMob extends EntityFlying implements IMob
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+        if (!this.world.isRemote) {
+            this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 22.0D, 22.0D));
+        if(this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             this.setDead();
-        }
-    }
+        }}}
 
     /**
      * AI to perform attack players.
