@@ -7,7 +7,10 @@
 - Resprites (Zachtoplasm)
 
 ## Fixes
-- Rewrites to world generation (AstralScourge)
+- Refactors to world generation reducing cascading lag (AstralScourge)
+   - Vethea structure generator
+   - Iceika tree generator
+- Fixed FlyingMob attack target getter (NicosaurusRex99)
 
 ## Misc
 - Just Enough resources support (NicosaurusRex99)
