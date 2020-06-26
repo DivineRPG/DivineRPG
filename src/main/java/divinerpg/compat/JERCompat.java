@@ -243,30 +243,5 @@ public class JERCompat {
 		plantRegistry.register(new ItemStack(ItemRegistry.moonbulbSeeds), new PlantDrop(new ItemStack(ItemRegistry.moonbulb), 1, 1));
 		plantRegistry.register(new ItemStack(ItemRegistry.tomatoSeeds), new PlantDrop(new ItemStack(ItemRegistry.tomato), 1, 1));
 		plantRegistry.register(new ItemStack(ItemRegistry.whiteMushroomSeeds), new PlantDrop(new ItemStack(ItemRegistry.whiteMushroom), 1, 1));
-		
-	}
-	
-	@Nullable
-	private static <T extends EntityLivingBase> T construct(World world, Class<T> entityClass) {
-		Constructor<T> constructor = getConstructor(entityClass);
-		if (constructor != null) {
-			try {
-				return constructor.newInstance(world);
-			} catch (ReflectiveOperationException | RuntimeException e) {
-				LogHelper.warn("Could not create entity " + entityClass, e);
-				return null;
-			}
-		}
-		return null;
-	}
-
-	@Nullable
-	private static <T extends EntityLivingBase> Constructor<T> getConstructor(Class<T> entityClass) {
-		try {
-			return entityClass.getConstructor(World.class);
-		} catch (NoSuchMethodException e) {
-			LogHelper.warn("Could not find constructor for entity " + entityClass);
-			return null;
-		}
 	}
 }
