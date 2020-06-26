@@ -82,7 +82,7 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new GeneralConfig());
         
         if (Loader.isModLoaded("jeresources")) {
-            JERCompat.onInit(e);;
+            JERCompat.onInit(e);
         }
     }
 
@@ -97,21 +97,6 @@ public class DivineRPG {
         DimensionHelper.initPortalDescriptions();
 
         UpdateChecker.checkForUpdates();
-
-//        Map<String, WorldGenerator> structures = new HashMap<>();
-//
-//        structures.put("rollum", new WorldGenRollumDungeon());
-//        structures.put("archerdungeon", new WorldGenArcherDungeon());
-//
-//        structures.forEach((s, generator) -> {
-//            WorldStorage storage = new WorldStorage();
-//            MockWorld world = new MockWorld(storage);
-//            generator.generate(world, world.rand, BlockPos.ORIGIN);
-//
-//            storage.getChunks().map(DivineTemplate::new).forEach(x -> {
-//                x.writeToFile(new File("C:\\Users\\oshi4\\OneDrive\\Документы\\structure\\" + s + "\\" + x.chunkPos.toString() + ".nbt"));
-//            });
-//        });
     }
 
     /**
