@@ -6,7 +6,6 @@ import divinerpg.objects.blocks.tile.entity.TileEntitySingleUseSpawner;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -18,14 +17,14 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvider {
     private final Class<? extends Entity> entityClass;
@@ -34,14 +33,16 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
     private int nearDistance;
     private BlockPos spawnOffset;
 
+    protected Supplier<Item> activationItemSupplier;
+
     /**
      * @param name         - name of block
      * @param entityClass  - entity to spwan class
      * @param delay        - possible delay. Pass zero to remove
      * @param nearDistance - auto spawn when player is within distance. Pass zero to disable
      */
-    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay, int nearDistance) {
-        this(name, entityClass, delay, nearDistance, BlockPos.ORIGIN);
+    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, Supplier<Item> activationItemSupplier, int delay, int nearDistance) {
+        this(name, entityClass, activationItemSupplier, delay, nearDistance, BlockPos.ORIGIN);
     }
 
     /**
@@ -51,9 +52,10 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
      * @param nearDistance - auto spawn when player is within distance. Pass zero to disable
      * @param spawnOffset  - initial spawn offset for entity position
      */
-    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, int delay, int nearDistance, BlockPos spawnOffset) {
+    public BlockSingleUseSpawner(String name, Class<? extends Entity> entityClass, Supplier<Item> activationItemSupplier, int delay, int nearDistance, BlockPos spawnOffset) {
         super(name, 1, Material.IRON);
         this.entityClass = entityClass;
+        this.activationItemSupplier = activationItemSupplier;
         this.delay = delay;
         this.name = name;
         this.nearDistance = nearDistance;
@@ -70,8 +72,16 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TileEntity tile = worldIn.getTileEntity(pos);
 
-        if (tile instanceof TileEntitySingleUseSpawner) {
-            ((TileEntitySingleUseSpawner) tile).activate(playerIn);
+        Item heldItem = playerIn.getHeldItemMainhand().getItem();
+        Item activationItem = this.activationItemSupplier.get();
+
+        if(activationItem == null || heldItem == activationItem) {
+            if (tile instanceof TileEntitySingleUseSpawner) {
+                ((TileEntitySingleUseSpawner) tile).activate(playerIn);
+            }
+        }
+        else {
+            playerIn.sendMessage(new TextComponentString("You must be holding " + activationItem.getItemStackDisplayName(new ItemStack(activationItem)) + " to spawn this boss!"));
         }
 
         return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);

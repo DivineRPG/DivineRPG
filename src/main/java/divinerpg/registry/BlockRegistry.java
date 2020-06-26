@@ -1732,10 +1732,10 @@ public class BlockRegistry {
         //
         // newSpawners
         //
-        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, 20 * 5, 5));
-        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
-        register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, 20 * 5, 5));
-        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, 20 * 5, 5, new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, () -> ItemRegistry.edenChunk, 20 * 5, 5));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, () -> ItemRegistry.wildwoodChunk,20 * 5, 5, new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, () -> ItemRegistry.apalachiaChunk, 20 * 5, 5));
+        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
