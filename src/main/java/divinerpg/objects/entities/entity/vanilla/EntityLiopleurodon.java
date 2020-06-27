@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.vanilla;
 
-import divinerpg.objects.entities.entity.EntityDivineMob;
+import divinerpg.objects.entities.entity.EntityDivineWaterMob;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.block.material.Material;
@@ -11,7 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityLiopleurodon extends EntityDivineMob {
+public class EntityLiopleurodon extends EntityDivineWaterMob {
 
     public EntityLiopleurodon(World worldIn) {
         super(worldIn);
