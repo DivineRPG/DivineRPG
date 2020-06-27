@@ -11,6 +11,7 @@
    - Vethea structure generator
    - Iceika tree generator
 - Fixed FlyingMob attack target getter (NicosaurusRex99)
+- Fixed water mob ai (NicosaurusRex99)
 
 ## Misc
 - Just Enough resources support (NicosaurusRex99)
