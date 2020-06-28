@@ -16,7 +16,7 @@
 - Made whales shoot out water spouts when above sea level (Nico)
 
 ## Fixes:
-- Made Arcana boss rooms generate again
+- Made Arcana boss altars generate again
 - Gave mortum back its bedrock layer
 - Fixed loot chests in Iceika houses
 - Made change to flying mob attack target getter (Nico)
