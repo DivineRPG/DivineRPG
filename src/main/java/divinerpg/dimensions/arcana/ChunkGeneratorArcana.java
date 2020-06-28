@@ -45,8 +45,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ChunkGeneratorArcana implements IChunkGenerator {
-    private ArrayList Rooms;
-    private ArrayList BossRooms;
+    private ArrayList<DungeonComponentBase> Rooms = new ArrayList<DungeonComponentBase>();
+    private DungeonComponentBase doubleHeightComponent = new DungeonComponent08();
     private DungeonCeiling Ceiling;
     private final Random rand;
     private final World world;
@@ -59,8 +59,6 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
     public ChunkGeneratorArcana(World world, long seed) {
         this.world = world;
         this.rand = new Random(seed);
-        Rooms = new ArrayList(21);
-        BossRooms = new ArrayList(2);
 
         Rooms.add(new DungeonComponent00());
         Rooms.add(new DungeonComponent01());
@@ -70,6 +68,7 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         Rooms.add(new DungeonComponent05());
         Rooms.add(new DungeonComponent06());
         Rooms.add(new DungeonComponent07());
+        //Component 8 is the 2-high one, skipping that
         Rooms.add(new DungeonComponent09());
         Rooms.add(new DungeonComponent10());
         Rooms.add(new DungeonComponent11());
@@ -79,12 +78,14 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         Rooms.add(new DungeonComponent15());
         Rooms.add(new DungeonComponent16());
         Rooms.add(new DungeonComponent17());
-        Rooms.add(new DungeonComponent20());
         Rooms.add(new DungeonComponent18());
         Rooms.add(new DungeonComponent19());
-        Rooms.add(new DungeonComponent08());
-        BossRooms.add(new DungeonComponentParasecta());
-        BossRooms.add(new DungeonComponentDramix());
+        Rooms.add(new DungeonComponent20());
+        Rooms.add(new DungeonComponentDramix());
+        Rooms.add(new DungeonComponentParasecta());
+
+
+
         Ceiling = new DungeonCeiling();
         this.chunkTileEntityMap = new HashMap();
     }
@@ -97,11 +98,23 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
                 16);
 
         ArcanaChunkPrimer chunkprimer = new ArcanaChunkPrimer();
+        DungeonComponentBase room;
 
         for (int i = 4; i > 0; i--) {
-            DungeonComponentBase room = (DungeonComponentBase) (Rooms.get(rand.nextInt(21)));
-            if (room instanceof DungeonComponent08 && i >= 3)
-                room = (DungeonComponentBase) (Rooms.get(this.rand.nextInt(10) + 10));
+            //Code to make sure the 2-high component doesn't generate at the very top
+            if (i <= 3) {
+                int size = Rooms.size();
+                int roomIndex = rand.nextInt(size + 1);
+                if(roomIndex == size) {
+                    room = this.doubleHeightComponent;
+                }
+                else {
+                    room = Rooms.get(roomIndex);
+                }
+            }
+            else {
+                room =  Rooms.get(rand.nextInt(Rooms.size()));
+            }
 
             room.generate(chunkprimer, rand, 0, i * 8, 0);
         }
@@ -175,13 +188,6 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
                 this.world.setTileEntity(chunkPosition.add(x, 0, z), te);
             }
             chunkTileEntityMap.remove(chunkpos);
-        }
-
-        if ((chunkX & 1) == 1 && (chunkZ & 1) == 1 && this.rand.nextInt(500) == 0) {
-            int roomToGenerate = rand.nextInt(2);
-            int i = this.rand.nextInt(4) + 1;
-            ((WorldGenerator) (BossRooms.get(roomToGenerate))).generate(this.world, rand, new BlockPos(x, i * 8, z));
-            this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed() * i << 2 | l);
         }
 
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);
