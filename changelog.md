@@ -5,6 +5,7 @@
 
 ## Changes
 - Resprites (Zachtoplasm)
+- Twilight spawners now require an item to trigger spawn events
 
 ## Fixes
 - Refactors to world generation reducing cascading lag (AstralScourge)

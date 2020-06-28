@@ -55,9 +55,19 @@ public class EntityWhale extends EntityDivineWaterMob {
     {
     	super.onLivingUpdate();
         if(posY > world.getSeaLevel()-1) {
-        	if(rand.nextInt(20) == 0) {
+        	if(rand.nextInt(2)==0) {
+        	double y = this.getEntityBoundingBox().minY + 2.7D;
+            double tx = posX - this.posX;
+            double ty = getEntityBoundingBox().minY - y;
+            double tz = posZ - this.posZ;
+
+            for (double h = -1.5; h < 1.5; h += 0.5) {
+                for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
+                    for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
         	world.spawnParticle(EnumParticleTypes.WATER_WAKE, posX, posY, posZ, 0, 0.4, 0);
-        	}
+        	}}
         }
     }
+}
+}
 }
