@@ -20,7 +20,7 @@ public class ItemModAxe extends ItemAxe {
 		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
 		setRegistryName(DivineRPG.MODID, name);
 		setUnlocalizedName(name);
-		setCreativeTab(DivineRPGTabs.tools);
+		setCreativeTab(DivineRPGTabs.TOOLS);
 
 	}
 

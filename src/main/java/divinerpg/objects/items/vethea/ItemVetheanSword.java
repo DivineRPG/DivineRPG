@@ -7,6 +7,6 @@ public class ItemVetheanSword extends ItemModSword {
 
     public ItemVetheanSword(ToolMaterial material, String name) {
        super(material, name);
-       this.setCreativeTab(DivineRPGTabs.vethea);
+       this.setCreativeTab(DivineRPGTabs.VETHEA);
     }
 }

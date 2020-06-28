@@ -38,7 +38,7 @@ public class ItemModSlab extends ItemBlock
         this.setHasSubtypes(true);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         
     }
     

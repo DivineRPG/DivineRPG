@@ -10,7 +10,7 @@ public class BlockModVine extends BlockVine {
         super();
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.setHardness(2);
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false))
                 .withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false))

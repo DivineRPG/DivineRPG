@@ -53,7 +53,7 @@ public class ItemModBow extends ItemBow {
         this.setRegistryName(DivineRPG.MODID, name);
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
         this.maxUseDuration = maxUseDuration;
         unbreakable = true;
         this.maxStackSize = 1;

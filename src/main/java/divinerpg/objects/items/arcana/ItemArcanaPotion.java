@@ -25,7 +25,7 @@ public class ItemArcanaPotion extends ItemMod {
     protected int amountToAdd;
 
     public ItemArcanaPotion(String name, int amountToAdd) {
-        super(name, DivineRPGTabs.utility);
+        super(name, DivineRPGTabs.UTILITY);
         this.amountToAdd = amountToAdd;
     }
 

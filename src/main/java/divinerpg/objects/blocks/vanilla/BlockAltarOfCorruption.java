@@ -33,7 +33,7 @@ public class BlockAltarOfCorruption extends BlockContainer {
         super(Material.ROCK, MapColor.BLUE);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setLightOpacity(0);
         setHardness(5.0F);
         setResistance(2000.0F);

@@ -21,7 +21,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
 
     public ItemSerenadeOfInfusion(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.UTILITY);
         setMaxDamage(15);
         setMaxStackSize(1);
     }

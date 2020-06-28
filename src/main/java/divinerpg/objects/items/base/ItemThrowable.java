@@ -23,7 +23,7 @@ public class ItemThrowable extends ItemMod {
     protected BulletType bulletType;
 
     public ItemThrowable(String name, BulletType bulletType) {
-        super(name, DivineRPGTabs.ranged);
+        super(name, DivineRPGTabs.RANGED_WEAPONS);
         this.bulletType = bulletType;
     }
 

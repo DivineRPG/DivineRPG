@@ -13,6 +13,6 @@ public class ItemVetheanCannon extends RangedWeaponBase {
 
     public ItemVetheanCannon(String name, BulletType projectileType, Supplier<Item> ammo) {
         super(name, null, projectileType, SoundRegistry.BLITZ, SoundCategory.MASTER, -1, 0, ammo, 0);
-        this.setCreativeTab(DivineRPGTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.VETHEA);
     }
 }

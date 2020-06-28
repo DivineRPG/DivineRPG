@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -27,7 +26,7 @@ public class BlockModDoor extends BlockDoor {
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
         setHardness(hardness);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.doorItem = doorItem;
     }
 

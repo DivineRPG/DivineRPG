@@ -51,7 +51,7 @@ public class BlockNightmareBed extends BlockHorizontal implements ITileEntityPro
         hasTileEntity = true;
         setRegistryName("nightmare_bed_block");
         setUnlocalizedName("nightmare_bed_block");
-        setCreativeTab(DivineRPGTabs.vethea);
+        setCreativeTab(DivineRPGTabs.VETHEA);
     }
 
     /**

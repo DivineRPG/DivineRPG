@@ -25,7 +25,7 @@ import java.util.List;
 public class ItemDivineAccumulator extends ItemMod {
 
     public ItemDivineAccumulator() {
-        super("divine_accumulator", DivineRPGTabs.utility);
+        super("divine_accumulator", DivineRPGTabs.UTILITY);
         setMaxStackSize(1);
     }
 

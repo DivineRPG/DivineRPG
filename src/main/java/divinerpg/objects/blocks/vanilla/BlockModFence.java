@@ -16,7 +16,7 @@ public class BlockModFence extends BlockFence  {
 		super(Material.WOOD, mapColor);
 		setUnlocalizedName(name);
 		setRegistryName(DivineRPG.MODID, name);
-		this.setCreativeTab(DivineRPGTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BLOCKS);
 	}
 
 	public BlockModFence(String name) {

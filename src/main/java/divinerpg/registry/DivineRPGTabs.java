@@ -7,70 +7,70 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DivineRPGTabs {
 
-	public static final CreativeTabs BlocksTab = new CreativeTabs("divinerpg_blocks") {
+	public static final CreativeTabs BLOCKS = new CreativeTabs("divinerpg_blocks") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(BlockRegistry.edenOre);
 		}
 	};
-	public static final CreativeTabs ranged = new CreativeTabs("divinerpg_ranged_weapons") {
+	public static final CreativeTabs RANGED_WEAPONS = new CreativeTabs("divinerpg_ranged_weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(WeaponRegistry.vileStorm);
 		}
 	};
-	public static final CreativeTabs swords = new CreativeTabs("divinerpg_melee_weapons") {
+	public static final CreativeTabs MELEE_WEAPONS = new CreativeTabs("divinerpg_melee_weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(WeaponRegistry.aquaton);
 		}
 	};
-	public static final CreativeTabs tools = new CreativeTabs("divinerpg_tools") {
+	public static final CreativeTabs TOOLS = new CreativeTabs("divinerpg_tools") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ToolRegistry.rupeeShickaxe);
 		}
 	};
-	public static final CreativeTabs items = new CreativeTabs("divinerpg_materials") {
+	public static final CreativeTabs MATERIALS = new CreativeTabs("divinerpg_materials") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemRegistry.rupeeIngot);
 		}
 	};
-	public static final CreativeTabs armor = new CreativeTabs("divinerpg_armor") {
+	public static final CreativeTabs ARMOR = new CreativeTabs("divinerpg_armor") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ArmorRegistry.divineHelmet);
 		}
 	};
-	public static final CreativeTabs spawner = new CreativeTabs("divinerpg_boss_spawners") {
+	public static final CreativeTabs BOSS_SPAWNERS = new CreativeTabs("divinerpg_boss_spawners") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemRegistry.callOfTheWatcher);
 		}
 	};
-	public static final CreativeTabs utility = new CreativeTabs("divinerpg_utility") {
+	public static final CreativeTabs UTILITY = new CreativeTabs("divinerpg_utility") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemRegistry.snowGlobe);
 		}
 	};
-	public static final CreativeTabs food = new CreativeTabs("divinerpg_food_and_agriculture") {
+	public static final CreativeTabs FOOD_AND_AGRICULTURE = new CreativeTabs("divinerpg_food_and_agriculture") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemRegistry.bacon);
 		}
 	};
-	public static final CreativeTabs vethea = new CreativeTabs("divinerpg_vethea") {
+	public static final CreativeTabs VETHEA = new CreativeTabs("divinerpg_vethea") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {

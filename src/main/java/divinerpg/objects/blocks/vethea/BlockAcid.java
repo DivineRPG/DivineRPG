@@ -26,7 +26,7 @@ public class BlockAcid extends BlockMod {
     }
 
     public BlockAcid(String name, boolean decays, boolean poison) {
-        super(name, 0.1F, Material.SNOW, DivineRPGTabs.vethea);
+        super(name, 0.1F, Material.SNOW, DivineRPGTabs.VETHEA);
         this.setTickRandomly(true);
         this.decays = decays;
         this.poison = poison;

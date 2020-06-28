@@ -19,7 +19,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
 
     public ItemSerenadeOfHealth(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.UTILITY);
         setMaxDamage(7);
         setMaxStackSize(1);
     }

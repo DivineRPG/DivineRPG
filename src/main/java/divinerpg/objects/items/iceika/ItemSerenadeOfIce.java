@@ -25,7 +25,7 @@ public class ItemSerenadeOfIce extends RangedWeaponBase {
                 0,
                 null,
                 0);
-        this.setCreativeTab(DivineRPGTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.UTILITY);
     }
 
     @Override

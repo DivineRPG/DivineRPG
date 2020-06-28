@@ -33,7 +33,7 @@ public class ItemArcanaCharge extends ItemMod {
 
     public ItemArcanaCharge() {
         super("frozen_charge");
-        setCreativeTab(DivineRPGTabs.utility);
+        setCreativeTab(DivineRPGTabs.UTILITY);
         setFull3D();
         setMaxStackSize(4);
     }

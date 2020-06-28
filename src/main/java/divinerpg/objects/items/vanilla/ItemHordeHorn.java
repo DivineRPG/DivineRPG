@@ -21,7 +21,7 @@ public class ItemHordeHorn extends ItemBossSpawner {
     public ItemHordeHorn(String name) {
         super(name, "message.ayeraco_horde", x -> Objects.equals(x, DimensionType.THE_END));
         this.setMaxStackSize(1);
-        this.setCreativeTab(DivineRPGTabs.spawner);
+        this.setCreativeTab(DivineRPGTabs.BOSS_SPAWNERS);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class BlockModPlank extends Block
     {
         super(Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, type));
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
     }

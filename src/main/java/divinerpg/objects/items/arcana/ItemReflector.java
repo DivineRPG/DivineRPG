@@ -24,7 +24,7 @@ public class ItemReflector extends RangedWeaponBase {
 				0,
 				null,
 				20);
-		setCreativeTab(DivineRPGTabs.utility);
+		setCreativeTab(DivineRPGTabs.UTILITY);
 		setFull3D();
 	}
 

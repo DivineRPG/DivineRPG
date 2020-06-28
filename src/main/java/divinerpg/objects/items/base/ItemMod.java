@@ -15,7 +15,7 @@ public class ItemMod extends Item {
     }
 
     public ItemMod(String name) {
-        this(name, DivineRPGTabs.items);
+        this(name, DivineRPGTabs.MATERIALS);
     }
 
     public ItemMod(String name, CreativeTabs tab) {

@@ -19,7 +19,7 @@ public class ItemModShovel extends ItemSpade {
 		super(material);
 		setRegistryName(DivineRPG.MODID, name);
 		setUnlocalizedName(name);
-		setCreativeTab(DivineRPGTabs.tools);
+		setCreativeTab(DivineRPGTabs.TOOLS);
 
 
 	}

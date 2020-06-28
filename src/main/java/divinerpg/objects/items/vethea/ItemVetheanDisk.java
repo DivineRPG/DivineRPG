@@ -25,7 +25,7 @@ public class ItemVetheanDisk extends ItemMod {
         super(name);
         this.diskType = diskType;
         this.maxStackSize = 1;
-        this.setCreativeTab(DivineRPGTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.VETHEA);
     }
 
     @Override

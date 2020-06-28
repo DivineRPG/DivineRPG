@@ -817,9 +817,9 @@ public class ItemRegistry {
         register(registry, new ItemTwilightClock("twilight_clock"));
 
         // Twilight arrows
-        register(registry, new ItemMod("eden_arrow").setCreativeTab(DivineRPGTabs.ranged));
-        register(registry, new ItemMod("fury_arrow").setCreativeTab(DivineRPGTabs.ranged));
-        register(registry, new ItemMod("wildwood_arrow").setCreativeTab(DivineRPGTabs.ranged));
+        register(registry, new ItemMod("eden_arrow").setCreativeTab(DivineRPGTabs.RANGED_WEAPONS));
+        register(registry, new ItemMod("fury_arrow").setCreativeTab(DivineRPGTabs.RANGED_WEAPONS));
+        register(registry, new ItemMod("wildwood_arrow").setCreativeTab(DivineRPGTabs.RANGED_WEAPONS));
 
         // Twilight miscellaneous
         register(registry, new ItemMod("base_spawn_crystal"));
@@ -926,14 +926,14 @@ public class ItemRegistry {
         register(registry, new ItemVethean("tormented_template"));
 
         // Vethea food
-        register(registry, new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(6, 0.8F, "dream_melon").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemHealingFood(0, 0F, 8, "dream_sours").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(1, 0.2F, "honeysuckle").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new ItemModFood(1, 0.2F, "honeychunk").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new ItemModFood(3, 0.4F, "dream_carrot").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemModFood(6, 0.8F, "dream_melon").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemModFood(4, 0.8F, "dream_pie").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemModFood(8, 0.8F, "dream_cake").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemHealingFood(0, 0F, 2, "dream_sweets").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemHealingFood(0, 0F, 8, "dream_sours").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemModFood(1, 0.2F, "honeysuckle").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new ItemModFood(1, 0.2F, "honeychunk").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Vethea boss spawners
         register(registry, new ItemVethean("dream_flint"));
@@ -978,15 +978,15 @@ public class ItemRegistry {
         register(registry, new ItemModSlab("eucalyptus_double_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
 
         // Shields
-        register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.armor, () -> arlemiteIngot, 1200));
-        register(registry, new DivineShield("realmite_shield", DivineRPGTabs.armor, () -> realmiteIngot, 1200));
-        register(registry, new DivineShield("rupee_shield", DivineRPGTabs.armor, () -> rupeeIngot, 1200));
-        register(registry, new DivineShield("halite_shield", DivineRPGTabs.armor, () -> Item.getItemFromBlock(Blocks.AIR), 0));
-        register(registry, new DivineShield("eden_shield", DivineRPGTabs.armor, () -> edenChunk, 1200));
-        register(registry, new DivineShield("wildwood_shield", DivineRPGTabs.armor, () -> wildwoodChunk, 2400));
-        register(registry, new DivineShield("apalachia_shield", DivineRPGTabs.armor, () -> apalachiaChunk, 4800));
-        register(registry, new DivineShield("skythern_shield", DivineRPGTabs.armor, () -> skythernChunk, 9600));
-        register(registry, new DivineShield("mortum_shield", DivineRPGTabs.armor, () -> mortumChunk, 19200));
+        register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.ARMOR, () -> arlemiteIngot, 1200));
+        register(registry, new DivineShield("realmite_shield", DivineRPGTabs.ARMOR, () -> realmiteIngot, 1200));
+        register(registry, new DivineShield("rupee_shield", DivineRPGTabs.ARMOR, () -> rupeeIngot, 1200));
+        register(registry, new DivineShield("halite_shield", DivineRPGTabs.ARMOR, () -> Item.getItemFromBlock(Blocks.AIR), 0));
+        register(registry, new DivineShield("eden_shield", DivineRPGTabs.ARMOR, () -> edenChunk, 1200));
+        register(registry, new DivineShield("wildwood_shield", DivineRPGTabs.ARMOR, () -> wildwoodChunk, 2400));
+        register(registry, new DivineShield("apalachia_shield", DivineRPGTabs.ARMOR, () -> apalachiaChunk, 4800));
+        register(registry, new DivineShield("skythern_shield", DivineRPGTabs.ARMOR, () -> skythernChunk, 9600));
+        register(registry, new DivineShield("mortum_shield", DivineRPGTabs.ARMOR, () -> mortumChunk, 19200));
 
     }
 

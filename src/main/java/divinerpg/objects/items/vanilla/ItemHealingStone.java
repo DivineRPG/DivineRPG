@@ -20,7 +20,7 @@ public class ItemHealingStone extends ItemMod {
     private float healAmount;
 
     public ItemHealingStone(String name, float healAmount) {
-        this(name, healAmount, DivineRPGTabs.items);
+        this(name, healAmount, DivineRPGTabs.MATERIALS);
     }
 
     public ItemHealingStone(String name, float healAmount, CreativeTabs tab) {

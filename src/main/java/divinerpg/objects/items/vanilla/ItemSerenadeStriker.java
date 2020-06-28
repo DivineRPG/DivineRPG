@@ -21,7 +21,7 @@ public class ItemSerenadeStriker extends ItemMod {
 
     public ItemSerenadeStriker(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
         setMaxDamage(100);
         setMaxStackSize(1);
     }

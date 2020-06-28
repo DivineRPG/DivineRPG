@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class ItemAquamarine extends ItemMod {
 
     public ItemAquamarine(String name) {
-        super(name, DivineRPGTabs.utility);
+        super(name, DivineRPGTabs.UTILITY);
         setMaxDamage(10);
     }
 

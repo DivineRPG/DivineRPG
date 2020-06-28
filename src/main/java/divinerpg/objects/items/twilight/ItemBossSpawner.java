@@ -31,7 +31,7 @@ public class ItemBossSpawner extends ItemMod {
         this.canSpawn = canSpawn;
         this.spawnderEntities = spawnedEntities;
         setMaxStackSize(1);
-        this.setCreativeTab(DivineRPGTabs.spawner);
+        this.setCreativeTab(DivineRPGTabs.BOSS_SPAWNERS);
 
         this.langKey = langKey;
     }

@@ -27,7 +27,7 @@ public class ItemModFood extends ItemFood {
         super(healAmount, saturation, isWolfFood);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.food);
+        this.setCreativeTab(DivineRPGTabs.FOOD_AND_AGRICULTURE);
 
         petFood = new TextComponentTranslation("tooltip.food.pet");
         petFood.getStyle().setColor(TextFormatting.BLUE);

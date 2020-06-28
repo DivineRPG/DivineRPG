@@ -16,7 +16,7 @@ public class BlockStupidSpawner extends BlockMobSpawner  {
         this.spawnParticles = spawnParticles;
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setHardness(5.0F);
         this.setTickRandomly(true);
     }

@@ -23,7 +23,7 @@ public class ItemSpawnEgg extends ItemMod {
     private final String langId;
 
     public ItemSpawnEgg(String name, BiFunction<World, EntityPlayer, Entity> createEntityFunc) {
-        super(name, DivineRPGTabs.spawner);
+        super(name, DivineRPGTabs.BOSS_SPAWNERS);
         this.createEntityFunc = createEntityFunc;
         setMaxStackSize(1);
 

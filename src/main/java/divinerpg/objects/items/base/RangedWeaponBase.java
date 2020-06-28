@@ -64,7 +64,7 @@ public class RangedWeaponBase extends ItemMod {
      */
     public RangedWeaponBase(String name, Class<? extends EntityThrowable> clazz, BulletType bulletType,
             SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
-        super(name, DivineRPGTabs.ranged);
+        super(name, DivineRPGTabs.RANGED_WEAPONS);
         setMaxDamage(maxDamage);
         setMaxStackSize(1);
 

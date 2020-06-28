@@ -33,7 +33,7 @@ public class KingCompressor extends BlockContainer {
         if (isBurning)
             setLightLevel(0.8F);
         else
-            setCreativeTab(DivineRPGTabs.BlocksTab);
+            setCreativeTab(DivineRPGTabs.BLOCKS);
 
         setHardness(3.5F);
     }

@@ -33,7 +33,7 @@ public class BlockTwilightFlower extends BlockBush implements IPlantable {
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         this.grassSupplier = grassSupplier;
-        setCreativeTab(DivineRPGTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BLOCKS);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
 

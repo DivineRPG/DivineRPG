@@ -23,7 +23,7 @@ import java.util.List;
 public class ItemStaffEnrichment extends ItemMod {
 
     public ItemStaffEnrichment(String name) {
-        super(name, DivineRPGTabs.tools);
+        super(name, DivineRPGTabs.TOOLS);
         this.maxStackSize = 1;
         this.setMaxDamage(100);
     }

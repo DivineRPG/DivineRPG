@@ -18,7 +18,7 @@ public class BlockInfusionTable extends BlockModUnbreakable implements ITileEnti
 
     public BlockInfusionTable(String name) {
         super(name);
-        setCreativeTab(DivineRPGTabs.vethea);
+        setCreativeTab(DivineRPGTabs.VETHEA);
     }
 
     @Override

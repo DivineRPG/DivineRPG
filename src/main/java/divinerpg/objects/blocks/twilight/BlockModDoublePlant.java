@@ -37,7 +37,7 @@ public class BlockModDoublePlant extends BlockBush
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         this.grassSupplier = grassSupplier;
-        setCreativeTab(DivineRPGTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BLOCKS);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
         this.setDefaultState(

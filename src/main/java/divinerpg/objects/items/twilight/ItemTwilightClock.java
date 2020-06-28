@@ -4,7 +4,6 @@ import divinerpg.events.DimensionHelper;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.StructureRegistry;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockPattern;
@@ -19,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class ItemTwilightClock extends ItemMod {
@@ -33,7 +31,7 @@ public class ItemTwilightClock extends ItemMod {
 
     public ItemTwilightClock(String name) {
         super(name);
-        setCreativeTab(DivineRPGTabs.utility);
+        setCreativeTab(DivineRPGTabs.UTILITY);
         setMaxStackSize(1);
     }
 

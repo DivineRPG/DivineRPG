@@ -22,7 +22,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
 
     public ItemSerenadeOfDeath(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
         setMaxDamage(500);
         setMaxStackSize(1);
     }

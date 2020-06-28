@@ -8,7 +8,7 @@ public class BlockModLadder extends BlockLadder  {
     public BlockModLadder(String name) {
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        setCreativeTab(DivineRPGTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BLOCKS);
         setHardness(0.4F);
     }
 }

@@ -23,7 +23,7 @@ public class BlockModSpawner extends BlockMobSpawner {
         this.mobName = mobName;
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setHardness(5.0F);
         this.setTickRandomly(true);
 

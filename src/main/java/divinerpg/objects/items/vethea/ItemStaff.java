@@ -33,7 +33,7 @@ public class ItemStaff extends RangedWeaponBase {
 				arcana);
 
 		this.damage = dam;
-		this.setCreativeTab(DivineRPGTabs.vethea);
+		this.setCreativeTab(DivineRPGTabs.VETHEA);
 		this.setFull3D();
 	}
 

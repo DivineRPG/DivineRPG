@@ -22,7 +22,7 @@ public class ItemSnowGlobe extends ItemMod {
     public ItemSnowGlobe(String name) {
         super(name);
         setMaxStackSize(1);
-        this.setCreativeTab(DivineRPGTabs.utility);
+        this.setCreativeTab(DivineRPGTabs.UTILITY);
     }
 
     @Override

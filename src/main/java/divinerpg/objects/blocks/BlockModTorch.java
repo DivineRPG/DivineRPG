@@ -18,7 +18,7 @@ public class BlockModTorch extends BlockTorch {
 
     public BlockModTorch(String name, ParticleType particle) {
         super();
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
         this.setLightLevel(1);

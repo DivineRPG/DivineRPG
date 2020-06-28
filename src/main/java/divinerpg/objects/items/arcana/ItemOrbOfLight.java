@@ -12,7 +12,7 @@ public class ItemOrbOfLight extends ItemMod {
 
     public ItemOrbOfLight() {
         super("orb_of_light");
-        setCreativeTab(DivineRPGTabs.utility);
+        setCreativeTab(DivineRPGTabs.UTILITY);
     }
 
     @Override

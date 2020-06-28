@@ -19,7 +19,7 @@ public class BlockElevantium extends BlockMod {
             0.9375F);
 
     public BlockElevantium(String name) {
-        super(name, 3F, Material.IRON, DivineRPGTabs.utility);
+        super(name, 3F, Material.IRON, DivineRPGTabs.UTILITY);
         this.setTickRandomly(true);
         setResistance(20);
     }

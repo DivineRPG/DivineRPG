@@ -23,7 +23,7 @@ public class BlockAcceleron extends BlockMod {
 
     @Deprecated
 	public BlockAcceleron(String name) {
-        super(name, 3.0F, Material.ROCK, DivineRPGTabs.utility);
+        super(name, 3.0F, Material.ROCK, DivineRPGTabs.UTILITY);
         slipperiness = 1.2f;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }

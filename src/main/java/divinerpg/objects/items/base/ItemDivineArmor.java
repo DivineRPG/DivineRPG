@@ -25,7 +25,7 @@ public class ItemDivineArmor extends ItemArmor implements IFullSetInfo {
         setUnlocalizedName(name);
         setRegistryName(name);
 
-        this.setCreativeTab(DivineRPGTabs.armor);
+        this.setCreativeTab(DivineRPGTabs.ARMOR);
     }
 
     @Override

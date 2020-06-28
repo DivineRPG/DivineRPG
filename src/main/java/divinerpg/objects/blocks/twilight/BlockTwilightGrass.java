@@ -28,7 +28,7 @@ public class BlockTwilightGrass extends BlockBush
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         this.grassSupplier = grassSupplier;
-        setCreativeTab(DivineRPGTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BLOCKS);
         setSoundType(SoundType.PLANT);
         this.setTickRandomly(true);
     }

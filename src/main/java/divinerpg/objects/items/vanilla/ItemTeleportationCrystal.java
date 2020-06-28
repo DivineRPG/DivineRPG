@@ -24,7 +24,7 @@ public class ItemTeleportationCrystal extends ItemMod {
 
     public ItemTeleportationCrystal(String name) {
         super(name);
-        setCreativeTab(DivineRPGTabs.utility);
+        setCreativeTab(DivineRPGTabs.UTILITY);
         setMaxDamage(10);
         setMaxStackSize(1);
     }

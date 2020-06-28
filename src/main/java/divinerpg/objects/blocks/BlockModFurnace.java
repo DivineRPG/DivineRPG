@@ -35,7 +35,7 @@ public abstract class BlockModFurnace extends Block {
         if (isBurning) {
             setLightLevel(0.875F);
         } else {
-            this.setCreativeTab(DivineRPGTabs.BlocksTab);
+            this.setCreativeTab(DivineRPGTabs.BLOCKS);
         }
         this.isBurning = isBurning;
         setHardness(3.5F);

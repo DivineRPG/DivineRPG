@@ -11,6 +11,6 @@ public class ItemVetheanBow extends ItemModBow {
 
     public ItemVetheanBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier) {
         super(name, arrowType, uses, arrowSupplier);
-        this.setCreativeTab(DivineRPGTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.VETHEA);
     }
 }

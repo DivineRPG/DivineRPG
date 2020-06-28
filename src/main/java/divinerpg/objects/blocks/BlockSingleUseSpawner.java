@@ -18,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -69,22 +70,38 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        TileEntity tile = worldIn.getTileEntity(pos);
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        ItemStack heldItem = player.getHeldItem(hand);
+        Item activationItem = activationItemSupplier.get();
 
-        Item heldItem = playerIn.getHeldItemMainhand().getItem();
-        Item activationItem = this.activationItemSupplier.get();
+        if (heldItem.getItem() != activationItem && activationItem != null) {
+            if (!world.isRemote && hand == EnumHand.MAIN_HAND)
+                player.sendMessage(new TextComponentString("You must be holding " + activationItem.getItemStackDisplayName(new ItemStack(activationItem)) + " to spawn this boss!"));
 
-        if(activationItem == null || heldItem == activationItem) {
-            if (tile instanceof TileEntitySingleUseSpawner) {
-                ((TileEntitySingleUseSpawner) tile).activate(playerIn);
+            return false;
+        }
+
+        if (world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+            if (!world.isRemote && hand == EnumHand.MAIN_HAND)
+                player.sendMessage(new TextComponentString("You cannot summon bosses on peaceful difficulty!"));
+
+            return false;
+        }
+
+        TileEntity spawnerTile = world.getTileEntity(pos);
+
+        if (spawnerTile instanceof TileEntitySingleUseSpawner) {
+            if (!world.isRemote && hand == EnumHand.MAIN_HAND) {
+                ((TileEntitySingleUseSpawner)spawnerTile).activate(player);
+
+                if (!player.isCreative())
+                    heldItem.shrink(1);
             }
-        }
-        else {
-            playerIn.sendMessage(new TextComponentString("You must be holding " + activationItem.getItemStackDisplayName(new ItemStack(activationItem)) + " to spawn this boss!"));
+
+            return true;
         }
 
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+        return false;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class ItemVileStorm extends ItemMod {
 
     public ItemVileStorm(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
     }
 
     @Override

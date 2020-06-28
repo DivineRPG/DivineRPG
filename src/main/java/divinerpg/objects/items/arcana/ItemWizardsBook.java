@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class ItemWizardsBook extends ItemMod {
 
     public ItemWizardsBook(String name) {
-        super(name, DivineRPGTabs.spawner);
+        super(name, DivineRPGTabs.BOSS_SPAWNERS);
         setMaxStackSize(1);
     }
 

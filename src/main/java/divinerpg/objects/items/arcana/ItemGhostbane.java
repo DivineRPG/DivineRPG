@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemGhostbane extends ItemMod {
 
     public ItemGhostbane() {
-        super("ghostbane", DivineRPGTabs.spawner);
+        super("ghostbane", DivineRPGTabs.BOSS_SPAWNERS);
         setMaxStackSize(1);
     }
 

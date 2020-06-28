@@ -22,7 +22,7 @@ public class ItemGrenade extends ItemMod {
 	private int counter = 0;
 
 	public ItemGrenade(String name) {
-		super(name, DivineRPGTabs.ranged);
+		super(name, DivineRPGTabs.RANGED_WEAPONS);
 		
 	}
 

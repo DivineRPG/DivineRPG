@@ -1582,116 +1582,116 @@ public class BlockRegistry {
         // Vethea
 
         // Terrain
-        register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockDreamGrass("dream_grass", 0.6F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("dream_stone", 1.5F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModDirt("dream_dirt", 0.5F, MapColor.LIME_STAINED_HARDENED_CLAY).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockDreamGrass("dream_grass", 0.6F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("dream_stone", 1.5F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Logs
-        register(registry, new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockVetheaLog("firewood_log", MapColor.RED).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockVetheaLog("hyrewood_log", MapColor.BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockVetheaLog("mintwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockVetheaLog("dreamwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockVetheaLog("firewood_log", MapColor.RED).setHardness(5.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockVetheaLog("hyrewood_log", MapColor.BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockVetheaLog("mintwood_log", MapColor.LIGHT_BLUE).setHardness(5.0F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Leaves
-        register(registry, new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModLeaves("dreamwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModLeaves("firewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModLeaves("hyrewood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModLeaves("mintwood_leaves", 0.1F, MapColor.RED).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Ground foliage
-        register(registry, new BlockTwilightFlower("bulbatobe", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("cracklespike", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("dreamglow", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("fernite", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("green_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("green_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("purple_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("shimmer", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("shine_grass", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockTwilightFlower("yellow_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockTwilightFlower("bulbatobe", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("cracklespike", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("dreamglow", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("fernite", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("green_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("green_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("purple_gemtop", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("shimmer", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("shine_grass", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockTwilightFlower("yellow_dulah", () -> dreamGrass, MapColor.GREEN).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Vines
-        register(registry, new BlockModVine("weedwood_vine").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModVine("blossomed_weedwood_vine").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModVine("weedwood_vine").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModVine("blossomed_weedwood_vine").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Building blocks
-        register(registry, new BlockMod("dark_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("light_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("red_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockMod("dark_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("light_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("red_dream_bricks", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModGlass("smooth_glass", 0.3F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Door
         registerItemlessBlock(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f, () -> ItemRegistry.barredDoor));
 
         // Lighting
-        register(registry, new BlockLightCrystal("fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockLightCrystal("firelight", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockLightCrystal("fire_crystal", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockLightCrystal("firelight", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Structure
         // General
-        register(registry, new BlockDreamLamp("dream_lamp").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("everstone").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("dark_everstone").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("white_everstone").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockDreamLamp("dream_lamp").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("everstone").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("dark_everstone").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("white_everstone").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Crypt
-        register(registry, new BlockModUnbreakable("black_hungerstone").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("green_hungerstone").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("crypt_floor").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("crypt_wall", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModUnbreakable("black_hungerstone").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("green_hungerstone").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("crypt_floor").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("crypt_wall", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModGlass("metal_caging", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Village
-        register(registry, new BlockModLamp("village_lamp", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModLamp("village_lamp", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Hive
-        register(registry, new BlockModLamp("cell_lamp", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("hive_wall", 1.0F, Material.GLASS).setLightLevel(0.533F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModLamp("cell_lamp", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("hive_wall", 1.0F, Material.GLASS).setLightLevel(0.533F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Karos Madhouse
-        register(registry, new BlockModUnbreakable("black_karos_bricks").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("blue_karos_bricks").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockHelioticBeam("heliotic_beam").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockKarosDispenser("karos_dispenser").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockKarosHeatTile("karos_heat_tile_green").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockKarosHeatTile("karos_heat_tile_red").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModUnbreakable("black_karos_bricks").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("blue_karos_bricks").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockHelioticBeam("heliotic_beam").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockKarosDispenser("karos_dispenser").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockKarosHeatTile("karos_heat_tile_green").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockKarosHeatTile("karos_heat_tile_red").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Lunic Garden
-        register(registry, new BlockMod("luna_bricks", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockMod("luna_stone", 1.0F).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockMod("luna_bricks", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockMod("luna_stone", 1.0F).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Raglok Chamber
-        register(registry, new BlockModUnbreakable("chamber_wall").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("shifted_chamber_wall").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModUnbreakable("stacked_chamber_wall").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModUnbreakable("chamber_wall").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("shifted_chamber_wall").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModUnbreakable("stacked_chamber_wall").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Wreck Hall
-        register(registry, new BlockModUnbreakable("hall_wall").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModUnbreakable("hall_wall").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Utility
-        register(registry, new BlockInfusionTable("infusion_table").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockInfusionTable("infusion_table").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Hive egg
-        register(registry, new BlockHiveEgg("hive_egg").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockHiveEgg("hive_egg").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Boss altars
-        register(registry, new BlockKarosAltar("karos_altar").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockLunicAltar("lunic_altar").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockQuadroticAltar("quadrotic_altar").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockRaglokAltar("raglok_altar").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockWreckAltar("wreck_altar").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockKarosAltar("karos_altar").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockLunicAltar("lunic_altar").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockQuadroticAltar("quadrotic_altar").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockRaglokAltar("raglok_altar").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockWreckAltar("wreck_altar").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Mob spawners
-        register(registry, new BlockModSpawner("biphron_spawner", "Biphron").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModSpawner("gorgosion_spawner", "Gorgosion").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModSpawner("twins_spawner", "Twins").setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockModSpawner("vermenous_spawner", "Vermenous").setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockModSpawner("biphron_spawner", "Biphron").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModSpawner("gorgosion_spawner", "Gorgosion").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModSpawner("twins_spawner", "Twins").setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockModSpawner("vermenous_spawner", "Vermenous").setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Acid
-        register(registry, new BlockAcid("acid_block", true).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockAcid("bacterial_acid", false).setCreativeTab(DivineRPGTabs.vethea));
-        register(registry, new BlockAcid("lunic_acid", true).setCreativeTab(DivineRPGTabs.vethea));
+        register(registry, new BlockAcid("acid_block", true).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockAcid("bacterial_acid", false).setCreativeTab(DivineRPGTabs.VETHEA));
+        register(registry, new BlockAcid("lunic_acid", true).setCreativeTab(DivineRPGTabs.VETHEA));
 
         // Nightmare bed
         registerItemlessBlock(registry, new BlockNightmareBed());

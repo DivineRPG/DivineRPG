@@ -22,7 +22,7 @@ public class BlockModLog extends BlockLog {
 		setRegistryName(DivineRPG.MODID, name);
 		setHardness(3.0F);
 		setResistance(5);
-		this.setCreativeTab(DivineRPGTabs.BlocksTab);
+		this.setCreativeTab(DivineRPGTabs.BLOCKS);
 		this.setDefaultState(this.getDefaultState().withProperty(LOG_AXIS, EnumAxis.Y));
 		this.setMapColor(mapColorIn);
 	}

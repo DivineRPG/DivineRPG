@@ -53,7 +53,7 @@ public class BlockModLeaves extends BlockLeaves implements IShearable {
         this.setUnlocalizedName(name);
         this.setRegistryName(DivineRPG.MODID, name);
         this.setHardness(hardness);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.setTickRandomly(true);
         this.setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
         this.saplingSupplier = saplingSupplier;

@@ -21,7 +21,7 @@ public class ItemModDoor extends ItemMod {
 	public ItemModDoor(Block block, String name) {
 		super(name);
 		this.block = block;
-		setCreativeTab(DivineRPGTabs.BlocksTab);
+		setCreativeTab(DivineRPGTabs.BLOCKS);
 		setUnlocalizedName(name);
 	}
 

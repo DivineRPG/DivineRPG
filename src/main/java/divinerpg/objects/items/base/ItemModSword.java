@@ -26,7 +26,7 @@ public class ItemModSword extends ItemSword {
         this.material = material;
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
-        setCreativeTab(DivineRPGTabs.swords);
+        setCreativeTab(DivineRPGTabs.MELEE_WEAPONS);
 
 
     }

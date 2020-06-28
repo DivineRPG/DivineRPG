@@ -25,7 +25,7 @@ import java.util.List;
 public class ItemEnderScepter extends ItemMod {
 
     public ItemEnderScepter(String name) {
-        super(name, DivineRPGTabs.swords);
+        super(name, DivineRPGTabs.MELEE_WEAPONS);
         setMaxStackSize(1);
     }
 

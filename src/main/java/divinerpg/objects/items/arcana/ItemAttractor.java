@@ -17,7 +17,7 @@ public class ItemAttractor extends RangedWeaponBase {
     public ItemAttractor() {
         super("arcanium_attractor", EntityAttractor.class, null, SoundRegistry.REFLECTOR, SoundCategory.PLAYERS, -1, 0,
                 null, 20);
-        setCreativeTab(DivineRPGTabs.utility);
+        setCreativeTab(DivineRPGTabs.UTILITY);
     }
 
     @Override

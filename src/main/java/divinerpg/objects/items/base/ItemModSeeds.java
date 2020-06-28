@@ -27,7 +27,7 @@ public class ItemModSeeds extends Item implements IPlantable {
         setRegistryName(DivineRPG.MODID, name);
         this.cropSupplier = cropSupplier;
         this.soilSupplier = soilSupplier;
-        setCreativeTab(DivineRPGTabs.food);
+        setCreativeTab(DivineRPGTabs.FOOD_AND_AGRICULTURE);
 
     }
 

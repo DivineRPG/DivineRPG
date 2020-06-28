@@ -17,7 +17,7 @@ public abstract class BlockModAltar extends BlockContainer implements ITileEntit
         super(Material.ROCK);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        setCreativeTab(DivineRPGTabs.BlocksTab);
+        setCreativeTab(DivineRPGTabs.BLOCKS);
         setBlockUnbreakable();
         setResistance(6000000F);
     }

@@ -22,7 +22,7 @@ public class BlockMobPumpkin extends BlockHorizontal {
         setRegistryName(DivineRPG.MODID, name);
         setTickRandomly(true);
         setHardness(1.0F);
-        this.setCreativeTab(DivineRPGTabs.BlocksTab);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setSoundType(SoundType.WOOD);
     }
 

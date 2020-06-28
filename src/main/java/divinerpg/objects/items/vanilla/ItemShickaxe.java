@@ -29,7 +29,7 @@ public class ItemShickaxe extends ItemTool {
     public ItemShickaxe(ToolMaterial toolMaterial, String name) {
         super(1.0F, -2.8F, toolMaterial, Sets.newHashSet());
         this.name = name;
-        setCreativeTab(DivineRPGTabs.tools);
+        setCreativeTab(DivineRPGTabs.TOOLS);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
 
