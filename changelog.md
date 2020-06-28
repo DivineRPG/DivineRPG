@@ -18,7 +18,7 @@
 ## Fixes:
 - Made Arcana boss altars generate again
 - Gave mortum back its bedrock layer
-- Fixed loot chests in Iceika houses
+- Fixed empty loot chests in Iceika houses
 - Made change to flying mob attack target getter (Nico)
 
 ## Miscellaneous:
