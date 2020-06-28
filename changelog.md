@@ -1,21 +1,33 @@
 # DivineRPG 1.6.4.1 changelog:
 
-## Additions
-- Statue sounds on right click (Locomen)
+## Additions:
+- Added Just Enough Resources support (Nico)
 
-## Changes
-- Resprites (Zachtoplasm)
-- Twilight spawners now require an item to trigger spawn events
+## Changes:
+- Rewrote how structures are generated. This should fix various issues, including structure rarity and distribution (especially in twilight dimensions and Iceika)
+- Made twilight structures generate more commonly
+- Structures are now randomly rotated and will not all face the same way anymore
+- Added loot chests to some Iceika houses that did not previously have them
+- Renamed tar to smoldering tar, fixing a Betweenlands tar conflict and putting emphasis on the tar's high temperature
+- Made Iceika trees generate a bit more sparsely
+- Twilight boss spawners now require chunks to activate
+- Statues make sounds on right click (Locomen)
+- Changed water mob AI (Nico)
+- Made whales shoot out water spouts when above sea level (Nico)
 
-## Fixes
-- Refactors to world generation reducing cascading lag (AstralScourge)
-   - Vethea structure generator
-   - Iceika tree generator
-- Fixed FlyingMob attack target getter (NicosaurusRex99)
-- Fixed water mob ai (NicosaurusRex99)
+## Fixes:
+- Made Arcana boss rooms generate again
+- Gave mortum back its bedrock layer
+- Fixed loot chests in Iceika houses
+- Made change to flying mob attack target getter (Nico)
 
-## Misc
-- Just Enough resources support (NicosaurusRex99)
+## Miscellaneous:
+- Changed the following textures:
+    - Corrupted Shards
+    - Ender Shards
+    - Snow Globe
+    - Sound of Music
+    - Sound of Carols
 
 
 # DivineRPG 1.6.4 changelog:
