@@ -1564,9 +1564,10 @@ messaage.teleportation_star=Вы не можете изменить исходн
 message.standard=Спасибо %s за скачивание и игру в DivineRPG!
 message.update=Доступно обновление DivineRPG
 message.version=[DivineRPG устарел. Доступна новая версия: %s]
-message.developer=%s, Добро пожаловать разбработчик DivineRPG!
+message.developer=%s, Добро пожаловать разработчик DivineRPG!
 message.tester=Добро пожаловать помощник DivineRPG! %s, команда разработчиков благодарна вам за помощь в улучшении мода.
 message.patreon=Добро пожаловать %s! Команда разработчиков DivineRPG, благодарит вас за финансовую поддержку!
+message.friend=Добро пожаловать %s! Вы друг нашего проекта DivineRPG.
 message.spawner.peaceful=Вы не можете призвать босса на мирной сложности!
 message.spawner.item=Вы должны держать %s, чтобы призвать босса!
 
