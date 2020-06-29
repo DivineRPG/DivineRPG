@@ -1562,6 +1562,8 @@ message.version=[DivineRPG is out of date. The latest version is %s]
 message.developer=Welcome DivineRPG developer! %s is on the DivineRPG dev team.
 message.tester=Welcome DivineRPG tester! %s kindly offered their time to help test DivineRPG. Thank you for your service!
 message.patreon=Welcome DivineRPG patreon! %s kindly supported the DivineRPG dev team, thank you for your help!
+message.spawner.peaceful=You cannot summon bosses on peaceful difficulty!
+message.spawner.item=You must be holding %s to spawn this boss!
 
 tooltip.uses=%s Uses Remaining
 tooltip.harvest=Harvest Level: +

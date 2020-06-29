@@ -17,7 +17,7 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -76,14 +76,14 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
 
         if (heldItem.getItem() != activationItem && activationItem != null) {
             if (!world.isRemote && hand == EnumHand.MAIN_HAND)
-                player.sendMessage(new TextComponentString("You must be holding " + activationItem.getItemStackDisplayName(new ItemStack(activationItem)) + " to spawn this boss!"));
+                player.sendMessage(new TextComponentTranslation("message.spawner.item", String.format("%s", activationItem.getItemStackDisplayName(new ItemStack(activationItem)))));
 
             return false;
         }
 
         if (world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             if (!world.isRemote && hand == EnumHand.MAIN_HAND)
-                player.sendMessage(new TextComponentString("You cannot summon bosses on peaceful difficulty!"));
+                player.sendMessage(new TextComponentTranslation("message.spawner.peaceful"));
 
             return false;
         }
