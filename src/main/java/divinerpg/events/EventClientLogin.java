@@ -35,6 +35,10 @@ public class EventClientLogin {
                     TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.patreon", player.getDisplayName());
                     message.getStyle().setColor(TextFormatting.YELLOW);
                     player.sendMessage(message);
+                } else if (Utils.isFriend(player.getUniqueID())) {
+                    TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
+                    message.getStyle().setColor(TextFormatting.GRAY);
+                    player.sendMessage(message);
                 }
             }
 
