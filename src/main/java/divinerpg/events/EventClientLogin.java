@@ -37,7 +37,7 @@ public class EventClientLogin {
                     player.sendMessage(message);
                 } else if (Utils.isFriend(player.getUniqueID())) {
                     TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
-                    message.getStyle().setColor(TextFormatting.Gray);
+                    message.getStyle().setColor(TextFormatting.GRAY);
                     player.sendMessage(message);
                 }
             }
