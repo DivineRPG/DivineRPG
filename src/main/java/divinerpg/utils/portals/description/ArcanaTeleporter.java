@@ -59,11 +59,11 @@ public class ArcanaTeleporter extends ServerPortal {
             ChunkPos chunkPos = new ChunkPos(e.getPosition());
 
             // store here entity position
-            BlockPos.MutableBlockPos result = new BlockPos.MutableBlockPos(chunkPos.getBlock(7, 8, 7));
+            BlockPos.MutableBlockPos result = new BlockPos.MutableBlockPos(chunkPos.getBlock(0, 8, 0));
 
             // use BlockPos as ChunkPos. I know it's awfull
             PositionHelper.searchInRadius(destination, new BlockPos(chunkPos.x, 8, chunkPos.z), radius / 16, x -> {
-                BlockPos block = new ChunkPos(x.getX(), x.getZ()).getBlock(7, 8, 7);
+                BlockPos block = new ChunkPos(x.getX(), x.getZ()).getBlock(0, 8, 0);
 
                 while (block.getY() < 40) {
                     if (!destination.isAirBlock(block) && !destination.isAirBlock(block.add(0, 0, 1))) {
