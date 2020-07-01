@@ -1125,6 +1125,9 @@ item.king_helmet.name=The King's Crown
 item.king_chestplate.name=The King's Chestplate
 item.king_leggings.name=The King's Leggings
 item.king_boots.name=The King's Boots
+item.arlemite_nugget.name=Arlemite Nugget
+item.realmite_nugget.name=Realmite Nugget
+item.rupee_nugget.name=Rupee Nugget
 
 
 death.attack.trap=%1$s fell into a trap
