@@ -1638,6 +1638,7 @@ tooltip.staff_of_starlight=Drops several stars from the sky
 tooltip.dimension=Dimension: %s
 tooltip.block_position=Block Position: x=%s, y=%s, z=%s
 tooltip.harvest_level=Harvest level: %s
+tooltip.instant_consumption=Instant Consumption
 
 tooltip.armor_info.fire_protection=Fire Protection
 tooltip.armor_info.no_fall=No Fall Damage

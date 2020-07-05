@@ -2,10 +2,7 @@ package divinerpg.utils;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentBase;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.*;
 import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
@@ -18,7 +15,8 @@ public class LocalizeUtils {
             InfiniteAmmo = new TextComponentTranslation("tooltip.ammo.infinite"),
             ExposiveShoots = new TextComponentTranslation("tooltip.shots.explosive"),
             HomingShoots = new TextComponentTranslation("tooltip.shots.homing"),
-            SingleUse = new TextComponentTranslation("tooltip.uses.single");
+            SingleUse = new TextComponentTranslation("tooltip.uses.single"),
+            InstantConsumption = new TextComponentTranslation("tooltip.instant_consumption");
 
 
     /**
@@ -157,13 +155,12 @@ public class LocalizeUtils {
      * @return
      */
     public static String infiniteUses() {
-        return InfiniteUses.getFormattedText();
+        return InfiniteUses.setStyle(new Style().setColor(TextFormatting.AQUA)).getFormattedText();
     }
 
-//    public static String cantBlock() {
-//        return CannotBlock.getFormattedText();
-//    }
-//
+    public static String instantConsumption() {
+        return InstantConsumption.setStyle(new Style().setColor(TextFormatting.AQUA)).getFormattedText();
+    }
 
     /**
      * Returns armor piece damage reduction info

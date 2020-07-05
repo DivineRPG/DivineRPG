@@ -21,4 +21,12 @@ public class ItemModHoe extends ItemHoe {
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.TOOLS);
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+        if(item.getMaxDamage() < 0) {
+            list.add(LocalizeUtils.infiniteUses());
+        }
+    }
 }

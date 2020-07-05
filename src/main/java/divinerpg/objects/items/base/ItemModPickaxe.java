@@ -23,6 +23,14 @@ public class ItemModPickaxe extends ItemPickaxe {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
+		if(item.getMaxDamage() < 0) {
+			list.add(LocalizeUtils.infiniteUses());
+		}
+	}
+
+	@Override
 	public boolean isEnchantable(ItemStack stack) {
 		return this.getItemStackLimit(stack) == 1
 				&& (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);

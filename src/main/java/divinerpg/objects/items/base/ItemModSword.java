@@ -49,6 +49,10 @@ public class ItemModSword extends ItemSword {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         addAdditionalInformation(list);
+
+        if(item.getMaxDamage() < 0) {
+            list.add(LocalizeUtils.infiniteUses());
+        }
     }
 
     @Override
