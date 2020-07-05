@@ -40,14 +40,15 @@ public class EntityZone extends VetheaMob {
         if(player != null && !player.isCreative()) {
             this.setAttackTarget(player);
 
-            if(!this.world.isRemote && this.ticksExisted % 40 == 0) {
-                this.shootEntity(this.getAttackTarget());
+            EntityLivingBase target = this.getAttackTarget();
+            if(!this.world.isRemote && target != null && this.ticksExisted % 40 == 0) {
+                this.shootEntity(target);
             }
         }
     }
 
-    private void shootEntity(EntityLivingBase e) {
-        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.KAROS_ARROW, this, e, 1.6f, 12);
+    private void shootEntity(EntityLivingBase target) {
+        EntityDivineArrow arrow = new EntityDivineArrow(this.world, ArrowType.KAROS_ARROW, this, target, 1.6f, 12);
         this.world.spawnEntity(arrow);
     }
 
