@@ -53,7 +53,7 @@ public class EntityDivineArrow extends EntityArrow {
                     return p_apply_1_.canBeCollidedWith();
                 }
             });
-    private static final DataParameter<Byte> CRITICAL = EntityDataManager.<Byte>createKey(EntityArrow.class,
+    private static final DataParameter<Byte> CRITICAL = EntityDataManager.<Byte>createKey(EntityDivineArrow.class,
             DataSerializers.BYTE);
     private static final DataParameter<Byte> ARROW_ID = EntityDataManager.<Byte>createKey(EntityDivineArrow.class,
             DataSerializers.BYTE);
