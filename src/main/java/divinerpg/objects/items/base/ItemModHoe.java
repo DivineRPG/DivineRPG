@@ -20,17 +20,5 @@ public class ItemModHoe extends ItemHoe {
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.TOOLS);
-
-
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> infoList, ITooltipFlag flagIn) {
-        if (stack.getMaxDamage() > 0) {
-            infoList.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
-        } else {
-            infoList.add(LocalizeUtils.infiniteUses());
-        }
     }
 }

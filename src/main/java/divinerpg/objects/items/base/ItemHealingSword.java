@@ -40,6 +40,5 @@ public class ItemHealingSword extends ItemModSword {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
         list.add(LocalizeUtils.i18n("tooltip.heals",  healAmount / 2));
-        list.add(LocalizeUtils.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
     }
 }
