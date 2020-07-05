@@ -1125,6 +1125,9 @@ item.king_helmet.name=The King's Crown
 item.king_chestplate.name=The King's Chestplate
 item.king_leggings.name=The King's Leggings
 item.king_boots.name=The King's Boots
+item.arlemite_nugget.name=Arlemite Nugget
+item.realmite_nugget.name=Realmite Nugget
+item.rupee_nugget.name=Rupee Nugget
 
 
 death.attack.trap=%1$s fell into a trap
@@ -1563,7 +1566,7 @@ message.developer=Welcome DivineRPG developer! %s is on the DivineRPG dev team.
 message.tester=Welcome DivineRPG tester! %s kindly offered their time to help test DivineRPG. Thank you for your service!
 message.patreon=Welcome DivineRPG patreon! %s kindly supported the DivineRPG dev team, thank you for your help!
 message.spawner.peaceful=You cannot summon bosses on peaceful difficulty!
-message.friend=Welcome %s! You are a friend of DivineRPG team.
+message.friend=Welcome %s! They are a friend of someone on the DivineRPG team.
 message.spawner.item=You must be holding %s to spawn this boss!
 
 tooltip.uses=%s Uses Remaining

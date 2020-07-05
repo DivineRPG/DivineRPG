@@ -24,12 +24,15 @@ public class OreDictionaryHandler {
         OreDictionary.registerOre("blockRupee", BlockRegistry.rupeeBlock);
         OreDictionary.registerOre("oreRupee", BlockRegistry.rupeeOre);
         OreDictionary.registerOre("ingotRupee", ItemRegistry.rupeeIngot);
+        OreDictionary.registerOre("nuggetRupee", ItemRegistry.rupeeNugget);
         OreDictionary.registerOre("blockArlemite", BlockRegistry.arlemiteBlock);
         OreDictionary.registerOre("oreArlemite", BlockRegistry.arlemiteOre);
         OreDictionary.registerOre("ingotArlemite", ItemRegistry.arlemiteIngot);
+        OreDictionary.registerOre("nuggetArlemite", ItemRegistry.arlemiteNugget);
         OreDictionary.registerOre("blockRealmite", BlockRegistry.realmiteBlock);
         OreDictionary.registerOre("oreRealmite", BlockRegistry.realmiteOre);
         OreDictionary.registerOre("ingotRealmite", ItemRegistry.realmiteIngot);
+        OreDictionary.registerOre("nuggetRealmite", ItemRegistry.realmiteNugget);
         OreDictionary.registerOre("blockBloodgem", BlockRegistry.bloodgemBlock);
         OreDictionary.registerOre("oreBloodgem", BlockRegistry.bloodgemOre);
         OreDictionary.registerOre("gemBlood", ItemRegistry.bloodgem);

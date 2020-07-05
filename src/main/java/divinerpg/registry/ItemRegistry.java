@@ -100,6 +100,14 @@ public class ItemRegistry {
     public static final Item rupeeIngot = null;
     @ObjectHolder("shadow_bar")
     public static final Item shadowBar = null;
+    
+    //Nuggets
+    @ObjectHolder("arlemite_nugget")
+    public static final Item arlemiteNugget = null;
+    @ObjectHolder("realmite_nugget")
+    public static final Item realmiteNugget = null;
+    @ObjectHolder("rupee_nugget")
+    public static final Item rupeeNugget = null;
 
     // Boss Spawners
     @ObjectHolder("call_of_the_watcher")
@@ -668,6 +676,12 @@ public class ItemRegistry {
         register(registry, new ItemMod("realmite_ingot"));
         register(registry, new ItemMod("rupee_ingot"));
         register(registry, new ItemMod("shadow_bar"));
+        
+        // Nuggets
+        register(registry, new ItemMod("arlemite_nugget"));
+        register(registry, new ItemMod("realmite_nugget"));
+        register(registry, new ItemMod("rupee_nugget"));
+        
 
         // Boss spawners
         register(registry, new ItemBossSpawner("call_of_the_watcher", "message.watcher", x -> Objects.equals(x, DimensionType.NETHER), EntityTheWatcher::new));
