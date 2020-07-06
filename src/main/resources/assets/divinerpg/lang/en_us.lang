@@ -232,7 +232,7 @@ tile.sunstorm_spawner.name=Sunstorm Spawner
 tile.termasect_spawner.name=Termasect Spawner
 tile.eternal_archer_spawner.name=Eternal Archer Spawner
 tile.experienced_cori_spawner.name=Experienced Cori Spawner
-
+tile.frosted_alure.name=Frosted Alure
 tile.lunic_acid.name=Lunic Acid
 tile.firewood_leaves.name=Firewood Leaves
 tile.hyrewood_leaves.name=Hyrewood Leaves
@@ -1639,6 +1639,7 @@ tooltip.dimension=Dimension: %s
 tooltip.block_position=Block Position: x=%s, y=%s, z=%s
 tooltip.harvest_level=Harvest level: %s
 tooltip.instant_consumption=Instant Consumption
+tooltip.frosted_alure=Seems to attract mobs more than other blocks?
 
 tooltip.armor_info.fire_protection=Fire Protection
 tooltip.armor_info.no_fall=No Fall Damage
