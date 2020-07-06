@@ -1083,6 +1083,10 @@ public class BlockRegistry {
     public static final Block eternalArcherSpawner = null;
     @ObjectHolder("experienced_cori_spawner")
     public static final Block experiencedCoriSpawner = null;
+    
+
+    @ObjectHolder("frosted_alure")
+    public static final Block frostedAlure = null;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -1711,6 +1715,10 @@ public class BlockRegistry {
         register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, () -> ItemRegistry.wildwoodChunk,20 * 5, 5, new BlockPos(0, 11, 0)));
         register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, () -> ItemRegistry.apalachiaChunk, 20 * 5, 5));
         register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
+
+        // UTIL
+        register(registry, new BlockFrostedAlure("frosted_alure"));
+        
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
