@@ -11,31 +11,7 @@ import divinerpg.dimensions.mortum.MortumTree;
 import divinerpg.dimensions.wildwood.WildWoodTree;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.StatueType;
-import divinerpg.objects.blocks.BlockBeaconBase;
-import divinerpg.objects.blocks.BlockMod;
-import divinerpg.objects.blocks.BlockModBridge;
-import divinerpg.objects.blocks.BlockModDirt;
-import divinerpg.objects.blocks.BlockModDoor;
-import divinerpg.objects.blocks.BlockModFire;
-import divinerpg.objects.blocks.BlockModGlass;
-import divinerpg.objects.blocks.BlockModGrass;
-import divinerpg.objects.blocks.BlockModLadder;
-import divinerpg.objects.blocks.BlockModLamp;
-import divinerpg.objects.blocks.BlockModLeaves;
-import divinerpg.objects.blocks.BlockModLight;
-import divinerpg.objects.blocks.BlockModLog;
-import divinerpg.objects.blocks.BlockModOre;
-import divinerpg.objects.blocks.BlockModPlank;
-import divinerpg.objects.blocks.BlockModPortal;
-import divinerpg.objects.blocks.BlockModSapling;
-import divinerpg.objects.blocks.BlockModSlab;
-import divinerpg.objects.blocks.BlockModSpawner;
-import divinerpg.objects.blocks.BlockModStairs;
-import divinerpg.objects.blocks.BlockModTorch;
-import divinerpg.objects.blocks.BlockModUnbreakable;
-import divinerpg.objects.blocks.BlockModVine;
-import divinerpg.objects.blocks.BlockSingleUseSpawner;
-import divinerpg.objects.blocks.BlockStatue;
+import divinerpg.objects.blocks.*;
 import divinerpg.objects.blocks.arcana.*;
 import divinerpg.objects.blocks.iceika.*;
 import divinerpg.objects.blocks.twilight.BlockBrambles;
@@ -77,6 +53,8 @@ public class BlockRegistry {
     private static int WOOD_GOLD = 0, STONE = 1, IRON = 2, DIAMOND = 3, EDEN = 6, WILDWOOD = 7, APALACHIA = 8, SKYTHERN = 9, MORTUM = 10;
     private static List<Block> blockList = new ArrayList<Block>();
     private static List<Item> blockItemList = new ArrayList<>();
+    private static List<Block> slabList = new ArrayList<>();
+
     // Vanilla dimensions
 
     // Ores
@@ -620,6 +598,8 @@ public class BlockRegistry {
     public static final Block frozenSlab = null;
     @ObjectHolder("eucalyptus_slab")
     public static final Block eucalyptusSlab = null;
+    @ObjectHolder("degraded_brick_slab")
+    public static final Block degradedBrickSlab = null;
 
     //Double Slab
     @ObjectHolder("eden_double_slab")
@@ -638,6 +618,8 @@ public class BlockRegistry {
     public static final Block frozenDoubleSlab = null;
     @ObjectHolder("eucalyptus_double_slab")
     public static final Block eucalyptusDoubleSlab = null;
+    @ObjectHolder("degraded_brick_double_slab")
+    public static final Block degradedBrickDoubleSlab = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -1499,7 +1481,9 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("arcanium_metal"));
         register(registry, new BlockModUnbreakable("arcanium_power"));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
-        register(registry, new BlockModUnbreakable("degraded_brick"));
+
+        Block degradedBricks = new BlockModUnbreakable("degraded_brick"); //why isn't there an s in the registry name
+        register(registry, degradedBricks);
         register(registry, new BlockModUnbreakable("dungeon_lamp").setLightLevel(1.0F));
         register(registry, new BlockHeatTrap("heat_trap"));
         register(registry, new BlockHeatTrap("heat_trap_on"));
@@ -1706,25 +1690,16 @@ public class BlockRegistry {
         register(registry, new BlockModPortal("mortum_portal", DimensionRegistry.mortumDimension, () -> blueFire, () -> skythernBlock, ParticleType.MORTUM_PORTAL));
         register(registry, new BlockVetheaPortal("vethea_portal", DimensionRegistry.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
 
-        //Slab
-        registerItemlessBlock(registry, new BlockModSlab("eden_slab", BlockModPlank.EnumType.EDEN, false));
-        registerItemlessBlock(registry, new BlockModSlab("wildwood_slab", BlockModPlank.EnumType.WILDWOOD, false));
-        registerItemlessBlock(registry, new BlockModSlab("apalachia_slab", BlockModPlank.EnumType.APALACHIA, false));
-        registerItemlessBlock(registry, new BlockModSlab("skythern_slab", BlockModPlank.EnumType.SKYTHERN, false));
-        registerItemlessBlock(registry, new BlockModSlab("mortum_slab", BlockModPlank.EnumType.MORTUM, false));
-        registerItemlessBlock(registry, new BlockModSlab("divine_slab", BlockModPlank.EnumType.DIVINE, false));
-        registerItemlessBlock(registry, new BlockModSlab("frozen_slab", BlockModPlank.EnumType.FROZEN, false));
-        registerItemlessBlock(registry, new BlockModSlab("eucalyptus_slab", BlockModPlank.EnumType.EUCALYPTUS, false));
-
-        //Double Slab
-        registerItemlessBlock(registry, new BlockModSlab("eden_double_slab", BlockModPlank.EnumType.EDEN, true));
-        registerItemlessBlock(registry, new BlockModSlab("wildwood_double_slab", BlockModPlank.EnumType.WILDWOOD, true));
-        registerItemlessBlock(registry, new BlockModSlab("apalachia_double_slab", BlockModPlank.EnumType.APALACHIA, true));
-        registerItemlessBlock(registry, new BlockModSlab("skythern_double_slab", BlockModPlank.EnumType.SKYTHERN, true));
-        registerItemlessBlock(registry, new BlockModSlab("mortum_double_slab", BlockModPlank.EnumType.MORTUM, true));
-        registerItemlessBlock(registry, new BlockModSlab("divine_double_slab", BlockModPlank.EnumType.DIVINE, true));
-        registerItemlessBlock(registry, new BlockModSlab("frozen_double_slab", BlockModPlank.EnumType.FROZEN, true));
-        registerItemlessBlock(registry, new BlockModSlab("eucalyptus_double_slab", BlockModPlank.EnumType.EUCALYPTUS, true));
+        //Slabs
+        registerSlab(registry, "eden_slab", edenPlanks, 2.0F);
+        registerSlab(registry, "wildwood_slab", wildwoodPlanks, 2.0F);
+        registerSlab(registry, "apalachia_slab", apalachiaPlanks, 2.0F);
+        registerSlab(registry, "skythern_slab", skythernPlanks, 2.0F);
+        registerSlab(registry, "mortum_slab", mortumPlanks, 2.0F);
+        registerSlab(registry, "divine_slab", divinePlanks, 2.0F);
+        registerSlab(registry, "frozen_slab", frozenPlanks, 2.0F);
+        registerSlab(registry, "eucalyptus_slab", eucalyptusPlanks, 2.0F);
+        registerSlab(registry, "degraded_brick_slab", degradedBricks, -1F);
 
 //        register(registry, new KingCompressor("king_compression", true));
 //        register(registry, new KingCompressor("king_compression_still", false));
@@ -1758,5 +1733,12 @@ public class BlockRegistry {
 
     private static void registerItemlessBlock(IForgeRegistry<Block> registry, Block block) {
         registry.register(block);
+    }
+
+    private static void registerSlab(IForgeRegistry<Block> registry, String name, Block base, float hardness) {
+        String doubleSlabName = name.substring(0, name.indexOf("_slab")) + "_double_slab";
+        BlockModSlab halfSlab = new BlockModSlab(name, base, hardness,null,false);
+        registerItemlessBlock(registry, halfSlab);
+        registerItemlessBlock(registry, new BlockModSlab(doubleSlabName, base, hardness, halfSlab,true));
     }
 }

@@ -1,6 +1,10 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.DivineRPG;
+import divinerpg.objects.items.base.ItemModSlab;
+import divinerpg.registry.DivineRPGTabs;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -8,120 +12,105 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class BlockModSlab extends BlockSlab {
-    public static final PropertyEnum<BlockModPlank.EnumType> VARIANT = PropertyEnum.create("variant", BlockModPlank.EnumType.class);
-    boolean isDouble;
+    private static final IProperty<ModSlabVariant> VARIANT = PropertyEnum.create("variant", ModSlabVariant.class);
+    private final boolean isDouble;
+    private final BlockModSlab singleSlab;
 
-    public BlockModSlab(String name, BlockModPlank.EnumType type, boolean isDouble) {
-        super(Material.WOOD);
-        IBlockState iblockstate = this.blockState.getBaseState();
-        this.isDouble = isDouble;
+    public BlockModSlab(String name, Block block, float hardness, BlockModSlab singleSlab, boolean isDouble) {
+        super(block.getDefaultState().getMaterial());
         this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
-        
+        this.isDouble = isDouble;
+
+        IBlockState iblockstate = this.blockState.getBaseState();
         if (!this.isDouble())
         {
             iblockstate = iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
+            this.singleSlab = this;
+        }
+        else {
+            this.singleSlab = singleSlab;
         }
 
-        this.setDefaultState(iblockstate.withProperty(VARIANT, type));
+        this.setHardness(hardness);
+        if(hardness < 0) {
+            this.setResistance(6000000F);
+        }
+
+        this.setDefaultState(iblockstate.withProperty(VARIANT, ModSlabVariant.BASE));
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
     }
 
-    
-    
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-        return state.getValue(VARIANT).getMapColor();
+    public BlockModSlab getSingle() {
+        return this.singleSlab;
     }
 
-    /**
-     * Get the Item that this Block should drop when harvested.
-     */
+    @Override
+    public boolean isDouble() {
+        return this.isDouble;
+    }
+
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(this);
+        return Item.getItemFromBlock(this.singleSlab);
     }
+
     @Override
-    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(this.getActualState(state, world, pos).getBlock());
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+        return new ItemStack(Item.getItemFromBlock(this.singleSlab));
     }
 
-    /**
-     * Returns the slab block name with the type associated with it
-     */
+    @Override
     public String getUnlocalizedName(int meta)
-    {
-        return super.getUnlocalizedName() + "." + BlockModPlank.EnumType.byMetadata(meta).getUnlocalizedName();
-    }
+     {
+          return super.getUnlocalizedName();
+     }
 
-    public IProperty<?> getVariantProperty()
-    {
+    @Override
+    public IProperty<?> getVariantProperty() {
         return VARIANT;
     }
 
+    @Override
     public Comparable<?> getTypeForItem(ItemStack stack)
     {
-        return BlockModPlank.EnumType.byMetadata(stack.getMetadata() & 7);
+        return ModSlabVariant.BASE;
     }
 
-
-    /**
-     * Convert the given metadata into a BlockState for this Block
-     */
-    public IBlockState getStateFromMeta(int meta)
-    {
-        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, BlockModPlank.EnumType.byMetadata(meta & 7));
-
-        if (!this.isDouble())
-        {
-            iblockstate = iblockstate.withProperty(HALF, (meta & 8) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
-        }
-
-        return iblockstate;
-    }
-
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
+    @Override
     public int getMetaFromState(IBlockState state)
     {
-        int i = 0;
-        i = i | state.getValue(VARIANT).getMetadata();
-
-        if (!this.isDouble() && state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
-        {
-            i |= 8;
-        }
-
-        return i;
+        return state.getValue(HALF).ordinal();
     }
 
+    @Override
     protected BlockStateContainer createBlockState()
     {
-        return this.isDouble() ? new BlockStateContainer(this, VARIANT) : new BlockStateContainer(this, HALF, VARIANT);
+        return this.isDouble() ? new BlockStateContainer(this, new IProperty[]{VARIANT}) : new BlockStateContainer(this, new IProperty[]{HALF, VARIANT});
     }
 
-    /**
-     * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It
-     * returns the metadata of the dropped item based on the old metadata of the block.
-     */
-    public int damageDropped(IBlockState state)
-    {
-        return state.getValue(VARIANT).getMetadata();
-    }
+    public enum ModSlabVariant implements IStringSerializable {
+        BASE;
 
-	@Override
-	public boolean isDouble() {
-		return isDouble;
-	}
+        @Override
+        public String getName() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+    }
 }

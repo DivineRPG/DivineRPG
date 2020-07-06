@@ -24,6 +24,7 @@ import divinerpg.objects.items.vethea.ItemVethean;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.event.RegistryEvent;
@@ -616,6 +617,8 @@ public class ItemRegistry {
     public static final Item frozenSlab = null;
     @ObjectHolder("eucalyptus_slab")
     public static final Item eucalyptusSlab = null;
+    @ObjectHolder("degraded_brick_slab")
+    public static final Item degradedBrickSlab = null;
 
     // shields
     @ObjectHolder("arlemite_shield")
@@ -981,15 +984,7 @@ public class ItemRegistry {
         register(registry, new ItemModSlab("divine_slab", BlockRegistry.divineSlab, BlockRegistry.divineSlab, BlockRegistry.divineDoubleSlab));
         register(registry, new ItemModSlab("frozen_slab", BlockRegistry.frozenSlab, BlockRegistry.frozenSlab, BlockRegistry.frozenDoubleSlab));
         register(registry, new ItemModSlab("eucalyptus_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
-
-        register(registry, new ItemModSlab("eden_double_slab", BlockRegistry.edenSlab, BlockRegistry.edenSlab, BlockRegistry.edenDoubleSlab));
-        register(registry, new ItemModSlab("wildwood_double_slab", BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodSlab, BlockRegistry.wildwoodDoubleSlab));
-        register(registry, new ItemModSlab("apalachia_double_slab", BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaSlab, BlockRegistry.apalachiaDoubleSlab));
-        register(registry, new ItemModSlab("skythern_double_slab", BlockRegistry.skythernSlab, BlockRegistry.skythernSlab, BlockRegistry.skythernDoubleSlab));
-        register(registry, new ItemModSlab("mortum_double_slab", BlockRegistry.mortumSlab, BlockRegistry.mortumSlab, BlockRegistry.mortumDoubleSlab));
-        register(registry, new ItemModSlab("divine_double_slab", BlockRegistry.divineSlab, BlockRegistry.divineSlab, BlockRegistry.divineDoubleSlab));
-        register(registry, new ItemModSlab("frozen_double_slab", BlockRegistry.frozenSlab, BlockRegistry.frozenSlab, BlockRegistry.frozenDoubleSlab));
-        register(registry, new ItemModSlab("eucalyptus_double_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
+        register(registry, new ItemModSlab("degraded_brick_slab", BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickDoubleSlab));
 
         // Shields
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.ARMOR, () -> arlemiteIngot, 1200));

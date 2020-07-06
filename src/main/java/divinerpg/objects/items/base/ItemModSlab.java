@@ -38,14 +38,8 @@ public class ItemModSlab extends ItemBlock
         this.setHasSubtypes(true);
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(DivineRPGTabs.BLOCKS);
-        
     }
-    
-    public String getUnlocalizedName(int meta)
-    {
-        return super.getUnlocalizedName() + "." + BlockModPlank.EnumType.byMetadata(meta).getUnlocalizedName();
-    }
+
     public int getMetadata(int damage)
     {
         return damage;

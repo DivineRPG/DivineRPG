@@ -355,6 +355,7 @@ tile.heat_trap_on.name=Heat Trap
 tile.soul_stone.name=Soul Stone
 tile.soul_sludge.name=Soul Sludge
 tile.degraded_brick.name=Degraded Brick
+tile.degraded_brick_slab.name=Degraded Brick Slab
 tile.dark_degraded_brick.name=Dark Degraded Brick
 tile.ancient_brick.name=Ancient Brick
 tile.ancient_stone.name=Ancient Stone
