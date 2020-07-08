@@ -34,8 +34,16 @@ public class ArcanaRenderer {
             this.mc.getTextureManager().bindTexture(new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png"));
             int y = k - GeneralConfig.guiOptions.arcanaY;
             int x = i - GeneralConfig.guiOptions.arcanaX;
+
+        	if(GeneralConfig.guiOptions.hideArcanaBar) {
+            if(getPercents() != 100) {
             gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);
             gig.drawTexturedModalRect(x, y, 0, 9, getPercents(), 18);
+            }
+        	}else {
+        	gig.drawTexturedModalRect(x, y, 0, 0, 100, 9);
+            gig.drawTexturedModalRect(x, y, 0, 9, getPercents(), 18);    	
+        	}
         }
     }
 
