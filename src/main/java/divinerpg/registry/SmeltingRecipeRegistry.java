@@ -15,7 +15,7 @@ public class SmeltingRecipeRegistry {
         GameRegistry.addSmelting(ItemRegistry.pureAquaticPellets, new ItemStack(ItemRegistry.aquaticIngot), 0.6F);
         GameRegistry.addSmelting(ItemRegistry.rawEmpoweredMeat, new ItemStack(ItemRegistry.empoweredMeat), 1);
         GameRegistry.addSmelting(Items.EGG, new ItemStack(ItemRegistry.boiledEgg), 0.3F);
-        GameRegistry.addSmelting(Blocks.PUMPKIN, new ItemStack(ItemRegistry.hotPumpkinPie), 0.3F);
+        GameRegistry.addSmelting(Items.PUMPKIN_PIE, new ItemStack(ItemRegistry.hotPumpkinPie), 0.3F);
         GameRegistry.addSmelting(ItemRegistry.edenFragments, new ItemStack(ItemRegistry.edenSparkles), 1);
         GameRegistry.addSmelting(BlockRegistry.edenOre, new ItemStack(ItemRegistry.edenFragments), 0.7F);
         GameRegistry.addSmelting(BlockRegistry.wildwoodOre, new ItemStack(ItemRegistry.wildwoodFragments), 1.0F);
