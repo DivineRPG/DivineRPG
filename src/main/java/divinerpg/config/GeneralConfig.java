@@ -64,6 +64,10 @@ public class GeneralConfig {
         @Config.Name("ArcanaY")
         @Config.RangeInt(min = 1, max = 255)
         public int arcanaY = 18;
+        
+        @Config.Name("HideArcanaBar")
+        @Config.Comment("Don't render arcana bar if full")
+        public boolean hideArcanaBar = true;
     }
 
     @SubscribeEvent
