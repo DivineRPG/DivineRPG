@@ -628,6 +628,8 @@ public class BlockRegistry {
     // Walls
     @ObjectHolder("ancient_brick_wall")
     public static final Block ancientBrickWall = null;
+    @ObjectHolder("degraded_brick_wall")
+    public static final Block degradedBrickWall = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -1723,6 +1725,7 @@ public class BlockRegistry {
 
         //Walls
         register(registry, new BlockModWall("ancient_brick_wall", ancientBricks, -1F));
+        register(registry, new BlockModWall("degraded_brick_wall", degradedBricks, -1F));
 
 //        register(registry, new KingCompressor("king_compression", true));
 //        register(registry, new KingCompressor("king_compression_still", false));

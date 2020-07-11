@@ -358,6 +358,7 @@ tile.degraded_brick.name=Degraded Brick
 tile.degraded_brick_slab.name=Degraded Brick Slab
 tile.degraded_brick_double_slab.name=Degraded Brick Double Slab
 tile.degraded_brick_stairs.name=Degraded Brick Stairs
+tile.degraded_brick_wall.name=Degraded Brick Wall
 tile.dark_degraded_brick.name=Dark Degraded Brick
 tile.ancient_brick.name=Ancient Brick
 tile.ancient_brick_slab.name=Ancient Brick Slab
