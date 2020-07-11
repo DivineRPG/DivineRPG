@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:ancient_brick_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:ancient_brick_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
+    }
+  ]
+}

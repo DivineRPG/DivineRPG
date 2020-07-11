@@ -984,6 +984,7 @@ public class ItemRegistry {
         register(registry, new ItemModSlab("divine_slab", BlockRegistry.divineSlab, BlockRegistry.divineSlab, BlockRegistry.divineDoubleSlab));
         register(registry, new ItemModSlab("frozen_slab", BlockRegistry.frozenSlab, BlockRegistry.frozenSlab, BlockRegistry.frozenDoubleSlab));
         register(registry, new ItemModSlab("eucalyptus_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
+        register(registry, new ItemModSlab("ancient_brick_slab", BlockRegistry.ancientBrickSlab, BlockRegistry.ancientBrickSlab, BlockRegistry.ancientBrickDoubleSlab));
         register(registry, new ItemModSlab("degraded_brick_slab", BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickDoubleSlab));
 
         // Shields
