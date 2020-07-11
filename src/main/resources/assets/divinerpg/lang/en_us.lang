@@ -363,6 +363,7 @@ tile.ancient_brick.name=Ancient Brick
 tile.ancient_brick_slab.name=Ancient Brick Slab
 tile.ancient_brick_double_slab.name=Ancient Brick Double Slab
 tile.ancient_brick_stairs.name=Ancient Brick Stairs
+tile.ancient_brick_wall.name=Ancient Brick Wall
 tile.ancient_stone.name=Ancient Stone
 tile.light_degraded_brick.name=Light Degraded Brick
 tile.stained_glass.name=Stained Glass

@@ -625,6 +625,10 @@ public class BlockRegistry {
     @ObjectHolder("degraded_brick_double_slab")
     public static final Block degradedBrickDoubleSlab = null;
 
+    // Walls
+    @ObjectHolder("ancient_brick_wall")
+    public static final Block ancientBrickWall = null;
+
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static final Block edenBlock = null;
@@ -1716,6 +1720,9 @@ public class BlockRegistry {
         registerSlab(registry, "eucalyptus_slab", eucalyptusPlanks, 2.0F);
         registerSlab(registry, "ancient_brick_slab", ancientBricks, -1F);
         registerSlab(registry, "degraded_brick_slab", degradedBricks, -1F);
+
+        //Walls
+        register(registry, new BlockModWall("ancient_brick_wall", ancientBricks, -1F));
 
 //        register(registry, new KingCompressor("king_compression", true));
 //        register(registry, new KingCompressor("king_compression_still", false));
