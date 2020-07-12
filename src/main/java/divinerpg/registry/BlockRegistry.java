@@ -1321,8 +1321,8 @@ public class BlockRegistry {
         register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
         register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
-        register(registry, new BlockModUnbreakable("icy_bricks"));
-        register(registry, new BlockModUnbreakable("icy_stone"));
+        register(registry, new BlockMod("icy_bricks", 1.5F));
+        register(registry, new BlockMod("icy_stone", 2.0F));
         register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
         register(registry, new BlockMod("snow_bricks", 6.0F));
         registerItemlessBlock(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f, () -> ItemRegistry.steelDoor));
