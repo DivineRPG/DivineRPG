@@ -973,7 +973,6 @@ public class ItemRegistry {
         // Vethea miscellaneous
         register(registry, new ItemVethean("acid"));
         register(registry, new ItemVethean("band_of_heiva_hunting"));
-        register(registry, new ItemMinersAmulet("miners_amulet"));
         register(registry, new ItemVethean("rock_chunks"));
 
         //Slabs
@@ -998,6 +997,9 @@ public class ItemRegistry {
         register(registry, new DivineShield("apalachia_shield", DivineRPGTabs.ARMOR, () -> apalachiaChunk, 4800));
         register(registry, new DivineShield("skythern_shield", DivineRPGTabs.ARMOR, () -> skythernChunk, 9600));
         register(registry, new DivineShield("mortum_shield", DivineRPGTabs.ARMOR, () -> mortumChunk, 19200));
+
+        // Baubles
+        register(registry, new ItemMinersAmulet("miners_amulet"));
 
     }
 

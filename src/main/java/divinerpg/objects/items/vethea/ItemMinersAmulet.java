@@ -8,7 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.fml.common.Optional;
 
+@Optional.Interface(iface="baubles.api.IBauble",modid="baubles")
 public class ItemMinersAmulet extends ItemMod implements IBauble {
     public ItemMinersAmulet(String name) {
         super(name, DivineRPGTabs.VETHEA);
