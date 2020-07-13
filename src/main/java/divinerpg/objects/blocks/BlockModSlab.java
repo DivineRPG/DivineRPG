@@ -81,6 +81,16 @@ public class BlockModSlab extends BlockSlab {
     }
 
     @Override
+    public IBlockState getStateFromMeta(int meta) {
+        if(meta == EnumBlockHalf.TOP.ordinal()) {
+            return this.getDefaultState().withProperty(HALF, EnumBlockHalf.TOP);
+        }
+        else {
+            return this.getDefaultState();
+        }
+    }
+
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         return state.getValue(HALF).ordinal();
