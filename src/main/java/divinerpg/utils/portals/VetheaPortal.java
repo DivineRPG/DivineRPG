@@ -1,5 +1,7 @@
 package divinerpg.utils.portals;
 
+import baubles.api.BaublesApi;
+import baubles.api.cap.IBaublesItemHandler;
 import divinerpg.config.GeneralConfig;
 import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.NbtUtil;
@@ -9,6 +11,7 @@ import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -76,12 +79,56 @@ public class VetheaPortal extends ServerPortal {
         player.inventory.clear();
 
         String loadFrom = tagNames.get(1);
-        NBTBase base = tag.getTag(loadFrom);
-        if (base instanceof NBTTagList) {
-            player.inventory.readFromNBT((NBTTagList) base);
+        NBTBase newDimensionNBT = tag.getTag(loadFrom);
+        if (newDimensionNBT instanceof NBTTagList) {
+            player.inventory.readFromNBT((NBTTagList) newDimensionNBT);
         }
 
         player.inventoryContainer.detectAndSendChanges();
+
+        changeBaubles(player, tag, sourceDimension == vetheaID);
+    }
+
+    private void changeBaubles(EntityPlayer player, NBTTagCompound tag, boolean backToOverworld) {
+        List<String> tagNames = Arrays.asList("Baubles_Overworld", "Baubles_Vethea");
+        if (backToOverworld) {
+            Collections.reverse(tagNames);
+        }
+
+        String saveTo = tagNames.get(0);
+        String loadFrom = tagNames.get(1);
+
+        IBaublesItemHandler handler = BaublesApi.getBaublesHandler(player);
+
+        tag.setTag(saveTo, serializeBaubles(handler));
+        deserializeBaubles(handler, ((NBTTagList) tag.getTag(loadFrom)));
+    }
+
+    private NBTTagList serializeBaubles(IBaublesItemHandler baublesHandler) {
+        NBTTagList serializedInventory = new NBTTagList();
+
+        for (int slotIndex = 0; slotIndex < baublesHandler.getSlots(); slotIndex++) {
+            NBTTagCompound serializedSlot = baublesHandler.getStackInSlot(slotIndex).writeToNBT(new NBTTagCompound());
+            serializedInventory.appendTag(serializedSlot);
+        }
+
+        return serializedInventory;
+    }
+
+    private void deserializeBaubles(IBaublesItemHandler baublesHandler, NBTTagList serializedInventory) {
+        for (int slotIndex = 0; slotIndex < baublesHandler.getSlots(); slotIndex++) {
+            if (serializedInventory == null) {
+                baublesHandler.setStackInSlot(slotIndex, ItemStack.EMPTY);
+            } else {
+                NBTBase slotNbt = serializedInventory.get(slotIndex);
+                if (slotNbt instanceof NBTTagCompound) {
+                    ItemStack deserializedItem = new ItemStack(((NBTTagCompound) serializedInventory.get(slotIndex)));
+                    baublesHandler.setStackInSlot(slotIndex, deserializedItem);
+                } else {
+                    baublesHandler.setStackInSlot(slotIndex, ItemStack.EMPTY);
+                }
+            }
+        }
     }
 
     @Override
