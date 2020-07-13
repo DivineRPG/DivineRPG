@@ -19,6 +19,7 @@ import divinerpg.objects.items.vanilla.ItemHealingStone;
 import divinerpg.objects.items.vanilla.ItemHordeHorn;
 import divinerpg.objects.items.vanilla.ItemTeleportationCrystal;
 import divinerpg.objects.items.vanilla.ItemTeleportationStar;
+import divinerpg.objects.items.vethea.ItemMinersAmulet;
 import divinerpg.objects.items.vethea.ItemNightmareBed;
 import divinerpg.objects.items.vethea.ItemVethean;
 import net.minecraft.init.Blocks;
@@ -972,7 +973,7 @@ public class ItemRegistry {
         // Vethea miscellaneous
         register(registry, new ItemVethean("acid"));
         register(registry, new ItemVethean("band_of_heiva_hunting"));
-        register(registry, new ItemVethean("miners_amulet"));
+        register(registry, new ItemMinersAmulet("miners_amulet"));
         register(registry, new ItemVethean("rock_chunks"));
 
         //Slabs
