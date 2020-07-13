@@ -30,12 +30,13 @@ repositories {
     maven { url = "https://minecraft.curseforge.com/api/maven/"}
 	maven { url = "http://dvs1.progwml6.com/files/maven"}
 	maven { url = "https://modmaven.k-4u.nl"}
+    maven { url = "https://www.cursemaven.com"}
     maven { url uri('localmaven')}
 	}
 
 dependencies {
     deobfCompile "projecte:ProjectE:1.12.2:${projecte_version}"
-
+    deobfCompile "curse.maven:baubles:2518667"
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"

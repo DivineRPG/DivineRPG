@@ -1,6 +1,6 @@
-#Translated by Locomen_ - Russian Lead Translator
-#Перевод от Locomen_ - Куратор русского перевода
-#Предложения/пожелания по переводу направлять на контакты ниже.
+#Translated by Locomen_
+#Перевод от Locomen_
+#Предложения и пожелания по переводу направлять на контакты ниже.
 #vk.com/locomen | Discord(Locomen_#3035)
 
 itemGroup.divinerpg_blocks=DivineRPG: Блоки
@@ -51,7 +51,7 @@ tile.purple_vane.name=Фиолетовая лопасть
 tile.red_vane.name=Красная лопасть
 tile.yellow_vane.name=Жёлтая лопасть
 tile.divine_rock.name=Божественная порода
-tile.smoldering_tar.name=Раскаленная смола
+tile.smoldering_tar.name=Раскалённая смола
 tile.asphalt.name=Асфальт
 tile.fancy_wool.name=Красивая шерсть
 tile.teal_steel.name=Бирюзовая сталь
@@ -237,7 +237,7 @@ tile.sunstorm_spawner.name=Спавнер Солнечного шторма
 tile.termasect_spawner.name=Спавнер Термасекта
 tile.eternal_archer_spawner.name=Спавнер Вечного лучника
 tile.experienced_cori_spawner.name=Спавнер Королевской Кори
-
+tile.frosted_alure.name=Frosted Alure
 tile.lunic_acid.name=Лунная кислота
 tile.firewood_leaves.name=Огненная листва
 tile.hyrewood_leaves.name=Хайровая листва
@@ -313,11 +313,11 @@ tile.wildwood_stairs.name=Ступеньки Дикого леса
 tile.apalachia_stairs.name=Ступеньки Апалачии
 tile.skythern_stairs.name=Ступеньки Небесного тёрна
 tile.mortum_stairs.name=Ступеньки Мортума
-tile.eden_slab.name=Полублоки Эдема
-tile.wildwood_slab.name=Полублоки Дикого леса
-tile.apalachia_slab.name=Полублоки Апалачии
-tile.skythern_slab.name=Полублоки Небесного тёрна
-tile.mortum_slab.name=Полублоки Мортума
+tile.eden_slab.name=Плита Эдема
+tile.wildwood_slab.name=Плита Дикого леса
+tile.apalachia_slab.name=Плита Апалачии
+tile.skythern_slab.name=Плита Небесного тёрна
+tile.mortum_slab.name=Плита Мортума
 tile.twilight_stone.name=Сумеречный камень
 tile.wildwood_vine.name=Лоза Дикого леса
 tile.blue_fire.name=Синий Огонь
@@ -360,8 +360,16 @@ tile.heat_trap_on.name=Огненная ловушка
 tile.soul_stone.name=Камень душ
 tile.soul_sludge.name=Осадок душ
 tile.degraded_brick.name=Испорченные кирпичи
+tile.degraded_brick_slab.name=Плита из испорченного кирпича
+tile.degraded_brick_double_slab.name=Двойная плита из испорченного кирпича
+tile.degraded_brick_stairs.name=Ступеньки из испорченного кирпича
+tile.degraded_brick_wall.name=Стена из из испорченного кирпича
 tile.dark_degraded_brick.name=Тёмные испорченные кирпичи
 tile.ancient_brick.name=Древний кирпич
+tile.ancient_brick_slab.name=Плита из древнего кирпича
+tile.ancient_brick_double_slab.name=Двойная плита из древнего кирпича
+tile.ancient_brick_stairs.name=Ступеньки из древнего кирпича
+tile.ancient_brick_wall.name=Стена из древнего кирпича
 tile.ancient_stone.name=Древний камень
 tile.light_degraded_brick.name=Светлые испорченные кирпичи
 tile.stained_glass.name=Окрашенное стекло
@@ -417,13 +425,13 @@ tile.moonlight_furnace.name=Печь лунного света
 tile.moonlight_furnace_on.name=Печь лунного света
 tile.dark_bridge_on.name=Тёмный мост
 tile.slime_light_on.name=Слаймовый свет
-tile.divine_double_slab.name=Двойные божественные полублоки
-tile.frozen_double_slab.name=Двойные замороженные полублоки
-tile.eden_double_slab.name=Двойные полублоки Эдема
-tile.wildwood_double_slab.name=Двойные полублоки Дикого леса
-tile.apalachia_double_slab.name=Двойные полублоки Апалачии
-tile.skythern_double_slab.name=Двойные полублоки Небесного тёрна
-tile.mortum_double_slab.name=Двойные полублоки Мортума
+tile.divine_double_slab.name=Двойные божественные плиты
+tile.frozen_double_slab.name=Двойные замороженные плиты
+tile.eden_double_slab.name=Двойные плиты Эдема
+tile.wildwood_double_slab.name=Двойные плиты Дикого леса
+tile.apalachia_double_slab.name=Двойные плиты Апалачии
+tile.skythern_double_slab.name=Двойные плиты Небесного тёрна
+tile.mortum_double_slab.name=Двойные плиты Мортума
 tile.white_mushroom_plant.name=Белый гриб
 tile.steel_door.name=Стальная дверь
 tile.truffle.name=Трюфель
@@ -1130,6 +1138,9 @@ item.king_helmet.name=Королевская корона
 item.king_chestplate.name=Королевский нагрудник
 item.king_leggings.name=Королевские поножи
 item.king_boots.name=Королевские ботинки
+item.arlemite_nugget.name=Арлемитовый самородок
+item.realmite_nugget.name=Реалмитовый самородок
+item.rupee_nugget.name=Рупиевый самородок
 
 
 death.attack.trap=%1$s попал в ловушку
@@ -1446,8 +1457,7 @@ advancement.divinerpg.vethea.temple_of_doom.desc=Получите глыбу С�
 advancement.divinerpg.vethea.unlimited_power=Безграничная мощь
 advancement.divinerpg.vethea.unlimited_power.desc=Убейте Крушителя
 
-
-fluid.smoldering_tar=Раскаленная смола
+fluid.smoldering_tar=Раскалённая смола
 
 message.jackoman.boo=БУУ!
 message.jackoman.lost=Кажется я потерял голову.
@@ -1562,13 +1572,14 @@ message.nightmare_bed.restrict=Кровать кошмаров можно исп
 message.nightmare_bed.overworld_only=Кровать кошмаров можно использовать только в обычном мире.
 messaage.teleportation_star=Вы не можете изменить исходное положение.
 message.standard=Спасибо %s за скачивание и игру в DivineRPG!
+message.internet=Не удается проверить наличие последней версии, проверить свое подключение к интернету!
 message.update=Доступно обновление DivineRPG
 message.version=[DivineRPG устарел. Доступна новая версия: %s]
 message.developer=%s, Добро пожаловать разработчик DivineRPG!
 message.tester=Добро пожаловать помощник DivineRPG! %s, команда разработчиков благодарна вам за помощь в улучшении мода.
 message.patreon=Добро пожаловать %s! Команда разработчиков DivineRPG, благодарит вас за финансовую поддержку!
-message.friend=Добро пожаловать %s! Вы друг нашего проекта DivineRPG.
 message.spawner.peaceful=Вы не можете призвать босса на мирной сложности!
+message.friend=Добро пожаловать %s! Вы друг нашего проекта DivineRPG.
 message.spawner.item=Вы должны держать %s, чтобы призвать босса!
 
 tooltip.uses=Применений осталось: %s
@@ -1640,6 +1651,8 @@ tooltip.staff_of_starlight=Сбрасывает град звезд с неба
 tooltip.dimension=Измерение: %s
 tooltip.block_position=Координаты: x=%s, y=%s, z=%s
 tooltip.harvest_level=Уровень добычи: %s
+tooltip.instant_consumption=Мгновенное употребление
+tooltip.frosted_alure=Seems to attract mobs more than other blocks?
 
 tooltip.armor_info.fire_protection=Защита от огня
 tooltip.armor_info.no_fall=Поглощение урона от падения

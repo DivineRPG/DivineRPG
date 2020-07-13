@@ -29,15 +29,15 @@ public class EventClientLogin {
                     player.sendMessage(message);
                 } else if (Utils.isTesterName(player.getUniqueID())) {
                     TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
-                    message.getStyle().setColor(TextFormatting.DARK_BLUE);
+                    message.getStyle().setColor(TextFormatting.BLUE);
                     player.sendMessage(message);
                 } else if (Utils.isPatreon(player.getUniqueID())) {
                     TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.patreon", player.getDisplayName());
-                    message.getStyle().setColor(TextFormatting.YELLOW);
+                    message.getStyle().setColor(TextFormatting.GOLD);
                     player.sendMessage(message);
                 } else if (Utils.isFriend(player.getUniqueID())) {
                     TextComponentBase message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
-                    message.getStyle().setColor(TextFormatting.GRAY);
+                    message.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
                     player.sendMessage(message);
                 }
             }
