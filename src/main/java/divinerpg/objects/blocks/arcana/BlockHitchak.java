@@ -1,9 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
-public class BlockHitchak extends BlockArcanaCrop {
+public class BlockHitchak extends BlockModCrop {
 
     public BlockHitchak(String name) {
         super(name);

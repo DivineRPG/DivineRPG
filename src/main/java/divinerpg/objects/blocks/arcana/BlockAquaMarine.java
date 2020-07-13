@@ -1,9 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
-public class BlockAquaMarine extends BlockArcanaCrop {
+public class BlockAquaMarine extends BlockModCrop {
 
     public BlockAquaMarine(String name) {
         super(name);

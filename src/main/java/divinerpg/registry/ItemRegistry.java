@@ -894,20 +894,20 @@ public class ItemRegistry {
         register(registry, new ItemMod("dungeon_tokens"));
 
         // Seeds
-        register(registry, new ItemArcanaSeeds("aquamarine_seeds", () -> BlockRegistry.aquamarinePlant));
-        register(registry, new ItemArcanaSeeds("eucalyptus_root_seeds", () -> BlockRegistry.eucalyptusPlant));
-        register(registry, new ItemArcanaSeeds("firestock_seeds", () -> BlockRegistry.firestockPlant));
-        register(registry, new ItemArcanaSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
-        register(registry, new ItemArcanaSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
-        register(registry, new ItemArcanaSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
-        register(registry, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
+        register(registry, new ItemModSeeds("aquamarine_seeds", () -> BlockRegistry.aquamarinePlant));
+        register(registry, new ItemModSeeds("eucalyptus_root_seeds", () -> BlockRegistry.eucalyptusPlant));
+        register(registry, new ItemModSeeds("firestock_seeds", () -> BlockRegistry.firestockPlant));
+        register(registry, new ItemModSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
+        register(registry, new ItemModSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
+        register(registry, new ItemModSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
+        register(registry, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.GRASS));
+        register(registry, new ItemModSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
         register(registry, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS));
         register(registry, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS));
         register(registry, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS));
-        register(registry, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant, () -> Blocks.FARMLAND));
-        register(registry, new ItemArcanaSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
-        register(registry, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant, () -> Blocks.FARMLAND));
+        register(registry, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant));
+        register(registry, new ItemModSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
+        register(registry, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant));
 
         // Vethea
         // Vethea pearls

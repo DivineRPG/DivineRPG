@@ -6,6 +6,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -22,23 +23,28 @@ public class ItemModSeeds extends Item implements IPlantable {
     private Supplier<Block> cropSupplier;
     public Supplier<Block> soilSupplier;
 
+    public ItemModSeeds(String name, Supplier<Block> cropSupplier) {
+        this(name, cropSupplier, () -> Blocks.FARMLAND);
+    }
+
     public ItemModSeeds(String name, Supplier<Block> cropSupplier, Supplier<Block> soilSupplier) {
         setUnlocalizedName(name);
         setRegistryName(DivineRPG.MODID, name);
         this.cropSupplier = cropSupplier;
         this.soilSupplier = soilSupplier;
         setCreativeTab(DivineRPGTabs.FOOD_AND_AGRICULTURE);
-
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.getHeldItem(hand);
-
         Block crop = cropSupplier.get();
+        Block soil = soilSupplier.get();
 
-        if (crop != null && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
+        if (worldIn.getBlockState(pos).getBlock() != soil) {
+           return EnumActionResult.FAIL;
+        } else if (crop != null && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
                 && crop.canPlaceBlockAt(worldIn, pos.up()) && worldIn.isAirBlock(pos.up())) {
             worldIn.setBlockState(pos.up(), crop.getDefaultState());
 

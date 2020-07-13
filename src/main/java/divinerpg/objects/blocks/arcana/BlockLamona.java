@@ -1,9 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
-public class BlockLamona extends BlockArcanaCrop {
+public class BlockLamona extends BlockModCrop {
 
     public BlockLamona(String name) {
         super(name);

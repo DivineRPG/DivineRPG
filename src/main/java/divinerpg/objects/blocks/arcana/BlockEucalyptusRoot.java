@@ -1,10 +1,11 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
-public class BlockEucalyptusRoot extends BlockArcanaCrop {
+public class BlockEucalyptusRoot extends BlockModCrop {
 
     public BlockEucalyptusRoot(String name) {
         super(name);

@@ -15,18 +15,14 @@ import java.util.List;
 
 public class BlockModCrop extends BlockCrops {
 
-    /**
-     * Contains stages of growth
-     */
-    protected List<AxisAlignedBB> aabb = new ArrayList<>();
+    protected List<AxisAlignedBB> growthStageHitboxes = new ArrayList<>();
 
     public BlockModCrop(String name) {
         this(name, 0.8);
     }
 
     /**
-     * @param maxHeight
-     *            - max height of plant, 0 > height >= 1
+     * @param maxHeight max height of plant, 0 > height >= 1
      */
     public BlockModCrop(String name, double maxHeight) {
         super();
@@ -38,18 +34,12 @@ public class BlockModCrop extends BlockCrops {
 
         // Stages are grown by steps
         for (int i = 0; i <= getMaxAge(); i++) {
-            aabb.add(new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, step * (i + 1), 1.0D));
+            growthStageHitboxes.add(new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, step * (i + 1), 1.0D));
         }
     }
 
     @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        IBlockState soil = worldIn.getBlockState(pos.down());
-        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && soil.getBlock() == Blocks.FARMLAND;
-    }
-
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return aabb.get(MathHelper.clamp(this.getAge(state), 0, aabb.size() - 1));
+        return growthStageHitboxes.get(MathHelper.clamp(this.getAge(state), 0, growthStageHitboxes.size() - 1));
     }
 }

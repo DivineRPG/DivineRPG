@@ -1,9 +1,10 @@
 package divinerpg.objects.blocks.arcana;
 
+import divinerpg.objects.blocks.BlockModCrop;
 import divinerpg.registry.ItemRegistry;
 import net.minecraft.item.Item;
 
-public class BlockVeilo extends BlockArcanaCrop {
+public class BlockVeilo extends BlockModCrop {
 
     public BlockVeilo(String name) {
         super(name);
