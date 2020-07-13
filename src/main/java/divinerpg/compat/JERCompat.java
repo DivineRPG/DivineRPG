@@ -243,5 +243,13 @@ public class JERCompat {
 		plantRegistry.register(new ItemStack(ItemRegistry.moonbulbSeeds), new PlantDrop(new ItemStack(ItemRegistry.moonbulb), 1, 1));
 		plantRegistry.register(new ItemStack(ItemRegistry.tomatoSeeds), new PlantDrop(new ItemStack(ItemRegistry.tomato), 1, 1));
 		plantRegistry.register(new ItemStack(ItemRegistry.whiteMushroomSeeds), new PlantDrop(new ItemStack(ItemRegistry.whiteMushroom), 1, 1));
-	}
+		plantRegistry.register(new ItemStack(ItemRegistry.aquamarineSeeds), new PlantDrop(new ItemStack(ItemRegistry.aquamarine), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.eucalyptusRootSeeds), new PlantDrop(new ItemStack(BlockRegistry.eucalyptusLog), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.firestockSeeds), new PlantDrop(new ItemStack(ItemRegistry.firestock), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.hitchakSeeds), new PlantDrop(new ItemStack(ItemRegistry.hitchak), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.lamonaSeeds), new PlantDrop(new ItemStack(ItemRegistry.lamona), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.marsineSeeds), new PlantDrop(new ItemStack(ItemRegistry.marsine), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.pinflySeeds), new PlantDrop(new ItemStack(ItemRegistry.pinfly), 1, 1));
+		plantRegistry.register(new ItemStack(ItemRegistry.veiloSeeds), new PlantDrop(new ItemStack(ItemRegistry.veilo), 1, 1));
+		}
 }
