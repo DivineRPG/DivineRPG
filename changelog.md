@@ -18,6 +18,7 @@
 - Iceika dungeon bricks are now breakable (AstralScourge)
 - Arcana plants grown on regular farmland now (AstralScourge)
 - Tamable mobs can now sit (Nico)
+- Ender armor negates ender pearl damage (Nico)
 
 ## Fixes:
 - Russian localizations (Locomen)
