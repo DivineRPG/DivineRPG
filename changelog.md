@@ -27,10 +27,10 @@
 
 ## Miscellaneous:
 - Changed the following textures: (Zachtoplasm)
- - Dark degraded brick
- - Degraded brick
- - Ancient brick
- - Arcanium power
+   - Dark degraded brick
+   - Degraded brick
+   - Ancient brick
+   - Arcanium power
 
 ## Removals:
 - Removed unneccisary tooltips (AstralScourge)
