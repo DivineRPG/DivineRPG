@@ -1,5 +1,7 @@
 package divinerpg.registry;
 
+import java.util.Collections;
+
 import divinerpg.DivineRPG;
 import divinerpg.api.ArmorHandlers;
 import divinerpg.api.DivineAPI;
@@ -10,6 +12,8 @@ import divinerpg.api.armor.registry.IArmorDescription;
 import divinerpg.capabilities.armor.ArmorDescription;
 import divinerpg.objects.blocks.twilight.BlockTwilightOre;
 import divinerpg.utils.Utils;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -27,8 +31,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import java.util.Collections;
 
 @Mod.EventBusSubscriber
 public class ArmorDescriptionRegistry {
@@ -113,7 +115,7 @@ public class ArmorDescriptionRegistry {
                                 ArmorRegistry.redEnderBoots,
                                 ArmorRegistry.yellowEnderBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onCancelPlayerReceiveDamage(e, DamageSource::isExplosion))
-                        .withHandler(EnderTeleportEvent.class, e -> e.setAttackDamage(0F))
+                        .withHandler(EnderTeleportEvent.class, e -> e.setAttackDamage(0F)                                         )
                         .setRegistryName(DivineRPG.MODID, "ender")
         );
 
@@ -411,6 +413,12 @@ public class ArmorDescriptionRegistry {
                         .withPossibleItems(EntityEquipmentSlot.LEGS, ArmorRegistry.witherReaperLeggings)
                         .withPossibleItems(EntityEquipmentSlot.FEET, ArmorRegistry.witherReaperBoots)
                         .withHandler(LivingHurtEvent.class, event -> ArmorHandlers.onCancelPlayerReceiveDamage(event, source -> source.equals(DamageSource.WITHER)))
+                        .withHandler(LivingHurtEvent.class, event ->{
+                        	if(event.getSource().getTrueSource() instanceof EntityLivingBase) {
+                        		Entity ent = event.getSource().getTrueSource();
+                        		((EntityLivingBase) ent).addPotionEffect(new PotionEffect(MobEffects.WITHER, 5 * 20, 1));
+                        	}
+                        })
                         .setRegistryName(new ResourceLocation(DivineRPG.MODID, "wither"))
         );
 
