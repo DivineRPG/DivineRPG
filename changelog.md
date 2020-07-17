@@ -19,6 +19,7 @@
 - Arcana plants grown on regular farmland now (AstralScourge)
 - Tamable mobs can now sit (Nico)
 - Ender armor negates ender pearl damage (Nico)
+- Wither reaper armor withers the wearers attacker (Nico)
 
 ## Fixes:
 - Russian localizations (Locomen)
