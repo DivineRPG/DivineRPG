@@ -1136,6 +1136,7 @@ item.king_boots.name=The King's Boots
 item.arlemite_nugget.name=Arlemite Nugget
 item.realmite_nugget.name=Realmite Nugget
 item.rupee_nugget.name=Rupee Nugget
+item.netherite_nugget.name=Netherite Nugget
 
 
 death.attack.trap=%1$s fell into a trap

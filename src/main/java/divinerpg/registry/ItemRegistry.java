@@ -110,6 +110,8 @@ public class ItemRegistry {
     public static final Item realmiteNugget = null;
     @ObjectHolder("rupee_nugget")
     public static final Item rupeeNugget = null;
+    @ObjectHolder("netherite_nugget")
+    public static final Item netheriteNugget = null;
 
     // Boss Spawners
     @ObjectHolder("call_of_the_watcher")
@@ -685,6 +687,7 @@ public class ItemRegistry {
         register(registry, new ItemMod("arlemite_nugget"));
         register(registry, new ItemMod("realmite_nugget"));
         register(registry, new ItemMod("rupee_nugget"));
+        register(registry, new ItemMod("netherite_nugget"));
         
 
         // Boss spawners
