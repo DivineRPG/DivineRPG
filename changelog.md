@@ -26,6 +26,7 @@
 - Fixed arcana portal spawn location (AstralScourge)
 - Fixed defineID issues (AstralScourge)
 - Fixed NPE caused by Zone attacking (AstralScourge)
+- Fixed simplified Chinese localization (Imbarainbow)
 
 ## Miscellaneous:
 - Changed the following textures: (Zachtoplasm)
