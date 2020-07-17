@@ -1,3 +1,40 @@
+# DivineRPG 1.7 changelog:
+
+## Additions:
+- Metalic ingot nuggets (Nico)
+- Frosted Allure (spawns hostile mobs on top) (Nico)
+- Arcana blocks: (AstralScourge)
+ - Arcana brick stairs
+ - Degraded brick stairs
+ - Ancient brick slab
+ - Ancient brick wall
+ - Degraded brick wall
+- Baubles support for miners amulet (Locomen)
+
+## Changes:
+- Refactored slabs (AstralScourge)
+- Pumpkin pie recipe (Nico)
+- Arcana bar renders if depleted hidden if full (can use config to return to old display) (Nico)
+- Iceika dungeon bricks are now breakable (AstralScourge)
+- Arcana plants grown on regular farmland now (AstralScourge)
+- Tamable mobs can now sit (Nico)
+
+## Fixes:
+- Russian localizations (Locomen)
+- Fixed arcana portal spawn location (AstralScourge)
+- Fixed defineID issues (AstralScourge)
+- Fixed NPE caused by Zone attacking (AstralScourge)
+
+## Miscellaneous:
+- Changed the following textures: (Zachtoplasm)
+ - Dark degraded brick
+ - Degraded brick
+ - Ancient brick
+ - Arcanium power
+
+## Removals:
+- Removed unneccisary tooltips (AstralScourge)
+
 # DivineRPG 1.6.4.1 changelog:
 
 ## Additions:
