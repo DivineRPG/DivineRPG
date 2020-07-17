@@ -4,11 +4,11 @@
 - Metalic ingot nuggets (Nico)
 - Frosted Allure (spawns hostile mobs on top) (Nico)
 - Arcana blocks: (AstralScourge)
- - Arcana brick stairs
- - Degraded brick stairs
- - Ancient brick slab
- - Ancient brick wall
- - Degraded brick wall
+   - Arcana brick stairs
+   - Degraded brick stairs
+   - Ancient brick slab
+   - Ancient brick wall
+   - Degraded brick wall
 - Baubles support for miners amulet (Locomen)
 
 ## Changes:
