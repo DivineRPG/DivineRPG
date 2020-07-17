@@ -18,6 +18,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -112,6 +113,7 @@ public class ArmorDescriptionRegistry {
                                 ArmorRegistry.redEnderBoots,
                                 ArmorRegistry.yellowEnderBoots)
                         .withHandler(LivingHurtEvent.class, e -> ArmorHandlers.onCancelPlayerReceiveDamage(e, DamageSource::isExplosion))
+                        .withHandler(EnderTeleportEvent.class, e -> e.setAttackDamage(0F))
                         .setRegistryName(DivineRPG.MODID, "ender")
         );
 
