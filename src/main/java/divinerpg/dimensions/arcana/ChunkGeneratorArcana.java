@@ -31,9 +31,15 @@ import divinerpg.dimensions.arcana.components.DungeonComponent20;
 import divinerpg.dimensions.arcana.components.DungeonComponentBase;
 import divinerpg.dimensions.arcana.components.DungeonComponentDramix;
 import divinerpg.dimensions.arcana.components.DungeonComponentParasecta;
+import divinerpg.dimensions.arcana.mazegen.ArcanaMazeGenerator;
+import divinerpg.dimensions.arcana.mazegen.Cell;
+import divinerpg.dimensions.arcana.mazegen.MazeMapMemoryStorage;
+import divinerpg.registry.StructureRegistry;
+import divinerpg.structure.arcana.ArcanaStructureHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -41,6 +47,7 @@ import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -93,37 +100,13 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
     public Chunk generateChunk(int x, int z) {
         this.chunkX = x;
         this.chunkZ = z;
-        this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
+        //this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
         this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16,
                 16);
 
-        ArcanaChunkPrimer chunkprimer = new ArcanaChunkPrimer();
-        DungeonComponentBase room;
 
-        for (int i = 4; i > 0; i--) {
-            //Code to make sure the 2-high component doesn't generate at the very top
-            if (i <= 3) {
-                int size = Rooms.size();
-                int roomIndex = rand.nextInt(size + 1);
-                if(roomIndex == size) {
-                    room = this.doubleHeightComponent;
-                }
-                else {
-                    room = Rooms.get(roomIndex);
-                }
-            }
-            else {
-                room =  Rooms.get(rand.nextInt(Rooms.size()));
-            }
 
-            room.generate(chunkprimer, rand, 0, i * 8, 0);
-        }
-
-        Ceiling.generate(chunkprimer, rand, 0, 40, 0);
-
-        chunkTileEntityMap.put(new ChunkPos(chunkX, chunkZ), chunkprimer.chunkTileEntityPositions);
-
-        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
+        Chunk chunk = new Chunk(this.world, new ChunkPrimer(), x, z);
         byte[] abyte = chunk.getBiomeArray();
 
         for (int i = 0; i < abyte.length; ++i) {
@@ -175,6 +158,83 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         long k = this.rand.nextLong() / 2L * 2L + 1L;
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed());
+        //this.rand is not used for overall maze generation, but it can be used to randomize specific things within a chunk
+
+
+        //MAZE GENERATION
+        Cell[][] mazeMap;
+
+        int regionRootX, regionRootZ;
+        int mapCoordinateX, mapCoordinateZ;
+
+        //if(!(chunkX > 0 && chunkX <= 64 && chunkZ <= 0 && chunkZ > -64)) {
+         //   return;
+       // }
+
+        regionRootX = roundUp(chunkX, 64);
+        regionRootZ = roundUp(chunkZ, 64);
+
+      //  if(regionRootX != 64 || regionRootZ != 0) {
+       //     return;
+       // }
+
+        ChunkPos regionRoot = new ChunkPos(regionRootX, regionRootZ);
+        Cell[][] storedGrid = MazeMapMemoryStorage.getMapForChunkPos(regionRoot);
+        if(storedGrid == null) {
+            System.out.println();
+            mazeMap = ArcanaMazeGenerator.generate(regionRootX, regionRootZ, world.getSeed());
+            MazeMapMemoryStorage.addMap(regionRoot, mazeMap);
+            System.out.println("Stored grid was null, should not happen again.");
+            System.out.println("Grid missing for region at root " + regionRoot + " called from chunk " + chunkX + ", " + chunkZ);
+        }
+        else {
+            mazeMap = storedGrid;
+        }
+
+        if(chunkX <= 0) {
+            mapCoordinateX = Math.abs(chunkX % 64);
+        }
+        else {
+            mapCoordinateX = 64 - (chunkX % 64); //yeah it won't use magic constants when polished
+            if(mapCoordinateX == 64) { //bit messy but it works
+                mapCoordinateX = 0;
+            }
+        }
+        if(chunkZ <= 0) {
+            mapCoordinateZ = Math.abs(chunkZ % 64);
+        }
+        else {
+            mapCoordinateZ = 64 - (chunkZ % 64);
+            if(mapCoordinateZ == 64) {
+                mapCoordinateZ = 0;
+            }
+        }
+
+        //System.out.println("Generating cell mazeMap[" + mapCoordinateZ + "][" + mapCoordinateX + "] in chunk" + chunkpos);
+
+        Cell cell = mazeMap[mapCoordinateZ][mapCoordinateX]; //z has to come first because arrays are backwards from Cartesian plane logic
+        ArcanaStructureHandler toGenerate = null;
+        switch(cell.getPieceType()) {
+            case CROSSROADS:
+                toGenerate = StructureRegistry.CROSSROADS_TEST;
+                break;
+            case THREE_WAY:
+                toGenerate = StructureRegistry.TPIECE_TEST;
+                break;
+            case CORNER:
+                toGenerate = StructureRegistry.CORNER_TEST;
+                break;
+            case HALLWAY:
+                toGenerate = StructureRegistry.HALLWAY_TEST;
+                break;
+            case DEAD_END:
+                toGenerate = StructureRegistry.DEAD_END_TEST;
+                break;
+        }
+
+        Rotation rotation = cell.getRotation(); // Rotation.values()[new Random().nextInt(Rotation.values().length)];
+        toGenerate.generateWithRotation(this.world, this.rand, new BlockPos(x + 8, 8, z + 8), rotation);
+
         //biome.decorate(this.world, this.rand, pos);
 
         List<BlockPos> chunkTileEntityPositions = (List<BlockPos>) chunkTileEntityMap.get(chunkpos);
@@ -191,5 +251,20 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         }
 
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);
+    }
+
+    static int roundUp(int numToRound, int multiple)
+    {
+        if (multiple == 0)
+            return numToRound;
+
+        int remainder = Math.abs(numToRound) % multiple;
+        if (remainder == 0)
+            return numToRound;
+
+        if (numToRound < 0)
+            return -1 * (Math.abs(numToRound) - remainder);
+        else
+            return numToRound + multiple - remainder;
     }
 }
