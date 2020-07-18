@@ -18,34 +18,12 @@ public class Cell {
         this.x = x;
         this.y = y;
         //will fix magic constant later
-        this.identifier = (x * 64) + y;
+        this.identifier = (x * ArcanaMazeGenerator.MAZE_SIZE) + y;
 
         this.hasNorthEdge = true;
         this.hasEastEdge = true;
         this.hasSouthEdge = true;
         this.hasWestEdge = true;
-    }
-
-    @Override
-    public String toString() {
-        return this.x + " " + this.y;
-    }
-
-    public int numEdges() {
-        int edges = 0;
-        if(this.hasNorthEdge) {
-            edges++;
-        }
-        if(this.hasEastEdge) {
-            edges++;
-        }
-        if(this.hasSouthEdge) {
-            edges++;
-        }
-        if(this.hasWestEdge) {
-            edges++;
-        }
-        return edges;
     }
 
     public int getNumberOfEdges() {

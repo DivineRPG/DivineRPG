@@ -158,54 +158,46 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         long k = this.rand.nextLong() / 2L * 2L + 1L;
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long) chunkX * k + (long) chunkZ * l ^ this.world.getSeed());
-        //this.rand is not used for overall maze generation, but it can be used to randomize specific things within a chunk
-
+        //this.rand is not used for overall maze generation which is specific to the region root instead of the specific chunk
+        //however, it will be used to determine per-chunk things like the specific room variant picked, as well as randomize specific things within a chunk
 
         //MAZE GENERATION
         Cell[][] mazeMap;
 
         int regionRootX, regionRootZ;
         int mapCoordinateX, mapCoordinateZ;
-
-        //if(!(chunkX > 0 && chunkX <= 64 && chunkZ <= 0 && chunkZ > -64)) {
-         //   return;
-       // }
-
-        regionRootX = roundUp(chunkX, 64);
-        regionRootZ = roundUp(chunkZ, 64);
-
-      //  if(regionRootX != 64 || regionRootZ != 0) {
-       //     return;
-       // }
-
+        regionRootX = roundUp(chunkX, ArcanaMazeGenerator.MAZE_SIZE);
+        regionRootZ = roundUp(chunkZ, ArcanaMazeGenerator.MAZE_SIZE);
+        
         ChunkPos regionRoot = new ChunkPos(regionRootX, regionRootZ);
         Cell[][] storedGrid = MazeMapMemoryStorage.getMapForChunkPos(regionRoot);
         if(storedGrid == null) {
-            System.out.println();
             mazeMap = ArcanaMazeGenerator.generate(regionRootX, regionRootZ, world.getSeed());
             MazeMapMemoryStorage.addMap(regionRoot, mazeMap);
-            System.out.println("Stored grid was null, should not happen again.");
-            System.out.println("Grid missing for region at root " + regionRoot + " called from chunk " + chunkX + ", " + chunkZ);
+            /*
+                System.out.println("Stored grid was null, should not happen again.");
+                System.out.println("Grid missing for region at root " + regionRoot + " called from chunk " + chunkX + ", " + chunkZ);
+            */
         }
         else {
             mazeMap = storedGrid;
         }
 
         if(chunkX <= 0) {
-            mapCoordinateX = Math.abs(chunkX % 64);
+            mapCoordinateX = Math.abs(chunkX % ArcanaMazeGenerator.MAZE_SIZE);
         }
         else {
-            mapCoordinateX = 64 - (chunkX % 64); //yeah it won't use magic constants when polished
-            if(mapCoordinateX == 64) { //bit messy but it works
+            mapCoordinateX = ArcanaMazeGenerator.MAZE_SIZE - (chunkX % ArcanaMazeGenerator.MAZE_SIZE);
+            if(mapCoordinateX == ArcanaMazeGenerator.MAZE_SIZE) { //bit messy but it works
                 mapCoordinateX = 0;
             }
         }
         if(chunkZ <= 0) {
-            mapCoordinateZ = Math.abs(chunkZ % 64);
+            mapCoordinateZ = Math.abs(chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
         }
         else {
-            mapCoordinateZ = 64 - (chunkZ % 64);
-            if(mapCoordinateZ == 64) {
+            mapCoordinateZ = ArcanaMazeGenerator.MAZE_SIZE - (chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
+            if(mapCoordinateZ == ArcanaMazeGenerator.MAZE_SIZE) {
                 mapCoordinateZ = 0;
             }
         }

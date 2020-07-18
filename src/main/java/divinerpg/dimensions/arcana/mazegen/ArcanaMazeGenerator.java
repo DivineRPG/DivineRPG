@@ -6,7 +6,7 @@ import divinerpg.dimensions.arcana.mazegen.UnionFind;
 import java.util.*;
 
 public class ArcanaMazeGenerator {
-    private static final int MAZE_SIZE = 64;
+    public static final int MAZE_SIZE = 64;
 
     private static class Edge {
         Cell firstAdjacent, secondAdjacent;
