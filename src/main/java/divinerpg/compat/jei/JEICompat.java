@@ -22,6 +22,7 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 
@@ -106,6 +107,7 @@ public class JEICompat implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {
         DivineRPG.logger.info("Registering JEI compat");
+        registry.addDescription(new ItemStack(BlockRegistry.arcaniumOre), "jeicompat." + BlockRegistry.arcaniumOre.getUnlocalizedName() + ".information");
 
         registerVillagerRecepies(registry, EntityJackOMan.getAllRecipies(), JeiReferences.JACK_O_MAN_CATEGORY);
         registerVillagerRecepies(registry, EntityWorkshopMerchant.getAllRecipies(), JeiReferences.WORKSHOP_MERCHANT_CATEGORY);
