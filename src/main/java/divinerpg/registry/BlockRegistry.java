@@ -1499,7 +1499,7 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("ancient_tile"));
         register(registry, new BlockModLadder("arcanite_tubes"));
         register(registry, new BlockModUnbreakable("arcanium_metal"));
-        register(registry, new BlockModUnbreakable("arcanium_power"));
+        register(registry, new BlockModUnbreakable("arcanium_power").setLightLevel(1.0F));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
 
         Block degradedBricks = new BlockModUnbreakable("degraded_brick"); //why isn't there an s in the registry name
