@@ -20,6 +20,9 @@
 - Tamable mobs can now sit (Nico)
 - Ender armor negates ender pearl damage (Nico)
 - Wither reaper armor withers the wearers attacker (Nico)
+- Refactored Arcana maze generator to use NBT over old method (AstralScourge)
+- Redesigned Arcana rooms (AstralScourge)
+- Arcanium power provides power (AstralScourge)
 
 ## Fixes:
 - Russian localizations (Locomen)
@@ -27,6 +30,7 @@
 - Fixed defineID issues (AstralScourge)
 - Fixed NPE caused by Zone attacking (AstralScourge)
 - Fixed simplified Chinese localization (Imbarainbow)
+- Arcanium ore JEI support (Nico)
 
 ## Miscellaneous:
 - Changed the following textures: (Zachtoplasm)
@@ -34,6 +38,13 @@
    - Degraded brick
    - Ancient brick
    - Arcanium power
+   - Soul sludge
+   - Ancient stone
+   - Soul stone
+   - Soul stone door
+   - Ancient brick door
+   - Soul sludge door
+   - Degraded brick door
 
 ## Removals:
 - Removed unneccisary tooltips (AstralScourge)
