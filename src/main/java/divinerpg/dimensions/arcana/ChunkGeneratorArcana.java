@@ -3,6 +3,7 @@ package divinerpg.dimensions.arcana;
 import java.util.List;
 import java.util.Random;
 
+import divinerpg.capabilities.arcana.Arcana;
 import divinerpg.dimensions.arcana.mazegen.ArcanaMazeGenerator;
 import divinerpg.dimensions.arcana.mazegen.Cell;
 import divinerpg.dimensions.arcana.mazegen.MazeMapMemoryStorage;
@@ -128,21 +129,38 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
 
         Cell cell = mazeMap[mapCoordinateZ][mapCoordinateX]; //z has to come first because arrays are backwards from Cartesian plane logic
         ArcanaStructureHandler toGenerate = null;
+
+        boolean debugMazeGen = false; //temporary, switch to true to use test pieces
+
+        ArcanaStructureHandler crossroads = StructureRegistry.CROSSROADS_GEN_TEST;
+        ArcanaStructureHandler junction = StructureRegistry.JUNCTION_GEN_TEST;
+        ArcanaStructureHandler corner = StructureRegistry.CORNER_GEN_TEST;
+        ArcanaStructureHandler hallway = StructureRegistry.HALLWAY_GEN_TEST;
+        ArcanaStructureHandler deadEnd = StructureRegistry.DEAD_END_GEN_TEST;
+
+        if(debugMazeGen) {
+            crossroads = StructureRegistry.CROSSROADS_TEST;
+            junction = StructureRegistry.JUNCTION_TEST;
+            corner = StructureRegistry.CORNER_TEST;
+            hallway = StructureRegistry.HALLWAY_TEST;
+            deadEnd = StructureRegistry.DEAD_END_TEST;
+        }
+
         switch(cell.getPieceType()) {
             case CROSSROADS:
-                toGenerate = StructureRegistry.CROSSROADS_TEST;
+                toGenerate = crossroads;
                 break;
             case THREE_WAY:
-                toGenerate = StructureRegistry.TPIECE_TEST;
+                toGenerate = junction;
                 break;
             case CORNER:
-                toGenerate = StructureRegistry.CORNER_TEST;
+                toGenerate = corner;
                 break;
             case HALLWAY:
-                toGenerate = StructureRegistry.HALLWAY_TEST;
+                toGenerate = hallway;
                 break;
             case DEAD_END:
-                toGenerate = StructureRegistry.DEAD_END_TEST;
+                toGenerate = deadEnd;
                 break;
         }
 
