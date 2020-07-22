@@ -17,7 +17,6 @@ public class Cell {
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
-        //will fix magic constant later
         this.identifier = (x * ArcanaMazeGenerator.MAZE_SIZE) + y;
 
         this.hasNorthEdge = true;
@@ -64,10 +63,12 @@ public class Cell {
     }
 
     public Rotation getRotation() {
-        //DEAD END has opening at South Edge by default
-        //CORNER has openings at South and East edges by default
-        //HALLWAY has openings at South and North edges by default
-        //THREE WAY has openings at South, West, and East edges by default
+        //These are all assuming you are facing south
+
+        //DEAD END has opening at Bottom edge by default
+        //CORNER has openings at Bottom and Right edges by default
+        //HALLWAY has openings at Bottom and Top edges by default
+        //THREE WAY has openings at Bottom, Left, and Right edges by default
         //CROSSROADS obviously doesn't really matter but can have random rotation I guess in case for some reason they don't end up being rotationally symmetrical
 
         switch(this.getPieceType()) {
