@@ -54,11 +54,17 @@ public class StructureRegistry {
     public static final DRPGStructureHandler HUNGER_HOUSE_3 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_3");
     public static final DRPGStructureHandler[] HUNGER_HOUSES = {HUNGER_HOUSE_1, HUNGER_HOUSE_2, HUNGER_HOUSE_3};
 
+    /*
     public static final ArcanaStructureHandler CROSSROADS_TEST = new ArcanaStructureHandler("arcana/arcanacrossroads");
     public static final ArcanaStructureHandler CORNER_TEST = new ArcanaStructureHandler("arcana/arcanacornerpiece");
     public static final ArcanaStructureHandler TPIECE_TEST = new ArcanaStructureHandler("arcana/arcanatpiece");
     public static final ArcanaStructureHandler HALLWAY_TEST = new ArcanaStructureHandler( "arcana/arcanahallway");
-    public static final ArcanaStructureHandler DEAD_END_TEST = new ArcanaStructureHandler("arcana/arcanadeadend");
+    public static final ArcanaStructureHandler DEAD_END_TEST = new ArcanaStructureHandler("arcana/arcanadeadend");*/
+    public static final ArcanaStructureHandler CROSSROADS_TEST = new ArcanaStructureHandler("arcana/component_06_crossroads");
+    public static final ArcanaStructureHandler CORNER_TEST = new ArcanaStructureHandler("arcana/component_14_redone_corner");
+    public static final ArcanaStructureHandler TPIECE_TEST = new ArcanaStructureHandler("arcana/component_15_redone");
+    public static final ArcanaStructureHandler HALLWAY_TEST = new ArcanaStructureHandler( "arcana/component_19_redone");
+    public static final ArcanaStructureHandler DEAD_END_TEST = new ArcanaStructureHandler("arcana/component_13_dead_end");
 
 
     public static void registerLargeStructures() {
