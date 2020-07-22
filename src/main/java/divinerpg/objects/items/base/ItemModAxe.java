@@ -16,12 +16,10 @@ import java.util.List;
 public class ItemModAxe extends ItemAxe {
 
 	public ItemModAxe(ToolMaterial material, String name) {
-		// Eskl decided the speed multiplier (the / 5 thing)
-		super(material, material.getAttackDamage(), (material.getAttackDamage() / material.getEfficiency()) / 5);
+		super(material, material.getAttackDamage(), -3.0F);
 		setRegistryName(DivineRPG.MODID, name);
 		setUnlocalizedName(name);
 		setCreativeTab(DivineRPGTabs.TOOLS);
-
 	}
 
 	@Override
