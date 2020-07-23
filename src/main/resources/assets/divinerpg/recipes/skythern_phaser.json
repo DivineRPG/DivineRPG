@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_phaser"
+  },
+  "pattern": [
+    " X ",
+    "XXX",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "X": {
+      "item": "divinerpg:skythern_chunk"
+    }
+  }
+}

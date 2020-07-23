@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:spider_pumpkin"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:spider_pumpkin"
+    },
+    "facing=north": {
+      "model": "divinerpg:spider_pumpkin"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:spider_pumpkin"
+    }
+  }
+}

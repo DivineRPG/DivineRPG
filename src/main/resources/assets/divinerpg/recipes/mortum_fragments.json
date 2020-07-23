@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_fragments",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:mortum_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

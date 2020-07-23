@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_vane",
+    "count": 4
+  },
+  "pattern": [
+    "CCC",
+    "COC",
+    "CCC"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:dye",
+      "data": 11
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  }
+}

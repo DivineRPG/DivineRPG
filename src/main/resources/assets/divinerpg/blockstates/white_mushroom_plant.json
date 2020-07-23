@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:white_mushroom_plant_stage_0"
+      },
+      "when": {
+        "age": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:white_mushroom_plant_stage_1"
+      },
+      "when": {
+        "age": "1"
+      }
+    }
+  ]
+}

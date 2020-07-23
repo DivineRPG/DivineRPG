@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "axis=z": {
+      "model": "divinerpg:wildwood_portal_ew"
+    },
+    "axis=x": {
+      "model": "divinerpg:wildwood_portal_ns"
+    }
+  }
+}

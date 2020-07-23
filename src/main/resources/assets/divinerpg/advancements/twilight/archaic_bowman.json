@@ -1,0 +1,26 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:apalachia_heart"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.twilight.archaic_bowman"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.divinerpg.twilight.archaic_bowman.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:twilight/purple_planet",
+   "criteria":{
+      "kill_boss_eternal_archer":{
+         "trigger":"minecraft:player_killed_entity",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:eternal_archer"
+            }
+         }
+      }
+   }
+}

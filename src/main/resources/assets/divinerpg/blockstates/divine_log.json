@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "normal": {
+      "model": "divinerpg:divine_log"
+    },
+    "axis=none": {
+      "model": "divinerpg:divine_log"
+    },
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:divine_log"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:divine_log"
+    },
+    "axis=y": {
+      "model": "divinerpg:divine_log"
+    }
+  }
+}

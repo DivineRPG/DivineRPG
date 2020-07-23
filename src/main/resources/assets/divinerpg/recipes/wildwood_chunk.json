@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_chunk"
+  },
+  "pattern": [
+    "GGG",
+    "G G",
+    "G G"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "divinerpg:wildwood_gem"
+    }
+  }
+}

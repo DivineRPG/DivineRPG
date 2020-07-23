@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_pickaxe"
+  },
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:realmite_ingot"
+    }
+  }
+}

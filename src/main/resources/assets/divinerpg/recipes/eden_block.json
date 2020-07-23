@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:eden_block"
+  },
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:eden_soul"
+    },
+    "B": {
+      "item": "divinerpg:eden_heart"
+    },
+    "F": {
+      "item": "divinerpg:eden_fragments"
+    }
+  }
+}

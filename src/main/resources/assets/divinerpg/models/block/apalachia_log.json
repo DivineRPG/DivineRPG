@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/apalachia_log_side",
+    "south": "divinerpg:blocks/apalachia_log_side",
+    "north": "divinerpg:blocks/apalachia_log_side",
+    "west": "divinerpg:blocks/apalachia_log_side",
+    "particle": "divinerpg:blocks/apalachia_log_top",
+    "up": "divinerpg:blocks/apalachia_log_top",
+    "down": "divinerpg:blocks/apalachia_log_top"
+  }
+}

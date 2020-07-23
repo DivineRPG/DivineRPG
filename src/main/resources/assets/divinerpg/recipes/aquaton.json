@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:aquaton"
+  },
+  "pattern": [
+    "III",
+    "III",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:aquatic_ingot"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:rupee_shickaxe"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.overworld.root"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.overworld.root.desc"
+      },
+      "background":"divinerpg:textures/blocks/divine_rock.png",
+      "announce_to_chat":false
+   },
+   "criteria":{
+      "divinerpg":{
+         "trigger":"minecraft:location",
+         "conditions":{
+            "dimension":"overworld"
+         }
+      }
+   }
+}

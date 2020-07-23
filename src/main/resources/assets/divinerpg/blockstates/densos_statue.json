@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:densos_statue"
+      }
+    }
+  ]
+}

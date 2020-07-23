@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "divinerpg:blocks/eucalyptus_plant_0"
+  }
+}

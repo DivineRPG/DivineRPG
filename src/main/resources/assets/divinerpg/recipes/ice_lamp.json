@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:ice_lamp"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "divinerpg:ice_stone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

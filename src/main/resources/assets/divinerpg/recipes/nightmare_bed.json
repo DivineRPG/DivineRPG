@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:nightmare_bed"
+  },
+  "pattern": [
+    "MMM",
+	"WWW"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "M": {
+      "item": "divinerpg:mortum_block"
+    },
+    "W": {
+      "item": "divinerpg:mortum_planks"
+    }
+  }
+}

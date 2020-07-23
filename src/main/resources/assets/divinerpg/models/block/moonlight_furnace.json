@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:blocks/moonlight_furnace_side",
+    "south": "divinerpg:blocks/moonlight_furnace_side",
+    "north": "divinerpg:blocks/moonlight_furnace_front_off",
+    "west": "divinerpg:blocks/moonlight_furnace_side",
+    "particle": "divinerpg:blocks/moonlight_furnace_front_off",
+    "up": "divinerpg:blocks/moonlight_furnace_top",
+    "down": "divinerpg:blocks/moonlight_furnace_top"
+  }
+}

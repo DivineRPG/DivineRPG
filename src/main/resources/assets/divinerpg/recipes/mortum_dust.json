@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:eye_plant"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

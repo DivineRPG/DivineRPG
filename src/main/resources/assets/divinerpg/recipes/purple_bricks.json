@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:purple_bricks",
+	"count": 4
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 5
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

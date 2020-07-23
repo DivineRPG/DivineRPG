@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "divinerpg:items/gray_divine_sword"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:green_rupee_chestplate"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_chestplate"
+    },
+    {
+      "item": "divinerpg:green_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

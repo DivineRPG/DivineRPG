@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:eden_blade"
+  },
+  "pattern": [
+    " I ",
+    " I ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "I": {
+      "item": "divinerpg:eden_chunk"
+    }
+  }
+}

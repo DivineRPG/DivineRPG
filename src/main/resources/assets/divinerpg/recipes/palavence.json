@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:palavence"
+  },
+  "pattern": [
+    "I I",
+    "III",
+    " I "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:realmite_ingot"
+    }
+  }
+}

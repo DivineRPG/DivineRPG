@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_boots"
+  },
+  "pattern": [
+    "I I",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:bedrock_chunk"
+    }
+  }
+}

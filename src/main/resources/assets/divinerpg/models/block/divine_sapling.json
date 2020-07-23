@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "divinerpg:blocks/divine_sapling"
+  }
+}

@@ -1,0 +1,15 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:rainbour",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:healing_stone",
+               "weight":1
+            }
+         ]
+      }
+   ]
+}

@@ -1,0 +1,26 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:quadrotic_lump"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.getting_out_of_hand"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.getting_out_of_hand.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria":{
+    "kill_wreck":{
+      "trigger":"minecraft:player_killed_entity",
+      "conditions":{
+        "entity":{
+          "type":"divinerpg:quadro"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:aquatooth_maul"
+  },
+  "pattern": [
+    "TKT",
+    "TKT",
+    "KSK"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "T": {
+      "item": "divinerpg:liopleurodon_teeth"
+    },
+    "K": {
+      "item": "divinerpg:liopleurodon_skull"
+    }
+  }
+}

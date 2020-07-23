@@ -1,0 +1,26 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:sound_of_music"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.nether.off_key"
+      },
+      "frame":"goal",
+      "description":{
+         "translate":"advancement.divinerpg.nether.off_key.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"minecraft:nether/root",
+   "criteria":{
+      "use_sound_of_music":{
+         "trigger":"minecraft:item_durability_changed",
+         "conditions":{
+            "item":{
+               "item":"divinerpg:sound_of_music"
+            }
+         }
+      }
+   }
+}

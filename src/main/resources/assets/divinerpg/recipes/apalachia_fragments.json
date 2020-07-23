@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_fragments",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

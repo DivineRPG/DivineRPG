@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:snow_globe"
+  },
+  "pattern": [
+    " G ",
+    "GSG",
+    "DBD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "S": {
+      "item": "minecraft:snow"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "divinerpg:aqua_torch_wall"
+    },
+    "facing=south": {
+      "y": 90,
+      "model": "divinerpg:aqua_torch_wall"
+    },
+    "facing=north": {
+      "y": 270,
+      "model": "divinerpg:aqua_torch_wall"
+    },
+    "facing=up": {
+      "model": "divinerpg:aqua_torch"
+    },
+    "facing=west": {
+      "y": 180,
+      "model": "divinerpg:aqua_torch_wall"
+    }
+  }
+}

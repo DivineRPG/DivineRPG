@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_block"
+  },
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:skythern_soul"
+    },
+    "B": {
+      "item": "divinerpg:skythern_heart"
+    },
+    "F": {
+      "item": "divinerpg:skythern_fragments"
+    }
+  }
+}

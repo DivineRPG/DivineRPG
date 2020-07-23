@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_slicer",
+    "count": 20
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:wildwood_gem"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

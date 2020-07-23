@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:whitefire_furnace"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:whitefire_furnace"
+    },
+    "facing=north": {
+      "model": "divinerpg:whitefire_furnace"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:whitefire_furnace"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:darkstone_bricks",
+	"count": 4
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 0
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

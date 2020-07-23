@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:divine_planks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:divine_log"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

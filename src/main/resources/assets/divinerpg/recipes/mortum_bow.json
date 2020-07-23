@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_bow"
+  },
+  "pattern": [
+    " IX",
+    "I X",
+    " IX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "item": "divinerpg:mortum_chunk"
+    }
+  }
+}

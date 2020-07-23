@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:call_of_the_watcher"
+  },
+  "pattern": [
+    " H ",
+    "SES",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "divinerpg:molten_stone"
+    },
+    "E": {
+      "item": "divinerpg:watching_eye"
+    },
+    "H": {
+      "item": "divinerpg:hellstone_ingot"
+    }
+  }
+}

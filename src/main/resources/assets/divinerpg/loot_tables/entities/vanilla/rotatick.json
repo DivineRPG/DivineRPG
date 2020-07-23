@@ -1,0 +1,25 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:rotatick",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"minecraft:diamond",
+               "weight":1,
+               "functions":[
+                  {
+                     "function":"set_count",
+                     "count":{
+                        "min":0,
+                        "max":2
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+

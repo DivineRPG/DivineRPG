@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "divinerpg:items/green_ender_sword"
+  }
+}

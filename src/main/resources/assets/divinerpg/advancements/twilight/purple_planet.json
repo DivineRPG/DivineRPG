@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:apalachia_block"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.twilight.purple_planet"
+      },
+      "frame":"goal",
+      "description":{
+         "translate":"advancement.divinerpg.twilight.purple_planet.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:twilight/forest_islands",
+   "criteria":{
+      "enter_apalachia":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:apalachia"
+         }
+      }
+   }
+}

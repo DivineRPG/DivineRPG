@@ -1,0 +1,26 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:karos_lump"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.vethea.i_am_mad_scientist"
+    },
+    "frame":"challenge",
+    "description":{
+      "translate":"advancement.divinerpg.vethea.i_am_mad_scientist.desc"
+    },
+    "announce_to_chat":true
+  },
+  "parent":"divinerpg:vethea/getting_out_of_hand",
+  "criteria":{
+    "kill_lady_luna":{
+      "trigger":"minecraft:player_killed_entity",
+      "conditions":{
+        "entity":{
+          "type":"divinerpg:karos"
+        }
+      }
+    }
+  }
+}

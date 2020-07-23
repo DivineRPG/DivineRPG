@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_bricks",
+	"count": 4
+  },
+  "pattern": [
+    "xyx",
+    "yxy",
+    "xyx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    "y": {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    }
+  }
+}

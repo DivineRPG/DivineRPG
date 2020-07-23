@@ -1,0 +1,23 @@
+{
+  "display":{
+    "icon":{
+      "item":"divinerpg:apalachia_blade"
+    },
+    "title":{
+      "translate":"advancement.divinerpg.twilight.root"
+    },
+    "description":{
+      "translate":"advancement.divinerpg.twilight.root.desc"
+    },
+    "background":"divinerpg:textures/blocks/twilight_stone.png",
+    "announce_to_chat":true
+  },
+  "criteria":{
+    "divinerpg":{
+      "trigger":"minecraft:changed_dimension",
+      "conditions":{
+        "to": "divinerpg:eden"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:jungle_shards"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.overworld.jungle_stegosaurus_slayer"
+      },
+      "description":{
+         "translate":"advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:overworld/root",
+   "criteria":{
+      "kill_jungle_dramcryx":{
+         "trigger":"minecraft:player_killed_entity",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:jungle_dramcryx"
+            }
+         }
+      }
+   }
+}

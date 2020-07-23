@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:dusk_flower"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

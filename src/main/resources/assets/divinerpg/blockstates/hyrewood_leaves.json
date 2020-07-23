@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:hyrewood_leaves"
+      }
+    }
+  ]
+}

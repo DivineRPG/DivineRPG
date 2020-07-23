@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:cyclopsian_staff"
+  },
+  "pattern": [
+    " E ",
+    " S ",
+    " S "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "#STICKWOOD"
+    },
+    "E": {
+      "item": "divinerpg:cyclops_eye"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "particle": "divinerpg:blocks/elevantium",
+        "0": "divinerpg:blocks/elevantium"
+    },
+    "elements": [
+        {
+            "name": "Cube",
+            "from": [ 1.0, 0.0, 1.0 ], 
+            "to": [ 15.0, 1.0, 15.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 1.0, 0.0, 15.0, 1.0 ] },
+                "east": { "texture": "#0", "uv": [ 11.0, 0.0, 15.0, 1.0 ] },
+                "south": { "texture": "#0", "uv": [ 1.0, 0.0, 15.0, 1.0 ] },
+                "west": { "texture": "#0", "uv": [ 1.0, 0.0, 15.0, 1.0 ] },
+                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        },
+        {
+            "name": "Cube",
+            "from": [ 4.5, 1.0, 4.5 ], 
+            "to": [ 11.5, 2.0, 11.5 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 5.0 ] },
+                "east": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 5.0 ] },
+                "south": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 5.0 ] },
+                "west": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 5.0 ] },
+                "up": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 12.0 ] },
+                "down": { "texture": "#0", "uv": [ 4.0, 4.0, 11.0, 11.0 ] }
+            }
+        }
+    ],
+	"display": {
+
+         "thirdperson": {
+            "rotation": [ 0, 0, 45 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        },
+        "firstperson": {
+            "rotation": [ 0, 0, 45 ],
+            "translation": [ 0, 16, 0 ],
+            "scale": [ 0.125, 0.125, 0.125 ]
+        },
+        "gui": {
+            "rotation": [ 45, 22.5, 0 ],
+            "translation": [ 0, 4, 0 ],
+            "scale": [ 0.8, 0.8, 0.8 ]
+        }
+   }
+} 

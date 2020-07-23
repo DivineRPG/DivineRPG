@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "netherite_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "divinerpg:netherite_nugget"
+    }
+  },
+  "result": {
+    "item": "divinerpg:netherite_ingot"
+  }
+}

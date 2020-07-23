@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:mortum_block"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.twilight.dark_another_day"
+      },
+      "frame":"goal",
+      "description":{
+         "translate":"advancement.divinerpg.twilight.dark_another_day.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:twilight/colourless_land",
+   "criteria":{
+      "enter_mortum":{
+         "trigger":"minecraft:changed_dimension",
+         "conditions":{
+            "to":"divinerpg:mortum"
+         }
+      }
+   }
+}

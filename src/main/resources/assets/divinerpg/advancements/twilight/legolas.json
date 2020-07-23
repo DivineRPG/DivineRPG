@@ -1,0 +1,26 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:halite_leggings"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.twilight.legolas"
+      },
+      "frame":"challenge",
+      "description":{
+         "translate":"advancement.divinerpg.twilight.legolas.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:twilight/dark_another_day",
+   "criteria":{
+      "kill_boss_reyvor":{
+         "trigger":"minecraft:player_killed_entity",
+         "conditions":{
+            "entity":{
+               "type":"divinerpg:reyvor"
+            }
+         }
+      }
+   }
+}

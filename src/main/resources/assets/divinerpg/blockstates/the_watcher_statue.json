@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:the_watcher_statue"
+      }
+    }
+  ]
+}

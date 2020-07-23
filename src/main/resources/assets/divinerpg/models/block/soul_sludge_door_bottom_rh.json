@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom_rh",
+  "textures": {
+    "top": "divinerpg:blocks/soul_sludge_door_top",
+    "bottom": "divinerpg:blocks/soul_sludge_door_bottom"
+  }
+}

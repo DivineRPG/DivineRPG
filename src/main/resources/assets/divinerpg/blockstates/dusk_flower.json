@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "divinerpg:dusk_flower_top"
+    },
+    "half=lower": {
+      "model": "divinerpg:dusk_flower_bottom"
+    }
+  }
+}

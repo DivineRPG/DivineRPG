@@ -1,0 +1,6 @@
+{
+  "parent": "block/torch",
+  "textures": {
+    "torch": "divinerpg:blocks/skeleton_torch"
+  }
+}

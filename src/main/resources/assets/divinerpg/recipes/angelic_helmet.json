@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:angelic_helmet"
+  },
+  "pattern": [
+    "XXX",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:ice_stone"
+    },
+    "I": {
+      "item": "divinerpg:bluefire_stone"
+    }
+  }
+}

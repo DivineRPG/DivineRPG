@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:experienced_cori_statue"
+      }
+    }
+  ]
+}

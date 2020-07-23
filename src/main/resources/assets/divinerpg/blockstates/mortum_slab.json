@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:mortum_half_slab"
+      },
+      "when": {
+        "half": "bottom"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:mortum_upper_slab"
+      },
+      "when": {
+        "half": "top"
+      }
+    }
+  ]
+}

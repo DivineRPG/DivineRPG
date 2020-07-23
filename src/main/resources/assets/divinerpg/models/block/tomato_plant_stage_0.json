@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "divinerpg:blocks/tomato_plant_0"
+  }
+}

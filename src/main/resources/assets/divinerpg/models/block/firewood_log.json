@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "divinerpg:blocks/firewood_log_top",
+    "side": "divinerpg:blocks/firewood_log_side"
+  }
+}

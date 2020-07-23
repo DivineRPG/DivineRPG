@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_helmet"
+  },
+  "pattern": [
+    "III",
+    "X X"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  }
+}

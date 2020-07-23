@@ -1,0 +1,205 @@
+{
+    "pools": [
+        {
+            "name":"divinerpg:iceika_chest_hut_snowflake_guarantee",
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "divinerpg:snowflake",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"divinerpg:iceika_chest_hut",
+            "rolls": {
+                "min": 4,
+                "max": 8
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "divinerpg:ice_shards",
+                    "weight": 12,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:snow_cones",
+                    "weight": 7,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:chocolate_log",
+                    "weight": 7,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:peppermints",
+                    "weight": 6,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 5
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:egg_nog",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:fruit_cake",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:sound_of_carols",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:icicle_bane",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:santa_helmet",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:santa_chestplate",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:santa_leggings",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "divinerpg:santa_boots",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    ]
+}

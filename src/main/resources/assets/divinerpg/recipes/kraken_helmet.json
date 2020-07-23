@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:kraken_helmet"
+  },
+  "pattern": [
+    "III",
+    "I I"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:kraken_skin"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:aquamarine_plant_stage_0"
+      },
+      "when": {
+        "age": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:aquamarine_plant_stage_1"
+      },
+      "when": {
+        "age": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:aquamarine_plant_stage_2"
+      },
+      "when": {
+        "age": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:aquamarine_plant_stage_3"
+      },
+      "when": {
+        "age": "3"
+      }
+    }
+  ]
+}

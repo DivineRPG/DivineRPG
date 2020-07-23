@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:eternal_archer_statue"
+      }
+    }
+  ]
+}

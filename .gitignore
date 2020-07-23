@@ -1,18 +1,50 @@
-*.class
-.DS_Store
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# gradle
+build
+.gradle
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-*.db
-
-#tools
-*.bat
+# other
+classes
+eclipse
+run
+setupEclipse.bat
+setupDecomp.bat
+setupCleanCache.bat
+Paulscode SoundSystem CodecIBXM License.txt
+README.txt
+Paulscode IBXM Library License.txt
+MinecraftForge-Credits.txt
+LICENSE.txt
+LICENSE-Paulscode SoundSystem CodecIBXM.txt
+LICENSE-new.txt
+LICENSE-Paulscode IBXM Library.txt
+forge-1.12.2-14.23.4.2750-changelog.txt
+forge-1.12.2-14.23.4.2725-changelog.txt
+forge-1.12.2-14.23.3.2669-changelog.txt
+forge-1.12.2-14.23.4.2707-changelog.txt
+forge-1.12.2-14.23.2.2629-changelog.txt
+forge-1.12.2-14.23.1.2604-changelog.txt
+CREDITS.txt
+CREDITS-fml.txt
+Build Mod.bat
+README.txt
+libs/Baubles-1.12-1.5.2-deobf.jar
+libs/ProjectE-1.12-PE1.3.0.jar
+libs/chickens-6.1.0.jar
+libs/ProjectE-1.12-PE1.3.2h.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew

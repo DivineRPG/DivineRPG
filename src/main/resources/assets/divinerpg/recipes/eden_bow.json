@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:eden_bow"
+  },
+  "pattern": [
+    " IX",
+    "I X",
+    " IX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "item": "divinerpg:eden_chunk"
+    }
+  }
+}

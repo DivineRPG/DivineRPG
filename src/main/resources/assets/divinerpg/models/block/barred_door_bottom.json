@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom",
+  "textures": {
+    "top": "divinerpg:blocks/barred_door_top",
+    "bottom": "divinerpg:blocks/barred_door_bottom"
+  }
+}

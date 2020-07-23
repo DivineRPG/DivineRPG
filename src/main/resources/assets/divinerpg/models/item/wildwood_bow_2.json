@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "divinerpg:items/wildwood_bow_2"
+  }
+}

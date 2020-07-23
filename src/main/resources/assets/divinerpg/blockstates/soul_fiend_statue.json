@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:soul_fiend_statue"
+      }
+    }
+  ]
+}

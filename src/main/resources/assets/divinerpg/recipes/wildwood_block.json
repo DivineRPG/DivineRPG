@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_block"
+  },
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "divinerpg:wildwood_fragments"
+    },
+    "B": {
+      "item": "divinerpg:wildwood_heart"
+    },
+    "I": {
+      "item": "divinerpg:wildwood_soul"
+    }
+  }
+}

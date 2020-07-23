@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_diamond_chunk"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

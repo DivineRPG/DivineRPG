@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:moon_bud"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

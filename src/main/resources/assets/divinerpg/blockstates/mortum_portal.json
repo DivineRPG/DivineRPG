@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "axis=z": {
+      "model": "divinerpg:mortum_portal_ew"
+    },
+    "axis=x": {
+      "model": "divinerpg:mortum_portal_ns"
+    }
+  }
+}

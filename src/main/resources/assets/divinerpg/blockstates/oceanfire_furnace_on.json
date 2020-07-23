@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:oceanfire_furnace_on"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:oceanfire_furnace_on"
+    },
+    "facing=north": {
+      "model": "divinerpg:oceanfire_furnace_on"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:oceanfire_furnace_on"
+    }
+  }
+}

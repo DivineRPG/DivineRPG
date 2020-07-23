@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_chestplate"
+  },
+  "pattern": [
+    "I I",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:skythern_chunk"
+    }
+  }
+}

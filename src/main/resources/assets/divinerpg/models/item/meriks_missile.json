@@ -1,0 +1,26 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "divinerpg:items/meriks_missile_0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "pull": 0.33
+      },
+      "model": "divinerpg:item/meriks_missile_1"
+    },
+    {
+      "predicate": {
+        "pull": 0.67
+      },
+      "model": "divinerpg:item/meriks_missile_2"
+    },
+    {
+      "predicate": {
+        "pull": 1.0
+      },
+      "model": "divinerpg:item/meriks_missile_3"
+    }
+  ]
+}

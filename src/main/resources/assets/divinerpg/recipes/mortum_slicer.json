@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_slicer",
+    "count": 20
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:mortum_gem"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

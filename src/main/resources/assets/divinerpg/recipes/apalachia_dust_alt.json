@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_tallgrass"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

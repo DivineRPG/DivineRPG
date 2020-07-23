@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_blitz"
+  },
+  "pattern": [
+    "X X",
+    "X X",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:skythern_chunk"
+    }
+  }
+}

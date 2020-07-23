@@ -1,0 +1,24 @@
+{
+   "display":{
+      "icon":{
+         "item":"divinerpg:altar_of_corruption"
+      },
+      "title":{
+         "translate":"advancement.divinerpg.overworld.perfectly_corrupted"
+      },
+      "frame":"goal",
+      "description":{
+         "translate":"advancement.divinerpg.overworld.perfectly_corrupted.desc"
+      },
+      "announce_to_chat":true
+   },
+   "parent":"divinerpg:overworld/root",
+   "criteria":{
+      "use_altar_of_corruption":{
+         "trigger":"divinerpg:block",
+         "conditions":{
+            "block":"divinerpg:altar_of_corruption"
+         }
+      }
+   }
+}

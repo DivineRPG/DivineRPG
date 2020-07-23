@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=5": {
+      "model": "divinerpg:tomato_plant_stage_5"
+    },
+    "age=4": {
+      "model": "divinerpg:tomato_plant_stage_4"
+    },
+    "age=3": {
+      "model": "divinerpg:tomato_plant_stage_3"
+    },
+    "age=2": {
+      "model": "divinerpg:tomato_plant_stage_2"
+    },
+    "age=1": {
+      "model": "divinerpg:tomato_plant_stage_1"
+    },
+    "age=0": {
+      "model": "divinerpg:tomato_plant_stage_0"
+    },
+    "age=7": {
+      "model": "divinerpg:tomato_plant_stage_7"
+    },
+    "age=6": {
+      "model": "divinerpg:tomato_plant_stage_6"
+    }
+  }
+}

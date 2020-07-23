@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:king_of_scorchers_statue"
+      }
+    }
+  ]
+}

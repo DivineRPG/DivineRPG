@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:greenlight_furnace"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:greenlight_furnace"
+    },
+    "facing=north": {
+      "model": "divinerpg:greenlight_furnace"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:greenlight_furnace"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:eden_fragments",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:eden_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

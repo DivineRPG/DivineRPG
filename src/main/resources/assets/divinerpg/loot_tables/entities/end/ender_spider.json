@@ -1,0 +1,15 @@
+{
+   "pools":[
+      {
+         "name":"divinerpg:ender_spider",
+         "rolls":1,
+         "entries":[
+            {
+               "type":"item",
+               "name":"divinerpg:ender_shards",
+               "weight":1
+            }
+         ]
+      }
+   ]
+}

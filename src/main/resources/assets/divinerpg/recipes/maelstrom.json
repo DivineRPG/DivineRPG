@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:maelstrom"
+  },
+  "pattern": [
+    "III",
+    "IXI",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:book"
+    },
+    "I": {
+      "item": "divinerpg:purple_blaze"
+    }
+  }
+}
