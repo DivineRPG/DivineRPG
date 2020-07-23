@@ -7,13 +7,13 @@ assignees: ''
 
 ---
 
-**DivineRPG Version**
+**DivineRPG version**
 This is the version number on the mod file and is also viewable in-game. "Latest" or the Minecraft version are not acceptable answers.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-**To Reproduce**
+**To reproduce**
 Steps to reproduce the behavior.
 
 **Expected behavior**
