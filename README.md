@@ -3,7 +3,7 @@ DivineRPG
 
 The official repository for the DivineRPG Minecraft mod.
 
-This branch is for the 1.7.10 version, which is no longer supported. Don't be opening up pull requests or issues for it.
+This branch is for the latest 1.7.10 version (1.4.1.4). 1.7.10 is no longer supported, so don't be opening up pull requests or issues for it.
 
 ### What you can and cannot do with DivineRPG
 ###### You CAN:
