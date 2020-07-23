@@ -1,4 +1,4 @@
-package divinerpg.utils;
+package divinerpg.structure.base;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
@@ -6,53 +6,32 @@ import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
 import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
 import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
+import divinerpg.utils.IStructure;
+import divinerpg.utils.WorldGenUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
-import java.util.function.Function;
 
-/**
- * Created by LiteWolf101 on Jan
- * /27/2019
- */
 public class DRPGStructureHandler extends WorldGenerator implements IStructure {
     protected String structureName;
-    protected Function<TileEntityChestArgs, ResourceLocation> lootTableFunc;
 
     public DRPGStructureHandler(String name) {
-        this(name, (ResourceLocation) null);
-    }
-
-    public DRPGStructureHandler(String name, ResourceLocation lootTable) {
-        this(name, lootTable == null ? null : blockInfo -> lootTable);
-    }
-
-    /*
-        For special needs whateber i need to put special loot tables for special chests
-     */
-    public DRPGStructureHandler(String name, Function<TileEntityChestArgs, ResourceLocation> lootTableFunc) {
         this.structureName = name;
-        this.lootTableFunc = lootTableFunc;
     }
 
     @Override
@@ -165,30 +144,5 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
         TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
         return manager.get(mcServer, location);
-    }
-
-    public class TileEntityChestArgs {
-
-        private World world;
-        private TileEntityLockableLoot tileEntity;
-        private BlockPos pos;
-
-        public TileEntityChestArgs(World world, TileEntityLockableLoot tileEntity, BlockPos pos) {
-            this.world = world;
-            this.tileEntity = tileEntity;
-            this.pos = pos;
-        }
-
-        public BlockPos getPos() {
-            return pos;
-        }
-
-        public World getWorld() {
-            return world;
-        }
-
-        public TileEntityLockableLoot getTileEntity() {
-            return tileEntity;
-        }
     }
 }

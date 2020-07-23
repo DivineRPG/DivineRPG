@@ -1,6 +1,5 @@
 package divinerpg.registry;
 
-import divinerpg.capabilities.arcana.Arcana;
 import divinerpg.structure.arcana.ArcanaStructureHandler;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeonComponent;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeonStart;
@@ -26,7 +25,7 @@ import divinerpg.structure.vethea.temple2.Temple2Component;
 import divinerpg.structure.vethea.temple2.Temple2Start;
 import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
 import divinerpg.structure.vethea.wreckhall.WreckHallStart;
-import divinerpg.utils.DRPGStructureHandler;
+import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 
 public class StructureRegistry {

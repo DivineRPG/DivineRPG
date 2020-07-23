@@ -94,30 +94,6 @@ public class ArcanaStructureHandler extends WorldGenerator implements IStructure
             BlockPos pos = entry.getKey();
 
             switch(entry.getValue()) {
-                case "LivestockMerchant":
-                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLivestockMerchant(world));
-                    break;
-                case "TheHunger":
-                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityTheHunger(world));
-                    break;
-                case "WorkshopMerchant":
-                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWorkshopMerchant(world));
-                    break;
-                case "WorkshopTinkerer":
-                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWorkshopTinkerer(world));
-                    break;
-                case "WorkshopHouse1Loot":
-                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
-                    break;
-                case "WorkshopHouse2Loot":
-                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
-                    break;
-                case "WorkshopHouse3Loot":
-                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
-                    break;
-                case "WorkshopHouse4Loot":
-                    WorldGenUtils.populateLootChestBelow(world, pos, random, LootTableRegistry.ICEIKA_CHEST_HUT);
-                    break;
                 default:
                     DivineRPG.logger.warn("Unexpected data marker: " + entry.getValue() + " in a structure, please report this.");
                     break;
@@ -154,30 +130,5 @@ public class ArcanaStructureHandler extends WorldGenerator implements IStructure
         TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
         return manager.get(mcServer, location);
-    }
-
-    public class TileEntityChestArgs {
-
-        private World world;
-        private TileEntityLockableLoot tileEntity;
-        private BlockPos pos;
-
-        public TileEntityChestArgs(World world, TileEntityLockableLoot tileEntity, BlockPos pos) {
-            this.world = world;
-            this.tileEntity = tileEntity;
-            this.pos = pos;
-        }
-
-        public BlockPos getPos() {
-            return pos;
-        }
-
-        public World getWorld() {
-            return world;
-        }
-
-        public TileEntityLockableLoot getTileEntity() {
-            return tileEntity;
-        }
     }
 }

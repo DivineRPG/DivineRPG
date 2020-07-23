@@ -1,16 +1,10 @@
 package divinerpg.world.structures;
 
 import divinerpg.config.Config;
-import divinerpg.registry.BlockRegistry;
-import divinerpg.registry.DimensionRegistry;
-import divinerpg.registry.LootTableRegistry;
-import divinerpg.utils.DRPGStructureHandler;
-import divinerpg.utils.Utils;
+import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
@@ -20,10 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by LiteWolf101 on Jan /27/2019

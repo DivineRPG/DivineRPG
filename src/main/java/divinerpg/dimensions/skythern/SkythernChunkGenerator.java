@@ -3,7 +3,7 @@ package divinerpg.dimensions.skythern;
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
-import divinerpg.utils.DRPGStructureHandler;
+import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
