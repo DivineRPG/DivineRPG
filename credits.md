@@ -1,6 +1,6 @@
 ### Credits
 * XolovA - original creator
-* Scimiguy - current owner and coding assistant
+* Tslat (Scimiguy) - current owner and coding assistant
 
 ##### Main Team
 * NicosasurusRex99 - Developer
@@ -8,34 +8,35 @@
 * Wufflez/Litewolf101 - Developer
 * AstralScourge - Developer
 * Dash - Developer
-* Zachtoplasm - Texture Artist
+* Zachtoplasm - Texture artist
+
+#### Ex-Developers
+* RadioactiveStud (SoccerStud)
+* Eternaldoom
+* The_SlayerMC
+* Sheenrox82
+* Mazetar
+* TLHPoE
+* Aginsun
+* Hologuardian
+* Vazkii
+* Blued00r
 
 ##### Special Thanks to
 * Dizzlepop12 - A few models/textures
-* THEVOLCO - German Translations
-* ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
-* TikenTVC - Portuguese Translations
-* Declan (UKDeccy) - A few Models/Textures
-* BlueEyes9 - A few Models/Textures
-* Insanity414all - Wiki admin
-* Laorwick - Some Recipes
-* BossLetsPlays - Sound Artist & Maintenance Developer & Former Server Owner
+* Declan (UKDeccy) - A few models/textures
+* BlueEyes9 - A few models/textures
+* THEVOLCO - German translations
+* ShadowOfStrelok, fewizz, and Adaptivity - Russian translations
+* TikenTVC - Portuguese translations
+* Insanity414all - Former wiki admin
+* Laorwick - Some recipes
+* BossLetsPlays - Sound artist, maintenance developer, and former server owner
+* Sactage - Former server owner and maintainer
 
 ##### Other Credits
-* RadioactiveStud (aka SoccerStud) - Former Developer
-* Eternaldoom - Former Developer
-* The_SlayerMC - Former Developer
-* Sheenrox82 - Former Developer
-* Mazetar - Former Developer
-* TLHPoE - Former Developer
-* Sactage - Server Owner and maintainer
-* Aginsun - Ex Developer
-* Hologuardian - Ex Developer
-* Vazkii - Ex Developer
 * Majorsir - for the name of the mod.
 * Terraria - for some resources.
 * Vattic - for some block textures, featured in a version of the faithful32 pack
-* Vanilla MC - for some textures.
 * Reika - for ore textures.
 * XL biomes - for tree style.
-* Blued00r - Ex Developer
