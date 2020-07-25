@@ -31,6 +31,8 @@
 - Fixed NPE caused by Zone attacking (AstralScourge)
 - Fixed simplified Chinese localization (Imbarainbow)
 - Arcanium ore JEI support (Nico)
+- Fixed stair blockstates (AstralScourge)
+- Fixed axe speeds (AstralScourge)
 
 ## Miscellaneous:
 - Changed the following textures: (Zachtoplasm)
