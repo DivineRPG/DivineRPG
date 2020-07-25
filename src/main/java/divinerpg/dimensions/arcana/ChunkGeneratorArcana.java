@@ -10,6 +10,7 @@ import divinerpg.dimensions.arcana.mazegen.MazeMapMemoryStorage;
 import divinerpg.registry.StructureRegistry;
 import divinerpg.structure.arcana.ArcanaStructureHandler;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -90,104 +91,50 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         //this.rand is not used for overall maze generation which is specific to the region root instead of the specific chunk
         //However, it will be used to determine per-chunk things like the specific room variant picked, as well as randomize specific things within a chunk
 
-        //MAZE GENERATION
-        Cell[][] mazeMap;
+        //Only generate maze if there's no blocks already there in order to avoid overwriting portal room floor
+        //THIS CURRENTLY SEEMS TO BE BROKEN, still debugging it
+        if(this.world.getBlockState(new BlockPos(x + 8, 8, z + 8)).getBlock() == Blocks.AIR) {
+            Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, this.world.getSeed());
+            ArcanaStructureHandler toGenerate = null;
 
-        int regionRootX, regionRootZ;
-        int mapCoordinateX, mapCoordinateZ;
-        regionRootX = roundUpToMultiple(chunkX, ArcanaMazeGenerator.MAZE_SIZE);
-        regionRootZ = roundUpToMultiple(chunkZ, ArcanaMazeGenerator.MAZE_SIZE);
-        
-        ChunkPos regionRoot = new ChunkPos(regionRootX, regionRootZ);
-        Cell[][] storedGrid = MazeMapMemoryStorage.getMapForChunkPos(regionRoot);
-        if(storedGrid == null) {
-            mazeMap = ArcanaMazeGenerator.generate(regionRootX, regionRootZ, world.getSeed());
-            MazeMapMemoryStorage.addMap(regionRoot, mazeMap);
-        }
-        else {
-            mazeMap = storedGrid;
-        }
+            boolean debugMazeGen = false; //temporary, switch to true to use test pieces
 
-        if(chunkX <= 0) {
-            mapCoordinateX = Math.abs(chunkX % ArcanaMazeGenerator.MAZE_SIZE);
-        }
-        else {
-            mapCoordinateX = ArcanaMazeGenerator.MAZE_SIZE - (chunkX % ArcanaMazeGenerator.MAZE_SIZE);
-            if(mapCoordinateX == ArcanaMazeGenerator.MAZE_SIZE) { //bit messy but it works
-                mapCoordinateX = 0;
+            ArcanaStructureHandler crossroads = StructureRegistry.CROSSROADS_GEN_TEST;
+            ArcanaStructureHandler junction = StructureRegistry.JUNCTION_GEN_TEST;
+            ArcanaStructureHandler corner = StructureRegistry.CORNER_GEN_TEST;
+            ArcanaStructureHandler hallway = StructureRegistry.HALLWAY_GEN_TEST;
+            ArcanaStructureHandler deadEnd = StructureRegistry.DEAD_END_GEN_TEST;
+
+            if(debugMazeGen) {
+                crossroads = StructureRegistry.CROSSROADS_TEST;
+                junction = StructureRegistry.JUNCTION_TEST;
+                corner = StructureRegistry.CORNER_TEST;
+                hallway = StructureRegistry.HALLWAY_TEST;
+                deadEnd = StructureRegistry.DEAD_END_TEST;
             }
-        }
-        if(chunkZ <= 0) {
-            mapCoordinateZ = Math.abs(chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
-        }
-        else {
-            mapCoordinateZ = ArcanaMazeGenerator.MAZE_SIZE - (chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
-            if(mapCoordinateZ == ArcanaMazeGenerator.MAZE_SIZE) {
-                mapCoordinateZ = 0;
+
+            switch(cell.getPieceType()) {
+                case CROSSROADS:
+                    toGenerate = crossroads;
+                    break;
+                case THREE_WAY:
+                    toGenerate = junction;
+                    break;
+                case CORNER:
+                    toGenerate = corner;
+                    break;
+                case HALLWAY:
+                    toGenerate = hallway;
+                    break;
+                case DEAD_END:
+                    toGenerate = deadEnd;
+                    break;
             }
+
+            Rotation rotation = cell.getRotation();
+            toGenerate.generateWithRotation(this.world, this.rand, new BlockPos(x + 8, 8, z + 8), rotation);
         }
-
-        Cell cell = mazeMap[mapCoordinateZ][mapCoordinateX]; //z has to come first because arrays are backwards from Cartesian plane logic
-        ArcanaStructureHandler toGenerate = null;
-
-        boolean debugMazeGen = false; //temporary, switch to true to use test pieces
-
-        ArcanaStructureHandler crossroads = StructureRegistry.CROSSROADS_GEN_TEST;
-        ArcanaStructureHandler junction = StructureRegistry.JUNCTION_GEN_TEST;
-        ArcanaStructureHandler corner = StructureRegistry.CORNER_GEN_TEST;
-        ArcanaStructureHandler hallway = StructureRegistry.HALLWAY_GEN_TEST;
-        ArcanaStructureHandler deadEnd = StructureRegistry.DEAD_END_GEN_TEST;
-
-        if(debugMazeGen) {
-            crossroads = StructureRegistry.CROSSROADS_TEST;
-            junction = StructureRegistry.JUNCTION_TEST;
-            corner = StructureRegistry.CORNER_TEST;
-            hallway = StructureRegistry.HALLWAY_TEST;
-            deadEnd = StructureRegistry.DEAD_END_TEST;
-        }
-
-        switch(cell.getPieceType()) {
-            case CROSSROADS:
-                toGenerate = crossroads;
-                break;
-            case THREE_WAY:
-                toGenerate = junction;
-                break;
-            case CORNER:
-                toGenerate = corner;
-                break;
-            case HALLWAY:
-                toGenerate = hallway;
-                break;
-            case DEAD_END:
-                toGenerate = deadEnd;
-                break;
-        }
-
-        Rotation rotation = cell.getRotation();
-        toGenerate.generateWithRotation(this.world, this.rand, new BlockPos(x + 8, 8, z + 8), rotation);
-
-        //biome.decorate(this.world, this.rand, pos);
 
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, x + 8, z + 8, 16, 16, this.rand);
-    }
-
-    private static int roundUpToMultiple(int numToRound, int multiple)
-    {
-        if (multiple == 0) {
-            return numToRound;
-        }
-
-        int remainder = Math.abs(numToRound) % multiple;
-        if (remainder == 0) {
-            return numToRound;
-        }
-
-        if (numToRound < 0) {
-            return -1 * (Math.abs(numToRound) - remainder);
-        }
-        else {
-            return numToRound + multiple - remainder;
-        }
     }
 }

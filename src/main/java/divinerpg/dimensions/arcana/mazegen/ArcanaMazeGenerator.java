@@ -2,6 +2,10 @@ package divinerpg.dimensions.arcana.mazegen;
 
 import divinerpg.dimensions.arcana.mazegen.Cell;
 import divinerpg.dimensions.arcana.mazegen.UnionFind;
+import divinerpg.registry.StructureRegistry;
+import divinerpg.structure.arcana.ArcanaStructureHandler;
+import net.minecraft.util.Tuple;
+import net.minecraft.util.math.ChunkPos;
 
 import java.util.*;
 
@@ -87,5 +91,65 @@ public class ArcanaMazeGenerator {
         }
 
         return grid;
+    }
+
+    public static Cell obtainMazePiece(int chunkX, int chunkZ, long worldSeed) {
+        Cell[][] mazeMap;
+
+        int regionRootX, regionRootZ;
+        int mapCoordinateX, mapCoordinateZ;
+        regionRootX = roundUpToMultiple(chunkX, ArcanaMazeGenerator.MAZE_SIZE);
+        regionRootZ = roundUpToMultiple(chunkZ, ArcanaMazeGenerator.MAZE_SIZE);
+
+        ChunkPos regionRoot = new ChunkPos(regionRootX, regionRootZ);
+        Cell[][] storedGrid = MazeMapMemoryStorage.getMapForChunkPos(regionRoot);
+        if(storedGrid == null) {
+            mazeMap = ArcanaMazeGenerator.generate(regionRootX, regionRootZ, worldSeed);
+            MazeMapMemoryStorage.addMap(regionRoot, mazeMap);
+        }
+        else {
+            mazeMap = storedGrid;
+        }
+
+        if(chunkX <= 0) {
+            mapCoordinateX = Math.abs(chunkX % ArcanaMazeGenerator.MAZE_SIZE);
+        }
+        else {
+            mapCoordinateX = ArcanaMazeGenerator.MAZE_SIZE - (chunkX % ArcanaMazeGenerator.MAZE_SIZE);
+            if(mapCoordinateX == ArcanaMazeGenerator.MAZE_SIZE) { //bit messy but it works
+                mapCoordinateX = 0;
+            }
+        }
+        if(chunkZ <= 0) {
+            mapCoordinateZ = Math.abs(chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
+        }
+        else {
+            mapCoordinateZ = ArcanaMazeGenerator.MAZE_SIZE - (chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
+            if(mapCoordinateZ == ArcanaMazeGenerator.MAZE_SIZE) {
+                mapCoordinateZ = 0;
+            }
+        }
+
+        Cell cell = mazeMap[mapCoordinateZ][mapCoordinateX]; //z has to come first because arrays are backwards from Cartesian plane logic
+        return cell;
+    }
+
+    private static int roundUpToMultiple(int numToRound, int multiple)
+    {
+        if (multiple == 0) {
+            return numToRound;
+        }
+
+        int remainder = Math.abs(numToRound) % multiple;
+        if (remainder == 0) {
+            return numToRound;
+        }
+
+        if (numToRound < 0) {
+            return -1 * (Math.abs(numToRound) - remainder);
+        }
+        else {
+            return numToRound + multiple - remainder;
+        }
     }
 }

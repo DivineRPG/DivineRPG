@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.DimensionRegistry;
+import divinerpg.utils.portals.description.ArcanaTeleporter;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -93,7 +95,7 @@ public class BlockArcanaPortal extends Block {
             destination = DimensionType.OVERWORLD;
         }
 
-        DimensionHelper.transferEntity(entity, destination);
+        transferEntity(entity, destination);
     }
 
     @Override
@@ -114,5 +116,14 @@ public class BlockArcanaPortal extends Block {
         double distanceY = pos.getY() + 0.8F;
         double distanceZ = pos.getZ() + rand.nextFloat();
         worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, distanceX, distanceY, distanceZ, 0, 0, 0);
+    }
+
+    //yeah
+    public static void transferEntity(Entity e, DimensionType modDimension) {
+        if (e == null || modDimension == null)
+            return;
+
+        ITeleporter teleporter = new ArcanaTeleporter(e.getServer().getWorld(DimensionRegistry.arcanaDimension.getId()));
+        e.changeDimension(modDimension.getId(), teleporter);
     }
 }

@@ -37,10 +37,6 @@ public class DimensionHelper {
         VetheaPortal vetheaPortal = new VetheaPortal(128, 20 * 60);
         add(DimensionRegistry.vetheaDimension, new VetheaPortalDescription(), vetheaPortal);
 
-        ArcanaTeleporter teleporter = new ArcanaTeleporter(20 * 60);
-        add(DimensionRegistry.arcanaDimension,
-                new ArcanaPortalRoomDescription(BlockRegistry.arcanaPortalFrame, BlockRegistry.arcanaPortal),
-                teleporter);
     }
 
     private static void add(DimensionType type, IPortalDescription description, ITeleporter teleporter) {
