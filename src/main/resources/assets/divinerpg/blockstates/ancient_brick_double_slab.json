@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:ancient_brick"
+        "model": "divinerpg:ancient_bricks"
       }
     }
   ]

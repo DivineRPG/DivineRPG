@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_side",
     "textures": {
-        "wall": "divinerpg:blocks/degraded_brick"
+        "wall": "divinerpg:blocks/degraded_bricks"
     }
 }

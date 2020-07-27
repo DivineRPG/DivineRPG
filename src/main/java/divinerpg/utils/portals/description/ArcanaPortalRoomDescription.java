@@ -232,8 +232,8 @@ public class ArcanaPortalRoomDescription implements IPortalDescription {
         IBlockState eastPortalState = getFrame().getDefaultState()
                 .withProperty(BlockArcanaPortalFrame.FACING, EnumFacing.EAST);
 
-        IBlockState dungeonBricks = BlockRegistry.degradedBrick.getDefaultState();
-        IBlockState ancientbricks = BlockRegistry.ancientBrick.getDefaultState();
+        IBlockState dungeonBricks = BlockRegistry.degradedBricks.getDefaultState();
+        IBlockState ancientbricks = BlockRegistry.ancientBricks.getDefaultState();
         IBlockState ancientTile = BlockRegistry.ancientTile.getDefaultState();
         IBlockState arcanaPower = BlockRegistry.arcaniumPower.getDefaultState();
 
