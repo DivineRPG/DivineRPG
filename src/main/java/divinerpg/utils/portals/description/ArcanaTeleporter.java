@@ -33,21 +33,20 @@ public class ArcanaTeleporter implements ITeleporter {
         int chunkX = (MathHelper.floor(entity.posX) & ~0xf) / 16;
         int chunkZ = (MathHelper.floor(entity.posZ) & ~0xf) / 16;
 
-        if(entity.dimension == DimensionRegistry.arcanaDimension.getId()) {
+        if (this.world.provider.getDimensionType().getId() == DimensionRegistry.arcanaDimension.getId()) {
             if (!(this.placeInExistingPortal(entity, rotationYaw))) {
                 this.makePortalRoom(chunkX, chunkZ);
                 this.placeInExistingPortal(entity, rotationYaw);
             }
         }
         else {
-            //logic for finding overworld portal here
-            //the following is placeholder code
-            entity.setLocationAndAngles(0, 80, 0, entity.rotationYaw, 1.5F);
+            BlockPos spawnPoint = this.world.getTopSolidOrLiquidBlock(this.world.getSpawnPoint());
+            entity.moveToBlockPosAndAngles(spawnPoint, entity.rotationYaw, entity.rotationPitch);
         }
     }
 
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
-        if (entity.dimension == DimensionRegistry.arcanaDimension.getId()) {
+        if (this.world.provider.getDimensionType().getId() == DimensionRegistry.arcanaDimension.getId()) {
 
             //Convert player location to chunk
             int chunkX = (MathHelper.floor(entity.posX) & ~0xf) / 16;
@@ -72,7 +71,7 @@ public class ArcanaTeleporter implements ITeleporter {
                 BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos();
                 for(int searchX = portalLocationX - (7 * 16); searchX < portalLocationX + (7 * 16); searchX += 16) {
                     for (int searchZ = portalLocationZ - (7 * 16); searchZ < portalLocationZ + (7 * 16); searchZ += 16) {
-                        searchPos = searchPos.setPos(searchX, portalLocationY, searchZ);
+                        searchPos.setPos(searchX, portalLocationY, searchZ);
                         if (this.world.getBlockState(searchPos).getBlock() == BlockRegistry.arcanaHardPortalFrame) {
                             entity.setLocationAndAngles(searchX - 1.5D, portalLocationY, searchZ + 1.5D, entity.rotationYaw, 0.0F);
                             entity.motionX = entity.motionY = entity.motionZ = 0.0D;
@@ -85,10 +84,8 @@ public class ArcanaTeleporter implements ITeleporter {
             //No portal found, return false
             return false;
         }
-        else {
-            entity.setLocationAndAngles(0, 80, 0, entity.rotationYaw, 1.5F);
-            return true;
-        }
+
+        return false;
     }
 
     public void makePortalRoom(int chunkX, int chunkZ) {

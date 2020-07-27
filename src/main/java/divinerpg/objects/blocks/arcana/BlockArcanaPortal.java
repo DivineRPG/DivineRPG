@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.arcana;
 
 import divinerpg.DivineRPG;
+import divinerpg.config.GeneralConfig;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.portals.description.ArcanaTeleporter;
@@ -117,13 +118,18 @@ public class BlockArcanaPortal extends Block {
         double distanceZ = pos.getZ() + rand.nextFloat();
         worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, distanceX, distanceY, distanceZ, 0, 0, 0);
     }
-
-    //yeah
+    
     public static void transferEntity(Entity e, DimensionType modDimension) {
         if (e == null || modDimension == null)
             return;
 
-        ITeleporter teleporter = new ArcanaTeleporter(e.getServer().getWorld(DimensionRegistry.arcanaDimension.getId()));
+        ITeleporter teleporter;
+        if(e.dimension == GeneralConfig.dimensionIDs.arcanaDimensionID) {
+            teleporter = new ArcanaTeleporter(e.getServer().getWorld(0));
+        }
+        else {
+            teleporter = new ArcanaTeleporter(e.getServer().getWorld(GeneralConfig.dimensionIDs.arcanaDimensionID));
+        }
         e.changeDimension(modDimension.getId(), teleporter);
     }
 }
