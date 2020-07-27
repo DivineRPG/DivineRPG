@@ -21,7 +21,7 @@ public class EntityColoredBullet extends EntityShooterBullet {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        for (int var3 = 0; var3 < 8; ++var3) {
+        for (int var3 = 0; var3 < 2; ++var3) {
             double x = this.posX + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double y = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;
             double z = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) / 4;

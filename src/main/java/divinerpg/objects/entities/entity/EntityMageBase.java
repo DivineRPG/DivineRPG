@@ -44,7 +44,7 @@ public abstract class EntityMageBase extends EntityDivineMob {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (this.ticksExisted % 10 == 0) {
+        if (this.ticksExisted % 20 == 0) {
             this.attackingPlayer = this.world.getNearestAttackablePlayer(this, 16D, 16D);
             if (this.attackingPlayer != null && !this.world.isRemote) {
                 double tx = this.attackingPlayer.posX - this.posX;
