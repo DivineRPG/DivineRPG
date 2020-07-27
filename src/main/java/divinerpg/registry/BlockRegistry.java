@@ -736,8 +736,8 @@ public class BlockRegistry {
 
     // Structure blocks
     // Normal
-    @ObjectHolder("ancient_bricks")
-    public static final Block ancientBricks = null;
+    @ObjectHolder("ancient_brick")
+    public static final Block ancientBrick = null;
     @ObjectHolder("ancient_brick_stairs")
     public static final Block ancientBrickStairs = null;
     @ObjectHolder("ancient_stone")
@@ -752,8 +752,8 @@ public class BlockRegistry {
     public static final Block arcaniumPower = null;
     @ObjectHolder("dark_degraded_brick")
     public static final Block darkDegradedBrick = null;
-    @ObjectHolder("degraded_bricks")
-    public static final Block degradedBricks = null;
+    @ObjectHolder("degraded_brick")
+    public static final Block degradedBrick = null;
     @ObjectHolder("degraded_brick_stairs")
     public static final Block degradedBrickStairs = null;
     @ObjectHolder("dungeon_lamp")
@@ -1492,17 +1492,17 @@ public class BlockRegistry {
 
         // Structure blocks
         // Normal
-        Block ancientBricks = new BlockModUnbreakable("ancient_bricks");
+        Block ancientBricks = new BlockModUnbreakable("ancient_brick");
         register(registry, ancientBricks);
         register(registry, new BlockModStairs("ancient_brick_stairs", ancientBricks));
         register(registry, new BlockModUnbreakable("ancient_stone"));
         register(registry, new BlockModUnbreakable("ancient_tile"));
         register(registry, new BlockModLadder("arcanite_tubes"));
         register(registry, new BlockModUnbreakable("arcanium_metal"));
-        register(registry, new BlockModUnbreakable("arcanium_power"));
+        register(registry, new BlockModUnbreakable("arcanium_power"));//.setLightLevel(1.0F));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
 
-        Block degradedBricks = new BlockModUnbreakable("degraded_bricks");
+        Block degradedBricks = new BlockModUnbreakable("degraded_brick"); //why isn't there an s in the registry name
         register(registry, degradedBricks);
         register(registry, new BlockModStairs("degraded_brick_stairs", ancientBricks));
         register(registry, new BlockModUnbreakable("dungeon_lamp"));//.setLightLevel(1.0F));

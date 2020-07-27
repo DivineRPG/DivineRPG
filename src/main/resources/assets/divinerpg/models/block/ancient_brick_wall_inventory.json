@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_inventory",
     "textures": {
-        "wall": "divinerpg:blocks/ancient_bricks"
+        "wall": "divinerpg:blocks/ancient_brick"
     }
 }
