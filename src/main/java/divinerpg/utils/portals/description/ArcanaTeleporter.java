@@ -47,13 +47,9 @@ public class ArcanaTeleporter implements ITeleporter {
 
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
         if (this.world.provider.getDimensionType().getId() == DimensionRegistry.arcanaDimension.getId()) {
-
             //Convert player location to chunk
             int chunkX = (MathHelper.floor(entity.posX) & ~0xf) / 16;
             int chunkZ = (MathHelper.floor(entity.posZ) & ~0xf) / 16;
-
-            System.out.println("Entity coordinates " + entity.posX + " " + entity.posZ);
-            System.out.println("Chunk coordinates " + chunkX + " " + chunkZ);
 
             //Coordinates where portal frame should be. Accounts for constant +8 offset in chunk generator to prevent cascading
             int portalLocationX = (chunkX * 16) + 6 + 8;
@@ -62,18 +58,18 @@ public class ArcanaTeleporter implements ITeleporter {
 
             // Find existing portal, first check the room corresponding to the chunk as this covers the most likely cases
             if (this.world.getBlockState(new BlockPos(portalLocationX, portalLocationY, portalLocationZ)).getBlock() == BlockRegistry.arcanaHardPortalFrame) {
-                entity.setLocationAndAngles(portalLocationX - 1.5D, portalLocationY, portalLocationZ + 1.5D, entity.rotationYaw, 0.0F);
+                entity.setLocationAndAngles(portalLocationX + 1.5D, portalLocationY, portalLocationZ + 2.5D, entity.rotationYaw, 0.0F);
                 entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                 return true;
             }
             else {
-                //Search in 15x15 region centered around portal
+                //Search in 15x15 chunk region centered around portal
                 BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos();
                 for(int searchX = portalLocationX - (7 * 16); searchX < portalLocationX + (7 * 16); searchX += 16) {
                     for (int searchZ = portalLocationZ - (7 * 16); searchZ < portalLocationZ + (7 * 16); searchZ += 16) {
                         searchPos.setPos(searchX, portalLocationY, searchZ);
                         if (this.world.getBlockState(searchPos).getBlock() == BlockRegistry.arcanaHardPortalFrame) {
-                            entity.setLocationAndAngles(searchX - 1.5D, portalLocationY, searchZ + 1.5D, entity.rotationYaw, 0.0F);
+                            entity.setLocationAndAngles(searchX + 1.5D, portalLocationY, searchZ + 2.5D, entity.rotationYaw, 0.0F);
                             entity.motionX = entity.motionY = entity.motionZ = 0.0D;
                             return true;
                         }

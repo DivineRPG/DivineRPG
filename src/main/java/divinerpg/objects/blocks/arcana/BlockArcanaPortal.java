@@ -118,7 +118,7 @@ public class BlockArcanaPortal extends Block {
         double distanceZ = pos.getZ() + rand.nextFloat();
         worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, distanceX, distanceY, distanceZ, 0, 0, 0);
     }
-    
+
     public static void transferEntity(Entity e, DimensionType modDimension) {
         if (e == null || modDimension == null)
             return;
