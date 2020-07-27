@@ -89,19 +89,19 @@ public class Cell {
                 }
             case CORNER:
                 if(!this.hasSouthEdge) {
-                    if(!this.hasEastEdge) {
+                    if(!this.hasWestEdge) {
                         return Rotation.NONE;
                     }
                     else {
-                        return Rotation.CLOCKWISE_90;
+                        return Rotation.COUNTERCLOCKWISE_90;
                     }
                 }
                 else {
                     if(!this.hasEastEdge) {
-                        return Rotation.COUNTERCLOCKWISE_90;
+                        return Rotation.CLOCKWISE_180;
                     }
                     else {
-                        return Rotation.CLOCKWISE_180;
+                        return Rotation.CLOCKWISE_90;
                     }
                 }
             case HALLWAY:
