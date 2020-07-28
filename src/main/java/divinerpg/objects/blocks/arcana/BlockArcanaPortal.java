@@ -3,6 +3,7 @@ package divinerpg.objects.blocks.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.config.GeneralConfig;
 import divinerpg.events.DimensionHelper;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
 import divinerpg.utils.portals.description.ArcanaTeleporter;
 import divinerpg.utils.portals.description.IPortalDescription;
@@ -31,7 +32,7 @@ public class BlockArcanaPortal extends Block {
     private int firetick;
     private int firemax = 200;
     private int dimId;
-    public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+    protected static final AxisAlignedBB ARCANA_PORTAL_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D);
 
     public BlockArcanaPortal(String name, int dimId) {
         super(Material.PORTAL);
@@ -47,7 +48,7 @@ public class BlockArcanaPortal extends Block {
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return BLOCK_AABB;
+        return ARCANA_PORTAL_AABB;
     }
 
     @Override
@@ -101,10 +102,7 @@ public class BlockArcanaPortal extends Block {
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
-
-        IPortalDescription description = DimensionHelper.descriptionsByDimension.get(DimensionRegistry.arcanaDimension);
-        BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
+        BlockPattern.PatternHelper frame = DimensionHelper.arcanaPortalHelper.matchFrame(worldIn, pos);
         if (frame == null) {
             worldIn.setBlockToAir(pos);
         }

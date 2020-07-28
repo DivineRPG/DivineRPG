@@ -95,10 +95,9 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
 
-        //IPortalDescription description = DimensionHelper.descriptionsByDimension.get(DimensionRegistry.arcanaDimension);
-        //BlockPattern.PatternHelper frame = description.matchFrame(worldIn, pos);
-        //if (frame != null) {
-        //    description.lightPortal(worldIn, frame);
-        //}
+        BlockPattern.PatternHelper frame = DimensionHelper.arcanaPortalHelper.matchFrame(worldIn, pos);
+        if (frame != null) {
+            DimensionHelper.arcanaPortalHelper.lightPortal(worldIn, frame);
+        }
     }
 }
