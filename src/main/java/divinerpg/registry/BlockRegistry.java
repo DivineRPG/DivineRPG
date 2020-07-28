@@ -779,20 +779,6 @@ public class BlockRegistry {
     @ObjectHolder("soul_stone_door")
     public static final Block soulStoneDoor = null;
 
-    // Spawner
-    @ObjectHolder("death_hound_spawner")
-    public static final Block deathHoundSpawner = null;
-    @ObjectHolder("deathcryx_spawner")
-    public static final Block deathcryxSpawner = null;
-    @ObjectHolder("dungeon_prisoner_spawner")
-    public static final Block dungeonPrisonerSpawner = null;
-    @ObjectHolder("living_statue_spawner")
-    public static final Block livingStatueSpawner = null;
-    @ObjectHolder("razorback_spawner")
-    public static final Block razorbackSpawner = null;
-    @ObjectHolder("roamer_spawner")
-    public static final Block roamerSpawner = null;
-
     // Utility
     @ObjectHolder("arcanium_extractor")
     public static final Block arcaniumExtractor = null;
@@ -1517,14 +1503,6 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockArcanaDoor("degraded_brick_door", () -> ItemRegistry.degradedKey, () -> ItemRegistry.degradedBrickDoor));
         registerItemlessBlock(registry, new BlockArcanaDoor("soul_sludge_door", () -> ItemRegistry.sludgeKey, () -> ItemRegistry.soulSludgeDoor));
         registerItemlessBlock(registry, new BlockArcanaDoor("soul_stone_door", () -> ItemRegistry.soulKey, () -> ItemRegistry.soulStoneDoor));
-
-        // Spawner
-        register(registry, new BlockArcanaSpawner("death_hound_spawner", "death_hound"));
-        register(registry, new BlockArcanaSpawner("deathcryx_spawner", "deathcryx"));
-        register(registry, new BlockArcanaSpawner("dungeon_prisoner_spawner", "dungeon_prisoner"));
-        register(registry, new BlockArcanaSpawner("living_statue_spawner", "living_statue"));
-        register(registry, new BlockArcanaSpawner("razorback_spawner", "razorback"));
-        register(registry, new BlockArcanaSpawner("roamer_spawner", "roamer"));
 
         // Utility
         register(registry, new BlockArcaniumExtractor("arcanium_extractor"));
