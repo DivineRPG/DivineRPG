@@ -4,13 +4,13 @@
 
 ### Main Team
 * NicosasurusRex99 - Developer
-* krwminer - Developer
-* Wufflez/Litewolf101 - Developer
 * AstralScourge - Developer
 * Dash - Developer
 * Zachtoplasm - Texture artist
 
 ### Ex-Developers
+* krwminer
+* Wufflez (LiteWolf101)
 * RadioactiveStud (SoccerStud)
 * Eternaldoom
 * The_SlayerMC
