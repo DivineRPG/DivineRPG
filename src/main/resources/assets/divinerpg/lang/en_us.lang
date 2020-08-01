@@ -437,6 +437,16 @@ tile.purple_gemtop.name=Purple Gem Top
 tile.dreamwrecker_spawner.name=Dream Wrecker Spawner
 tile.experienced_cori_statue.name=Experienced Cori Statue
 
+tile.ancient_bricks_breakable.name=Ancient Bricks (Breakable)
+tile.ancient_stone_breakable.name=Ancient Stone (Breakable)
+tile.ancient_tile_breakable.name=Ancient Tile (Breakable)
+tile.arcanium_metal_breakable.name=Arcanium Metal (Breakable)
+tile.arcanium_power_breakable.name=Arcanium Power (Breakable)
+tile.degraded_bricks_breakable.name=Degraded Bricks (Breakable)
+tile.dungeon_lamp_breakable.name=Dungeon Lamp (Breakable)
+tile.soul_sludge_breakable.name=Soul Sludge (Breakable)
+tile.soul_stone_breakable.name=Soul Stone (Breakable)
+
 container.iceika_chest=Iceika Chest
 
 item.steel_door.name=Steel Door

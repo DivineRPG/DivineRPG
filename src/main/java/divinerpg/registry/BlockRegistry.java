@@ -769,6 +769,26 @@ public class BlockRegistry {
     @ObjectHolder("soul_stone")
     public static final Block soulStone = null;
 
+    // Breakable
+    @ObjectHolder("ancient_bricks_breakable")
+    public static final Block ancientBricksBreakable = null;
+    @ObjectHolder("ancient_stone_breakable")
+    public static final Block ancientStoneBreakable = null;
+    @ObjectHolder("ancient_tile_breakable")
+    public static final Block ancientTileBreakable = null;
+    @ObjectHolder("arcanium_metal_breakable")
+    public static final Block arcaniumMetalBreakable = null;
+    @ObjectHolder("arcanium_power_breakable")
+    public static final Block arcaniumPowerBreakable = null;
+    @ObjectHolder("degraded_bricks_breakable")
+    public static final Block degradedBricksBreakable = null;
+    @ObjectHolder("dungeon_lamp_breakable")
+    public static final Block dungeonLampBreakable = null;
+    @ObjectHolder("soul_sludge_breakable")
+    public static final Block soulSludgeBreakable = null;
+    @ObjectHolder("dsoul_stone_breakable")
+    public static final Block soulStoneBreakable = null;
+
     // Door
     @ObjectHolder("ancient_brick_door")
     public static final Block ancientBrickDoor = null;
@@ -1497,6 +1517,28 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("light_degraded_brick"));
         register(registry, new BlockModUnbreakable("soul_sludge"));
         register(registry, new BlockModUnbreakable("soul_stone"));
+
+        // Breakable
+        Block ancientBricksBreakable = new BlockMod("ancient_bricks_breakable", 2.0F);
+        register(registry, ancientBricksBreakable);
+        //stairs
+        //slab
+        //wall
+        register(registry, new BlockMod("ancient_stone_breakable", 2.0F));
+        register(registry, new BlockMod("ancient_tile_breakable", 2.0F));
+        register(registry, new BlockMod("arcanium_metal_breakable", 2.0F));
+        register(registry, new BlockMod("arcanium_power_breakable", 2.0F));
+        Block degradedBricksBreakable = new BlockMod("degraded_bricks_breakable", 2.0F);
+        register(registry, degradedBricksBreakable);
+        //stairs
+        //slab
+        //wall
+        register(registry, new BlockMod("dungeon_lamp_breakable", 1.0F).setLightLevel(1.0F));
+        //heat trap (?)
+        register(registry, new BlockMod("soul_sludge_breakable", 2.0F));
+        register(registry, new BlockMod("soul_stone_breakable", 2.0F));
+
+
 
         // Door
         registerItemlessBlock(registry, new BlockArcanaDoor("ancient_brick_door", () -> ItemRegistry.ancientKey, () -> ItemRegistry.ancientBrickDoor));
