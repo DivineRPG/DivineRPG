@@ -786,7 +786,7 @@ public class BlockRegistry {
     public static final Block dungeonLampBreakable = null;
     @ObjectHolder("soul_sludge_breakable")
     public static final Block soulSludgeBreakable = null;
-    @ObjectHolder("dsoul_stone_breakable")
+    @ObjectHolder("soul_stone_breakable")
     public static final Block soulStoneBreakable = null;
 
     // Door
