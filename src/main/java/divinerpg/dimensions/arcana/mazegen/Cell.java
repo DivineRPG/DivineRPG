@@ -8,7 +8,7 @@ public class Cell {
 
     public enum PieceType {
         CROSSROADS,
-        THREE_WAY,
+        JUNCTION,
         HALLWAY,
         CORNER,
         DEAD_END
@@ -47,7 +47,7 @@ public class Cell {
             case 0:
                 return PieceType.CROSSROADS;
             case 1:
-                return PieceType.THREE_WAY;
+                return PieceType.JUNCTION;
             case 2:
                 if((this.hasNorthEdge && this.hasSouthEdge) || (this.hasEastEdge && this.hasWestEdge)) {
                     return PieceType.HALLWAY;
@@ -74,7 +74,7 @@ public class Cell {
         switch(this.getPieceType()) {
             case CROSSROADS:
                 return Rotation.NONE;
-            case THREE_WAY:
+            case JUNCTION:
                 if(this.hasNorthEdge) {
                     return Rotation.NONE;
                 }

@@ -1,5 +1,6 @@
 package divinerpg.utils.portals.description;
 
+import divinerpg.dimensions.arcana.ArcanaRooms;
 import divinerpg.dimensions.arcana.mazegen.ArcanaMazeGenerator;
 import divinerpg.dimensions.arcana.mazegen.Cell;
 import divinerpg.registry.BlockRegistry;
@@ -82,24 +83,7 @@ public class ArcanaTeleporter implements ITeleporter {
 
     public void makePortalRoom(int chunkX, int chunkZ) {
         Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, this.world.getSeed());
-        ArcanaStructureHandler portalRoom = null;
-        switch (cell.getPieceType()) {
-            case CROSSROADS:
-                portalRoom = StructureRegistry.CROSSROADS_PORTAL_TEST;
-                break;
-            case THREE_WAY:
-                portalRoom = StructureRegistry.JUNCTION_PORTAL_TEST;
-                break;
-            case CORNER:
-                portalRoom = StructureRegistry.CORNER_PORTAL_TEST;
-                break;
-            case HALLWAY:
-                portalRoom = StructureRegistry.HALLWAY_PORTAL_TEST;
-                break;
-            case DEAD_END:
-                portalRoom = StructureRegistry.DEAD_END_PORTAL_TEST;
-                break;
-        }
+        ArcanaStructureHandler portalRoom = ArcanaRooms.getPortalRoomByType(cell.getPieceType());
         portalRoom.generateWithRotation(this.world, this.random, new BlockPos(chunkX * 16 + 8, 8, chunkZ * 16 + 8), cell.getRotation());
     }
 

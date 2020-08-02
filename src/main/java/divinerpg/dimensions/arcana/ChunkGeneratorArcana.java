@@ -94,41 +94,16 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         //Only generate maze if there's no blocks already there in order to avoid overwriting portal room floor
         //THIS CURRENTLY SEEMS TO BE BROKEN, still debugging it
         if(this.world.getBlockState(new BlockPos(x + 8, 8, z + 8)).getBlock() == Blocks.AIR) {
-            Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, this.world.getSeed());
-            ArcanaStructureHandler toGenerate = null;
+            long worldSeed = this.world.getSeed();
+            Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, worldSeed);
 
-            boolean debugMazeGen = false; //temporary, switch to true to use test pieces
-
-            ArcanaStructureHandler crossroads = StructureRegistry.CROSSROADS_GEN_TEST;
-            ArcanaStructureHandler junction = StructureRegistry.JUNCTION_GEN_TEST;
-            ArcanaStructureHandler corner = StructureRegistry.CORNER_GEN_TEST;
-            ArcanaStructureHandler hallway = StructureRegistry.HALLWAY_GEN_TEST;
-            ArcanaStructureHandler deadEnd = StructureRegistry.DEAD_END_GEN_TEST;
-
-            if(debugMazeGen) {
-                crossroads = StructureRegistry.CROSSROADS_TEST;
-                junction = StructureRegistry.JUNCTION_TEST;
-                corner = StructureRegistry.CORNER_TEST;
-                hallway = StructureRegistry.HALLWAY_TEST;
-                deadEnd = StructureRegistry.DEAD_END_TEST;
+            ArcanaStructureHandler toGenerate;
+            boolean debug = false; //temporary, switch to true to generate debug rooms
+            if(debug) {
+                toGenerate = ArcanaRooms.getTestRoomByType(cell.getPieceType());
             }
-
-            switch(cell.getPieceType()) {
-                case CROSSROADS:
-                    toGenerate = crossroads;
-                    break;
-                case THREE_WAY:
-                    toGenerate = junction;
-                    break;
-                case CORNER:
-                    toGenerate = corner;
-                    break;
-                case HALLWAY:
-                    toGenerate = hallway;
-                    break;
-                case DEAD_END:
-                    toGenerate = deadEnd;
-                    break;
+            else {
+                toGenerate = ArcanaRooms.getRandomStructureByType(chunkX, chunkZ, worldSeed, cell.getPieceType());
             }
 
             Rotation rotation = cell.getRotation();

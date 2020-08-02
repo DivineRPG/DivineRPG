@@ -67,13 +67,6 @@ public class StructureRegistry {
     public static final ArcanaStructureHandler HALLWAY_GEN_TEST = new ArcanaStructureHandler( "arcana/component_19_redone");
     public static final ArcanaStructureHandler DEAD_END_GEN_TEST = new ArcanaStructureHandler("arcana/component_13_dead_end");
 
-    //Portal rooms
-    public static final ArcanaStructureHandler CORNER_PORTAL_TEST = new ArcanaStructureHandler("arcana/portal/portal_corner_test");
-    public static final ArcanaStructureHandler CROSSROADS_PORTAL_TEST = new ArcanaStructureHandler("arcana/portal/portal_crossroads_test");
-    public static final ArcanaStructureHandler DEAD_END_PORTAL_TEST = new ArcanaStructureHandler("arcana/portal/portal_dead_end_test");
-    public static final ArcanaStructureHandler HALLWAY_PORTAL_TEST = new ArcanaStructureHandler("arcana/portal/portal_hallway_test");
-    public static final ArcanaStructureHandler JUNCTION_PORTAL_TEST = new ArcanaStructureHandler("arcana/portal/portal_junction_test");
-
     public static void registerLargeStructures() {
         MapGenStructureIO.registerStructure(Crypt1Start.class, "DRPGCrypt1");
         MapGenStructureIO.registerStructureComponent(Crypt1Component.class, "DRPGCrypt1Component");
