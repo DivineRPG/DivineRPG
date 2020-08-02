@@ -1,6 +1,5 @@
 package divinerpg.registry;
 
-import divinerpg.structure.arcana.ArcanaStructureHandler;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeonComponent;
 import divinerpg.structure.iceika.archerdungeon.ArcherDungeonStart;
 import divinerpg.structure.iceika.rollum.RollumDungeonComponent;
@@ -52,20 +51,6 @@ public class StructureRegistry {
     public static final DRPGStructureHandler HUNGER_HOUSE_2 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_2");
     public static final DRPGStructureHandler HUNGER_HOUSE_3 = new DRPGStructureHandler("vethea/layer1/houses/hunger_house_3");
     public static final DRPGStructureHandler[] HUNGER_HOUSES = {HUNGER_HOUSE_1, HUNGER_HOUSE_2, HUNGER_HOUSE_3};
-
-    //Simple test "rooms" displaying their patterns overhead. Used to ensure the maze algorithm is working properly
-    public static final ArcanaStructureHandler CROSSROADS_TEST = new ArcanaStructureHandler("arcana/test/test_crossroads");
-    public static final ArcanaStructureHandler CORNER_TEST = new ArcanaStructureHandler("arcana/test/test_corner");
-    public static final ArcanaStructureHandler JUNCTION_TEST = new ArcanaStructureHandler("arcana/test/test_junction");
-    public static final ArcanaStructureHandler HALLWAY_TEST = new ArcanaStructureHandler( "arcana/test/test_hallway");
-    public static final ArcanaStructureHandler DEAD_END_TEST = new ArcanaStructureHandler("arcana/test/test_dead_end");
-
-    //Used to test performance of generating actual rooms
-    public static final ArcanaStructureHandler CROSSROADS_GEN_TEST = new ArcanaStructureHandler("arcana/component_06_crossroads");
-    public static final ArcanaStructureHandler CORNER_GEN_TEST = new ArcanaStructureHandler("arcana/component_14_redone_corner");
-    public static final ArcanaStructureHandler JUNCTION_GEN_TEST = new ArcanaStructureHandler("arcana/component_15_redone");
-    public static final ArcanaStructureHandler HALLWAY_GEN_TEST = new ArcanaStructureHandler( "arcana/component_19_redone");
-    public static final ArcanaStructureHandler DEAD_END_GEN_TEST = new ArcanaStructureHandler("arcana/component_13_dead_end");
 
     public static void registerLargeStructures() {
         MapGenStructureIO.registerStructure(Crypt1Start.class, "DRPGCrypt1");

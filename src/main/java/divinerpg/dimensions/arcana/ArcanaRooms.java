@@ -82,13 +82,7 @@ public class ArcanaRooms {
         TEST_ROOMS.put(Cell.PieceType.JUNCTION, new ArcanaStructureHandler("arcana/test/test_junction"));
     }
 
-    public static ArcanaStructureHandler getRandomStructureByType(int chunkX, int chunkZ, long worldSeed, Cell.PieceType type) {
-        Random random = new Random();
-        random.setSeed(worldSeed);
-        long k = random.nextLong() / 2L * 2L + 1L;
-        long l = random.nextLong() / 2L * 2L + 1L;
-        random.setSeed((long) chunkX * k + (long) chunkZ * l ^ worldSeed);
-
+    public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
         WeightedRandom<ArcanaStructureHandler> weightedRandom = TYPE_MAP.get(type);
         if(weightedRandom == null) {
             DivineRPG.logger.error("Arcana room collection for type " + type.toString() + " was null!");

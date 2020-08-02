@@ -103,7 +103,7 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
                 toGenerate = ArcanaRooms.getTestRoomByType(cell.getPieceType());
             }
             else {
-                toGenerate = ArcanaRooms.getRandomStructureByType(chunkX, chunkZ, worldSeed, cell.getPieceType());
+                toGenerate = ArcanaRooms.getRandomStructureByType(this.rand, cell.getPieceType());
             }
 
             Rotation rotation = cell.getRotation();
