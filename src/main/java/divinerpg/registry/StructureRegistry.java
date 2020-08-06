@@ -1,37 +1,39 @@
 package divinerpg.registry;
 
-import divinerpg.structure.iceika.archerdungeon.ArcherDungeonComponent;
-import divinerpg.structure.iceika.archerdungeon.ArcherDungeonStart;
-import divinerpg.structure.iceika.rollum.RollumDungeonComponent;
-import divinerpg.structure.iceika.rollum.RollumDungeonStart;
-import divinerpg.structure.vethea.crypt1.Crypt1Component;
-import divinerpg.structure.vethea.crypt1.Crypt1Start;
-import divinerpg.structure.vethea.crypt2.Crypt2Component;
-import divinerpg.structure.vethea.crypt2.Crypt2Start;
-import divinerpg.structure.vethea.evergarden.EvergardenComponent;
-import divinerpg.structure.vethea.evergarden.EvergardenStart;
-import divinerpg.structure.vethea.hive.HiveComponent;
-import divinerpg.structure.vethea.hive.HiveStart;
-import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseComponent;
-import divinerpg.structure.vethea.karosmadhouse.KarosMadhouseStart;
-import divinerpg.structure.vethea.quadroticpost.QuadroticPostComponent;
-import divinerpg.structure.vethea.quadroticpost.QuadroticPostStart;
-import divinerpg.structure.vethea.raglokchamber.RaglokChamberComponent;
-import divinerpg.structure.vethea.raglokchamber.RaglokChamberStart;
-import divinerpg.structure.vethea.temple1.Temple1Component;
-import divinerpg.structure.vethea.temple1.Temple1Start;
-import divinerpg.structure.vethea.temple2.Temple2Component;
-import divinerpg.structure.vethea.temple2.Temple2Start;
-import divinerpg.structure.vethea.wreckhall.WreckHallComponent;
-import divinerpg.structure.vethea.wreckhall.WreckHallStart;
+import divinerpg.structure.iceika.archerdungeon.*;
+import divinerpg.structure.iceika.rollum.*;
+import divinerpg.structure.vethea.crypt1.*;
+import divinerpg.structure.vethea.crypt2.*;
+import divinerpg.structure.vethea.evergarden.*;
+import divinerpg.structure.vethea.hive.*;
+import divinerpg.structure.vethea.karosmadhouse.*;
+import divinerpg.structure.vethea.quadroticpost.*;
+import divinerpg.structure.vethea.raglokchamber.*;
+import divinerpg.structure.vethea.temple1.*;
+import divinerpg.structure.vethea.temple2.*;
+import divinerpg.structure.vethea.wreckhall.*;
 import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 
 public class StructureRegistry {
-    public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/sunstorm_dungeon");
+	
+	//EDEN
+    public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/eden/sunstorm_dungeon");
+    public static final DRPGStructureHandler BROKEN_EDEN_PORTAL = new DRPGStructureHandler("twilight/eden/broken_eden_portal");
+    public static final DRPGStructureHandler EDEN_PILLAR1 = new DRPGStructureHandler("twilight/eden/eden_pillar1");
+    public static final DRPGStructureHandler EDEN_PILLAR2 = new DRPGStructureHandler("twilight/eden/eden_pillar2");
+    public static final DRPGStructureHandler EDEN_PILLAR3 = new DRPGStructureHandler("twilight/eden/eden_pillar3");
+    
+    //WILDWOOD
     public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/termasect_nest");
+    
+    //APALACHIA
     public static final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/eternal_archer_dungeon");
+    
+    //SKYTHERN
     public static final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/experienced_cori_dungeon");
+    
+    //MORTUM
 
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("iceika/lamps/coalstone_lamp_1");
     public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("iceika/lamps/coalstone_lamp_2");
