@@ -455,8 +455,8 @@ public class ItemRegistry {
     public static final Item arcanium = null;
     @ObjectHolder("charged_collector")
     public static final Item chargedCollector = null;
-    @ObjectHolder("collector")
-    public static final Item collector = null;
+    @ObjectHolder("collector_fragments")
+    public static final Item collectorFragments = null;
     @ObjectHolder("dungeon_tokens")
     public static final Item dungeonTokens = null;
 
@@ -894,7 +894,7 @@ public class ItemRegistry {
         // Arcana miscellaneous
         register(registry, new ItemMod("arcanium"));
         register(registry, new ItemChargedCollector("charged_collector"));
-        register(registry, new ItemMod("collector"));
+        register(registry, new ItemMod("collector_fragments"));
         register(registry, new ItemMod("dungeon_tokens"));
 
         // Seeds

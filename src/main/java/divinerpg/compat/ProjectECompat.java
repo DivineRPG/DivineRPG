@@ -102,7 +102,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.hitchak, 1, 0), 16L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.weakArcanaPotion, 1, 0), 1024L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.strongArcanaPotion, 1, 0), 2048L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.collector, 1, 0), 128L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.collectorFragments, 1, 0), 128L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.dungeonTokens, 1, 0), 16L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.aquamarineSeeds, 1, 0), 16L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.eucalyptusRootSeeds, 1, 0), 16L);
