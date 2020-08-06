@@ -1504,7 +1504,7 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("ancient_stone"));
         register(registry, new BlockModUnbreakable("ancient_tile"));
         register(registry, new BlockModLadder("arcanite_tubes"));
-        register(registry, new BlockModUnbreakable("arcanium_metal"));
+        register(registry, new BlockModPillar("arcanium_metal", Material.IRON, -1F));
         register(registry, new BlockModUnbreakable("arcanium_power"));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
 
@@ -1526,7 +1526,7 @@ public class BlockRegistry {
         //wall
         register(registry, new BlockMod("ancient_stone_breakable", 2.0F));
         register(registry, new BlockMod("ancient_tile_breakable", 2.0F));
-        register(registry, new BlockMod("arcanium_metal_breakable", 2.0F));
+        register(registry, new BlockModPillar("arcanium_metal_breakable", Material.IRON,2.0F));
         register(registry, new BlockMod("arcanium_power_breakable", 2.0F));
         Block degradedBricksBreakable = new BlockMod("degraded_bricks_breakable", 2.0F);
         register(registry, degradedBricksBreakable);
