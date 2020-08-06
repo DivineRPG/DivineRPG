@@ -1504,7 +1504,7 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("ancient_stone"));
         register(registry, new BlockModUnbreakable("ancient_tile"));
         register(registry, new BlockModLadder("arcanite_tubes"));
-        register(registry, new BlockModPillar("arcanium_metal", Material.IRON, -1F));
+        register(registry, new BlockModPillar("arcanium_metal", Material.IRON, -1F).setResistance(6000000F));
         register(registry, new BlockModUnbreakable("arcanium_power"));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
 
