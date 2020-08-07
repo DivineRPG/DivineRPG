@@ -2,7 +2,7 @@ package divinerpg.objects.entities.assets.render.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.objects.entities.assets.model.vanilla.ModelJackOMan;
-import divinerpg.objects.entities.entity.vanilla.EntityJackOMan;
+import divinerpg.objects.entities.entity.npc.EntityJackOMan;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

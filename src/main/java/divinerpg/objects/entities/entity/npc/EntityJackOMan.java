@@ -1,19 +1,14 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.SoundRegistry;
 import divinerpg.registry.WeaponRegistry;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.MerchantRecipe;
@@ -21,29 +16,27 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EntityJackOMan extends EntityDivineVillager {
     public EntityJackOMan(World worldIn) {
-        super(worldIn, "message.jackoman.boo",
-                "message.jackoman.lost",
-                "message.jackoman.hurah",
-                "message.jackoman.seen");
+        super(worldIn);
         this.setSize(0.8F, 2f);
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.JACK_O_MAN_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
+    protected int getGuiId() {
+        return GUIHandler.JACK_O_MAN_GUI_ID;
     }
 
-    public static List<MerchantRecipe> getAllRecipies() {
-        List<MerchantRecipe> list = new ArrayList<>();
+    protected String[] getChatMessages() {
+        return new String[] {
+                "message.jackoman.boo",
+                "message.jackoman.lost",
+                "message.jackoman.hurah",
+                "message.jackoman.seen"
+        };
+    }
 
+    public MerchantRecipeList getRecipeList() {
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
                 new ItemStack(ArmorRegistry.skelemanHelmet, 1, 0)));
         list.add(new MerchantRecipe(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60),
@@ -66,13 +59,22 @@ public class EntityJackOMan extends EntityDivineVillager {
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 2, 1), new ItemStack(ArmorRegistry.witherReaperBoots)));
         list.add(new MerchantRecipe(new ItemStack(Items.SKULL, 6, 1), new ItemStack(Items.ENDER_EYE, 60),
                 new ItemStack(WeaponRegistry.scythe)));
-
         return list;
     }
 
     @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
+    public int getMaxSpawnedInChunk() {
+        return 1;
+    }
+
+    @Override
+    public boolean canDespawn() {
+        return true;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return world.provider.getDimension() == 0 && this.isValidLightLevel() && super.getCanSpawnHere();
     }
 
     public boolean isValidLightLevel() {
@@ -95,16 +97,6 @@ public class EntityJackOMan extends EntityDivineVillager {
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
-    }
-
-    @Override
-    public boolean canDespawn() {
-        return true;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.JACKOMAN;
     }
@@ -117,10 +109,5 @@ public class EntityJackOMan extends EntityDivineVillager {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.JACKOMAN;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == 0 && this.isValidLightLevel() && super.getCanSpawnHere();
     }
 }

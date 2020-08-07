@@ -1,37 +1,25 @@
 package divinerpg.structure.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
-import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
-import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
-import divinerpg.registry.LootTableRegistry;
 import divinerpg.utils.IStructure;
-import divinerpg.utils.WorldGenUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
-import java.util.function.Function;
 
 public class ArcanaStructureHandler extends WorldGenerator implements IStructure {
     protected String structureName;

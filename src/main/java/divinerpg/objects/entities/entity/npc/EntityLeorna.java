@@ -1,45 +1,34 @@
-package divinerpg.objects.entities.entity.arcana;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
 public class EntityLeorna extends EntityDivineVillager {
     public EntityLeorna(World world) {
-        super(world, "message.leorna.plants",
-                "message.leorna.nature",
-                "message.leorna.lamona",
+        super(world);
+    }
+
+    protected int getGuiId() {
+        return GUIHandler.LEORNA_GUI_ID;
+    }
+
+    protected String[] getChatMessages() {
+        return new String[] {
                 "message.leorna.hitchak",
-                "message.leorna.zelus");
+                "message.leorna.lamona",
+                "message.leorna.nature",
+                "message.leorna.plants",
+                "message.leorna.zelus"
+        };
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.LEORNA_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
-    }
-
-    public static MerchantRecipeList getAllRecipies() {
+    public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(ItemRegistry.eucalyptusRootSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.marsineSeeds)));
@@ -51,10 +40,5 @@ public class EntityLeorna extends EntityDivineVillager {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(ItemRegistry.lamonaSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.arcaniteDirt, 9)));
         return list;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
     }
 }

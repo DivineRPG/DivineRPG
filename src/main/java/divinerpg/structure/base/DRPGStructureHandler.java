@@ -1,10 +1,10 @@
 package divinerpg.structure.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
-import divinerpg.objects.entities.entity.vanilla.EntityLivestockMerchant;
-import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
+import divinerpg.objects.entities.entity.npc.EntityWorkshopMerchant;
+import divinerpg.objects.entities.entity.npc.EntityWorkshopTinkerer;
+import divinerpg.objects.entities.entity.npc.EntityLivestockMerchant;
+import divinerpg.objects.entities.entity.npc.EntityTheHunger;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.utils.IStructure;
 import divinerpg.utils.WorldGenUtils;

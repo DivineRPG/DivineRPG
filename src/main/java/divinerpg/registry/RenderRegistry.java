@@ -28,6 +28,7 @@ import divinerpg.objects.entities.entity.nether.EntityHellPig;
 import divinerpg.objects.entities.entity.nether.EntityHellSpider;
 import divinerpg.objects.entities.entity.nether.EntityScorcher;
 import divinerpg.objects.entities.entity.nether.EntityWildfire;
+import divinerpg.objects.entities.entity.npc.*;
 import divinerpg.objects.entities.entity.projectiles.*;
 import divinerpg.objects.entities.entity.skythern.*;
 import divinerpg.objects.entities.entity.skythern.EntityAdvancedCori;

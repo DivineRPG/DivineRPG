@@ -1,13 +1,10 @@
-package divinerpg.objects.entities.entity.arcana;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
@@ -15,30 +12,22 @@ import net.minecraft.world.World;
 public class EntityWarGeneral extends EntityDivineVillager {
 
     public EntityWarGeneral(World world) {
-        super(world, "message.general.weapons",
+        super(world);
+    }
+
+    protected int getGuiId() {
+        return GUIHandler.WAR_GENERAL_GUI_ID;
+    }
+
+    protected String[] getChatMessages() {
+        return new String[] {
+                "message.general.blade",
                 "message.general.merik",
-                "message.general.blade");
+                "message.general.weapons"
+        };
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.WAR_GENERAL_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
-    }
-
-    @Override
-    protected boolean canDespawn() {
-        return true;
-    }
-
-    @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
-    }
-
-    public static MerchantRecipeList getAllRecipies(){
+    public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(ItemRegistry.divineAccumulator)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 17), new ItemStack(WeaponRegistry.meteorMash)));
@@ -48,10 +37,5 @@ public class EntityWarGeneral extends EntityDivineVillager {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumReflector)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumAttractor)));
         return list;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
     }
 }

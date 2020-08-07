@@ -1,6 +1,5 @@
-package divinerpg.objects.entities.entity.iceika;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
@@ -8,43 +7,30 @@ import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.WeaponRegistry;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EntityWorkshopMerchant extends EntityDivineVillager {
     public EntityWorkshopMerchant(World worldIn) {
-        super(worldIn, "message.merchant.ho",
-                "message.merchant.out",
+        super(worldIn);
+    }
+
+    protected int getGuiId() {
+        return GUIHandler.WORKSHOP_MERCHANT_GUI_ID;
+    }
+
+    protected String[] getChatMessages() {
+        return new String[] {
+                "message.merchant.burr",
+                "message.merchant.ho",
                 "message.merchant.in",
-                "message.merchant.burr");
+                "message.merchant.out"
+        };
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_MERCHANT_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
-    }
-
-    @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
-    }
-
-    public static List<MerchantRecipe> getAllRecipies(){
-        List<MerchantRecipe> list = new ArrayList<>();
+    public MerchantRecipeList getRecipeList() {
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ArmorRegistry.santaHelmet, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ArmorRegistry.santaChestplate, 1, 0)));
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 6), new ItemStack(ArmorRegistry.santaLeggings, 1, 0)));
@@ -71,21 +57,6 @@ public class EntityWorkshopMerchant extends EntityDivineVillager {
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.redCandyCane, 4)));
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.yellowCandyCane, 4)));
         return list;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return null;
     }
 }
 

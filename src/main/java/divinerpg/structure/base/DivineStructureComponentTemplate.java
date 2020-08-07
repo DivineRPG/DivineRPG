@@ -1,19 +1,8 @@
 package divinerpg.structure.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.vethea.EntityCryptKeeper;
-import divinerpg.objects.entities.entity.vethea.EntityTempleGuardian;
-import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
-import divinerpg.registry.LootTableRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -22,8 +11,6 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Random;
 
 public abstract class DivineStructureComponentTemplate extends StructureComponentTemplate {

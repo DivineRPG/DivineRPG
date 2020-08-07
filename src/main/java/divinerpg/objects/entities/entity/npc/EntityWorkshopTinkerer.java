@@ -1,49 +1,35 @@
-package divinerpg.objects.entities.entity.iceika;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EntityWorkshopTinkerer extends EntityDivineVillager {
     public EntityWorkshopTinkerer(World worldIn) {
-        super(worldIn, "message.merchant.ho",
-                "message.merchant.out",
-                "message.merchant.in",
-                "message.merchant.burr");
+        super(worldIn);
         this.setSize(1.0F, 2.0F);
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.WORKSHOP_TINKERER_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
+    protected int getGuiId() {
+        return GUIHandler.WORKSHOP_TINKERER_GUI_ID;
     }
 
-    @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
+    protected String[] getChatMessages() {
+        return new String[] {
+                "message.merchant.burr",
+                "message.merchant.ho",
+                "message.merchant.in",
+                "message.merchant.out"
+        };
     }
 
-    public static List<MerchantRecipe> getAllRecipies(){
-        ArrayList<MerchantRecipe> list = new ArrayList<>();
+    public MerchantRecipeList getRecipeList() {
+        MerchantRecipeList list = new MerchantRecipeList();
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 1), new ItemStack(WeaponRegistry.shuriken, 16, 0),
                 new ItemStack(WeaponRegistry.snowflakeShuriken, 16, 0)));
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 4), new ItemStack(WeaponRegistry.serenadeStriker, 1, 0),
@@ -73,20 +59,5 @@ public class EntityWorkshopTinkerer extends EntityDivineVillager {
         list.add(new InfiniteTrade(new ItemStack(ItemRegistry.snowflake, 15), new ItemStack(WeaponRegistry.sandslash, 1, 0),
                 new ItemStack(WeaponRegistry.snowslash, 1, 0)));
         return list;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return null;
     }
 }

@@ -1,108 +1,89 @@
 package divinerpg.objects.entities.entity;
 
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopMerchant;
-import divinerpg.objects.entities.entity.iceika.EntityWorkshopTinkerer;
-import divinerpg.objects.entities.entity.vethea.EntityTheHunger;
+import divinerpg.DivineRPG;
 import divinerpg.utils.LocalizeUtils;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public abstract class EntityDivineVillager extends EntityVillager {
+public abstract class EntityDivineVillager extends EntityCreature implements INpc, IMerchant {
+    private EntityPlayer customer;
     private MerchantRecipeList buyingList;
-    private final String[] messages;
 
-    protected EntityDivineVillager(World world) {
-        this(world, new String[0]);
-    }
-
-    protected EntityDivineVillager(World w, String... messages) {
-        super(w);
-        this.setSize(1.0F, 2.0F);
-        this.setCanPickUpLoot(false);
-        this.addDefaultEquipmentAndRecipies(75);
-        this.messages = messages;
+    public EntityDivineVillager(World world) {
+        super(world);
     }
 
     @Override
     protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityZombie.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityEvoker.class, 12.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVindicator.class, 8.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVex.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(2, new EntityAITradePlayer(this));
-        this.tasks.addTask(2, new EntityAILookAtTradePlayer(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 0.27D));
+        this.tasks.addTask(2, new EntityAIMoveIndoors(this));
+        this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
+        this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 0.6D));
         this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.27D));
+        this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
-
-    }
-
-    @Override
-    protected boolean canDespawn() {
+    public boolean canDespawn() {
         return false;
     }
 
     @Override
-    protected boolean canDropLoot() {
-        return false;
+    public void setCustomer(@Nullable EntityPlayer player) {
+        this.customer = player;
     }
 
-    @Override
-    protected void updateAITasks() {
+    @Nullable
+    public EntityPlayer getCustomer() {
+        return this.customer;
     }
 
-    @Override
-    public void setProfession(int professionId) {
-        super.setProfession(5);
+    @Nullable
+    public MerchantRecipeList getRecipes(EntityPlayer player) {
+        if(buyingList == null) {
+            this.buyingList = getRecipeList();
+        }
+        return buyingList;
     }
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
         boolean flag = itemstack.getItem() == Items.NAME_TAG;
-
         if (flag) {
             itemstack.interactWithEntity(player, this, hand);
             return true;
-        } else if (!this.holdingSpawnEggOfClass(itemstack, this.getClass()) && this.isEntityAlive() && !this.isTrading()
-                && !this.isChild() && !player.isSneaking()) {
-            if (!this.world.isRemote) {
+        } else if (this.isEntityAlive() && /*!this.isTrading() &&*/ !player.isSneaking()) {
+            if (this.buyingList == null) {
+                this.buyingList = getRecipeList();
+            }
+            if (!this.world.isRemote && !this.buyingList.isEmpty()) {
                 extraInteract(player);
                 this.setCustomer(player);
+                player.openGui(DivineRPG.instance, getGuiId(), this.world, getEntityId(), 0, 0);
+            } else if (this.buyingList.isEmpty()) {
+                return super.processInteract(player, hand);
             }
             return true;
         } else {
@@ -110,93 +91,39 @@ public abstract class EntityDivineVillager extends EntityVillager {
         }
     }
 
-    public final void extraInteract(EntityPlayer player) {
+    protected final void extraInteract(EntityPlayer player) {
+        String[] chatMessages = this.getChatMessages();
+
         ITextComponent message = new TextComponentString("");
         ITextComponent npcName = LocalizeUtils.getClientSideTranslation(player, String.format("entity.%s.name", EntityList.getEntityString(this)));
         npcName.getStyle().setColor(TextFormatting.AQUA);
         message.appendSibling(npcName);
         message.appendText(": ");
-        message.appendSibling(LocalizeUtils.getClientSideTranslation(player, messages[rand.nextInt(messages.length)]));
+        message.appendSibling(LocalizeUtils.getClientSideTranslation(player, chatMessages[rand.nextInt(chatMessages.length)]));
         player.sendMessage(message);
     }
 
-    public abstract void addRecipes(MerchantRecipeList list);
-
-    @Override
-    public EntityVillager createChild(EntityAgeable ageable) {
-        return null;
+    @SideOnly(Side.CLIENT)
+    public void setRecipes(@Nullable MerchantRecipeList recipeList) {
     }
 
-    @Override
-    public void writeEntityToNBT(NBTTagCompound var1) {
-        super.writeEntityToNBT(var1);
-        if (this.buyingList != null) {
-            var1.setTag("Trades", this.buyingList.getRecipiesAsTags());
-        }
-    }
-
-    @Override
-    public void readEntityFromNBT(NBTTagCompound var1) {
-        super.readEntityFromNBT(var1);
-        if (var1.hasKey("Trades")) {
-            NBTTagCompound var2 = var1.getCompoundTag("Trades");
-            if (this instanceof EntityTheHunger || this instanceof EntityWorkshopTinkerer || this instanceof EntityWorkshopMerchant)
-                this.buyingList = new InfiniteTradeList(var2);
-            else
-                this.buyingList = new MerchantRecipeList(var2);
-        }
-    }
-
-    @Override
     public void useRecipe(MerchantRecipe recipe) {
-        recipe.incrementToolUses();
+    }
 
-        if (this.getCustomer() != null && this.getCustomer() instanceof EntityPlayerMP) {
-            CriteriaTriggers.VILLAGER_TRADE.trigger((EntityPlayerMP)this.getCustomer(), this, recipe.getItemToSell());
-        }
+    public void verifySellingItem(ItemStack var1) {
     }
 
     @Override
-    public void verifySellingItem(ItemStack stack) {
+    public World getWorld() {
+        return world;
     }
 
     @Override
-    public MerchantRecipeList getRecipes(EntityPlayer player) {
-        if (this.buyingList == null) {
-            this.addDefaultEquipmentAndRecipies(75);
-        }
-        return this.buyingList;
+    public BlockPos getPos() {
+        return this.getPosition();
     }
 
-    private void addDefaultEquipmentAndRecipies(int par1) {
-        MerchantRecipeList rec = new MerchantRecipeList();
-
-        addRecipes(rec);
-
-        if (this.buyingList == null) {
-            this.buyingList = new MerchantRecipeList();
-        }
-
-        for (int var3 = 0; var3 < par1 && var3 < rec.size(); ++var3) {
-            this.buyingList.add(rec.get(var3));
-        }
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getDeathSound() {
-        return null;
-    }
+    protected abstract int getGuiId();
+    protected abstract String[] getChatMessages();
+    public abstract MerchantRecipeList getRecipeList();
 }

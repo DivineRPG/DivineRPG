@@ -1,16 +1,13 @@
-package divinerpg.objects.entities.entity.vanilla;
+package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.DivineRPG;
 import divinerpg.objects.entities.entity.EntityDivineVillager;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.SoundRegistry;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
@@ -19,27 +16,24 @@ import net.minecraft.world.World;
 public class EntityLivestockMerchant extends EntityDivineVillager {
 
     public EntityLivestockMerchant(World worldIn) {
-        super(worldIn, "message.livestock.travel",
-                "message.livestock.sell",
-                "message.livestock.hi",
-                "message.livestock.snapper");
+        super(worldIn);
         this.setSize(0.8F, 2f);
     }
 
-    @Override
-    public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        if (!this.world.isRemote) {
-            player.openGui(DivineRPG.instance, GUIHandler.LIVESTOCK_MERCHANT_GUI_ID, this.world, getEntityId(), 0, 0);
-        }
-        return super.processInteract(player, hand);
+    protected int getGuiId() {
+        return GUIHandler.LIVESTOCK_MERCHANT_GUI_ID;
     }
 
-    @Override
-    public void addRecipes(MerchantRecipeList list) {
-        list.addAll(getAllRecipies());
+    protected String[] getChatMessages() {
+        return new String[] {
+                "message.livestock.hi",
+                "message.livestock.sell",
+                "message.livestock.snapper",
+                "message.livestock.travel"
+        };
     }
 
-    public static MerchantRecipeList getAllRecipies() {
+    public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(Blocks.LOG, 32, 0), new ItemStack(ItemRegistry.shadowCoins, 4),
                 new ItemStack(ItemRegistry.ehuEgg, 2)));
@@ -71,10 +65,5 @@ public class EntityLivestockMerchant extends EntityDivineVillager {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.LIVESTOCK_MERCHANT_HURT;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return world.provider.getDimension() == 0 && super.getCanSpawnHere();
     }
 }
