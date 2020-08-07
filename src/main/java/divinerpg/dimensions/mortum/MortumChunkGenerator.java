@@ -1,6 +1,7 @@
 package divinerpg.dimensions.mortum;
 
 import divinerpg.registry.BlockRegistry;
+import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,6 +24,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -139,7 +141,11 @@ public class MortumChunkGenerator implements IChunkGenerator {
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         boolean flag = false;
+        if(this.world.getBlockState(new BlockPos(this.rand.nextInt(16) + 8, this.rand.nextInt(this.rand.nextInt(248) + 8), this.rand.nextInt(16) + 8)).getBlock() == BlockRegistry.mortumGrass) {
+            ArrayList<DRPGStructureHandler> list = new ArrayList<DRPGStructureHandler>();
 
+//            list.get(rand.nextInt(list.size())).generate(world, rand, new BlockPos(x, y, z));
+        }
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
         if (Biome != Biomes.DESERT && Biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag

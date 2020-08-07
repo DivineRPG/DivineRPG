@@ -1,5 +1,7 @@
 package divinerpg.dimensions.skythern;
 
+import java.util.ArrayList;
+
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
@@ -36,6 +38,11 @@ public class SkythernChunkGenerator extends IslandChunkGeneratorBase {
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.skythernGrass) {
                 StructureRegistry.EXPERIENCED_CORI_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
+            }
+            if(this.world.getBlockState(new BlockPos(x, y-1, z)).getBlock() == BlockRegistry.skythernGrass) {
+                ArrayList<DRPGStructureHandler> list = new ArrayList<DRPGStructureHandler>();
+
+//                list.get(rand.nextInt(list.size())).generate(world, rand, new BlockPos(x, y, z));
             }
         }
 

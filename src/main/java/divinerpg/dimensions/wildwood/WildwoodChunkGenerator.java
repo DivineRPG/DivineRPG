@@ -1,8 +1,11 @@
 package divinerpg.dimensions.wildwood;
 
+import java.util.ArrayList;
+
 import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
+import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
@@ -36,8 +39,21 @@ public class WildwoodChunkGenerator extends IslandChunkGeneratorBase {
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.wildwoodGrass) {
                 StructureRegistry.TERMASECT_NEST.generate(world, this.rand, new BlockPos(x, y, z));
             }
+            
         }
-
+        if(this.rand.nextInt(20) == 0) {
+        int x = baseX + rand.nextInt(16);
+        int z = baseZ + rand.nextInt(16);
+        int y = world.getHeight(x, z);
+        if(this.world.getBlockState(new BlockPos(x, y-1, z)).getBlock() == BlockRegistry.wildwoodGrass) {
+            ArrayList<DRPGStructureHandler> list = new ArrayList<DRPGStructureHandler>();
+            list.add(StructureRegistry.WILDWOOD_TREEHOUSE);
+            list.add(StructureRegistry.WILDWOOD_PILLAR1);
+            list.add(StructureRegistry.WILDWOOD_PILLAR2);
+            list.add(StructureRegistry.WILDWOOD_HOUSE);
+            list.get(rand.nextInt(list.size())).generate(world, rand, new BlockPos(x, y, z));
+        }
+        }
         this.rand.setSeed(chunkX * k + chunkZ * l ^ this.world.getSeed());
         biome.decorate(this.world, this.rand, pos);
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
