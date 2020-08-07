@@ -4,10 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityEvoker;
-import net.minecraft.entity.monster.EntityVex;
-import net.minecraft.entity.monster.EntityVindicator;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -70,11 +66,11 @@ public abstract class EntityDivineVillager extends EntityCreature implements INp
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
-        boolean flag = itemstack.getItem() == Items.NAME_TAG;
-        if (flag) {
+        boolean holdingNameTag = itemstack.getItem() == Items.NAME_TAG;
+        if (holdingNameTag) {
             itemstack.interactWithEntity(player, this, hand);
             return true;
-        } else if (this.isEntityAlive() && /*!this.isTrading() &&*/ !player.isSneaking()) {
+        } else if (this.isEntityAlive() && !this.isTrading() && !player.isSneaking()) {
             if (this.buyingList == null) {
                 this.buyingList = getRecipeList();
             }
@@ -83,11 +79,11 @@ public abstract class EntityDivineVillager extends EntityCreature implements INp
                 this.setCustomer(player);
                 player.openGui(DivineRPG.instance, getGuiId(), this.world, getEntityId(), 0, 0);
             } else if (this.buyingList.isEmpty()) {
-                return super.processInteract(player, hand);
+                return false;
             }
             return true;
         } else {
-            return super.processInteract(player, hand);
+            return false;
         }
     }
 
@@ -101,6 +97,10 @@ public abstract class EntityDivineVillager extends EntityCreature implements INp
         message.appendText(": ");
         message.appendSibling(LocalizeUtils.getClientSideTranslation(player, chatMessages[rand.nextInt(chatMessages.length)]));
         player.sendMessage(message);
+    }
+
+    public boolean isTrading() {
+        return this.customer != null;
     }
 
     @SideOnly(Side.CLIENT)
