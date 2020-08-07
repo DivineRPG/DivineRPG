@@ -15,29 +15,62 @@ import divinerpg.structure.vethea.wreckhall.*;
 import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StructureRegistry {
-	
-	//EDEN
+
+    //Arcana structures are in ArcanaRooms
+
+	//Eden
     public static final DRPGStructureHandler SUNSTORM_DUNGEON = new DRPGStructureHandler("twilight/eden/sunstorm_dungeon");
     public static final DRPGStructureHandler BROKEN_EDEN_PORTAL = new DRPGStructureHandler("twilight/eden/broken_eden_portal");
     public static final DRPGStructureHandler EDEN_PILLAR1 = new DRPGStructureHandler("twilight/eden/eden_pillar1");
     public static final DRPGStructureHandler EDEN_PILLAR2 = new DRPGStructureHandler("twilight/eden/eden_pillar2");
     public static final DRPGStructureHandler EDEN_PILLAR3 = new DRPGStructureHandler("twilight/eden/eden_pillar3");
-    //WILDWOOD
+    public static final List<DRPGStructureHandler> EDEN_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    static {
+        EDEN_SMALL_STRUCTURES.add(BROKEN_EDEN_PORTAL);
+        EDEN_SMALL_STRUCTURES.add(EDEN_PILLAR1);
+        EDEN_SMALL_STRUCTURES.add(EDEN_PILLAR2);
+        EDEN_SMALL_STRUCTURES.add(EDEN_PILLAR3);
+    }
+
+    //Wildwood
     public static final DRPGStructureHandler TERMASECT_NEST = new DRPGStructureHandler("twilight/wildwood/termasect_nest");
     public static final DRPGStructureHandler WILDWOOD_TREEHOUSE = new DRPGStructureHandler("twilight/wildwood/wildwood_treehouse");
     public static final DRPGStructureHandler WILDWOOD_PILLAR1 = new DRPGStructureHandler("twilight/wildwood/wildwood_pillar1");
     public static final DRPGStructureHandler WILDWOOD_PILLAR2 = new DRPGStructureHandler("twilight/wildwood/wildwood_pillar2");
     public static final DRPGStructureHandler WILDWOOD_HOUSE = new DRPGStructureHandler("twilight/wildwood/wildwood_house");
-    //APALACHIA
-    public static final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/apalchia/eternal_archer_dungeon");
-    public static final DRPGStructureHandler APALACHIA_PILLAR1 = new DRPGStructureHandler("twilight/wildwood/apalachia_pillar1");
-    public static final DRPGStructureHandler APALACHIA_PILLAR2 = new DRPGStructureHandler("twilight/wildwood/apalachia_pillar2");
-    public static final DRPGStructureHandler APALACHIA_PILLAR3 = new DRPGStructureHandler("twilight/wildwood/apalachia_pillar3");
-    public static final DRPGStructureHandler APALACHIA_FALLEN_LOG = new DRPGStructureHandler("twilight/wildwood/apalachia_fallen_log");
-    //SKYTHERN
+    public static final List<DRPGStructureHandler> WILDWOOD_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    static {
+        WILDWOOD_SMALL_STRUCTURES.add(WILDWOOD_TREEHOUSE);
+        WILDWOOD_SMALL_STRUCTURES.add(WILDWOOD_PILLAR1);
+        WILDWOOD_SMALL_STRUCTURES.add(WILDWOOD_PILLAR2);
+        WILDWOOD_SMALL_STRUCTURES.add(WILDWOOD_HOUSE);
+    }
+
+    //Apalachia
+    public static final DRPGStructureHandler ETERNAL_ARCHER_DUNGEON = new DRPGStructureHandler("twilight/apalachia/eternal_archer_dungeon");
+    public static final DRPGStructureHandler APALACHIA_PILLAR1 = new DRPGStructureHandler("twilight/apalachia/apalachia_pillar1");
+    public static final DRPGStructureHandler APALACHIA_PILLAR2 = new DRPGStructureHandler("twilight/apalachia/apalachia_pillar2");
+    public static final DRPGStructureHandler APALACHIA_PILLAR3 = new DRPGStructureHandler("twilight/apalachia/apalachia_pillar3");
+    public static final DRPGStructureHandler APALACHIA_FALLEN_LOG = new DRPGStructureHandler("twilight/apalachia/apalachia_fallen_log");
+    public static final List<DRPGStructureHandler> APALACHIA_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    static {
+        APALACHIA_SMALL_STRUCTURES.add(APALACHIA_PILLAR1);
+        APALACHIA_SMALL_STRUCTURES.add(APALACHIA_PILLAR2);
+        APALACHIA_SMALL_STRUCTURES.add(APALACHIA_PILLAR3);
+        APALACHIA_SMALL_STRUCTURES.add(APALACHIA_FALLEN_LOG);
+    }
+
+
+    //Skythern
     public static final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/skythern/experienced_cori_dungeon");
-    //MORTUM
+
+    //Mortum
+    //nothing yet
+
 
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("iceika/lamps/coalstone_lamp_1");
     public static final DRPGStructureHandler COALSTONE_LAMP_2 = new DRPGStructureHandler("iceika/lamps/coalstone_lamp_2");
