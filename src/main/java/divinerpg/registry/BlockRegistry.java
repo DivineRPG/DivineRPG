@@ -756,6 +756,8 @@ public class BlockRegistry {
     public static final Block degradedBricks = null;
     @ObjectHolder("degraded_brick_stairs")
     public static final Block degradedBrickStairs = null;
+    @ObjectHolder("dungeon_bookshelf")
+    public static final Block dungeonBookshelf = null;
     @ObjectHolder("dungeon_lamp")
     public static final Block dungeonLamp = null;
     @ObjectHolder("heat_trap")
@@ -1332,7 +1334,7 @@ public class BlockRegistry {
         register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
         register(registry, new BlockMod("snow_bricks", 6.0F));
         registerItemlessBlock(registry, new BlockModDoor("steel_door", Material.IRON, 7.0f, () -> ItemRegistry.steelDoor));
-        register(registry, new BlockMod("workshop_bookcase", 1.5F));
+        register(registry, new BlockModBookshelf("workshop_bookcase",1.5F, Material.ROCK));
         register(registry, new BlockMod("workshop_carpet", 0.1F, Material.CLOTH));
         register(registry, new BlockModLamp("workshop_lamp", 0.3F));
 
@@ -1507,10 +1509,10 @@ public class BlockRegistry {
         register(registry, new BlockModPillar("arcanium_metal", Material.IRON, -1F).setResistance(6000000F));
         register(registry, new BlockModUnbreakable("arcanium_power"));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
-
         Block degradedBricks = new BlockModUnbreakable("degraded_bricks");
         register(registry, degradedBricks);
         register(registry, new BlockModStairs("degraded_brick_stairs", ancientBricks));
+        register(registry, new BlockModBookshelf("dungeon_bookshelf", 1.5F, Material.ROCK));
         register(registry, new BlockModUnbreakable("dungeon_lamp"));//.setLightLevel(1.0F));
         register(registry, new BlockHeatTrap("heat_trap"));
         register(registry, new BlockHeatTrap("heat_trap_on"));
