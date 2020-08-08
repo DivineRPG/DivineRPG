@@ -67,9 +67,23 @@ public class StructureRegistry {
 
     //Skythern
     public static final DRPGStructureHandler EXPERIENCED_CORI_DUNGEON = new DRPGStructureHandler("twilight/skythern/experienced_cori_dungeon");
-
+    public static final DRPGStructureHandler SKYTHERN_PILLAR1 = new DRPGStructureHandler("twilight/skythern/skythern_pillar1");
+    public static final DRPGStructureHandler SKYTHERN_PILLAR2 = new DRPGStructureHandler("twilight/skythern/skythern_pillar2");
+    public static final DRPGStructureHandler SKYTHERN_FALLEN_LOG1 = new DRPGStructureHandler("twilight/skythern/skythern_fallen_log1");
+    public static final DRPGStructureHandler SKYTHERN_FALLEN_LOG2 = new DRPGStructureHandler("twilight/skythern/skythern_fallen_log2");
+    
+    public static final List<DRPGStructureHandler> SKYTHERN_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    static {
+        SKYTHERN_SMALL_STRUCTURES.add(SKYTHERN_PILLAR1);
+        SKYTHERN_SMALL_STRUCTURES.add(SKYTHERN_PILLAR2);
+        SKYTHERN_SMALL_STRUCTURES.add(SKYTHERN_FALLEN_LOG1);
+        SKYTHERN_SMALL_STRUCTURES.add(SKYTHERN_FALLEN_LOG2);
+    }
     //Mortum
-    //nothing yet
+    public static final List<DRPGStructureHandler> MORTUM_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    static {
+//      MORTUM_SMALL_STRUCTURES.add(MORTUM_PILLAR1);
+  }
 
 
     public static final DRPGStructureHandler COALSTONE_LAMP_1 = new DRPGStructureHandler("iceika/lamps/coalstone_lamp_1");

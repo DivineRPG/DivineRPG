@@ -39,10 +39,17 @@ public class SkythernChunkGenerator extends IslandChunkGeneratorBase {
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.skythernGrass) {
                 StructureRegistry.EXPERIENCED_CORI_DUNGEON.generate(world, this.rand, new BlockPos(x, y, z));
             }
-            if(this.world.getBlockState(new BlockPos(x, y-1, z)).getBlock() == BlockRegistry.skythernGrass) {
-                ArrayList<DRPGStructureHandler> list = new ArrayList<DRPGStructureHandler>();
+        }
+        
+        if(this.rand.nextInt(20) == 0) {
+            int x = baseX + this.rand.nextInt(16);
+            int z = baseZ + this.rand.nextInt(16);
+            int y = world.getHeight(x, z);
 
-//                list.get(rand.nextInt(list.size())).generate(world, rand, new BlockPos(x, y, z));
+            if(this.world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == BlockRegistry.skythernGrass) {
+                int listSize = StructureRegistry.SKYTHERN_SMALL_STRUCTURES.size();
+                DRPGStructureHandler structure = StructureRegistry.SKYTHERN_SMALL_STRUCTURES.get(this.rand.nextInt(listSize));
+                structure.generate(world, this.rand, new BlockPos(x, y, z));
             }
         }
 
