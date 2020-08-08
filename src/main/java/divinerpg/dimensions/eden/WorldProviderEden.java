@@ -4,9 +4,11 @@ import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldProvider.WorldSleepResult;
 import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -75,5 +77,10 @@ public class WorldProviderEden extends WorldProvider {
 	public String getSaveFolder()
     {
         return "Eden";
+    }
+	@Override
+	public WorldSleepResult canSleepAt(net.minecraft.entity.player.EntityPlayer player, BlockPos pos)
+    {
+        return WorldSleepResult.ALLOW;
     }
 }
