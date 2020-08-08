@@ -1,6 +1,7 @@
 package divinerpg.dimensions.mortum;
 
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
 import divinerpg.structure.base.DRPGStructureHandler;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -141,11 +142,18 @@ public class MortumChunkGenerator implements IChunkGenerator {
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         boolean flag = false;
-        if(this.world.getBlockState(new BlockPos(this.rand.nextInt(16) + 8, this.rand.nextInt(this.rand.nextInt(248) + 8), this.rand.nextInt(16) + 8)).getBlock() == BlockRegistry.mortumGrass) {
-            ArrayList<DRPGStructureHandler> list = new ArrayList<DRPGStructureHandler>();
+        if(this.rand.nextInt(20) == 0) {
+            int x2 = this.rand.nextInt(16) + 8;
+            int z2 = this.rand.nextInt(16) + 8;
+            int y = world.getHeight(x, z);
 
-//            list.get(rand.nextInt(list.size())).generate(world, rand, new BlockPos(x, y, z));
+            if(this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumGrass) {
+                int listSize = StructureRegistry.MORTUM_SMALL_STRUCTURES.size();
+                DRPGStructureHandler structure = StructureRegistry.MORTUM_SMALL_STRUCTURES.get(this.rand.nextInt(listSize));
+                structure.generate(world, this.rand, new BlockPos(x2, y, z2));
+            }
         }
+
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
         if (Biome != Biomes.DESERT && Biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag
