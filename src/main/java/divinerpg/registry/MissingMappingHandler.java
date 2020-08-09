@@ -64,9 +64,6 @@ public class MissingMappingHandler {
              else if(mapping.key.equals(new ResourceLocation("divinerpg:degraded_brick"))) {
                  mapping.remap(Item.getItemFromBlock(BlockRegistry.degradedBricks));
              }
-             else if(mapping.key.equals(new ResourceLocation("divinerpg:collector"))) {
-                 mapping.remap(ItemRegistry.collectorFragments);
-             }
          }
     }
 

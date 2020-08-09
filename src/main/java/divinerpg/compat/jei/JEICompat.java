@@ -6,11 +6,6 @@ import divinerpg.compat.jei.base.TripleRecipeWrapper;
 import divinerpg.compat.jei.base.VillagerCategory;
 import divinerpg.objects.blocks.tile.container.gui.ArcaniumExtractorGUI;
 import divinerpg.objects.entities.container.gui.*;
-import divinerpg.objects.entities.entity.npc.EntityWorkshopMerchant;
-import divinerpg.objects.entities.entity.npc.EntityWorkshopTinkerer;
-import divinerpg.objects.entities.entity.npc.*;
-import divinerpg.objects.entities.entity.npc.EntityJackOMan;
-import divinerpg.objects.entities.entity.npc.EntityLivestockMerchant;
 import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
@@ -100,7 +95,7 @@ public class JEICompat implements IModPlugin {
                 ArcaniumExtractorGUI.TEXTURES,
                 JeiReferences.ARCANA_EXTRACTOR_CATEGORY,
                 "Arcanium Extractor",
-                new ItemStack(ItemRegistry.chargedCollector)));
+                new ItemStack(ItemRegistry.collector)));
     }
 
     @Override
@@ -119,7 +114,7 @@ public class JEICompat implements IModPlugin {
         registerVillagerRecepies(registry, EntityLordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
         registerVillagerRecepies(registry, EntityZelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);*/
         registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(BlockRegistry.arcaniumOre),
-                new ItemStack(ItemRegistry.chargedCollector), new ItemStack(ItemRegistry.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
+                new ItemStack(ItemRegistry.collector), new ItemStack(ItemRegistry.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
 
         registry.addRecipeCatalyst(new ItemStack(BlockRegistry.demonFurnace), VanillaRecipeCategoryUid.SMELTING);
         registry.addRecipeCatalyst(new ItemStack(BlockRegistry.greenlightFurnace), VanillaRecipeCategoryUid.SMELTING);

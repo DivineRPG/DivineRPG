@@ -30,7 +30,7 @@ public class EntityLordVatticus extends EntityDivineVillager {
 
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collectorFragments, 16), new ItemStack(ItemRegistry.chargedCollector)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collectorFragments, 16), new ItemStack(ItemRegistry.collector)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaHelmet)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaChestplate)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaLeggings)));
