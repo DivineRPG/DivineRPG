@@ -1,14 +1,8 @@
 package divinerpg.compat;
 
-import java.lang.reflect.Constructor;
-
-import javax.annotation.Nullable;
-
 import divinerpg.config.Config;
-import divinerpg.objects.blocks.twilight.grass.BlockApalachiaGrass;
 import divinerpg.objects.entities.entity.apalachia.*;
 import divinerpg.objects.entities.entity.arcana.*;
-import divinerpg.objects.entities.entity.arcana.death.*;
 import divinerpg.objects.entities.entity.boss.*;
 import divinerpg.objects.entities.entity.boss.ayeraco.*;
 import divinerpg.objects.entities.entity.eden.*;
@@ -25,14 +19,8 @@ import jeresources.api.*;
 import jeresources.api.distributions.DistributionSquare;
 import jeresources.api.drop.PlantDrop;
 import jeresources.api.restrictions.*;
-import jeresources.entry.PlantEntry;
-import jeresources.registry.PlantRegistry;
-import jeresources.util.LogHelper;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 public class JERCompat {

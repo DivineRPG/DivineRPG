@@ -1,5 +1,6 @@
-package divinerpg.objects.entities.entity.arcana.death;
+package divinerpg.objects.entities.entity.arcana;
 
+import divinerpg.objects.entities.entity.arcana.death.EntityDeathBase;
 import divinerpg.registry.LootTableRegistry;
 import divinerpg.registry.SoundRegistry;
 import net.minecraft.init.MobEffects;

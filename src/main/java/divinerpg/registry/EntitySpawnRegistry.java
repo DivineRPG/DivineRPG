@@ -2,12 +2,6 @@ package divinerpg.registry;
 
 import divinerpg.DivineRPG;
 import divinerpg.config.GeneralConfig;
-import divinerpg.objects.entities.entity.npc.EntityCaptainMerik;
-import divinerpg.objects.entities.entity.npc.EntityDatticon;
-import divinerpg.objects.entities.entity.npc.EntityLeorna;
-import divinerpg.objects.entities.entity.npc.EntityLordVatticus;
-import divinerpg.objects.entities.entity.npc.EntityWarGeneral;
-import divinerpg.objects.entities.entity.npc.EntityZelus;
 import divinerpg.objects.entities.entity.iceika.EntityAlicanto;
 import divinerpg.objects.entities.entity.iceika.EntityFractite;
 import divinerpg.objects.entities.entity.iceika.EntityFrostArcher;
@@ -19,6 +13,7 @@ import divinerpg.objects.entities.entity.apalachia.EntityApalachiaCadillion;
 import divinerpg.objects.entities.entity.apalachia.EntityApalachiaGolem;
 import divinerpg.objects.entities.entity.apalachia.EntityApalachiaTomo;
 import divinerpg.objects.entities.entity.mortum.EntityBasilisk;
+import divinerpg.objects.entities.entity.arcana.*;
 import divinerpg.objects.entities.entity.vethea.*;
 import divinerpg.objects.entities.entity.wildwood.EntityBehemoth;
 import divinerpg.objects.entities.entity.eden.EntityBunny;
@@ -159,12 +154,13 @@ public class EntitySpawnRegistry {
                 EntityRegistry.addSpawn(EntityTwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntitySorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(BiomeRegistry.biomeArcana)) {
-               /*EntityRegistry.addSpawn(EntityLeorna.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EntityDatticon.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EntityZelus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EntityLordVatticus.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EntityCaptainMerik.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);
-                EntityRegistry.addSpawn(EntityWarGeneral.class, 1, 1, 1, EnumCreatureType.CREATURE, biome);*/
+                EntityRegistry.addSpawn(EntityDeathcryx.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDeathHound.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDungeonConstructor.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDungeonPrisoner.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityLivingStatue.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRazorback.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRoamer.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(BiomeRegistry.biomeVethea)) {
                 EntityRegistry.addSpawn(EntityAcidHag.class, 3, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityBiphron.class, 3, 1, 4, EnumCreatureType.MONSTER, biome);
