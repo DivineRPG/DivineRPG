@@ -38,7 +38,10 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16,
                 16);
 
-        Chunk chunk = new Chunk(this.world, new ChunkPrimer(), x, z);
+        ChunkPrimer primer = new ChunkPrimer();
+        generateBedrockLayers(primer);
+
+        Chunk chunk = new Chunk(this.world, primer, x, z);
         byte[] abyte = chunk.getBiomeArray();
 
         for (int i = 0; i < abyte.length; ++i) {
@@ -47,6 +50,15 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
 
         chunk.generateSkylightMap();
         return chunk;
+    }
+
+    private void generateBedrockLayers(ChunkPrimer primer) {
+        for(int posX = 0; posX < 16; posX++) {
+            for (int posZ = 0; posZ < 16; posZ++) {
+                primer.setBlockState(posX, 7, posZ, Blocks.BEDROCK.getDefaultState());
+                primer.setBlockState(posX, 20, posZ, Blocks.BEDROCK.getDefaultState());
+            }
+        }
     }
 
     @Override
