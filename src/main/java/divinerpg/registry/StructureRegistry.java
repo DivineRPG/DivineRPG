@@ -81,8 +81,16 @@ public class StructureRegistry {
     }
     //Mortum
     public static final List<DRPGStructureHandler> MORTUM_SMALL_STRUCTURES = new ArrayList<DRPGStructureHandler>();
+    public static final DRPGStructureHandler MORTUM_PILLAR1 = new DRPGStructureHandler("twilight/mortum/mortum_pillar1");
+    public static final DRPGStructureHandler MORTUM_PILLAR2 = new DRPGStructureHandler("twilight/mortum/mortum_pillar2");
+    public static final DRPGStructureHandler MORTUM_PILLAR3 = new DRPGStructureHandler("twilight/mortum/mortum_pillar3");
+    public static final DRPGStructureHandler MORTUM_HUT = new DRPGStructureHandler("twilight/mortum/mortum_hut");
+    
     static {
-//      MORTUM_SMALL_STRUCTURES.add(MORTUM_PILLAR1);
+        MORTUM_SMALL_STRUCTURES.add(MORTUM_PILLAR1);
+        MORTUM_SMALL_STRUCTURES.add(MORTUM_PILLAR2);
+        MORTUM_SMALL_STRUCTURES.add(MORTUM_PILLAR3);
+        MORTUM_SMALL_STRUCTURES.add(MORTUM_HUT);
   }
 
 
