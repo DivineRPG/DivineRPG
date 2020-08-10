@@ -147,7 +147,7 @@ public class MortumChunkGenerator implements IChunkGenerator {
             int z2 = this.rand.nextInt(16) + 8;
             int y = world.getHeight(x, z);
 
-            if(this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumGrass) {
+            if(this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumDirt) {
                 int listSize = StructureRegistry.MORTUM_SMALL_STRUCTURES.size();
                 DRPGStructureHandler structure = StructureRegistry.MORTUM_SMALL_STRUCTURES.get(this.rand.nextInt(listSize));
                 structure.generate(world, this.rand, new BlockPos(x2, y, z2));
