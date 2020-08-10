@@ -190,6 +190,8 @@ public class BlockRegistry {
     public static final Block apalachiaBricks = null;
     @ObjectHolder("skythern_bricks")
     public static final Block skythernBricks = null;
+    @ObjectHolder("mortum_bricks")
+    public static final Block mortumBricks = null;
 
     // Minibricks
     @ObjectHolder("minibricks")
@@ -1192,6 +1194,7 @@ public class BlockRegistry {
         register(registry, new BlockMod("wildwood_bricks", 3.0F).setResistance(30.0F));
         register(registry, new BlockMod("apalachia_bricks", 3.0F).setResistance(30.0F));
         register(registry, new BlockMod("skythern_bricks", 3.0F).setResistance(30.0F));
+        register(registry, new BlockMod("mortum_bricks", 3.0F).setResistance(30.0F));
 
         // Minibricks
         register(registry, new BlockMod("minibricks", 3.0F).setResistance(30.0F));
