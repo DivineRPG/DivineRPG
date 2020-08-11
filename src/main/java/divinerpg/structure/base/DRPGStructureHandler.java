@@ -143,6 +143,10 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
         MinecraftServer mcServer = world.getMinecraftServer();
         TemplateManager manager = getWorldServer(world).getStructureTemplateManager();
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
-        return manager.get(mcServer, location);
+        Template template = manager.get(mcServer, location);
+        if (template == null) {
+           DivineRPG.logger.error("Couldn't find template for structure " + this.structureName);
+        }
+        return template;
     }
 }
