@@ -182,6 +182,7 @@ public class EntityRegistry {
                 buildEntityEntry(EntityDungeonDemon.class, "dungeon_demon", ARCANA),
                 buildEntityEntry(EntityDungeonPrisoner.class, "dungeon_prisoner", ARCANA),
                 buildEntityEntry(EntityFyracryx.class, "fyracryx", ARCANA),
+                buildEntityEntry(EntityKazari.class, "kazari", ARCANA),
                 buildEntityEntry(EntityLeorna.class, "leorna", ARCANA),
                 buildEntityEntry(EntityLivingStatue.class, "living_statue", ARCANA),
                 buildEntityEntry(EntityParatiku.class, "paratiku", ARCANA),

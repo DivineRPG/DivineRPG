@@ -37,6 +37,7 @@ public class ArcanaRooms {
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/ramp_crossroads"), 4);
 
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/banquet_hall"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_library"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison_broken"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/heat_trap_dead_end"), 4);
@@ -44,6 +45,7 @@ public class ArcanaRooms {
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end"), 2);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end_arcanium"), 1);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/roamer_chamber"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/kazari_room"), 8);
 
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/lava_hallway"), 2);

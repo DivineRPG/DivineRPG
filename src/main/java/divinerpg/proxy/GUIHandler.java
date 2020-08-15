@@ -42,7 +42,8 @@ public class GUIHandler implements IGuiHandler {
     public static final int ARCANIUM_EXTRACTOR_GUI_ID = 23;
     public static final int INFUSION_TABLE_GUI_ID = 24;
     public static final int DREAM_LAMP_GUI_ID = 25;
-    public static final int KingCompressorGuiId = 26;
+    public static final int KAZARI_GUI_ID = 26;
+    public static final int KingCompressorGuiId = 999;
 
     @Nullable
     @Override
@@ -103,6 +104,8 @@ public class GUIHandler implements IGuiHandler {
                 return new InfusionTableGUI(new ContainerInfusionTable(player.inventory, world, (TileEntityInfusionTable) tileEntity));
             case DREAM_LAMP_GUI_ID:
                 return new DreamLampGUI(new ContainerDreamLamp(player.inventory, world, (TileEntityDreamLamp) tileEntity));
+            case KAZARI_GUI_ID:
+                return new GuiKazari(player.inventory, (IMerchant) entityByID, world);
             case KingCompressorGuiId:
                 return new KIngCompressionGUI(new KingCompressorContainer(player.inventory, (TileEntityKingCompressior) tileEntity));
 
@@ -144,6 +147,7 @@ public class GUIHandler implements IGuiHandler {
             case WAR_GENERAL_GUI_ID:
             case ZELUS_GUI_ID:
             case THE_HUNGER_GUI_ID:
+            case KAZARI_GUI_ID:
                 return new ContainerMerchant(player.inventory, (IMerchant) world.getEntityByID(x), world);
 
             case ALTAR_OF_CORRUPTION_GUI_ID:
