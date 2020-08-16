@@ -11,6 +11,7 @@ public class BlockModPillar extends BlockRotatedPillar {
         super(material);
         this.setUnlocalizedName(name);
         this.setRegistryName(DivineRPG.MODID, name);
+        this.setHardness(hardness);
         this.setSoundType(BlockSoundTypeMap.soundTypeForMaterial(material));
         this.setCreativeTab(DivineRPGTabs.BLOCKS);
     }

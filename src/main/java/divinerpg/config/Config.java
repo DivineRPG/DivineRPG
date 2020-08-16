@@ -69,7 +69,7 @@ public class Config {
             put(new ResourceLocation(DivineRPG.MODID, "cymesoid"), new MobStatInfo(25.0, 8.0, 0.0));
             put(new ResourceLocation(DivineRPG.MODID, "datticon"), new MobStatInfo(20.0, 0.0, 0.0));
             put(new ResourceLocation(DivineRPG.MODID, "death_hound"), new MobStatInfo(120.0, 10.0, 0.0));
-            put(new ResourceLocation(DivineRPG.MODID, "deathcryx"), new MobStatInfo(6.0, 6.0, 0.0));
+            put(new ResourceLocation(DivineRPG.MODID, "deathcryx"), new MobStatInfo(70.0, 10.0, 0.0));
             put(new ResourceLocation(DivineRPG.MODID, "demon_of_darkness"), new MobStatInfo(200.0, 21.0, 0.0));
             put(new ResourceLocation(DivineRPG.MODID, "densos"), new MobStatInfo(1000.0, 28.0, 0.0));
             put(new ResourceLocation(DivineRPG.MODID, "desert_crawler"), new MobStatInfo(40.0, 8.0, 0.0));
