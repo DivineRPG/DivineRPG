@@ -91,9 +91,11 @@ public class ArcanaRooms {
     }
 
     public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
-        WeightedRandom<ArcanaStructureHandler> weightedRandom = TYPE_MAP.get(type);
-        if (type == Cell.PieceType.DEAD_END && random.nextInt(10) == 0) {
+        WeightedRandom<ArcanaStructureHandler> weightedRandom;
+        if (type == Cell.PieceType.DEAD_END && random.nextInt(8) == 0) {
            weightedRandom = DEAD_END_NPC_ROOMS;
+        } else {
+           weightedRandom = TYPE_MAP.get(type);
         }
 
         return weightedRandom.selectRandomItem(random);
