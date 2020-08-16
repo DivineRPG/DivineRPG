@@ -1,6 +1,8 @@
 package divinerpg.objects.entities.entity;
 
 import divinerpg.DivineRPG;
+import divinerpg.objects.entities.ai.EntityAIDivineTrade;
+import divinerpg.objects.entities.ai.EntityAIWatchCustomer;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -31,6 +33,8 @@ public abstract class EntityDivineMerchant extends EntityCreature implements INp
     @Override
     protected void initEntityAI() {
         this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIDivineTrade(this));
+        this.tasks.addTask(1, new EntityAIWatchCustomer(this));
         this.tasks.addTask(2, new EntityAIMoveIndoors(this));
         this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
         this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
