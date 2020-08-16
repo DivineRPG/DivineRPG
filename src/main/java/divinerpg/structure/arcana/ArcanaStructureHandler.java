@@ -1,8 +1,7 @@
 package divinerpg.structure.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.entity.npc.EntityKazari;
-import divinerpg.objects.entities.entity.npc.EntityLivestockMerchant;
+import divinerpg.objects.entities.entity.npc.*;
 import divinerpg.utils.IStructure;
 import divinerpg.utils.WorldGenUtils;
 import net.minecraft.init.Blocks;
@@ -85,8 +84,20 @@ public class ArcanaStructureHandler extends WorldGenerator implements IStructure
             BlockPos pos = entry.getKey();
 
             switch(entry.getValue()) {
+                case "CaptainMerik":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityCaptainMerik(world));
+                    break;
+                case "Datticon":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityDatticon(world));
+                    break;
                 case "Kazari":
                     WorldGenUtils.spawnPersistentEntity(world, pos, new EntityKazari(world));
+                    break;
+                case "Leorna":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLeorna(world));
+                    break;
+                case "LordVatticus":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLordVatticus(world));
                     break;
                 default:
                     DivineRPG.logger.warn("Unexpected data marker: " + entry.getValue() + " in a structure, please report this.");

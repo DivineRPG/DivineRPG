@@ -1516,7 +1516,7 @@ public class BlockRegistry {
         register(registry, degradedBricks);
         register(registry, new BlockModStairs("degraded_brick_stairs", ancientBricks));
         register(registry, new BlockModBookshelf("dungeon_bookshelf", 1.5F, Material.ROCK));
-        register(registry, new BlockModUnbreakable("dungeon_lamp"));//.setLightLevel(1.0F));
+        register(registry, new BlockModUnbreakable("dungeon_lamp").setLightLevel(1.0F));
         register(registry, new BlockHeatTrap("heat_trap"));
         register(registry, new BlockHeatTrap("heat_trap_on"));
         register(registry, new BlockModUnbreakable("light_degraded_brick"));

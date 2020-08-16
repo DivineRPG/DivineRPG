@@ -12,6 +12,7 @@ public class ArcanaRooms {
     private static final WeightedRandom<ArcanaStructureHandler> CORNER_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> CROSSROAD_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_NPC_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> HALLWAY_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> JUNCTION_ROOMS = new WeightedRandom<>();
     private static final HashMap<Cell.PieceType, WeightedRandom<ArcanaStructureHandler>> TYPE_MAP = new HashMap<>();
@@ -45,7 +46,12 @@ public class ArcanaRooms {
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end"), 2);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end_arcanium"), 1);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/roamer_chamber"), 4);
-        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/kazari_room"), 8);
+
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/datticon_workshop"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/kazari_room"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/leorna_hut"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/captain_merik_forge"), 4);
 
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/lava_hallway"), 2);
@@ -86,13 +92,11 @@ public class ArcanaRooms {
 
     public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
         WeightedRandom<ArcanaStructureHandler> weightedRandom = TYPE_MAP.get(type);
-        if(weightedRandom == null) {
-            DivineRPG.logger.error("Arcana room collection for type " + type.toString() + " was null!");
-            return null;
+        if (type == Cell.PieceType.DEAD_END && random.nextInt(10) == 0) {
+           weightedRandom = DEAD_END_NPC_ROOMS;
         }
-        else {
-            return(weightedRandom.selectRandomItem(random));
-        }
+
+        return weightedRandom.selectRandomItem(random);
     }
 
     public static ArcanaStructureHandler getPortalRoomByType(Cell.PieceType type) {
