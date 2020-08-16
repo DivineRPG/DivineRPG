@@ -852,7 +852,7 @@ public class ItemRegistry {
         register(registry, new ItemReflector());
         register(registry, new ItemDivineAccumulator());
         register(registry, new ItemGhostbane());
-        register(registry, new ItemOrbOfLight());
+        register(registry, new ItemMod("orb_of_light"));
         register(registry, new ItemStaffEnrichment("staff_of_enrichment"));
         register(registry, new ItemArcanaCharge());
 
