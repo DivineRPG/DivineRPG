@@ -41,6 +41,13 @@ public abstract class EntityDivineVillager extends EntityCreature implements INp
     }
 
     @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+    }
+
+    @Override
     public boolean canDespawn() {
         return false;
     }
