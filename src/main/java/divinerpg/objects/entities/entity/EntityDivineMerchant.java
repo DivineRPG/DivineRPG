@@ -20,11 +20,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public abstract class EntityDivineVillager extends EntityCreature implements INpc, IMerchant {
+public abstract class EntityDivineMerchant extends EntityCreature implements INpc, IMerchant {
     private EntityPlayer customer;
     private MerchantRecipeList buyingList;
 
-    public EntityDivineVillager(World world) {
+    public EntityDivineMerchant(World world) {
         super(world);
     }
 

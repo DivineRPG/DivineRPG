@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -16,7 +16,7 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
-public class EntityJackOMan extends EntityDivineVillager {
+public class EntityJackOMan extends EntityDivineMerchant {
     public EntityJackOMan(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 2f);

@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
@@ -9,7 +9,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityLeorna extends EntityDivineVillager {
+public class EntityLeorna extends EntityDivineMerchant {
     public EntityLeorna(World world) {
         super(world);
     }

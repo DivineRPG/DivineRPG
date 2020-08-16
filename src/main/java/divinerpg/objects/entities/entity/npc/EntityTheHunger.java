@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.*;
 import net.minecraft.init.Blocks;
@@ -9,7 +9,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityTheHunger extends EntityDivineVillager {
+public class EntityTheHunger extends EntityDivineMerchant {
     public EntityTheHunger(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 2f);

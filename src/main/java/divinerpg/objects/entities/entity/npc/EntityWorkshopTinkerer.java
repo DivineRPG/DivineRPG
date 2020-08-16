@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.objects.entities.entity.InfiniteTrade;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityWorkshopTinkerer extends EntityDivineVillager {
+public class EntityWorkshopTinkerer extends EntityDivineMerchant {
     public EntityWorkshopTinkerer(World worldIn) {
         super(worldIn);
         this.setSize(1.0F, 2.0F);

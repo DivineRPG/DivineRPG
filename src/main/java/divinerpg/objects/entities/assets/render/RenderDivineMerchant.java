@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.assets.render;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -9,16 +9,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderDivineVillager extends RenderLiving<EntityDivineVillager> {
+public class RenderDivineMerchant extends RenderLiving<EntityDivineMerchant> {
 
     private ResourceLocation texture;
 
-    public RenderDivineVillager(RenderManager renderManager, ModelBase model, ResourceLocation texture) {
+    public RenderDivineMerchant(RenderManager renderManager, ModelBase model, ResourceLocation texture) {
         super(renderManager, model, 1F);
         this.texture = texture;
     }
 
-    protected ResourceLocation getEntityTexture(EntityDivineVillager entity) {
+    protected ResourceLocation getEntityTexture(EntityDivineMerchant entity) {
         return texture;
     }
 

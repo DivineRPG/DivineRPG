@@ -1,6 +1,6 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.SoundRegistry;
@@ -13,7 +13,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityLivestockMerchant extends EntityDivineVillager {
+public class EntityLivestockMerchant extends EntityDivineMerchant {
 
     public EntityLivestockMerchant(World worldIn) {
         super(worldIn);

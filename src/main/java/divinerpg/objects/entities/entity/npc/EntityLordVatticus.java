@@ -1,9 +1,8 @@
 package divinerpg.objects.entities.entity.npc;
 
-import divinerpg.objects.entities.entity.EntityDivineVillager;
+import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.ItemRegistry;
-import divinerpg.registry.ArmorRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -12,7 +11,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 
-public class EntityLordVatticus extends EntityDivineVillager {
+public class EntityLordVatticus extends EntityDivineMerchant {
     public EntityLordVatticus(World world) {
         super(world);
     }
