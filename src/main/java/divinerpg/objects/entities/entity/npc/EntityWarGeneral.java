@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.npc;
 
 import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.item.ItemStack;
@@ -36,6 +37,10 @@ public class EntityWarGeneral extends EntityDivineMerchant {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 18), new ItemStack(WeaponRegistry.generalsStaff)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumReflector)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumAttractor)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosLeggings)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosBoots)));
         return list;
     }
 }

@@ -2,6 +2,7 @@ package divinerpg.objects.entities.entity.npc;
 
 import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
+import divinerpg.registry.ArmorRegistry;
 import divinerpg.registry.ItemRegistry;
 import divinerpg.registry.WeaponRegistry;
 import net.minecraft.item.ItemStack;
@@ -43,6 +44,10 @@ public class EntityCaptainMerik extends EntityDivineMerchant {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 30), new ItemStack(WeaponRegistry.liviciaSword)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(WeaponRegistry.laVekor)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(WeaponRegistry.grenade, 10)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaHelmet)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaChestplate)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaLeggings)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ArmorRegistry.kormaBoots)));
         return list;
     }
 }
