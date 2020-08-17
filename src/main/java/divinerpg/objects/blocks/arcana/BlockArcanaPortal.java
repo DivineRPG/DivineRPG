@@ -102,7 +102,7 @@ public class BlockArcanaPortal extends Block {
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(blockIn == this || blockIn == BlockRegistry.arcanaPortalFrame || blockIn == BlockRegistry.arcanaHardPortalFrame) {
+        if(blockIn == BlockRegistry.arcanaPortalFrame) {
             BlockPattern.PatternHelper frame = DimensionHelper.arcanaPortalHelper.matchFrame(worldIn, pos);
             if (frame == null) {
                 worldIn.setBlockToAir(pos);
