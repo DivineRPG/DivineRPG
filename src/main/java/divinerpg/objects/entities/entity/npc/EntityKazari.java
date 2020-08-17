@@ -36,15 +36,15 @@ public class EntityKazari extends EntityDivineMerchant {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 3), new ItemStack(ItemRegistry.degradedKey)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 3), new ItemStack(ItemRegistry.soulKey)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 3), new ItemStack(ItemRegistry.sludgeKey)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientBricksBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientStoneBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientTileBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniumMetalBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniumPowerBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.degradedBricksBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.dungeonLampBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.soulSludgeBreakable)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.soulStoneBreakable)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientBricksBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientStoneBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.ancientTileBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniumMetalBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniumPowerBreakable, 4)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.degradedBricksBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.dungeonLampBreakable, 4)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.soulSludgeBreakable, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.soulStoneBreakable, 16)));
         return list;
     }
 }
