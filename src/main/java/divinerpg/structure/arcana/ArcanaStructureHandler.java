@@ -99,6 +99,12 @@ public class ArcanaStructureHandler extends WorldGenerator implements IStructure
                 case "LordVatticus":
                     WorldGenUtils.spawnPersistentEntity(world, pos, new EntityLordVatticus(world));
                     break;
+                case "WarGeneral":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityWarGeneral(world));
+                    break;
+                case "Zelus":
+                    WorldGenUtils.spawnPersistentEntity(world, pos, new EntityZelus(world));
+                    break;
                 default:
                     DivineRPG.logger.warn("Unexpected data marker: " + entry.getValue() + " in a structure, please report this.");
                     break;

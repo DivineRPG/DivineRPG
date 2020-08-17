@@ -52,6 +52,8 @@ public class ArcanaRooms {
         DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/leorna_hut"), 4);
         DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
         DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/captain_merik_forge"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/war_general_chamber"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/zelus_farm"), 4);
 
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/lava_hallway"), 2);
@@ -92,7 +94,7 @@ public class ArcanaRooms {
 
     public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
         WeightedRandom<ArcanaStructureHandler> weightedRandom;
-        if (type == Cell.PieceType.DEAD_END && random.nextInt(8) == 0) {
+        if (type == Cell.PieceType.DEAD_END && random.nextInt(7) == 0) {
            weightedRandom = DEAD_END_NPC_ROOMS;
         } else {
            weightedRandom = TYPE_MAP.get(type);
