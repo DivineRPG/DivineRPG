@@ -54,8 +54,8 @@ public class BlockHeatTrap extends BlockModUnbreakable {
         }
 
         if (this == BlockRegistry.heatTrapOn && entityIn instanceof EntityPlayerMP) {
-            entityIn.attackEntityFrom(Utils.trapSource, 16);
-            entityIn.setFire(15);
+            entityIn.attackEntityFrom(Utils.trapSource, 6);
+            entityIn.setFire(12);
         }
     }
 }

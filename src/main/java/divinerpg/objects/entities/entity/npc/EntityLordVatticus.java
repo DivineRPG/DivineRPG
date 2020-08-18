@@ -32,12 +32,12 @@ public class EntityLordVatticus extends EntityDivineMerchant {
 
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 1), new ItemStack(Items.BOOK, 3)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(Items.DYE, 16, EnumDyeColor.BLUE.getDyeDamage())));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 1), new ItemStack(Items.DYE, 8, EnumDyeColor.BLUE.getDyeDamage())));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(Items.EXPERIENCE_BOTTLE, 12)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(Blocks.SOUL_SAND, 8)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(ItemRegistry.weakArcanaPotion, 2)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 4), new ItemStack(ItemRegistry.strongArcanaPotion, 2)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(Items.BLAZE_ROD)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(Items.BLAZE_ROD, 2)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(Items.NETHER_WART, 8)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.wizardsBook)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(Blocks.ENCHANTING_TABLE)));
