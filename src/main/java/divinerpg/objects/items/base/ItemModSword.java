@@ -1,6 +1,8 @@
 package divinerpg.objects.items.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.capabilities.item.DivineItemStackCapability;
+import divinerpg.capabilities.item.DivineItemStackCapabilityProvider;
 import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -8,9 +10,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,8 +31,6 @@ public class ItemModSword extends ItemSword {
         setRegistryName(DivineRPG.MODID, name);
         setUnlocalizedName(name);
         setCreativeTab(DivineRPGTabs.MELEE_WEAPONS);
-
-
     }
 
     @Override
@@ -69,5 +71,11 @@ public class ItemModSword extends ItemSword {
     }
 
     protected void addAdditionalInformation(List<String> list) {
+    }
+
+    @Nullable
+    @Override
+    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
+         return new DivineItemStackCapabilityProvider();
     }
 }

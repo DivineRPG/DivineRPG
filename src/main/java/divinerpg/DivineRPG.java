@@ -4,6 +4,8 @@
 package divinerpg;
 
 import divinerpg.api.armor.registry.IArmorDescription;
+import divinerpg.capabilities.item.DivineItemStackCapability;
+import divinerpg.capabilities.item.DivineItemStackCapabilityStorage;
 import divinerpg.compat.JERCompat;
 import divinerpg.config.GeneralConfig;
 import divinerpg.events.ArcanaTickHandler;
@@ -17,6 +19,7 @@ import divinerpg.utils.Utils;
 import divinerpg.utils.attributes.AttributeFixer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
@@ -71,6 +74,8 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new WorldBreakEnchantHandler());
         MessageRegistry.initMessages();
         AttributeFixer.patchMaximumHealth();
+
+        CapabilityManager.INSTANCE.register(DivineItemStackCapability.class, new DivineItemStackCapabilityStorage(), DivineItemStackCapability::new);
     }
 
     @Mod.EventHandler
