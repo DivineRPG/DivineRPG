@@ -13,5 +13,6 @@ public class BlockModStairs extends BlockStairs  {
         setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.useNeighborBrightness = true;
+        this.setSoundType(base.getSoundType());
     }
 }

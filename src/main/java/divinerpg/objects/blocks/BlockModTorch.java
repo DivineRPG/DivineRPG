@@ -5,6 +5,7 @@ import divinerpg.enums.ParticleType;
 import divinerpg.registry.DivineRPGTabs;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,6 +25,7 @@ public class BlockModTorch extends BlockTorch {
         this.setLightLevel(1);
         this.setHardness(0.0F);
         this.flameParticle = particle;
+        this.setSoundType(Blocks.TORCH.getSoundType());
     }
 
     @SideOnly(Side.CLIENT)
