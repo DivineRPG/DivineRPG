@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -38,6 +39,7 @@ public abstract class BlockModGrass extends BlockMod implements IGrowable {
         this.dirtSupplier = dirtSupplier;
         this.setHarvestLevel("shovel", 0);
         this.setTickRandomly(true);
+        this.setSoundType(SoundType.GROUND);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks;
 
 import divinerpg.registry.DivineRPGTabs;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,6 +16,7 @@ public class BlockModDirt extends BlockMod {
     public BlockModDirt(String name, float hardness, @Nonnull MapColor mapColorIn) {
         super(name, hardness, Material.GROUND);
         this.setHarvestLevel("shovel", 0);
+        this.setSoundType(SoundType.GROUND);
         this.setMapColor(mapColorIn);
     }
 

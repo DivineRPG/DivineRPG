@@ -43,6 +43,7 @@ public class BlockModWall extends Block {
         super(block.getDefaultState().getMaterial());
         this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
+        this.setSoundType(block.getSoundType());
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(NORTH, false).withProperty(EAST, false).withProperty(SOUTH, false).withProperty(WEST, false));
         this.setHardness(hardness);
         if(hardness < 0) {
