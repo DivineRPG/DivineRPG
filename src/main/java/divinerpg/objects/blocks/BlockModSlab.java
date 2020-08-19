@@ -27,6 +27,7 @@ public class BlockModSlab extends BlockSlab {
         this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
         this.isDouble = isDouble;
+        this.setSoundType(block.getSoundType());
 
         IBlockState iblockstate = this.blockState.getBaseState();
         if (!this.isDouble())
