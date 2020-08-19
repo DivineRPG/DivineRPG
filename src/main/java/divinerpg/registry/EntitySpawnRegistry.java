@@ -154,13 +154,13 @@ public class EntitySpawnRegistry {
                 EntityRegistry.addSpawn(EntityTwilightArcher.class, 2, 4, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntitySorcerer.class, 1, 4, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(BiomeRegistry.biomeArcana)) {
-                EntityRegistry.addSpawn(EntityDeathcryx.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityDeathHound.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDeathcryx.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDeathHound.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityDungeonConstructor.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityDungeonPrisoner.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityLivingStatue.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityRazorback.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
-                EntityRegistry.addSpawn(EntityRoamer.class, 1, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityDungeonPrisoner.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityLivingStatue.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRazorback.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
+                EntityRegistry.addSpawn(EntityRoamer.class, 2, 1, 4, EnumCreatureType.MONSTER, biome);
             } else if (biome.equals(BiomeRegistry.biomeVethea)) {
                 EntityRegistry.addSpawn(EntityAcidHag.class, 3, 1, 4, EnumCreatureType.MONSTER, biome);
                 EntityRegistry.addSpawn(EntityBiphron.class, 3, 1, 4, EnumCreatureType.MONSTER, biome);
