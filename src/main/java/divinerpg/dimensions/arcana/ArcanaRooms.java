@@ -11,6 +11,7 @@ import java.util.Random;
 public class ArcanaRooms {
     private static final WeightedRandom<ArcanaStructureHandler> CORNER_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> CROSSROAD_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> CROSSROAD_BOSS_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_NPC_ROOMS = new WeightedRandom<>();
     private static final WeightedRandom<ArcanaStructureHandler> HALLWAY_ROOMS = new WeightedRandom<>();
@@ -36,6 +37,9 @@ public class ArcanaRooms {
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads_arcanium"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_maze"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/ramp_crossroads"), 4);
+
+        CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/dramix_room"), 4);
+        CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/parasecta_room"), 4);
 
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/banquet_hall"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_library"), 4);
@@ -94,7 +98,9 @@ public class ArcanaRooms {
 
     public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
         WeightedRandom<ArcanaStructureHandler> weightedRandom;
-        if (type == Cell.PieceType.DEAD_END && random.nextInt(7) == 0) {
+        if (type == Cell.PieceType.CROSSROADS && random.nextInt(10) == 0) {
+           weightedRandom = CROSSROAD_BOSS_ROOMS;
+        } else if (type == Cell.PieceType.DEAD_END && random.nextInt(7) == 0) {
            weightedRandom = DEAD_END_NPC_ROOMS;
         } else {
            weightedRandom = TYPE_MAP.get(type);
