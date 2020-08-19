@@ -9,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.util.FakePlayer;
 
 public class Arcana implements IArcana {
-    private int tickDelay = 1;
+    private int tickDelay = 4;
     private float max = 200;
     private float arcana = max;
 
@@ -32,14 +32,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void regen(EntityPlayer player) {
-
-        int delay = tickDelay;
-        // If fully drained, need to add 2 seconds more
-        if (getArcana() == 0) {
-            delay += 40;
-        }
-
-        if (player.world.getTotalWorldTime() % delay == 0) {
+        if (player.world.getTotalWorldTime() % tickDelay == 0) {
             fill(player, 1);
         }
     }
