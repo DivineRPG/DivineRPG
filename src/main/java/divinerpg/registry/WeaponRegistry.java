@@ -644,8 +644,8 @@ public class WeaponRegistry {
 
         // Arcana
         // Arcana melee
-        register(registry, new ItemArcaniteBlade());
-        register(registry, new ItemArcaniumSaber("arcanium_saber", MaterialRegistry.ARCANIUM_SABER));
+        register(registry, new ItemArcanaPoweredSword("arcanite_blade", MaterialRegistry.ARCANITE_BLADE, 30, 6.0F));
+        register(registry, new ItemArcanaPoweredSword("arcanium_saber", MaterialRegistry.ARCANIUM_SABER, 25, 5.0F));
         register(registry, new ItemEnderScepter("ender_scepter"));
         register(registry, new ItemModSword(MaterialRegistry.LIVICIA_SWORD, "livicia_sword"));
         register(registry, new ItemStormSword("storm_sword", MaterialRegistry.STORM_SWORD));

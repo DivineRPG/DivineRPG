@@ -16,7 +16,8 @@ public class LocalizeUtils {
             ExposiveShoots = new TextComponentTranslation("tooltip.shots.explosive"),
             HomingShoots = new TextComponentTranslation("tooltip.shots.homing"),
             SingleUse = new TextComponentTranslation("tooltip.uses.single"),
-            InstantConsumption = new TextComponentTranslation("tooltip.instant_consumption");
+            InstantConsumption = new TextComponentTranslation("tooltip.instant_consumption"),
+            WeakenedWithoutArcana = new TextComponentTranslation("tooltip.weakened_without_arcana");
 
 
     /**
@@ -160,6 +161,10 @@ public class LocalizeUtils {
 
     public static String instantConsumption() {
         return InstantConsumption.setStyle(new Style().setColor(TextFormatting.AQUA)).getFormattedText();
+    }
+
+    public static String weakenedWithoutArcana() {
+        return WeakenedWithoutArcana.setStyle(new Style().setColor(TextFormatting.RED)).getFormattedText();
     }
 
     /**

@@ -78,4 +78,8 @@ public class ItemModSword extends ItemSword {
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
          return new DivineItemStackCapabilityProvider();
     }
+
+    public ToolMaterial getToolMaterial() {
+        return this.material;
+    }
 }

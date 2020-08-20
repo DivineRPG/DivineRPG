@@ -8,6 +8,7 @@ import divinerpg.capabilities.item.DivineItemStackCapabilityProvider;
 import divinerpg.objects.items.base.ItemModSword;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.registry.MaterialRegistry;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,20 +22,22 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public class ItemArcaniteBlade extends ItemModSword {
+public class ItemArcanaPoweredSword extends ItemModSword {
 
-    private static final int ARCANA_CONSUMED = 30;
-    private static final float WEAKENED_DAMAGE_VALUE = 6.0F;
+    public int arcanaConsumed;
+    public float weakenedDamageValue;
 
-    public ItemArcaniteBlade() {
-        super(MaterialRegistry.ARCANITE_BLADE, "arcanite_blade");
+    public ItemArcanaPoweredSword(String name, ToolMaterial material, int arcanaConsumed, float weakenedDamageValue) {
+        super(material, name);
+        this.arcanaConsumed = arcanaConsumed;
+        this.weakenedDamageValue = weakenedDamageValue;
     }
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
         IArcana arcana = DivineAPI.getArcana(player);
-        if (!player.world.isRemote && arcana.getArcana() >= ARCANA_CONSUMED) {
-            arcana.consume(player, ARCANA_CONSUMED);
+        if (!player.world.isRemote && entity instanceof EntityLivingBase && arcana.getArcana() >= arcanaConsumed) {
+            arcana.consume(player, arcanaConsumed);
         }
         return super.onLeftClickEntity(stack, player, entity);
     }
@@ -42,18 +45,18 @@ public class ItemArcaniteBlade extends ItemModSword {
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
         if (world.getTotalWorldTime() % 10 == 0 && entity instanceof EntityLivingBase) {
-            DivineItemStackCapability cap = stack.getCapability(DivineItemStackCapabilityProvider.DIVINE_ITEM_STACK_CAPABILITY, null);
+            DivineItemStackCapability cap = stack.getCapability(DivineItemStackCapabilityProvider.DIVINE_ITEM_STACK, null);
             if (cap != null) {
                 if(entity instanceof EntityPlayer) {
                     EntityPlayer player = (EntityPlayer)entity;
                     IArcana arcana = DivineAPI.getArcana(player);
 
                     float damageValue;
-                    if(arcana.getArcana() < ARCANA_CONSUMED) {
-                        damageValue = WEAKENED_DAMAGE_VALUE;
+                    if(arcana.getArcana() < arcanaConsumed) {
+                        damageValue = weakenedDamageValue - 1.0F;
                     }
                     else {
-                        damageValue = MaterialRegistry.ARCANITE_BLADE.getAttackDamage() + 4.0F;
+                        damageValue = this.getToolMaterial().getAttackDamage() + 4.0F - 1.0F;
                     }
 
                     player.getAttributeMap().removeAttributeModifiers(getAttributeModifiers(EntityEquipmentSlot.MAINHAND, stack));
@@ -64,7 +67,7 @@ public class ItemArcaniteBlade extends ItemModSword {
                     EntityLivingBase entityLivingBase = (EntityLivingBase)entity;
 
                     entityLivingBase.getAttributeMap().removeAttributeModifiers(getAttributeModifiers(EntityEquipmentSlot.MAINHAND, stack));
-                    cap.setValue(WEAKENED_DAMAGE_VALUE);
+                    cap.setValue(weakenedDamageValue - 1.0F);
                     entityLivingBase.getAttributeMap().applyAttributeModifiers(getAttributeModifiers(EntityEquipmentSlot.MAINHAND, stack));
                 }
             }
@@ -74,9 +77,8 @@ public class ItemArcaniteBlade extends ItemModSword {
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
         Multimap<String, AttributeModifier> attributeMap = super.getAttributeModifiers(slot, stack);
-
         if (slot == EntityEquipmentSlot.MAINHAND) {
-            DivineItemStackCapability capability = stack.getCapability(DivineItemStackCapabilityProvider.DIVINE_ITEM_STACK_CAPABILITY, null);
+            DivineItemStackCapability capability = stack.getCapability(DivineItemStackCapabilityProvider.DIVINE_ITEM_STACK, null);
             if(capability != null) {
                 Collection<AttributeModifier> modifiers = attributeMap.get(SharedMonsterAttributes.ATTACK_DAMAGE.getName());
                 Optional<AttributeModifier> mod = modifiers.stream().filter(attributeModifier -> attributeModifier.getID().equals(ATTACK_DAMAGE_MODIFIER)).findFirst();
@@ -85,17 +87,15 @@ public class ItemArcaniteBlade extends ItemModSword {
                     modifiers.remove(mod.get());
                     attributeMap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", capability.getValue(), 0));
                 }
-
             }
         }
 
         return attributeMap;
     }
 
-
     @Override
     public void addAdditionalInformation(List list) {
-        list.add(LocalizeUtils.arcanaConsumed(ARCANA_CONSUMED));
-        list.add("Damage heavily reduced if the required arcana is not present");
+        list.add(LocalizeUtils.arcanaConsumed(arcanaConsumed));
+        list.add(LocalizeUtils.weakenedWithoutArcana());
     }
 }
