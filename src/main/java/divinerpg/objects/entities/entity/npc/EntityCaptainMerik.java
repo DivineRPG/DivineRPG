@@ -32,14 +32,11 @@ public class EntityCaptainMerik extends EntityDivineMerchant {
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(WeaponRegistry.stormSword)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 12), new ItemStack(WeaponRegistry.enderScepter)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 20), new ItemStack(ItemRegistry.ghostbane)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(WeaponRegistry.shadowSaber)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(WeaponRegistry.starlight)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(WeaponRegistry.arcaniumSaber)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 20), new ItemStack(WeaponRegistry.captainsSparkler)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 12), new ItemStack(WeaponRegistry.firefly)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 20), new ItemStack(WeaponRegistry.staffOfStarlight)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 15), new ItemStack(WeaponRegistry.meriksMissile)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 30), new ItemStack(WeaponRegistry.liviciaSword)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(WeaponRegistry.laVekor)));

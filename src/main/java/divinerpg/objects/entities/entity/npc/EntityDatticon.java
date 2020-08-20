@@ -4,6 +4,7 @@ import divinerpg.objects.entities.entity.EntityDivineMerchant;
 import divinerpg.proxy.GUIHandler;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.ItemRegistry;
+import divinerpg.registry.WeaponRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
@@ -31,7 +32,7 @@ public class EntityDatticon extends EntityDivineMerchant {
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(BlockRegistry.starBridge, 16)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.arcaniteTubes, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.arcaniteTubes, 16)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.moltenFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.greenlightFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(BlockRegistry.oceanfireFurnace)));
@@ -40,6 +41,11 @@ public class EntityDatticon extends EntityDivineMerchant {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(BlockRegistry.demonFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.elevantium, 9)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.acceleron, 3)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(ItemRegistry.divineAccumulator)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumAttractor)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumReflector)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 12), new ItemStack(WeaponRegistry.enderScepter)));
+
         return list;
     }
 }

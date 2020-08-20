@@ -30,13 +30,13 @@ public class EntityWarGeneral extends EntityDivineMerchant {
 
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(ItemRegistry.divineAccumulator)));
+
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 17), new ItemStack(WeaponRegistry.meteorMash)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(WeaponRegistry.starlight)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.dungeonTokens, 20), new ItemStack(WeaponRegistry.staffOfStarlight)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 18), new ItemStack(WeaponRegistry.arcaniteBlaster)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 30), new ItemStack(WeaponRegistry.arcaniteBlade)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 18), new ItemStack(WeaponRegistry.generalsStaff)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumReflector)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.arcaniumAttractor)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosHelmet)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosChestplate)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ArmorRegistry.vemosLeggings)));
