@@ -92,6 +92,7 @@ public class MortumChunkGenerator implements IChunkGenerator
         this.depthNoise = ctx.getDepth();
         }
 
+    //FIXME - I believe this is the cause of the lag issues
     public void prepareHeights(int p_185936_1_, int p_185936_2_, ChunkPrimer primer)
     {
         int i = 4;
@@ -166,115 +167,50 @@ public class MortumChunkGenerator implements IChunkGenerator
         }
     }
 
-    public void buildSurfaces(int p_185937_1_, int p_185937_2_, ChunkPrimer primer)
-    {
-        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, p_185937_1_, p_185937_2_, primer, this.world)) return;
-        int i = this.world.getSeaLevel() + 1;
-        double d0 = 0.03125D;
-        this.slowsandNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.slowsandNoise, p_185937_1_ * 16, p_185937_2_ * 16, 0, 16, 16, 1, 0.03125D, 0.03125D, 1.0D);
-        this.gravelNoise = this.slowsandGravelNoiseGen.generateNoiseOctaves(this.gravelNoise, p_185937_1_ * 16, 109, p_185937_2_ * 16, 16, 1, 16, 0.03125D, 1.0D, 0.03125D);
-        this.depthBuffer = this.netherrackExculsivityNoiseGen.generateNoiseOctaves(this.depthBuffer, p_185937_1_ * 16, p_185937_2_ * 16, 0, 16, 16, 1, 0.0625D, 0.0625D, 0.0625D);
+    protected void buildSurfaces(int i, int j, ChunkPrimer chunkPrimer) {
+        for (int k = 0; k < 16; k++) {
+            for (int l = 0; l < 16; l++) {
+                int j1 = -1;
+                int i1 = (int) (3.0D + this.rand.nextDouble() * 0.25D);
 
-        for (int j = 0; j < 16; ++j)
-        {
-            for (int k = 0; k < 16; ++k)
-            {
-                boolean flag = this.slowsandNoise[j + k * 16] + this.rand.nextDouble() * 0.2D > 0.0D;
-                boolean flag1 = this.gravelNoise[j + k * 16] + this.rand.nextDouble() * 0.2D > 0.0D;
-                int l = (int)(this.depthBuffer[j + k * 16] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
-                int i1 = -1;
-                IBlockState iblockstate = GRASS;
-                IBlockState iblockstate1 = DIRT;
+                IBlockState top = GRASS;
+                IBlockState filler = DIRT;
 
-                for (int j1 = 127; j1 >= 0; --j1)
-                {
-                    if (j1 < 127 - this.rand.nextInt(5) && j1 > this.rand.nextInt(5))
-                    {
-                        IBlockState iblockstate2 = primer.getBlockState(k, j1, j);
+                for (int k1 = 127; k1 >= 0; k1--) {
+                    IBlockState state = chunkPrimer.getBlockState(k, k1, l);
 
-                        if (iblockstate2.getBlock() != null && iblockstate2.getMaterial() != Material.AIR)
-                        {
-                            if (iblockstate2.getBlock() == STONE.getBlock())
-                            {
-                                if (i1 == -1)
-                                {
-                                    if (l <= 0)
-                                    {
-                                        iblockstate = AIR;
-                                        iblockstate1 = STONE;
-                                    }
-                                    else if (j1 >= i - 4 && j1 <= i + 1)
-                                    {
-                                        iblockstate = STONE;
-                                        iblockstate1 = STONE;
-
-                                        if (flag1)
-                                        {
-                                            iblockstate = GRASS;
-                                            iblockstate1 = STONE;
-                                        }
-
-                                        if (flag)
-                                        {
-                                            iblockstate = DIRT;
-                                            iblockstate1 = DIRT;
-                                        }
-                                    }
-
-                                    if (j1 < i && (iblockstate == null || iblockstate.getMaterial() == Material.AIR))
-                                    {
-                                        iblockstate = TAR;
-                                    }
-
-                                    i1 = l;
-
-                                    if (j1 >= i - 1)
-                                    {
-                                        primer.setBlockState(k, j1, j, iblockstate);
-                                    }
-                                    else
-                                    {
-                                        primer.setBlockState(k, j1, j, iblockstate1);
-                                    }
-                                }
-                                else if (i1 > 0)
-                                {
-                                    --i1;
-                                    primer.setBlockState(k, j1, j, iblockstate1);
-                                }
+                    if (state == AIR) {
+                        j1 = -1;
+                    } else if (state == STONE) {
+                        if (j1 == -1) {
+                            if (i1 <= 0) {
+                                top = AIR;
+                                filler = STONE;
                             }
+                            j1 = i1;
+                            if (k1 >= 0) {
+                                chunkPrimer.setBlockState(k, k1, l, top);
+                            } else {
+                                chunkPrimer.setBlockState(k, k1, l, filler);
+                            }
+                        } else if (j1 > 0) {
+                            --j1;
+                            chunkPrimer.setBlockState(k, k1, l, filler);
                         }
-                        else
-                        {
-                            i1 = -1;
-                        }
-                    }
-                    else
-                    {
-                        primer.setBlockState(k, j1, j, BEDROCK);
                     }
                 }
             }
         }
     }
     
-    public Chunk generateChunk(int x, int z)
-    {
-        this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
-        ChunkPrimer chunkprimer = new ChunkPrimer();
-        this.prepareHeights(x, z, chunkprimer);
-        this.buildSurfaces(x, z, chunkprimer);
-
-        Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
-        Biome[] abiome = this.world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
-        byte[] abyte = chunk.getBiomeArray();
-
-        for (int i = 0; i < abyte.length; ++i)
-        {
-            abyte[i] = (byte)Biome.getIdForBiome(abiome[i]);
-        }
-
-        chunk.resetRelightChecks();
+    @Override
+    public Chunk generateChunk(int x, int z) {
+        this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
+        ChunkPrimer chunkPrimer = new ChunkPrimer();
+        this.prepareHeights(x, z, chunkPrimer);
+        this.buildSurfaces(x, z, chunkPrimer);
+        Chunk chunk = new Chunk(this.world, chunkPrimer, x, z);
+        chunk.generateSkylightMap();
         return chunk;
     }
 
@@ -367,9 +303,6 @@ public class MortumChunkGenerator implements IChunkGenerator
         return p_185938_1_;
     }
 
-    /**
-     * Generate initial structures in this chunk, e.g. mineshafts, temples, lakes, and dungeons
-     */
     public void populate(int x, int z)
     {
         BlockFalling.fallInstantly = true;
@@ -377,12 +310,10 @@ public class MortumChunkGenerator implements IChunkGenerator
         int j = z * 16;
         BlockPos blockpos = new BlockPos(i, 0, j);
         Biome biome = this.world.getBiome(blockpos.add(16, 0, 16));
-
         int var13;
         int var14;
         int var15;
         int var16;
-
 
         if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(this.world, this.rand, ore, blockpos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.QUARTZ))
         	for (var13 = 0; var13 < 2; ++var13) {
@@ -390,20 +321,18 @@ public class MortumChunkGenerator implements IChunkGenerator
                 var15 = this.rand.nextInt(128);
                 var16 = j + this.rand.nextInt(16);
                 ore.generate(world, rand, blockpos);
-                }
+        }
         
         if(this.rand.nextInt(20) == 0) {
             int x2 = i + this.rand.nextInt(16);
             int z2 = j + this.rand.nextInt(16);
             int y = world.getHeight(x, z);
-
             if(this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumGrass && this.world.getBlockState(new BlockPos(x2, y, z2)).getBlock() == Blocks.AIR || this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumDirt && this.world.getBlockState(new BlockPos(x2, y, z2)).getBlock() == Blocks.AIR) {
                 int listSize = StructureRegistry.MORTUM_SMALL_STRUCTURES.size();
                 DRPGStructureHandler structure = StructureRegistry.MORTUM_SMALL_STRUCTURES.get(this.rand.nextInt(listSize));
                 structure.generate(world, this.rand, new BlockPos(x2, y, z2));
             }
         }
-
         BlockFalling.fallInstantly = false;
         biome.decorate(this.world, this.rand, blockpos);
     }
