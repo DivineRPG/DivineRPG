@@ -3,8 +3,8 @@
     {
       "name": "divinerpg:utility_hallway_loot",
       "rolls": {
-        "min": 2,
-        "max": 4
+        "min": 3,
+        "max": 5
       },
       "entries": [
         {
@@ -54,24 +54,6 @@
           "name": "minecraft:golden_apple",
           "weight": 2,
           "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type":"item",
-          "name":"minecraft:splash_potion",
-          "weight":2,
-          "functions":[
-            {
-              "function":"set_nbt",
-              "tag":"{CustomPotionEffects:[{Id:16,Duration:9600}], CustomPotionColor:2039713}"
-            },
             {
               "function": "set_count",
               "count": {

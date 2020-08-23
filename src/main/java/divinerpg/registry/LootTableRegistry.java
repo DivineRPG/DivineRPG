@@ -9,6 +9,10 @@ import net.minecraft.world.storage.loot.LootTableList;
  * /18/2019
  */
 public class LootTableRegistry {
+
+    public static final ResourceLocation BANQUET_HALL_LOOT = registerTable("chests/arcana/banquet_hall_loot");
+    public static final ResourceLocation UTILITY_HALLWAY_LOOT = registerTable("chests/arcana/utility_hallway_loot");
+
     public static final ResourceLocation ICEIKA_CHEST_DUNGEON = registerTable("chests/iceika/iceika_chest_dungeon");
     public static final ResourceLocation ICEIKA_CHEST_HUT = registerTable("chests/iceika/iceika_chest_hut");
 

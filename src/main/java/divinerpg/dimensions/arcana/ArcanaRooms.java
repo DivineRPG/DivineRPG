@@ -2,6 +2,8 @@ package divinerpg.dimensions.arcana;
 
 import divinerpg.DivineRPG;
 import divinerpg.dimensions.arcana.mazegen.Cell;
+import divinerpg.structure.arcana.ArcanaLootRoomHandler;
+import divinerpg.structure.arcana.ArcanaNPCRoomHandler;
 import divinerpg.structure.arcana.ArcanaStructureHandler;
 import divinerpg.utils.WeightedRandom;
 
@@ -41,7 +43,7 @@ public class ArcanaRooms {
         CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/dramix_room"), 4);
         CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/parasecta_room"), 4);
 
-        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/banquet_hall"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaLootRoomHandler("arcana/deadend/banquet_hall"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_library"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison"), 4);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison_broken"), 4);
@@ -51,13 +53,13 @@ public class ArcanaRooms {
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end_arcanium"), 1);
         DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/roamer_chamber"), 4);
 
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/datticon_workshop"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/kazari_room"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/leorna_hut"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/captain_merik_forge"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/war_general_chamber"), 4);
-        DEAD_END_NPC_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/npc/zelus_farm"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/datticon_workshop"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/kazari_room"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/leorna_hut"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/captain_merik_forge"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/war_general_chamber"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/zelus_farm"), 4);
 
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/lava_hallway"), 2);
@@ -66,7 +68,7 @@ public class ArcanaRooms {
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/ramp_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/serpentine_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/tiled_hallway"), 4);
-        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/utility_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaLootRoomHandler("arcana/hallway/utility_hallway"), 4);
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/v_hallway"), 4);
 
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/degraded_junction"), 4);
