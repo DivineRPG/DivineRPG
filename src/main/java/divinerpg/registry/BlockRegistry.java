@@ -33,6 +33,7 @@ import divinerpg.objects.entities.entity.boss.EntityTermasect;
 import divinerpg.objects.entities.entity.boss.EntityExperiencedCori;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBeacon;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -735,6 +736,10 @@ public class BlockRegistry {
     // Ore
     @ObjectHolder("arcanium_ore")
     public static final Block arcaniumOre = null;
+
+    // Storage block
+    @ObjectHolder("arcanium_block")
+    public static final Block arcaniumBlock = null;
 
     // Structure blocks
     // Normal
@@ -1499,7 +1504,10 @@ public class BlockRegistry {
         register(registry, new BlockArcaniteGrass("arcanite_grass", 0.6F));
 
         // Ore
-        register(registry, new BlockMod("arcanium_ore", 3.0F));
+        register(registry, new BlockRawArcanium("arcanium_ore"));
+
+        // Storage block
+        register(registry, new BlockBeaconBase("arcanium_block", 5.0F));
 
         // Structure blocks
         // Normal

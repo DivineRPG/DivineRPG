@@ -448,6 +448,7 @@ tile.degraded_bricks_breakable.name=Degraded Bricks (Breakable)
 tile.dungeon_lamp_breakable.name=Dungeon Lamp (Breakable)
 tile.soul_sludge_breakable.name=Soul Sludge (Breakable)
 tile.soul_stone_breakable.name=Soul Stone (Breakable)
+tile.arcanium_block.name=Arcanium Block
 
 container.iceika_chest=Iceika Chest
 
