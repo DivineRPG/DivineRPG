@@ -346,7 +346,6 @@ tile.eye_plant.name=Eye Plant
 tile.mortum_brush.name=Mortum Brush
 tile.arcanite_dirt.name=Arcanite Dirt
 tile.arcanite_grass.name=Arcanite Grass
-tile.arcanium_ore.name=Arcanium Ore
 tile.arcanium_metal.name=Arcanium Metal
 tile.arcanite_tubes.name=Arcanite Tubes
 tile.arcanium_power.name=Arcanium Power
@@ -354,6 +353,7 @@ tile.dungeon_bookshelf.name=Dungeon Bookshelf
 tile.dungeon_lamp.name=Dungeon Lamp
 tile.heat_trap.name=Heat Trap
 tile.heat_trap_on.name=Heat Trap
+tile.raw_arcanium.name=Raw_Arcanium
 tile.soul_stone.name=Soul Stone
 tile.soul_sludge.name=Soul Sludge
 tile.degraded_bricks.name=Degraded Bricks
@@ -1714,4 +1714,4 @@ enchantment.double_dealing_damage=Aftershock
 
 summon.single_use_spawner.delay=Will summon in %s seconds
 
-jeicompat.tile.arcanium_ore.information=Arcanium ore spawns in the dungeons of Arcana. Get there by making an Arcana portal!
+jeicompat.tile.raw_arcanium.information=Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.

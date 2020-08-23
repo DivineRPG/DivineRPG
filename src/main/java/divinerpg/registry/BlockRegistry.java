@@ -734,8 +734,8 @@ public class BlockRegistry {
     public static final BlockModGrass arcaniteGrass = null;
 
     // Ore
-    @ObjectHolder("arcanium_ore")
-    public static final Block arcaniumOre = null;
+    @ObjectHolder("raw_arcanium")
+    public static final Block rawArcanium = null;
 
     // Storage block
     @ObjectHolder("arcanium_block")
@@ -1504,7 +1504,7 @@ public class BlockRegistry {
         register(registry, new BlockArcaniteGrass("arcanite_grass", 0.6F));
 
         // Ore
-        register(registry, new BlockRawArcanium("arcanium_ore"));
+        register(registry, new BlockRawArcanium("raw_arcanium"));
 
         // Storage block
         register(registry, new BlockBeaconBase("arcanium_block", 5.0F));

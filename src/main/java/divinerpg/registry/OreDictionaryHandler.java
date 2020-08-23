@@ -50,7 +50,7 @@ public class OreDictionaryHandler {
         OreDictionary.registerOre("oreNetherite", BlockRegistry.netheriteOre);
         OreDictionary.registerOre("ingotNetherite", ItemRegistry.netheriteIngot);
         OreDictionary.registerOre("ingotAquatic", ItemRegistry.aquaticIngot);
-        OreDictionary.registerOre("oreArcanium", BlockRegistry.arcaniumOre);
+        OreDictionary.registerOre("oreArcanium", BlockRegistry.rawArcanium);
 
         OreDictionary.registerOre("torch", BlockRegistry.aquaTorch);
         OreDictionary.registerOre("torch", BlockRegistry.skeletonTorch);

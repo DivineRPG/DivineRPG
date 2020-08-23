@@ -101,7 +101,7 @@ public class JEICompat implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {
         DivineRPG.logger.info("Registering JEI compat");
-        registry.addDescription(new ItemStack(BlockRegistry.arcaniumOre), "jeicompat." + BlockRegistry.arcaniumOre.getUnlocalizedName() + ".information");
+        registry.addDescription(new ItemStack(BlockRegistry.rawArcanium), "jeicompat." + BlockRegistry.rawArcanium.getUnlocalizedName() + ".information");
     /*
         registerVillagerRecepies(registry, EntityJackOMan.getRecipeList(), JeiReferences.JACK_O_MAN_CATEGORY);
         registerVillagerRecepies(registry, EntityWorkshopMerchant.getAllRecipies(), JeiReferences.WORKSHOP_MERCHANT_CATEGORY);
@@ -113,7 +113,7 @@ public class JEICompat implements IModPlugin {
         registerVillagerRecepies(registry, EntityDatticon, JeiReferences.DATTICON_CATEGORY);
         registerVillagerRecepies(registry, EntityLordVatticus.getAllRecipies(), JeiReferences.LORD_VATTICUS_CATEGORY);
         registerVillagerRecepies(registry, EntityZelus.getAllRecipies(), JeiReferences.ZELUS_CATEGORY);*/
-        registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(BlockRegistry.arcaniumOre),
+        registry.addRecipes(Arrays.asList(new TripleRecipeWrapper(new ItemStack(BlockRegistry.rawArcanium),
                 new ItemStack(ItemRegistry.collector), new ItemStack(ItemRegistry.arcanium))), JeiReferences.ARCANA_EXTRACTOR_CATEGORY);
 
         registry.addRecipeCatalyst(new ItemStack(BlockRegistry.demonFurnace), VanillaRecipeCategoryUid.SMELTING);

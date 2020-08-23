@@ -19,8 +19,6 @@ public class MissingMappingHandler {
     @SubscribeEvent
     public static void handleMissingBlocks(MissingMappings<Block> event) {
         for(MissingMappings.Mapping<Block> mapping: event.getMappings()) {
-
-
             if(mapping.key.equals(new ResourceLocation("divinerpg:karos_cannon"))) {
                 mapping.remap(BlockRegistry.karosDispenser);
             }
@@ -35,6 +33,9 @@ public class MissingMappingHandler {
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:degraded_brick"))) {
                 mapping.remap(BlockRegistry.degradedBricks);
+            }
+            else if(mapping.key.equals(new ResourceLocation("divinerpg:arcanium_ore"))) {
+                mapping.remap(BlockRegistry.rawArcanium);
             }
         }
     }
@@ -63,6 +64,9 @@ public class MissingMappingHandler {
              }
              else if(mapping.key.equals(new ResourceLocation("divinerpg:degraded_brick"))) {
                  mapping.remap(Item.getItemFromBlock(BlockRegistry.degradedBricks));
+             }
+             else if(mapping.key.equals(new ResourceLocation("divinerpg:arcanium_ore"))) {
+                 mapping.remap(Item.getItemFromBlock(BlockRegistry.rawArcanium));
              }
          }
     }

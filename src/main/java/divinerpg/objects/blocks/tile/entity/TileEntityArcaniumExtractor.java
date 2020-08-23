@@ -24,7 +24,7 @@ public class TileEntityArcaniumExtractor extends TileEntityModFurnace {
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        return (index == 0 && stack.getItem() == Item.getItemFromBlock(BlockRegistry.arcaniumOre))
+        return (index == 0 && stack.getItem() == Item.getItemFromBlock(BlockRegistry.rawArcanium))
                 || (index == 1 && stack.getItem() == ItemRegistry.collector);
     }
 
@@ -37,7 +37,7 @@ public class TileEntityArcaniumExtractor extends TileEntityModFurnace {
 
     @Override
     public ItemStack getSmeltingResult(ItemStack stack) {
-        if (stack == null || stack.getItem() != Item.getItemFromBlock(BlockRegistry.arcaniumOre))
+        if (stack == null || stack.getItem() != Item.getItemFromBlock(BlockRegistry.rawArcanium))
             return ItemStack.EMPTY;
         return new ItemStack(ItemRegistry.arcanium);
     }

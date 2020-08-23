@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/arcanium_ore"
+    "all": "divinerpg:blocks/raw_arcanium"
   }
 }

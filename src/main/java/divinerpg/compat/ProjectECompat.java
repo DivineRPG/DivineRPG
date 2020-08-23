@@ -65,7 +65,7 @@ public class ProjectECompat {
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(BlockRegistry.wildwoodGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(BlockRegistry.dreamGrass, 1, 0), 1L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(WeaponRegistry.infernoSword, 1, 0), 4740L);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(BlockRegistry.arcaniumOre, 1, 0), 10304L);
+		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(BlockRegistry.rawArcanium, 1, 0), 10304L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.edenHeart, 1, 0), 4096L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.wildwoodHeart, 1, 0), 16384L);
 		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(ItemRegistry.apalachiaHeart, 1, 0), 65536L);
