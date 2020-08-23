@@ -67,11 +67,11 @@ public class DRPGStructureHandler extends WorldGenerator implements IStructure {
             case NONE:
                 return position;
             case CLOCKWISE_90:
-                return position.add(size.getZ(), 0, 0);
+                return position.add(size.getZ() - 1, 0, 0);
             case CLOCKWISE_180:
-                return position.add(size.getX(), 0, size.getZ());
+                return position.add(size.getX() - 1, 0, size.getZ() - 1);
             case COUNTERCLOCKWISE_90:
-                return position.add(0, 0, size.getX());
+                return position.add(0, 0, size.getX() - 1);
             default:
                 DivineRPG.logger.warn("Invalid structure rotation passed in somehow, please report this.");
                 return position;
