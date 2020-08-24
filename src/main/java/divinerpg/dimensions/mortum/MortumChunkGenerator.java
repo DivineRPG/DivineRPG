@@ -46,26 +46,24 @@ public class MortumChunkGenerator implements IChunkGenerator
     protected static final IBlockState DIRT = BlockRegistry.mortumDirt.getDefaultState();
     private final World world;
     private final Random rand;
-    /** Holds the noise used to determine whether slowsand can be generated at a location */
     private double[] slowsandNoise = new double[256];
     private double[] gravelNoise = new double[256];
     private double[] depthBuffer = new double[256];
     private double[] buffer;
-    private NoiseGeneratorOctaves lperlinNoise1;
-    private NoiseGeneratorOctaves lperlinNoise2;
-    private NoiseGeneratorOctaves perlinNoise1;
-    /** Determines whether slowsand or gravel can be generated at a location */
-    private NoiseGeneratorOctaves slowsandGravelNoiseGen;
-    /** Determines whether something other than nettherack can be generated at a location */
-    private NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
-    public NoiseGeneratorOctaves scaleNoise;
-    public NoiseGeneratorOctaves depthNoise;
-    private final WorldGenerator ore = new WorldGenMinable(BlockRegistry.mortumOre.getDefaultState(), 8, BlockMatcher.forBlock(STONE.getBlock()));
     double[] pnr;
     double[] ar;
     double[] br;
     double[] noiseData4;
     double[] dr;
+    private NoiseGeneratorOctaves lperlinNoise1;
+    private NoiseGeneratorOctaves lperlinNoise2;
+    private NoiseGeneratorOctaves perlinNoise1;
+    private NoiseGeneratorOctaves slowsandGravelNoiseGen;
+    private NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
+    public NoiseGeneratorOctaves scaleNoise;
+    public NoiseGeneratorOctaves depthNoise;
+    private final WorldGenerator ore = new WorldGenMinable(BlockRegistry.mortumOre.getDefaultState(), 8, BlockMatcher.forBlock(STONE.getBlock()));
+    
 
     public MortumChunkGenerator(World worldIn, long seed)
     {
@@ -91,8 +89,14 @@ public class MortumChunkGenerator implements IChunkGenerator
         this.scaleNoise = ctx.getScale();
         this.depthNoise = ctx.getDepth();
         }
-
-    //FIXME - I believe this is the cause of the lag issues
+    private void generateBedrockLayers(ChunkPrimer primer) {
+        for(int posX = 0; posX < 16; posX++) {
+            for (int posZ = 0; posZ < 16; posZ++) {
+                primer.setBlockState(posX, 0, posZ, Blocks.BEDROCK.getDefaultState());
+                primer.setBlockState(posX, 128, posZ, Blocks.BEDROCK.getDefaultState());
+            }
+        }
+    }
     public void prepareHeights(int p_185936_1_, int p_185936_2_, ChunkPrimer primer)
     {
         int i = 4;
@@ -150,6 +154,7 @@ public class MortumChunkGenerator implements IChunkGenerator
                                 int i3 = i2 + l1 * 8;
                                 int j3 = k2 + k1 * 4;
                                 primer.setBlockState(l2, i3, j3, iblockstate);
+                                
                                 d15 += d16;
                             }
 
@@ -209,99 +214,115 @@ public class MortumChunkGenerator implements IChunkGenerator
         ChunkPrimer chunkPrimer = new ChunkPrimer();
         this.prepareHeights(x, z, chunkPrimer);
         this.buildSurfaces(x, z, chunkPrimer);
+        this.generateBedrockLayers(chunkPrimer);
         Chunk chunk = new Chunk(this.world, chunkPrimer, x, z);
         chunk.generateSkylightMap();
         return chunk;
     }
 
-    private double[] getHeights(double[] p_185938_1_, int p_185938_2_, int p_185938_3_, int p_185938_4_, int p_185938_5_, int p_185938_6_, int p_185938_7_)
-    {
-        if (p_185938_1_ == null)
-        {
-            p_185938_1_ = new double[p_185938_5_ * p_185938_6_ * p_185938_7_];
-        }
+    private double[] getHeights(double[] noise, int x, int y, int z, int sizeX, int sizeY, int sizeZ) {
+		if (noise == null)
+			noise = new double[sizeX * sizeY * sizeZ];
 
-        net.minecraftforge.event.terraingen.ChunkGeneratorEvent.InitNoiseField event = new net.minecraftforge.event.terraingen.ChunkGeneratorEvent.InitNoiseField(this, p_185938_1_, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, p_185938_6_, p_185938_7_);
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-        if (event.getResult() == net.minecraftforge.fml.common.eventhandler.Event.Result.DENY) return event.getNoisefield();
+		double d = 684.412D;
+		double d1 = 2053.236D;
+		noiseData4 = netherrackExculsivityNoiseGen.generateNoiseOctaves(noiseData4, x, y, z, sizeX, 1, sizeZ, 1D, 0D, 1D);
+		dr = scaleNoise.generateNoiseOctaves(dr, x, y, z, sizeX, 1, sizeZ, 100D, 0D, 100D);
+		pnr = perlinNoise1.generateNoiseOctaves(pnr, x, y, z, sizeX, sizeY, sizeZ, d * 0.0125D, d1 / 60D, d * 0.0125D);
+		ar = lperlinNoise1.generateNoiseOctaves(ar, x, y, z, sizeX, sizeY, sizeZ, d, d1, d);
+		br = lperlinNoise2.generateNoiseOctaves(br, x, y, z, sizeX, sizeY, sizeZ, d, d1, d);
+		int index = 0;
+		int j = 0;
+		double ad[] = new double[sizeY];
+		double oneOver512 = 1D / 512D;
+		double groundNoiseMp = 1D / 2048D;
 
-        double d0 = 684.412D;
-        double d1 = 2053.236D;
-        this.noiseData4 = this.scaleNoise.generateNoiseOctaves(this.noiseData4, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, 1, p_185938_7_, 1.0D, 0.0D, 1.0D);
-        this.dr = this.depthNoise.generateNoiseOctaves(this.dr, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, 1, p_185938_7_, 100.0D, 0.0D, 100.0D);
-        this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, p_185938_6_, p_185938_7_, 8.555150000000001D, 34.2206D, 8.555150000000001D);
-        this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, p_185938_6_, p_185938_7_, 684.412D, 2053.236D, 684.412D);
-        this.br = this.lperlinNoise2.generateNoiseOctaves(this.br, p_185938_2_, p_185938_3_, p_185938_4_, p_185938_5_, p_185938_6_, p_185938_7_, 684.412D, 2053.236D, 684.412D);
-        int i = 0;
-        double[] adouble = new double[p_185938_6_];
+		for (int k = 0; k < sizeY; ++k) {
+			ad[k] = Math.cos(k * Math.PI * 6D / sizeY) * 2D;
+			double d2 = k;
 
-        for (int j = 0; j < p_185938_6_; ++j)
-        {
-            adouble[j] = Math.cos((double)j * Math.PI * 6.0D / (double)p_185938_6_) * 2.0D;
-            double d2 = (double)j;
+			if (k > sizeY / 2)
+				d2 = sizeY - 1 - k;
 
-            if (j > p_185938_6_ / 2)
-            {
-                d2 = (double)(p_185938_6_ - 1 - j);
-            }
+			if (d2 < 4D) {
+				d2 = 4D - d2;
+				ad[k] -= d2 * d2 * d2 * 10D;
+			}
+		}
 
-            if (d2 < 4.0D)
-            {
-                d2 = 4.0D - d2;
-                adouble[j] -= d2 * d2 * d2 * 10.0D;
-            }
-        }
+		for (int xx = 0; xx < sizeX; ++xx)
+			for (int zz = 0; zz < sizeZ; ++zz) {
+				double d3 = (noiseData4[j] + 256D) * oneOver512;
 
-        for (int l = 0; l < p_185938_5_; ++l)
-        {
-            for (int i1 = 0; i1 < p_185938_7_; ++i1)
-            {
-                double d3 = 0.0D;
+				if (d3 > 1.0D)
+					d3 = 1.0D;
 
-                for (int k = 0; k < p_185938_6_; ++k)
-                {
-                    double d4 = adouble[k];
-                    double d5 = this.ar[i] / 512.0D;
-                    double d6 = this.br[i] / 512.0D;
-                    double d7 = (this.pnr[i] / 10.0D + 1.0D) / 2.0D;
-                    double d8;
+				double d4 = 0.0D;
+				double d5 = dr[j] * 0.000125D;
 
-                    if (d7 < 0.0D)
-                    {
-                        d8 = d5;
-                    }
-                    else if (d7 > 1.0D)
-                    {
-                        d8 = d6;
-                    }
-                    else
-                    {
-                        d8 = d5 + (d6 - d5) * d7;
-                    }
+				if (d5 < 0.0D)
+					d5 = -d5;
 
-                    d8 = d8 - d4;
+				d5 = d5 * 3D - 3D;
 
-                    if (k > p_185938_6_ - 4)
-                    {
-                        double d9 = (double)((float)(k - (p_185938_6_ - 4)) / 3.0F);
-                        d8 = d8 * (1.0D - d9) + -10.0D * d9;
-                    }
+				if (d5 < 0.0D) {
+					d5 /= 2D;
 
-                    if ((double)k < 0.0D)
-                    {
-                        double d10 = (0.0D - (double)k) / 4.0D;
-                        d10 = MathHelper.clamp(d10, 0.0D, 1.0D);
-                        d8 = d8 * (1.0D - d10) + -10.0D * d10;
-                    }
+					if (d5 < -1D)
+						d5 = -1D;
 
-                    p_185938_1_[i] = d8;
-                    ++i;
-                }
-            }
-        }
+					d5 /= 1.4D;
+					d5 *= 0.5D;
+					d3 = 0.0D;
+				} else {
+					if (d5 > 1.0D)
+						d5 = 1.0D;
 
-        return p_185938_1_;
-    }
+					d5 /= 6D;
+				}
+
+				d3 += 0.5D;
+				d5 = d5 * sizeY * 0.0625D;
+				j++;
+
+				for (int yy = 0; yy < sizeY; ++yy) {
+					double d6 = 0.0D;
+					double d7 = ad[yy];
+					double d8 = ar[index] * groundNoiseMp;
+					double d9 = br[index] * groundNoiseMp;
+					double d10 = (pnr[index] * 0.1D + 1.0D) * 0.5D;
+
+					if (d10 < 0.0D)
+						d6 = d8;
+					else if (d10 > 1.0D)
+						d6 = d9;
+					else
+						d6 = d8 + (d9 - d8) * d10;
+
+					d6 -= d7;
+
+					if (yy > sizeY - 4) {
+						double d11 = (yy - (sizeY - 4)) / 3F;
+						d6 = d6 * (1.0D - d11) + -10D * d11;
+					}
+
+					if (yy < d4) {
+						double d12 = (d4 - yy) * 0.25D;
+						if (d12 < 0.0D)
+							d12 = 0.0D;
+						if (d12 > 1.0D)
+							d12 = 1.0D;
+
+						d6 = d6 * (1.0D - d12) + -10D * d12;
+					}
+
+					noise[index] = d6;
+					++index;
+				}
+			}
+
+		return noise;
+	}
 
     public void populate(int x, int z)
     {
