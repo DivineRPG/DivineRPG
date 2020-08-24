@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:coalstone_stairs"
+    "item": "divinerpg:coalstone_stairs",
+    "count": 4
   },
   "pattern": [
     "c  ",

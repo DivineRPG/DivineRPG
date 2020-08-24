@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:degraded_brick_wall_breakable",
+    "count": 6
+  },
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:degraded_bricks_breakable"
+    }
+  }
+}

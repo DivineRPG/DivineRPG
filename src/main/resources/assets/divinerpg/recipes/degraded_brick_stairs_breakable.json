@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:degraded_brick_stairs_breakable",
+    "count": 4
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:degraded_bricks_breakable"
+    }
+  }
+}
