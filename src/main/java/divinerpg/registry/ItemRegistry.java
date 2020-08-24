@@ -620,8 +620,14 @@ public class ItemRegistry {
     public static final Item frozenSlab = null;
     @ObjectHolder("eucalyptus_slab")
     public static final Item eucalyptusSlab = null;
+    @ObjectHolder("ancient_brick_slab")
+    public static final Item ancientBrickSlab = null;
     @ObjectHolder("degraded_brick_slab")
     public static final Item degradedBrickSlab = null;
+    @ObjectHolder("ancient_brick_slab_breakable")
+    public static final Item ancientBrickSlabBreakable = null;
+    @ObjectHolder("degraded_brick_slab_breakable")
+    public static final Item degradedBrickSlabBreakable = null;
 
     // shields
     @ObjectHolder("arlemite_shield")
@@ -989,6 +995,8 @@ public class ItemRegistry {
         register(registry, new ItemModSlab("eucalyptus_slab", BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusSlab, BlockRegistry.eucalyptusDoubleSlab));
         register(registry, new ItemModSlab("ancient_brick_slab", BlockRegistry.ancientBrickSlab, BlockRegistry.ancientBrickSlab, BlockRegistry.ancientBrickDoubleSlab));
         register(registry, new ItemModSlab("degraded_brick_slab", BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickSlab, BlockRegistry.degradedBrickDoubleSlab));
+        register(registry, new ItemModSlab("ancient_brick_slab_breakable", BlockRegistry.ancientBrickSlabBreakable, BlockRegistry.ancientBrickSlabBreakable, BlockRegistry.ancientBrickDoubleSlabBreakable));
+        register(registry, new ItemModSlab("degraded_brick_slab_breakable", BlockRegistry.degradedBrickSlabBreakable, BlockRegistry.degradedBrickSlabBreakable, BlockRegistry.degradedBrickDoubleSlabBreakable));
 
         // Shields
         register(registry, new DivineShield("arlemite_shield", DivineRPGTabs.ARMOR, () -> arlemiteIngot, 1200));

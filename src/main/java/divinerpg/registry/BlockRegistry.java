@@ -627,6 +627,10 @@ public class BlockRegistry {
     public static final Block ancientBrickDoubleSlab = null;
     @ObjectHolder("degraded_brick_double_slab")
     public static final Block degradedBrickDoubleSlab = null;
+    @ObjectHolder("ancient_brick_double_slab_breakable")
+    public static final Block ancientBrickDoubleSlabBreakable = null;
+    @ObjectHolder("degraded_brick_double_slab_breakable")
+    public static final Block degradedBrickDoubleSlabBreakable = null;
 
     // Walls
     @ObjectHolder("ancient_brick_wall")
@@ -781,6 +785,12 @@ public class BlockRegistry {
     // Breakable
     @ObjectHolder("ancient_bricks_breakable")
     public static final Block ancientBricksBreakable = null;
+    @ObjectHolder("ancient_brick_stairs_breakable")
+    public static final Block ancientBrickStairsBreakable = null;
+    @ObjectHolder("ancient_brick_slab_breakable")
+    public static final Block ancientBrickSlabBreakable = null;
+    @ObjectHolder("ancient_brick_wall_breakable")
+    public static final Block ancientBrickWallBreakable = null;
     @ObjectHolder("ancient_stone_breakable")
     public static final Block ancientStoneBreakable = null;
     @ObjectHolder("ancient_tile_breakable")
@@ -791,6 +801,12 @@ public class BlockRegistry {
     public static final Block arcaniumPowerBreakable = null;
     @ObjectHolder("degraded_bricks_breakable")
     public static final Block degradedBricksBreakable = null;
+    @ObjectHolder("degraded_brick_stairs_breakable")
+    public static final Block degradedBrickStairsBreakable = null;
+    @ObjectHolder("degraded_brick_slab_breakable")
+    public static final Block degradedBrickSlabBreakable = null;
+    @ObjectHolder("degraded_brick_wall_breakable")
+    public static final Block degradedBrickWallBreakable = null;
     @ObjectHolder("dungeon_lamp_breakable")
     public static final Block dungeonLampBreakable = null;
     @ObjectHolder("soul_sludge_breakable")
@@ -1534,18 +1550,18 @@ public class BlockRegistry {
         // Breakable
         Block ancientBricksBreakable = new BlockMod("ancient_bricks_breakable", 2.0F);
         register(registry, ancientBricksBreakable);
-        //stairs
-        //slab
-        //wall
+        register(registry, new BlockModStairs("ancient_brick_stairs_breakable", ancientBricksBreakable));
+        registerSlab(registry, "ancient_brick_slab_breakable", ancientBricksBreakable, 2.0F);
+        register(registry, new BlockModWall("ancient_brick_wall_breakable", ancientBricksBreakable, 2.0F));
         register(registry, new BlockMod("ancient_stone_breakable", 2.0F));
         register(registry, new BlockMod("ancient_tile_breakable", 2.0F));
         register(registry, new BlockModPillar("arcanium_metal_breakable", Material.IRON,2.0F));
         register(registry, new BlockMod("arcanium_power_breakable", 2.0F));
         Block degradedBricksBreakable = new BlockMod("degraded_bricks_breakable", 2.0F);
         register(registry, degradedBricksBreakable);
-        //stairs
-        //slab
-        //wall
+        register(registry, new BlockModStairs("degraded_brick_stairs_breakable", degradedBricksBreakable));
+        registerSlab(registry, "degraded_brick_slab_breakable", degradedBricksBreakable, 2.0F);
+        register(registry, new BlockModWall("degraded_brick_wall_breakable", degradedBricksBreakable, 2.0F));
         register(registry, new BlockMod("dungeon_lamp_breakable", 1.0F).setLightLevel(1.0F));
         //heat trap (?)
         register(registry, new BlockMod("soul_sludge_breakable", 2.0F));
@@ -1799,7 +1815,7 @@ public class BlockRegistry {
     }
 
     private static void registerSlab(IForgeRegistry<Block> registry, String name, Block base, float hardness) {
-        String doubleSlabName = name.substring(0, name.indexOf("_slab")) + "_double_slab";
+        String doubleSlabName = name.replace("_slab", "_double_slab");
         BlockModSlab halfSlab = new BlockModSlab(name, base, hardness,null,false);
         registerItemlessBlock(registry, halfSlab);
         registerItemlessBlock(registry, new BlockModSlab(doubleSlabName, base, hardness, halfSlab,true));
