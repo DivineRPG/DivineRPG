@@ -1,6 +1,7 @@
 package divinerpg.dimensions.wildwood;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
+import divinerpg.dimensions.apalachia.ApalachiaChunkGenerator;
 import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
@@ -16,64 +17,46 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 public class WorldProviderWildWood extends WorldProvider {
-	
-	@Override
-	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeWildwood);
-		this.nether = false;
-		this.hasSkyLight = true;
-	}
-	
-	@Override
-	public IChunkGenerator createChunkGenerator() {
-		return new WildwoodChunkGenerator(world);
-	}
-	
+
     @Override
-	public int getMoonPhase(long s) {
-        return (int)(s / 24000L % 8L + 8L) % 8;
+    public void init() {
+        this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeWildwood);
+        this.nether = false;
+        this.hasSkyLight = true;
     }
-    
-	@Override
+
+    @Override
+    public IChunkGenerator createChunkGenerator() {
+        return new WildwoodChunkGenerator(world);
+    }
+
+    @Override
     public boolean canRespawnHere() {
         return false;
     }
 
-	@Override
+    @Override
     public boolean isSurfaceWorld() {
         return false;
     }
 
-	@Override
-    @SideOnly(Side.CLIENT)
-    public float getCloudHeight() {
-        return 8.0F;
-    }
-
-	@Override
+    @Override
     public int getAverageGroundLevel() {
         return 70;
     }
 
-	@Override
-    @SideOnly(Side.CLIENT)
-    public boolean doesXZShowFog(int x, int z) {
-        return false;
+    @Override
+    public DimensionType getDimensionType() {
+        return DimensionRegistry.wildwoodDimension;
     }
 
-	@Override
-	public DimensionType getDimensionType() {
-		return DimensionRegistry.wildwoodDimension;
-	}
-	@Nullable
     @Override
-	public String getSaveFolder()
+    public float calculateCelestialAngle(long worldTime, float partialTicks) { return 0.0F; }
+
+    @Nullable
+    @Override
+    public String getSaveFolder()
     {
         return "WildWood";
-    }
-	@Override
-	public WorldSleepResult canSleepAt(net.minecraft.entity.player.EntityPlayer player, BlockPos pos)
-    {
-        return WorldSleepResult.ALLOW;
     }
 }

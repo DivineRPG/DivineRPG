@@ -29,12 +29,7 @@ public class WorldProviderApalachia extends WorldProvider {
 	public IChunkGenerator createChunkGenerator() {
 		return new ApalachiaChunkGenerator(world);
 	}
-	
-    @Override
-	public int getMoonPhase(long s) {
-        return (int)(s / 24000L % 8L + 8L) % 8;
-    }
-    
+
 	@Override
     public boolean canRespawnHere() {
         return false;
@@ -46,33 +41,18 @@ public class WorldProviderApalachia extends WorldProvider {
     }
 
 	@Override
-    @SideOnly(Side.CLIENT)
-    public float getCloudHeight() {
-        return 8.0F;
-    }
-
-	@Override
     public int getAverageGroundLevel() {
         return 70;
-    }
-
-	@Override
-    @SideOnly(Side.CLIENT)
-    public boolean doesXZShowFog(int x, int z) {
-        return false;
     }
 
 	@Override
 	public DimensionType getDimensionType() {
 		return DimensionRegistry.apalachiaDimension;
 	}
-	
+
 	@Override
-	public WorldSleepResult canSleepAt(net.minecraft.entity.player.EntityPlayer player, BlockPos pos)
-    {
-        return WorldSleepResult.ALLOW;
-    }
-	
+    public float calculateCelestialAngle(long worldTime, float partialTicks) { return 0.3F; }
+
 	@Nullable
     @Override
 	public String getSaveFolder()

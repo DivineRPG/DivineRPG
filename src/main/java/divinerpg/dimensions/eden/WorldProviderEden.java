@@ -1,6 +1,7 @@
 package divinerpg.dimensions.eden;
 
 import divinerpg.dimensions.IslandChunkGeneratorBase;
+import divinerpg.dimensions.apalachia.ApalachiaChunkGenerator;
 import divinerpg.registry.BiomeRegistry;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
@@ -18,27 +19,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 public class WorldProviderEden extends WorldProvider {
-	
-	@Override
-	public void init() {
-		this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeEden);
-		this.nether = false;
-		this.hasSkyLight = true;
-	}
-	
-	@Override
-	public IChunkGenerator createChunkGenerator() {
-        return new EdenChunkGenerator(this.world);
-	}
-	
-	@Override
-    public BiomeProvider getBiomeProvider() {
-		return this.biomeProvider;
-	}
 
     @Override
-    public float calculateCelestialAngle(long worldTime, float partialTicks) {
-        return 0.1f;
+    public void init() {
+        this.biomeProvider = new BiomeProviderSingle(BiomeRegistry.biomeEden);
+        this.nether = false;
+        this.hasSkyLight = true;
+    }
+
+    @Override
+    public IChunkGenerator createChunkGenerator() {
+        return new EdenChunkGenerator(world);
     }
 
     @Override
@@ -46,21 +37,23 @@ public class WorldProviderEden extends WorldProvider {
         return false;
     }
 
-	@Override
+    @Override
     public boolean isSurfaceWorld() {
         return false;
     }
 
-	@Override
-    @SideOnly(Side.CLIENT)
-    public float getCloudHeight() {
-        return 8.0F;
-    }
-
-	@Override
+    @Override
     public int getAverageGroundLevel() {
         return 70;
     }
+
+    @Override
+    public DimensionType getDimensionType() {
+        return DimensionRegistry.edenDimension;
+    }
+
+    @Override
+    public float calculateCelestialAngle(long worldTime, float partialTicks) { return 0.0F; }
 
     @SideOnly(Side.CLIENT)
     @Override
@@ -68,19 +61,10 @@ public class WorldProviderEden extends WorldProvider {
         return new Vec3d(0.1361F, 0.95F, 1.0F);
     }
 
-	@Override
-	public DimensionType getDimensionType() {
-		return DimensionRegistry.edenDimension;
-	}
 	@Nullable
     @Override
 	public String getSaveFolder()
     {
         return "Eden";
-    }
-	@Override
-	public WorldSleepResult canSleepAt(net.minecraft.entity.player.EntityPlayer player, BlockPos pos)
-    {
-        return WorldSleepResult.ALLOW;
     }
 }
