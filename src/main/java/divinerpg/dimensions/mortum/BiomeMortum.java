@@ -44,6 +44,7 @@ public class BiomeMortum extends TwilightBiomeBase {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
+    	//FIXME - Something in here is cascading. comment out biome.decorate in MortumChunkGenerator and nothing cascades
         this.chunk = worldIn.getChunkFromBlockCoords(pos);
 
         generate(worldIn, rand, chunk.x, chunk.z, 40, 13, 80 + 13, bloom);
