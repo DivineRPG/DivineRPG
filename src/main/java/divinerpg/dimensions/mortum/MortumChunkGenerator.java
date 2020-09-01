@@ -344,16 +344,6 @@ public class MortumChunkGenerator implements IChunkGenerator
                 ore.generate(world, rand, blockpos);
         }
         
-        if(this.rand.nextInt(20) == 0) {
-            int x2 = i + this.rand.nextInt(16);
-            int z2 = j + this.rand.nextInt(16);
-            int y = world.getHeight(x, z);
-            if(this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumGrass && this.world.getBlockState(new BlockPos(x2, y, z2)).getBlock() == Blocks.AIR || this.world.getBlockState(new BlockPos(x2, y - 1, z2)).getBlock() == BlockRegistry.mortumDirt && this.world.getBlockState(new BlockPos(x2, y, z2)).getBlock() == Blocks.AIR) {
-                int listSize = StructureRegistry.MORTUM_SMALL_STRUCTURES.size();
-                DRPGStructureHandler structure = StructureRegistry.MORTUM_SMALL_STRUCTURES.get(this.rand.nextInt(listSize));
-                structure.generate(world, this.rand, new BlockPos(x2, y, z2));
-            }
-        }
         BlockFalling.fallInstantly = false;
         biome.decorate(this.world, this.rand, blockpos);
     }

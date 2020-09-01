@@ -4,7 +4,10 @@ import divinerpg.dimensions.TwilightBiomeBase;
 import divinerpg.dimensions.WorldGenPlants;
 import divinerpg.dimensions.eden.WorldGenConeUp;
 import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.StructureRegistry;
+import divinerpg.structure.base.DRPGStructureHandler;
 import divinerpg.world.features.WorldGenTwilightDoublePlants;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -92,6 +95,18 @@ public class BiomeMortum extends TwilightBiomeBase {
             if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos.up(8))) {
             	genLargeTree.generate(worldIn, rand, structPos);
             	genConeUp.generate(worldIn, rand, structPos);
+            }
+        }
+        
+        for(int k = 0; k < rand.nextInt(99); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()).getBlock() == BlockRegistry.mortumGrass && worldIn.getBlockState(structPos).getBlock() == Blocks.AIR || worldIn.getBlockState(structPos.down()).getBlock() == BlockRegistry.mortumDirt && worldIn.getBlockState(structPos).getBlock() == Blocks.AIR) {
+                int listSize = StructureRegistry.MORTUM_SMALL_STRUCTURES.size();
+                DRPGStructureHandler structure = StructureRegistry.MORTUM_SMALL_STRUCTURES.get(rand.nextInt(listSize));
+                structure.generate(worldIn, rand, structPos);
             }
         }
     }
