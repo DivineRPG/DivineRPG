@@ -44,22 +44,55 @@ public class BiomeMortum extends TwilightBiomeBase {
 
     @Override
     public void decorate(World worldIn, Random rand, BlockPos pos) {
-    	//FIXME - Something in here is cascading. comment out biome.decorate in MortumChunkGenerator and nothing cascades
-        this.chunk = worldIn.getChunkFromBlockCoords(pos);
+    	int currentX = pos.getX();
+        int currentZ = pos.getZ();
 
-        generate(worldIn, rand, chunk.x, chunk.z, 40, 13, 80 + 13, bloom);
-
-        generate(worldIn, rand, chunk.x, chunk.z, 10, 13, 80 + 13,
-                brush, blossom);
-
-
-        generate(worldIn, rand, chunk.x, chunk.z, 100, 13, 80 + 13,
-                brush);
-
-        generate(worldIn, rand, chunk.x, chunk.z, 5, 55, 55 + 20,
-                genTree);
-
-        generate(worldIn, rand, chunk.x, chunk.z, 1, 55, 55 + 20,
-                genLargeTree, genConeUp);
+        for(int k = 0; k < rand.nextInt(40); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos)) {
+            bloom.generate(worldIn, rand, structPos);
+            }
+        }
+        for(int k = 0; k < rand.nextInt(100); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos)) {
+            	brush.generate(worldIn, rand, structPos);
+            	blossom.generate(worldIn, rand, structPos);
+            }
+        }
+        for(int k = 0; k < rand.nextInt(10); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos)) {
+            brush.generate(worldIn, rand, structPos);
+            }
+        }
+        for(int k = 0; k < rand.nextInt(80); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos.up(8))) {
+            genTree.generate(worldIn, rand, structPos);
+            }
+        }
+        for(int k = 0; k < rand.nextInt(80); k++) {
+            int x = currentX + rand.nextInt(8) + 8;
+            int z = currentZ + rand.nextInt(8) + 8;
+            int y = rand.nextInt(worldIn.getHeight());
+            BlockPos structPos = new BlockPos(x, y, z);
+            if(worldIn.getBlockState(structPos.down()) == BlockRegistry.mortumGrass.getDefaultState() && worldIn.isAirBlock(structPos.up(8))) {
+            	genLargeTree.generate(worldIn, rand, structPos);
+            	genConeUp.generate(worldIn, rand, structPos);
+            }
+        }
     }
 }
