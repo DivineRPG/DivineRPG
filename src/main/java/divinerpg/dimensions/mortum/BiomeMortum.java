@@ -50,7 +50,7 @@ public class BiomeMortum extends TwilightBiomeBase {
     	int currentX = pos.getX();
         int currentZ = pos.getZ();
 
-        for(int k = 0; k < rand.nextInt(40); k++) {
+        for(int k = 0; k < rand.nextInt(40000); k++) {
             int x = currentX + rand.nextInt(8) + 8;
             int z = currentZ + rand.nextInt(8) + 8;
             int y = rand.nextInt(worldIn.getHeight());
@@ -59,7 +59,7 @@ public class BiomeMortum extends TwilightBiomeBase {
             bloom.generate(worldIn, rand, structPos);
             }
         }
-        for(int k = 0; k < rand.nextInt(100); k++) {
+        for(int k = 0; k < rand.nextInt(100000); k++) {
             int x = currentX + rand.nextInt(8) + 8;
             int z = currentZ + rand.nextInt(8) + 8;
             int y = rand.nextInt(worldIn.getHeight());
@@ -69,7 +69,7 @@ public class BiomeMortum extends TwilightBiomeBase {
             	blossom.generate(worldIn, rand, structPos);
             }
         }
-        for(int k = 0; k < rand.nextInt(10); k++) {
+        for(int k = 0; k < rand.nextInt(10000); k++) {
             int x = currentX + rand.nextInt(8) + 8;
             int z = currentZ + rand.nextInt(8) + 8;
             int y = rand.nextInt(worldIn.getHeight());
