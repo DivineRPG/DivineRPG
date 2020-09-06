@@ -438,6 +438,7 @@ tile.green_gemtop.name=Green Gem Top
 tile.purple_gemtop.name=Purple Gem Top
 tile.dreamwrecker_spawner.name=Dream Wrecker Spawner
 tile.experienced_cori_statue.name=Experienced Cori Statue
+tile.arcanite_ladder.name=Arcanite Ladder
 
 tile.ancient_bricks_breakable.name=Ancient Bricks (Breakable)
 tile.ancient_brick_double_slab_breakable.name=Ancient Brick Double Slab (Breakable)
