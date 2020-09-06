@@ -223,7 +223,7 @@ public class RenderRegistry {
         registerRender(EntityDungeonPrisoner.class, manager -> new RenderDivineMob(manager, new ModelDungeonPrisoner(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_prisoner.png")));
         registerRender(EntityFyracryx.class, manager -> new RenderDivinePet(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fyracryx.png")));
         registerRender(EntityGolemOfRejuvenation.class, manager -> new RenderDivinePet(manager, new ModelRejuvGolem(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png")));
-        registerRender(EntityKazari.class, manager -> new RenderDivineMerchant(manager, new ModelBiped(), new ResourceLocation(DivineRPG.MODID, "textures/entity/zelus.png")));
+        registerRender(EntityKazari.class, manager -> new RenderDivineMerchant(manager, new ModelBiped(), new ResourceLocation(DivineRPG.MODID, "textures/entity/kazari.png")));
         registerRender(EntityLeorna.class, manager -> new RenderDivineMerchant(manager, new ModelLeorna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png")));
         registerRender(EntityLivingStatue.class, manager -> new RenderDivineMob(manager, new ModelBiped(), new ResourceLocation(DivineRPG.MODID, "textures/entity/living_statue.png")));
         registerRender(EntityLordVatticus.class, manager -> new RenderDivineMerchant(manager, new ModelBiped(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lord_vatticus.png")));
