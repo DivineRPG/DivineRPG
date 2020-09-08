@@ -20,17 +20,15 @@ public abstract class BlockVetheaAltar extends BlockModUnbreakable {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack heldItemStack = playerIn.getHeldItem(EnumHand.MAIN_HAND);
-        System.out.println("point 1");
+
         if(!worldIn.isRemote && heldItemStack != null && heldItemStack.getItem() == acceptedItem()) {
             if (!playerIn.capabilities.isCreativeMode) {
                 heldItemStack.shrink(1);
             }
             spawnBoss(worldIn, pos);
-            System.out.println("point 2");
         }
         else {
             onFailure();
-            System.out.println("point 3");
         }
 
         return true;
