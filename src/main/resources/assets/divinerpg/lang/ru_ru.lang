@@ -1,8 +1,3 @@
-#Translated by Locomen_
-#Перевод от Locomen_
-#Предложения и пожелания по переводу направлять на контакты ниже.
-#vk.com/locomen | Discord(Locomen_#3035)
-
 itemGroup.divinerpg_blocks=DivineRPG: Блоки
 itemGroup.divinerpg_ranged_weapons=DivineRPG: Стрелковое оружие
 itemGroup.divinerpg_melee_weapons=DivineRPG: Холодное оружие
@@ -151,8 +146,6 @@ tile.mushroom_plant.name=Гриб
 tile.divine_log.name=Божественная древесина
 tile.divine_leaves.name=Божественная листва
 tile.divine_moss_stone.name=Мшистый божественный камень
-tile.enthralled_dramcryx_spawner.name=Спаунер порабощённых Драмкриксов
-tile.rotatick_spawner.name=Спаунер Ротаров
 tile.divine_planks.name=Божественные доски
 tile.divine_stairs.name=Божественные ступеньки
 tile.divine_slab.name=Божественные полублоки
@@ -375,12 +368,6 @@ tile.ancient_brick_wall.name=Стена из древнего кирпича
 tile.ancient_stone.name=Древний камень
 tile.light_degraded_brick.name=Светлые испорченные кирпичи
 tile.stained_glass.name=Окрашенное стекло
-tile.dungeon_prisoner_spawner.name=Спаунер Подземельного заключённого
-tile.razorback_spawner.name=Спаунер Разорбека
-tile.death_hound_spawner.name=Спаунер Гончей смерти
-tile.deathcryx_spawner.name=Спаунер Дефкрикса
-tile.living_statue_spawner.name=Спаунер Живой статуи
-tile.roamer_spawner.name=Спаунер Бродяги
 tile.ancient_tile.name=Древняя плитка
 tile.star_bridge.name=Звёздный мост
 tile.soul_sludge_door.name=Дверь из осадка душ
