@@ -10,7 +10,9 @@ import divinerpg.registry.BlockRegistry;
 import divinerpg.utils.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.MobEffects;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -54,8 +56,11 @@ public class BlockHeatTrap extends BlockModUnbreakable {
         }
 
         if (this == BlockRegistry.heatTrapOn && entityIn instanceof EntityPlayerMP) {
-            entityIn.attackEntityFrom(Utils.trapSource, 6);
-            entityIn.setFire(12);
+            EntityLivingBase entityLivingBase = (EntityLivingBase)entityIn;
+            if(entityLivingBase.getActivePotionEffect(MobEffects.FIRE_RESISTANCE) == null) {
+                entityLivingBase.attackEntityFrom(Utils.trapSource, 6);
+            }
+            entityLivingBase.setFire(12);
         }
     }
 }
