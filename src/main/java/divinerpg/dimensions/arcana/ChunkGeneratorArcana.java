@@ -109,15 +109,7 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
             long worldSeed = this.world.getSeed();
             Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, worldSeed);
 
-            ArcanaStructureHandler toGenerate;
-            boolean debug = false; //temporary, switch to true to generate debug rooms
-            if(debug) {
-                toGenerate = ArcanaRooms.getTestRoomByType(cell.getPieceType());
-            }
-            else {
-                toGenerate = ArcanaRooms.getRandomStructureByType(this.rand, cell.getPieceType());
-            }
-
+            ArcanaStructureHandler toGenerate = ArcanaRooms.getRandomStructureByType(this.rand, cell.getPieceType());
             Rotation rotation = cell.getRotation();
             toGenerate.generateWithRotation(this.world, this.rand, new BlockPos(x + 8, 8, z + 8), rotation);
         }

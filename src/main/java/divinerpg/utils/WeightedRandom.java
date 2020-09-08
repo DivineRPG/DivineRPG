@@ -10,8 +10,8 @@ public class WeightedRandom<T> {
     private int currentId = 0;
 
     public void addItem(T item, int weight) {
-        if(weight < 0) {
-            throw new IllegalArgumentException("Weights cannot be negative");
+        if(weight <= 0) {
+            throw new IllegalArgumentException("Weights must be positive");
         }
 
         idMap.put(currentId, item);

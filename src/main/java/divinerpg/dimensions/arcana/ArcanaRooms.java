@@ -30,6 +30,7 @@ public class ArcanaRooms {
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/living_statue_corner"), 4);
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/metal_corner"), 4);
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/pyramid_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/razorback_corner"), 4);
 
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/column_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/delta_crossroads"), 4);
@@ -37,7 +38,8 @@ public class ArcanaRooms {
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/extraction_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads_arcanium"), 4);
-        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_maze"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_maze"), 2);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/hollow_column_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/ramp_crossroads"), 4);
 
         CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/dramix_room"), 4);
@@ -74,6 +76,7 @@ public class ArcanaRooms {
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/degraded_junction"), 4);
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/degraded_maze_junction"), 4);
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/heat_trap_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/mound_junction"), 4);
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/serpentine_junction"), 4);
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/stair_column_junction"), 4);
         JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/trident_junction"), 4);

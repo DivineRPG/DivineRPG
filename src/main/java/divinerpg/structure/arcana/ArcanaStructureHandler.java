@@ -30,6 +30,10 @@ public class ArcanaStructureHandler extends WorldGenerator implements IStructure
         this.structureName = name;
     }
 
+    public String getName() {
+        return this.structureName;
+    }
+
     //Replacement to make passing in predefined rotations easier
     public boolean generateWithRotation(World worldIn, Random rand, BlockPos position, Rotation rotation) {
         BlockPos size = this.getSize(worldIn);
