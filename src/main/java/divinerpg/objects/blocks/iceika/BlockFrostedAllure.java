@@ -30,11 +30,11 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockFrostedAlure extends BlockMod{
+public class BlockFrostedAllure extends BlockMod{
 
-    public BlockFrostedAlure(String name) {
-    super(name, 0.8f);
-    this.setTickRandomly(true);
+    public BlockFrostedAllure(String name) {
+        super(name, 0.8f);
+        this.setTickRandomly(true);
     }
     
     @Override

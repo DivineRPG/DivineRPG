@@ -1132,8 +1132,8 @@ public class BlockRegistry {
     public static final Block experiencedCoriSpawner = null;
     
 
-    @ObjectHolder("frosted_alure")
-    public static final Block frostedAlure = null;
+    @ObjectHolder("frosted_allure")
+    public static final Block frostedAllure = null;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -1791,7 +1791,7 @@ public class BlockRegistry {
         register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
 
         // UTIL
-        register(registry, new BlockFrostedAlure("frosted_alure"));
+        register(registry, new BlockFrostedAllure("frosted_allure"));
         
     }
 

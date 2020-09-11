@@ -1671,7 +1671,7 @@ tooltip.dimension=Dimension: %s
 tooltip.block_position=Block Position: x=%s, y=%s, z=%s
 tooltip.harvest_level=Harvest level: %s
 tooltip.instant_consumption=Instant Consumption
-tooltip.frosted_alure=Seems to attract mobs more than other blocks?
+tooltip.frosted_allure=Seems to attract mobs
 tooltip.weakened_without_arcana=Damage heavily reduced if the required arcana is not present
 
 tooltip.armor_info.fire_protection=Fire Protection
