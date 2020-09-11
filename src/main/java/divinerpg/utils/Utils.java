@@ -68,7 +68,7 @@ public class Utils {
     public static void loadHatInformation() {
 
         CompletableFuture.supplyAsync(() -> {
-            String urlString = "https://raw.githubusercontent.com/NicosaurusRex99/DivineRPG/1.12.2/hat_lists/hats.json";
+            String urlString = "https://raw.githubusercontent.com/DivineRPG/DivineRPG/1.12.2/hat_lists/hats.json";
 
             try {
                 HttpURLConnection con = (HttpURLConnection) new URL(urlString).openConnection();
