@@ -231,7 +231,7 @@ tile.sunstorm_spawner.name=Спавнер Солнечного шторма
 tile.termasect_spawner.name=Спавнер Термасекта
 tile.eternal_archer_spawner.name=Спавнер Вечного лучника
 tile.experienced_cori_spawner.name=Спавнер Королевской Кори
-tile.frosted_alure.name=Frosted Alure
+tile.frosted_allure.name=Frosted Allure
 tile.lunic_acid.name=Лунная кислота
 tile.firewood_leaves.name=Огненная листва
 tile.hyrewood_leaves.name=Хайровая листва
@@ -1661,7 +1661,7 @@ tooltip.dimension=Измерение: %s
 tooltip.block_position=Координаты: x=%s, y=%s, z=%s
 tooltip.harvest_level=Уровень добычи: %s
 tooltip.instant_consumption=Мгновенное употребление
-tooltip.frosted_alure=Кажется, это привлекает мобов больше, нежели другие блоки?
+tooltip.frosted_allure=Кажется, это привлекает мобов больше, нежели другие блоки?
 tooltip.weakened_without_arcana=Урон сильно уменьшается, если недостаточно Арканы
 
 tooltip.armor_info.fire_protection=Защита от огня

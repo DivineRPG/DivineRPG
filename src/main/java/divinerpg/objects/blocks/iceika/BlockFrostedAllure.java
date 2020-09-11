@@ -124,6 +124,6 @@ public class BlockFrostedAllure extends BlockMod{
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> list, ITooltipFlag advanced)
     {
-    	list.add(new TextComponentTranslation("tooltip.frosted_alure").getFormattedText());
+    	list.add(new TextComponentTranslation("tooltip.frosted_allure").getFormattedText());
     }
 }
