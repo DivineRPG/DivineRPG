@@ -103,8 +103,6 @@ public class ChunkGeneratorArcana implements IChunkGenerator {
         //this.rand is not used for overall maze generation which is specific to the region root instead of the specific chunk
         //However, it will be used to determine per-chunk things like the specific room variant picked, as well as randomize specific things within a chunk
 
-        //Only generate maze if there's no blocks already there in order to avoid overwriting portal room floor
-        //THIS CURRENTLY SEEMS TO BE BROKEN, still debugging it
         if(this.world.getBlockState(new BlockPos(x + 8, 8, z + 8)).getBlock() == Blocks.AIR) {
             long worldSeed = this.world.getSeed();
             Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, worldSeed);
