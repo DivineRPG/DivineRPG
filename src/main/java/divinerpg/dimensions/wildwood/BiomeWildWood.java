@@ -17,7 +17,7 @@ import java.util.Random;
 public class BiomeWildWood extends TwilightBiomeBase {
 
     public BiomeWildWood() {
-        super(new BiomeProperties("WildWood"), "wildwood");
+        super(new BiomeProperties("Wildwood"), "wildwood");
 
         genTree = new WildWoodTree(false, 5);
         genLargeTree = new LargeWildWoodTree(true, 5);
