@@ -20,7 +20,6 @@ public class ArcanaRooms {
     private static final WeightedRandom<ArcanaStructureHandler> JUNCTION_ROOMS = new WeightedRandom<>();
     private static final HashMap<Cell.PieceType, WeightedRandom<ArcanaStructureHandler>> TYPE_MAP = new HashMap<>();
     private static final HashMap<Cell.PieceType, ArcanaStructureHandler> PORTAL_ROOMS = new HashMap<>();
-    private static final HashMap<Cell.PieceType, ArcanaStructureHandler> TEST_ROOMS = new HashMap<>();
 
     static {
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/column_corner"), 4);
@@ -93,12 +92,6 @@ public class ArcanaRooms {
         PORTAL_ROOMS.put(Cell.PieceType.DEAD_END, new ArcanaStructureHandler("arcana/portal/dead_end_portal"));
         PORTAL_ROOMS.put(Cell.PieceType.HALLWAY, new ArcanaStructureHandler("arcana/portal/hallway_portal"));
         PORTAL_ROOMS.put(Cell.PieceType.JUNCTION, new ArcanaStructureHandler("arcana/portal/junction_portal"));
-
-        TEST_ROOMS.put(Cell.PieceType.CORNER, new ArcanaStructureHandler("arcana/test/test_corner"));
-        TEST_ROOMS.put(Cell.PieceType.CROSSROADS, new ArcanaStructureHandler("arcana/test/test_crossroads"));
-        TEST_ROOMS.put(Cell.PieceType.DEAD_END, new ArcanaStructureHandler("arcana/test/test_dead_end"));
-        TEST_ROOMS.put(Cell.PieceType.HALLWAY, new ArcanaStructureHandler("arcana/test/test_hallway"));
-        TEST_ROOMS.put(Cell.PieceType.JUNCTION, new ArcanaStructureHandler("arcana/test/test_junction"));
     }
 
     public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
@@ -116,9 +109,5 @@ public class ArcanaRooms {
 
     public static ArcanaStructureHandler getPortalRoomByType(Cell.PieceType type) {
         return PORTAL_ROOMS.get(type);
-    }
-
-    public static ArcanaStructureHandler getTestRoomByType(Cell.PieceType type) {
-        return TEST_ROOMS.get(type);
     }
 }
