@@ -8,7 +8,7 @@ import divinerpg.dimensions.iceika.BiomeIceika;
 import divinerpg.dimensions.mortum.BiomeMortum;
 import divinerpg.dimensions.skythern.BiomeSkythern;
 import divinerpg.dimensions.vethea.BiomeVethea;
-import divinerpg.dimensions.wildwood.BiomeWildWood;
+import divinerpg.dimensions.wildwood.BiomeWildwood;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -24,7 +24,7 @@ public class BiomeRegistry {
     @ObjectHolder("divinerpg:eden")
     public static final Biome biomeEden = new BiomeEden();
     @ObjectHolder("divinerpg:wildwood")
-    public static final Biome biomeWildwood = new BiomeWildWood();
+    public static final Biome biomeWildwood = new BiomeWildwood();
     @ObjectHolder("divinerpg:apalachia")
     public static final Biome biomeApalachia = new BiomeApalachia();
     @ObjectHolder("divinerpg:skythern")

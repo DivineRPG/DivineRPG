@@ -14,13 +14,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.awt.*;
 import java.util.Random;
 
-public class BiomeWildWood extends TwilightBiomeBase {
+public class BiomeWildwood extends TwilightBiomeBase {
 
-    public BiomeWildWood() {
+    public BiomeWildwood() {
         super(new BiomeProperties("Wildwood"), "wildwood");
 
-        genTree = new WildWoodTree(false, 5);
-        genLargeTree = new LargeWildWoodTree(true, 5);
+        genTree = new WildwoodTree(false, 5);
+        genLargeTree = new LargeWildwoodTree(true, 5);
         genLakes = new WorldGenLakes(Blocks.WATER);
         blossom = new WorldGenTwilightSinglePlants(BlockRegistry.moonlightFern,
                 BlockRegistry.wildwoodGrass);

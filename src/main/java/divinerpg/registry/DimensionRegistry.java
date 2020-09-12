@@ -9,7 +9,7 @@ import divinerpg.dimensions.iceika.WorldProviderIceika;
 import divinerpg.dimensions.mortum.WorldProviderMortum;
 import divinerpg.dimensions.skythern.WorldProviderSkythern;
 import divinerpg.dimensions.vethea.VetheaWorldProvider;
-import divinerpg.dimensions.wildwood.WorldProviderWildWood;
+import divinerpg.dimensions.wildwood.WorldProviderWildwood;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
@@ -32,7 +32,7 @@ public class DimensionRegistry {
         edenDimension = DimensionType.register(DivineRPG.MODID + ":eden", "_eden", GeneralConfig.dimensionIDs.edenDimensionID,
                 WorldProviderEden.class, false);
         wildwoodDimension = DimensionType.register(DivineRPG.MODID + ":wildwood", "_wildwood",
-                GeneralConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildWood.class, false);
+                GeneralConfig.dimensionIDs.wildwoodDimensionID, WorldProviderWildwood.class, false);
         apalachiaDimension = DimensionType.register(DivineRPG.MODID + ":apalachia", "_apalachia",
                 GeneralConfig.dimensionIDs.apalachiaDimensionID, WorldProviderApalachia.class, false);
         skythernDimension = DimensionType.register(DivineRPG.MODID + ":skythern", "_skythern",

@@ -9,12 +9,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ParticleWildWoodPortal extends Particle {
+public class ParticleWildwoodPortal extends Particle {
 
 	private float portalParticleScale;
 	private double portalPosX, portalPosY, portalPosZ;
 
-	public ParticleWildWoodPortal(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+	public ParticleWildwoodPortal(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
 		super(var1, var2, var4, var6, var8, var10, var12);
 		this.motionX = var8;
 		this.motionY = var10;

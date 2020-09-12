@@ -8,7 +8,7 @@ import divinerpg.dimensions.TwilightTree;
 import divinerpg.dimensions.eden.EdenTree;
 import divinerpg.dimensions.iceika.IceTreeGen;
 import divinerpg.dimensions.mortum.MortumTree;
-import divinerpg.dimensions.wildwood.WildWoodTree;
+import divinerpg.dimensions.wildwood.WildwoodTree;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.StatueType;
 import divinerpg.objects.blocks.*;
@@ -33,7 +33,6 @@ import divinerpg.objects.entities.entity.boss.EntityTermasect;
 import divinerpg.objects.entities.entity.boss.EntityExperiencedCori;
 import divinerpg.world.DivineTree;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBeacon;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -1415,7 +1414,7 @@ public class BlockRegistry {
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree(true)));
-        register(registry, new BlockModSapling("wildwood_sapling", () -> wildwoodGrass, () -> wildwoodDirt, new WildWoodTree(true)));
+        register(registry, new BlockModSapling("wildwood_sapling", () -> wildwoodGrass, () -> wildwoodDirt, new WildwoodTree(true)));
         register(registry, new BlockModSapling("apalachia_sapling", () -> apalachiaGrass, () -> apalachiaDirt,
                 new TwilightTree(true,
                         5,

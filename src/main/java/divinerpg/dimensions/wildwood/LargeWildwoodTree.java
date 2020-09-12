@@ -12,13 +12,13 @@ import java.util.Random;
 /**
  * Created by LiteWolf101 on 10/8/2018.
  */
-public class LargeWildWoodTree extends LargeTwilightTree {
+public class LargeWildwoodTree extends LargeTwilightTree {
 
-    public LargeWildWoodTree(boolean notify, int minTrunkHeight) {
+    public LargeWildwoodTree(boolean notify, int minTrunkHeight) {
         this(notify, minTrunkHeight, BlockRegistry.wildwoodLog.getDefaultState(), BlockRegistry.wildwoodLeaves.getDefaultState(), BlockRegistry.wildwoodGrass);
     }
 
-    public LargeWildWoodTree(boolean notify, int minTrunkHeight, IBlockState logState, IBlockState leavesState, Block grassBlock) {
+    public LargeWildwoodTree(boolean notify, int minTrunkHeight, IBlockState logState, IBlockState leavesState, Block grassBlock) {
         super(notify, minTrunkHeight, logState, leavesState, grassBlock);
     }
 

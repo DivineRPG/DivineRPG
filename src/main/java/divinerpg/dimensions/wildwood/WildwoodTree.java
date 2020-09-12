@@ -11,15 +11,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class WildWoodTree extends WorldGenAbstractTree {
+public class WildwoodTree extends WorldGenAbstractTree {
     private int minTreeHeight;
     private boolean isSapling;
 
-    public WildWoodTree(boolean notify) {
+    public WildwoodTree(boolean notify) {
         this(notify, 5);
     }
 
-    public WildWoodTree(boolean notify, int minTreeHeightIn) {
+    public WildwoodTree(boolean notify, int minTreeHeightIn) {
         super(notify);
         this.isSapling = notify;
         this.minTreeHeight = minTreeHeightIn;

@@ -1,6 +1,6 @@
 package divinerpg.dimensions.mortum;
 
-import divinerpg.dimensions.wildwood.LargeWildWoodTree;
+import divinerpg.dimensions.wildwood.LargeWildwoodTree;
 import divinerpg.registry.BlockRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * Created by LiteWolf101 on 10/8/2018.
  */
-public class MortumTreeLarge extends LargeWildWoodTree {
+public class MortumTreeLarge extends LargeWildwoodTree {
 
     public MortumTreeLarge(boolean notify, int minTrunkHeight) {
         super(notify, minTrunkHeight, BlockRegistry.mortumLog.getDefaultState(), BlockRegistry.mortumLeaves.getDefaultState(), BlockRegistry.mortumGrass);

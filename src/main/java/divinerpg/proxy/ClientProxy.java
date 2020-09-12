@@ -7,7 +7,6 @@ import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
 import divinerpg.objects.entities.assets.render.PlayerHatRender;
 import divinerpg.particle.*;
-import divinerpg.registry.EntityRegistry;
 import divinerpg.registry.SoundRegistry;
 import divinerpg.utils.log.DebugLogging;
 import net.minecraft.client.Minecraft;
@@ -93,7 +92,7 @@ public class ClientProxy extends CommonProxy {
                 particle = new ParticleSkythernPortal(world, x, y, z, velX, velY, velZ);
                 break;
             case WILDWOOD_PORTAL:
-                particle = new ParticleWildWoodPortal(world, x, y, z, velX, velY, velZ);
+                particle = new ParticleWildwoodPortal(world, x, y, z, velX, velY, velZ);
                 break;
             case GREEN_PORTAL:
                 particle = new ParticleGreenPortal(world, x, y, z, velX, velY, velZ);

@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class WorldProviderWildWood extends WorldProvider {
+public class WorldProviderWildwood extends WorldProvider {
 
     @Override
     public void init() {
