@@ -64,7 +64,7 @@ public class Cell {
         }
     }
 
-    public Rotation getRotation(Random random) {
+    public Rotation getRotation() {
         //These are all assuming you are facing south
 
         //DEAD END has opening at Bottom edge by default
@@ -74,7 +74,7 @@ public class Cell {
         //CROSSROADS has a randomly selected rotation to support rooms that aren't rotationally symmetrical
         switch(this.getPieceType()) {
             case CROSSROADS:
-                return Rotation.values()[random.nextInt(Rotation.values().length)];
+                return Rotation.NONE;
             case JUNCTION:
                 if(this.hasNorthEdge) {
                     return Rotation.NONE;
