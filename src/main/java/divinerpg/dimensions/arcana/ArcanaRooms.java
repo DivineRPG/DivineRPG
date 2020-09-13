@@ -37,7 +37,6 @@ public class ArcanaRooms {
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/extraction_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads_arcanium"), 4);
-        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_maze"), 2);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/hollow_column_crossroads"), 4);
         CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/ramp_crossroads"), 4);
 
