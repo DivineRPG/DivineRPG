@@ -2,6 +2,8 @@ package divinerpg.dimensions.arcana.mazegen;
 
 import net.minecraft.util.Rotation;
 
+import java.util.Random;
+
 public class Cell {
     public int x, y, identifier;
     public boolean hasNorthEdge, hasEastEdge, hasSouthEdge, hasWestEdge;
@@ -62,18 +64,17 @@ public class Cell {
         }
     }
 
-    public Rotation getRotation() {
+    public Rotation getRotation(Random random) {
         //These are all assuming you are facing south
 
         //DEAD END has opening at Bottom edge by default
         //CORNER has openings at Bottom and Right edges by default
         //HALLWAY has openings at Bottom and Top edges by default
         //THREE WAY has openings at Bottom, Left, and Right edges by default
-        //CROSSROADS obviously doesn't really matter but can have random rotation I guess in case for some reason they don't end up being rotationally symmetrical
-
+        //CROSSROADS has a randomly selected rotation to support rooms that aren't rotationally symmetrical
         switch(this.getPieceType()) {
             case CROSSROADS:
-                return Rotation.NONE;
+                return Rotation.values()[random.nextInt(Rotation.values().length)];
             case JUNCTION:
                 if(this.hasNorthEdge) {
                     return Rotation.NONE;
