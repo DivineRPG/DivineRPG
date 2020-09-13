@@ -32,7 +32,8 @@ public class EntityDatticon extends EntityDivineMerchant {
     public MerchantRecipeList getRecipeList() {
         MerchantRecipeList list = new MerchantRecipeList();
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(BlockRegistry.starBridge, 16)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.arcaniteTubes, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteTubes, 16)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteLadder, 16)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.moltenFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.greenlightFurnace)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(BlockRegistry.oceanfireFurnace)));
