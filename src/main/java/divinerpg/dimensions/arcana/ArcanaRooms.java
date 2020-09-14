@@ -1,6 +1,5 @@
 package divinerpg.dimensions.arcana;
 
-import divinerpg.DivineRPG;
 import divinerpg.dimensions.arcana.mazegen.Cell;
 import divinerpg.structure.arcana.ArcanaLootRoomHandler;
 import divinerpg.structure.arcana.ArcanaNPCRoomHandler;

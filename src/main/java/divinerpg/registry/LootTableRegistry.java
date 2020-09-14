@@ -4,10 +4,6 @@ import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 
-/**
- * Created by LiteWolf101 on Feb
- * /18/2019
- */
 public class LootTableRegistry {
 
     public static final ResourceLocation BANQUET_HALL_LOOT = registerTable("chests/arcana/banquet_hall_loot");

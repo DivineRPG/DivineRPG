@@ -302,7 +302,9 @@ public class BlockRegistry {
     public static final Block altarOfCorruption = null;
     @ObjectHolder("bone_chest")
     public static final Block boneChest = null;
-
+    @ObjectHolder("frosted_allure")
+    public static final Block frostedAllure = null;
+    
     // Divine blocks
     @ObjectHolder("divine_sapling")
     public static final Block divineSapling = null;
@@ -648,6 +650,16 @@ public class BlockRegistry {
     public static final Block skythernBlock = null;
     @ObjectHolder("mortum_block")
     public static final Block mortumBlock = null;
+
+    // Boss spawners
+    @ObjectHolder("sunstorm_spawner")
+    public static final Block sunstormSpawner = null;
+    @ObjectHolder("termasect_spawner")
+    public static final Block termasectSpawner = null;
+    @ObjectHolder("eternal_archer_spawner")
+    public static final Block eternalArcherSpawner = null;
+    @ObjectHolder("experienced_cori_spawner")
+    public static final Block experiencedCoriSpawner = null;
 
     // Twilight dimension ground foliage
     // Eden
@@ -1114,26 +1126,6 @@ public class BlockRegistry {
     @ObjectHolder("vethea_portal")
     public static final BlockModPortal vetheaPortal = null;
 
-//    @ObjectHolder("king_compression")
-//    public static final Block king_compression = null;
-//
-//    @ObjectHolder("king_compression_still")
-//    public static final Block king_compression_still = null;
-
-    //newSpawners
-    @ObjectHolder("sunstorm_spawner")
-    public static final Block sunstormSpawner = null;
-    @ObjectHolder("termasect_spawner")
-    public static final Block termasectSpawner = null;
-    @ObjectHolder("eternal_archer_spawner")
-    public static final Block eternalArcherSpawner = null;
-    @ObjectHolder("experienced_cori_spawner")
-    public static final Block experiencedCoriSpawner = null;
-    
-
-    @ObjectHolder("frosted_allure")
-    public static final Block frostedAllure = null;
-
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         DivineRPG.logger.info("Registering DivineRPG blocks");
@@ -1155,6 +1147,12 @@ public class BlockRegistry {
         register(registry, new BlockBeaconBase("rupee_block", 5.0F, Material.IRON, 3));
         register(registry, new BlockBeaconBase("bloodgem_block", 5.0F, Material.IRON, 3));
         register(registry, new BlockBeaconBase("netherite_block", 5.0F, Material.IRON, 3));
+
+        // Boss spawners
+        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, () -> ItemRegistry.edenChunk, 20 * 5, 5));
+        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, () -> ItemRegistry.wildwoodChunk,20 * 5, 5, new BlockPos(0, 11, 0)));
+        register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, () -> ItemRegistry.apalachiaChunk, 20 * 5, 5));
+        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
 
         // Mob pumpkins
         register(registry, new BlockMobPumpkin("blaze_pumpkin", SoundEvents.ENTITY_BLAZE_AMBIENT));
@@ -1278,6 +1276,7 @@ public class BlockRegistry {
         // Utility blocks
         register(registry, new BlockAltarOfCorruption("altar_of_corruption"));
         register(registry, new BlockBoneChest("bone_chest"));
+        register(registry, new BlockFrostedAllure("frosted_allure"));
 
         // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree(true)));
@@ -1343,7 +1342,6 @@ public class BlockRegistry {
         register(registry, frozenPlanks);
         register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
         register(registry, new BlockModSapling("frozen_sapling", () -> frozenGrass, () -> frozenDirt, new IceTreeGen(true, true)));
-
 
         // Structure blocks
         Block coalstone = new BlockMod("coalstone", 3.0F);
@@ -1777,21 +1775,6 @@ public class BlockRegistry {
         //Walls
         register(registry, new BlockModWall("ancient_brick_wall", ancientBricks, -1F));
         register(registry, new BlockModWall("degraded_brick_wall", degradedBricks, -1F));
-
-//        register(registry, new KingCompressor("king_compression", true));
-//        register(registry, new KingCompressor("king_compression_still", false));
-
-        //
-        // newSpawners
-        //
-        register(registry, new BlockSingleUseSpawner("sunstorm_spawner", EntitySunstorm.class, () -> ItemRegistry.edenChunk, 20 * 5, 5));
-        register(registry, new BlockSingleUseSpawner("termasect_spawner", EntityTermasect.class, () -> ItemRegistry.wildwoodChunk,20 * 5, 5, new BlockPos(0, 11, 0)));
-        register(registry, new BlockSingleUseSpawner("eternal_archer_spawner", EntityEternalArcher.class, () -> ItemRegistry.apalachiaChunk, 20 * 5, 5));
-        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
-
-        // UTIL
-        register(registry, new BlockFrostedAllure("frosted_allure"));
-        
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

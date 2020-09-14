@@ -2,8 +2,6 @@ package divinerpg.dimensions.arcana.mazegen;
 
 import net.minecraft.util.Rotation;
 
-import java.util.Random;
-
 public class Cell {
     public int x, y, identifier;
     public boolean hasNorthEdge, hasEastEdge, hasSouthEdge, hasWestEdge;
@@ -72,6 +70,7 @@ public class Cell {
         //HALLWAY has openings at Bottom and Top edges by default
         //THREE WAY has openings at Bottom, Left, and Right edges by default
         //CROSSROADS has a randomly selected rotation to support rooms that aren't rotationally symmetrical
+        //The random selection is done elsewhere to avoid having to pass a seeded random number generator through here
         switch(this.getPieceType()) {
             case CROSSROADS:
                 return Rotation.NONE;

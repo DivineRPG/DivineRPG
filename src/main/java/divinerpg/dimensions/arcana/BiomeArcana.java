@@ -9,9 +9,6 @@ import java.util.Random;
 
 public class BiomeArcana extends Biome {
     private static BiomeProperties properties = new BiomeProperties("Arcana").setRainDisabled();
-    private World world;
-    private Random rand;
-    private BlockPos pos;
 
     public BiomeArcana() {
         super(properties);
