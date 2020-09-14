@@ -1,6 +1,7 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg",
 	"1.12.2": {
+		"1.7": "Arcana rework",
 		"1.6.4.1": "Structure generation changes and JER support",
 		"1.6.4": "Advancement reorganisation and various changes",
 		"1.6.3.1": "Patch update to fix renders",
@@ -29,8 +30,8 @@
 		"1.4.0": "Ported to 1.7.10"
 	},
 	"promos": {
-		"1.12.2-latest": "1.6.4.1",
-		"1.12.2-recommended": "1.6.4.1",
+		"1.12.2-latest": "1.7",
+		"1.12.2-recommended": "1.7",
 		"1.7.10-latest": "1.4.1.4",
 		"1.7.10-recommended": "1.4.1.4"
 	}
