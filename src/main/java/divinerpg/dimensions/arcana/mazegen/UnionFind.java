@@ -2,9 +2,8 @@ package divinerpg.dimensions.arcana.mazegen;
 
 /************************************************************************
  * Disjoint set structure to make merging sets in Kruskal's algorithm more efficient.
- * Taken from an online implementation by Keith Schwarz as Java does not have its own disjoint set implementation
+ * Taken from an online implementation as Java does not have its own disjoint set implementation
  * File is linked here under Union-Find along with permission to use: https://www.keithschwarz.com/interesting/
- * May end up replacing this in the future.
  *
  * ---------------------------------------------
  *

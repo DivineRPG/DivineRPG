@@ -1,10 +1,5 @@
 package divinerpg.dimensions.arcana.mazegen;
 
-import divinerpg.dimensions.arcana.mazegen.Cell;
-import divinerpg.dimensions.arcana.mazegen.UnionFind;
-import divinerpg.registry.StructureRegistry;
-import divinerpg.structure.arcana.ArcanaStructureHandler;
-import net.minecraft.util.Tuple;
 import net.minecraft.util.math.ChunkPos;
 
 import java.util.*;
@@ -36,9 +31,8 @@ public class ArcanaMazeGenerator {
         long l = random.nextLong() / 2L * 2L + 1L;
         random.setSeed((long) chunkX * k + (long) chunkZ * l ^ worldSeed);
 
-        //Set up stuff
         Cell[][] grid = new Cell[MAZE_SIZE][MAZE_SIZE];
-        ArrayList<Edge> edges = new ArrayList<Edge>(); //Was going to use HashSet but I guess there's no efficient way to obtain random elements from them
+        ArrayList<Edge> edges = new ArrayList<Edge>();
         UnionFind<Integer> unionFind = new UnionFind<Integer>();
 
         //Cells
@@ -86,8 +80,6 @@ public class ArcanaMazeGenerator {
                 }
                 unionFind.union(firstCell.identifier, secondCell.identifier);
             }
-
-            //Otherwise do nothing
         }
 
         return grid;
@@ -98,34 +90,32 @@ public class ArcanaMazeGenerator {
 
         int regionRootX, regionRootZ;
         int mapCoordinateX, mapCoordinateZ;
-        regionRootX = roundUpToMultiple(chunkX, ArcanaMazeGenerator.MAZE_SIZE);
-        regionRootZ = roundUpToMultiple(chunkZ, ArcanaMazeGenerator.MAZE_SIZE);
+        regionRootX = roundUpToMultiple(chunkX, MAZE_SIZE);
+        regionRootZ = roundUpToMultiple(chunkZ, MAZE_SIZE);
 
         ChunkPos regionRoot = new ChunkPos(regionRootX, regionRootZ);
         Cell[][] storedGrid = MazeMapMemoryStorage.getMapForChunkPos(regionRoot);
         if(storedGrid == null) {
             mazeMap = ArcanaMazeGenerator.generate(regionRootX, regionRootZ, worldSeed);
             MazeMapMemoryStorage.addMap(regionRoot, mazeMap);
-        }
-        else {
+        } else {
             mazeMap = storedGrid;
         }
 
         if(chunkX <= 0) {
-            mapCoordinateX = Math.abs(chunkX % ArcanaMazeGenerator.MAZE_SIZE);
-        }
-        else {
-            mapCoordinateX = ArcanaMazeGenerator.MAZE_SIZE - (chunkX % ArcanaMazeGenerator.MAZE_SIZE);
-            if(mapCoordinateX == ArcanaMazeGenerator.MAZE_SIZE) { //bit messy but it works
+            mapCoordinateX = Math.abs(chunkX % MAZE_SIZE);
+        } else {
+            mapCoordinateX = MAZE_SIZE - (chunkX % MAZE_SIZE);
+            if(mapCoordinateX == MAZE_SIZE) {
                 mapCoordinateX = 0;
             }
         }
+
         if(chunkZ <= 0) {
-            mapCoordinateZ = Math.abs(chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
-        }
-        else {
-            mapCoordinateZ = ArcanaMazeGenerator.MAZE_SIZE - (chunkZ % ArcanaMazeGenerator.MAZE_SIZE);
-            if(mapCoordinateZ == ArcanaMazeGenerator.MAZE_SIZE) {
+            mapCoordinateZ = Math.abs(chunkZ % MAZE_SIZE);
+        } else {
+            mapCoordinateZ = MAZE_SIZE - (chunkZ % MAZE_SIZE);
+            if(mapCoordinateZ == MAZE_SIZE) {
                 mapCoordinateZ = 0;
             }
         }
