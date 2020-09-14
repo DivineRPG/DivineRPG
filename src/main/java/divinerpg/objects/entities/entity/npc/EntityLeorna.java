@@ -38,7 +38,8 @@ public class EntityLeorna extends EntityDivineMerchant {
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.hitchakSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.veiloSeeds)));
         list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(ItemRegistry.lamonaSeeds)));
-        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.arcaniteDirt, 9)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteDirt, 9)));
+        list.add(new MerchantRecipe(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteGrass, 4)));
         return list;
     }
 }
