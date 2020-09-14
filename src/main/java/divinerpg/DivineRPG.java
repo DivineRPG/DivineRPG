@@ -35,7 +35,7 @@ public class DivineRPG {
 
     public static final String MODID = "divinerpg";
     public static final String NAME = "DivineRPG";
-    public static final String VERSION = "1.6.4.1";
+    public static final String VERSION = "1.7";
     public static final String UPDATE_URL = "https://raw.githubusercontent.com/DivineRPG/DivineRPG/1.12.2/divinerpg_update.json";
 
     @Mod.Instance
