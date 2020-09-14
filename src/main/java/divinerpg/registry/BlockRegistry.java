@@ -304,7 +304,7 @@ public class BlockRegistry {
     public static final Block boneChest = null;
     @ObjectHolder("frosted_allure")
     public static final Block frostedAllure = null;
-    
+
     // Divine blocks
     @ObjectHolder("divine_sapling")
     public static final Block divineSapling = null;

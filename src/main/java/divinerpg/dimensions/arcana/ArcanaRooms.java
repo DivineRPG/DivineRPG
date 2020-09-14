@@ -22,6 +22,7 @@ public class ArcanaRooms {
 
     static {
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/column_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/chained_room_corner"), 4);
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/delta_corner"), 4);
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/generic_corner"), 4);
         CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/heat_trap_corner"), 4);
