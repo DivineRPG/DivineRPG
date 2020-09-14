@@ -1,6 +1,7 @@
 package divinerpg.objects.blocks.tile.entity;
 
 import divinerpg.DivineRPG;
+import divinerpg.registry.ItemRegistry;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.entity.Entity;
@@ -131,18 +132,19 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickable 
         delay = defaultDelay;
 
         if (!world.isRemote && delay > 0) {
-            //
-            // TODO entity name is not colored
-            //
-
-            ITextComponent msg = LocalizeUtils.getClientSideTranslation(player, LocalizeUtils.i18n(String.format("entity.%s.name", EntityList.getTranslationName(entityId))));
-            msg.getStyle().setColor(TextFormatting.AQUA);
-            player.sendMessage(msg);
-
-            msg = LocalizeUtils.getClientSideTranslation(player, "summon.single_use_spawner.delay", delay / 20);
-            msg.getStyle().setColor(TextFormatting.WHITE);
-
-            player.sendMessage(msg);
+        	if(player.getHeldItemMainhand().getItem() == ItemRegistry.edenChunk){
+                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, LocalizeUtils.i18n(TextFormatting.YELLOW, String.format("entity.%s.name", EntityList.getTranslationName(entityId)))));
+            	}else
+        	if(player.getHeldItemMainhand().getItem() == ItemRegistry.wildwoodChunk){
+                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, LocalizeUtils.i18n(TextFormatting.DARK_BLUE, String.format("entity.%s.name", EntityList.getTranslationName(entityId)))));
+            	}else
+        	if(player.getHeldItemMainhand().getItem() == ItemRegistry.apalachiaChunk){
+                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, LocalizeUtils.i18n(TextFormatting.DARK_GREEN, String.format("entity.%s.name", EntityList.getTranslationName(entityId)))));
+            	}else
+        	if(player.getHeldItemMainhand().getItem() == ItemRegistry.skythernChunk){
+                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, LocalizeUtils.i18n(TextFormatting.AQUA, String.format("entity.%s.name", EntityList.getTranslationName(entityId)))));
+            	}
+            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "summon.single_use_spawner.delay", delay / 20));
         }
     }
 

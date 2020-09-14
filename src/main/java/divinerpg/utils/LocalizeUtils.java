@@ -339,4 +339,9 @@ public class LocalizeUtils {
         result.getStyle().setColor(TextFormatting.GRAY);
         return result.getFormattedText();
     }
+    public static String i18n(TextFormatting color, String text, Object... args) {
+        TextComponentTranslation result = new TextComponentTranslation(text, args);
+        result.getStyle().setColor(color);
+        return result.getFormattedText();
+    }
 }
