@@ -57,9 +57,4 @@ public class EntityRoamer extends EntityDivineMob {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_ROAMER;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }

@@ -63,9 +63,4 @@ public class EntityDungeonPrisoner extends EntityDivineMob {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_DUNGEON_PRISONER;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }

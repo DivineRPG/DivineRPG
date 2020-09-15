@@ -101,9 +101,4 @@ public abstract class EntityDeathBase extends EntityDivineMob {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_DEATHCRYX;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }

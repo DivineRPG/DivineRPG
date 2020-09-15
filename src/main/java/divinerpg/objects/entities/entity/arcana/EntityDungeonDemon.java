@@ -45,9 +45,4 @@ public class EntityDungeonDemon extends EntityDivineMob {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_DUNGEON_DEMON;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }

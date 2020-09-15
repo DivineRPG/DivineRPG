@@ -59,9 +59,4 @@ public class EntityLivingStatue extends EntityDivineMob implements IRangedAttack
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_LIVING_STATUE;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }

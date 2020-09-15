@@ -45,9 +45,4 @@ public class EntityRazorback extends EntityDivineMob {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_RAZORBACK;
     }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return this.posY < 40.0D && super.getCanSpawnHere();
-    }
 }
