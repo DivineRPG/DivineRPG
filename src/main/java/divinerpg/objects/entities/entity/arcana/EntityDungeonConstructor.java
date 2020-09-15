@@ -54,6 +54,11 @@ public class EntityDungeonConstructor extends EntityDivineMob {
     }
 
     @Override
+    protected SoundEvent getDeathSound() {
+        return SoundRegistry.CONSTRUCTOR_HURT;
+    }
+
+    @Override
     public boolean attackEntityAsMob(Entity par1Entity) {
         par1Entity.playSound(SoundRegistry.CONSTRUCTOR_PUNCH, 1, 1);
         return super.attackEntityAsMob(par1Entity);
