@@ -6,7 +6,7 @@ import java.util.*;
 
 public class ArcanaMazeGenerator {
     public static final int MAZE_SIZE = 64;
-    public static final int EDGE_REMOVAL_CHANCE = 7;
+    public static final int EDGE_REMOVAL_CHANCE = 6;
 
     private static class Edge {
         Cell firstAdjacent, secondAdjacent;

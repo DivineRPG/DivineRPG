@@ -97,7 +97,7 @@ public class ArcanaRooms {
         WeightedRandom<ArcanaStructureHandler> weightedRandom;
         if (type == Cell.PieceType.CROSSROADS && random.nextInt(7) == 0) {
            weightedRandom = CROSSROAD_BOSS_ROOMS;
-        } else if (type == Cell.PieceType.DEAD_END && random.nextInt(5) == 0) {
+        } else if (type == Cell.PieceType.DEAD_END && random.nextInt(4) == 0) {
            weightedRandom = DEAD_END_NPC_ROOMS;
         } else {
            weightedRandom = TYPE_MAP.get(type);
