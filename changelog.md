@@ -1,55 +1,98 @@
 # DivineRPG 1.7 changelog:
 
 ## Additions:
-- Metalic ingot nuggets (Nico)
-- Frosted Allure (spawns hostile mobs on top) (Nico)
-- Arcana blocks: (AstralScourge)
-   - Arcana brick stairs
-   - Degraded brick stairs
-   - Ancient brick slab
-   - Ancient brick wall
-   - Degraded brick wall
-- Baubles support for miners amulet (Locomen)
+- Arcana now generates as an infinite grid of 64x64 chunk mazes. Mazes are made up of a set of many new and redone old rooms placed in order to prevent the player being stuck with no way to proceed (unless the entire 64x64 maze is cleared out, in which case new ones can be accessed with other portals sufficiently far away).
+    - IMPORTANT: Due to performance issues with Minecraft's lighting system, the maze is mostly unlit with a few very specific exceptions. Bring torches!
+- Added slabs, stairs, and walls for ancient and degraded bricks
+- Added a new "dungeon keeper" NPC
+- Added breakable variants of several Arcana blocks (purchased from the aforementioned NPC, with breakable brick slabs/stairs/walls craftable from the breakable bricks)
+- Added some new blocks:
+    - Arcanite Ladder
+    - Arcanium Block
+    - Dungeon Bookshelf
 
 ## Changes:
-- Refactored slabs (AstralScourge)
-- Pumpkin pie recipe (Nico)
-- Arcana bar renders if depleted hidden if full (can use config to return to old display) (Nico)
-- Iceika dungeon bricks are now breakable (AstralScourge)
-- Arcana plants grown on regular farmland now (AstralScourge)
-- Tamable mobs can now sit (Nico)
-- Ender armor negates ender pearl damage (Nico)
-- Wither reaper armor withers the wearers attacker (Nico)
-- Refactored Arcana maze generator to use NBT over old method (AstralScourge)
-- Redesigned Arcana rooms (AstralScourge)
-- Arcanium power provides power (AstralScourge)
+- Arcana NPCs no longer spawn naturally; instead, they spawn in specific dead-end rooms tailored to them. Each dead end has a flat 1/5 chance to become an NPC room
+- Arcana mob spawners are now vanilla spawners and do not use their own block ID
+- Arcana mobs now spawn naturally in addition to from spawners (including the Dungeon Constructor)
+- Arcana now has a bedrock layer on the top of the ceiling in order to prevent mobs from spawning there (as well as on the bottom for consistency)
+- Arcana plants now grow on vanilla farmland like normal plants. They also no longer require tar
+- Arcanite Blade and Arcanium Saber now do heavily reduced damage when the required arcana is missing, and consumes more arcana
+- Arcanium Metal is now a rotatable pillar block with a different texture on the top
+- Collectors are now obtained by crafting 9 Collector Fragments together instead of requiring Lord Vatticus
+- Fire resistance now completely nullifies heat trap damage
+- Keys are sold by the dungeon keeper for Collectors (they still drop from Dungeon Constructors)
+- Moved some trades around between Captain Merik, War General, and Datticon
+- Nerfed Heat Trap contact damage and burn time
+- Redid Lord Vatticus trades, he now sells various useful vanilla magic items
+    - Gave Korma and Vemos armor trades to Captain Merik and War General, respectively
+- Removed Orb of Light functionality and made it unobtainable/unused. Like Lamona it caused performance issues and was infeasible without hack-type workarounds
+- Removed the "Enrichment" advancement
+- Renamed Ancient/Degraded Brick to Ancient/Degraded Bricks for consistency
+- Renamed Arcanium Ore to Raw Arcanium and made it a dirt-type block
+- Renamed Charged Collector to Collector
+- Renamed the old Collector to Collector Fragments
+- Some trades now require Collectors instead of Arcanium
+
+------------------
+
+## Other additions:
+- Added Frosted Allure block that speeds up mob spawning (Nico)
+- Added nuggets for Realmite, Arlemite, Rupee, and Netherite (Nico)
+- Added some randomly generating small flavor structures to the twilight dimensions (Nico). Thanks to Velocityraptor for some of the structures
+
+## Other changes:
+- Added tooltip to Magic Meat to signify that it is instantly consumed
+- Arcana is now hidden when full by default. Can be viewed when full through a config option (Nico)
+- Changed Mortum generation to Nether-type with a tar ocean (Nico)
+- Decreased regeneration rate of the Arcana resource and removed the slight delay if all arcana is used
+- DivineRPG NPCs are no longer vanilla NPCs/villagers. This means they're no longer called "Nitwit" and are excluded from behaviour that checks for villagers (e.g. being attacked by zombies and lightning strikes turning them into witches)
+- Ender armor now negates ender pearl damage (Nico)
+- Hot pumpkin pie is now cooked from pumpkin pie instead of directly from pumpkins (Nico)
+- Iceika dungeon blocks (Icy Bricks and Icy Stone) are no longer unbreakable
+    - Added a crafting recipe for Icy Bricks
+- Nerfed Mage-type mob fire rate
+- Reduce particles spawned by Mage-type mobs and General's Staff
+- Removed redundant item durability from all tooltips (use F3+H to view it)
+- Removed several unused block textures
+- Slightly increased the durability of most armor sets
+- The mod's bookshelves are now usable for enchanting like vanilla bookshelves
+- Wither reaper armor now withers attackers (Nico)
+- Workshop bookcase can now be crafted like a normal bookcase, but with coalstone instead of wood
+- Workshop bookcase now drops three books instead of itself unless silk touch is used, for consistency with vanilla
 
 ## Fixes:
-- Russian localizations (Locomen)
-- Fixed arcana portal spawn location (AstralScourge)
-- Fixed defineID issues (AstralScourge)
-- Fixed NPE caused by Zone attacking (AstralScourge)
-- Fixed simplified Chinese localization (Imbarainbow)
-- Arcanium ore JEI support (Nico)
-- Fixed stair blockstates (AstralScourge)
-- Fixed axe speeds (AstralScourge)
+- Fixed Arcanite Blade doing full damage with or without arcana
+- Fixed Arcanium Saber not doing any damage at all if arcana was present
+- Fixed Deathcryx having very little health
+- Fixed Kazrotic not spawning
+- Fixed Wildwood biome name being "WildWood"
+- Fixed Wreck having the wrong health value
+- Fixed Zone causing an NPE crash
+- Fixed axe attack speeds being too high
+- Fixed the arcana portal room generating in the middle of other rooms
 
 ## Miscellaneous:
-- Changed the following textures: (Zachtoplasm)
-   - Dark degraded brick
-   - Degraded brick
-   - Ancient brick
-   - Arcanium power
-   - Soul sludge
-   - Ancient stone
-   - Soul stone
-   - Soul stone door
-   - Ancient brick door
-   - Soul sludge door
-   - Degraded brick door
-
-## Removals:
-- Removed unneccisary tooltips (AstralScourge)
+- Changed the following textures (thanks to Zachtoplasm):
+- Blocks:
+    - Ancient Bricks
+    - Degraded Bricks
+    - Ancient Stone
+    - Soul Stone
+    - Soul Sludge
+    - All Arcana doors
+    - Arcanium Power
+    - Ancient Tile
+    - Heat Trap (on/off)
+    - Arcanium Metal
+    - Arcana Portal
+    - Arcanite Tubes
+    - Raw Arcanium
+    - Dungeon Lamp
+- Items:
+    - Arcanium
+    - Collector
+    - Collector Fragments
 
 # DivineRPG 1.6.4.1 changelog:
 
