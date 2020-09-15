@@ -6,6 +6,7 @@ import java.util.*;
 
 public class ArcanaMazeGenerator {
     public static final int MAZE_SIZE = 64;
+    public static final int EDGE_REMOVAL_CHANCE = 7;
 
     private static class Edge {
         Cell firstAdjacent, secondAdjacent;
@@ -68,21 +69,37 @@ public class ArcanaMazeGenerator {
             Cell firstCell = edge.firstAdjacent;
             Cell secondCell = edge.secondAdjacent;
 
-            //If they are not already part of the same set then delete the edge and join the cells
-            if(unionFind.find(firstCell.identifier) != unionFind.find(secondCell.identifier)) {
-                if(edge.direction == Edge.Direction.HORIZONTAL) {
-                    firstCell.hasSouthEdge = false;
-                    secondCell.hasNorthEdge = false;
-                }
-                else {
-                    firstCell.hasEastEdge = false;
-                    secondCell.hasWestEdge = false;
-                }
+            //If they are not already part of the same set then remove the edge and join the cells
+            if (unionFind.find(firstCell.identifier) != unionFind.find(secondCell.identifier)) {
+                removeEdgesBetweenCells(edge, firstCell, secondCell);
                 unionFind.union(firstCell.identifier, secondCell.identifier);
             }
         }
 
+        //Make another pass and randomly remove edges to open up pathways
+        for(Edge edge: edges) {
+            if(random.nextInt(EDGE_REMOVAL_CHANCE) == 0) {
+                //Get the cells bordering the edge
+                Cell firstCell = edge.firstAdjacent;
+                Cell secondCell = edge.secondAdjacent;
+
+                //Remove the edge
+                removeEdgesBetweenCells(edge, firstCell, secondCell);
+            }
+        }
+
         return grid;
+    }
+
+    public static void removeEdgesBetweenCells(Edge edge, Cell firstCell, Cell secondCell) {
+        if(edge.direction == Edge.Direction.HORIZONTAL) {
+            firstCell.hasSouthEdge = false;
+            secondCell.hasNorthEdge = false;
+        }
+        else {
+            firstCell.hasEastEdge = false;
+            secondCell.hasWestEdge = false;
+        }
     }
 
     public static Cell obtainMazePiece(int chunkX, int chunkZ, long worldSeed) {
