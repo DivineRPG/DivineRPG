@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.DimensionRegistry;
+import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -59,7 +60,7 @@ public class BlockModPortal extends BlockBreakable {
         this.setRegistryName(DivineRPG.MODID, name);
         this.setUnlocalizedName(name);
         this.setTickRandomly(true);
-        this.setCreativeTab(null);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         this.setBlockUnbreakable();
         this.setSoundType(Blocks.PORTAL.getSoundType());
 

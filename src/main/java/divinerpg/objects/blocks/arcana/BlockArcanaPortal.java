@@ -5,6 +5,7 @@ import divinerpg.config.GeneralConfig;
 import divinerpg.events.DimensionHelper;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DimensionRegistry;
+import divinerpg.registry.DivineRPGTabs;
 import divinerpg.utils.portals.description.ArcanaTeleporter;
 import divinerpg.utils.portals.description.IPortalDescription;
 import net.minecraft.block.Block;
@@ -39,7 +40,7 @@ public class BlockArcanaPortal extends Block {
         this.setSoundType(SoundType.STONE);
         this.setUnlocalizedName(name);
         this.setRegistryName(DivineRPG.MODID, name);
-        this.setCreativeTab(null);
+        this.setCreativeTab(DivineRPGTabs.BLOCKS);
         setLightLevel(1.0F);
         setBlockUnbreakable();
         setResistance(6000000F);
