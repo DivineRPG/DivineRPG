@@ -6,6 +6,7 @@ import divinerpg.dimensions.IslandChunkGeneratorBase;
 import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.StructureRegistry;
 import divinerpg.structure.base.DRPGStructureHandler;
+import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEntitySpawner;
@@ -29,7 +30,7 @@ public class EdenChunkGenerator extends IslandChunkGeneratorBase {
         BlockPos pos = new BlockPos(baseX, 0, baseZ);
         Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
-        if(this.rand.nextInt(30) == 0) {
+        if(this.rand.nextInt(60) == 0) {
             int x = baseX + this.rand.nextInt(16);
             int z = baseZ + this.rand.nextInt(16);
             int y = world.getHeight(x, z);

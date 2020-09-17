@@ -29,7 +29,7 @@ public class WildwoodChunkGenerator extends IslandChunkGeneratorBase {
         BlockPos pos = new BlockPos(baseX, 0, baseZ);
         Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
-        if(this.rand.nextInt(30) == 0) {
+        if(this.rand.nextInt(60) == 0) {
             int x = baseX + this.rand.nextInt(16);
             int z = baseZ + this.rand.nextInt(16);
             int y = world.getHeight(x, z);

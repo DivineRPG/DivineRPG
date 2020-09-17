@@ -31,9 +31,9 @@ public class SkythernChunkGenerator extends IslandChunkGeneratorBase {
         BlockPos pos = new BlockPos(baseX, 0, baseZ);
         Biome biome = this.world.getBiome(new BlockPos(baseX, 0, baseZ));
 
-        if(this.rand.nextInt(30) == 0) {
-            int x = baseX + rand.nextInt(16);
-            int z = baseZ + rand.nextInt(16);
+        if(this.rand.nextInt(60) == 0) {
+            int x = baseX + this.rand.nextInt(16);
+            int z = baseZ + this.rand.nextInt(16);
             int y = world.getHeight(x, z);
 
             if(this.world.getBlockState(new BlockPos(x + 3, y - 1, z + 3)).getBlock() == BlockRegistry.skythernGrass) {
