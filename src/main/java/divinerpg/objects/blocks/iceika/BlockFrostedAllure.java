@@ -15,6 +15,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandom;
@@ -98,11 +99,11 @@ public class BlockFrostedAllure extends BlockMod{
                             }
 
                             if (net.minecraftforge.event.ForgeEventFactory.canEntitySpawn(entityliving, worldIn, j + 0.5f, (float) blockpos.getY(), k +0.5f, false) == net.minecraftforge.fml.common.eventhandler.Event.Result.DENY) continue;
-                            entityliving.setLocationAndAngles((double)((float)j + 0.5F), (double)blockpos.getY(), (double)((float)k + 0.5F), randomIn.nextFloat() * 360.0F, 0.0F);
-                            
+
                             AxisAlignedBB bb = new AxisAlignedBB(blockpos).grow(7, 4, 7);
                         	int numCreaturesNearby = worldIn.getEntitiesWithinAABB(EntityLiving.class, bb, input -> input != null && input.isCreatureType(EnumCreatureType.MONSTER, false)).size();
                     		if (numCreaturesNearby < 8) {
+                    		entityliving.setLocationAndAngles(blockpos.getX(), blockpos.up().getY(), blockpos.getZ(), randomIn.nextFloat() * 360F, 0);
                             worldIn.spawnEntity(entityliving);
                     		}
                             ientitylivingdata = entityliving.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entityliving)), ientitylivingdata);
