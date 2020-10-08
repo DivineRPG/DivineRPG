@@ -798,11 +798,11 @@ public class ItemRegistry {
         register(registry, new ItemMod("mortum_soul"));
 
         // Twilight boss souls
-        register(registry, new ItemMod("eden_heart", true));
-        register(registry, new ItemMod("wildwood_heart", true));
-        register(registry, new ItemMod("apalachia_heart", true));
-        register(registry, new ItemMod("skythern_heart", true));
-        register(registry, new ItemMod("mortum_heart", true));
+        register(registry, new ItemMod("eden_heart"));
+        register(registry, new ItemMod("wildwood_heart"));
+        register(registry, new ItemMod("apalachia_heart"));
+        register(registry, new ItemMod("skythern_heart"));
+        register(registry, new ItemMod("mortum_heart"));
 
         // Twilight fragments
         register(registry, new ItemMod("eden_fragments"));
