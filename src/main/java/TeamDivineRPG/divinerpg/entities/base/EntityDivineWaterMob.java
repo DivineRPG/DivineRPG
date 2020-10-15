@@ -3,6 +3,7 @@ package TeamDivineRPG.divinerpg.entities.base;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MoverType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -13,6 +14,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 public class EntityDivineWaterMob extends AbstractFishEntity {
@@ -21,7 +23,7 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
     public EntityDivineWaterMob(EntityType<? extends EntityDivineWaterMob> type, World worldIn)
     {
         super(type, worldIn);
-        this.rand.setSeed((long)(1 + this.getEntityId()));
+        this.rand.setSeed(1 + this.getEntityId());
     }
 
     @Override
@@ -61,7 +63,7 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
         if (inWater) {
             setAir(300);
         } else if (onGround) {
-            setMotion(this.getMotion().add((double)((this.rand.nextFloat() * 2.0F - 1.0F) * 0.4F), 0.5D, (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 0.4F)));
+            setMotion(this.getMotion().add((this.rand.nextFloat() * 2.0F - 1.0F) * 0.4F, 0.5D, (this.rand.nextFloat() * 2.0F - 1.0F) * 0.4F));
             rotationYaw = rand.nextFloat() * 360.0F;
             onGround = false;
             isAirBorne = true;
@@ -123,5 +125,8 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
             }
         }
         super.tick();
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return this.getBlockPathWeight(this.func_233580_cy_(), worldIn) >= 0.0F;
     }
 }

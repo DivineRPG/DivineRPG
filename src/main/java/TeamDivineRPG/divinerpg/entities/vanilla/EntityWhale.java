@@ -1,5 +1,6 @@
 package TeamDivineRPG.divinerpg.entities.vanilla;
 
+import TeamDivineRPG.divinerpg.DivineRPG;
 import TeamDivineRPG.divinerpg.entities.base.EntityDivineWaterMob;
 import TeamDivineRPG.divinerpg.registries.LootTableRegistry;
 import TeamDivineRPG.divinerpg.registries.SoundRegistry;
@@ -20,7 +21,6 @@ public class EntityWhale extends EntityDivineWaterMob {
 
     public EntityWhale(EntityType<? extends EntityWhale> type, World worldIn) {
         super(type, worldIn);
-
     }
 
     @Override
@@ -47,7 +47,7 @@ public class EntityWhale extends EntityDivineWaterMob {
     public void livingTick()
     {
         super.livingTick();
-        if(getPosY() > world.getSeaLevel() - 1) {
+        if(!this.isInWater()) {
             if(rand.nextInt(2) == 0) {
 
                 for(float x = -0.25F; x <= 0.25F; x += 0.125F) {
@@ -59,8 +59,5 @@ public class EntityWhale extends EntityDivineWaterMob {
 
             }
         }
-    }
-    public static boolean canSpawnHere(EntityType<EntityWhale> entity, IWorld world, SpawnReason spawn_reason, BlockPos pos, Random random) {
-        return (random.nextInt(10) == 0 || !world.canBlockSeeSky(pos)) && (spawn_reason == SpawnReason.SPAWNER || world.getFluidState(pos).isTagged(FluidTags.WATER));
     }
 }

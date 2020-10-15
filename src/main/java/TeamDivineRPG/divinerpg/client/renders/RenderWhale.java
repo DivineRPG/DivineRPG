@@ -35,7 +35,7 @@ public class RenderWhale extends EntityRenderer<EntityWhale> {
         float f = 4.3F * MathHelper.sin(0.6F * entityIn.ticksExisted);
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f));
         if (!entityIn.isInWater()) {
-            matrixStackIn.translate((double)0.1F, (double)0.1F, (double)-0.1F);
+            matrixStackIn.translate(0.1F, 0.1F, -0.1F);
             matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(90.0F));
         }
         this.model.setRotationAngles(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);

@@ -1,7 +1,6 @@
 package TeamDivineRPG.divinerpg;
 
 import TeamDivineRPG.divinerpg.client.RenderEntities;
-import TeamDivineRPG.divinerpg.compat.JERCompat;
 import TeamDivineRPG.divinerpg.registries.DRPGTab;
 import TeamDivineRPG.divinerpg.client.FancyRenders;
 import net.minecraft.tileentity.TileEntity;

@@ -162,9 +162,9 @@ public enum DivineToolMaterials implements IItemTier {
     private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
-    private Supplier<Ingredient>  repairMaterial;
+    private final Supplier<Ingredient>  repairMaterial;
 
-    private DivineToolMaterials(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
+    DivineToolMaterials(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
         this.harvestLevel = harvestLevelIn;
         this.maxUses = maxUsesIn;
         this.efficiency = efficiencyIn;

@@ -19,7 +19,8 @@ import java.lang.reflect.Field;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
-
+    //TODO - Fix loot tables
+    // Finish mobs
     public static final EntityType<EntityWhale> WHALE = registerEntity(EntityType.Builder.create(EntityWhale::new, EntityClassification.WATER_CREATURE).size(3F, 1.2F), "whale");
 
 
@@ -58,7 +59,8 @@ public class EntityRegistry {
         bakeAttributes();
     }
 
-    public static void onBiomesLoad(BiomeLoadingEvent event) {
+    @SubscribeEvent
+    public void onBiomesLoad(BiomeLoadingEvent event) {
         if (event.getCategory() == Biome.Category.OCEAN) {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 1, 1, 1));
         }
