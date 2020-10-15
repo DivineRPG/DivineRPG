@@ -15,7 +15,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityTheEye extends EntityDivineMob {
-    private boolean hasPotion = false;
 
     public EntityTheEye(World worldIn) {
         super(worldIn);
