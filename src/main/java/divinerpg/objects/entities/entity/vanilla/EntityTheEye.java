@@ -36,19 +36,21 @@ public class EntityTheEye extends EntityDivineMob {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        EntityPlayer player = this.world.getNearestAttackablePlayer(this, 64.0D, 64.0D);
-        if (player != null) {
-            Vec3d lookVec = player.getLook(1.0F).normalize();
-            Vec3d lookAtMeVec = new Vec3d(this.posX - player.posX,
-                    this.getEntityBoundingBox().minY + this.height - (player.posY + player.getEyeHeight()),
-                    this.posZ - player.posZ);
-            double distMagnitude = lookAtMeVec.lengthVector();
-            lookAtMeVec = lookAtMeVec.normalize();
-            double var7 = lookVec.dotProduct(lookAtMeVec);
-            if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
-                player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0, false, true));
-                if (player instanceof EntityPlayerMP) {
-                    TriggerRegistry.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
+        if (!this.world.isRemote) {
+            EntityPlayer player = this.world.getNearestAttackablePlayer(this, 64.0D, 64.0D);
+            if (player != null) {
+                Vec3d lookVec = player.getLook(1.0F).normalize();
+                Vec3d lookAtMeVec = new Vec3d(this.posX - player.posX,
+                        this.getEntityBoundingBox().minY + this.height - (player.posY + player.getEyeHeight()),
+                        this.posZ - player.posZ);
+                double distMagnitude = lookAtMeVec.lengthVector();
+                lookAtMeVec = lookAtMeVec.normalize();
+                double var7 = lookVec.dotProduct(lookAtMeVec);
+                if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
+                    player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 0, false, true));
+                    if (player instanceof EntityPlayerMP) {
+                        TriggerRegistry.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
+                    }
                 }
             }
         }
