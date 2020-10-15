@@ -1,3 +1,22 @@
+# DivineRPG 1.7.1 changelog:
+
+## Changes:
+- Changed the Arcana maze generation algorithm to allow for multiple paths between any two rooms, reducing the chance that the shortest path between two rooms near each other is long-winded and generally making the maze less frustrating
+- Slightly increased chance for dead ends to be NPC rooms to compensate for the previous change slightly reducing the amount of dead ends
+- Added portal blocks to the creative inventory
+- Made twilight dimension boss structures rarer
+
+## Fixes:
+- Fixed Dungeon Constructor's death sound being the player hurt sound
+- Fixed portal models missing faces and being displayed from the front instead of as blocks
+- Fixed placement of Frosted Allure spawns (Nico)
+- Fixed mortum ruined portal structure (Velocityraptor)
+- Fixed The Eye's potion effect not properly ending
+
+## Miscellaneous:
+- Changed the Wildwood Heart texture
+- Remove enchanted glint from twilight heart textures
+
 # DivineRPG 1.7 changelog:
 
 ## Additions:
