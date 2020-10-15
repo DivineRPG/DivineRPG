@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:mortum_planks"
+        "model": "divinerpg:block/mortum_planks"
       }
     }
   ]

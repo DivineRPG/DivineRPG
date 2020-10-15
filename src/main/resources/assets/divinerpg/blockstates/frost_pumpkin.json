@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:frost_pumpkin"
+      "model": "divinerpg:block/frost_pumpkin"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:frost_pumpkin"
+      "model": "divinerpg:block/frost_pumpkin"
     },
     "facing=north": {
-      "model": "divinerpg:frost_pumpkin"
+      "model": "divinerpg:block/frost_pumpkin"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:frost_pumpkin"
+      "model": "divinerpg:block/frost_pumpkin"
     }
   }
 }

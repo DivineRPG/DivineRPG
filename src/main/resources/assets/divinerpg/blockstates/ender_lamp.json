@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:ender_lamp"
+    "": {
+      "model": "divinerpg:block/ender_lamp"
     }
   }
 }

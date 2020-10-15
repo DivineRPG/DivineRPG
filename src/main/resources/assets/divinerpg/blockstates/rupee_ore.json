@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:rupee_ore"
+    "": {
+      "model": "divinerpg:block/rupee_ore"
     }
   }
 }

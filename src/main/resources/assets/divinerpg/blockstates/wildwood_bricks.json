@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:wildwood_bricks"
+    "": {
+      "model": "divinerpg:block/wildwood_bricks"
     }
   }
 }

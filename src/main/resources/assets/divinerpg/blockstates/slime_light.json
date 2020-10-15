@@ -1,10 +1,10 @@
 {
   "variants": {
     "powered=true": {
-      "model": "divinerpg:slime_light_on"
+      "model": "divinerpg:block/slime_light_on"
     },
     "powered=false": {
-      "model": "divinerpg:slime_light"
+      "model": "divinerpg:block/slime_light"
     }
   }
 }

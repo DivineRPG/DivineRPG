@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:lava_bricks"
+    "": {
+      "model": "divinerpg:block/lava_bricks"
     }
   }
 }

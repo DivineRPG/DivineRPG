@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:firewood_leaves"
+        "model": "divinerpg:block/firewood_leaves"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:metal_caging"
+    "": {
+      "model": "divinerpg:block/metal_caging"
     }
   }
 }

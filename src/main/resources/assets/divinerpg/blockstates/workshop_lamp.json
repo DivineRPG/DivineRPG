@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:workshop_lamp"
+    "": {
+      "model": "divinerpg:block/workshop_lamp"
     }
   }
 }

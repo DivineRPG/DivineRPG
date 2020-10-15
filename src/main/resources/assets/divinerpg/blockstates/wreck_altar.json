@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:wreck_altar"
+    "": {
+      "model": "divinerpg:block/wreck_altar"
     }
   }
 }

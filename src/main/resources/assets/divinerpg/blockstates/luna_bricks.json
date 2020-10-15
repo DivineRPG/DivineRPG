@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:luna_bricks"
+    "": {
+      "model": "divinerpg:block/luna_bricks"
     }
   }
 }

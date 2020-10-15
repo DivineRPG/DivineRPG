@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:reyvor_statue"
+        "model": "divinerpg:block/reyvor_statue"
       }
     }
   ]

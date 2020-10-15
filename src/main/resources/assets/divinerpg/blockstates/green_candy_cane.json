@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:green_candy_cane"
+    "": {
+      "model": "divinerpg:block/green_candy_cane"
     }
   }
 }

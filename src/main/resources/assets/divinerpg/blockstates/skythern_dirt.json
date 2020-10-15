@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:skythern_dirt"
+    "": {
+      "model": "divinerpg:block/skythern_dirt"
     }
   }
 }

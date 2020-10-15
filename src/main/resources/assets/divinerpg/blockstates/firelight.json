@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:firelight"
+    "": {
+      "model": "divinerpg:block/firelight"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:black_karos_bricks"
+    "": {
+      "model": "divinerpg:block/black_karos_bricks"
     }
   }
 }

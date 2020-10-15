@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:king_compression_still"
+    "": {
+      "model": "divinerpg:block/king_compression_still"
     }
   }
 }

@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:eden_leaves"
+        "model": "divinerpg:block/eden_leaves"
       }
     }
   ]

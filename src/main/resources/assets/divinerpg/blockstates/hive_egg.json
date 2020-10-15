@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:hive_egg"
+    "": {
+      "model": "divinerpg:block/hive_egg"
     }
   }
 }

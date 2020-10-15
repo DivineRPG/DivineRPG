@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:rupee_lamp"
+    "": {
+      "model": "divinerpg:block/rupee_lamp"
     }
   }
 }

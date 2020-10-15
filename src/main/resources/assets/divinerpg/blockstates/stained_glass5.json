@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:stained_glass5"
+    "": {
+      "model": "divinerpg:block/stained_glass5"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:moon_bud"
+    "": {
+      "model": "divinerpg:block/moon_bud"
     }
   }
 }

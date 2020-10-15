@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:arlemite_minibricks"
+    "": {
+      "model": "divinerpg:block/arlemite_minibricks"
     }
   }
 }

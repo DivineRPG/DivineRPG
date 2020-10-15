@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:sunbloom"
+    "": {
+      "model": "divinerpg:block/sunbloom"
     }
   }
 }

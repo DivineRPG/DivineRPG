@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:twins_spawner"
+    "": {
+      "model": "divinerpg:block/twins_spawner"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:purple_steel"
+    "": {
+      "model": "divinerpg:block/purple_steel"
     }
   }
 }

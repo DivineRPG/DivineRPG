@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:apalachia_leaves"
+        "model": "divinerpg:block/apalachia_leaves"
       }
     }
   ]

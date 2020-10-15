@@ -1,13 +1,13 @@
 {
   "variants": {
     "age=2": {
-      "model": "divinerpg:pink_glowbone_plant_top"
+      "model": "divinerpg:block/pink_glowbone_plant_top"
     },
     "age=1": {
-      "model": "divinerpg:pink_glowbone_plant_bottom"
+      "model": "divinerpg:block/pink_glowbone_plant_bottom"
     },
     "age=0": {
-      "model": "divinerpg:pink_glowbone_plant_top"
+      "model": "divinerpg:block/pink_glowbone_plant_top"
     }
   }
 }

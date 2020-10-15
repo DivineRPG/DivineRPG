@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:lunic_acid"
+    "": {
+      "model": "divinerpg:block/lunic_acid"
     }
   }
 }

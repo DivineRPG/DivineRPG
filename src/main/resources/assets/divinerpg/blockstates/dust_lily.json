@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dust_lily"
+    "": {
+      "model": "divinerpg:block/dust_lily"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:arlemite_ore"
+    "": {
+      "model": "divinerpg:block/arlemite_ore"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "variants": {
     "half=upper": {
-      "model": "divinerpg:wildwood_tallgrass_top"
+      "model": "divinerpg:block/wildwood_tallgrass_top"
     },
     "half=lower": {
-      "model": "divinerpg:wildwood_tallgrass_bottom"
+      "model": "divinerpg:block/wildwood_tallgrass_bottom"
     }
   }
 }

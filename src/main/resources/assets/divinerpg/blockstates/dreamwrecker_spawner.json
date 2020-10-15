@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dreamwrecker_spawner"
+    "": {
+      "model": "divinerpg:block/dreamwrecker_spawner"
     }
   }
 }

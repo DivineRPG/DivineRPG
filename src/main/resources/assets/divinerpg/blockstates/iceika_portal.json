@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:iceika_portal_ew"
+      "model": "divinerpg:block/iceika_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:iceika_portal_ns"
+      "model": "divinerpg:block/iceika_portal_ns"
     }
   }
 }

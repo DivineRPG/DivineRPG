@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:nightmare_bed"
+        "model": "divinerpg:block/nightmare_bed"
       }
     }
   ]

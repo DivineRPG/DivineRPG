@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:darkstone_bricks"
+    "": {
+      "model": "divinerpg:block/darkstone_bricks"
     }
   }
 }

@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:mortum_portal_ew"
+      "model": "divinerpg:block/mortum_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:mortum_portal_ns"
+      "model": "divinerpg:block/mortum_portal_ns"
     }
   }
 }

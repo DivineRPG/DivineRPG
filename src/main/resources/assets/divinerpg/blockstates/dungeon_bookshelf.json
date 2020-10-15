@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dungeon_bookshelf"
+    "": {
+      "model": "divinerpg:block/dungeon_bookshelf"
     }
   }
 }

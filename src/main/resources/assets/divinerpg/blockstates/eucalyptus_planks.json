@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:eucalyptus_planks"
+    "": {
+      "model": "divinerpg:block/eucalyptus_planks"
     }
   }
 }

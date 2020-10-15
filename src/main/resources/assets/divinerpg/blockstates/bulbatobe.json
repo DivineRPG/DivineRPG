@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:bulbatobe"
+    "": {
+      "model": "divinerpg:block/bulbatobe"
     }
   }
 }

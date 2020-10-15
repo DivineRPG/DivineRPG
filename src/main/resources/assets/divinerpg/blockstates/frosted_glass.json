@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:frosted_glass"
+    "": {
+      "model": "divinerpg:block/frosted_glass"
     }
   }
 }

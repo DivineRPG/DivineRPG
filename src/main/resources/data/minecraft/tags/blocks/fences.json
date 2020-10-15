@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:blue_fence",
+    "divinerpg:blue_fence_on",
+    "divinerpg:green_fence",
+    "divinerpg:green_fence_on",
+    "divinerpg:red_fence",
+    "divinerpg:red_fence_on"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:workshop_bookcase"
+    "": {
+      "model": "divinerpg:block/workshop_bookcase"
     }
   }
 }

@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:dramix_altar"
+        "model": "divinerpg:block/dramix_altar"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:wildwood_ore"
+    "": {
+      "model": "divinerpg:block/wildwood_ore"
     }
   }
 }

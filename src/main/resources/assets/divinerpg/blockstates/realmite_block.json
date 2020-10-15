@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:realmite_block"
+    "": {
+      "model": "divinerpg:block/realmite_block"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:hot_spike_block"
+    "": {
+      "model": "divinerpg:block/hot_spike_block"
     }
   }
 }

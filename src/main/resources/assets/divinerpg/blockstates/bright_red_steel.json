@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:bright_red_steel"
+    "": {
+      "model": "divinerpg:block/bright_red_steel"
     }
   }
 }

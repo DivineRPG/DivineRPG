@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:arcana_hard_portal_frame"
+      "model": "divinerpg:block/arcana_hard_portal_frame"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:arcana_hard_portal_frame"
+      "model": "divinerpg:block/arcana_hard_portal_frame"
     },
     "facing=north": {
-      "model": "divinerpg:arcana_hard_portal_frame"
+      "model": "divinerpg:block/arcana_hard_portal_frame"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:arcana_hard_portal_frame"
+      "model": "divinerpg:block/arcana_hard_portal_frame"
     }
   }
 }

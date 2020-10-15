@@ -1,24 +1,16 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:mintwood_log"
-    },
-    "axis=none": {
-      "model": "divinerpg:mintwood_log"
-    },
     "axis=z": {
       "x": 90,
-      "model": "divinerpg:mintwood_log"
+      "model": "divinerpg:block/mintwood_log"
     },
     "axis=x": {
       "x": 90,
       "y": 90,
-      "model": "divinerpg:mintwood_log"
+      "model": "divinerpg:block/mintwood_log"
     },
     "axis=y": {
-      "model": "divinerpg:mintwood_log"
+      "model": "divinerpg:block/mintwood_log"
     }
   }
 }
-
-

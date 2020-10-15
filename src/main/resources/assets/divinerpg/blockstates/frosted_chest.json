@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:frosted_chest"
+        "model": "divinerpg:block/frosted_chest"
       }
     }
   ]

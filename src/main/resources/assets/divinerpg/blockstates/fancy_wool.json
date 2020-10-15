@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:fancy_wool"
+    "": {
+      "model": "divinerpg:block/fancy_wool"
     }
   }
 }

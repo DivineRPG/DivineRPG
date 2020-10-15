@@ -2,13 +2,13 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:blue_fence_post"
+        "model": "divinerpg:block/blue_fence_post"
       }
     },
     {
       "apply": {
         "uvlock": true,
-        "model": "divinerpg:blue_fence_side"
+        "model": "divinerpg:block/blue_fence_side"
       },
       "when": {
         "north": "true"
@@ -18,7 +18,7 @@
       "apply": {
         "uvlock": true,
         "y": 90,
-        "model": "divinerpg:blue_fence_side"
+        "model": "divinerpg:block/blue_fence_side"
       },
       "when": {
         "east": "true"
@@ -28,7 +28,7 @@
       "apply": {
         "uvlock": true,
         "y": 180,
-        "model": "divinerpg:blue_fence_side"
+        "model": "divinerpg:block/blue_fence_side"
       },
       "when": {
         "south": "true"
@@ -38,7 +38,7 @@
       "apply": {
         "uvlock": true,
         "y": 270,
-        "model": "divinerpg:blue_fence_side"
+        "model": "divinerpg:block/blue_fence_side"
       },
       "when": {
         "west": "true"

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:redstone_ore_lamp"
+    "": {
+      "model": "divinerpg:block/redstone_ore_lamp"
     }
   }
 }

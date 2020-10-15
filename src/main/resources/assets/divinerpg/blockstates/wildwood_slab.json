@@ -1,20 +1,13 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:wildwood_half_slab"
-      },
-      "when": {
-        "half": "bottom"
-      }
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/wildwood_half_slab"
     },
-    {
-      "apply": {
-        "model": "divinerpg:wildwood_upper_slab"
-      },
-      "when": {
-        "half": "top"
-      }
+    "type=double": {
+      "model": "divinerpg:block/wildwood_planks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/wildwood_upper_slab"
     }
-  ]
+  }
 }

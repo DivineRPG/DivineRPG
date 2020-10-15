@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:aqua_lamp"
+    "": {
+      "model": "divinerpg:block/aqua_lamp"
     }
   }
 }

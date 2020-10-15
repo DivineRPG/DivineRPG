@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:wildwood_planks"
+        "model": "divinerpg:block/wildwood_planks"
       }
     }
   ]

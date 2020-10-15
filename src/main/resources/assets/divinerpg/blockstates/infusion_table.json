@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:infusion_table"
+    "": {
+      "model": "divinerpg:block/infusion_table"
     }
   }
 }

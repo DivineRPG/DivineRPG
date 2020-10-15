@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:gorgosion_spawner"
+    "": {
+      "model": "divinerpg:block/gorgosion_spawner"
     }
   }
 }

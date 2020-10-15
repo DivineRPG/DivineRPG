@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:demon_furnace_on"
+        "model": "divinerpg:block/demon_furnace_on"
       }
     }
   ]

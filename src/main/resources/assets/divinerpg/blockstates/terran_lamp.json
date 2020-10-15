@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:terran_lamp"
+    "": {
+      "model": "divinerpg:block/terran_lamp"
     }
   }
 }

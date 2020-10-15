@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:yellow_vane"
+    "": {
+      "model": "divinerpg:block/yellow_vane"
     }
   }
 }

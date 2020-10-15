@@ -1,20 +1,13 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:mortum_half_slab"
-      },
-      "when": {
-        "half": "bottom"
-      }
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/mortum_half_slab"
     },
-    {
-      "apply": {
-        "model": "divinerpg:mortum_upper_slab"
-      },
-      "when": {
-        "half": "top"
-      }
+    "type=double": {
+      "model": "divinerpg:block/mortum_planks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/mortum_upper_slab"
     }
-  ]
+  }
 }

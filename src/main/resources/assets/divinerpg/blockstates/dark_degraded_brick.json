@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dark_degraded_brick"
+    "": {
+      "model": "divinerpg:block/dark_degraded_brick"
     }
   }
 }

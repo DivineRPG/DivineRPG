@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:mortum_ore"
+    "": {
+      "model": "divinerpg:block/mortum_ore"
     }
   }
 }

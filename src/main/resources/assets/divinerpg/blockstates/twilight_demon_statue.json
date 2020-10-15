@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:twilight_demon_statue"
+        "model": "divinerpg:block/twilight_demon_statue"
       }
     }
   ]

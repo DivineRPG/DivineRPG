@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:parasecta_altar"
+        "model": "divinerpg:block/parasecta_altar"
       }
     }
   ]

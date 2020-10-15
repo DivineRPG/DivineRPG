@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:skythern_ore"
+    "": {
+      "model": "divinerpg:block/skythern_ore"
     }
   }
 }

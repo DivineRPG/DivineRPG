@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:the_watcher_statue"
+        "model": "divinerpg:block/the_watcher_statue"
       }
     }
   ]

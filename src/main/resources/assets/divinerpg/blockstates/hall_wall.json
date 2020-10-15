@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:hall_wall"
+    "": {
+      "model": "divinerpg:block/hall_wall"
     }
   }
 }

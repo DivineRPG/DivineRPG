@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:ancient_tile"
+    "": {
+      "model": "divinerpg:block/ancient_tile"
     }
   }
 }

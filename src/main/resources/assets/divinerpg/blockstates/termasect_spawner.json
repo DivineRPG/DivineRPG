@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:termasect_spawner"
+    "": {
+      "model": "divinerpg:block/termasect_spawner"
     }
   }
 }

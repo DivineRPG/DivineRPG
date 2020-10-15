@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:green_gemtop"
+    "": {
+      "model": "divinerpg:block/green_gemtop"
     }
   }
 }

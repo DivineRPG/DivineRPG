@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:elevantium"
+    "": {
+      "model": "divinerpg:block/elevantium"
     }
   }
 }

@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:acceleron"
+      "model": "divinerpg:block/acceleron"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:acceleron"
+      "model": "divinerpg:block/acceleron"
     },
     "facing=north": {
-      "model": "divinerpg:acceleron"
+      "model": "divinerpg:block/acceleron"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:acceleron"
+      "model": "divinerpg:block/acceleron"
     }
   }
 }

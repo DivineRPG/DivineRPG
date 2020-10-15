@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:arcanite_dirt"
+    "": {
+      "model": "divinerpg:block/arcanite_dirt"
     }
   }
 }

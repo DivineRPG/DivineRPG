@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:twilight_stone"
+    "": {
+      "model": "divinerpg:block/twilight_stone"
     }
   }
 }

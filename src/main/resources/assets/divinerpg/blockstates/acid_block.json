@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:acid_block"
+    "": {
+      "model": "divinerpg:block/acid_block"
     }
   }
 }

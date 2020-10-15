@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dark_everstone"
+    "": {
+      "model": "divinerpg:block/dark_everstone"
     }
   }
 }

@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:eden_planks"
+        "model": "divinerpg:block/eden_planks"
       }
     }
   ]

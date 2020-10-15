@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:vermenous_spawner"
+    "": {
+      "model": "divinerpg:block/vermenous_spawner"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:icy_stone"
+    "": {
+      "model": "divinerpg:block/icy_stone"
     }
   }
 }

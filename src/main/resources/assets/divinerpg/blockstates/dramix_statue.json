@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:dramix_statue"
+        "model": "divinerpg:block/dramix_statue"
       }
     }
   ]

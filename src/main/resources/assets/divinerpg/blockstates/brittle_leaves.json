@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:brittle_leaves"
+        "model": "divinerpg:block/brittle_leaves"
       }
     }
   ]

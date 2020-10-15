@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:densos_statue"
+        "model": "divinerpg:block/densos_statue"
       }
     }
   ]

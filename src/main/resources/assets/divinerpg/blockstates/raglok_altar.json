@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:raglok_altar"
+    "": {
+      "model": "divinerpg:block/raglok_altar"
     }
   }
 }

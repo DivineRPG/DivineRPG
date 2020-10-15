@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:snow_bricks"
+    "": {
+      "model": "divinerpg:block/snow_bricks"
     }
   }
 }

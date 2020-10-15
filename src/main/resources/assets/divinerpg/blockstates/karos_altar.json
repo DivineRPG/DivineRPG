@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:karos_altar"
+    "": {
+      "model": "divinerpg:block/karos_altar"
     }
   }
 }

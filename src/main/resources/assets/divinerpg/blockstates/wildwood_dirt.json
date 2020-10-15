@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:wildwood_dirt"
+    "": {
+      "model": "divinerpg:block/wildwood_dirt"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dusk_bloom"
+    "": {
+      "model": "divinerpg:block/dusk_bloom"
     }
   }
 }

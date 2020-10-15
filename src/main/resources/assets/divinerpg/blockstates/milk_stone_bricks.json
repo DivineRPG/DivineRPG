@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:milk_stone_bricks"
+    "": {
+      "model": "divinerpg:block/milk_stone_bricks"
     }
   }
 }

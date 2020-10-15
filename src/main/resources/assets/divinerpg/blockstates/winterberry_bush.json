@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:winterberry_bush"
+    "age=0": {
+      "model": "divinerpg:block/winterberry_bush"
+    },
+    "age=1": {
+      "model": "divinerpg:block/ripe_winterberry_bush"
     }
   }
 }

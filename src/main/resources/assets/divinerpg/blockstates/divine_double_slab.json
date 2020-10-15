@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:divine_planks"
-      }
-    }
-  ]
-}

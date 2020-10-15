@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:biphron_spawner"
+    "": {
+      "model": "divinerpg:block/biphron_spawner"
     }
   }
 }

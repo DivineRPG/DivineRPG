@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:arcanite_ladder"
+      "model": "divinerpg:block/arcanite_ladder"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:arcanite_ladder"
+      "model": "divinerpg:block/arcanite_ladder"
     },
     "facing=north": {
-      "model": "divinerpg:arcanite_ladder"
+      "model": "divinerpg:block/arcanite_ladder"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:arcanite_ladder"
+      "model": "divinerpg:block/arcanite_ladder"
     }
   }
 }

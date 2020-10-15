@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:yellow_christmas_lights"
+      "model": "divinerpg:block/yellow_christmas_lights"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:yellow_christmas_lights"
+      "model": "divinerpg:block/yellow_christmas_lights"
     },
     "facing=north": {
-      "model": "divinerpg:yellow_christmas_lights"
+      "model": "divinerpg:block/yellow_christmas_lights"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:yellow_christmas_lights"
+      "model": "divinerpg:block/yellow_christmas_lights"
     }
   }
 }

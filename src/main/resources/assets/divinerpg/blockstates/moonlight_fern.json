@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:moonlight_fern"
+    "": {
+      "model": "divinerpg:block/moonlight_fern"
     }
   }
 }

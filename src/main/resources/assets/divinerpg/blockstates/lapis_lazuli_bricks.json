@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:lapis_lazuli_bricks"
+    "": {
+      "model": "divinerpg:block/lapis_lazuli_bricks"
     }
   }
 }

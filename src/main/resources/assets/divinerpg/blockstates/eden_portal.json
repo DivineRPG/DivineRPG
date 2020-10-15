@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:eden_portal_ew"
+      "model": "divinerpg:block/eden_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:eden_portal_ns"
+      "model": "divinerpg:block/eden_portal_ns"
     }
   }
 }

@@ -48,3 +48,5 @@ libs/chickens-6.1.0.jar
 libs/ProjectE-1.12-PE1.3.2h.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
+*.log
+changelog.txt

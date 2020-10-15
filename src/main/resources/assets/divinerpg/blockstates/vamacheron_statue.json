@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:vamacheron_statue"
+        "model": "divinerpg:block/vamacheron_statue"
       }
     }
   ]

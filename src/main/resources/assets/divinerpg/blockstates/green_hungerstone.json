@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:green_hungerstone"
+    "": {
+      "model": "divinerpg:block/green_hungerstone"
     }
   }
 }

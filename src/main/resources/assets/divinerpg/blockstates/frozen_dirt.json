@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:frozen_dirt"
+    "": {
+      "model": "divinerpg:block/frozen_dirt"
     }
   }
 }

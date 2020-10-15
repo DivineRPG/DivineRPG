@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:cracklespike"
+    "": {
+      "model": "divinerpg:block/cracklespike"
     }
   }
 }

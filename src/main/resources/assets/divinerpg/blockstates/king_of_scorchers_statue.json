@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:king_of_scorchers_statue"
+        "model": "divinerpg:block/king_of_scorchers_statue"
       }
     }
   ]

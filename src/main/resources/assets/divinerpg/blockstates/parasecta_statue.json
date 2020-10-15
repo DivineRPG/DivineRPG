@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:parasecta_statue"
+        "model": "divinerpg:block/parasecta_statue"
       }
     }
   ]

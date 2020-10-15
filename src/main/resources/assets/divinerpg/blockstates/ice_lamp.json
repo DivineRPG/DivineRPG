@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:ice_lamp"
+    "": {
+      "model": "divinerpg:block/ice_lamp"
     }
   }
 }

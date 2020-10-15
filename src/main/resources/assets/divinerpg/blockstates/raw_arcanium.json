@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:raw_arcanium"
+    "": {
+      "model": "divinerpg:block/raw_arcanium"
     }
   }
 }

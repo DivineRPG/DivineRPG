@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:aquatonic_bricks"
+    "": {
+      "model": "divinerpg:block/aquatonic_bricks"
     }
   }
 }

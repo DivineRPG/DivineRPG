@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:marsine_plant_stage_0"
+        "model": "divinerpg:block/marsine_plant_stage_0"
       },
       "when": {
         "age": "0"
@@ -10,7 +10,7 @@
     },
     {
       "apply": {
-        "model": "divinerpg:marsine_plant_stage_1"
+        "model": "divinerpg:block/marsine_plant_stage_1"
       },
       "when": {
         "age": "1"
@@ -18,7 +18,7 @@
     },
     {
       "apply": {
-        "model": "divinerpg:marsine_plant_stage_2"
+        "model": "divinerpg:block/marsine_plant_stage_2"
       },
       "when": {
         "age": "2"

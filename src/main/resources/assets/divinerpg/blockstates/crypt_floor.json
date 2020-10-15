@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:crypt_floor"
+    "": {
+      "model": "divinerpg:block/crypt_floor"
     }
   }
 }

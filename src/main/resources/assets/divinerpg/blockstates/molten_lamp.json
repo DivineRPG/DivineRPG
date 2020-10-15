@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:molten_lamp"
+    "": {
+      "model": "divinerpg:block/molten_lamp"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:apalachia_grass"
+    "": {
+      "model": "divinerpg:block/apalachia_grass"
     }
   }
 }

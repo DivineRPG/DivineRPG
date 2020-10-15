@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:vethea_portal_ew"
+      "model": "divinerpg:block/vethea_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:vethea_portal_ns"
+      "model": "divinerpg:block/vethea_portal_ns"
     }
   }
 }

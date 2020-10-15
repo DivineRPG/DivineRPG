@@ -1,22 +1,16 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:frozen_log"
-    },
-    "axis=none": {
-      "model": "divinerpg:frozen_log"
-    },
     "axis=z": {
       "x": 90,
-      "model": "divinerpg:frozen_log"
+      "model": "divinerpg:block/frozen_log"
     },
     "axis=x": {
       "x": 90,
       "y": 90,
-      "model": "divinerpg:frozen_log"
+      "model": "divinerpg:block/frozen_log"
     },
     "axis=y": {
-      "model": "divinerpg:frozen_log"
+      "model": "divinerpg:block/frozen_log"
     }
   }
 }

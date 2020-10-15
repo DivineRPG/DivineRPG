@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:light_dream_bricks"
+    "": {
+      "model": "divinerpg:block/light_dream_bricks"
     }
   }
 }

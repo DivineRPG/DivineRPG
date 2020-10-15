@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:divine_moss_stone"
+    "": {
+      "model": "divinerpg:block/divine_moss_stone"
     }
   }
 }

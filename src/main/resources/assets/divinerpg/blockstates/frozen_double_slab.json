@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:frozen_planks"
+        "model": "divinerpg:block/frozen_planks"
       }
     }
   ]

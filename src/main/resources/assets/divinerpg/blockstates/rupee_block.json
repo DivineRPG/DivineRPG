@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:rupee_block"
+    "": {
+      "model": "divinerpg:block/rupee_block"
     }
   }
 }

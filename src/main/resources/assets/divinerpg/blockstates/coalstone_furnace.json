@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "y": 90,
-      "model": "divinerpg:coalstone_furnace"
+      "model": "divinerpg:block/coalstone_furnace"
     },
     "facing=south": {
       "y": 180,
-      "model": "divinerpg:coalstone_furnace"
+      "model": "divinerpg:block/coalstone_furnace"
     },
     "facing=north": {
-      "model": "divinerpg:coalstone_furnace"
+      "model": "divinerpg:block/coalstone_furnace"
     },
     "facing=west": {
       "y": 270,
-      "model": "divinerpg:coalstone_furnace"
+      "model": "divinerpg:block/coalstone_furnace"
     }
   }
 }

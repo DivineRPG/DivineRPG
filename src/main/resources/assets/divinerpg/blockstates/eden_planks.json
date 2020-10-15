@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:eden_planks"
+    "": {
+      "model": "divinerpg:block/eden_planks"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:eternal_archer_spawner"
+    "": {
+      "model": "divinerpg:block/eternal_archer_spawner"
     }
   }
 }

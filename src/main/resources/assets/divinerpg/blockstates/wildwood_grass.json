@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:wildwood_grass"
+    "": {
+      "model": "divinerpg:block/wildwood_grass"
     }
   }
 }

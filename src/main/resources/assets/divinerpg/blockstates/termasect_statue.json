@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:termasect_statue"
+        "model": "divinerpg:block/termasect_statue"
       }
     }
   ]

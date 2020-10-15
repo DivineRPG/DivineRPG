@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:arcanium_extractor"
+        "model": "divinerpg:block/arcanium_extractor"
       }
     }
   ]

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:heat_trap"
+    "active=false": {
+      "model": "divinerpg:block/heat_trap"
+    },
+    "active=true": {
+      "model": "divinerpg:block/heat_trap_on"
     }
   }
 }

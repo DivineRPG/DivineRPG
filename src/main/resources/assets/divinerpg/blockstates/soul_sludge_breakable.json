@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:soul_sludge"
+    "": {
+      "model": "divinerpg:block/soul_sludge"
     }
   }
 }

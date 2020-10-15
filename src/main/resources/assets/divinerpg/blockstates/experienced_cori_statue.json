@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:experienced_cori_statue"
+        "model": "divinerpg:block/experienced_cori_statue"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:bloodgem_minibricks"
+    "": {
+      "model": "divinerpg:block/bloodgem_minibricks"
     }
   }
 }

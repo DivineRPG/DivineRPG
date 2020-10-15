@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:stacked_chamber_wall"
+    "": {
+      "model": "divinerpg:block/stacked_chamber_wall"
     }
   }
 }

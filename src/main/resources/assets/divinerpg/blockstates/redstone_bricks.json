@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:redstone_bricks"
+    "": {
+      "model": "divinerpg:block/redstone_bricks"
     }
   }
 }

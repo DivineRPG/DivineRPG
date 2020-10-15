@@ -1,13 +1,13 @@
 {
   "variants": {
     "age=2": {
-      "model": "divinerpg:moonbulb_plant_top"
+      "model": "divinerpg:block/moonbulb_plant_top"
     },
     "age=1": {
-      "model": "divinerpg:moonbulb_plant_bottom"
+      "model": "divinerpg:block/moonbulb_plant_bottom"
     },
     "age=0": {
-      "model": "divinerpg:moonbulb_plant_top"
+      "model": "divinerpg:block/moonbulb_plant_top"
     }
   }
 }

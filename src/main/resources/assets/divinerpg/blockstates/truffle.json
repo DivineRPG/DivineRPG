@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:truffle"
+    "": {
+      "model": "divinerpg:block/truffle"
     }
   }
 }

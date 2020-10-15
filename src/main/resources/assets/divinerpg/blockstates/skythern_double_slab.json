@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:skythern_planks"
+        "model": "divinerpg:block/skythern_planks"
       }
     }
   ]

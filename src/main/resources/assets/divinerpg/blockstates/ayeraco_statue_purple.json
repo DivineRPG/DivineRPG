@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:ayeraco_statue_purple"
+        "model": "divinerpg:block/ayeraco_statue_purple"
       }
     }
   ]

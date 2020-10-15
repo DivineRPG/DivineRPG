@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:ayeraco_beam_yellow"
+    "": {
+      "model": "divinerpg:block/ayeraco_beam_yellow"
     }
   }
 }

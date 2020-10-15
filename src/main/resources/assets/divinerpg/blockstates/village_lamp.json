@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:village_lamp"
+    "": {
+      "model": "divinerpg:block/village_lamp"
     }
   }
 }

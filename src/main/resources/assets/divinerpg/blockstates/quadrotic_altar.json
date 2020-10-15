@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:quadrotic_altar"
+    "": {
+      "model": "divinerpg:block/quadrotic_altar"
     }
   }
 }

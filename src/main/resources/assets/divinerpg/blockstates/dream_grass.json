@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:dream_grass"
+    "": {
+      "model": "divinerpg:block/dream_grass"
     }
   }
 }

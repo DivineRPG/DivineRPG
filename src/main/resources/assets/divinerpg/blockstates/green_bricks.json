@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:green_bricks"
+    "": {
+      "model": "divinerpg:block/green_bricks"
     }
   }
 }

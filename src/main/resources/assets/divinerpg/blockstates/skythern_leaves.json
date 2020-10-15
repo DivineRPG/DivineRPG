@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:skythern_leaves"
+        "model": "divinerpg:block/skythern_leaves"
       }
     }
   ]

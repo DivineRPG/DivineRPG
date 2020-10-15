@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:skythern_portal_ew"
+      "model": "divinerpg:block/skythern_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:skythern_portal_ns"
+      "model": "divinerpg:block/skythern_portal_ns"
     }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:torridite_block",
+    "divinerpg:bloodgem_block",
+    "divinerpg:rupee_block",
+    "divinerpg:realmite_block",
+    "divinerpg:arlemite_block",
+    "divinerpg:eden_block",
+    "divinerpg:wildwood_block",
+    "divinerpg:apalachia_block",
+    "divinerpg:skythern_block",
+    "divinerpg:mortum_block",
+    "divinerpg:arcanium_block"
+  ]
+}

@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "variants": {
     "axis=z": {
-      "model": "divinerpg:apalachia_portal_ew"
+      "model": "divinerpg:block/apalachia_portal_ew"
     },
     "axis=x": {
-      "model": "divinerpg:apalachia_portal_ns"
+      "model": "divinerpg:block/apalachia_portal_ns"
     }
   }
 }

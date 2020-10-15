@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "divinerpg:bloodgem_ore"
+    "": {
+      "model": "divinerpg:block/bloodgem_ore"
     }
   }
 }
