@@ -1,18 +1,18 @@
 {
-  "display":{
-    "icon":{
-      "item":"divinerpg:eversight"
+  "display": {
+    "icon": {
+      "item": "divinerpg:eversight"
     },
-    "title":{
-      "translate":"advancement.divinerpg.vethea.ever_cry_never_life"
+    "title": {
+      "translate": "advancement.divinerpg.vethea.ever_cry_never_life"
     },
-    "frame":"challenge",
-    "description":{
-      "translate":"advancement.divinerpg.vethea.ever_cry_never_life.desc"
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.vethea.ever_cry_never_life.desc"
     },
-    "announce_to_chat":true
+    "announce_to_chat": true
   },
-  "parent":"divinerpg:vethea/lunar_emissary",
+  "parent": "divinerpg:vethea/lunar_emissary",
   "criteria": {
     "obtain_everbright": {
       "trigger": "minecraft:inventory_changed",

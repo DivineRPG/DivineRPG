@@ -1,13 +1,11 @@
 package TeamDivineRPG.divinerpg.registries;
 
 import TeamDivineRPG.divinerpg.DivineRPG;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.*;
 
 import java.util.ArrayList;
 
@@ -240,7 +238,7 @@ public class SoundRegistry {
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> evt) {
         IForgeRegistry<SoundEvent> registry = evt.getRegistry();
-        for(SoundEvent event: SOUND_EVENTS) {
+        for (SoundEvent event : SOUND_EVENTS) {
             registry.register(event);
         }
     }

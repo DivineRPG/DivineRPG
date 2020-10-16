@@ -1,7 +1,6 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
+import net.minecraft.block.*;
 
 public class BlockModSlab extends SlabBlock {
     public BlockModSlab(String name, Block base, float hardness) {

@@ -1,24 +1,24 @@
 {
-  "display":{
-    "icon":{
-      "item":"divinerpg:hive_egg"
+  "display": {
+    "icon": {
+      "item": "divinerpg:hive_egg"
     },
-    "title":{
-      "translate":"advancement.divinerpg.vethea.royal_beeswax"
+    "title": {
+      "translate": "advancement.divinerpg.vethea.royal_beeswax"
     },
-    "frame":"challenge",
-    "description":{
-      "translate":"advancement.divinerpg.vethea.royal_beeswax.desc"
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.vethea.royal_beeswax.desc"
     },
-    "announce_to_chat":true
+    "announce_to_chat": true
   },
-  "parent":"divinerpg:vethea/for_the_man_who_has_everything",
-  "criteria":{
-    "kill_hive_queen":{
-      "trigger":"minecraft:player_killed_entity",
-      "conditions":{
-        "entity":{
-          "type":"divinerpg:hive_queen"
+  "parent": "divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "kill_hive_queen": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:hive_queen"
         }
       }
     }

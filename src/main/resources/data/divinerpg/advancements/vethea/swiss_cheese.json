@@ -1,24 +1,24 @@
 {
-  "display":{
-    "icon":{
-      "item":"divinerpg:heliosis_lump"
+  "display": {
+    "icon": {
+      "item": "divinerpg:heliosis_lump"
     },
-    "title":{
-      "translate":"advancement.divinerpg.vethea.swiss_cheese"
+    "title": {
+      "translate": "advancement.divinerpg.vethea.swiss_cheese"
     },
-    "frame":"challenge",
-    "description":{
-      "translate":"advancement.divinerpg.vethea.swiss_cheese.desc"
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.vethea.swiss_cheese.desc"
     },
-    "announce_to_chat":true
+    "announce_to_chat": true
   },
-  "parent":"divinerpg:vethea/i_am_mad_scientist",
-  "criteria":{
-    "kill_raglok":{
-      "trigger":"minecraft:player_killed_entity",
-      "conditions":{
-        "entity":{
-          "type":"divinerpg:raglok"
+  "parent": "divinerpg:vethea/i_am_mad_scientist",
+  "criteria": {
+    "kill_raglok": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:raglok"
         }
       }
     }

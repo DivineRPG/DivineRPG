@@ -1,102 +1,102 @@
 {
-   "pools":[
-      {
-         "name":"divinerpg:experienced_cori",
-         "rolls":1,
-         "entries":[
+  "pools": [
+    {
+      "name": "divinerpg:experienced_cori",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_fragments",
+          "weight": 20,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:skythern_fragments",
-               "weight": 20,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":0,
-                        "max":4
-                     }
-                  },
-                  {
-                     "function": "looting_enchant",
-                     "count": {
-                        "min": 0,
-                        "max": 8
-                     }
-                  }
-               ]
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 4
+              }
             },
             {
-               "type": "item",
-               "name": "divinerpg:halite_shield",
-               "weight": 1,
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": 1
-                  }
-               ]
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 8
+              }
             }
-         ]
-      },
-      {
-         "name":"divinerpg:experienced_cori_heart_drop",
-         "rolls": 1,
-         "entries": [
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:halite_shield",
+          "weight": 1,
+          "functions": [
             {
-               "type": "item",
-               "weight": 1,
-               "name": "divinerpg:skythern_heart",
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": {
-                        "min": 1,
-                        "max": 4
-                     }
-                  },
-                  {
-                     "function": "looting_enchant",
-                     "count": {
-                        "min": 0,
-                        "max": 1
-                     }
-                  }
-               ]
+              "function": "set_count",
+              "count": 1
             }
-         ]
-      },
-      {
-         "name":"divinerpg:experienced_cori",
-         "rolls":1,
-         "entries":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:experienced_cori_heart_drop",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "divinerpg:skythern_heart",
+          "functions": [
             {
-               "type":"item",
-               "name": "divinerpg:skythern_blitz",
-               "weight": 5,
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": 1
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:experienced_cori_statue_drop",
-         "conditions":[
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            },
             {
-               "condition":"killed_by_player"
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
-         ],
-         "rolls":1,
-         "entries":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:experienced_cori",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_blitz",
+          "weight": 5,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:experienced_cori_statue",
-               "weight":1
+              "function": "set_count",
+              "count": 1
             }
-         ]
-      }
-   ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:experienced_cori_statue_drop",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:experienced_cori_statue",
+          "weight": 1
+        }
+      ]
+    }
+  ]
 }

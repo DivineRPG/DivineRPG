@@ -1,24 +1,24 @@
 {
-  "display":{
-    "icon":{
-      "item":"divinerpg:eden_heart"
+  "display": {
+    "icon": {
+      "item": "divinerpg:eden_heart"
     },
-    "title":{
-      "translate":"advancement.divinerpg.twilight.champion_of_light"
+    "title": {
+      "translate": "advancement.divinerpg.twilight.champion_of_light"
     },
-    "frame":"challenge",
-    "description":{
-      "translate":"advancement.divinerpg.twilight.champion_of_light.desc"
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.twilight.champion_of_light.desc"
     },
-    "announce_to_chat":true
+    "announce_to_chat": true
   },
-  "parent":"divinerpg:twilight/1001_possibilities",
-  "criteria":{
-    "kill_boss_sunstorm":{
-      "trigger":"minecraft:player_killed_entity",
-      "conditions":{
-        "entity":{
-          "type":"divinerpg:sunstorm"
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "kill_boss_sunstorm": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:sunstorm"
         }
       }
     }

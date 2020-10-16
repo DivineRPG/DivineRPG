@@ -12,14 +12,14 @@
     "announce_to_chat": true
   },
   "parent": "divinerpg:iceika/frozen_goods",
-   "criteria":{
-      "talk_to_workshop_tinkerer":{
-         "trigger":"minecraft:villager_trade",
-         "conditions":{
-            "villager":{
-               "type":"divinerpg:workshop_tinkerer"
-            }
-         }
+  "criteria": {
+    "talk_to_workshop_tinkerer": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "type": "divinerpg:workshop_tinkerer"
+        }
       }
-   }
+    }
+  }
 }

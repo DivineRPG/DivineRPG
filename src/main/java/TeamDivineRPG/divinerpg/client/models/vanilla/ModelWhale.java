@@ -4,8 +4,7 @@ import TeamDivineRPG.divinerpg.entities.vanilla.EntityWhale;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelWhale<T extends EntityWhale> extends SegmentedModel<T> {

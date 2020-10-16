@@ -4,7 +4,7 @@
   },
   "pattern": [
     "MMM",
-	"WWW"
+    "WWW"
   ],
   "type": "forge:ore_shaped",
   "key": {

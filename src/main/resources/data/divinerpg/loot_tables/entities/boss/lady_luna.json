@@ -1,75 +1,75 @@
 {
-  "pools":[
+  "pools": [
     {
-      "name":"divinerpg:lady_luna",
-      "rolls":1,
-      "entries":[
+      "name": "divinerpg:lady_luna",
+      "rolls": 1,
+      "entries": [
         {
-          "type":"item",
-          "name":"divinerpg:everbright",
-          "weight":1,
-          "functions":[
+          "type": "item",
+          "name": "divinerpg:everbright",
+          "weight": 1,
+          "functions": [
             {
-              "function":"set_count",
-              "count":{
-                "min":1,
-                "max":1
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
         },
         {
-          "type":"item",
-          "name":"divinerpg:everfright",
-          "weight":1,
-          "functions":[
+          "type": "item",
+          "name": "divinerpg:everfright",
+          "weight": 1,
+          "functions": [
             {
-              "function":"set_count",
-              "count":{
-                "min":1,
-                "max":1
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
         },
         {
-          "type":"item",
-          "name":"divinerpg:evernight",
-          "weight":1,
-          "functions":[
+          "type": "item",
+          "name": "divinerpg:evernight",
+          "weight": 1,
+          "functions": [
             {
-              "function":"set_count",
-              "count":{
-                "min":1,
-                "max":1
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
         },
         {
-          "type":"item",
-          "name":"divinerpg:everlight",
-          "weight":1,
-          "functions":[
+          "type": "item",
+          "name": "divinerpg:everlight",
+          "weight": 1,
+          "functions": [
             {
-              "function":"set_count",
-              "count":{
-                "min":1,
-                "max":1
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]
         },
         {
-          "type":"item",
-          "name":"divinerpg:eversight",
-          "weight":1,
-          "functions":[
+          "type": "item",
+          "name": "divinerpg:eversight",
+          "weight": 1,
+          "functions": [
             {
-              "function":"set_count",
-              "count":{
-                "min":1,
-                "max":1
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
               }
             }
           ]

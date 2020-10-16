@@ -1,21 +1,11 @@
 package TeamDivineRPG.divinerpg.entities.vanilla;
 
-import TeamDivineRPG.divinerpg.DivineRPG;
 import TeamDivineRPG.divinerpg.entities.base.EntityDivineWaterMob;
-import TeamDivineRPG.divinerpg.registries.LootTableRegistry;
-import TeamDivineRPG.divinerpg.registries.SoundRegistry;
+import TeamDivineRPG.divinerpg.registries.*;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class EntityWhale extends EntityDivineWaterMob {
 
@@ -44,14 +34,13 @@ public class EntityWhale extends EntityDivineWaterMob {
     }
 
     @Override
-    public void livingTick()
-    {
+    public void livingTick() {
         super.livingTick();
-        if(!this.isInWater()) {
-            if(rand.nextInt(2) == 0) {
+        if (!this.isInWater()) {
+            if (rand.nextInt(2) == 0) {
 
-                for(float x = -0.25F; x <= 0.25F; x += 0.125F) {
-                    for(float z = -0.25F; z <= 0.25F; z += 0.125F) {
+                for (float x = -0.25F; x <= 0.25F; x += 0.125F) {
+                    for (float z = -0.25F; z <= 0.25F; z += 0.125F) {
                         world.addParticle(ParticleTypes.DRIPPING_WATER, getPosX() + x, getPosY(), getPosZ() + z, 0, 0.4, 0);
                     }
                 }

@@ -1,25 +1,25 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:eden_soul"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.twilight.friend_or_foe"
-      },
-      "description":{
-         "translate":"advancement.divinerpg.twilight.friend_or_foe.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent": "divinerpg:twilight/1001_possibilities",
-   "criteria":{
-      "kill_twilight_bunny":{
-         "trigger":"minecraft:player_killed_entity",
-         "conditions":{
-            "entity":{
-               "type":"divinerpg:bunny"
-            }
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:eden_soul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.friend_or_foe"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.twilight.friend_or_foe.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "kill_twilight_bunny": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:bunny"
+        }
       }
-   }
+    }
+  }
 }

@@ -1,24 +1,24 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:wildwood_block"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.twilight.forest_islands"
-      },
-      "frame":"goal",
-      "description":{
-         "translate":"advancement.divinerpg.twilight.forest_islands.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent":"divinerpg:twilight/1001_possibilities",
-   "criteria":{
-      "enter_wildwood":{
-         "trigger":"minecraft:changed_dimension",
-         "conditions":{
-            "to":"divinerpg:wildwood"
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:wildwood_block"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.forest_islands"
+    },
+    "frame": "goal",
+    "description": {
+      "translate": "advancement.divinerpg.twilight.forest_islands.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "enter_wildwood": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "divinerpg:wildwood"
       }
-   }
+    }
+  }
 }

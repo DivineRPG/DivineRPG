@@ -1,26 +1,26 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:halite_slicer"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.twilight.arachnophobia"
-      },
-      "frame":"challenge",
-      "description":{
-         "translate":"advancement.divinerpg.twilight.arachnophobia.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent":"divinerpg:twilight/dark_another_day",
-   "criteria":{
-      "kill_boss_soul_fiend":{
-         "trigger":"minecraft:player_killed_entity",
-         "conditions":{
-            "entity":{
-               "type":"divinerpg:soul_fiend"
-            }
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:halite_slicer"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.arachnophobia"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.twilight.arachnophobia.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:twilight/dark_another_day",
+  "criteria": {
+    "kill_boss_soul_fiend": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:soul_fiend"
+        }
       }
-   }
+    }
+  }
 }

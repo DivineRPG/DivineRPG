@@ -1,6 +1,6 @@
 {
-    "parent": "block/wall_inventory",
-    "textures": {
-        "wall": "divinerpg:blocks/degraded_bricks"
-    }
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "divinerpg:blocks/degraded_bricks"
+  }
 }

@@ -1,25 +1,25 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:chicken_dinner"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.overworld.a_meal_to_remember"
-      },
-      "description":{
-         "translate":"advancement.divinerpg.overworld.a_meal_to_remember.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent":"divinerpg:overworld/root",
-   "criteria":{
-      "eat_chicken_dinner":{
-         "trigger":"minecraft:consume_item",
-         "conditions":{
-            "item":{
-               "item":"divinerpg:chicken_dinner"
-            }
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:chicken_dinner"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.overworld.a_meal_to_remember"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.overworld.a_meal_to_remember.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:overworld/root",
+  "criteria": {
+    "eat_chicken_dinner": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "divinerpg:chicken_dinner"
+        }
       }
-   }
+    }
+  }
 }

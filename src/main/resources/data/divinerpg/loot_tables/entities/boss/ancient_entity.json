@@ -1,56 +1,56 @@
 {
-   "pools":[
-      {
-         "name":"divinerpg:ancient_entity",
-         "rolls":1,
-         "entries":[
+  "pools": [
+    {
+      "name": "divinerpg:ancient_entity",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:divine_shards",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:divine_shards",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":3,
-                        "max":6
-                     }
-                  }
-               ]
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 6
+              }
             }
-         ]
-      },
-      {
-         "name":"divinerpg:ancient_entity",
-         "conditions":[
-            {
-               "condition":"killed_by_player"
-            }
-         ],
-         "rolls":1,
-         "entries":[
-            {
-               "type":"item",
-               "name":"divinerpg:sandslash",
-               "weight":1
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:ancient_entity_statue_drop",
-         "conditions":[
-            {
-               "condition":"killed_by_player"
-            }
-         ],
-         "rolls":1,
-         "entries":[
-            {
-               "type":"item",
-               "name":"divinerpg:ancient_entity_statue",
-               "weight":1
-            }
-         ]
-      }
-   ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:ancient_entity",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:sandslash",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:ancient_entity_statue_drop",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:ancient_entity_statue",
+          "weight": 1
+        }
+      ]
+    }
+  ]
 }

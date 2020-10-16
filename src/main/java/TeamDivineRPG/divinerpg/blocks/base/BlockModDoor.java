@@ -1,8 +1,7 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
 import TeamDivineRPG.divinerpg.DivineRPG;
-import net.minecraft.block.Block;
-import net.minecraft.block.DoorBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 

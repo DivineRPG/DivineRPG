@@ -1,8 +1,7 @@
 package TeamDivineRPG.divinerpg.util;
 
 import net.minecraft.item.Food;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.potion.*;
 
 public class FoodList {
     public static final Food ADVANCED_MUSHROOM_STEW = (new Food.Builder()).hunger(10).saturation(0.5F).build();
@@ -29,7 +28,7 @@ public class FoodList {
     public static final Food TOMATO = (new Food.Builder()).hunger(4).saturation(0.3F).build();
     public static final Food WHITE_MUSHROOM = (new Food.Builder()).hunger(1).saturation(0.1F).build();
     public static final Food WINTERBERRY = (new Food.Builder()).hunger(4).saturation(1.0F).build();
-    
+
     public static final Food ENRICHED_MAGIC_MEAT = (new Food.Builder()).hunger(7).saturation(1.0F).build();
     public static final Food MAGIC_MEAT = (new Food.Builder()).hunger(5).saturation(1.0F).build();
     public static final Food MOONBULB = (new Food.Builder()).hunger(1).saturation(2.0F).build();

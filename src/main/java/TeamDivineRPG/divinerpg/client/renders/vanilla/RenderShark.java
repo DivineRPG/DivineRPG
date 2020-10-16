@@ -1,36 +1,32 @@
-package TeamDivineRPG.divinerpg.client.renders;
+package TeamDivineRPG.divinerpg.client.renders.vanilla;
 
 
 import TeamDivineRPG.divinerpg.DivineRPG;
-import TeamDivineRPG.divinerpg.client.models.vanilla.ModelWhale;
-import TeamDivineRPG.divinerpg.entities.vanilla.EntityWhale;
+import TeamDivineRPG.divinerpg.client.models.vanilla.ModelShark;
+import TeamDivineRPG.divinerpg.entities.vanilla.EntityShark;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3f;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderWhale extends EntityRenderer<EntityWhale> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/whale.png");
-    protected final ModelWhale model = new ModelWhale();
+public class RenderShark extends EntityRenderer<EntityShark> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/shark.png");
+    protected final ModelShark model = new ModelShark();
 
-    public RenderWhale(EntityRendererManager renderManagerIn) {
+    public RenderShark(EntityRendererManager renderManagerIn) {
         super(renderManagerIn);
         this.shadowSize = 0.8F;
     }
 
-    public void render(EntityWhale entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
+    public void render(EntityShark entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
         matrixStackIn.push();
-        matrixStackIn.translate(0f, -5f, 0f);
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
-        matrixStackIn.scale(5.0F, 5.0F, 5.0F);
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(90.0F));
         float f = 4.3F * MathHelper.sin(0.6F * entityIn.ticksExisted);
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f));
@@ -46,7 +42,7 @@ public class RenderWhale extends EntityRenderer<EntityWhale> {
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
     }
 
-    public ResourceLocation getEntityTexture(EntityWhale entity) {
+    public ResourceLocation getEntityTexture(EntityShark entity) {
         return TEXTURE;
     }
 }

@@ -13,12 +13,12 @@
     "announce_to_chat": true
   },
   "parent": "divinerpg:twilight/root",
-   "criteria":{
-      "enter_eden":{
-         "trigger":"minecraft:changed_dimension",
-         "conditions":{
-           "to": "divinerpg:eden"
-         }
+  "criteria": {
+    "enter_eden": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "divinerpg:eden"
       }
-   }
+    }
+  }
 }

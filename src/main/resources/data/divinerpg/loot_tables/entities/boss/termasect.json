@@ -1,111 +1,111 @@
 {
-   "pools":[
-      {
-         "name":"divinerpg:termasect",
-         "rolls":1,
-         "entries":[
+  "pools": [
+    {
+      "name": "divinerpg:termasect",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:wildwood_fragments",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:wildwood_fragments",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":0,
-                        "max":4
-                     }
-                  },
-                  {
-                     "function": "looting_enchant",
-                     "count": {
-                        "min": 0,
-                        "max": 8
-                     }
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:termasect_heart_drop",
-         "rolls": 1,
-         "entries": [
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 4
+              }
+            },
             {
-               "type": "item",
-               "weight": 1,
-               "name": "divinerpg:wildwood_heart",
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": {
-                        "min": 1,
-                        "max": 4
-                     }
-                  },
-                  {
-                     "function": "looting_enchant",
-                     "count": {
-                        "min": 0,
-                        "max": 1
-                     }
-                  }
-               ]
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 8
+              }
             }
-         ]
-      },
-      {
-         "name":"divinerpg:termasect",
-         "rolls":1,
-         "entries":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:termasect_heart_drop",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_heart",
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:wildwood_log",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":64,
-                        "max":100
-                     }
-				}
-               ]
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:termasect",
-         "rolls":1,
-         "entries":[
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            },
             {
-               "type":"item",
-               "name": "divinerpg:wildwood_blitz",
-               "weight": 1,
-               "functions": [
-                  {
-                     "function": "set_count",
-                     "count": 1
-                  }
-               ]
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
-         ]
-      },
-      {
-         "name":"divinerpg:termasect_statue_drop",
-         "conditions":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:termasect",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:wildwood_log",
+          "weight": 1,
+          "functions": [
             {
-               "condition":"killed_by_player"
+              "function": "set_count",
+              "count": {
+                "min": 64,
+                "max": 100
+              }
             }
-         ],
-         "rolls":1,
-         "entries":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:termasect",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:wildwood_blitz",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:termasect_statue",
-               "weight":1
+              "function": "set_count",
+              "count": 1
             }
-         ]
-      }
-   ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:termasect_statue_drop",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:termasect_statue",
+          "weight": 1
+        }
+      ]
+    }
+  ]
 }

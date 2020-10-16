@@ -13,16 +13,16 @@
     "announce_to_chat": true
   },
   "parent": "divinerpg:arcana/root",
-   "criteria":{
-      "obtian_demon_furnace":{
-         "trigger":"minecraft:inventory_changed",
-         "conditions":{
-           "items":[
-             {
-               "item":"divinerpg:demon_furnace"
-             }
-           ]
-         }
+  "criteria": {
+    "obtian_demon_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:demon_furnace"
+          }
+        ]
       }
-   }
+    }
+  }
 }

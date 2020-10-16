@@ -1,14 +1,13 @@
 package TeamDivineRPG.divinerpg.registries;
 
 import TeamDivineRPG.divinerpg.DivineRPG;
-import TeamDivineRPG.divinerpg.items.arcana.*;
+import TeamDivineRPG.divinerpg.items.arcana.ItemAquamarine;
 import TeamDivineRPG.divinerpg.items.base.*;
 import TeamDivineRPG.divinerpg.items.iceika.ItemEggNog;
-import TeamDivineRPG.divinerpg.items.twilight.*;
+import TeamDivineRPG.divinerpg.items.twilight.ItemForbiddenFruit;
 import TeamDivineRPG.divinerpg.items.vethea.ItemVethean;
-import TeamDivineRPG.divinerpg.util.DivineToolMaterials;
-import TeamDivineRPG.divinerpg.util.FoodList;
-import net.minecraft.block.*;
+import TeamDivineRPG.divinerpg.util.*;
+import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.event.RegistryEvent;
@@ -313,8 +312,6 @@ public class ItemRegistry {
     public static final Item skythernDust = null;
     @ObjectHolder("mortum_dust")
     public static final Item mortumDust = null;
-
-
 
 
     // Twilight boss spawners
@@ -1638,7 +1635,6 @@ public class ItemRegistry {
 //    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
 
 
-
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> e) {
         register(e, new ItemMod("apalachia_chunk"));
@@ -2383,15 +2379,18 @@ public class ItemRegistry {
 //        register(e, new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
 
     }
+
     private static void register(RegistryEvent.Register<Item> event, Item item) {
         event.getRegistry().register(item);
     }
-    private static void registerArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material){
+
+    private static void registerArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material) {
         register(registry, new ItemDivineArmor(prefix + "_helmet", material, EquipmentSlotType.HEAD));
         register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EquipmentSlotType.CHEST));
         register(registry, new ItemDivineArmor(prefix + "_leggings", material, EquipmentSlotType.LEGS));
         register(registry, new ItemDivineArmor(prefix + "_boots", material, EquipmentSlotType.FEET));
     }
+
     private static void registerVetheanArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material, IArmorMaterial hoodMaterial, IArmorMaterial maskMaterial) {
         register(registry, new ItemDivineArmor(prefix + "_helmet", material, EquipmentSlotType.HEAD));
         register(registry, new ItemDivineArmor(prefix + "_hood", hoodMaterial, EquipmentSlotType.HEAD));

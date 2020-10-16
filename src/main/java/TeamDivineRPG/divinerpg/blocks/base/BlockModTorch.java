@@ -1,7 +1,6 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TorchBlock;
+import net.minecraft.block.*;
 
 public class BlockModTorch extends TorchBlock {
     public BlockModTorch(String name) {

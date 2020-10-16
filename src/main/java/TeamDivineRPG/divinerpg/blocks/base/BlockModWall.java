@@ -1,7 +1,6 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.*;
 
 public class BlockModWall extends WallBlock {
     public BlockModWall(String name, Block block, float hardness) {

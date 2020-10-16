@@ -1,17 +1,16 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
+import net.minecraft.block.*;
+import net.minecraft.state.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class BlockModPowered extends BlockMod{
+public class BlockModPowered extends BlockMod {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
+
     public BlockModPowered(String name, Properties properties) {
         super(name, properties);
         this.setDefaultState(getStateContainer().getBaseState().with(POWERED, false));
@@ -23,7 +22,7 @@ public class BlockModPowered extends BlockMod{
 
     @Override
     public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
-            handleBlockState(state, worldIn, pos);
+        handleBlockState(state, worldIn, pos);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.block.WallTorchBlock;
+import net.minecraft.block.*;
 
 public class BlockModWallTorch extends WallTorchBlock {
 

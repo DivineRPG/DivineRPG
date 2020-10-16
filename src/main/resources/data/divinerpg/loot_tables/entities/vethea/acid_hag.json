@@ -1,58 +1,58 @@
 {
-   "pools":[
-      {
-         "name":"divinerpg:acid_hag",
-         "rolls":1,
-         "entries":[
+  "pools": [
+    {
+      "name": "divinerpg:acid_hag",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:dirty_pearls",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:dirty_pearls",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":1,
-                        "max":1
-                     }
-                  },
-                  {
-                     "function":"looting_enchant",
-                     "count":{
-                        "min":0,
-                        "max":1
-                     }
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:acid_hag",
-         "rolls":1,
-         "entries":[
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
             {
-               "type":"item",
-               "name":"divinerpg:acid",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":1,
-                        "max":3
-                     }
-                  },
-                  {
-                     "function":"looting_enchant",
-                     "count":{
-                        "min":0,
-                        "max":1
-                     }
-                  }
-               ]
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
-         ]
-      }
-   ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:acid_hag",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:acid",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

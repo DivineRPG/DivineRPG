@@ -1,10 +1,7 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.LadderBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
 
 public class BlockModLadder extends LadderBlock {
     public BlockModLadder(String name, MaterialColor color) {

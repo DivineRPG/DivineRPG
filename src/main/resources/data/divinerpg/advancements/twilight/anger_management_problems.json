@@ -1,26 +1,26 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:halite_phaser"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.twilight.anger_management_problems"
-      },
-      "frame":"challenge",
-      "description":{
-         "translate":"advancement.divinerpg.twilight.anger_management_problems.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent":"divinerpg:twilight/dark_another_day",
-   "criteria":{
-      "kill_boss_karot":{
-         "trigger":"minecraft:player_killed_entity",
-         "conditions":{
-            "entity":{
-               "type":"divinerpg:karot"
-            }
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:halite_phaser"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.anger_management_problems"
+    },
+    "frame": "challenge",
+    "description": {
+      "translate": "advancement.divinerpg.twilight.anger_management_problems.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:twilight/dark_another_day",
+  "criteria": {
+    "kill_boss_karot": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:karot"
+        }
       }
-   }
+    }
+  }
 }

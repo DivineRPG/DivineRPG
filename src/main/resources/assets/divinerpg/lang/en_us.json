@@ -1,5 +1,4 @@
 {
-
   "itemGroup.divinerpg_blocks": "DivineRPG: Blocks",
   "itemGroup.divinerpg_ranged_weapons": "DivineRPG: Ranged Weapons",
   "itemGroup.divinerpg_melee_weapons": "DivineRPG: Melee Weapons",
@@ -10,7 +9,6 @@
   "itemGroup.divinerpg_utility": "DivineRPG: Utility",
   "itemGroup.divinerpg_food_and_agriculture": "DivineRPG: Food and Agriculture",
   "itemGroup.divinerpg_vethea": "DivineRPG: Vethea",
-
   "divinerpg.wip": "This item is WIP. it will not work as intended",
   "divinerpg.blockwip": "This block is WIP. it will not work as intended",
   "divinerpg.torridite": "Formerly Netherite",
@@ -18,7 +16,6 @@
   "divinerpg.log": "Still need to make stripped log variants. WIP",
   "divinerpg.collision": "Still need to sort block collision. WIP",
   "divinerpg.armor": "Still need to port armor abilities. WIP",
-
   "block.divinerpg.divine_sapling": "Divine Sapling",
   "block.divinerpg.rupee_ore": "Rupee Ore",
   "block.divinerpg.arlemite_ore": "Arlemite Ore",
@@ -460,7 +457,6 @@
   "block.divinerpg.dreamwrecker_spawner": "Dream Wrecker Spawner",
   "block.divinerpg.experienced_cori_statue": "Experienced Cori Statue",
   "block.divinerpg.arcanite_ladder": "Arcanite Ladder",
-
   "block.divinerpg.ancient_bricks_breakable": "Ancient Bricks (Breakable)",
   "block.divinerpg.ancient_brick_double_slab_breakable": "Ancient Brick Double Slab (Breakable)",
   "block.divinerpg.ancient_brick_slab_breakable": "Ancient Brick Slab (Breakable)",
@@ -479,9 +475,7 @@
   "block.divinerpg.soul_sludge_breakable": "Soul Sludge (Breakable)",
   "block.divinerpg.soul_stone_breakable": "Soul Stone (Breakable)",
   "block.divinerpg.arcanium_block": "Arcanium Block",
-
   "container.iceika_chest": "Iceika Chest",
-
   "item.divinerpg.steel_door": "Steel Door",
   "item.divinerpg.soul_stone_door": "Soul Stone Door",
   "item.divinerpg.soul_sludge_door": "Soul Sludge Door",
@@ -1180,13 +1174,10 @@
   "item.divinerpg.realmite_nugget": "Realmite Nugget",
   "item.divinerpg.rupee_nugget": "Rupee Nugget",
   "item.divinerpg.torridite_nugget": "Torridite Nugget",
-
-
   "death.attack.trap": "%1$s fell into a trap",
   "death.attack.spike": "%1$s walked on spikes",
   "death.attack.acid": "%1$s melted in acid",
   "death.attack.arcana": "%1$s was killed by magic",
-
   "entity.divinerpg.acid_hag": "Acid Hag",
   "entity.divinerpg.advanced_cori": "Advanced Cori",
   "entity.divinerpg.alicanto": "Alicanto",
@@ -1361,7 +1352,6 @@
   "entity.divinerpg.termasect": "Termasect",
   "entity.divinerpg.termid": "Termid",
   "entity.divinerpg.experienced_cori": "Experienced Cori",
-
   "advancement.divinerpg.overworld.root": "DivineRPG",
   "advancement.divinerpg.overworld.root.desc": "The journey begins...",
   "advancement.divinerpg.overworld.a_divine_plan": "A Divine Plan",
@@ -1384,21 +1374,18 @@
   "advancement.divinerpg.overworld.when_pigs_fly.desc": "Wear a full angelic armor set",
   "advancement.divinerpg.overworld.towering_guardian": "Towering Guardian",
   "advancement.divinerpg.overworld.towering_guardian.desc": "Kill the Ancient Entity",
-
   "advancement.divinerpg.nether.eternal_flame": "Eternal Flame",
   "advancement.divinerpg.nether.eternal_flame.desc": "Kill the King of Scorchers",
   "advancement.divinerpg.nether.off_key": "Off Key",
   "advancement.divinerpg.nether.off_key.desc": "Shoot a Sound of Music",
   "advancement.divinerpg.nether.overseeing_eye": "Overseeing Eye",
   "advancement.divinerpg.nether.overseeing_eye.desc": "Kill the Watcher",
-
   "advancement.divinerpg.end.blown_away": "Blown Away",
   "advancement.divinerpg.end.blown_away.desc": "Craft a Horde Horn",
   "advancement.divinerpg.end.swarm_of_the_void": "Swarm of the Void",
   "advancement.divinerpg.end.swarm_of_the_void.desc": "Kill the Ayeraco Horde",
   "advancement.divinerpg.end.triple_the_danger": "Triple The Danger",
   "advancement.divinerpg.end.triple_the_danger.desc": "Kill an Ender Triplet",
-
   "advancement.divinerpg.iceika.root": "Iceika",
   "advancement.divinerpg.iceika.root.desc": "The frozen land",
   "advancement.divinerpg.iceika.a_lil_gift": "A Lil' Gift",
@@ -1407,7 +1394,6 @@
   "advancement.divinerpg.iceika.a_lil_tinkering.desc": "Trade with a Workshop Tinkerer",
   "advancement.divinerpg.iceika.frozen_goods": "Frozen Goods",
   "advancement.divinerpg.iceika.frozen_goods.desc": "Obtain a Snowflake",
-
   "advancement.divinerpg.arcana.root": "Arcana",
   "advancement.divinerpg.arcana.root.desc": "What lies within?",
   "advancement.divinerpg.arcana.disgusting": "Disgusting!",
@@ -1426,7 +1412,6 @@
   "advancement.divinerpg.arcana.the_tempest.desc": "Buy a Storm Sword",
   "advancement.divinerpg.arcana.total_demonization": "Total Demonization",
   "advancement.divinerpg.arcana.total_demonization.desc": "Use the Demon Furnace",
-
   "advancement.divinerpg.twilight.root": "Twilight Dimensions",
   "advancement.divinerpg.twilight.root.desc": "Taste the rainbow",
   "advancement.divinerpg.twilight.1001_possibilities": "1001 Possibilities",
@@ -1463,7 +1448,6 @@
   "advancement.divinerpg.twilight.observer_of_the_skies.desc": "Kill the Experienced Cori",
   "advancement.divinerpg.twilight.purple_planet": "Purple Planet",
   "advancement.divinerpg.twilight.purple_planet.desc": "Enter the Apalachia dimension",
-
   "advancement.divinerpg.vethea.root": "Vethea",
   "advancement.divinerpg.vethea.root.desc": "Find your remaining sense of pain",
   "advancement.divinerpg.vethea.an_elm_on_nightmare_street": "An Elm on Nightmare Street",
@@ -1494,9 +1478,7 @@
   "advancement.divinerpg.vethea.temple_of_doom.desc": "Obtain a Cermile Lump from a temple",
   "advancement.divinerpg.vethea.unlimited_power": "Unlimited Power",
   "advancement.divinerpg.vethea.unlimited_power.desc": "Kill Wreck",
-
   "fluid.smoldering_tar": "Smoldering Tar",
-
   "message.jackoman.boo": "BOO!",
   "message.jackoman.lost": "I seem to have lost my head.",
   "message.jackoman.hurah": "HURAH!",
@@ -1627,7 +1609,6 @@
   "message.spawner.peaceful": "You cannot summon bosses on peaceful difficulty!",
   "message.friend": "Welcome %s! They are a friend of someone on the DivineRPG team.",
   "message.spawner.item": "You must be holding %s to spawn this boss!",
-
   "tooltip.uses": "%s Uses Remaining",
   "tooltip.harvest": "Harvest Level: +",
   "tooltip.uses.infinite": "Infinite Uses",
@@ -1700,7 +1681,6 @@
   "tooltip.instant_consumption": "Instant Consumption",
   "tooltip.frosted_allure": "Seems to attract mobs",
   "tooltip.weakened_without_arcana": "Damage heavily reduced if the required arcana is not present",
-
   "tooltip.armor_info.fire_protection": "Fire Protection",
   "tooltip.armor_info.no_fall": "No Fall Damage",
   "tooltip.armor_info.fly": "Flight",
@@ -1736,11 +1716,8 @@
   "tooltip.food.saturation": "%s Saturation",
   "divinerpg.tooltip.food.pet": "Pet Food",
   "tooltip.food.heal": "Replenishes %s Health",
-
   "enchantment.world_break": "Rive",
   "enchantment.double_dealing_damage": "Aftershock",
-
   "summon.single_use_spawner.delay": "Will summon in %s seconds",
-
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors."
 }

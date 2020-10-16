@@ -1,28 +1,28 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:frosted_chest"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.iceika.frozen_goods"
-      },
-      "frame":"goal",
-      "description":{
-         "translate":"advancement.divinerpg.iceika.frozen_goods.desc"
-      },
-      "announce_to_chat":true
-   },
-   "parent":"divinerpg:iceika/root",
-   "criteria":{
-      "obtain_snowflake":{
-         "trigger":"minecraft:inventory_changed",
-         "conditions":{
-            "items":[
-               {
-                  "item":"divinerpg:snowflake"
-               }
-            ]
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:frosted_chest"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.frozen_goods"
+    },
+    "frame": "goal",
+    "description": {
+      "translate": "advancement.divinerpg.iceika.frozen_goods.desc"
+    },
+    "announce_to_chat": true
+  },
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "obtain_snowflake": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "divinerpg:snowflake"
+          }
+        ]
       }
-   }
+    }
+  }
 }

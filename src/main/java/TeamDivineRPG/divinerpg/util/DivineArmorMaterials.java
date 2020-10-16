@@ -25,6 +25,7 @@ public class DivineArmorMaterials implements IArmorMaterial {
         this.soundEvent = soundEvent;
         this.repairMaterial = repairMaterial;
     }
+
     public DivineArmorMaterials(String textureName, String name, int durability, int[] damageReduction, int enchantability, SoundEvent soundEvent, float toughness, Ingredient repairMaterial) {
         this.name = name;
         this.durability = durability;

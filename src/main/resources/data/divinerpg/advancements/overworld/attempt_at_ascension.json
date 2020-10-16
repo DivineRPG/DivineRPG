@@ -3,14 +3,14 @@
     "icon": {
       "item": "divinerpg:divine_helmet"
     },
-    "title":{
-      "translate":"advancement.divinerpg.overworld.attempt_at_ascension"
+    "title": {
+      "translate": "advancement.divinerpg.overworld.attempt_at_ascension"
     },
     "frame": "challenge",
-    "description":{
-      "translate":"advancement.divinerpg.overworld.attempt_at_ascension.desc"
+    "description": {
+      "translate": "advancement.divinerpg.overworld.attempt_at_ascension.desc"
     },
-    "announce_to_chat":true
+    "announce_to_chat": true
   },
   "parent": "divinerpg:overworld/a_divine_plan",
   "criteria": {
@@ -54,52 +54,52 @@
         ]
       }
     },
-    "divine_sword":{
-      "trigger":"minecraft:inventory_changed",
-      "conditions":{
-        "items":[
+    "divine_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
           {
-            "item":"divinerpg:divine_sword"
+            "item": "divinerpg:divine_sword"
           }
         ]
       }
     },
-    "divine_axe":{
-      "trigger":"minecraft:inventory_changed",
-      "conditions":{
-        "items":[
+    "divine_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
           {
-            "item":"divinerpg:divine_axe"
+            "item": "divinerpg:divine_axe"
           }
         ]
       }
     },
-    "divine_pickaxe":{
-      "trigger":"minecraft:inventory_changed",
-      "conditions":{
-        "items":[
+    "divine_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
           {
-            "item":"divinerpg:divine_pickaxe"
+            "item": "divinerpg:divine_pickaxe"
           }
         ]
       }
     },
-    "divine_shovel":{
-      "trigger":"minecraft:inventory_changed",
-      "conditions":{
-        "items":[
+    "divine_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
           {
-            "item":"divinerpg:divine_shovel"
+            "item": "divinerpg:divine_shovel"
           }
         ]
       }
     },
-    "divine_shickaxe":{
-      "trigger":"minecraft:inventory_changed",
-      "conditions":{
-        "items":[
+    "divine_shickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
           {
-            "item":"divinerpg:divine_shickaxe"
+            "item": "divinerpg:divine_shickaxe"
           }
         ]
       }

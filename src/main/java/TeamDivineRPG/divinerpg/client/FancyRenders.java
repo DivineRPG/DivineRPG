@@ -1,11 +1,10 @@
 package TeamDivineRPG.divinerpg.client;
 
 import TeamDivineRPG.divinerpg.registries.BlockRegistry;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.*;
 
 public class FancyRenders {
-    public static void init(){
+    public static void init() {
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaSapling, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.divineSapling, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.edenSapling, RenderType.getCutoutMipped());

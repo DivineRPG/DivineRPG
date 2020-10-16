@@ -1,6 +1,5 @@
 package TeamDivineRPG.divinerpg.util;
 
-import TeamDivineRPG.divinerpg.DivineRPG;
 import net.minecraft.command.ICommandSource;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.*;
@@ -70,7 +69,7 @@ public class LocalizeUtils {
      */
     public static String infiniteAmmo() {
 //        return InfiniteAmmo.getFormattedText();
-    return null;
+        return null;
     }
 
     /**
@@ -342,6 +341,7 @@ public class LocalizeUtils {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
         return result.func_240699_a_(TextFormatting.GRAY);
     }
+
     public static ITextComponent i18n(TextFormatting color, String text, Object... args) {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
         return result.func_240699_a_(color);

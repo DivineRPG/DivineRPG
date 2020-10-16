@@ -1,23 +1,23 @@
 {
-   "display":{
-      "icon":{
-         "item":"divinerpg:arcana_portal_frame"
-      },
-      "title":{
-         "translate":"advancement.divinerpg.arcana.root"
-      },
-      "description":{
-         "translate":"advancement.divinerpg.arcana.root.desc"
-      },
-      "background":"divinerpg:textures/blocks/ancient_bricks.png",
-      "announce_to_chat":true
-   },
-   "criteria":{
-      "divinerpg":{
-         "trigger":"minecraft:changed_dimension",
-         "conditions":{
-            "to": "divinerpg:arcana"
-         }
+  "display": {
+    "icon": {
+      "item": "divinerpg:arcana_portal_frame"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.root"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.arcana.root.desc"
+    },
+    "background": "divinerpg:textures/blocks/ancient_bricks.png",
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "divinerpg": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "divinerpg:arcana"
       }
-   }
+    }
+  }
 }

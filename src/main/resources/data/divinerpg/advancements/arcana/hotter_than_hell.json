@@ -12,12 +12,12 @@
     "announce_to_chat": true
   },
   "parent": "divinerpg:arcana/root",
-   "criteria":{
-      "step_on_heat_trap":{
-         "trigger":"minecraft:enter_block",
-         "conditions":{
-            "block":"divinerpg:heat_trap_on"
-         }
+  "criteria": {
+    "step_on_heat_trap": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "divinerpg:heat_trap_on"
       }
-   }
+    }
+  }
 }

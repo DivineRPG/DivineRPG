@@ -1,28 +1,22 @@
 package TeamDivineRPG.divinerpg.blocks.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.FlowersFeature;
+import net.minecraft.world.*;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.ToolType;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected Supplier<Block> dirtSupplier;
+
     public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor color) {
         super(name, Block.Properties.create(Material.EARTH, color).tickRandomly().func_235861_h_().hardnessAndResistance(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND));
-    this.dirtSupplier=dirt;
+        this.dirtSupplier = dirt;
     }
 
     @Override
@@ -41,10 +35,10 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         BlockState blockstate = this.getDefaultState();
 
         label48:
-        for(int i = 0; i < 128; ++i) {
+        for (int i = 0; i < 128; ++i) {
             BlockPos blockpos1 = blockpos;
 
-            for(int j = 0; j < i / 16; ++j) {
+            for (int j = 0; j < i / 16; ++j) {
                 blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
                 if (!worldIn.getBlockState(blockpos1.down()).isIn(this) || worldIn.getBlockState(blockpos1).func_235785_r_(worldIn, blockpos1)) {
                     continue label48;
@@ -53,7 +47,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
             BlockState blockstate2 = worldIn.getBlockState(blockpos1);
             if (blockstate2.isIn(blockstate.getBlock()) && rand.nextInt(10) == 0) {
-                ((IGrowable)blockstate.getBlock()).grow(worldIn, rand, blockpos1, blockstate2);
+                ((IGrowable) blockstate.getBlock()).grow(worldIn, rand, blockpos1, blockstate2);
             }
 
             if (blockstate2.isAir()) {
@@ -65,7 +59,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
                     }
 
                     ConfiguredFeature<?, ?> configuredfeature = list.get(0);
-                    FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
+                    FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
                     blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
                 } else {
                     blockstate1 = blockstate;
@@ -79,7 +73,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     }
 
     public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
-     super.tick(state, world, pos, rand);
+        super.tick(state, world, pos, rand);
         if (!world.isRemote) {
             if (!world.isAreaLoaded(pos, 3))
                 return;

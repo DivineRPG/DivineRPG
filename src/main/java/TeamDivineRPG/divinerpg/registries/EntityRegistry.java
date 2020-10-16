@@ -1,14 +1,12 @@
 package TeamDivineRPG.divinerpg.registries;
 
 import TeamDivineRPG.divinerpg.DivineRPG;
-import TeamDivineRPG.divinerpg.entities.vanilla.EntityWhale;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntityType;
+import TeamDivineRPG.divinerpg.entities.vanilla.*;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -21,6 +19,7 @@ import java.lang.reflect.Field;
 public class EntityRegistry {
     //TODO - Fix loot tables
     // Finish mobs
+    public static final EntityType<EntityShark> SHARK = registerEntity(EntityType.Builder.create(EntityShark::new, EntityClassification.WATER_CREATURE).size(1F, 0.5F), "shark");
     public static final EntityType<EntityWhale> WHALE = registerEntity(EntityType.Builder.create(EntityWhale::new, EntityClassification.WATER_CREATURE).size(3F, 1.2F), "whale");
 
 
@@ -30,15 +29,19 @@ public class EntityRegistry {
     }
 
 
-    public static void bakeAttributes(){
+    public static void bakeAttributes() {
+        //Old system was health, attack, armor. Just make sure to check its in the correct order
+        GlobalEntityTypeAttributes.put(SHARK, EntityShark.attributes().func_233813_a_());
         GlobalEntityTypeAttributes.put(WHALE, EntityWhale.attributes().func_233813_a_());
 
     }
 
 
     static {
+        EntitySpawnPlacementRegistry.register(SHARK, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityShark::canSpawnOn);
         EntitySpawnPlacementRegistry.register(WHALE, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhale::canSpawnOn);
-        }
+    }
+
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
         try {
@@ -62,7 +65,17 @@ public class EntityRegistry {
     @SubscribeEvent
     public void onBiomesLoad(BiomeLoadingEvent event) {
         if (event.getCategory() == Biome.Category.OCEAN) {
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(SHARK, 1, 1, 1));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 1, 1, 1));
         }
+    }
+
+    @SubscribeEvent
+    public static void registerSpawnEggs(final RegistryEvent.Register<Item> event) {
+        event.getRegistry().registerAll(
+                new SpawnEggItem(SHARK, -3546547, -65179583, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "shark_spawn_egg"),
+                new SpawnEggItem(WHALE, -3546547, -65179583, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "whale_spawn_egg")
+
+        );
     }
 }

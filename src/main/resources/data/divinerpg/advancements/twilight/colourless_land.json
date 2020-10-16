@@ -13,12 +13,12 @@
     "announce_to_chat": true
   },
   "parent": "divinerpg:twilight/purple_planet",
-   "criteria":{
-      "enter_skythern":{
-         "trigger":"minecraft:changed_dimension",
-         "conditions":{
-            "to":"divinerpg:skythern"
-         }
+  "criteria": {
+    "enter_skythern": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "divinerpg:skythern"
       }
-   }
+    }
+  }
 }

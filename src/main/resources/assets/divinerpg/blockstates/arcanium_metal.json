@@ -1,8 +1,17 @@
 {
   "variants": {
-    "axis=y":  { "model": "divinerpg:block/arcanium_metal" },
-    "axis=z":   { "model": "divinerpg:block/arcanium_metal", "x": 90 },
-    "axis=x":   { "model": "divinerpg:block/arcanium_metal", "x": 90, "y": 90 }
+    "axis=y": {
+      "model": "divinerpg:block/arcanium_metal"
+    },
+    "axis=z": {
+      "model": "divinerpg:block/arcanium_metal",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "divinerpg:block/arcanium_metal",
+      "x": 90,
+      "y": 90
+    }
   }
 }
 

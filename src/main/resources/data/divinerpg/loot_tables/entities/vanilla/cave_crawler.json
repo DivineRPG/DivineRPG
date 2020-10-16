@@ -1,58 +1,58 @@
 {
-   "pools":[
-      {
-         "name":"divinerpg:cave_crawler",
-         "rolls":1,
-         "entries":[
+  "pools": [
+    {
+      "name": "divinerpg:cave_crawler",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:realmite_ingot",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"divinerpg:realmite_ingot",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_count",
-                     "count":{
-                        "min":0,
-                        "max":2
-                     }
-                  },
-                  {
-                     "function":"looting_enchant",
-                     "count":{
-                        "min":0,
-                        "max":1
-                     }
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "name":"divinerpg:cave_crawler",
-         "conditions":[
-            {
-               "condition":"killed_by_player"
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
             },
             {
-               "condition":"random_chance_with_looting",
-               "chance":0.025,
-               "looting_multiplier":0.01
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
             }
-         ],
-         "rolls":1,
-         "entries":[
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:cave_crawler",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 0.025,
+          "looting_multiplier": 0.01
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 1,
+          "functions": [
             {
-               "type":"item",
-               "name":"minecraft:potion",
-               "weight":1,
-               "functions":[
-                  {
-                     "function":"set_nbt",
-                     "tag":"{Potion:\"poison\"}"
-                  }
-               ]
+              "function": "set_nbt",
+              "tag": "{Potion:\"poison\"}"
             }
-         ]
-      }
-   ]
+          ]
+        }
+      ]
+    }
+  ]
 }

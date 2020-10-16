@@ -1,14 +1,9 @@
 package TeamDivineRPG.divinerpg.entities.base;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.network.datasync.*;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -38,6 +33,7 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
             compound.putString("Target", angerTargetUUID.toString());
         }
     }
+
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
         compound.getInt("Anger");
@@ -50,28 +46,22 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
 
 
     @Override
-    public void setRevengeTarget(@Nullable LivingEntity livingBase)
-    {
+    public void setRevengeTarget(@Nullable LivingEntity livingBase) {
         super.setRevengeTarget(livingBase);
 
-        if (livingBase != null)
-        {
+        if (livingBase != null) {
             this.angerTargetUUID = livingBase.getUniqueID();
         }
     }
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source))
-        {
+        if (this.isInvulnerableTo(source)) {
             return false;
-        }
-        else
-        {
+        } else {
             Entity entity = source.getTrueSource();
 
-            if (entity instanceof PlayerEntity)
-            {
+            if (entity instanceof PlayerEntity) {
                 this.becomeAngryAt(entity);
             }
 
@@ -84,13 +74,11 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
         return this.angerLevel > 0;
     }
 
-    private void becomeAngryAt(Entity target)
-    {
+    private void becomeAngryAt(Entity target) {
         this.angerLevel = 400 + this.rand.nextInt(400);
 
-        if (target instanceof LivingEntity)
-        {
-            this.setRevengeTarget((LivingEntity)target);
+        if (target instanceof LivingEntity) {
+            this.setRevengeTarget((LivingEntity) target);
         }
     }
 

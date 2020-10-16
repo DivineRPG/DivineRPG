@@ -17,7 +17,7 @@ public class BlockFrostedAllure extends BlockMod {
     @Deprecated
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         //TODO - Spawns below the allure for some reason even though it gets top block
-        WorldEntitySpawner.performWorldGenSpawning(worldIn, worldIn.getBiome(pos), pos.getX()+8, pos.getZ()+8, random);
+        WorldEntitySpawner.performWorldGenSpawning(worldIn, worldIn.getBiome(pos), pos.getX() + 8, pos.getZ() + 8, random);
         this.tick(state, worldIn, pos, random);
     }
 
