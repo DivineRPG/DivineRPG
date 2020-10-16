@@ -1,21 +1,16 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.DivineRPG;
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.enums.BulletType;
 import divinerpg.enums.ParticleType;
-import divinerpg.events.Ticker;
 import divinerpg.objects.entities.entity.projectiles.EntityColoredBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityParticleBullet;
 import divinerpg.objects.entities.entity.projectiles.EntityShooterBullet;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -23,16 +18,14 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class RangedWeaponBase extends ItemMod {
 
@@ -40,7 +33,7 @@ public class RangedWeaponBase extends ItemMod {
     private final SoundEvent sound;
     private final SoundCategory soundCategory;
     private final int delay;
-    private final Item ammo;
+    private final Supplier<Item> ammoSupplier;
     private int arcanaConsuming;
 
     private final String delayTagName = "CanShootTime";
@@ -64,14 +57,14 @@ public class RangedWeaponBase extends ItemMod {
      *            - max usage of item
      * @param delay
      *            - cooldown for shoot
-     * @param ammo
-     *            - Ammo for weapon. IF null, no ammo required
+     * @param ammoSupplier
+     *            - Ammo for weapon. If supplier returns null, no ammo required
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
     public RangedWeaponBase(String name, Class<? extends EntityThrowable> clazz, BulletType bulletType,
-            SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Item ammo, int arcanaConsuming) {
-        super(name, DivineRPGTabs.ranged);
+            SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
+        super(name, DivineRPGTabs.RANGED_WEAPONS);
         setMaxDamage(maxDamage);
         setMaxStackSize(1);
 
@@ -79,34 +72,47 @@ public class RangedWeaponBase extends ItemMod {
         this.sound = sound;
         this.soundCategory = soundCategory;
         this.delay = delay;
-        this.ammo = ammo;
+
+        if(ammoSupplier == null) {
+            this.ammoSupplier = () -> null;
+        }
+        else {
+            this.ammoSupplier = ammoSupplier;
+        }
+
         this.arcanaConsuming = arcanaConsuming;
         this.bulletType = bulletType;
     }
 
-    public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, Item ammo, int maxDamange,
+    public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, Supplier<Item> ammoSupplier, int maxDamange,
             int counter) {
-        this(name, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammo, 0);
+        this(name, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammoSupplier, 0);
     }
 
     public RangedWeaponBase(String name, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
-        this(name, bulletType, shotSound, null, uses, counter);
+        this(name, bulletType, shotSound, () -> null, uses, counter);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (bulletType != null) {
-            tooltip.add(TooltipLocalizer.rangedDam(bulletType.getDamage()));
+            tooltip.add(LocalizeUtils.rangedDam(bulletType.getDamage()));
         }
 
-        addAmmoInfo(tooltip);
+        EntityPlayer player = DivineRPG.proxy.getPlayer();
+        if (!needsAmmo() || player == null) {
+            tooltip.add(LocalizeUtils.infiniteAmmo());
+        } else {
+            ItemStack ammo = findAmmo(player);
+            tooltip.add(LocalizeUtils.ammo(getAmmo(), ammo != null));
+        }
 
-        tooltip.add(stack.getMaxDamage() == -1 ? TooltipLocalizer.infiniteUses() :
-                TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
+        tooltip.add(stack.getMaxDamage() == -1 ? LocalizeUtils.infiniteUses() :
+                LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getMetadata()));
 
         if (arcanaConsuming > 0)
-            tooltip.add(TooltipLocalizer.arcanaConsumed(arcanaConsuming));
+            tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsuming));
     }
 
     @Override
@@ -114,7 +120,7 @@ public class RangedWeaponBase extends ItemMod {
         ItemStack stack = player.getHeldItem(hand);
         EnumActionResult result = EnumActionResult.FAIL;
 
-        if (canUseRangedWeapon(player, stack) && manageDelay(stack)) {
+        if (canUseRangedWeapon(player, stack)) {
             ActionResult<ItemStack> ammo = tryFindAmmo(player);
             ActionResult<IArcana> checkArcana = tryCheckArcana(player);
 
@@ -141,7 +147,8 @@ public class RangedWeaponBase extends ItemMod {
                 if (!player.capabilities.isCreativeMode) {
                     stack.damageItem(1, player);
                 }
-                stack.getTagCompound().setLong("CanShootTime", Ticker.tick + delay);
+
+                player.getCooldownTracker().setCooldown(stack.getItem(), delay * 4 + 1);
 
                 if (player instanceof EntityPlayerMP) {
                     ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -161,18 +168,16 @@ public class RangedWeaponBase extends ItemMod {
         return true;
     }
 
-    private void addAmmoInfo(List<String> list) {
-        EntityPlayer player = DivineRPG.proxy.getPlayer();
-        if (player == null || this.ammo == null) {
-            list.add(TooltipLocalizer.infiniteAmmo());
-        } else {
-            ItemStack ammo = findAmmo(player);
-            list.add(TooltipLocalizer.ammo(this.ammo, ammo != null));
-        }
+    private Item getAmmo() {
+        return this.ammoSupplier.get();
+    }
+
+    private boolean needsAmmo() {
+        return this.ammoSupplier.get() != null;
     }
 
     private boolean isAmmo(@Nullable ItemStack stack) {
-        return stack != null && stack.getItem() == this.ammo;
+        return stack != null && stack.getItem() == getAmmo();
     }
 
     private ItemStack findAmmo(EntityPlayer player) {
@@ -191,24 +196,6 @@ public class RangedWeaponBase extends ItemMod {
         }
     }
 
-    protected boolean manageDelay(ItemStack rangedWeapon) {
-        // Trying to set compound
-        if (!rangedWeapon.hasTagCompound()) {
-            rangedWeapon.setTagCompound(new NBTTagCompound());
-        }
-        // get reference
-        NBTTagCompound compound = rangedWeapon.getTagCompound();
-        // get percantage
-        long canShootTime = compound.getLong(delayTagName);
-
-        // we managing delay here, re-evaulating every item using time
-        if (canShootTime >= 100000 || canShootTime > Ticker.tick + delay * 4 + 1) {
-            compound.setLong(delayTagName, 0);
-        }
-
-        return Ticker.tick >= canShootTime;
-    }
-
     /*
         Trying to find ammo stack.
         If SUCCESS, can continue
@@ -218,7 +205,7 @@ public class RangedWeaponBase extends ItemMod {
         ItemStack stack = null;
         EnumActionResult result = EnumActionResult.SUCCESS;
 
-        if (!player.capabilities.isCreativeMode && this.ammo != null) {
+        if (!player.capabilities.isCreativeMode && needsAmmo()) {
             stack = findAmmo(player);
             if (stack == null || stack.getCount() < 1) {
                 result = EnumActionResult.FAIL;

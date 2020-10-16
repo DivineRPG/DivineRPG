@@ -1,11 +1,7 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.registry.SoundRegistry;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,6 +10,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingSword extends ItemModSword {
 
@@ -32,7 +31,7 @@ public class ItemHealingSword extends ItemModSword {
                 stack.damageItem(1, player);
             }
             player.heal(healAmount);
-            player.playSound(ModSounds.HEAL, 1, 1);
+            player.playSound(SoundRegistry.HEAL, 1, 1);
         }
         return super.onItemRightClick(world, player, hand);
     }
@@ -40,7 +39,6 @@ public class ItemHealingSword extends ItemModSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add("Heals " + this.healAmount / 2 + " hearts on use");
-        list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
+        list.add(LocalizeUtils.i18n("tooltip.heals",  healAmount / 2));
     }
 }

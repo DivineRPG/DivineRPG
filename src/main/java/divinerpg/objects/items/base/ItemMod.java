@@ -1,22 +1,21 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-public class ItemMod extends Item  {
+public class ItemMod extends Item {
+    private boolean isEnchanted;
 
     public ItemMod(String name) {
-        this(name, DivineRPGTabs.items);
+        this(name, DivineRPGTabs.MATERIALS);
     }
 
     public ItemMod(String name, CreativeTabs tab) {
         setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
+        setRegistryName(DivineRPG.MODID, name);
         this.setCreativeTab(tab);
-
-        ModItems.ITEMS.add(this);
     }
 }

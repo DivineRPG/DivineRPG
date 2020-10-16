@@ -6,6 +6,6 @@ import divinerpg.registry.DivineRPGTabs;
 public class ItemKey extends ItemMod {
 
 	public ItemKey(String name) {
-		super(name, DivineRPGTabs.utility);
+		super(name, DivineRPGTabs.UTILITY);
 	}
 }

@@ -4,8 +4,7 @@ import divinerpg.enums.DiskType;
 import divinerpg.objects.entities.entity.projectiles.EntityDisk;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -26,14 +25,14 @@ public class ItemVetheanDisk extends ItemMod {
         super(name);
         this.diskType = diskType;
         this.maxStackSize = 1;
-        this.setCreativeTab(DivineRPGTabs.vethea);
+        this.setCreativeTab(DivineRPGTabs.VETHEA);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.rangedDam(diskType.getDamage()));
-        list.add(TooltipHelper.getInfoText("tooltip.vethean_return"));
+        list.add(LocalizeUtils.rangedDam(diskType.getDamage()));
+        list.add(LocalizeUtils.i18n("tooltip.vethean_return"));
     }
 
     @Override

@@ -1,17 +1,11 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
+import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.PositionHelper;
-import divinerpg.utils.TooltipHelper;
-import divinerpg.utils.TooltipLocalizer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -24,15 +18,20 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemEnderScepter extends ItemMod {
 
     public ItemEnderScepter(String name) {
-        super(name, DivineRPGTabs.swords);
+        super(name, DivineRPGTabs.MELEE_WEAPONS);
         setMaxStackSize(1);
     }
 
     @Override
-    public @Nonnull ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
+    public @Nonnull
+    ActionResult<ItemStack> onItemRightClick(@Nonnull World world, @Nonnull EntityPlayer player,
             @Nonnull EnumHand hand) {
         IArcana arcana = DivineAPI.getArcana(player);
         if (!world.isRemote && arcana.getArcana() >= 75) {
@@ -50,8 +49,8 @@ public class ItemEnderScepter extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add(TooltipLocalizer.arcanaConsumed(75));
-        list.add(TooltipHelper.getInfoText("tooltip.ender_scepter"));
-        list.add(TooltipLocalizer.infiniteUses());
+        list.add(LocalizeUtils.arcanaConsumed(75));
+        list.add(LocalizeUtils.i18n("tooltip.ender_scepter"));
+        list.add(LocalizeUtils.infiniteUses());
     }
 }

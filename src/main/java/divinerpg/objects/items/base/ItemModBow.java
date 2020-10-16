@@ -1,16 +1,11 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
 import divinerpg.objects.entities.entity.projectiles.EntityDivineArrow;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,45 +17,43 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModBow extends ItemBow  {
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class ItemModBow extends ItemBow {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ENTITY_ARROW_SHOOT;
     public static final int DEFAULT_MAX_USE_DURATION = 72000;
     protected ArrowType arrowType;
     protected int maxUseDuration;
     protected boolean unbreakable;
-    protected Item arrowAmmo = null;
-    protected boolean needArrow = true;
+    protected Supplier<Item> arrowSupplier;
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, Item arrow) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrow);
+    public ItemModBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier) {
+        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier);
     }
 
     public ItemModBow(String name, ArrowType arrowType, int uses) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, null);
+        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, () -> null);
     }
 
     public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration) {
-        this(name, arrowType, uses, maxUseDuration, null);
+        this(name, arrowType, uses, maxUseDuration, () -> null);
     }
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Item arrowAmmo) {
+    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
         setMaxDamage(uses);
         this.setUnlocalizedName(name);
-        this.setRegistryName(Reference.MODID, name);
+        this.setRegistryName(DivineRPG.MODID, name);
         this.arrowType = arrowType;
-        this.arrowAmmo = arrowAmmo;
-        if (arrowAmmo == null)
-            needArrow = false;
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.arrowSupplier = arrowSupplier;
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
         this.maxUseDuration = maxUseDuration;
         unbreakable = true;
         this.maxStackSize = 1;
@@ -88,32 +81,38 @@ public class ItemModBow extends ItemBow  {
                         0.0F;
             }
         });
+    }
 
-        ModItems.ITEMS.add(this);
+    private Item getArrowItem() {
+        return this.arrowSupplier.get();
+    }
+
+    private boolean needsArrow() {
+        return this.arrowSupplier.get() != null;
     }
 
     @Override
     protected boolean isArrow(ItemStack stack) {
-        return stack.getItem() == this.arrowAmmo;
+        return stack.getItem() == getArrowItem();
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-    	tooltip.add(TooltipLocalizer.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
+        tooltip.add(LocalizeUtils.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1)
-            tooltip.add(speed + " Times Faster");
+        	tooltip.add(new TextComponentTranslation("tooltip.bow_speed.faster", String.format("%s", speed)).getFormattedText());
         if (speed < 1)
-            tooltip.add((1 / speed) + " Times Slower");
-        tooltip.add(!unbreakable ? TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
-                TooltipLocalizer.infiniteUses());
+            tooltip.add(new TextComponentTranslation("tooltip.bow_speed.slower", String.format("%s", 1 / speed)).getFormattedText());
+        tooltip.add(!unbreakable ? LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) :
+                LocalizeUtils.infiniteUses());
         if (arrowType.getArrowSpecial() == ArrowSpecial.POSION)
-            tooltip.add(TooltipLocalizer.poison(2));
+            tooltip.add(LocalizeUtils.poison(2));
         if (arrowType.getArrowSpecial() == ArrowSpecial.FLAME)
-            tooltip.add(TooltipLocalizer.burn(12));
+            tooltip.add(LocalizeUtils.burn(12));
         if (arrowType.getArrowSpecial() == ArrowSpecial.EXPLODE)
-            tooltip.add(TooltipLocalizer.explosiveShots());
-        tooltip.add(this.needArrow ? TooltipLocalizer.ammo(this.arrowAmmo) : TooltipLocalizer.infiniteAmmo());
+            tooltip.add(LocalizeUtils.explosiveShots());
+        tooltip.add(this.needsArrow() ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
     }
 
     @Override
@@ -124,15 +123,14 @@ public class ItemModBow extends ItemBow  {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        boolean hasAmmo = (!needArrow || !this.findAmmunition(player).isEmpty());
+        boolean hasAmmo = (!needsArrow() || !this.findAmmunition(player).isEmpty());
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(stack, world, player, hand,
                 hasAmmo);
         if (ret != null) {
             return ret;
         }
         if (!player.capabilities.isCreativeMode && !hasAmmo) {
-            return !hasAmmo ? new ActionResult<>(EnumActionResult.FAIL, stack) :
-                    new ActionResult<>(EnumActionResult.PASS, stack);
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
         } else {
             player.setActiveHand(hand);
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
@@ -143,7 +141,7 @@ public class ItemModBow extends ItemBow  {
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
-            boolean infiniteAmmo = !needArrow || entityplayer.capabilities.isCreativeMode
+            boolean infiniteAmmo = !needsArrow() || entityplayer.capabilities.isCreativeMode
                     || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemstack = this.findAmmunition(entityplayer);
 
@@ -157,7 +155,7 @@ public class ItemModBow extends ItemBow  {
                 if ((double) f >= 0.1D) {
                     if (!worldIn.isRemote) {
                         EntityDivineArrow entityarrow = new EntityDivineArrow(worldIn, arrowType, entityplayer);
-                        entityarrow.setAmmoItem(arrowAmmo, infiniteAmmo);
+                        entityarrow.setAmmoItem(getArrowItem(), infiniteAmmo);
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F,
                                 f * 3.0F, 1.0F);
                         if (f == 1.0F) {
@@ -227,6 +225,12 @@ public class ItemModBow extends ItemBow  {
 
             return ItemStack.EMPTY;
         }
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return this.getItemStackLimit(stack) == 1
+                && (stack.getMaxDamage() < 0 || this.getItemStackLimit(stack) == 1);
     }
 
     public ItemModBow setSound(net.minecraft.util.SoundEvent shootSound) {

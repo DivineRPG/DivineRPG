@@ -1,10 +1,10 @@
 package divinerpg.objects.items.arcana;
 
-import divinerpg.objects.entities.entity.arcana.Dramix;
-import divinerpg.objects.entities.entity.arcana.Parasecta;
+import divinerpg.objects.entities.entity.boss.EntityDramix;
+import divinerpg.objects.entities.entity.boss.EntityParasecta;
 import divinerpg.objects.items.base.ItemMod;
+import divinerpg.registry.BlockRegistry;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
 import divinerpg.utils.PositionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class ItemWizardsBook extends ItemMod {
 
     public ItemWizardsBook(String name) {
-        super(name, DivineRPGTabs.spawner);
+        super(name, DivineRPGTabs.BOSS_SPAWNERS);
         setMaxStackSize(1);
     }
 
@@ -34,8 +34,8 @@ public class ItemWizardsBook extends ItemMod {
             double spawnY = rtr.getBlockPos().getY() + 1;
             double spawnZ = rtr.getBlockPos().getZ() + 0.5F;
 
-            if (block == ModBlocks.parasectaAltar) {
-                Parasecta parasecta = new Parasecta(world);
+            if (block == BlockRegistry.parasectaAltar) {
+                EntityParasecta parasecta = new EntityParasecta(world);
                 parasecta.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(parasecta);
                 if (!player.capabilities.isCreativeMode)
@@ -43,8 +43,8 @@ public class ItemWizardsBook extends ItemMod {
                 return EnumActionResult.PASS;
             }
 
-            if (block == ModBlocks.dramixAltar) {
-                Dramix dramix = new Dramix(world);
+            if (block == BlockRegistry.dramixAltar) {
+                EntityDramix dramix = new EntityDramix(world);
                 dramix.setLocationAndAngles(spawnX, spawnY, spawnZ, 0.0F, 0.0F);
                 world.spawnEntity(dramix);
                 if (!player.capabilities.isCreativeMode)

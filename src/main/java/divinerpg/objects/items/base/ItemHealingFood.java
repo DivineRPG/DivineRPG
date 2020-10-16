@@ -1,6 +1,6 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.utils.ChatFormats;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,10 +35,7 @@ public class ItemHealingFood extends ItemModFood {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add("Replenishes " + this.healthGain + " Health");
-        list.add("Fills " + (double) getHealAmount(item) / 2 + " Hunger Bars");
-        list.add(getSaturationModifier(item) + " Saturation");
-        list.add(!isWolfsFavoriteMeat() ? ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " false"
-                : ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " true");
+        list.add(LocalizeUtils.i18n("tooltip.food.heal", healthGain));
+        super.addInformation(item, worldIn, list, flagIn);
     }
 }

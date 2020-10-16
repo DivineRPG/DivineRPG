@@ -1,12 +1,8 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.utils.TooltipHelper;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,19 +14,22 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemSerenadeStriker extends ItemMod {
 
     public ItemSerenadeStriker(String name) {
         super(name);
-        this.setCreativeTab(DivineRPGTabs.ranged);
+        this.setCreativeTab(DivineRPGTabs.RANGED_WEAPONS);
         setMaxDamage(100);
         setMaxStackSize(1);
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipHelper.getInfoText("tooltip.serenade_striker"));
-        tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + " uses left");
+        tooltip.add(LocalizeUtils.i18n("tooltip.serenade_striker"));
+        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
     }
 
     @Override

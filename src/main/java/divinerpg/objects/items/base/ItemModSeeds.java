@@ -1,12 +1,12 @@
 package divinerpg.objects.items.base;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -16,40 +16,37 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
+import java.util.function.Supplier;
+
 public class ItemModSeeds extends Item implements IPlantable {
 
-    private Block crop;
-    public Block soil;
+    private Supplier<Block> cropSupplier;
+    public Supplier<Block> soilSupplier;
 
-    public ItemModSeeds(String name, Block soil) {
-        setUnlocalizedName(name);
-        setRegistryName(Reference.MODID, name);
-        this.crop = null;
-        this.soil = soil;
-        setCreativeTab(DivineRPGTabs.food);
-        ModItems.ITEMS.add(this);
+    public ItemModSeeds(String name, Supplier<Block> cropSupplier) {
+        this(name, cropSupplier, () -> Blocks.FARMLAND);
     }
 
-    /**
-     * Sets the crop block only if it hasn't been set yet.
-     * To be called during FML init event after blocks and items are registered
-     *
-     * @param crop the crop block to be set
-     */
-    public void setCrop(Block crop) {
-        if(this.crop == null) {
-            this.crop = crop;
-        }
+    public ItemModSeeds(String name, Supplier<Block> cropSupplier, Supplier<Block> soilSupplier) {
+        setUnlocalizedName(name);
+        setRegistryName(DivineRPG.MODID, name);
+        this.cropSupplier = cropSupplier;
+        this.soilSupplier = soilSupplier;
+        setCreativeTab(DivineRPGTabs.FOOD_AND_AGRICULTURE);
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
             EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.getHeldItem(hand);
+        Block crop = cropSupplier.get();
+        Block soil = soilSupplier.get();
 
-        if (!(this.crop == null) && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
-                && this.crop.canPlaceBlockAt(worldIn, pos.up()) && worldIn.isAirBlock(pos.up())) {
-            worldIn.setBlockState(pos.up(), this.crop.getDefaultState());
+        if (worldIn.getBlockState(pos).getBlock() != soil) {
+           return EnumActionResult.FAIL;
+        } else if (crop != null && facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack)
+                && crop.canPlaceBlockAt(worldIn, pos.up()) && worldIn.isAirBlock(pos.up())) {
+            worldIn.setBlockState(pos.up(), crop.getDefaultState());
 
             if (player instanceof EntityPlayerMP) {
                 CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP) player, pos.up(), itemstack);
@@ -71,6 +68,6 @@ public class ItemModSeeds extends Item implements IPlantable {
 
     @Override
     public net.minecraft.block.state.IBlockState getPlant(net.minecraft.world.IBlockAccess world, BlockPos pos) {
-        return this.crop.getDefaultState();
+        return cropSupplier.get().getDefaultState();
     }
 }

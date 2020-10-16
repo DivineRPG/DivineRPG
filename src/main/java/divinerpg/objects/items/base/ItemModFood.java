@@ -1,50 +1,35 @@
 package divinerpg.objects.items.base;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.ChatFormats;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemModFood extends ItemFood  {
+import javax.annotation.Nullable;
+import java.util.List;
 
-	public ItemModFood(int healAmount, float saturation, String name) {
-		this(healAmount, saturation, false, name);
-	}
+public class ItemModFood extends ItemFood {
+    private final ITextComponent petFood;
 
-	public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
-		super(healAmount, saturation, isWolfFood);
-		setUnlocalizedName(name);
-		setRegistryName(Reference.MODID, name);
-		this.setCreativeTab(DivineRPGTabs.food);
-		ModItems.ITEMS.add(this);
-	}
+    public ItemModFood(int healAmount, float saturation, String name) {
+        this(healAmount, saturation, false, name);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack item, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-		list.add("Fills " + (double) getHealAmount(item) / 2 + " Hunger Bars");
-		list.add(getSaturationModifier(item) + " Saturation");
-		list.add(!isWolfsFavoriteMeat() ? ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " false"
-		        : ChatFormats.BLUE + "Pet Food:" + ChatFormats.RESET + " true");
-	}
+    public ItemModFood(int healAmount, float saturation, boolean isWolfFood, String name) {
+        super(healAmount, saturation, isWolfFood);
+        setUnlocalizedName(name);
+        setRegistryName(DivineRPG.MODID, name);
+        this.setCreativeTab(DivineRPGTabs.FOOD_AND_AGRICULTURE);
 
-	@Override
-	public ItemStack onItemUseFinish(ItemStack item, World world, EntityLivingBase entityLiving) {
-		super.onItemUseFinish(item, world, entityLiving);
-		if (entityLiving instanceof EntityPlayer && item.getItem() == ModItems.chickenDinner) {
-		}
-		return item;
-	}
+        petFood = new TextComponentTranslation("tooltip.food.pet");
+        petFood.getStyle().setColor(TextFormatting.BLUE);
+    }
 }

@@ -1,22 +1,21 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import divinerpg.enums.BulletType;
 import divinerpg.objects.entities.entity.projectiles.EntityCorruptedBullet;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModItems;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.registry.ItemRegistry;
+import divinerpg.registry.SoundRegistry;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class ItemCorruptedCannon extends RangedWeaponBase {
     private Random rand = new Random();
@@ -25,11 +24,11 @@ public class ItemCorruptedCannon extends RangedWeaponBase {
         super(name,
                 null,
                 null,
-                ModSounds.GHAST_CANNON,
+                SoundRegistry.GHAST_CANNON,
                 SoundCategory.MASTER,
                 -1,
                 4,
-                ModItems.corruptedBullet,
+                () -> ItemRegistry.corruptedBullet,
                 0);
     }
 
@@ -48,7 +47,7 @@ public class ItemCorruptedCannon extends RangedWeaponBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TooltipLocalizer.bowDam("4x10"));
+        tooltip.add(LocalizeUtils.bowDam("4x10"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

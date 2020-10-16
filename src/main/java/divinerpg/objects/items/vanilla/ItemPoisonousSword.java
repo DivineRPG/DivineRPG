@@ -1,15 +1,15 @@
 package divinerpg.objects.items.vanilla;
 
-import java.util.List;
-
 import divinerpg.objects.items.base.ItemModSword;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+
+import java.util.List;
 
 public class ItemPoisonousSword extends ItemModSword {
     private float poisonSeconds;
@@ -29,6 +29,6 @@ public class ItemPoisonousSword extends ItemModSword {
 
     @Override
     protected void addAdditionalInformation(List list) {
-        list.add(TooltipLocalizer.poison(this.poisonSeconds));
+        list.add(LocalizeUtils.poison(this.poisonSeconds));
     }
 }

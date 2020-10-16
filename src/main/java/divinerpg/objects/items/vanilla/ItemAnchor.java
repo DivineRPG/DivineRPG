@@ -4,7 +4,7 @@ import com.google.common.collect.Multimap;
 
 import divinerpg.enums.BulletType;
 import divinerpg.objects.items.base.RangedWeaponBase;
-import divinerpg.registry.ModSounds;
+import divinerpg.registry.SoundRegistry;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -17,7 +17,7 @@ public class ItemAnchor extends RangedWeaponBase {
         super(name,
                 null,
                 projectileType,
-                ModSounds.BLITZ,
+                SoundRegistry.BLITZ,
                 SoundCategory.MASTER,
                 -1,
                 0,

@@ -1,11 +1,12 @@
 package divinerpg.objects.items.iceika;
 
+import divinerpg.events.DimensionHelper;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModBlocks;
-import net.minecraft.advancements.CriteriaTriggers;
+import divinerpg.utils.portals.description.IPortalDescription;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -18,33 +19,38 @@ import net.minecraft.world.World;
 
 public class ItemSnowGlobe extends ItemMod {
 
-	public ItemSnowGlobe(String name) {
-		super(name);
-		setMaxStackSize(1);
-		this.setCreativeTab(DivineRPGTabs.utility);
-	}
+    public ItemSnowGlobe(String name) {
+        super(name);
+        setMaxStackSize(1);
+        this.setCreativeTab(DivineRPGTabs.UTILITY);
+    }
 
-	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
-	        EnumFacing facing, float hitX, float hitY, float hitZ) {
-		pos = pos.offset(facing);
-		ItemStack itemstack = player.getHeldItem(hand);
-		if (!player.canPlayerEdit(pos, facing, itemstack)) {
-			return EnumActionResult.FAIL;
-		} else {
-			if (worldIn.isAirBlock(pos)) {
-				worldIn.playSound(player, pos, SoundEvents.BLOCK_SNOW_STEP, SoundCategory.BLOCKS, 1.0F,
-				        itemRand.nextFloat() * 0.4F + 0.8F);
-				if (worldIn.getBlockState(pos.down()) == Blocks.SNOW.getDefaultState()) {
-					worldIn.setBlockState(pos, ModBlocks.iceikaFire.getDefaultState(), 11);
-				}
-			}
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+                                      EnumFacing facing, float hitX, float hitY, float hitZ) {
+        pos = pos.offset(facing);
+        ItemStack itemstack = player.getHeldItem(hand);
+        if (!player.canPlayerEdit(pos, facing, itemstack)) {
+            return EnumActionResult.FAIL;
+        }
 
-			if (player instanceof EntityPlayerMP) {
-				CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP) player, pos, itemstack);
-			}
+        if (worldIn.isAirBlock(pos)) {
+            worldIn.playSound(player, pos, SoundEvents.BLOCK_SNOW_STEP, SoundCategory.BLOCKS, 1.0F,
+                    itemRand.nextFloat() * 0.4F + 0.8F);
 
-			return EnumActionResult.SUCCESS;
-		}
-	}
+            Block snow = Blocks.SNOW;
+
+            if (worldIn.getBlockState(pos.down()).getBlock() == snow) {
+                IPortalDescription description = DimensionHelper.descriptionsByBlock.get(snow);
+                if (description != null) {
+                    BlockPattern.PatternHelper match = description.matchFrame(worldIn, pos.down());
+                    if (match != null) {
+                        description.lightPortal(worldIn, match);
+                    }
+                }
+            }
+        }
+
+        return EnumActionResult.SUCCESS;
+    }
 }

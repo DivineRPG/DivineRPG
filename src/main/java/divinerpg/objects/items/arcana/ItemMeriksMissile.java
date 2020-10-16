@@ -1,16 +1,12 @@
 package divinerpg.objects.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.api.java.divinerpg.api.DivineAPI;
-import divinerpg.api.java.divinerpg.api.arcana.IArcana;
+import divinerpg.api.DivineAPI;
+import divinerpg.api.arcana.IArcana;
 import divinerpg.objects.entities.entity.projectiles.EntityMerikMissile;
 import divinerpg.objects.items.base.ItemMod;
 import divinerpg.registry.DivineRPGTabs;
-import divinerpg.registry.ModItems;
-import divinerpg.utils.TooltipLocalizer;
+import divinerpg.registry.WeaponRegistry;
+import divinerpg.utils.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,11 +22,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
 
     public ItemMeriksMissile(String name) {
-        super(name, DivineRPGTabs.ranged);
+        super(name, DivineRPGTabs.RANGED_WEAPONS);
         this.maxStackSize = 1;
         this.setMaxDamage(-1);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
@@ -48,7 +47,7 @@ public class ItemMeriksMissile extends ItemMod {
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
-        if (stack.getItem() == ModItems.meriksMissile && entityLiving instanceof EntityPlayer) {
+        if (stack.getItem() == WeaponRegistry.meriksMissile && entityLiving instanceof EntityPlayer) {
             float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
             EntityPlayer player = (EntityPlayer) entityLiving;
             IArcana arcana = DivineAPI.getArcana(player);
@@ -88,9 +87,9 @@ public class ItemMeriksMissile extends ItemMod {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> list, ITooltipFlag flagIn) {
-        list.add("Explosive homing projectile");
-        list.add(TooltipLocalizer.bowDam("8-25"));
-        list.add(TooltipLocalizer.arcanaConsumed("10-50"));
-        list.add(TooltipLocalizer.infiniteUses());
+        list.add(LocalizeUtils.i18n("tooltip.meriks_missile"));
+        list.add(LocalizeUtils.bowDam("8-25"));
+        list.add(LocalizeUtils.arcanaConsumed("10-50"));
+        list.add(LocalizeUtils.infiniteUses());
     }
 }
