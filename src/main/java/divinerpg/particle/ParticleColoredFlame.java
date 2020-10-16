@@ -1,6 +1,6 @@
 package divinerpg.particle;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -21,16 +21,16 @@ public class ParticleColoredFlame extends Particle {
         this.motionX = this.motionX * 0.009999999776482582D + xSpeedIn;
         this.motionY = this.motionY * 0.009999999776482582D + ySpeedIn;
         this.motionZ = this.motionZ * 0.009999999776482582D + zSpeedIn;
-        this.posX += (double) ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
-        this.posY += (double) ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
-        this.posZ += (double) ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
+        this.posX += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
+        this.posY += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
+        this.posZ += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
         this.flameScale = this.particleScale;
         this.particleRed = r;
         this.particleGreen = g;
         this.particleBlue = b;
         this.particleMaxAge = (int) (8.0D / (Math.random() * 0.8D + 0.2D)) + 4;
         this.particleTexture = Minecraft.getMinecraft().getTextureMapBlocks()
-                .getAtlasSprite(new ResourceLocation(Reference.MODID, "particle/flame").toString());
+                .getAtlasSprite(new ResourceLocation(DivineRPG.MODID, "particle/flame").toString());
     }
 
     public int getFXLayer() {
