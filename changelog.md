@@ -1,3 +1,192 @@
+# DivineRPG 1.7.1 changelog:
+
+## Changes:
+- Changed the Arcana maze generation algorithm to allow for multiple paths between any two rooms, reducing the chance that the shortest path between two rooms near each other is long-winded and generally making the maze less frustrating
+- Slightly increased chance for dead ends to be NPC rooms to compensate for the previous change slightly reducing the amount of dead ends
+- Added portal blocks to the creative inventory
+- Made twilight dimension boss structures rarer
+
+## Fixes:
+- Fixed Dungeon Constructor's death sound being the player hurt sound
+- Fixed portal models missing faces and being displayed from the front instead of as blocks
+- Fixed placement of Frosted Allure spawns (Nico)
+- Fixed mortum ruined portal structure (Velocityraptor)
+- Fixed The Eye's potion effect not properly ending
+
+## Miscellaneous:
+- Changed the Wildwood Heart texture
+- Remove enchanted glint from twilight heart textures
+
+# DivineRPG 1.7 changelog:
+
+## Additions:
+- Arcana now generates as an infinite grid of 64x64 chunk mazes. Mazes are made up of a set of many new and redone old rooms placed in order to prevent the player being stuck with no way to proceed (unless the entire 64x64 maze is cleared out, in which case new ones can be accessed with other portals sufficiently far away).
+    - IMPORTANT: Due to performance issues with Minecraft's lighting system, the maze is mostly unlit with a few very specific exceptions. Bring torches!
+- Added slabs, stairs, and walls for ancient and degraded bricks
+- Added a new "dungeon keeper" NPC
+- Added breakable variants of several Arcana blocks (purchased from the aforementioned NPC, with breakable brick slabs/stairs/walls craftable from the breakable bricks)
+- Added some new blocks:
+    - Arcanite Ladder
+    - Arcanium Block
+    - Dungeon Bookshelf
+
+## Changes:
+- Arcana NPCs no longer spawn naturally; instead, they spawn in specific dead-end rooms tailored to them. Each dead end has a flat 1/5 chance to become an NPC room
+- Arcana mob spawners are now vanilla spawners and do not use their own block ID
+- Arcana mobs now spawn naturally in addition to from spawners (including the Dungeon Constructor)
+- Arcana now has a bedrock layer on the top of the ceiling in order to prevent mobs from spawning there (as well as on the bottom for consistency)
+- Arcana plants now grow on vanilla farmland like normal plants. They also no longer require tar
+- Arcanite Blade and Arcanium Saber now do heavily reduced damage when the required arcana is missing, and consumes more arcana
+- Arcanium Metal is now a rotatable pillar block with a different texture on the top
+- Collectors are now obtained by crafting 9 Collector Fragments together instead of requiring Lord Vatticus
+- Fire resistance now completely nullifies heat trap damage
+- Keys are sold by the dungeon keeper for Collectors (they still drop from Dungeon Constructors)
+- Moved some trades around between Captain Merik, War General, and Datticon
+- Nerfed Heat Trap contact damage and burn time
+- Redid Lord Vatticus trades, he now sells various useful vanilla magic items
+    - Gave Korma and Vemos armor trades to Captain Merik and War General, respectively
+- Removed Orb of Light functionality and made it unobtainable/unused. Like Lamona it caused performance issues and was infeasible without hack-type workarounds
+- Removed the "Enrichment" advancement
+- Renamed Ancient/Degraded Brick to Ancient/Degraded Bricks for consistency
+- Renamed Arcanium Ore to Raw Arcanium and made it a dirt-type block
+- Renamed Charged Collector to Collector
+- Renamed the old Collector to Collector Fragments
+- Some trades now require Collectors instead of Arcanium
+
+------------------
+
+## Other additions:
+- Added Frosted Allure block that speeds up mob spawning (Nico)
+- Added nuggets for Realmite, Arlemite, Rupee, and Netherite (Nico)
+- Added some randomly generating small flavor structures to the twilight dimensions (Nico). Thanks to Velocityraptor for some of the structures
+
+## Other changes:
+- Added tooltip to Magic Meat to signify that it is instantly consumed
+- Arcana is now hidden when full by default. Can be viewed when full through a config option (Nico)
+- Changed Mortum generation to Nether-type with a tar ocean (Nico)
+- Decreased regeneration rate of the Arcana resource and removed the slight delay if all arcana is used
+- DivineRPG NPCs are no longer vanilla NPCs/villagers. This means they're no longer called "Nitwit" and are excluded from behaviour that checks for villagers (e.g. being attacked by zombies and lightning strikes turning them into witches)
+- Ender armor now negates ender pearl damage (Nico)
+- Hot pumpkin pie is now cooked from pumpkin pie instead of directly from pumpkins (Nico)
+- Iceika dungeon blocks (Icy Bricks and Icy Stone) are no longer unbreakable
+    - Added a crafting recipe for Icy Bricks
+- Nerfed Mage-type mob fire rate
+- Reduce particles spawned by Mage-type mobs and General's Staff
+- Removed redundant item durability from all tooltips (use F3+H to view it)
+- Removed several unused block textures
+- Slightly increased the durability of most armor sets
+- The mod's bookshelves are now usable for enchanting like vanilla bookshelves
+- Wither reaper armor now withers attackers (Nico)
+- Workshop bookcase can now be crafted like a normal bookcase, but with coalstone instead of wood
+- Workshop bookcase now drops three books instead of itself unless silk touch is used, for consistency with vanilla
+
+## Fixes:
+- Fixed Arcanite Blade doing full damage with or without arcana
+- Fixed Arcanium Saber not doing any damage at all if arcana was present
+- Fixed Deathcryx having very little health
+- Fixed Kazrotic not spawning
+- Fixed Wildwood biome name being "WildWood"
+- Fixed Wreck having the wrong health value
+- Fixed Zone causing an NPE crash
+- Fixed axe attack speeds being too high
+- Fixed the arcana portal room generating in the middle of other rooms
+
+## Miscellaneous:
+- Changed the following textures (thanks to Zachtoplasm):
+- Blocks:
+    - Ancient Bricks
+    - Degraded Bricks
+    - Ancient Stone
+    - Soul Stone
+    - Soul Sludge
+    - All Arcana doors
+    - Arcanium Power
+    - Ancient Tile
+    - Heat Trap (on/off)
+    - Arcanium Metal
+    - Arcana Portal
+    - Arcanite Tubes
+    - Raw Arcanium
+    - Dungeon Lamp
+- Items:
+    - Arcanium
+    - Collector
+    - Collector Fragments
+
+# DivineRPG 1.6.4.1 changelog:
+
+## Additions:
+- Added Just Enough Resources support (Nico)
+
+## Changes:
+- Rewrote how structures are generated. This should fix various issues, including structure rarity and distribution (especially in twilight dimensions and Iceika)
+- Made twilight structures generate more commonly
+- Structures are now randomly rotated and will not all face the same way anymore
+- Added loot chests to some Iceika houses that did not previously have them
+- Renamed tar to smoldering tar, fixing a Betweenlands tar conflict and putting emphasis on the tar's high temperature
+- Made Iceika trees generate a bit more sparsely
+- Twilight boss spawners now require chunks to activate
+- Statues make sounds on right click (Locomen)
+- Changed water mob AI (Nico)
+- Made whales shoot out water spouts when above sea level (Nico)
+
+## Fixes:
+- Made Arcana boss altars generate again
+- Gave mortum back its bedrock layer
+- Fixed empty loot chests in Iceika houses
+- Made change to flying mob attack target getter (Nico)
+
+## Miscellaneous:
+- Changed the following textures:
+    - Corrupted Shards
+    - Ender Shards
+    - Snow Globe
+    - Sound of Music
+    - Sound of Carols
+
+
+# DivineRPG 1.6.4 changelog:
+
+## Changes:
+- Organized dimensional advancements into their own sections.
+- Added advancements for Vethea
+- Renamed some advancements
+- Removed the mod's duplicate nether and end entry advancements. The mod's nether and end advancements are now in their respective vanilla sections
+- NPC advancements now require trading with them instead of just speaking with them
+- Made advancement IDs correspond to their English names instead of the general task
+- Merged the ayeraco horde advancements into a single one for defeating all five of them
+- Frozen Goods advancement now requires obtaining a snowflake instead of breaking a frosted chest
+- Boss advancements no longer give out statues when obtained
+- Changed boss statue drop rate to 100%
+- Twilight boss spawners are now reusable. No more need to find multiple structures
+- Added a configuration option to disable player hats
+- Halite armor can now be repaired with mortum chunks
+- Swapped halite drops of Eternal Archer (now drops bow and blitz) and Twilight Demon (now drops helmet and boots) for consistency and ease of obtaining halite armor
+- Made most Vethean structures slightly more common
+- Removed throwable Lamona because it caused lag and Minecraft's lighting system isn't meant to handle light from entities
+- Made rive and aftershock registry names match their English names
+
+## Fixes:
+- Fixed the vethean crypts generating with grass in them
+- Fixed pick block not working for mod doors and nightmare bed
+- Fixed grenade and corrupted bullet missing textures
+- Fixed Hive Queen not dropping anything
+- Fixed the Hunger's trades not being infinite
+
+## Miscellaneous:
+- Changed several item textures:
+   - All Twilight Souls
+   - All Shards (except Corrupted and Ender)
+   - Shuriken
+   - Snowflake Shuriken
+   - Vile Storm
+   - Liopleurodon Teeth
+   - Moonbulb
+   - Sunstorm Heart
+   - Corrupted Maul
+- Capitalised Eden biome name
+- Stopped root advancement from announcing itself in chat whenever joining a world for the first time
+
 # 1.6.3.1 - Patch update
 
 ## Changes:
@@ -8,7 +197,7 @@
 - Removed netherite ore contact damage and cactus effect
 
 # 1.6.3 changelog
-Additions
+## Additions
 - Added Experienced Cori (Nico). Drops the halite shield
 - Added structures for Experienced Cori and Eternal Archer in Skythern and Apalachia, respectively (Nico). Thanks to Velocityraptor for Experienced Cori structure
 - Added twilight shields (Nico). Thanks to Linx145 for shield textures

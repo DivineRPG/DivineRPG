@@ -24,45 +24,7 @@ Discord: https://discord.gg/R9Zc32D
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
 
 ### Credits
-* XolovA - original creator
-* Scimiguy - current owner and coding assistant
-***
-##### Main Team
-* NicosasurusRex99 - Developer
-* krwminer - Developer
-* Wufflez/Litewolf101 - Developer
-* AstralScourge - Developer
-* Dash - Developer
-
-##### Special Thanks to
-* Dizzlepop12 - A few models/textures
-* THEVOLCO - German Translations
-* ShadowOfStrelok, fewizz, and Adaptivity - Russian Translations
-* TikenTVC - Portuguese Translations
-* Declan (UKDeccy) - A few Models/Textures
-* BlueEyes9 - A few Models/Textures
-* Insanity414all - Wiki admin
-* Laorwick - Some Recipes
-* BossLetsPlays - Sound Artist & Maintenance Developer & Former Server Owner
-
-##### Other Credits
-* RadioactiveStud (aka SoccerStud) - Former Developer
-* Eternaldoom - Former Developer
-* The_SlayerMC - Former Developer
-* Sheenrox82 - Former Developer
-* Mazetar - Former Developer
-* TLHPoE - Former Developer
-* Sactage - Server Owner and maintainer
-* Aginsun - Ex Developer
-* Hologuardian - Ex Developer
-* Vazkii - Ex Developer
-* Majorsir - for the name of the mod.
-* Terraria - for some resources.
-* Vattic - for some block textures, featured in a version of the faithful32 pack
-* Vanilla MC - for some textures.
-* Reika - for ore textures.
-* XL biomes - for tree style.
-* Blued00r - Ex Developer
+See [here](https://github.com/DivineRPG/DivineRPG/blob/1.12.2/credits.md).
 
 ***
 ### Contributing
@@ -82,7 +44,7 @@ Want to help improve our code? Fix bugs? Add to the mod? Make artistic improveme
 Found a bug in our mod?  Please let us know so we can fix it ASAP!
 
 1. Make sure your issue hasn't already been answered or fixed.  Also think about whether your issue is a valid one before submitting it.
-2. Go to [the issues page](http://github.com/NicosaurusRex99/DivineRPG/issues).
+2. Go to [the issues page](http://github.com/DivineRPG/DivineRPG/issues).
 3. Click `New Issue` right below `Star` and `Fork`.
 4. Enter your Issue's title (something that summarizes your issue), and then create a detailed description ("Could you add/change _____?" or "Found an exploit/bug:  stuff").
     * If you are reporting a bug report from an outdated or unofficial version (you got the mod from someone else, a website other than our forums or wiki, or if its been modified in ANY way) , make sure you include the following:
