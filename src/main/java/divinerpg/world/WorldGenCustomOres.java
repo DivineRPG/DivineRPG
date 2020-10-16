@@ -4,13 +4,14 @@ package divinerpg.world;
 import com.google.common.base.Predicate;
 import divinerpg.config.Config;
 import divinerpg.config.OreInfo;
-import divinerpg.registry.ModBlocks;
-import divinerpg.registry.ModDimensions;
+import divinerpg.registry.BlockRegistry;
+import divinerpg.registry.DimensionRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -33,19 +34,20 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // declaring predicats to prevent constantly creating
     private Predicate<IBlockState> stonePredicate = BlockMatcher.forBlock(Blocks.STONE);
     private Predicate<IBlockState> netherPredicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
-    private Predicate<IBlockState> twilightPredicate = BlockMatcher.forBlock(ModBlocks.twilightStone);
+    private Predicate<IBlockState> twilightPredicate = BlockMatcher.forBlock(BlockRegistry.twilightStone);
 
     private WorldGenerator waterLake = new WorldGenLakes(Blocks.WATER);
-    private WorldGenerator tarLake = new WorldGenLakes(ModBlocks.tar);
+    private WorldGenerator tarLake = new WorldGenLakes(BlockRegistry.smolderingTar);
+    private WorldGenerator twilightStoneLake = new WorldGenLakes(BlockRegistry.twilightStone);
 
     private final Map<Integer, DimensionGen> dimensionGenerators = new HashMap<Integer, DimensionGen>() {{
         put(DimensionType.NETHER.getId(), WorldGenCustomOres::genNether);
         put(DimensionType.OVERWORLD.getId(), WorldGenCustomOres::genOverworld);
-        put(ModDimensions.edenDimension.getId(), WorldGenCustomOres::genEden);
-        put(ModDimensions.wildWoodDimension.getId(), WorldGenCustomOres::genWild);
-        put(ModDimensions.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
-        put(ModDimensions.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
-        put(ModDimensions.mortumDimension.getId(), WorldGenCustomOres::genMortum);
+        put(DimensionRegistry.edenDimension.getId(), WorldGenCustomOres::genEden);
+        put(DimensionRegistry.wildwoodDimension.getId(), WorldGenCustomOres::genWild);
+        put(DimensionRegistry.apalachiaDimension.getId(), WorldGenCustomOres::genApalachia);
+        put(DimensionRegistry.skythernDimension.getId(), WorldGenCustomOres::genSkythern);
+        put(DimensionRegistry.mortumDimension.getId(), WorldGenCustomOres::genMortum);
     }};
 
     @Override
@@ -62,49 +64,56 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // HELPING METHODS
     ///////////////////////////
 
-    private void spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
-                          int chunkX, int chunkZ, OreInfo info) {
+    private boolean spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
+                             int chunkX, int chunkZ, OreInfo info) {
+        return spawnOre(world, random, ore, replacing, chunkX, chunkZ, info.getMinY(), info.getMaxY(), info.getVienSize(), info.getTries());
+    }
 
-        int minY = info.getMinY();
-        int height = getHeightOrThrow(minY, info.getMaxY());
-        WorldGenMinable gen = new WorldGenMinable(ore, info.getVienSize(), replacing);
+    private boolean spawnOre(World world, Random random, IBlockState ore, Predicate<IBlockState> replacing,
+                             int chunkX, int chunkZ, int minY, int maxY, int veinSize, int tries) {
+
+        int height = getHeightOrThrow(minY, maxY);
+        WorldGenMinable gen = new WorldGenMinable(ore, veinSize, replacing);
 
         // Inserting forge hook here
         if (!TerrainGen.generateOre(world, random, gen, new BlockPos(chunkX * 16, 0, chunkZ * 16),
                 OreGenEvent.GenerateMinable.EventType.CUSTOM))
-            return;
+            return false;
 
-        int tries = info.getTries();
+        boolean result = false;
+
         for (int i = 0; i < tries; i++) {
             BlockPos pos = new BlockPos(
                     chunkX * 16 + random.nextInt(16),
                     minY + random.nextInt(height + 1),
                     chunkZ * 16 + random.nextInt(16));
 
-            gen.generate(world, random, pos);
+            result |= gen.generate(world, random, pos);
         }
+
+        return result;
     }
 
-    private void spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
-        spawnOre(world, random, ore.getDefaultState(), twilightPredicate, chunkX, chunkZ, Config.twilight);
+    private boolean spawnTwilightOre(World world, Random random, Block ore, int chunkX, int chunkZ) {
+        return spawnOre(world, random, ore.getDefaultState(), twilightPredicate, chunkX, chunkZ, Config.twilight);
     }
 
     /**
      * @param chance - in one of passed chanses will spawn lake
      */
-    private void generateLake(World world, Random random, WorldGenerator generator, int chunkX, int chunkZ,
-                              int minY, int maxY, int chance) {
+    private boolean generateLake(World world, Random random, WorldGenerator generator, int chunkX, int chunkZ,
+                                 int minY, int maxY, int chance) {
 
         // we are not lucky
         if (random.nextInt(chance) != 0)
-            return;
+            return false;
 
         BlockPos pos = new BlockPos(chunkX * 16 + random.nextInt(16),
                 minY + random.nextInt(getHeightOrThrow(minY, maxY) + 1),
                 chunkZ * 16 + random.nextInt(16));
 
         // But here offset is needed. It's a magic, isn't it?
-        generator.generate(world, random, pos.add(8, 0, 8));
+        return generator.generate(world, random, pos.add(8, 0, 8));
     }
 
     /**
@@ -126,12 +135,11 @@ public class WorldGenCustomOres implements IWorldGenerator {
     // DIMENSION ORE SPAWNING
     /////////////////////////////////
     private void genOverworld(World world, Random random, int chunkX, int chunkZ) {
-    	//TODO something here is broken causing only realmite to spawn
-        spawnOre(world, random, ModBlocks.realmiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
+        spawnOre(world, random, BlockRegistry.realmiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.realmite);
-        spawnOre(world, random, ModBlocks.rupeeOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
+        spawnOre(world, random, BlockRegistry.rupeeOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.rupee);
-        spawnOre(world, random, ModBlocks.arlemiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
+        spawnOre(world, random, BlockRegistry.arlemiteOre.getDefaultState(), stonePredicate, chunkX, chunkZ,
                 Config.arlemite);
 
         if (Config.generateTar) {
@@ -143,29 +151,42 @@ public class WorldGenCustomOres implements IWorldGenerator {
     }
 
     private void genNether(World world, Random random, int chunkX, int chunkZ) {
-        spawnOre(world, random, ModBlocks.netheriteOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
-        spawnOre(world, random, ModBlocks.bloodgemOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
+        spawnOre(world, random, BlockRegistry.netheriteOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
+        spawnOre(world, random, BlockRegistry.bloodgemOre.getDefaultState(), netherPredicate, chunkX, chunkZ, Config.nether);
     }
 
     private void genEden(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.edenOre, chunkX, chunkZ);
+        spawnTwilightOre(world, random, BlockRegistry.edenOre, chunkX, chunkZ);
     }
 
     private void genWild(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.wildwoodOre, chunkX, chunkZ);
+        spawnTwilightOre(world, random, BlockRegistry.wildwoodOre, chunkX, chunkZ);
     }
 
     private void genApalachia(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.apalachiaOre, chunkX, chunkZ);
+        spawnTwilightOre(world, random, BlockRegistry.apalachiaOre, chunkX, chunkZ);
         generateLake(world, random, waterLake, chunkX, chunkZ, 0, 150, 16);
     }
 
     private void genSkythern(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.skythernOre, chunkX, chunkZ);
+        spawnTwilightOre(world, random, BlockRegistry.skythernOre, chunkX, chunkZ);
     }
 
     private void genMortum(World world, Random random, int chunkX, int chunkZ) {
-        spawnTwilightOre(world, random, ModBlocks.mortumOre, chunkX, chunkZ);
+        int chance = MathHelper.clamp(300 / Config.twilight.getTries(), 1, Integer.MAX_VALUE);
+
+        if (generateLake(world, random, twilightStoneLake, chunkX, chunkZ, 50, 70, chance)) {
+            spawnOre(world,
+                    random,
+                    BlockRegistry.mortumOre.getDefaultState(),
+                    twilightPredicate,
+                    chunkX,
+                    chunkZ,
+                    50,
+                    70,
+                    Config.twilight.getVienSize() * 3,
+                    Config.twilight.getTries() * 3);
+        }
     }
 
     @FunctionalInterface
