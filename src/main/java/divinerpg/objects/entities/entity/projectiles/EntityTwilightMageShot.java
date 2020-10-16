@@ -2,6 +2,8 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.enums.BulletType;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityTwilightMageShot extends EntityColoredBullet {
@@ -22,7 +24,18 @@ public class EntityTwilightMageShot extends EntityColoredBullet {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (!this.world.isRemote && this.ticksExisted > 20) {
+        if (!this.world.isRemote && this.ticksExisted > 50) {
+            this.setDead();
+        }
+    }
+    
+    @Override
+    public void onImpact(RayTraceResult result) {
+        if (result.entityHit != null) {
+            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()),
+                    this.getBulletType().getDamage());
+        }
+        if (!this.world.isRemote) {
             this.setDead();
         }
     }

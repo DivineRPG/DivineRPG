@@ -2,16 +2,12 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import java.util.List;
 
-import divinerpg.objects.entities.assets.render.projectiles.RenderKingofScorchersMeteor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityKingOfScorchersMeteor extends EntityThrowable {
 

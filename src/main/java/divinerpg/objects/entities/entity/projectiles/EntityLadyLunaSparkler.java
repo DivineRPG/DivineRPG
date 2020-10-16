@@ -1,12 +1,9 @@
 package divinerpg.objects.entities.entity.projectiles;
 
-import java.awt.Color;
-
 import divinerpg.enums.BulletType;
 import divinerpg.utils.Utils;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 

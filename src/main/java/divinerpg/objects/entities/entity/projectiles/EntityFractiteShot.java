@@ -3,14 +3,12 @@ package divinerpg.objects.entities.entity.projectiles;
 import static divinerpg.enums.ParticleType.FROST;
 
 import divinerpg.DivineRPG;
-import divinerpg.objects.entities.assets.render.projectiles.RenderFractiteShot;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

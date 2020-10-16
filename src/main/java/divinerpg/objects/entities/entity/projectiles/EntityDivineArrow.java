@@ -11,7 +11,6 @@ import divinerpg.DivineRPG;
 import divinerpg.enums.ArrowType;
 import divinerpg.enums.ParticleType;
 import divinerpg.enums.ArrowType.ArrowSpecial;
-import divinerpg.objects.entities.assets.render.projectiles.RenderDivineArrow;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -44,7 +43,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -55,7 +53,7 @@ public class EntityDivineArrow extends EntityArrow {
                     return p_apply_1_.canBeCollidedWith();
                 }
             });
-    private static final DataParameter<Byte> CRITICAL = EntityDataManager.<Byte>createKey(EntityArrow.class,
+    private static final DataParameter<Byte> CRITICAL = EntityDataManager.<Byte>createKey(EntityDivineArrow.class,
             DataSerializers.BYTE);
     private static final DataParameter<Byte> ARROW_ID = EntityDataManager.<Byte>createKey(EntityDivineArrow.class,
             DataSerializers.BYTE);

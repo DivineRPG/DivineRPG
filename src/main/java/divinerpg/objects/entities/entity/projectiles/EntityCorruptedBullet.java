@@ -3,7 +3,6 @@ package divinerpg.objects.entities.entity.projectiles;
 import java.util.ArrayList;
 import java.util.List;
 
-import divinerpg.objects.entities.assets.render.projectiles.RenderCorruptedBullet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -11,9 +10,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityCorruptedBullet extends EntityThrowable {
     public static float damage = 10.0F;

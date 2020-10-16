@@ -2,13 +2,11 @@ package divinerpg.objects.entities.entity.projectiles;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.assets.render.projectiles.RenderEnderTripletsFireball;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -26,9 +24,9 @@ public class EntityEnderTripletsFireball extends EntityFireball {
     protected void onImpact(RayTraceResult result) {
         if (!this.world.isRemote) {
             if (result.entityHit != null) {
-                result.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 10);
+                result.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 8);
             }
-            this.world.createExplosion(null, this.posX, this.posY, this.posZ, 3F, false);
+            this.world.createExplosion(null, this.posX, this.posY, this.posZ, 2F, false);
             this.setDead();
         }
     }
