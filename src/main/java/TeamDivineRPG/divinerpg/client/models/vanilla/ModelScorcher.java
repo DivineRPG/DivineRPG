@@ -1,10 +1,14 @@
-package divinerpg.objects.entities.assets.model.vanilla;
+package TeamDivineRPG.divinerpg.client.models.vanilla;
 
-import net.minecraft.client.model.*;
+import com.google.common.collect.ImmutableList;
+import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.api.distmarker.*;
 
-public class ModelScorcher extends ModelBase {
+@OnlyIn(Dist.CLIENT)
+public class ModelScorcher<T extends Entity> extends SegmentedModel<T> {
     ModelRenderer mainBody;
     ModelRenderer head;
     ModelRenderer rightArm;
@@ -81,23 +85,14 @@ public class ModelScorcher extends ModelBase {
         this.setRotation(this.rightHorn2, 0.0F, 0.0F, -((float) Math.PI / 2F));
     }
 
-    /**
-     * Sets the models various rotation angles then renders the model.
-     */
-    public void render(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
-        super.render(var1, var2, var3, var4, var5, var6, var7);
-        GL11.glScaled(1.8f, 1.8f, 1.8f);
-        GL11.glTranslatef(0f, -0.66f, 0f);
-        this.mainBody.render(var7);
-        this.head.render(var7);
-        this.rightArm.render(var7);
-        this.leftArm.render(var7);
-        this.rightArm2.render(var7);
-        this.leftArm2.render(var7);
-        this.leftHorn.render(var7);
-        this.leftHorn2.render(var7);
-        this.rightHorn.render(var7);
-        this.rightHorn2.render(var7);
+    @Override
+    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+    }
+
+    @Override
+    public Iterable<ModelRenderer> getParts() {
+        return ImmutableList.of(mainBody, head, rightArm, leftArm, rightArm2, leftArm2, leftHorn, leftHorn2, rightHorn, rightHorn2);
     }
 
     private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {

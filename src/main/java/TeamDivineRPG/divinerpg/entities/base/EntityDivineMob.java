@@ -17,7 +17,8 @@ public class EntityDivineMob extends MobEntity {
         return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233819_b_, 20.0D).func_233815_a_(Attributes.field_233821_d_, 0.27F);
     }
 
-    protected void addBasicAI() {
+    @Override
+    protected void registerGoals() {
 //        this.tasks.addTask(0, new EntityAISwimming(this));
 //        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 //        this.tasks.addTask(6, new EntityAILookIdle(this));

@@ -1,5 +1,6 @@
 package TeamDivineRPG.divinerpg.client.models.vanilla;
 
+import TeamDivineRPG.divinerpg.entities.vanilla.EntityAridWarrior;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
@@ -8,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelAridWarrior<T extends Entity> extends SegmentedModel<T> {
+public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedModel<T> {
 
     //fields
     ModelRenderer ear1;
