@@ -1,113 +1,81 @@
 package divinerpg.registry;
 
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class DivineRPGTabs extends CreativeTabs {
+public class DivineRPGTabs {
 
-	public static final CreativeTabs BlocksTab = new CreativeTabs("Blocks") {
+	public static final CreativeTabs BLOCKS = new CreativeTabs("divinerpg_blocks") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModBlocks.edenOre);
+			return new ItemStack(BlockRegistry.edenOre);
 		}
 	};
-	public static DivineRPGTabs ranged = new DivineRPGTabs("Ranged", "Ranged Weapons") {
+	public static final CreativeTabs RANGED_WEAPONS = new CreativeTabs("divinerpg_ranged_weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.vileStorm);
+			return new ItemStack(WeaponRegistry.vileStorm);
 		}
 	};
-	public static DivineRPGTabs swords = new DivineRPGTabs("Swords", "Melee Weapons") {
+	public static final CreativeTabs MELEE_WEAPONS = new CreativeTabs("divinerpg_melee_weapons") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.aquaton);
+			return new ItemStack(WeaponRegistry.aquaton);
 		}
 	};
-	public static DivineRPGTabs tools = new DivineRPGTabs("Tools") {
+	public static final CreativeTabs TOOLS = new CreativeTabs("divinerpg_tools") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.rupeeShickaxe);
+			return new ItemStack(ToolRegistry.rupeeShickaxe);
 		}
 	};
-	public static DivineRPGTabs items = new DivineRPGTabs("Materials", "Raw Materials") {
+	public static final CreativeTabs MATERIALS = new CreativeTabs("divinerpg_materials") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.rupeeIngot);
+			return new ItemStack(ItemRegistry.rupeeIngot);
 		}
 	};
-	public static DivineRPGTabs armor = new DivineRPGTabs("Armor") {
+	public static final CreativeTabs ARMOR = new CreativeTabs("divinerpg_armor") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.divineHelmet);
+			return new ItemStack(ArmorRegistry.divineHelmet);
 		}
 	};
-	public static DivineRPGTabs spawner = new DivineRPGTabs("Spawner") {
+	public static final CreativeTabs BOSS_SPAWNERS = new CreativeTabs("divinerpg_boss_spawners") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.callOfTheWatcher);
+			return new ItemStack(ItemRegistry.callOfTheWatcher);
 		}
 	};
-	public static DivineRPGTabs utility = new DivineRPGTabs("Utility") {
+	public static final CreativeTabs UTILITY = new CreativeTabs("divinerpg_utility") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.snowGlobe);
+			return new ItemStack(ItemRegistry.snowGlobe);
 		}
 	};
-	public static DivineRPGTabs food = new DivineRPGTabs("Herbalism") {
+	public static final CreativeTabs FOOD_AND_AGRICULTURE = new CreativeTabs("divinerpg_food_and_agriculture") {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.bacon);
+			return new ItemStack(ItemRegistry.bacon);
 		}
 	};
-	public static DivineRPGTabs vethea = new DivineRPGTabs("Vethea") {
+	public static final CreativeTabs VETHEA = new CreativeTabs("divinerpg_vethea") {
 		@Override
 		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() { return new ItemStack(ModItems.corruptedStone); }
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ItemRegistry.dreamCake);
+		}
 	};
 
-	public static void init() {
-	}
-
-	private Item icon;
-
-	private String name;
-
-	public DivineRPGTabs(String label) {
-		this(label, label);
-	}
-
-	public DivineRPGTabs(String label, String name) {
-		super(getNextID(), label);
-
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public ItemStack getTabIconItem() {
-		return new ItemStack(icon);
-	}
-
-	public void setIcon(Block icon) {
-		this.icon = Item.getItemFromBlock(icon);
-	}
-
-	public void setIcon(Item icon) {
-		this.icon = icon;
-	}
 }

@@ -1,29 +1,18 @@
 package divinerpg.proxy;
 
-import divinerpg.api.java.divinerpg.api.Reference;
+import divinerpg.DivineRPG;
 import divinerpg.client.ArcanaRenderer;
-import divinerpg.client.ClientTicker;
-import divinerpg.client.render.RenderItemNightmareBed;
 import divinerpg.enums.ParticleType;
 import divinerpg.events.EventBowZoom;
 import divinerpg.events.EventClientLogin;
-import divinerpg.events.EventDevHat;
-import divinerpg.events.EventTooltip;
-import divinerpg.objects.blocks.tile.entity.*;
-import divinerpg.objects.blocks.tile.render.*;
+import divinerpg.objects.entities.assets.render.PlayerHatRender;
 import divinerpg.particle.*;
-import divinerpg.registry.ModEntities;
-import divinerpg.registry.ModItems;
-import divinerpg.registry.ModMessages;
-import divinerpg.registry.ModSounds;
-import divinerpg.utils.Utils;
-import divinerpg.utils.log.InitLog;
-import divinerpg.utils.log.IntenseDebug;
-import divinerpg.utils.log.PostInitLog;
-import divinerpg.utils.log.PreInitLog;
+import divinerpg.registry.SoundRegistry;
+import divinerpg.utils.log.DebugLogging;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -31,7 +20,6 @@ import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -48,55 +36,33 @@ public class ClientProxy extends CommonProxy {
         return FMLClientHandler.instance().getClientPlayerEntity();
     }
 
-    @SuppressWarnings("deprecation")
+    @Deprecated
 	@Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        Utils.setupCapes();
-        Utils.updateCapeList();
-        ModItems.nightmareBed.setTileEntityItemStackRenderer(new RenderItemNightmareBed());
-        InitLog.init();
-        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", ModSounds.ICEIKA_MUSIC, 1200, 12000);
+        DebugLogging.initStageLog();
+        Music_Iceika = EnumHelperClient.addMusicType("iceika_music", SoundRegistry.ICEIKA_MUSIC, 1200, 12000);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
-        Utils.postFMLEvent(new ArcanaRenderer());
-        Utils.postFMLEvent(new ClientTicker());
+        MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         MinecraftForge.EVENT_BUS.register(new EventClientLogin());
-        MinecraftForge.EVENT_BUS.register(new EventTooltip());
 
-        PostInitLog.init();
-        IntenseDebug.init();
+        DebugLogging.postInitStageLog();
+        RenderPlayer renderPlayer = Minecraft.getMinecraft().getRenderManager().getSkinMap().get("default");
+        if (renderPlayer != null) {
+            renderPlayer.addLayer(new PlayerHatRender(renderPlayer));
+        }
     }
 
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-        ModEntities.initModels();
-        OBJLoader.INSTANCE.addDomain(Reference.MODID);
+        OBJLoader.INSTANCE.addDomain(DivineRPG.MODID);
         MinecraftForge.EVENT_BUS.register(new EventBowZoom());
-        MinecraftForge.EVENT_BUS.register(new EventDevHat());
-        PreInitLog.init();
-        ModMessages.initClient();
-    }
-
-    @Override
-    public void RegisterTileEntityRender() {
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDramixAltar.class, new RenderDramixAltar());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityParasectaAltar.class, new RenderParasectaAltar());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrostedChest.class, new RenderFrostedChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoBeam.class, new RenderAyeracoBeam());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAyeracoSpawn.class, new RenderAyeracoSpawn());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonFurnace.class, new RenderDemonFurnace());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityArcaniumExtractor.class, new RenderArcaniumExtractor());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPresentBox.class, new RenderPresentBox());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBoneChest.class, new RenderBoneChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAltarOfCorruption.class, new RenderAltarOfCorruption());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatue.class, new RenderStatue());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEdenChest.class, new RenderEdenChest());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNightmareBed.class, new RenderNightmareBed());
+        DebugLogging.preInitStageLog();
     }
 
     @Override
@@ -126,7 +92,7 @@ public class ClientProxy extends CommonProxy {
                 particle = new ParticleSkythernPortal(world, x, y, z, velX, velY, velZ);
                 break;
             case WILDWOOD_PORTAL:
-                particle = new ParticleWildWoodPortal(world, x, y, z, velX, velY, velZ);
+                particle = new ParticleWildwoodPortal(world, x, y, z, velX, velY, velZ);
                 break;
             case GREEN_PORTAL:
                 particle = new ParticleGreenPortal(world, x, y, z, velX, velY, velZ);
