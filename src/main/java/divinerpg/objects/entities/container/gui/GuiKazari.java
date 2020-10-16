@@ -4,13 +4,15 @@ import divinerpg.DivineRPG;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class GuiWorkshopMerchant extends GuiDivineMerchant {
+public class GuiKazari extends GuiDivineMerchant {
     public static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(DivineRPG.MODID,
-            "textures/gui/workshop_worker.png");
+            "textures/gui/kazari.png");
+    private static String merchantName = new TextComponentTranslation("entity.divinerpg.kazari.name").getFormattedText();
 
-    public GuiWorkshopMerchant(InventoryPlayer playerInventory, IMerchant merchant, World world) {
+    public GuiKazari(InventoryPlayer playerInventory, IMerchant merchant, World world) {
         super(playerInventory, merchant, world);
     }
 
@@ -19,10 +21,10 @@ public class GuiWorkshopMerchant extends GuiDivineMerchant {
     }
 
     protected String getMerchantName() {
-        return "Workshop Merchant";
+        return merchantName;
     }
 
     protected int getTextColor() {
-        return 0x404040;
+        return 0xE6E6E6;
     }
 }
