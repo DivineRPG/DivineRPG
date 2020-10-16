@@ -1,27 +1,11 @@
 package divinerpg.objects.entities.entity;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Maps;
-
 import divinerpg.DivineRPG;
 import divinerpg.enums.ParticleType;
-import divinerpg.objects.entities.assets.render.iceika.RenderFrostCloud;
-import divinerpg.objects.entities.entity.iceika.Alicanto;
-import divinerpg.objects.entities.entity.iceika.Fractite;
-import divinerpg.objects.entities.entity.iceika.FrostArcher;
-import divinerpg.objects.entities.entity.iceika.Frosty;
-import divinerpg.objects.entities.entity.iceika.Glacide;
-import divinerpg.objects.entities.entity.iceika.Hastreus;
-import divinerpg.objects.entities.entity.iceika.Rollum;
-import divinerpg.objects.entities.entity.vanilla.Frost;
-import divinerpg.objects.entities.entity.vanilla.Glacon;
+import divinerpg.objects.entities.entity.iceika.*;
+import divinerpg.objects.entities.entity.vanilla.EntityFrost;
+import divinerpg.objects.entities.entity.vanilla.EntityGlacon;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,12 +19,18 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.UUID;
+
+@Deprecated
+// todo replace by EntityAreaEffectCloud
 public class EntityFrostCloud extends Entity {
-    private static final DataParameter<Float> RADIUS = EntityDataManager.<Float>createKey(EntityFrostCloud.class,
+    private static final DataParameter<Float> RADIUS = EntityDataManager.createKey(EntityFrostCloud.class,
             DataSerializers.FLOAT);
     private final Map<Entity, Integer> reapplicationDelayMap;
     private int duration;
@@ -52,7 +42,7 @@ public class EntityFrostCloud extends Entity {
 
     public EntityFrostCloud(World worldIn) {
         super(worldIn);
-        this.reapplicationDelayMap = Maps.<Entity, Integer>newHashMap();
+        this.reapplicationDelayMap = Maps.newHashMap();
         this.duration = 600;
         this.reapplicationDelay = 10;
         this.noClip = true;
@@ -148,7 +138,7 @@ public class EntityFrostCloud extends Entity {
                     }
                 }
 
-                List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class,
+                List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class,
                         this.getEntityBoundingBox());
 
                 if (!list.isEmpty()) {
@@ -161,11 +151,11 @@ public class EntityFrostCloud extends Entity {
                                 this.reapplicationDelayMap.put(entity,
                                         Integer.valueOf(this.ticksExisted + this.reapplicationDelay));
                                 if (!(entity.isEntityUndead() || entity instanceof EntitySnowman
-                                        || entity instanceof Glacon || entity instanceof Frost
-                                        || entity instanceof Alicanto || entity instanceof Fractite
-                                        || entity instanceof FrostArcher || entity instanceof Frosty
-                                        || entity instanceof Glacide || entity instanceof Hastreus
-                                        || entity instanceof Rollum)) {
+                                        || entity instanceof EntityGlacon || entity instanceof EntityFrost
+                                        || entity instanceof EntityAlicanto || entity instanceof EntityFractite
+                                        || entity instanceof EntityFrostArcher || entity instanceof EntityFrosty
+                                        || entity instanceof EntityGlacide || entity instanceof EntityHastreus
+                                        || entity instanceof EntityRollum)) {
                                     entity.attackEntityFrom(DamageSource.MAGIC, 1.0F);
                                 }
                             }
