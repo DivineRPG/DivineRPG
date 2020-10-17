@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.vanilla.*;
+import divinerpg.util.SpawnEggColors;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.*;
@@ -32,7 +33,7 @@ public class EntityRegistry {
 
     public static void bakeAttributes() {
         //Old system was health, attack, armor. Just make sure to check its in the correct order
-//        GlobalEntityTypeAttributes.put(ARID_WARRIOR, EntityAridWarrior.attributes().func_233813_a_());
+        GlobalEntityTypeAttributes.put(ARID_WARRIOR, EntityAridWarrior.attributes().func_233813_a_());
         GlobalEntityTypeAttributes.put(SHARK, EntityShark.attributes().func_233813_a_());
         GlobalEntityTypeAttributes.put(WHALE, EntityWhale.attributes().func_233813_a_());
 
@@ -40,7 +41,7 @@ public class EntityRegistry {
 
 
     static {
-//        EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
         EntitySpawnPlacementRegistry.register(SHARK, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityShark::canSpawnOn);
         EntitySpawnPlacementRegistry.register(WHALE, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhale::canSpawnOn);
     }
@@ -72,16 +73,16 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 1, 1, 1));
         }
         if (event.getCategory() == Biome.Category.DESERT) {
-//            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ARID_WARRIOR, 35, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ARID_WARRIOR, 35, 1, 4));
         }
     }
 
     @SubscribeEvent
     public static void registerSpawnEggs(final RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-//                new SpawnEggItem(ARID_WARRIOR, -3546547, -65179583, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "arid_warrior_spawn_egg"),
-                new SpawnEggItem(SHARK, -3546547, -65179583, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "shark_spawn_egg"),
-                new SpawnEggItem(WHALE, -3546547, -65179583, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "whale_spawn_egg")
+                new SpawnEggItem(ARID_WARRIOR, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getPrimaryColor(), SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getSecondaryColor(), new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "arid_warrior_spawn_egg"),
+                new SpawnEggItem(SHARK,  SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getPrimaryColor(), SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getSecondaryColor(), new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "shark_spawn_egg"),
+                new SpawnEggItem(WHALE,  SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getPrimaryColor(), SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD).getSecondaryColor(), new Item.Properties().group(ItemGroup.MISC)).setRegistryName(DivineRPG.MODID, "whale_spawn_egg")
 
         );
     }

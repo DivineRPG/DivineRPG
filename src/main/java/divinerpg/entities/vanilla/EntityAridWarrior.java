@@ -5,6 +5,7 @@ import divinerpg.registries.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,9 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     public EntityAridWarrior(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
     }
-
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233818_a_, 40.0D).func_233815_a_(Attributes.field_233823_f_, 8);
+    }
     @Override
     protected void registerGoals() {
         addAttackingAI();
@@ -46,7 +49,5 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_ARID_WARRIOR;
     }
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemRegistry.shadowBow));
-    }
+
 }

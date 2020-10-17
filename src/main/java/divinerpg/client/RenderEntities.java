@@ -6,7 +6,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class RenderEntities {
     public static void render() {
-//        RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.ARID_WARRIOR, RenderAridWarrior::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.ARID_WARRIOR, RenderAridWarrior::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.SHARK, RenderShark::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegistry.WHALE, RenderWhale::new);
     }

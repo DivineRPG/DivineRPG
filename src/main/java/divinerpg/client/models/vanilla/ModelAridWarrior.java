@@ -1,15 +1,17 @@
 package divinerpg.client.models.vanilla;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.entities.vanilla.EntityAridWarrior;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedModel<T> {
+public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedModel<T>{
 
     //fields
     ModelRenderer ear1;
@@ -273,6 +275,5 @@ public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedMode
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
-
 
 }
