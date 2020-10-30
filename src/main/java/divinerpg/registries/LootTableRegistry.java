@@ -180,7 +180,6 @@ public class LootTableRegistry {
 
     private static ResourceLocation register(ResourceLocation id) {
         if (LOOT_TABLES.add(id)) {
-            DivineRPG.LOGGER.info("registered loot table at " + id);
             return id;
         } else {
             throw new IllegalArgumentException(id + " is already a registered built-in loot table");

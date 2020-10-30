@@ -24,10 +24,10 @@ public class BlockWinterberryBush extends BlockMod implements IGrowable {
                 .create(Material.LEAVES)
                 .hardnessAndResistance(0.2F, 0.2F)
                 .notSolid()
-                .func_235861_h_()
+                .setRequiresTool()
                 .sound(SoundType.PLANT)
                 .tickRandomly()
-                .func_235838_a_((p_235464_0_) -> {
+                .setLightLevel((p_235464_0_) -> {
                     return 1;
                 })
         );

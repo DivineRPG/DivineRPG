@@ -8,7 +8,7 @@ public class BlockModBridge extends BlockModPowered {
         super(name, Block.Properties
                 .create(Material.GLASS)
                 .hardnessAndResistance(hardness, 3.0F)
-                .func_235861_h_());
+                .setRequiresTool());
         //TODO - write lighting
     }
 

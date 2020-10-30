@@ -1,9 +1,11 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
+import divinerpg.entities.IAttackTimer;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.*;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -42,7 +44,7 @@ public class ModelStoneGolem<T extends Entity> extends SegmentedModel<T> {
     ModelRenderer RFinger4;
     ModelRenderer RFinger3;
 
-    public void ModelStoneGolem() {
+    public ModelStoneGolem() {
         textureWidth = 128;
         textureHeight = 128;
 
@@ -245,10 +247,12 @@ public class ModelStoneGolem<T extends Entity> extends SegmentedModel<T> {
 
     }
 
+
     @Override
     public Iterable<ModelRenderer> getParts() {
-        return ImmutableList.of(LShoulder, crystal, Ring3, Ring1, Ring2, headF4, Body, RShoulder, LBodyL, crown2, Jaw, headF1, headF3, headF2, headB, crown1, forehead, LFinger2,
-                RArm1, RArm2, LArm1, LArm3, LArm2, LBodyR, RArm3, LFinger1, LFinger4, LFinger3, RFinger1, RFinger2, RFinger4, RFinger3);
+        return ImmutableList.of(
+        LShoulder, crystal, Ring3, Ring1, Ring2, headF4, Body, RShoulder, LBodyL, crown2, Jaw, headF1, headF3, headF2, headB, crown1, forehead, LFinger2, RArm1, RArm2,
+        LArm1, LArm3, LArm2, LBodyR, RArm3, LFinger1, LFinger4,  LFinger3, RFinger1, RFinger2, RFinger4, RFinger3);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -257,24 +261,22 @@ public class ModelStoneGolem<T extends Entity> extends SegmentedModel<T> {
         model.rotateAngleZ = z;
     }
 
-    //TODO - Living animations
-//    @Override
-//    public void setLivingAnimations(EntityLivingBase e, float par2, float par3, float par4) {
-//        double r = 0;
-//        float armR = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * par3 * 0.5F;
-//        float armL = MathHelper.cos(par2 * 0.6662F) * par3 * 0.5F;
-//        if (((IAttackTimer) e).getAttackTimer() > 0) {
-//            r = this.getSwingAngle((float) ((IAttackTimer) e).getAttackTimer() - par4, 10) - 1;
-//        }
-//        this.RArm1.rotateAngleX = this.RArm2.rotateAngleX = this.RArm3.rotateAngleX = this.RFinger1.rotateAngleX = this.RFinger2.rotateAngleX = this.RFinger3.rotateAngleX = this.RFinger4.rotateAngleX = (float) r
-//                + armR;
-//        this.LArm1.rotateAngleX = this.LArm2.rotateAngleX = this.LArm3.rotateAngleX = this.LFinger1.rotateAngleX = this.LFinger2.rotateAngleX = this.LFinger3.rotateAngleX = this.LFinger4.rotateAngleX = (float) r
-//                + armL;
-//    }
+    @Override
+    public void setLivingAnimations(T e, float par2, float par3, float par4) {
+        double r = 0;
+        float armR = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * par3 * 0.5F;
+        float armL = MathHelper.cos(par2 * 0.6662F) * par3 * 0.5F;
+        if (((IAttackTimer) e).getAttackTimer() > 0) {
+            r = this.getSwingAngle((float) ((IAttackTimer) e).getAttackTimer() - par4, 10) - 1;
+        }
+        this.RArm1.rotateAngleX = this.RArm2.rotateAngleX = this.RArm3.rotateAngleX = this.RFinger1.rotateAngleX = this.RFinger2.rotateAngleX = this.RFinger3.rotateAngleX = this.RFinger4.rotateAngleX = (float) r
+                + armR;
+        this.LArm1.rotateAngleX = this.LArm2.rotateAngleX = this.LArm3.rotateAngleX = this.LFinger1.rotateAngleX = this.LFinger2.rotateAngleX = this.LFinger3.rotateAngleX = this.LFinger4.rotateAngleX = (float) r
+                + armL;
+    }
 
     private float getSwingAngle(float timer, float maxTimer) {
         return (Math.abs(timer - maxTimer / 2) - maxTimer * 0.25F) / (maxTimer * 0.25F);
     }
-
 
 }

@@ -1,9 +1,13 @@
 package divinerpg.entities.base;
 
+import divinerpg.DivineRPG;
+import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.*;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -28,20 +32,42 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putInt("Anger", angerLevel);
-        if (angerTargetUUID != null) {
-            compound.putString("Target", angerTargetUUID.toString());
+        compound.putInt("Anger", (short)this.angerLevel);
+
+        if (this.angerTargetUUID != null)
+        {
+            compound.putString("HurtBy", this.angerTargetUUID.toString());
+        }
+        else
+        {
+            compound.putString("HurtBy", "");
         }
     }
 
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        compound.getInt("Anger");
-        compound.getString("Target");
+        this.angerLevel = compound.getShort("Anger");
+        String s = compound.getString("HurtBy");
+
+        if (!s.isEmpty())
+        {
+            this.angerTargetUUID = UUID.fromString(s);
+            PlayerEntity entityplayer = this.world.getPlayerByUuid(this.angerTargetUUID);
+            this.setRevengeTarget(entityplayer);
+
+            if (entityplayer != null)
+            {
+                this.attackingPlayer = entityplayer;
+                this.recentlyHit = this.getRevengeTimer();
+            }
+        }
     }
 
     protected void registerGoals() {
-//        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
+        super.registerGoals();
+        if (isAngry()) {
+            addAttackingAI();
+        }
     }
 
 
@@ -60,11 +86,9 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
             return false;
         } else {
             Entity entity = source.getTrueSource();
-
             if (entity instanceof PlayerEntity) {
                 this.becomeAngryAt(entity);
             }
-
             return super.attackEntityFrom(source, amount);
         }
     }
@@ -88,5 +112,13 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
             return super.attackEntityAsMob(entity);
         }
         return false;
+    }
+
+    @Override
+    public void livingTick() {
+        super.livingTick();
+        if(isAngry()){
+            DivineRPG.LOGGER.info("hey im this angry "+angerLevel);
+        }
     }
 }

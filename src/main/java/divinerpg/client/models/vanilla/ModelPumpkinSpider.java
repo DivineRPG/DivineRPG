@@ -1,6 +1,10 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import divinerpg.entities.vanilla.EntityPumpkinSpider;
+import divinerpg.registries.EntityRegistry;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -8,7 +12,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelPumpkinSpider<T extends Entity> extends SegmentedModel<T> {
+public class ModelPumpkinSpider<T extends EntityPumpkinSpider> extends SegmentedModel<T> {
     ModelRenderer Head;
     ModelRenderer Body;
     ModelRenderer RearEnd;
@@ -24,7 +28,6 @@ public class ModelPumpkinSpider<T extends Entity> extends SegmentedModel<T> {
     public ModelPumpkinSpider() {
         textureWidth = 64;
         textureHeight = 64;
-
         Head = new ModelRenderer(this, 32, 4);
         Head.addBox(-4F, -4F, -8F, 8, 8, 8);
         Head.setRotationPoint(0F, 20F, -3F);
@@ -145,6 +148,19 @@ public class ModelPumpkinSpider<T extends Entity> extends SegmentedModel<T> {
         return ImmutableList.of(RearEnd, Head, Body, Leg8, Leg6, Leg4, Leg2, Leg7, Leg5, Leg3, Leg1);
     }
 
+    public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+            this.Body.showModel=entityIn.getProvoked();
+            this.Head.showModel=entityIn.getProvoked();
+            this.Leg1.showModel=entityIn.getProvoked();
+            this.Leg1.showModel=entityIn.getProvoked();
+            this.Leg2.showModel=entityIn.getProvoked();
+            this.Leg3.showModel=entityIn.getProvoked();
+            this.Leg4.showModel=entityIn.getProvoked();
+            this.Leg5.showModel=entityIn.getProvoked();
+            this.Leg6.showModel=entityIn.getProvoked();
+            this.Leg7.showModel=entityIn.getProvoked();
+            this.Leg8.showModel=entityIn.getProvoked();
+    }
     private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;

@@ -1,10 +1,12 @@
 package divinerpg.entities.base;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.fish.AbstractFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
@@ -12,12 +14,25 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.*;
 
+import java.util.Random;
+
 public class EntityDivineWaterMob extends AbstractFishEntity {
 
 
     public EntityDivineWaterMob(EntityType<? extends EntityDivineWaterMob> type, World worldIn) {
         super(type, worldIn);
         this.rand.setSeed(1 + this.getEntityId());
+    }
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.down();
+        return reason == SpawnReason.NATURAL || worldIn.getBlockState(blockpos).canEntitySpawn(worldIn, blockpos, typeIn);
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return true;
+    }
+
+    public boolean isNotColliding(IWorldReader worldIn) {
+        return worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.checkNoEntityCollision(this);
     }
 
     @Override
@@ -71,7 +86,7 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233818_a_, 80.0D).func_233815_a_(Attributes.field_233823_f_, 8F);
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 80.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 8F).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.29D);
     }
 
     @Override
@@ -124,10 +139,6 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
         super.tick();
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return this.getBlockPathWeight(this.func_233580_cy_(), worldIn) >= 0.0F;
-    }
-
     protected static class AttackGoal extends MeleeAttackGoal {
         public AttackGoal(EntityDivineWaterMob mob) {
             super(mob, 0.4D, true);
@@ -142,6 +153,45 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
     protected static class TargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
         public TargetGoal(EntityDivineWaterMob mob, Class<T> classTarget) {
             super(mob, classTarget, true);
+        }
+    }
+
+    @Override
+    protected void registerGoals() {
+        if(!needsSpecialAI()){
+            addBasicAI();
+        }
+    }
+    public boolean needsSpecialAI() {
+        return false;
+    }
+
+    protected void addBasicAI() {
+        this.goalSelector.addGoal(0, new EntityDivineWaterMob.SwimGoal(this));
+        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+
+    }
+
+    protected void addAttackingAI() {
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+    }
+    static class SwimGoal extends RandomSwimmingGoal {
+        private final EntityDivineWaterMob mob;
+
+        public SwimGoal(EntityDivineWaterMob mob) {
+            super(mob, 1.0D, 40);
+            this.mob = mob;
+        }
+
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean shouldExecute() {
+            return this.mob.func_212800_dy() && super.shouldExecute();
         }
     }
 }

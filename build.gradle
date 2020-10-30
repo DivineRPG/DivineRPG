@@ -18,7 +18,7 @@ archivesBaseName = 'DivineRPG'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'snapshot', version: '20200514-1.16'
+    mappings channel: 'snapshot', version: '20201028-1.16.3'
     runs {
         client {
             workingDirectory project.file('run')
@@ -62,7 +62,7 @@ repositories {
     maven { url = "https://www.cursemaven.com"}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.22'
+    minecraft 'net.minecraftforge:forge:1.16.3-34.1.35'
     compileOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}")
     compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")

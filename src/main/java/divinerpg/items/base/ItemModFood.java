@@ -34,7 +34,7 @@ public class ItemModFood extends ItemMod {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (food.isMeat()) {
-            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".tooltip.food.pet").func_240699_a_(TextFormatting.BLUE));
+            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".tooltip.food.pet").mergeStyle(TextFormatting.BLUE));
         }
         if (fastFood) {
             tooltip.add(LocalizeUtils.instantConsumption());

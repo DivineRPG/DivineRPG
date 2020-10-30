@@ -15,7 +15,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     protected Supplier<Block> dirtSupplier;
 
     public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor color) {
-        super(name, Block.Properties.create(Material.EARTH, color).tickRandomly().func_235861_h_().hardnessAndResistance(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND));
+        super(name, Block.Properties.create(Material.EARTH, color).tickRandomly().setRequiresTool().hardnessAndResistance(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND));
         this.dirtSupplier = dirt;
     }
 
@@ -40,7 +40,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
             for (int j = 0; j < i / 16; ++j) {
                 blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (!worldIn.getBlockState(blockpos1.down()).isIn(this) || worldIn.getBlockState(blockpos1).func_235785_r_(worldIn, blockpos1)) {
+                if (!worldIn.getBlockState(blockpos1.down()).isIn(this) || worldIn.getBlockState(blockpos1).isFertile(worldIn, blockpos1)) {
                     continue label48;
                 }
             }
@@ -53,14 +53,14 @@ public class BlockModGrass extends BlockMod implements IGrowable {
             if (blockstate2.isAir()) {
                 BlockState blockstate1;
                 if (rand.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = worldIn.getBiome(blockpos1).func_242440_e().func_242496_b();
+                    List<ConfiguredFeature<?, ?>> list = worldIn.getBiome(blockpos1).getGenerationSettings().getFlowerFeatures();
                     if (list.isEmpty()) {
                         continue;
                     }
 
                     ConfiguredFeature<?, ?> configuredfeature = list.get(0);
                     FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                    blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
+                    blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.getConfig());
                 } else {
                     blockstate1 = blockstate;
                 }

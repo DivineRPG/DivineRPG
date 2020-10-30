@@ -15,7 +15,7 @@ public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public BlockHeatTrap(String name) {
-        super(name, Block.Properties.create(Material.ROCK, MaterialColor.LAPIS).tickRandomly().func_235861_h_().hardnessAndResistance(-1, 3600000.0F).sound(SoundType.STONE));
+        super(name, Block.Properties.create(Material.ROCK, MaterialColor.LAPIS).tickRandomly().setRequiresTool().hardnessAndResistance(-1, 3600000.0F).sound(SoundType.STONE));
         this.setDefaultState(this.stateContainer.getBaseState().with(ACTIVE, Boolean.valueOf(false)));
     }
 

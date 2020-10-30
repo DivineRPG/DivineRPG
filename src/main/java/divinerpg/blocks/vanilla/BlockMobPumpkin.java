@@ -15,7 +15,7 @@ public class BlockMobPumpkin extends HorizontalBlock {
 
     public BlockMobPumpkin(String name, SoundEvent sound) {
         super(Block.Properties.create(Material.ROCK, MaterialColor.STONE)
-                .func_235861_h_()
+                .setRequiresTool()
                 .hardnessAndResistance(1.0F, 1.0F)
                 .sound(SoundType.WOOD));
         setRegistryName(name);

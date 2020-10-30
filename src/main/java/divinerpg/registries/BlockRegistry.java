@@ -1111,11 +1111,11 @@ public class BlockRegistry {
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
 //        // Vanilla dimensions
 //        // Ores
-        register(registry, new BlockMod("arlemite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("realmite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(IRON).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("rupee_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("bloodgem_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("torridite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("arlemite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("realmite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(IRON).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("rupee_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("bloodgem_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("torridite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
 
 //        // Compressed ore blocks
         register(registry, new BlockMod("arlemite_block", 5.0F, 3.0F, Material.IRON));
@@ -1241,12 +1241,12 @@ public class BlockRegistry {
 //
 //        // Miscellaneous decorative blocks
         register(registry, new BlockMod("asphalt", 2.0F, 3.0F));
-        register(registry, new BlockMod("blue_stone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(WOOD_GOLD).sound(SoundType.STONE).func_235838_a_((p_235464_0_) -> {
+        register(registry, new BlockMod("blue_stone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(WOOD_GOLD).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
             return 1;
         })));
         register(registry, new BlockMod("checker", 0.8F, 3.0F, Material.CARPET));
         register(registry, new BlockMod("crate", 2.5F, 3.0F, Material.WOOD));
-        register(registry, new BlockMod("darkstone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).func_235861_h_().hardnessAndResistance(50.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(DIAMOND).sound(SoundType.STONE).func_235838_a_((p_235464_0_) -> {
+        register(registry, new BlockMod("darkstone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(50.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(DIAMOND).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
             return 1;
         })));
         register(registry, new BlockMod("fancy_wool", 0.8F, 3.0F, Material.CARPET));
@@ -1386,11 +1386,11 @@ public class BlockRegistry {
         register(registry, new BlockModLamp("workshop_lamp", 0.3F, 3.0F, 15));
 //
 //        // Candy canes
-        register(registry, new BlockMod("blue_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).func_235861_h_()));
-        register(registry, new BlockMod("green_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).func_235861_h_()));
-        register(registry, new BlockMod("pink_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).func_235861_h_()));
-        register(registry, new BlockMod("red_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).func_235861_h_()));
-        register(registry, new BlockMod("yellow_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).func_235861_h_()));
+        register(registry, new BlockMod("blue_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
+        register(registry, new BlockMod("green_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
+        register(registry, new BlockMod("pink_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
+        register(registry, new BlockMod("red_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
+        register(registry, new BlockMod("yellow_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
 
 //        // Christmas lights
         register(registry, new BlockModNotReady("blue_christmas_lights"));
@@ -1439,11 +1439,11 @@ public class BlockRegistry {
         register(registry, new BlockMod("twilight_stone", 6.0F, 3.0F));
 //
 //        // Ore
-        register(registry, new BlockMod("eden_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(5.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("wildwood_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(6.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("apalachia_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("skythern_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).hardnessAndResistance(8.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("mortum_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(9.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("eden_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(5.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("wildwood_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(6.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("apalachia_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("skythern_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).hardnessAndResistance(8.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("mortum_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(9.0F, 2000.0F).sound(SoundType.STONE)));
 
 //        // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new OakTree()));
@@ -1573,7 +1573,7 @@ public class BlockRegistry {
 //        register(registry, new BlockArcaniteGrass("arcanite_grass", 0.6F));
 //
 //        // Ore
-        register(registry, new BlockMod("raw_arcanium", Block.Properties.create(Material.EARTH, MaterialColor.LAPIS).func_235861_h_().hardnessAndResistance(2.0F, 3.0F).sound(SoundType.STONE).harvestTool(ToolType.SHOVEL).harvestLevel(3)));
+        register(registry, new BlockMod("raw_arcanium", Block.Properties.create(Material.EARTH, MaterialColor.LAPIS).setRequiresTool().hardnessAndResistance(2.0F, 3.0F).sound(SoundType.STONE).harvestTool(ToolType.SHOVEL).harvestLevel(3)));
 //
 //        // Storage block
         register(registry, new BlockMod("arcanium_block", 5.0F));
@@ -1617,7 +1617,7 @@ public class BlockRegistry {
         register(registry, new BlockModStairs("degraded_brick_stairs_breakable", degradedBricksBreakable));
         register(registry, new BlockModSlab("degraded_brick_slab_breakable", degradedBricksBreakable, 2.0F));
 //        register(registry, new BlockModWall("degraded_brick_wall_breakable", degradedBricksBreakable, 2.0F));
-        register(registry, new BlockMod("dungeon_lamp_breakable", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().hardnessAndResistance(1, 3.0F).sound(SoundType.STONE).func_235838_a_((p_235464_0_) -> {
+        register(registry, new BlockMod("dungeon_lamp_breakable", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(1, 3.0F).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
             return 15;
         })));
         register(registry, new BlockMod("soul_sludge_breakable", 2.0F, 3.0F));
@@ -1809,7 +1809,7 @@ public class BlockRegistry {
 //
 //        // Hive
         register(registry, new BlockModLamp("cell_lamp", 1.0F, 3.0F, 15), true);
-        register(registry, new BlockMod("hive_wall", Block.Properties.create(Material.ROCK, MaterialColor.STONE).func_235861_h_().hardnessAndResistance(1.0F, 3.0F).sound(SoundType.GLASS).func_235838_a_((p_235464_0_) -> {
+        register(registry, new BlockMod("hive_wall", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(1.0F, 3.0F).sound(SoundType.GLASS).setLightLevel((p_235464_0_) -> {
             return 7;
         })), true);
 //

@@ -14,17 +14,17 @@ public class BlockModUnbreakable extends BlockMod {
 
     public BlockModUnbreakable(String name, boolean isLamp) {
         super(name, Block.Properties.create(Material.ROCK, MaterialColor.STONE)
-                .func_235861_h_()
+                .setRequiresTool()
                 .hardnessAndResistance(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE)
-                .func_235838_a_((p_235464_0_) -> {
+                .setLightLevel((p_235464_0_) -> {
                     return 15;
                 }));
     }
 
     public BlockModUnbreakable(String name, Material material) {
         super(name, Block.Properties.create(material, MaterialColor.STONE)
-                .func_235861_h_()
+                .setRequiresTool()
                 .hardnessAndResistance(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE));
     }

@@ -13,7 +13,7 @@ public class BlockModFence extends FenceBlock {
     private final boolean isOn;
 
     public BlockModFence(MaterialColor color, String name, boolean isOn, float hardness, int luminance) {
-        super(Block.Properties.create(Material.ROCK, color).notSolid().func_235861_h_().hardnessAndResistance(hardness, 3.0F).sound(SoundType.GLASS).func_235838_a_((p_235464_0_) -> {
+        super(Block.Properties.create(Material.ROCK, color).notSolid().setRequiresTool().hardnessAndResistance(hardness, 3.0F).sound(SoundType.GLASS).setLightLevel((p_235464_0_) -> {
             return luminance;
         }));
         this.isOn = isOn;

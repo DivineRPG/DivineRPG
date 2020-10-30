@@ -14,7 +14,7 @@ public class BlockElevantium extends BlockMod {
 
     public BlockElevantium(String name) {
         super(name, Block.Properties.create(Material.IRON, MaterialColor.LIME)
-                .func_235861_h_()
+                .setRequiresTool()
                 .hardnessAndResistance(3.0F, 20.0F)
                 .tickRandomly()
                 .sound(SoundType.WOOD));

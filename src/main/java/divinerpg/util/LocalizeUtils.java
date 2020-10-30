@@ -102,7 +102,7 @@ public class LocalizeUtils {
      */
     public static ITextComponent ammo(Item ammo, TextFormatting formatting) {
         ITextComponent ammoName = new TranslationTextComponent(ammo.getRegistryName().getPath() + ".name");
-        ammoName.getStyle().func_240712_a_(formatting);
+        ammoName.getStyle().applyFormatting(formatting);
 
         return i18n(Ammo, ammoName);
     }
@@ -157,15 +157,15 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent infiniteUses() {
-        return InfiniteUses.func_240699_a_(TextFormatting.BLUE);
+        return InfiniteUses.mergeStyle(TextFormatting.BLUE);
     }
 
     public static ITextComponent instantConsumption() {
-        return InstantConsumption.func_240699_a_(TextFormatting.AQUA);
+        return InstantConsumption.mergeStyle(TextFormatting.AQUA);
     }
 
     public static ITextComponent weakenedWithoutArcana() {
-        return WeakenedWithoutArcana.func_240699_a_(TextFormatting.RED);
+        return WeakenedWithoutArcana.mergeStyle(TextFormatting.RED);
     }
 
     /**
@@ -205,7 +205,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent explosiveShots() {
-        return ExposiveShoots.func_240699_a_(TextFormatting.BOLD);
+        return ExposiveShoots.mergeStyle(TextFormatting.BOLD);
     }
 
     /**
@@ -339,11 +339,11 @@ public class LocalizeUtils {
      */
     public static ITextComponent i18n(String text, Object... args) {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
-        return result.func_240699_a_(TextFormatting.GRAY);
+        return result.mergeStyle(TextFormatting.GRAY);
     }
 
     public static ITextComponent i18n(TextFormatting color, String text, Object... args) {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
-        return result.func_240699_a_(color);
+        return result.mergeStyle(color);
     }
 }

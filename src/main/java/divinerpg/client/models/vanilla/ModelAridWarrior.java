@@ -11,7 +11,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedModel<T>{
+public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedModel<T> implements IHasArm {
 
     //fields
     ModelRenderer ear1;
@@ -276,4 +276,11 @@ public class ModelAridWarrior<T extends EntityAridWarrior> extends SegmentedMode
         model.rotateAngleZ = z;
     }
 
+    @Override
+    public void translateHand(HandSide sideIn, MatrixStack matrixStackIn) {
+        this.getArmForSide(sideIn).translateRotate(matrixStackIn);
+    }
+    protected ModelRenderer getArmForSide(HandSide side) {
+        return side == HandSide.LEFT ? this.leftarmTS1 : this.rightarmTS1;
+    }
 }

@@ -1,7 +1,8 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
-import divinerpg.items.arcana.ItemAquamarine;
+import divinerpg.entities.vanilla.*;
+import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
 import divinerpg.items.iceika.ItemEggNog;
 import divinerpg.items.twilight.ItemForbiddenFruit;
@@ -1761,7 +1762,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("bluefire_bow"));
         register(e, new ItemModNotReady("bowhead_anchor"));
         register(e, new ItemModNotReady("bowhead_cannon"));
-        register(e, new ItemModNotReady("brown_grizzle_egg"));
         register(e, new ItemModNotReady("call_of_the_watcher"));
         register(e, new ItemModNotReady("captains_sparkler"));
         register(e, new ItemModNotReady("cermile_backsword"));
@@ -1790,7 +1790,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("eden_bow"));
         register(e, new ItemModNotReady("eden_phaser"));
         register(e, new ItemModNotReady("eden_slicer"));
-        register(e, new ItemModNotReady("ehu_egg"));
         register(e, new ItemModNotReady("ender_bow"));
         register(e, new ItemModNotReady("ender_scepter"));
         register(e, new ItemModNotReady("enderice"));
@@ -1811,13 +1810,11 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("frostking_sword"));
         register(e, new ItemModNotReady("frozen_charge"));
         register(e, new ItemModNotReady("frozen_maul"));
-        register(e, new ItemModNotReady("fyracryx_egg"));
         register(e, new ItemModNotReady("generals_staff"));
         register(e, new ItemModNotReady("ghast_cannon"));
         register(e, new ItemModNotReady("ghostbane"));
         register(e, new ItemModNotReady("glacier_sword"));
         register(e, new ItemModNotReady("golden_fury"));
-        register(e, new ItemModNotReady("golem_of_rejuvenation_egg"));
         register(e, new ItemModNotReady("grenade"));
         register(e, new ItemModNotReady("halite_blitz"));
         register(e, new ItemModNotReady("halite_bow"));
@@ -1833,7 +1830,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("hitchak_seeds"));
         register(e, new ItemModNotReady("horde_horn"));
         register(e, new ItemModNotReady("hunter_bow"));
-        register(e, new ItemModNotReady("husk_egg"));
         register(e, new ItemModNotReady("icicle_bane"));
         register(e, new ItemModNotReady("icicle_bow"));
         register(e, new ItemModNotReady("icine_sword"));
@@ -1868,7 +1864,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("mysterious_clock"));
         register(e, new ItemModNotReady("nightmare_bed"));
         register(e, new ItemModNotReady("palavence"));
-        register(e, new ItemModNotReady("paratiku_egg"));
         register(e, new ItemModNotReady("pardimal_backsword"));
         register(e, new ItemModNotReady("pardimal_bow"));
         register(e, new ItemModNotReady("pardimal_cannon"));
@@ -1887,7 +1882,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("quadrotic_staff"));
         register(e, new ItemModNotReady("reyvor_crystal"));
         register(e, new ItemModNotReady("scythe"));
-        register(e, new ItemModNotReady("seimer_egg"));
         register(e, new ItemModNotReady("serenade_of_death"));
         register(e, new ItemModNotReady("serenade_of_health"));
         register(e, new ItemModNotReady("serenade_of_ice"));
@@ -1904,8 +1898,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("skythern_phaser"));
         register(e, new ItemModNotReady("skythern_slicer"));
         register(e, new ItemModNotReady("sludge_key"));
-        register(e, new ItemModNotReady("smelter_egg"));
-        register(e, new ItemModNotReady("snapper_egg"));
         register(e, new ItemModNotReady("snow_globe"));
         register(e, new ItemModNotReady("snowflake_shuriken"));
         register(e, new ItemModNotReady("snowslash"));
@@ -1917,7 +1909,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("staff_of_enrichment"));
         register(e, new ItemModNotReady("staff_of_starlight"));
         register(e, new ItemModNotReady("starlight"));
-        register(e, new ItemModNotReady("stone_golem_egg"));
         register(e, new ItemModNotReady("storm_sword"));
         register(e, new ItemModNotReady("strong_arcana_potion"));
         register(e, new ItemModNotReady("teaker_backsword"));
@@ -1936,7 +1927,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("veilo_seeds"));
         register(e, new ItemModNotReady("vile_storm"));
         register(e, new ItemModNotReady("weak_arcana_potion"));
-        register(e, new ItemModNotReady("white_grizzle_egg"));
         register(e, new ItemModNotReady("white_mushroom_seeds"));
         register(e, new ItemModNotReady("wildwood_blitz"));
         register(e, new ItemModNotReady("wildwood_bow"));
@@ -2082,17 +2072,17 @@ public class ItemRegistry {
 //        register(e, new ItemReflector());
 //        register(e, new ItemSkyFlower("sky_flower"));
 //        register(e, new ItemSnowGlobe("snow_globe"));
-//        register(e, new ItemSpawnEgg("brown_grizzle_egg", EntityBrownGrizzle::new));
-//        register(e, new ItemSpawnEgg("ehu_egg", EntityEhu::new));
-//        register(e, new ItemSpawnEgg("fyracryx_egg", EntityFyracryx::new));
-//        register(e, new ItemSpawnEgg("golem_of_rejuvenation_egg", EntityGolemOfRejuvenation::new));
-//        register(e, new ItemSpawnEgg("husk_egg", EntityHusk::new));
-//        register(e, new ItemSpawnEgg("paratiku_egg", EntityParatiku::new));
-//        register(e, new ItemSpawnEgg("seimer_egg", EntitySeimer::new));
-//        register(e, new ItemSpawnEgg("smelter_egg", EntitySmelter::new));
-//        register(e, new ItemSpawnEgg("snapper_egg", EntitySnapper::new));
-//        register(e, new ItemSpawnEgg("stone_golem_egg", EntityStoneGolem::new));
-//        register(e, new ItemSpawnEgg("white_grizzle_egg", EntityWhiteGrizzle::new));
+        register(e, new ItemSpawnEgg("brown_grizzle_egg", EntityRegistry.BROWN_GRIZZLE));
+        register(e, new ItemSpawnEgg("ehu_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("fyracryx_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("golem_of_rejuvenation_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("husk_egg", EntityRegistry.HUSK));
+        register(e, new ItemSpawnEgg("paratiku_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("seimer_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("smelter_egg", EntityRegistry.SMELTER));
+        register(e, new ItemSpawnEgg("snapper_egg", EntityRegistry.SNAPPER));
+        register(e, new ItemSpawnEgg("stone_golem_egg", EntityRegistry.STONE_GOLEM));
+        register(e, new ItemSpawnEgg("white_grizzle_egg", EntityRegistry.WHITE_GRIZZLE));
 //        register(e, new ItemStaffEnrichment("staff_of_enrichment"));
 //        register(e, new ItemTwilightClock("twilight_clock"));
         register(e, new ItemVethean("acid"));

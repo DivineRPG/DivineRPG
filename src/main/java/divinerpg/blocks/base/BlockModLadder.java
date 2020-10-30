@@ -9,7 +9,7 @@ public class BlockModLadder extends LadderBlock {
                 .hardnessAndResistance(0.4F, 3.0F)
                 .sound(SoundType.LADDER)
                 .notSolid()
-                .func_235861_h_());
+                .setRequiresTool());
         setRegistryName(name);
     }
 }

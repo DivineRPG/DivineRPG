@@ -2,7 +2,10 @@ package divinerpg.entities.vanilla;
 
 import divinerpg.entities.base.EntityDivineWaterMob;
 import divinerpg.registries.*;
-import net.minecraft.entity.EntityType;
+import divinerpg.util.EntityStats;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -13,6 +16,13 @@ public class EntityWhale extends EntityDivineWaterMob {
         super(type, worldIn);
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+        return 0.4F;
+    }
+
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.whaleHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.whaleDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.whaleSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.whaleFollowRange);
+    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.WHALE;

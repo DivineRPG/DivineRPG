@@ -11,7 +11,7 @@ public class BlockModDoor extends DoorBlock {
                 .create(material)
                 .hardnessAndResistance(hardness, resistance)
                 .harvestTool(tool)
-                .func_235861_h_());
+                .setRequiresTool());
         setRegistryName(DivineRPG.MODID, name);
     }
 }

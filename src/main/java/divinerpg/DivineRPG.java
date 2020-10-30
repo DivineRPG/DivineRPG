@@ -1,7 +1,8 @@
 package divinerpg;
 
 import divinerpg.client.*;
-import divinerpg.registries.DRPGTab;
+import divinerpg.events.ProtectPetsEvent;
+import divinerpg.registries.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,6 +28,7 @@ public class DivineRPG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new ProtectPetsEvent());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -34,7 +36,7 @@ public class DivineRPG {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderEntities.render();
+        EntityRegistry.render();
         FancyRenders.init();
     }
 

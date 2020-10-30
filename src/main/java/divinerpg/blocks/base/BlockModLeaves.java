@@ -7,7 +7,7 @@ import net.minecraft.block.material.*;
 public class BlockModLeaves extends LeavesBlock {
 
     public BlockModLeaves(String name, MaterialColor color, float hardness) {
-        super(Block.Properties.create(Material.LEAVES, color).notSolid().func_235861_h_().hardnessAndResistance(1, 3.0F).sound(SoundType.PLANT));
+        super(Block.Properties.create(Material.LEAVES, color).notSolid().setRequiresTool().hardnessAndResistance(1, 3.0F).sound(SoundType.PLANT));
         setRegistryName(DivineRPG.MODID, name);
     }
 }

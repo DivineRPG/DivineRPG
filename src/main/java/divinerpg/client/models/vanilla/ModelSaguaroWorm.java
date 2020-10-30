@@ -1,13 +1,14 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
+import divinerpg.entities.vanilla.EntitySaguaroWorm;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelSaguaroWorm<T extends Entity> extends SegmentedModel<T> {
+public class ModelSaguaroWorm<T extends EntitySaguaroWorm> extends SegmentedModel<T> {
     ModelRenderer connector2;
     ModelRenderer middle;
     ModelRenderer base;
@@ -77,7 +78,29 @@ public class ModelSaguaroWorm<T extends Entity> extends SegmentedModel<T> {
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
     }
+    public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+        if(entityIn.getProvoked()){
+            connector2.showModel = true;
+            middle.showModel = true;
+            base.showModel = true;
+            connector1.showModel = true;
+            head.showModel = true;
+            Shape1.showModel = false;
+            Shape2.showModel = false;
+            Shape3.showModel = false;
+        }
+        else{
+            connector2.showModel = false;
+            middle.showModel = false;
+            base.showModel = false;
+            connector1.showModel = false;
+            head.showModel = false;
+            Shape1.showModel = true;
+            Shape2.showModel = true;
+            Shape3.showModel = true;
+        }
 
+    }
     @Override
     public Iterable<ModelRenderer> getParts() {
         return ImmutableList.of(connector2, middle, base, connector1, head, Shape1, Shape2, Shape3);

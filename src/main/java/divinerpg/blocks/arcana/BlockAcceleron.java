@@ -12,7 +12,7 @@ public class BlockAcceleron extends BlockMod {
     @Deprecated
     public BlockAcceleron(String name) {
         super(name, Block.Properties.create(Material.ROCK, MaterialColor.STONE)
-                .func_235861_h_()
+                .setRequiresTool()
                 .hardnessAndResistance(3.0F, 3.0F)
                 .sound(SoundType.WOOD)
                 .slipperiness(1.2F));

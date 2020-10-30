@@ -40,7 +40,7 @@ public class DRPGTab {
             return new ItemStack(ItemRegistry.divineHelmet);
         }
     };
-    public ItemGroup boss = new ItemGroup(DivineRPG.MODID + "_boss_spawners") {
+    public ItemGroup spawners = new ItemGroup(DivineRPG.MODID + "_spawners") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ItemRegistry.callOfTheWatcher);
