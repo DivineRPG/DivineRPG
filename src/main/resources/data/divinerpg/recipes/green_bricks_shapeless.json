@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:green_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:green_dye"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

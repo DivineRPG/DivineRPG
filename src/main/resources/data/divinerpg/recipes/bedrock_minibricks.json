@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_minibricks"
+  },
+  "pattern": [
+    "XXX",
+    "XCX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "divinerpg:bedrock_chunk"
+    },
+    "X": {
+      "item": "divinerpg:minibricks"
+    }
+  }
+}

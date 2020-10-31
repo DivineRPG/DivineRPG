@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:crate",
+    "count": 4
+  },
+  "pattern": [
+    "xxx",
+    "y y",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:oak_planks"
+    },
+    "y": {
+      "item": "minecraft:oak_log"
+    }
+  }
+}

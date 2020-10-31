@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:cyclopsian_sword"
+  },
+  "pattern": [
+    " E ",
+    " E ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "item": "divinerpg:cyclops_eye"
+    }
+  }
+}

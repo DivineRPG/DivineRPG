@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_block"
+  },
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:apalachia_heart"
+    },
+    "F": {
+      "item": "divinerpg:apalachia_fragments"
+    },
+    "I": {
+      "item": "divinerpg:apalachia_soul"
+    }
+  }
+}

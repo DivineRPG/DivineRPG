@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:frosted_allure"
+  },
+  "pattern": [
+    "XYX",
+    "YZY",
+    "XYX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:ice_shards"
+    },
+    "Y": {
+      "item": "divinerpg:ice_stone"
+    },
+    "Z": {
+      "item": "divinerpg:aquatic_ingot"
+    }
+  }
+}

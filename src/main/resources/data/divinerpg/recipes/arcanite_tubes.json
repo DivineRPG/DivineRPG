@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:arcanite_tubes"
+  },
+  "pattern": [
+    "iii",
+    "iii",
+    "iii"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "i": {
+      "item": "divinerpg:arcanium"
+    }
+  }
+}

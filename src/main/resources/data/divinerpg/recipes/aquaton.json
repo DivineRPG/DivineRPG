@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:aquaton"
+  },
+  "pattern": [
+    "III",
+    "III",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:aquatic_ingot"
+    }
+  }
+}

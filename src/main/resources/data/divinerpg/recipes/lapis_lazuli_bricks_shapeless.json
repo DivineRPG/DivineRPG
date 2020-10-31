@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:lapis_lazuli_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

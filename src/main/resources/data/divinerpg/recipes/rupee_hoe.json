@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_hoe"
+  },
+  "pattern": [
+    "II ",
+    " S ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:rupee_ingot"
+    }
+  }
+}

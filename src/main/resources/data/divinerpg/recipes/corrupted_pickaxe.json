@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:corrupted_pickaxe"
+  },
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:corrupted_stone"
+    }
+  }
+}

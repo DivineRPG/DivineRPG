@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_block"
+  },
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "divinerpg:mortum_fragments"
+    },
+    "I": {
+      "item": "divinerpg:mortum_heart"
+    }
+  }
+}

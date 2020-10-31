@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:aquatic_maul"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "ISI"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:aquatic_ingot"
+    }
+  }
+}

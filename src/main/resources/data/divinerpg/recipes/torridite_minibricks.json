@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:torridite_minibricks"
+  },
+  "pattern": [
+    "XXX",
+    "XCX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "divinerpg:torridite_ingot"
+    },
+    "X": {
+      "item": "divinerpg:minibricks"
+    }
+  }
+}

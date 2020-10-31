@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:dungeon_bookshelf"
+  },
+  "pattern": [
+    "DDD",
+    "BBB",
+    "DDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "D": {
+      "item": "divinerpg:degraded_bricks_breakable"
+    }
+  }
+}

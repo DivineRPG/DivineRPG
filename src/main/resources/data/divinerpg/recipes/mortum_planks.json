@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_planks",
+    "count": 4
+  },
+  "pattern": [
+    "s"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:mortum_log"
+    }
+  }
+}

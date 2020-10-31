@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_phaser"
+  },
+  "pattern": [
+    " X ",
+    "XXX",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "divinerpg:skythern_chunk"
+    }
+  }
+}

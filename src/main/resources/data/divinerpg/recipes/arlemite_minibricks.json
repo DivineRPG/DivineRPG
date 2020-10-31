@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_minibricks"
+  },
+  "pattern": [
+    "XXX",
+    "XCX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    "X": {
+      "item": "divinerpg:minibricks"
+    }
+  }
+}

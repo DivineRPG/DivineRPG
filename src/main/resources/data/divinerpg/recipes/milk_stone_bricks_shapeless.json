@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:milk_stone_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:milk_stone"
+    },
+    {
+      "item": "divinerpg:milk_stone"
+    },
+    {
+      "item": "divinerpg:milk_stone"
+    },
+    {
+      "item": "divinerpg:milk_stone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

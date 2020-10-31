@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:blue_fence"
+  },
+  "pattern": [
+    "   ",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  }
+}

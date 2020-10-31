@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_slab",
+    "count": 6
+  },
+  "pattern": [
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:skythern_planks"
+    }
+  }
+}

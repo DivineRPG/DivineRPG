@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:aquatonic_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:aqua_ball"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

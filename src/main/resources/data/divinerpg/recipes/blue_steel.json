@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:blue_steel"
+  },
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  }
+}

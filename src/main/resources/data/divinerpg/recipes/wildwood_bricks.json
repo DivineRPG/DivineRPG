@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_bricks",
+    "count": 4
+  },
+  "pattern": [
+    "ss ",
+    "si "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "minecraft:stone_bricks"
+    },
+    "i": {
+      "item": "divinerpg:wildwood_gem"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:terran_knife"
+  },
+  "pattern": [
+    " T ",
+    " T ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "divinerpg:terran_stone"
+    }
+  }
+}

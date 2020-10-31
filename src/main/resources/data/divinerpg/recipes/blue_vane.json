@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:blue_vane",
+    "count": 4
+  },
+  "pattern": [
+    "CCC",
+    "COC",
+    "CCC"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:lapis_lazuli",
+      "count": 4
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  }
+}

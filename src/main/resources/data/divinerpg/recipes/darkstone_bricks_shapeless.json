@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:darkstone_bricks"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

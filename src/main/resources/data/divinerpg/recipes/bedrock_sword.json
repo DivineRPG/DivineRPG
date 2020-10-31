@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_sword"
+  },
+  "pattern": [
+    " B ",
+    " B ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:bedrock_chunk"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  }
+}

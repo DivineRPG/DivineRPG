@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_shovel"
+  },
+  "pattern": [
+    " I ",
+    " S ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:realmite_ingot"
+    }
+  }
+}

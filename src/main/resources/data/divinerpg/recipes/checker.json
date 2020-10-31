@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:checker",
+    "count": 3
+  },
+  "pattern": [
+    "xyx",
+    "yxy",
+    "xyx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "minecraft:white_wool"
+    },
+    "y": {
+      "item": "minecraft:black_wool"
+    }
+  }
+}
