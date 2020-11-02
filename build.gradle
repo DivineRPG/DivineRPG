@@ -62,7 +62,7 @@ repositories {
     maven { url = "https://www.cursemaven.com"}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.35'
+    minecraft 'net.minecraftforge:forge:1.16.3-34.1.41'
     compileOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}")
     compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")

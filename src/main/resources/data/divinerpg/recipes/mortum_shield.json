@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_shield"
+  },
+  "pattern": [
+    "ppp",
+    "prp",
+    " z "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "divinerpg:mortum_planks"
+    },
+    "r": {
+      "item": "divinerpg:torridite_chunk"
+    },
+    "z": {
+      "item": "divinerpg:mortum_chunk"
+    }
+  }
+}

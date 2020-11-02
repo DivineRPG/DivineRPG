@@ -13,7 +13,7 @@
       "item": "divinerpg:arlemite_ingot"
     },
     "y": {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     }
   }
 }

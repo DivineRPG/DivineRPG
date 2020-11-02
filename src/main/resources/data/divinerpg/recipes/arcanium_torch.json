@@ -5,14 +5,14 @@
   },
   "pattern": [
     "x",
-    "z"
+    "y"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "x": {
       "item": "divinerpg:arcanium"
     },
-    "z": {
+    "y": {
       "item": "minecraft:stick"
     }
   }

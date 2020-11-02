@@ -1,20 +1,19 @@
 {
   "result": {
-    "item": "divinerpg:crate",
-    "count": 4
+    "item": "divinerpg:realmite_shield"
   },
   "pattern": [
-    "xxx",
-    "y y",
-    "xxx"
+    "prp",
+    "prp",
+    " r "
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
-    "x": {
+    "p": {
       "tag": "minecraft:planks"
     },
-    "y": {
-      "tag": "minecraft:logs"
+    "r": {
+      "item": "divinerpg:realmite_ingot"
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_shield"
+  },
+  "pattern": [
+    "ppp",
+    "prp",
+    " z "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "divinerpg:skythern_planks"
+    },
+    "r": {
+      "item": "divinerpg:torridite_chunk"
+    },
+    "z": {
+      "item": "divinerpg:skythern_chunk"
+    }
+  }
+}

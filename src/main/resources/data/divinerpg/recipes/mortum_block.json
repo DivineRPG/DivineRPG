@@ -9,11 +9,14 @@
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
+    "B": {
+      "item": "divinerpg:mortum_heart"
+    },
     "F": {
       "item": "divinerpg:mortum_fragments"
     },
     "I": {
-      "item": "divinerpg:mortum_heart"
+      "item": "divinerpg:mortum_soul"
     }
   }
 }

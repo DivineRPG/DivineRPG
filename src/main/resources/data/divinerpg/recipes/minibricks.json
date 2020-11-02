@@ -10,7 +10,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     }
   }
 }

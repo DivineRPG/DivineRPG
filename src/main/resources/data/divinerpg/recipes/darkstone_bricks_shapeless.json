@@ -4,13 +4,13 @@
   },
   "ingredients": [
     {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     },
     {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     },
     {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     },
     {
       "item": "minecraft:ink_sac"

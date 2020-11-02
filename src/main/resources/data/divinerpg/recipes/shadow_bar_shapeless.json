@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:shadow_bar"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_ingot"
+    },
+    {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -10,7 +10,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "s": {
-      "item": "minecraft:stone_bricks"
+      "tag": "minecraft:stone_bricks"
     },
     "i": {
       "item": "divinerpg:wildwood_gem"

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:eden_shield"
+  },
+  "pattern": [
+    "ppp",
+    "pCp",
+    " r "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "divinerpg:eden_planks"
+    },
+    "r": {
+      "item": "divinerpg:eden_chunk"
+    },
+    "C": {
+      "item": "divinerpg:eden_soul"
+    }
+  }
+}

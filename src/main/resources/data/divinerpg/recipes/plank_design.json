@@ -11,10 +11,10 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "x": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     },
     "y": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     }
   }
 }

@@ -385,7 +385,10 @@ public enum DivineToolMaterials implements IItemTier {
 
     @Override
     public Ingredient getRepairMaterial() {
-        return repairMaterial.get();
+        if(repairMaterial != null) {
+            return repairMaterial.get();
+        }
+        else{return null;}
     }
 
 }

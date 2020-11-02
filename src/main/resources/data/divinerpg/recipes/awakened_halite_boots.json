@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:awakened_halite_boots"
+  },
+  "pattern": [
+    "dHd",
+    "dhd",
+    "aha"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "a": {
+      "item": "divinerpg:arcanium"
+    },
+    "d": {
+      "item": "divinerpg:divine_stone"
+    },
+    "h": {
+      "item": "divinerpg:halite_boots"
+    },
+    "H": {
+      "item": "divinerpg:corrupted_boots"
+    }
+  }
+}
