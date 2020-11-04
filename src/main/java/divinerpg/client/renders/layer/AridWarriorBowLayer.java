@@ -2,17 +2,13 @@ package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.client.models.vanilla.ModelAridWarrior;
-import divinerpg.entities.vanilla.EntityAridWarrior;
+import divinerpg.entities.vanilla.overworld.EntityAridWarrior;
 import divinerpg.registries.ItemRegistry;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.entity.model.IronGolemModel;
 import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

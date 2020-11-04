@@ -50,3 +50,5 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 *.log
 changelog.txt
+src/main/java/divinerpg/util/GenerateJSON.java
+src/main/java/divinerpg/util/ModRecipes.java

@@ -1,10 +1,9 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
-import divinerpg.entities.vanilla.EntitySaguaroWorm;
+import divinerpg.entities.vanilla.overworld.EntitySaguaroWorm;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)

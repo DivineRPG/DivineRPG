@@ -1,13 +1,9 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import divinerpg.entities.vanilla.EntityPumpkinSpider;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.entities.vanilla.overworld.EntityPumpkinSpider;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 

@@ -1,11 +1,9 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
-import divinerpg.entities.vanilla.EntityJungleBat;
+import divinerpg.entities.vanilla.overworld.EntityJungleBat;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

@@ -3,7 +3,7 @@ package divinerpg.client.renders.vanilla;
 
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.vanilla.EntityShark;
+import divinerpg.entities.vanilla.overworld.EntityShark;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;

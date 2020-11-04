@@ -15,7 +15,9 @@ apply plugin: 'maven-publish'
 version = '1.8'
 group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DivineRPG'
+
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
     mappings channel: 'snapshot', version: '20201028-1.16.3'
@@ -45,7 +47,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'divinerpg', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'divinerpg', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 divinerpg {
                     source sourceSets.main
@@ -54,35 +56,35 @@ minecraft {
         }
     }
 }
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
-
     maven { url = "https://minecraft.curseforge.com/api/maven/"}
     maven { url = "http://dvs1.progwml6.com/files/maven"}
     maven { url = "https://modmaven.k-4u.nl"}
     maven { url = "https://www.cursemaven.com"}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.41'
-    compileOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}")
-    compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")
+    minecraft 'net.minecraftforge:forge:1.16.4-35.0.2'
+    //Not supported yet
+//    compileOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}:api")
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.16.3:${jei_version}")
+//    compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")
 }
-
-// Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
             "Specification-Title": "divinerpg",
-            "Specification-Vendor": "Team DivineRPG",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Vendor": "TeamDivineRPG",
+            "Specification-Version": "1.8", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"Team DivineRPG",
+            "Implementation-Vendor" :"TeamDivineRPG",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
-jar.finalizedBy('reobfJar')
+jar.finalizedBy('reobfJar') 
+
 publishing {
     publications {
         mavenJava(MavenPublication) {

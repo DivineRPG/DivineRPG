@@ -4,9 +4,8 @@ package divinerpg.client.renders.vanilla;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.vanilla.EntityWhale;
+import divinerpg.entities.vanilla.overworld.EntityWhale;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.entity.monster.GiantEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 

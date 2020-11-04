@@ -1,15 +1,18 @@
 package divinerpg.client.models.vanilla;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import divinerpg.entities.vanilla.nether.EntityWildfire;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelWildfire<T extends Entity> extends SegmentedModel<T> {
+public class ModelWildfire<T extends EntityWildfire> extends SegmentedModel<T> implements IHasArm {
 
     public boolean isHolding;
     public ItemStack itemStack;
@@ -209,4 +212,11 @@ public class ModelWildfire<T extends Entity> extends SegmentedModel<T> {
         model.rotateAngleZ = z;
     }
 
+    @Override
+    public void translateHand(HandSide sideIn, MatrixStack matrixStackIn) {
+        this.getArmForSide(sideIn).translateRotate(matrixStackIn);
+    }
+    protected ModelRenderer getArmForSide(HandSide side) {
+        return side == HandSide.LEFT ? this.leftarm : this.rightarm;
+    }
 }

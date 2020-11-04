@@ -1,6 +1,6 @@
 package divinerpg.client.models.vanilla;
 
-import divinerpg.entities.vanilla.EntityWhale;
+import divinerpg.entities.vanilla.overworld.EntityWhale;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;

@@ -4,9 +4,8 @@ package divinerpg.client.renders.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.layer.AridWarriorBowLayer;
-import divinerpg.entities.vanilla.*;
+import divinerpg.entities.vanilla.overworld.EntityAridWarrior;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.layers.HeldItemLayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 

@@ -38,6 +38,8 @@ public class DivineRPG {
     private void doClientStuff(final FMLClientSetupEvent event) {
         EntityRegistry.render();
         FancyRenders.init();
+
+//        ModRecipes x = new ModRecipes();
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

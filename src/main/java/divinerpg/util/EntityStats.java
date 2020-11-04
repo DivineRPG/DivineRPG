@@ -109,6 +109,7 @@ public class EntityStats {
     public static double liopleurodonHealth     = 150.0D, liopleurodonDamage = 13.0D, liopleurodonSpeed = normalSpeed, liopleurodonFollowRange = follow;
     public static double wildFireHealth 		= 50.0D, wildFireDamage = 8.0D, wildFireSpeed = normalSpeed, wildFireFollowRange = follow;
     public static double hellPigHealth	 		= 50.0D, hellPigTamedHealth = 20.0D, hellPigSpeed = normalSpeed, hellPigRange = follow;
+    public static double hellBatHealth 		    = 30.0D, hellBatDamage = 7.0D, hellBatSpeed = normalSpeed, hellBatFollowRange = follow*2;
     public static double kobblinHealth 		    = 35.0D, kobblinDamage = 7.0D, kobblinSpeed = normalSpeed, kobblinFollowRange = follow;
     public static double theGrueHealth 			= 30.0D, theGrueDamage = 10.0D, theGrueSpeed = normalSpeed*1.3, theGrueFollowRange = follow;
     public static double saguaroWormHealth 		= 80.0D, saguaroWormDamage = 4.0D, saguaroWormSpeed = 0, saguaroWormFollowRange = follow;

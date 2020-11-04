@@ -5,10 +5,8 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.layer.*;
-import divinerpg.entities.vanilla.*;
+import divinerpg.entities.vanilla.overworld.EntityMiner;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.layers.HeldItemLayer;
-import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 

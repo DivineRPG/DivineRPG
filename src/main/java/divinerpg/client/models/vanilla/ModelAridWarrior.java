@@ -1,11 +1,10 @@
 package divinerpg.client.models.vanilla;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.entities.vanilla.EntityAridWarrior;
+import divinerpg.entities.vanilla.overworld.EntityAridWarrior;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
