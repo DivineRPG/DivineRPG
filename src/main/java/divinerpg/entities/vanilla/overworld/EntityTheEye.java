@@ -39,10 +39,12 @@ public class EntityTheEye extends EntityDivineMob {
                 lookAtMeVec = lookAtMeVec;
                 double var7 = lookVec.dotProduct(lookAtMeVec);
                 if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
-                    player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
-                    if (player instanceof PlayerEntity) {
-                        //TODO - The eye advancement
+                    if(!player.isCreative() || !player.isSpectator()) {
+                        player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
+                        if (player instanceof PlayerEntity) {
+                            //TODO - The eye advancement
 //                        TriggerRegistry.DIVINERPG_EYE.trigger(player);
+                        }
                     }
                 }
             }
