@@ -64,4 +64,7 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
         }
     }
 
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() > world.getSeaLevel();
+    }
 }

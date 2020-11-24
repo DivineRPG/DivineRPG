@@ -12,7 +12,7 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityHellPig extends EntityDivineTameable {
     private static final DataParameter<Float> HEALTH = EntityDataManager.createKey(EntityHellPig.class,
@@ -31,6 +31,9 @@ public class EntityHellPig extends EntityDivineTameable {
         setHealth(getMaxHealth());
     }
 
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_NETHER;
+    }
     @Override
     public boolean isImmuneToFire() {
         return true;

@@ -219,4 +219,8 @@ public class EntityPumpkinSpider extends EntityDivineMob {
             return f >= 0.5F ? false : super.shouldExecute();
         }
     }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && world.getBlockState(getPosition().down()).getBlock() == Blocks.GRASS && super.canSpawn(worldIn, spawnReasonIn);
+    }
 }

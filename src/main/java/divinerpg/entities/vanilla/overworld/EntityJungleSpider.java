@@ -7,12 +7,7 @@ import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
@@ -37,7 +32,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityJungleSpider extends EntityDivineMob {
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityJungleSpider.class, DataSerializers.BYTE);
@@ -186,5 +181,9 @@ public class EntityJungleSpider extends EntityDivineMob {
             float f = this.goalOwner.getBrightness();
             return f >= 0.5F ? false : super.shouldExecute();
         }
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

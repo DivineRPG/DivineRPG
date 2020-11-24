@@ -26,7 +26,9 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.caveclopsHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.caveclopsDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.caveclopsSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.caveclopsFollowRange);
     }
-
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return getPosition().getY() < 20 && world.getDimensionKey() == World.OVERWORLD;
+    }
     @Override
     protected void registerGoals() {
         addAttackingAI();

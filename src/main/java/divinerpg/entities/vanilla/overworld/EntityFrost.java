@@ -13,7 +13,7 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 import java.util.EnumSet;
 
@@ -198,6 +198,10 @@ public class EntityFrost extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_FROST;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 
 }

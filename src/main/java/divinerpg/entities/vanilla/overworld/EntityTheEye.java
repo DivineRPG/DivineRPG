@@ -11,7 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityTheEye extends EntityDivineMob {
 
@@ -68,5 +68,9 @@ public class EntityTheEye extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_THE_EYE;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() <= 16 && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

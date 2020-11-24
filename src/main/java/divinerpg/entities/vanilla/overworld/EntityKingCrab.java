@@ -6,7 +6,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityKingCrab extends EntityCrab {
     public EntityKingCrab(EntityType<? extends MobEntity> type, World worldIn) {
@@ -22,5 +22,9 @@ public class EntityKingCrab extends EntityCrab {
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.kingCrabHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.kingCrabDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.kingCrabSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.kingCrabFollowRange);
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

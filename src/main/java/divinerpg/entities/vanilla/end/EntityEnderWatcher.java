@@ -6,7 +6,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityEnderWatcher extends EndermanEntity {
     public EntityEnderWatcher(EntityType<? extends EndermanEntity> type, World worldIn) {
@@ -21,5 +21,8 @@ public class EntityEnderWatcher extends EndermanEntity {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_ENDER_WATCHER;
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_END;
     }
 }

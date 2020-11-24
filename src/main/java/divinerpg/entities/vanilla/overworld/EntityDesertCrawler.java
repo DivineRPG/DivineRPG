@@ -7,7 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityDesertCrawler extends EntityDivineMob {
 
@@ -47,5 +47,9 @@ public class EntityDesertCrawler extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_DESERT_CRAWLER;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

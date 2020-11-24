@@ -27,9 +27,10 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2.25F;
     }
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.NATURAL;
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD;
     }
+
     @Override
     protected void registerGoals() {
         addAttackingAI();

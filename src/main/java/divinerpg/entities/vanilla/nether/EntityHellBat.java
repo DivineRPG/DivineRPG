@@ -28,7 +28,9 @@ public class EntityHellBat extends EntityDivineMob {
         super(type, worldIn);
         this.setIsBatHanging(true);
     }
-
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_NETHER;
+    }
     protected void registerData() {
         super.registerData();
         this.dataManager.register(HANGING, (byte)0);

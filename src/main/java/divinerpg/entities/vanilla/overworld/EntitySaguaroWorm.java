@@ -3,6 +3,7 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.base.EntityDivineMob;
 import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -11,7 +12,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 
 public class EntitySaguaroWorm extends EntityDivineMob {
@@ -111,5 +112,9 @@ public class EntitySaguaroWorm extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_SAGUARO_WORM;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && world.getBlockState(getPosition().down()).getBlock() == Blocks.SAND && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

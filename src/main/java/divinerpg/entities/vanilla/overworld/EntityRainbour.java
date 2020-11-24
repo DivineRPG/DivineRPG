@@ -175,4 +175,8 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return LootTableRegistry.ENTITIES_RAINBOUR;
     }
 
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn) && world.getLight(getPosition()) <= rand.nextInt(7);
+    }
+
 }

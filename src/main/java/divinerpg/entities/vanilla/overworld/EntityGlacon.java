@@ -7,7 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityGlacon extends EntityDivineMob {
 
@@ -47,5 +47,9 @@ public class EntityGlacon extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_GLACON;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

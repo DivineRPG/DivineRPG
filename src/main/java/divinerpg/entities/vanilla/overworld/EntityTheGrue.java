@@ -8,7 +8,7 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityTheGrue extends EntityDivineMob {
 
@@ -48,5 +48,9 @@ public class EntityTheGrue extends EntityDivineMob {
     @Override
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_THE_GRUE;
+    }
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD;
     }
 }

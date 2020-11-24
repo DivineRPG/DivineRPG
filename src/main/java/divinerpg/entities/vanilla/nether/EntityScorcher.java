@@ -15,7 +15,7 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 import java.util.EnumSet;
 
@@ -32,6 +32,9 @@ public class EntityScorcher extends EntityDivineMob {
         this.experienceValue = 20;
     }
 
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_NETHER;
+    }
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new EntityScorcher.FireballAttackGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));

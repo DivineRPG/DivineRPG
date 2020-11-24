@@ -7,7 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityRotatick extends EntityDivineMob {
 
@@ -46,4 +46,8 @@ public class EntityRotatick extends EntityDivineMob {
         return LootTableRegistry.ENTITIES_ROTATICK;
     }
 
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() < 25 && super.canSpawn(worldIn, spawnReasonIn);
+    }
 }

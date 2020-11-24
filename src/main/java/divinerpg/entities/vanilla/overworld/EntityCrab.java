@@ -40,4 +40,7 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
     protected ResourceLocation getLootTable() {
         return LootTableRegistry.ENTITIES_CRAB;
     }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+    }
 }

@@ -22,10 +22,11 @@ public class EntityKobblin extends EntityDivineMob {
     public EntityKobblin(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
     }
+
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         BlockPos pos = new BlockPos(getPosX(), getPosY(), getPosZ());
         return this.world.getBlockState(pos.down()).getBlock() == Blocks.GRASS
-                && this.world.getBlockState(pos.down(2)).getBlock() != Blocks.AIR && super.canSpawn(worldIn, spawnReasonIn);
+                && this.world.getBlockState(pos.down(2)).getBlock() != Blocks.AIR && super.canSpawn(worldIn, spawnReasonIn) && world.getDimensionKey() == World.OVERWORLD;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

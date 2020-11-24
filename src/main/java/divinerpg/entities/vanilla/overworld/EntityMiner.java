@@ -117,4 +117,8 @@ public class EntityMiner extends EntityDivineMob {
         return spawnDataIn;
     }
 
+
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+    }
 }

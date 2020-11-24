@@ -32,7 +32,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityHellSpider extends EntityDivineMob {
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityHellSpider.class, DataSerializers.BYTE);
@@ -65,6 +65,9 @@ public class EntityHellSpider extends EntityDivineMob {
     protected void registerData() {
         super.registerData();
         this.dataManager.register(CLIMBING, (byte)0);
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_NETHER;
     }
     public void tick() {
         super.tick();

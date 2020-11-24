@@ -7,7 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob {
     public EntityEnderTriplets(EntityType<? extends FlyingEntity> type, World worldIn) {
@@ -32,7 +32,9 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundEvents.ENTITY_GHAST_SCREAM;
     }
-
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_END;
+    }
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_GHAST_DEATH;

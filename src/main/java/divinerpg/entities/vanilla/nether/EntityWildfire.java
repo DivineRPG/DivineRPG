@@ -42,6 +42,9 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
         arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
         this.world.addEntity(arrow);
     }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.THE_NETHER;
+    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.WILDFIRE;
