@@ -1,7 +1,10 @@
 package divinerpg.client;
 
-import divinerpg.registries.BlockRegistry;
+import divinerpg.client.renders.tiles.RenderAltarOfCorruption;
+import divinerpg.registries.*;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.tileentity.EnchantmentTableTileEntityRenderer;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class FancyRenders {
     public static void init() {
@@ -110,5 +113,6 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.degradedBrickWallBreakable, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.ancientBrickWallBreakable, RenderType.getCutoutMipped());
 //        ClientRegistry.bindTileEntityRenderer(tile, factory);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.ALTAR_OF_CORRUPTION_TE_TYPE, RenderAltarOfCorruption::new);
     }
 }

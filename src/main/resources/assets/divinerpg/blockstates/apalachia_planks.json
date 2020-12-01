@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
-      "model": "divinerpg:block/apalachia_half_slab"
-    },
-    "type=double": {
+    "": {
       "model": "divinerpg:block/apalachia_planks"
-    },
-    "type=top": {
-      "model": "divinerpg:block/apalachia_upper_slab"
     }
   }
 }

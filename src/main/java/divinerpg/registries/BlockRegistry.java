@@ -11,6 +11,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.block.trees.OakTree;
 import net.minecraft.item.*;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
@@ -97,6 +98,10 @@ public class BlockRegistry {
     public static final Block aquaTorch = null;
     @ObjectHolder("skeleton_torch")
     public static final Block skeletonTorch = null;
+    @ObjectHolder("aqua_wall_torch")
+    public static final Block aquaWallTorch = null;
+    @ObjectHolder("skeleton_wall_torch")
+    public static final Block skeletonWallTorch = null;
 
     // Decoration blocks
 
@@ -1150,8 +1155,8 @@ public class BlockRegistry {
         register(registry, new BlockMobPumpkin("zombie_pumpkin", SoundEvents.ENTITY_ZOMBIE_AMBIENT));
 //
 //        // Torches
-        register(registry, new BlockModNotReady("aqua_torch"));
-        register(registry, new BlockModNotReady("skeleton_torch"));
+        register(registry, new BlockModTorch("aqua_torch", ParticleTypes.FLAME));
+        register(registry, new BlockModTorch("skeleton_torch", ParticleTypes.FLAME));
 //        register(registry, new BlockModTorch("aqua_torch", ParticleType.BLUE_FLAME));
 //        register(registry, new BlockModTorch("skeleton_torch", ParticleType.BLACK_FLAME));
 //
