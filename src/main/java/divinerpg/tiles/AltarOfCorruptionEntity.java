@@ -27,7 +27,7 @@ public class AltarOfCorruptionEntity extends TileEntity implements INameable, IT
     private ITextComponent customname;
 
     public AltarOfCorruptionEntity(TileEntityType<AltarOfCorruptionEntity> altarOfCorruptionTeType) {
-        super(TileRegistry.ALTAR_OF_CORRUPTION_TE_TYPE);
+        super(TileRegistry.ALTAR_OF_CORRUPTION);
     }
 
     public CompoundNBT write(CompoundNBT compound) {

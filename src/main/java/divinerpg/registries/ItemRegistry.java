@@ -6,7 +6,7 @@ import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
 import divinerpg.items.iceika.ItemEggNog;
 import divinerpg.items.twilight.ItemForbiddenFruit;
-import divinerpg.items.vethea.ItemVethean;
+import divinerpg.items.vethea.*;
 import divinerpg.util.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -1862,7 +1862,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("mortum_phaser"));
         register(e, new ItemModNotReady("mortum_slicer"));
         register(e, new ItemModNotReady("mysterious_clock"));
-        register(e, new ItemModNotReady("nightmare_bed"));
         register(e, new ItemModNotReady("palavence"));
         register(e, new ItemModNotReady("pardimal_backsword"));
         register(e, new ItemModNotReady("pardimal_bow"));
@@ -2120,6 +2119,7 @@ public class ItemRegistry {
         register(e, new ItemVethean("teaker_arrow"));
         register(e, new ItemVethean("teaker_lump"));
         register(e, new ItemVethean("tormented_template"));
+        register(e, new ItemNightmareBed());
 //        register(e, new ItemWizardsBook("wizards_book"));
 //        register(e, new ItemAnchor("bowhead_anchor", BulletType.BOWHEAD_ANCHOR_SHOT));
 //        register(e, new ItemAnchor("crab_anchor", BulletType.CRAB_ANCHOR_SHOT));

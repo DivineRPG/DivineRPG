@@ -6,6 +6,7 @@ import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.vanilla.*;
+import divinerpg.blocks.vethea.BlockNightmareBed;
 import divinerpg.items.base.ItemModItemBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -1264,18 +1265,15 @@ public class BlockRegistry {
         register(registry, new BlockSpike("hot_spike_block", true));
 //
 //        // Utility blocks
-        register(registry, new BlockModNotReady("altar_of_corruption"));
         register(registry, new BlockModNotReady("bone_chest"));
-//        register(registry, new BlockAltarOfCorruption("altar_of_corruption"));
+        register(registry, new BlockAltarOfCorruption("altar_of_corruption"));
 //        register(registry, new BlockBoneChest("bone_chest"));
         register(registry, new BlockFrostedAllure("frosted_allure"));
 //
 //        // Divine blocks
-        //TODO - Custom trees
         register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new OakTree()));
         register(registry, new BlockModLog("divine_log", MaterialColor.YELLOW, () -> strippedDivineLog));
         register(registry, new BlockModLog("stripped_divine_log", MaterialColor.YELLOW, null));
-        //TODO - Leave render issue
         register(registry, new BlockModLeaves("divine_leaves", MaterialColor.YELLOW, 0.3F));
         Block divinePlanks = new BlockMod("divine_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, divinePlanks);
@@ -1883,8 +1881,7 @@ public class BlockRegistry {
 //        register(registry, new BlockAcid("lunic_acid", true), true);
 //
 //        // Nightmare bed
-        register(registry, new BlockModNotReady("nightmare_bed_block"), true);
-//        registerItemlessBlock(registry, new BlockNightmareBed());
+        registerItemlessBlock(registry, new BlockNightmareBed());
 //
 //        // Portal blocks
 //        // Portal

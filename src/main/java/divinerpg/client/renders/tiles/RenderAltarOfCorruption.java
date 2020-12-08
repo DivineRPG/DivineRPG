@@ -3,6 +3,7 @@ package divinerpg.client.renders.tiles;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import divinerpg.DivineRPG;
 import divinerpg.tiles.AltarOfCorruptionEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.model.BookModel;
@@ -16,12 +17,11 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderAltarOfCorruption extends TileEntityRenderer<AltarOfCorruptionEntity> {
-    /** The texture for the book above the enchantment table. */
-    public static final RenderMaterial TEXTURE_BOOK = new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("divinerpg:textures/model/altar_book.png"));
+    public static final RenderMaterial TEXTURE_BOOK = new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation(DivineRPG.MODID, "textures/model/altar_book.png"));
     private final BookModel modelBook = new BookModel();
 
-    public RenderAltarOfCorruption(TileEntityRendererDispatcher rendererDispatcherIn) {
-        super(rendererDispatcherIn);
+    public RenderAltarOfCorruption(TileEntityRendererDispatcher p_i226010_1_) {
+        super(p_i226010_1_);
     }
 
     public void render(AltarOfCorruptionEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
@@ -29,15 +29,12 @@ public class RenderAltarOfCorruption extends TileEntityRenderer<AltarOfCorruptio
         matrixStackIn.translate(0.5D, 0.75D, 0.5D);
         float f = (float)tileEntityIn.ticks + partialTicks;
         matrixStackIn.translate(0.0D, (double)(0.1F + MathHelper.sin(f * 0.1F) * 0.01F), 0.0D);
-
         float f1;
         for(f1 = tileEntityIn.nextPageAngle - tileEntityIn.pageAngle; f1 >= (float)Math.PI; f1 -= ((float)Math.PI * 2F)) {
         }
-
         while(f1 < -(float)Math.PI) {
             f1 += ((float)Math.PI * 2F);
         }
-
         float f2 = tileEntityIn.pageAngle + f1 * partialTicks;
         matrixStackIn.rotate(Vector3f.YP.rotation(-f2));
         matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(80.0F));
