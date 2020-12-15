@@ -1,4 +1,4 @@
-package divinerpg.client.renders.vanilla;
+package divinerpg.client.renders.entity.vanilla;
 
 
 import divinerpg.DivineRPG;

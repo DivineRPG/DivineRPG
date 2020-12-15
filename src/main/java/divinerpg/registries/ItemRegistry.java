@@ -1,7 +1,6 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
-import divinerpg.entities.vanilla.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
 import divinerpg.items.iceika.ItemEggNog;
@@ -11,12 +10,13 @@ import divinerpg.util.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.util.text.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 
-import java.util.HashMap;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @ObjectHolder("divinerpg")
@@ -1572,68 +1572,73 @@ public class ItemRegistry {
     public static final Item evernight = null;
 
 
-    // Armor Info
-//    private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));
-//    private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
-//    private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 85));
-//    private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
-//    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50));
-//    private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
-//            getArmorAbility("jump_height", 2),
-//            getArmorAbility("no_fall"));
-//    private static ArmorInfo eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall"));
-//    private static ArmorInfo enderInfo = new ArmorInfo(getArmorAbility("explosion_protection"));
-//    private static ArmorInfo frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6));
-//    private static ArmorInfo infernoInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-//    private static ArmorInfo jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3));
-//    private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
-//    private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("underwater"));
-//    private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-//    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 85));
-//    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 3), getArmorAbility("step_assist"));
-//    private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
-//    private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
-//    private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
-//    private static ArmorInfo kingInfo = new ArmorInfo(new TextComponentString("Absorbs super-power from other sets"));
-//
-//    // Iceika
-//    private static ArmorInfo santaInfo = new ArmorInfo(new TextComponentTranslation("tooltip.armor_info.massive_buff"),
-//            getArmorAbility("speed", 2),
-//            getArmorAbility("melee_damage", 6),
-//            getArmorAbility("hunger"),
-//            getArmorAbility("melee_protection", 80))
-//            .withDimension(new TextComponentTranslation("tooltip.armor_info.iceika"), x -> Objects.equals(x, DimensionRegistry.iceikaDimension));
-//
-//    // Twilight
-//    private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
-//    private static ArmorInfo wildInfo = new ArmorInfo(getArmorAbility("underwater_health_regen"));
-//    private static ArmorInfo apInfo = new ArmorInfo(getArmorAbility("block_protection"));
-//    private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
-//    private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
-//    private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
-//    private static ArmorInfo awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20),
-//            getArmorAbility("ranged_damage", 50));
-//
-//    // Arcana
-//    private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
-//    private static ArmorInfo vemInfo = new ArmorInfo(getArmorAbility("health_regen"));
-//
-//    // Vethea
-//    private static ArmorInfo basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15));
-//    private static ArmorInfo basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15));
-//    private static ArmorInfo basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15));
-//
-//    private static ArmorInfo glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3));
-//    private static ArmorInfo glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.4));
-//    private static ArmorInfo glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall"));
-//
-//    private static ArmorInfo demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6));
-//    private static ArmorInfo demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.8));
-//    private static ArmorInfo demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall"));
-//
-//    private static ArmorInfo tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9));
-//    private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2.2));
-//    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
+
+
+    // Armor information
+    // Vanilla dimensions
+    private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));
+    private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
+    private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 85));
+    private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
+    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50));
+    private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
+            getArmorAbility("jump_height", 2),
+            getArmorAbility("no_fall"));
+    private static ArmorInfo eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall"));
+    private static ArmorInfo enderInfo = new ArmorInfo(getArmorAbility("explosion_protection"));
+    private static ArmorInfo frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6));
+    private static ArmorInfo infernoInfo = new ArmorInfo(getArmorAbility("fire_protection"));
+    private static ArmorInfo jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3));
+    private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
+    private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("underwater"));
+    private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
+    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 85));
+    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 3), getArmorAbility("step_assist"));
+    private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
+    private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
+    private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
+    private static ArmorInfo kingInfo = new ArmorInfo(new StringTextComponent("Absorbs super-power from other sets"));
+
+    // Iceika
+    //TODO - Dimension stuff
+    private static ArmorInfo santaInfo = new ArmorInfo(new TranslationTextComponent("tooltip.armor_info.massive_buff"),
+            getArmorAbility("speed", 2),
+            getArmorAbility("melee_damage", 6),
+            getArmorAbility("hunger"),
+            getArmorAbility("melee_protection", 80));
+//            .withDimension(new TranslationTextComponent("tooltip.armor_info.iceika"), x -> Objects.equals(x, DimensionRegistry.iceikaDimension));
+
+    // Twilight
+    private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
+    private static ArmorInfo wildInfo = new ArmorInfo(getArmorAbility("underwater_health_regen"));
+    private static ArmorInfo apInfo = new ArmorInfo(getArmorAbility("block_protection"));
+    private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
+    private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
+    private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
+    private static ArmorInfo awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20),
+            getArmorAbility("ranged_damage", 50));
+
+    // Arcana
+    private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
+    private static ArmorInfo vemInfo = new ArmorInfo(getArmorAbility("health_regen"));
+
+    // Vethea
+    private static ArmorInfo basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15));
+    private static ArmorInfo basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15));
+    private static ArmorInfo basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15));
+
+    private static ArmorInfo glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3));
+    private static ArmorInfo glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.4));
+    private static ArmorInfo glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall"));
+
+    private static ArmorInfo demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6));
+    private static ArmorInfo demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1.8));
+    private static ArmorInfo demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall"));
+
+    private static ArmorInfo tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9));
+    private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2.2));
+    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
+
 
 
     @SubscribeEvent
@@ -1941,51 +1946,51 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("teaker_hammer"));
         register(e, new ItemModNotReady("quadrotic_hammer"));
         register(e, new ItemModNotReady("heliosis_hammer"));
-        registerArmorSet(e, "angelic", MaterialRegistry.ANGELIC_ARMOR);
-        registerArmorSet(e, "apalachia", MaterialRegistry.APALACHIA_ARMOR);
-        registerArmorSet(e, "aquastrive", MaterialRegistry.AQUASTRIVE_ARMOR);
-        registerArmorSet(e, "arlemite", MaterialRegistry.ARLEMITE_ARMOR);
-        registerArmorSet(e, "awakened_halite", MaterialRegistry.AWAKENED_HALITE_ARMOR);
-        registerArmorSet(e, "bedrock", MaterialRegistry.BEDROCK_ARMOR);
-        registerArmorSet(e, "blue_ender", MaterialRegistry.BLUE_ENDER_ARMOR);
-        registerArmorSet(e, "blue_rupee", MaterialRegistry.BLUE_RUPEE_ARMOR);
-        registerArmorSet(e, "corrupted", MaterialRegistry.CORRUPTED_ARMOR);
-        registerArmorSet(e, "divine", MaterialRegistry.DIVINE_ARMOR);
-        registerArmorSet(e, "eden", MaterialRegistry.EDEN_ARMOR);
-        registerArmorSet(e, "elite_realmite", MaterialRegistry.ELITE_REALMITE_ARMOR);
-        registerArmorSet(e, "ender", MaterialRegistry.ENDER_ARMOR);
-        registerArmorSet(e, "frozen", MaterialRegistry.FROZEN_ARMOR);
-        registerArmorSet(e, "gray_ender", MaterialRegistry.GRAY_ENDER_ARMOR);
-        registerArmorSet(e, "gray_rupee", MaterialRegistry.GRAY_RUPEE_ARMOR);
-        registerArmorSet(e, "green_ender", MaterialRegistry.GREEN_ENDER_ARMOR);
-        registerArmorSet(e, "green_rupee", MaterialRegistry.GREEN_RUPEE_ARMOR);
-        registerArmorSet(e, "halite", MaterialRegistry.HALITE_ARMOR);
-        registerArmorSet(e, "inferno", MaterialRegistry.INFERNO_ARMOR);
-        registerArmorSet(e, "jack_o_man", MaterialRegistry.JACK_O_MAN_ARMOR);
-        registerArmorSet(e, "jungle", MaterialRegistry.JUNGLE_ARMOR);
-        registerArmorSet(e, "korma", MaterialRegistry.KORMA_ARMOR);
-        registerArmorSet(e, "kraken", MaterialRegistry.KRAKEN_ARMOR);
-        registerArmorSet(e, "mortum", MaterialRegistry.MORTUM_ARMOR);
+        registerArmorSet(e, "angelic", MaterialRegistry.ANGELIC_ARMOR, angelicInfo);
+        registerArmorSet(e, "apalachia", MaterialRegistry.APALACHIA_ARMOR, apInfo);
+        registerArmorSet(e, "aquastrive", MaterialRegistry.AQUASTRIVE_ARMOR, aquastriveInfo);
+        registerArmorSet(e, "arlemite", MaterialRegistry.ARLEMITE_ARMOR, arlemiteInfo);
+        registerArmorSet(e, "awakened_halite", MaterialRegistry.AWAKENED_HALITE_ARMOR, awakened_halInfo);
+        registerArmorSet(e, "bedrock", MaterialRegistry.BEDROCK_ARMOR, bedrockInfo);
+        registerArmorSet(e, "blue_ender", MaterialRegistry.BLUE_ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "blue_rupee", MaterialRegistry.BLUE_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(e, "corrupted", MaterialRegistry.CORRUPTED_ARMOR, corruptedInfo);
+        registerArmorSet(e, "divine", MaterialRegistry.DIVINE_ARMOR, divineInfo);
+        registerArmorSet(e, "eden", MaterialRegistry.EDEN_ARMOR, edenInfo);
+        registerArmorSet(e, "elite_realmite", MaterialRegistry.ELITE_REALMITE_ARMOR, eliteRealmiteInfo);
+        registerArmorSet(e, "ender", MaterialRegistry.ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "frozen", MaterialRegistry.FROZEN_ARMOR, frozenInfo);
+        registerArmorSet(e, "gray_ender", MaterialRegistry.GRAY_ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "gray_rupee", MaterialRegistry.GRAY_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(e, "green_ender", MaterialRegistry.GREEN_ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "green_rupee", MaterialRegistry.GREEN_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(e, "halite", MaterialRegistry.HALITE_ARMOR, halInfo);
+        registerArmorSet(e, "inferno", MaterialRegistry.INFERNO_ARMOR, infernoInfo);
+        registerArmorSet(e, "jack_o_man", MaterialRegistry.JACK_O_MAN_ARMOR, jackomanInfo);
+        registerArmorSet(e, "jungle", MaterialRegistry.JUNGLE_ARMOR, jungleInfo);
+        registerArmorSet(e, "korma", MaterialRegistry.KORMA_ARMOR, kormInfo);
+        registerArmorSet(e, "kraken", MaterialRegistry.KRAKEN_ARMOR, krakenInfo);
+        registerArmorSet(e, "mortum", MaterialRegistry.MORTUM_ARMOR, mortInfo);
         registerArmorSet(e, "realmite", MaterialRegistry.REALMITE_ARMOR);
-        registerArmorSet(e, "red_ender", MaterialRegistry.RED_ENDER_ARMOR);
-        registerArmorSet(e, "red_rupee", MaterialRegistry.RED_RUPEE_ARMOR);
-        registerArmorSet(e, "rupee", MaterialRegistry.RUPEE_ARMOR);
-        registerArmorSet(e, "santa", MaterialRegistry.SANTA_ARMOR);
-        registerArmorSet(e, "shadow", MaterialRegistry.SHADOW_ARMOR);
-        registerArmorSet(e, "skeleman", MaterialRegistry.SKELEMAN_ARMOR);
-        registerArmorSet(e, "skythern", MaterialRegistry.SKYTHERN_ARMOR);
-        registerArmorSet(e, "terran", MaterialRegistry.TERRAN_ARMOR);
-        registerArmorSet(e, "torridite", MaterialRegistry.TORRIDITE_ARMOR);
-        registerArmorSet(e, "vemos", MaterialRegistry.VEMOS_ARMOR);
-        registerArmorSet(e, "wildwood", MaterialRegistry.WILDWOOD_ARMOR);
-        registerArmorSet(e, "wither_reaper", MaterialRegistry.WITHER_REAPER_ARMOR);
-        registerArmorSet(e, "yellow_ender", MaterialRegistry.YELLOW_ENDER_ARMOR);
-        registerArmorSet(e, "yellow_rupee", MaterialRegistry.YELLOW_RUPEE_ARMOR);
-        registerVetheanArmorSet(e, "degraded", MaterialRegistry.DEGRADED_ARMOR, MaterialRegistry.DEGRADED_ARMOR, MaterialRegistry.DEGRADED_ARMOR);
-        registerVetheanArmorSet(e, "demonized", MaterialRegistry.DEMONIZED_ARMOR, MaterialRegistry.DEMONIZED_ARMOR, MaterialRegistry.DEMONIZED_ARMOR);
+        registerArmorSet(e, "red_ender", MaterialRegistry.RED_ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "red_rupee", MaterialRegistry.RED_RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(e, "rupee", MaterialRegistry.RUPEE_ARMOR, rupeeInfo);
+        registerArmorSet(e, "santa", MaterialRegistry.SANTA_ARMOR, santaInfo);
+        registerArmorSet(e, "shadow", MaterialRegistry.SHADOW_ARMOR, shadowInfo);
+        registerArmorSet(e, "skeleman", MaterialRegistry.SKELEMAN_ARMOR, skelemanInfo);
+        registerArmorSet(e, "skythern", MaterialRegistry.SKYTHERN_ARMOR, skyInfo);
+        registerArmorSet(e, "terran", MaterialRegistry.TERRAN_ARMOR, terranInfo);
+        registerArmorSet(e, "torridite", MaterialRegistry.TORRIDITE_ARMOR, torriditeInfo);
+        registerArmorSet(e, "vemos", MaterialRegistry.VEMOS_ARMOR, vemInfo);
+        registerArmorSet(e, "wildwood", MaterialRegistry.WILDWOOD_ARMOR, wildInfo);
+        registerArmorSet(e, "wither_reaper", MaterialRegistry.WITHER_REAPER_ARMOR, witherReaperInfo);
+        registerArmorSet(e, "yellow_ender", MaterialRegistry.YELLOW_ENDER_ARMOR, enderInfo);
+        registerArmorSet(e, "yellow_rupee", MaterialRegistry.YELLOW_RUPEE_ARMOR, rupeeInfo);
+        registerVetheanArmorSet(e, "degraded", MaterialRegistry.DEGRADED_ARMOR, MaterialRegistry.DEGRADED_ARMOR, MaterialRegistry.DEGRADED_ARMOR, basicHelmInfo, basicHoodInfo, basicMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(e, "demonized", MaterialRegistry.DEMONIZED_ARMOR, MaterialRegistry.DEMONIZED_ARMOR, MaterialRegistry.DEMONIZED_ARMOR, demonizedHelmInfo, demonizedHoodInfo, demonizedMaskInfo, new ArmorInfo());
         registerVetheanArmorSet(e, "finished", MaterialRegistry.FINISHED_ARMOR, MaterialRegistry.FINISHED_ARMOR, MaterialRegistry.FINISHED_ARMOR);
-        registerVetheanArmorSet(e, "glistening", MaterialRegistry.GLISTENING_ARMOR, MaterialRegistry.GLISTENING_ARMOR, MaterialRegistry.GLISTENING_ARMOR);
-        registerVetheanArmorSet(e, "tormented", MaterialRegistry.TORMENTED_ARMOR, MaterialRegistry.TORMENTED_ARMOR, MaterialRegistry.TORMENTED_ARMOR);
+        registerVetheanArmorSet(e, "glistening", MaterialRegistry.GLISTENING_ARMOR, MaterialRegistry.GLISTENING_ARMOR, MaterialRegistry.GLISTENING_ARMOR, glisteningHelmInfo, glisteningHoodInfo, glisteningMaskInfo, new ArmorInfo());
+        registerVetheanArmorSet(e, "tormented", MaterialRegistry.TORMENTED_ARMOR, MaterialRegistry.TORMENTED_ARMOR, MaterialRegistry.TORMENTED_ARMOR, tormentedHelmInfo, tormentedHoodInfo, tormentedMaskInfo, new ArmorInfo());
 
         register(e, new DivineShield("apalachia_shield", DivineRPG.tabs.armor, apalachiaChunk, 4800));
         register(e, new DivineShield("arlemite_shield", DivineRPG.tabs.armor, arlemiteIngot, 1200));
@@ -2374,6 +2379,13 @@ public class ItemRegistry {
         event.getRegistry().register(item);
     }
 
+    private static void registerArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material, ArmorInfo info) {
+        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EquipmentSlotType.HEAD, info));
+        register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EquipmentSlotType.CHEST, info));
+        register(registry, new ItemDivineArmor(prefix + "_leggings", material, EquipmentSlotType.LEGS, info));
+        register(registry, new ItemDivineArmor(prefix + "_boots", material, EquipmentSlotType.FEET, info));
+    }
+
     private static void registerArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material) {
         register(registry, new ItemDivineArmor(prefix + "_helmet", material, EquipmentSlotType.HEAD));
         register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EquipmentSlotType.CHEST));
@@ -2388,5 +2400,22 @@ public class ItemRegistry {
         register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EquipmentSlotType.CHEST));
         register(registry, new ItemDivineArmor(prefix + "_leggings", material, EquipmentSlotType.LEGS));
         register(registry, new ItemDivineArmor(prefix + "_boots", material, EquipmentSlotType.FEET));
+    }
+
+    private static void registerVetheanArmorSet(RegistryEvent.Register<Item> registry, String prefix, IArmorMaterial material, IArmorMaterial hoodMaterial, IArmorMaterial maskMaterial, ArmorInfo helmetInfo, ArmorInfo hoodInfo, ArmorInfo maskInfo, ArmorInfo info) {
+        register(registry, new ItemDivineArmor(prefix + "_helmet", material, EquipmentSlotType.HEAD, helmetInfo));
+        register(registry, new ItemDivineArmor(prefix + "_hood", hoodMaterial, EquipmentSlotType.HEAD, hoodInfo));
+        register(registry, new ItemDivineArmor(prefix + "_mask", maskMaterial, EquipmentSlotType.HEAD, maskInfo));
+        register(registry, new ItemDivineArmor(prefix + "_chestplate", material, EquipmentSlotType.CHEST, info));
+        register(registry, new ItemDivineArmor(prefix + "_leggings", material, EquipmentSlotType.LEGS, info));
+        register(registry, new ItemDivineArmor(prefix + "_boots", material, EquipmentSlotType.FEET, info));
+    }
+
+    public static TextComponent getArmorAbility(String keyPart, Object... params) {
+        String id = String.format("tooltip.armor_info.%s", keyPart);
+
+        return params == null || params.length < 1
+                ? new TranslationTextComponent(id)
+                : new TranslationTextComponent(id, params);
     }
 }

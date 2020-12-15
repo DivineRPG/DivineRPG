@@ -2,7 +2,7 @@ package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.client.renders.vanilla.RenderMiner;
+import divinerpg.client.renders.entity.vanilla.RenderMiner;
 import divinerpg.entities.vanilla.overworld.EntityMiner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;

@@ -2,7 +2,7 @@ package divinerpg;
 
 import divinerpg.client.*;
 import divinerpg.client.renders.tiles.*;
-import divinerpg.events.ProtectPetsEvent;
+import divinerpg.events.*;
 import divinerpg.registries.*;
 import net.minecraft.tileentity.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +32,7 @@ public class DivineRPG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new ProtectPetsEvent());
+        MinecraftForge.EVENT_BUS.register(new ArmorAbilitiesEvent());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

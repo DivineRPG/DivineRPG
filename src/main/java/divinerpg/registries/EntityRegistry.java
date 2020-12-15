@@ -5,7 +5,7 @@ import com.google.common.collect.Lists;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.base.RenderDivineMob;
-import divinerpg.client.renders.vanilla.*;
+import divinerpg.client.renders.entity.vanilla.*;
 import divinerpg.entities.vanilla.end.*;
 import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
@@ -21,7 +21,6 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
