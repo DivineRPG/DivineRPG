@@ -15,7 +15,6 @@
   "divinerpg.sapling": "Still need to make the real tree features. WIP",
   "divinerpg.log": "Still need to make stripped log variants. WIP",
   "divinerpg.collision": "Still need to sort block collision. WIP",
-  "divinerpg.armor": "Still need to port armor abilities or it doesnt have any ability. WIP",
   "block.divinerpg.divine_sapling": "Divine Sapling",
   "block.divinerpg.rupee_ore": "Rupee Ore",
   "block.divinerpg.arlemite_ore": "Arlemite Ore",

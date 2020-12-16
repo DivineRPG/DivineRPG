@@ -59,10 +59,11 @@ public class ArmorAbilitiesEvent
             }
 
 
-            //TODO - armour attributes
+            //TODO - armour reductions
             //Arlemite
             if (boots == ItemRegistry.arlemiteBoots && legs == ItemRegistry.arlemiteLeggings && body == ItemRegistry.arlemiteChestplate && helmet == ItemRegistry.arlemiteHelmet) {
                 if (s.isProjectile() || s.damageType.equals("thrown")) {
+
 //                    evt.ammount *= 0.3;
                 }
             }
@@ -332,6 +333,7 @@ public class ArmorAbilitiesEvent
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         world = evt.player.world;
+        PlayerEntity entity = evt.player;
         ItemStack stackBoots = evt.player.inventory.armorItemInSlot(0);
         ItemStack stackLegs = evt.player.inventory.armorItemInSlot(1);
         ItemStack stackBody = evt.player.inventory.armorItemInSlot(2);
@@ -351,27 +353,18 @@ public class ArmorAbilitiesEvent
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
 
-        //TODO - Fly stuff
-        if(boots != ItemRegistry.angelicBoots && body != ItemRegistry.angelicChestplate && legs != ItemRegistry.angelicLeggings && helmet != ItemRegistry.angelicHelmet) {
-//            FlyingHelper.getProperties(evt.player).couldFly = evt.player.capabilities.allowFlying;
+        if(boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
+            PlayerEntity player = (PlayerEntity) entity;
+            if (!player.isSpectator() || !player.isCreative()) {
+                player.abilities.isFlying = false;
+                player.abilities.allowFlying = false;
+            }
         }
-//        if(evt.player.capabilities.isCreativeMode) FlyingHelper.getProperties(evt.player).couldFly = false;
-//
-//        if (boots == ItemRegistry.angelicBoots && body == ItemRegistry.angelicChestplate && legs == ItemRegistry.angelicLeggings && helmet == ItemRegistry.angelicHelmet && ArcanaHelper.getProperties(evt.player).getBarValue() != 0) {
-//            evt.player.fallDistance = -0.5F;
-//            //TODO - when pigs fly advancement
-////            evt.player.triggerAchievement(DivineRPGAchievements.whenPigsFly);
-//            evt.player.abilities.allowFlying = true;
-//            if(evt.player.abilities.isFlying && !evt.player.abilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly) ArcanaHelper.getProperties(evt.player).useBar(0.5f);
-//            if(ArcanaHelper.getProperties(evt.player).getBarValue() < 1 && !evt.player.abilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly) {
-//                evt.player.abilities.isFlying = false;
-//                evt.player.abilities.allowFlying = false;
-//            }
-//        }
-//        else if(evt.player.abilities.allowFlying && !evt.player.abilities.isCreativeMode && !FlyingHelper.getProperties(evt.player).couldFly){
-//            evt.player.abilities.isFlying = false;
-//            evt.player.abilities.allowFlying = false;
-//        }
+            if (boots == ItemRegistry.angelicBoots && body == ItemRegistry.angelicChestplate && legs == ItemRegistry.angelicLeggings && helmet == ItemRegistry.angelicHelmet) {
+                evt.player.fallDistance = -0.5F;
+                evt.player.abilities.allowFlying = true;
+            }
+
 
         //Elite Realmite
         if (boots == ItemRegistry.eliteRealmiteBoots && body == ItemRegistry.eliteRealmiteChestplate && legs == ItemRegistry.eliteRealmiteLeggings && helmet == ItemRegistry.eliteRealmiteHelmet) {
@@ -395,7 +388,7 @@ public class ArmorAbilitiesEvent
 
         //Korma
         if (boots == ItemRegistry.kormaBoots && body == ItemRegistry.kormaChestplate && legs == ItemRegistry.kormaLeggings && helmet == ItemRegistry.kormaHelmet) {
-            //TODO - arcana
+            //TODO - arcana regen for korma
 //            ArcanaHelper.getProperties(evt.player).regen(1);
         }
 
