@@ -1,3 +1,4 @@
+{
 "itemGroup.divinerpg_blocks": "DivineRPG: Блоки",
 "itemGroup.divinerpg_ranged_weapons": "DivineRPG: Стрелковое оружие",
 "itemGroup.divinerpg_melee_weapons": "DivineRPG: Холодное оружие",
@@ -1703,4 +1704,5 @@
 
 "summon.single_use_spawner.delay": "Будет призван через %s секунд",
 
-"jeicompat.tile.arcanium_ore.information": "Аркановая руда генерируется в Подземелье тайн, получите её создав портал туда!",
+"jeicompat.tile.arcanium_ore.information": "Аркановая руда генерируется в Подземелье тайн, получите её создав портал туда!"
+}
