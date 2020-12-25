@@ -36,15 +36,13 @@ public class EntityTheEye extends EntityDivineMob {
                         this.getBoundingBox().minY + this.getHeight() - (player.getPosY() + player.getEyeHeight()),
                         this.getPosZ() - player.getPosZ());
                 double distMagnitude = lookAtMeVec.length();
-                lookAtMeVec = lookAtMeVec;
+                lookAtMeVec = lookAtMeVec.normalize();
                 double var7 = lookVec.dotProduct(lookAtMeVec);
-                if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
-                    if(!player.isCreative() || !player.isSpectator()) {
-                        player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
-                        if (player instanceof PlayerEntity) {
-                            //TODO - The eye advancement
-//                        TriggerRegistry.DIVINERPG_EYE.trigger(player);
-                        }
+                if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this) && !player.isCreative() || !player.isSpectator()) {
+                    player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
+                    if (player instanceof PlayerEntity) {
+                        //TODO - the eye advancement
+//                        TriggerRegistry.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
                     }
                 }
             }
