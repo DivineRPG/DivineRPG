@@ -1,7 +1,5 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
-import divinerpg.items.base.ItemDivineArmor;
 import divinerpg.registries.ItemRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.entity.*;
@@ -420,31 +418,7 @@ public class ArmorAbilitiesEvent
         //Aquastrive
         if (boots == ItemRegistry.aquastriveBoots && body == ItemRegistry.aquastriveChestplate && legs == ItemRegistry.aquastriveLeggings && helmet == ItemRegistry.aquastriveHelmet) {
             float speed = 1.1F;
-            boolean isJumping = false;
-//            isJumping = (Boolean) ObfuscationReflectionHelper.getPrivateValue(PlayerEntity.class, evt.player, isJumping);
-
-            //TODO - Water Motion stuff
-//            if (evt.player.isInWater()) {
-//                if (!evt.player.isSneaking() && !isJumping) {
-//                    if (evt.player.getMotion().x > -speed && evt.player.getMotion().x < speed) {
-//                        evt.player.motionX *= speed;
-//                        evt.player.motionY = 0F;
-//                    }
-//                    if (evt.player.motionZ > -speed && evt.player.motionZ < speed) {
-//                        evt.player.motionZ *= speed;
-//                        evt.player.motionY = 0F;
-//                    }
-//                }
-//                if (isJumping || evt.player.isSneaking()) {
-//                    evt.player.motionY *= speed;
-//                    if (evt.player.motionX > -speed && evt.player.motionX < speed) {
-//                        evt.player.motionX *= speed;
-//                    }
-//                    if (evt.player.motionZ > -speed && evt.player.motionZ < speed) {
-//                        evt.player.motionZ *= speed;
-//                    }
-//                }
-//            }
+            //TODO - water motion multiplier using the speed factor
         }
 
         //Shadow
