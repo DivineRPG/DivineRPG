@@ -5,7 +5,10 @@ import com.google.common.collect.Lists;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.base.RenderDivineMob;
+import divinerpg.client.renders.entity.projectile.RenderWatcherShot;
 import divinerpg.client.renders.entity.vanilla.*;
+import divinerpg.entities.boss.EntityTheWatcher;
+import divinerpg.entities.projectile.EntityWatcherShot;
 import divinerpg.entities.vanilla.end.*;
 import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
@@ -75,6 +78,12 @@ public class EntityRegistry {
     public static final EntityType ENDER_TRIPLETS = registerEntity(EntityEnderTriplets::new, "ender_triplets",2.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.END), EntityClassification.MONSTER);
     public static final EntityType ENDER_WATCHER = registerEntity(EntityEnderWatcher::new, "ender_watcher",0.7F, 0.9F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.END), EntityClassification.MONSTER);
 
+    //Boss
+    public static final EntityType THE_WATCHER = registerEntity(EntityTheWatcher::new, "the_watcher",4F, 4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+
+    //Projectile
+    public static final EntityType WATCHER_SHOT = registerEntity(EntityWatcherShot::new, "watcher_shot",0.5F, 0.5F, EntityClassification.MISC);
+
     public static void init() {
         // VANILLA
         GlobalEntityTypeAttributes.put(ARID_WARRIOR, EntityAridWarrior.attributes().create());
@@ -122,6 +131,9 @@ public class EntityRegistry {
         GlobalEntityTypeAttributes.put(ENDER_SPIDER, EntityEnderSpider.attributes().create());
         GlobalEntityTypeAttributes.put(ENDER_TRIPLETS, EntityEnderTriplets.attributes().create());
         GlobalEntityTypeAttributes.put(ENDER_WATCHER, EntityEnderWatcher.attributes().create());
+
+        //BOSS
+        GlobalEntityTypeAttributes.put(THE_WATCHER, EntityTheWatcher.attributes().create());
 
 
         //PLACEMENT
@@ -171,6 +183,9 @@ public class EntityRegistry {
         EntitySpawnPlacementRegistry.register(ENDER_TRIPLETS, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING, EntityEnderTriplets::canSpawnOn);
         EntitySpawnPlacementRegistry.register(ENDER_WATCHER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderWatcher::canSpawnOn);
 
+        //Boss
+        EntitySpawnPlacementRegistry.register(THE_WATCHER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheWatcher::canSpawnOn);
+
     }
 
     public static void render() {
@@ -219,6 +234,12 @@ public class EntityRegistry {
         RenderingRegistry.registerEntityRenderingHandler(ENDER_SPIDER, manager -> new RenderDivineMob(manager, new ModelEnderSpider(), 0.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_spider.png")));
         RenderingRegistry.registerEntityRenderingHandler(ENDER_TRIPLETS, manager -> new RenderDivineMob(manager, new ModelEnderTriplets(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_triplets.png")));
         RenderingRegistry.registerEntityRenderingHandler(ENDER_WATCHER, manager -> new RenderDivineMob(manager, new ModelEnderWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_watcher.png")));
+
+        //BOSS
+        RenderingRegistry.registerEntityRenderingHandler(THE_WATCHER, manager -> new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
+
+
+        RenderingRegistry.registerEntityRenderingHandler(THE_WATCHER, RenderWatcherShot::new);
 
     }
 

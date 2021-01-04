@@ -38,6 +38,7 @@ public class DivineRPG {
     private void setup(final FMLCommonSetupEvent event) {
         tabs.init();
         EntityRegistry.init();
+        DimensionRegistry.init();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

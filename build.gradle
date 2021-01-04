@@ -64,11 +64,11 @@ repositories {
     maven { url = "https://www.cursemaven.com"}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.13'
-    //Not supported yet
+    minecraft 'net.minecraftforge:forge:1.16.4-35.1.29'
     compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}")
-//    compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")
+    //Not supported yet
+    //compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")
 }
 jar {
     manifest {
