@@ -5,6 +5,7 @@ import divinerpg.util.DamageSources;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.*;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -351,18 +352,15 @@ public class ArmorAbilitiesEvent
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
 
-        if(boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
-            PlayerEntity player = (PlayerEntity) entity;
-            if (!player.isSpectator() || !player.isCreative()) {
-                player.abilities.isFlying = false;
-                player.abilities.allowFlying = false;
+        if (!entity.isCreative() && !entity.isSpectator()){
+        if (boots == ItemRegistry.angelicBoots || body == ItemRegistry.angelicChestplate || legs == ItemRegistry.angelicLeggings || helmet == ItemRegistry.angelicHelmet) {
+                entity.abilities.allowFlying = true;
+        }
+        if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
+            entity.abilities.allowFlying = false;
+            entity.abilities.isFlying = false;
             }
         }
-            if (boots == ItemRegistry.angelicBoots && body == ItemRegistry.angelicChestplate && legs == ItemRegistry.angelicLeggings && helmet == ItemRegistry.angelicHelmet) {
-                evt.player.fallDistance = -0.5F;
-                evt.player.abilities.allowFlying = true;
-            }
-
 
         //Elite Realmite
         if (boots == ItemRegistry.eliteRealmiteBoots && body == ItemRegistry.eliteRealmiteChestplate && legs == ItemRegistry.eliteRealmiteLeggings && helmet == ItemRegistry.eliteRealmiteHelmet) {
