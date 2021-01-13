@@ -5,7 +5,6 @@ import divinerpg.util.DamageSources;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.*;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -56,52 +55,6 @@ public class ArmorAbilitiesEvent
                     event.setCanceled(true);
                 }
             }
-
-
-            //TODO - armour reductions
-            //Arlemite
-            if (boots == ItemRegistry.arlemiteBoots && legs == ItemRegistry.arlemiteLeggings && body == ItemRegistry.arlemiteChestplate && helmet == ItemRegistry.arlemiteHelmet) {
-                if (s.isProjectile() || s.damageType.equals("thrown")) {
-
-//                    evt.ammount *= 0.3;
-                }
-            }
-
-            //Rupee
-            if ((boots == ItemRegistry.rupeeBoots || boots == ItemRegistry.redRupeeBoots || boots == ItemRegistry.yellowRupeeBoots || boots == ItemRegistry.greenRupeeBoots || boots == ItemRegistry.blueRupeeBoots || boots == ItemRegistry.grayRupeeBoots) && (legs == ItemRegistry.rupeeLeggings || legs == ItemRegistry.redRupeeLeggings || legs == ItemRegistry.yellowRupeeLeggings || legs == ItemRegistry.greenRupeeLeggings || legs == ItemRegistry.blueRupeeLeggings || legs == ItemRegistry.grayRupeeLeggings) && (body == ItemRegistry.rupeeChestplate || body == ItemRegistry.redRupeeChestplate || body == ItemRegistry.yellowRupeeChestplate || body == ItemRegistry.greenRupeeChestplate || body == ItemRegistry.blueRupeeChestplate || body == ItemRegistry.grayRupeeChestplate) && (helmet == ItemRegistry.rupeeHelmet || helmet == ItemRegistry.redRupeeHelmet || helmet == ItemRegistry.yellowRupeeHelmet || helmet == ItemRegistry.greenRupeeHelmet || helmet == ItemRegistry.blueRupeeHelmet || helmet == ItemRegistry.grayRupeeHelmet)) {
-                if ((s.damageType.equals("mob")) && !s.isProjectile()) {
-//                    event.ammount *= 0.3;
-                }
-            }
-
-            //Santa
-            if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
-//                if (evt.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
-//                    event.ammount *= 0.2;
-//                }
-            }
-
-            //Vethean
-
-//            if(body == ItemRegistry.degradedChestplate && legs == ItemRegistry.degradedLeggings && boots == ItemRegistry.degradedBoots) {
-//                if((helmet == ItemRegistry.degradedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.degradedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.degradedHood && s.isMagicDamage())) evt.ammount *= 0.82;
-//            }
-//
-//            if(body == ItemRegistry.finishedChestplate && legs == ItemRegistry.finishedLeggings && boots == ItemRegistry.finishedBoots) {
-//                if((helmet == ItemRegistry.finishedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.finishedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.finishedHood && s.isMagicDamage())) evt.ammount *= 0.773;
-//            }
-//
-//            if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots) {
-//                if((helmet == ItemRegistry.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.glisteningMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.glisteningHood && s.isMagicDamage())) evt.ammount *= 0.7;
-//            }
-//
-//            if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots) {
-//                if((helmet == ItemRegistry.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.demonizedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.demonizedHood && s.isMagicDamage())) evt.ammount *= 0.625;
-//            }
-//
-//            if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots) {
-//                if((helmet == ItemRegistry.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.tormentedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.tormentedHood && s.isMagicDamage())) evt.ammount *= 0.348;
-//            }
 
         }
     }
@@ -270,68 +223,121 @@ public class ArmorAbilitiesEvent
 
             if (stackHelmet != null) helmet = stackHelmet.getItem();
             else helmet = null;
+
+
+            DamageSource s = e.getSource();
+
+            //ignore that im not using += and *=. makes it more readable for me
+            //Santa
+            if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
+                //TODO - make only function in iceika
+//            if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                e.setAmount(e.getAmount() + 6);
+//            }
+            }
+
+            //Halite
+            if (boots == ItemRegistry.haliteBoots && body == ItemRegistry.haliteChestplate && legs == ItemRegistry.haliteLeggings && helmet == ItemRegistry.haliteHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                    e.setAmount(e.getAmount() + 16);
+                }
+            }
+
+            //Divine
+            if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                    e.setAmount(e.getAmount() + 6);
+                }
+            }
+
+            //Corrupted
+            if (body == ItemRegistry.corruptedChestplate && legs == ItemRegistry.corruptedLeggings && boots == ItemRegistry.corruptedBoots && helmet == ItemRegistry.corruptedHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && s.isProjectile())) {
+                    e.setAmount(e.getAmount() * 1.2F);
+                }
+            }
+
+            //Vethean
+            if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                    e.setAmount(e.getAmount() + 3);
+                }
+            }
+
+            if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                    e.setAmount(e.getAmount() + 6);
+                }
+            }
+
+            if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHelmet) {
+                if (((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+                    e.setAmount(e.getAmount() + 9);
+                }
+                //Arlemite
+                if (boots == ItemRegistry.arlemiteBoots && legs == ItemRegistry.arlemiteLeggings && body == ItemRegistry.arlemiteChestplate && helmet == ItemRegistry.arlemiteHelmet) {
+                    if (s.isProjectile() || s.damageType.equals("thrown")) {
+                        e.setAmount(e.getAmount() * 0.3F);
+                    }
+                }
+
+                //Rupee
+                if ((boots == ItemRegistry.rupeeBoots || boots == ItemRegistry.redRupeeBoots || boots == ItemRegistry.yellowRupeeBoots || boots == ItemRegistry.greenRupeeBoots || boots == ItemRegistry.blueRupeeBoots || boots == ItemRegistry.grayRupeeBoots) && (legs == ItemRegistry.rupeeLeggings || legs == ItemRegistry.redRupeeLeggings || legs == ItemRegistry.yellowRupeeLeggings || legs == ItemRegistry.greenRupeeLeggings || legs == ItemRegistry.blueRupeeLeggings || legs == ItemRegistry.grayRupeeLeggings) && (body == ItemRegistry.rupeeChestplate || body == ItemRegistry.redRupeeChestplate || body == ItemRegistry.yellowRupeeChestplate || body == ItemRegistry.greenRupeeChestplate || body == ItemRegistry.blueRupeeChestplate || body == ItemRegistry.grayRupeeChestplate) && (helmet == ItemRegistry.rupeeHelmet || helmet == ItemRegistry.redRupeeHelmet || helmet == ItemRegistry.yellowRupeeHelmet || helmet == ItemRegistry.greenRupeeHelmet || helmet == ItemRegistry.blueRupeeHelmet || helmet == ItemRegistry.grayRupeeHelmet)) {
+                    if ((s.damageType.equals("mob")) && !s.isProjectile()) {
+                        e.setAmount(e.getAmount() * 0.3F);
+                    }
+                }
+
+                //Santa
+                if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
+                    //TODO - make only function in iceika
+//                if (evt.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
+                    e.setAmount(e.getAmount() * 0.2F);
+//                }
+                }
+
+                //Vethean
+
+                if (body == ItemRegistry.degradedChestplate && legs == ItemRegistry.degradedLeggings && boots == ItemRegistry.degradedBoots) {
+                    if ((helmet == ItemRegistry.degradedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.degradedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.degradedHood && s.isMagicDamage()))
+                        e.setAmount(e.getAmount() * 0.82F);
+                    ;
+                }
+
+                if (body == ItemRegistry.finishedChestplate && legs == ItemRegistry.finishedLeggings && boots == ItemRegistry.finishedBoots) {
+                    if ((helmet == ItemRegistry.finishedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.finishedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.finishedHood && s.isMagicDamage()))
+                        e.setAmount(e.getAmount() * 0.773F);
+                    ;
+                }
+
+                if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots) {
+                    if ((helmet == ItemRegistry.glisteningHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.glisteningMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.glisteningHood && s.isMagicDamage()))
+                        e.setAmount(e.getAmount() * 0.7F);
+                    ;
+                }
+
+                if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots) {
+                    if ((helmet == ItemRegistry.demonizedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.demonizedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.demonizedHood && s.isMagicDamage()))
+                        e.setAmount(e.getAmount() * 0.625F);
+                    ;
+                }
+
+                if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots) {
+                    if ((helmet == ItemRegistry.tormentedHelmet && !s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.tormentedMask && s.isProjectile() && !s.isMagicDamage()) || (helmet == ItemRegistry.tormentedHood && s.isMagicDamage()))
+                        e.setAmount(e.getAmount() * 0.348F);
+                    ;
+                }
+            }
         }
+    }
 
-        DamageSource s = e.getSource();
-
-        //TODO - armor damage reductions
-//        //Santa
-//        if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaTunic && legs == ItemRegistry.santaPants && helmet == ItemRegistry.santaCap) {
-//            if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 6;
-//            }
-//        }
-//
-//        //Halite
-//        if (boots == ItemRegistry.haliteBoots && body == ItemRegistry.haliteChestplate && legs == ItemRegistry.haliteLeggings && helmet == ItemRegistry.haliteHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 16;
-//            }
-//        }
-//
-//        //Divine
-//        if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 6;
-//            }
-//        }
-//
-//        //Corrupted
-//        if(body == ItemRegistry.corruptedChestplate && legs == ItemRegistry.corruptedLeggings && boots == ItemRegistry.corruptedBoots && helmet == ItemRegistry.corruptedHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && s.isProjectile())) {
-//                e.ammount *= 1.2;
-//            }
-//        }
-//
-//        //Vethean
-//        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 3;
-//            }
-//        }
-//
-//        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 6;
-//            }
-//        }
-//
-//        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHelmet) {
-//            if (((s.getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
-//                e.ammount += 9;
-//            }
-        }
-
-    private float flyTemp;
-
-    public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
-    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
-    public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
-    private World world;
+//    public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
+//    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
+//    public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
 
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
-        world = evt.player.world;
+//        World world = evt.player.world;
         PlayerEntity entity = evt.player;
         ItemStack stackBoots = evt.player.inventory.armorItemInSlot(0);
         ItemStack stackLegs = evt.player.inventory.armorItemInSlot(1);
@@ -415,7 +421,7 @@ public class ArmorAbilitiesEvent
 
         //Aquastrive
         if (boots == ItemRegistry.aquastriveBoots && body == ItemRegistry.aquastriveChestplate && legs == ItemRegistry.aquastriveLeggings && helmet == ItemRegistry.aquastriveHelmet) {
-            float speed = 1.1F;
+//            float speed = 1.1F;
             //TODO - water motion multiplier using the speed factor
         }
 
@@ -445,7 +451,7 @@ public class ArmorAbilitiesEvent
         }
 
         //Santa
-        //TODO - Change to iceika
+        //TODO - make only function in iceika
         if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
             if (evt.player.world.getDimensionKey() == World.OVERWORLD) {
                 if (evt.player.getFoodStats().needFood()) {
