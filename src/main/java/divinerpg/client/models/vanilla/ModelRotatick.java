@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
-
+//Made by Declan/WS97/SirDeccy
 @OnlyIn(Dist.CLIENT)
 public class ModelRotatick<T extends Entity> extends SegmentedModel<T> {
 	private final ModelRenderer Head;
