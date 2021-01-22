@@ -7,7 +7,7 @@
     "size": 4,
     "target": {
       "predicate_type": "minecraft:block_match",
-      "block": "minecraft:twilight_stone"
+      "block": "divinerpg:twilight_stone"
     }
   }
 }

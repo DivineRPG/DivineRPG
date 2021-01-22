@@ -8,6 +8,7 @@ import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vethea.BlockNightmareBed;
 import divinerpg.items.base.ItemModItemBlock;
+import divinerpg.util.GenBlockLoot;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.block.trees.OakTree;
@@ -1922,16 +1923,19 @@ public class BlockRegistry {
     private static void register(RegistryEvent.Register<Block> event, Block block) {
         event.getRegistry().register(block);
         blocks.add(block);
+        GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
     }
 
     private static void register(RegistryEvent.Register<Block> event, Block block, boolean vethean) {
         event.getRegistry().register(block);
         vethea.add(block);
+        GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
     }
 
     private static void register(RegistryEvent.Register<Block> event, Block block, boolean vethean, boolean util) {
         event.getRegistry().register(block);
         utilities.add(block);
+        GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
     }
 
     @SubscribeEvent
@@ -1944,6 +1948,7 @@ public class BlockRegistry {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);
+            GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
         }
     }
 
@@ -1957,6 +1962,7 @@ public class BlockRegistry {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);
+            GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
         }
     }
 
@@ -1970,11 +1976,13 @@ public class BlockRegistry {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);
+            GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
         }
     }
 
     private static void registerItemlessBlock(RegistryEvent.Register<Block> registry, Block block) {
         registry.getRegistry().register(block);
+        GenBlockLoot.genLoot(block, Item.getItemFromBlock(block), 1);
     }
 
 }

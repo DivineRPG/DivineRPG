@@ -8,7 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class DimensionRegistry {
+public class KeyRegistry {
 
     public static RegistryKey<World> EDEN_WORLD;
     public static RegistryKey<Biome> EDEN_BIOME;
@@ -19,10 +19,11 @@ public class DimensionRegistry {
 
 
     public static void init(){
-        EDEN_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
-        EDEN_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
-        EDEN_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
         EDEN_TREE = RegistryKey.getOrCreateKey(Registry.FEATURE_KEY, new ResourceLocation(DivineRPG.MODID, "eden_tree"));
         EDEN_ORE = RegistryKey.getOrCreateKey(Registry.FEATURE_KEY, new ResourceLocation(DivineRPG.MODID, "eden_ore"));
+        EDEN_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
+        EDEN_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
+        EDEN_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
+
     }
 }

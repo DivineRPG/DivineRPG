@@ -8,8 +8,8 @@
   "category": "the_end",
   "player_spawn_friendly": false,
   "effects": {
-    "sky_color": 16252800,
-    "fog_color": 16515005,
+    "sky_color": 10747897,
+    "fog_color": 15990365,
     "water_color": 10610863,
     "water_fog_color": 16580561,
     "grass_color": 16774932,
@@ -18,6 +18,10 @@
   "starts": [],
   "spawners": {},
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:canyon"
+    ]
+  },
   "features": []
 }

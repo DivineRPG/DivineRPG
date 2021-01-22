@@ -1,7 +1,10 @@
 package divinerpg.events;
 
-import divinerpg.registries.ItemRegistry;
+import divinerpg.blocks.base.BlockMod;
+import divinerpg.registries.*;
 import divinerpg.util.DamageSources;
+import net.minecraft.block.Block;
+import net.minecraft.enchantment.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -10,9 +13,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.List;
+import java.util.*;
 
 public class ArmorAbilitiesEvent
 {
@@ -109,42 +113,48 @@ public class ArmorAbilitiesEvent
         }
     }
 
-        //TODO - Convert to blockdrop json
-//    @SubscribeEvent
-//    public void onBlockDrops(PlayerEvent.HarvestCheck event) {
-//        Block block = event.getTargetBlock().getBlock();
-//        if (block != null && block instanceof BlockMod && ((BlockMod)block).isTwilightOre()) {
-//            if(event.getPlayer() != null && event.getPlayer() instanceof PlayerEntity) {
-//                PlayerEntity player = event.getPlayer();
-//                ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-//                ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-//                ItemStack stackBody = player.inventory.armorItemInSlot(2);
-//                ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
-//
-//                if (stackBoots != null) boots = stackBoots.getItem();
-//                else boots = null;
-//
-//                if (stackBody != null) body = stackBody.getItem();
-//                else body = null;
-//
-//                if (stackLegs != null) legs = stackLegs.getItem();
-//                else legs = null;
-//
-//                if (stackHelmet != null) helmet = stackHelmet.getItem();
-//                else helmet = null;
-//
-//                //Eden
-//                if (boots == ItemRegistry.edenBoots && body == ItemRegistry.edenChestplate && legs == ItemRegistry.edenLeggings && helmet == ItemRegistry.edenHelmet) {
-//                    if(!event.isSilkTouching) {
+    @SubscribeEvent
+    public void onBlockDrops(PlayerEvent.HarvestCheck event) {
+        Block block = event.getTargetBlock().getBlock();
+        ArrayList<Block> twilightOres = new ArrayList<>();
+        twilightOres.add(BlockRegistry.edenOre);
+        twilightOres.add(BlockRegistry.wildwoodOre);
+        twilightOres.add(BlockRegistry.apalachiaOre);
+        twilightOres.add(BlockRegistry.skythernOre);
+        twilightOres.add(BlockRegistry.mortumOre);
+        if (block != null && block instanceof BlockMod && twilightOres.contains(block)) {
+            if(event.getPlayer() != null && event.getPlayer() instanceof PlayerEntity) {
+                PlayerEntity player = event.getPlayer();
+                ItemStack stackBoots = player.inventory.armorItemInSlot(0);
+                ItemStack stackLegs = player.inventory.armorItemInSlot(1);
+                ItemStack stackBody = player.inventory.armorItemInSlot(2);
+                ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+
+                if (stackBoots != null) boots = stackBoots.getItem();
+                else boots = null;
+
+                if (stackBody != null) body = stackBody.getItem();
+                else body = null;
+
+                if (stackLegs != null) legs = stackLegs.getItem();
+                else legs = null;
+
+                if (stackHelmet != null) helmet = stackHelmet.getItem();
+                else helmet = null;
+
+                //Eden
+                if (boots == ItemRegistry.edenBoots && body == ItemRegistry.edenChestplate && legs == ItemRegistry.edenLeggings && helmet == ItemRegistry.edenHelmet) {
+                    if(!event.getPlayer().getHeldItemMainhand().getEnchantmentTagList().contains(Enchantments.SILK_TOUCH)) {
+                        //TODO - Drops
 //                        ItemStack fragment = event.drops.get(0);
 //                        event.drops.add(fragment.copy());
 //                        event.drops.add(fragment.copy());
 //                        event.drops.add(fragment.copy());
-//                    }
-//                }
-//            }
-//        }
-//        }
+                    }
+                }
+            }
+        }
+        }
 
 
     @SubscribeEvent
@@ -171,7 +181,6 @@ public class ArmorAbilitiesEvent
 
             DamageSource s = e.getSource();
 
-            //Kraken and Aquastrive
             if ((boots == ItemRegistry.aquastriveBoots && body == ItemRegistry.aquastriveChestplate && legs == ItemRegistry.aquastriveLeggings && helmet == ItemRegistry.aquastriveHelmet)
                     || (boots == ItemRegistry.krakenBoots && body == ItemRegistry.krakenChestplate && legs == ItemRegistry.krakenLeggings && helmet == ItemRegistry.krakenHelmet)) {
                 if (s.equals(DamageSource.DROWN)) {
@@ -179,21 +188,18 @@ public class ArmorAbilitiesEvent
                 }
             }
 
-            //Uvite
             if (boots == ItemRegistry.apalachiaBoots && legs == ItemRegistry.apalachiaLeggings && body == ItemRegistry.apalachiaChestplate && helmet == ItemRegistry.apalachiaHelmet) {
                 if (s.equals(DamageSource.CACTUS) || s.equals(DamageSource.FALLING_BLOCK) || s.equals(DamageSource.ANVIL) || s.equals(DamageSource.IN_WALL) || s.equals(DamageSources.trapSource)) {
                     e.setCanceled(true);
                 }
             }
 
-            //Wither Reaper
             if (boots == ItemRegistry.witherReaperBoots && legs == ItemRegistry.witherReaperLeggings && body == ItemRegistry.witherReaperChestplate && helmet == ItemRegistry.witherReaperHelmet) {
                 if (s.equals(DamageSource.WITHER)) {
                     e.setCanceled(true);
                 }
             }
 
-            //Jungle
             if (boots == ItemRegistry.jungleBoots && legs == ItemRegistry.jungleLeggings && body == ItemRegistry.jungleChestplate && helmet == ItemRegistry.jungleHelmet) {
                 if (s.equals(DamageSource.MAGIC)) {
                     e.setCanceled(true);
@@ -228,7 +234,6 @@ public class ArmorAbilitiesEvent
             DamageSource s = e.getSource();
 
             //ignore that im not using += and *=. makes it more readable for me
-            //Santa
             if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
                 //TODO - make only function in iceika
 //            if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
@@ -331,13 +336,8 @@ public class ArmorAbilitiesEvent
         }
     }
 
-//    public static final String[] isImmuneToFire = new String[] { "ae", "field_70178_ae", "isImmuneToFire" };
-//    public static final String[] isJumping      = new String[] { "bc", "field_70703_bu", "isJumping" };
-//    public static final String[] walkSpeed      = new String[] { "g", "field_75097_g", "walkSpeed" };
-
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
-//        World world = evt.player.world;
         PlayerEntity entity = evt.player;
         ItemStack stackBoots = evt.player.inventory.armorItemInSlot(0);
         ItemStack stackLegs = evt.player.inventory.armorItemInSlot(1);

@@ -52,3 +52,4 @@ gradlew
 changelog.txt
 src/main/java/divinerpg/util/GenerateJSON.java
 src/main/java/divinerpg/util/ModRecipes.java
+src/main/java/divinerpg/util/GenBlockLoot.java
