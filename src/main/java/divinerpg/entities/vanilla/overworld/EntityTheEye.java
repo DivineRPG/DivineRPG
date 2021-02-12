@@ -31,6 +31,7 @@ public class EntityTheEye extends EntityDivineMob {
         if (!this.world.isRemote) {
             PlayerEntity player = this.world.getClosestPlayer(this, 64.0D);
             if (player != null) {
+                if(!player.isCreative() && !player.isSpectator()){
                 Vector3d lookVec = player.getLook(1.0F).normalize();
                 Vector3d lookAtMeVec = new Vector3d(this.getPosX() - player.getPosX(),
                         this.getBoundingBox().minY + this.getHeight() - (player.getPosY() + player.getEyeHeight()),
@@ -38,7 +39,7 @@ public class EntityTheEye extends EntityDivineMob {
                 double distMagnitude = lookAtMeVec.length();
                 lookAtMeVec = lookAtMeVec.normalize();
                 double var7 = lookVec.dotProduct(lookAtMeVec);
-                if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this) && !player.isCreative() || !player.isSpectator()) {
+                if (var7 > 1.0D - 0.025D / distMagnitude && player.canEntityBeSeen(this)) {
                     player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
                     if (player instanceof PlayerEntity) {
                         //TODO - the eye advancement
@@ -46,6 +47,7 @@ public class EntityTheEye extends EntityDivineMob {
                     }
                 }
             }
+        }
         }
     }
     @Override

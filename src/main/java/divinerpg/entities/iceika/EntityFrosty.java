@@ -1,0 +1,60 @@
+package divinerpg.entities.iceika;
+
+import divinerpg.entities.base.EntityPeacefulUntilAttacked;
+import divinerpg.registries.*;
+import divinerpg.util.EntityStats;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.potion.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.*;
+
+public class EntityFrosty extends EntityPeacefulUntilAttacked {
+
+
+    public EntityFrosty(EntityType<? extends MobEntity> type, World worldIn) {
+        super(type, worldIn);
+    }
+    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+        return 1.85F;
+    }
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.frostyHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.frostyDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.frostySpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.frostyFollowRange);
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entity) {
+        boolean attack = super.attackEntityAsMob(entity);
+        if (attack && entity instanceof LivingEntity) {
+            ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2, true, false));
+            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5 * 0.5F, 0.1D,
+                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5 * 0.5F);
+        }
+        return attack;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundRegistry.FROSTY;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundRegistry.FROSTY_HURT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundRegistry.FROSTY_HURT;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LootTableRegistry.ENTITIES_FROSTY;
+    }
+}

@@ -62,13 +62,14 @@ repositories {
     maven { url = "http://dvs1.progwml6.com/files/maven"}
     maven { url = "https://modmaven.k-4u.nl"}
     maven { url = "https://www.cursemaven.com"}
+    maven { url 'https://maven.blamejared.com'}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.0.1'
-    compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}")
-    //Not supported yet
-    //compile fg.deobf("curse.maven:just-enough-resources-jer:${jer_file_id}")
+    minecraft 'net.minecraftforge:forge:1.16.5-36.0.22'
+    compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api") //JEI
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}") //JEI
+    compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
+//    compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
 }
 jar {
     manifest {

@@ -8,7 +8,6 @@ import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vethea.BlockNightmareBed;
 import divinerpg.items.base.ItemModItemBlock;
-import divinerpg.util.GenBlockLoot;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.block.trees.OakTree;

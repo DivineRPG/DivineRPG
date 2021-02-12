@@ -57,7 +57,7 @@ public class SpawnEggColors {
                 return new SpawnEggColors(18012, 1504400);
 
             case BOSS:
-                return new SpawnEggColors(11801600, 1315860);
+                return new SpawnEggColors(65532, 0000);
 
             default:
                 return new SpawnEggColors(16448250, 328965);

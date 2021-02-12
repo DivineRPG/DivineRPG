@@ -1,13 +1,13 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
+import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.registries.LootTableRegistry;
 import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -20,15 +20,29 @@ import net.minecraftforge.api.distmarker.*;
 
 import java.util.*;
 
-public class EntityTheWatcher extends EntityDivineBoss {
-
+public class EntityTheWatcher extends EntityDivineFlyingMob {
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(EntityTheWatcher.class, DataSerializers.BOOLEAN);
     private int explosionStrength = 1;
 
-    public EntityTheWatcher(EntityType<? extends EntityTheWatcher> type, World worldIn) {
+    public EntityTheWatcher(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
-        this.experienceValue = 5;
+        this.experienceValue = 5000;
         this.moveController = new EntityTheWatcher.MoveHelperController(this);
+    }
+
+    @Override
+    public boolean isImmuneToFire() {
+        return true;
+    }
+
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange);
+    }
+    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+        return 2.6F;
+    }
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return world.getDimensionKey() == World.OVERWORLD;
     }
 
     protected void registerGoals() {
@@ -73,12 +87,29 @@ public class EntityTheWatcher extends EntityDivineBoss {
         this.dataManager.register(ATTACKING, false);
     }
 
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed);
+    public static AttributeModifierMap.MutableAttribute func_234290_eH_() {
+        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 10.0D).createMutableAttribute(Attributes.FOLLOW_RANGE, 100.0D);
     }
 
     public SoundCategory getSoundCategory() {
         return SoundCategory.HOSTILE;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_GHAST_AMBIENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundEvents.ENTITY_GHAST_HURT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_GHAST_DEATH;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LootTableRegistry.ENTITIES_THE_WATCHER;
     }
 
     protected float getSoundVolume() {
@@ -106,16 +137,12 @@ public class EntityTheWatcher extends EntityDivineBoss {
 
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-        return 2.6F;
-    }
-
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher parentEntity;
         public int attackTimer;
 
-        public FireballAttackGoal(EntityTheWatcher ghast) {
-            this.parentEntity = ghast;
+        public FireballAttackGoal(EntityTheWatcher watcher) {
+            this.parentEntity = watcher;
         }
 
         public boolean shouldExecute() {
@@ -149,7 +176,7 @@ public class EntityTheWatcher extends EntityDivineBoss {
                     if (!this.parentEntity.isSilent()) {
                         world.playEvent((PlayerEntity)null, 1016, this.parentEntity.getPosition(), 0);
                     }
-
+                    //TODO - replace fireball with watcher shot
                     FireballEntity fireballentity = new FireballEntity(world, this.parentEntity, d2, d3, d4);
                     fireballentity.explosionPower = this.parentEntity.getFireballStrength();
                     fireballentity.setPosition(this.parentEntity.getPosX() + vector3d.x * 4.0D, this.parentEntity.getPosYHeight(0.5D) + 0.5D, fireballentity.getPosZ() + vector3d.z * 4.0D);
@@ -167,8 +194,8 @@ public class EntityTheWatcher extends EntityDivineBoss {
     static class LookAroundGoal extends Goal {
         private final EntityTheWatcher parentEntity;
 
-        public LookAroundGoal(EntityTheWatcher ghast) {
-            this.parentEntity = ghast;
+        public LookAroundGoal(EntityTheWatcher watcher) {
+            this.parentEntity = watcher;
             this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
         }
 
@@ -179,7 +206,7 @@ public class EntityTheWatcher extends EntityDivineBoss {
         public void tick() {
             if (this.parentEntity.getAttackTarget() == null) {
                 Vector3d vector3d = this.parentEntity.getMotion();
-                this.parentEntity.rotationYaw = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.parentEntity.rotationYaw = -((float) MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
                 this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
             } else {
                 LivingEntity livingentity = this.parentEntity.getAttackTarget();
@@ -199,9 +226,9 @@ public class EntityTheWatcher extends EntityDivineBoss {
         private final EntityTheWatcher parentEntity;
         private int courseChangeCooldown;
 
-        public MoveHelperController(EntityTheWatcher ghast) {
-            super(ghast);
-            this.parentEntity = ghast;
+        public MoveHelperController(EntityTheWatcher watcher) {
+            super(watcher);
+            this.parentEntity = watcher;
         }
 
         public void tick() {
@@ -238,8 +265,8 @@ public class EntityTheWatcher extends EntityDivineBoss {
     static class RandomFlyGoal extends Goal {
         private final EntityTheWatcher parentEntity;
 
-        public RandomFlyGoal(EntityTheWatcher ghast) {
-            this.parentEntity = ghast;
+        public RandomFlyGoal(EntityTheWatcher watcher) {
+            this.parentEntity = watcher;
             this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
@@ -267,62 +294,5 @@ public class EntityTheWatcher extends EntityDivineBoss {
             double d2 = this.parentEntity.getPosZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.parentEntity.getMoveHelper().setMoveTo(d0, d1, d2, 1.0D);
         }
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ROAR;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.ROAR;
-    }
-
-    @Override
-    protected ResourceLocation getLootTable() {
-        return LootTableRegistry.ENTITIES_THE_WATCHER;
-    }
-
-
-    public boolean onLivingFall(float distance, float damageMultiplier) {
-        return false;
-    }
-
-    protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
-    }
-
-    public void travel(Vector3d travelVector) {
-        if (this.isInWater()) {
-            this.moveRelative(0.02F, travelVector);
-            this.move(MoverType.SELF, this.getMotion());
-            this.setMotion(this.getMotion().scale((double)0.8F));
-        } else if (this.isInLava()) {
-            this.moveRelative(0.02F, travelVector);
-            this.move(MoverType.SELF, this.getMotion());
-            this.setMotion(this.getMotion().scale(0.5D));
-        } else {
-            BlockPos ground = new BlockPos(this.getPosX(), this.getPosY() - 1.0D, this.getPosZ());
-            float f = 0.91F;
-            if (this.onGround) {
-                f = this.world.getBlockState(ground).getSlipperiness(this.world, ground, this) * 0.91F;
-            }
-
-            float f1 = 0.16277137F / (f * f * f);
-            f = 0.91F;
-            if (this.onGround) {
-                f = this.world.getBlockState(ground).getSlipperiness(this.world, ground, this) * 0.91F;
-            }
-
-            this.moveRelative(this.onGround ? 0.1F * f1 : 0.02F, travelVector);
-            this.move(MoverType.SELF, this.getMotion());
-            this.setMotion(this.getMotion().scale((double)f));
-        }
-
-        this.func_233629_a_(this, false);
-    }
-
-    public boolean isOnLadder() {
-        return false;
     }
 }

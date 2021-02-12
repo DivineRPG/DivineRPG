@@ -76,6 +76,7 @@ public class EntityStats {
     public static double spellbinderHealth      = 95.0D, spellbinderDamage = 7.0D, spellbinderSpeed = normalSpeed, spellbinderFollowRange = follow;
     public static double mysticHealth           = 120.0D, mysticDamage = 10.0D, mysticSpeed = normalSpeed, mysticFollowRange = follow;
     public static double sorcererHealth         = 150.0D, sorcererDamage = 12.0D, sorcererSpeed = normalSpeed, sorcererFollowRange = follow;
+    public static double termidHealth           = 40.0D, termidDamage = 4.0D, termidSpeed = normalSpeed, termidFollowRange = follow;
 
     //Overworld
     public static double ancientEntityHealth 	= 800.0D, ancientEntityDamage = 12.0D, ancientEntitySpeed = normalSpeed, ancientEntityFollowRange = follow;

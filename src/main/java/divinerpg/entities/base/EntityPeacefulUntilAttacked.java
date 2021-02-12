@@ -63,12 +63,11 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
         }
     }
 
-    protected void registerGoals() {
-        super.registerGoals();
-        if (isAngry()) {
-            addAttackingAI();
-        }
-    }
+//    @Override
+//    protected void registerGoals() {
+//        super.registerGoals();
+//        if (isAngry()) {addAttackingAI();}
+//    }
 
 
     @Override
@@ -117,8 +116,9 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
     @Override
     public void livingTick() {
         super.livingTick();
-        if(isAngry()){
-            DivineRPG.LOGGER.info("hey im this angry "+angerLevel);
+        if (isAngry()) {
+            angerLevel--;
+            addAttackingAI();
         }
     }
 }
