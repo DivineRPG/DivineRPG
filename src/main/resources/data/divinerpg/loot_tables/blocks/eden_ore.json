@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:eden_ore"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 1
+        },
+        {
+          "function": "minecraft:set_count",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "predicate": {
+                "equipment": {
+                  "head": {
+                    "item": "divinerpg:eden_helmet"
+                  },
+                  "chest": {
+                    "item": "divinerpg:eden_chestplate"
+                  },
+                  "legs": {
+                    "item": "divinerpg:eden_leggings"
+                  },
+                  "feet": {
+                    "item": "divinerpg:eden_boots"
+                  }
+                }
+              },
+              "entity": "this"
+            }
+          ],
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

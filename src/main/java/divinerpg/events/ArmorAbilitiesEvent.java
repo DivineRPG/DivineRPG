@@ -10,11 +10,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.util.*;
 
@@ -112,50 +114,6 @@ public class ArmorAbilitiesEvent
 
         }
     }
-
-    @SubscribeEvent
-    public void onBlockDrops(PlayerEvent.HarvestCheck event) {
-        Block block = event.getTargetBlock().getBlock();
-        ArrayList<Block> twilightOres = new ArrayList<>();
-        twilightOres.add(BlockRegistry.edenOre);
-        twilightOres.add(BlockRegistry.wildwoodOre);
-        twilightOres.add(BlockRegistry.apalachiaOre);
-        twilightOres.add(BlockRegistry.skythernOre);
-        twilightOres.add(BlockRegistry.mortumOre);
-        if (block != null && block instanceof BlockMod && twilightOres.contains(block)) {
-            if(event.getPlayer() != null && event.getPlayer() instanceof PlayerEntity) {
-                PlayerEntity player = event.getPlayer();
-                ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-                ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-                ItemStack stackBody = player.inventory.armorItemInSlot(2);
-                ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
-
-                if (stackBoots != null) boots = stackBoots.getItem();
-                else boots = null;
-
-                if (stackBody != null) body = stackBody.getItem();
-                else body = null;
-
-                if (stackLegs != null) legs = stackLegs.getItem();
-                else legs = null;
-
-                if (stackHelmet != null) helmet = stackHelmet.getItem();
-                else helmet = null;
-
-                //Eden
-                if (boots == ItemRegistry.edenBoots && body == ItemRegistry.edenChestplate && legs == ItemRegistry.edenLeggings && helmet == ItemRegistry.edenHelmet) {
-                    if(!event.getPlayer().getHeldItemMainhand().getEnchantmentTagList().contains(Enchantments.SILK_TOUCH)) {
-                        //TODO - Drops
-//                        ItemStack fragment = event.drops.get(0);
-//                        event.drops.add(fragment.copy());
-//                        event.drops.add(fragment.copy());
-//                        event.drops.add(fragment.copy());
-                    }
-                }
-            }
-        }
-        }
-
 
     @SubscribeEvent
     public void onPlayerAttackEvent(LivingAttackEvent e) {
@@ -421,8 +379,30 @@ public class ArmorAbilitiesEvent
 
         //Aquastrive
         if (boots == ItemRegistry.aquastriveBoots && body == ItemRegistry.aquastriveChestplate && legs == ItemRegistry.aquastriveLeggings && helmet == ItemRegistry.aquastriveHelmet) {
-//            float speed = 1.1F;
-            //TODO - water motion multiplier using the speed factor
+            float speed = 1.1F;
+            PlayerEntity player = evt.player;
+
+            if (player.isInWater()) {
+                if (!player.isSneaking()) {
+
+                    player.getMotion().mul(player.getMotion().x + speed, player.getMotion().y + speed, player.getMotion().z + speed);
+                    if (player.getMotion().x > -speed && player.getMotion().x < speed) {
+                        player.setMotion(player.getMotion().x * speed, player.getMotion().y, player.getMotion().z);
+                    }
+                    if (player.getMotion().z > -speed && player.getMotion().z < speed) {
+                        player.setMotion(player.getMotion().x, player.getMotion().y, player.getMotion().z * speed);
+                    }
+                }
+                if (player.isSneaking()) {
+                    player.setMotion(player.getMotion().x, player.getMotion().y * speed, player.getMotion().z);
+                    if (player.getMotion().x > -speed && player.getMotion().x < speed) {
+                        player.setMotion(player.getMotion().x * speed, player.getMotion().y, player.getMotion().z);
+                    }
+                    if (player.getMotion().z > -speed && player.getMotion().z < speed) {
+                        player.setMotion(player.getMotion().x, player.getMotion().y, player.getMotion().z * speed);
+                    }
+                }
+            }
         }
 
         //Shadow

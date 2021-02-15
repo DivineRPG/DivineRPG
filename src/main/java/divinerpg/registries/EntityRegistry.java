@@ -374,6 +374,7 @@ public class EntityRegistry {
         GlobalEntityTypeAttributes.put(ADVANCED_CORI, EntityAdvancedCori.attributes().create());
         GlobalEntityTypeAttributes.put(MEGALITH, EntityMegalith.attributes().create());
         GlobalEntityTypeAttributes.put(MYSTIC, EntityMystic.attributes().create());
+        GlobalEntityTypeAttributes.put(SAMEK, EntitySamek.attributes().create());
         GlobalEntityTypeAttributes.put(SKYTHERN_ARCHER, EntitySkythernArcher.attributes().create());
         GlobalEntityTypeAttributes.put(SKYTHERN_FIEND, EntitySkythernFiend.attributes().create());
         GlobalEntityTypeAttributes.put(SKYTHERN_GOLEM, EntitySkythernGolem.attributes().create());
