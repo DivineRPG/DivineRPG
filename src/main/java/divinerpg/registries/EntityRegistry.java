@@ -602,7 +602,6 @@ public class EntityRegistry {
         RenderingRegistry.registerEntityRenderingHandler(SOUL_SPIDER, manager -> new RenderDivineMob(manager, new ModelSoulSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
         RenderingRegistry.registerEntityRenderingHandler(SOUL_STEALER, manager -> new RenderDivineMob(manager, new ModelSoulStealer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
         RenderingRegistry.registerEntityRenderingHandler(TWILIGHT_ARCHER, manager -> new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png"))); //TODO - bow
-
     }
 
     public static void spawnStuff(BiomeLoadingEvent event) {
