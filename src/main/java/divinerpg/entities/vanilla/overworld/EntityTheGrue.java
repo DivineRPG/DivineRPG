@@ -51,6 +51,6 @@ public class EntityTheGrue extends EntityDivineMob {
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD;
+        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() <= 16 && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

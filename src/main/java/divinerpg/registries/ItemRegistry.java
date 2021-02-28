@@ -1,20 +1,20 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
+import divinerpg.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
-import divinerpg.items.iceika.ItemEggNog;
-import divinerpg.items.twilight.ItemForbiddenFruit;
+import divinerpg.items.iceika.*;
+import divinerpg.items.twilight.*;
 import divinerpg.items.vethea.*;
 import divinerpg.util.*;
-import net.minecraft.block.Blocks;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.block.*;
+import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.util.text.*;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.event.*;
+import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.registries.*;
 
 import java.util.*;
 
@@ -1925,7 +1925,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("teleportation_star"));
         register(e, new ItemModNotReady("tomato_seeds"));
         register(e, new ItemModNotReady("twilight_bow"));
-        register(e, new ItemModNotReady("twilight_clock"));
         register(e, new ItemModNotReady("twilight_demon_crystal"));
         register(e, new ItemModNotReady("vamacheron_crystal"));
         register(e, new ItemModNotReady("veilo_seeds"));
@@ -2088,7 +2087,7 @@ public class ItemRegistry {
         register(e, new ItemSpawnEgg("stone_golem_egg", EntityRegistry.STONE_GOLEM));
         register(e, new ItemSpawnEgg("white_grizzle_egg", EntityRegistry.WHITE_GRIZZLE));
 //        register(e, new ItemStaffEnrichment("staff_of_enrichment"));
-//        register(e, new ItemTwilightClock("twilight_clock"));
+        register(e, new ItemTwilightClock("twilight_clock"));
         register(e, new ItemVethean("acid"));
         register(e, new ItemVethean("amthirmis_lump"));
         register(e, new ItemVethean("arksiane_lump"));

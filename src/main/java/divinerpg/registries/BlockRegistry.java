@@ -8,6 +8,7 @@ import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vethea.BlockNightmareBed;
 import divinerpg.items.base.ItemModItemBlock;
+import divinerpg.world.gen.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.block.trees.OakTree;
@@ -1271,7 +1272,7 @@ public class BlockRegistry {
         register(registry, new BlockFrostedAllure("frosted_allure"));
 //
 //        // Divine blocks
-        register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new OakTree()));
+        register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree()));
         register(registry, new BlockModLog("divine_log", MaterialColor.YELLOW, () -> strippedDivineLog));
         register(registry, new BlockModLog("stripped_divine_log", MaterialColor.YELLOW, null));
         register(registry, new BlockModLeaves("divine_leaves", MaterialColor.YELLOW, 0.3F));
@@ -1886,14 +1887,13 @@ public class BlockRegistry {
 //        // Portal blocks
 //        // Portal
         register(registry, new BlockModNotReady("iceika_portal"));
-        register(registry, new BlockModNotReady("eden_portal"));
+        register(registry, new BlockModPortal("eden_portal"));
         register(registry, new BlockModNotReady("wildwood_portal"));
         register(registry, new BlockModNotReady("apalachia_portal"));
         register(registry, new BlockModNotReady("skythern_portal"));
         register(registry, new BlockModNotReady("mortum_portal"));
         register(registry, new BlockModNotReady("vethea_portal"));
 //        register(registry, new BlockModPortal("iceika_portal", DimensionRegistry.iceikaDimension, () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
-//        register(registry, new BlockModPortal("eden_portal", DimensionRegistry.edenDimension, () -> blueFire, () -> divineRock, ParticleType.EDEN_PORTAL));
 //        register(registry, new BlockModPortal("wildwood_portal", DimensionRegistry.wildwoodDimension, () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
 //        register(registry, new BlockModPortal("apalachia_portal", DimensionRegistry.apalachiaDimension, () -> blueFire, () -> wildwoodBlock, ParticleType.APALACHIA_PORTAL));
 //        register(registry, new BlockModPortal("skythern_portal", DimensionRegistry.skythernDimension, () -> blueFire, () -> apalachiaBlock, ParticleType.SKYTHERN_PORTAL));

@@ -1,4 +1,4 @@
-package divinerpg;
+package divinerpg.config;
 
 import com.electronwill.nightconfig.core.file.*;
 import com.electronwill.nightconfig.core.io.*;

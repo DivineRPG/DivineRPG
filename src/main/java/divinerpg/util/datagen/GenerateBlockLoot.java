@@ -1,30 +1,25 @@
 package divinerpg.util.datagen;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.mojang.datafixers.kinds.Const;
-import divinerpg.DivineRPG;
-import divinerpg.blocks.base.BlockModSlab;
+import com.google.gson.*;
+import divinerpg.*;
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.block.*;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IDataProvider;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Items;
+import net.minecraft.data.*;
+import net.minecraft.enchantment.*;
+import net.minecraft.item.*;
 import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.*;
 import net.minecraft.loot.functions.*;
-import net.minecraft.state.properties.SlabType;
+import net.minecraft.state.properties.*;
 import net.minecraft.util.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.*;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.function.*;
 
 @SuppressWarnings("NullableProblems")
 public class GenerateBlockLoot implements IDataProvider {
@@ -57,6 +52,7 @@ public class GenerateBlockLoot implements IDataProvider {
             } else if (block instanceof BlockModSlab){
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genSlab);
                 tables.put(block.getRegistryName(), func.apply(block));
+            } else if (block.getRegistryName().getPath().contains("_leaves")){
             }else{
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genRegular);
                 tables.put(block.getRegistryName(), func.apply(block));

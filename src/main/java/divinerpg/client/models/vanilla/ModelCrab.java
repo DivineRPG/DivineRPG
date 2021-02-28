@@ -1,118 +1,86 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
+import com.google.common.collect.*;
+import net.minecraft.client.renderer.entity.model.*;
+import net.minecraft.client.renderer.model.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelCrab<T extends Entity> extends SegmentedModel<T> {
+	private final ModelRenderer Body;
+	private final ModelRenderer BackLeftLeg;
+	private final ModelRenderer BackRightLeg;
+	private final ModelRenderer MiddleLeftLeg;
+	private final ModelRenderer MiddleRightLeg;
+	private final ModelRenderer FrontLeftLeg;
+	private final ModelRenderer FrontRightLeg;
+	private final ModelRenderer RightClaw;
+	private final ModelRenderer LeftClaw;
 
-    ModelRenderer RearEnd;
-    ModelRenderer Leg8;
-    ModelRenderer Leg6;
-    ModelRenderer Leg4;
-    ModelRenderer Leg7;
-    ModelRenderer Leg5;
-    ModelRenderer Leg3;
+	public ModelCrab() {
+		textureWidth = 64;
+		textureHeight = 64;
 
-    public ModelCrab() {
-        this.textureWidth = 64;
-        this.textureHeight = 32;
-        this.RearEnd = new ModelRenderer(this, 0, 12);
-        this.RearEnd.addBox(-5.0F, -4.0F, -6.0F, 12, 8, 12);
-        this.RearEnd.setRotationPoint(-1.0F, 16.0F, 0.0F);
-        this.RearEnd.setTextureSize(64, 32);
-        this.RearEnd.mirror = true;
-        this.setRotation(this.RearEnd, 0.0F, 0.0F, 0.0F);
-        this.Leg8 = new ModelRenderer(this, 18, 0);
-        this.Leg8.addBox(-1.0F, -1.0F, -1.0F, 16, 4, 4);
-        this.Leg8.setRotationPoint(4.0F, 16.0F, -4.0F);
-        this.Leg8.setTextureSize(64, 32);
-        this.Leg8.mirror = true;
-        this.setRotation(this.Leg8, 0.0F, 0.5759587F, -0.1396263F);
-        this.Leg6 = new ModelRenderer(this, 18, 0);
-        this.Leg6.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg6.setRotationPoint(4.0F, 16.0F, 0.0F);
-        this.Leg6.setTextureSize(64, 32);
-        this.Leg6.mirror = true;
-        this.setRotation(this.Leg6, 0.0F, 0.2792527F, 0.1919862F);
-        this.Leg4 = new ModelRenderer(this, 18, 0);
-        this.Leg4.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg4.setRotationPoint(4.0F, 16.0F, 1.0F);
-        this.Leg4.setTextureSize(64, 32);
-        this.Leg4.mirror = true;
-        this.setRotation(this.Leg4, 0.0F, -0.2792527F, 0.1919862F);
-        this.Leg7 = new ModelRenderer(this, 18, 0);
-        this.Leg7.addBox(-15.0F, -1.0F, -1.0F, 16, 4, 4);
-        this.Leg7.setRotationPoint(-4.0F, 16.0F, -4.0F);
-        this.Leg7.setTextureSize(64, 32);
-        this.Leg7.mirror = true;
-        this.setRotation(this.Leg7, 0.0F, -0.5759587F, 0.1396263F);
-        this.Leg5 = new ModelRenderer(this, 18, 0);
-        this.Leg5.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg5.setRotationPoint(-4.0F, 16.0F, 0.0F);
-        this.Leg5.setTextureSize(64, 32);
-        this.Leg5.mirror = true;
-        this.setRotation(this.Leg5, 0.0F, -0.2792527F, -0.1919862F);
-        this.Leg3 = new ModelRenderer(this, 18, 0);
-        this.Leg3.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg3.setRotationPoint(-4.0F, 16.0F, 1.0F);
-        this.Leg3.setTextureSize(64, 32);
-        this.Leg3.mirror = true;
-        this.setRotation(this.Leg3, 0.0F, 0.2792527F, -0.1919862F);
-    }
+		Body = new ModelRenderer(this);
+		Body.setRotationPoint(0.0F, 18.0F, 2.0F);
+		Body.setTextureOffset(0, 0).addBox(-6.0F, -3.0F, -6.0F, 12.0F, 6.0F, 12.0F, 0.0F, false);
 
-    @Override
-    public void setRotationAngles(T entityIn, float var1, float var2, float var3, float var4, float var5) {
-        float var7 = ((float) Math.PI / 4F);
-        this.Leg3.rotateAngleZ = -var7 * 0.74F;
-        this.Leg4.rotateAngleZ = var7 * 0.74F;
-        this.Leg5.rotateAngleZ = -var7 * 0.74F;
-        this.Leg6.rotateAngleZ = var7 * 0.74F;
-        this.Leg7.rotateAngleZ = -var7;
-        this.Leg8.rotateAngleZ = var7;
-        float var8 = -0.0F;
-        float var9 = 0.3926991F;
-        this.Leg3.rotateAngleY = var9 * 1.0F + var8;
-        this.Leg4.rotateAngleY = -var9 * 1.0F - var8;
-        this.Leg5.rotateAngleY = -var9 * 1.0F + var8;
-        this.Leg6.rotateAngleY = var9 * 1.0F - var8;
-        this.Leg7.rotateAngleY = -var9 * 2.0F + var8;
-        this.Leg8.rotateAngleY = var9 * 2.0F - var8;
-        float var10 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + 0.0F) * 0.4F) * var2;
-        float var11 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * var2;
-        float var12 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + ((float) Math.PI / 2F)) * 0.4F) * var2;
-        float var13 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + ((float) Math.PI * 3F / 2F)) * 0.4F) * var2;
-        float var14 = Math.abs(MathHelper.sin(var1 * 0.6662F + 0.0F) * 0.4F) * var2;
-        float var15 = Math.abs(MathHelper.sin(var1 * 0.6662F + (float) Math.PI) * 0.4F) * var2;
-        float var16 = Math.abs(MathHelper.sin(var1 * 0.6662F + ((float) Math.PI / 2F)) * 0.4F) * var2;
-        float var17 = Math.abs(MathHelper.sin(var1 * 0.6662F + ((float) Math.PI * 3F / 2F)) * 0.4F) * var2;
-        this.Leg3.rotateAngleY += var11;
-        this.Leg4.rotateAngleY += -var11;
-        this.Leg5.rotateAngleY += var12;
-        this.Leg6.rotateAngleY += -var12;
-        this.Leg7.rotateAngleY += var13;
-        this.Leg8.rotateAngleY += -var13;
-        this.Leg3.rotateAngleZ += var15;
-        this.Leg4.rotateAngleZ += -var15;
-        this.Leg5.rotateAngleZ += var16;
-        this.Leg6.rotateAngleZ += -var16;
-        this.Leg7.rotateAngleZ += var17;
-        this.Leg8.rotateAngleZ += -var17;
-    }
+		BackLeftLeg = new ModelRenderer(this);
+		BackLeftLeg.setRotationPoint(6.0F, 20.0F, 7.0F);
+		BackLeftLeg.setTextureOffset(0, 0).addBox(0.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
 
-    @Override
-    public Iterable<ModelRenderer> getParts() {
-        return ImmutableList.of(RearEnd, Leg8, Leg6, Leg4, Leg7, Leg5, Leg3);
-    }
+		BackRightLeg = new ModelRenderer(this);
+		BackRightLeg.setRotationPoint(-6.0F, 20.0F, 7.0F);
+		BackRightLeg.setTextureOffset(16, 31).addBox(-2.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {
-        var1.rotateAngleX = var2;
-        var1.rotateAngleY = var3;
-        var1.rotateAngleZ = var4;
-    }
+		MiddleLeftLeg = new ModelRenderer(this);
+		MiddleLeftLeg.setRotationPoint(7.0F, 22.0F, 4.0F);
+		MiddleLeftLeg.setTextureOffset(0, 6).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
 
+		MiddleRightLeg = new ModelRenderer(this);
+		MiddleRightLeg.setRotationPoint(-6.0F, 20.0F, 4.0F);
+		MiddleRightLeg.setTextureOffset(8, 29).addBox(-2.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
+
+		FrontLeftLeg = new ModelRenderer(this);
+		FrontLeftLeg.setRotationPoint(6.0F, 20.0F, 1.0F);
+		FrontLeftLeg.setTextureOffset(14, 18).addBox(0.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
+
+		FrontRightLeg = new ModelRenderer(this);
+		FrontRightLeg.setRotationPoint(-6.0F, 20.0F, 1.0F);
+		FrontRightLeg.setTextureOffset(0, 29).addBox(-2.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
+
+		RightClaw = new ModelRenderer(this);
+		RightClaw.setRotationPoint(-8.0F, 19.5F, -2.0F);
+		RightClaw.setTextureOffset(0, 18).addBox(-2.0F, -2.5F, -6.0F, 4.0F, 5.0F, 6.0F, 0.0F, false);
+
+		LeftClaw = new ModelRenderer(this);
+		LeftClaw.setRotationPoint(8.0F, 19.5F, -2.0F);
+		LeftClaw.setTextureOffset(20, 20).addBox(-2.0F, -2.5F, -6.0F, 4.0F, 5.0F, 6.0F, 0.0F, false);
+	}
+
+	@Override
+	public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+		this.FrontRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.BackRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+
+		this.MiddleRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.E) * 1.4F * limbSwingAmount;
+		this.MiddleLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.E) * 1.4F * limbSwingAmount;
+
+		this.FrontLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+		this.BackLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+	}
+	@Override
+	public Iterable<ModelRenderer> getParts() {
+		return ImmutableList.of(Body, BackLeftLeg, BackRightLeg, MiddleLeftLeg, MiddleRightLeg, FrontLeftLeg, FrontRightLeg, RightClaw, LeftClaw);
+	}
+
+
+
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
 }

@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.*;
+import divinerpg.config.*;
 import divinerpg.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.text.*;
