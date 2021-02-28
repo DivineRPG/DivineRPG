@@ -1,6 +1,7 @@
 package divinerpg.registries;
 
 import divinerpg.*;
+import divinerpg.config.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.*;
@@ -20,11 +21,11 @@ public class FeatureRegistry {
 
     public static void registerOres(){
         //Overworld Ore Register
-        overworldOres.add(register("arlemite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.arlemiteOre.getDefaultState(), 5)).range(16).square().func_242731_b(4)));
-        overworldOres.add(register("realmite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.realmiteOre.getDefaultState(), 5)).range(48).square().func_242731_b(8)));
-        overworldOres.add(register("rupee_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.rupeeOre.getDefaultState(), 5)).range(16).square().func_242731_b(4)));
-        netherOres.add(register("bloodgem_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.bloodgemOre.getDefaultState(), 10)).range(256).square().func_242731_b(4)));
-        netherOres.add(register("torridite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.torriditeOre.getDefaultState(), 10)).range(256).square().func_242731_b(4)));
+        overworldOres.add(register("arlemite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.arlemiteOre.getDefaultState(), Config.arlemiteVeinSize.get())).range(Config.arlemiteMaxHeight.get()).square().func_242731_b(Config.arlemiteTries.get())));
+        overworldOres.add(register("realmite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.realmiteOre.getDefaultState(), Config.realmiteVeinSize.get())).range(Config.realmiteMaxHeight.get()).square().func_242731_b(Config.realmiteTries.get())));
+        overworldOres.add(register("rupee_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.rupeeOre.getDefaultState(), Config.rupeeVeinSize.get())).range(Config.rupeeMaxHeight.get()).square().func_242731_b(Config.rupeeTries.get())));
+        netherOres.add(register("bloodgem_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.bloodgemOre.getDefaultState(), Config.netherVein.get())).range(256).square().func_242731_b(Config.netherTries.get())));
+        netherOres.add(register("torridite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.torriditeOre.getDefaultState(), Config.netherVein.get())).range(256).square().func_242731_b(Config.netherTries.get())));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
