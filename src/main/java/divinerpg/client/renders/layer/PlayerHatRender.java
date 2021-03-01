@@ -13,9 +13,11 @@ import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraftforge.api.distmarker.*;
 
 import java.util.*;
 
+@OnlyIn(Dist.CLIENT)
 public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> extends LayerRenderer<T, M> {
     private ModelHat modelHat;
     private IEntityRenderer<AbstractClientPlayerEntity, ModelHat<AbstractClientPlayerEntity>> renderManager;
