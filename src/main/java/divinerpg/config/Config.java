@@ -17,7 +17,7 @@ public class Config {
     public static ForgeConfigSpec COMMON_CONFIG;
 
     public static ForgeConfigSpec.BooleanValue welcomeMessage;
-    public static ForgeConfigSpec.IntValue arlemiteVeinSize, arlemiteMaxHeight, arlemiteTries, realmiteVeinSize, realmiteMaxHeight, realmiteTries, rupeeVeinSize, rupeeMaxHeight, rupeeTries, netherVein, netherTries;
+    public static ForgeConfigSpec.IntValue arlemiteVeinSize, arlemiteMaxHeight, arlemiteTries, realmiteVeinSize, realmiteMaxHeight, realmiteTries, rupeeVeinSize, rupeeMaxHeight, rupeeTries, netherVein, netherTries, twilightVein, twilightTries;
 
     static {
 
@@ -33,6 +33,7 @@ public class Config {
     private static void setupConfig() {
         COMMON_BUILDER.comment("General Settings").push(CATEGORY_GENERAL);
         welcomeMessage = COMMON_BUILDER.comment("Enable welcome messages").define("welcomeMessage", true);
+        COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("World Gen Settings").push(CATEGORY_WORLD);
         arlemiteVeinSize = COMMON_BUILDER.comment("Arlemite ore vein size").defineInRange("arlemiteVein", 5, 1, 256);
@@ -46,6 +47,8 @@ public class Config {
         rupeeTries = COMMON_BUILDER.comment("Rupee ore popularity").defineInRange("rupeeTries", 4, 1, 32);
         netherVein = COMMON_BUILDER.comment("Nether ore vein size").defineInRange("netherVein", 10, 1, 32);
         netherTries = COMMON_BUILDER.comment("Nether ore popularity").defineInRange("netherTries", 8, 1, 32);
+        twilightVein = COMMON_BUILDER.comment("Twilight ore vein size").defineInRange("twilightVein", 10, 1, 32);
+        twilightTries = COMMON_BUILDER.comment("Twilight ore popularity").defineInRange("twilightTries", 8, 1, 32);
         COMMON_BUILDER.pop();
     }
 

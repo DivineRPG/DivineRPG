@@ -22,9 +22,7 @@ public class EntityGreenfeet extends EntityDivineMob {
         return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return !this.isInDaylight();
     }
     @Override
     protected void registerGoals() {

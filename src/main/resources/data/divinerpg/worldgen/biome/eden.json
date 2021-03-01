@@ -16,12 +16,67 @@
     "foliage_color": 16774932
   },
   "starts": [],
-  "spawners": {},
+  "spawners": {
+    "monster": [
+            {
+        "type": "divinerpg:eden_tomo",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:eden_cadillion",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:bunny",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:weak_cori",
+        "weight": 1,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:greenfeet",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:madivel",
+        "weight": 20,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:sun_archer",
+        "weight": 6,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:sun_archer",
+        "weight": 6,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ]
+  },
   "spawn_costs": {},
   "carvers": {
     "air": [
       "minecraft:canyon"
     ]
   },
-  "features": []
+  "features": [
+    [
+      "divinerpg:ore_eden"
+    ]
+  ]
 }
