@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import divinerpg.*;
 import divinerpg.config.*;
+import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.*;
@@ -30,7 +31,10 @@ public class FeatureRegistry {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void gen(BiomeLoadingEvent event) {
+        ResourceLocation biome = event.getName();
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
+        if (biome == null) return;
+
         if(event.getCategory().equals(Biome.Category.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
                 if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
@@ -42,11 +46,14 @@ public class FeatureRegistry {
 
 
         }
-
         if(!event.getCategory().equals(Biome.Category.NETHER) || !event.getCategory().equals(Biome.Category.THEEND) || !event.getCategory().equals(Biome.Category.JUNGLE) || !event.getCategory().equals(Biome.Category.SWAMP) || !event.getCategory().equals(Biome.Category.MESA) || !event.getCategory().equals(Biome.Category.MUSHROOM)){
             generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.withPlacement(Placement.CHANCE.configure(new ChanceConfig(25))).func_242731_b(2));
         }
 
+        if(biome != null && event.getCategory().equals(Biome.Category.PLAINS)) {
+            //TODO - finish this
+//            generation.withStructure(DivineStructures.Configured.HUT);
+        }
         EntityRegistry.spawnStuff(event);
     }
 

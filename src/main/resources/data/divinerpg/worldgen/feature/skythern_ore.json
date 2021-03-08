@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "state": {
+      "Name": "divinerpg:skythern_ore"
+    },
+    "size": 4,
+    "target": {
+      "predicate_type": "minecraft:block_match",
+      "block": "divinerpg:twilight_stone"
+    }
+  }
+}

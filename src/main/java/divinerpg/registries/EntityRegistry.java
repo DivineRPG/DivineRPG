@@ -578,11 +578,11 @@ public class EntityRegistry {
 
         //Apalachia
         RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelEnchantedArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelEnchantedWarrior(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
+        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_GOLEM, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
+        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_TOMO, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
+        RenderingRegistry.registerEntityRenderingHandler(ENCHANTED_ARCHER, manager -> new RenderDivineMob(manager, new ModelEnchantedArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
+        RenderingRegistry.registerEntityRenderingHandler(ENCHANTED_WARRIOR, manager -> new RenderDivineMob(manager, new ModelEnchantedWarrior(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png")));
+        RenderingRegistry.registerEntityRenderingHandler(SPELLBINDER, manager -> new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
 
         //Skythern
         RenderingRegistry.registerEntityRenderingHandler(ADVANCED_CORI, manager -> new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/advanced_cori.png")));

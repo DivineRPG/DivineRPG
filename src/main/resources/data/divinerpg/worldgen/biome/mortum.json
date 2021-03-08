@@ -1,0 +1,70 @@
+{
+  "surface_builder": "divinerpg:mortum",
+  "depth": 0.125,
+  "scale": 0.05,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "category": "nether",
+  "player_spawn_friendly": false,
+  "effects": {
+    "sky_color": 16756224,
+    "fog_color": 9536597,
+    "water_color": 4403214,
+    "water_fog_color": 4926466,
+    "grass_color": 0,
+    "foliage_color": 0
+  },
+  "starts": [],
+  "spawners": {
+    "monster": [
+      {
+        "type": "divinerpg:demon_of_darkness",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:basilisk",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:soul_stealer",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mortum_cadillion",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:twilight_archer",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:sorcerer",
+        "weight": 1,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [
+      "divinerpg:ore_mortum"
+    ]
+  ]
+}

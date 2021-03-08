@@ -21,6 +21,8 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
     mappings channel: 'snapshot', version: '20201028-1.16.3'
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
             workingDirectory project.file('run')
@@ -65,11 +67,11 @@ repositories {
     maven { url 'https://maven.blamejared.com'}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.0.43'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.0.46'
     compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api") //JEI
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}") //JEI
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
-//    compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
+    compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
 }
 jar {
     manifest {

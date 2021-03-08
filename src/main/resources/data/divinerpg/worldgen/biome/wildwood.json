@@ -1,0 +1,82 @@
+{
+  "surface_builder": "divinerpg:wildwood",
+  "depth": 0.125,
+  "scale": 0.05,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "category": "the_end",
+  "player_spawn_friendly": false,
+  "effects": {
+    "sky_color": 10730239,
+    "fog_color": 6133246,
+    "water_color": 10600680,
+    "water_fog_color": 13755391,
+    "grass_color": 23039,
+    "foliage_color": 2818303
+  },
+  "starts": [],
+  "spawners": {
+    "monster": [
+      {
+        "type": "divinerpg:wildwood_cadillion",
+        "weight": 4,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:wildwood_tomo",
+        "weight": 4,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:epiphite",
+        "weight": 1,
+        "minCount": 2,
+        "maxCount": 2
+      },
+      {
+        "type": "divinerpg:behemoth",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "divinerpg:wildwood_golem",
+        "weight": 3,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:verek",
+        "weight": 4,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mage",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:moon_wolf",
+        "weight": 4,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [
+      "divinerpg:ore_wildwood"
+    ]
+  ]
+}

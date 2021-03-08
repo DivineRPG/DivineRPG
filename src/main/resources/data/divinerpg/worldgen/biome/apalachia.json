@@ -1,0 +1,70 @@
+{
+  "surface_builder": "divinerpg:apalachia",
+  "depth": 0.125,
+  "scale": 0.05,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "category": "the_end",
+  "player_spawn_friendly": false,
+  "effects": {
+    "sky_color": 14853119,
+    "fog_color": 14900734,
+    "water_color": 15245798,
+    "water_fog_color": 15979007,
+    "grass_color": 12588287,
+    "foliage_color": 14161151
+  },
+  "starts": [],
+  "spawners": {
+    "monster": [
+      {
+        "type": "divinerpg:apalachia_cadillion",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:apalachia_golem",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:apalachia_tomo",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:enchanted_warrior",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:enchanted_archer",
+        "weight": 2,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:spellbinder",
+        "weight": 1,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [
+      "divinerpg:ore_apalachia"
+    ]
+  ]
+}

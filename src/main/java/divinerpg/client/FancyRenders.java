@@ -1,9 +1,14 @@
 package divinerpg.client;
 
+import divinerpg.client.renders.layer.*;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.registries.*;
+import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+
+import java.util.*;
 
 public class FancyRenders {
     public static void init() {
@@ -119,5 +124,14 @@ public class FancyRenders {
 
         ClientRegistry.bindTileEntityRenderer(TileRegistry.ALTAR_OF_CORRUPTION, RenderAltarOfCorruption::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.NIGHTMARE_BED, RenderNightmareBed::new);
+
+
+        Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getRenderManager().getSkinMap();
+        PlayerRenderer render;
+        render = skinMap.get("default");
+        render.addLayer(new PlayerHatRender<>(render));
+
+        render = skinMap.get("slim");
+        render.addLayer(new PlayerHatRender<>(render));
     }
 }

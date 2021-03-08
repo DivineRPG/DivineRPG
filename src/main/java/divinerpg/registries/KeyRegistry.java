@@ -20,16 +20,15 @@ import net.minecraftforge.registries.*;
 
 public class KeyRegistry {
 
-    public static RegistryKey<World> EDEN_WORLD;
-    public static RegistryKey<Biome> EDEN_BIOME;
-    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER;
+    public static RegistryKey<World> EDEN_WORLD, WILDWOOD_WORLD, APALACHIA_WORLD, SKYTHERN_WORLD, MORTUM_WORLD;
+    public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME;
+    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER;
     public static final DeferredRegister<PointOfInterestType> POI = DeferredRegister.create(ForgeRegistries.POI_TYPES, DivineRPG.MODID);
-    public static RegistryObject<PointOfInterestType> EDEN_PORTAL;
-    public static ConfiguredFeature<BaseTreeFeatureConfig,?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
+    public static RegistryObject<PointOfInterestType> EDEN_PORTAL, WILDWOOD_PORTAL, APALACHIA_PORTAL, SKYTHERN_PORTAL, MORTUM_PORTAL;
+    public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
 
-
-    public static void init(){
+    public static void init() {
         DIVINE_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.divineLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.divineLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
 
         EDEN_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "eden"));
@@ -39,19 +38,35 @@ public class KeyRegistry {
         EDEN_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.edenLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.edenLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
         register("ore_eden", Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.edenOre.getDefaultState(), Config.twilightVein.get())).range(256).square().func_242731_b(Config.twilightTries.get()));
 
+        WILDWOOD_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
+        WILDWOOD_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
+        WILDWOOD_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
+        WILDWOOD_PORTAL = POI.register("wildwood_portal", () -> new PointOfInterestType("wildwood_portal", PointOfInterestType.getAllStates(BlockRegistry.wildwoodPortal), 0, 1));
         WILDWOOD_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.wildwoodLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.wildwoodLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setDecorators(ImmutableList.of(TrunkVineTreeDecorator.field_236879_b_, LeaveVineTreeDecorator.field_236871_b_)).build());
         register("ore_wildwood", Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.wildwoodOre.getDefaultState(), Config.twilightVein.get())).range(256).square().func_242731_b(Config.twilightTries.get()));
 
+        APALACHIA_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "apalachia"));
+        APALACHIA_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "apalachia"));
+        APALACHIA_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "apalachia"));
+        APALACHIA_PORTAL = POI.register("apalachia_portal", () -> new PointOfInterestType("apalachia_portal", PointOfInterestType.getAllStates(BlockRegistry.apalachiaPortal), 0, 1));
         APALACHIA_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.apalachiaLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.apalachiaLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
         register("ore_apalachia", Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.apalachiaOre.getDefaultState(), Config.twilightVein.get())).range(256).square().func_242731_b(Config.twilightTries.get()));
 
+        SKYTHERN_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "skythern"));
+        SKYTHERN_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "skythern"));
+        SKYTHERN_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "skythern"));
+        SKYTHERN_PORTAL = POI.register("skythern_portal", () -> new PointOfInterestType("skythern_portal", PointOfInterestType.getAllStates(BlockRegistry.skythernPortal), 0, 1));
         SKYTHERN_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.skythernLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.skythernLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
         register("ore_skythern", Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.skythernOre.getDefaultState(), Config.twilightVein.get())).range(256).square().func_242731_b(Config.twilightTries.get()));
 
+        MORTUM_BIOME = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(DivineRPG.MODID, "mortum"));
+        MORTUM_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(DivineRPG.MODID, "mortum"));
+        MORTUM_BUILDER = RegistryKey.getOrCreateKey(Registry.SURFACE_BUILDER_KEY, new ResourceLocation(DivineRPG.MODID, "mortum"));
+        MORTUM_PORTAL = POI.register("mortum_portal", () -> new PointOfInterestType("mortum_portal", PointOfInterestType.getAllStates(BlockRegistry.mortumPortal), 0, 1));
         MORTUM_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.mortumLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.mortumLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
         register("ore_mortum", Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.mortumOre.getDefaultState(), Config.twilightVein.get())).range(256).square().func_242731_b(Config.twilightTries.get()));
 
-        FROZEN_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.frozenLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.brittleLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
+        FROZEN_TREE = Feature.TREE.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.frozenLog.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.brittleLeaves.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(10, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build());
 
     }
 
@@ -59,5 +74,4 @@ public class KeyRegistry {
     private static <FC extends IFeatureConfig> void register(String name, ConfiguredFeature<FC, ?> feature) {
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(DivineRPG.MODID, name), feature);
     }
-
 }
