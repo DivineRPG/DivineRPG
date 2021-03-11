@@ -3,14 +3,17 @@ package divinerpg.registries;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import divinerpg.DivineRPG;
+import divinerpg.client.models.arcana.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.base.RenderDivineMob;
+import divinerpg.client.renders.entity.arcana.*;
 import divinerpg.client.renders.entity.iceika.RenderFrostArcher;
 import divinerpg.client.renders.entity.twilight.RenderSunArcher;
 import divinerpg.client.renders.entity.vanilla.*;
 import divinerpg.entities.apalachia.*;
+import divinerpg.entities.arcana.*;
 import divinerpg.entities.boss.EntityTheWatcher;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
@@ -224,27 +227,27 @@ public class EntityRegistry {
     public static final EntityType SOUL_STEALER = registerEntity(EntitySoulStealer::new, "soul_stealer", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.MORTUM), EntityClassification.MONSTER);
     public static final EntityType TWILIGHT_ARCHER = registerEntity(EntityTwilightArcher::new, "twilight_archer", 1.8F, 3.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.MORTUM), EntityClassification.MONSTER);
 
-//    // Arcana //TODO - Add arcana mobs
-//    buildEntityEntry(EntityCaptainMerik.class, "captain_merik", ARCANA),
-//    buildEntityEntry(EntityDatticon.class, "datticon", ARCANA),
-//    buildEntityEntry(EntityDeathcryx.class, "deathcryx", ARCANA),
-//    buildEntityEntry(EntityDeathHound.class, "death_hound", ARCANA),
-//    buildEntityEntry(EntityDungeonConstructor.class, "dungeon_constructor", ARCANA),
-//    buildEntityEntry(EntityDungeonDemon.class, "dungeon_demon", ARCANA),
-//    buildEntityEntry(EntityDungeonPrisoner.class, "dungeon_prisoner", ARCANA),
-//    buildEntityEntry(EntityFyracryx.class, "fyracryx", ARCANA),
-//    buildEntityEntry(EntityKazari.class, "kazari", ARCANA),
-//    buildEntityEntry(EntityLeorna.class, "leorna", ARCANA),
-//    buildEntityEntry(EntityLivingStatue.class, "living_statue", ARCANA),
-//    buildEntityEntry(EntityParatiku.class, "paratiku", ARCANA),
-//    buildEntityEntry(EntityRazorback.class, "razorback", ARCANA),
-//    buildEntityEntry(EntityGolemOfRejuvenation.class, "golem_of_rejuvenation", ARCANA),
-//    buildEntityEntry(EntityRoamer.class, "roamer", ARCANA),
-//    buildEntityEntry(EntitySeimer.class, "seimer", ARCANA),
-//    buildEntityEntry(EntityLordVatticus.class, "lord_vatticus", ARCANA),
-//    buildEntityEntry(EntityWarGeneral.class, "war_general", ARCANA),
-//    buildEntityEntry(EntityWraith.class, "wraith", ARCANA),
-//    buildEntityEntry(EntityZelus.class, "zelus", ARCANA),
+    // Arcana
+    public static final EntityType CAPTAIN_MERIK = registerEntity(EntityCaptainMerik::new, "captain_merik", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType DATTICON = registerEntity(EntityDatticon::new, "datticon", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType DEATHCRYX = registerEntity(EntityDeathcryx::new, "deathcryx", 1.0F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType DEATH_HOUND = registerEntity(EntityDeathHound::new, "death_hound", 0.8F, 0.9F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType DUNGEON_CONSTRUCTOR = registerEntity(EntityDungeonConstructor::new, "dungeon_constructor", 0.5F, 1.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType DUNGEON_DEMON = registerEntity(EntityDungeonDemon::new, "dungeon_demon", 0.6F, 2.15F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType DUNGEON_PRISONER = registerEntity(EntityDungeonPrisoner::new, "dungeon_prisoner", 0.6F, 2.15F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType FYRACRYX = registerEntity(EntityFyracryx::new, "fyracryx", 1.0F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType GOLEM_OF_REJUVENATION = registerEntity(EntityGolemOfRejuvenation::new, "golem_of_rejuvenation", 1F, 2.35F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType KAZARI = registerEntity(EntityKazari::new, "kazari", 0.8F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType LEORNA = registerEntity(EntityLeorna::new, "leorna", 0.8F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType LIVING_STATUE = registerEntity(EntityLivingStatue::new, "living_statue", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType LORD_VATTICUS = registerEntity(EntityLordVatticus::new, "lord_vatticus", 0.8F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType PARATIKU = registerEntity(EntityParatiku::new, "paratiku", 0.5F, 0.9F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType RAZORBACK = registerEntity(EntityRazorback::new, "razorback", 0.6F, 0.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType ROAMER = registerEntity(EntityRoamer::new, "roamer", 0.6F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MONSTER);
+    public static final EntityType SEIMER = registerEntity(EntitySeimer::new, "seimer", 1.0F, 1.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType WAR_GENERAL = registerEntity(EntityWarGeneral::new, "war_general", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType WRAITH = registerEntity(EntityWraith::new, "wraith", 0.9F, 1.4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
+    public static final EntityType ZELUS = registerEntity(EntityZelus::new, "zelus", 0.8F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
 //
 //    // Vethea //TODO - Add Vethean mobs
 //    buildEntityEntry(EntityAcidHag.class, "acid_hag", VETHEA),
@@ -388,6 +391,28 @@ public class EntityRegistry {
         GlobalEntityTypeAttributes.put(SOUL_SPIDER, EntitySoulSpider.attributes().create());
         GlobalEntityTypeAttributes.put(SOUL_STEALER, EntitySoulStealer.attributes().create());
         GlobalEntityTypeAttributes.put(TWILIGHT_ARCHER, EntityTwilightArcher.attributes().create());
+        
+        //Arcana
+        GlobalEntityTypeAttributes.put(CAPTAIN_MERIK, EntityCaptainMerik.attributes().create());
+        GlobalEntityTypeAttributes.put(DATTICON, EntityDatticon.attributes().create());
+        GlobalEntityTypeAttributes.put(DEATHCRYX, EntityDeathcryx.attributes().create());
+        GlobalEntityTypeAttributes.put(DEATH_HOUND, EntityDeathHound.attributes().create());
+        GlobalEntityTypeAttributes.put(DUNGEON_CONSTRUCTOR, EntityDungeonConstructor.attributes().create());
+        GlobalEntityTypeAttributes.put(DUNGEON_DEMON, EntityDungeonDemon.attributes().create());
+        GlobalEntityTypeAttributes.put(DUNGEON_PRISONER, EntityDungeonPrisoner.attributes().create());
+        GlobalEntityTypeAttributes.put(FYRACRYX, EntityFyracryx.attributes().create());
+        GlobalEntityTypeAttributes.put(GOLEM_OF_REJUVENATION, EntityGolemOfRejuvenation.attributes().create());
+        GlobalEntityTypeAttributes.put(KAZARI, EntityKazari.attributes().create());
+        GlobalEntityTypeAttributes.put(LEORNA, EntityLeorna.attributes().create());
+        GlobalEntityTypeAttributes.put(LORD_VATTICUS, EntityLordVatticus.attributes().create());
+        GlobalEntityTypeAttributes.put(LIVING_STATUE, EntityLivingStatue.attributes().create());
+        GlobalEntityTypeAttributes.put(PARATIKU, EntityParatiku.attributes().create());
+        GlobalEntityTypeAttributes.put(RAZORBACK, EntityRazorback.attributes().create());
+        GlobalEntityTypeAttributes.put(ROAMER, EntityRoamer.attributes().create());
+        GlobalEntityTypeAttributes.put(SEIMER, EntitySeimer.attributes().create());
+        GlobalEntityTypeAttributes.put(WAR_GENERAL, EntityWarGeneral.attributes().create());
+        GlobalEntityTypeAttributes.put(WRAITH, EntityWraith.attributes().create());
+        GlobalEntityTypeAttributes.put(ZELUS, EntityZelus.attributes().create());
 
         //PLACEMENT
         EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
@@ -494,6 +519,27 @@ public class EntityRegistry {
         EntitySpawnPlacementRegistry.register(SOUL_STEALER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySoulStealer::canSpawnOn);
         EntitySpawnPlacementRegistry.register(TWILIGHT_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTwilightArcher::canSpawnOn);
 
+        //Arcana
+        EntitySpawnPlacementRegistry.register(CAPTAIN_MERIK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DATTICON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDatticon::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DEATHCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDeathcryx::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DEATH_HOUND, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDeathHound::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DUNGEON_CONSTRUCTOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DUNGEON_DEMON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDungeonDemon::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(DUNGEON_PRISONER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDungeonPrisoner::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(FYRACRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFyracryx::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(GOLEM_OF_REJUVENATION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGolemOfRejuvenation::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(KAZARI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKazari::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(LEORNA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLeorna::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(LORD_VATTICUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLordVatticus::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(LIVING_STATUE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLivingStatue::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(PARATIKU, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityParatiku::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(RAZORBACK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRazorback::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(ROAMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRoamer::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(SEIMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySeimer::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(WAR_GENERAL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(WRAITH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWarGeneral::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(ZELUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWraith::canSpawnOn);
     }
 
     public static void render() {
@@ -602,6 +648,28 @@ public class EntityRegistry {
         RenderingRegistry.registerEntityRenderingHandler(SOUL_SPIDER, manager -> new RenderDivineMob(manager, new ModelSoulSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
         RenderingRegistry.registerEntityRenderingHandler(SOUL_STEALER, manager -> new RenderDivineMob(manager, new ModelSoulStealer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
         RenderingRegistry.registerEntityRenderingHandler(TWILIGHT_ARCHER, manager -> new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png"))); //TODO - bow
+        
+        //Arcana
+        RenderingRegistry.registerEntityRenderingHandler(CAPTAIN_MERIK, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/captain_merik.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DATTICON, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/datticon.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DEATHCRYX, manager -> new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/deathcryx.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DEATH_HOUND, manager -> new RenderDivineMob(manager, new ModelDeathHound(), new ResourceLocation(DivineRPG.MODID, "textures/entity/death_hound.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_CONSTRUCTOR, RenderDungeonConstructor::new);
+        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_DEMON, manager -> new RenderDivineMob(manager, new ModelDungeonDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_demon.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_PRISONER, manager -> new RenderDivineMob(manager, new ModelDungeonPrisoner(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_prisoner.png")));
+        RenderingRegistry.registerEntityRenderingHandler(FYRACRYX, manager -> new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fyracryx.png")));
+        RenderingRegistry.registerEntityRenderingHandler(GOLEM_OF_REJUVENATION, manager -> new RenderDivineMob(manager, new ModelRejuvGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png")));
+        RenderingRegistry.registerEntityRenderingHandler(KAZARI, RenderKazari::new);
+        RenderingRegistry.registerEntityRenderingHandler(LEORNA, manager -> new RenderDivineMob(manager, new ModelLeorna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png")));
+        RenderingRegistry.registerEntityRenderingHandler(LORD_VATTICUS, RenderLordVatticus::new);
+        RenderingRegistry.registerEntityRenderingHandler(LIVING_STATUE, RenderLivingStatue::new);
+        RenderingRegistry.registerEntityRenderingHandler(PARATIKU, manager -> new RenderDivineMob(manager, new ModelParatiku(), new ResourceLocation(DivineRPG.MODID, "textures/entity/paratiku.png")));
+        RenderingRegistry.registerEntityRenderingHandler(RAZORBACK, manager -> new RenderDivineMob(manager, new ModelRazorback(), new ResourceLocation(DivineRPG.MODID, "textures/entity/razorback.png")));
+        RenderingRegistry.registerEntityRenderingHandler(ROAMER, manager -> new RenderDivineMob(manager, new ModelRoamer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/roamer.png")));
+        RenderingRegistry.registerEntityRenderingHandler(SEIMER, manager -> new RenderDivineMob(manager, new ModelSeimer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/seimer.png")));
+        RenderingRegistry.registerEntityRenderingHandler(WAR_GENERAL, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/war_general.png")));
+        RenderingRegistry.registerEntityRenderingHandler(WRAITH, manager -> new RenderDivineMob(manager, new ModelWraith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wraith.png")));
+        RenderingRegistry.registerEntityRenderingHandler(ZELUS, RenderZelus::new);
     }
 
     public static void spawnStuff(BiomeLoadingEvent event) {

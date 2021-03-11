@@ -2077,11 +2077,11 @@ public class ItemRegistry {
 //        register(e, new ItemSnowGlobe("snow_globe"));
         register(e, new ItemSpawnEgg("brown_grizzle_egg", EntityRegistry.BROWN_GRIZZLE));
         register(e, new ItemSpawnEgg("ehu_egg", EntityRegistry.EHU));
-        register(e, new ItemSpawnEgg("fyracryx_egg", EntityRegistry.EHU));
-        register(e, new ItemSpawnEgg("golem_of_rejuvenation_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("fyracryx_egg", EntityRegistry.FYRACRYX));
+        register(e, new ItemSpawnEgg("golem_of_rejuvenation_egg", EntityRegistry.GOLEM_OF_REJUVENATION));
         register(e, new ItemSpawnEgg("husk_egg", EntityRegistry.HUSK));
-        register(e, new ItemSpawnEgg("paratiku_egg", EntityRegistry.EHU));
-        register(e, new ItemSpawnEgg("seimer_egg", EntityRegistry.EHU));
+        register(e, new ItemSpawnEgg("paratiku_egg", EntityRegistry.PARATIKU));
+        register(e, new ItemSpawnEgg("seimer_egg", EntityRegistry.SEIMER));
         register(e, new ItemSpawnEgg("smelter_egg", EntityRegistry.SMELTER));
         register(e, new ItemSpawnEgg("snapper_egg", EntityRegistry.SNAPPER));
         register(e, new ItemSpawnEgg("stone_golem_egg", EntityRegistry.STONE_GOLEM));

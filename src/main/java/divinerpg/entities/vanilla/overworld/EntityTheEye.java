@@ -1,6 +1,5 @@
 package divinerpg.entities.vanilla.overworld;
 
-import com.sun.javafx.geom.Vec3d;
 import divinerpg.entities.base.EntityDivineMob;
 import divinerpg.registries.*;
 import divinerpg.util.EntityStats;

@@ -173,6 +173,28 @@ public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_TWILIGHT_DEMON = registerTable("entities/boss/twilight_demon");
     public static final ResourceLocation ENTITIES_VAMACHERON = registerTable("entities/boss/vamacheron");
     public static final ResourceLocation ENTITIES_WRECK = registerTable("entities/boss/wreck");
+    
+    //arcana
+    public static final ResourceLocation CAPTAIN_MERIK = registerTable("entities/arcana/captain_merik");
+    public static final ResourceLocation DATTICON = registerTable("entities/arcana/datticon");
+    public static final ResourceLocation DEATHCRYX = registerTable("entities/arcana/deathcryx");
+    public static final ResourceLocation DEATH_HOUND = registerTable("entities/arcana/death_hound");
+    public static final ResourceLocation DUNGEON_CONSTRUCTOR = registerTable("entities/arcana/dungeon_constructor");
+    public static final ResourceLocation DUNGEON_DEMON = registerTable("entities/arcana/dungeon_demon");
+    public static final ResourceLocation DUNGEON_PRISONER = registerTable("entities/arcana/dungeon_prisoner");
+    public static final ResourceLocation FYRACRYX = registerTable("entities/arcana/ryracryx");
+    public static final ResourceLocation GOLEM_OF_REJUVENATION = registerTable("entities/arcana/golem_of_rejuvenation");
+    public static final ResourceLocation KAZARI = registerTable("entities/arcana/kazari");
+    public static final ResourceLocation LEORNA = registerTable("entities/arcana/leorna");
+    public static final ResourceLocation LIVING_STATUE = registerTable("entities/arcana/living_statue");
+    public static final ResourceLocation LORD_VATTICUS = registerTable("entities/arcana/lord_vatticus");
+    public static final ResourceLocation PARATIKU = registerTable("entities/arcana/paratiku");
+    public static final ResourceLocation RAZORBACK = registerTable("entities/arcana/razorback");
+    public static final ResourceLocation ROAMER = registerTable("entities/arcana/roamer");
+    public static final ResourceLocation SEIMER = registerTable("entities/arcana/seimer");
+    public static final ResourceLocation WAR_GENERAL = registerTable("entities/arcana/war_general");
+    public static final ResourceLocation WRAITH = registerTable("entities/arcana/wraith");
+    public static final ResourceLocation ZELUS = registerTable("entities/arcana/zelus");
 
     private static ResourceLocation registerTable(String id) {
         return register(new ResourceLocation(DivineRPG.MODID, id));
