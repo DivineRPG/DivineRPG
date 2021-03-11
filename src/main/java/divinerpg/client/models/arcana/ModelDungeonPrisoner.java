@@ -7,7 +7,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
 public class ModelDungeonPrisoner<T extends Entity> extends SegmentedModel<T> 
 {
     //fields

@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
 public class ModelRoamer<T extends Entity> extends SegmentedModel<T> 
 {
     //fields

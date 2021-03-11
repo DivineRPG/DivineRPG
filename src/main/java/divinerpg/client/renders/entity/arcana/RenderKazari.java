@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
 public class RenderKazari extends MobRenderer<EntityKazari, ModelCyclops<EntityKazari>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/kazari.png");
 

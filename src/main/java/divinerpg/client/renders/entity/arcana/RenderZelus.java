@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
 public class RenderZelus extends MobRenderer<EntityZelus, ModelCyclops<EntityZelus>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/zelus.png");
 

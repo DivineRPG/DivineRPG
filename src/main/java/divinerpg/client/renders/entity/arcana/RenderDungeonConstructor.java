@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
 public class RenderDungeonConstructor extends MobRenderer<EntityDungeonConstructor, ModelDramix<EntityDungeonConstructor>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_constructor.png");
 
