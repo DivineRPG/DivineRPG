@@ -1,7 +1,7 @@
 package divinerpg.entities.apalachia;
 
 import divinerpg.entities.base.EntityMageBase;
-import divinerpg.registries.LootTableRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -16,15 +16,13 @@ public class EntitySpellbinder extends EntityMageBase {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.spellbinderHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.spellbinderDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.spellbinderSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.spellbinderFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.spellbinderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.spellbinderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.spellbinderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.spellbinderFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
     }
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SPELLBINDER;
     }
 }

@@ -1994,7 +1994,7 @@ public class ItemRegistry {
         register(e, new DivineShield("apalachia_shield", DivineRPG.tabs.armor, apalachiaChunk, 4800));
         register(e, new DivineShield("arlemite_shield", DivineRPG.tabs.armor, arlemiteIngot, 1200));
         register(e, new DivineShield("eden_shield", DivineRPG.tabs.armor, edenChunk, 1200));
-        register(e, new DivineShield("halite_shield", DivineRPG.tabs.armor, Item.getItemFromBlock(Blocks.AIR), 0));
+        register(e, new DivineShield("halite_shield", DivineRPG.tabs.armor, Item.byBlock(Blocks.AIR), 0));
         register(e, new DivineShield("mortum_shield", DivineRPG.tabs.armor, mortumChunk, 19200));
         register(e, new DivineShield("realmite_shield", DivineRPG.tabs.armor, realmiteIngot, 1200));
         register(e, new DivineShield("rupee_shield", DivineRPG.tabs.armor, rupeeIngot, 1200));

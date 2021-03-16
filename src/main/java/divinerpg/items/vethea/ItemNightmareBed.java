@@ -8,10 +8,10 @@ import net.minecraft.item.*;
 
 public class ItemNightmareBed extends BlockItem {
     public ItemNightmareBed() {
-        super(BlockRegistry.nightmareBed, new Item.Properties().group(DivineRPG.tabs.vethea).maxStackSize(1).setISTER(() -> () -> new NightmareBedTEISR()));
+        super(BlockRegistry.nightmareBed, new Item.Properties().tab(DivineRPG.tabs.vethea).stacksTo(1).setISTER(() -> () -> new NightmareBedTEISR()));
         setRegistryName("nightmare_bed");
     }
     protected boolean placeBlock(BlockItemUseContext context, BlockState state) {
-        return context.getWorld().setBlockState(context.getPos(), state, 26);
+        return context.getLevel().setBlock(context.getClickedPos(), state, 26);
     }
 }

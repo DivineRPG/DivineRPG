@@ -3,8 +3,11 @@ package divinerpg.entities.iceika;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.ItemRegistry;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityWorkshopTinkerer extends EntityDivineMerchant {
     public EntityWorkshopTinkerer(EntityType<? extends CreatureEntity> type, World worldIn) {
@@ -55,5 +58,14 @@ public class EntityWorkshopTinkerer extends EntityDivineMerchant {
         list.add(new MerchantOffer(new ItemStack(ItemRegistry.snowflake, 40), new ItemStack(ItemRegistry.divineSword, 1), new ItemStack(ItemRegistry.icineSword, 1), ItemRegistry.icineSword.getMaxDamage(), 1, 1));
         list.add(new MerchantOffer(new ItemStack(ItemRegistry.snowflake, 15), new ItemStack(ItemRegistry.sandslash, 1), new ItemStack(ItemRegistry.snowslash, 1), ItemRegistry.snowslash.getMaxDamage(), 1, 1));
         return list;
+    }
+
+    @Override
+    public void setTradingPlayer(@Nullable PlayerEntity player) {
+    }
+
+    @Override
+    public World getLevel() {
+        return level;
     }
 }

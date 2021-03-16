@@ -24,7 +24,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
         addAttackingAI();
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.liopleurodonHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.liopleurodonDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.liopleurodonSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.liopleurodonFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.liopleurodonHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.liopleurodonDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.liopleurodonSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.liopleurodonFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -41,7 +41,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
         return SoundRegistry.LIOPLEURODON_HURT;
     }
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_LIOPLEURODON;
     }
 

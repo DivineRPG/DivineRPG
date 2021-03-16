@@ -21,10 +21,10 @@ public class EntityGlacide extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.glacideHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.glacideDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.glacideSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.glacideFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.glacideHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.glacideDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.glacideSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.glacideFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     @Override
@@ -43,7 +43,7 @@ public class EntityGlacide extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_GLACIDE;
     }
 }

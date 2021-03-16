@@ -11,20 +11,20 @@ import net.minecraft.world.*;
 public class EntityKingCrab extends EntityCrab {
     public EntityKingCrab(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue=40;
+        xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.4F;
     }
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_KING_CRAB;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.kingCrabHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.kingCrabDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.kingCrabSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.kingCrabFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.kingCrabHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.kingCrabDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.kingCrabSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.kingCrabFollowRange);
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

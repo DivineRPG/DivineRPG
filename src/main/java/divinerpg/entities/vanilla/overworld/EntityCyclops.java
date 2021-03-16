@@ -1,30 +1,27 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityPeacefulUntilAttacked;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityCyclops extends EntityPeacefulUntilAttacked {
 
 
     public EntityCyclops(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue = 40;
+        xpReward = 40;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 3.5F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.cyclopsHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.cyclopsDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.cyclopsSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.cyclopsFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.cyclopsHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.cyclopsDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.cyclopsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.cyclopsFollowRange);
     }
 
     @Override
@@ -43,28 +40,31 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_CYCLOPS;
     }
 
-    public static boolean canMonsterSpawnInLight(EntityType<? extends MonsterEntity> type, IServerWorld world, SpawnReason reason, BlockPos blockpos, Random rand) {
-        if (world.getLightFor(LightType.SKY, blockpos) > rand.nextInt(32)) {
+
+    @Override
+    public boolean checkSpawnRules(IWorld world, SpawnReason reason) {
+        if (world.getBrightness(LightType.SKY, blockPosition()) > random.nextInt(32)) {
             return false;
         } else {
-            int i = world.getLight(blockpos);
+            int i = world.getLightEmission(blockPosition());
 
-            if (world.getWorld().isThundering()) {
-                int j = world.getSkylightSubtracted();
-                world.getLightManager().onBlockEmissionIncrease(blockpos, 10);
-                i = world.getLight(blockpos);
-                world.getLightManager().onBlockEmissionIncrease(blockpos, j);
+            if (level.isThundering()) {
+                int j = world.getSkyDarken();
+                world.getLightEngine().onBlockEmissionIncrease(blockPosition(), 10);
+                i = world.getLightEmission(blockPosition());
+                world.getLightEngine().onBlockEmissionIncrease(blockPosition(), j);
             }
 
-            return i <= rand.nextInt(8);
+            return i <= random.nextInt(8);
         }
     }
 
+
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() > world.getSeaLevel();
+        return level.dimension() == World.OVERWORLD && getY() > level.getSeaLevel();
     }
 }

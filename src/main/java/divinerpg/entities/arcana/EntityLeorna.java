@@ -3,8 +3,11 @@ package divinerpg.entities.arcana;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityLeorna extends EntityDivineMerchant {
 	
@@ -52,5 +55,15 @@ public class EntityLeorna extends EntityDivineMerchant {
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteDirt, 16), BlockRegistry.arcaniteDirt.asItem().getMaxDamage(), 1, 1));
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteGrass, 16), BlockRegistry.arcaniteGrass.asItem().getMaxDamage(), 1, 1));
 		return offers;
+	}
+
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+	}
+
+	@Override
+	public World getLevel() {
+		return level;
 	}
 }

@@ -1,198 +1,219 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.BatEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
+import net.minecraft.world.biome.*;
 
-import javax.annotation.Nullable;
-import java.util.Random;
+import javax.annotation.*;
+import java.time.*;
+import java.time.temporal.*;
+import java.util.*;
 
 public class EntityJungleBat extends EntityDivineMob {
-    private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityJungleBat.class, DataSerializers.BYTE);
-    private static final EntityPredicate field_213813_c = (new EntityPredicate()).setDistance(4.0D).allowFriendlyFire();
-    private BlockPos spawnPosition;
+    private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityJungleBat.class, DataSerializers.BYTE);
+    private static final EntityPredicate BAT_RESTING_TARGETING = (new EntityPredicate()).range(4.0D).allowSameTeam();
+    private BlockPos targetPosition;
 
-    public EntityJungleBat(EntityType<? extends EntityDivineMob> type, World worldIn) {
-        super(type, worldIn);
-        this.setIsBatHanging(true);
+    public EntityJungleBat(EntityType<? extends EntityJungleBat> p_i50290_1_, World p_i50290_2_) {
+        super(p_i50290_1_, p_i50290_2_);
+        this.setResting(true);
     }
 
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(HANGING, (byte)0);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_ID_FLAGS, (byte)0);
     }
 
     protected float getSoundVolume() {
         return 0.1F;
     }
 
-    protected float getSoundPitch() {
-        return super.getSoundPitch() * 0.95F;
+    protected float getVoicePitch() {
+        return super.getVoicePitch() * 0.95F;
     }
 
     @Nullable
     public SoundEvent getAmbientSound() {
-        return this.getIsBatHanging() && this.rand.nextInt(4) != 0 ? null : SoundEvents.ENTITY_BAT_AMBIENT;
+        return this.isResting() && this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;
     }
 
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_BAT_HURT;
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+        return SoundEvents.BAT_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_BAT_DEATH;
+        return SoundEvents.BAT_DEATH;
     }
 
-    public boolean canBePushed() {
+    public boolean isPushable() {
         return false;
     }
 
-    protected void collideWithEntity(Entity entityIn) {
+    protected void doPush(Entity p_82167_1_) {
     }
 
-    protected void collideWithNearbyEntities() {
+    protected void pushEntities() {
     }
 
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.jungleBatHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.jungleBatDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.jungleBatSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.jungleBatFollowRange);
+    public boolean isResting() {
+        return (this.entityData.get(DATA_ID_FLAGS) & 1) != 0;
     }
 
-    public boolean getIsBatHanging() {
-        return (this.dataManager.get(HANGING) & 1) != 0;
-    }
-
-    public void setIsBatHanging(boolean isHanging) {
-        byte b0 = this.dataManager.get(HANGING);
-        if (isHanging) {
-            this.dataManager.set(HANGING, (byte)(b0 | 1));
+    public void setResting(boolean p_82236_1_) {
+        byte b0 = this.entityData.get(DATA_ID_FLAGS);
+        if (p_82236_1_) {
+            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 | 1));
         } else {
-            this.dataManager.set(HANGING, (byte)(b0 & -2));
+            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 & -2));
         }
 
     }
+
     public void tick() {
         super.tick();
-        if (this.getIsBatHanging()) {
-            this.setMotion(Vector3d.ZERO);
-            this.setRawPosition(this.getPosX(), (double) MathHelper.floor(this.getPosY()) + 1.0D - (double)this.getHeight(), this.getPosZ());
+        if (this.isResting()) {
+            this.setDeltaMovement(Vector3d.ZERO);
+            this.setPosRaw(this.getX(), (double)MathHelper.floor(this.getY()) + 1.0D - (double)this.getBbHeight(), this.getZ());
         } else {
-            this.setMotion(this.getMotion().mul(1.0D, 0.6D, 1.0D));
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
         }
 
     }
 
-    protected void updateAITasks() {
-        super.updateAITasks();
-        BlockPos blockpos = this.getPosition();
-        BlockPos blockpos1 = blockpos.up();
-        if (this.getIsBatHanging()) {
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        BlockPos blockpos = this.blockPosition();
+        BlockPos blockpos1 = blockpos.above();
+        if (this.isResting()) {
             boolean flag = this.isSilent();
-            if (this.world.getBlockState(blockpos1).isNormalCube(this.world, blockpos)) {
-                if (this.rand.nextInt(200) == 0) {
-                    this.rotationYawHead = (float)this.rand.nextInt(360);
+            if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos)) {
+                if (this.random.nextInt(200) == 0) {
+                    this.yHeadRot = (float)this.random.nextInt(360);
                 }
 
-                if (this.world.getClosestPlayer(field_213813_c, this) != null) {
-                    this.setIsBatHanging(false);
+                if (this.level.getNearestPlayer(BAT_RESTING_TARGETING, this) != null) {
+                    this.setResting(false);
                     if (!flag) {
-                        this.world.playEvent((PlayerEntity)null, 1025, blockpos, 0);
+                        this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
                     }
                 }
             } else {
-                this.setIsBatHanging(false);
+                this.setResting(false);
                 if (!flag) {
-                    this.world.playEvent((PlayerEntity)null, 1025, blockpos, 0);
+                    this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
                 }
             }
         } else {
-            if (this.spawnPosition != null && (!this.world.isAirBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
-                this.spawnPosition = null;
+            if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
+                this.targetPosition = null;
             }
 
-            if (this.spawnPosition == null || this.rand.nextInt(30) == 0 || this.spawnPosition.withinDistance(this.getPositionVec(), 2.0D)) {
-                this.spawnPosition = new BlockPos(this.getPosX() + (double)this.rand.nextInt(7) - (double)this.rand.nextInt(7), this.getPosY() + (double)this.rand.nextInt(6) - 2.0D, this.getPosZ() + (double)this.rand.nextInt(7) - (double)this.rand.nextInt(7));
+            if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
+                this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
             }
 
-            double d2 = (double)this.spawnPosition.getX() + 0.5D - this.getPosX();
-            double d0 = (double)this.spawnPosition.getY() + 0.1D - this.getPosY();
-            double d1 = (double)this.spawnPosition.getZ() + 0.5D - this.getPosZ();
-            Vector3d vector3d = this.getMotion();
+            double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
+            double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
+            double d1 = (double)this.targetPosition.getZ() + 0.5D - this.getZ();
+            Vector3d vector3d = this.getDeltaMovement();
             Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F, (Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F);
-            this.setMotion(vector3d1);
+            this.setDeltaMovement(vector3d1);
             float f = (float)(MathHelper.atan2(vector3d1.z, vector3d1.x) * (double)(180F / (float)Math.PI)) - 90.0F;
-            float f1 = MathHelper.wrapDegrees(f - this.rotationYaw);
-            this.moveForward = 0.5F;
-            this.rotationYaw += f1;
-            if (this.rand.nextInt(100) == 0 && this.world.getBlockState(blockpos1).isNormalCube(this.world, blockpos1)) {
-                this.setIsBatHanging(true);
+            float f1 = MathHelper.wrapDegrees(f - this.yRot);
+            this.zza = 0.5F;
+            this.yRot += f1;
+            if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+                this.setResting(true);
             }
         }
 
     }
 
-    protected boolean canTriggerWalking() {
+    protected boolean isMovementNoisy() {
         return false;
     }
 
-    public boolean onLivingFall(float distance, float damageMultiplier) {
+    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
         return false;
     }
 
-    protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+    protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {
     }
 
-    public boolean doesEntityNotTriggerPressurePlate() {
+    public boolean isIgnoringBlockTriggers() {
         return true;
     }
 
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source)) {
+    public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
+        if (this.isInvulnerableTo(p_70097_1_)) {
             return false;
         } else {
-            if (!this.world.isRemote && this.getIsBatHanging()) {
-                this.setIsBatHanging(false);
+            if (!this.level.isClientSide && this.isResting()) {
+                this.setResting(false);
             }
 
-            return super.attackEntityFrom(source, amount);
+            return super.hurt(p_70097_1_, p_70097_2_);
         }
     }
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
-        this.dataManager.set(HANGING, compound.getByte("BatFlags"));
+
+    public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
+        super.readAdditionalSaveData(p_70037_1_);
+        this.entityData.set(DATA_ID_FLAGS, p_70037_1_.getByte("BatFlags"));
     }
 
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
-        compound.putByte("BatFlags", this.dataManager.get(HANGING));
+    public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
+        super.addAdditionalSaveData(p_213281_1_);
+        p_213281_1_.putByte("BatFlags", this.entityData.get(DATA_ID_FLAGS));
     }
 
-    public static boolean canSpawn(EntityType<BatEntity> batIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        if (pos.getY() >= worldIn.getSeaLevel()) {
+    public static boolean checkBatSpawnRules(EntityType<EntityJungleBat> p_223369_0_, IWorld p_223369_1_, SpawnReason p_223369_2_, BlockPos p_223369_3_, Random p_223369_4_) {
+        if (p_223369_3_.getY() >= p_223369_1_.getSeaLevel()) {
             return false;
         } else {
-            int i = worldIn.getLight(pos);
+            int i = p_223369_1_.getMaxLocalRawBrightness(p_223369_3_);
             int j = 4;
-            return i > randomIn.nextInt(j) ? false : canSpawnOn(batIn, worldIn, reason, pos, randomIn);
+            if (isHalloween()) {
+                j = 7;
+            } else if (p_223369_4_.nextBoolean()) {
+                return false;
+            }
+
+            return i > p_223369_4_.nextInt(j) ? false : checkMobSpawnRules(p_223369_0_, p_223369_1_, p_223369_2_, p_223369_3_, p_223369_4_);
         }
+    }
+
+    private static boolean isHalloween() {
+        LocalDate localdate = LocalDate.now();
+        int i = localdate.get(ChronoField.DAY_OF_MONTH);
+        int j = localdate.get(ChronoField.MONTH_OF_YEAR);
+        return j == 10 && i >= 20 || j == 11 && i <= 3;
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_JUNGLE_BAT;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height / 2.0F;
     }
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.jungleBatHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.jungleBatDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.jungleBatSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.jungleBatFollowRange);
+    }
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) && worldIn.getBiome(pos).getBiomeCategory() == Biome.Category.JUNGLE;
+    }
+
 }

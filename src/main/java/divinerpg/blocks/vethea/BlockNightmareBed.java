@@ -1,197 +1,213 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.registries.TileRegistry;
-import divinerpg.tiles.TileEntityNightmareBed;
+import divinerpg.registries.*;
+import divinerpg.tiles.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.merchant.villager.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.pathfinding.PathType;
+import net.minecraft.pathfinding.*;
 import net.minecraft.state.*;
 import net.minecraft.state.properties.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
-import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
 
 public class BlockNightmareBed extends HorizontalBlock implements ITileEntityProvider {
     public static final EnumProperty<BedPart> PART = BlockStateProperties.BED_PART;
     public static final BooleanProperty OCCUPIED = BlockStateProperties.OCCUPIED;
-    protected static final VoxelShape BED_BASE_SHAPE = Block.makeCuboidShape(0.0D, 3.0D, 0.0D, 16.0D, 9.0D, 16.0D);
-    protected static final VoxelShape CORNER_NW = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 3.0D, 3.0D);
-    protected static final VoxelShape CORNER_SW = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 3.0D, 3.0D, 16.0D);
-    protected static final VoxelShape CORNER_NE = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 3.0D, 3.0D);
-    protected static final VoxelShape CORNER_SE = Block.makeCuboidShape(13.0D, 0.0D, 13.0D, 16.0D, 3.0D, 16.0D);
-    protected static final VoxelShape NORTH_FACING_SHAPE = VoxelShapes.or(BED_BASE_SHAPE, CORNER_NW, CORNER_NE);
-    protected static final VoxelShape SOUTH_FACING_SHAPE = VoxelShapes.or(BED_BASE_SHAPE, CORNER_SW, CORNER_SE);
-    protected static final VoxelShape WEST_FACING_SHAPE = VoxelShapes.or(BED_BASE_SHAPE, CORNER_NW, CORNER_SW);
-    protected static final VoxelShape EAST_FACING_SHAPE = VoxelShapes.or(BED_BASE_SHAPE, CORNER_NE, CORNER_SE);
+    protected static final VoxelShape BASE = Block.box(0.0D, 3.0D, 0.0D, 16.0D, 9.0D, 16.0D);
+    protected static final VoxelShape LEG_NORTH_WEST = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 3.0D, 3.0D);
+    protected static final VoxelShape LEG_SOUTH_WEST = Block.box(0.0D, 0.0D, 13.0D, 3.0D, 3.0D, 16.0D);
+    protected static final VoxelShape LEG_NORTH_EAST = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 3.0D, 3.0D);
+    protected static final VoxelShape LEG_SOUTH_EAST = Block.box(13.0D, 0.0D, 13.0D, 16.0D, 3.0D, 16.0D);
+    protected static final VoxelShape NORTH_SHAPE = VoxelShapes.or(BASE, LEG_NORTH_WEST, LEG_NORTH_EAST);
+    protected static final VoxelShape SOUTH_SHAPE = VoxelShapes.or(BASE, LEG_SOUTH_WEST, LEG_SOUTH_EAST);
+    protected static final VoxelShape WEST_SHAPE = VoxelShapes.or(BASE, LEG_NORTH_WEST, LEG_SOUTH_WEST);
+    protected static final VoxelShape EAST_SHAPE = VoxelShapes.or(BASE, LEG_NORTH_EAST, LEG_SOUTH_EAST);
     private static TileEntityType<TileEntityNightmareBed> NIGHTMARE_BED = null;
 
     public BlockNightmareBed() {
-        super(Properties.create(Material.CARPET)
-                .sound(SoundType.CLOTH));
+        super(Properties.of(Material.CLOTH_DECORATION)
+                .sound(SoundType.WOOL
+                ));
         setRegistryName("nightmare_bed_block");
         NIGHTMARE_BED = TileRegistry.NIGHTMARE_BED;
-        this.setDefaultState(this.stateContainer.getBaseState().with(PART, BedPart.FOOT).with(OCCUPIED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.FOOT).setValue(OCCUPIED, Boolean.valueOf(false)));
     }
 
     @Nullable
     @OnlyIn(Dist.CLIENT)
-    public static Direction getBedDirection(IBlockReader reader, BlockPos pos) {
-        BlockState blockstate = reader.getBlockState(pos);
-        return blockstate.getBlock() instanceof BedBlock ? blockstate.get(HORIZONTAL_FACING) : null;
+    public static Direction getBedOrientation(IBlockReader p_220174_0_, BlockPos p_220174_1_) {
+        BlockState blockstate = p_220174_0_.getBlockState(p_220174_1_);
+        return blockstate.getBlock() instanceof BlockNightmareBed ? blockstate.getValue(FACING) : null;
     }
 
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!worldIn.isRemote) {
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if(!worldIn.isClientSide) {
         //TODO - vethean teleporter
-        }
+    }
         return ActionResultType.PASS;
     }
 
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-        super.onFallenUpon(worldIn, pos, entityIn, fallDistance * 0.5F);
+    public static boolean canSetSpawn(World p_235330_0_) {
+        return p_235330_0_.dimensionType().bedWorks();
     }
 
-    public void onLanded(IBlockReader worldIn, Entity entityIn) {
-        if (entityIn.isSuppressingBounce()) {
-            super.onLanded(worldIn, entityIn);
+    private boolean kickVillagerOutOfBed(World p_226861_1_, BlockPos p_226861_2_) {
+        List<VillagerEntity> list = p_226861_1_.getEntitiesOfClass(VillagerEntity.class, new AxisAlignedBB(p_226861_2_), LivingEntity::isSleeping);
+        if (list.isEmpty()) {
+            return false;
         } else {
-            this.bounceEntity(entityIn);
+            list.get(0).stopSleeping();
+            return true;
+        }
+    }
+
+    public void fallOn(World p_180658_1_, BlockPos p_180658_2_, Entity p_180658_3_, float p_180658_4_) {
+        super.fallOn(p_180658_1_, p_180658_2_, p_180658_3_, p_180658_4_ * 0.5F);
+    }
+
+    public void updateEntityAfterFallOn(IBlockReader p_176216_1_, Entity p_176216_2_) {
+        if (p_176216_2_.isSuppressingBounce()) {
+            super.updateEntityAfterFallOn(p_176216_1_, p_176216_2_);
+        } else {
+            this.bounceUp(p_176216_2_);
         }
 
     }
 
-    private void bounceEntity(Entity entity) {
-        Vector3d vector3d = entity.getMotion();
+    private void bounceUp(Entity p_226860_1_) {
+        Vector3d vector3d = p_226860_1_.getDeltaMovement();
         if (vector3d.y < 0.0D) {
-            double d0 = entity instanceof LivingEntity ? 1.0D : 0.8D;
-            entity.setMotion(vector3d.x, -vector3d.y * (double)0.66F * d0, vector3d.z);
+            double d0 = p_226860_1_ instanceof LivingEntity ? 1.0D : 0.8D;
+            p_226860_1_.setDeltaMovement(vector3d.x, -vector3d.y * (double)0.66F * d0, vector3d.z);
         }
 
     }
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (facing == getDirectionToOther(stateIn.get(PART), stateIn.get(HORIZONTAL_FACING))) {
-            return facingState.isIn(this) && facingState.get(PART) != stateIn.get(PART) ? stateIn.with(OCCUPIED, facingState.get(OCCUPIED)) : Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, IWorld p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
+        if (p_196271_2_ == getNeighbourDirection(p_196271_1_.getValue(PART), p_196271_1_.getValue(FACING))) {
+            return p_196271_3_.is(this) && p_196271_3_.getValue(PART) != p_196271_1_.getValue(PART) ? p_196271_1_.setValue(OCCUPIED, p_196271_3_.getValue(OCCUPIED)) : Blocks.AIR.defaultBlockState();
         } else {
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+            return super.updateShape(p_196271_1_, p_196271_2_, p_196271_3_, p_196271_4_, p_196271_5_, p_196271_6_);
         }
     }
 
-    private static Direction getDirectionToOther(BedPart part, Direction direction) {
-        return part == BedPart.FOOT ? direction : direction.getOpposite();
+    private static Direction getNeighbourDirection(BedPart p_208070_0_, Direction p_208070_1_) {
+        return p_208070_0_ == BedPart.FOOT ? p_208070_1_ : p_208070_1_.getOpposite();
     }
 
-    public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!worldIn.isRemote && player.isCreative()) {
-            BedPart bedpart = state.get(PART);
+    public void playerWillDestroy(World p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, PlayerEntity p_176208_4_) {
+        if (!p_176208_1_.isClientSide && p_176208_4_.isCreative()) {
+            BedPart bedpart = p_176208_3_.getValue(PART);
             if (bedpart == BedPart.FOOT) {
-                BlockPos blockpos = pos.offset(getDirectionToOther(bedpart, state.get(HORIZONTAL_FACING)));
-                BlockState blockstate = worldIn.getBlockState(blockpos);
-                if (blockstate.getBlock() == this && blockstate.get(PART) == BedPart.HEAD) {
-                    worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
-                    worldIn.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
+                BlockPos blockpos = p_176208_2_.relative(getNeighbourDirection(bedpart, p_176208_3_.getValue(FACING)));
+                BlockState blockstate = p_176208_1_.getBlockState(blockpos);
+                if (blockstate.getBlock() == this && blockstate.getValue(PART) == BedPart.HEAD) {
+                    p_176208_1_.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+                    p_176208_1_.levelEvent(p_176208_4_, 2001, blockpos, Block.getId(blockstate));
                 }
             }
         }
 
-        super.onBlockHarvested(worldIn, pos, state, player);
+        super.playerWillDestroy(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
     }
 
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        Direction direction = context.getPlacementHorizontalFacing();
-        BlockPos blockpos = context.getPos();
-        BlockPos blockpos1 = blockpos.offset(direction);
-        return context.getWorld().getBlockState(blockpos1).isReplaceable(context) ? this.getDefaultState().with(HORIZONTAL_FACING, direction) : null;
+    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
+        Direction direction = p_196258_1_.getHorizontalDirection();
+        BlockPos blockpos = p_196258_1_.getClickedPos();
+        BlockPos blockpos1 = blockpos.relative(direction);
+        return p_196258_1_.getLevel().getBlockState(blockpos1).canBeReplaced(p_196258_1_) ? this.defaultBlockState().setValue(FACING, direction) : null;
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Direction direction = getFootDirection(state).getOpposite();
+    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
+        Direction direction = getConnectedDirection(p_220053_1_).getOpposite();
         switch(direction) {
             case NORTH:
-                return NORTH_FACING_SHAPE;
+                return NORTH_SHAPE;
             case SOUTH:
-                return SOUTH_FACING_SHAPE;
+                return SOUTH_SHAPE;
             case WEST:
-                return WEST_FACING_SHAPE;
+                return WEST_SHAPE;
             default:
-                return EAST_FACING_SHAPE;
+                return EAST_SHAPE;
         }
     }
 
-    public static Direction getFootDirection(BlockState state) {
-        Direction direction = state.get(HORIZONTAL_FACING);
-        return state.get(PART) == BedPart.HEAD ? direction.getOpposite() : direction;
+    public static Direction getConnectedDirection(BlockState p_226862_0_) {
+        Direction direction = p_226862_0_.getValue(FACING);
+        return p_226862_0_.getValue(PART) == BedPart.HEAD ? direction.getOpposite() : direction;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static TileEntityMerger.Type getMergeType(BlockState state) {
-        BedPart bedpart = state.get(PART);
+    public static TileEntityMerger.Type getBlockType(BlockState p_226863_0_) {
+        BedPart bedpart = p_226863_0_.getValue(PART);
         return bedpart == BedPart.HEAD ? TileEntityMerger.Type.FIRST : TileEntityMerger.Type.SECOND;
     }
 
-    private static boolean isBedBelow(IBlockReader blockReader, BlockPos pos) {
-        return blockReader.getBlockState(pos.down()).getBlock() instanceof BedBlock;
+    private static boolean isBunkBed(IBlockReader p_242657_0_, BlockPos p_242657_1_) {
+        return p_242657_0_.getBlockState(p_242657_1_.below()).getBlock() instanceof BlockNightmareBed;
     }
 
-    public static Optional<Vector3d> func_242652_a(EntityType<?> type, ICollisionReader collisionReader, BlockPos pos, float orientation) {
-        Direction direction = collisionReader.getBlockState(pos).get(HORIZONTAL_FACING);
-        Direction direction1 = direction.rotateY();
-        Direction direction2 = direction1.hasOrientation(orientation) ? direction1.getOpposite() : direction1;
-        if (isBedBelow(collisionReader, pos)) {
-            return func_242653_a(type, collisionReader, pos, direction, direction2);
+    public static Optional<Vector3d> findStandUpPosition(EntityType<?> p_242652_0_, ICollisionReader p_242652_1_, BlockPos p_242652_2_, float p_242652_3_) {
+        Direction direction = p_242652_1_.getBlockState(p_242652_2_).getValue(FACING);
+        Direction direction1 = direction.getClockWise();
+        Direction direction2 = direction1.isFacingAngle(p_242652_3_) ? direction1.getOpposite() : direction1;
+        if (isBunkBed(p_242652_1_, p_242652_2_)) {
+            return findBunkBedStandUpPosition(p_242652_0_, p_242652_1_, p_242652_2_, direction, direction2);
         } else {
-            int[][] aint = func_242656_a(direction, direction2);
-            Optional<Vector3d> optional = func_242654_a(type, collisionReader, pos, aint, true);
-            return optional.isPresent() ? optional : func_242654_a(type, collisionReader, pos, aint, false);
+            int[][] aint = bedStandUpOffsets(direction, direction2);
+            Optional<Vector3d> optional = findStandUpPositionAtOffset(p_242652_0_, p_242652_1_, p_242652_2_, aint, true);
+            return optional.isPresent() ? optional : findStandUpPositionAtOffset(p_242652_0_, p_242652_1_, p_242652_2_, aint, false);
         }
     }
 
-    private static Optional<Vector3d> func_242653_a(EntityType<?> type, ICollisionReader collisionReader, BlockPos pos, Direction direction1, Direction direction2) {
-        int[][] aint = func_242658_b(direction1, direction2);
-        Optional<Vector3d> optional = func_242654_a(type, collisionReader, pos, aint, true);
+    private static Optional<Vector3d> findBunkBedStandUpPosition(EntityType<?> p_242653_0_, ICollisionReader p_242653_1_, BlockPos p_242653_2_, Direction p_242653_3_, Direction p_242653_4_) {
+        int[][] aint = bedSurroundStandUpOffsets(p_242653_3_, p_242653_4_);
+        Optional<Vector3d> optional = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint, true);
         if (optional.isPresent()) {
             return optional;
         } else {
-            BlockPos blockpos = pos.down();
-            Optional<Vector3d> optional1 = func_242654_a(type, collisionReader, blockpos, aint, true);
+            BlockPos blockpos = p_242653_2_.below();
+            Optional<Vector3d> optional1 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, blockpos, aint, true);
             if (optional1.isPresent()) {
                 return optional1;
             } else {
-                int[][] aint1 = func_242655_a(direction1);
-                Optional<Vector3d> optional2 = func_242654_a(type, collisionReader, pos, aint1, true);
+                int[][] aint1 = bedAboveStandUpOffsets(p_242653_3_);
+                Optional<Vector3d> optional2 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint1, true);
                 if (optional2.isPresent()) {
                     return optional2;
                 } else {
-                    Optional<Vector3d> optional3 = func_242654_a(type, collisionReader, pos, aint, false);
+                    Optional<Vector3d> optional3 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint, false);
                     if (optional3.isPresent()) {
                         return optional3;
                     } else {
-                        Optional<Vector3d> optional4 = func_242654_a(type, collisionReader, blockpos, aint, false);
-                        return optional4.isPresent() ? optional4 : func_242654_a(type, collisionReader, pos, aint1, false);
+                        Optional<Vector3d> optional4 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, blockpos, aint, false);
+                        return optional4.isPresent() ? optional4 : findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint1, false);
                     }
                 }
             }
         }
     }
 
-    private static Optional<Vector3d> func_242654_a(EntityType<?> type, ICollisionReader collisionReader, BlockPos pos, int[][] p_242654_3_, boolean p_242654_4_) {
+    private static Optional<Vector3d> findStandUpPositionAtOffset(EntityType<?> p_242654_0_, ICollisionReader p_242654_1_, BlockPos p_242654_2_, int[][] p_242654_3_, boolean p_242654_4_) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
         for(int[] aint : p_242654_3_) {
-            blockpos$mutable.setPos(pos.getX() + aint[0], pos.getY(), pos.getZ() + aint[1]);
-            Vector3d vector3d = TransportationHelper.func_242379_a(type, collisionReader, blockpos$mutable, p_242654_4_);
+            blockpos$mutable.set(p_242654_2_.getX() + aint[0], p_242654_2_.getY(), p_242654_2_.getZ() + aint[1]);
+            Vector3d vector3d = TransportationHelper.findSafeDismountLocation(p_242654_0_, p_242654_1_, blockpos$mutable, p_242654_4_);
             if (vector3d != null) {
                 return Optional.of(vector3d);
             }
@@ -200,53 +216,52 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
         return Optional.empty();
     }
 
-    public PushReaction getPushReaction(BlockState state) {
+    public PushReaction getPistonPushReaction(BlockState p_149656_1_) {
         return PushReaction.DESTROY;
     }
 
-    public BlockRenderType getRenderType(BlockState state) {
+    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
         return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(HORIZONTAL_FACING, PART, OCCUPIED);
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
+        p_206840_1_.add(FACING, PART, OCCUPIED);
     }
 
-    public TileEntity createNewTileEntity(IBlockReader worldIn) {
-        //TODO - nightmarebed tile
-        return new TileEntityNightmareBed(NIGHTMARE_BED);
+    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
+        return new TileEntityNightmareBed();
     }
 
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
-        if (!worldIn.isRemote) {
-            BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING));
-            worldIn.setBlockState(blockpos, state.with(PART, BedPart.HEAD), 3);
-            worldIn.func_230547_a_(pos, Blocks.AIR);
-            state.updateNeighbours(worldIn, pos, 3);
+    public void setPlacedBy(World p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, @Nullable LivingEntity p_180633_4_, ItemStack p_180633_5_) {
+        super.setPlacedBy(p_180633_1_, p_180633_2_, p_180633_3_, p_180633_4_, p_180633_5_);
+        if (!p_180633_1_.isClientSide) {
+            BlockPos blockpos = p_180633_2_.relative(p_180633_3_.getValue(FACING));
+            p_180633_1_.setBlock(blockpos, p_180633_3_.setValue(PART, BedPart.HEAD), 3);
+            p_180633_1_.blockUpdated(p_180633_2_, Blocks.AIR);
+            p_180633_3_.updateNeighbourShapes(p_180633_1_, p_180633_2_, 3);
         }
 
     }
 
     @OnlyIn(Dist.CLIENT)
-    public long getPositionRandom(BlockState state, BlockPos pos) {
-        BlockPos blockpos = pos.offset(state.get(HORIZONTAL_FACING), state.get(PART) == BedPart.HEAD ? 0 : 1);
-        return MathHelper.getCoordinateRandom(blockpos.getX(), pos.getY(), blockpos.getZ());
+    public long getSeed(BlockState p_209900_1_, BlockPos p_209900_2_) {
+        BlockPos blockpos = p_209900_2_.relative(p_209900_1_.getValue(FACING), p_209900_1_.getValue(PART) == BedPart.HEAD ? 0 : 1);
+        return MathHelper.getSeed(blockpos.getX(), p_209900_2_.getY(), blockpos.getZ());
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+    public boolean isPathfindable(BlockState p_196266_1_, IBlockReader p_196266_2_, BlockPos p_196266_3_, PathType p_196266_4_) {
         return false;
     }
 
-    private static int[][] func_242656_a(Direction direction1, Direction direction2) {
-        return ArrayUtils.addAll((int[][])func_242658_b(direction1, direction2), (int[][])func_242655_a(direction1));
+    private static int[][] bedStandUpOffsets(Direction p_242656_0_, Direction p_242656_1_) {
+        return ArrayUtils.addAll((int[][])bedSurroundStandUpOffsets(p_242656_0_, p_242656_1_), (int[][])bedAboveStandUpOffsets(p_242656_0_));
     }
 
-    private static int[][] func_242658_b(Direction direction1, Direction direction2) {
-        return new int[][]{{direction2.getXOffset(), direction2.getZOffset()}, {direction2.getXOffset() - direction1.getXOffset(), direction2.getZOffset() - direction1.getZOffset()}, {direction2.getXOffset() - direction1.getXOffset() * 2, direction2.getZOffset() - direction1.getZOffset() * 2}, {-direction1.getXOffset() * 2, -direction1.getZOffset() * 2}, {-direction2.getXOffset() - direction1.getXOffset() * 2, -direction2.getZOffset() - direction1.getZOffset() * 2}, {-direction2.getXOffset() - direction1.getXOffset(), -direction2.getZOffset() - direction1.getZOffset()}, {-direction2.getXOffset(), -direction2.getZOffset()}, {-direction2.getXOffset() + direction1.getXOffset(), -direction2.getZOffset() + direction1.getZOffset()}, {direction1.getXOffset(), direction1.getZOffset()}, {direction2.getXOffset() + direction1.getXOffset(), direction2.getZOffset() + direction1.getZOffset()}};
+    private static int[][] bedSurroundStandUpOffsets(Direction p_242658_0_, Direction p_242658_1_) {
+        return new int[][]{{p_242658_1_.getStepX(), p_242658_1_.getStepZ()}, {p_242658_1_.getStepX() - p_242658_0_.getStepX(), p_242658_1_.getStepZ() - p_242658_0_.getStepZ()}, {p_242658_1_.getStepX() - p_242658_0_.getStepX() * 2, p_242658_1_.getStepZ() - p_242658_0_.getStepZ() * 2}, {-p_242658_0_.getStepX() * 2, -p_242658_0_.getStepZ() * 2}, {-p_242658_1_.getStepX() - p_242658_0_.getStepX() * 2, -p_242658_1_.getStepZ() - p_242658_0_.getStepZ() * 2}, {-p_242658_1_.getStepX() - p_242658_0_.getStepX(), -p_242658_1_.getStepZ() - p_242658_0_.getStepZ()}, {-p_242658_1_.getStepX(), -p_242658_1_.getStepZ()}, {-p_242658_1_.getStepX() + p_242658_0_.getStepX(), -p_242658_1_.getStepZ() + p_242658_0_.getStepZ()}, {p_242658_0_.getStepX(), p_242658_0_.getStepZ()}, {p_242658_1_.getStepX() + p_242658_0_.getStepX(), p_242658_1_.getStepZ() + p_242658_0_.getStepZ()}};
     }
 
-    private static int[][] func_242655_a(Direction direction) {
-        return new int[][]{{0, 0}, {-direction.getXOffset(), -direction.getZOffset()}};
+    private static int[][] bedAboveStandUpOffsets(Direction p_242655_0_) {
+        return new int[][]{{0, 0}, {-p_242655_0_.getStepX(), -p_242655_0_.getStepZ()}};
     }
 }

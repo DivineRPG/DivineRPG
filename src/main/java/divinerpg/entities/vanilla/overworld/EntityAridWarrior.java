@@ -1,20 +1,15 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackMob {
 
@@ -22,13 +17,13 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
         super(type, worldIn);
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.aridWarriorHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.aridWarriorDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.aridWarriorSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.aridWarriorFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.aridWarriorHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.aridWarriorDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.aridWarriorSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.aridWarriorFollowRange);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2.25F;
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD;
+        return level.dimension() == World.OVERWORLD;
     }
 
     @Override
@@ -37,9 +32,9 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
         goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 1, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
     @Override
-    public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
         //TODO - Custom arrow
-        this.world.addEntity(new ArrowEntity(world, this));
+        this.level.addFreshEntity(new ArrowEntity(level, this));
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -57,7 +52,7 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ARID_WARRIOR;
     }
 

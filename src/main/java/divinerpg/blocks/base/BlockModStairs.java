@@ -5,7 +5,7 @@ import net.minecraft.block.*;
 
 public class BlockModStairs extends StairsBlock {
     public BlockModStairs(String name, Block base) {
-        super(base.getDefaultState(), AbstractBlock.Properties.from(base));
+        super(base.defaultBlockState(), AbstractBlock.Properties.copy(base));
         setRegistryName(DivineRPG.MODID, name);
     }
 }

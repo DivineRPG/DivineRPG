@@ -10,6 +10,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
+import javax.annotation.*;
+
 public class EntityJackOMan extends EntityDivineMerchant {
     public EntityJackOMan(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
@@ -68,19 +70,18 @@ public class EntityJackOMan extends EntityDivineMerchant {
     }
 
     @Override
-    public boolean canRestockTrades() {
-        return true;
+    public boolean canRestock() {return true;
     }
 
     @Override
-    public void openMerchantContainer(PlayerEntity player, ITextComponent displayName, int level) {
+    public void openTradingScreen(PlayerEntity player, ITextComponent displayName, int level) {
         if (getGuiId() != 0) {
-            super.openMerchantContainer(player, displayName, level);
+            super.openTradingScreen(player, displayName, level);
         }
     }
 
     @Override
-    public boolean canDespawn(double distanceToClosestPlayer) {
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return true;
     }
 
@@ -97,5 +98,15 @@ public class EntityJackOMan extends EntityDivineMerchant {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.JACKOMAN;
+    }
+
+    @Override
+    public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+    }
+
+    @Override
+    public World getLevel() {
+        return level;
     }
 }

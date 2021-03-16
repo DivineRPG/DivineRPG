@@ -21,12 +21,10 @@ public class EntitySoulStealer extends EntityDivineMob {
         return 1.75F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.skythernFiendHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.skythernFiendDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.skythernFiendSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.skythernFiendFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernFiendHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernFiendDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernFiendSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernFiendFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -36,11 +34,11 @@ public class EntitySoulStealer extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        if (super.attackEntityAsMob(entity)) {
+    public boolean doHurtTarget(Entity entity) {
+        if (super.doHurtTarget(entity)) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.NAUSEA, 12 * 20, 0, false, false));
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, 12 * 20, 0, false, false));
+                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.CONFUSION, 12 * 20, 0, false, false));
+                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.BLINDNESS, 12 * 20, 0, false, false));
             }
             return true;
         } else {
@@ -49,7 +47,7 @@ public class EntitySoulStealer extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -59,7 +57,7 @@ public class EntitySoulStealer extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SOUL_STEALER;
     }
 }

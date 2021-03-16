@@ -16,18 +16,16 @@ public class EntityAngryBunny extends EntityDivineMob {
 
     public EntityAngryBunny(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue=40;
+        xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.4F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.angryBunnyHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.angryBunnyDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.angryBunnySpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.angryBunnyFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.angryBunnyHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.angryBunnyDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.angryBunnySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.angryBunnyFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -37,8 +35,8 @@ public class EntityAngryBunny extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), 12);
+    public boolean doHurtTarget(Entity entity) {
+        return entity.hurt(DamageSource.mobAttack(this), 12);
     }
 
     @Override
@@ -57,7 +55,7 @@ public class EntityAngryBunny extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ANGRY_BUNNY;
     }
 }

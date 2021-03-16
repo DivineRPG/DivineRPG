@@ -7,25 +7,28 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 import java.util.*;
 
 public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
     protected EntityDivineFlyingMob(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
-        this.moveController = new EntityDivineFlyingMob.MoveHelperController(this);
+        this.moveControl = new EntityDivineFlyingMob.MoveHelperController(this);
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(5, new EntityDivineFlyingMob.RandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EntityDivineFlyingMob.LookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
-            return Math.abs(p_213812_1_.getPosY() - this.getPosY()) <= 4.0D;
+            return Math.abs(p_213812_1_.getY() - this.getY()) <= 4.0D;
         }));
 
         //TODO - Ranged fly mob attacks
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+    }
     protected boolean isDespawnPeaceful() {
         return true;
     }
@@ -37,14 +40,14 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
 
         public LookAroundGoal(EntityDivineFlyingMob ent) {
             this.parentEntity = ent;
-            this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
         }
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
-        public boolean shouldExecute() {
+        public boolean canUse() {
             return true;
         }
 
@@ -52,18 +55,18 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            if (this.parentEntity.getAttackTarget() == null) {
-                Vector3d vector3d = this.parentEntity.getMotion();
-                this.parentEntity.rotationYaw = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
-                this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+            if (this.parentEntity.getTarget() == null) {
+                Vector3d vector3d = this.parentEntity.getDeltaMovement();
+                this.parentEntity.xRot = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.parentEntity.xRotO = this.parentEntity.xRot;
             } else {
-                LivingEntity livingentity = this.parentEntity.getAttackTarget();
+                LivingEntity livingentity = this.parentEntity.getTarget();
                 double d0 = 64.0D;
-                if (livingentity.getDistanceSq(this.parentEntity) < 4096.0D) {
-                    double d1 = livingentity.getPosX() - this.parentEntity.getPosX();
-                    double d2 = livingentity.getPosZ() - this.parentEntity.getPosZ();
-                    this.parentEntity.rotationYaw = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
-                    this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+                if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
+                    double d1 = livingentity.getX() - this.parentEntity.getX();
+                    double d2 = livingentity.getZ() - this.parentEntity.getZ();
+                    this.parentEntity.xRot = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.parentEntity.xRotO = this.parentEntity.xRot;
                 }
             }
 
@@ -79,28 +82,28 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
         }
 
         public void tick() {
-            if (this.action == MovementController.Action.MOVE_TO) {
+            if (this.operation == MovementController.Action.MOVE_TO) {
                 if (this.courseChangeCooldown-- <= 0) {
-                    this.courseChangeCooldown += this.parentEntity.getRNG().nextInt(5) + 2;
-                    Vector3d vector3d = new Vector3d(this.posX - this.parentEntity.getPosX(), this.posY - this.parentEntity.getPosY(), this.posZ - this.parentEntity.getPosZ());
+                    this.courseChangeCooldown += this.parentEntity.getRandom().nextInt(5) + 2;
+                    Vector3d vector3d = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
                     double d0 = vector3d.length();
                     vector3d = vector3d.normalize();
-                    if (this.func_220673_a(vector3d, MathHelper.ceil(d0))) {
-                        this.parentEntity.setMotion(this.parentEntity.getMotion().add(vector3d.scale(0.1D)));
+                    if (this.canReach(vector3d, MathHelper.ceil(d0))) {
+                        this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(vector3d.scale(0.1D)));
                     } else {
-                        this.action = MovementController.Action.WAIT;
+                        this.operation = MovementController.Action.WAIT;
                     }
                 }
 
             }
         }
 
-        private boolean func_220673_a(Vector3d p_220673_1_, int p_220673_2_) {
+        private boolean canReach(Vector3d p_220673_1_, int p_220673_2_) {
             AxisAlignedBB axisalignedbb = this.parentEntity.getBoundingBox();
 
             for(int i = 1; i < p_220673_2_; ++i) {
-                axisalignedbb = axisalignedbb.offset(p_220673_1_);
-                if (!this.parentEntity.world.hasNoCollisions(this.parentEntity, axisalignedbb)) {
+                axisalignedbb = axisalignedbb.move(p_220673_1_);
+                if (!this.parentEntity.level.noCollision(this.parentEntity, axisalignedbb)) {
                     return false;
                 }
             }
@@ -114,21 +117,21 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
 
         public RandomFlyGoal(EntityDivineFlyingMob ent) {
             this.parentEntity = ent;
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
-        public boolean shouldExecute() {
-            MovementController movementcontroller = this.parentEntity.getMoveHelper();
-            if (!movementcontroller.isUpdating()) {
+        public boolean canUse() {
+            MovementController movementcontroller = this.parentEntity.getMoveControl();
+            if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
-                double d0 = movementcontroller.getX() - this.parentEntity.getPosX();
-                double d1 = movementcontroller.getY() - this.parentEntity.getPosY();
-                double d2 = movementcontroller.getZ() - this.parentEntity.getPosZ();
+                double d0 = movementcontroller.getWantedX() - this.parentEntity.getX();
+                double d1 = movementcontroller.getWantedY() - this.parentEntity.getY();
+                double d2 = movementcontroller.getWantedZ() - this.parentEntity.getZ();
                 double d3 = d0 * d0 + d1 * d1 + d2 * d2;
                 return d3 < 1.0D || d3 > 3600.0D;
             }
@@ -145,11 +148,11 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
          * Execute a one shot task or start executing a continuous task
          */
         public void startExecuting() {
-            Random random = this.parentEntity.getRNG();
-            double d0 = this.parentEntity.getPosX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d1 = this.parentEntity.getPosY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d2 = this.parentEntity.getPosZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.parentEntity.getMoveHelper().setMoveTo(d0, d1, d2, 1.0D);
+            Random random = this.parentEntity.getRandom();
+            double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
         }
     }
 }

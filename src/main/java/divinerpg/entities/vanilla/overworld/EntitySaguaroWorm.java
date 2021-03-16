@@ -16,7 +16,7 @@ import net.minecraft.world.*;
 
 
 public class EntitySaguaroWorm extends EntityDivineMob {
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntitySaguaroWorm.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.defineId(EntitySaguaroWorm.class, DataSerializers.BOOLEAN);
     public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, World worldIn) {
         super(type, worldIn);
     }
@@ -24,16 +24,17 @@ public class EntitySaguaroWorm extends EntityDivineMob {
     public boolean needsSpecialAI() {
         return true;
     }
-    public double getMountedYOffset() {
-        return (double)(2.5F);
+
+    public double getMyRidingOffset() {return (double)(2.5F);
     }
-    protected PathNavigator createNavigator(World worldIn) {
+
+    protected PathNavigator createNavigation(World worldIn) {
         return new ClimberPathNavigator(this, worldIn);
     }
 
-    protected void registerData() {
-        super.registerData();
-        dataManager.register(PROVOKED, Boolean.valueOf(false));
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(PROVOKED, Boolean.valueOf(false));
     }
 
     @Override
@@ -42,35 +43,35 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         addAttackingAI();
     }
     public boolean getProvoked() {
-        return this.dataManager.get(PROVOKED).booleanValue();
+        return this.entityData.get(PROVOKED).booleanValue();
     }
 
     public void setProvoked(boolean provoked) {
-        dataManager.set(PROVOKED, Boolean.valueOf(provoked));
+        entityData.set(PROVOKED, Boolean.valueOf(provoked));
     }
     public void tick() {
         super.tick();
-        if (!this.world.isRemote) {
-            PlayerEntity player = this.world.getClosestPlayer(this, 10.0D);
-            this.setAttackTarget(player);
+        if (!this.level.isClientSide) {
+            PlayerEntity player = this.level.getNearestPlayer(this, 10.0D);
+            this.setTarget(player);
             if (player == null) {
                 this.setProvoked(false);
             } else {
                 this.setProvoked(true);
-                if (this.ticksExisted % 50 == 0) {
+                if (this.tickCount % 50 == 0) {
                     this.attack(player);
                 }
             }
         }
         if (!this.getProvoked()) {
-            this.renderYawOffset = 0;
+            this.xRotO = 0;
         }
     }
     public void attack(LivingEntity e) {
         double y = this.getBoundingBox().minY + 2.7D;
-        double tx = e.getPosX() - getPosX();
+        double tx = e.getX() - getX();
         double ty = e.getBoundingBox().minY - y;
-        double tz = e.getPosZ() - getPosZ();
+        double tz = e.getZ() - getZ();
 
         for (double h = -1.5; h < 1.5; h += 0.5) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
@@ -87,15 +88,15 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         }
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.saguaroWormHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.saguaroWormDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.saguaroWormSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.saguaroWormFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.saguaroWormHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.saguaroWormDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.saguaroWormSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.saguaroWormFollowRange);
     }
-    public void readAdditional(CompoundNBT tag) {
-        super.readAdditional(tag);
+    public void readAdditionalSaveData(CompoundNBT tag) {
+        super.readAdditionalSaveData(tag);
             setProvoked(tag.getBoolean("Provoked"));
     }
 
-    public void writeAdditional(CompoundNBT tag) {
-        super.writeAdditional(tag);
+    public void addAdditionalSaveData(CompoundNBT tag) {
+        super.addAdditionalSaveData(tag);
         tag.putBoolean("Provoked", this.getProvoked());
     }
 
@@ -110,11 +111,11 @@ public class EntitySaguaroWorm extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SAGUARO_WORM;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && world.getBlockState(getPosition().down()).getBlock() == Blocks.SAND && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && level.getBlockState(blockPosition().below()).getBlock() == Blocks.SAND && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

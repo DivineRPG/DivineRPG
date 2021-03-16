@@ -3,8 +3,11 @@ package divinerpg.entities.iceika;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityWorkshopMerchant extends EntityDivineMerchant {
 
@@ -66,5 +69,15 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant {
 //        list.add(new MerchantOffer(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.redCandyCane, 4), ItemRegistry.skelemanHelmet.getMaxDamage(), 1, 1));
 //        list.add(new MerchantOffer(new ItemStack(ItemRegistry.iceStone, 3), new ItemStack(BlockRegistry.yellowCandyCane, 4), ItemRegistry.skelemanHelmet.getMaxDamage(), 1, 1));
         return list;
+    }
+
+    @Override
+    public void setTradingPlayer(@Nullable PlayerEntity player) {
+
+    }
+
+    @Override
+    public World getLevel() {
+        return level;
     }
 }

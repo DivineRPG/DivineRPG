@@ -7,19 +7,19 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.*;
 
 public class BlockAcceleron extends BlockMod {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
 
     @Deprecated
     public BlockAcceleron(String name) {
-        super(name, Block.Properties.create(Material.ROCK, MaterialColor.STONE)
-                .setRequiresTool()
-                .hardnessAndResistance(3.0F, 3.0F)
+        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE)
+                .requiresCorrectToolForDrops()
+                .strength(3.0F, 3.0F)
                 .sound(SoundType.WOOD)
-                .slipperiness(1.2F));
+                .friction(1.2F));
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

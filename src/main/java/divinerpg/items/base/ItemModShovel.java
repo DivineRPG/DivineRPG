@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ItemModShovel extends ShovelItem {
     public ItemModShovel(IItemTier tier, String name, ItemGroup group) {
-        super(tier, 0, -1.2F, new Item.Properties().group(group));
+        super(tier, 0, -1.2F, new Item.Properties().tab(group));
         setRegistryName(name);
     }
 

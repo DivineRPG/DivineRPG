@@ -17,10 +17,10 @@ public class EntityFractite extends EntityDivineFlyingMob {
         return 0.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.fractiteHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.fractiteSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.fractiteFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.fractiteHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.fractiteSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.fractiteFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     //TODO - Fractite shot
@@ -34,8 +34,9 @@ public class EntityFractite extends EntityDivineFlyingMob {
 //                SoundRegistry.FRACTITE_ATTACK);
 //    }
 
+
     @Override
-    public int getMaxSpawnedInChunk() {
+    public int getMaxSpawnClusterSize() {
         return 1;
     }
 
@@ -55,7 +56,7 @@ public class EntityFractite extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_FRACTITE;
     }
 }

@@ -18,11 +18,11 @@ public class EntityDungeonDemon extends EntityDivineMob {
         return 1.8F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.dungeonPrisonerHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.dungeonPrisonerDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.dungeonPrisonerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.dungeonPrisonerFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.dungeonPrisonerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.dungeonPrisonerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.dungeonPrisonerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dungeonPrisonerFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
         return true;
     }
 
@@ -48,7 +48,7 @@ public class EntityDungeonDemon extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DUNGEON_DEMON;
     }
 }

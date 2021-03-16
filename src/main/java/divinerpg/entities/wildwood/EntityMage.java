@@ -16,7 +16,7 @@ public class EntityMage extends EntityMageBase {
 //    }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_MAGE;
     }
 }

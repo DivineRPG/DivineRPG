@@ -17,8 +17,8 @@ public class TileRegistry {
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
-        ALTAR_OF_CORRUPTION = TileEntityType.Builder.create(() -> new AltarOfCorruptionEntity(ALTAR_OF_CORRUPTION), BlockRegistry.altarOfCorruption).build(null);
-        NIGHTMARE_BED = TileEntityType.Builder.create(() -> new TileEntityNightmareBed(NIGHTMARE_BED), BlockRegistry.nightmareBed).build(null);
+        ALTAR_OF_CORRUPTION = TileEntityType.Builder.of(() -> new AltarOfCorruptionEntity(ALTAR_OF_CORRUPTION), BlockRegistry.altarOfCorruption).build(null);
+        NIGHTMARE_BED = TileEntityType.Builder.of(() -> new TileEntityNightmareBed(NIGHTMARE_BED), BlockRegistry.nightmareBed).build(null);
         event.getRegistry().registerAll(
                 ALTAR_OF_CORRUPTION.setRegistryName(DivineRPG.MODID, "altar_of_corruption"),
                 NIGHTMARE_BED.setRegistryName(DivineRPG.MODID, "nightmare_bed")

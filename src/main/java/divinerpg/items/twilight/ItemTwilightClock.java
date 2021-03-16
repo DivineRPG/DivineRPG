@@ -22,29 +22,25 @@ public class ItemTwilightClock extends ItemMod {
     }};
 
     public ItemTwilightClock(String name) {
-        super(name, new Item.Properties().group(DivineRPG.tabs.utilities).maxStackSize(1));
+        super(name, new Item.Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
         PlayerEntity player = context.getPlayer();
         Hand hand = context.getHand();
-        BlockPos pos = context.getPos();
-        Direction facing = context.getPlacementHorizontalFacing();
-        ItemStack itemstack = player.getHeldItem(hand);
-        World worldIn = context.getWorld();
-        Random itemRand = context.getWorld().rand;
-        if (!player.canPlayerEdit(pos, facing, itemstack)) {
+        BlockPos pos = context.getClickedPos();
+        Direction facing = context.getClickedFace();
+        ItemStack itemstack = player.getItemInHand(hand);
+        World worldIn = context.getLevel();
+        Random itemRand = context.getLevel().random;
+        if (!player.mayUseItemAt(pos, facing, itemstack)) {
             return ActionResultType.FAIL;
         }
 
-        BlockPos withOffset = pos.offset(facing);
 
-        if (!worldIn.isRemote
-                && worldIn.isAirBlock(withOffset)
-                && worldIn.isAirBlock(pos.up())) {
-
-            worldIn.playSound(player, withOffset, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
+        if (!worldIn.isClientSide) {
+            worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
                     itemRand.nextFloat() * 0.4F + 0.8F);
 
             Block block = worldIn.getBlockState(pos).getBlock();

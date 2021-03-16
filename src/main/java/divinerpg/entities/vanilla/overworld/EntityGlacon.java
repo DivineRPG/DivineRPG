@@ -16,7 +16,7 @@ public class EntityGlacon extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.glaconHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.glaconDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.glaconSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.glaconFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.glaconHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.glaconDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.glaconSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.glaconFollowRange);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
@@ -45,11 +45,11 @@ public class EntityGlacon extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_GLACON;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

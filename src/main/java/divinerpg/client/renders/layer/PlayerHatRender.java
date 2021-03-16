@@ -29,26 +29,26 @@ public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> 
 
     public PlayerHatRender(IEntityRenderer<T, M> entityRendererIn) {
         super(entityRendererIn);
-        modelHat=new ModelHat(getEntityModel());
+        modelHat=new ModelHat(getParentModel());
     }
 
     @Override
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (entitylivingbaseIn.isSneaking()) {
+        if (entitylivingbaseIn.isCrouching()) {
             matrixStackIn.translate(0.0F, 0.2F, 0.0F);
         }
-        this.getEntityModel().copyModelAttributesTo(modelHat);
-        this.modelHat.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
-        this.modelHat.setRotationAngles(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.getEntityCutoutNoCull(getEntityTexture(entitylivingbaseIn)));
-        this.modelHat.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.getParentModel().copyPropertiesTo(modelHat);
+        this.modelHat.prepareMobModel(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
+        this.modelHat.setupAnim(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+        IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entitylivingbaseIn)));
+        this.modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
     }
 
     @Override
-    public ResourceLocation getEntityTexture(T entity) {
+    public ResourceLocation getTextureLocation(T entity) {
         if (entity != null) {
-        UUID id = entity.getUniqueID();
+        UUID id = entity.getUUID();
 
         if (Utils.isDeveloperName(id)) {
             return dev;

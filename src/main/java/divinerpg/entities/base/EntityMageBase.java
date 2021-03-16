@@ -37,7 +37,7 @@ public class EntityMageBase extends EntityDivineMob {
         return 2F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.behemothHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.behemothDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.behemothSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.behemothFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.behemothHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.behemothDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.behemothSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.behemothFollowRange);
     }
 
     @Override
@@ -49,18 +49,18 @@ public class EntityMageBase extends EntityDivineMob {
     @Override
     public void tick() {
         super.tick();
-        if (this.ticksExisted % 20 == 0) {
-            this.attackingPlayer = this.world.getClosestPlayer(this, 16D);
-            if (this.attackingPlayer != null && !this.world.isRemote) {
-                double tx = this.attackingPlayer.getPosX() - this.getPosX();
-                double ty = this.attackingPlayer.getBoundingBox().minY - this.getPosY();
-                double tz = this.attackingPlayer.getPosZ() - this.getPosZ();
+        if (this.tickCount % 20 == 0) {
+            setTarget(this.level.getNearestPlayer(this, 16D));
+            if (this.getTarget() != null && !this.level.isClientSide) {
+                double tx = this.getTarget().getX() - this.getX();
+                double ty = this.getTarget().getBoundingBox().minY - this.getY();
+                double tz = this.getTarget().getZ() - this.getZ();
                 //TODO - Mage shot
 //                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, bullet);
 //                shot.shoot(tx, ty, tz, 1.6f, 0);
 //                this.world.spawnEntity(shot);
-                this.world.playSound(null, this.attackingPlayer.getPosX(), this.attackingPlayer.getPosY(),
-                        this.attackingPlayer.getPosZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),
+                        this.getTarget().getZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }
         }
     }

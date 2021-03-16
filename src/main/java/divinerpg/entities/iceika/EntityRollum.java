@@ -20,10 +20,10 @@ public class EntityRollum extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.rollumHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.rollumDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.rollumSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.rollumFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.rollumHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rollumDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rollumSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rollumFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     @Override
@@ -33,9 +33,9 @@ public class EntityRollum extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        super.attackEntityAsMob(entity);
-        entity.addVelocity(this.motionMultiplier.x * 3.0D, 0.3D, this.motionMultiplier.z * 3.0D);
+    public boolean doHurtTarget(Entity entity) {
+        super.doHurtTarget(entity);
+        entity.setDeltaMovement(this.stuckSpeedMultiplier.x * 3.0D, 0.3D, this.stuckSpeedMultiplier.z * 3.0D);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class EntityRollum extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ROLLUM;
     }
 }

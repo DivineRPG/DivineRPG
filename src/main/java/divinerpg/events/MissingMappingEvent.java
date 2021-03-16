@@ -77,7 +77,7 @@ public class MissingMappingEvent
                 mapping.remap(ItemRegistry.torriditeLeggings);
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:ayeraco_statue"))) {
-                mapping.remap(Item.getItemFromBlock(BlockRegistry.ayeracoBlueStatue));
+                mapping.remap(Item.byBlock(BlockRegistry.ayeracoBlueStatue));
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:santa_cap"))) {
                 mapping.remap(ItemRegistry.santaHelmet);
@@ -89,16 +89,16 @@ public class MissingMappingEvent
                 mapping.remap(ItemRegistry.santaLeggings);
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:tar"))) {
-                mapping.remap(Item.getItemFromBlock(BlockRegistry.smolderingTar));
+                mapping.remap(Item.byBlock(BlockRegistry.smolderingTar));
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:ancient_brick"))) {
-                mapping.remap(Item.getItemFromBlock(BlockRegistry.ancientBricks));
+                mapping.remap(Item.byBlock(BlockRegistry.ancientBricks));
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:degraded_brick"))) {
-                mapping.remap(Item.getItemFromBlock(BlockRegistry.degradedBricks));
+                mapping.remap(Item.byBlock(BlockRegistry.degradedBricks));
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:arcanium_ore"))) {
-                mapping.remap(Item.getItemFromBlock(BlockRegistry.rawArcanium));
+                mapping.remap(Item.byBlock(BlockRegistry.rawArcanium));
             }
         }
     }

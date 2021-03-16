@@ -21,12 +21,10 @@ public class EntityDemonOfDarkness extends EntityDivineMob {
         return 0.95F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.mortumDemonHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.mortumDemonHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.mortumDemonSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.mortumDemonFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumDemonHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumDemonHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumDemonSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumDemonFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -36,7 +34,7 @@ public class EntityDemonOfDarkness extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -56,7 +54,7 @@ public class EntityDemonOfDarkness extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DEMON_OF_DARKNESS;
     }
 }

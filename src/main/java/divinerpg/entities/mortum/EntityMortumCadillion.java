@@ -15,7 +15,7 @@ public class EntityMortumCadillion extends EntityDivineMob {
 
     public EntityMortumCadillion(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue=40;
+        xpReward=40;
     }
 
     @Override
@@ -28,16 +28,14 @@ public class EntityMortumCadillion extends EntityDivineMob {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.mortumCadillionHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.mortumCadillionDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.mortumCadillionSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.mortumCadillionFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumCadillionFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -57,7 +55,7 @@ public class EntityMortumCadillion extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_MORTUM_CADILLION;
     }
 }

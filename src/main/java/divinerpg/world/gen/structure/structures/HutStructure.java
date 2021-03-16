@@ -24,7 +24,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     @Override
-    public GenerationStage.Decoration getDecorationStage() {
+    public GenerationStage.Decoration step() {
         return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
@@ -43,12 +43,12 @@ public class HutStructure extends Structure<NoFeatureConfig> {
             super(p_i225817_1_, p_i225817_2_, p_i225817_3_, p_i225817_4_, p_i225817_5_, p_i225817_6_);
         }
 
-        public void func_230364_a_(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
-            Rotation rotation = Rotation.randomRotation(this.rand);
-            Mirror mirror = this.rand.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
+        public void generatePieces(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
+            Rotation rotation = Rotation.getRandom(this.random);
+            Mirror mirror = this.random.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
             BlockPos blockpos = new BlockPos(p_230364_4_ * 16, 90, p_230364_5_ * 16);
-            HutPiece.func_204760_a(p_230364_3_, blockpos, rotation, mirror, this.components, this.rand);
-            this.recalculateStructureSize();
+            HutPiece.addPieces(p_230364_3_, blockpos, rotation, mirror, this.pieces, this.random);
+            this.calculateBoundingBox();
         }
     }
 }

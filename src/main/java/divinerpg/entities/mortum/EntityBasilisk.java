@@ -17,19 +17,17 @@ public class EntityBasilisk extends EntityDivineMob {
 
     public EntityBasilisk(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        this.setPathPriority(PathNodeType.WATER, -1.0F);
+        this.setPathfindingMalus(PathNodeType.WATER, -1.0F);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.55F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.basliskHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.basliskDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.basliskSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.basliskFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.basliskHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.basliskDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.basliskSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.basliskFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -39,7 +37,7 @@ public class EntityBasilisk extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -59,7 +57,7 @@ public class EntityBasilisk extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_BASILISK;
     }
 }

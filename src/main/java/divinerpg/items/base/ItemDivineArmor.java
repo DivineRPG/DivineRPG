@@ -1,38 +1,36 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
+import divinerpg.*;
 import divinerpg.util.*;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.client.util.*;
+import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.util.text.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
-import org.lwjgl.system.CallbackI;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public IArmorMaterial mat;
     public ArmorInfo armorInfo;
 
     public ItemDivineArmor(String name, IArmorMaterial materialIn, EquipmentSlotType slot) {
-        super(materialIn, slot, new Item.Properties().group(DivineRPG.tabs.armor));
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
         setRegistryName(DivineRPG.MODID, name);
         this.mat = materialIn;
     }
 
     public ItemDivineArmor(String name, IArmorMaterial materialIn, EquipmentSlotType slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties().group(DivineRPG.tabs.armor));
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
         setRegistryName(DivineRPG.MODID, name);
         this.mat = materialIn;
         this.armorInfo=armorInfo;
     }
 
-    public int getItemEnchantability() {
-        return mat.getEnchantability();
+    public int getEnchantmentValue() {
+        return mat.getEnchantmentValue();
     }
 
 

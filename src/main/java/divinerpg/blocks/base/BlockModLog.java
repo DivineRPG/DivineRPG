@@ -15,30 +15,28 @@ public class BlockModLog extends RotatedPillarBlock {
     Supplier<Block> strippedLog;
 
     public BlockModLog(String name, MaterialColor color, Supplier<Block> strippedLog) {
-        super(Block.Properties.create(Material.WOOD, color).hardnessAndResistance(3.0F, 5.0F).sound(SoundType.WOOD).setRequiresTool());
+        super(Block.Properties.of(Material.WOOD, color).strength(3.0F, 5.0F).sound(SoundType.WOOD));
         setRegistryName(DivineRPG.MODID, name);
         this.strippedLog = strippedLog;
     }
 
     public BlockModLog(String name, MaterialColor color, Supplier<Block> strippedLog, float hardness) {
-        super(Block.Properties.create(Material.WOOD, color).hardnessAndResistance(hardness, 5.0F).sound(SoundType.WOOD).setRequiresTool());
+        super(Block.Properties.of(Material.WOOD, color).strength(hardness, 5.0F).sound(SoundType.WOOD));
         setRegistryName(DivineRPG.MODID, name);
         this.strippedLog = strippedLog;
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
-
-        if (!world.isRemote()) {
-            ItemStack itemStack = player.getHeldItem(hand);
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+        if (!world.isClientSide()) {
+            ItemStack itemStack = player.getItemInHand(hand);
             if (itemStack.getItem() instanceof AxeItem) {
                 BlockState sourceState = world.getBlockState(pos);
                 if (strippedLog == null) {
                     strippedLog = () -> Blocks.OAK_LOG;
                 }
                 if (!state.getBlock().getRegistryName().getPath().contains("stripped_")) {
-                    world.setBlockState(pos, strippedLog.get().getDefaultState(), 3);
-                    itemStack.damageItem(1, player, (p_220040_1_) -> p_220040_1_.sendBreakAnimation(hand));
+                    world.setBlock(pos, strippedLog.get().defaultBlockState(), 3);
                 }
                 return ActionResultType.PASS;
             }

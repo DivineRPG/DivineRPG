@@ -19,12 +19,10 @@ public class EntityMadivel extends EntityDivineMob {
         return 2.6F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.madivelHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.madivelDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.madivelSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.madivelFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.madivelHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.madivelDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.madivelSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.madivelFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
 
     @Override
@@ -49,7 +47,7 @@ public class EntityMadivel extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_MADIVEL;
     }
 }

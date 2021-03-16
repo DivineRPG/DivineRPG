@@ -22,12 +22,10 @@ public class EntitySoulSpider extends EntityDivineMob {
         return 0.35F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.soulSpiderHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.soulSpiderDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.soulSpiderSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.soulSpiderFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.soulSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.soulSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.soulSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.soulSpiderFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -39,8 +37,8 @@ public class EntitySoulSpider extends EntityDivineMob {
     @Override
     public void tick() {
         super.tick();
-        if (this.ticksExisted > 600 && !this.world.isRemote)
-            this.setDead();
+        if (this.tickCount > 600 && !this.level.isClientSide)
+            this.kill();
     }
 
     @Override
@@ -59,7 +57,7 @@ public class EntitySoulSpider extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SOUL_SPIDER;
     }
 }

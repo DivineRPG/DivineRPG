@@ -22,13 +22,13 @@ public class MinerPickLayer extends LayerRenderer<EntityMiner, ModelMiner<Entity
 
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, EntityMiner entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        matrixStackIn.push();
-        ModelRenderer modelrenderer = this.getEntityModel().RightArm;
-        modelrenderer.translateRotate(matrixStackIn);
+        matrixStackIn.pushPose();
+        ModelRenderer modelrenderer = this.getParentModel().RightArm;
+        modelrenderer.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.0625F, 0.8375F, -0.2F);
-        matrixStackIn.rotate(Vector3f.YP.rotationDegrees(-270.0F));
-        Minecraft.getInstance().getItemRenderer().renderItem(entitylivingbaseIn, Items.GOLDEN_PICKAXE.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.world, packedLightIn, LivingRenderer.getPackedOverlay(entitylivingbaseIn, 0.0F));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-270.0F));
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, Items.GOLDEN_PICKAXE.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
 
-        matrixStackIn.pop();
+        matrixStackIn.popPose();
     }
 }

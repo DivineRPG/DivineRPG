@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ItemModAxe extends AxeItem {
     public ItemModAxe(IItemTier tier, String name, ItemGroup group) {
-        super(tier, 0, -3.4F, new Item.Properties().group(group));
+        super(tier, 0, -3.4F, new Item.Properties().tab(group));
         setRegistryName(name);
     }
 

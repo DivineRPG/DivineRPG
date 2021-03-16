@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 
 public class ItemVethean extends ItemMod {
     public ItemVethean(String name) {
-        super(name, new Item.Properties().group(DivineRPG.tabs.vethea));
+        super(name, new Item.Properties().tab(DivineRPG.tabs.vethea));
     }
 }

@@ -25,38 +25,38 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         super(type, worldIn);
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.rainbourHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.rainbourDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.rainbourSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.rainbourFollowRange);
+        return MonsterEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.rainbourHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rainbourDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rainbourSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rainbourFollowRange);
     }
+
     @Override
-    public void setRevengeTarget(@Nullable LivingEntity livingBase)
-    {
-        super.setRevengeTarget(livingBase);
+    public void setTarget(@Nullable LivingEntity livingBase) {
+        super.setTarget(livingBase);
 
         if (livingBase != null)
         {
-            this.angerTargetUUID = livingBase.getUniqueID();
+            this.angerTargetUUID = livingBase.getUUID();
         }
     }
-    public void readAdditional(CompoundNBT tag) {
-        super.readAdditional(tag);
+    public void readAdditionalSaveData(CompoundNBT tag) {
+        super.readAdditionalSaveData(tag);
         this.angerLevel = tag.getShort("Anger");
         String s = tag.getString("HurtBy");
 
         if (!s.isEmpty())
         {
             this.angerTargetUUID = UUID.fromString(s);
-            PlayerEntity entityplayer = this.world.getPlayerByUuid(this.angerTargetUUID);
-            this.setRevengeTarget(entityplayer);
+            PlayerEntity entityplayer = this.getCommandSenderWorld().getPlayerByUUID(this.angerTargetUUID);
+            this.setTarget(entityplayer);
 
             if (entityplayer != null)
             {
-                this.attackingPlayer = entityplayer;
-                this.recentlyHit = this.getRevengeTimer();
+                this.lastHurtByPlayer = entityplayer;
+                this.hurtTime = this.getLastHurtByMobTimestamp();
             }
         }
     }
-    public void writeAdditional(CompoundNBT tag) {
-        super.writeAdditional(tag);
+    public void addAdditionalSaveData(CompoundNBT tag) {
+        super.addAdditionalSaveData(tag);
         tag.putShort("Anger", (short)this.angerLevel);
 
         if (this.angerTargetUUID != null)
@@ -70,21 +70,21 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
+    public boolean hurt(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source))
         {
             return false;
         }
         else
         {
-            Entity entity = source.getTrueSource();
+            Entity entity = source.getDirectEntity();
 
             if (entity instanceof PlayerEntity)
             {
                 this.becomeAngryAt(entity);
             }
 
-            return super.attackEntityFrom(source, amount);
+            return super.hurt(source, amount);
         }
     }
 
@@ -95,18 +95,19 @@ public class EntityRainbour extends EntityDivineFlyingMob {
 
     private void becomeAngryAt(Entity target)
     {
-        this.angerLevel = 400 + this.rand.nextInt(400);
+        this.angerLevel = 400 + this.random.nextInt(400);
 
         if (target instanceof LivingEntity)
         {
-            this.setRevengeTarget((LivingEntity)target);
+            this.setTarget((LivingEntity)target);
         }
     }
 
+
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
+    public boolean doHurtTarget(Entity entity) {
         if (this.isAngry()) {
-            return super.attackEntityAsMob(entity);
+            return super.doHurtTarget(entity);
         }
         return false;
     }
@@ -116,44 +117,47 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
+    public int getMaxSpawnClusterSize() {
         return 1;
     }
     public IParticleData getParticleData() {
-        return this.getDataManager().get(PARTICLE);
+        return this.getEntityData().get(PARTICLE);
     }
-    private static final DataParameter<IParticleData> PARTICLE = EntityDataManager.createKey(EntityRainbour.class, DataSerializers.PARTICLE_DATA);
+    private static final DataParameter<IParticleData> PARTICLE = EntityDataManager.defineId(EntityRainbour.class, DataSerializers.PARTICLE);
 
     @OnlyIn(Dist.CLIENT)
-    public void livingTick() {
-        super.livingTick();
+    public void tick() {
+        super.tick();
         for (int var3 = 0; var3 < 8; ++var3) {
-            double d15 = (double)getPosX() + rand.nextDouble() * 0.6D + 0.2D;
-            double d20 = (double)getPosY() + rand.nextDouble() * 0.6D + 0.2D;
-            double d26 = (double)getPosZ() + rand.nextDouble() * 0.6D + 0.2D;
-//            this.world.addParticle(ParticleType.SPARKLER, d15, d20, d26, 0.0D, 0.0D, 0.0D);
-//                    this.getPosX() + (this.rand.nextDouble() - 0.5D) * (double) this.getWidth(),
-//                    this.getPosY() + this.rand.nextDouble() * (double) this.getHeight() - 0.25D,
-//                    this.getPosZ() + (this.rand.nextDouble() - 0.5D) * (double) this.getWidth(),
-//                    (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(),
-//                    (this.rand.nextDouble() - 0.5D) * 2.0D);
+            double d15 = (double)getX() + random.nextDouble() * 0.6D + 0.2D;
+            double d20 = (double)getY() + random.nextDouble() * 0.6D + 0.2D;
+            double d26 = (double)getZ() + random.nextDouble() * 0.6D + 0.2D;
+
+
+            getCommandSenderWorld().addParticle(ParticleRegistry.SPARKLER.get(),
+                    this.getX() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth(),
+                    this.getY() + this.random.nextDouble() * (double) this.getBbHeight() - 0.25D,
+                    this.getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth(),
+                    (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(),
+                    (this.random.nextDouble() - 0.5D) * 2.0D);
         }
     }
 
     @Override
-    protected boolean canTriggerWalking() {
+    protected boolean isMovementNoisy() {
         return false;
     }
 
     @Override
-    public boolean onLivingFall(float distance, float damageMultiplier) {
+    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
         return false;
     }
 
     @Override
-    public boolean doesEntityNotTriggerPressurePlate() {
+    public boolean isIgnoringBlockTriggers() {
         return true;
     }
+
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -171,12 +175,12 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_RAINBOUR;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn) && world.getLight(getPosition()) <= rand.nextInt(7);
+        return level.dimension() == World.OVERWORLD && super.checkSpawnRules(worldIn, spawnReasonIn) && getCommandSenderWorld().getLightEmission(blockPosition()) <= random.nextInt(7);
     }
 
 }

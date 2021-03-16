@@ -3,10 +3,13 @@ package divinerpg.entities.arcana;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.ItemRegistry;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.item.MerchantOffers;
 import net.minecraft.world.*;
+
+import javax.annotation.*;
 
 public class EntityCaptainMerik extends EntityDivineMerchant {
 	public EntityCaptainMerik(EntityType<? extends CreatureEntity> type, World worldIn) {
@@ -57,5 +60,15 @@ public class EntityCaptainMerik extends EntityDivineMerchant {
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ItemRegistry.kormaLeggings, 1), ItemRegistry.kormaLeggings.getMaxDamage(), 1, 1));
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(ItemRegistry.kormaBoots, 1), ItemRegistry.kormaBoots.getMaxDamage(), 1, 1));
 		return offers;
+	}
+
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+	}
+
+	@Override
+	public World getLevel() {
+		return level;
 	}
 }

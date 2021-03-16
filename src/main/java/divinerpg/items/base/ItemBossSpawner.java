@@ -14,7 +14,7 @@ public class ItemBossSpawner extends ItemMod {
     private final String langKey;
 
     public ItemBossSpawner(String name, String langKey, Predicate<DimensionType> canSpawn, Function<World, Entity>... spawnedEntities) {
-        super(name, new Item.Properties().group(DivineRPG.tabs.spawners).maxStackSize(1));
+        super(name, new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1));
         this.canSpawn = canSpawn;
         this.spawnderEntities = spawnedEntities;
         this.langKey = langKey;

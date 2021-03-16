@@ -25,7 +25,7 @@ public class EntityShark extends EntityDivineWaterMob {
         addAttackingAI();
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.sharkHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.sharkDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.sharkSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.sharkFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sharkHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sharkDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.sharkSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sharkFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -43,7 +43,7 @@ public class EntityShark extends EntityDivineWaterMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SHARK;
     }
 }

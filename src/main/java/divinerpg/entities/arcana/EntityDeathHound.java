@@ -19,11 +19,11 @@ public class EntityDeathHound extends EntityDivineMob {
         return 0.75F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.deathHoundHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.deathHoundDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.deathHoundSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.deathHoundFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.deathHoundHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.deathHoundDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.deathHoundSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.deathHoundFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
         return true;
     }
 
@@ -34,10 +34,10 @@ public class EntityDeathHound extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        if (super.attackEntityAsMob(entity)) {
+    public boolean doHurtTarget(Entity entity) {
+        if (super.doHurtTarget(entity)) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, 12 * 20, 0, false, false));
+                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.BLINDNESS, 12 * 20, 0, false, false));
             }
             return true;
         } else {
@@ -61,7 +61,7 @@ public class EntityDeathHound extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DEATH_HOUND;
     }
 }

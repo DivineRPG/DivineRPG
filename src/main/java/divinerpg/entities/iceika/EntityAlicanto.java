@@ -14,27 +14,27 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
     public EntityAlicanto(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
         this.fallDistance = 0;
-        this.setPathPriority(PathNodeType.WATER, -1.0F);
+        this.setPathfindingMalus(PathNodeType.WATER, -1.0F);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.alicantoHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.alicantoDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.alicantoSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.alicantoFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.alicantoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.alicantoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.alicantoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.alicantoFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     @Override
-    protected float getSoundPitch() {
-        return super.getSoundPitch() * 0.95F;
+    protected float getVoicePitch() {
+        return super.getVoicePitch() * 0.95F;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return this.rand.nextInt(4) != 0 ? null : SoundRegistry.ALICANTO;
+        return this.random.nextInt(4) != 0 ? null : SoundRegistry.ALICANTO;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ALICANTO;
     }
 

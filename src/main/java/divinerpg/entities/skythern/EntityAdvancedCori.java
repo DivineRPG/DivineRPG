@@ -41,15 +41,14 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
         return 0.8F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.skythernCoriHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.skythernCoriDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernCoriHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernCoriDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
     }
+
     @Override
-    public int getMaxSpawnedInChunk() {
+    public int getMaxSpawnClusterSize() {
         return 1;
     }
 
@@ -69,7 +68,7 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ADVANCED_CORI;
     }
 }

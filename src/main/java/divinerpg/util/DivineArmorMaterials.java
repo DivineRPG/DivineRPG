@@ -37,27 +37,27 @@ public class DivineArmorMaterials implements IArmorMaterial {
     }
 
     @Override
-    public int getDurability(EquipmentSlotType entityEquipmentSlot) {
+    public int getDurabilityForSlot(EquipmentSlotType entityEquipmentSlot) {
         return durability;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType entityEquipmentSlot) {
+    public int getDefenseForSlot(EquipmentSlotType entityEquipmentSlot) {
         return damageReduction[entityEquipmentSlot.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return enchantability;
     }
 
     @Override
-    public SoundEvent getSoundEvent() {
+    public SoundEvent getEquipSound() {
         return soundEvent;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
+    public Ingredient getRepairIngredient() {
         return repairMaterial;
     }
 

@@ -20,7 +20,7 @@ public class RenderMiner extends MobRenderer<EntityMiner, ModelMiner<EntityMiner
     }
     protected void preRenderCallback(EntityMiner entity, MatrixStack matrixStackIn, float partialTickTime) {
     }
-    public ResourceLocation getEntityTexture(EntityMiner entity) {
+    public ResourceLocation getTextureLocation(EntityMiner entity) {
         return TEXTURE;
     }
 }

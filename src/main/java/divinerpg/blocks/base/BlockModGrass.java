@@ -15,39 +15,40 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     protected Supplier<Block> dirtSupplier;
 
     public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor color) {
-        super(name, Block.Properties.create(Material.EARTH, color).tickRandomly().setRequiresTool().hardnessAndResistance(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND));
+        super(name, Block.Properties.of(Material.DIRT, color).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GRASS));
         this.dirtSupplier = dirt;
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return worldIn.getBlockState(pos.up()).isAir();
+    public boolean isBonemealSuccess(World p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
+        return p_180670_1_.getBlockState(p_180670_3_.above()).isAir();
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        BlockPos blockpos = pos.up();
-        BlockState blockstate = this.getDefaultState();
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+        BlockPos blockpos = pos.above();
+        BlockState blockstate = this.defaultBlockState();
+
 
         label48:
         for (int i = 0; i < 128; ++i) {
             BlockPos blockpos1 = blockpos;
 
             for (int j = 0; j < i / 16; ++j) {
-                blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (!worldIn.getBlockState(blockpos1.down()).isIn(this) || worldIn.getBlockState(blockpos1).isFertile(worldIn, blockpos1)) {
+                blockpos1 = blockpos1.offset(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+                if (!worldIn.getBlockState(blockpos1.below()).is(this) || worldIn.getBlockState(blockpos1).isFertile(worldIn, blockpos1)) {
                     continue label48;
                 }
             }
 
             BlockState blockstate2 = worldIn.getBlockState(blockpos1);
-            if (blockstate2.isIn(blockstate.getBlock()) && rand.nextInt(10) == 0) {
-                ((IGrowable) blockstate.getBlock()).grow(worldIn, rand, blockpos1, blockstate2);
+            if (blockstate2.is(blockstate.getBlock()) && rand.nextInt(10) == 0) {
+                ((IGrowable) blockstate.getBlock()).performBonemeal(worldIn, rand, blockpos1, blockstate2);
             }
 
             if (blockstate2.isAir()) {
@@ -60,13 +61,13 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
                     ConfiguredFeature<?, ?> configuredfeature = list.get(0);
                     FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                    blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.getConfig());
+                    blockstate1 = flowersfeature.getRandomFlower(rand, blockpos1, configuredfeature.config());
                 } else {
                     blockstate1 = blockstate;
                 }
 
-                if (blockstate1.isValidPosition(worldIn, blockpos1)) {
-                    worldIn.setBlockState(blockpos1, blockstate1, 3);
+                if (blockstate1.canSurvive(worldIn, blockpos1)) {
+                    worldIn.setBlock(blockpos1, blockstate1, 3);
                 }
             }
         }
@@ -74,28 +75,28 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
         super.tick(state, world, pos, rand);
-        if (!world.isRemote) {
+        if (!world.isClientSide) {
             if (!world.isAreaLoaded(pos, 3))
                 return;
 
             Block dirt = dirtSupplier.get();
 
-            if (world.getLight((pos.up())) < 4
-                    && world.getBlockState(pos.up()).getOpacity(world, pos.up()) > 2) {
-                world.setBlockState(pos, dirt.getDefaultState());
+            if (world.getLightEmission((pos.above())) < 4
+                    && world.getBlockState(pos.above()).getLightValue(world, pos.above()) > 2) {
+                world.setBlock(pos, dirt.defaultBlockState(), 0);
             } else {
                 for (int l = 0; l < 4; ++l) {
-                    BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                    if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !world.isBlockLoaded(blockpos)) {
+                    BlockPos blockpos = pos.offset(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
+                    if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !world.isLoaded(blockpos)) {
                         return;
                     }
 
-                    BlockState iblockstate = world.getBlockState(blockpos.up());
+                    BlockState iblockstate = world.getBlockState(blockpos.above());
                     BlockState iblockstate1 = world.getBlockState(blockpos);
 
-                    if (iblockstate1.getBlock() == dirt && world.getLight(blockpos.up()) >= 4
-                            && iblockstate.getOpacity(world, pos.up()) <= 2) {
-                        world.setBlockState(blockpos, this.getDefaultState());
+                    if (iblockstate1.getBlock() == dirt && world.getLightEmission(blockpos.above()) >= 4
+                            && iblockstate.getLightValue(world, pos.above()) <= 2) {
+                        world.setBlock(blockpos, this.defaultBlockState(), 0);
                     }
                 }
             }

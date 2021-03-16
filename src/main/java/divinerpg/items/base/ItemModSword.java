@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemModSword extends SwordItem {
 
     public ItemModSword(String name, IItemTier tier, ItemGroup group) {
-        super(tier, 3, 1.6F, new Item.Properties().group(group));
+        super(tier, 3, 1.6F, new Item.Properties().tab(group));
         setRegistryName(DivineRPG.MODID, name);
     }
 

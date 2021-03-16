@@ -102,7 +102,7 @@ public class LocalizeUtils {
      */
     public static ITextComponent ammo(Item ammo, TextFormatting formatting) {
         ITextComponent ammoName = new TranslationTextComponent(ammo.getRegistryName().getPath() + ".name");
-        ammoName.getStyle().applyFormatting(formatting);
+        ammoName.getStyle().applyFormat(formatting);
 
         return i18n(Ammo, ammoName);
     }
@@ -157,15 +157,15 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent infiniteUses() {
-        return InfiniteUses.mergeStyle(TextFormatting.BLUE);
+        return InfiniteUses.withStyle(TextFormatting.BLUE);
     }
 
     public static ITextComponent instantConsumption() {
-        return InstantConsumption.mergeStyle(TextFormatting.AQUA);
+        return InstantConsumption.withStyle(TextFormatting.AQUA);
     }
 
     public static ITextComponent weakenedWithoutArcana() {
-        return WeakenedWithoutArcana.mergeStyle(TextFormatting.RED);
+        return WeakenedWithoutArcana.withStyle(TextFormatting.RED);
     }
 
     /**
@@ -205,7 +205,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent explosiveShots() {
-        return ExposiveShoots.mergeStyle(TextFormatting.BOLD);
+        return ExposiveShoots.withStyle(TextFormatting.BOLD);
     }
 
     /**
@@ -339,11 +339,11 @@ public class LocalizeUtils {
      */
     public static ITextComponent i18n(String text, Object... args) {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
-        return result.mergeStyle(TextFormatting.GRAY);
+        return result.withStyle(TextFormatting.GRAY);
     }
 
     public static ITextComponent i18n(TextFormatting color, String text, Object... args) {
         TranslationTextComponent result = new TranslationTextComponent(text, args);
-        return result.mergeStyle(color);
+        return result.withStyle(color);
     }
 }

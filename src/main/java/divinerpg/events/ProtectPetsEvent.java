@@ -1,15 +1,10 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
-import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.entity.*;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.EntityEvent;
+import net.minecraft.entity.passive.*;
+import net.minecraft.util.*;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.*;
 
 public class ProtectPetsEvent {
     private DamageSource source;
@@ -17,9 +12,9 @@ public class ProtectPetsEvent {
 
     @SubscribeEvent
     public void onPlayerAttackMob(LivingAttackEvent event) {
-        Entity entity = event.getSource().getTrueSource();
+        Entity entity = event.getSource().getDirectEntity();
         if (event.getEntity() instanceof TameableEntity) {
-            if (((TameableEntity) event.getEntity()).isTamed()) {
+            if (((TameableEntity) event.getEntity()).isTame()) {
                 if (entity == ((TameableEntity) event.getEntity()).getOwner()) {
                     event.setCanceled(true);
                 }

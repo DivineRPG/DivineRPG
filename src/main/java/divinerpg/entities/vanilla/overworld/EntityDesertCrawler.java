@@ -26,7 +26,7 @@ public class EntityDesertCrawler extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.desertCrawlerHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.desertCrawlerDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.desertCrawlerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.desertCrawlerFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.desertCrawlerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.desertCrawlerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.desertCrawlerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.desertCrawlerFollowRange);
     }
 
     @Override
@@ -45,11 +45,11 @@ public class EntityDesertCrawler extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DESERT_CRAWLER;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

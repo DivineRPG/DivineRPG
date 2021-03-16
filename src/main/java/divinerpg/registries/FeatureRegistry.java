@@ -22,11 +22,11 @@ public class FeatureRegistry {
 
     public static void registerOres(){
         //Overworld Ore Register
-        overworldOres.add(register("arlemite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.arlemiteOre.getDefaultState(), Config.arlemiteVeinSize.get())).range(Config.arlemiteMaxHeight.get()).square().func_242731_b(Config.arlemiteTries.get())));
-        overworldOres.add(register("realmite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.realmiteOre.getDefaultState(), Config.realmiteVeinSize.get())).range(Config.realmiteMaxHeight.get()).square().func_242731_b(Config.realmiteTries.get())));
-        overworldOres.add(register("rupee_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockRegistry.rupeeOre.getDefaultState(), Config.rupeeVeinSize.get())).range(Config.rupeeMaxHeight.get()).square().func_242731_b(Config.rupeeTries.get())));
-        netherOres.add(register("bloodgem_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.bloodgemOre.getDefaultState(), Config.netherVein.get())).range(256).square().func_242731_b(Config.netherTries.get())));
-        netherOres.add(register("torridite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BlockRegistry.torriditeOre.getDefaultState(), Config.netherVein.get())).range(256).square().func_242731_b(Config.netherTries.get())));
+        overworldOres.add(register("arlemite_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockRegistry.arlemiteOre.defaultBlockState(), Config.arlemiteVeinSize.get())).range(Config.arlemiteMaxHeight.get()).squared().count(Config.arlemiteTries.get())));
+        overworldOres.add(register("realmite_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockRegistry.realmiteOre.defaultBlockState(), Config.realmiteVeinSize.get())).range(Config.realmiteMaxHeight.get()).squared().count(Config.realmiteTries.get())));
+        overworldOres.add(register("rupee_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockRegistry.rupeeOre.defaultBlockState(), Config.rupeeVeinSize.get())).range(Config.rupeeMaxHeight.get()).squared().count(Config.rupeeTries.get())));
+        netherOres.add(register("bloodgem_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlockRegistry.bloodgemOre.defaultBlockState(), Config.netherVein.get())).range(256).squared().count(Config.netherTries.get())));
+        netherOres.add(register("torridite_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlockRegistry.torriditeOre.defaultBlockState(), Config.netherVein.get())).range(256).squared().count(Config.netherTries.get())));
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -37,17 +37,17 @@ public class FeatureRegistry {
 
         if(event.getCategory().equals(Biome.Category.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
-                if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+                if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         }
         for(ConfiguredFeature<?, ?> ore : overworldOres){
-            if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+            if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
 
 
 
         }
         if(!event.getCategory().equals(Biome.Category.NETHER) || !event.getCategory().equals(Biome.Category.THEEND) || !event.getCategory().equals(Biome.Category.JUNGLE) || !event.getCategory().equals(Biome.Category.SWAMP) || !event.getCategory().equals(Biome.Category.MESA) || !event.getCategory().equals(Biome.Category.MUSHROOM)){
-            generation.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.withPlacement(Placement.CHANCE.configure(new ChanceConfig(25))).func_242731_b(2));
+            generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.decorated(Placement.CHANCE.configured(new ChanceConfig(25))).count(2));
         }
 
         if(biome != null && event.getCategory().equals(Biome.Category.PLAINS)) {

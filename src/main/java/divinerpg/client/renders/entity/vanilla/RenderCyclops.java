@@ -21,7 +21,7 @@ public class RenderCyclops extends MobRenderer<EntityCyclops, ModelCyclops<Entit
         matrixStackIn.scale(2, 2, 2);
     }
 
-    public ResourceLocation getEntityTexture(EntityCyclops entity) {
+    public ResourceLocation getTextureLocation(EntityCyclops entity) {
         return entity.isAngry() ? angryCyclopsLoc : cyclopsLoc;
     }
 }

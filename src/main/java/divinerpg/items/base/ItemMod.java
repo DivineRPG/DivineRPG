@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemMod extends Item {
-    private static final Item.Properties props = new Item.Properties().group(DivineRPG.tabs.materials);
+    private static final Item.Properties props = new Item.Properties().tab(DivineRPG.tabs.materials);
     private boolean hasGlint;
 
     public ItemMod(String name) {
@@ -25,7 +25,7 @@ public class ItemMod extends Item {
     }
 
     public ItemMod(String name, ItemGroup tab) {
-        super(new Item.Properties().group(tab));
+        super(new Item.Properties().tab(tab));
         setRegistryName(name);
     }
 
@@ -42,7 +42,7 @@ public class ItemMod extends Item {
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
-        return hasGlint || super.hasEffect(stack);
+    public boolean isEnchantable(ItemStack stack) {
+        return hasGlint || super.isEnchantable(stack);
     }
 }

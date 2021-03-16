@@ -6,18 +6,26 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityEnderSpider extends EndermanEntity {
     public EntityEnderSpider(EntityType<? extends EndermanEntity> type, World worldIn) {
         super(type, worldIn);
-        this.experienceValue = 20;
+        this.xpReward = 20;
+    }
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.45F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.enderSpiderHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.enderSpiderDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.enderSpiderSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.enderSpiderFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.enderSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.enderSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.enderSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.enderSpiderFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -25,11 +33,11 @@ public class EntityEnderSpider extends EndermanEntity {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ENDER_SPIDER;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.THE_END;
+        return level.dimension() == World.END;
     }
 }

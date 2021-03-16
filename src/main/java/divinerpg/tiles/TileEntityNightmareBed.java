@@ -15,7 +15,7 @@ public class TileEntityNightmareBed extends TileEntity {
     }
 
     public SUpdateTileEntityPacket getUpdatePacket() {
-        return new SUpdateTileEntityPacket(this.pos, 11, this.getUpdateTag());
+        return new SUpdateTileEntityPacket(this.worldPosition, 11, this.getUpdateTag());
     }
 
 }

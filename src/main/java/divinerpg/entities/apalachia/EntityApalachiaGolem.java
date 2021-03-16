@@ -21,12 +21,10 @@ public class EntityApalachiaGolem extends EntityDivineMob {
         return 2.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.apalachiaGolemHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaGolemDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaGolemSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.apalachiaGolemFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaGolemHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaGolemDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaGolemSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaGolemFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
     }
 
     @Override
@@ -36,7 +34,7 @@ public class EntityApalachiaGolem extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -56,7 +54,7 @@ public class EntityApalachiaGolem extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_APALACHIA_GOLEM;
     }
 }

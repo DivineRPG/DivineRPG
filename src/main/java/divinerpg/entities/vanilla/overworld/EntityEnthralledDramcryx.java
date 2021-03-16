@@ -1,16 +1,13 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityEnthralledDramcryx extends EntityDivineMob {
 
@@ -23,7 +20,7 @@ public class EntityEnthralledDramcryx extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.corruptedDramcryxHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.corruptedDramcryxDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.corruptedDramcryxSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.corruptedDramcryxFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.corruptedDramcryxHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.corruptedDramcryxDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.corruptedDramcryxSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.corruptedDramcryxFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -41,11 +38,11 @@ public class EntityEnthralledDramcryx extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ENTHRALLED_DRAMCRYX;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() <= 16 && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn) && getY() <= 16;
     }
 }

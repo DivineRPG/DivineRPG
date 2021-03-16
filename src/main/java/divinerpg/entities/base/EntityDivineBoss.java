@@ -15,29 +15,31 @@ public class EntityDivineBoss extends EntityDivineMob {
     }
 
     @Override
-    public boolean canDespawn(double distanceToClosestPlayer) {
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
     }
 
-    @Override
-    public boolean isNonBoss() {
-        return false;
-    }
+
+    //TODO - investigate non boss
+//    @Override
+//    public boolean isNonBoss() {
+//        return false;
+//    }
 
     public BossInfo.Color getBarColor() {
         return BossInfo.Color.BLUE;
     }
 
     @Override
-    public void addTrackingPlayer(ServerPlayerEntity player) {
-        super.addTrackingPlayer(player);
+    public void startSeenByPlayer(ServerPlayerEntity player) {
+        super.startSeenByPlayer(player);
         bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
 
     @Override
-    public void removeTrackingPlayer(ServerPlayerEntity player) {
-        super.removeTrackingPlayer(player);
+    public void stopSeenByPlayer(ServerPlayerEntity player) {
+        super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
     }
 

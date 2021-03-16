@@ -5,10 +5,10 @@ import net.minecraft.item.*;
 
 public class DivineShield extends ShieldItem {
     public DivineShield(String name, ItemGroup group, Item repairMaterial, int damage) {
-        super(new Item.Properties().group(group).maxDamage(damage));
+        super(new Item.Properties().tab(group).defaultDurability(damage));
         setRegistryName(name);
         this.isRepairable(new ItemStack(repairMaterial));
-        DispenserBlock.registerDispenseBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);
+        DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
     }
 
 }

@@ -15,7 +15,7 @@ public class NightmareBedTEISR extends ItemStackTileEntityRenderer {
     public static final ItemStackTileEntityRenderer instance = new ItemStackTileEntityRenderer();
     private final TileEntityNightmareBed bed = new TileEntityNightmareBed(TileRegistry.NIGHTMARE_BED);
 
-    public void func_239207_a_(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+    public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
         Item item = stack.getItem();
         if (item instanceof BlockItem) {
             Block block = ((BlockItem) item).getBlock();

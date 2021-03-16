@@ -22,12 +22,10 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
         return 2.9F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.mortumArcherHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.mortumArcherDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.mortumArcherSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.mortumArcherFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumArcherFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
@@ -38,12 +36,12 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
     @Override
-    public void attackEntityWithRangedAttack(LivingEntity target, float f) {
+    public void performRangedAttack(LivingEntity target, float f) {
         //TODO - TWILIGHT_ARCHER_ARROW
 //        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.TWILIGHT_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
@@ -64,7 +62,7 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_TWILIGHT_ARCHER;
     }
 }

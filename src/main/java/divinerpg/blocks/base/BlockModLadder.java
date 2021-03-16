@@ -5,11 +5,11 @@ import net.minecraft.block.material.*;
 
 public class BlockModLadder extends LadderBlock {
     public BlockModLadder(String name, MaterialColor color) {
-        super(Block.Properties.create(Material.WOOD, color)
-                .hardnessAndResistance(0.4F, 3.0F)
+        super(Block.Properties.of(Material.WOOD, color)
+                .strength(0.4F, 3.0F)
                 .sound(SoundType.LADDER)
-                .notSolid()
-                .setRequiresTool());
+                .dynamicShape()
+                .requiresCorrectToolForDrops());
         setRegistryName(name);
     }
 }

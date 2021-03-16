@@ -16,7 +16,7 @@ public class RenderShark extends MobRenderer<EntityShark, ModelShark<EntityShark
         super(renderManagerIn, new ModelShark<>(), 0.8F);
     }
 
-    public ResourceLocation getEntityTexture(EntityShark entity) {
+    public ResourceLocation getTextureLocation(EntityShark entity) {
         return TEXTURE;
     }
 }

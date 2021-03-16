@@ -1,15 +1,11 @@
 package divinerpg.client.renders.base;
 
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.DivineRPG;
-import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.entities.vanilla.*;
+import com.mojang.blaze3d.matrix.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.entity.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -41,7 +37,7 @@ public class RenderDivineMob extends MobRenderer<MobEntity, SegmentedModel<MobEn
         matrixStackIn.scale(scaleFactor, scaleFactor, scaleFactor);
     }
     @Override
-    public ResourceLocation getEntityTexture(MobEntity entity) {
+    public ResourceLocation getTextureLocation(MobEntity entity) {
         return TEXTURE;
     }
 }

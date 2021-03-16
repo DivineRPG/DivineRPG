@@ -1,15 +1,15 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.client.util.ITooltipFlag;
+import divinerpg.*;
+import divinerpg.util.*;
+import net.minecraft.client.util.*;
 import net.minecraft.item.*;
 import net.minecraft.util.text.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemModFood extends ItemMod {
     Food food;
@@ -21,12 +21,12 @@ public class ItemModFood extends ItemMod {
     }
 
     public ItemModFood(String name, Food food, ItemGroup tab) {
-        super(name, new Item.Properties().group(tab).food(food));
+        super(name, new Properties().tab(tab).food(food));
         this.food = food;
     }
 
     public ItemModFood(String name, Food food, ItemGroup tab, boolean fast) {
-        super(name, new Item.Properties().group(tab).food(food));
+        super(name, new Item.Properties().tab(tab).food(food));
         this.food = food;
         fast = fastFood;
     }
@@ -34,7 +34,7 @@ public class ItemModFood extends ItemMod {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (food.isMeat()) {
-            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".tooltip.food.pet").mergeStyle(TextFormatting.BLUE));
+            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".tooltip.food.pet").withStyle(TextFormatting.BLUE));
         }
         if (fastFood) {
             tooltip.add(LocalizeUtils.instantConsumption());

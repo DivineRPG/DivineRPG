@@ -4,10 +4,10 @@ import net.minecraft.block.*;
 
 public class BlockModSlab extends SlabBlock {
     public BlockModSlab(String name, Block base, float hardness) {
-        super(Block.Properties.create(base.getDefaultState().getMaterial(), base.getDefaultState().getMaterial().getColor())
-                .setRequiresTool()
-                .hardnessAndResistance(hardness, 3.0F)
-                .sound(base.getDefaultState().getSoundType()));
+        super(Block.Properties.of(base.defaultBlockState().getMaterial(), base.defaultBlockState().getMaterial().getColor())
+                .requiresCorrectToolForDrops()
+                .strength(hardness, 3.0F)
+                .sound(base.defaultBlockState().getSoundType()));
         setRegistryName(name);
     }
 }

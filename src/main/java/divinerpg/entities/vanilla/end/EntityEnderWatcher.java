@@ -6,7 +6,10 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityEnderWatcher extends EndermanEntity {
     public EntityEnderWatcher(EntityType<? extends EndermanEntity> type, World worldIn) {
@@ -16,13 +19,18 @@ public class EntityEnderWatcher extends EndermanEntity {
         return 0.5F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.enderWatcherHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.enderWatcherDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.enderWatcherSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.enderWatcherFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.enderWatcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.enderWatcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.enderWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.enderWatcherFollowRange);
+    }
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ENDER_WATCHER;
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.THE_END;
+        return level.dimension() == World.END;
     }
 }

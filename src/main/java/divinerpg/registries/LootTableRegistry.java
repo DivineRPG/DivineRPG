@@ -208,7 +208,7 @@ public class LootTableRegistry {
         }
     }
 
-    public static Set<ResourceLocation> func_215796_a() {
+    public static Set<ResourceLocation> all() {
         return READ_ONLY_LOOT_TABLES;
     }
 }

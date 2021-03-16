@@ -16,7 +16,7 @@ public class JERCompat {
 
 
     public static void init(FMLCommonSetupEvent event) {
-        initDungeonLoot();
+//        initDungeonLoot();
         initOreGen();
         initPlants();
 
@@ -41,8 +41,8 @@ public class JERCompat {
         worldGenRegistry.register(new ItemStack(BlockRegistry.arlemiteOre), new DistributionSquare(Config.arlemiteTries.get(), Config.arlemiteVeinSize.get(), 0, Config.arlemiteMaxHeight.get()));
         worldGenRegistry.register(new ItemStack(BlockRegistry.realmiteOre), new DistributionSquare(Config.realmiteTries.get(), Config.realmiteVeinSize.get(), 0, Config.realmiteMaxHeight.get()));
         worldGenRegistry.register(new ItemStack(BlockRegistry.rupeeOre), new DistributionSquare(Config.rupeeTries.get(), Config.rupeeVeinSize.get(), 0, Config.rupeeMaxHeight.get()));
-        worldGenRegistry.register(new ItemStack(BlockRegistry.torriditeOre), new DistributionSquare(Config.netherTries.get(), Config.netherVein.get(), 0, 256), new Restriction(new DimensionRestriction(World.THE_NETHER)));
-        worldGenRegistry.register(new ItemStack(BlockRegistry.bloodgemOre), new DistributionSquare(Config.netherTries.get(), Config.netherVein.get(), 0, 256), new Restriction(new DimensionRestriction(World.THE_NETHER)));
+        worldGenRegistry.register(new ItemStack(BlockRegistry.torriditeOre), new DistributionSquare(Config.netherTries.get(), Config.netherVein.get(), 0, 256), new Restriction(new DimensionRestriction(World.NETHER)));
+        worldGenRegistry.register(new ItemStack(BlockRegistry.bloodgemOre), new DistributionSquare(Config.netherTries.get(), Config.netherVein.get(), 0, 256), new Restriction(new DimensionRestriction(World.NETHER)));
         worldGenRegistry.register(new ItemStack(BlockRegistry.edenOre), new DistributionSquare(Config.twilightTries.get(), Config.twilightVein.get(), 0, 256), new Restriction(new DimensionRestriction(KeyRegistry.EDEN_WORLD)));
         worldGenRegistry.register(new ItemStack(BlockRegistry.wildwoodOre), new DistributionSquare(Config.twilightTries.get(), Config.twilightVein.get(), 0, 256), new Restriction(new DimensionRestriction(KeyRegistry.WILDWOOD_WORLD)));
         worldGenRegistry.register(new ItemStack(BlockRegistry.apalachiaOre), new DistributionSquare(Config.twilightTries.get(), Config.twilightVein.get(), 0, 256), new Restriction(new DimensionRestriction(KeyRegistry.APALACHIA_WORLD)));

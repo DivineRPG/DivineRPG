@@ -1,13 +1,13 @@
 package divinerpg.client.renders.entity.vanilla;
 
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.DivineRPG;
+import com.mojang.blaze3d.matrix.*;
+import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.layer.*;
 import divinerpg.entities.vanilla.overworld.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -21,7 +21,7 @@ public class RenderJackOMan extends MobRenderer<EntityJackOMan, ModelJackOMan<En
     }
     protected void preRenderCallback(EntityJackOMan entity, MatrixStack matrixStackIn, float partialTickTime) {
     }
-    public ResourceLocation getEntityTexture(EntityJackOMan entity) {
+    public ResourceLocation getTextureLocation(EntityJackOMan entity) {
         return TEXTURE;
     }
 }

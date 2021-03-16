@@ -21,7 +21,7 @@ public class EntityWhale extends EntityDivineWaterMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.whaleHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.whaleDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.whaleSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.whaleFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.whaleHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.whaleDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.whaleSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.whaleFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -39,19 +39,19 @@ public class EntityWhale extends EntityDivineWaterMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_WHALE;
     }
 
     @Override
-    public void livingTick() {
-        super.livingTick();
+    public void tick() {
+        super.tick();
         if (!this.isInWater()) {
-            if (rand.nextInt(2) == 0) {
+            if (random.nextInt(2) == 0) {
 
                 for (float x = -0.25F; x <= 0.25F; x += 0.125F) {
                     for (float z = -0.25F; z <= 0.25F; z += 0.125F) {
-                        world.addParticle(ParticleTypes.DRIPPING_WATER, getPosX() + x, getPosY(), getPosZ() + z, 0, 0.4, 0);
+                        level.addParticle(ParticleTypes.DRIPPING_WATER, getX() + x, getY(), getZ() + z, 0, 0.4, 0);
                     }
                 }
 

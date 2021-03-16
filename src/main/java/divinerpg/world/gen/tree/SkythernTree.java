@@ -10,7 +10,7 @@ import java.util.*;
 public class SkythernTree extends Tree {
     @Nullable
     @Override
-    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean largeHive) {
+    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
         return KeyRegistry.SKYTHERN_TREE;
     }
 }

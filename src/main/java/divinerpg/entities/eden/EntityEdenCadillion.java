@@ -12,18 +12,16 @@ import net.minecraft.world.*;
 public class EntityEdenCadillion extends EntityDivineMob {
     public EntityEdenCadillion(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        this.experienceValue = 40;
+        this.xpReward = 40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.edenCadillionHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.edenCadillionDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.edenCadillionSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.edenCadillionFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenCadillionFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
     @Override
     protected void registerGoals() {
@@ -46,7 +44,7 @@ public class EntityEdenCadillion extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_EDEN_CADILLION;
     }
 }

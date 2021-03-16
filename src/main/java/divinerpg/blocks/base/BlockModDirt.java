@@ -6,6 +6,6 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockModDirt extends BlockMod {
     public BlockModDirt(String name, float hardness, MaterialColor color) {
-        super(name, Block.Properties.create(Material.EARTH, color).setRequiresTool().hardnessAndResistance(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND));
+        super(name, Block.Properties.of(Material.DIRT, color).strength(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GRASS));
     }
 }

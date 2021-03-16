@@ -23,12 +23,10 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
         return 2.9F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.skythernArcherHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.skythernArcherDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.skythernArcherSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.skythernArcherFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernArcherFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
     }
     @Override
     protected void registerGoals() {
@@ -38,12 +36,12 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
     @Override
-    public void attackEntityWithRangedAttack(LivingEntity target, float f) {
+    public void performRangedAttack(LivingEntity target, float f) {
         //TODO - skythern archer arrow
 //        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.SKYTHERN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
@@ -64,7 +62,7 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SKYTHERN_ARCHER;
     }
 

@@ -22,7 +22,7 @@ public class RenderKobblin extends MobRenderer<EntityKobblin, ModelKobblin<Entit
         }
     }
 
-    public ResourceLocation getEntityTexture(EntityKobblin entity) {
+    public ResourceLocation getTextureLocation(EntityKobblin entity) {
         return TEXTURE;
     }
 }

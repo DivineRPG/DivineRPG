@@ -14,63 +14,61 @@ import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
+import javax.annotation.*;
+
 public class EntityBunny extends EntityDivineTameable {
-    private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.createKey(EntityBunny.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.defineId(EntityBunny.class, DataSerializers.BOOLEAN);
     public EntityBunny(EntityType<? extends TameableEntity> type, World worldIn) {
         super(type, worldIn);
-        this.experienceValue = 40;
+        this.xpReward = 40;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.5F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.bunnyHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.bunnySpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.bunnyFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.bunnyHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.bunnySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.bunnyFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-    return true;
-    }
-    public void func_242340_t(boolean p_242340_1_) {
-        this.getDataManager().set(TAMED_AND_ANGRY, p_242340_1_);
+    return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
 
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(TAMED_AND_ANGRY, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(TAMED_AND_ANGRY, false);
     }
 
     @Override
-    public boolean canDespawn(double distanceToClosestPlayer) {
-            return !this.isTamed();
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+            return !this.isTame();
     }
 
     @Override
-    public void onDeath(DamageSource source) {
-        super.onDeath(source);
-        if (!this.world.isRemote && !this.isTamed()) {
+    public void die(DamageSource source) {
+        super.die(source);
+        if (!this.level.isClientSide && !this.isTame()) {
             this.transform();
         }
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity target) {
-        if (this.isTamed()) {
-            this.dataManager.set(TAMED_AND_ANGRY, true);
+    public boolean doHurtTarget(Entity target) {
+        if (this.isTame()) {
+            this.entityData.set(TAMED_AND_ANGRY, true);
         }
 
-        return super.attackEntityAsMob(target);
+        return super.doHurtTarget(target);
     }
 
     public boolean isTamedAndAngry() {
-        return this.dataManager.get(TAMED_AND_ANGRY);
+        return this.entityData.get(TAMED_AND_ANGRY);
     }
 
+    @Nullable
     @Override
-    public LivingEntity getAttackTarget() {
-        LivingEntity entity = super.getAttackTarget();
-        if (entity != null && ((this.isTamed() && this.getDistanceSq(entity) < 144) || !this.isTamed()))
+    public LivingEntity getTarget() {
+        LivingEntity entity = super.getTarget();
+        if (entity != null && ((this.isTame() && this.distanceToSqr(entity) < 144) || !this.isTame()))
             return entity;
         return null;
     }
@@ -79,38 +77,38 @@ public class EntityBunny extends EntityDivineTameable {
     @Override
     public void tick() {
         super.tick();
-        if (!this.world.isRemote) {
-            if (this.isTamed() && this.getAttackTarget() == null) {
-                this.dataManager.set(TAMED_AND_ANGRY, false);
+        if (!this.level.isClientSide) {
+            if (this.isTame() && this.getTarget() == null) {
+                this.entityData.set(TAMED_AND_ANGRY, false);
             }
         }
     }
 
     private void transform() {
-        if (!this.world.isRemote) {
-            EntityAngryBunny e = new EntityAngryBunny(EntityRegistry.ANGRY_BUNNY, world);
-            e.setLocationAndAngles(getPosX(), getPosY(), getPosZ(), rotationYaw, rotationPitch);
-            this.world.addEntity(e);
-            this.setDead();
+        if (!this.level.isClientSide) {
+            EntityAngryBunny e = new EntityAngryBunny(EntityRegistry.ANGRY_BUNNY, level);
+            e.moveTo(getX(), getY(), getZ(), xRot, yRot);
+            this.level.addFreshEntity(e);
+            this.remove();
         }
     }
 
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack held = player.inventory.getCurrentItem();
-        if (this.isTamed()) {
-            if (held != null && held.isFood()) {
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack held = player.getItemInHand(hand);
+        if (this.isTame()) {
+            if (held != null && held.isEdible()) {
                 Item food = held.getItem();
-                if (food.getFood().isMeat() && this.getHealth() < 20) {
+                if (food.getFoodProperties().isMeat() && this.getHealth() < 20) {
                     if (!player.isCreative()) {
                         held.shrink(1);
                     }
-                    this.heal((float) food.getFood().getHealing());
+                    this.heal((float) food.getFoodProperties().getNutrition());
                     return ActionResultType.PASS;
                 }
-            } else if (isOwner(player)) {
-                if (!this.world.isRemote) {
-                    this.func_233687_w_(!this.isSitting());
-                    this.isJumping = false;
+            } else if (isOwnedBy(player)) {
+                if (!this.level.isClientSide) {
+                    this.setOrderedToSit(!this.isOrderedToSit());
+                    this.jumping = false;
                 }
                 return ActionResultType.PASS;
             }
@@ -118,23 +116,21 @@ public class EntityBunny extends EntityDivineTameable {
             if (!player.isCreative()) {
                 held.shrink(1);
             }
-            if (!this.world.isRemote) {
-                if (this.rand.nextInt(3) == 0) {
-                    setTamedBy(player);
-                    this.setAttackTarget(null);
-                    this.func_233687_w_(true);
+            if (!this.level.isClientSide) {
+                if (this.random.nextInt(3) == 0) {
+                    tame(player);
+                    this.setTarget(null);
+                    this.setOrderedToSit(true);
 
                     this.setHealth(20);
-                    this.playTameEffect(true);
-                    this.world.setEntityState(this, (byte) 7);
+                    this.level.broadcastEntityEvent(this, (byte) 7);
                 } else {
-                    this.playTameEffect(false);
-                    this.world.setEntityState(this, (byte) 6);
+                    this.level.broadcastEntityEvent(this, (byte) 6);
                 }
             }
             return ActionResultType.PASS;
         }
-            return super.func_230254_b_(player, hand);
+            return super.mobInteract(player, hand);
         }
 
     @Override
@@ -153,7 +149,7 @@ public class EntityBunny extends EntityDivineTameable {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_BUNNY;
     }
 }

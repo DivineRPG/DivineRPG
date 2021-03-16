@@ -1,7 +1,7 @@
 package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.LootTableRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -18,12 +18,10 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
         return 2.0F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.sunArcherHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.sunArcherDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.sunArcherSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.sunArcherFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sunArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sunArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.sunArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sunArcherFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
 
     @Override
@@ -34,13 +32,13 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
     }
 
     @Override
-    public CreatureAttribute getCreatureAttribute() {
+    public CreatureAttribute getMobType() {
         return CreatureAttribute.UNDEFINED;
     }
 
 
     @Override
-    public void attackEntityWithRangedAttack(LivingEntity target, float f) {
+    public void performRangedAttack(LivingEntity target, float f) {
         //TODO - ranged attack sun archer
 //        this.world
 //                .spawnEntity(new EntityDivineArrow(this.world, ArrowType.SUN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
@@ -48,21 +46,21 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+        return SoundEvents.ZOMBIE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ZOMBIE_HURT;
+        return SoundEvents.ZOMBIE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_ZOMBIE_DEATH;
+        return SoundEvents.ZOMBIE_DEATH;
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SUN_ARCHER;
     }
 }

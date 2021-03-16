@@ -13,27 +13,27 @@ public class EventClientLogin {
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt){
         PlayerEntity player = evt.getPlayer();
-        if (!player.world.isRemote) {
+        if (!player.getCommandSenderWorld().isClientSide) {
 
             //Send welcome messages
             if(Config.welcomeMessage.get()) {
             //TODO - colour
-                if (Utils.isDeveloperName(player.getUniqueID())) {
+                if (Utils.isDeveloperName(player.getUUID())) {
                     TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.developer", player.getDisplayName());
-                    message.getStyle().setColor(Color.fromTextFormatting(TextFormatting.DARK_RED));
-                    player.sendMessage(message, player.getUniqueID());
-                } else if (Utils.isTesterName(player.getUniqueID())) {
+                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.DARK_RED));
+                    player.sendMessage(message, player.getUUID());
+                } else if (Utils.isTesterName(player.getUUID())) {
                     TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
-                    message.getStyle().setColor(Color.fromTextFormatting(TextFormatting.BLUE));
-                    player.sendMessage(message, player.getUniqueID());
-                } else if (Utils.isPatreon(player.getUniqueID())) {
+                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.BLUE));
+                    player.sendMessage(message, player.getUUID());
+                } else if (Utils.isPatreon(player.getUUID())) {
                     TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.patreon", player.getDisplayName());
-                    message.getStyle().setColor(Color.fromTextFormatting(TextFormatting.GOLD));
-                    player.sendMessage(message, player.getUniqueID());
-                } else if (Utils.isFriend(player.getUniqueID())) {
+                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GOLD));
+                    player.sendMessage(message, player.getUUID());
+                } else if (Utils.isFriend(player.getUUID())) {
                     TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
-                    message.getStyle().setColor(Color.fromTextFormatting(TextFormatting.LIGHT_PURPLE));
-                    player.sendMessage(message, player.getUniqueID());
+                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.LIGHT_PURPLE));
+                    player.sendMessage(message, player.getUUID());
                 }
             }
         }

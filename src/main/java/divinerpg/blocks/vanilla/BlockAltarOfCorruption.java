@@ -22,16 +22,12 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockAltarOfCorruption extends ContainerBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockAltarOfCorruption(String name) {
         //TODO - Render book. Proper UI
-        super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE).setRequiresTool().hardnessAndResistance(5.0F, 2000.0F).sound(SoundType.STONE));
+        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(5.0F, 2000.0F).sound(SoundType.STONE));
         setRegistryName(name);
-    }
-
-    public boolean isTransparent(BlockState state) {
-        return true;
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -50,9 +46,9 @@ public class BlockAltarOfCorruption extends ContainerBlock {
 
                 if (rand.nextInt(16) == 0) {
                     for(int k = 0; k <= 1; ++k) {
-                        BlockPos blockpos = pos.add(i, k, j);
+                        BlockPos blockpos = pos.offset(i, k, j);
                         if (worldIn.getBlockState(blockpos).getEnchantPowerBonus(worldIn, blockpos) > 0) {
-                            if (!worldIn.isAirBlock(pos.add(i / 2, 0, j / 2))) {
+                            if (!worldIn.isEmptyBlock(pos.offset(i / 2, 0, j / 2))) {
                                 break;
                             }
 
@@ -65,30 +61,33 @@ public class BlockAltarOfCorruption extends ContainerBlock {
 
     }
 
-    public BlockRenderType getRenderType(BlockState state) {
+    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
         return BlockRenderType.MODEL;
     }
+    public boolean useShapeForLightOcclusion(BlockState p_220074_1_) {
+        return true;
+    }
 
-    public TileEntity createNewTileEntity(IBlockReader worldIn) {
+    public TileEntity newBlockEntity(IBlockReader worldIn) {
         return new AltarOfCorruptionEntity(TileRegistry.ALTAR_OF_CORRUPTION);
     }
 
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (worldIn.isRemote) {
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        if (worldIn.isClientSide) {
             return ActionResultType.SUCCESS;
         } else {
-            player.openContainer(state.getContainer(worldIn, pos));
+            player.openMenu(state.getMenuProvider(worldIn, pos));
             return ActionResultType.CONSUME;
         }
     }
 
     @Nullable
-    public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
-        TileEntity tileentity = worldIn.getTileEntity(pos);
+    public INamedContainerProvider getMenuProvider(BlockState state, World worldIn, BlockPos pos) {
+        TileEntity tileentity = worldIn.getBlockEntity(pos);
         if (tileentity instanceof AltarOfCorruptionEntity) {
             ITextComponent itextcomponent = ((INameable)tileentity).getDisplayName();
             return new SimpleNamedContainerProvider((id, inventory, player) -> {
-                return new EnchantmentContainer(id, inventory, IWorldPosCallable.of(worldIn, pos));
+                return new EnchantmentContainer(id, inventory, IWorldPosCallable.create(worldIn, pos));
             }, itextcomponent);
         } else {
             return null;
@@ -98,9 +97,9 @@ public class BlockAltarOfCorruption extends ContainerBlock {
     /**
      * Called by ItemBlocks after a block is set in the world, to allow post-place logic
      */
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-        if (stack.hasDisplayName()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        if (stack.hasCustomHoverName()) {
+            TileEntity tileentity = worldIn.getBlockEntity(pos);
             if (tileentity instanceof AltarOfCorruptionEntity) {
                 ((AltarOfCorruptionEntity)tileentity).setCustomName(stack.getDisplayName());
             }
@@ -108,7 +107,7 @@ public class BlockAltarOfCorruption extends ContainerBlock {
 
     }
 
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
         return false;
     }
 }

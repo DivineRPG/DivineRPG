@@ -18,7 +18,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
 	public EntityGolemOfRejuvenation(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
         this.healTimer = 0;
     }
 	
@@ -32,7 +32,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.golemRejuvHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.golemRejuvSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.golemRejuvFollowRange);
+        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.golemRejuvHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.golemRejuvSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.golemRejuvFollowRange);
     }
 
     @Override
@@ -40,22 +40,22 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
         return SoundRegistry.GOLEM;
     }
     
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                this.heal((float) item.getFood().getHealing());
+                this.heal((float) item.getFoodProperties().getNutrition());
                 return ActionResultType.PASS;
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
     
     @Override

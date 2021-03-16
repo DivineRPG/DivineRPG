@@ -16,18 +16,16 @@ public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
 
     public EntityApalachiaTomo(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue=40;
+        xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.6F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.apalachiaTomoHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaTomoDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaTomoSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.apalachiaTomoFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaTomoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaTomoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaTomoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaTomoFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
     }
 
     @Override
@@ -46,7 +44,7 @@ public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_APALACHIA_TOMO;
     }
 }

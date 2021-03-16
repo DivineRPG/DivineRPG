@@ -4,8 +4,11 @@ import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityLordVatticus extends EntityDivineMerchant {
 	
@@ -52,5 +55,15 @@ public class EntityLordVatticus extends EntityDivineMerchant {
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.wizardsBook, 1), ItemRegistry.wizardsBook.getMaxDamage(), 1, 1));
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.collector, 3), new ItemStack(Blocks.ENCHANTING_TABLE, 1), Blocks.ENCHANTING_TABLE.asItem().getMaxDamage(), 1, 1));
 		return offers;
+	}
+
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+	}
+
+	@Override
+	public World getLevel() {
+		return level;
 	}
 }

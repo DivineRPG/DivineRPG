@@ -2,17 +2,13 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob {
 
@@ -24,10 +20,10 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
         return 3.5F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.caveclopsHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.caveclopsDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.caveclopsSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.caveclopsFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.caveclopsHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.caveclopsDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.caveclopsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.caveclopsFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return getPosition().getY() < 20 && world.getDimensionKey() == World.OVERWORLD;
+        return getY() < 20 && level.dimension() == World.OVERWORLD;
     }
     @Override
     protected void registerGoals() {
@@ -52,12 +48,12 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_CAVECLOPS;
     }
 
     @Override
-    public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
         //TODO - Caveclops attack
 //        EntityCaveRock rock = new EntityCaveRock(this.world, this);
 //        double d0 = target.posX - this.posX;

@@ -19,11 +19,11 @@ public class EntityRazorback extends EntityDivineMob {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.razorbackHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.razorbackDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.razorbackSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.razorbackFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.razorbackHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.razorbackDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.razorbackSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.razorbackFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
         return true;
     }
 
@@ -49,7 +49,7 @@ public class EntityRazorback extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_RAZORBACK;
     }
 }

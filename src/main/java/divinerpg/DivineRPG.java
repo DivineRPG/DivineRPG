@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.config.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.*;
+import net.minecraftforge.registries.*;
 import org.apache.logging.log4j.*;
 
 @Mod(DivineRPG.MODID)
@@ -26,6 +27,15 @@ public class DivineRPG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
         EventRegistry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
+
+
+        DeferredRegister<?>[] registers = {
+                ParticleRegistry.PARTICLES
+        };
+
+        for (DeferredRegister<?> register : registers) {
+            register.register(FMLJavaModLoadingContext.get().getModEventBus());
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {

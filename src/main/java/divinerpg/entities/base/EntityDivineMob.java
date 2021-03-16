@@ -2,11 +2,9 @@ package divinerpg.entities.base;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.brain.task.WalkRandomlyTask;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -18,18 +16,18 @@ public class EntityDivineMob extends MonsterEntity {
     registerGoals();
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.down();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).canEntitySpawn(worldIn, blockpos, typeIn);
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return true;
     }
 
-    public boolean isNotColliding(IWorldReader worldIn) {
-        return !worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.checkNoEntityCollision(this);
+    public boolean checkSpawnObstruction(IWorldReader worldIn) {
+        return !worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 20.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.27D);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.27D);
     }
 
     @Override

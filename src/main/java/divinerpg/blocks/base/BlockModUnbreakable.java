@@ -3,9 +3,11 @@ package divinerpg.blocks.base;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BlockModUnbreakable extends BlockMod {
     public BlockModUnbreakable(String name) {
-        this(name, Material.ROCK);
+        this(name, Material.STONE);
     }
 
     public BlockModUnbreakable(String name, Properties properties) {
@@ -13,19 +15,19 @@ public class BlockModUnbreakable extends BlockMod {
     }
 
     public BlockModUnbreakable(String name, boolean isLamp) {
-        super(name, Block.Properties.create(Material.ROCK, MaterialColor.STONE)
-                .setRequiresTool()
-                .hardnessAndResistance(-1.0F, 3600000.0F)
+        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE)
+                .requiresCorrectToolForDrops()
+                .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE)
-                .setLightLevel((p_235464_0_) -> {
+                .lightLevel((p_235464_0_) -> {
                     return 15;
                 }));
     }
 
     public BlockModUnbreakable(String name, Material material) {
-        super(name, Block.Properties.create(material, MaterialColor.STONE)
-                .setRequiresTool()
-                .hardnessAndResistance(-1.0F, 3600000.0F)
+        super(name, Block.Properties.of(material, MaterialColor.STONE)
+                .requiresCorrectToolForDrops()
+                .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE));
     }
 }

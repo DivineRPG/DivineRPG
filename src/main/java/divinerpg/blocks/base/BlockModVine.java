@@ -5,13 +5,13 @@ import net.minecraft.block.material.*;
 
 public class BlockModVine extends VineBlock {
     public BlockModVine(String name) {
-        super(Block.Properties.create(Material.TALL_PLANTS, MaterialColor.LIGHT_BLUE)
-                .setRequiresTool()
-                .notSolid()
-                .tickRandomly()
-                .doesNotBlockMovement()
-                .hardnessAndResistance(2.0F, 3.0F)
-                .sound(SoundType.PLANT));
+        super(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_LIGHT_BLUE)
+                .requiresCorrectToolForDrops()
+                .dynamicShape()
+                .randomTicks()
+                .noCollission()
+                .strength(2.0F, 3.0F)
+                .sound(SoundType.WET_GRASS));
         setRegistryName(name);
     }
 }

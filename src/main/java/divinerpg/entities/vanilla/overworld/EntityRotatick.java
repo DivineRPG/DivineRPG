@@ -24,7 +24,7 @@ public class EntityRotatick extends EntityDivineMob {
         addAttackingAI();
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.rotatickHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.rotatickDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.rotatickSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.rotatickFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.rotatickHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rotatickDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rotatickSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rotatickFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -42,12 +42,12 @@ public class EntityRotatick extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ROTATICK;
     }
 
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() < 25 && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

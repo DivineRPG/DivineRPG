@@ -18,7 +18,7 @@ public class RenderAridWarrior extends MobRenderer<EntityAridWarrior, ModelAridW
         this.addLayer(new AridWarriorBowLayer(this));
     }
 
-    public ResourceLocation getEntityTexture(EntityAridWarrior entity) {
+    public ResourceLocation getTextureLocation(EntityAridWarrior entity) {
         return TEXTURE;
     }
 }

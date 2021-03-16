@@ -24,36 +24,36 @@ public class EntityEhu extends EntityDivineTameable {
     protected EntityEhu(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.ehuHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.ehuDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.ehuSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.ehuFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.ehuHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.ehuDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.ehuSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.ehuFollowRange);
     }
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (!item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (!item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.setTamedBy(player);
-                    this.navigator.clearPath();
-                    this.setAttackTarget((LivingEntity)null);
-                    this.world.setEntityState(this, (byte)7);
-                    this.heal(item.getFood().getHealing());
+                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                    this.tame(player);
+                    this.navigation.recomputePath();
+                    this.setTarget((LivingEntity)null);
+                    this.level.broadcastEntityEvent(this, (byte)7);
+                    this.heal(item.getFoodProperties().getNutrition());
                 } else {
-                    this.world.setEntityState(this, (byte)6);
-                    this.heal(item.getFood().getHealing());
+                    this.level.broadcastEntityEvent(this, (byte)6);
+                    this.heal(item.getFoodProperties().getNutrition());
                 }
                 } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
     @Override
     protected SoundEvent getAmbientSound() {

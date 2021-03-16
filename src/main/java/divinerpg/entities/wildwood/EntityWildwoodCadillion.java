@@ -13,19 +13,17 @@ public class EntityWildwoodCadillion extends EntityDivineMob {
 
     public EntityWildwoodCadillion(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue=40;
+        xpReward=40;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.wildwoodCadillionHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodCadillionDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodCadillionSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.wildwoodCadillionFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.wildwoodCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.wildwoodCadillionFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class EntityWildwoodCadillion extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_WILDWOOD_CADILLION;
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.world.*;
 
 public class BlockModBookshelf extends BlockMod {
     public BlockModBookshelf(String name, float hardness, Material material) {
-        super(name, Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(hardness, 3.0F).sound(SoundType.STONE));
+        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.STONE));
     }
 
 

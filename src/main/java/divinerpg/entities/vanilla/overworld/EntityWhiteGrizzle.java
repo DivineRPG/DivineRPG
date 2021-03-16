@@ -12,6 +12,6 @@ public class EntityWhiteGrizzle extends EntityBrownGrizzle {
     protected EntityWhiteGrizzle(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 }

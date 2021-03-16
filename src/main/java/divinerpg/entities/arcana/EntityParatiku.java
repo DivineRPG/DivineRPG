@@ -12,18 +12,20 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
 public class EntityParatiku extends EntityDivineTameable {
 	
-	private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityParatiku.class, DataSerializers.BYTE);
-	
+	private static final DataParameter<Byte> HANGING = EntityDataManager.defineId(EntityParatiku.class, DataSerializers.BYTE);
+    private static final EntityPredicate RESTING_TARGETING = (new EntityPredicate()).range(4.0D).allowSameTeam();
+
 	private BlockPos spawnPosition;
 	
 	public EntityParatiku(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
         this.setIsParatikuHanging(true);
     }
 	
@@ -34,35 +36,41 @@ public class EntityParatiku extends EntityDivineTameable {
     }
 	
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-        return this.getHeight() / 2.0F;
+        return this.getBbHeight() / 2.0F;
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.paratikuHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.paratikuSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.paratikuFollowRange);
+        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.paratikuHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.paratikuSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.paratikuFollowRange);
     }
     
-    protected void registerData()
+    protected void defineSynchedData()
     {
-        super.registerData();
-        this.dataManager.register(HANGING, Byte.valueOf((byte)0));
+        super.defineSynchedData();
+        this.entityData.define(HANGING, Byte.valueOf((byte)0));
     }
-    
-    @Override
-    protected boolean canTriggerWalking() {
+
+    public boolean isPushable() {
         return false;
     }
-    
-    @Override
-    public boolean onLivingFall(float distance, float damageMultiplier) {
-    	return false;
+
+    protected void doPush(Entity ent) {
     }
-    
-    @Override
-    protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+
+    protected void pushEntities() {
+    }
+    protected boolean isMovementNoisy() {
+        return false;
+    }
+
+    public boolean causeFallDamage(float damage, float multiplier) {
+        return false;
+    }
+
+    protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {
     }
 
     @Override
-    public boolean doesEntityNotTriggerPressurePlate() {
+    public boolean isIgnoringBlockTriggers() {
         return true;
     }
     
@@ -71,67 +79,57 @@ public class EntityParatiku extends EntityDivineTameable {
         return 0.1F;
     }
     
-    protected float getSoundPitch()
+    protected float getVoicePitch()
     {
-        return super.getSoundPitch() * 0.95F;
+        return super.getVoicePitch() * 0.95F;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-    	return this.getIsParatikuHanging() && this.rand.nextInt(4) != 0 ? null : SoundEvents.ENTITY_BAT_AMBIENT;
+    	return this.getIsParatikuHanging() && this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;
     }
     
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return SoundEvents.ENTITY_BAT_HURT;
+        return SoundEvents.BAT_HURT;
     }
     
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_BAT_DEATH;
-    }
-    
-    public boolean canBePushed()
-    {
-        return false;
-    }
-    
-    protected void collideWithEntity(Entity entityIn) {
+        return SoundEvents.BAT_DEATH;
     }
 
-    protected void collideWithNearbyEntities() {
-    }
 
     public boolean getIsParatikuHanging() {
-        return (this.dataManager.get(HANGING).byteValue() & 1) != 0;
+        return (this.entityData.get(HANGING).byteValue() & 1) != 0;
     }
     
     public void setIsParatikuHanging(boolean isHanging) {
-        byte b0 = this.dataManager.get(HANGING).byteValue();
+        byte b0 = this.entityData.get(HANGING).byteValue();
 
         if (isHanging) {
-            this.dataManager.set(HANGING, Byte.valueOf((byte) (b0 | 1)));
+            this.entityData.set(HANGING, Byte.valueOf((byte) (b0 | 1)));
         } else {
-            this.dataManager.set(HANGING, Byte.valueOf((byte) (b0 & -2)));
+            this.entityData.set(HANGING, Byte.valueOf((byte) (b0 & -2)));
         }
     }
     
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                this.heal((float) item.getFood().getHealing());
+                this.heal((float) item.getFoodProperties().getNutrition());
                 return ActionResultType.PASS;
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
     
     public void tick()
@@ -140,68 +138,65 @@ public class EntityParatiku extends EntityDivineTameable {
 
         if (this.getIsParatikuHanging())
         {
-            this.setMotion(0.0D, 0.0D, 0.0D);
-            this.setPosition(chunkCoordX, (double)MathHelper.floor(this.getPosY()) + 1.0D - (double)this.stepHeight, chunkCoordZ);
+            this.setDeltaMovement(0.0D, 0.0D, 0.0D);
+            this.setPosRaw(this.getX(), (double)MathHelper.floor(this.getY()) + 1.0D - (double)this.getBbHeight(), this.getZ());
         }
         else
         {
-            this.setMotion(getMotion().x, getMotion().y * 0.6000000238418579D, getMotion().z);
+            this.setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y * 0.6000000238418579D, getDeltaMovement().z);
         }
     }
-    
-    protected void updateAITasks()
-    {
-        super.updateAITasks();
-        BlockPos blockpos = new BlockPos(chunkCoordX, chunkCoordY, chunkCoordZ);
-        BlockPos blockpos1 = blockpos.up();
 
-        if (this.getIsParatikuHanging())
-        {
-            if (this.world.getBlockState(blockpos1).isNormalCube(world, blockpos1))
-            {
-                if (this.rand.nextInt(200) == 0)
-                {
-                    this.rotationYawHead = (float)this.rand.nextInt(360);
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        BlockPos blockpos = this.blockPosition();
+        BlockPos blockpos1 = blockpos.above();
+        if (this.getIsParatikuHanging()) {
+            boolean flag = this.isSilent();
+            if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos)) {
+                if (this.random.nextInt(200) == 0) {
+                    this.yHeadRot = (float)this.random.nextInt(360);
                 }
 
-                if (this.world.getClosestPlayer(this, 4.0D) != null)
-                {
+                if (this.level.getNearestPlayer(RESTING_TARGETING, this) != null) {
                     this.setIsParatikuHanging(false);
-                    this.world.playEvent(null, 1025, blockpos, 0);
+                    if (!flag) {
+                        this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
+                    }
+                }
+            } else {
+                this.setIsParatikuHanging(false);
+                if (!flag) {
+                    this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
                 }
             }
-            else
-            {
-                this.setIsParatikuHanging(false);
-                this.world.playEvent(null, 1025, blockpos, 0);
-            }
-        }
-        else {
-            if (this.spawnPosition != null && (!this.world.isAirBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
-                this.spawnPosition = null;
+        } else {
+            if (this.getTarget().blockPosition() != null && (!this.level.isEmptyBlock(this.getTarget().blockPosition()) || this.getTarget().blockPosition().getY() < 1)) {
             }
 
-            if (this.spawnPosition == null || this.rand.nextInt(30) == 0 || this.spawnPosition.distanceSq((int) this.getPosX(), (int) this.getPosY(), (int) this.getPosZ(), true) < 4.0D) {
-                this.spawnPosition = new BlockPos((int) this.getPosX() + this.rand.nextInt(7) - this.rand.nextInt(7), (int) this.getPosY() + this.rand.nextInt(6) - 2, (int) this.getPosZ() + this.rand.nextInt(7) - this.rand.nextInt(7));
+            if (this.getTarget().blockPosition() == null || this.random.nextInt(30) == 0 || this.getTarget().blockPosition().closerThan(this.position(), 2.0D)) {
+                this.moveTo(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
             }
 
-            double d0 = (double) this.spawnPosition.getX() + 0.5D - this.getPosX();
-            double d1 = (double) this.spawnPosition.getY() + 0.1D - this.getPosY();
-            double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.getPosZ();
-            this.setMotion(this.getMotion().x + (Math.signum(d0) * 0.5D - this.getMotion().x) * 0.10000000149011612D, this.getMotion().y + (Math.signum(d1) * 0.699999988079071D - this.getMotion().y) * 0.10000000149011612D, this.getMotion().z + (Math.signum(d2) * 0.5D - this.getMotion().z) * 0.10000000149011612D);
-            float f = (float) (MathHelper.atan2(this.getMotion().z, this.getMotion().x) * (180D / Math.PI)) - 90.0F;
-            float f1 = MathHelper.wrapDegrees(f - this.rotationYaw);
-            this.moveForward = 0.5F;
-            this.rotationYaw += f1;
-
-            if (this.rand.nextInt(100) == 0 && this.world.getBlockState(blockpos1).isNormalCube(world, blockpos1))
-            {
+            double d2 = (double)this.getTarget().blockPosition().getX() + 0.5D - this.getX();
+            double d0 = (double)this.getTarget().blockPosition().getY() + 0.1D - this.getY();
+            double d1 = (double)this.getTarget().blockPosition().getZ() + 0.5D - this.getZ();
+            Vector3d vector3d = this.getDeltaMovement();
+            Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F, (Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F);
+            this.setDeltaMovement(vector3d1);
+            float f = (float)(MathHelper.atan2(vector3d1.z, vector3d1.x) * (double)(180F / (float)Math.PI)) - 90.0F;
+            float f1 = MathHelper.wrapDegrees(f - this.yRot);
+            this.zza = 0.5F;
+            this.yRot += f1;
+            if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
                 this.setIsParatikuHanging(true);
             }
         }
+
     }
-    
-    public boolean attackEntityFrom(DamageSource source, float amount)
+
+
+    public boolean hurt(DamageSource source, float amount)
     {
         if (source.isCreativePlayer())
         {
@@ -209,29 +204,29 @@ public class EntityParatiku extends EntityDivineTameable {
         }
         else
         {
-            if (!this.world.isRemote && this.getIsParatikuHanging())
+            if (!this.level.isClientSide && this.getIsParatikuHanging())
             {
                 this.setIsParatikuHanging(false);
             }
 
-            return super.attackEntityFrom(source, amount);
+            return super.hurt(source, amount);
         }
     }
     
-    public void readEntityFromNBT(CompoundNBT compound)
+    public void readAdditionalSaveData(CompoundNBT compound)
     {
-        super.readAdditional(compound);
-        this.dataManager.set(HANGING, Byte.valueOf(compound.getByte("ParatikuFlags")));
+        super.readAdditionalSaveData(compound);
+        this.entityData.set(HANGING, Byte.valueOf(compound.getByte("ParatikuFlags")));
     }
     
-    public void writeEntityToNBT(CompoundNBT compound)
+    public void addAdditionalSaveData(CompoundNBT compound)
     {
-        super.writeAdditional(compound);
-        if (this.getOwnerId() == null) {
+        super.addAdditionalSaveData(compound);
+        if (this.getOwnerUUID() == null) {
             compound.putString("Owner", "");
         } else {
-            compound.putString("Owner", this.getOwnerId().toString());
+            compound.putString("Owner", this.getOwnerUUID().toString());
         }
-        compound.putByte("ParatikuFlags", this.dataManager.get(HANGING).byteValue());
+        compound.putByte("ParatikuFlags", this.entityData.get(HANGING).byteValue());
     }
 }

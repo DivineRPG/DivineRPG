@@ -1,12 +1,11 @@
 package divinerpg.client.renders.entity.arcana;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.DivineRPG;
+import com.mojang.blaze3d.matrix.*;
+import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.arcana.EntityKazari;
+import divinerpg.entities.arcana.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.util.*;
 
 public class RenderKazari extends MobRenderer<EntityKazari, ModelCyclops<EntityKazari>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/kazari.png");
@@ -17,7 +16,7 @@ public class RenderKazari extends MobRenderer<EntityKazari, ModelCyclops<EntityK
     protected void preRenderCallback(EntityKazari entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
-    public ResourceLocation getEntityTexture(EntityKazari entity) {
+    public ResourceLocation getTextureLocation(EntityKazari entity) {
         return TEXTURE;
     }
 }

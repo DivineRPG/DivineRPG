@@ -1,16 +1,13 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityJungleDramcryx extends EntityDivineMob {
 
@@ -23,7 +20,7 @@ public class EntityJungleDramcryx extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.jungleDramcryxHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.jungleBatDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.jungleBatSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.jungleDramcryxFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.jungleDramcryxHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.jungleBatDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.jungleBatSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.jungleDramcryxFollowRange);
     }
 
     @Override
@@ -48,7 +45,7 @@ public class EntityJungleDramcryx extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_JUNGLE_DRAMCRYX;
     }
 

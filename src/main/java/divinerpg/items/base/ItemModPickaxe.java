@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ItemModPickaxe extends PickaxeItem {
     public ItemModPickaxe(IItemTier tier, String name, ItemGroup group) {
-        super(tier, 0, -1.4F, new Item.Properties().group(group));
+        super(tier, 0, -1.4F, new Item.Properties().tab(group));
         setRegistryName(name);
     }
 

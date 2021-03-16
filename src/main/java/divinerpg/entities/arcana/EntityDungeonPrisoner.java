@@ -19,12 +19,12 @@ public class EntityDungeonPrisoner extends EntityDivineMob {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.dungeonPrisonerHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.dungeonPrisonerDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.dungeonPrisonerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.dungeonPrisonerFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.dungeonPrisonerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.dungeonPrisonerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.dungeonPrisonerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dungeonPrisonerFollowRange);
     }
-    
+
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
         return true;
     }
 
@@ -35,12 +35,12 @@ public class EntityDungeonPrisoner extends EntityDivineMob {
     }
     
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        EntityDungeonDemon demon = new EntityDungeonDemon( null, this.world);
+    public boolean doHurtTarget(Entity entity) {
+        EntityDungeonDemon demon = new EntityDungeonDemon( null, level);
         this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE, 1, 1);
-        demon.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, 0.0F);
-        this.world.addEntity(demon);
-        this.setDead();
+        demon.moveTo(this.getX(), this.getY(), this.getZ(), this.xRot, 0.0F);
+        this.level.addFreshEntity(demon);
+        this.kill();
         return true;
     }
 
@@ -60,7 +60,7 @@ public class EntityDungeonPrisoner extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DUNGEON_PRISONER;
     }
 }

@@ -17,86 +17,86 @@ import net.minecraft.world.*;
 import javax.annotation.Nullable;
 
 public class EntityKobblin extends EntityDivineMob {
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.createKey(EntityKobblin.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.defineId(EntityKobblin.class, DataSerializers.BOOLEAN);
 
     public EntityKobblin(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        BlockPos pos = new BlockPos(getPosX(), getPosY(), getPosZ());
-        return this.world.getBlockState(pos.down()).getBlock() == Blocks.GRASS
-                && this.world.getBlockState(pos.down(2)).getBlock() != Blocks.AIR && super.canSpawn(worldIn, spawnReasonIn) && world.getDimensionKey() == World.OVERWORLD;
+        BlockPos pos = new BlockPos(getX(), getY(), getZ());
+        return this.level.getBlockState(pos.below()).getBlock() == Blocks.GRASS
+                && this.level.getBlockState(pos.below(2)).getBlock() != Blocks.AIR && super.canSpawn(worldIn, spawnReasonIn) && level.dimension() == World.OVERWORLD;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.9F;
     }
 
-    protected void registerData() {
-        super.registerData();
-        dataManager.register(PROVOKED, Boolean.valueOf(false));
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(PROVOKED, Boolean.valueOf(false));
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.kobblinHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.kobblinDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.kobblinSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.kobblinFollowRange);
-    }
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.kobblinHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.kobblinDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.kobblinSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.kobblinFollowRange);
     }
 
     @Override
-    public void addVelocity(double x, double y, double z) {
+    public int getMaxSpawnClusterSize() {return 1;
+    }
+
+    @Override
+    public void setDeltaMovement(double x, double y, double z) {
         if (this.getProvoked())
-            super.addVelocity(x, y, z);
+            super.setDeltaMovement(x, y, z);
     }
 
     @Override
     public void tick() {
         super.tick();
         if (!getProvoked()) {
-            this.renderYawOffset = 0;
-            PlayerEntity player = this.world.getClosestPlayer(this, 4.0D);
+            this.xRotO = 0;
+            PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
             if (player != null) {
                 this.setProvoked(player);
-                this.addVelocity(0, 0.6, 0);
+                this.setDeltaMovement(0, 0.6, 0);
             }
         }
     }
-    public void readAdditional(CompoundNBT tag) {
-        super.readAdditional(tag);
+    public void readAdditionalSaveData(CompoundNBT tag) {
+        super.readAdditionalSaveData(tag);
         if (tag.getBoolean("Provoked"))
             setProvoked(null);
     }
 
-    public void writeAdditional(CompoundNBT tag) {
-        super.writeAdditional(tag);
+    public void addAdditionalSaveData(CompoundNBT tag) {
+        super.addAdditionalSaveData(tag);
         tag.putBoolean("Provoked", this.getProvoked());
     }
 
     public boolean getProvoked() {
-        return dataManager.get(PROVOKED).booleanValue();
+        return entityData.get(PROVOKED).booleanValue();
     }
 
     @Nullable
     public void setProvoked(PlayerEntity player) {
-        dataManager.set(PROVOKED, Boolean.valueOf(true));
+        entityData.set(PROVOKED, Boolean.valueOf(true));
         addBasicAI();
         addAttackingAI();
         if (player != null && !player.isCreative()) {
-            this.setAttackTarget(player);
+            this.setTarget(player);
         }
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        Entity entity = source.getTrueSource();
+    public boolean hurt(DamageSource source, float amount) {
+        Entity entity = source.getDirectEntity();
         if (entity instanceof PlayerEntity && !getProvoked()) {
             PlayerEntity player = (PlayerEntity) entity;
             this.setProvoked(player);
-            this.addVelocity(0, 0.6, 0);
+            this.setDeltaMovement(0, 0.6, 0);
         }
-        return super.attackEntityFrom(source, amount);
+        return super.hurt(source, amount);
     }
     public boolean needsSpecialAI() {
         return true;
@@ -112,7 +112,7 @@ public class EntityKobblin extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_KOBBLIN;
     }
 

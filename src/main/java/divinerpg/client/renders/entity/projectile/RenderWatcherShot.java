@@ -24,20 +24,20 @@ public class RenderWatcherShot extends EntityRenderer<AbstractFireballEntity> {
     }
 //TODO - render watcher shot as sprite instead of blaze pumpkin
     @Override
-    public ResourceLocation getEntityTexture(AbstractFireballEntity entity) {
-        return AtlasTexture.LOCATION_BLOCKS_TEXTURE;
+    public ResourceLocation getTextureLocation(AbstractFireballEntity entity) {
+        return AtlasTexture.LOCATION_BLOCKS;
     }
 
     @Override
     public void render(AbstractFireballEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
-        BlockRendererDispatcher blockrendererdispatcher = Minecraft.getInstance().getBlockRendererDispatcher();
-        matrixStackIn.push();
+        BlockRendererDispatcher blockrendererdispatcher = Minecraft.getInstance().getBlockRenderer();
+        matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.5D, 0.0D);
-        matrixStackIn.rotate(Vector3f.YP.rotationDegrees(-90.0F));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
         matrixStackIn.translate(-0.5D, -0.5D, 0.5D);
-        matrixStackIn.rotate(Vector3f.YP.rotationDegrees(90.0F));
-        Minecraft.getInstance().getBlockRendererDispatcher().renderBlock(BlockRegistry.blazePumpkin.getDefaultState(), matrixStackIn, bufferIn, packedLightIn, OverlayTexture.NO_OVERLAY);
-        matrixStackIn.pop();
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(90.0F));
+        blockrendererdispatcher.renderSingleBlock(BlockRegistry.blazePumpkin.defaultBlockState(), matrixStackIn, bufferIn, packedLightIn, OverlayTexture.NO_OVERLAY);
+        matrixStackIn.popPose();
     }
 
 }

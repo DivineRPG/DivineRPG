@@ -10,8 +10,8 @@ import net.minecraft.world.*;
 
 public class BlockSpike extends BlockMod {
     private final boolean isHot;
-    protected static final VoxelShape collisionbox = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-    protected static final VoxelShape boundingbox = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    protected static final VoxelShape collisionbox = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
+    protected static final VoxelShape boundingbox = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public BlockSpike(String name, boolean isHot) {
         super(name, 3);
@@ -29,12 +29,12 @@ public class BlockSpike extends BlockMod {
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
-                entityIn.attackEntityFrom(DamageSources.spikeSource, 8);
-                entityIn.setFire(10);
+                entityIn.hurt(DamageSources.spikeSource, 8);
+                entityIn.setSecondsOnFire(10);
             }
         } else {
             if (entityIn instanceof LivingEntity) {
-                entityIn.attackEntityFrom(DamageSources.spikeSource, 5);
+                entityIn.hurt(DamageSources.spikeSource, 5);
             }
         }
     }

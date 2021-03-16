@@ -3,8 +3,11 @@ package divinerpg.entities.arcana;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityDatticon extends EntityDivineMerchant {
 	
@@ -57,5 +60,14 @@ public class EntityDatticon extends EntityDivineMerchant {
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.kormaLeggings, 1), ItemRegistry.kormaLeggings.getMaxDamage(), 1, 1));
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 12), new ItemStack(ItemRegistry.kormaBoots, 1), ItemRegistry.kormaBoots.getMaxDamage(), 1, 1));
 		return offers;
+	}
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+	}
+
+	@Override
+	public World getLevel() {
+		return level;
 	}
 }

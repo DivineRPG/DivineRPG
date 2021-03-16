@@ -22,12 +22,10 @@ public class EntityBehemoth extends EntityDivineMob {
         return 0.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.behemothHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.behemothDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.behemothSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.behemothFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.behemothHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.behemothDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.behemothSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.behemothFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
     }
 
     @Override
@@ -62,7 +60,7 @@ public class EntityBehemoth extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_BEHEMOTH;
     }
 }

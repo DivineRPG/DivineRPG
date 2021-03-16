@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
@@ -16,28 +16,30 @@ version = '1.8'
 group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DivineRPG'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
-
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+//    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    mappings channel: 'official', version: '1.16.5'
     runs {
         client {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+
             mods {
                 divinerpg {
                     source sourceSets.main
                 }
             }
         }
+
         server {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+
             mods {
                 divinerpg {
                     source sourceSets.main
@@ -47,9 +49,13 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
             property 'forge.logging.console.level', 'debug'
+
             args '--mod', 'divinerpg', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
             mods {
                 divinerpg {
                     source sourceSets.main
@@ -58,7 +64,9 @@ minecraft {
         }
     }
 }
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 repositories {
     maven { url = "https://minecraft.curseforge.com/api/maven/"}
     maven { url = "http://dvs1.progwml6.com/files/maven"}
@@ -67,26 +75,28 @@ repositories {
     maven { url 'https://maven.blamejared.com'}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.0.46'
-    compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api") //JEI
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}") //JEI
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+    compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}") //Just Enough Items
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
     compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
 }
+
 jar {
     manifest {
         attributes([
-            "Specification-Title": "divinerpg",
-            "Specification-Vendor": "TeamDivineRPG",
-            "Specification-Version": "1.8", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"TeamDivineRPG",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title": "divinerpg",
+                "Specification-Vendor": "TeamDivineRPG",
+                "Specification-Version": "1.8",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor" :"TeamDivineRPG",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
-jar.finalizedBy('reobfJar') 
+
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {

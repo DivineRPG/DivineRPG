@@ -20,7 +20,7 @@ public class EntityTheGrue extends EntityDivineMob {
         return 1.4F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.theGrueHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.theGrueDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.theGrueSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.theGrueFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theGrueHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.theGrueDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.theGrueSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theGrueFollowRange);
     }
 
     @Override
@@ -46,11 +46,11 @@ public class EntityTheGrue extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_THE_GRUE;
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() <= 16 && super.canSpawn(worldIn, spawnReasonIn);
+        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }
 }

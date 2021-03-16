@@ -23,12 +23,10 @@ public class EntityMegalith extends EntityDivineMob {
         return 3.6F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.megalithHealth).createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.megalithDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.27 * 0.9).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.megalithFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.megalithHealth).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.ATTACK_DAMAGE, EntityStats.megalithDamage).add(Attributes.MOVEMENT_SPEED, 0.27 * 0.9).add(Attributes.FOLLOW_RANGE, EntityStats.megalithFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
     }
 
     @Override
@@ -38,20 +36,20 @@ public class EntityMegalith extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        boolean attack = super.attackEntityAsMob(entity);
+    public boolean doHurtTarget(Entity entity) {
+        boolean attack = super.doHurtTarget(entity);
         if (attack) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2, false, false));
+                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 2, false, false));
             }
-            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * 1.5f, 0.1D,
-                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * 1.5f);
+            entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F) * 1.5f, 0.1D,
+                    MathHelper.cos(this.xRot * (float) Math.PI / 180.0F) * 1.5f);
         }
         return attack;
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -71,7 +69,7 @@ public class EntityMegalith extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_MEGALITH;
     }
 }

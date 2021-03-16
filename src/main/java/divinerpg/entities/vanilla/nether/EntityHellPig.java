@@ -15,15 +15,15 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class EntityHellPig extends EntityDivineTameable {
-    private static final DataParameter<Float> HEALTH = EntityDataManager.createKey(EntityHellPig.class,
+    private static final DataParameter<Float> HEALTH = EntityDataManager.defineId(EntityHellPig.class,
             DataSerializers.FLOAT);
-    private static final DataParameter<Boolean> ANGRY = EntityDataManager.createKey(EntityHellPig.class,
+    private static final DataParameter<Boolean> ANGRY = EntityDataManager.defineId(EntityHellPig.class,
             DataSerializers.BOOLEAN);
 
     protected EntityHellPig(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 
     public <T extends Entity> EntityHellPig(EntityType<T> type, World worldIn) {
@@ -32,10 +32,10 @@ public class EntityHellPig extends EntityDivineTameable {
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.THE_NETHER;
+        return level.dimension() == World.NETHER;
     }
     @Override
-    public boolean isImmuneToFire() {
+    public boolean fireImmune() {
         return true;
     }
 
@@ -43,88 +43,89 @@ public class EntityHellPig extends EntityDivineTameable {
         return 0.8F;
     }
     @Override
-    protected void registerData() {
-        super.registerData();
-        dataManager.register(HEALTH, this.getHealth());
-        dataManager.register(ANGRY, Boolean.FALSE);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(HEALTH, this.getHealth());
+        entityData.define(ANGRY, Boolean.FALSE);
     }
 
     @Override
-    protected void updateAITasks() {
-        super.updateAITasks();
-        this.dataManager.set(HEALTH, this.getHealth());
+    public void aiStep() {
+        super.aiStep();
+        this.entityData.set(HEALTH, this.getHealth());
     }
 
     @Override
-    public void setAttackTarget(LivingEntity attackTarget) {
-        super.setAttackTarget(attackTarget);
+    public void setTarget(LivingEntity attackTarget) {
+        super.setTarget(attackTarget);
         if (attackTarget == null)
             this.setAngry(false);
-        else if (!this.isTamed())
+        else if (!this.isTame())
             this.setAngry(true);
     }
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
         }
             if (item == Items.BLAZE_POWDER && !isAngry()) {
-                if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.setTamedBy(player);
-                    this.navigator.clearPath();
-                    this.setAttackTarget((LivingEntity)null);
-                    this.world.setEntityState(this, (byte)7);
-                    this.heal(item.getFood().getHealing());
+                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                    this.tame(player);
+                    this.getNavigation().recomputePath();
+                    this.setTarget((LivingEntity)null);
+                    this.level.broadcastEntityEvent(this, (byte)7);
+                    this.heal(item.getFoodProperties().getNutrition());
                 } else {
-                    this.world.setEntityState(this, (byte)6);
-                    this.heal(item.getFood().getHealing());
+                    this.level.broadcastEntityEvent(this, (byte)6);
+                    this.heal(item.getFoodProperties().getNutrition());
                 }
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
 
+
     @Override
-    public void setTamed(boolean tamed) {
-        super.setTamed(tamed);
+    public void setTame(boolean tamed) {
+        super.setTame(tamed);
         increaseHealthIfTimable();
     }
 
 
     @Override
-    public void writeAdditional(CompoundNBT tag) {
-        super.writeAdditional(tag);
+    public void addAdditionalSaveData(CompoundNBT tag) {
+        super.addAdditionalSaveData(tag);
         tag.putBoolean("Angry", this.isAngry());
     }
 
     @Override
-    public void readAdditional(CompoundNBT tag) {
-        super.readAdditional(tag);
+    public void readAdditionalSaveData(CompoundNBT tag) {
+        super.readAdditionalSaveData(tag);
         setAngry(tag.getBoolean("Angry"));
     }
 
     public boolean isAngry() {
-        return this.dataManager.get(ANGRY);
+        return this.entityData.get(ANGRY);
     }
 
     public void setAngry(boolean angry) {
-        this.dataManager.set(ANGRY, angry);
-        MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
+        this.entityData.set(ANGRY, angry);
+        MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_HELL_PIG;
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.hellPigHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, 5).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.hellPigSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.hellPigRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigHealth).add(Attributes.ATTACK_DAMAGE, 5).add(Attributes.MOVEMENT_SPEED, EntityStats.hellPigSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellPigRange);
     }
 }

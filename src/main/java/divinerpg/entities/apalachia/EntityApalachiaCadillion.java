@@ -21,12 +21,10 @@ public class EntityApalachiaCadillion extends EntityDivineMob {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.apalachiaCadillionHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaCadillionDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaCadillionSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.apalachiaCadillionFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaCadillionFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class EntityApalachiaCadillion extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_APALACHIA_CADILLION;
     }
 }

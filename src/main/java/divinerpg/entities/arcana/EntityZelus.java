@@ -3,8 +3,11 @@ package divinerpg.entities.arcana;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import javax.annotation.*;
 
 public class EntityZelus extends EntityDivineMerchant {
 	
@@ -45,5 +48,15 @@ public class EntityZelus extends EntityDivineMerchant {
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(ItemRegistry.paratikuEgg, 1), ItemRegistry.paratikuEgg.getMaxDamage(), 1, 1));
 		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.golemOfRejuvenationEgg, 1), ItemRegistry.golemOfRejuvenationEgg.getMaxDamage(), 1, 1));
 		return offers;
+	}
+
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+
+	}
+
+	@Override
+	public World getLevel() {
+		return level;
 	}
 }

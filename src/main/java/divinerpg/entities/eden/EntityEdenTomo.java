@@ -13,19 +13,17 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
 
     public EntityEdenTomo(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        experienceValue = 40;
+        xpReward = 40;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.6F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.edenTomoHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.edenTomoDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.edenTomoSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.edenTomoFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenTomoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenTomoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenTomoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenTomoFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
 
     @Override
@@ -44,7 +42,7 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_EDEN_TOMO;
     }
 }

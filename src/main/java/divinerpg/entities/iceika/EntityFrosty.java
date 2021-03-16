@@ -21,19 +21,19 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
         return 1.85F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.frostyHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.frostyDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.frostySpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.frostyFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.frostyHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.frostyDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.frostySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.frostyFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        boolean attack = super.attackEntityAsMob(entity);
+    public boolean doHurtTarget(Entity entity) {
+        boolean attack = super.doHurtTarget(entity);
         if (attack && entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2, true, false));
-            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5 * 0.5F, 0.1D,
-                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F) * 2.5 * 0.5F);
+            ((LivingEntity) entity).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 2, true, false));
+            entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F) * 2.5 * 0.5F, 0.1D,
+                    MathHelper.cos(this.xRot * (float) Math.PI / 180.0F) * 2.5 * 0.5F);
         }
         return attack;
     }
@@ -54,7 +54,7 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_FROSTY;
     }
 }

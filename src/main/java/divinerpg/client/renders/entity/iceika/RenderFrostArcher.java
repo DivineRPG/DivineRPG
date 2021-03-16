@@ -18,7 +18,7 @@ public class RenderFrostArcher extends MobRenderer<EntityFrostArcher, BipedModel
     }
 
     @Override
-    public ResourceLocation getEntityTexture(EntityFrostArcher entity) {
+    public ResourceLocation getTextureLocation(EntityFrostArcher entity) {
         return TEXTURE;
     }
 

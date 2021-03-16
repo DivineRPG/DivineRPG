@@ -1,7 +1,7 @@
 package divinerpg.entities.mortum;
 
 import divinerpg.entities.base.EntityMageBase;
-import divinerpg.registries.LootTableRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -20,16 +20,14 @@ public class EntitySorcerer extends EntityMageBase {
         return 1.75F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.sorcererHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.sorcererDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.sorcererSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.sorcererFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sorcererHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sorcererDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.sorcererSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sorcererFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.MORTUM_WORLD;
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SORCERER;
     }
 }

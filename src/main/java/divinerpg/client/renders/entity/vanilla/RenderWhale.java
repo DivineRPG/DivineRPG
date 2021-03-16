@@ -21,7 +21,7 @@ public class RenderWhale extends MobRenderer<EntityWhale, ModelWhale<EntityWhale
         matrixStackIn.scale(5, 5, 5);
 //        super.preRenderCallback(entity, matrixStackIn, partialTickTime);
     }
-    public ResourceLocation getEntityTexture(EntityWhale entity) {
+    public ResourceLocation getTextureLocation(EntityWhale entity) {
         return TEXTURE;
     }
 }

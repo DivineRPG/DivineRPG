@@ -19,10 +19,10 @@ public class EntityGreenfeet extends EntityDivineMob {
         return 1.75F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return !this.isInDaylight();
+        return level.dimension() == KeyRegistry.EDEN_WORLD && !level.canSeeSky(this.blockPosition());
     }
     @Override
     protected void registerGoals() {
@@ -31,19 +31,19 @@ public class EntityGreenfeet extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
     @Override
     public void tick() {
-        if (this.world.isDaytime() && !this.world.isRemote) {
+        if (this.level.isDay() && !this.level.isClientSide) {
             float lightLevel = this.getBrightness();
             if (lightLevel > 0.5F
-                    && this.world.canBlockSeeSky(new BlockPos(MathHelper.floor(this.getPosX()), MathHelper.floor(this.getPosY()),
-                    MathHelper.floor(this.getPosZ())))
-                    && this.rand.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
-                this.setFire(8);
+                    && this.level.canSeeSky(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()),
+                    MathHelper.floor(this.getZ())))
+                    && this.random.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
+                this.setRemainingFireTicks(8);
             }
         }
         super.tick();
@@ -65,7 +65,7 @@ public class EntityGreenfeet extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_GREENFEET;
     }
 }

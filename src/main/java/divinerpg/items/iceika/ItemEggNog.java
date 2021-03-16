@@ -14,33 +14,34 @@ import net.minecraft.world.World;
 public class ItemEggNog extends ItemModFood {
 
     public ItemEggNog(String name) {
-        super(name, new Item.Properties().group(DivineRPG.tabs.food).food(FoodList.EGG_NOG).maxStackSize(1), FoodList.EGG_NOG);
+        super(name, new Item.Properties().tab(DivineRPG.tabs.food).food(FoodList.EGG_NOG).stacksTo(1), FoodList.EGG_NOG);
     }
 
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        if (!worldIn.isRemote)
+    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+        if (!worldIn.isClientSide)
             entityLiving.curePotionEffects(stack); // FORGE - move up so stack.shrink does not turn stack into air
 
         if (entityLiving instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-            serverplayerentity.addStat(Stats.ITEM_USED.get(this));
-            serverplayerentity.getFoodStats().addStats(4, 1.5F);
+            serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+            serverplayerentity.getFoodData().eat(4, 1.5F);
         }
 
-        if (entityLiving instanceof PlayerEntity && !((PlayerEntity) entityLiving).abilities.isCreativeMode) {
+        if (entityLiving instanceof PlayerEntity && !((PlayerEntity) entityLiving).isCreative()) {
             stack.shrink(1);
         }
 
         return stack.isEmpty() ? new ItemStack(Items.BUCKET) : stack;
     }
 
-    public UseAction getUseAction(ItemStack stack) {
+    @Override
+    public UseAction getUseAnimation(ItemStack stack) {
         return UseAction.DRINK;
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return DrinkHelper.startDrinking(worldIn, playerIn, handIn);
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        return DrinkHelper.useDrink(worldIn, playerIn, handIn);
     }
 
 }

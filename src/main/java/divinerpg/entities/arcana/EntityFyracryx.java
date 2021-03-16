@@ -16,7 +16,7 @@ public class EntityFyracryx extends EntityDivineTameable implements IRangedAttac
 	public EntityFyracryx(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 	
 	public <T extends Entity> EntityFyracryx(EntityType<T> type, World worldIn) {
@@ -29,7 +29,7 @@ public class EntityFyracryx extends EntityDivineTameable implements IRangedAttac
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.fyracryxHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.fyracryxSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.fyracryxFollowRange);
+        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.fyracryxHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.fyracryxSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.fyracryxFollowRange);
     }
 
     @Override
@@ -47,33 +47,33 @@ public class EntityFyracryx extends EntityDivineTameable implements IRangedAttac
         return SoundRegistry.DEATHCRYX;
     }
     
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                this.heal((float) item.getFood().getHealing());
+                this.heal((float) item.getFoodProperties().getNutrition());
                 return ActionResultType.PASS;
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
     
     @Override
     public void tick() {
         super.tick();
-        if (this.getAttackTarget() != null && !this.world.isRemote && this.ticksExisted % 20 == 0)
-            this.attackEntityWithRangedAttack(this.getAttackTarget(), 0);
+        if (this.getTarget() != null && !this.level.isClientSide && this.tickCount % 20 == 0)
+            this.performRangedAttack(this.getTarget(), 0);
     }
 
 	@Override
-	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+	public void performRangedAttack(LivingEntity target, float distanceFactor) {
 		// TODO EntityFyracryxFireball
 		/*
 		double tx = target.getPosX() - this.getPosX();

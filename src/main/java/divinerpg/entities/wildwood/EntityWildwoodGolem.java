@@ -19,12 +19,10 @@ public class EntityWildwoodGolem extends EntityDivineMob {
         return 2.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.wildwoodGolemHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodGolemDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodGolemSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.wildwoodGolemFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.wildwoodGolemHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodGolemDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodGolemSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.wildwoodGolemFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
     }
 
     @Override
@@ -34,7 +32,7 @@ public class EntityWildwoodGolem extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -54,7 +52,7 @@ public class EntityWildwoodGolem extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_WILDWOOD_GOLEM;
     }
 }

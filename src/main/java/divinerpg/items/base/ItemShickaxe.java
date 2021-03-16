@@ -20,45 +20,49 @@ public class ItemShickaxe extends ToolItem {
     private static final Set<Block> EFFECTIVE_ON = ImmutableSet.of();
 
     public ItemShickaxe(String name, IItemTier tier) {
-        super(1.0F, -2.8F, tier, EFFECTIVE_ON, new Item.Properties().group(DivineRPG.tabs.tools).addToolType(ToolType.AXE, tier.getHarvestLevel()).addToolType(ToolType.PICKAXE, tier.getHarvestLevel()).addToolType(ToolType.SHOVEL, tier.getHarvestLevel()).maxDamage(tier.getMaxUses()));
+        super(1.0F, -2.8F, tier, EFFECTIVE_ON, new Item.Properties().tab(DivineRPG.tabs.tools).addToolType(ToolType.AXE, tier.getLevel()).addToolType(ToolType.PICKAXE, tier.getLevel()).addToolType(ToolType.SHOVEL, tier.getLevel()).durability(tier.getUses()));
         setRegistryName(name);
     }
 
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.efficiency(efficiency));
-        tooltip.add(LocalizeUtils.harvestLevel(getTier().getHarvestLevel()));
+        tooltip.add(LocalizeUtils.efficiency(speed));
+        tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));
 
         if (getMaxDamage() == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());
         } else {
-            tooltip.add(LocalizeUtils.usesRemaining(getTier().getMaxUses() - getDamage(stack)));
+            tooltip.add(LocalizeUtils.usesRemaining(getTier().getUses() - getDamage(stack)));
         }
     }
 
+
+
     @Override
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damageItem(1, attacker, null);
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        stack.hurtAndBreak(1, attacker, null);
         return true;
     }
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        if (state.getBlock().getHarvestLevel(state) <= getTier().getHarvestLevel()) {
-            return this.efficiency;
+        if (state.getBlock().getHarvestLevel(state) <= getTier().getLevel()) {
+            return this.speed;
         }
 
         return super.getDestroySpeed(stack, state);
     }
 
+
+
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-        return Items.DIAMOND_HOE.onItemUse(context);
+    public ActionResultType useOn(ItemUseContext context) {
+        return Items.DIAMOND_HOE.useOn(context);
     }
 
     @Override
-    public boolean canHarvestBlock(BlockState blockIn) {
-        return blockIn.getBlock().getHarvestLevel(blockIn) <= getTier().getHarvestLevel();
+    public boolean canHarvestBlock(ItemStack stack, BlockState state) {
+        return state.getBlock().getHarvestLevel(state) <= getTier().getLevel();
     }
 
 }

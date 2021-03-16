@@ -31,8 +31,9 @@ public class GenerateBlockLoot implements IDataProvider {
         this.generator = generator;
     }
 
+
     @Override
-    public void act(DirectoryCache cache) throws IOException {
+    public void run(DirectoryCache cache) throws IOException {
         Map<ResourceLocation, LootTable.Builder> tables = new HashMap<>();
 
         for (Block block : ForgeRegistries.BLOCKS) {
@@ -61,7 +62,7 @@ public class GenerateBlockLoot implements IDataProvider {
 
         for (Map.Entry<ResourceLocation, LootTable.Builder> e : tables.entrySet()) {
             Path path = getPath(generator.getOutputFolder(), e.getKey());
-            IDataProvider.save(GSON, cache, LootTableManager.toJson(e.getValue().setParameterSet(LootParameterSets.BLOCK).build()), path);
+            IDataProvider.save(GSON, cache, LootTableManager.serialize(e.getValue().setParamSet(LootParameterSets.BLOCK).build()), path);
         }
     }
 
@@ -75,34 +76,34 @@ public class GenerateBlockLoot implements IDataProvider {
     }
 
     private static LootTable.Builder genRegular(Block b) {
-        LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry).acceptCondition(SurvivesExplosion.builder());
-        return LootTable.builder().addLootPool(pool);
+        LootEntry.Builder<?> entry = ItemLootEntry.lootTableItem(b);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(entry).when(SurvivesExplosion.survivesExplosion());
+        return LootTable.lootTable().withPool(pool);
     }
     private static LootTable.Builder genSilk(Block b) {
-        LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry).acceptCondition(SurvivesExplosion.builder()).acceptCondition(MatchTool.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))));
-        return LootTable.builder().addLootPool(pool);
+        LootEntry.Builder<?> entry = ItemLootEntry.lootTableItem(b);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(entry).when(SurvivesExplosion.survivesExplosion()).when(MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))));
+        return LootTable.lootTable().withPool(pool);
     }
     private static LootTable.Builder genSilkShears(Block b) {
-        LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry).acceptCondition(SurvivesExplosion.builder()).acceptCondition(MatchTool.builder(ItemPredicate.Builder.create().item(Items.SHEARS)).alternative(MatchTool.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))))));
-        return LootTable.builder().addLootPool(pool);
+        LootEntry.Builder<?> entry = ItemLootEntry.lootTableItem(b);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(entry).when(SurvivesExplosion.survivesExplosion()).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).or(MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))))));
+        return LootTable.lootTable().withPool(pool);
     }
     private static LootTable.Builder genTwilightOre(Block b) {
-        LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
+        LootEntry.Builder<?> entry = ItemLootEntry.lootTableItem(b);
         //Works but no dupe prevention at all. 
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry).acceptFunction(SetCount.builder(ConstantRange.of(1))).acceptFunction(SetCount.builder(ConstantRange.of(3)).acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().equipment(EntityEquipmentPredicate.Builder.createBuilder().setHeadCondition(ItemPredicate.Builder.create().item(ItemRegistry.edenHelmet).build()).setChestCondition(ItemPredicate.Builder.create().item(ItemRegistry.edenChestplate).build()).setLegsCondition(ItemPredicate.Builder.create().item(ItemRegistry.edenLeggings).build()).setFeetCondition(ItemPredicate.Builder.create().item(ItemRegistry.edenBoots).build()).build())))).acceptCondition(SurvivesExplosion.builder());
-        return LootTable.builder().addLootPool(pool);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(entry).apply(SetCount.setCount(ConstantRange.exactly(1))).apply(SetCount.setCount(ConstantRange.exactly(3)).when(EntityHasProperty.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().equipment(EntityEquipmentPredicate.Builder.equipment().head(ItemPredicate.Builder.item().of(ItemRegistry.edenHelmet).build()).chest(ItemPredicate.Builder.item().of(ItemRegistry.edenChestplate).build()).legs(ItemPredicate.Builder.item().of(ItemRegistry.edenLeggings).build()).feet(ItemPredicate.Builder.item().of(ItemRegistry.edenBoots).build()).build())))).when(SurvivesExplosion.survivesExplosion());
+        return LootTable.lootTable().withPool(pool);
     }
     private static LootTable.Builder genSlab(Block b) {
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(ItemLootEntry.builder(b).acceptFunction(SetCount.builder(ConstantRange.of(2)).acceptCondition(BlockStateProperty.builder(b).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withProp(SlabBlock.TYPE, SlabType.DOUBLE)))).acceptCondition(SurvivesExplosion.builder())).acceptCondition(SurvivesExplosion.builder());
-        return LootTable.builder().addLootPool(pool);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(b).apply(SetCount.setCount(ConstantRange.exactly(2)).when(BlockStateProperty.hasBlockStateProperties(b).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))).when(SurvivesExplosion.survivesExplosion())).when(SurvivesExplosion.survivesExplosion());
+        return LootTable.lootTable().withPool(pool);
     }
     private static LootTable.Builder genFortune(Block b) {
-        LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
-        LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry).acceptCondition(SurvivesExplosion.builder()).acceptFunction(ApplyBonus.oreDrops(Enchantments.FORTUNE));
-        return LootTable.builder().addLootPool(pool);
+        LootEntry.Builder<?> entry = ItemLootEntry.lootTableItem(b);
+        LootPool.Builder pool = LootPool.lootPool().name("main").setRolls(ConstantRange.exactly(1)).add(entry).when(SurvivesExplosion.survivesExplosion()).apply(ApplyBonus.addOreBonusCount(Enchantments.BLOCK_FORTUNE));
+        return LootTable.lootTable().withPool(pool);
     }
 
 

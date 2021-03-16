@@ -23,12 +23,10 @@ public class EntityEnchantedWarrior extends EntityDivineMob {
         return 1.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.apalachiaCadillionHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaCadillionDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaCadillionSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.apalachiaCadillionFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaCadillionFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
     }
 
     @Override
@@ -38,19 +36,19 @@ public class EntityEnchantedWarrior extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
     @Override
     public void tick() {
-        if (this.world.isDaytime() && !this.world.isRemote) {
+        if (this.level.isDay() && !this.level.isClientSide) {
             float lightLevel = this.getBrightness();
             if (lightLevel > 0.5F
-                    && this.world.canBlockSeeSky(new BlockPos(MathHelper.floor(this.getPosX()), MathHelper.floor(this.getPosY()),
-                            MathHelper.floor(this.getPosZ())))
-                    && this.rand.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
-                this.setFire(8);
+                    && this.level.canSeeSky(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()),
+                            MathHelper.floor(this.getZ())))
+                    && this.random.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
+                this.setSecondsOnFire(8);
             }
         }
         super.tick();
@@ -72,7 +70,7 @@ public class EntityEnchantedWarrior extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ENCHANTED_WARRIOR;
     }
 }

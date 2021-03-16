@@ -1,16 +1,13 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-
-import java.util.Random;
 
 public class EntityCaveCrawler extends EntityDivineMob {
 
@@ -22,11 +19,11 @@ public class EntityCaveCrawler extends EntityDivineMob {
         return 1.15F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.caveCrawlerHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.caveCrawlerDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.caveCrawlerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.caveCrawlerFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.caveCrawlerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.caveCrawlerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.caveCrawlerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.caveCrawlerFollowRange);
     }
 
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-            return world.getDimensionKey() == World.OVERWORLD && getPosition().getY() < 35;
+            return level.dimension() == World.OVERWORLD && getY() < 35;
     }
     @Override
     protected SoundEvent getAmbientSound() {
@@ -44,7 +41,7 @@ public class EntityCaveCrawler extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_CAVE_CRAWLER;
     }
 

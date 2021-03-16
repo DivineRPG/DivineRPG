@@ -24,8 +24,8 @@ public class EdenTeleporter
         if (server == null)
             return;
 
-        RegistryKey<World> transferDimension = entity.world.getDimensionKey() == type ? World.OVERWORLD : type;
-        ServerWorld transferWorld = server.getWorld(transferDimension);
+        RegistryKey<World> transferDimension = entity.level.dimension() == type ? World.OVERWORLD : type;
+        ServerWorld transferWorld = server.getLevel(transferDimension);
 
         if (!ForgeHooks.onTravelToDimension(entity, transferDimension))
             return;
@@ -41,12 +41,13 @@ public class EdenTeleporter
         {
             ServerPlayerEntity player = (ServerPlayerEntity) entity;
 
-            player.teleport(transferWorld, pos.getX(), pos.getY(), pos.getZ(), entity.rotationYaw, entity.rotationPitch);
+            //TODO - change dimension
+//            player.changeDimension(transferWorld, pos.getX(), pos.getY(), pos.getZ(), entity.rotationYaw, entity.rotationPitch);
 
-            if (transferWorld.getDimensionKey() != World.OVERWORLD)
+            if (transferWorld.dimension() != World.OVERWORLD)
             {
-                int maxY = entity.world.getHeight(Type.MOTION_BLOCKING, pos.getX(), pos.getZ());
-                //int transferY = transferWorld.getDimensionKey() == World.OVERWORLD && entity instanceof ServerPlayerEntity && ((ServerPlayerEntity) entity).func_241140_K_(/*overworld*/) != null ? ((ServerPlayerEntity) entity).func_241140_K_(/*overworld*/).getY() : maxY;
+                int maxY = entity.level.getHeight(Type.MOTION_BLOCKING, pos.getX(), pos.getZ());
+                //int transferY = transferWorld.getDimensionKey() == World.OVERWORLD && entity instanceof ServerPlayerEntity && ((ServerPlayerEntity) entity).getRespawnPosition(/*overworld*/) != null ? ((ServerPlayerEntity) entity).getRespawnPosition(/*overworld*/).getY() : maxY;
 
                 BlockPos endpointPos = new BlockPos(pos.getX() + 0.5, maxY, pos.getZ() + 0.5);
 
@@ -54,19 +55,19 @@ public class EdenTeleporter
                 {
                     for (int z = -1; z < 2; ++z)
                     {
-                        BlockPos newPos = new BlockPos(endpointPos.add(x, -1, z));
-                        if (transferWorld.getBlockState(new BlockPos(newPos)).getBlock() == Blocks.LAVA || transferWorld.getBlockState(new BlockPos(newPos).up()).getBlock() == Blocks.LAVA)
-                            transferWorld.setBlockState(newPos, Blocks.GRASS_BLOCK.getDefaultState());
+                        BlockPos newPos = new BlockPos(endpointPos.offset(x, -1, z));
+                        if (transferWorld.getBlockState(new BlockPos(newPos)).getBlock() == Blocks.LAVA || transferWorld.getBlockState(new BlockPos(newPos).above()).getBlock() == Blocks.LAVA)
+                            transferWorld.setBlock(newPos, Blocks.GRASS_BLOCK.defaultBlockState() ,1);
                     }
                 }
 
-                player.setLocationAndAngles(endpointPos.getX(), endpointPos.getY(), endpointPos.getZ(), entity.rotationYaw, entity.rotationPitch);
+                player.moveTo(endpointPos.getX(), endpointPos.getY(), endpointPos.getZ(), entity.xRot, entity.yRot);
             }
 
             return player;
         }
 
-        entity.detach();
+        entity.refreshDimensions();
         entity.changeDimension(transferWorld);
 
         Entity teleportedEntity = entity.getType().create(transferWorld);
@@ -74,10 +75,10 @@ public class EdenTeleporter
         if (teleportedEntity == null)
             return entity;
 
-        teleportedEntity.copyDataFromOld(entity);
-        teleportedEntity.setLocationAndAngles(pos.getX(), pos.getY(), pos.getZ(), entity.rotationYaw, entity.rotationPitch);
-        teleportedEntity.setRotationYawHead(entity.rotationYaw);
-        teleportedEntity.setMotion(Vector3d.ZERO);
+        teleportedEntity.copyPosition(entity);
+        teleportedEntity.moveTo(pos.getX(), pos.getY(), pos.getZ(), entity.xRot, entity.yRot);
+        teleportedEntity.setYHeadRot(entity.xRot);
+        teleportedEntity.moveTo(Vector3d.ZERO);
         transferWorld.addFromAnotherDimension(teleportedEntity);
         entity.remove();
 

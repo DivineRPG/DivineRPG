@@ -18,7 +18,7 @@ public class RenderSunArcher extends MobRenderer<EntitySunArcher, ModelSunArcher
     }
 
     @Override
-    public ResourceLocation getEntityTexture(EntitySunArcher entity) {
+    public ResourceLocation getTextureLocation(EntitySunArcher entity) {
         return TEXTURE;
     }
 

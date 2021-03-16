@@ -15,7 +15,7 @@ public class EntitySeimer extends EntityDivineTameable {
 	public EntitySeimer(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 	
 	public <T extends Entity> EntitySeimer(EntityType<T> type, World worldIn) {
@@ -28,25 +28,25 @@ public class EntitySeimer extends EntityDivineTameable {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.seimerHealth).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.seimerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.seimerFollowRange);
+        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.seimerHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.seimerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.seimerFollowRange);
     }
     
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (item.getFood().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                this.heal((float) item.getFood().getHealing());
+                this.heal((float) item.getFoodProperties().getNutrition());
                 return ActionResultType.PASS;
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
     // TODO arcana replenishing
     /*

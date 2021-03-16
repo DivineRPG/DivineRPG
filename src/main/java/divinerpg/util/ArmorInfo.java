@@ -33,7 +33,7 @@ public class ArmorInfo {
             Arrays.stream(fullSetPerks).forEach(FullSetPerks::append);
         }
 
-        FullSetPerks.getStyle().setColor(Color.fromTextFormatting(TextFormatting.GRAY));
+        FullSetPerks.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GRAY));
     }
 
     public ArmorInfo withDimension(TextComponent dimensionName, Predicate<DimensionType> dimensionPredicate) {
@@ -44,21 +44,21 @@ public class ArmorInfo {
 
     public List<String> toString(ItemStack item, @Nullable World worldIn) {
         StringTextComponent result = new StringTextComponent("");
-        result.getStyle().setColor(Color.fromTextFormatting(TextFormatting.GRAY));
+        result.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GRAY));
 
         if (dimensionName != null) {
-            boolean isBoosted = worldIn != null && worldIn.getDimensionKey() != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.getDimensionType());
+            boolean isBoosted = worldIn != null && worldIn.dimension() != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.dimensionType());
 
             StringTextComponent dimName = new StringTextComponent(dimensionName.getString());
             if (isBoosted) {
-                dimName.getStyle().setColor(Color.fromTextFormatting(TextFormatting.GREEN));
+                dimName.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GREEN));
             }
 
             result.append(dimName);
         }
         if (FullSetPerks != null && !FullSetPerks.getSiblings().isEmpty()) {
             ITextComponent fullSetDescription = new TranslationTextComponent("tooltip.fullset");
-            fullSetDescription.getStyle().setColor(Color.fromTextFormatting(TextFormatting.WHITE));
+            fullSetDescription.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.WHITE));
             result.append(fullSetDescription);
 
             FullSetPerks.getSiblings().forEach(result::append);

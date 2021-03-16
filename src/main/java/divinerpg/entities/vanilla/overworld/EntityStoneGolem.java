@@ -16,8 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityStoneGolem extends EntityDivineTameable implements IAttackTimer {
-    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.createKey(EntitySmelter.class,
-            DataSerializers.VARINT);
+    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.defineId(EntitySmelter.class,
+            DataSerializers.INT);
 
     public <T extends Entity> EntityStoneGolem(EntityType<T> type, World worldIn) {
         super((EntityType<? extends TameableEntity>) type, worldIn);
@@ -26,7 +26,7 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
     protected EntityStoneGolem(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        setTamedBy(player);
+        tame(player);
     }
 
 
@@ -35,60 +35,60 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
     }
 
     @Override
-    protected void registerData() {
-        super.registerData();
-        dataManager.register(ATTACK_TIMER, Integer.valueOf(0));
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(ATTACK_TIMER, Integer.valueOf(0));
     }
 
     @Override
-    public void livingTick() {
-        super.livingTick();
+    public void tick() {
+        super.tick();
         if (getAttackTimer() > 0) {
-            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(getAttackTimer() - 1));
+            this.entityData.set(ATTACK_TIMER, Integer.valueOf(getAttackTimer() - 1));
         }
     }
 
     @Override
     public int getAttackTimer() {
-        return this.dataManager.get(ATTACK_TIMER).intValue();
+        return this.entityData.get(ATTACK_TIMER).intValue();
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.stoneGolemHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.stoneGolemDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.stoneGolemSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.stoneGolemFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.stoneGolemHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.stoneGolemDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.stoneGolemSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.stoneGolemFollowRange);
     }
 
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTamed()) {
-            if (ItemTags.STONE_CRAFTING_MATERIALS.getAllElements().contains(item) && this.getHealth() < this.getMaxHealth()) {
-                if (!player.abilities.isCreativeMode) {
+        if (this.isTame()) {
+            if (ItemTags.STONE_CRAFTING_MATERIALS.getValues().contains(item) && this.getHealth() < this.getMaxHealth()) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.setTamedBy(player);
-                    this.navigator.clearPath();
-                    this.setAttackTarget((LivingEntity)null);
-                    this.world.setEntityState(this, (byte)7);
+                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                    this.tame(player);
+                    this.navigation.recomputePath();
+                    this.setTarget((LivingEntity)null);
+                    this.level.broadcastEntityEvent(this, (byte)7);
                     this.heal(4.0F);
                 } else {
-                    this.world.setEntityState(this, (byte)6);
+                    this.level.broadcastEntityEvent(this, (byte)6);
                     this.heal(4.0F);
                 }
             } else {
-                setTamedBy(player);
-                this.playTameEffect(true);
+                tame(player);
+                this.setTame(true);
             }
         }
-        return super.func_230254_b_(player, hand);
+        return super.mobInteract(player, hand);
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        boolean attack = super.attackEntityAsMob(entity);
+    public boolean doHurtTarget(Entity entity) {
+        boolean attack = super.doHurtTarget(entity);
         if (attack) {
-            entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F), 0.1D,
-                    MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F));
-            this.dataManager.set(ATTACK_TIMER, Integer.valueOf(10));
+            entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F), 0.1D,
+                    MathHelper.cos(this.xRot * (float) Math.PI / 180.0F));
+            this.entityData.set(ATTACK_TIMER, Integer.valueOf(10));
         }
         return attack;
     }

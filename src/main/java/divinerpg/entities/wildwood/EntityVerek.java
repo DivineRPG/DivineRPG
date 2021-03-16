@@ -19,12 +19,10 @@ public class EntityVerek extends EntityDivineMob {
         return 1.8F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.verekHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.verekDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.verekSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.verekFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.verekHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.verekDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.verekSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.verekFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
     }
 
     @Override
@@ -34,7 +32,7 @@ public class EntityVerek extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 6;
     }
 
@@ -54,7 +52,7 @@ public class EntityVerek extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_VEREK;
     }
 }

@@ -8,10 +8,10 @@ import net.minecraftforge.common.ToolType;
 public class BlockModDoor extends DoorBlock {
     public BlockModDoor(String name, Material material, float hardness, float resistance, ToolType tool) {
         super(Block.Properties
-                .create(material)
-                .hardnessAndResistance(hardness, resistance)
+                .of(material)
+                .strength(hardness, resistance)
                 .harvestTool(tool)
-                .setRequiresTool());
+                .requiresCorrectToolForDrops());
         setRegistryName(DivineRPG.MODID, name);
     }
 }

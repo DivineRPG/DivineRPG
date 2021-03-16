@@ -2,26 +2,29 @@ package divinerpg.blocks.base;
 
 import net.minecraft.block.*;
 import net.minecraft.state.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.server.*;
 
-import java.util.Random;
+import java.util.*;
+
+import net.minecraft.block.AbstractBlock.Properties;
 
 public class BlockModPowered extends BlockMod {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
 
     public BlockModPowered(String name, Properties properties) {
         super(name, properties);
-        this.setDefaultState(getStateContainer().getBaseState().with(POWERED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, false));
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    @Override
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(POWERED);
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+    public void onPlace(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         handleBlockState(state, worldIn, pos);
     }
 
@@ -37,11 +40,11 @@ public class BlockModPowered extends BlockMod {
     }
 
     public void handleBlockState(BlockState state, World worldIn, BlockPos pos) {
-        if (!worldIn.isRemote) {
-            if (state.get(POWERED) && !worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, this.getDefaultState(), 2);
-            } else if (!state.get(POWERED) && worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, this.getDefaultState().with(POWERED, true), 2);
+        if (!worldIn.isClientSide) {
+            if (state.getValue(POWERED) && !worldIn.hasNeighborSignal(pos)) {
+                worldIn.setBlock(pos, this.defaultBlockState(), 2);
+            } else if (!state.getValue(POWERED) && worldIn.hasNeighborSignal(pos)) {
+                worldIn.setBlock(pos, this.defaultBlockState().setValue(POWERED, true), 2);
             }
         }
     }

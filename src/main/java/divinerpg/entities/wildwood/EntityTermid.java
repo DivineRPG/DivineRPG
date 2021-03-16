@@ -1,7 +1,7 @@
 package divinerpg.entities.wildwood;
 
 import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.LootTableRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -19,12 +19,10 @@ public class EntityTermid extends EntityDivineMob {
         return 1.1F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.termidHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.termidDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.termidSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.termidFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.termidHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.termidDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.termidSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.termidFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
     }
     @Override
     protected void registerGoals() {
@@ -33,27 +31,27 @@ public class EntityTermid extends EntityDivineMob {
     }
 
     @Override
-    public CreatureAttribute getCreatureAttribute() {
+    public CreatureAttribute getMobType() {
         return CreatureAttribute.UNDEFINED;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.BLOCK_WOOD_STEP;
+        return SoundEvents.WOOD_STEP;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.BLOCK_WOOD_HIT;
+        return SoundEvents.WOOD_HIT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.BLOCK_WOOD_BREAK;
+        return SoundEvents.WOOD_BREAK;
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_TERMID;
     }
 

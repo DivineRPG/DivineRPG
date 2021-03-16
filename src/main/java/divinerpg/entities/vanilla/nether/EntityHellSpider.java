@@ -1,41 +1,27 @@
 package divinerpg.entities.vanilla.nether;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.pathfinding.ClimberPathNavigator;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.network.datasync.*;
+import net.minecraft.pathfinding.*;
+import net.minecraft.potion.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
+import java.util.*;
+
 public class EntityHellSpider extends EntityDivineMob {
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityHellSpider.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.defineId(EntityHellSpider.class, DataSerializers.BYTE);
 
     public EntityHellSpider(EntityType<? extends EntityHellSpider> type, World worldIn) {
         super(type, worldIn);
@@ -52,39 +38,40 @@ public class EntityHellSpider extends EntityDivineMob {
         this.targetSelector.addGoal(2, new EntityHellSpider.TargetGoal<>(this, PlayerEntity.class));
         this.targetSelector.addGoal(3, new EntityHellSpider.TargetGoal<>(this, IronGolemEntity.class));
     }
-    public double getMountedYOffset() {
-        return (double)(this.getHeight() * 0.5F);
+
+    public double getMyRidingOffset() {return (double)(this.getBbHeight() * 0.5F);
     }
-    protected PathNavigator createNavigator(World worldIn) {
+
+    protected PathNavigator createNavigation(World worldIn) {
         return new ClimberPathNavigator(this, worldIn);
     }
     @Override
-    public boolean isImmuneToFire() {
+    public boolean fireImmune() {
         return true;
     }
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(CLIMBING, (byte)0);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(CLIMBING, (byte)0);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getDimensionKey() == World.THE_NETHER;
+        return level.dimension() == World.NETHER;
     }
     public void tick() {
         super.tick();
-        if (!this.world.isRemote) {
-            this.setBesideClimbableBlock(this.collidedHorizontally);
+        if (!this.level.isClientSide) {
+            this.setBesideClimbableBlock(this.horizontalCollision);
         }
 
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.hellSpiderHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.hellSpiderDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.hellSpiderSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.hellSpiderFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hellSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hellSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellSpiderFollowRange);
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entityIn) {
-        if (super.attackEntityAsMob(entityIn)) {
+    public boolean doHurtTarget(Entity entityIn) {
+        if (super.doHurtTarget(entityIn)) {
             if (entityIn instanceof LivingEntity) {
-                entityIn.setFire(3);
+                entityIn.setRemainingFireTicks(3);
             }
             return true;
         } else {
@@ -98,51 +85,54 @@ public class EntityHellSpider extends EntityDivineMob {
     }
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_SPIDER_HURT;
+        return SoundEvents.SPIDER_HURT;
     }
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_SPIDER_DEATH;
+        return SoundEvents.SPIDER_DEATH;
     }
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_HELL_SPIDER;
     }
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_SPIDER_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
     }
-    public boolean isOnLadder() {
-        return this.isBesideClimbableBlock();
+
+    public boolean isSuppressingSlidingDownLadder() {return this.isBesideClimbableBlock();
     }
-    public void setMotionMultiplier(BlockState state, Vector3d motionMultiplierIn) {
-        if (!state.isIn(Blocks.COBWEB)) {
-            super.setMotionMultiplier(state, motionMultiplierIn);
+
+    public void makeStuckInBlock(BlockState state, Vector3d motionMultiplierIn) {
+        if (!state.is(Blocks.COBWEB)) {
+            super.makeStuckInBlock(state, motionMultiplierIn);
         }
     }
-    public CreatureAttribute getCreatureAttribute() {
+    public CreatureAttribute getMobType() {
         return CreatureAttribute.ARTHROPOD;
     }
-    public boolean isPotionApplicable(EffectInstance potioneffectIn) {
-        if (potioneffectIn.getPotion() == Effects.POISON) {
+
+
+    public boolean canBeAffected(EffectInstance potioneffectIn) {
+        if (potioneffectIn.getEffect() == Effects.POISON) {
             net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent event = new net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent(this, potioneffectIn);
             net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
             return event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW;
         }
-        return super.isPotionApplicable(potioneffectIn);
+        return super.canBeAffected(potioneffectIn);
     }
     public boolean isBesideClimbableBlock() {
-        return (this.dataManager.get(CLIMBING) & 1) != 0;
+        return (this.entityData.get(CLIMBING) & 1) != 0;
     }
 
     public void setBesideClimbableBlock(boolean climbing) {
-        byte b0 = this.dataManager.get(CLIMBING);
+        byte b0 = this.entityData.get(CLIMBING);
         if (climbing) {
             b0 = (byte)(b0 | 1);
         } else {
             b0 = (byte)(b0 & -2);
         }
 
-        this.dataManager.set(CLIMBING, b0);
+        this.entityData.set(CLIMBING, b0);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
@@ -150,38 +140,38 @@ public class EntityHellSpider extends EntityDivineMob {
     }
 
     static class AttackGoal extends MeleeAttackGoal {
-        public AttackGoal(EntityHellSpider spider) {
-            super(spider, 1.0D, true);
+        public AttackGoal(EntityHellSpider p_i46676_1_) {
+            super(p_i46676_1_, 1.0D, true);
         }
 
-        public boolean shouldExecute() {
-            return super.shouldExecute() && !this.attacker.isBeingRidden();
+        public boolean canUse() {
+            return super.canUse() && !this.mob.isVehicle();
         }
 
-        public boolean shouldContinueExecuting() {
-            float f = this.attacker.getBrightness();
-            if (f >= 0.5F && this.attacker.getRNG().nextInt(100) == 0) {
-                this.attacker.setAttackTarget((LivingEntity)null);
+        public boolean canContinueToUse() {
+            float f = this.mob.getBrightness();
+            if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
+                this.mob.setTarget((LivingEntity)null);
                 return false;
             } else {
-                return super.shouldContinueExecuting();
+                return super.canContinueToUse();
             }
         }
 
-        protected double getAttackReachSqr(LivingEntity attackTarget) {
-            return (double)(4.0F + attackTarget.getWidth());
+        protected double getAttackReachSqr(LivingEntity p_179512_1_) {
+            return (double)(4.0F + p_179512_1_.getBbWidth());
         }
     }
 
     public static class GroupData implements ILivingEntityData {
         public Effect effect;
 
-        public void setRandomEffect(Random rand) {
-            int i = rand.nextInt(5);
+        public void setRandomEffect(Random p_111104_1_) {
+            int i = p_111104_1_.nextInt(5);
             if (i <= 1) {
-                this.effect = Effects.SPEED;
+                this.effect = Effects.MOVEMENT_SPEED;
             } else if (i <= 2) {
-                this.effect = Effects.STRENGTH;
+                this.effect = Effects.DAMAGE_BOOST;
             } else if (i <= 3) {
                 this.effect = Effects.REGENERATION;
             } else if (i <= 4) {
@@ -192,13 +182,13 @@ public class EntityHellSpider extends EntityDivineMob {
     }
 
     static class TargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public TargetGoal(EntityHellSpider spider, Class<T> classTarget) {
-            super(spider, classTarget, true);
+        public TargetGoal(EntityHellSpider p_i45818_1_, Class<T> p_i45818_2_) {
+            super(p_i45818_1_, p_i45818_2_, true);
         }
 
-        public boolean shouldExecute() {
-            float f = this.goalOwner.getBrightness();
-            return f >= 0.5F ? false : super.shouldExecute();
+        public boolean canUse() {
+            float f = this.mob.getBrightness();
+            return f >= 0.5F ? false : super.canUse();
         }
     }
 }

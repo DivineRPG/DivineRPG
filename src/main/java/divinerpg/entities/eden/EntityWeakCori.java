@@ -19,12 +19,10 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
         return 0.8F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.edenCoriHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.edenCoriDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.edenCoriSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.edenCoriFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenCoriHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenCoriDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenCoriFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
     //TODO - Weak cori shooting ai
 //    @Override
@@ -47,8 +45,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
 
 
     @Override
-    public int getMaxSpawnedInChunk() {
-        return 1;
+    public int getMaxSpawnClusterSize() {return 1;
     }
 
     @Override
@@ -67,7 +64,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_WEAK_CORI;
     }
 }

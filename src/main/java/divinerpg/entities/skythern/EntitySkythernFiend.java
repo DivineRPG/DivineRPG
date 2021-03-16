@@ -20,12 +20,10 @@ public class EntitySkythernFiend extends EntityDivineMob {
         return 1.75F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.skythernFiendHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.skythernFiendDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.skythernFiendSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.skythernFiendFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernFiendHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernFiendDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernFiendSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernFiendFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
     }
 
     @Override
@@ -35,7 +33,7 @@ public class EntitySkythernFiend extends EntityDivineMob {
     }
 
     @Override
-    public int getTotalArmorValue() {
+    public int getArmorValue() {
         return 10;
     }
 
@@ -45,7 +43,7 @@ public class EntitySkythernFiend extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_SKYTHERN_FIEND;
     }
 }

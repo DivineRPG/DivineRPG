@@ -10,7 +10,7 @@ import java.util.*;
 public class FrozenTree extends Tree {
     @Nullable
     @Override
-    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean largeHive) {
+    protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
         return KeyRegistry.FROZEN_TREE;
     }
 }

@@ -20,13 +20,13 @@ public class EntityDeathcryx extends EntityDivineMob {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.deathcryxHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.deathcryxDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.deathcryxSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.deathcryxFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.deathcryxHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.deathcryxDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.deathcryxSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.deathcryxFollowRange);
     }
     
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
-        return true;
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
+    return true;
     }
 
     @Override
@@ -36,10 +36,10 @@ public class EntityDeathcryx extends EntityDivineMob {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
-        if (super.attackEntityAsMob(entity)) {
+    public boolean doHurtTarget(Entity entity) {
+        if (super.doHurtTarget(entity)) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 12 * 20, 0, false, false));
+                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 12 * 20, 0, false, false));
             }
             return true;
         } else {
@@ -68,7 +68,7 @@ public class EntityDeathcryx extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_DEATHCRYX;
     }
 }

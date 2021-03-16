@@ -1,25 +1,24 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
-import divinerpg.blocks.BlockModNotReady;
+import divinerpg.*;
+import divinerpg.blocks.*;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.vanilla.*;
-import divinerpg.blocks.vethea.BlockNightmareBed;
-import divinerpg.items.base.ItemModItemBlock;
+import divinerpg.blocks.vethea.*;
+import divinerpg.items.base.*;
 import divinerpg.world.gen.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
-import net.minecraft.block.trees.OakTree;
 import net.minecraft.item.*;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.SoundEvents;
-import net.minecraftforge.common.ToolType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraft.particles.*;
+import net.minecraft.util.*;
+import net.minecraftforge.common.*;
+import net.minecraftforge.event.*;
+import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.registries.*;
 
 import java.util.*;
 
@@ -1118,18 +1117,18 @@ public class BlockRegistry {
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
 //        // Vanilla dimensions
 //        // Ores
-        register(registry, new BlockMod("arlemite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("realmite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(IRON).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("rupee_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("bloodgem_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("torridite_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("arlemite_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("realmite_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(IRON).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("rupee_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("bloodgem_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("torridite_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));
 
 //        // Compressed ore blocks
-        register(registry, new BlockMod("arlemite_block", 5.0F, 3.0F, Material.IRON));
-        register(registry, new BlockMod("realmite_block", 5.0F, 3.0F, Material.IRON));
-        register(registry, new BlockMod("rupee_block", 5.0F, 3.0F, Material.IRON));
-        register(registry, new BlockMod("bloodgem_block", 5.0F, 3.0F, Material.IRON));
-        register(registry, new BlockMod("torridite_block", 5.0F, 3.0F, Material.IRON));
+        register(registry, new BlockMod("arlemite_block", 5.0F, 3.0F, Material.METAL));
+        register(registry, new BlockMod("realmite_block", 5.0F, 3.0F, Material.METAL));
+        register(registry, new BlockMod("rupee_block", 5.0F, 3.0F, Material.METAL));
+        register(registry, new BlockMod("bloodgem_block", 5.0F, 3.0F, Material.METAL));
+        register(registry, new BlockMod("torridite_block", 5.0F, 3.0F, Material.METAL));
 //
 //        // Boss spawners
         register(registry, new BlockModNotReady("sunstorm_spawner"));
@@ -1142,19 +1141,19 @@ public class BlockRegistry {
 //        register(registry, new BlockSingleUseSpawner("experienced_cori_spawner", EntityExperiencedCori.class, () -> ItemRegistry.skythernChunk, 20 * 5, 5, new BlockPos(0, 11, 0)));
 //
 //        // Mob pumpkins
-        register(registry, new BlockMobPumpkin("blaze_pumpkin", SoundEvents.ENTITY_BLAZE_AMBIENT));
-        register(registry, new BlockMobPumpkin("creeper_pumpkin", SoundEvents.ENTITY_CREEPER_PRIMED));
+        register(registry, new BlockMobPumpkin("blaze_pumpkin", SoundEvents.BLAZE_AMBIENT));
+        register(registry, new BlockMobPumpkin("creeper_pumpkin", SoundEvents.CREEPER_PRIMED));
         register(registry, new BlockMobPumpkin("cyclops_pumpkin", SoundRegistry.CYCLOPS));
-        register(registry, new BlockMobPumpkin("ender_pumpkin", SoundEvents.ENTITY_ENDERMAN_SCREAM));
-        register(registry, new BlockMobPumpkin("ender_watcher_pumpkin", SoundEvents.ENTITY_ENDERMAN_AMBIENT));
+        register(registry, new BlockMobPumpkin("ender_pumpkin", SoundEvents.ENDERMAN_SCREAM));
+        register(registry, new BlockMobPumpkin("ender_watcher_pumpkin", SoundEvents.ENDERMAN_AMBIENT));
         register(registry, new BlockMobPumpkin("frost_pumpkin", SoundRegistry.FROST));
-        register(registry, new BlockMobPumpkin("ghast_pumpkin", SoundEvents.ENTITY_GHAST_SCREAM));
+        register(registry, new BlockMobPumpkin("ghast_pumpkin", SoundEvents.GHAST_SCREAM));
         register(registry, new BlockMobPumpkin("glacon_pumpkin", SoundRegistry.GLACIDE));
         register(registry, new BlockMobPumpkin("hellspider_pumpkin", SoundRegistry.HELL_SPIDER));
         register(registry, new BlockMobPumpkin("jungle_spider_pumpkin", SoundRegistry.HELL_SPIDER));
-        register(registry, new BlockMobPumpkin("skeleton_pumpkin", SoundEvents.ENTITY_SKELETON_AMBIENT));
-        register(registry, new BlockMobPumpkin("spider_pumpkin", SoundEvents.ENTITY_SPIDER_AMBIENT));
-        register(registry, new BlockMobPumpkin("zombie_pumpkin", SoundEvents.ENTITY_ZOMBIE_AMBIENT));
+        register(registry, new BlockMobPumpkin("skeleton_pumpkin", SoundEvents.SKELETON_AMBIENT));
+        register(registry, new BlockMobPumpkin("spider_pumpkin", SoundEvents.SPIDER_AMBIENT));
+        register(registry, new BlockMobPumpkin("zombie_pumpkin", SoundEvents.ZOMBIE_AMBIENT));
 //
 //        // Torches
         register(registry, new BlockModTorch("aqua_torch", ParticleTypes.FLAME));
@@ -1165,16 +1164,16 @@ public class BlockRegistry {
         // Decorative blocks
 
         // Steel
-        register(registry, new BlockMod("black_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("blue_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("bright_red_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("green_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("orange_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("purple_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("red_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("white_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("yellow_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
-        register(registry, new BlockMod("teal_steel", 10.0F, 60.0F, Material.IRON, SoundType.METAL));
+        register(registry, new BlockMod("black_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("blue_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("bright_red_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("green_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("orange_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("purple_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("red_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("white_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("yellow_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
+        register(registry, new BlockMod("teal_steel", 10.0F, 60.0F, Material.METAL, SoundType.METAL));
 
         // Vanes
         register(registry, new BlockMod("blue_vane", 2.0F, 10F));
@@ -1239,27 +1238,27 @@ public class BlockRegistry {
         register(registry, new BlockModLamp("rupee_lamp", 0.3F, 30.0F, 15));
         register(registry, new BlockModLamp("terran_lamp", 0.3F, 30.0F, 15));
 //        // Powered fences
-        register(registry, new BlockModFence(MaterialColor.BLUE, "blue_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.BLUE, "blue_fence_on", true, 0.5F, 15));
-        register(registry, new BlockModFence(MaterialColor.GREEN, "green_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.GREEN, "green_fence_on", true, 0.5F, 15));
-        register(registry, new BlockModFence(MaterialColor.RED, "red_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.RED, "red_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModFence(MaterialColor.COLOR_BLUE, "blue_fence", false, 0.5F, 0));
+        register(registry, new BlockModFence(MaterialColor.COLOR_BLUE, "blue_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModFence(MaterialColor.COLOR_GREEN, "green_fence", false, 0.5F, 0));
+        register(registry, new BlockModFence(MaterialColor.COLOR_GREEN, "green_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModFence(MaterialColor.COLOR_RED, "red_fence", false, 0.5F, 0));
+        register(registry, new BlockModFence(MaterialColor.COLOR_RED, "red_fence_on", true, 0.5F, 15));
 //
 //        // Miscellaneous decorative blocks
         register(registry, new BlockMod("asphalt", 2.0F, 3.0F));
-        register(registry, new BlockMod("blue_stone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(WOOD_GOLD).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
+        register(registry, new BlockMod("blue_stone", Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(3.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(WOOD_GOLD).sound(SoundType.STONE).lightLevel((p_235464_0_) -> {
             return 1;
         })));
-        register(registry, new BlockMod("checker", 0.8F, 3.0F, Material.CARPET));
+        register(registry, new BlockMod("checker", 0.8F, 3.0F, Material.CLOTH_DECORATION));
         register(registry, new BlockMod("crate", 2.5F, 3.0F, Material.WOOD));
-        register(registry, new BlockMod("darkstone", Block.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(50.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(DIAMOND).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
+        register(registry, new BlockMod("darkstone", Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(50.0F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(DIAMOND).sound(SoundType.STONE).lightLevel((p_235464_0_) -> {
             return 1;
         })));
-        register(registry, new BlockMod("fancy_wool", 0.8F, 3.0F, Material.CARPET));
+        register(registry, new BlockMod("fancy_wool", 0.8F, 3.0F, Material.CLOTH_DECORATION));
         register(registry, new BlockMod("milk_stone", 1.5F, 10.0F));
         register(registry, new BlockMod("plank_design", 2.5F, 3.0F, Material.WOOD));
-        register(registry, new BlockMod("rainbow_wool", 0.8F, 3.0F, Material.CARPET));
+        register(registry, new BlockMod("rainbow_wool", 0.8F, 3.0F, Material.CLOTH_DECORATION));
 
 //        // Spike blocks
         register(registry, new BlockSpike("spike_block", false));
@@ -1273,9 +1272,9 @@ public class BlockRegistry {
 //
 //        // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree()));
-        register(registry, new BlockModLog("divine_log", MaterialColor.YELLOW, () -> strippedDivineLog));
-        register(registry, new BlockModLog("stripped_divine_log", MaterialColor.YELLOW, null));
-        register(registry, new BlockModLeaves("divine_leaves", MaterialColor.YELLOW, 0.3F));
+        register(registry, new BlockModLog("divine_log", MaterialColor.COLOR_YELLOW, () -> strippedDivineLog));
+        register(registry, new BlockModLog("stripped_divine_log", MaterialColor.COLOR_YELLOW, null));
+        register(registry, new BlockModLeaves("divine_leaves", MaterialColor.COLOR_YELLOW, 0.3F));
         Block divinePlanks = new BlockMod("divine_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, divinePlanks);
         register(registry, new BlockModStairs("divine_stairs", divinePlanks));
@@ -1355,12 +1354,12 @@ public class BlockRegistry {
 //        // Iceika
 //
 //        // Terrain
-        register(registry, new BlockModDirt("frozen_dirt", 0.5F, MaterialColor.WHITE_TERRACOTTA));
-        register(registry, new BlockModGrass("frozen_grass", () -> BlockRegistry.frozenDirt, 1, MaterialColor.WHITE_TERRACOTTA));
+        register(registry, new BlockModDirt("frozen_dirt", 0.5F, MaterialColor.TERRACOTTA_WHITE));
+        register(registry, new BlockModGrass("frozen_grass", () -> BlockRegistry.frozenDirt, 1, MaterialColor.TERRACOTTA_WHITE));
         register(registry, new BlockMod("frozen_stone", 6.0F, 3.0F));
-        register(registry, new BlockModLog("frozen_log", MaterialColor.WHITE_TERRACOTTA, () -> strippedFrozenLog));
-        register(registry, new BlockModLog("stripped_frozen_log", MaterialColor.WHITE_TERRACOTTA, null));
-        register(registry, new BlockModLeaves("brittle_leaves", MaterialColor.WHITE_TERRACOTTA, 10));
+        register(registry, new BlockModLog("frozen_log", MaterialColor.TERRACOTTA_WHITE, () -> strippedFrozenLog));
+        register(registry, new BlockModLog("stripped_frozen_log", MaterialColor.TERRACOTTA_WHITE, null));
+        register(registry, new BlockModLeaves("brittle_leaves", MaterialColor.TERRACOTTA_WHITE, 10));
         Block frozenPlanks = new BlockMod("frozen_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, frozenPlanks);
         register(registry, new BlockModStairs("frozen_stairs", frozenPlanks));
@@ -1384,17 +1383,17 @@ public class BlockRegistry {
         register(registry, new BlockMod("icy_stone", 2.0F, 3.0F));
 //        register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
         register(registry, new BlockMod("snow_bricks", 6.0F, 3.0F));
-        register(registry, new BlockModDoor("steel_door", Material.IRON, 7.0F, 1.0F, ToolType.PICKAXE));
-        register(registry, new BlockModBookshelf("workshop_bookcase", 1.5F, Material.ROCK));
-        register(registry, new BlockMod("workshop_carpet", 0.1F, 3.0F, Material.CARPET));
+        register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, 1.0F, ToolType.PICKAXE));
+        register(registry, new BlockModBookshelf("workshop_bookcase", 1.5F, Material.STONE));
+        register(registry, new BlockMod("workshop_carpet", 0.1F, 3.0F, Material.CLOTH_DECORATION));
         register(registry, new BlockModLamp("workshop_lamp", 0.3F, 3.0F, 15));
 //
 //        // Candy canes
-        register(registry, new BlockMod("blue_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
-        register(registry, new BlockMod("green_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
-        register(registry, new BlockMod("pink_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
-        register(registry, new BlockMod("red_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
-        register(registry, new BlockMod("yellow_candy_cane", Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F).setRequiresTool()));
+        register(registry, new BlockMod("blue_candy_cane", Block.Properties.of(Material.STONE).strength(1.0F, 1.0F).requiresCorrectToolForDrops()));
+        register(registry, new BlockMod("green_candy_cane", Block.Properties.of(Material.STONE).strength(1.0F, 1.0F).requiresCorrectToolForDrops()));
+        register(registry, new BlockMod("pink_candy_cane", Block.Properties.of(Material.STONE).strength(1.0F, 1.0F).requiresCorrectToolForDrops()));
+        register(registry, new BlockMod("red_candy_cane", Block.Properties.of(Material.STONE).strength(1.0F, 1.0F).requiresCorrectToolForDrops()));
+        register(registry, new BlockMod("yellow_candy_cane", Block.Properties.of(Material.STONE).strength(1.0F, 1.0F).requiresCorrectToolForDrops()));
 
 //        // Christmas lights
         register(registry, new BlockModNotReady("blue_christmas_lights"));
@@ -1422,11 +1421,11 @@ public class BlockRegistry {
 //        // Twilight dimensions
 //
 //        // Dirt
-        register(registry, new BlockModDirt("eden_dirt", 0.5F, MaterialColor.YELLOW));
-        register(registry, new BlockModDirt("wildwood_dirt", 0.5F, MaterialColor.BLUE));
-        register(registry, new BlockModDirt("apalachia_dirt", 0.5F, MaterialColor.PURPLE));
-        register(registry, new BlockModDirt("skythern_dirt", 0.5F, MaterialColor.GRAY));
-        register(registry, new BlockModDirt("mortum_dirt", 0.5F, MaterialColor.BLACK));
+        register(registry, new BlockModDirt("eden_dirt", 0.5F, MaterialColor.COLOR_YELLOW));
+        register(registry, new BlockModDirt("wildwood_dirt", 0.5F, MaterialColor.COLOR_BLUE));
+        register(registry, new BlockModDirt("apalachia_dirt", 0.5F, MaterialColor.COLOR_PURPLE));
+        register(registry, new BlockModDirt("skythern_dirt", 0.5F, MaterialColor.COLOR_GRAY));
+        register(registry, new BlockModDirt("mortum_dirt", 0.5F, MaterialColor.COLOR_BLACK));
 //
 //        // Grass
         register(registry, new BlockModNotReady("eden_grass"));
@@ -1443,11 +1442,11 @@ public class BlockRegistry {
         register(registry, new BlockMod("twilight_stone", 6.0F, 3.0F));
 //
 //        // Ore
-        register(registry, new BlockMod("eden_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).hardnessAndResistance(5.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("wildwood_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(6.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("apalachia_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("skythern_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).hardnessAndResistance(8.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("mortum_ore", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).hardnessAndResistance(9.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("eden_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(5.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("wildwood_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).strength(6.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("apalachia_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).strength(7.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("skythern_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).strength(8.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("mortum_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).strength(9.0F, 2000.0F).sound(SoundType.STONE)));
 
 //        // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree()));
@@ -1457,25 +1456,25 @@ public class BlockRegistry {
         register(registry, new BlockModSapling("mortum_sapling", () -> mortumGrass, () -> mortumDirt, new MortumTree()));
 //
 //        // Logs
-        register(registry, new BlockModLog("eden_log", MaterialColor.YELLOW, () -> strippedEdenLog));
-        register(registry, new BlockModLog("wildwood_log", MaterialColor.BLUE, () -> strippedWildwoodLog));
-        register(registry, new BlockModLog("apalachia_log", MaterialColor.PURPLE, () -> strippedApalachiaLog));
-        register(registry, new BlockModLog("skythern_log", MaterialColor.GRAY, () -> strippedSkythernLog));
-        register(registry, new BlockModLog("mortum_log", MaterialColor.RED, () -> strippedMortumLog));
+        register(registry, new BlockModLog("eden_log", MaterialColor.COLOR_YELLOW, () -> strippedEdenLog));
+        register(registry, new BlockModLog("wildwood_log", MaterialColor.COLOR_BLUE, () -> strippedWildwoodLog));
+        register(registry, new BlockModLog("apalachia_log", MaterialColor.COLOR_PURPLE, () -> strippedApalachiaLog));
+        register(registry, new BlockModLog("skythern_log", MaterialColor.COLOR_GRAY, () -> strippedSkythernLog));
+        register(registry, new BlockModLog("mortum_log", MaterialColor.COLOR_RED, () -> strippedMortumLog));
 //
 //        // Stripped Logs
-        register(registry, new BlockModLog("stripped_eden_log", MaterialColor.YELLOW, null));
-        register(registry, new BlockModLog("stripped_wildwood_log", MaterialColor.BLUE, null));
-        register(registry, new BlockModLog("stripped_apalachia_log", MaterialColor.PURPLE, null));
-        register(registry, new BlockModLog("stripped_skythern_log", MaterialColor.GRAY, null));
-        register(registry, new BlockModLog("stripped_mortum_log", MaterialColor.RED, null));
+        register(registry, new BlockModLog("stripped_eden_log", MaterialColor.COLOR_YELLOW, null));
+        register(registry, new BlockModLog("stripped_wildwood_log", MaterialColor.COLOR_BLUE, null));
+        register(registry, new BlockModLog("stripped_apalachia_log", MaterialColor.COLOR_PURPLE, null));
+        register(registry, new BlockModLog("stripped_skythern_log", MaterialColor.COLOR_GRAY, null));
+        register(registry, new BlockModLog("stripped_mortum_log", MaterialColor.COLOR_RED, null));
 //
 //        // Leaves
-        register(registry, new BlockModLeaves("eden_leaves", MaterialColor.YELLOW, 0.5F));
-        register(registry, new BlockModLeaves("wildwood_leaves", MaterialColor.LIGHT_BLUE, 0.5F));
-        register(registry, new BlockModLeaves("apalachia_leaves", MaterialColor.PINK, 0.5F));
-        register(registry, new BlockModLeaves("skythern_leaves", MaterialColor.WHITE_TERRACOTTA, 0.5F));
-        register(registry, new BlockModLeaves("mortum_leaves", MaterialColor.RED, 0.5F));
+        register(registry, new BlockModLeaves("eden_leaves", MaterialColor.COLOR_YELLOW, 0.5F));
+        register(registry, new BlockModLeaves("wildwood_leaves", MaterialColor.COLOR_LIGHT_BLUE, 0.5F));
+        register(registry, new BlockModLeaves("apalachia_leaves", MaterialColor.COLOR_PINK, 0.5F));
+        register(registry, new BlockModLeaves("skythern_leaves", MaterialColor.TERRACOTTA_WHITE, 0.5F));
+        register(registry, new BlockModLeaves("mortum_leaves", MaterialColor.COLOR_RED, 0.5F));
 //
 //        // Planks
         Block edenPlanks = new BlockMod("eden_planks", 2.0F, 3.0F, Material.WOOD);
@@ -1565,19 +1564,19 @@ public class BlockRegistry {
 //        register(registry, new BlockModFire("blue_fire"));
 //        register(registry, new BlockModTorch("eden_torch", ParticleType.GREEN_FLAME));
 //        register(registry, new BlockEdenChest("eden_chest"));
-        register(registry, new BlockMod("truffle", 1.0F, 3.0F, Material.PLANTS));
+        register(registry, new BlockMod("truffle", 1.0F, 3.0F, Material.PLANT));
 //
 //        // Arcana
 //
 //        // Dirt
-        register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MaterialColor.BLUE));
+        register(registry, new BlockModDirt("arcanite_dirt", 0.5F, MaterialColor.COLOR_BLUE));
 //
 //        // Grass
         register(registry, new BlockModNotReady("arcanite_grass"));
 //        register(registry, new BlockArcaniteGrass("arcanite_grass", 0.6F));
 //
 //        // Ore
-        register(registry, new BlockMod("raw_arcanium", Block.Properties.create(Material.EARTH, MaterialColor.LAPIS).setRequiresTool().hardnessAndResistance(2.0F, 3.0F).sound(SoundType.STONE).harvestTool(ToolType.SHOVEL).harvestLevel(3)));
+        register(registry, new BlockMod("raw_arcanium", Block.Properties.of(Material.DIRT, MaterialColor.LAPIS).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE).harvestTool(ToolType.SHOVEL).harvestLevel(3)));
 //
 //        // Storage block
         register(registry, new BlockMod("arcanium_block", 5.0F));
@@ -1591,13 +1590,13 @@ public class BlockRegistry {
         register(registry, new BlockModUnbreakable("ancient_tile"));
         register(registry, new BlockModLadder("arcanite_tubes", MaterialColor.LAPIS));
         register(registry, new BlockModLadder("arcanite_ladder", MaterialColor.LAPIS));
-        register(registry, new BlockModPillar("arcanium_metal", Material.IRON, -1F, 6000000F, SoundType.METAL));
+        register(registry, new BlockModPillar("arcanium_metal", Material.METAL, -1F, 6000000F, SoundType.METAL));
         register(registry, new BlockModUnbreakable("arcanium_power"));
         register(registry, new BlockModUnbreakable("dark_degraded_brick"));
         Block degradedBricks = new BlockModUnbreakable("degraded_bricks");
         register(registry, degradedBricks);
         register(registry, new BlockModStairs("degraded_brick_stairs", ancientBricks));
-        register(registry, new BlockModBookshelf("dungeon_bookshelf", 1.5F, Material.ROCK));
+        register(registry, new BlockModBookshelf("dungeon_bookshelf", 1.5F, Material.STONE));
         register(registry, new BlockModUnbreakable("dungeon_lamp", true));
         register(registry, new BlockHeatTrap("heat_trap"));
         register(registry, new BlockModUnbreakable("light_degraded_brick"));
@@ -1614,14 +1613,14 @@ public class BlockRegistry {
 //        register(registry, new BlockModWall("ancient_brick_wall_breakable", ancientBricksBreakable, 2.0F));
         register(registry, new BlockMod("ancient_stone_breakable", 2.0F, 3.0F));
         register(registry, new BlockMod("ancient_tile_breakable", 2.0F, 3.0F));
-        register(registry, new BlockModPillar("arcanium_metal_breakable", Material.IRON, 2.0F, 3.0F, SoundType.METAL));
+        register(registry, new BlockModPillar("arcanium_metal_breakable", Material.METAL, 2.0F, 3.0F, SoundType.METAL));
         register(registry, new BlockMod("arcanium_power_breakable", 2.0F, 3.0F));
         Block degradedBricksBreakable = new BlockMod("degraded_bricks_breakable", 2.0F, 3.0F);
         register(registry, degradedBricksBreakable);
         register(registry, new BlockModStairs("degraded_brick_stairs_breakable", degradedBricksBreakable));
         register(registry, new BlockModSlab("degraded_brick_slab_breakable", degradedBricksBreakable, 2.0F));
 //        register(registry, new BlockModWall("degraded_brick_wall_breakable", degradedBricksBreakable, 2.0F));
-        register(registry, new BlockMod("dungeon_lamp_breakable", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(1, 3.0F).sound(SoundType.STONE).setLightLevel((p_235464_0_) -> {
+        register(registry, new BlockMod("dungeon_lamp_breakable", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(1, 3.0F).sound(SoundType.STONE).lightLevel((p_235464_0_) -> {
             return 15;
         })));
         register(registry, new BlockMod("soul_sludge_breakable", 2.0F, 3.0F));
@@ -1668,8 +1667,8 @@ public class BlockRegistry {
 //        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 //
 //        // Eucalyptus
-        register(registry, new BlockModLog("eucalyptus_log", MaterialColor.PINK, () -> strippedEucalyptusLog));
-        register(registry, new BlockModLog("stripped_eucalyptus_log", MaterialColor.PINK, null));
+        register(registry, new BlockModLog("eucalyptus_log", MaterialColor.COLOR_PINK, () -> strippedEucalyptusLog));
+        register(registry, new BlockModLog("stripped_eucalyptus_log", MaterialColor.COLOR_PINK, null));
         Block eucalyptusPlanks = new BlockMod("eucalyptus_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, eucalyptusPlanks);
         register(registry, new BlockModStairs("eucalyptus_stairs", eucalyptusPlanks));
@@ -1730,27 +1729,27 @@ public class BlockRegistry {
 //
 //        // Terrain
         register(registry, new BlockModNotReady("dream_grass"), true);
-        register(registry, new BlockModDirt("dream_dirt", 0.5F, MaterialColor.LIME_TERRACOTTA), true);
+        register(registry, new BlockModDirt("dream_dirt", 0.5F, MaterialColor.COLOR_LIGHT_GREEN), true);
 //        register(registry, new BlockDreamGrass("dream_grass", 0.6F), true);
         register(registry, new BlockMod("dream_stone", 1.5F), true);
 //
 //        // Logs
-        register(registry, new BlockModLog("dreamwood_log", MaterialColor.LIGHT_BLUE, () -> strippedDreamwoodLog, 5.0F), true);
-        register(registry, new BlockModLog("firewood_log", MaterialColor.RED, () -> strippedFirewoodLog, 5.0F), true);
-        register(registry, new BlockModLog("hyrewood_log", MaterialColor.BLUE, () -> strippedHyrewoodLog, 5.0F), true);
-        register(registry, new BlockModLog("mintwood_log", MaterialColor.LIGHT_BLUE, () -> strippedMintwoodLog, 5.0F), true);
+        register(registry, new BlockModLog("dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE, () -> strippedDreamwoodLog, 5.0F), true);
+        register(registry, new BlockModLog("firewood_log", MaterialColor.COLOR_RED, () -> strippedFirewoodLog, 5.0F), true);
+        register(registry, new BlockModLog("hyrewood_log", MaterialColor.COLOR_BLUE, () -> strippedHyrewoodLog, 5.0F), true);
+        register(registry, new BlockModLog("mintwood_log", MaterialColor.COLOR_LIGHT_BLUE, () -> strippedMintwoodLog, 5.0F), true);
 
 //        // Stripped Logs
-        register(registry, new BlockModLog("stripped_dreamwood_log", MaterialColor.LIGHT_BLUE, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_firewood_log", MaterialColor.RED, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_hyrewood_log", MaterialColor.BLUE, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_mintwood_log", MaterialColor.LIGHT_BLUE, null, 5.0F), true);
+        register(registry, new BlockModLog("stripped_dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE, null, 5.0F), true);
+        register(registry, new BlockModLog("stripped_firewood_log", MaterialColor.COLOR_RED, null, 5.0F), true);
+        register(registry, new BlockModLog("stripped_hyrewood_log", MaterialColor.COLOR_BLUE, null, 5.0F), true);
+        register(registry, new BlockModLog("stripped_mintwood_log", MaterialColor.COLOR_LIGHT_BLUE, null, 5.0F), true);
 //
 //        // Leaves
-        register(registry, new BlockModLeaves("dreamwood_leaves", MaterialColor.RED, 0.1F), true);
-        register(registry, new BlockModLeaves("firewood_leaves", MaterialColor.RED, 0.1F), true);
-        register(registry, new BlockModLeaves("hyrewood_leaves", MaterialColor.RED, 0.1F), true);
-        register(registry, new BlockModLeaves("mintwood_leaves", MaterialColor.RED, 0.1F), true);
+        register(registry, new BlockModLeaves("dreamwood_leaves", MaterialColor.COLOR_RED, 0.1F), true);
+        register(registry, new BlockModLeaves("firewood_leaves", MaterialColor.COLOR_RED, 0.1F), true);
+        register(registry, new BlockModLeaves("hyrewood_leaves", MaterialColor.COLOR_RED, 0.1F), true);
+        register(registry, new BlockModLeaves("mintwood_leaves", MaterialColor.COLOR_RED, 0.1F), true);
 //
 //        // Ground foliage
         register(registry, new BlockModNotReady("bulbatobe"), true);
@@ -1785,7 +1784,7 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("smooth_glass", 0.3F), true);
 //
 //        // Door
-        register(registry, new BlockModDoor("barred_door", Material.IRON, 2.0f, 1.0F, ToolType.PICKAXE));
+        register(registry, new BlockModDoor("barred_door", Material.HEAVY_METAL, 2.0f, 1.0F, ToolType.PICKAXE));
 //
 //        // Lighting
         register(registry, new BlockModNotReady("fire_crystal"), true);
@@ -1813,7 +1812,7 @@ public class BlockRegistry {
 //
 //        // Hive
         register(registry, new BlockModLamp("cell_lamp", 1.0F, 3.0F, 15), true);
-        register(registry, new BlockMod("hive_wall", Block.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(1.0F, 3.0F).sound(SoundType.GLASS).setLightLevel((p_235464_0_) -> {
+        register(registry, new BlockMod("hive_wall", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(1.0F, 3.0F).sound(SoundType.GLASS).lightLevel((p_235464_0_) -> {
             return 7;
         })), true);
 //
@@ -1936,11 +1935,11 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerBlockItems(final RegistryEvent.Register<Item> registry) {
-        Item.Properties properties = new Item.Properties().group(DivineRPG.tabs.blocks);
+        Item.Properties properties = new Item.Properties().tab(DivineRPG.tabs.blocks);
         for (Block block : blocks) {
 
             Item itemBlock = new ItemModItemBlock(block, properties).setRegistryName(block.getRegistryName());
-            if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
+            if (!itemBlock.equals(Item.byBlock(Blocks.AIR))) {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);
@@ -1949,11 +1948,11 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerVetheaBlockItems(final RegistryEvent.Register<Item> registry) {
-        Item.Properties properties = new Item.Properties().group(DivineRPG.tabs.vethea);
+        Item.Properties properties = new Item.Properties().tab(DivineRPG.tabs.vethea);
         for (Block block : vethea) {
 
             Item itemBlock = new ItemModItemBlock(block, properties).setRegistryName(block.getRegistryName());
-            if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
+            if (!itemBlock.equals(Item.byBlock(Blocks.AIR))) {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);
@@ -1962,11 +1961,11 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerUtilBlockItems(final RegistryEvent.Register<Item> registry) {
-        Item.Properties properties = new Item.Properties().group(DivineRPG.tabs.utilities);
+        Item.Properties properties = new Item.Properties().tab(DivineRPG.tabs.utilities);
         for (Block block : utilities) {
 
             Item itemBlock = new BlockItem(block, properties).setRegistryName(block.getRegistryName());
-            if (!itemBlock.equals(Item.getItemFromBlock(Blocks.AIR))) {
+            if (!itemBlock.equals(Item.byBlock(Blocks.AIR))) {
                 ItemRegistry.itemMap.put(itemBlock.getRegistryName().getPath(), itemBlock);
             }
             registry.getRegistry().register(itemBlock);

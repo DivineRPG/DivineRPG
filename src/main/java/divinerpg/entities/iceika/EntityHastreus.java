@@ -25,10 +25,10 @@ public class EntityHastreus extends EntityDivineMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.hastreusHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.hastreusDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.hastreusSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.hastreusFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hastreusHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hastreusDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hastreusSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hastreusFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
+        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
     @Override
@@ -39,21 +39,21 @@ public class EntityHastreus extends EntityDivineMob {
 
 
     @Override
-    public void livingTick() {
-        List<Entity> e = this.world.getEntitiesWithinAABBExcludingEntity(this,
-                this.getBoundingBox().expand(5, 5, 5));
+    public void tick() {
+        List<Entity> e = this.level.getEntities(this,
+                this.getBoundingBox().expandTowards(5, 5, 5));
 
         for (Entity entity : e) {
-            if (entity instanceof PlayerEntity && this.canEntityBeSeen(entity)) {
+            if (entity instanceof PlayerEntity && this.canSee(entity)) {
                 PlayerEntity player = (PlayerEntity)entity;
 
                 if(!player.isCreative() && !player.isSpectator()) {
-                    player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 12, 18, true, false));
+                    player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 12, 18, true, false));
                 }
             }
         }
 
-        super.livingTick();
+        super.tick();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class EntityHastreus extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_HASTREUS;
     }
 }

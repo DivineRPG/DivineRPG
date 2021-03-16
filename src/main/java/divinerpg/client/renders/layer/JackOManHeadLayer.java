@@ -1,7 +1,7 @@
 package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.client.renders.entity.vanilla.ModelJackOMan;
+import divinerpg.client.models.vanilla.ModelJackOMan;
 import divinerpg.entities.vanilla.overworld.EntityJackOMan;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
@@ -21,14 +21,14 @@ public class JackOManHeadLayer extends LayerRenderer<EntityJackOMan, ModelJackOM
 
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, EntityJackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entitylivingbaseIn.isInvisible()) {
-            matrixStackIn.push();
+            matrixStackIn.pushPose();
             float f = 0.625F;
             matrixStackIn.translate(0.0D, -0.34375D, 0.0D);
-            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180.0F));
+            matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(180.0F));
             matrixStackIn.scale(0.625F, -0.625F, -0.625F);
             ItemStack itemstack = new ItemStack(Blocks.CARVED_PUMPKIN);
-            Minecraft.getInstance().getItemRenderer().renderItem(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD, false, matrixStackIn, bufferIn, entitylivingbaseIn.world, packedLightIn, LivingRenderer.getPackedOverlay(entitylivingbaseIn, 0.0F));
-            matrixStackIn.pop();
+            Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
+            matrixStackIn.popPose();
         }
     }
 }

@@ -1,22 +1,18 @@
 package divinerpg.entities.base;
 
-import divinerpg.DivineRPG;
-import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.DamageSource;
-import net.minecraft.world.World;
+import net.minecraft.util.*;
+import net.minecraft.world.*;
 
-import javax.annotation.Nullable;
-import java.util.UUID;
+import javax.annotation.*;
+import java.util.*;
 
 public class EntityPeacefulUntilAttacked extends EntityDivineMob {
-    protected static final DataParameter<Integer> ANGER = EntityDataManager.createKey(EntityPeacefulUntilAttacked.class, DataSerializers.VARINT);
-    protected static final DataParameter<String> TARGET = EntityDataManager.createKey(EntityPeacefulUntilAttacked.class, DataSerializers.STRING);
+    protected static final DataParameter<Integer> ANGER = EntityDataManager.defineId(EntityPeacefulUntilAttacked.class, DataSerializers.INT);
+    protected static final DataParameter<String> TARGET = EntityDataManager.defineId(EntityPeacefulUntilAttacked.class, DataSerializers.STRING);
     private int angerLevel;
     private UUID angerTargetUUID;
 
@@ -24,14 +20,15 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
         super(type, worldIn);
     }
 
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(ANGER, 0);
-        this.dataManager.register(TARGET, null);
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(ANGER, 0);
+        this.entityData.define(TARGET, null);
     }
 
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
+    public void addAdditionalSaveData(CompoundNBT compound) {
+        super.addAdditionalSaveData(compound);
         compound.putInt("Anger", (short)this.angerLevel);
 
         if (this.angerTargetUUID != null)
@@ -44,21 +41,21 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
         }
     }
 
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
+    public void readAdditionalSaveData(CompoundNBT compound) {
+        super.readAdditionalSaveData(compound);
         this.angerLevel = compound.getShort("Anger");
         String s = compound.getString("HurtBy");
 
         if (!s.isEmpty())
         {
             this.angerTargetUUID = UUID.fromString(s);
-            PlayerEntity entityplayer = this.world.getPlayerByUuid(this.angerTargetUUID);
-            this.setRevengeTarget(entityplayer);
+            PlayerEntity entityplayer = this.level.getPlayerByUUID(this.angerTargetUUID);
+            this.setTarget(entityplayer);
 
             if (entityplayer != null)
             {
-                this.attackingPlayer = entityplayer;
-                this.recentlyHit = this.getRevengeTimer();
+                this.setTarget(entityplayer);
+                this.lastHurt = this.getLastHurtByMobTimestamp();
             }
         }
     }
@@ -71,24 +68,25 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
 
 
     @Override
-    public void setRevengeTarget(@Nullable LivingEntity livingBase) {
-        super.setRevengeTarget(livingBase);
+    public void setTarget(@Nullable LivingEntity livingBase) {
+        super.setTarget(livingBase);
 
         if (livingBase != null) {
-            this.angerTargetUUID = livingBase.getUniqueID();
+            this.angerTargetUUID = livingBase.getUUID();
         }
     }
 
+
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
+    public boolean hurt(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
         } else {
-            Entity entity = source.getTrueSource();
+            Entity entity = source.getDirectEntity();
             if (entity instanceof PlayerEntity) {
                 this.becomeAngryAt(entity);
             }
-            return super.attackEntityFrom(source, amount);
+            return super.hurt(source, amount);
         }
     }
 
@@ -98,24 +96,26 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
     }
 
     private void becomeAngryAt(Entity target) {
-        this.angerLevel = 400 + this.rand.nextInt(400);
+        this.angerLevel = 400 + this.random.nextInt(400);
 
         if (target instanceof LivingEntity) {
-            this.setRevengeTarget((LivingEntity) target);
+            this.setTarget((LivingEntity) target);
         }
     }
 
+
+
     @Override
-    public boolean attackEntityAsMob(Entity entity) {
+    public boolean doHurtTarget(Entity entity) {
         if (this.isAngry()) {
-            return super.attackEntityAsMob(entity);
+            return super.doHurtTarget(entity);
         }
         return false;
     }
 
     @Override
-    public void livingTick() {
-        super.livingTick();
+    public void tick() {
+        super.tick();
         if (isAngry()) {
             angerLevel--;
             addAttackingAI();

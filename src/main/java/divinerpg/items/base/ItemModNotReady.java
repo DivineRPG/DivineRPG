@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModNotReady extends Item {
-    private static final Item.Properties props = new Item.Properties().group(DivineRPG.tabs.materials);
+    private static final Item.Properties props = new Item.Properties().tab(DivineRPG.tabs.materials);
 
     public ItemModNotReady(String name) {
         super(props);

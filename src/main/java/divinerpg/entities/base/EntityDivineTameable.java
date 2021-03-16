@@ -1,23 +1,26 @@
 package divinerpg.entities.base;
 
-import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.*;
+import net.minecraft.world.*;
+import net.minecraft.world.server.*;
+
+import java.util.*;
 
 public class EntityDivineTameable extends TameableEntity {
 
     protected EntityDivineTameable(EntityType<? extends TameableEntity> type, World worldIn) {
         super(type, worldIn);
-        setTamed(false);
+        setTame(false);
     }
 
     @Override
@@ -34,85 +37,94 @@ public class EntityDivineTameable extends TameableEntity {
         this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
+        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 20.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 8).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.27D);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.ATTACK_DAMAGE, 8).add(Attributes.MOVEMENT_SPEED, 0.27D);
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+    }
     protected void increaseHealthIfTimable() {
-        if (this.isTamed()) {
+        if (this.isTame()) {
             ModifiableAttributeInstance attribute = getAttribute(Attributes.MAX_HEALTH);
             attribute.setBaseValue(attribute.getValue() * 2);
         }
     }
 
     @Override
-    public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
         return null;
     }
 
     public boolean isAngry() {
         return false;
     }
+
     @Override
-    public boolean attackEntityAsMob(Entity e) {
-        boolean attack = super.attackEntityAsMob(e);
-        if(!isTamed()) {
+    public boolean doHurtTarget(Entity e) {
+        boolean attack = super.doHurtTarget(e);
+        if(!isTame()) {
             if (attack && e instanceof LivingEntity) {
-                ((LivingEntity) e).setRevengeTarget(this);
+                ((LivingEntity) e).canAttack(this);
             }
-            e.attackEntityFrom(DamageSource.causeMobDamage(this),
-                    (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue());
+            e.hurt(DamageSource.mobAttack(this), (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue());
         }
         return attack;
     }
-    public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+
+    @Override
+    public ActionResultType interactAt(PlayerEntity p_184199_1_, Vector3d p_184199_2_, Hand p_184199_3_) {
+        return super.interactAt(p_184199_1_, p_184199_2_, p_184199_3_);
+    }
+
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.world.isRemote) {
-            boolean flag = this.isOwner(player) || this.isTamed() || item == Items.BONE && !this.isTamed();
+        if (this.level.isClientSide) {
+            boolean flag = this.isOwnedBy(player) || this.isTame() || item == Items.BONE && !this.isTame();
             return flag ? ActionResultType.CONSUME : ActionResultType.PASS;
         } else {
-            if (this.isTamed()) {
-                if (this.isBreedingItem(itemstack) && this.getHealth() < this.getMaxHealth()) {
-                    if (!player.abilities.isCreativeMode) {
+            if (this.isTame()) {
+                if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+                    if (!player.isCreative()) {
                         itemstack.shrink(1);
                     }
 
-                    this.heal((float) item.getFood().getHealing());
+                    this.heal((float)item.getFoodProperties().getNutrition());
                     return ActionResultType.SUCCESS;
                 }
 
-                    ActionResultType actionresulttype = super.func_230254_b_(player, hand);
-                    if ((!actionresulttype.isSuccessOrConsume() || this.isChild()) && this.isOwner(player)) {
-                        this.func_233687_w_(!this.isTamed());
-                        this.isJumping = false;
-                        this.navigator.clearPath();
-                        this.setAttackTarget((LivingEntity) null);
-                        return actionresulttype;
+                ActionResultType actionresulttype = super.mobInteract(player, hand);
+                if ((!actionresulttype.consumesAction() || this.isBaby()) && this.isOwnedBy(player)) {
+                    this.setOrderedToSit(!this.isOrderedToSit());
+                    this.jumping = false;
+                    this.navigation.stop();
+                    this.setTarget((LivingEntity)null);
+                    return ActionResultType.SUCCESS;
                 }
 
 
             } else if (item == Items.CARROT || item == Items.APPLE || item == ItemRegistry.moonbulb) {
-                if (!player.abilities.isCreativeMode) {
+                if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
 
-                if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.setTamedBy(player);
-                    this.navigator.clearPath();
-                    this.setAttackTarget((LivingEntity) null);
-                    this.func_233687_w_(true);
-                    this.world.setEntityState(this, (byte) 7);
+                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                    this.tame(player);
+                    this.navigation.stop();
+                    this.setTarget((LivingEntity)null);
+                    this.setOrderedToSit(true);
+                    this.level.broadcastEntityEvent(this, (byte)7);
                 } else {
-                    this.world.setEntityState(this, (byte) 6);
+                    this.level.broadcastEntityEvent(this, (byte)6);
                 }
 
                 return ActionResultType.SUCCESS;
             }
-            return super.func_230254_b_(player, hand);
+            return super.mobInteract(player, hand);
         }
     }
 }

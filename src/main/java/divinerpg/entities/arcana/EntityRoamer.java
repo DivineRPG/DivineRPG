@@ -19,11 +19,11 @@ public class EntityRoamer extends EntityDivineMob {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, EntityStats.roamerHealth).createMutableAttribute(Attributes.ATTACK_DAMAGE, EntityStats.roamerDamage).createMutableAttribute(Attributes.MOVEMENT_SPEED, EntityStats.roamerSpeed).createMutableAttribute(Attributes.FOLLOW_RANGE, EntityStats.roamerFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.roamerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.roamerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.roamerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.roamerFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-//        return world.getBiome(getPosition()).doesSnowGenerate(worldIn, getPosition());
-        //TODO - spawn return
+        //TODO - set arcana canSpawn
+//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
         return true;
     }
 
@@ -54,7 +54,7 @@ public class EntityRoamer extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getLootTable() {
+    protected ResourceLocation getDefaultLootTable() {
         return LootTableRegistry.ENTITIES_ROAMER;
     }
 }

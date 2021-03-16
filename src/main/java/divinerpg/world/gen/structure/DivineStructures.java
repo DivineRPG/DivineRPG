@@ -19,10 +19,10 @@ import net.minecraftforge.registries.*;
 public class DivineStructures {
     public static final DeferredRegister<Structure<?>> STRUCTURES = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, DivineRPG.MODID);
 
-    public static final RegistryObject<Structure<NoFeatureConfig>> HUT = STRUCTURES.register("hut", () -> new HutStructure(NoFeatureConfig.field_236558_a_));
+    public static final RegistryObject<Structure<NoFeatureConfig>> HUT = STRUCTURES.register("hut", () -> new HutStructure(NoFeatureConfig.CODEC));
 
     public static final class Configured {
-        public static final StructureFeature<?, ?> HUT = DivineStructures.HUT.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+        public static final StructureFeature<?, ?> HUT = DivineStructures.HUT.get().configured(IFeatureConfig.NONE);
 
         private static <FC extends IFeatureConfig> void register(String name, StructureFeature<FC, ?> stuctureFeature) {
             Registry.register(WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE, new ResourceLocation(DivineRPG.MODID, name), stuctureFeature);
@@ -34,13 +34,13 @@ public class DivineStructures {
     }
 
     public static final class Pieces {
-        public static final IStructurePieceType HUT_PIECE = IStructurePieceType.register(HutPiece.Piece::new, "hut_piece");
+        public static final IStructurePieceType HUT_PIECE = IStructurePieceType.setPieceId(HutPiece.Piece::new, "hut_piece");
     }
 
     public static void noise() {
-        Structure.NAME_STRUCTURE_BIMAP.put("hut", HUT.get());
-        WorldGenRegistries.NOISE_SETTINGS.forEach(settings -> {
-            settings.getStructures().func_236195_a_().put(DivineStructures.HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
+        Structure.STRUCTURES_REGISTRY.put("hut", HUT.get());
+        WorldGenRegistries.NOISE_GENERATOR_SETTINGS.forEach(settings -> {
+            settings.structureSettings().structureConfig().put(DivineStructures.HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
         });
     }
 

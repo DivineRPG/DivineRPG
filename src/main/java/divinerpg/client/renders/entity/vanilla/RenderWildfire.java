@@ -17,7 +17,7 @@ public class RenderWildfire extends MobRenderer<EntityWildfire, ModelWildfire<En
         this.addLayer(new WildfireBowLayer(this));
     }
 
-    public ResourceLocation getEntityTexture(EntityWildfire entity) {
+    public ResourceLocation getTextureLocation(EntityWildfire entity) {
         return TEXTURE;
     }
 }

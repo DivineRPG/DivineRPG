@@ -1,12 +1,11 @@
 package divinerpg.client.renders.entity.arcana;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.DivineRPG;
+import com.mojang.blaze3d.matrix.*;
+import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.arcana.EntityLivingStatue;
+import divinerpg.entities.arcana.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.util.*;
 
 public class RenderLivingStatue extends MobRenderer<EntityLivingStatue, ModelCyclops<EntityLivingStatue>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/living_statue.png");
@@ -17,7 +16,7 @@ public class RenderLivingStatue extends MobRenderer<EntityLivingStatue, ModelCyc
     protected void preRenderCallback(EntityLivingStatue entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
-    public ResourceLocation getEntityTexture(EntityLivingStatue entity) {
+    public ResourceLocation getTextureLocation(EntityLivingStatue entity) {
         return TEXTURE;
     }
 }
