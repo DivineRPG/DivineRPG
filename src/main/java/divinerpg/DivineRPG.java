@@ -1,11 +1,13 @@
 package divinerpg;
 
+import divinerpg.capability.*;
 import divinerpg.client.*;
 import divinerpg.compat.*;
 import divinerpg.config.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.data.*;
+import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.config.*;
@@ -44,6 +46,7 @@ public class DivineRPG {
         KeyRegistry.init();
         FeatureRegistry.registerOres();
         ModCompat.initCommon(event);
+        CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
     }
     private void post(final FMLLoadCompleteEvent event){
         Utils.loadHatInformation();
