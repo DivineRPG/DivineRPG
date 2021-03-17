@@ -58,7 +58,7 @@ public class EntityMiner extends EntityDivineMob {
     public boolean doHurtTarget(Entity entityIn) {
         boolean flag = super.doHurtTarget(entityIn);
         if (flag) {
-            float f = this.level.getCurrentDifficultyAt(blockPosition()).getEffectiveDifficulty();
+            float f = (float)this.level.getDifficulty().getId();
             if (this.getMainHandItem().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
                 entityIn.setSecondsOnFire(2 * (int)f);
             }

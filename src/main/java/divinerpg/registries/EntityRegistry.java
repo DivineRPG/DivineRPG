@@ -31,6 +31,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.*;
@@ -550,6 +551,7 @@ public class EntityRegistry {
         EntitySpawnPlacementRegistry.register(ZELUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWraith::canSpawnOn);
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void render() {
         //Overworld
         RenderingRegistry.registerEntityRenderingHandler(ARID_WARRIOR, RenderAridWarrior::new);
