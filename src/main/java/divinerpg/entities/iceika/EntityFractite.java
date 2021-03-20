@@ -55,8 +55,4 @@ public class EntityFractite extends EntityDivineFlyingMob {
         return SoundRegistry.FRACTITE_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_FRACTITE;
-    }
 }

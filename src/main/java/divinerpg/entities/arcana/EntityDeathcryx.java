@@ -67,8 +67,4 @@ public class EntityDeathcryx extends EntityDivineMob {
         return SoundRegistry.DEATHCRYX_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_DEATHCRYX;
-    }
 }

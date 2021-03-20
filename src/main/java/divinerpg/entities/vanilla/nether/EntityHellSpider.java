@@ -91,10 +91,6 @@ public class EntityHellSpider extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundEvents.SPIDER_DEATH;
     }
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_HELL_SPIDER;
-    }
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
     }

@@ -1,12 +1,11 @@
 package divinerpg.entities.apalachia;
 
-import divinerpg.entities.base.EntityMageBase;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.monster.*;
 import net.minecraft.world.*;
 
 public class EntitySpellbinder extends EntityMageBase {
@@ -20,9 +19,5 @@ public class EntitySpellbinder extends EntityMageBase {
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == KeyRegistry.APALACHIA_WORLD;
-    }
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SPELLBINDER;
     }
 }

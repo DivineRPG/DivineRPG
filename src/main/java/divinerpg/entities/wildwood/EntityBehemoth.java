@@ -59,8 +59,4 @@ public class EntityBehemoth extends EntityDivineMob {
         return SoundRegistry.ENDIKU_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_BEHEMOTH;
-    }
 }

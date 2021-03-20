@@ -51,8 +51,4 @@ public class EntityVerek extends EntityDivineMob {
         return SoundRegistry.VEREK_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_VEREK;
-    }
 }

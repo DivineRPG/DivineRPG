@@ -59,8 +59,4 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
         return SoundEvents.ZOMBIE_DEATH;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SUN_ARCHER;
-    }
 }

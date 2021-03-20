@@ -2,7 +2,7 @@ package divinerpg.client.renders.entity.arcana;
 
 import com.mojang.blaze3d.matrix.*;
 import divinerpg.*;
-import divinerpg.client.models.arcana.*;
+import divinerpg.client.models.boss.*;
 import divinerpg.entities.arcana.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.util.*;

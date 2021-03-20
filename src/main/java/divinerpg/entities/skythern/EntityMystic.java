@@ -1,10 +1,8 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.EntityMageBase;
-import divinerpg.registries.LootTableRegistry;
+import divinerpg.entities.base.*;
 import net.minecraft.entity.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
 public class EntityMystic extends EntityMageBase {
     public EntityMystic(EntityType<? extends MobEntity> type, World worldIn) {
@@ -12,8 +10,4 @@ public class EntityMystic extends EntityMageBase {
         //TODO - BulletType.MYSTIC_SHOT
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_MYSTIC;
-    }
 }

@@ -1,24 +1,23 @@
 package divinerpg.entities.vanilla.nether;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.time.*;
 import java.time.temporal.*;
-import java.util.Random;
+import java.util.*;
 
 public class EntityHellBat extends EntityDivineMob {
     private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityHellBat.class, DataSerializers.BYTE);
@@ -207,11 +206,6 @@ public class EntityHellBat extends EntityDivineMob {
         return j == 10 && i >= 20 || j == 11 && i <= 3;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable()
-    {
-        return LootTableRegistry.ENTITIES_HELL_BAT;
-    }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height / 2.0F;
     }

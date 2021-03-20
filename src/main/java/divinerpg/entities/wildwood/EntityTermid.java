@@ -51,11 +51,6 @@ public class EntityTermid extends EntityDivineMob {
     }
 
     @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_TERMID;
-    }
-
-    @Override
     protected int calculateFallDamage(float distance, float damageMultiplier) {
         return 0;
     }

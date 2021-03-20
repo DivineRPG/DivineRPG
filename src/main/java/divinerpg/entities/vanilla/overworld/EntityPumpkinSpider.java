@@ -1,26 +1,25 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import javax.annotation.Nullable;
-import java.util.Random;
+import javax.annotation.*;
+import java.util.*;
 
 public class EntityPumpkinSpider extends EntityDivineMob {
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.defineId(EntityPumpkinSpider.class, DataSerializers.BYTE);
@@ -226,10 +225,6 @@ public class EntityPumpkinSpider extends EntityDivineMob {
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.SPIDER_AMBIENT;
-    }
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_PUMPKIN_SPIDER;
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);

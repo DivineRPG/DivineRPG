@@ -148,8 +148,4 @@ public class EntityBunny extends EntityDivineTameable {
         return SoundRegistry.BUNNY_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_BUNNY;
-    }
 }

@@ -47,8 +47,4 @@ public class EntityWildwoodCadillion extends EntityDivineMob {
         return SoundRegistry.GROWL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WILDWOOD_CADILLION;
-    }
 }

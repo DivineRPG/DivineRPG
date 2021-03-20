@@ -174,11 +174,6 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return SoundRegistry.RAINBOUR_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_RAINBOUR;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.checkSpawnRules(worldIn, spawnReasonIn) && getCommandSenderWorld().getLightEmission(blockPosition()) <= random.nextInt(7);
     }

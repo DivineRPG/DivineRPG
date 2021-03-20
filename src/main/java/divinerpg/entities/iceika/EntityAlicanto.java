@@ -47,9 +47,4 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
         return SoundRegistry.ALICANTO_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ALICANTO;
-    }
-
 }

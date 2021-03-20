@@ -68,8 +68,7 @@ public class LocalizeUtils {
      * @return
      */
     public static String infiniteAmmo() {
-//        return InfiniteAmmo.getFormattedText();
-        return null;
+        return InfiniteAmmo.getContents();
     }
 
     /**
@@ -275,7 +274,6 @@ public class LocalizeUtils {
         return NoProtection;
     }
 
-    //
 //    public static String rangedAndMelee(double dam) {
 //        return TooltipHelper.localize(RangedAndMeleeDamage).replace("#", String.valueOf(dam));
 //    }
@@ -299,10 +297,9 @@ public class LocalizeUtils {
      */
     public static String normal(String message, TextFormatting format) {
         ITextComponent text = new TranslationTextComponent(message);
-//        text.getStyle().setColor(format);
+        text.getStyle().withColor(format);
 
-        return null;
-//        return text.getFormattedText();
+        return text.getContents();
     }
 
     /**
@@ -313,10 +310,9 @@ public class LocalizeUtils {
      */
     public static String version(String vers) {
         ITextComponent text = new TranslationTextComponent("message.version", vers);
-//        text.getStyle().setColor(TextFormatting.RED);
-        return null;
+        text.getStyle().withColor(TextFormatting.RED);
 
-//        return text.getFormattedText();
+        return text.getContents();
     }
 
     /**

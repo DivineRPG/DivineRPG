@@ -54,8 +54,4 @@ public class EntityLivingStatue extends EntityDivineMob implements IRangedAttack
         return SoundRegistry.HIGH_HIT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_LIVING_STATUE;
-    }
 }

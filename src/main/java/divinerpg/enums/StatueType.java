@@ -1,8 +1,10 @@
 package divinerpg.enums;
 
 import divinerpg.*;
-import divinerpg.client.models.twilight.*;
+import divinerpg.client.models.boss.*;
 import divinerpg.client.models.vanilla.*;
+import divinerpg.client.models.boss.ModelAncientEntity;
+import divinerpg.client.models.boss.ModelAyeraco;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.util.*;
 

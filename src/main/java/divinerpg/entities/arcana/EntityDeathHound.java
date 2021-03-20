@@ -60,8 +60,4 @@ public class EntityDeathHound extends EntityDivineMob {
         return SoundRegistry.DEATH_HOUND_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_DEATH_HOUND;
-    }
 }

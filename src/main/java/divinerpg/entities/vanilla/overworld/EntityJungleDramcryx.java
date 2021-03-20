@@ -44,9 +44,4 @@ public class EntityJungleDramcryx extends EntityDivineMob {
         return SoundRegistry.DRAMCRYX_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_JUNGLE_DRAMCRYX;
-    }
-
 }

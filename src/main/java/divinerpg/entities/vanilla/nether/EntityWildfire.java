@@ -58,9 +58,4 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
         return SoundRegistry.WILDFIRE_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WILDFIRE;
-    }
-
 }

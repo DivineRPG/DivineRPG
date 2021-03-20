@@ -1,14 +1,12 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.entity.monster.*;
+import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class EntitySkythernGolem extends EntityDivineMob {
@@ -53,8 +51,4 @@ public class EntitySkythernGolem extends EntityDivineMob {
         return SoundRegistry.GROWL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SKYTHERN_GOLEM;
-    }
 }

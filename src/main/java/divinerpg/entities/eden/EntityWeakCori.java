@@ -63,8 +63,4 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
         return SoundRegistry.CORI_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WEAK_CORI;
-    }
 }

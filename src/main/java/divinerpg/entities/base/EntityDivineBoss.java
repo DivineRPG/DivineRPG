@@ -26,6 +26,8 @@ public class EntityDivineBoss extends EntityDivineMob {
 //        return false;
 //    }
 
+
+
     public BossInfo.Color getBarColor() {
         return BossInfo.Color.BLUE;
     }

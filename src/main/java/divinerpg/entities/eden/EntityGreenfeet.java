@@ -64,8 +64,4 @@ public class EntityGreenfeet extends EntityDivineMob {
         return SoundRegistry.NESRO_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_GREENFEET;
-    }
 }

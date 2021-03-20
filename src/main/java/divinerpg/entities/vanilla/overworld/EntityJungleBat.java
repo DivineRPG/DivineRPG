@@ -1,7 +1,6 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
-import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -201,10 +200,6 @@ public class EntityJungleBat extends EntityDivineMob {
         return j == 10 && i >= 20 || j == 11 && i <= 3;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_JUNGLE_BAT;
-    }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height / 2.0F;
     }

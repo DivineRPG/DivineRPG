@@ -34,6 +34,7 @@ public class RenderDivineMob extends MobRenderer<MobEntity, SegmentedModel<MobEn
         this.scaleFactor=scaleFactor;
     }
     protected void preRenderCallback(MobEntity entity, MatrixStack matrixStackIn, float partialTickTime) {
+        //TODO - sus out scaling
         matrixStackIn.scale(scaleFactor, scaleFactor, scaleFactor);
     }
     @Override

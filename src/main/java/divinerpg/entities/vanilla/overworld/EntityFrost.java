@@ -195,11 +195,6 @@ public class EntityFrost extends EntityDivineMob {
         return SoundEvents.BLAZE_DEATH;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_FROST;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }

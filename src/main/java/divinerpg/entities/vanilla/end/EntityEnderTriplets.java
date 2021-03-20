@@ -1,11 +1,10 @@
 package divinerpg.entities.vanilla.end;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
@@ -41,10 +40,6 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
         return SoundEvents.GHAST_DEATH;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ENDER_TRIPLETS;
-    }
     //TODO - Ender triplets fireball attack
 //    @Nullable
 //    @Override

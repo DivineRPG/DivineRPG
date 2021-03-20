@@ -47,8 +47,4 @@ public class EntityDungeonDemon extends EntityDivineMob {
         return SoundRegistry.DUNGEON_PRISONER_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_DUNGEON_DEMON;
-    }
 }

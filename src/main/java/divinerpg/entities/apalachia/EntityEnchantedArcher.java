@@ -1,17 +1,15 @@
 package divinerpg.entities.apalachia;
 
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class EntityEnchantedArcher extends EntityDivineMob implements IRangedAttackMob {
@@ -62,11 +60,6 @@ public class EntityEnchantedArcher extends EntityDivineMob implements IRangedAtt
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.HIGH_HIT;
-    }
-
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ENCHANTED_ARCHER;
     }
 
 }

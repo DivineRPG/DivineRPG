@@ -42,8 +42,4 @@ public class EntityGlacide extends EntityDivineMob {
         return SoundRegistry.GLACIDE_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_GLACIDE;
-    }
 }

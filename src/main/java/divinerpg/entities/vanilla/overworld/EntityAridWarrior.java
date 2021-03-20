@@ -51,9 +51,4 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
         return SoundRegistry.ARID_WARRIOR_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ARID_WARRIOR;
-    }
-
 }

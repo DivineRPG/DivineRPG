@@ -44,11 +44,6 @@ public class EntityDesertCrawler extends EntityDivineMob {
         return SoundRegistry.CRAWLER_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_DESERT_CRAWLER;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }

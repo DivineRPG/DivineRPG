@@ -32,11 +32,6 @@ public class EntityEnderSpider extends EndermanEntity {
         return SoundRegistry.HELL_SPIDER;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ENDER_SPIDER;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.END;
     }

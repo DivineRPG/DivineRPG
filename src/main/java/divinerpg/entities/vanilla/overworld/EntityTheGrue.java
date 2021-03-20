@@ -45,11 +45,6 @@ public class EntityTheGrue extends EntityDivineMob {
         return SoundRegistry.DEATHCRYX_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_THE_GRUE;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }

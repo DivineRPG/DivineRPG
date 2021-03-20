@@ -4,17 +4,20 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.arcana.*;
+import divinerpg.client.models.boss.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.base.RenderDivineMob;
 import divinerpg.client.renders.entity.arcana.*;
+import divinerpg.client.renders.entity.boss.*;
 import divinerpg.client.renders.entity.iceika.RenderFrostArcher;
 import divinerpg.client.renders.entity.twilight.RenderSunArcher;
 import divinerpg.client.renders.entity.vanilla.*;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
-import divinerpg.entities.boss.EntityTheWatcher;
+import divinerpg.entities.boss.*;
+import divinerpg.entities.boss.ayeraco.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
 import divinerpg.entities.mortum.*;
@@ -96,32 +99,34 @@ public class EntityRegistry {
 //    buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")
 
     // Boss
-//    buildEntityEntry(EntityAncientEntity.class, "ancient_entity", BOSS),
-//    buildEntityEntry(EntityAyeracoBlue.class, "ayeraco_blue", BOSS),
-//    buildEntityEntry(EntityAyeracoGreen.class, "ayeraco_green", BOSS),
-//    buildEntityEntry(EntityAyeracoPurple.class, "ayeraco_purple", BOSS),
-//    buildEntityEntry(EntityAyeracoRed.class, "ayeraco_red", BOSS),
-//    buildEntityEntry(EntityAyeracoYellow.class, "ayeraco_yellow", BOSS),
-//    buildEntityEntry(EntityDensos.class, "densos", BOSS),
-//    buildEntityEntry(EntityDramix.class, "dramix", BOSS),
-//    buildEntityEntry(EntityEternalArcher.class, "eternal_archer", BOSS),
-//    buildEntityEntry(EntityExperiencedCori.class, "experienced_cori", BOSS),
-//    buildEntityEntry(EntityHiveQueen.class, "hive_queen", BOSS),
-//    buildEntityEntry(EntityKarot.class, "karot", BOSS),
-//    buildEntityEntry(EntityKaros.class, "karos", BOSS),
-//    buildEntityEntry(EntityKingOfScorchers.class, "king_of_scorchers", BOSS),
-//    buildEntityEntry(EntityLadyLuna.class, "lady_luna", BOSS),
-//    buildEntityEntry(EntityParasecta.class, "parasecta", BOSS),
-//    buildEntityEntry(EntityQuadro.class, "quadro", BOSS),
-//    buildEntityEntry(EntityRaglok.class, "raglok", BOSS),
-//    buildEntityEntry(EntityReyvor.class, "reyvor", BOSS),
-//    buildEntityEntry(EntitySoulFiend.class, "soul_fiend", BOSS),
-//    buildEntityEntry(EntitySunstorm.class, "sunstorm", BOSS),
-//    buildEntityEntry(EntityTermasect.class, "termasect", BOSS),
+    public static final EntityType ANCIENT_ENTITY = registerEntity(EntityAncientEntity::new, "ancient_entity",4.0F, 6.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType AYERACO_BLUE = registerEntity(EntityAyeracoBlue::new, "ayeraco_blue",2.8F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType AYERACO_GREEN = registerEntity(EntityAyeracoGreen::new, "ayeraco_green",2.8F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType AYERACO_PURPLE = registerEntity(EntityAyeracoPurple::new, "ayeraco_purple",2.8F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType AYERACO_RED = registerEntity(EntityAyeracoRed::new, "ayeraco_red",2.8F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType AYERACO_YELLOW = registerEntity(EntityAyeracoYellow::new, "ayeraco_yellow",2.8F, 1.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType DENSOS = registerEntity(EntityDensos::new, "densos",1.0F, 2.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType DRAMIX = registerEntity(EntityDramix::new, "dramix",0.85F, 3.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType ETERNAL_ARCHER = registerEntity(EntityEternalArcher::new, "eternal_archer",3.0F, 5.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType EXPERIENCED_CORI = registerEntity(EntityExperiencedCori::new, "experienced_cori",4F, 6.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType HIVE_QUEEN = registerEntity(EntityHiveQueen::new, "hive_queen",1.5F, 4.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType KAROT = registerEntity(EntityKarot::new, "karot",3.25F, 4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType KAROS = registerEntity(EntityKaros::new, "karos",1.0F, 3.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType KING_OF_SCORCHERS = registerEntity(EntityKingOfScorchers::new, "king_of_scorchers",2.0F, 2.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType LADY_LUNA = registerEntity(EntityLadyLuna::new, "lady_luna",1.0F, 3.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType PARASECTA = registerEntity(EntityParasecta::new, "parasecta",1.3F, 3.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType QUADRO = registerEntity(EntityQuadro::new, "quadro",1.2F, 2.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType RAGLOK = registerEntity(EntityRaglok::new, "raglok",3.0F, 5.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType REYVOR = registerEntity(EntityReyvor::new, "reyvor",1.0F, 2.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType SOUL_FIEND = registerEntity(EntitySoulFiend::new, "soul_fiend",0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType SUNSTORM = registerEntity(EntitySunstorm::new, "sunstorm",0.9F, 3.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType TERMASECT = registerEntity(EntityTermasect::new, "termasect",5.9F, 8.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
     public static final EntityType THE_WATCHER = registerEntity(EntityTheWatcher::new, "the_watcher",4F, 4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
-//    buildEntityEntry(EntityTwilightDemon.class, "twilight_demon", BOSS),
-//    buildEntityEntry(EntityVamacheron.class, "vamacheron", BOSS),
-//    buildEntityEntry(EntityWreck.class, "wreck", BOSS)
+    public static final EntityType TWILIGHT_DEMON = registerEntity(EntityTwilightDemon::new, "twilight_demon",2.0F, 4.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType VAMACHERON = registerEntity(EntityVamacheron::new, "vamacheron",1.45F, 2.2F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+    public static final EntityType WRECK = registerEntity(EntityWreck::new, "wreck",2.0F, 2.4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
+
+
 
     // Vanilla
     public static final EntityType ARID_WARRIOR = registerEntity(EntityAridWarrior::new, "arid_warrior",1.4F, 2.8f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
@@ -333,7 +338,32 @@ public class EntityRegistry {
         GlobalEntityTypeAttributes.put(ENDER_WATCHER, EntityEnderWatcher.attributes().build());
 
         //Boss
+        GlobalEntityTypeAttributes.put(ANCIENT_ENTITY, EntityAncientEntity.attributes().build());
+        GlobalEntityTypeAttributes.put(AYERACO_BLUE, EntityAyeracoBlue.attributes().build());
+        GlobalEntityTypeAttributes.put(AYERACO_GREEN, EntityAyeracoGreen.attributes().build());
+        GlobalEntityTypeAttributes.put(AYERACO_PURPLE, EntityAyeracoPurple.attributes().build());
+        GlobalEntityTypeAttributes.put(AYERACO_RED, EntityAyeracoRed.attributes().build());
+        GlobalEntityTypeAttributes.put(AYERACO_YELLOW, EntityAyeracoYellow.attributes().build());
+        GlobalEntityTypeAttributes.put(DENSOS, EntityDensos.attributes().build());
+        GlobalEntityTypeAttributes.put(DRAMIX, EntityDramix.attributes().build());
+        GlobalEntityTypeAttributes.put(ETERNAL_ARCHER, EntityEternalArcher.attributes().build());
+        GlobalEntityTypeAttributes.put(EXPERIENCED_CORI, EntityExperiencedCori.attributes().build());
+        GlobalEntityTypeAttributes.put(HIVE_QUEEN, EntityHiveQueen.attributes().build());
+        GlobalEntityTypeAttributes.put(KAROT, EntityKarot.attributes().build());
+        GlobalEntityTypeAttributes.put(KAROS, EntityKaros.attributes().build());
+        GlobalEntityTypeAttributes.put(KING_OF_SCORCHERS, EntityKingOfScorchers.attributes().build());
+        GlobalEntityTypeAttributes.put(LADY_LUNA, EntityLadyLuna.attributes().build());
+        GlobalEntityTypeAttributes.put(PARASECTA, EntityParasecta.attributes().build());
+        GlobalEntityTypeAttributes.put(QUADRO, EntityQuadro.attributes().build());
+        GlobalEntityTypeAttributes.put(RAGLOK, EntityRaglok.attributes().build());
+        GlobalEntityTypeAttributes.put(REYVOR, EntityReyvor.attributes().build());
+        GlobalEntityTypeAttributes.put(SOUL_FIEND, EntitySoulFiend.attributes().build());
+        GlobalEntityTypeAttributes.put(SUNSTORM, EntitySunstorm.attributes().build());
+        GlobalEntityTypeAttributes.put(TERMASECT, EntityTermasect.attributes().build());
         GlobalEntityTypeAttributes.put(THE_WATCHER, EntityTheWatcher.attributes().build());
+        GlobalEntityTypeAttributes.put(TWILIGHT_DEMON, EntityTwilightDemon.attributes().build());
+        GlobalEntityTypeAttributes.put(VAMACHERON, EntityVamacheron.attributes().build());
+        GlobalEntityTypeAttributes.put(WRECK, EntityWreck.attributes().build());
 
         //Iceika
         GlobalEntityTypeAttributes.put(ALICANTO, EntityAlicanto.attributes().build());
@@ -599,7 +629,32 @@ public class EntityRegistry {
         RenderingRegistry.registerEntityRenderingHandler(ENDER_WATCHER, manager -> new RenderDivineMob(manager, new ModelEnderWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_watcher.png")));
 
         //Boss
+        RenderingRegistry.registerEntityRenderingHandler(ANCIENT_ENTITY, manager -> new RenderDivineMob(manager, new ModelAncientEntity(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png")));
+        RenderingRegistry.registerEntityRenderingHandler(AYERACO_BLUE, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")));
+        RenderingRegistry.registerEntityRenderingHandler(AYERACO_GREEN, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")));
+        RenderingRegistry.registerEntityRenderingHandler(AYERACO_RED, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")));
+        RenderingRegistry.registerEntityRenderingHandler(AYERACO_PURPLE, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_purple.png")));
+        RenderingRegistry.registerEntityRenderingHandler(AYERACO_YELLOW, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DENSOS, manager -> new RenderDivineMob(manager, new ModelDensos(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DRAMIX, manager -> new RenderDivineMob(manager, new ModelDramix(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
+        RenderingRegistry.registerEntityRenderingHandler(ETERNAL_ARCHER, manager -> new RenderDivineMob(manager, new ModelEternalArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png")));
+        RenderingRegistry.registerEntityRenderingHandler(EXPERIENCED_CORI, manager -> new RenderDivineMob(manager, new ModelExperiencedCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
+        RenderingRegistry.registerEntityRenderingHandler(HIVE_QUEEN, manager -> new RenderDivineMob(manager, new ModelHiveQueen(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
+        RenderingRegistry.registerEntityRenderingHandler(KAROT, manager -> new RenderDivineMob(manager, new ModelKarot(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
+        RenderingRegistry.registerEntityRenderingHandler(KAROS, manager -> new RenderDivineMob(manager, new ModelKaros(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
+        RenderingRegistry.registerEntityRenderingHandler(KING_OF_SCORCHERS, manager -> new RenderDivineMob(manager, new ModelKingScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")));
+        RenderingRegistry.registerEntityRenderingHandler(LADY_LUNA, manager -> new RenderDivineMob(manager, new ModelLadyLuna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna.png")));
+        RenderingRegistry.registerEntityRenderingHandler(PARASECTA, manager -> new RenderDivineMob(manager, new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")));
+        RenderingRegistry.registerEntityRenderingHandler(QUADRO, manager -> new RenderDivineMob(manager, new ModelQuadro(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
+        RenderingRegistry.registerEntityRenderingHandler(RAGLOK, manager -> new RenderDivineMob(manager, new ModelRaglok(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
+        RenderingRegistry.registerEntityRenderingHandler(REYVOR, RenderReyvor::new);
+        RenderingRegistry.registerEntityRenderingHandler(SOUL_FIEND, manager -> new RenderDivineMob(manager, new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")));
+        RenderingRegistry.registerEntityRenderingHandler(SUNSTORM, manager -> new RenderDivineMob(manager, new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
+        RenderingRegistry.registerEntityRenderingHandler(TERMASECT, manager -> new RenderDivineMob(manager, new ModelTermasect(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
         RenderingRegistry.registerEntityRenderingHandler(THE_WATCHER, manager -> new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
+        RenderingRegistry.registerEntityRenderingHandler(TWILIGHT_DEMON, manager -> new RenderDivineMob(manager, new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
+        RenderingRegistry.registerEntityRenderingHandler(VAMACHERON, manager -> new RenderDivineMob(manager, new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
+        RenderingRegistry.registerEntityRenderingHandler(WRECK, RenderWreck::new);
 
         //Iceika
         RenderingRegistry.registerEntityRenderingHandler(ALICANTO, manager -> new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));

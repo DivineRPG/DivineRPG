@@ -110,11 +110,6 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         return SoundRegistry.SAGUARO_WORM;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SAGUARO_WORM;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && level.getBlockState(blockPosition().below()).getBlock() == Blocks.SAND && super.canSpawn(worldIn, spawnReasonIn);
     }

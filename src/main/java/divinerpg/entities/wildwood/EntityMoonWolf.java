@@ -65,8 +65,4 @@ public class EntityMoonWolf extends WolfEntity {
     public boolean removeWhenFarAway(double distance) {return !isTame();
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_MOON_WOLF;
-    }
 }

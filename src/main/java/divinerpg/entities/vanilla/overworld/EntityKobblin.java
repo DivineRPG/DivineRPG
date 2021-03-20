@@ -111,9 +111,4 @@ public class EntityKobblin extends EntityDivineMob {
         return SoundRegistry.KOBBLIN;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_KOBBLIN;
-    }
-
 }

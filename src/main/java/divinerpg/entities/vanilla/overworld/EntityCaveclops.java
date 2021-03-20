@@ -48,11 +48,6 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
     }
 
     @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_CAVECLOPS;
-    }
-
-    @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         //TODO - Caveclops attack
 //        EntityCaveRock rock = new EntityCaveRock(this.world, this);

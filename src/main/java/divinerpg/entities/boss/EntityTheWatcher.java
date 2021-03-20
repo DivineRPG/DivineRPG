@@ -1,20 +1,19 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.controller.MovementController;
+import net.minecraft.entity.ai.controller.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.player.*;
+import net.minecraft.entity.projectile.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
 
@@ -36,7 +35,8 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).add(Attributes.ATTACK_DAMAGE, 0)
+                .add(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2.6F;
@@ -87,7 +87,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         this.entityData.define(ATTACKING, false);
     }
 
-    public SoundCategory getSoundCategory() {
+    public SoundCategory getSoundSource() {
         return SoundCategory.HOSTILE;
     }
 
@@ -101,11 +101,6 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
     protected SoundEvent getDeathSound() {
         return SoundEvents.GHAST_DEATH;
-    }
-
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_THE_WATCHER;
     }
 
     protected float getSoundVolume() {

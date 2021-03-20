@@ -1,7 +1,6 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
-import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -50,10 +49,6 @@ public class EntityMiner extends EntityDivineMob {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ZOMBIE_DEATH;
-    }
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_MINER;
     }
     public boolean doHurtTarget(Entity entityIn) {
         boolean flag = super.doHurtTarget(entityIn);

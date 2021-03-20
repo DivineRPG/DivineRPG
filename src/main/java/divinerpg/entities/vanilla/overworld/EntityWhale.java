@@ -39,11 +39,6 @@ public class EntityWhale extends EntityDivineWaterMob {
     }
 
     @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WHALE;
-    }
-
-    @Override
     public void tick() {
         super.tick();
         if (!this.isInWater()) {

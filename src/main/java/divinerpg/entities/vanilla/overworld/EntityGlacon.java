@@ -44,11 +44,6 @@ public class EntityGlacon extends EntityDivineMob {
         return SoundRegistry.GLACIDE_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_GLACON;
-    }
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }

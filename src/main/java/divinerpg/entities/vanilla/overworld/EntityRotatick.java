@@ -41,12 +41,6 @@ public class EntityRotatick extends EntityDivineMob {
         return SoundRegistry.ROTATICK_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ROTATICK;
-    }
-
-
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
     }

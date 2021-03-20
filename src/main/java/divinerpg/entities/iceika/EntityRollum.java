@@ -54,8 +54,4 @@ public class EntityRollum extends EntityDivineMob {
         return SoundRegistry.ROLLUM_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_ROLLUM;
-    }
 }

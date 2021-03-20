@@ -6,10 +6,12 @@ import divinerpg.registries.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 import java.util.*;
 
+@OnlyIn(Dist.CLIENT)
 public class FancyRenders {
     public static void init() {
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaSapling, RenderType.cutoutMipped());

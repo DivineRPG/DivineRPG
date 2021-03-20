@@ -40,9 +40,5 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.LIOPLEURODON_HURT;
     }
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_LIOPLEURODON;
-    }
 
 }

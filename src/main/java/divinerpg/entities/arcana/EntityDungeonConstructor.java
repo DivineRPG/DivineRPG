@@ -71,9 +71,4 @@ public class EntityDungeonConstructor extends EntityDivineMob {
         par1Entity.playSound(SoundRegistry.CONSTRUCTOR_PUNCH, 1, 1);
         return super.doHurtTarget(par1Entity);
     }
-
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_DUNGEON_CONSTRUCTOR;
-    }
 }

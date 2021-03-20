@@ -68,10 +68,6 @@ public class EntityScorcher extends EntityDivineMob {
         return SoundEvents.BLAZE_DEATH;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SCORCHER;
-    }
     public float getBrightness() {
         return 1.0F;
     }

@@ -57,8 +57,4 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
         return SoundRegistry.GROWL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_EPIPHITE;
-    }
 }

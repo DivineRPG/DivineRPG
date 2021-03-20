@@ -46,8 +46,4 @@ public class EntityMadivel extends EntityDivineMob {
         return SoundRegistry.MADIVEL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_MADIVEL;
-    }
 }

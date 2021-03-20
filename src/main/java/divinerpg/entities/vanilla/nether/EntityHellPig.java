@@ -1,15 +1,14 @@
 package divinerpg.entities.vanilla.nether;
 
-import divinerpg.entities.base.EntityDivineTameable;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
@@ -118,11 +117,6 @@ public class EntityHellPig extends EntityDivineTameable {
     public void setAngry(boolean angry) {
         this.entityData.set(ANGRY, angry);
         MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
-    }
-
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_HELL_PIG;
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {

@@ -40,9 +40,4 @@ public class EntityCaveCrawler extends EntityDivineMob {
         return SoundRegistry.CRAWLER_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_CAVE_CRAWLER;
-    }
-
 }

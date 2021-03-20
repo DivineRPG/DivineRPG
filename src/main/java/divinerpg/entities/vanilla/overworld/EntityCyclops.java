@@ -40,12 +40,6 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
     }
 
     @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_CYCLOPS;
-    }
-
-
-    @Override
     public boolean checkSpawnRules(IWorld world, SpawnReason reason) {
         if (world.getBrightness(LightType.SKY, blockPosition()) > random.nextInt(32)) {
             return false;

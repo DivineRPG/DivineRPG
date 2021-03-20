@@ -1,15 +1,13 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.*;
+import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class EntitySkythernArcher extends EntityDivineMob implements IRangedAttackMob {
@@ -60,11 +58,5 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
     protected SoundEvent getDeathSound() {
         return SoundRegistry.HIGH_HIT;
     }
-
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_SKYTHERN_ARCHER;
-    }
-
 
 }

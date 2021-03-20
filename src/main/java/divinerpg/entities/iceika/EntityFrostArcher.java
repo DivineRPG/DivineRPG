@@ -1,12 +1,11 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.LootTableRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.entity.monster.*;
+import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
@@ -45,8 +44,4 @@ public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackM
         return SoundEvents.ZOMBIE_DEATH;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_FROST_ARCHER;
-    }
 }

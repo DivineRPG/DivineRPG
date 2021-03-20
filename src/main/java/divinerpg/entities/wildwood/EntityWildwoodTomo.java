@@ -41,8 +41,4 @@ public class EntityWildwoodTomo extends EntityPeacefulUntilAttacked {
         return SoundRegistry.GROWL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WILDWOOD_TOMO;
-    }
 }

@@ -51,8 +51,4 @@ public class EntityWildwoodGolem extends EntityDivineMob {
         return SoundRegistry.GROWL_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_WILDWOOD_GOLEM;
-    }
 }

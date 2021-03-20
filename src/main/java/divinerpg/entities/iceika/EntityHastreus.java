@@ -71,8 +71,4 @@ public class EntityHastreus extends EntityDivineMob {
         return SoundRegistry.HASTREUS_HURT;
     }
 
-    @Override
-    protected ResourceLocation getDefaultLootTable() {
-        return LootTableRegistry.ENTITIES_HASTREUS;
-    }
 }
