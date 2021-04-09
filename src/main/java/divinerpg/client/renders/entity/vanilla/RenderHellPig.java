@@ -17,7 +17,7 @@ public class RenderHellPig extends MobRenderer<EntityHellPig, PigModel<EntityHel
     public RenderHellPig(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new PigModel<EntityHellPig>(), 1.0F);
     }
-    protected void preRenderCallback(EntityHellPig entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityHellPig entity, MatrixStack matrixStackIn, float partialTickTime) {
     }
     public ResourceLocation getTextureLocation(EntityHellPig entity) {
         return entity.isTame() ? tamedHellPigLoc : (entity.isAngry() ? madHellPigLoc : hellPigLoc);

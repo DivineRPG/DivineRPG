@@ -1846,5 +1846,6 @@
   "summon.single_use_spawner.delay": "Will summon in %s seconds",
   "divinerpg.sit.true": "Your pet will now sit",
   "divinerpg.sit.false": "Your pet will now follow you",
-  "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors."
+  "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
+  "tile.bone_chest.name": "Bone Chest"
 }

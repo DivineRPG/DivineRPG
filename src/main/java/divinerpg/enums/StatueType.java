@@ -13,11 +13,11 @@ public enum StatueType {
     ANCIENT_ENTITY_STATUE(new ModelAncientEntity(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png")),
     BLUE_AYERACO_STATUE(new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")),
     DENSOS_STATUE(new ModelDensos(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")),
-//    DRAMIX_STATUE(new ModelDramix(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")),
+    DRAMIX_STATUE(new ModelDramix(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")),
     ETERNAL_ARCHER_STATUE(new ModelEternalArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png")),
     KAROT_STATUE(new ModelKarot(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")),
     KING_OF_SCORCHERS_STATUE(new ModelKingScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")),
-//    PARASECTA_STATUE(new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")),
+    PARASECTA_STATUE(new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")),
     REYVOR_STATUE(new ModelDensos(), new ResourceLocation(DivineRPG.MODID, "textures/entity/reyvor.png")),
     SOUL_FIEND_STATUE(new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")),
     THE_WATCHER_STATUE(new ModelTheWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")),
@@ -33,10 +33,10 @@ public enum StatueType {
     SUNSTORM_STATUE(new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")),
     EXPERIENCED_CORI_STATUE(new ModelExperiencedCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png"));
 
-    private final SegmentedModel model;
+    private final EntityModel model;
     private final ResourceLocation texture;
 
-    StatueType(SegmentedModel model, ResourceLocation texture) {
+    StatueType(EntityModel model, ResourceLocation texture) {
         this.model = model;
         this.texture = texture;
     }
@@ -56,7 +56,7 @@ public enum StatueType {
         return values()[ordinal];
     }
 
-    public SegmentedModel getModel() {
+    public EntityModel getModel() {
         return this.model;
     }
 }

@@ -17,7 +17,7 @@ public class ItemModAxe extends AxeItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (getMaxDamage() == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());
         }

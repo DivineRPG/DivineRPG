@@ -1,6 +1,7 @@
 package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.vanilla.nether.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
@@ -11,6 +12,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.network.datasync.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -20,14 +22,16 @@ import net.minecraft.world.*;
 import javax.annotation.*;
 
 public class EntityWraith extends EntityDivineTameable {
-	
-    private BlockPos currentFlightTarget;
+
+    private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityHellBat.class, DataSerializers.BYTE);
     private static final EntityPredicate RESTING_TARGETING = (new EntityPredicate()).range(4.0D).allowSameTeam();
+    private BlockPos targetPosition;
 	
 	public EntityWraith(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
         tame(player);
+        this.setResting(true);
     }
 	
 	public <T extends Entity> EntityWraith(EntityType<T> type, World worldIn) {
@@ -47,7 +51,7 @@ public class EntityWraith extends EntityDivineTameable {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
         if (this.isTame()) {
-            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+            if (isFood(itemstack)) {
                 if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
@@ -60,7 +64,12 @@ public class EntityWraith extends EntityDivineTameable {
         }
         return super.mobInteract(player, hand);
     }
-    
+
+    public boolean isFood(ItemStack stack) {
+        Item item = stack.getItem();
+        return item.isEdible() && item.getFoodProperties().isMeat();
+    }
+
     @Override
     public boolean doHurtTarget(Entity entity) {
         float damage = (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue();
@@ -104,10 +113,12 @@ public class EntityWraith extends EntityDivineTameable {
             compound.putString("Owner", this.getOwnerUUID().toString());
         }
         compound.putBoolean("Sitting", this.isOrderedToSit());
+        compound.putByte("BatFlags", this.entityData.get(DATA_ID_FLAGS));
     }
     
     public void readAdditionalSaveData(CompoundNBT compound) {
         super.readAdditionalSaveData(compound);
+        this.entityData.set(DATA_ID_FLAGS, compound.getByte("BatFlags"));
     }
     
     @Override
@@ -123,7 +134,7 @@ public class EntityWraith extends EntityDivineTameable {
     @Nullable
     @Override
     public SoundEvent getAmbientSound() {
-        return this.getIsBatHanging() && this.random.nextInt(4) != 0 ? null : SoundRegistry.WRAITH;
+        return this.isResting() && this.random.nextInt(4) != 0 ? null : SoundRegistry.WRAITH;
     }
     
     @Override
@@ -146,14 +157,23 @@ public class EntityWraith extends EntityDivineTameable {
     protected void pushEntities() {
     }
 
-    public boolean getIsBatHanging() {
-        return false;
+    public boolean isResting() {
+        return (this.entityData.get(DATA_ID_FLAGS) & 1) != 0;
+    }
+
+    public void setResting(boolean p_82236_1_) {
+        byte b0 = this.entityData.get(DATA_ID_FLAGS);
+        if (p_82236_1_) {
+            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 | 1));
+        } else {
+            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 & -2));
+        }
+
     }
     
     @Override
     public void tick() {
-        super.tick();
-        if (this.getIsBatHanging()) {
+        if (this.isResting()) {
             this.setDeltaMovement(Vector3d.ZERO);
             this.setPosRaw(this.getX(), (double)MathHelper.floor(this.getY()) + 1.0D - (double)this.getBbHeight(), this.getZ());
         } else {
@@ -167,7 +187,7 @@ public class EntityWraith extends EntityDivineTameable {
         super.customServerAiStep();
         BlockPos blockpos = this.blockPosition();
         BlockPos blockpos1 = blockpos.above();
-        if (this.getIsBatHanging()) {
+        if (this.isResting()) {
             boolean flag = this.isSilent();
             if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos)) {
                 if (this.random.nextInt(200) == 0) {
@@ -175,26 +195,29 @@ public class EntityWraith extends EntityDivineTameable {
                 }
 
                 if (this.level.getNearestPlayer(RESTING_TARGETING, this) != null) {
-                    this.setInSittingPose(false);
+                    this.setResting(false);
                     if (!flag) {
                         this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
                     }
                 }
             } else {
-                this.setInSittingPose(false);
+                this.setResting(false);
                 if (!flag) {
                     this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
                 }
             }
         } else {
-
-            if (this.getTarget().blockPosition() == null || this.random.nextInt(30) == 0 || this.getTarget().blockPosition().closerThan(this.position(), 2.0D)) {
-                this.moveTo(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
+            if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
+                this.targetPosition = null;
             }
 
-            double d2 = (double)this.getTarget().blockPosition().getX() + 0.5D - this.getX();
-            double d0 = (double)this.getTarget().blockPosition().getY() + 0.1D - this.getY();
-            double d1 = (double)this.getTarget().blockPosition().getZ() + 0.5D - this.getZ();
+            if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
+                this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
+            }
+
+            double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
+            double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
+            double d1 = (double)this.targetPosition.getZ() + 0.5D - this.getZ();
             Vector3d vector3d = this.getDeltaMovement();
             Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F, (Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F);
             this.setDeltaMovement(vector3d1);
@@ -203,10 +226,9 @@ public class EntityWraith extends EntityDivineTameable {
             this.zza = 0.5F;
             this.yRot += f1;
             if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
-                this.setInSittingPose(true);
+                this.setResting(true);
             }
         }
-
     }
 
     protected boolean isMovementNoisy() {
@@ -223,11 +245,5 @@ public class EntityWraith extends EntityDivineTameable {
     public boolean isIgnoringBlockTriggers() {
         return true;
     }
-    @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (source.isCreativePlayer()) {
-            return false;
-        }
-        	return super.hurt(source, amount);
-    }
+
 }

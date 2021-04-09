@@ -1,13 +1,12 @@
 package divinerpg.client.renders.entity.vanilla;
 
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import divinerpg.DivineRPG;
+import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.layer.*;
-import divinerpg.entities.vanilla.overworld.EntityMiner;
+import divinerpg.entities.vanilla.overworld.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -17,8 +16,6 @@ public class RenderMiner extends MobRenderer<EntityMiner, ModelMiner<EntityMiner
     public RenderMiner(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelMiner<EntityMiner>(), 0.8F);
         this.addLayer(new MinerPickLayer(this));
-    }
-    protected void preRenderCallback(EntityMiner entity, MatrixStack matrixStackIn, float partialTickTime) {
     }
     public ResourceLocation getTextureLocation(EntityMiner entity) {
         return TEXTURE;

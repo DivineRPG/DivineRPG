@@ -3,12 +3,14 @@ package divinerpg.client.models.twilight;// Made with Blockbench 3.7.5
 // Paste this class into your mod and generate all required imports
 
 
-import com.google.common.collect.*;
+import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
+import net.minecraft.util.math.*;
 
-public class ModelCadillion extends SegmentedModel<Entity> {
+public class ModelCadillion extends EntityModel<Entity> {
 	private final ModelRenderer Head;
 	private final ModelRenderer Horn_r1;
 	private final ModelRenderer Mouth;
@@ -64,7 +66,7 @@ public class ModelCadillion extends SegmentedModel<Entity> {
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setPos(0.0F, 24.0F, 0.0F);
-		
+
 
 		RightEar_r1 = new ModelRenderer(this);
 		RightEar_r1.setPos(-8.0F, -21.0F, -10.0F);
@@ -80,24 +82,27 @@ public class ModelCadillion extends SegmentedModel<Entity> {
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-		//previously the render function, render code was moved to a method below
+	public void setupAnim(Entity p_225597_1_, float var1, float var2, float var3, float var4, float var5) {
+		//TODO - better animate cadillion
+		this.Head.yRot = (var4 / 57.295776F);
+		this.RightEar_r1.yRot = (var4 / 57.295776F);
+		this.LeftEar_r1.yRot = (var4 / 57.295776F);
+		this.Horn_r1.yRot = (var4 / 57.295776F);
+		this.FrontLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
+		this.FrontRightLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
+		this.BackLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
+		this.BackRightLeg.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
 	}
 
-//	@Override
-//	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-//		Head.render(matrixStack, buffer, packedLight, packedOverlay);
-//		Body.render(matrixStack, buffer, packedLight, packedOverlay);
-//		FrontRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-//		FrontLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-//		BackRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-//		BackLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-//		bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
-//	}
-
 	@Override
-	public Iterable<ModelRenderer> parts() {
-		return ImmutableList.of(Head, Body, FrontRightLeg, FrontLeftLeg, BackRightLeg, BackLeftLeg, bb_main);
+	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+		Head.render(matrixStack, buffer, packedLight, packedOverlay);
+		Body.render(matrixStack, buffer, packedLight, packedOverlay);
+		FrontRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		FrontLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		BackRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		BackLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

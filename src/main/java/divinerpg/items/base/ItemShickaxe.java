@@ -25,7 +25,7 @@ public class ItemShickaxe extends ToolItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency(speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));
 

@@ -44,10 +44,10 @@ public class ParticleRegistry {
         Minecraft.getInstance().particleEngine.register(SKYTHERN_PORTAL.get(), ParticleSkythernPortal.Factory::new);
         Minecraft.getInstance().particleEngine.register(WILDWOOD_PORTAL.get(), ParticleSparkler.Factory::new);
         Minecraft.getInstance().particleEngine.register(GREEN_PORTAL.get(), ParticleSparkler.Factory::new);
-        Minecraft.getInstance().particleEngine.register(BLACK_FLAME.get(), ParticleSparkler.Factory::new);
-        Minecraft.getInstance().particleEngine.register(BLUE_FLAME.get(), ParticleSparkler.Factory::new);
-        Minecraft.getInstance().particleEngine.register(GREEN_FLAME.get(), ParticleSparkler.Factory::new);
-        Minecraft.getInstance().particleEngine.register(PURPLE_FLAME.get(), ParticleSparkler.Factory::new);
+        Minecraft.getInstance().particleEngine.register(BLACK_FLAME.get(), ParticleColoredFlame.Factory::new);
+        Minecraft.getInstance().particleEngine.register(BLUE_FLAME.get(), ParticleColoredFlame.Factory::new);
+        Minecraft.getInstance().particleEngine.register(GREEN_FLAME.get(), ParticleColoredFlame.Factory::new);
+        Minecraft.getInstance().particleEngine.register(PURPLE_FLAME.get(), ParticleColoredFlame.Factory::new);
         Minecraft.getInstance().particleEngine.register(FROST.get(), ParticleSparkler.Factory::new);
         Minecraft.getInstance().particleEngine.register(SPARKLER.get(), ParticleSparkler.Factory::new);
         Minecraft.getInstance().particleEngine.register(ENDER_TRIPLETS.get(), ParticleSparkler.Factory::new);

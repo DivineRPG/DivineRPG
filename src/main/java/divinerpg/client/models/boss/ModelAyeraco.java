@@ -1,14 +1,15 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
+import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.renderer.entity.model.*;
+import net.minecraft.client.renderer.model.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelAyeraco<T extends Entity> extends SegmentedModel<T> {
+public class ModelAyeraco<T extends Entity> extends EntityModel<T> {
     // fields
     ModelRenderer BodyLower;
     ModelRenderer Neck;
@@ -297,13 +298,6 @@ public class ModelAyeraco<T extends Entity> extends SegmentedModel<T> {
         this.Tail3.xRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
     }
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(BodyLower, Neck, Head, Tail, WingLB, Tail2, Tail3, Shape1, WingRB, WingRF, WingLF, WingRExtB, WingLExtB, WingLExtF,
-                WingRExtF, WingRExt, WingRM, WingLM, WingLExtM, Mouth1, Butt, Head2, Mouth2, Body, Shape2, Shape3, Shape4, Shape5,
-                Shape6, Shape7, Shape8, Shape9, Shape10, Shape11, Shape12, Shape13, Shape14);
-    }
-
     private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.xRot = x;
         model.yRot = y;
@@ -311,4 +305,44 @@ public class ModelAyeraco<T extends Entity> extends SegmentedModel<T> {
     }
 
 
+    @Override
+    public void renderToBuffer(MatrixStack stack, IVertexBuilder vertexBuilder, int limbSwing, int limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        BodyLower.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Neck.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Head.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Tail.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Tail2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Tail3.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape1.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRExtB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLExtB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLExtF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRExtF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRExt.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingRM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        WingLExtM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Mouth1.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Butt.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Head2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Mouth2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Body.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape3.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape4.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape5.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape6.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape7.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape8.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape9.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape10.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape11.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape12.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape13.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        Shape14.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    }
 }

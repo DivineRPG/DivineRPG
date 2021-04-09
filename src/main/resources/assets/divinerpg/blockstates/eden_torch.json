@@ -1,22 +1,7 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "divinerpg:block/eden_torch_wall"
-    },
-    "facing=south": {
-      "y": 90,
-      "model": "divinerpg:block/eden_torch_wall"
-    },
-    "facing=north": {
-      "y": 270,
-      "model": "divinerpg:block/eden_torch_wall"
-    },
-    "facing=up": {
+    "": {
       "model": "divinerpg:block/eden_torch"
-    },
-    "facing=west": {
-      "y": 180,
-      "model": "divinerpg:block/eden_torch_wall"
     }
   }
 }

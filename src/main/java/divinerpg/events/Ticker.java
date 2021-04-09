@@ -21,11 +21,11 @@ public class Ticker {
     @SubscribeEvent
     public void onTick(TickEvent.PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
-            ArcanaProvider.getArcana(event.player).orElse(null).regen(event.player);
+            ArcanaProvider.ARCANA_CAP.getDefaultInstance().regen(event.player);
         }
     }
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        ArcanaProvider.getArcana(event.getPlayer()).orElse(null).fill(event.getPlayer(), ArcanaProvider.getArcana(event.getPlayer()).orElse(null).getMaxArcana());
+        ArcanaProvider.ARCANA_CAP.getDefaultInstance().fill(event.getPlayer(), ArcanaProvider.ARCANA_CAP.getDefaultInstance().getMaxArcana());
     }
 }

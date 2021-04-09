@@ -16,7 +16,8 @@ public class RenderKobblin extends MobRenderer<EntityKobblin, ModelKobblin<Entit
     public RenderKobblin(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelKobblin<>(), 0.8F);
     }
-    protected void preRenderCallback(EntityKobblin entity, MatrixStack matrixStackIn, float partialTickTime) {
+
+    protected void scale(EntityKobblin entity, MatrixStack matrixStackIn, float partialTickTime) {
         if(entity instanceof EntityKobblin && !((EntityKobblin) entity).getProvoked()){
             matrixStackIn.translate(0, 1.125F, 0);
         }

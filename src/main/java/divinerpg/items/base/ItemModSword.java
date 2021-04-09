@@ -19,7 +19,7 @@ public class ItemModSword extends SwordItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         addAdditionalInformation(tooltip);
         if (getMaxDamage() == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());

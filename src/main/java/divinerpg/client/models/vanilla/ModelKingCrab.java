@@ -1,118 +1,147 @@
-package divinerpg.client.models.vanilla;
+package divinerpg.client.models.vanilla;// Made with Blockbench 3.7.5
+// Exported for Minecraft version 1.15
+// Paste this class into your mod and generate all required imports
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelKingCrab<T extends Entity> extends SegmentedModel<T> {
+import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.renderer.entity.model.*;
+import net.minecraft.client.renderer.model.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.math.*;
 
-    ModelRenderer RearEnd;
-    ModelRenderer Leg8;
-    ModelRenderer Leg6;
-    ModelRenderer Leg4;
-    ModelRenderer Leg7;
-    ModelRenderer Leg5;
-    ModelRenderer Leg3;
+public class ModelKingCrab extends EntityModel<Entity> {
+	private final ModelRenderer Body;
+	private final ModelRenderer FrontRightLeg;
+	private final ModelRenderer FrontRightLeg_r1;
+	private final ModelRenderer FrontLeftLeg;
+	private final ModelRenderer FrontLeftLeg_r1;
+	private final ModelRenderer MiddleRightLeg;
+	private final ModelRenderer MiddleRightLeg_r1;
+	private final ModelRenderer MiddleLeftLeg;
+	private final ModelRenderer MiddleLeftLeg_r1;
+	private final ModelRenderer BackLeftLeg;
+	private final ModelRenderer BackLeftLeg_r1;
+	private final ModelRenderer BackRightLeg;
+	private final ModelRenderer BackRightLeg_r1;
+	private final ModelRenderer LeftClaw;
+	private final ModelRenderer RightClaw;
 
-    public ModelKingCrab() {
-        this.texWidth = 64;
-        this.texHeight = 32;
-        this.RearEnd = new ModelRenderer(this, 0, 12);
-        this.RearEnd.addBox(-5.0F, -4.0F, -6.0F, 12, 8, 12);
-        this.RearEnd.setPos(-1.0F, 16.0F, 0.0F);
-        this.RearEnd.setTexSize(64, 32);
-        this.RearEnd.mirror = true;
-        this.setRotation(this.RearEnd, 0.0F, 0.0F, 0.0F);
-        this.Leg8 = new ModelRenderer(this, 18, 0);
-        this.Leg8.addBox(-1.0F, -1.0F, -1.0F, 16, 4, 4);
-        this.Leg8.setPos(4.0F, 16.0F, -4.0F);
-        this.Leg8.setTexSize(64, 32);
-        this.Leg8.mirror = true;
-        this.setRotation(this.Leg8, 0.0F, 0.5759587F, -0.1396263F);
-        this.Leg6 = new ModelRenderer(this, 18, 0);
-        this.Leg6.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg6.setPos(4.0F, 16.0F, 0.0F);
-        this.Leg6.setTexSize(64, 32);
-        this.Leg6.mirror = true;
-        this.setRotation(this.Leg6, 0.0F, 0.2792527F, 0.1919862F);
-        this.Leg4 = new ModelRenderer(this, 18, 0);
-        this.Leg4.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg4.setPos(4.0F, 16.0F, 1.0F);
-        this.Leg4.setTexSize(64, 32);
-        this.Leg4.mirror = true;
-        this.setRotation(this.Leg4, 0.0F, -0.2792527F, 0.1919862F);
-        this.Leg7 = new ModelRenderer(this, 18, 0);
-        this.Leg7.addBox(-15.0F, -1.0F, -1.0F, 16, 4, 4);
-        this.Leg7.setPos(-4.0F, 16.0F, -4.0F);
-        this.Leg7.setTexSize(64, 32);
-        this.Leg7.mirror = true;
-        this.setRotation(this.Leg7, 0.0F, -0.5759587F, 0.1396263F);
-        this.Leg5 = new ModelRenderer(this, 18, 0);
-        this.Leg5.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg5.setPos(-4.0F, 16.0F, 0.0F);
-        this.Leg5.setTexSize(64, 32);
-        this.Leg5.mirror = true;
-        this.setRotation(this.Leg5, 0.0F, -0.2792527F, -0.1919862F);
-        this.Leg3 = new ModelRenderer(this, 18, 0);
-        this.Leg3.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2);
-        this.Leg3.setPos(-4.0F, 16.0F, 1.0F);
-        this.Leg3.setTexSize(64, 32);
-        this.Leg3.mirror = true;
-        this.setRotation(this.Leg3, 0.0F, 0.2792527F, -0.1919862F);
-    }
+	public ModelKingCrab() {
+		texWidth = 128;
+		texHeight = 128;
 
-    @Override
-    public void setupAnim(T entityIn, float var1, float var2, float var3, float var4, float var5) {
-        float var7 = ((float) Math.PI / 4F);
-        this.Leg3.zRot = -var7 * 0.74F;
-        this.Leg4.zRot = var7 * 0.74F;
-        this.Leg5.zRot = -var7 * 0.74F;
-        this.Leg6.zRot = var7 * 0.74F;
-        this.Leg7.zRot = -var7;
-        this.Leg8.zRot = var7;
-        float var8 = -0.0F;
-        float var9 = 0.3926991F;
-        this.Leg3.yRot = var9 * 1.0F + var8;
-        this.Leg4.yRot = -var9 * 1.0F - var8;
-        this.Leg5.yRot = -var9 * 1.0F + var8;
-        this.Leg6.yRot = var9 * 1.0F - var8;
-        this.Leg7.yRot = -var9 * 2.0F + var8;
-        this.Leg8.yRot = var9 * 2.0F - var8;
-        float var10 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + 0.0F) * 0.4F) * var2;
-        float var11 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * var2;
-        float var12 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + ((float) Math.PI / 2F)) * 0.4F) * var2;
-        float var13 = -(MathHelper.cos(var1 * 0.6662F * 2.0F + ((float) Math.PI * 3F / 2F)) * 0.4F) * var2;
-        float var14 = Math.abs(MathHelper.sin(var1 * 0.6662F + 0.0F) * 0.4F) * var2;
-        float var15 = Math.abs(MathHelper.sin(var1 * 0.6662F + (float) Math.PI) * 0.4F) * var2;
-        float var16 = Math.abs(MathHelper.sin(var1 * 0.6662F + ((float) Math.PI / 2F)) * 0.4F) * var2;
-        float var17 = Math.abs(MathHelper.sin(var1 * 0.6662F + ((float) Math.PI * 3F / 2F)) * 0.4F) * var2;
-        this.Leg3.yRot += var11;
-        this.Leg4.yRot += -var11;
-        this.Leg5.yRot += var12;
-        this.Leg6.yRot += -var12;
-        this.Leg7.yRot += var13;
-        this.Leg8.yRot += -var13;
-        this.Leg3.zRot += var15;
-        this.Leg4.zRot += -var15;
-        this.Leg5.zRot += var16;
-        this.Leg6.zRot += -var16;
-        this.Leg7.zRot += var17;
-        this.Leg8.zRot += -var17;
-    }
+		Body = new ModelRenderer(this);
+		Body.setPos(0.0F, 10.0F, 4.6667F);
+		Body.texOffs(0, 64).addBox(-8.0F, -7.0F, -9.6667F, 16.0F, 2.0F, 20.0F, 0.0F, false);
+		Body.texOffs(0, 36).addBox(-11.0F, -7.0F, -12.6667F, 22.0F, 2.0F, 26.0F, 0.0F, false);
+		Body.texOffs(0, 0).addBox(-11.0F, -5.0F, -12.6667F, 22.0F, 10.0F, 26.0F, 0.0F, false);
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(RearEnd, Leg8, Leg6, Leg4, Leg7, Leg5, Leg3);
-    }
+		FrontRightLeg = new ModelRenderer(this);
+		FrontRightLeg.setPos(-12.0F, 1.0F, -4.6667F);
+		Body.addChild(FrontRightLeg);
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4) {
-        var1.xRot = var2;
-        var1.yRot = var3;
-        var1.zRot = var4;
-    }
 
+		FrontRightLeg_r1 = new ModelRenderer(this);
+		FrontRightLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		FrontRightLeg.addChild(FrontRightLeg_r1);
+		setRotationAngle(FrontRightLeg_r1, 0.0F, 0.0F, 0.3491F);
+		FrontRightLeg_r1.texOffs(16, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		FrontLeftLeg = new ModelRenderer(this);
+		FrontLeftLeg.setPos(12.0F, 1.0F, -4.6667F);
+		Body.addChild(FrontLeftLeg);
+		
+
+		FrontLeftLeg_r1 = new ModelRenderer(this);
+		FrontLeftLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		FrontLeftLeg.addChild(FrontLeftLeg_r1);
+		setRotationAngle(FrontLeftLeg_r1, 0.0F, 0.0F, -0.3491F);
+		FrontLeftLeg_r1.texOffs(0, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		MiddleRightLeg = new ModelRenderer(this);
+		MiddleRightLeg.setPos(-12.0F, 1.0F, 2.3333F);
+		Body.addChild(MiddleRightLeg);
+		
+
+		MiddleRightLeg_r1 = new ModelRenderer(this);
+		MiddleRightLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		MiddleRightLeg.addChild(MiddleRightLeg_r1);
+		setRotationAngle(MiddleRightLeg_r1, 0.0F, 0.0F, 0.3491F);
+		MiddleRightLeg_r1.texOffs(16, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		MiddleLeftLeg = new ModelRenderer(this);
+		MiddleLeftLeg.setPos(12.0F, 1.0F, 2.3333F);
+		Body.addChild(MiddleLeftLeg);
+		
+
+		MiddleLeftLeg_r1 = new ModelRenderer(this);
+		MiddleLeftLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		MiddleLeftLeg.addChild(MiddleLeftLeg_r1);
+		setRotationAngle(MiddleLeftLeg_r1, 0.0F, 0.0F, -0.3491F);
+		MiddleLeftLeg_r1.texOffs(0, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		BackLeftLeg = new ModelRenderer(this);
+		BackLeftLeg.setPos(12.0F, 1.0F, 9.3333F);
+		Body.addChild(BackLeftLeg);
+		
+
+		BackLeftLeg_r1 = new ModelRenderer(this);
+		BackLeftLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		BackLeftLeg.addChild(BackLeftLeg_r1);
+		setRotationAngle(BackLeftLeg_r1, 0.0F, 0.0F, -0.3491F);
+		BackLeftLeg_r1.texOffs(0, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		BackRightLeg = new ModelRenderer(this);
+		BackRightLeg.setPos(-12.0F, 1.0F, 9.3333F);
+		Body.addChild(BackRightLeg);
+		
+
+		BackRightLeg_r1 = new ModelRenderer(this);
+		BackRightLeg_r1.setPos(0.0F, 2.0F, 0.0F);
+		BackRightLeg.addChild(BackRightLeg_r1);
+		setRotationAngle(BackRightLeg_r1, 0.0F, 0.0F, 0.3491F);
+		BackRightLeg_r1.texOffs(16, 86).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F, 0.0F, false);
+
+		LeftClaw = new ModelRenderer(this);
+		LeftClaw.setPos(11.0F, 8.25F, -6.0F);
+		LeftClaw.texOffs(77, 64).addBox(0.0F, -3.25F, -10.0F, 6.0F, 1.0F, 12.0F, 0.0F, false);
+		LeftClaw.texOffs(70, 36).addBox(0.0F, -2.25F, -10.0F, 6.0F, 10.0F, 12.0F, 0.0F, false);
+
+		RightClaw = new ModelRenderer(this);
+		RightClaw.setPos(-11.0F, 7.75F, -5.5F);
+		RightClaw.texOffs(52, 64).addBox(-6.0F, -3.75F, -11.5F, 6.0F, 1.0F, 13.0F, 0.0F, false);
+		RightClaw.texOffs(70, 0).addBox(-6.0F, -2.75F, -11.5F, 6.0F, 12.0F, 13.0F, 0.0F, false);
+	}
+
+	@Override
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.FrontRightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.BackRightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+
+		this.MiddleRightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.E) * 1.4F * limbSwingAmount;
+		this.MiddleLeftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.E) * 1.4F * limbSwingAmount;
+
+		this.FrontLeftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+		this.BackLeftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+	}
+
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.xRot = x;
+		modelRenderer.yRot = y;
+		modelRenderer.zRot = z;
+	}
+
+	@Override
+	public void prepareMobModel(Entity e, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
+		super.prepareMobModel(e, p_212843_2_, p_212843_3_, p_212843_4_);
+	}
+
+
+	@Override
+	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+			Body.render(matrixStack, buffer, packedLight, packedOverlay);
+			LeftClaw.render(matrixStack, buffer, packedLight, packedOverlay);
+			RightClaw.render(matrixStack, buffer, packedLight, packedOverlay);
+	}
 }

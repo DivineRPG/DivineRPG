@@ -1,11 +1,11 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.*;
 import net.minecraft.client.world.*;
 import net.minecraft.particles.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -56,33 +56,35 @@ public class ParticleSparkler extends SpriteTexturedParticle
         return var4 | var5 << 16;
     }
 
-    @Override
-    public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
-        float f = ((float) this.age + partialTicks) / (float) this.age;
-        f = 1.0F - f;
-        f *= f;
-        f = 1.0F - f;
-        this.quadSize = this.sparkleParticleScale * f;
-        super.render(buffer, renderInfo, partialTicks);
-    }
-
-    @Override
-    public void tick()
-    {
+    public void tick() {
         this.xo = this.x;
         this.yo = this.y;
         this.zo = this.z;
-        float var1 = (float) this.age / (float) this.age;
-        float var2 = var1;
-        var1 = -var1 + var1 * var1 * 2.0F;
-        var1 = 1.0F - var1;
-        this.x = this.portalPosX + this.xd * var1;
-        this.y = this.portalPosY + this.yd * var1 + (1.0F - var2);
-        this.z = this.portalPosZ + this.zd * var1;
+        if (this.lifetime-- <= 0) {
+            this.remove();
+        } else {
+            this.yd -= (double) this.gravity;
+            this.move(this.xd, this.yd, this.zd);
+            this.xd *= (double) 0.98F;
+            this.yd *= (double) 0.98F;
+            this.zd *= (double) 0.98F;
+            if (this.onGround) {
+                if (Math.random() < 0.5D) {
+                    this.remove();
+                }
 
-        if (this.age++ >= this.age) {
-            this.shouldCull();
+                this.xd *= (double) 0.7F;
+                this.zd *= (double) 0.7F;
+            }
+
+            BlockPos blockpos = new BlockPos(this.x, this.y, this.z);
+            double d0 = Math.max(this.level.getBlockState(blockpos).getCollisionShape(this.level, blockpos).max(Direction.Axis.Y, this.x - (double) blockpos.getX(), this.z - (double) blockpos.getZ()), (double) this.level.getFluidState(blockpos).getHeight(this.level, blockpos));
+            if (d0 > 0.0D && this.y < (double) blockpos.getY() + d0) {
+                this.remove();
+            }
+
         }
+
     }
 
     @Override
@@ -91,19 +93,17 @@ public class ParticleSparkler extends SpriteTexturedParticle
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType>
-    {
-        private final IAnimatedSprite spriteSet;
+    public static class Factory implements IParticleFactory<BasicParticleType> {
+        private final IAnimatedSprite sprite;
 
-        public Factory(IAnimatedSprite spriteSetIn) {
-            this.spriteSet = spriteSetIn;
+        public Factory(IAnimatedSprite p_i50836_1_) {
+            this.sprite = p_i50836_1_;
         }
 
-        @Override
-        public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleSparkler freezerParticle = new ParticleSparkler(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, spriteSet);
-            freezerParticle.setSpriteFromAge(this.spriteSet);
-            return freezerParticle;
+        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+            ParticleSparkler sparkler = new ParticleSparkler(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprite);
+            sparkler.pickSprite(this.sprite);
+            return sparkler;
         }
     }
 }

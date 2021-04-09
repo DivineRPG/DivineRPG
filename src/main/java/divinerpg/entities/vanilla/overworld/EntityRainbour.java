@@ -129,17 +129,13 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     public void tick() {
         super.tick();
         for (int var3 = 0; var3 < 8; ++var3) {
-            double d15 = (double)getX() + random.nextDouble() * 0.6D + 0.2D;
-            double d20 = (double)getY() + random.nextDouble() * 0.6D + 0.2D;
-            double d26 = (double)getZ() + random.nextDouble() * 0.6D + 0.2D;
+            double d15 = getX() + random.nextDouble() * 0.6D + 0.2D;
+            double d20 = getY() + random.nextDouble() * 0.6D + 0.2D;
+            double d26 = getZ() + random.nextDouble() * 0.6D + 0.2D;
 
-
-            getCommandSenderWorld().addParticle(ParticleRegistry.SPARKLER.get(),
-                    this.getX() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth(),
-                    this.getY() + this.random.nextDouble() * (double) this.getBbHeight() - 0.25D,
-                    this.getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth(),
-                    (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(),
-                    (this.random.nextDouble() - 0.5D) * 2.0D);
+            if(level.isClientSide)
+            level.addParticle(ParticleRegistry.SPARKLER.get(),d15 * (double) this.getBbWidth(),d20 + this.random.nextDouble() * (double) this.getBbHeight() - 0.25D,
+                    d26 * (double) this.getBbWidth(), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
         }
     }
 

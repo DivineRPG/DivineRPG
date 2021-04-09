@@ -1,12 +1,13 @@
 package divinerpg.capability;
 
+import divinerpg.config.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.math.*;
 import net.minecraftforge.common.util.*;
 
 public class Arcana implements IArcana {
     private int tickDelay = 4;
-    private float max = 200;
+    private float max = (float) Config.maxArcana.get();
     private float arcana = max;
 
     @Override
@@ -51,7 +52,7 @@ public class Arcana implements IArcana {
     @Override
     public void setMaxArcana(float max) {
         if (max < 0) {
-            throw new IllegalArgumentException("Max of arcana cn't be less then null!");
+            throw new IllegalArgumentException("Max of arcana can't be less then null!");
         }
 
         this.max = max;
@@ -65,7 +66,7 @@ public class Arcana implements IArcana {
     @Override
     public void setRegenDelay(int delay) {
         if (delay < 1) {
-            throw new IllegalArgumentException("Tick delay beetween regen can't be less than one!");
+            throw new IllegalArgumentException("Tick delay between regen can't be less than one!");
         }
 
         tickDelay = delay;

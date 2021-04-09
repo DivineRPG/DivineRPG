@@ -3,6 +3,7 @@ package divinerpg.util.datagen;
 import com.google.gson.*;
 import divinerpg.*;
 import divinerpg.blocks.base.*;
+import divinerpg.blocks.twilight.*;
 import divinerpg.registries.*;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.block.*;
@@ -44,7 +45,7 @@ public class GenerateBlockLoot implements IDataProvider {
             if (block.getRegistryName().getPath().contains("_glass")) {
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genSilk);
                 tables.put(block.getRegistryName(), func.apply(block));
-            } else if (block.getRegistryName().getPath().contains("_vine")){
+            } else if (block.getRegistryName().getPath().contains("_vine") || block instanceof BlockTwilightGrass){
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genSilkShears);
                 tables.put(block.getRegistryName(), func.apply(block));
             } else if (block == BlockRegistry.edenOre || block == BlockRegistry.wildwoodOre || block == BlockRegistry.apalachiaOre || block == BlockRegistry.skythernOre || block == BlockRegistry.mortumOre){
@@ -54,7 +55,10 @@ public class GenerateBlockLoot implements IDataProvider {
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genSlab);
                 tables.put(block.getRegistryName(), func.apply(block));
             } else if (block.getRegistryName().getPath().contains("_leaves")){
-            }else{
+            }else if(block instanceof BlockModCrop || block instanceof BlockModGrass){
+
+            }else
+                if(!block.getRegistryName().toString().contains("_wall")){
                 Function<Block, LootTable.Builder> func = functionTable.getOrDefault(block, GenerateBlockLoot::genRegular);
                 tables.put(block.getRegistryName(), func.apply(block));
             }

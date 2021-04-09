@@ -1,5 +1,6 @@
 package divinerpg.compat;
 
+import divinerpg.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 
@@ -10,6 +11,15 @@ public class ModCompat {
         }
         if(ModList.get().isLoaded("projecte")){
             ProjectECompat.init();
+        }
+        if(ModList.get().isLoaded("aztech")){
+            DivineRPG.LOGGER.info("Together we thrive!");
+        }
+        if(ModList.get().isLoaded("aoa")){
+            DivineRPG.LOGGER.info("The Divine Ascension");
+        }
+        if(ModList.get().isLoaded("journey")){
+            DivineRPG.LOGGER.info("Journey into the Divine");
         }
     }
 }

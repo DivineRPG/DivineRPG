@@ -17,7 +17,7 @@ public class RenderWhale extends MobRenderer<EntityWhale, ModelWhale<EntityWhale
         super(renderManagerIn, new ModelWhale<>(), 0.8F);
     }
 
-    protected void preRenderCallback(EntityWhale entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityWhale entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(5, 5, 5);
 //        super.preRenderCallback(entity, matrixStackIn, partialTickTime);
     }

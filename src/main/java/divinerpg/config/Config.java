@@ -16,8 +16,8 @@ public class Config {
 
     public static ForgeConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue welcomeMessage;
-    public static ForgeConfigSpec.IntValue arlemiteVeinSize, arlemiteMaxHeight, arlemiteTries, realmiteVeinSize, realmiteMaxHeight, realmiteTries, rupeeVeinSize, rupeeMaxHeight, rupeeTries, netherVein, netherTries, twilightVein, twilightTries;
+    public static ForgeConfigSpec.BooleanValue welcomeMessage, hideArcanaBar;
+    public static ForgeConfigSpec.IntValue arlemiteVeinSize, arlemiteMaxHeight, arlemiteTries, realmiteVeinSize, realmiteMaxHeight, realmiteTries, rupeeVeinSize, rupeeMaxHeight, rupeeTries, netherVein, netherTries, twilightVein, twilightTries, arcanaX, arcanaY, maxArcana;
 
     static {
 
@@ -33,6 +33,10 @@ public class Config {
     private static void setupConfig() {
         COMMON_BUILDER.comment("General Settings").push(CATEGORY_GENERAL);
         welcomeMessage = COMMON_BUILDER.comment("Enable welcome messages").define("welcomeMessage", true);
+        hideArcanaBar = COMMON_BUILDER.comment("Hide Arcana bar unless depleted").define("hideArcanaBar", true);
+        arcanaX = COMMON_BUILDER.comment("arcana x").defineInRange("arcanaX", 111, 1, 255);
+        arcanaY = COMMON_BUILDER.comment("arcana y").defineInRange("arcanaY", 18, 1, 255);
+        maxArcana = COMMON_BUILDER.comment("Maximum stored arcana").defineInRange("maxArcana", 200, 1, 10000);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("World Gen Settings").push(CATEGORY_WORLD);

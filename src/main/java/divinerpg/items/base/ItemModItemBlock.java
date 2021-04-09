@@ -25,7 +25,7 @@ public class ItemModItemBlock extends BlockItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         //TODO - all tooltips for blocks must go here
         if (block instanceof BlockModNotReady) {
             tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".blockwip"));

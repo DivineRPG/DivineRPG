@@ -76,8 +76,8 @@ repositories {
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}:api") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:${jei_version}") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}:api") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}") //Just Enough Items
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
     compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
 }

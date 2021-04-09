@@ -13,7 +13,7 @@ public class RenderLivingStatue extends MobRenderer<EntityLivingStatue, ModelCyc
     public RenderLivingStatue(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityLivingStatue>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityLivingStatue entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityLivingStatue entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
     public ResourceLocation getTextureLocation(EntityLivingStatue entity) {

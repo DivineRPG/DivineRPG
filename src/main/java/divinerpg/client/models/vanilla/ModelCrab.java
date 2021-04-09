@@ -1,6 +1,7 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.*;
+import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
@@ -8,7 +9,7 @@ import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ModelCrab<T extends Entity> extends SegmentedModel<T> {
+public class ModelCrab<T extends Entity> extends EntityModel<T> {
 	private final ModelRenderer Body;
 	private final ModelRenderer BackLeftLeg;
 	private final ModelRenderer BackRightLeg;
@@ -71,16 +72,23 @@ public class ModelCrab<T extends Entity> extends SegmentedModel<T> {
 		this.FrontLeftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 		this.BackLeftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 	}
-	@Override
-	public Iterable<ModelRenderer> parts() {
-		return ImmutableList.of(Body, BackLeftLeg, BackRightLeg, MiddleLeftLeg, MiddleRightLeg, FrontLeftLeg, FrontRightLeg, RightClaw, LeftClaw);
-	}
-
-
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.xRot = x;
 		modelRenderer.yRot = y;
 		modelRenderer.zRot = z;
+	}
+
+	@Override
+	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Body.render(matrixStack, buffer, packedLight, packedOverlay);
+		BackLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		BackRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		MiddleLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		MiddleRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		FrontLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		FrontRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
+		RightClaw.render(matrixStack, buffer, packedLight, packedOverlay);
+		LeftClaw.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 }

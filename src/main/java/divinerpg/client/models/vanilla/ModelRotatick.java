@@ -1,6 +1,7 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.*;
+import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
@@ -8,7 +9,7 @@ import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 //Made by Declan/WS97/SirDeccy
 @OnlyIn(Dist.CLIENT)
-public class ModelRotatick<T extends Entity> extends SegmentedModel<T> {
+public class ModelRotatick<T extends Entity> extends EntityModel<T> {
 	private final ModelRenderer Head;
 	private final ModelRenderer RightMandible;
 	private final ModelRenderer LeftMandible;
@@ -96,14 +97,15 @@ public class ModelRotatick<T extends Entity> extends SegmentedModel<T> {
 		this.FrontLeftLeg.yRot = 0.1F;
 	}
 
-	@Override
-	public Iterable<ModelRenderer> parts() {
-		return ImmutableList.of(Head, RightMandible, LeftMandible, Body, BackLeftLeg, BackRightLeg, MiddleLeftLeg, MiddleRightLeg, BackLeftLeg, BackRightLeg);
-	}
-
 	public void setRotationAngles(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.xRot = x;
 		modelRenderer.yRot = y;
 		modelRenderer.zRot = z;
+	}
+
+	@Override
+	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Head.render(matrixStack, buffer, packedLight, packedOverlay);
+		Body.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 }

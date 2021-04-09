@@ -2,20 +2,23 @@ package divinerpg.blocks.base;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.tags.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.world.lighting.*;
+import net.minecraft.world.server.*;
+import net.minecraftforge.common.*;
 
 import java.util.*;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class BlockModGrass extends BlockMod implements IGrowable {
     protected Supplier<Block> dirtSupplier;
 
-    public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor color) {
-        super(name, Block.Properties.of(Material.DIRT, color).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GRASS));
+    public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor colour) {
+        super(name, Block.Properties.of(Material.DIRT, colour).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GRASS));
         this.dirtSupplier = dirt;
     }
 
@@ -73,33 +76,43 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         }
     }
 
-    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
-        super.tick(state, world, pos, rand);
-        if (!world.isClientSide) {
-            if (!world.isAreaLoaded(pos, 3))
-                return;
 
-            Block dirt = dirtSupplier.get();
 
-            if (world.getLightEmission((pos.above())) < 4
-                    && world.getBlockState(pos.above()).getLightValue(world, pos.above()) > 2) {
-                world.setBlock(pos, dirt.defaultBlockState(), 0);
-            } else {
-                for (int l = 0; l < 4; ++l) {
-                    BlockPos blockpos = pos.offset(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                    if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !world.isLoaded(blockpos)) {
-                        return;
-                    }
 
-                    BlockState iblockstate = world.getBlockState(blockpos.above());
-                    BlockState iblockstate1 = world.getBlockState(blockpos);
+    private static boolean canBeGrass(BlockState p_220257_0_, IWorldReader p_220257_1_, BlockPos p_220257_2_) {
+        BlockPos blockpos = p_220257_2_.above();
+        BlockState blockstate = p_220257_1_.getBlockState(blockpos);
+        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowBlock.LAYERS) == 1) {
+            return true;
+        } else if (blockstate.getFluidState().getAmount() == 8) {
+            return false;
+        } else {
+            int i = LightEngine.getLightBlockInto(p_220257_1_, p_220257_0_, p_220257_2_, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(p_220257_1_, blockpos));
+            return i < p_220257_1_.getMaxLightLevel();
+        }
+    }
 
-                    if (iblockstate1.getBlock() == dirt && world.getLightEmission(blockpos.above()) >= 4
-                            && iblockstate.getLightValue(world, pos.above()) <= 2) {
-                        world.setBlock(blockpos, this.defaultBlockState(), 0);
+    private static boolean canPropagate(BlockState p_220256_0_, IWorldReader p_220256_1_, BlockPos p_220256_2_) {
+        BlockPos blockpos = p_220256_2_.above();
+        return canBeGrass(p_220256_0_, p_220256_1_, p_220256_2_) && !p_220256_1_.getFluidState(blockpos).is(FluidTags.WATER);
+    }
+
+    public void randomTick(BlockState p_225542_1_, ServerWorld p_225542_2_, BlockPos p_225542_3_, Random p_225542_4_) {
+        if (!canBeGrass(p_225542_1_, p_225542_2_, p_225542_3_)) {
+            if (!p_225542_2_.isAreaLoaded(p_225542_3_, 3)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
+            p_225542_2_.setBlockAndUpdate(p_225542_3_, dirtSupplier.get().defaultBlockState());
+        } else {
+            if (p_225542_2_.getMaxLocalRawBrightness(p_225542_3_.above()) >= 9) {
+                BlockState blockstate = this.defaultBlockState();
+
+                for(int i = 0; i < 4; ++i) {
+                    BlockPos blockpos = p_225542_3_.offset(p_225542_4_.nextInt(3) - 1, p_225542_4_.nextInt(5) - 3, p_225542_4_.nextInt(3) - 1);
+                    if (p_225542_2_.getBlockState(blockpos).is(dirtSupplier.get()) && canPropagate(blockstate, p_225542_2_, blockpos)) {
+                        p_225542_2_.setBlockAndUpdate(blockpos, blockstate.getBlockState());
                     }
                 }
             }
+
         }
     }
 }

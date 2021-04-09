@@ -13,7 +13,7 @@ public class RenderLordVatticus extends MobRenderer<EntityLordVatticus, ModelCyc
     public RenderLordVatticus(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityLordVatticus>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityLordVatticus entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityLordVatticus entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
     public ResourceLocation getTextureLocation(EntityLordVatticus entity) {

@@ -13,7 +13,7 @@ public class RenderZelus extends MobRenderer<EntityZelus, ModelCyclops<EntityZel
     public RenderZelus(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityZelus>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityZelus entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityZelus entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
     public ResourceLocation getTextureLocation(EntityZelus entity) {

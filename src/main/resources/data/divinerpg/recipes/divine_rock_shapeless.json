@@ -7,7 +7,7 @@
       "item": "divinerpg:divine_shards"
     },
     {
-      "tag": "minecraft:base_stone_overworld"
+      "item": "minecraft:stone"
     }
   ],
   "type": "minecraft:crafting_shapeless"

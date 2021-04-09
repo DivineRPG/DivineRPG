@@ -1,19 +1,18 @@
 {
   "pools": [
     {
-      "name": "divinerpg:utility_hallway_loot",
       "rolls": {
         "min": 3,
         "max": 5
       },
       "entries": [
         {
-          "type": "item",
-          "name": "minecraft:torch",
+          "type": "minecraft:item",
           "weight": 10,
+          "name": "minecraft:torch",
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 4,
                 "max": 8
@@ -22,12 +21,12 @@
           ]
         },
         {
-          "type": "item",
-          "name": "minecraft:planks",
+          "type": "minecraft:tag",
           "weight": 6,
+          "name": "minecraft:planks",
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 4
@@ -36,12 +35,12 @@
           ]
         },
         {
-          "type": "item",
-          "name": "minecraft:iron_shovel",
+          "type": "minecraft:item",
           "weight": 3,
+          "name": "minecraft:iron_shovel",
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 1
@@ -50,12 +49,12 @@
           ]
         },
         {
-          "type": "item",
-          "name": "minecraft:golden_apple",
+          "type": "minecraft:item",
           "weight": 2,
+          "name": "minecraft:golden_apple",
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 1
@@ -64,12 +63,12 @@
           ]
         },
         {
-          "type": "item",
-          "name": "divinerpg:arcanium",
+          "type": "minecraft:item",
           "weight": 1,
+          "name": "divinerpg:arcanium",
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 1

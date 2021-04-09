@@ -31,6 +31,7 @@ public class EntityHellBat extends EntityDivineMob {
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == World.NETHER;
     }
+
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_ID_FLAGS, (byte)0);

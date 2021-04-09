@@ -17,7 +17,7 @@ public class RenderCyclops extends MobRenderer<EntityCyclops, ModelCyclops<Entit
     public RenderCyclops(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityCyclops>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityCyclops entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityCyclops entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(2, 2, 2);
     }
 

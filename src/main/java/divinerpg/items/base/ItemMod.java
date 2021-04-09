@@ -36,7 +36,7 @@ public class ItemMod extends Item {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (this.getRegistryName().getPath().contains("torridite"))
             tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".torridite"));
     }

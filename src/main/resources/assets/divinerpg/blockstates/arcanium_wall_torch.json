@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "divinerpg:block/arcanium_wall_torch"
+    },
+    "facing=north": {
+      "model": "divinerpg:block/arcanium_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "divinerpg:block/arcanium_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "divinerpg:block/arcanium_wall_torch",
+      "y": 180
+    }
+  }
+}

@@ -48,13 +48,14 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
     }
-    private void post(final FMLLoadCompleteEvent event){
-        Utils.loadHatInformation();
-    }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         EntityRegistry.render();
         FancyRenders.init();
+    }
+
+    private void post(final FMLLoadCompleteEvent event){
+        Utils.loadHatInformation();
     }
 
     private void gatherData(final GatherDataEvent event) {

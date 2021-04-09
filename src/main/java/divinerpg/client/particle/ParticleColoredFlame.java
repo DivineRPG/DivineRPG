@@ -85,7 +85,6 @@ public class ParticleColoredFlame extends SpriteTexturedParticle {
         }
 
         public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
-            //TODO - test colour and maybe redo
             ParticleColoredFlame portalparticle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, 0, 0, 0);
             portalparticle.pickSprite(this.sprite);
             return portalparticle;

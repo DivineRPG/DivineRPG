@@ -13,7 +13,7 @@ public class RenderKazari extends MobRenderer<EntityKazari, ModelCyclops<EntityK
     public RenderKazari(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityKazari>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityKazari entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityKazari entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(1, 1, 1);
     }
     public ResourceLocation getTextureLocation(EntityKazari entity) {

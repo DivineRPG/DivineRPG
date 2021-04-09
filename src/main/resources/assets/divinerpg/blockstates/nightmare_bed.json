@@ -1,9 +1,7 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/nightmare_bed"
-      }
+  "variants": {
+    "": {
+      "model": "minecraft:block/bed"
     }
-  ]
+  }
 }

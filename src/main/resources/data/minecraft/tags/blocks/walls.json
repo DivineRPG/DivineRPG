@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:ancient_brick_wall",
+    "divinerpg:ancient_brick_wall_breakable",
+    "divinerpg:degraded_brick_wall",
+    "divinerpg:degraded_brick_wall_breakable"
+  ]
+}

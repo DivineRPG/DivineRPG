@@ -16,7 +16,7 @@ public class RenderCaveclops extends MobRenderer<EntityCaveclops, ModelCyclops<E
     public RenderCaveclops(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new ModelCyclops<EntityCaveclops>(1), 0.8F);
     }
-    protected void preRenderCallback(EntityCaveclops entity, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(EntityCaveclops entity, MatrixStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(2, 2, 2);
     }
     public ResourceLocation getTextureLocation(EntityCaveclops entity) {

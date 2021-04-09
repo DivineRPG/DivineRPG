@@ -5,6 +5,7 @@ import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
 import divinerpg.items.iceika.*;
 import divinerpg.items.twilight.*;
+import divinerpg.items.vanilla.*;
 import divinerpg.items.vethea.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
@@ -28,6 +29,16 @@ public class ItemRegistry {
     public static final Item teleportationCrystal = null;
     @ObjectHolder("teleportation_star")
     public static final Item teleportationStar = null;
+
+    //TORCHES
+    @ObjectHolder("aqua_torch")
+    public static final Item aquaTorch = null;
+    @ObjectHolder("arcanium_torch")
+    public static final Item arcaniumTorch = null;
+    @ObjectHolder("eden_torch")
+    public static final Item edenTorch = null;
+    @ObjectHolder("skeleton_torch")
+    public static final Item skeletonTorch = null;
 
     // Vanilla misc items
 
@@ -1747,12 +1758,11 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("amthirmis_cannon"));
         register(e, new ItemModNotReady("amthirmis_claw"));
         register(e, new ItemModNotReady("amthirmis_disk"));
-        register(e, new ItemModNotReady("ancient_key"));
+        register(e, new ItemMod("ancient_key"));
         register(e, new ItemModNotReady("apalachia_blitz"));
         register(e, new ItemModNotReady("apalachia_bow"));
         register(e, new ItemModNotReady("apalachia_phaser"));
         register(e, new ItemModNotReady("apalachia_slicer"));
-        register(e, new ItemModNotReady("aquamarine_seeds"));
         register(e, new ItemModNotReady("arcanite_blade"));
         register(e, new ItemModNotReady("arcanite_blaster"));
         register(e, new ItemModNotReady("arcanium_attractor"));
@@ -1786,7 +1796,7 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("darven_claw"));
         register(e, new ItemModNotReady("darven_disk"));
         register(e, new ItemModNotReady("darven_staff"));
-        register(e, new ItemModNotReady("degraded_key"));
+        register(e, new ItemMod("degraded_key"));
         register(e, new ItemModNotReady("densos_crystal"));
         register(e, new ItemModNotReady("divine_accumulator"));
         register(e, new ItemModNotReady("dream_sours"));
@@ -1798,14 +1808,12 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("ender_bow"));
         register(e, new ItemModNotReady("ender_scepter"));
         register(e, new ItemModNotReady("enderice"));
-        register(e, new ItemModNotReady("eucalyptus_root_seeds"));
         register(e, new ItemModNotReady("everbright"));
         register(e, new ItemModNotReady("everfright"));
         register(e, new ItemModNotReady("everlight"));
         register(e, new ItemModNotReady("evernight"));
         register(e, new ItemModNotReady("eversight"));
         register(e, new ItemModNotReady("firefly"));
-        register(e, new ItemModNotReady("firestock_seeds"));
         register(e, new ItemModNotReady("flaming_fury"));
         register(e, new ItemModNotReady("fractite_cannon"));
         register(e, new ItemModNotReady("frossivence"));
@@ -1817,7 +1825,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("frozen_maul"));
         register(e, new ItemModNotReady("generals_staff"));
         register(e, new ItemModNotReady("ghast_cannon"));
-        register(e, new ItemModNotReady("ghostbane"));
         register(e, new ItemModNotReady("glacier_sword"));
         register(e, new ItemModNotReady("golden_fury"));
         register(e, new ItemModNotReady("grenade"));
@@ -1832,8 +1839,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("heliosis_claw"));
         register(e, new ItemModNotReady("heliosis_disk"));
         register(e, new ItemModNotReady("heliosis_staff"));
-        register(e, new ItemModNotReady("hitchak_seeds"));
-        register(e, new ItemModNotReady("horde_horn"));
         register(e, new ItemModNotReady("hunter_bow"));
         register(e, new ItemModNotReady("icicle_bane"));
         register(e, new ItemModNotReady("icicle_bow"));
@@ -1852,16 +1857,13 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("karos_staff"));
         register(e, new ItemModNotReady("karot_crystal"));
         register(e, new ItemModNotReady("la_vekor"));
-        register(e, new ItemModNotReady("lamona_seeds"));
         register(e, new ItemModNotReady("liopleurodon_anchor"));
         register(e, new ItemModNotReady("maelstrom"));
-        register(e, new ItemModNotReady("marsine_seeds"));
         register(e, new ItemModNotReady("massivence"));
         register(e, new ItemModNotReady("meriks_missile"));
         register(e, new ItemModNotReady("meteor_mash"));
         register(e, new ItemModNotReady("miners_amulet"));
         register(e, new ItemModNotReady("molten_sword"));
-        register(e, new ItemModNotReady("moonbulb_seeds"));
         register(e, new ItemModNotReady("mortum_blitz"));
         register(e, new ItemModNotReady("mortum_bow"));
         register(e, new ItemModNotReady("mortum_phaser"));
@@ -1874,10 +1876,7 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("pardimal_claw"));
         register(e, new ItemModNotReady("pardimal_disk"));
         register(e, new ItemModNotReady("pardimal_staff"));
-        register(e, new ItemModNotReady("pinfly_seeds"));
-        register(e, new ItemModNotReady("pink_glowbone_seeds"));
         register(e, new ItemModNotReady("poison_saber"));
-        register(e, new ItemModNotReady("purple_glowbone_seeds"));
         register(e, new ItemModNotReady("quadrotic_backsword"));
         register(e, new ItemModNotReady("quadrotic_bow"));
         register(e, new ItemModNotReady("quadrotic_cannon"));
@@ -1896,18 +1895,17 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("shark_anchor"));
         register(e, new ItemModNotReady("shuriken"));
         register(e, new ItemModNotReady("sky_flower"));
-        register(e, new ItemModNotReady("sky_plant_seeds"));
         register(e, new ItemModNotReady("skythern_blitz"));
         register(e, new ItemModNotReady("skythern_bow"));
         register(e, new ItemModNotReady("skythern_phaser"));
         register(e, new ItemModNotReady("skythern_slicer"));
-        register(e, new ItemModNotReady("sludge_key"));
+        register(e, new ItemMod("sludge_key"));
         register(e, new ItemModNotReady("snow_globe"));
         register(e, new ItemModNotReady("snowflake_shuriken"));
         register(e, new ItemModNotReady("snowslash"));
         register(e, new ItemModNotReady("snowstorm_bow"));
         register(e, new ItemModNotReady("soul_fiend_crystal"));
-        register(e, new ItemModNotReady("soul_key"));
+        register(e, new ItemMod("soul_key"));
         register(e, new ItemModNotReady("sound_of_carols"));
         register(e, new ItemModNotReady("sound_of_music"));
         register(e, new ItemModNotReady("staff_of_enrichment"));
@@ -1923,14 +1921,11 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("teaker_staff"));
         register(e, new ItemModNotReady("teleportation_crystal"));
         register(e, new ItemModNotReady("teleportation_star"));
-        register(e, new ItemModNotReady("tomato_seeds"));
         register(e, new ItemModNotReady("twilight_bow"));
         register(e, new ItemModNotReady("twilight_demon_crystal"));
         register(e, new ItemModNotReady("vamacheron_crystal"));
-        register(e, new ItemModNotReady("veilo_seeds"));
         register(e, new ItemModNotReady("vile_storm"));
         register(e, new ItemModNotReady("weak_arcana_potion"));
-        register(e, new ItemModNotReady("white_mushroom_seeds"));
         register(e, new ItemModNotReady("wildwood_blitz"));
         register(e, new ItemModNotReady("wildwood_bow"));
         register(e, new ItemModNotReady("wildwood_phaser"));
@@ -2023,15 +2018,11 @@ public class ItemRegistry {
         register(e, new ItemModFood("magic_meat", FoodList.MAGIC_MEAT, DivineRPG.tabs.food));
         register(e, new ItemModFood("enriched_magic_meat", FoodList.ENRICHED_MAGIC_MEAT, DivineRPG.tabs.food));
         register(e, new ItemForbiddenFruit());
-//        register(e, new ItemGhostbane());
+        register(e, new ItemGhostbane());
 //        register(e, new ItemHealingFood(0, 0F, 2, "dream_sweets"), true);
 //        register(e, new ItemHealingFood(0, 0F, 8, "dream_sours"), true);
 //        register(e, new ItemHealingStone("healing_stone", 20));
-//        register(e, new ItemHordeHorn("horde_horn"));
-//        register(e, new ItemKey("ancient_key"));
-//        register(e, new ItemKey("degraded_key"));
-//        register(e, new ItemKey("sludge_key"));
-//        register(e, new ItemKey("soul_key"));
+        register(e, new ItemHordeHorn("horde_horn"));
 //        register(e, new ItemMinersAmulet("miners_amulet"));
         register(e, new ItemModFood("white_mushroom", FoodList.WHITE_MUSHROOM, DivineRPG.tabs.food));
         register(e, new ItemModFood("honeychunk", FoodList.HONEYCHUNK, DivineRPG.tabs.vethea));
@@ -2057,20 +2048,20 @@ public class ItemRegistry {
         register(e, new ItemModFood("fruit_cake", FoodList.FRUIT_CAKE, DivineRPG.tabs.food));
         register(e, new ItemModFood("donut", FoodList.DONUT, DivineRPG.tabs.food));
         register(e, new ItemModFood("chicken_dinner", FoodList.CHICKEN_DINNER, DivineRPG.tabs.food));
-//        register(e, new ItemModSeeds("aquamarine_seeds", () -> BlockRegistry.aquamarinePlant));
-//        register(e, new ItemModSeeds("eucalyptus_root_seeds", () -> BlockRegistry.eucalyptusPlant));
-//        register(e, new ItemModSeeds("firestock_seeds", () -> BlockRegistry.firestockPlant));
-//        register(e, new ItemModSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
-//        register(e, new ItemModSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
-//        register(e, new ItemModSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
-//        register(e, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.GRASS));
-//        register(e, new ItemModSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
-//        register(e, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS));
-//        register(e, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS));
-//        register(e, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS));
-//        register(e, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant));
-//        register(e, new ItemModSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
-//        register(e, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant));
+        register(e, new ItemModSeeds("aquamarine_seeds", () -> BlockRegistry.aquamarinePlant));
+        register(e, new ItemModSeeds("eucalyptus_root_seeds", () -> BlockRegistry.eucalyptusPlant));
+        register(e, new ItemModSeeds("firestock_seeds", () -> BlockRegistry.firestockPlant));
+        register(e, new ItemModSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
+        register(e, new ItemModSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
+        register(e, new ItemModSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
+        register(e, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
+        register(e, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant));
+        register(e, new ItemModSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
+        register(e, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant));
 //        register(e, new ItemNightmareBed());
 //        register(e, new ItemReflector());
 //        register(e, new ItemSkyFlower("sky_flower"));
@@ -2371,7 +2362,10 @@ public class ItemRegistry {
 //        register(e, new RangedWeaponBase("mortum_phaser", BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
 //        register(e, new RangedWeaponBase("skythern_phaser", BulletType.SKYTHERN_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
 //        register(e, new RangedWeaponBase("wildwood_phaser", BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
-
+        register(e, new WallOrFloorItem(BlockRegistry.aquaTorch, BlockRegistry.aquaWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("aqua_torch"));
+        register(e, new WallOrFloorItem(BlockRegistry.arcaniumTorch, BlockRegistry.arcaniumWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("arcanium_torch"));
+        register(e, new WallOrFloorItem(BlockRegistry.edenTorch, BlockRegistry.edenWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("eden_torch"));
+        register(e, new WallOrFloorItem(BlockRegistry.skeletonTorch, BlockRegistry.skeletonWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("skeleton_torch"));
     }
 
     private static void register(RegistryEvent.Register<Item> event, Item item) {
