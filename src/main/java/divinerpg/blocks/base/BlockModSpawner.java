@@ -42,7 +42,7 @@ public class BlockModSpawner extends SpawnerBlock {
             }
         }
 
-        return spawner;
+        return spawner.getTileEntity();
     }
 
     /**
@@ -59,7 +59,7 @@ public class BlockModSpawner extends SpawnerBlock {
 
         spawnerNBT.put("SpawnData", compound2);
 
-        spawner.load(spawner.getLevel().getBlockState(spawner.getBlockPos()), spawnerNBT);
+        spawner.load(defaultBlockState(), spawnerNBT);
         spawner.setRemoved();
     }
 }
