@@ -22,6 +22,7 @@ public class TileRegistry {
     public static TileEntityType<TileEntityAyeracoBeam> AYERACO_BEAM;
     public static  TileEntityType<TileEntityStatue> STATUE;
     public static  TileEntityType<TileEntitySingleUseSpawner> SINGLE_SPAWNER;
+    public static  TileEntityType<TileEntitySpawner> SPAWNER;
     public static  TileEntityType<TileEntityBoneChest> BONE_CHEST;
 
     @SubscribeEvent
@@ -32,6 +33,7 @@ public class TileRegistry {
         AYERACO_BEAM = TileEntityType.Builder.of(() -> new TileEntityAyeracoBeam(), BlockRegistry.ayeracoBeamBlue, BlockRegistry.ayeracoBeamGreen, BlockRegistry.ayeracoBeamPurple, BlockRegistry.ayeracoBeamRed, BlockRegistry.ayeracoBeamYellow).build(null);
         STATUE = TileEntityType.Builder.of(() -> new TileEntityStatue(), BlockRegistry.ancientEntityStatue, BlockRegistry.sunstorm_statue, BlockRegistry.termasect_statue).build(null);
         SINGLE_SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySingleUseSpawner(), BlockRegistry.sunstormSpawner, BlockRegistry.termasectSpawner, BlockRegistry.eternalArcherSpawner, BlockRegistry.experiencedCoriSpawner).build(null);
+        SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySpawner(), BlockRegistry.frostArcherSpawner, BlockRegistry.rollumSpawner, BlockRegistry.gorgosionSpawner, BlockRegistry.twinsSpawner, BlockRegistry.vermenousSpawner, BlockRegistry.twinsSpawner, BlockRegistry.dreamwreckerSpawner, BlockRegistry.biphronSpawner).build(null);
         BONE_CHEST = TileEntityType.Builder.of(() -> new TileEntityBoneChest(), BlockRegistry.boneChest).build(null);
 
 
@@ -43,6 +45,7 @@ public class TileRegistry {
                 AYERACO_BEAM.setRegistryName(DivineRPG.MODID, "ayeraco_beam"),
                 STATUE.setRegistryName(DivineRPG.MODID, "statue"),
                 SINGLE_SPAWNER.setRegistryName(DivineRPG.MODID, "single_spawner"),
+                SPAWNER.setRegistryName(DivineRPG.MODID, "spawner"),
                 BONE_CHEST.setRegistryName(DivineRPG.MODID, "bone_chest")
         );
     }

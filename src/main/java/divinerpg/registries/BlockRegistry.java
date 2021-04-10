@@ -14,6 +14,7 @@ import divinerpg.items.base.*;
 import divinerpg.world.gen.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
+import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.particles.*;
 import net.minecraft.util.*;
@@ -1349,12 +1350,12 @@ public class BlockRegistry {
         register(registry, new BlockModStairs("coalstone_stairs", coalstone));
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
-        register(registry, new BlockModSpawner("frost_archer_spawner", "frost_archer"));
+        register(registry, new BlockModSpawner("frost_archer_spawner", EntityRegistry.FROST_ARCHER));
 //        register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
         register(registry, new BlockMod("icy_bricks", 1.5F, 3.0F));
         register(registry, new BlockMod("icy_stone", 2.0F, 3.0F));
-        register(registry, new BlockModSpawner("rollum_spawner", "rollum"));
+        register(registry, new BlockModSpawner("rollum_spawner", EntityRegistry.ROLLUM));
         register(registry, new BlockMod("snow_bricks", 6.0F, 3.0F));
         register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, 1.0F, ToolType.PICKAXE));
         register(registry, new BlockModBookshelf("workshop_bookcase", 1.5F, Material.STONE));
@@ -1783,16 +1784,16 @@ public class BlockRegistry {
 //        register(registry, new BlockWreckAltar("wreck_altar"), true);
 //
 //        // Mob spawners
-//        register(registry, new BlockModNotReady("biphron_spawner"), true);
-//        register(registry, new BlockModNotReady("dreamwrecker_spawner"), true);
-//        register(registry, new BlockModNotReady("gorgosion_spawner"), true);
-//        register(registry, new BlockModNotReady("twins_spawner"), true);
-//        register(registry, new BlockModNotReady("vermenous_spawner"), true);
-        register(registry, new BlockModSpawner("biphron_spawner", "Biphron"), true);
-        register(registry, new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker"), true);
-        register(registry, new BlockModSpawner("gorgosion_spawner", "Gorgosion"), true);
-        register(registry, new BlockModSpawner("twins_spawner", "Twins"), true);
-        register(registry, new BlockModSpawner("vermenous_spawner", "Vermenous"), true);
+        register(registry, new BlockModNotReady("biphron_spawner"), true);
+        register(registry, new BlockModNotReady("dreamwrecker_spawner"), true);
+        register(registry, new BlockModNotReady("gorgosion_spawner"), true);
+        register(registry, new BlockModNotReady("twins_spawner"), true);
+        register(registry, new BlockModNotReady("vermenous_spawner"), true);
+//        register(registry, new BlockModSpawner("biphron_spawner", "Biphron"), true);
+//        register(registry, new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker"), true);
+//        register(registry, new BlockModSpawner("gorgosion_spawner", "Gorgosion"), true);
+//        register(registry, new BlockModSpawner("twins_spawner", "Twins"), true);
+//        register(registry, new BlockModSpawner("vermenous_spawner", "Vermenous"), true);
 //
 //        // Acid
         register(registry, new BlockAcid("acid_block", true), true);
