@@ -40,7 +40,8 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
         }
     }
 
-    protected void defineSynchedData() {
+    @Override
+    protected void registerGoals() {
         this.targetSelector.addGoal(0, new SwimGoal(this));
         this.targetSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
         this.targetSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));

@@ -3,6 +3,8 @@ package divinerpg.registries;
 import divinerpg.*;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.tiles.*;
+import divinerpg.tiles.bosses.*;
+import divinerpg.tiles.chests.*;
 import net.minecraft.tileentity.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.*;
@@ -24,6 +26,9 @@ public class TileRegistry {
     public static  TileEntityType<TileEntitySingleUseSpawner> SINGLE_SPAWNER;
     public static  TileEntityType<TileEntitySpawner> SPAWNER;
     public static  TileEntityType<TileEntityBoneChest> BONE_CHEST;
+    public static  TileEntityType<TileEntityFrostedChest> FROSTED_CHEST;
+    public static  TileEntityType<TileEntityEdenChest> EDEN_CHEST;
+    public static  TileEntityType<TileEntityPresentBox> PRESENT_BOX;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -35,6 +40,9 @@ public class TileRegistry {
         SINGLE_SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySingleUseSpawner(), BlockRegistry.sunstormSpawner, BlockRegistry.termasectSpawner, BlockRegistry.eternalArcherSpawner, BlockRegistry.experiencedCoriSpawner).build(null);
         SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySpawner(), BlockRegistry.frostArcherSpawner, BlockRegistry.rollumSpawner, BlockRegistry.gorgosionSpawner, BlockRegistry.twinsSpawner, BlockRegistry.vermenousSpawner, BlockRegistry.twinsSpawner, BlockRegistry.dreamwreckerSpawner, BlockRegistry.biphronSpawner).build(null);
         BONE_CHEST = TileEntityType.Builder.of(() -> new TileEntityBoneChest(), BlockRegistry.boneChest).build(null);
+        FROSTED_CHEST = TileEntityType.Builder.of(() -> new TileEntityFrostedChest(), BlockRegistry.frostedChest).build(null);
+        EDEN_CHEST = TileEntityType.Builder.of(() -> new TileEntityEdenChest(), BlockRegistry.edenChest).build(null);
+        PRESENT_BOX = TileEntityType.Builder.of(() -> new TileEntityPresentBox(), BlockRegistry.presentBox).build(null);
 
 
 
@@ -46,7 +54,10 @@ public class TileRegistry {
                 STATUE.setRegistryName(DivineRPG.MODID, "statue"),
                 SINGLE_SPAWNER.setRegistryName(DivineRPG.MODID, "single_spawner"),
                 SPAWNER.setRegistryName(DivineRPG.MODID, "spawner"),
-                BONE_CHEST.setRegistryName(DivineRPG.MODID, "bone_chest")
+                BONE_CHEST.setRegistryName(DivineRPG.MODID, "bone_chest"),
+                FROSTED_CHEST.setRegistryName(DivineRPG.MODID, "frosted_chest"),
+                EDEN_CHEST.setRegistryName(DivineRPG.MODID, "eden_chest"),
+                PRESENT_BOX.setRegistryName(DivineRPG.MODID, "present_box")
         );
     }
 

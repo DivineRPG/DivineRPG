@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.tiles.chests;
 
 import divinerpg.registries.*;
 
@@ -10,6 +10,6 @@ public class TileEntityBoneChest extends TileEntityModChest {
 
     @Override
     public String getChestName() {
-        return "tile.bone_chest.name";
+        return BlockRegistry.boneChest.getDescriptionId();
     }
 }

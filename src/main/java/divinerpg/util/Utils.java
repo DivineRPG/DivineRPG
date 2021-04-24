@@ -2,7 +2,10 @@ package divinerpg.util;
 
 import com.google.gson.*;
 import com.mojang.util.*;
+import divinerpg.registries.*;
 import io.netty.util.internal.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 import org.apache.commons.io.*;
 
 import java.io.*;
@@ -114,4 +117,19 @@ public class Utils {
         public List<UUID> artists;
         public List<UUID> friend;
     }
+
+    public static boolean bordersTar(IBlockReader world, int x, int y, int z) {
+        for (int i = x - 4; i <= x + 4; ++i) {
+            for (int j = y; j <= y + 1; ++j) {
+                for (int k = z - 4; k <= z + 4; ++k) {
+                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == BlockRegistry.smolderingTar) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
 }

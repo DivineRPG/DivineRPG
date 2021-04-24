@@ -46,6 +46,7 @@ public class DivineRPG {
         KeyRegistry.init();
         FeatureRegistry.registerOres();
         ModCompat.initCommon(event);
+        TriggerRegistry.registerTriggers();
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
     }
 

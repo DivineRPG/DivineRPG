@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.tiles.chests;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.player.*;

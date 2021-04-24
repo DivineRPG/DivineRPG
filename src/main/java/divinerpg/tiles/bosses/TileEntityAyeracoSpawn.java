@@ -1,8 +1,9 @@
-package divinerpg.tiles;
+package divinerpg.tiles.bosses;
 
 import com.google.common.collect.*;
 import divinerpg.entities.boss.ayeraco.*;
 import divinerpg.registries.*;
+import divinerpg.tiles.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.nbt.*;

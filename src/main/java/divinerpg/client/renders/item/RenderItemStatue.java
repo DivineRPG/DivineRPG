@@ -2,7 +2,7 @@ package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.matrix.*;
 import divinerpg.blocks.base.*;
-import divinerpg.tiles.*;
+import divinerpg.tiles.bosses.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.client.renderer.tileentity.*;

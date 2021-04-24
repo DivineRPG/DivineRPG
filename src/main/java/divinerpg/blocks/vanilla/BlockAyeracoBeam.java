@@ -1,7 +1,7 @@
 package divinerpg.blocks.vanilla;
 
 import divinerpg.*;
-import divinerpg.tiles.*;
+import divinerpg.tiles.bosses.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.tileentity.*;

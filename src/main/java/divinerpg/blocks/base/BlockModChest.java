@@ -1,6 +1,6 @@
 package divinerpg.blocks.base;
 
-import divinerpg.tiles.*;
+import divinerpg.tiles.chests.*;
 import it.unimi.dsi.fastutil.floats.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
@@ -230,4 +230,6 @@ public abstract class BlockModChest extends BlockMod implements IWaterLoggable, 
         Direction direction = state.getValue(FACING);
         return direction.getOpposite();
     }
+
+
 }

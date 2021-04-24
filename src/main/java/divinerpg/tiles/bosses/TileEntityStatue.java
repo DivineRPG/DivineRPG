@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.tiles.bosses;
 
 import divinerpg.enums.*;
 import divinerpg.registries.*;

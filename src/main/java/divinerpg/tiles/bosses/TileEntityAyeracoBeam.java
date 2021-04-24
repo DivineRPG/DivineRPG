@@ -1,6 +1,7 @@
-package divinerpg.tiles;
+package divinerpg.tiles.bosses;
 
 import divinerpg.registries.*;
+import divinerpg.tiles.*;
 import net.minecraft.block.*;
 import net.minecraft.nbt.*;
 import net.minecraft.util.*;

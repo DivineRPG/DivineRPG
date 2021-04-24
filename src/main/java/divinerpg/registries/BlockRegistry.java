@@ -14,7 +14,6 @@ import divinerpg.items.base.*;
 import divinerpg.world.gen.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.particles.*;
 import net.minecraft.util.*;
@@ -1346,12 +1345,11 @@ public class BlockRegistry {
         register(registry, coalstone);
         register(registry, new BlockModNotReady("coalstone_furnace"));
         register(registry, new BlockModNotReady("coalstone_furnace_on"));
-        register(registry, new BlockModNotReady("frosted_chest"));
         register(registry, new BlockModStairs("coalstone_stairs", coalstone));
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
         register(registry, new BlockModSpawner("frost_archer_spawner", EntityRegistry.FROST_ARCHER));
-//        register(registry, new BlockFrostedChest("frosted_chest").setHardness(2.5F));
+        register(registry, new BlockFrostedChest("frosted_chest"));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
         register(registry, new BlockMod("icy_bricks", 1.5F, 3.0F));
         register(registry, new BlockMod("icy_stone", 2.0F, 3.0F));
@@ -1377,15 +1375,13 @@ public class BlockRegistry {
         register(registry, new BlockLights("yellow_christmas_lights"));
 //
 //        // Chest
-        register(registry, new BlockModNotReady("present_box"));
-//        register(registry, new BlockPresentBox("present_box"));
+        register(registry, new BlockPresentBox("present_box"));
 //
 //        // Crops
         register(registry, new BlockWinterberryBush("winterberry_bush"));
 //
 //        // Other
-        register(registry, new BlockModNotReady("iceika_fire"));
-//        register(registry, new BlockModFire("iceika_fire"));
+        register(registry, new BlockModFire("iceika_fire"));
 
 //        // Twilight dimensions
 //
@@ -1504,9 +1500,8 @@ public class BlockRegistry {
         register(registry, new BlockModVine("wildwood_vine"));
 //
 //        // Other
-        register(registry, new BlockModNotReady("blue_fire"));
         register(registry, new BlockModNotReady("eden_chest"));
-//        register(registry, new BlockModFire("blue_fire"));
+        register(registry, new BlockModFire("blue_fire"));
         //TODO - torch particles
         registerItemlessBlock(registry, new BlockModTorch("eden_torch", ParticleTypes.FLAME));
         registerItemlessBlock(registry, new BlockModWallTorch("eden_wall_torch", ParticleTypes.FLAME));
@@ -1614,15 +1609,13 @@ public class BlockRegistry {
         register(registry, new BlockModStairs("eucalyptus_stairs", eucalyptusPlanks));
 //
 //        // Crops
-        register(registry, new BlockModNotReady("firestock_plant"));
-        register(registry, new BlockModNotReady("pinfly_plant"));
         register(registry, new BlockModCrop("aquamarine_plant", 3, ItemRegistry.aquamarineSeeds));
         register(registry, new BlockModCrop("eucalyptus_plant", 3, ItemRegistry.eucalyptusRootSeeds));
-//        register(registry, new BlockFirestock());
+        register(registry, new BlockFirestock());
         register(registry, new BlockModCrop("hitchak_plant", 3, ItemRegistry.hitchakSeeds));
         register(registry, new BlockModCrop("lamona_plant", 3, ItemRegistry.lamonaSeeds));
         register(registry, new BlockModCrop("marsine_plant", 2, ItemRegistry.marsineSeeds));
-//        register(registry, new BlockPinfly());
+        register(registry, new BlockPinfly());
         register(registry, new BlockModCrop("veilo_plant", 3, ItemRegistry.veiloSeeds));
 //
 //        // Furnace
@@ -1661,9 +1654,8 @@ public class BlockRegistry {
 //        // Vethea
 //
 //        // Terrain
-        register(registry, new BlockModNotReady("dream_grass"), true);
         register(registry, new BlockModDirt("dream_dirt", 0.5F, MaterialColor.COLOR_LIGHT_GREEN), true);
-//        register(registry, new BlockDreamGrass("dream_grass", 0.6F), true);
+        register(registry, new BlockDreamGrass("dream_grass", 0.6F), true);
         register(registry, new BlockMod("dream_stone", 1.5F), true);
 //
 //        // Logs
@@ -1710,10 +1702,8 @@ public class BlockRegistry {
         register(registry, new BlockModDoor("barred_door", Material.HEAVY_METAL, 2.0f, 1.0F, ToolType.PICKAXE));
 //
 //        // Lighting
-        register(registry, new BlockModNotReady("fire_crystal"), true);
-        register(registry, new BlockModNotReady("firelight"), true);
-//        register(registry, new BlockLightCrystal("fire_crystal", 1.0F), true);
-//        register(registry, new BlockLightCrystal("firelight", 1.0F), true);
+        register(registry, new BlockLightCrystal("fire_crystal", 1.0F), true);
+        register(registry, new BlockLightCrystal("firelight", 1.0F), true);
 //
 //        // Structure
 //        // General
