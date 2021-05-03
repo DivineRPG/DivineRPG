@@ -4,6 +4,7 @@ import divinerpg.*;
 import divinerpg.blocks.*;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
+import divinerpg.blocks.fluid.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
@@ -372,7 +373,7 @@ public class BlockRegistry {
 
     // Liquid
     @ObjectHolder("smoldering_tar")
-    public static final Block smolderingTar = null;
+    public static final FlowingFluidBlock smolderingTar = null;
 
     // Ayeraco technical blocks
     @ObjectHolder("ayeraco_beam_blue")
@@ -1323,8 +1324,7 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockAyeracoSpawn());
 //
 //        // Liquid
-        register(registry, new BlockModNotReady("smoldering_tar"));
-//        register(registry, new BlockTar("smoldering_tar", LiquidRegistry.tar));
+        registerFluidBlock(registry, new BlockTar(() -> FluidRegistry.TAR, AbstractBlock.Properties.of(Material.LAVA).noCollission().randomTicks().strength(100.0F)));
 //
 //        // Iceika
 //
@@ -1346,6 +1346,7 @@ public class BlockRegistry {
         register(registry, new BlockModNotReady("coalstone_furnace"));
         register(registry, new BlockModNotReady("coalstone_furnace_on"));
         register(registry, new BlockModStairs("coalstone_stairs", coalstone));
+        //TODO - Furnaces
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
 //        register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
         register(registry, new BlockModSpawner("frost_archer_spawner", EntityRegistry.FROST_ARCHER));
@@ -1505,6 +1506,7 @@ public class BlockRegistry {
         //TODO - torch particles
         registerItemlessBlock(registry, new BlockModTorch("eden_torch", ParticleTypes.FLAME));
         registerItemlessBlock(registry, new BlockModWallTorch("eden_wall_torch", ParticleTypes.FLAME));
+        //TODO - Eden chest
 //        register(registry, new BlockEdenChest("eden_chest"));
         register(registry, new BlockMod("truffle", 1.0F, 3.0F, Material.PLANT));
 //
@@ -1575,11 +1577,13 @@ public class BlockRegistry {
 //
 //        // Utility
         register(registry, new BlockModNotReady("arcanium_extractor"));
+        //TODO - Arcanium extractor
 //        register(registry, new BlockArcaniumExtractor("arcanium_extractor"));
 //
 //        // Boss altars
         register(registry, new BlockModNotReady("dramix_altar"));
         register(registry, new BlockModNotReady("parasecta_altar"));
+        //TODO - Arcana altars
 //        register(registry, new BlockDramixAltar("dramix_altar"));
 //        register(registry, new BlockParasectaAltar("parasecta_altar"));
 //
@@ -1592,15 +1596,7 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("stained_glass6", 0.3F));
         register(registry, new BlockModGlass("stained_glass7", 0.3F));
         register(registry, new BlockModGlass("stained_glass8", 0.3F));
-//
-//        // Portal blocks
-        register(registry, new BlockModNotReady("arcana_portal"));
-        register(registry, new BlockModNotReady("arcana_portal_frame"));
-        register(registry, new BlockModNotReady("arcana_hard_portal_frame"));
-//        register(registry, new BlockArcanaPortal("arcana_portal", DimensionRegistry.arcanaDimension.getId()));
-//        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame"));
-//        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
-//
+
 //        // Eucalyptus
         register(registry, new BlockModLog("eucalyptus_log", MaterialColor.COLOR_PINK, () -> strippedEucalyptusLog));
         register(registry, new BlockModLog("stripped_eucalyptus_log", MaterialColor.COLOR_PINK, null));
@@ -1631,6 +1627,7 @@ public class BlockRegistry {
         register(registry, new BlockModNotReady("moonlight_furnace_on"));
         register(registry, new BlockModNotReady("demon_furnace"));
         register(registry, new BlockModNotReady("demon_furnace_on"));
+        //TODO - Furnaces
 //        register(registry, new BlockGreenlightFurnace("greenlight_furnace", false));
 //        register(registry, new BlockGreenlightFurnace("greenlight_furnace_on", true));
 //        register(registry, new BlockOceanfireFurnace("oceanfire_furnace", false));
@@ -1708,6 +1705,7 @@ public class BlockRegistry {
 //        // Structure
 //        // General
         register(registry, new BlockModNotReady("dream_lamp"), true);
+        //TODO - Dream lamp
 //        register(registry, new BlockDreamLamp("dream_lamp"), true);
         register(registry, new BlockModUnbreakable("everstone"), true);
         register(registry, new BlockModUnbreakable("dark_everstone"), true);
@@ -1736,6 +1734,7 @@ public class BlockRegistry {
         register(registry, new BlockModNotReady("karos_heat_tile_red"), true);
         register(registry, new BlockModUnbreakable("black_karos_bricks"), true);
         register(registry, new BlockModUnbreakable("blue_karos_bricks"), true);
+        //TODO - Karos Madhouse tiles
 //        register(registry, new BlockHelioticBeam("heliotic_beam"), true);
 //        register(registry, new BlockKarosDispenser("karos_dispenser"), true);
 //        register(registry, new BlockKarosHeatTile("karos_heat_tile_green"), true);
@@ -1755,10 +1754,12 @@ public class BlockRegistry {
 //
 //        // Utility
         register(registry, new BlockModNotReady("infusion_table"), true);
+        //TODO - Infusion Table
 //        register(registry, new BlockInfusionTable("infusion_table"), true);
 //
 //        // Hive egg
         register(registry, new BlockModNotReady("hive_egg"), true);
+        //TODO - Hive Egg
 //        register(registry, new BlockHiveEgg("hive_egg"), true);
 //
 //        // Boss altars
@@ -1767,6 +1768,7 @@ public class BlockRegistry {
         register(registry, new BlockModNotReady("quadrotic_altar"), true);
         register(registry, new BlockModNotReady("raglok_altar"), true);
         register(registry, new BlockModNotReady("wreck_altar"), true);
+        //TODO - boss altars
 //        register(registry, new BlockKarosAltar("karos_altar"), true);
 //        register(registry, new BlockLunicAltar("lunic_altar"), true);
 //        register(registry, new BlockQuadroticAltar("quadrotic_altar"), true);
@@ -1779,6 +1781,7 @@ public class BlockRegistry {
         register(registry, new BlockModNotReady("gorgosion_spawner"), true);
         register(registry, new BlockModNotReady("twins_spawner"), true);
         register(registry, new BlockModNotReady("vermenous_spawner"), true);
+        //TODO - spawner blocks
 //        register(registry, new BlockModSpawner("biphron_spawner", "Biphron"), true);
 //        register(registry, new BlockModSpawner("dreamwrecker_spawner", "Dreamwrecker"), true);
 //        register(registry, new BlockModSpawner("gorgosion_spawner", "Gorgosion"), true);
@@ -1802,12 +1805,21 @@ public class BlockRegistry {
         register(registry, new BlockModPortal("skythern_portal"));
         register(registry, new BlockModPortal("mortum_portal"));
         register(registry, new BlockModPortal("vethea_portal"));
+        //TODO - portal blocks
 //        register(registry, new BlockModPortal("iceika_portal", DimensionRegistry.iceikaDimension, () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
 //        register(registry, new BlockModPortal("wildwood_portal", DimensionRegistry.wildwoodDimension, () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
 //        register(registry, new BlockModPortal("apalachia_portal", DimensionRegistry.apalachiaDimension, () -> blueFire, () -> wildwoodBlock, ParticleType.APALACHIA_PORTAL));
 //        register(registry, new BlockModPortal("skythern_portal", DimensionRegistry.skythernDimension, () -> blueFire, () -> apalachiaBlock, ParticleType.SKYTHERN_PORTAL));
 //        register(registry, new BlockModPortal("mortum_portal", DimensionRegistry.mortumDimension, () -> blueFire, () -> skythernBlock, ParticleType.MORTUM_PORTAL));
 //        register(registry, new BlockVetheaPortal("vethea_portal", DimensionRegistry.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
+
+//        // Arcana blocks
+        register(registry, new BlockModNotReady("arcana_portal"));
+        register(registry, new BlockModNotReady("arcana_portal_frame"));
+        register(registry, new BlockModNotReady("arcana_hard_portal_frame"));
+//        register(registry, new BlockArcanaPortal("arcana_portal", DimensionRegistry.arcanaDimension.getId()));
+//        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame"));
+//        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
 //
 //        //Slabs
         register(registry, new BlockModSlab("eden_slab", edenPlanks, 2.0F));
@@ -1890,6 +1902,10 @@ public class BlockRegistry {
     }
 
     private static void registerItemlessBlock(RegistryEvent.Register<Block> registry, Block block) {
+        registry.getRegistry().register(block);
+    }
+
+    private static void registerFluidBlock(RegistryEvent.Register<Block> registry, FlowingFluidBlock block) {
         registry.getRegistry().register(block);
     }
 
