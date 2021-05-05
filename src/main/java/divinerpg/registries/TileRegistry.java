@@ -3,6 +3,7 @@ package divinerpg.registries;
 import divinerpg.*;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.tiles.*;
+import divinerpg.tiles.block.*;
 import divinerpg.tiles.bosses.*;
 import divinerpg.tiles.chests.*;
 import net.minecraft.tileentity.*;
@@ -29,6 +30,7 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityFrostedChest> FROSTED_CHEST;
     public static  TileEntityType<TileEntityEdenChest> EDEN_CHEST;
     public static  TileEntityType<TileEntityPresentBox> PRESENT_BOX;
+    public static  TileEntityType<PortalEntity> ARCANA_PORTAL;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -43,6 +45,7 @@ public class TileRegistry {
         FROSTED_CHEST = TileEntityType.Builder.of(() -> new TileEntityFrostedChest(), BlockRegistry.frostedChest).build(null);
         EDEN_CHEST = TileEntityType.Builder.of(() -> new TileEntityEdenChest(), BlockRegistry.edenChest).build(null);
         PRESENT_BOX = TileEntityType.Builder.of(() -> new TileEntityPresentBox(), BlockRegistry.presentBox).build(null);
+        ARCANA_PORTAL = TileEntityType.Builder.of(() -> new PortalEntity(), BlockRegistry.arcanaPortal).build(null);
 
 
 
@@ -57,7 +60,8 @@ public class TileRegistry {
                 BONE_CHEST.setRegistryName(DivineRPG.MODID, "bone_chest"),
                 FROSTED_CHEST.setRegistryName(DivineRPG.MODID, "frosted_chest"),
                 EDEN_CHEST.setRegistryName(DivineRPG.MODID, "eden_chest"),
-                PRESENT_BOX.setRegistryName(DivineRPG.MODID, "present_box")
+                PRESENT_BOX.setRegistryName(DivineRPG.MODID, "present_box"),
+                ARCANA_PORTAL.setRegistryName(DivineRPG.MODID, "arcana_portal")
         );
     }
 

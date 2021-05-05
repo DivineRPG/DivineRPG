@@ -19,6 +19,7 @@ import net.minecraft.item.*;
 import net.minecraft.particles.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 import net.minecraftforge.common.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.eventbus.api.*;
@@ -1798,13 +1799,13 @@ public class BlockRegistry {
 //
 //        // Portal blocks
 //        // Portal
-        register(registry, new BlockModPortal("iceika_portal"));
-        register(registry, new BlockModPortal("eden_portal"));
-        register(registry, new BlockModPortal("wildwood_portal"));
-        register(registry, new BlockModPortal("apalachia_portal"));
-        register(registry, new BlockModPortal("skythern_portal"));
-        register(registry, new BlockModPortal("mortum_portal"));
-        register(registry, new BlockModPortal("vethea_portal"));
+        register(registry, new BlockModPortal("iceika_portal", World.OVERWORLD));
+        register(registry, new BlockModPortal("eden_portal", KeyRegistry.EDEN_WORLD));
+        register(registry, new BlockModPortal("wildwood_portal", KeyRegistry.WILDWOOD_WORLD));
+        register(registry, new BlockModPortal("apalachia_portal", KeyRegistry.APALACHIA_WORLD));
+        register(registry, new BlockModPortal("skythern_portal", KeyRegistry.SKYTHERN_WORLD));
+        register(registry, new BlockModPortal("mortum_portal", KeyRegistry.MORTUM_WORLD));
+        register(registry, new BlockModPortal("vethea_portal", KeyRegistry.VETHEA_WORLD));
         //TODO - portal blocks
 //        register(registry, new BlockModPortal("iceika_portal", DimensionRegistry.iceikaDimension, () -> iceikaFire, () -> Blocks.SNOW, ParticleType.FROST));
 //        register(registry, new BlockModPortal("wildwood_portal", DimensionRegistry.wildwoodDimension, () -> blueFire, () -> edenBlock, ParticleType.WILDWOOD_PORTAL));
@@ -1814,12 +1815,9 @@ public class BlockRegistry {
 //        register(registry, new BlockVetheaPortal("vethea_portal", DimensionRegistry.vetheaDimension, () -> blueFire, () -> mortumBlock, ParticleType.MORTUM_PORTAL));
 
 //        // Arcana blocks
-        register(registry, new BlockModNotReady("arcana_portal"));
-        register(registry, new BlockModNotReady("arcana_portal_frame"));
-        register(registry, new BlockModNotReady("arcana_hard_portal_frame"));
-//        register(registry, new BlockArcanaPortal("arcana_portal", DimensionRegistry.arcanaDimension.getId()));
-//        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame"));
-//        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame").setBlockUnbreakable().setResistance(6000000F).setCreativeTab(null));
+        register(registry, new BlockArcanaPortal("arcana_portal"));
+        register(registry, new BlockArcanaPortalFrame("arcana_portal_frame", AbstractBlock.Properties.of(Material.STONE).strength(5.0F)));
+        register(registry, new BlockArcanaPortalFrame("arcana_hard_portal_frame", AbstractBlock.Properties.of(Material.STONE).strength(5.0F).strength(-1, 6000000F)));
 //
 //        //Slabs
         register(registry, new BlockModSlab("eden_slab", edenPlanks, 2.0F));
@@ -1840,7 +1838,10 @@ public class BlockRegistry {
 
     private static void register(RegistryEvent.Register<Block> event, Block block) {
         event.getRegistry().register(block);
-        blocks.add(block);
+
+        if(block != BlockRegistry.arcanaHardPortalFrame) {
+            blocks.add(block);
+        }
     }
 
     private static void register(RegistryEvent.Register<Block> event, Block block, boolean vethean) {

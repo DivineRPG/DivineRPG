@@ -20,11 +20,11 @@ import net.minecraftforge.registries.*;
 
 public class KeyRegistry {
 
-    public static RegistryKey<World> EDEN_WORLD, WILDWOOD_WORLD, APALACHIA_WORLD, SKYTHERN_WORLD, MORTUM_WORLD;
-    public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME;
-    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER;
+    public static RegistryKey<World> EDEN_WORLD, WILDWOOD_WORLD, APALACHIA_WORLD, SKYTHERN_WORLD, MORTUM_WORLD, ARCANA_WORLD, VETHEA_WORLD;
+    public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME, ARCANA_BIOME, VETHEA_BIOME;
+    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER, VETHEA_BUILDER;
     public static final DeferredRegister<PointOfInterestType> POI = DeferredRegister.create(ForgeRegistries.POI_TYPES, DivineRPG.MODID);
-    public static RegistryObject<PointOfInterestType> EDEN_PORTAL, WILDWOOD_PORTAL, APALACHIA_PORTAL, SKYTHERN_PORTAL, MORTUM_PORTAL;
+    public static RegistryObject<PointOfInterestType> EDEN_PORTAL, WILDWOOD_PORTAL, APALACHIA_PORTAL, SKYTHERN_PORTAL, MORTUM_PORTAL, ARCANA_PORTAL;
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
 
@@ -67,6 +67,14 @@ public class KeyRegistry {
         register("ore_mortum", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.mortumOre.defaultBlockState(), Config.twilightVein.get())).range(256).squared().count(Config.twilightTries.get()));
 
         FROZEN_TREE = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.frozenLog.defaultBlockState()), new SimpleBlockStateProvider(BlockRegistry.brittleLeaves.defaultBlockState()), new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3), new StraightTrunkPlacer(10, 2, 0), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
+
+        ARCANA_PORTAL = POI.register("arcana_portal", () -> new PointOfInterestType("arcana_portal", PointOfInterestType.getBlockStates(BlockRegistry.arcanaPortal), 0, 1));
+        ARCANA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "arcana"));
+        ARCANA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "arcana"));
+
+        VETHEA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
+        VETHEA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
+        VETHEA_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
 
     }
 

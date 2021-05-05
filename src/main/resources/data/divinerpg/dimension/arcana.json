@@ -1,0 +1,30 @@
+{
+  "type": {
+    "name": "divinerpg:arcana",
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": false,
+    "has_raids": false,
+    "has_skylight": true,
+    "has_ceiling": true,
+    "coordinate_scale": 1,
+    "ambient_light": 1,
+    "logical_height": 256,
+    "infiniburn": "minecraft:infiniburn_overworld"
+  },
+  "generator": {
+    "type": "minecraft:flat",
+    "seed": 1342543243,
+    "settings": {
+      "biome": "divinerpg:arcana",
+      "lakes": false,
+      "features": false,
+      "layers": [],
+      "structures": {
+        "structures": {}
+      }
+    }
+  }
+}
