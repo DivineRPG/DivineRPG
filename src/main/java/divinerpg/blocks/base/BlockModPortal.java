@@ -26,6 +26,12 @@ public class BlockModPortal extends BlockMod {
         }));
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
     }
+    public BlockModPortal(String name, RegistryKey<World> dimid) {
+        super(name, AbstractBlock.Properties.of(Material.PORTAL).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel((p_235463_0_) -> {
+            return 11;
+        }));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
+    }
 
     public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
         switch((Direction.Axis)p_220053_1_.getValue(AXIS)) {
