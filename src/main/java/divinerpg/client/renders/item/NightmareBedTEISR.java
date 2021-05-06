@@ -15,6 +15,7 @@ public class NightmareBedTEISR extends ItemStackTileEntityRenderer implements Ca
     private final TileEntityNightmareBed bed = new TileEntityNightmareBed(TileRegistry.NIGHTMARE_BED);
 
     public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+        //TODO - render bed teisr
         TileEntityRendererDispatcher.instance.renderItem(bed, matrixStack, buffer, combinedLight, combinedOverlay);
     }
 

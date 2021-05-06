@@ -1,10 +1,12 @@
 package divinerpg.client;
 
 import divinerpg.client.renders.layer.*;
+import divinerpg.client.renders.tiles.*;
 import divinerpg.registries.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
+import net.minecraftforge.fml.client.registry.*;
 
 import java.util.*;
 
@@ -147,6 +149,12 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.altarOfCorruption, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.nightmareBed, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.ayeracoSpawn, RenderType.translucent());
+
+
+
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.ALTAR_OF_CORRUPTION, RenderAltarOfCorruption::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.NIGHTMARE_BED, RenderNightmareBed::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.STATUE, RenderStatue::new);
 
         Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap();
         PlayerRenderer render;

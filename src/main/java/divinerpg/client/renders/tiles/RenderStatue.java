@@ -3,38 +3,32 @@ package divinerpg.client.renders.tiles;
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.tiles.bosses.*;
-import net.minecraft.block.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.texture.*;
 import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.state.*;
+import net.minecraft.state.properties.*;
+import net.minecraft.util.math.vector.*;
 
 public class RenderStatue extends TileEntityRenderer<TileEntityStatue> {
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
-    public static final int[] facingToRotation = new int[] { 0, 270, 180, 90 };
 
     public RenderStatue(TileEntityRendererDispatcher dispatcher) {
         super(dispatcher);
-
     }
 
     @Override
-    public void render(TileEntityStatue te, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buffer, int combinedLightIn, int combinedOverlayIn) {
+    public void render(TileEntityStatue te, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
         EntityModel model = te.statueType.getModel();
-        RenderMaterial material = new RenderMaterial(AtlasTexture.LOCATION_BLOCKS, te.statueType.getTexture());
-        matrix.pushPose();
-        matrix.translate(0.5f, 0, 0.5f);
-
+        matrixStack.pushPose();
         float scale = 0.5F;
-
-        matrix.translate(0, -0.1, 0);
-        matrix.scale(scale, scale, scale);
-        matrix.translate(0, (1 / scale), 0);
-        IVertexBuilder builder = material.buffer(buffer, RenderType::entitySolid);
-        model.renderToBuffer(matrix, builder,  0, 0, 0, 0, 0, 0);
-
-        matrix.popPose();
+        matrixStack.translate(0.75F, 0.75F, 0.0F);
+        matrixStack.scale(scale, scale, scale);
+        matrixStack.mulPose(Vector3f.YN.rotationDegrees(te.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()));
+        matrixStack.mulPose(Vector3f.XN.rotationDegrees(180));
+        matrixStack.translate(-0.75F, -0.75F, 0.0F);
+        IVertexBuilder builder = buffer.getBuffer(RenderType.entityCutout((te.statueType.getTexture())));
+        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        matrixStack.popPose();
     }
+
+
 }

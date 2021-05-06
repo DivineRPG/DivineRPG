@@ -1,14 +1,15 @@
 package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.*;
 import divinerpg.blocks.base.*;
-import divinerpg.tiles.bosses.*;
+import net.minecraft.block.*;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.client.renderer.tileentity.*;
 import net.minecraft.item.*;
 import net.minecraftforge.api.distmarker.*;
-import org.lwjgl.opengl.*;
 
 import java.util.concurrent.*;
 
@@ -21,11 +22,20 @@ public class RenderItemStatue extends ItemStackTileEntityRenderer implements Cal
     }
 
     @Override
-    public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack matrixStack, IRenderTypeBuffer renderType, int p_239207_5_, int p_239207_6_) {
-        BlockStatue blockStatue = (BlockStatue) (((BlockItem) stack.getItem()).getBlock());
-        RenderHelper.setupFor3DItems();
-        TileEntityRendererDispatcher.instance.render(new TileEntityStatue(blockStatue.statueType), 0.0F, matrixStack, renderType);
-        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+    public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack matrixStack, IRenderTypeBuffer renderType, int combinedLight, int combinedOverlay) {
+            if(stack.getItem() instanceof BlockItem){
+                Block block = ((BlockItem) stack.getItem()).getBlock();
+                if(block instanceof BlockStatue){
+                    EntityModel model = ((BlockStatue) block).statueType.getModel();
+                        matrixStack.pushPose();
+                        float scale = -0.5F;
+                        matrixStack.scale(scale, scale, scale);
+                        matrixStack.translate(0.5F, 0.5F, 0.0F);
+                        IVertexBuilder builder = renderType.getBuffer(RenderType.entityCutout(((BlockStatue) block).statueType.getTexture()));
+                        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+                        matrixStack.popPose();
+                }
+            }
     }
 
 

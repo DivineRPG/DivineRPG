@@ -1,18 +1,14 @@
 package divinerpg.registries;
 
 import divinerpg.*;
-import divinerpg.client.renders.tiles.*;
 import divinerpg.tiles.*;
 import divinerpg.tiles.block.*;
 import divinerpg.tiles.bosses.*;
 import divinerpg.tiles.chests.*;
 import net.minecraft.tileentity.*;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.client.registry.*;
 import net.minecraftforge.fml.common.*;
-import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.registries.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -65,12 +61,4 @@ public class TileRegistry {
         );
     }
 
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public void registerTileModels(final FMLClientSetupEvent event) {
-        //TODO - Fix tile entity renderers
-        ClientRegistry.bindTileEntityRenderer(ALTAR_OF_CORRUPTION, RenderAltarOfCorruption::new);
-        ClientRegistry.bindTileEntityRenderer(NIGHTMARE_BED, RenderNightmareBed::new);
-        ClientRegistry.bindTileEntityRenderer(STATUE, RenderStatue::new);
-    }
 }

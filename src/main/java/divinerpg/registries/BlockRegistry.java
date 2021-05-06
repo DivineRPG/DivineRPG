@@ -1865,10 +1865,10 @@ public class BlockRegistry {
             }
 
             if (block instanceof BlockStatue) {
-                Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(RenderItemStatue::new)).setRegistryName(block.getRegistryName());
+                Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderItemStatue())).setRegistryName(block.getRegistryName());
                 registry.getRegistry().register(statue);
             }else if (block instanceof BlockNightmareBed) {
-                Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(NightmareBedTEISR::new)).setRegistryName(block.getRegistryName());
+                Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new NightmareBedTEISR())).setRegistryName(block.getRegistryName());
                 registry.getRegistry().register(statue);
             } else {
                 registry.getRegistry().register(itemBlock);
