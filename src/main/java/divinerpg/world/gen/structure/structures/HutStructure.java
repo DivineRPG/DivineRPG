@@ -1,25 +1,31 @@
 package divinerpg.world.gen.structure.structures;
 
+import com.google.common.collect.*;
 import com.mojang.serialization.*;
-import divinerpg.world.gen.structure.piece.*;
+import divinerpg.*;
+import divinerpg.registries.*;
+import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
 
 import java.util.*;
 
 public class HutStructure extends Structure<NoFeatureConfig> {
-    public HutStructure(Codec<NoFeatureConfig> p_i231989_1_) {
-        super(p_i231989_1_);
+    public HutStructure(Codec<NoFeatureConfig> codec) {
+        super(codec);
     }
 
     @Override
-    public Structure.IStartFactory<NoFeatureConfig> getStartFactory() {
+    public  IStartFactory<NoFeatureConfig> getStartFactory() {
         return HutStructure.Start::new;
     }
 
@@ -28,27 +34,64 @@ public class HutStructure extends Structure<NoFeatureConfig> {
         return GenerationStage.Decoration.SURFACE_STRUCTURES;
     }
 
+    private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
+            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1, 1)
+    );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
-        return null;
+        return STRUCTURE_MONSTERS;
     }
 
+    private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
+            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1, 1)
+    );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
-        return null;
+        return STRUCTURE_CREATURES;
     }
 
-    public static class Start extends StructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> p_i225817_1_, int p_i225817_2_, int p_i225817_3_, MutableBoundingBox p_i225817_4_, int p_i225817_5_, long p_i225817_6_) {
-            super(p_i225817_1_, p_i225817_2_, p_i225817_3_, p_i225817_4_, p_i225817_5_, p_i225817_6_);
+
+
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        BlockPos centerOfChunk = new BlockPos((chunkX << 4) + 7, 0, (chunkZ << 4) + 7);
+
+        int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
+        IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
+        BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
+        return topBlock.getFluidState().isEmpty();
+    }
+
+    public static class Start extends StructureStart<NoFeatureConfig>  {
+        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
+            super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
 
-        public void generatePieces(DynamicRegistries p_230364_1_, ChunkGenerator p_230364_2_, TemplateManager p_230364_3_, int p_230364_4_, int p_230364_5_, Biome p_230364_6_, NoFeatureConfig p_230364_7_) {
-            Rotation rotation = Rotation.getRandom(this.random);
-            Mirror mirror = this.random.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
-            BlockPos blockpos = new BlockPos(p_230364_4_ * 16, 90, p_230364_5_ * 16);
-            HutPiece.addPieces(p_230364_3_, blockpos, rotation, mirror, this.pieces, this.random);
+        @Override
+        public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
+
+            int x = (chunkX << 4) + 7;
+            int z = (chunkZ << 4) + 7;
+
+            BlockPos blockpos = new BlockPos(x, 0, z);
+
+            JigsawManager.addPieces(
+                    dynamicRegistryManager,
+                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
+                            .get(new ResourceLocation(DivineRPG.MODID, "overworld/hut")),10),
+                    AbstractVillagePiece::new,
+                    chunkGenerator,
+                    templateManagerIn,
+                    blockpos,
+                    this.pieces,
+                    this.random,
+                    false,
+                    true);
+            this.pieces.forEach(piece -> piece.move(0, 1, 0));
+            this.pieces.forEach(piece -> piece.getBoundingBox().y0 -= 1);
+
             this.calculateBoundingBox();
         }
+
     }
 }

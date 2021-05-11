@@ -155,6 +155,9 @@ public class FancyRenders {
         ClientRegistry.bindTileEntityRenderer(TileRegistry.ALTAR_OF_CORRUPTION, RenderAltarOfCorruption::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.NIGHTMARE_BED, RenderNightmareBed::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.STATUE, RenderStatue::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.BONE_CHEST, RenderBoneChest::new);
+        //TODO - render present box
+//        ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
 
         Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap();
         PlayerRenderer render;

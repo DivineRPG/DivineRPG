@@ -51,8 +51,7 @@ public class FeatureRegistry {
         }
 
         if(biome != null && event.getCategory().equals(Biome.Category.PLAINS)) {
-            //TODO - finish this
-//            generation.withStructure(DivineStructures.Configured.HUT);
+            generation.addStructureStart(ConfiguredStructureRegistry.CONFIGURED_HUT);
         }
         EntityRegistry.spawnStuff(event);
     }

@@ -28,6 +28,7 @@ public class DivineRPG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
         EventRegistry.init();
+        StructureRegistry.DEFERRED_REGISTRY_STRUCTURE.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
 
@@ -48,6 +49,11 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
         CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
+
+        event.enqueueWork(() -> {
+            StructureRegistry.setupStructures();
+            ConfiguredStructureRegistry.registerConfiguredStructures();
+        });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

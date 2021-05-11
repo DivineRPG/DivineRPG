@@ -25,7 +25,7 @@ public class BlockAltarOfCorruption extends ContainerBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockAltarOfCorruption(String name) {
-        //TODO - Render book. Proper UI
+        //TODO - UI
         super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(5.0F, 2000.0F).sound(SoundType.STONE));
         setRegistryName(name);
     }

@@ -2,7 +2,6 @@ package divinerpg.world.gen.structure;
 
 
 import divinerpg.*;
-import divinerpg.world.gen.structure.piece.*;
 import divinerpg.world.gen.structure.structures.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
@@ -33,14 +32,14 @@ public class DivineStructures {
         }
     }
 
-    public static final class Pieces {
-        public static final IStructurePieceType HUT_PIECE = IStructurePieceType.setPieceId(HutPiece.Piece::new, "hut_piece");
-    }
-
     public static void noise() {
+        //StructureSeparationSettings.
+        //average distance apart
+        //minimal distance apart
+        //seed mod
         Structure.STRUCTURES_REGISTRY.put("hut", HUT.get());
         WorldGenRegistries.NOISE_GENERATOR_SETTINGS.forEach(settings -> {
-            settings.structureSettings().structureConfig().put(DivineStructures.HUT.get(), new StructureSeparationSettings(32, 8, 56181419));
+            settings.structureSettings().structureConfig().put(DivineStructures.HUT.get(), new StructureSeparationSettings(65, 32, 427227012));
         });
     }
 

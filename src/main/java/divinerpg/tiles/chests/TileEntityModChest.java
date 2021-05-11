@@ -18,12 +18,12 @@ import net.minecraftforge.api.distmarker.*;
         _interface = IChestLid.class
 )
 public abstract class TileEntityModChest extends LockableLootTileEntity implements IChestLid, ITickableTileEntity {
-    private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
-    protected float openness;
-    protected float oOpenness;
-    protected int openCount;
-    private int tickInterval;
-    private String customName;
+    public NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
+    public float openness;
+    public float oOpenness;
+    public int openCount;
+    public int tickInterval;
+    public String customName;
     private net.minecraftforge.common.util.LazyOptional<net.minecraftforge.items.IItemHandlerModifiable> chestHandler;
 
     abstract public String getChestName();
