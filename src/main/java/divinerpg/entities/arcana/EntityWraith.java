@@ -1,7 +1,6 @@
 package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.*;
-import divinerpg.entities.vanilla.nether.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
@@ -23,7 +22,7 @@ import javax.annotation.*;
 
 public class EntityWraith extends EntityDivineTameable {
 
-    private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityHellBat.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityWraith.class, DataSerializers.BYTE);
     private static final EntityPredicate RESTING_TARGETING = (new EntityPredicate()).range(4.0D).allowSameTeam();
     private BlockPos targetPosition;
 	

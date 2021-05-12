@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityStoneGolem extends EntityDivineTameable implements IAttackTimer {
-    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.defineId(EntitySmelter.class,
+    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.defineId(EntityStoneGolem.class,
             DataSerializers.INT);
 
     public <T extends Entity> EntityStoneGolem(EntityType<T> type, World worldIn) {
