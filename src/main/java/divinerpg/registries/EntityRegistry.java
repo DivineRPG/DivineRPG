@@ -1,18 +1,18 @@
 package divinerpg.registries;
 
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
-import divinerpg.DivineRPG;
+import com.google.common.base.*;
+import com.google.common.collect.*;
+import divinerpg.*;
 import divinerpg.client.models.arcana.*;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
 import divinerpg.client.models.vanilla.*;
-import divinerpg.client.renders.base.RenderDivineMob;
+import divinerpg.client.renders.base.*;
 import divinerpg.client.renders.entity.arcana.*;
 import divinerpg.client.renders.entity.boss.*;
-import divinerpg.client.renders.entity.iceika.RenderFrostArcher;
-import divinerpg.client.renders.entity.twilight.RenderSunArcher;
+import divinerpg.client.renders.entity.iceika.*;
+import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
@@ -21,27 +21,27 @@ import divinerpg.entities.boss.ayeraco.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
 import divinerpg.entities.mortum.*;
-import divinerpg.entities.projectile.EntityWatcherShot;
+import divinerpg.entities.projectile.*;
 import divinerpg.entities.skythern.*;
 import divinerpg.entities.vanilla.end.*;
 import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.wildwood.*;
-import divinerpg.util.SpawnEggColors;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.*;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.event.*;
+import net.minecraftforge.event.entity.*;
+import net.minecraftforge.event.world.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.client.registry.*;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.*;
 
-import java.util.List;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
@@ -289,170 +289,166 @@ public class EntityRegistry {
 //    buildEntityEntry(EntityZone.class, "zone", VETHEA),
 //    buildEntityEntry(EntityZoragon.class, "zoragon", VETHEA),
 
-    public static void init() {
+
+
+    @SubscribeEvent
+    public static void registerGlobalEntityAttributes(EntityAttributeCreationEvent event) {
         // Vanilla
-        GlobalEntityTypeAttributes.put(ARID_WARRIOR, EntityAridWarrior.attributes().build());
-        GlobalEntityTypeAttributes.put(BROWN_GRIZZLE, EntityBrownGrizzle.attributes().build());
-        GlobalEntityTypeAttributes.put(CAVE_CRAWLER, EntityCaveCrawler.attributes().build());
-        GlobalEntityTypeAttributes.put(CAVECLOPS, EntityCaveclops.attributes().build());
-        GlobalEntityTypeAttributes.put(CRAB, EntityCrab.attributes().build());
-        GlobalEntityTypeAttributes.put(CYCLOPS, EntityCyclops.attributes().build());
-        GlobalEntityTypeAttributes.put(DESERT_CRAWLER, EntityDesertCrawler.attributes().build());
-        GlobalEntityTypeAttributes.put(EHU, EntityEhu.attributes().build());
-        GlobalEntityTypeAttributes.put(ENTHRALLED_DRAMCRYX, EntityEnthralledDramcryx.attributes().build());
-        GlobalEntityTypeAttributes.put(FROST, EntityFrost.attributes().build());
-        GlobalEntityTypeAttributes.put(GLACON, EntityGlacon.attributes().build());
-        GlobalEntityTypeAttributes.put(HUSK, EntityHusk.attributes().build());
-        GlobalEntityTypeAttributes.put(JUNGLE_BAT, EntityJungleBat.attributes().build());
-        GlobalEntityTypeAttributes.put(JACK_O_MAN, EntityJackOMan.attributes().build());
-        GlobalEntityTypeAttributes.put(JUNGLE_DRAMCRYX, EntityJungleDramcryx.attributes().build());
-        GlobalEntityTypeAttributes.put(JUNGLE_SPIDER, EntityJungleSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(KING_CRAB, EntityKingCrab.attributes().build());
-        GlobalEntityTypeAttributes.put(KOBBLIN, EntityKobblin.attributes().build());
-        GlobalEntityTypeAttributes.put(LIOPLEURODON, EntityLiopleurodon.attributes().build());
-        GlobalEntityTypeAttributes.put(LIVESTOCK_MERCHANT, EntityLivestockMerchant.attributes().build());
-        GlobalEntityTypeAttributes.put(MINER, EntityMiner.attributes().build());
-        GlobalEntityTypeAttributes.put(PUMPKIN_SPIDER, EntityPumpkinSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(RAINBOUR, EntityRainbour.attributes().build());
-        GlobalEntityTypeAttributes.put(ROTATICK, EntityRotatick.attributes().build());
-        GlobalEntityTypeAttributes.put(SAGUARO_WORM, EntitySaguaroWorm.attributes().build());
-        GlobalEntityTypeAttributes.put(SHARK, EntityShark.attributes().build());
-        GlobalEntityTypeAttributes.put(SMELTER, EntitySmelter.attributes().build());
-        GlobalEntityTypeAttributes.put(SNAPPER, EntitySnapper.attributes().build());
-        GlobalEntityTypeAttributes.put(STONE_GOLEM, EntityStoneGolem.attributes().build());
-        GlobalEntityTypeAttributes.put(THE_EYE, EntityTheEye.attributes().build());
-        GlobalEntityTypeAttributes.put(THE_GRUE, EntityTheGrue.attributes().build());
-        GlobalEntityTypeAttributes.put(WHALE, EntityWhale.attributes().build());
-        GlobalEntityTypeAttributes.put(WHITE_GRIZZLE, EntityWhiteGrizzle.attributes().build());
+        event.put(ARID_WARRIOR, EntityAridWarrior.attributes().build());
+        event.put(BROWN_GRIZZLE, EntityBrownGrizzle.attributes().build());
+        event.put(CAVE_CRAWLER, EntityCaveCrawler.attributes().build());
+        event.put(CAVECLOPS, EntityCaveclops.attributes().build());
+        event.put(CRAB, EntityCrab.attributes().build());
+        event.put(CYCLOPS, EntityCyclops.attributes().build());
+        event.put(DESERT_CRAWLER, EntityDesertCrawler.attributes().build());
+        event.put(EHU, EntityEhu.attributes().build());
+        event.put(ENTHRALLED_DRAMCRYX, EntityEnthralledDramcryx.attributes().build());
+        event.put(FROST, EntityFrost.attributes().build());
+        event.put(GLACON, EntityGlacon.attributes().build());
+        event.put(HUSK, EntityHusk.attributes().build());
+        event.put(JUNGLE_BAT, EntityJungleBat.attributes().build());
+        event.put(JACK_O_MAN, EntityJackOMan.attributes().build());
+        event.put(JUNGLE_DRAMCRYX, EntityJungleDramcryx.attributes().build());
+        event.put(JUNGLE_SPIDER, EntityJungleSpider.attributes().build());
+        event.put(KING_CRAB, EntityKingCrab.attributes().build());
+        event.put(KOBBLIN, EntityKobblin.attributes().build());
+        event.put(LIOPLEURODON, EntityLiopleurodon.attributes().build());
+        event.put(LIVESTOCK_MERCHANT, EntityLivestockMerchant.attributes().build());
+        event.put(MINER, EntityMiner.attributes().build());
+        event.put(PUMPKIN_SPIDER, EntityPumpkinSpider.attributes().build());
+        event.put(RAINBOUR, EntityRainbour.attributes().build());
+        event.put(ROTATICK, EntityRotatick.attributes().build());
+        event.put(SAGUARO_WORM, EntitySaguaroWorm.attributes().build());
+        event.put(SHARK, EntityShark.attributes().build());
+        event.put(SMELTER, EntitySmelter.attributes().build());
+        event.put(SNAPPER, EntitySnapper.attributes().build());
+        event.put(STONE_GOLEM, EntityStoneGolem.attributes().build());
+        event.put(THE_EYE, EntityTheEye.attributes().build());
+        event.put(THE_GRUE, EntityTheGrue.attributes().build());
+        event.put(WHALE, EntityWhale.attributes().build());
+        event.put(WHITE_GRIZZLE, EntityWhiteGrizzle.attributes().build());
 
         //Nether
-        GlobalEntityTypeAttributes.put(HELL_BAT, EntityHellBat.attributes().build());
-        GlobalEntityTypeAttributes.put(HELL_PIG, EntityHellPig.attributes().build());
-        GlobalEntityTypeAttributes.put(HELL_SPIDER, EntityHellSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(SCORCHER, EntityScorcher.attributes().build());
-        GlobalEntityTypeAttributes.put(WILDFIRE, EntityWildfire.attributes().build());
+        event.put(HELL_BAT, EntityHellBat.attributes().build());
+        event.put(HELL_PIG, EntityHellPig.attributes().build());
+        event.put(HELL_SPIDER, EntityHellSpider.attributes().build());
+        event.put(SCORCHER, EntityScorcher.attributes().build());
+        event.put(WILDFIRE, EntityWildfire.attributes().build());
 
         //End
-        GlobalEntityTypeAttributes.put(ENDER_SPIDER, EntityEnderSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(ENDER_TRIPLETS, EntityEnderTriplets.attributes().build());
-        GlobalEntityTypeAttributes.put(ENDER_WATCHER, EntityEnderWatcher.attributes().build());
+        event.put(ENDER_SPIDER, EntityEnderSpider.attributes().build());
+        event.put(ENDER_TRIPLETS, EntityEnderTriplets.attributes().build());
+        event.put(ENDER_WATCHER, EntityEnderWatcher.attributes().build());
 
         //Boss
-        GlobalEntityTypeAttributes.put(ANCIENT_ENTITY, EntityAncientEntity.attributes().build());
-        GlobalEntityTypeAttributes.put(AYERACO_BLUE, EntityAyeracoBlue.attributes().build());
-        GlobalEntityTypeAttributes.put(AYERACO_GREEN, EntityAyeracoGreen.attributes().build());
-        GlobalEntityTypeAttributes.put(AYERACO_PURPLE, EntityAyeracoPurple.attributes().build());
-        GlobalEntityTypeAttributes.put(AYERACO_RED, EntityAyeracoRed.attributes().build());
-        GlobalEntityTypeAttributes.put(AYERACO_YELLOW, EntityAyeracoYellow.attributes().build());
-        GlobalEntityTypeAttributes.put(DENSOS, EntityDensos.attributes().build());
-        GlobalEntityTypeAttributes.put(DRAMIX, EntityDramix.attributes().build());
-        GlobalEntityTypeAttributes.put(ETERNAL_ARCHER, EntityEternalArcher.attributes().build());
-        GlobalEntityTypeAttributes.put(EXPERIENCED_CORI, EntityExperiencedCori.attributes().build());
-        GlobalEntityTypeAttributes.put(HIVE_QUEEN, EntityHiveQueen.attributes().build());
-        GlobalEntityTypeAttributes.put(KAROT, EntityKarot.attributes().build());
-        GlobalEntityTypeAttributes.put(KAROS, EntityKaros.attributes().build());
-        GlobalEntityTypeAttributes.put(KING_OF_SCORCHERS, EntityKingOfScorchers.attributes().build());
-        GlobalEntityTypeAttributes.put(LADY_LUNA, EntityLadyLuna.attributes().build());
-        GlobalEntityTypeAttributes.put(PARASECTA, EntityParasecta.attributes().build());
-        GlobalEntityTypeAttributes.put(QUADRO, EntityQuadro.attributes().build());
-        GlobalEntityTypeAttributes.put(RAGLOK, EntityRaglok.attributes().build());
-        GlobalEntityTypeAttributes.put(REYVOR, EntityReyvor.attributes().build());
-        GlobalEntityTypeAttributes.put(SOUL_FIEND, EntitySoulFiend.attributes().build());
-        GlobalEntityTypeAttributes.put(SUNSTORM, EntitySunstorm.attributes().build());
-        GlobalEntityTypeAttributes.put(TERMASECT, EntityTermasect.attributes().build());
-        GlobalEntityTypeAttributes.put(THE_WATCHER, EntityTheWatcher.attributes().build());
-        GlobalEntityTypeAttributes.put(TWILIGHT_DEMON, EntityTwilightDemon.attributes().build());
-        GlobalEntityTypeAttributes.put(VAMACHERON, EntityVamacheron.attributes().build());
-        GlobalEntityTypeAttributes.put(WRECK, EntityWreck.attributes().build());
+        event.put(ANCIENT_ENTITY, EntityAncientEntity.attributes().build());
+        event.put(AYERACO_BLUE, EntityAyeracoBlue.attributes().build());
+        event.put(AYERACO_GREEN, EntityAyeracoGreen.attributes().build());
+        event.put(AYERACO_PURPLE, EntityAyeracoPurple.attributes().build());
+        event.put(AYERACO_RED, EntityAyeracoRed.attributes().build());
+        event.put(AYERACO_YELLOW, EntityAyeracoYellow.attributes().build());
+        event.put(DENSOS, EntityDensos.attributes().build());
+        event.put(DRAMIX, EntityDramix.attributes().build());
+        event.put(ETERNAL_ARCHER, EntityEternalArcher.attributes().build());
+        event.put(EXPERIENCED_CORI, EntityExperiencedCori.attributes().build());
+        event.put(HIVE_QUEEN, EntityHiveQueen.attributes().build());
+        event.put(KAROT, EntityKarot.attributes().build());
+        event.put(KAROS, EntityKaros.attributes().build());
+        event.put(KING_OF_SCORCHERS, EntityKingOfScorchers.attributes().build());
+        event.put(LADY_LUNA, EntityLadyLuna.attributes().build());
+        event.put(PARASECTA, EntityParasecta.attributes().build());
+        event.put(QUADRO, EntityQuadro.attributes().build());
+        event.put(RAGLOK, EntityRaglok.attributes().build());
+        event.put(REYVOR, EntityReyvor.attributes().build());
+        event.put(SOUL_FIEND, EntitySoulFiend.attributes().build());
+        event.put(SUNSTORM, EntitySunstorm.attributes().build());
+        event.put(TERMASECT, EntityTermasect.attributes().build());
+        event.put(THE_WATCHER, EntityTheWatcher.attributes().build());
+        event.put(TWILIGHT_DEMON, EntityTwilightDemon.attributes().build());
+        event.put(VAMACHERON, EntityVamacheron.attributes().build());
+        event.put(WRECK, EntityWreck.attributes().build());
 
         //Iceika
-        GlobalEntityTypeAttributes.put(ALICANTO, EntityAlicanto.attributes().build());
-        GlobalEntityTypeAttributes.put(FRACTITE, EntityFractite.attributes().build());
-        GlobalEntityTypeAttributes.put(FROST_ARCHER, EntityFrostArcher.attributes().build());
-        GlobalEntityTypeAttributes.put(FROSTY, EntityFrosty.attributes().build());
-        GlobalEntityTypeAttributes.put(GLACIDE, EntityGlacide.attributes().build());
-        GlobalEntityTypeAttributes.put(HASTREUS, EntityHastreus.attributes().build());
-        GlobalEntityTypeAttributes.put(ROLLUM, EntityRollum.attributes().build());
-        GlobalEntityTypeAttributes.put(WORKSHOP_MERCHANT, EntityWorkshopMerchant.attributes().build());
-        GlobalEntityTypeAttributes.put(WORKSHOP_TINKERER, EntityWorkshopTinkerer.attributes().build());
+        event.put(ALICANTO, EntityAlicanto.attributes().build());
+        event.put(FRACTITE, EntityFractite.attributes().build());
+        event.put(FROST_ARCHER, EntityFrostArcher.attributes().build());
+        event.put(FROSTY, EntityFrosty.attributes().build());
+        event.put(GLACIDE, EntityGlacide.attributes().build());
+        event.put(HASTREUS, EntityHastreus.attributes().build());
+        event.put(ROLLUM, EntityRollum.attributes().build());
+        event.put(WORKSHOP_MERCHANT, EntityWorkshopMerchant.attributes().build());
+        event.put(WORKSHOP_TINKERER, EntityWorkshopTinkerer.attributes().build());
 
         //Eden
-        GlobalEntityTypeAttributes.put(BUNNY, EntityBunny.attributes().build());
-        GlobalEntityTypeAttributes.put(EDEN_CADILLION, EntityEdenCadillion.attributes().build());
-        GlobalEntityTypeAttributes.put(EDEN_TOMO, EntityEdenTomo.attributes().build());
-        GlobalEntityTypeAttributes.put(GREENFEET, EntityGreenfeet.attributes().build());
-        GlobalEntityTypeAttributes.put(MADIVEL, EntityMadivel.attributes().build());
-        GlobalEntityTypeAttributes.put(SUN_ARCHER, EntitySunArcher.attributes().build());
-        GlobalEntityTypeAttributes.put(WEAK_CORI, EntityWeakCori.attributes().build());
+        event.put(BUNNY, EntityBunny.attributes().build());
+        event.put(EDEN_CADILLION, EntityEdenCadillion.attributes().build());
+        event.put(EDEN_TOMO, EntityEdenTomo.attributes().build());
+        event.put(GREENFEET, EntityGreenfeet.attributes().build());
+        event.put(MADIVEL, EntityMadivel.attributes().build());
+        event.put(SUN_ARCHER, EntitySunArcher.attributes().build());
+        event.put(WEAK_CORI, EntityWeakCori.attributes().build());
 
         //Wildwood
-        GlobalEntityTypeAttributes.put(BEHEMOTH, EntityBehemoth.attributes().build());
-        GlobalEntityTypeAttributes.put(EPIPHITE, EntityEpiphite.attributes().build());
-        GlobalEntityTypeAttributes.put(MAGE, EntityMage.attributes().build());
-        GlobalEntityTypeAttributes.put(MOON_WOLF, EntityMoonWolf.attributes().build());
-        GlobalEntityTypeAttributes.put(TERMID, EntityTermid.attributes().build());
-        GlobalEntityTypeAttributes.put(VEREK, EntityVerek.attributes().build());
-        GlobalEntityTypeAttributes.put(WILDWOOD_CADILLION, EntityWildwoodCadillion.attributes().build());
-        GlobalEntityTypeAttributes.put(WILDWOOD_GOLEM, EntityWildwoodGolem.attributes().build());
-        GlobalEntityTypeAttributes.put(WILDWOOD_TOMO, EntityWildwoodTomo.attributes().build());
+        event.put(BEHEMOTH, EntityBehemoth.attributes().build());
+        event.put(EPIPHITE, EntityEpiphite.attributes().build());
+        event.put(MAGE, EntityMage.attributes().build());
+        event.put(MOON_WOLF, EntityMoonWolf.attributes().build());
+        event.put(TERMID, EntityTermid.attributes().build());
+        event.put(VEREK, EntityVerek.attributes().build());
+        event.put(WILDWOOD_CADILLION, EntityWildwoodCadillion.attributes().build());
+        event.put(WILDWOOD_GOLEM, EntityWildwoodGolem.attributes().build());
+        event.put(WILDWOOD_TOMO, EntityWildwoodTomo.attributes().build());
 
         //Apalachia
-        GlobalEntityTypeAttributes.put(APALACHIA_CADILLION, EntityApalachiaCadillion.attributes().build());
-        GlobalEntityTypeAttributes.put(APALACHIA_GOLEM, EntityApalachiaGolem.attributes().build());
-        GlobalEntityTypeAttributes.put(APALACHIA_TOMO, EntityApalachiaTomo.attributes().build());
-        GlobalEntityTypeAttributes.put(ENCHANTED_ARCHER, EntityEnchantedArcher.attributes().build());
-        GlobalEntityTypeAttributes.put(ENCHANTED_WARRIOR, EntityEnchantedWarrior.attributes().build());
-        GlobalEntityTypeAttributes.put(SPELLBINDER, EntitySpellbinder.attributes().build());
+        event.put(APALACHIA_CADILLION, EntityApalachiaCadillion.attributes().build());
+        event.put(APALACHIA_GOLEM, EntityApalachiaGolem.attributes().build());
+        event.put(APALACHIA_TOMO, EntityApalachiaTomo.attributes().build());
+        event.put(ENCHANTED_ARCHER, EntityEnchantedArcher.attributes().build());
+        event.put(ENCHANTED_WARRIOR, EntityEnchantedWarrior.attributes().build());
+        event.put(SPELLBINDER, EntitySpellbinder.attributes().build());
 
         //Skythern
-        GlobalEntityTypeAttributes.put(ADVANCED_CORI, EntityAdvancedCori.attributes().build());
-        GlobalEntityTypeAttributes.put(MEGALITH, EntityMegalith.attributes().build());
-        GlobalEntityTypeAttributes.put(MYSTIC, EntityMystic.attributes().build());
-        GlobalEntityTypeAttributes.put(SAMEK, EntitySamek.attributes().build());
-        GlobalEntityTypeAttributes.put(SKYTHERN_ARCHER, EntitySkythernArcher.attributes().build());
-        GlobalEntityTypeAttributes.put(SKYTHERN_FIEND, EntitySkythernFiend.attributes().build());
-        GlobalEntityTypeAttributes.put(SKYTHERN_GOLEM, EntitySkythernGolem.attributes().build());
+        event.put(ADVANCED_CORI, EntityAdvancedCori.attributes().build());
+        event.put(MEGALITH, EntityMegalith.attributes().build());
+        event.put(MYSTIC, EntityMystic.attributes().build());
+        event.put(SAMEK, EntitySamek.attributes().build());
+        event.put(SKYTHERN_ARCHER, EntitySkythernArcher.attributes().build());
+        event.put(SKYTHERN_FIEND, EntitySkythernFiend.attributes().build());
+        event.put(SKYTHERN_GOLEM, EntitySkythernGolem.attributes().build());
 
         //Mortum
-        GlobalEntityTypeAttributes.put(ANGRY_BUNNY, EntityAngryBunny.attributes().build());
-        GlobalEntityTypeAttributes.put(BASILISK, EntityBasilisk.attributes().build());
-        GlobalEntityTypeAttributes.put(DEMON_OF_DARKNESS, EntityDemonOfDarkness.attributes().build());
-        GlobalEntityTypeAttributes.put(MORTUM_CADILLION, EntityMortumCadillion.attributes().build());
-        GlobalEntityTypeAttributes.put(SORCERER, EntitySorcerer.attributes().build());
-        GlobalEntityTypeAttributes.put(SOUL_SPIDER, EntitySoulSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(SOUL_STEALER, EntitySoulStealer.attributes().build());
-        GlobalEntityTypeAttributes.put(TWILIGHT_ARCHER, EntityTwilightArcher.attributes().build());
+        event.put(ANGRY_BUNNY, EntityAngryBunny.attributes().build());
+        event.put(BASILISK, EntityBasilisk.attributes().build());
+        event.put(DEMON_OF_DARKNESS, EntityDemonOfDarkness.attributes().build());
+        event.put(MORTUM_CADILLION, EntityMortumCadillion.attributes().build());
+        event.put(SORCERER, EntitySorcerer.attributes().build());
+        event.put(SOUL_SPIDER, EntitySoulSpider.attributes().build());
+        event.put(SOUL_STEALER, EntitySoulStealer.attributes().build());
+        event.put(TWILIGHT_ARCHER, EntityTwilightArcher.attributes().build());
 
         //Arcana
-        GlobalEntityTypeAttributes.put(CAPTAIN_MERIK, EntityCaptainMerik.attributes().build());
-        GlobalEntityTypeAttributes.put(DATTICON, EntityDatticon.attributes().build());
-        GlobalEntityTypeAttributes.put(DEATHCRYX, EntityDeathcryx.attributes().build());
-        GlobalEntityTypeAttributes.put(DEATH_HOUND, EntityDeathHound.attributes().build());
-        GlobalEntityTypeAttributes.put(DUNGEON_CONSTRUCTOR, EntityDungeonConstructor.attributes().build());
-        GlobalEntityTypeAttributes.put(DUNGEON_DEMON, EntityDungeonDemon.attributes().build());
-        GlobalEntityTypeAttributes.put(DUNGEON_PRISONER, EntityDungeonPrisoner.attributes().build());
-        GlobalEntityTypeAttributes.put(FYRACRYX, EntityFyracryx.attributes().build());
-        GlobalEntityTypeAttributes.put(GOLEM_OF_REJUVENATION, EntityGolemOfRejuvenation.attributes().build());
-        GlobalEntityTypeAttributes.put(KAZARI, EntityKazari.attributes().build());
-        GlobalEntityTypeAttributes.put(LEORNA, EntityLeorna.attributes().build());
-        GlobalEntityTypeAttributes.put(LORD_VATTICUS, EntityLordVatticus.attributes().build());
-        GlobalEntityTypeAttributes.put(LIVING_STATUE, EntityLivingStatue.attributes().build());
-        GlobalEntityTypeAttributes.put(PARATIKU, EntityParatiku.attributes().build());
-        GlobalEntityTypeAttributes.put(RAZORBACK, EntityRazorback.attributes().build());
-        GlobalEntityTypeAttributes.put(ROAMER, EntityRoamer.attributes().build());
-        GlobalEntityTypeAttributes.put(SEIMER, EntitySeimer.attributes().build());
-        GlobalEntityTypeAttributes.put(WAR_GENERAL, EntityWarGeneral.attributes().build());
-        GlobalEntityTypeAttributes.put(WRAITH, EntityWraith.attributes().build());
-        GlobalEntityTypeAttributes.put(ZELUS, EntityZelus.attributes().build());
-        GlobalEntityTypeAttributes.put(ANGRY_BUNNY, EntityAngryBunny.attributes().build());
-        GlobalEntityTypeAttributes.put(BASILISK, EntityBasilisk.attributes().build());
-        GlobalEntityTypeAttributes.put(DEMON_OF_DARKNESS, EntityDemonOfDarkness.attributes().build());
-        GlobalEntityTypeAttributes.put(MORTUM_CADILLION, EntityMortumCadillion.attributes().build());
-        GlobalEntityTypeAttributes.put(SORCERER, EntitySorcerer.attributes().build());
-        GlobalEntityTypeAttributes.put(SOUL_SPIDER, EntitySoulSpider.attributes().build());
-        GlobalEntityTypeAttributes.put(SOUL_STEALER, EntitySoulStealer.attributes().build());
-        GlobalEntityTypeAttributes.put(TWILIGHT_ARCHER, EntityTwilightArcher.attributes().build());
-
+        event.put(CAPTAIN_MERIK, EntityCaptainMerik.attributes().build());
+        event.put(DATTICON, EntityDatticon.attributes().build());
+        event.put(DEATHCRYX, EntityDeathcryx.attributes().build());
+        event.put(DEATH_HOUND, EntityDeathHound.attributes().build());
+        event.put(DUNGEON_CONSTRUCTOR, EntityDungeonConstructor.attributes().build());
+        event.put(DUNGEON_DEMON, EntityDungeonDemon.attributes().build());
+        event.put(DUNGEON_PRISONER, EntityDungeonPrisoner.attributes().build());
+        event.put(FYRACRYX, EntityFyracryx.attributes().build());
+        event.put(GOLEM_OF_REJUVENATION, EntityGolemOfRejuvenation.attributes().build());
+        event.put(KAZARI, EntityKazari.attributes().build());
+        event.put(LEORNA, EntityLeorna.attributes().build());
+        event.put(LORD_VATTICUS, EntityLordVatticus.attributes().build());
+        event.put(LIVING_STATUE, EntityLivingStatue.attributes().build());
+        event.put(PARATIKU, EntityParatiku.attributes().build());
+        event.put(RAZORBACK, EntityRazorback.attributes().build());
+        event.put(ROAMER, EntityRoamer.attributes().build());
+        event.put(SEIMER, EntitySeimer.attributes().build());
+        event.put(WAR_GENERAL, EntityWarGeneral.attributes().build());
+        event.put(WRAITH, EntityWraith.attributes().build());
+        event.put(ZELUS, EntityZelus.attributes().build());
+    }
+    public static void init() {
         //PLACEMENT
         //TODO - fix spawns
         EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
