@@ -11,7 +11,13 @@ public class BlockModBridge extends BlockModPowered {
         super(name, Block.Properties
                 .of(Material.GLASS)
                 .strength(hardness, 3.0F)
-                .requiresCorrectToolForDrops());
+                .requiresCorrectToolForDrops()
+                .isViewBlocking(BlockModBridge::never)
+                .noOcclusion()
+        );
+    }
+    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos) {
+        return false;
     }
 
     @Override
@@ -23,4 +29,6 @@ public class BlockModBridge extends BlockModPowered {
     public VoxelShape getCollisionShape(BlockState blockState, IBlockReader reader, BlockPos pos, ISelectionContext context) {
         return blockState.getValue(POWERED) ? super.getCollisionShape(blockState, reader, pos, context) : VoxelShapes.empty();
     }
+
+
 }
