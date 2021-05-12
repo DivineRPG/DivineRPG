@@ -10,7 +10,7 @@ import net.minecraftforge.registries.*;
 import java.util.ArrayList;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder("divinerpg")
+@ObjectHolder(DivineRPG.MODID)
 public class SoundRegistry {
 
     private static final ArrayList<SoundEvent> SOUND_EVENTS = new ArrayList<SoundEvent>();

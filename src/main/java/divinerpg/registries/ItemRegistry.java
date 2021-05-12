@@ -20,7 +20,7 @@ import net.minecraftforge.registries.*;
 import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder("divinerpg")
+@ObjectHolder(DivineRPG.MODID)
 public class ItemRegistry {
     public static HashMap<String, Item> itemMap = new HashMap<>();
 

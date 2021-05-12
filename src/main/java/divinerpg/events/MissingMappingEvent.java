@@ -117,11 +117,10 @@ public class MissingMappingEvent
     public static void handleMissingEnchantments(RegistryEvent.MissingMappings<Enchantment> event) {
         for(RegistryEvent.MissingMappings.Mapping<Enchantment> mapping: event.getMappings()) {
             if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "world_break"))) {
-                //TODO - enchant remap
-//                mapping.remap(EnchantmentRegistry.RIVE);
+                mapping.remap(EnchantmentRegistry.RIVE);
             }
-            else if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "double_dealing_damage"))) {
-//                mapping.remap(EnchantmentRegistry.AFTERSHOCK);
+            else if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "double_dealing_damage")) || mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "double_dealing_damage"))) {
+                mapping.remap(EnchantmentRegistry.AFTERSHOCK);
             }
         }
     }

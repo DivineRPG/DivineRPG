@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.*;
 import net.minecraftforge.registries.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder("divinerpg")
+@ObjectHolder(DivineRPG.MODID)
 public class TileRegistry {
 
     public static TileEntityType<AltarOfCorruptionEntity> ALTAR_OF_CORRUPTION;

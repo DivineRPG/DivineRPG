@@ -29,7 +29,7 @@ import net.minecraftforge.registries.*;
 import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder("divinerpg")
+@ObjectHolder(DivineRPG.MODID)
 public class BlockRegistry {
     private static final int WOOD_GOLD = 0;
     private static final int STONE = 1;

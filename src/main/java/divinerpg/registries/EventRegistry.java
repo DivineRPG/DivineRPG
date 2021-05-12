@@ -1,6 +1,7 @@
 package divinerpg.registries;
 
 import divinerpg.events.*;
+import divinerpg.events.enchant.*;
 import net.minecraftforge.common.*;
 
 public class EventRegistry {
@@ -11,5 +12,6 @@ public class EventRegistry {
         MinecraftForge.EVENT_BUS.register(new MissingMappingEvent());
         MinecraftForge.EVENT_BUS.register(new AttatchCapabilityEvent());
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
+        MinecraftForge.EVENT_BUS.register(new RiveHandler());
     }
 }
