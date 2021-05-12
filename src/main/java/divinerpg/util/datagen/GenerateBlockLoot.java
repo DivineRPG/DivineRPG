@@ -110,7 +110,4 @@ public class GenerateBlockLoot implements IDataProvider {
         return LootTable.lootTable().withPool(pool);
     }
 
-
-    //TODO - leaves, probably more
-
 }

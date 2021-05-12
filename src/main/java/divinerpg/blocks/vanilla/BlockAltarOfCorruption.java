@@ -1,25 +1,25 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.registries.TileRegistry;
-import divinerpg.tiles.AltarOfCorruptionEntity;
+import divinerpg.registries.*;
+import divinerpg.tiles.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.pathfinding.PathType;
+import net.minecraft.item.*;
+import net.minecraft.particles.*;
+import net.minecraft.pathfinding.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
-import java.util.Random;
+import javax.annotation.*;
+import java.util.*;
 
 public class BlockAltarOfCorruption extends ContainerBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
@@ -77,6 +77,7 @@ public class BlockAltarOfCorruption extends ContainerBlock {
             return ActionResultType.SUCCESS;
         } else {
             player.openMenu(state.getMenuProvider(worldIn, pos));
+            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayerEntity) player, this);
             return ActionResultType.CONSUME;
         }
     }

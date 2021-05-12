@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:heat_trap_on"
+      "item": "divinerpg:heat_trap"
     },
     "title": {
       "translate": "advancement.divinerpg.arcana.hotter_than_hell"
@@ -16,7 +16,10 @@
     "step_on_heat_trap": {
       "trigger": "minecraft:enter_block",
       "conditions": {
-        "block": "divinerpg:heat_trap_on"
+        "block": "divinerpg:heat_trap",
+        "state": {
+          "active": "true"
+        }
       }
     }
   }

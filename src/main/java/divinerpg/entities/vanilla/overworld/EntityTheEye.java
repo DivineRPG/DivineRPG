@@ -6,7 +6,7 @@ import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.vector.Vector3d;
@@ -41,8 +41,7 @@ public class EntityTheEye extends EntityDivineMob {
                 if (var7 > 1.0D - 0.025D / distMagnitude && player.canSee(this)) {
                     player.addEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
                     if (player instanceof PlayerEntity) {
-                        //TODO - the eye advancement
-//                        TriggerRegistry.DIVINERPG_EYE.trigger((EntityPlayerMP) player);
+                        TriggerRegistry.DIVINERPG_EYE.trigger((ServerPlayerEntity) player);
                     }
                 }
             }
