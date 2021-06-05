@@ -1916,7 +1916,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("staff_of_starlight"));
         register(e, new ItemModNotReady("starlight"));
         register(e, new ItemModNotReady("storm_sword"));
-        register(e, new ItemModNotReady("strong_arcana_potion"));
         register(e, new ItemModNotReady("teaker_backsword"));
         register(e, new ItemModNotReady("teaker_bow"));
         register(e, new ItemModNotReady("teaker_cannon"));
@@ -1929,7 +1928,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("twilight_demon_crystal"));
         register(e, new ItemModNotReady("vamacheron_crystal"));
         register(e, new ItemModNotReady("vile_storm"));
-        register(e, new ItemModNotReady("weak_arcana_potion"));
         register(e, new ItemModNotReady("wildwood_blitz"));
         register(e, new ItemModNotReady("wildwood_bow"));
         register(e, new ItemModNotReady("wildwood_phaser"));
@@ -2001,8 +1999,8 @@ public class ItemRegistry {
         register(e, new DivineShield("wildwood_shield", DivineRPG.tabs.armor, wildwoodChunk, 2400));
         register(e, new ItemAquamarine("aquamarine"));
 //        register(e, new ItemArcanaCharge());
-//        register(e, new ItemArcanaPotion("strong_arcana_potion", 200));
-//        register(e, new ItemArcanaPotion("weak_arcana_potion", 100));
+        register(e, new ItemArcanaPotion("strong_arcana_potion", 200));
+        register(e, new ItemArcanaPotion("weak_arcana_potion", 100));
 //        register(e, new ItemAttractor());
 //        register(e, new ItemBossSpawner("call_of_the_watcher", "message.watcher", x -> Objects.equals(x, DimensionType.NETHER), EntityTheWatcher::new));
 //        register(e, new ItemBossSpawner("densos_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityReyvor::new, EntityDensos::new));
