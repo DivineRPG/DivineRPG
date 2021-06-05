@@ -4,9 +4,11 @@ import divinerpg.capability.*;
 import divinerpg.client.*;
 import divinerpg.compat.*;
 import divinerpg.config.*;
+import divinerpg.events.ArcanaRenderer;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.data.*;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
@@ -59,6 +61,7 @@ public class DivineRPG {
     private void doClientStuff(final FMLClientSetupEvent event) {
         EntityRegistry.render();
         FancyRenders.init();
+        MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
     }
 
     private void post(final FMLLoadCompleteEvent event){
