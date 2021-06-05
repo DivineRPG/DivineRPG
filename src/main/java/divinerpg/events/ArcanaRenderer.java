@@ -1,32 +1,58 @@
 package divinerpg.events;
 
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.config.*;
-import net.minecraft.client.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.client.event.*;
-import net.minecraftforge.eventbus.api.*;
+import com.mojang.blaze3d.platform.GlStateManager;
 
-@OnlyIn(Dist.CLIENT)
+import divinerpg.DivineRPG;
+import divinerpg.capability.*;
+import divinerpg.config.Config;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.IngameGui;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+
 public class ArcanaRenderer {
+	
+	Minecraft mc = Minecraft.getInstance();
 
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
-            Minecraft mc = Minecraft.getInstance();
-            float width = mc.getWindow().getGuiScaledWidth() - Config.arcanaX.get(), height = mc.getWindow().getGuiScaledHeight() - Config.arcanaY.get();
-            mc.getTextureManager().bind(new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png"));
-            //TODO - seek help rendering
+            onTickRender(event);
         }
     }
 
+    @SuppressWarnings("deprecation")
+	private void onTickRender(RenderGameOverlayEvent.Post event) {
+        if (mc.screen == null) {
+            GlStateManager._color4f(1.0F, 1.0F, 1.0F, 1.0F);//resets color
+
+            IngameGui gig = mc.gui;
+            int i = this.mc.getWindow().getGuiScaledWidth();
+            int k = this.mc.getWindow().getGuiScaledHeight();
+            this.mc.getTextureManager().bind(new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png"));
+            int y = k - Config.arcanaY.get();
+            int x = i - Config.arcanaX.get();
+
+        	if(Config.hideArcanaBar != null) {
+        		if(getPercents() != 100) {
+        			gig.blit(event.getMatrixStack(), x, y, 0, 0, 100, 9);
+        			gig.blit(event.getMatrixStack(), x, y, 0, 9, getPercents(), 18);
+        		}
+        	} 
+        	else {
+        		gig.blit(event.getMatrixStack(), x, y, 0, 0, 100, 9);
+        		gig.blit(event.getMatrixStack(), x, y, 0, 9, getPercents(), 18);    	
+        	}
+        }
+    }
 
     private int getPercents() {
-        if (ArcanaProvider.ARCANA_CAP.getDefaultInstance() != null) {
-            float result = ArcanaProvider.ARCANA_CAP.getDefaultInstance().getArcana() / ArcanaProvider.ARCANA_CAP.getDefaultInstance().getMaxArcana() * 100;
+    	IArcana arcana = mc.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+        if (arcana != null) {
+            float result = arcana.getArcana() / arcana.getMaxArcana() * 100;
+
             return (int) MathHelper.clamp(Math.floor(result), 0, 100);
         }
 
