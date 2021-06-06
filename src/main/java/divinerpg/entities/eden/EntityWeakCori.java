@@ -1,11 +1,15 @@
 package divinerpg.entities.eden;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.ai.*;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
@@ -24,24 +28,24 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.dimension() == KeyRegistry.EDEN_WORLD;
     }
-    //TODO - Weak cori shooting ai
-//    @Override
-//    protected AIDivineFireballAttack createShootAI() {
-//        return new AIDivineFireballAttack(this,
-//                new ILaunchThrowable() {
-//
-//                    @Override
-//                    public float getInaccuracy(World world) {
-//                        return 0;
-//                    }
-//
-//                    @Override
-//                    public EntityThrowable createThowable(World world, EntityLivingBase parent, double x, double y, double z) {
-//                        return new EntityCoriShot(world, parent, (float) parent.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
-//                    }
-//                },
-//                SoundRegistry.CORI_SHOOT);
-//    }
+
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
+        return new AIDivineFireballAttack(this,
+                new ILaunchThrowable() {
+
+                    @Override
+                    public float getInaccuracy(World world) {
+                        return 0;
+                    }
+
+                    @Override
+                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
+                        return new EntityCoriShot(EntityRegistry.CORI_SHOT, world, parent, (float) parent.getAttributeValue(Attributes.ATTACK_DAMAGE));
+                    }
+                },
+                SoundRegistry.CORI_SHOOT);
+    }
 
 
     @Override

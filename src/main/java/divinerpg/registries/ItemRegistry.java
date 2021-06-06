@@ -1802,7 +1802,6 @@ public class ItemRegistry {
         register(e, new ItemModNotReady("darven_staff"));
         register(e, new ItemMod("degraded_key"));
         register(e, new ItemModNotReady("densos_crystal"));
-        register(e, new ItemModNotReady("divine_accumulator"));
         register(e, new ItemModNotReady("dream_sours"));
         register(e, new ItemModNotReady("dream_sweets"));
         register(e, new ItemModNotReady("eden_blitz"));
@@ -2012,7 +2011,7 @@ public class ItemRegistry {
 //        register(e, new ItemBossSpawner("twilight_demon_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityTwilightDemon::new));
 //        register(e, new ItemBossSpawner("vamacheron_crystal", "tooltip.mortum_only", x -> Objects.equals(x, DimensionRegistry.mortumDimension), EntityVamacheron::new));
 //        register(e, new ItemChargedCollector("collector"));
-//        register(e, new ItemDivineAccumulator());
+        register(e, new ItemDivineAccumulator());
         register(e, new ItemEggNog("egg_nog"));
         register(e, new ItemModFood("moonbulb", FoodList.MOONBULB, DivineRPG.tabs.food));
         register(e, new ItemModFood("pink_glowbone", FoodList.PINK_GLOWBONE, DivineRPG.tabs.food));

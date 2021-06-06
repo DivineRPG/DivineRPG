@@ -1,13 +1,14 @@
 package divinerpg.entities.vanilla.nether;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
@@ -30,8 +31,7 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        //TODO - Wildfire arrow
-        ArrowEntity arrow = new ArrowEntity(level, this);
+        EntityDivineArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.WILDFIRE_ARROW, this);
         arrow.setSecondsOnFire(100);
         double d0 = target.getX() - this.getX();
         double d1 = target.getBoundingBox().minY + target.getBbHeight() / 3.0F - this.getY();

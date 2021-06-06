@@ -1504,7 +1504,6 @@ public class BlockRegistry {
 //        // Other
         register(registry, new BlockModNotReady("eden_chest"));
         register(registry, new BlockModFire("blue_fire"));
-        //TODO - torch particles
         registerItemlessBlock(registry, new BlockModTorch("eden_torch", ParticleTypes.FLAME));
         registerItemlessBlock(registry, new BlockModWallTorch("eden_wall_torch", ParticleTypes.FLAME));
         //TODO - Eden chest

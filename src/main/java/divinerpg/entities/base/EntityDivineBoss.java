@@ -19,15 +19,6 @@ public class EntityDivineBoss extends EntityDivineMob {
         return false;
     }
 
-
-    //TODO - investigate non boss
-//    @Override
-//    public boolean isNonBoss() {
-//        return false;
-//    }
-
-
-
     public BossInfo.Color getBarColor() {
         return BossInfo.Color.BLUE;
     }

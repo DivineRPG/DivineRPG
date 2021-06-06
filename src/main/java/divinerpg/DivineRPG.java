@@ -4,11 +4,11 @@ import divinerpg.capability.*;
 import divinerpg.client.*;
 import divinerpg.compat.*;
 import divinerpg.config.*;
-import divinerpg.events.ArcanaRenderer;
+import divinerpg.events.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.data.*;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.*;
 import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
@@ -27,15 +27,15 @@ public class DivineRPG {
     public DivineRPG() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::post);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::client);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
         EventRegistry.init();
-        StructureRegistry.DEFERRED_REGISTRY_STRUCTURE.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
 
         DeferredRegister<?>[] registers = {
-                ParticleRegistry.PARTICLES
+                ParticleRegistry.PARTICLES,
+                StructureRegistry.DEFERRED_REGISTRY_STRUCTURE
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -50,7 +50,7 @@ public class DivineRPG {
         FeatureRegistry.registerOres();
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
-        CapabilityManager.INSTANCE.register(IArcana.class, new CapabilityArcana(), Arcana::new);
+        CapabilityManager.INSTANCE.register(IArcana.class, new ArcanaStorage(), Arcana::new);
 
         event.enqueueWork(() -> {
             StructureRegistry.setupStructures();
@@ -58,7 +58,7 @@ public class DivineRPG {
         });
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
+    private void client(final FMLClientSetupEvent event) {
         EntityRegistry.render();
         FancyRenders.init();
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());

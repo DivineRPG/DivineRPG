@@ -38,7 +38,7 @@ public class FluidTar extends FlowingFluid {
                 double d0 = (double)p_204522_2_.getX() + p_204522_4_.nextDouble();
                 double d1 = (double)p_204522_2_.getY() + 1.0D;
                 double d2 = (double)p_204522_2_.getZ() + p_204522_4_.nextDouble();
-                p_204522_1_.addParticle(ParticleTypes.LAVA, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                p_204522_1_.addParticle(ParticleRegistry.TAR.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
                 p_204522_1_.playLocalSound(d0, d1, d2, SoundEvents.LAVA_POP, SoundCategory.BLOCKS, 0.2F + p_204522_4_.nextFloat() * 0.2F, 0.9F + p_204522_4_.nextFloat() * 0.15F, false);
             }
 

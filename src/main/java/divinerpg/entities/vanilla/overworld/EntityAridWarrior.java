@@ -1,13 +1,14 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
@@ -33,8 +34,7 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        //TODO - Custom arrow
-        this.level.addFreshEntity(new ArrowEntity(level, this));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.ARID_WARRIOR_ARROW, this));
     }
     @Override
     protected SoundEvent getAmbientSound() {

@@ -1,7 +1,9 @@
 package divinerpg.enums;
 
-import divinerpg.DivineRPG;
-import net.minecraft.util.ResourceLocation;
+import divinerpg.*;
+import divinerpg.registries.*;
+import net.minecraft.particles.*;
+import net.minecraft.util.*;
 
 import java.awt.*;
 
@@ -20,18 +22,18 @@ public enum BulletType {
     BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
     FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
     FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
-    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleType.EDEN_PORTAL),
-    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleType.WILDWOOD_PORTAL),
-    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleType.APALACHIA_PORTAL),
-    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleType.SKYTHERN_PORTAL),
-    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleType.MORTUM_PORTAL),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleType.GREEN_PORTAL),
-    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleType.EDEN_PORTAL),
-    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleType.WILDWOOD_PORTAL),
-    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleType.APALACHIA_PORTAL),
-    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleType.SKYTHERN_PORTAL),
-    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleType.MORTUM_PORTAL),
-    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleType.GREEN_PORTAL),
+    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
+    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get()),
+    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get()),
+    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get()),
+    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get()),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get()),
+    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get()),
+    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get()),
+    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get()),
+    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get()),
+    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get()),
+    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get()),
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
@@ -68,14 +70,14 @@ public enum BulletType {
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
     EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
 
-    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleType.WILDWOOD_PORTAL);
+    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleRegistry.WILDWOOD_PORTAL.get());
 
     private final float damage;
     private final ResourceLocation texture;
-    private final ParticleType particle;
+    private final BasicParticleType particle;
     private final Color color;
 
-    BulletType(float damage, ResourceLocation texture, ParticleType particle) {
+    BulletType(float damage, ResourceLocation texture, BasicParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -85,11 +87,11 @@ public enum BulletType {
     BulletType(float damage, ResourceLocation texture, Color color) {
         this.damage = damage;
         this.texture = texture;
-        this.particle = ParticleType.NONE;
+        this.particle = null;
         this.color = color;
     }
 
-    BulletType(float damage, ResourceLocation texture, Color color, ParticleType particle) {
+    BulletType(float damage, ResourceLocation texture, Color color, BasicParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -99,7 +101,7 @@ public enum BulletType {
     BulletType(float damage, ResourceLocation texture) {
         this.damage = damage;
         this.texture = texture;
-        this.particle = ParticleType.NONE;
+        this.particle = null;
         this.color = null;
     }
 
@@ -111,7 +113,7 @@ public enum BulletType {
         return this.texture;
     }
 
-    public ParticleType getParticle() {
+    public BasicParticleType getParticle() {
         return this.particle;
     }
 

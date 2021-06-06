@@ -26,6 +26,7 @@ public class SunArcherBowLayer extends LayerRenderer<EntitySunArcher, ModelSunAr
         matrixStackIn.translate(-0.0625F, 0.4375F, 0.0625F);
         matrixStackIn.translate(-0.125F, -0.14f, -0.02);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
+        matrixStackIn.translate(-0.125F, -0.14f, -0.02);
 //            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(-45.0F));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.edenBow.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
 

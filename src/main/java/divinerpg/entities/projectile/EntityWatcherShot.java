@@ -2,35 +2,37 @@ package divinerpg.entities.projectile;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+import net.minecraftforge.event.*;
 
-public class EntityWatcherShot extends ThrowableEntity {
-    private static final DataParameter<ItemStack> STACK = EntityDataManager.defineId(EntityWatcherShot.class, DataSerializers.ITEM_STACK);
-    public EntityWatcherShot(EntityType<? extends ThrowableEntity> type, World worldIn) {
-        super(type, worldIn);
+public class EntityWatcherShot extends DivineThrowable {
+
+    public EntityWatcherShot(EntityType<? extends ThrowableEntity> type, World world) {
+        super(type, world);
     }
 
-    @Override
-    protected void defineSynchedData() {
-        this.getEntityData().define(STACK, ItemStack.EMPTY);
+    public EntityWatcherShot(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity) {
+        super(type, entity, world);
     }
 
+    public EntityWatcherShot(EntityType<? extends ThrowableEntity> type, double x, double y, double z, World world) {
+        this(type, world);
+        this.setPos(x, y, z);
+    }
 
     @Override
     protected void onHit(RayTraceResult result) {
         if (!this.level.isClientSide) {
-            boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this);
-            this.level.explode(null, getX(), getY(), getZ(), 5.0F, Explosion.Mode.DESTROY);
+            boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, this);
+            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Explosion.Mode.BREAK);
         }
 
-        if (result.hitInfo != null ) {
+        if (result.hitInfo != null) {
             if (result.hitInfo instanceof LivingEntity) {
-                LivingEntity mob = (LivingEntity) result.hitInfo;
-                mob.hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
+                LivingEntity entity = (LivingEntity) result.hitInfo;
+                entity.hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
             }
         }
 
@@ -38,4 +40,5 @@ public class EntityWatcherShot extends ThrowableEntity {
             this.kill();
         }
     }
+
 }

@@ -35,7 +35,7 @@ public class ArcanaRenderer {
             int y = k - Config.arcanaY.get();
             int x = i - Config.arcanaX.get();
 
-        	if(Config.hideArcanaBar != null) {
+        	if(Config.hideArcanaBar.get() != false) {
         		if(getPercents() != 100) {
         			gig.blit(event.getMatrixStack(), x, y, 0, 0, 100, 9);
         			gig.blit(event.getMatrixStack(), x, y, 0, 9, getPercents(), 18);
@@ -49,7 +49,7 @@ public class ArcanaRenderer {
     }
 
     private int getPercents() {
-    	IArcana arcana = mc.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+    	IArcana arcana = mc.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(new Arcana());
         if (arcana != null) {
             float result = arcana.getArcana() / arcana.getMaxArcana() * 100;
 

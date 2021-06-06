@@ -1,13 +1,17 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.ai.*;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
+
+import javax.annotation.*;
 
 public class EntityFractite extends EntityDivineFlyingMob {
     public EntityFractite(EntityType<? extends FlyingEntity> type, World worldIn) {
@@ -23,16 +27,15 @@ public class EntityFractite extends EntityDivineFlyingMob {
         return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
-    //TODO - Fractite shot
-//    @Nullable
-//    @Override
-//    protected AIDivineFireballAttack createShootAI() {
+    @Nullable
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
 
-//        return new AIDivineFireballAttack(this,
-//                (world1, parent, x, y, z, fireballStrength) ->
-//                        new EntityFractiteShot(world1, this, x, y, z),
-//                SoundRegistry.FRACTITE_ATTACK);
-//    }
+        return new AIDivineFireballAttack(this,
+                (world1, parent, x, y, z, fireballStrength) ->
+                        new EntityFractiteShot(world1, this, x, y, z),
+                SoundRegistry.FRACTITE_ATTACK);
+    }
 
 
     @Override

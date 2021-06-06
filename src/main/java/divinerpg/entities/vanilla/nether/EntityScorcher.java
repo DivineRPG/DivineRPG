@@ -1,6 +1,7 @@
 package divinerpg.entities.vanilla.nether;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -8,7 +9,6 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
 import net.minecraft.particles.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
@@ -204,8 +204,7 @@ public class EntityScorcher extends EntityDivineMob {
                             }
 
                             for(int i = 0; i < 1; ++i) {
-                                //TODO - scorcher projectile
-                                SmallFireballEntity smallfireballentity = new SmallFireballEntity(this.mob.level, this.mob, d1 + this.mob.getRandom().nextGaussian() * (double)f, d2, d3 + this.mob.getRandom().nextGaussian() * (double)f);
+                                EntityScorcherShot smallfireballentity = new EntityScorcherShot(this.mob.level, this.mob, d1 + this.mob.getRandom().nextGaussian() * (double)f, d2, d3 + this.mob.getRandom().nextGaussian() * (double)f);
                                 smallfireballentity.moveTo(smallfireballentity.getX(), this.mob.getY(0.5D) + 0.5D, smallfireballentity.getZ());
                                 this.mob.level.addFreshEntity(smallfireballentity);
                             }

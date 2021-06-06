@@ -1,21 +1,21 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
-import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.entity.player.*;
+import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import java.util.EnumSet;
+import java.util.*;
 
 public class EntityFrost extends EntityDivineMob {
 
@@ -154,8 +154,7 @@ public class EntityFrost extends EntityDivineMob {
                             }
 
                             for (int i = 0; i < 1; ++i) {
-                                //TODO - change to frost projectile
-                                SmallFireballEntity smallfireballentity = new SmallFireballEntity(this.frost.level, this.frost, d1 + this.frost.getRandom().nextGaussian() * (double) f, d2, d3 + this.frost.getRandom().nextGaussian() * (double) f);
+                                EntityFrostShot smallfireballentity = new EntityFrostShot(this.frost.level, this.frost, d1 + this.frost.getRandom().nextGaussian() * (double) f, d2, d3 + this.frost.getRandom().nextGaussian() * (double) f);
                                 smallfireballentity.moveTo(smallfireballentity.getX(), this.frost.getY(0.5D) + 0.5D, smallfireballentity.getZ());
                                 this.frost.level.addFreshEntity(smallfireballentity);
                             }

@@ -1,6 +1,10 @@
 package divinerpg.entities.boss;
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
+import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -69,6 +73,24 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
     protected boolean isDespawnPeaceful() {
         return true;
+    }
+
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
+        return new AIDivineFireballAttack(this,
+                new ILaunchThrowable() {
+
+                    @Override
+                    public float getInaccuracy(World world) {
+                        return 0;
+                    }
+
+                    @Override
+                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
+                        return new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, world, parent);
+                    }
+                },
+                SoundRegistry.CORI_SHOOT);
     }
 
     public boolean hurt(DamageSource source, float amount) {
@@ -147,23 +169,23 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
                 World world = this.mob.level;
                 ++this.chargeTime;
                 if (this.chargeTime == 10 && !this.mob.isSilent()) {
-                    world.levelEvent((PlayerEntity)null, 1015, this.mob.blockPosition(), 0);
+                    world.levelEvent(null, 1015, this.mob.blockPosition(), 0);
                 }
 
                 if (this.chargeTime == 20) {
-                    double d1 = 4.0D;
+                    float d1 = 4.0F;
                     Vector3d vector3d = this.mob.getViewVector(1.0F);
                     double d2 = livingentity.getX() - (this.mob.getX() + vector3d.x * 4.0D);
                     double d3 = livingentity.getY(0.5D) - (0.5D + this.mob.getY(0.5D));
                     double d4 = livingentity.getZ() - (this.mob.getZ() + vector3d.z * 4.0D);
                     if (!this.mob.isSilent()) {
-                        world.levelEvent((PlayerEntity)null, 1016, this.mob.blockPosition(), 0);
+                        world.levelEvent(null, 1016, this.mob.blockPosition(), 0);
                     }
 
-                    FireballEntity fireballentity = new FireballEntity(world, this.mob, d2, d3, d4);
-                    fireballentity.explosionPower = this.mob.explosionStrength;
-                    fireballentity.setPos(this.mob.getX() + vector3d.x * 4.0D, this.mob.getY(0.5D) + 0.5D, fireballentity.getZ() + vector3d.z * 4.0D);
-                    world.addFreshEntity(fireballentity);
+                    EntityWatcherShot shot = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, world, this.mob);
+                    shot.shoot(d2, d3, d4, 1, 1);
+                    shot.setPos(this.mob.getX() + vector3d.x * 4.0D, this.mob.getY(0.5D) + 0.5D, shot.getZ() + vector3d.z * 4.0D);
+                    world.addFreshEntity(shot);
                     this.chargeTime = -40;
                 }
             } else if (this.chargeTime > 0) {

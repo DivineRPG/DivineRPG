@@ -12,6 +12,7 @@ import divinerpg.client.renders.base.*;
 import divinerpg.client.renders.entity.arcana.*;
 import divinerpg.client.renders.entity.boss.*;
 import divinerpg.client.renders.entity.iceika.*;
+import divinerpg.client.renders.entity.projectile.*;
 import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
 import divinerpg.entities.apalachia.*;
@@ -28,7 +29,10 @@ import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.wildwood.*;
 import divinerpg.util.*;
+import net.minecraft.client.*;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.*;
@@ -49,54 +53,54 @@ public class EntityRegistry {
     private static final List<Item> SPAWN_EGGS = Lists.newArrayList();
 
     //Projectile
-    public static final EntityType WATCHER_SHOT = registerEntity(EntityWatcherShot::new, "watcher_shot",0.5F, 0.5F, EntityClassification.MISC);
-//    buildProjectileEntry(EntityCaveRock.class, "cave_rock"),
-//    buildProjectileEntry(EntitySerenadeOfDeath.class, "serenade_of_death"),
-//    buildProjectileEntry(EntitySerenadeOfIce.class, "serenade_of_ice"),
-//    buildProjectileEntry(EntityEnderTripletsFireball.class, "ender_triplets_fireball"),
-//    buildProjectileEntry(EntityFractiteShot.class, "fractite_shot"),
-//    buildProjectileEntry(EntityFrostShot.class, "frost_shot"),
-//    buildProjectileEntry(EntityFrostCloud.class, "frost_cloud"),
-//    buildProjectileEntry(EntityKingOfScorchersMeteor.class, "king_of_scorchers_meteor"),
-//    buildProjectileEntry(EntityKingOfScorchersShot.class, "king_of_scorchers_shot"),
-//    buildProjectileEntry(EntitySaguaroWormShot.class, "saguaro_worm_shot"),
-//    buildProjectileEntry(EntityScorcherShot.class, "scorcher_shot"),
-//    buildProjectileEntry(EntityShuriken.class, "shuriken"),
-//    buildProjectileEntry(EntitySparkler.class, "sparkler"),
-//    buildProjectileEntry(EntityVileStorm.class, "vile_storm"),
-//    buildProjectileEntry(EntitySnowflakeShuriken.class, "snowflake_shuriken"),
-//    buildProjectileEntry(EntityShooterBullet.class, "shooter_bullet"),
-//    buildProjectileEntry(EntityParticleBullet.class, "particle_bullet"),
-//    buildProjectileEntry(EntityColoredBullet.class, "colored_bullet"),
-//    buildProjectileEntry(EntityCorruptedBullet.class, "corrupted_bullet"),
-//    buildProjectileEntry(EntitySoundOfMusic.class, "sound_of_music"),
-//    buildProjectileEntry(EntitySoundOfCarols.class, "sound_of_carols"),
-//    buildProjectileEntry(EntityDivineArrow.class, "arrow_shot"),
-//    buildProjectileEntry(EntityCoriShot.class, "cori_shot"),
-//    buildProjectileEntry(EntityTwilightMageShot.class, "twilight_mage_shot"),
-//    buildProjectileEntry(EntitySoulFiendShot.class, "soul_fiend_shot"),
-//    buildProjectileEntry(EntityDisk.class, "disk"),
-//    buildProjectileEntry(EntityGrenade.class, "grenade"),
-//    buildProjectileEntry(EntityAttractor.class, "attractor"),
-//    buildProjectileEntry(EntityGeneralsStaff.class, "generals_staff"),
-//    buildProjectileEntry(EntityMeteor.class, "meteor"),
-//    buildProjectileEntry(EntityStar.class, "star"),
-//    buildProjectileEntry(EntityFirefly.class, "firefly"),
-//    buildProjectileEntry(EntityReflector.class, "reflector"),
-//    buildProjectileEntry(EntityFyracryxFireball.class, "fyracryx_fireball"),
-//    buildProjectileEntry(EntityTwilightDemonShot.class, "twilight_demon_shot"),
-//    buildProjectileEntry(EntityMerikMissile.class, "meriks_missile"),
-//    buildProjectileEntry(EntityBouncingProjectile.class, "bouncing_projectile"),
-//    buildProjectileEntry(EntityMandragoraProjectile.class, "mandragora_projectile"),
-//    buildProjectileEntry(EntityKazroticShot.class, "kazrotic_shot"),
-//    buildProjectileEntry(EntityZoragonBomb.class, "zoragon_bomb"),
-//    buildProjectileEntry(EntityDissimentShot.class, "dissiment_shot"),
-//    buildProjectileEntry(EntityLadyLunaSparkler.class, "lady_luna_sparkler"),
-//    buildProjectileEntry(EntityRaglokBomb.class, "raglok_bomb"),
-//    buildProjectileEntry(EntityWreckBouncingProjectile.class, "wreck_bouncing_projectile"),
-//    buildProjectileEntry(EntityWreckExplosiveShot.class, "wreck_explosive_shot"),
-//    buildProjectileEntry(EntityWreckShot.class, "wreck_shot"),
-//    buildProjectileEntry(EntityWildwoodLog.class, "wildwood_log")
+    public static final EntityType ATTRACTOR = registerProjectile(EntityAttractor::new, "attractor");
+    public static final EntityType BOUNCING_PROJECTILE = registerProjectile(EntityBouncingProjectile::new, "bouncing_projectile");
+    public static final EntityType CAVE_ROCK = registerProjectile(EntityCaveRock::new, "cave_rock");
+    public static final EntityType COLORED_BULLET = registerProjectile(EntityColoredBullet::new, "colored_bullet");
+    public static final EntityType CORI_SHOT = registerProjectile(EntityCoriShot::new, "cori_shot");
+    public static final EntityType CORRUPTED_BULLET = registerProjectile(EntityCorruptedBullet::new, "corrupted_bullet");
+        public static final EntityType DISK = registerProjectile(EntityDisk::new, "disk");
+    public static final EntityType DISSIMENT_SHOT = registerProjectile(EntityDissimentShot::new, "dissiment_shot");
+    public static final EntityType ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new, "arrow_shot");
+    public static final EntityType ENDER_TRIPLETS_FIREBALL = registerFireballProjectile(EntityEnderTripletsFireball::new, "ender_triplets_fireball");
+    public static final EntityType FIREFLY = registerProjectile(EntityFirefly::new, "firefly");
+    public static final EntityType FRACTITE_SHOT = registerFireballProjectile(EntityFractiteShot::new, "fractite_shot");
+    public static final EntityType FROST_CLOUD = registerProjectileNoThrow(EntityFrostCloud::new, "frost_cloud");
+    public static final EntityType FROST_SHOT = registerFireballProjectile(EntityFrostShot::new, "frost_shot");
+    public static final EntityType FYRACRYX_FIREBALL = registerFireballProjectile(EntityFyracryxFireball::new, "fyracryx_fireball");
+    public static final EntityType GENERALS_STAFF = registerProjectile(EntityGeneralsStaff::new, "generals_staff");
+    public static final EntityType GRENADE = registerSnowballProjectile(EntityGrenade::new, "grenade");
+    public static final EntityType KAZROTIC_SHOT = registerProjectile(EntityKazroticShot::new, "kazrotic_shot");
+    public static final EntityType KING_OF_SCORCHERS_METEOR = registerProjectile(EntityKingOfScorchersMeteor::new, "king_of_scorchers_meteor");
+    public static final EntityType KING_OF_SCORCHERS_SHOT = registerProjectile(EntityKingOfScorchersShot::new, "king_of_scorchers_shot");
+    public static final EntityType LADY_LUNA_SPARKLER = registerProjectile(EntityLadyLunaSparkler::new, "lady_luna_sparkler");
+    public static final EntityType MANDRAGORA_PROJECTILE = registerProjectile(EntityMandragoraProjectile::new, "mandragora_projectile");
+    public static final EntityType MERIKS_MISSILE = registerProjectile(EntityMerikMissile::new, "meriks_missile");
+    public static final EntityType METEOR = registerProjectile(EntityMeteor::new, "meteor");
+        public static final EntityType PARTICLE_BULLET = registerProjectile(EntityParticleBullet::new, "particle_bullet");
+    public static final EntityType RAGLOK_BOMB = registerProjectile(EntityRaglokBomb::new, "raglok_bomb");
+    public static final EntityType REFLECTOR = registerProjectile(EntityReflector::new, "reflector");
+    public static final EntityType SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new, "saguaro_worm_shot");
+    public static final EntityType SCORCHER_SHOT = registerFireballProjectile(EntityScorcherShot::new, "scorcher_shot");
+    public static final EntityType SERENADE_OF_DEATH = registerProjectile(EntitySerenadeOfDeath::new, "serenade_of_death");
+    public static final EntityType SERENADE_OF_ICE = registerProjectile(EntitySerenadeOfIce::new, "serenade_of_ice");
+        public static final EntityType SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new, "shooter_bullet");
+    public static final EntityType SHURIKEN = registerProjectile(EntityShuriken::new, "shuriken");
+    public static final EntityType SNOWFLAKE_SHURIKEN = registerProjectile(EntitySnowflakeShuriken::new, "snowflake_shuriken");
+    public static final EntityType SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new, "soul_fiend_shot");
+    public static final EntityType SOUND_OF_CAROLS = registerProjectile(EntitySoundOfCarols::new, "sound_of_carols");
+    public static final EntityType SOUND_OF_MUSIC = registerProjectile(EntitySoundOfMusic::new, "sound_of_music");
+    public static final EntityType SPARKLER = registerProjectile(EntitySparkler::new, "sparkler");
+    public static final EntityType STARLIGHT = registerProjectile(EntityStar::new, "star");
+    public static final EntityType TWILIGHT_DEMON_SHOT = registerProjectile(EntityTwilightDemonShot::new, "twilight_demon_shot");
+    public static final EntityType TWILIGHT_MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new, "twilight_mage_shot");
+    public static final EntityType VILE_STORM = registerProjectile(EntityVileStorm::new, "vile_storm");
+    public static final EntityType WATCHER_SHOT = registerProjectile(EntityWatcherShot::new, "watcher_shot");
+    public static final EntityType WILDWOOD_LOG = registerProjectile(EntityWildwoodLog::new, "wildwood_log");
+    public static final EntityType WRECK_BOUNCING_PROJECTILE = registerProjectile(EntityWreckBouncingProjectile::new, "wreck_bouncing_projectile");
+    public static final EntityType WRECK_EXPLOSIVE_SHOT = registerProjectile(EntityWreckExplosiveShot::new, "wreck_explosive_shot");
+    public static final EntityType WRECK_SHOT = registerProjectile(EntityWreckShot::new, "wreck_shot");
+    public static final EntityType ZORAGON_BOMB = registerProjectile(EntityZoragonBomb::new, "zoragon_bomb");
 
     // Boss
     public static final EntityType ANCIENT_ENTITY = registerEntity(EntityAncientEntity::new, "ancient_entity",4.0F, 6.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.BOSS), EntityClassification.MONSTER);
@@ -580,158 +584,208 @@ public class EntityRegistry {
 
     @OnlyIn(Dist.CLIENT)
     public static void render() {
+        EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();
+
+        //Projectile
+        manager.register(ATTRACTOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        manager.register(BOUNCING_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/bouncing_projectile.png")));
+        manager.register(CAVE_ROCK, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cave_rock.png")));
+        manager.register(CORI_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cori_shot.png")));
+        manager.register(CORRUPTED_BULLET, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/corrupted_bullet.png")));
+        RenderingRegistry.registerEntityRenderingHandler(DISK, RenderDisk::new);
+        manager.register(DISSIMENT_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
+        RenderingRegistry.registerEntityRenderingHandler(ARROW_SHOT, RenderDivineArrow::new);
+        manager.register(ENDER_TRIPLETS_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/ender_triplets_fireball.png")));
+        manager.register(FIREFLY, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/firefly.png")));
+        manager.register(FRACTITE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/fractite_shot.png")));
+        manager.register(FROST_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
+        manager.register(FYRACRYX_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
+        manager.register(GENERALS_STAFF, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png")));
+        manager.register(GRENADE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/grenade.png")));
+        manager.register(KAZROTIC_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
+        manager.register(KING_OF_SCORCHERS_METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
+        manager.register(KING_OF_SCORCHERS_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
+        RenderingRegistry.registerEntityRenderingHandler(LADY_LUNA_SPARKLER, RenderShooterBullet::new);
+        manager.register(MANDRAGORA_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/mandragora_projectile.png")));
+        manager.register(MERIKS_MISSILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png")));
+        manager.register(METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meteor.png")));
+        manager.register(RAGLOK_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/raglok_bomb.png")));
+        manager.register(REFLECTOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        RenderingRegistry.registerEntityRenderingHandler(SAGUARO_WORM_SHOT, RenderSaguaroWormShot::new);
+        manager.register(SCORCHER_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/scorcher_shot.png")));
+        manager.register(SERENADE_OF_DEATH, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/serenade_of_death.png")));
+        manager.register(SERENADE_OF_ICE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        RenderingRegistry.registerEntityRenderingHandler(SHOOTER_BULLET, RenderShooterBullet::new);
+        manager.register(SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/shuriken.png")));
+        manager.register(SNOWFLAKE_SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/snowflake_shuriken.png")));
+        manager.register(SOUL_FIEND_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        manager.register(SOUND_OF_CAROLS, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/music.png")));
+        manager.register(SOUND_OF_MUSIC, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/music.png")));
+        manager.register(SPARKLER, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/sparkler.png")));
+        manager.register(STARLIGHT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/starlight.png")));
+        manager.register(TWILIGHT_DEMON_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/twilight_demon_shot.png")));
+        manager.register(TWILIGHT_MAGE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
+        manager.register(VILE_STORM, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/vile_storm.png")));
+        manager.register(WATCHER_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/watcher_shot.png")));
+        manager.register(WRECK_BOUNCING_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_bouncing_projectile.png")));
+        manager.register(WRECK_EXPLOSIVE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_explosive_shot.png")));
+        manager.register(WRECK_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_shot.png")));
+        manager.register(ZORAGON_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/zoragon_bomb.png")));
+        RenderingRegistry.registerEntityRenderingHandler(WILDWOOD_LOG, RenderWildwoodLog::new);
+        RenderingRegistry.registerEntityRenderingHandler(FROST_CLOUD, RenderFrostCloud::new);
+
         //Overworld
         RenderingRegistry.registerEntityRenderingHandler(ARID_WARRIOR, RenderAridWarrior::new);
-        RenderingRegistry.registerEntityRenderingHandler(CAVE_CRAWLER, manager -> new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cave_crawler.png")));
-        RenderingRegistry.registerEntityRenderingHandler(BROWN_GRIZZLE, manager -> new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/brown_grizzle.png")));
+        manager.register(CAVE_CRAWLER, new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cave_crawler.png")));
+        manager.register(BROWN_GRIZZLE, new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/brown_grizzle.png")));
         RenderingRegistry.registerEntityRenderingHandler(CAVECLOPS, RenderCaveclops::new);
-        RenderingRegistry.registerEntityRenderingHandler(CRAB, manager -> new RenderDivineMob(manager, new ModelCrab(), new ResourceLocation(DivineRPG.MODID, "textures/entity/crab.png")));
+        manager.register(CRAB, new RenderDivineMob(manager, new ModelCrab(), new ResourceLocation(DivineRPG.MODID, "textures/entity/crab.png")));
         RenderingRegistry.registerEntityRenderingHandler(CYCLOPS, RenderCyclops::new);
-        RenderingRegistry.registerEntityRenderingHandler(DESERT_CRAWLER, manager -> new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/desert_crawler.png")));
-        RenderingRegistry.registerEntityRenderingHandler(EHU, manager -> new RenderDivineMob(manager, new ModelEhu(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ENTHRALLED_DRAMCRYX, manager -> new RenderDivineMob(manager, new ModelEnthralledDramcryx(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/enthralled_dramcryx.png")));
-        RenderingRegistry.registerEntityRenderingHandler(FROST, manager -> new RenderDivineMob(manager, new ModelFrost(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/frost.png")));
-        RenderingRegistry.registerEntityRenderingHandler(GLACON, manager -> new RenderDivineMob(manager, new ModelGlacon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(HUSK, manager -> new RenderDivineMob(manager, new ModelHusk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/husk.png")));
-        RenderingRegistry.registerEntityRenderingHandler(JUNGLE_BAT, manager -> new RenderDivineMob(manager, new ModelJungleBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_bat.png")));
-        RenderingRegistry.registerEntityRenderingHandler(JUNGLE_DRAMCRYX, manager -> new RenderDivineMob(manager, new ModelDramcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_dramcryx.png")));
-        RenderingRegistry.registerEntityRenderingHandler(JUNGLE_SPIDER, manager -> new RenderDivineMob(manager, new ModelJungleSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_spider.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KING_CRAB, manager -> new RenderDivineMob(manager, new ModelKingCrab(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/king_crab.png")));
+        manager.register(DESERT_CRAWLER, new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/desert_crawler.png")));
+        manager.register(EHU, new RenderDivineMob(manager, new ModelEhu(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu.png")));
+        manager.register(ENTHRALLED_DRAMCRYX, new RenderDivineMob(manager, new ModelEnthralledDramcryx(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/enthralled_dramcryx.png")));
+        manager.register(FROST, new RenderDivineMob(manager, new ModelFrost(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/frost.png")));
+        manager.register(GLACON, new RenderDivineMob(manager, new ModelGlacon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
+        manager.register(HUSK, new RenderDivineMob(manager, new ModelHusk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/husk.png")));
+        manager.register(JUNGLE_BAT, new RenderDivineMob(manager, new ModelJungleBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_bat.png")));
+        manager.register(JUNGLE_DRAMCRYX, new RenderDivineMob(manager, new ModelDramcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_dramcryx.png")));
+        manager.register(JUNGLE_SPIDER, new RenderDivineMob(manager, new ModelJungleSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_spider.png")));
+        manager.register(KING_CRAB, new RenderDivineMob(manager, new ModelKingCrab(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/king_crab.png")));
         RenderingRegistry.registerEntityRenderingHandler(KOBBLIN, RenderKobblin::new);
-        RenderingRegistry.registerEntityRenderingHandler(LIOPLEURODON, manager -> new RenderDivineMob(manager, new ModelLiopleurodon(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/liopleurodon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(LIVESTOCK_MERCHANT, manager -> new RenderDivineMob(manager, new ModelLivestockMerchant(), new ResourceLocation(DivineRPG.MODID, "textures/entity/livestock_merchant.png")));
+        manager.register(LIOPLEURODON, new RenderDivineMob(manager, new ModelLiopleurodon(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/liopleurodon.png")));
+        manager.register(LIVESTOCK_MERCHANT, new RenderDivineMob(manager, new ModelLivestockMerchant(), new ResourceLocation(DivineRPG.MODID, "textures/entity/livestock_merchant.png")));
         RenderingRegistry.registerEntityRenderingHandler(MINER, RenderMiner::new);
-        RenderingRegistry.registerEntityRenderingHandler(PUMPKIN_SPIDER, manager -> new RenderDivineMob(manager, new ModelPumpkinSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/pumpkin_spider.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(RAINBOUR, manager -> new RenderDivineMob(manager, new ModelRainbour(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rainbour.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(ROTATICK, manager -> new RenderDivineMob(manager, new ModelRotatick(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rotatick.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(SAGUARO_WORM, manager -> new RenderDivineMob(manager, new ModelSaguaroWorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/saguaro_worm.png"), 0));
+        manager.register(PUMPKIN_SPIDER, new RenderDivineMob(manager, new ModelPumpkinSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/pumpkin_spider.png"), 0));
+        manager.register(RAINBOUR, new RenderDivineMob(manager, new ModelRainbour(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rainbour.png"), 0));
+        manager.register(ROTATICK, new RenderDivineMob(manager, new ModelRotatick(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rotatick.png"), 0));
+        manager.register(SAGUARO_WORM, new RenderDivineMob(manager, new ModelSaguaroWorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/saguaro_worm.png"), 0));
         RenderingRegistry.registerEntityRenderingHandler(SHARK, RenderShark::new);
-        RenderingRegistry.registerEntityRenderingHandler(SMELTER, manager -> new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/smelter.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(SNAPPER, manager -> new RenderDivineMob(manager, new ModelSnapper(), new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(STONE_GOLEM, manager -> new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/stone_golem.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(THE_EYE, manager -> new RenderDivineMob(manager, new ModelTheEye(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_eye.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(THE_GRUE, manager -> new RenderDivineMob(manager, new ModelTheGrue(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_grue.png"), 0));
+        manager.register(SMELTER, new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/smelter.png"), 0));
+        manager.register(SNAPPER, new RenderDivineMob(manager, new ModelSnapper(), new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper.png"), 0));
+        manager.register(STONE_GOLEM, new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/stone_golem.png"), 0));
+        manager.register(THE_EYE, new RenderDivineMob(manager, new ModelTheEye(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_eye.png"), 0));
+        manager.register(THE_GRUE, new RenderDivineMob(manager, new ModelTheGrue(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_grue.png"), 0));
         RenderingRegistry.registerEntityRenderingHandler(WHALE, RenderWhale::new);
-        RenderingRegistry.registerEntityRenderingHandler(WHITE_GRIZZLE, manager -> new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/white_grizzle.png")));
+        manager.register(WHITE_GRIZZLE, new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/white_grizzle.png")));
 
         //Nether
-        RenderingRegistry.registerEntityRenderingHandler(HELL_BAT, manager -> new RenderDivineMob(manager, new ModelHellBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_bat.png")));
+        manager.register(HELL_BAT, new RenderDivineMob(manager, new ModelHellBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_bat.png")));
         RenderingRegistry.registerEntityRenderingHandler(HELL_PIG, RenderHellPig::new);
-        RenderingRegistry.registerEntityRenderingHandler(HELL_SPIDER, manager -> new RenderDivineMob(manager, new ModelHellSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_spider.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SCORCHER, manager -> new RenderDivineMob(manager, new ModelScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/scorcher.png")));
+        manager.register(HELL_SPIDER, new RenderDivineMob(manager, new ModelHellSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_spider.png")));
+        manager.register(SCORCHER, new RenderDivineMob(manager, new ModelScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/scorcher.png")));
         RenderingRegistry.registerEntityRenderingHandler(WILDFIRE, RenderWildfire::new);
 
         //End
-        RenderingRegistry.registerEntityRenderingHandler(ENDER_SPIDER, manager -> new RenderDivineMob(manager, new ModelEnderSpider(), 0.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_spider.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ENDER_TRIPLETS, manager -> new RenderDivineMob(manager, new ModelEnderTriplets(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_triplets.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ENDER_WATCHER, manager -> new RenderDivineMob(manager, new ModelEnderWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_watcher.png")));
+        manager.register(ENDER_SPIDER, new RenderDivineMob(manager, new ModelEnderSpider(), 0.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_spider.png")));
+        manager.register(ENDER_TRIPLETS, new RenderDivineMob(manager, new ModelEnderTriplets(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_triplets.png")));
+        manager.register(ENDER_WATCHER, new RenderDivineMob(manager, new ModelEnderWatcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_watcher.png")));
 
         //Boss
-        RenderingRegistry.registerEntityRenderingHandler(ANCIENT_ENTITY, manager -> new RenderDivineMob(manager, new ModelAncientEntity(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png")));
-        RenderingRegistry.registerEntityRenderingHandler(AYERACO_BLUE, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")));
-        RenderingRegistry.registerEntityRenderingHandler(AYERACO_GREEN, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")));
-        RenderingRegistry.registerEntityRenderingHandler(AYERACO_RED, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")));
-        RenderingRegistry.registerEntityRenderingHandler(AYERACO_PURPLE, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_purple.png")));
-        RenderingRegistry.registerEntityRenderingHandler(AYERACO_YELLOW, manager -> new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DENSOS, manager -> new RenderDivineMob(manager, new ModelDensos(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DRAMIX, manager -> new RenderDivineMob(manager, new ModelDramix(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ETERNAL_ARCHER, manager -> new RenderDivineMob(manager, new ModelEternalArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png")));
-        RenderingRegistry.registerEntityRenderingHandler(EXPERIENCED_CORI, manager -> new RenderDivineMob(manager, new ModelExperiencedCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
-        RenderingRegistry.registerEntityRenderingHandler(HIVE_QUEEN, manager -> new RenderDivineMob(manager, new ModelHiveQueen(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KAROT, manager -> new RenderDivineMob(manager, new ModelKarot(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KAROS, manager -> new RenderDivineMob(manager, new ModelKaros(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KING_OF_SCORCHERS, manager -> new RenderDivineMob(manager, new ModelKingScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")));
-        RenderingRegistry.registerEntityRenderingHandler(LADY_LUNA, manager -> new RenderDivineMob(manager, new ModelLadyLuna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna.png")));
-        RenderingRegistry.registerEntityRenderingHandler(PARASECTA, manager -> new RenderDivineMob(manager, new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")));
-        RenderingRegistry.registerEntityRenderingHandler(QUADRO, manager -> new RenderDivineMob(manager, new ModelQuadro(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
-        RenderingRegistry.registerEntityRenderingHandler(RAGLOK, manager -> new RenderDivineMob(manager, new ModelRaglok(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
+        manager.register(ANCIENT_ENTITY, new RenderDivineMob(manager, new ModelAncientEntity(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png")));
+        manager.register(AYERACO_BLUE, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")));
+        manager.register(AYERACO_GREEN, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")));
+        manager.register(AYERACO_RED, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")));
+        manager.register(AYERACO_PURPLE, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_purple.png")));
+        manager.register(AYERACO_YELLOW, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
+        manager.register(DENSOS, new RenderDivineMob(manager, new ModelDensos(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
+        manager.register(DRAMIX, new RenderDivineMob(manager, new ModelDramix(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
+        manager.register(ETERNAL_ARCHER, new RenderDivineMob(manager, new ModelEternalArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png")));
+        manager.register(EXPERIENCED_CORI, new RenderDivineMob(manager, new ModelExperiencedCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
+        manager.register(HIVE_QUEEN, new RenderDivineMob(manager, new ModelHiveQueen(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
+        manager.register(KAROT, new RenderDivineMob(manager, new ModelKarot(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
+        manager.register(KAROS, new RenderDivineMob(manager, new ModelKaros(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
+        manager.register(KING_OF_SCORCHERS, new RenderDivineMob(manager, new ModelKingScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")));
+        manager.register(LADY_LUNA, new RenderDivineMob(manager, new ModelLadyLuna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna.png")));
+        manager.register(PARASECTA, new RenderDivineMob(manager, new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")));
+        manager.register(QUADRO, new RenderDivineMob(manager, new ModelQuadro(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
+        manager.register(RAGLOK, new RenderDivineMob(manager, new ModelRaglok(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
         RenderingRegistry.registerEntityRenderingHandler(REYVOR, RenderReyvor::new);
-        RenderingRegistry.registerEntityRenderingHandler(SOUL_FIEND, manager -> new RenderDivineMob(manager, new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SUNSTORM, manager -> new RenderDivineMob(manager, new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
-        RenderingRegistry.registerEntityRenderingHandler(TERMASECT, manager -> new RenderDivineMob(manager, new ModelTermasect(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
-        RenderingRegistry.registerEntityRenderingHandler(THE_WATCHER, manager -> new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
-        RenderingRegistry.registerEntityRenderingHandler(TWILIGHT_DEMON, manager -> new RenderDivineMob(manager, new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(VAMACHERON, manager -> new RenderDivineMob(manager, new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
+        manager.register(SOUL_FIEND, new RenderDivineMob(manager, new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")));
+        manager.register(SUNSTORM, new RenderDivineMob(manager, new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
+        manager.register(TERMASECT, new RenderDivineMob(manager, new ModelTermasect(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
+        manager.register(THE_WATCHER, new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
+        manager.register(TWILIGHT_DEMON, new RenderDivineMob(manager, new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
+        manager.register(VAMACHERON, new RenderDivineMob(manager, new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
         RenderingRegistry.registerEntityRenderingHandler(WRECK, RenderWreck::new);
 
         //Iceika
-        RenderingRegistry.registerEntityRenderingHandler(ALICANTO, manager -> new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
-        RenderingRegistry.registerEntityRenderingHandler(FRACTITE, manager -> new RenderDivineMob(manager, new ModelFractite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
+        manager.register(ALICANTO, new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
+        manager.register(FRACTITE, new RenderDivineMob(manager, new ModelFractite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
         RenderingRegistry.registerEntityRenderingHandler(FROST_ARCHER, RenderFrostArcher::new);
-        RenderingRegistry.registerEntityRenderingHandler(FROSTY, manager -> new RenderDivineMob(manager, new ModelFrosty(), new ResourceLocation(DivineRPG.MODID, "textures/entity/frosty.png")));
-        RenderingRegistry.registerEntityRenderingHandler(GLACIDE, manager -> new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(HASTREUS, manager -> new RenderDivineMob(manager, new ModelHastreus(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hastreus.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ROLLUM, manager -> new RenderDivineMob(manager, new ModelRollum(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rollum.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WORKSHOP_MERCHANT, manager -> new RenderDivineMob(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_merchant.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WORKSHOP_TINKERER, manager -> new RenderDivineMob(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_tinkerer.png")));
+        manager.register(FROSTY, new RenderDivineMob(manager, new ModelFrosty(), new ResourceLocation(DivineRPG.MODID, "textures/entity/frosty.png")));
+        manager.register(GLACIDE, new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
+        manager.register(HASTREUS, new RenderDivineMob(manager, new ModelHastreus(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hastreus.png")));
+        manager.register(ROLLUM, new RenderDivineMob(manager, new ModelRollum(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rollum.png")));
+        manager.register(WORKSHOP_MERCHANT, new RenderDivineMob(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_merchant.png")));
+        manager.register(WORKSHOP_TINKERER, new RenderDivineMob(manager, new ModelWorkshop(), new ResourceLocation(DivineRPG.MODID, "textures/entity/workshop_tinkerer.png")));
 
         //Eden
-        RenderingRegistry.registerEntityRenderingHandler(BUNNY, manager -> new RenderDivineMob(manager, new ModelBunny(), new ResourceLocation(DivineRPG.MODID, "textures/entity/bunny.png")));
-        RenderingRegistry.registerEntityRenderingHandler(EDEN_CADILLION, manager -> new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_cadillion.png")));
-        RenderingRegistry.registerEntityRenderingHandler(EDEN_TOMO, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_tomo.png")));
-        RenderingRegistry.registerEntityRenderingHandler(GREENFEET, manager -> new RenderDivineMob(manager, new ModelGreenfeet(), new ResourceLocation(DivineRPG.MODID, "textures/entity/greenfeet.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MADIVEL, manager -> new RenderDivineMob(manager, new ModelMadivel(), new ResourceLocation(DivineRPG.MODID, "textures/entity/madivel.png")));
+        manager.register(BUNNY, new RenderDivineMob(manager, new ModelBunny(), new ResourceLocation(DivineRPG.MODID, "textures/entity/bunny.png")));
+        manager.register(EDEN_CADILLION, new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_cadillion.png")));
+        manager.register(EDEN_TOMO, new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_tomo.png")));
+        manager.register(GREENFEET, new RenderDivineMob(manager, new ModelGreenfeet(), new ResourceLocation(DivineRPG.MODID, "textures/entity/greenfeet.png")));
+        manager.register(MADIVEL, new RenderDivineMob(manager, new ModelMadivel(), new ResourceLocation(DivineRPG.MODID, "textures/entity/madivel.png")));
         RenderingRegistry.registerEntityRenderingHandler(SUN_ARCHER, RenderSunArcher::new);
-        RenderingRegistry.registerEntityRenderingHandler(WEAK_CORI, manager -> new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/weak_cori.png")));
+        manager.register(WEAK_CORI, new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/weak_cori.png")));
 
         //Wildwood
-        RenderingRegistry.registerEntityRenderingHandler(BEHEMOTH, manager -> new RenderDivineMob(manager, new ModelBehemoth(), new ResourceLocation(DivineRPG.MODID, "textures/entity/behemoth.png")));
-        RenderingRegistry.registerEntityRenderingHandler(EPIPHITE, manager -> new RenderDivineMob(manager, new ModelEpiphite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/epiphite.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MAGE, manager -> new RenderDivineMob(manager, new ModelMage(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mage.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MOON_WOLF, manager -> new RenderDivineMob(manager, new ModelMoonWolf(), new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf.png")));
-        RenderingRegistry.registerEntityRenderingHandler(TERMID, manager -> new RenderDivineMob(manager, new ModelTermid(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termid.png")));
-        RenderingRegistry.registerEntityRenderingHandler(VEREK, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/verek.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WILDWOOD_CADILLION, manager -> new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_cadillion.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WILDWOOD_GOLEM, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_golem.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WILDWOOD_TOMO, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_tomo.png")));
+        manager.register(BEHEMOTH, new RenderDivineMob(manager, new ModelBehemoth(), new ResourceLocation(DivineRPG.MODID, "textures/entity/behemoth.png")));
+        manager.register(EPIPHITE, new RenderDivineMob(manager, new ModelEpiphite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/epiphite.png")));
+        manager.register(MAGE, new RenderDivineMob(manager, new ModelMage(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mage.png")));
+        manager.register(MOON_WOLF, new RenderDivineMob(manager, new ModelMoonWolf(), new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf.png")));
+        manager.register(TERMID, new RenderDivineMob(manager, new ModelTermid(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termid.png")));
+        manager.register(VEREK, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/verek.png")));
+        manager.register(WILDWOOD_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_cadillion.png")));
+        manager.register(WILDWOOD_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_golem.png")));
+        manager.register(WILDWOOD_TOMO, new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_tomo.png")));
 
         //Apalachia
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_CADILLION, manager -> new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_GOLEM, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
-        RenderingRegistry.registerEntityRenderingHandler(APALACHIA_TOMO, manager -> new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ENCHANTED_ARCHER, manager -> new RenderDivineMob(manager, new ModelEnchantedArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
-        RenderingRegistry.registerEntityRenderingHandler(ENCHANTED_WARRIOR, manager -> new RenderDivineMob(manager, new ModelEnchantedWarrior(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SPELLBINDER, manager -> new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
+        manager.register(APALACHIA_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
+        manager.register(APALACHIA_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
+        manager.register(APALACHIA_TOMO, new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
+        manager.register(ENCHANTED_ARCHER, new RenderDivineMob(manager, new ModelEnchantedArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
+        manager.register(ENCHANTED_WARRIOR, new RenderDivineMob(manager, new ModelEnchantedWarrior(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png")));
+        manager.register(SPELLBINDER, new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
 
         //Skythern
-        RenderingRegistry.registerEntityRenderingHandler(ADVANCED_CORI, manager -> new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/advanced_cori.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MEGALITH, manager -> new RenderDivineMob(manager, new ModelMegalith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/megalith.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MYSTIC, manager -> new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mystic.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SAMEK, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/samek.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SKYTHERN_ARCHER, manager -> new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_archer.png"))); //TODO - bow
-        RenderingRegistry.registerEntityRenderingHandler(SKYTHERN_FIEND, manager -> new RenderDivineMob(manager, new ModelSkythernFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_fiend.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SKYTHERN_GOLEM, manager -> new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_golem.png")));
+        manager.register(ADVANCED_CORI, new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/advanced_cori.png")));
+        manager.register(MEGALITH, new RenderDivineMob(manager, new ModelMegalith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/megalith.png")));
+        manager.register(MYSTIC, new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mystic.png")));
+        manager.register(SAMEK, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/samek.png")));
+        manager.register(SKYTHERN_ARCHER, new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_archer.png"))); //TODO - bow
+        manager.register(SKYTHERN_FIEND, new RenderDivineMob(manager, new ModelSkythernFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_fiend.png")));
+        manager.register(SKYTHERN_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_golem.png")));
 
         //Mortum
-        RenderingRegistry.registerEntityRenderingHandler(ANGRY_BUNNY, manager -> new RenderDivineMob(manager, new ModelAngryBunny(), new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
-        RenderingRegistry.registerEntityRenderingHandler(BASILISK, manager -> new RenderDivineMob(manager, new ModelBasilisk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/basilisk.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DEMON_OF_DARKNESS, manager -> new RenderDivineMob(manager, new ModelDemonOfDarkness(), new ResourceLocation(DivineRPG.MODID, "textures/entity/demon_of_darkness.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MORTUM_CADILLION, manager -> new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SORCERER, manager -> new RenderDivineMob(manager, new ModelSorcerer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sorcerer.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SOUL_SPIDER, manager -> new RenderDivineMob(manager, new ModelSoulSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SOUL_STEALER, manager -> new RenderDivineMob(manager, new ModelSoulStealer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
-        RenderingRegistry.registerEntityRenderingHandler(TWILIGHT_ARCHER, manager -> new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png"))); //TODO - bow
-        
+        manager.register(ANGRY_BUNNY, new RenderDivineMob(manager, new ModelAngryBunny(), new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
+        manager.register(BASILISK, new RenderDivineMob(manager, new ModelBasilisk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/basilisk.png")));
+        manager.register(DEMON_OF_DARKNESS, new RenderDivineMob(manager, new ModelDemonOfDarkness(), new ResourceLocation(DivineRPG.MODID, "textures/entity/demon_of_darkness.png")));
+        manager.register(MORTUM_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png")));
+        manager.register(SORCERER, new RenderDivineMob(manager, new ModelSorcerer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sorcerer.png")));
+        manager.register(SOUL_SPIDER, new RenderDivineMob(manager, new ModelSoulSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
+        manager.register(SOUL_STEALER, new RenderDivineMob(manager, new ModelSoulStealer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
+        manager.register(TWILIGHT_ARCHER, new RenderDivineMob(manager, new ModelTwilightArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png"))); //TODO - bow
+
         //Arcana
-        RenderingRegistry.registerEntityRenderingHandler(CAPTAIN_MERIK, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/captain_merik.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DATTICON, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/datticon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DEATHCRYX, manager -> new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/deathcryx.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DEATH_HOUND, manager -> new RenderDivineMob(manager, new ModelDeathHound(), new ResourceLocation(DivineRPG.MODID, "textures/entity/death_hound.png")));
+        manager.register(CAPTAIN_MERIK, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/captain_merik.png")));
+        manager.register(DATTICON, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/datticon.png")));
+        manager.register(DEATHCRYX, new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/deathcryx.png")));
+        manager.register(DEATH_HOUND, new RenderDivineMob(manager, new ModelDeathHound(), new ResourceLocation(DivineRPG.MODID, "textures/entity/death_hound.png")));
         RenderingRegistry.registerEntityRenderingHandler(DUNGEON_CONSTRUCTOR, RenderDungeonConstructor::new);
-        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_DEMON, manager -> new RenderDivineMob(manager, new ModelDungeonDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_demon.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_PRISONER, manager -> new RenderDivineMob(manager, new ModelDungeonPrisoner(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_prisoner.png")));
-        RenderingRegistry.registerEntityRenderingHandler(FYRACRYX, manager -> new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fyracryx.png")));
-        RenderingRegistry.registerEntityRenderingHandler(GOLEM_OF_REJUVENATION, manager -> new RenderDivineMob(manager, new ModelRejuvGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png")));
+        manager.register(DUNGEON_DEMON, new RenderDivineMob(manager, new ModelDungeonDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_demon.png")));
+        manager.register(DUNGEON_PRISONER, new RenderDivineMob(manager, new ModelDungeonPrisoner(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_prisoner.png")));
+        manager.register(FYRACRYX, new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fyracryx.png")));
+        manager.register(GOLEM_OF_REJUVENATION, new RenderDivineMob(manager, new ModelRejuvGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png")));
         RenderingRegistry.registerEntityRenderingHandler(KAZARI, RenderKazari::new);
-        RenderingRegistry.registerEntityRenderingHandler(LEORNA, manager -> new RenderDivineMob(manager, new ModelLeorna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png")));
+        manager.register(LEORNA, new RenderDivineMob(manager, new ModelLeorna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png")));
         RenderingRegistry.registerEntityRenderingHandler(LORD_VATTICUS, RenderLordVatticus::new);
         RenderingRegistry.registerEntityRenderingHandler(LIVING_STATUE, RenderLivingStatue::new);
-        RenderingRegistry.registerEntityRenderingHandler(PARATIKU, manager -> new RenderDivineMob(manager, new ModelParatiku(), new ResourceLocation(DivineRPG.MODID, "textures/entity/paratiku.png")));
-        RenderingRegistry.registerEntityRenderingHandler(RAZORBACK, manager -> new RenderDivineMob(manager, new ModelRazorback(), new ResourceLocation(DivineRPG.MODID, "textures/entity/razorback.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ROAMER, manager -> new RenderDivineMob(manager, new ModelRoamer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/roamer.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SEIMER, manager -> new RenderDivineMob(manager, new ModelSeimer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/seimer.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WAR_GENERAL, manager -> new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/war_general.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WRAITH, manager -> new RenderDivineMob(manager, new ModelWraith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wraith.png")));
+        manager.register(PARATIKU, new RenderDivineMob(manager, new ModelParatiku(), new ResourceLocation(DivineRPG.MODID, "textures/entity/paratiku.png")));
+        manager.register(RAZORBACK, new RenderDivineMob(manager, new ModelRazorback(), new ResourceLocation(DivineRPG.MODID, "textures/entity/razorback.png")));
+        manager.register(ROAMER, new RenderDivineMob(manager, new ModelRoamer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/roamer.png")));
+        manager.register(SEIMER, new RenderDivineMob(manager, new ModelSeimer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/seimer.png")));
+        manager.register(WAR_GENERAL, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/war_general.png")));
+        manager.register(WRAITH, new RenderDivineMob(manager, new ModelWraith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wraith.png")));
         RenderingRegistry.registerEntityRenderingHandler(ZELUS, RenderZelus::new);
     }
 
@@ -794,19 +848,11 @@ public class EntityRegistry {
         }
     }
 
-
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
-        for (EntityType entity : ENTITIES) {
-            Preconditions.checkNotNull(entity.getRegistryName(), "registryName");
-            event.getRegistry().register(entity);
-            }
-    }
     private static <T extends Entity> EntityType<T> registerEntity(EntityType.IFactory<T> factory, String entityName, float width, float height, SpawnEggColors colors, EntityClassification classification) {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
         boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
-        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(64).setUpdateInterval(1).build(location.toString());
+        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
         entity.setRegistryName(location);
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
         ENTITIES.add(entity);
@@ -819,13 +865,72 @@ public class EntityRegistry {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
         boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
-        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(64).setUpdateInterval(1).build(location.toString());
+        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
         entity.setRegistryName(location);
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
         ENTITIES.add(entity);
         return entity;
     }
 
+    private static <T extends Entity> EntityType<T> registerProjectileNoThrow(EntityType.IFactory<T> factory, String entityName) {
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
+        boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
+        EntityType<T> entity = EntityType.Builder.of(factory, EntityClassification.MISC).sized(0.5F, 0.5F).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        entity.setRegistryName(location);
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
+        ENTITIES.add(entity);
+        return entity;
+    }
+
+    private static <T extends ThrowableEntity> EntityType<T> registerProjectile(EntityType.IFactory<T> factory, String entityName) {
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
+        boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
+        EntityType<T> entity = EntityType.Builder.of(factory, EntityClassification.MISC).sized(0.25F, 0.25F).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        entity.setRegistryName(location);
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
+        ENTITIES.add(entity);
+        return entity;
+    }
+    private static <T extends ArrowEntity> EntityType<T> registerArrowProjectile(EntityType.IFactory<T> factory, String entityName) {
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
+        boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
+        EntityType<T> entity = EntityType.Builder.of(factory, EntityClassification.MISC).sized(0.25F, 0.25F).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        entity.setRegistryName(location);
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
+        ENTITIES.add(entity);
+        return entity;
+    }
+    private static <T extends FireballEntity> EntityType<T> registerFireballProjectile(EntityType.IFactory<T> factory, String entityName) {
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
+        boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
+        EntityType<T> entity = EntityType.Builder.of(factory, EntityClassification.MISC).sized(0.25F, 0.25F).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        entity.setRegistryName(location);
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
+        ENTITIES.add(entity);
+        return entity;
+    }
+    private static <T extends SnowballEntity> EntityType<T> registerSnowballProjectile(EntityType.IFactory<T> factory, String entityName) {
+        ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
+        boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
+        EntityType<T> entity = EntityType.Builder.of(factory, EntityClassification.MISC).sized(0.25F, 0.25F).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        entity.setRegistryName(location);
+        SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
+        ENTITIES.add(entity);
+        return entity;
+    }
+
+    @SubscribeEvent
+    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+        for (EntityType entity : ENTITIES) {
+            Preconditions.checkNotNull(entity.getRegistryName(), "registryName");
+            event.getRegistry().register(entity);
+        }
+    }
     @SubscribeEvent
     public static void registerSpawnEggs(final RegistryEvent.Register<Item> event) {
         for (Item spawnEgg : SPAWN_EGGS) {

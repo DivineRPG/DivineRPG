@@ -1,37 +1,28 @@
 package divinerpg.entities.base;
 
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
 public class EntityMageBase extends EntityDivineMob {
-    //TODO - Mage bullet type
-//    private final BulletType bullet;
+    private final BulletType bullet;
 
     public EntityMageBase(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
-        //this(type, worldIn, BulletType.MAGE_SHOT);
+        this.bullet = BulletType.MAGE_SHOT;
     }
-//    public EntityMageBase(EntityType<? extends MobEntity> type, World worldIn, BulletType bullet) {
-//        super(type, worldIn);
-//        this.bullet=bullet;
-//    }
-
-//    private EntityMageBase(World worldIn) {
-//        this(worldIn, BulletType.MAGE_SHOT);
-//    }
-
-//    protected EntityMageBase(World world, BulletType bullet) {
-//        super(world);
-//        this.bullet = bullet;
-//        this.setSize(0.5F, 2.2F);
-//    }
+    public EntityMageBase(EntityType<? extends MobEntity> type, World worldIn, BulletType bullet) {
+        super(type, worldIn);
+        this.bullet = bullet;
+    }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2F;
@@ -55,10 +46,9 @@ public class EntityMageBase extends EntityDivineMob {
                 double tx = this.getTarget().getX() - this.getX();
                 double ty = this.getTarget().getBoundingBox().minY - this.getY();
                 double tz = this.getTarget().getZ() - this.getZ();
-                //TODO - Mage shot
-//                EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, bullet);
-//                shot.shoot(tx, ty, tz, 1.6f, 0);
-//                this.world.spawnEntity(shot);
+                EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE, this, level, bullet);
+                shot.shoot(tx, ty, tz, 1.6f, 0);
+                this.level.addFreshEntity(shot);
                 level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),
                         this.getTarget().getZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
             }

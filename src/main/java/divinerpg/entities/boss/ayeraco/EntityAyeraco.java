@@ -144,8 +144,6 @@ public class EntityAyeraco extends EntityDivineBoss {
     @Override
     public boolean hurt(DamageSource damageSource, float par2) {
         if (isInvulnerableTo(damageSource)
-                //TODO - remove EnderTriplets damage source
-//                || damageSource.getDirectEntity() instanceof EntityEnderTripletsFireball
                 || (damageSource.isProjectile() && group.projectileProtected(this))) {
             return false;
         }

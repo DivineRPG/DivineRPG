@@ -6,7 +6,7 @@ import net.minecraftforge.common.capabilities.*;
 
 import javax.annotation.*;
 
-public class CapabilityArcana implements Capability.IStorage<IArcana> {
+public class ArcanaStorage implements Capability.IStorage<IArcana> {
     private static final String arcana = "arcana";
     private static final String regenDelay = "regenDelay";
     private static final String maxArcana = "maxArcana";
@@ -25,12 +25,10 @@ public class CapabilityArcana implements Capability.IStorage<IArcana> {
 
     @Override
     public void readNBT(Capability<IArcana> capability, IArcana instance, Direction side, INBT nbt) {
-        if (nbt instanceof CompoundNBT) {
             CompoundNBT saved = (CompoundNBT) nbt;
 
             instance.set(saved.getFloat(arcana));
             instance.setRegenDelay(Math.max(1, saved.getInt(regenDelay)));
             instance.setMaxArcana(Math.max(1, saved.getFloat(maxArcana)));
-        }
     }
 }

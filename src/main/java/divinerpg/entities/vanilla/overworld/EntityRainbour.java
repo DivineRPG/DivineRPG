@@ -1,5 +1,6 @@
 package divinerpg.entities.vanilla.overworld;
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.EntityStats;
@@ -174,4 +175,9 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return level.dimension() == World.OVERWORLD && super.checkSpawnRules(worldIn, spawnReasonIn) && getCommandSenderWorld().getLightEmission(blockPosition()) <= random.nextInt(7);
     }
 
+    @Nullable
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
+        return null;
+    }
 }

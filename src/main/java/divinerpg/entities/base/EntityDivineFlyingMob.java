@@ -1,17 +1,19 @@
 package divinerpg.entities.base;
 
+import divinerpg.entities.ai.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.controller.MovementController;
+import net.minecraft.entity.ai.controller.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
+import javax.annotation.*;
 import java.util.*;
 
-public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
+public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob {
     protected EntityDivineFlyingMob(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
         this.moveControl = new EntityDivineFlyingMob.MoveHelperController(this);
@@ -22,8 +24,10 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
             return Math.abs(p_213812_1_.getY() - this.getY()) <= 4.0D;
         }));
-
-        //TODO - Ranged fly mob attacks
+        AIDivineFireballAttack attack = createShootAI();
+        if (attack != null) {
+            this.goalSelector.addGoal(7, attack);
+        }
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         BlockPos blockpos = pos.below();
@@ -34,6 +38,8 @@ public class EntityDivineFlyingMob extends FlyingEntity implements IMob {
     }
 
 
+    @Nullable
+    protected abstract AIDivineFireballAttack createShootAI();
 
     static class LookAroundGoal extends Goal {
         private final EntityDivineFlyingMob parentEntity;

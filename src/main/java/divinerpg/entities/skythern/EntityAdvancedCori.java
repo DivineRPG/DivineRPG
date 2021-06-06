@@ -1,12 +1,16 @@
 package divinerpg.entities.skythern;
 
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 
@@ -17,24 +21,23 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
         super(type, worldIn);
     }
 
-    //TODO - advanced cori shot
-//    @Override
-//    protected AIDivineFireballAttack createShootAI() {
-//        return new AIDivineFireballAttack(this,
-//                new ILaunchThrowable() {
-//
-//                    @Override
-//                    public float getInaccuracy(World world) {
-//                        return 0;
-//                    }
-//
-//                    @Override
-//                    public EntityThrowable createThowable(World world, EntityLivingBase parent, double x, double y, double z) {
-//                        return new EntityCoriShot(world, parent, (float) parent.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
-//                    }
-//                },
-//                SoundRegistry.CORI_SHOOT);
-//    }
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
+        return new AIDivineFireballAttack(this,
+                new ILaunchThrowable() {
+
+                    @Override
+                    public float getInaccuracy(World world) {
+                        return 0;
+                    }
+
+                    @Override
+                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
+                        return new EntityCoriShot(EntityRegistry.CORI_SHOT, world, parent, (float) parent.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                    }
+                },
+                SoundRegistry.CORI_SHOOT);
+    }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.8F;
     }

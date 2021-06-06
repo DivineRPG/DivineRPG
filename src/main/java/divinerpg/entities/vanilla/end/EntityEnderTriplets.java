@@ -1,12 +1,16 @@
 package divinerpg.entities.vanilla.end;
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
+
+import javax.annotation.*;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob {
     public EntityEnderTriplets(EntityType<? extends FlyingEntity> type, World worldIn) {
@@ -40,11 +44,10 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
         return SoundEvents.GHAST_DEATH;
     }
 
-    //TODO - Ender triplets fireball attack
-//    @Nullable
-//    @Override
-//    protected AIDivineFireballAttack createShootAI() {
-//        return new AIDivineFireballAttack(this,
-//                (world1, parent, x, y, z, fireballStrength) -> new EntityEnderTripletsFireball(world, parent, x, y, z));
-//    }
+    @Nullable
+    @Override
+    protected AIDivineFireballAttack createShootAI() {
+        return new AIDivineFireballAttack(this,
+                (world1, parent, x, y, z, fireballStrength) -> new EntityEnderTripletsFireball(level, parent, x, y, z));
+    }
 }

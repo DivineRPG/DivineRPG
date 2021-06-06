@@ -1,14 +1,15 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.Blocks;
+import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
@@ -76,13 +77,12 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         for (double h = -1.5; h < 1.5; h += 0.5) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
                 for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                    //TODO - add saguaro worm shot
-//                    EntitySaguaroWormShot shot = new EntitySaguaroWormShot(this.world, this);
-//                    shot.posX = this.posX + r * Math.cos(theta);
-//                    shot.posY = this.posY + 5 + h;
-//                    shot.posZ = this.posZ + r * Math.sin(theta);
-//                    shot.shoot(tx, ty, tz, 0.9f, 5);
-//                    world.spawnEntity(shot);
+                    EntitySaguaroWormShot shot = new EntitySaguaroWormShot(EntityRegistry.SAGUARO_WORM_SHOT, this, this.level);
+                    shot.xo = this.xo + r * Math.cos(theta);
+                    shot.yo = this.yo + 5 + h;
+                    shot.zo = this.zo + r * Math.sin(theta);
+                    shot.shoot(tx, ty, tz, 0.9f, 5);
+                    level.addFreshEntity(shot);
                 }
             }
         }
