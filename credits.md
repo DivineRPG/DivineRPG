@@ -30,6 +30,8 @@
 * FrozenYT - Russian translations
 * Kellixon - Russian translations
 * Davoleo - Italian translations
+* Zeedif - Spanish translations
+* AlaanRS - Spanish translations
 
 
 ### Older Version Translations
