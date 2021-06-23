@@ -7,7 +7,7 @@ import net.minecraft.util.*;
 public class RenderDisk extends RenderDivineProjectile<EntityDisk> {
 
     public RenderDisk(EntityRendererManager renderManager) {
-        super(renderManager, null);
+        super(renderManager, new ResourceLocation("minecraft:textures/projectiles/arrow.png"));
     }
 
     @Override

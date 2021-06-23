@@ -45,7 +45,4 @@ public class EntityTheGrue extends EntityDivineMob {
         return SoundRegistry.DEATHCRYX_HURT;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
 }

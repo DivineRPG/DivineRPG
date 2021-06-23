@@ -13,7 +13,10 @@ import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 
 public class EntitySaguaroWorm extends EntityDivineMob {
@@ -110,7 +113,9 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         return SoundRegistry.SAGUARO_WORM;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && level.getBlockState(blockPosition().below()).getBlock() == Blocks.SAND && super.canSpawn(worldIn, spawnReasonIn);
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return worldIn.getBlockState(blockpos).getBlock() == Blocks.SAND || reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
 }

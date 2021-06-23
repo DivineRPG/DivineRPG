@@ -204,7 +204,5 @@ public class EntityJungleSpider extends EntityDivineMob {
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.JUNGLE_SPIDER;
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
+
 }

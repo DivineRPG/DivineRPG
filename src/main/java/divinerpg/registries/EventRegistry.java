@@ -12,6 +12,6 @@ public class EventRegistry {
         MinecraftForge.EVENT_BUS.register(new MissingMappingEvent());
         MinecraftForge.EVENT_BUS.register(new AttatchCapabilityEvent());
 //        MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
-        MinecraftForge.EVENT_BUS.register(new RiveHandler()); 
+        MinecraftForge.EVENT_BUS.register(new RiveHandler());
     }
 }

@@ -42,7 +42,6 @@ import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.*;
 import net.minecraftforge.event.world.*;
 import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.client.registry.*;
 import net.minecraftforge.fml.common.*;
 
 import java.util.*;
@@ -59,7 +58,7 @@ public class EntityRegistry {
     public static final EntityType COLORED_BULLET = registerProjectile(EntityColoredBullet::new, "colored_bullet");
     public static final EntityType CORI_SHOT = registerProjectile(EntityCoriShot::new, "cori_shot");
     public static final EntityType CORRUPTED_BULLET = registerProjectile(EntityCorruptedBullet::new, "corrupted_bullet");
-        public static final EntityType DISK = registerProjectile(EntityDisk::new, "disk");
+    public static final EntityType DISK = registerProjectile(EntityDisk::new, "disk");
     public static final EntityType DISSIMENT_SHOT = registerProjectile(EntityDissimentShot::new, "dissiment_shot");
     public static final EntityType ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new, "arrow_shot");
     public static final EntityType ENDER_TRIPLETS_FIREBALL = registerFireballProjectile(EntityEnderTripletsFireball::new, "ender_triplets_fireball");
@@ -77,14 +76,14 @@ public class EntityRegistry {
     public static final EntityType MANDRAGORA_PROJECTILE = registerProjectile(EntityMandragoraProjectile::new, "mandragora_projectile");
     public static final EntityType MERIKS_MISSILE = registerProjectile(EntityMerikMissile::new, "meriks_missile");
     public static final EntityType METEOR = registerProjectile(EntityMeteor::new, "meteor");
-        public static final EntityType PARTICLE_BULLET = registerProjectile(EntityParticleBullet::new, "particle_bullet");
+    public static final EntityType PARTICLE_BULLET = registerProjectile(EntityParticleBullet::new, "particle_bullet");
     public static final EntityType RAGLOK_BOMB = registerProjectile(EntityRaglokBomb::new, "raglok_bomb");
     public static final EntityType REFLECTOR = registerProjectile(EntityReflector::new, "reflector");
     public static final EntityType SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new, "saguaro_worm_shot");
     public static final EntityType SCORCHER_SHOT = registerFireballProjectile(EntityScorcherShot::new, "scorcher_shot");
     public static final EntityType SERENADE_OF_DEATH = registerProjectile(EntitySerenadeOfDeath::new, "serenade_of_death");
     public static final EntityType SERENADE_OF_ICE = registerProjectile(EntitySerenadeOfIce::new, "serenade_of_ice");
-        public static final EntityType SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new, "shooter_bullet");
+    public static final EntityType SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new, "shooter_bullet");
     public static final EntityType SHURIKEN = registerProjectile(EntityShuriken::new, "shuriken");
     public static final EntityType SNOWFLAKE_SHURIKEN = registerProjectile(EntitySnowflakeShuriken::new, "snowflake_shuriken");
     public static final EntityType SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new, "soul_fiend_shot");
@@ -293,8 +292,6 @@ public class EntityRegistry {
 //    buildEntityEntry(EntityZone.class, "zone", VETHEA),
 //    buildEntityEntry(EntityZoragon.class, "zoragon", VETHEA),
 
-
-
     @SubscribeEvent
     public static void registerGlobalEntityAttributes(EntityAttributeCreationEvent event) {
         // Vanilla
@@ -452,134 +449,139 @@ public class EntityRegistry {
         event.put(WRAITH, EntityWraith.attributes().build());
         event.put(ZELUS, EntityZelus.attributes().build());
     }
-    public static void init() {
-        //PLACEMENT
-        //TODO - fix spawns
-        EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(BROWN_GRIZZLE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBrownGrizzle::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CAVE_CRAWLER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaveCrawler::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CAVECLOPS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaveclops::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CRAB, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCrab::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CYCLOPS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCyclops::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DESERT_CRAWLER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDesertCrawler::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EHU, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEhu::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENTHRALLED_DRAMCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnthralledDramcryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROST, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrost::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GLACON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGlacon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HUSK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHusk::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JACK_O_MAN, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJackOMan::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_BAT, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleBat::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_DRAMCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleDramcryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KING_CRAB, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKingCrab::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KOBBLIN, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKobblin::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LIOPLEURODON, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLiopleurodon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LIVESTOCK_MERCHANT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLivestockMerchant::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MINER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMiner::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(PUMPKIN_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityPumpkinSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(RAINBOUR, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRainbour::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ROTATICK, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRotatick::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SAGUARO_WORM, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySaguaroWorm::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SHARK, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityShark::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SMELTER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySmelter::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SNAPPER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySnapper::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(STONE_GOLEM, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityStoneGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(THE_EYE, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheEye::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(THE_GRUE, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheGrue::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WHALE, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhale::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WHITE_GRIZZLE, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhiteGrizzle::canSpawnOn);
+
+    private static <T extends MobEntity> void registerWaterSpawn(final EntityType<T> type, EntitySpawnPlacementRegistry.IPlacementPredicate<T> predicate) {
+        EntitySpawnPlacementRegistry.register(type, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, predicate);
+    }
+    private static <T extends MobEntity> void registerLandSpawn(final EntityType<T> type, EntitySpawnPlacementRegistry.IPlacementPredicate<T> predicate) {
+        EntitySpawnPlacementRegistry.register(type, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, predicate);
+    }
+    public static void registerSpawns() {
+        registerLandSpawn(ARID_WARRIOR, EntityAridWarrior::canSpawnOn);
+        registerLandSpawn(BROWN_GRIZZLE, EntityBrownGrizzle::canSpawnOn);
+        registerLandSpawn(CAVE_CRAWLER, EntityCaveCrawler::canSpawnOn);
+        registerLandSpawn(CAVECLOPS, EntityCaveclops::canSpawnOn);
+        registerLandSpawn(CRAB, EntityCrab::canSpawnOn);
+        registerLandSpawn(CYCLOPS, EntityCyclops::canSpawnOn);
+        registerLandSpawn(DESERT_CRAWLER, EntityDesertCrawler::canSpawnOn);
+        registerLandSpawn(EHU, EntityEhu::canSpawnOn);
+        registerLandSpawn(ENTHRALLED_DRAMCRYX, EntityEnthralledDramcryx::canSpawnOn);
+        registerLandSpawn(FROST, EntityFrost::canSpawnOn);
+        registerLandSpawn(GLACON, EntityGlacon::canSpawnOn);
+        registerLandSpawn(HUSK, EntityHusk::canSpawnOn);
+        registerLandSpawn(JACK_O_MAN, EntityJackOMan::canSpawnOn);
+        registerLandSpawn(JUNGLE_BAT, EntityJungleBat::canSpawnOn);
+        registerLandSpawn(JUNGLE_DRAMCRYX, EntityJungleDramcryx::canSpawnOn);
+        registerLandSpawn(JUNGLE_SPIDER, EntityJungleSpider::canSpawnOn);
+        registerLandSpawn(KING_CRAB, EntityKingCrab::canSpawnOn);
+        registerLandSpawn(KOBBLIN, EntityKobblin::canSpawnOn);
+        registerWaterSpawn(LIOPLEURODON, EntityLiopleurodon::canSpawnOn);
+        registerLandSpawn(LIVESTOCK_MERCHANT, EntityLivestockMerchant::canSpawnOn);
+        registerLandSpawn(MINER, EntityMiner::canSpawnOn);
+        registerLandSpawn(PUMPKIN_SPIDER, EntityPumpkinSpider::canSpawnOn);
+        registerLandSpawn(RAINBOUR, EntityRainbour::canSpawnOn);
+        registerLandSpawn(ROTATICK, EntityRotatick::canSpawnOn);
+        registerLandSpawn(SAGUARO_WORM, EntitySaguaroWorm::canSpawnOn);
+        registerWaterSpawn(SHARK, EntityShark::canSpawnOn);
+        registerLandSpawn(SMELTER, EntitySmelter::canSpawnOn);
+        registerLandSpawn(SNAPPER, EntitySnapper::canSpawnOn);
+        registerLandSpawn(STONE_GOLEM, EntityStoneGolem::canSpawnOn);
+        registerLandSpawn(THE_EYE, EntityTheEye::canSpawnOn);
+        registerLandSpawn(THE_GRUE, EntityTheGrue::canSpawnOn);
+        registerWaterSpawn(WHALE, EntityWhale::canSpawnOn);
+        registerLandSpawn(WHITE_GRIZZLE, EntityWhiteGrizzle::canSpawnOn);
 
         //Nether
-        EntitySpawnPlacementRegistry.register(HELL_BAT, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellBat::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HELL_PIG, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellPig::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HELL_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SCORCHER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityScorcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDFIRE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildfire::canSpawnOn);
+        registerLandSpawn(HELL_BAT, EntityHellBat::canSpawnOn);
+        registerLandSpawn(HELL_PIG, EntityHellPig::canSpawnOn);
+        registerLandSpawn(HELL_SPIDER, EntityHellSpider::canSpawnOn);
+        registerLandSpawn(SCORCHER, EntityScorcher::canSpawnOn);
+        registerLandSpawn(WILDFIRE, EntityWildfire::canSpawnOn);
 
         //End
-        EntitySpawnPlacementRegistry.register(ENDER_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENDER_TRIPLETS, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING, EntityEnderTriplets::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENDER_WATCHER, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderWatcher::canSpawnOn);
+        registerLandSpawn(ENDER_SPIDER, EntityEnderSpider::canSpawnOn);
+        registerLandSpawn(ENDER_TRIPLETS, EntityEnderTriplets::canSpawnOn);
+        registerLandSpawn(ENDER_WATCHER, EntityEnderWatcher::canSpawnOn);
 
         //Iceika
-        EntitySpawnPlacementRegistry.register(ALICANTO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAlicanto::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FRACTITE, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFractite::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROST_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrostArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROSTY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrosty::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GLACIDE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGlacide::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HASTREUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHastreus::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ROLLUM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRollum::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WORKSHOP_MERCHANT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWorkshopMerchant::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WORKSHOP_TINKERER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWorkshopTinkerer::canSpawnOn);
+        registerLandSpawn(ALICANTO, EntityAlicanto::canSpawnOn);
+        registerLandSpawn(FRACTITE, EntityFractite::canSpawnOn);
+        registerLandSpawn(FROST_ARCHER, EntityFrostArcher::canSpawnOn);
+        registerLandSpawn(FROSTY, EntityFrosty::canSpawnOn);
+        registerLandSpawn(GLACIDE, EntityGlacide::canSpawnOn);
+        registerLandSpawn(HASTREUS, EntityHastreus::canSpawnOn);
+        registerLandSpawn(ROLLUM, EntityRollum::canSpawnOn);
+        registerLandSpawn(WORKSHOP_MERCHANT, EntityWorkshopMerchant::canSpawnOn);
+        registerLandSpawn(WORKSHOP_TINKERER, EntityWorkshopTinkerer::canSpawnOn);
 
         //Eden
-        EntitySpawnPlacementRegistry.register(BUNNY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBunny::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EDEN_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEdenCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EDEN_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEdenTomo::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GREENFEET, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGreenfeet::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MADIVEL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMadivel::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SUN_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySunArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WEAK_CORI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWeakCori::canSpawnOn);
+        registerLandSpawn(BUNNY, EntityBunny::canSpawnOn);
+        registerLandSpawn(EDEN_CADILLION, EntityEdenCadillion::canSpawnOn);
+        registerLandSpawn(EDEN_TOMO, EntityEdenTomo::canSpawnOn);
+        registerLandSpawn(GREENFEET, EntityGreenfeet::canSpawnOn);
+        registerLandSpawn(MADIVEL, EntityMadivel::canSpawnOn);
+        registerLandSpawn(SUN_ARCHER, EntitySunArcher::canSpawnOn);
+        registerLandSpawn(WEAK_CORI, EntityWeakCori::canSpawnOn);
 
         //Wildwood
-        EntitySpawnPlacementRegistry.register(BEHEMOTH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBehemoth::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EPIPHITE, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEpiphite::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MAGE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMage::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MOON_WOLF, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMoonWolf::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(TERMID, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTermid::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(VEREK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityVerek::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodTomo::canSpawnOn);
+        registerLandSpawn(BEHEMOTH, EntityBehemoth::canSpawnOn);
+        registerLandSpawn(EPIPHITE, EntityEpiphite::canSpawnOn);
+        registerLandSpawn(MAGE, EntityMage::canSpawnOn);
+        registerLandSpawn(MOON_WOLF, EntityMoonWolf::canSpawnOn);
+        registerLandSpawn(TERMID, EntityTermid::canSpawnOn);
+        registerLandSpawn(VEREK, EntityVerek::canSpawnOn);
+        registerLandSpawn(WILDWOOD_CADILLION, EntityWildwoodCadillion::canSpawnOn);
+        registerLandSpawn(WILDWOOD_GOLEM, EntityWildwoodGolem::canSpawnOn);
+        registerLandSpawn(WILDWOOD_TOMO, EntityWildwoodTomo::canSpawnOn);
 
         //Apalachia
-        EntitySpawnPlacementRegistry.register(APALACHIA_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(APALACHIA_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(APALACHIA_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaTomo::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENCHANTED_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnchantedArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENCHANTED_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnchantedWarrior::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SPELLBINDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySpellbinder::canSpawnOn);
+        registerLandSpawn(APALACHIA_CADILLION, EntityApalachiaCadillion::canSpawnOn);
+        registerLandSpawn(APALACHIA_GOLEM, EntityApalachiaGolem::canSpawnOn);
+        registerLandSpawn(APALACHIA_TOMO, EntityApalachiaTomo::canSpawnOn);
+        registerLandSpawn(ENCHANTED_ARCHER, EntityEnchantedArcher::canSpawnOn);
+        registerLandSpawn(ENCHANTED_WARRIOR, EntityEnchantedWarrior::canSpawnOn);
+        registerLandSpawn(SPELLBINDER, EntitySpellbinder::canSpawnOn);
 
         //Skythern
-        EntitySpawnPlacementRegistry.register(ADVANCED_CORI, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAdvancedCori::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MEGALITH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMegalith::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MYSTIC, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMystic::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SAMEK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySamek::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_FIEND, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernFiend::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernGolem::canSpawnOn);
+        registerLandSpawn(ADVANCED_CORI, EntityAdvancedCori::canSpawnOn);
+        registerLandSpawn(MEGALITH, EntityMegalith::canSpawnOn);
+        registerLandSpawn(MYSTIC, EntityMystic::canSpawnOn);
+        registerLandSpawn(SAMEK, EntitySamek::canSpawnOn);
+        registerLandSpawn(SKYTHERN_ARCHER, EntitySkythernArcher::canSpawnOn);
+        registerLandSpawn(SKYTHERN_FIEND, EntitySkythernFiend::canSpawnOn);
+        registerLandSpawn(SKYTHERN_GOLEM, EntitySkythernGolem::canSpawnOn);
 
         //Mortum
-        EntitySpawnPlacementRegistry.register(ANGRY_BUNNY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAngryBunny::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(BASILISK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBasilisk::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DEMON_OF_DARKNESS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDemonOfDarkness::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MORTUM_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMortumCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SORCERER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySorcerer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SOUL_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySoulSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SOUL_STEALER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySoulStealer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(TWILIGHT_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTwilightArcher::canSpawnOn);
+        registerLandSpawn(ANGRY_BUNNY, EntityAngryBunny::canSpawnOn);
+        registerLandSpawn(BASILISK, EntityBasilisk::canSpawnOn);
+        registerLandSpawn(DEMON_OF_DARKNESS, EntityDemonOfDarkness::canSpawnOn);
+        registerLandSpawn(MORTUM_CADILLION, EntityMortumCadillion::canSpawnOn);
+        registerLandSpawn(SORCERER, EntitySorcerer::canSpawnOn);
+        registerLandSpawn(SOUL_SPIDER, EntitySoulSpider::canSpawnOn);
+        registerLandSpawn(SOUL_STEALER, EntitySoulStealer::canSpawnOn);
+        registerLandSpawn(TWILIGHT_ARCHER, EntityTwilightArcher::canSpawnOn);
 
         //Arcana
-        EntitySpawnPlacementRegistry.register(CAPTAIN_MERIK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DATTICON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDatticon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DEATHCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDeathcryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DEATH_HOUND, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDeathHound::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_CONSTRUCTOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_DEMON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDungeonDemon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_PRISONER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDungeonPrisoner::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FYRACRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFyracryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GOLEM_OF_REJUVENATION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGolemOfRejuvenation::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KAZARI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKazari::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LEORNA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLeorna::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LORD_VATTICUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLordVatticus::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LIVING_STATUE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLivingStatue::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(PARATIKU, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityParatiku::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(RAZORBACK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRazorback::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ROAMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRoamer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SEIMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySeimer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WAR_GENERAL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaptainMerik::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WRAITH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWarGeneral::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ZELUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWraith::canSpawnOn);
+        registerLandSpawn(CAPTAIN_MERIK, EntityCaptainMerik::canSpawnOn);
+        registerLandSpawn(DATTICON, EntityDatticon::canSpawnOn);
+        registerLandSpawn(DEATHCRYX, EntityDeathcryx::canSpawnOn);
+        registerLandSpawn(DEATH_HOUND, EntityDeathHound::canSpawnOn);
+        registerLandSpawn(DUNGEON_CONSTRUCTOR, EntityCaptainMerik::canSpawnOn);
+        registerLandSpawn(DUNGEON_DEMON, EntityDungeonDemon::canSpawnOn);
+        registerLandSpawn(DUNGEON_PRISONER, EntityDungeonPrisoner::canSpawnOn);
+        registerLandSpawn(FYRACRYX, EntityFyracryx::canSpawnOn);
+        registerLandSpawn(GOLEM_OF_REJUVENATION, EntityGolemOfRejuvenation::canSpawnOn);
+        registerLandSpawn(KAZARI, EntityKazari::canSpawnOn);
+        registerLandSpawn(LEORNA, EntityLeorna::canSpawnOn);
+        registerLandSpawn(LORD_VATTICUS, EntityLordVatticus::canSpawnOn);
+        registerLandSpawn(LIVING_STATUE, EntityLivingStatue::canSpawnOn);
+        registerLandSpawn(PARATIKU, EntityParatiku::canSpawnOn);
+        registerLandSpawn(RAZORBACK, EntityRazorback::canSpawnOn);
+        registerLandSpawn(ROAMER, EntityRoamer::canSpawnOn);
+        registerLandSpawn(SEIMER, EntitySeimer::canSpawnOn);
+        registerLandSpawn(WAR_GENERAL, EntityCaptainMerik::canSpawnOn);
+        registerLandSpawn(WRAITH, EntityWarGeneral::canSpawnOn);
+        registerLandSpawn(ZELUS, EntityWraith::canSpawnOn);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -592,9 +594,9 @@ public class EntityRegistry {
         manager.register(CAVE_ROCK, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cave_rock.png")));
         manager.register(CORI_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cori_shot.png")));
         manager.register(CORRUPTED_BULLET, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/corrupted_bullet.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DISK, RenderDisk::new);
+        manager.register(DISK, new RenderDisk(manager));
         manager.register(DISSIMENT_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ARROW_SHOT, RenderDivineArrow::new);
+        manager.register(ARROW_SHOT, new RenderDivineArrow(manager));
         manager.register(ENDER_TRIPLETS_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/ender_triplets_fireball.png")));
         manager.register(FIREFLY, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/firefly.png")));
         manager.register(FRACTITE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/fractite_shot.png")));
@@ -605,17 +607,17 @@ public class EntityRegistry {
         manager.register(KAZROTIC_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
         manager.register(KING_OF_SCORCHERS_METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
         manager.register(KING_OF_SCORCHERS_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
-        RenderingRegistry.registerEntityRenderingHandler(LADY_LUNA_SPARKLER, RenderShooterBullet::new);
+        manager.register(LADY_LUNA_SPARKLER, new RenderShooterBullet(manager));
         manager.register(MANDRAGORA_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/mandragora_projectile.png")));
         manager.register(MERIKS_MISSILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png")));
         manager.register(METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meteor.png")));
         manager.register(RAGLOK_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/raglok_bomb.png")));
         manager.register(REFLECTOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SAGUARO_WORM_SHOT, RenderSaguaroWormShot::new);
+        manager.register(SAGUARO_WORM_SHOT, new RenderSaguaroWormShot(manager));
         manager.register(SCORCHER_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/scorcher_shot.png")));
         manager.register(SERENADE_OF_DEATH, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/serenade_of_death.png")));
         manager.register(SERENADE_OF_ICE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SHOOTER_BULLET, RenderShooterBullet::new);
+        manager.register(SHOOTER_BULLET, new RenderShooterBullet(manager));
         manager.register(SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/shuriken.png")));
         manager.register(SNOWFLAKE_SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/snowflake_shuriken.png")));
         manager.register(SOUL_FIEND_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
@@ -631,49 +633,50 @@ public class EntityRegistry {
         manager.register(WRECK_EXPLOSIVE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_explosive_shot.png")));
         manager.register(WRECK_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_shot.png")));
         manager.register(ZORAGON_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/zoragon_bomb.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WILDWOOD_LOG, RenderWildwoodLog::new);
-        RenderingRegistry.registerEntityRenderingHandler(FROST_CLOUD, RenderFrostCloud::new);
+        manager.register(WILDWOOD_LOG, new RenderWildwoodLog(manager));
+        manager.register(FROST_CLOUD, new RenderFrostCloud(manager));
 
         //Overworld
-        RenderingRegistry.registerEntityRenderingHandler(ARID_WARRIOR, RenderAridWarrior::new);
+        manager.register(ARID_WARRIOR, new RenderAridWarrior(manager));
         manager.register(CAVE_CRAWLER, new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cave_crawler.png")));
         manager.register(BROWN_GRIZZLE, new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/brown_grizzle.png")));
-        RenderingRegistry.registerEntityRenderingHandler(CAVECLOPS, RenderCaveclops::new);
+        manager.register(CAVECLOPS, new RenderCaveclops(manager));
         manager.register(CRAB, new RenderDivineMob(manager, new ModelCrab(), new ResourceLocation(DivineRPG.MODID, "textures/entity/crab.png")));
-        RenderingRegistry.registerEntityRenderingHandler(CYCLOPS, RenderCyclops::new);
+        manager.register(CYCLOPS, new RenderCyclops(manager));
         manager.register(DESERT_CRAWLER, new RenderDivineMob(manager, new ModelCrawler(), new ResourceLocation(DivineRPG.MODID, "textures/entity/desert_crawler.png")));
         manager.register(EHU, new RenderDivineMob(manager, new ModelEhu(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu.png")));
         manager.register(ENTHRALLED_DRAMCRYX, new RenderDivineMob(manager, new ModelEnthralledDramcryx(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/enthralled_dramcryx.png")));
         manager.register(FROST, new RenderDivineMob(manager, new ModelFrost(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/frost.png")));
         manager.register(GLACON, new RenderDivineMob(manager, new ModelGlacon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
         manager.register(HUSK, new RenderDivineMob(manager, new ModelHusk(), new ResourceLocation(DivineRPG.MODID, "textures/entity/husk.png")));
+        manager.register(JACK_O_MAN, new RenderJackOMan(manager));
         manager.register(JUNGLE_BAT, new RenderDivineMob(manager, new ModelJungleBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_bat.png")));
         manager.register(JUNGLE_DRAMCRYX, new RenderDivineMob(manager, new ModelDramcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_dramcryx.png")));
         manager.register(JUNGLE_SPIDER, new RenderDivineMob(manager, new ModelJungleSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/jungle_spider.png")));
         manager.register(KING_CRAB, new RenderDivineMob(manager, new ModelKingCrab(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/king_crab.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KOBBLIN, RenderKobblin::new);
+        manager.register(KOBBLIN, new RenderKobblin(manager));
         manager.register(LIOPLEURODON, new RenderDivineMob(manager, new ModelLiopleurodon(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/liopleurodon.png")));
         manager.register(LIVESTOCK_MERCHANT, new RenderDivineMob(manager, new ModelLivestockMerchant(), new ResourceLocation(DivineRPG.MODID, "textures/entity/livestock_merchant.png")));
-        RenderingRegistry.registerEntityRenderingHandler(MINER, RenderMiner::new);
+        manager.register(MINER, new RenderMiner(manager));
         manager.register(PUMPKIN_SPIDER, new RenderDivineMob(manager, new ModelPumpkinSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/pumpkin_spider.png"), 0));
         manager.register(RAINBOUR, new RenderDivineMob(manager, new ModelRainbour(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rainbour.png"), 0));
         manager.register(ROTATICK, new RenderDivineMob(manager, new ModelRotatick(), new ResourceLocation(DivineRPG.MODID, "textures/entity/rotatick.png"), 0));
         manager.register(SAGUARO_WORM, new RenderDivineMob(manager, new ModelSaguaroWorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/saguaro_worm.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(SHARK, RenderShark::new);
+        manager.register(SHARK, new RenderShark(manager));
         manager.register(SMELTER, new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/smelter.png"), 0));
         manager.register(SNAPPER, new RenderDivineMob(manager, new ModelSnapper(), new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper.png"), 0));
         manager.register(STONE_GOLEM, new RenderDivineMob(manager, new ModelStoneGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/stone_golem.png"), 0));
         manager.register(THE_EYE, new RenderDivineMob(manager, new ModelTheEye(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_eye.png"), 0));
         manager.register(THE_GRUE, new RenderDivineMob(manager, new ModelTheGrue(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_grue.png"), 0));
-        RenderingRegistry.registerEntityRenderingHandler(WHALE, RenderWhale::new);
+        manager.register(WHALE, new RenderWhale(manager));
         manager.register(WHITE_GRIZZLE, new RenderDivineMob(manager, new ModelGrizzle(), new ResourceLocation(DivineRPG.MODID, "textures/entity/white_grizzle.png")));
 
         //Nether
         manager.register(HELL_BAT, new RenderDivineMob(manager, new ModelHellBat(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_bat.png")));
-        RenderingRegistry.registerEntityRenderingHandler(HELL_PIG, RenderHellPig::new);
+        manager.register(HELL_PIG, new RenderHellPig(manager));
         manager.register(HELL_SPIDER, new RenderDivineMob(manager, new ModelHellSpider(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_spider.png")));
         manager.register(SCORCHER, new RenderDivineMob(manager, new ModelScorcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/scorcher.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WILDFIRE, RenderWildfire::new);
+        manager.register(WILDFIRE, new RenderWildfire(manager));
 
         //End
         manager.register(ENDER_SPIDER, new RenderDivineMob(manager, new ModelEnderSpider(), 0.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ender_spider.png")));
@@ -699,19 +702,19 @@ public class EntityRegistry {
         manager.register(PARASECTA, new RenderDivineMob(manager, new ModelParasecta(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")));
         manager.register(QUADRO, new RenderDivineMob(manager, new ModelQuadro(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
         manager.register(RAGLOK, new RenderDivineMob(manager, new ModelRaglok(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
-        RenderingRegistry.registerEntityRenderingHandler(REYVOR, RenderReyvor::new);
+        manager.register(REYVOR, new RenderReyvor(manager));
         manager.register(SOUL_FIEND, new RenderDivineMob(manager, new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")));
         manager.register(SUNSTORM, new RenderDivineMob(manager, new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
         manager.register(TERMASECT, new RenderDivineMob(manager, new ModelTermasect(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
         manager.register(THE_WATCHER, new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
         manager.register(TWILIGHT_DEMON, new RenderDivineMob(manager, new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
         manager.register(VAMACHERON, new RenderDivineMob(manager, new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
-        RenderingRegistry.registerEntityRenderingHandler(WRECK, RenderWreck::new);
+        manager.register(WRECK, new RenderWreck(manager));
 
         //Iceika
         manager.register(ALICANTO, new RenderDivineMob(manager, new ModelAlicanto(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
         manager.register(FRACTITE, new RenderDivineMob(manager, new ModelFractite(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
-        RenderingRegistry.registerEntityRenderingHandler(FROST_ARCHER, RenderFrostArcher::new);
+        manager.register(FROST_ARCHER, new RenderFrostArcher(manager));
         manager.register(FROSTY, new RenderDivineMob(manager, new ModelFrosty(), new ResourceLocation(DivineRPG.MODID, "textures/entity/frosty.png")));
         manager.register(GLACIDE, new RenderDivineMob(manager, new ModelGlacide(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
         manager.register(HASTREUS, new RenderDivineMob(manager, new ModelHastreus(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hastreus.png")));
@@ -725,7 +728,7 @@ public class EntityRegistry {
         manager.register(EDEN_TOMO, new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eden_tomo.png")));
         manager.register(GREENFEET, new RenderDivineMob(manager, new ModelGreenfeet(), new ResourceLocation(DivineRPG.MODID, "textures/entity/greenfeet.png")));
         manager.register(MADIVEL, new RenderDivineMob(manager, new ModelMadivel(), new ResourceLocation(DivineRPG.MODID, "textures/entity/madivel.png")));
-        RenderingRegistry.registerEntityRenderingHandler(SUN_ARCHER, RenderSunArcher::new);
+        manager.register(SUN_ARCHER, new RenderSunArcher(manager));
         manager.register(WEAK_CORI, new RenderDivineMob(manager, new ModelCori(), new ResourceLocation(DivineRPG.MODID, "textures/entity/weak_cori.png")));
 
         //Wildwood
@@ -771,22 +774,22 @@ public class EntityRegistry {
         manager.register(DATTICON, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/datticon.png")));
         manager.register(DEATHCRYX, new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/deathcryx.png")));
         manager.register(DEATH_HOUND, new RenderDivineMob(manager, new ModelDeathHound(), new ResourceLocation(DivineRPG.MODID, "textures/entity/death_hound.png")));
-        RenderingRegistry.registerEntityRenderingHandler(DUNGEON_CONSTRUCTOR, RenderDungeonConstructor::new);
+        manager.register(DUNGEON_CONSTRUCTOR, new RenderDungeonConstructor(manager));
         manager.register(DUNGEON_DEMON, new RenderDivineMob(manager, new ModelDungeonDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_demon.png")));
         manager.register(DUNGEON_PRISONER, new RenderDivineMob(manager, new ModelDungeonPrisoner(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dungeon_prisoner.png")));
         manager.register(FYRACRYX, new RenderDivineMob(manager, new ModelDeathcryx(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fyracryx.png")));
         manager.register(GOLEM_OF_REJUVENATION, new RenderDivineMob(manager, new ModelRejuvGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/golem_of_rejuvenation.png")));
-        RenderingRegistry.registerEntityRenderingHandler(KAZARI, RenderKazari::new);
+        manager.register(KAZARI, new RenderKazari(manager));
         manager.register(LEORNA, new RenderDivineMob(manager, new ModelLeorna(), new ResourceLocation(DivineRPG.MODID, "textures/entity/leorna.png")));
-        RenderingRegistry.registerEntityRenderingHandler(LORD_VATTICUS, RenderLordVatticus::new);
-        RenderingRegistry.registerEntityRenderingHandler(LIVING_STATUE, RenderLivingStatue::new);
+        manager.register(LORD_VATTICUS, new RenderLordVatticus(manager));
+        manager.register(LIVING_STATUE, new RenderLivingStatue(manager));
         manager.register(PARATIKU, new RenderDivineMob(manager, new ModelParatiku(), new ResourceLocation(DivineRPG.MODID, "textures/entity/paratiku.png")));
         manager.register(RAZORBACK, new RenderDivineMob(manager, new ModelRazorback(), new ResourceLocation(DivineRPG.MODID, "textures/entity/razorback.png")));
         manager.register(ROAMER, new RenderDivineMob(manager, new ModelRoamer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/roamer.png")));
         manager.register(SEIMER, new RenderDivineMob(manager, new ModelSeimer(), new ResourceLocation(DivineRPG.MODID, "textures/entity/seimer.png")));
         manager.register(WAR_GENERAL, new RenderDivineMob(manager, new ModelSamek(), new ResourceLocation(DivineRPG.MODID, "textures/entity/war_general.png")));
         manager.register(WRAITH, new RenderDivineMob(manager, new ModelWraith(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wraith.png")));
-        RenderingRegistry.registerEntityRenderingHandler(ZELUS, RenderZelus::new);
+        manager.register(ZELUS, new RenderZelus(manager));
     }
 
     public static void spawnStuff(BiomeLoadingEvent event) {

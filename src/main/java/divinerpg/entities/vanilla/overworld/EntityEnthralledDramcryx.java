@@ -37,7 +37,4 @@ public class EntityEnthralledDramcryx extends EntityDivineMob {
         return SoundRegistry.DRAMCRYX_HURT;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn) && getY() <= 16;
-    }
 }

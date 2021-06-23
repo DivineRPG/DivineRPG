@@ -194,8 +194,4 @@ public class EntityFrost extends EntityDivineMob {
         return SoundEvents.BLAZE_DEATH;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
-
 }

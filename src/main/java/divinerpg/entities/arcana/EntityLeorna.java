@@ -1,37 +1,18 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.EntityDivineMerchant;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.world.World;
-
-import javax.annotation.*;
+import net.minecraft.world.*;
 
 public class EntityLeorna extends EntityDivineMerchant {
 	
-	public EntityLeorna(EntityType<? extends CreatureEntity> type, World worldIn) {
+	public EntityLeorna(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
         super(type, worldIn);
     }
-	
-	@Override
-	protected void onVillagerTrade(MerchantOffer offer) {
-		
-	}
 
-	@Override
-	protected void populateTradeData() {
-		
-	}
-	
-	@Override
-	protected int getGuiId() {
-	    //return GUIHandler.LEORNA_GUI_ID;
-		return 5;
-	}
-	
-	protected String[] getChatMessages() {
+	public String[] getChatMessages() {
         return new String[] {
         		"message.leorna.hitchak",
                 "message.leorna.lamona",
@@ -40,30 +21,25 @@ public class EntityLeorna extends EntityDivineMerchant {
                 "message.leorna.zelus"
         };
     }
-	
-	@Override
-	public MerchantOffers getRecipeList() {
-		MerchantOffers offers = new MerchantOffers();
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(ItemRegistry.eucalyptusRootSeeds, 1), ItemRegistry.eucalyptusRootSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.marsineSeeds, 1), ItemRegistry.marsineSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.firestockSeeds, 1), ItemRegistry.firestockSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(ItemRegistry.pinflySeeds, 1), ItemRegistry.pinflySeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(ItemRegistry.aquamarineSeeds, 1), ItemRegistry.aquamarineSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.hitchakSeeds, 1), ItemRegistry.hitchakSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.veiloSeeds, 1), ItemRegistry.veiloSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(ItemRegistry.lamonaSeeds, 1), ItemRegistry.lamonaSeeds.getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteDirt, 16), BlockRegistry.arcaniteDirt.asItem().getMaxDamage(), 1, 1));
-		offers.add(new MerchantOffer(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteGrass, 16), BlockRegistry.arcaniteGrass.asItem().getMaxDamage(), 1, 1));
-		return offers;
-	}
 
 	@Override
-	public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+	protected void updateTrades() {
+		MerchantOffers merchantoffers = this.getOffers();
 
+		DivineTrades[] tradetrades = new DivineTrades[]{
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(ItemRegistry.eucalyptusRootSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.marsineSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(ItemRegistry.firestockSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(ItemRegistry.pinflySeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(ItemRegistry.aquamarineSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.hitchakSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.veiloSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(ItemRegistry.lamonaSeeds, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteDirt, 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteGrass, 16), random.nextInt(7), 5)
+		};
+		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+		super.updateTrades();
 	}
 
-	@Override
-	public World getLevel() {
-		return level;
-	}
 }

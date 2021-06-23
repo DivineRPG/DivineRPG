@@ -32,10 +32,10 @@ public class DivineRPG {
         EventRegistry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
-
         DeferredRegister<?>[] registers = {
                 ParticleRegistry.PARTICLES,
-                StructureRegistry.DEFERRED_REGISTRY_STRUCTURE
+                StructureRegistry.DEFERRED_REGISTRY_STRUCTURE,
+                TraderProfession.PROFESSIONS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -45,7 +45,7 @@ public class DivineRPG {
 
     private void setup(final FMLCommonSetupEvent event) {
         tabs.init();
-        EntityRegistry.init();
+        EntityRegistry.registerSpawns();
         KeyRegistry.init();
         FeatureRegistry.registerOres();
         ModCompat.initCommon(event);

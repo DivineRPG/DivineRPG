@@ -226,7 +226,9 @@ public class EntityPumpkinSpider extends EntityDivineMob {
     protected SoundEvent getAmbientSound() {
         return SoundEvents.SPIDER_AMBIENT;
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return worldIn.getBiome(pos).getTemperature(pos) < .5 || reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
 }

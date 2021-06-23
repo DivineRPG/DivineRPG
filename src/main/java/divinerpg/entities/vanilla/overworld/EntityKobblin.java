@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
 
 import javax.annotation.Nullable;
+import java.util.*;
 
 public class EntityKobblin extends EntityDivineMob {
     private static final DataParameter<Boolean> PROVOKED = EntityDataManager.defineId(EntityKobblin.class, DataSerializers.BOOLEAN);
@@ -23,10 +24,9 @@ public class EntityKobblin extends EntityDivineMob {
         super(type, worldIn);
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        BlockPos pos = new BlockPos(getX(), getY(), getZ());
-        return this.level.getBlockState(pos.below()).getBlock() == Blocks.GRASS
-                && this.level.getBlockState(pos.below(2)).getBlock() != Blocks.AIR && super.canSpawn(worldIn, spawnReasonIn) && level.dimension() == World.OVERWORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        BlockPos blockpos = pos.below();
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) || worldIn.getBlockState(blockpos).getBlock() == Blocks.GRASS;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

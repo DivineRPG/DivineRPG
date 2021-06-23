@@ -36,7 +36,4 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
         return SoundRegistry.CRAB_HURT;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
 }

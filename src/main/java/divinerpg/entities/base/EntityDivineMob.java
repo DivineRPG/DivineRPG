@@ -19,9 +19,7 @@ public class EntityDivineMob extends MonsterEntity {
         BlockPos blockpos = pos.below();
         return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return true;
-    }
+
 
     public boolean checkSpawnObstruction(IWorldReader worldIn) {
         return !worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);

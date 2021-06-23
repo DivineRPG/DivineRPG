@@ -1,7 +1,6 @@
 package divinerpg.client.renders.entity.vanilla;
 
 
-import com.mojang.blaze3d.matrix.*;
 import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.renders.layer.*;
@@ -18,8 +17,6 @@ public class RenderJackOMan extends MobRenderer<EntityJackOMan, ModelJackOMan<En
         super(renderManagerIn, new ModelJackOMan(), 0.8F);
         this.addLayer(new JackOManHeadLayer(this));
         this.addLayer(new JackOManScytheLayer(this));
-    }
-    protected void preRenderCallback(EntityJackOMan entity, MatrixStack matrixStackIn, float partialTickTime) {
     }
     public ResourceLocation getTextureLocation(EntityJackOMan entity) {
         return TEXTURE;

@@ -15,28 +15,11 @@ import javax.annotation.*;
 public class EntityLivestockMerchant extends EntityDivineMerchant {
 
 
-    public EntityLivestockMerchant(EntityType<? extends CreatureEntity> type, World worldIn) {
+    public EntityLivestockMerchant(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
         super(type, worldIn);
     }
 
-    @Override
-    protected void onVillagerTrade(MerchantOffer offer) {
-
-    }
-
-    @Override
-    protected void populateTradeData() {
-
-    }
-
-    protected int getGuiId() {
-        //TODO - Livestock Merchant GUID
-        //        return GUIHandler.LIVESTOCK_MERCHANT_GUI_ID;
-        return 0;
-    }
-
-    //TODO - Chat messages
-    protected String[] getChatMessages() {
+    public String[] getChatMessages() {
         return new String[] {
                 "message.livestock.hi",
                 "message.livestock.sell",
@@ -45,16 +28,21 @@ public class EntityLivestockMerchant extends EntityDivineMerchant {
         };
     }
 
-    public MerchantOffers getRecipeList() {
-        MerchantOffers list = new MerchantOffers();
-        list.add(new MerchantOffer(new ItemStack(ItemTags.getAllTags().getTag(ItemTags.LOGS.getName()).getValues().listIterator().next(), 32), new ItemStack(ItemRegistry.shadowCoins, 4), new ItemStack(ItemRegistry.ehuEgg, 2), ItemRegistry.ehuEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(ItemTags.getAllTags().getTag(ItemTags.LOGS.getName()).getValues().listIterator().next(), 64), new ItemStack(ItemRegistry.shadowCoins, 7), new ItemStack(ItemRegistry.huskEgg, 2), ItemRegistry.huskEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(ItemTags.getAllTags().getTag(ItemTags.STONE_CRAFTING_MATERIALS.getName()).getValues().listIterator().next(), 64), new ItemStack(ItemRegistry.shadowCoins, 3), new ItemStack(ItemRegistry.stoneGolemEgg, 1), ItemRegistry.stoneGolemEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(Blocks.NETHER_BRICKS, 32), new ItemStack(ItemRegistry.shadowCoins, 5), new ItemStack(ItemRegistry.smelterEgg, 1), ItemRegistry.smelterEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(ItemRegistry.jungleStone, 2), new ItemStack(ItemRegistry.shadowCoins, 4), new ItemStack(ItemRegistry.snapperEgg, 3), ItemRegistry.snapperEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8), new ItemStack(ItemRegistry.whiteGrizzleEgg, 2), ItemRegistry.whiteGrizzleEgg.getMaxDamage(), 1, 1));
-        list.add(new MerchantOffer(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8), new ItemStack(ItemRegistry.brownGrizzleEgg, 2), ItemRegistry.brownGrizzleEgg.getMaxDamage(), 1, 1));
-        return list;
+    @Override
+    protected void updateTrades() {
+        MerchantOffers merchantoffers = this.getOffers();
+
+        DivineTrades[] tradetrades = new DivineTrades[]{
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemTags.LOGS.getRandomElement(level.getRandom()), 32), new ItemStack(ItemRegistry.shadowCoins, 4), new ItemStack(ItemRegistry.ehuEgg, 2), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemTags.LOGS.getRandomElement(level.getRandom()), 64), new ItemStack(ItemRegistry.shadowCoins, 7), new ItemStack(ItemRegistry.huskEgg, 2), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemTags.STONE_CRAFTING_MATERIALS.getRandomElement(level.getRandom()), 64), new ItemStack(ItemRegistry.shadowCoins, 3), new ItemStack(ItemRegistry.stoneGolemEgg, 1), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.NETHER_BRICKS, 32), new ItemStack(ItemRegistry.shadowCoins, 5), new ItemStack(ItemRegistry.smelterEgg, 1), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.jungleStone, 2), new ItemStack(ItemRegistry.shadowCoins, 4), new ItemStack(ItemRegistry.snapperEgg, 3), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8), new ItemStack(ItemRegistry.whiteGrizzleEgg, 2), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.LEATHER, 10), new ItemStack(ItemRegistry.shadowCoins, 8), new ItemStack(ItemRegistry.brownGrizzleEgg, 2), random.nextInt(7), 5)
+                };
+        this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+        super.updateTrades();
     }
 
     @Override
@@ -73,12 +61,18 @@ public class EntityLivestockMerchant extends EntityDivineMerchant {
     }
 
     @Override
-    public void setTradingPlayer(@Nullable PlayerEntity p_70932_1_) {
+    public void setTradingPlayer(@Nullable PlayerEntity player) {
+        boolean flag = this.getTradingPlayer() != null && player == null;
+        super.setTradingPlayer(player);
+        if (flag) {
+            this.stopTrading();
+        }
 
     }
 
+    @Nullable
     @Override
-    public World getLevel() {
-        return level;
+    public PlayerEntity getTradingPlayer() {
+        return super.getTradingPlayer();
     }
 }

@@ -63,7 +63,4 @@ public class EntityTheEye extends EntityDivineMob {
         return SoundRegistry.THE_EYE_HURT;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
 }

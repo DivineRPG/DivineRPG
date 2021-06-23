@@ -18,7 +18,4 @@ public class EntityKingCrab extends EntityCrab {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.kingCrabHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.kingCrabDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.kingCrabSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.kingCrabFollowRange);
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.canSpawn(worldIn, spawnReasonIn);
-    }
 }
