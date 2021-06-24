@@ -19,14 +19,15 @@ public class JackOManScytheLayer extends LayerRenderer<EntityJackOMan, ModelJack
         super(p_i50935_1_);
     }
 
-
-    //TODO - fix rotation on jack o mans scythe
+    //TODO - jack o man scythe not perfect and could be better rotated but i think its ok
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, EntityJackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         matrixStackIn.pushPose();
-        matrixStackIn.translate(-0.0625F, 0.4375F, 0.0625F);
-        matrixStackIn.translate(0, 0, -0.3);
-        matrixStackIn.mulPose(Vector3f.XP.rotation(-90));
-        matrixStackIn.mulPose(Vector3f.ZN.rotation(45));
+        ModelRenderer parentModel = this.getParentModel().RightArm;
+        parentModel.translateAndRotate(matrixStackIn);
+        matrixStackIn.mulPose(Vector3f.XP.rotation(0));
+        matrixStackIn.mulPose(Vector3f.YP.rotation(45));
+        matrixStackIn.mulPose(Vector3f.ZP.rotation(-25));
+        matrixStackIn.translate(0.2F, 0.4375F, 0);
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.scythe.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
 
         matrixStackIn.popPose();
