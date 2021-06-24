@@ -457,6 +457,7 @@ public class EntityRegistry {
         EntitySpawnPlacementRegistry.register(type, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, predicate);
     }
     public static void registerSpawns() {
+        //TODO - check spawns and fix it (mobs spawning in wrong locations)
         registerLandSpawn(ARID_WARRIOR, EntityAridWarrior::canSpawnOn);
         registerLandSpawn(BROWN_GRIZZLE, EntityBrownGrizzle::canSpawnOn);
         registerLandSpawn(CAVE_CRAWLER, EntityCaveCrawler::canSpawnOn);
