@@ -62,6 +62,7 @@ public class DivineRPG {
         EntityRegistry.render();
         FancyRenders.init();
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
+        ModelPropRegistry.init();
     }
 
     private void post(final FMLLoadCompleteEvent event){

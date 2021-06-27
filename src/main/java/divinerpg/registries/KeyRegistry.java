@@ -20,11 +20,11 @@ import net.minecraftforge.registries.*;
 
 public class KeyRegistry {
 
-    public static RegistryKey<World> EDEN_WORLD, WILDWOOD_WORLD, APALACHIA_WORLD, SKYTHERN_WORLD, MORTUM_WORLD, ARCANA_WORLD, VETHEA_WORLD;
-    public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME, ARCANA_BIOME, VETHEA_BIOME;
-    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER, VETHEA_BUILDER;
+    public static RegistryKey<World> EDEN_WORLD, WILDWOOD_WORLD, APALACHIA_WORLD, SKYTHERN_WORLD, MORTUM_WORLD, ARCANA_WORLD, VETHEA_WORLD, ICEIKA_WORLD;
+    public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME, ARCANA_BIOME, VETHEA_BIOME, ICEIKA_BIOME;
+    public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER, VETHEA_BUILDER, ICEIKA_BUILDER;
     public static final DeferredRegister<PointOfInterestType> POI = DeferredRegister.create(ForgeRegistries.POI_TYPES, DivineRPG.MODID);
-    public static RegistryObject<PointOfInterestType> EDEN_PORTAL, WILDWOOD_PORTAL, APALACHIA_PORTAL, SKYTHERN_PORTAL, MORTUM_PORTAL, ARCANA_PORTAL;
+    public static RegistryObject<PointOfInterestType> EDEN_PORTAL, WILDWOOD_PORTAL, APALACHIA_PORTAL, SKYTHERN_PORTAL, MORTUM_PORTAL, ARCANA_PORTAL, ICEIKA_PORTAL;
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
     public static void init() {
@@ -76,6 +76,11 @@ public class KeyRegistry {
         VETHEA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
         VETHEA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
         VETHEA_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
+
+        ICEIKA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika"));
+        ICEIKA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika"));
+        ICEIKA_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika"));
+        ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PointOfInterestType("iceika_portal", PointOfInterestType.getBlockStates(BlockRegistry.iceikaPortal), 0, 1));
 
     }
 

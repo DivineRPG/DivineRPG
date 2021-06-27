@@ -2,7 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "main",
       "rolls": 1,
       "entries": [
         {
@@ -12,7 +11,15 @@
       ],
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "minecraft:random_chance",
+          "chance": 0.5
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "divinerpg:steel_door",
+          "properties": {
+            "half": "upper"
+          }
         }
       ]
     }

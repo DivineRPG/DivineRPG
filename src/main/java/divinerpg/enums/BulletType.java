@@ -1,7 +1,6 @@
 package divinerpg.enums;
 
 import divinerpg.*;
-import divinerpg.registries.*;
 import net.minecraft.particles.*;
 import net.minecraft.util.*;
 
@@ -22,18 +21,34 @@ public enum BulletType {
     BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
     FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
     FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
-    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
-    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get()),
-    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get()),
-    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get()),
-    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get()),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get()),
-    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get()),
-    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get()),
-    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get()),
-    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get()),
-    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get()),
-    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get()),
+
+    //TODO - BulletType particles
+//    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
+//    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get()),
+//    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get()),
+//    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get()),
+//    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get()),
+//    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get()),
+//    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get()),
+//    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get()),
+//    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get()),
+//    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get()),
+//    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get()),
+//    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get()),
+
+    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleTypes.BUBBLE),
+    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleTypes.BUBBLE),
+    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleTypes.BUBBLE),
+    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleTypes.BUBBLE),
+    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleTypes.BUBBLE),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleTypes.BUBBLE),
+    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleTypes.BUBBLE),
+    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleTypes.BUBBLE),
+    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleTypes.BUBBLE),
+    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleTypes.BUBBLE),
+    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleTypes.BUBBLE),
+    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleTypes.BUBBLE),
+
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
@@ -70,7 +85,8 @@ public enum BulletType {
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
     EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
 
-    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleRegistry.WILDWOOD_PORTAL.get());
+//    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleRegistry.WILDWOOD_PORTAL.get());
+    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleTypes.BUBBLE);
 
     private final float damage;
     private final ResourceLocation texture;

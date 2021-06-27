@@ -1357,7 +1357,7 @@ public class BlockRegistry {
         register(registry, new BlockMod("icy_stone", 2.0F, 3.0F));
         register(registry, new BlockModSpawner("rollum_spawner", EntityRegistry.ROLLUM));
         register(registry, new BlockMod("snow_bricks", 6.0F, 3.0F));
-        register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, 1.0F, ToolType.PICKAXE));
+        register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, () -> steelDoor.asItem()));
         register(registry, new BlockModBookshelf("workshop_bookcase", 1.5F, Material.STONE));
         register(registry, new BlockMod("workshop_carpet", 0.1F, 3.0F, Material.CLOTH_DECORATION));
         register(registry, new BlockModLamp("workshop_lamp", 0.3F, 3.0F, 15));

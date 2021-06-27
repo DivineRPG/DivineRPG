@@ -1,7 +1,7 @@
 package divinerpg.util;
 
 import net.minecraft.command.ICommandSource;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.util.text.*;
 import net.minecraftforge.server.command.TextComponentHelper;
 
@@ -67,8 +67,8 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static String infiniteAmmo() {
-        return InfiniteAmmo.getContents();
+    public static ITextComponent infiniteAmmo() {
+        return InfiniteAmmo;
     }
 
     /**
@@ -100,7 +100,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent ammo(Item ammo, TextFormatting formatting) {
-        ITextComponent ammoName = new TranslationTextComponent(ammo.getRegistryName().getPath() + ".name");
+        ITextComponent ammoName = new TranslationTextComponent(ammo.getDescriptionId());
         ammoName.getStyle().applyFormat(formatting);
 
         return i18n(Ammo, ammoName);
