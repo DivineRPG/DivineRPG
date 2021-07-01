@@ -9,12 +9,10 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
-import java.util.*;
-
 public class ItemHordeHorn extends ItemBossSpawner {
 
     public ItemHordeHorn(String name) {
-        super(name, "message.ayeraco_horde", x -> Objects.equals(x, DimensionType.END_LOCATION));
+        super(name, "message.ayeraco_horde", World.END);
     }
 
     @Override

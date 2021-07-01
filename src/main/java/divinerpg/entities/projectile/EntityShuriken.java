@@ -24,10 +24,12 @@ public class EntityShuriken extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null) {
-            ((Entity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
-        }
+    protected void onHitEntity(EntityRayTraceResult result) {
+        result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 4.0F);
+    }
+
+    @Override
+    protected void onHitBlock(BlockRayTraceResult result) {
         if (!this.level.isClientSide) {
             ItemEntity item = new ItemEntity(level, xo, yo, zo);
             item.setItem(new ItemStack(ItemRegistry.shuriken));

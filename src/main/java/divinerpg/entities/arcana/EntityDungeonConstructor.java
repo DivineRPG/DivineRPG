@@ -28,12 +28,6 @@ public class EntityDungeonConstructor extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.constructorHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.constructorDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.constructorSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.constructorFollowRange);
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        //TODO - set arcana canSpawn
-//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
-        return true;
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();

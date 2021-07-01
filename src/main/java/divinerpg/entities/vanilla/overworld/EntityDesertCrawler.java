@@ -7,7 +7,10 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityDesertCrawler extends EntityDivineMob {
 
@@ -43,5 +46,7 @@ public class EntityDesertCrawler extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.CRAWLER_HURT;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

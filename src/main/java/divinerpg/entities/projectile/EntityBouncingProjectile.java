@@ -32,12 +32,10 @@ public class EntityBouncingProjectile extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo != this.thrower) {
-            if (result.hitInfo instanceof Entity) {
-                Entity entity = (Entity) result.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null && result.getEntity() != this.thrower && result.getEntity() instanceof LivingEntity) {
+                LivingEntity entity = (LivingEntity) result.getEntity();
                 entity.hurt(DamageSources.arcanaSource, this.damage);
-            }
             if (!this.level.isClientSide) {
                 this.kill();
             }
@@ -60,6 +58,11 @@ public class EntityBouncingProjectile extends DivineThrowable {
             setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z * -1);
         } else if (result.getDirection() == Direction.NORTH || result.getDirection() == Direction.SOUTH) {
             setDeltaMovement(getDeltaMovement().x * -1, getDeltaMovement().y, getDeltaMovement().z);
+        }
+        this.bounces++;
+
+        if (this.bounces == 7) {
+            this.kill();
         }
     }
 

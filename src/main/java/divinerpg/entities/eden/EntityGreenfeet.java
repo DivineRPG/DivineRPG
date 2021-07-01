@@ -10,6 +10,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
+import java.util.*;
+
 public class EntityGreenfeet extends EntityDivineMob {
 
     public EntityGreenfeet(EntityType<? extends MobEntity> type, World worldIn) {
@@ -21,8 +23,8 @@ public class EntityGreenfeet extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.EDEN_WORLD && !level.canSeeSky(this.blockPosition());
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
     @Override
     protected void registerGoals() {

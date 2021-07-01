@@ -10,6 +10,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
+import java.util.*;
+
 public class EntityEnchantedWarrior extends EntityDivineMob {
 
     public EntityEnchantedWarrior(EntityType<? extends MobEntity> type, World worldIn) {
@@ -22,8 +24,8 @@ public class EntityEnchantedWarrior extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaCadillionFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override

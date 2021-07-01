@@ -20,14 +20,20 @@ public class EntityFyracryxFireball extends DivineFireball {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
         if (!this.level.isClientSide) {
-            if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-                Entity entity = (Entity) result.hitInfo;
+            if (result.getEntity() != null) {
+                Entity entity = result.getEntity();
                 entity.hurt(DamageSource.fireball(this, this.shootingEntity), 6);
             }
             this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Explosion.Mode.BREAK);
             this.kill();
         }
+    }
+
+    @Override
+    protected void onHit(RayTraceResult p_70227_1_) {
+        this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Explosion.Mode.BREAK);
+        this.kill();
     }
 }

@@ -13,6 +13,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
+import java.util.*;
+
 public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob {
 
     public EntityWildfire(EntityType<? extends MobEntity> type, World worldIn) {
@@ -57,5 +59,7 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundRegistry.WILDFIRE_HURT;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

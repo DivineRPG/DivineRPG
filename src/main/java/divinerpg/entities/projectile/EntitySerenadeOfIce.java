@@ -39,10 +39,10 @@ public class EntitySerenadeOfIce extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult var1) {
-        if (var1.hitInfo != null) {
+    protected void onHitEntity(EntityRayTraceResult var1) {
+        if (var1.getEntity() != null) {
             List<LivingEntity> entities = this.level.getEntitiesOfClass(LivingEntity.class,
-                    ((LivingEntity)var1.hitInfo).getBoundingBox().expandTowards(3, 3, 3));
+                    var1.getEntity().getBoundingBox().expandTowards(3, 3, 3));
             for (LivingEntity e : entities) {
                 if (e != this.getOwner())
                     e.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 3));

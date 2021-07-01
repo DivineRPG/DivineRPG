@@ -9,12 +9,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.*;
 
 public class ItemModSword extends SwordItem {
 
     public ItemModSword(String name, IItemTier tier, ItemGroup group) {
         super(tier, 3, 1.6F, new Item.Properties().tab(group));
+        setRegistryName(DivineRPG.MODID, name);
+    }
+    public ItemModSword(String name, IItemTier tier, Item.Properties properties) {
+        super(tier, 3, 1.6F, properties);
         setRegistryName(DivineRPG.MODID, name);
     }
 

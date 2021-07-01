@@ -57,8 +57,8 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
         if (this.tickCount > 50)
             this.kill();
     }
-
     @Override
     protected void onHit(RayTraceResult result) {
     }
+
 }

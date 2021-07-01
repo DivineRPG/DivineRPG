@@ -1,11 +1,12 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.EntityDivineTameable;
-import divinerpg.util.EntityStats;
+import divinerpg.capability.*;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
@@ -48,14 +49,12 @@ public class EntitySeimer extends EntityDivineTameable {
         }
         return super.mobInteract(player, hand);
     }
-    // TODO arcana replenishing
-    /*
     @Override
     public void tick() {
         super.tick();
         if (this.getOwner() != null && this.getOwner() instanceof PlayerEntity) {
-            IArcana arcana = DivineAPI.getArcana(this.getOwner());
+            IArcana arcana = getOwner().getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
             arcana.fill((PlayerEntity) this.getOwner(), 1);
         }
-    }*/
+    }
 }

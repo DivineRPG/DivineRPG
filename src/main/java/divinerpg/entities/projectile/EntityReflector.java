@@ -19,9 +19,9 @@ public class EntityReflector extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult pos) {
-        if(pos.hitInfo != null && this.getOwner() != null && pos.hitInfo instanceof Entity) {
-            Entity ent = (Entity) pos.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult pos) {
+        if(pos.getEntity() != null && this.getOwner() != null) {
+            Entity ent = pos.getEntity();
             double xDist = (ent.xo-this.getOwner().xo)/5, yDist = (ent.yo-this.getOwner().yo)/5, zDist = (ent.zo-this.getOwner().zo)/5;
             ent.setDeltaMovement(xDist, yDist, zDist);
         }

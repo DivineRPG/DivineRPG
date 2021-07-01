@@ -1,13 +1,15 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTermid extends EntityDivineMob {
 
@@ -21,8 +23,8 @@ public class EntityTermid extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.termidHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.termidDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.termidSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.termidFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
     @Override
     protected void registerGoals() {

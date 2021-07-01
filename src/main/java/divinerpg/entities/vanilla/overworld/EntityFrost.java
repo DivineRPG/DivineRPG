@@ -193,5 +193,7 @@ public class EntityFrost extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundEvents.BLAZE_DEATH;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

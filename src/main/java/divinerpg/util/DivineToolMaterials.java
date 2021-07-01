@@ -303,45 +303,102 @@ public enum DivineToolMaterials implements IItemTier {
     }),
     WILDWOOD_SHOVEL(7, 6000, 28.0F, 6.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.wildwoodGem);
-    });
-
+    }),
 //    //VETHEA
 //    //Hammers
-//    public static final ToolMaterial TEAKER_HAMMER = EnumHelper.addToolMaterial("drpg_teaker_hammer", 4, -1, 4.0F, 2.0F, 0);
-//    public static final ToolMaterial AMTHIRMIS_HAMMER = EnumHelper.addToolMaterial("drpg_amthirmis_hammer", 4, -1, 4.0F, 4.0F, 0);
-//    public static final ToolMaterial DARVEN_HAMMER = EnumHelper.addToolMaterial("drpg_darven_hammer", 4, -1, 4.0F, 8.0F, 0);
-//    public static final ToolMaterial CERMILE_HAMMER = EnumHelper.addToolMaterial("drpg_cermile_hammer", 4, -1, 4.0F, 11.0F, 0);
-//    public static final ToolMaterial PARDIMAL_HAMMER = EnumHelper.addToolMaterial("drpg_pardimal_hammer", 4, -1, 4.0F, 15.0F, 0);
-//    public static final ToolMaterial QUADROTIC_HAMMER = EnumHelper.addToolMaterial("drpg_quadrotic_hammer", 4, -1, 4.0F, 20.0F, 0);
-//    public static final ToolMaterial KAROS_HAMMER = EnumHelper.addToolMaterial("drpg_karos_hammer", 4, -1, 4.0F, 22.0F, 0);
-//    public static final ToolMaterial HELIOSIS_HAMMER = EnumHelper.addToolMaterial("drpg_heliosis_hammer", 4, -1, 4.0F, 29.0F, 0);
-//    public static final ToolMaterial ARKSIANE_HAMMER = EnumHelper.addToolMaterial("drpg_arksiane_hammer", 4, -1, 4.0F, 35.0F, 0);
-//    public static final ToolMaterial EVERLIGHT  = EnumHelper.addToolMaterial("drpg_everlight", 4, -1, 4.0F, 40.0F, 0);
-//    public static final ToolMaterial KAROS_ROCKMAUL = EnumHelper.addToolMaterial("drpg_karos_rockmaul", 4, -1, 4.0F, 42.0F, 0);
-//
-//    //Backswords
-//    public static final ToolMaterial TEAKER_BACKSWORD = EnumHelper.addToolMaterial("drpg_teaker_backsword", 4, -1, 4.0F, 0.0F, 0);
-//    public static final ToolMaterial AMTHIRMIS_BACKSWORD = EnumHelper.addToolMaterial("drpg_amthirmis_backsword", 4, -1, 4.0F, 2.0F, 0);
-//    public static final ToolMaterial DARVEN_BACKSWORD = EnumHelper.addToolMaterial("drpg_darven_backsword", 4, -1, 4.0F, 5.0F, 0);
-//    public static final ToolMaterial CERMILE_BACKSWORD = EnumHelper.addToolMaterial("drpg_cermile_backsword", 4, -1, 4.0F, 9.0F, 0);
-//    public static final ToolMaterial PARDIMAL_BACKSWORD = EnumHelper.addToolMaterial("drpg_pardimal_backsword", 4, -1, 4.0F, 12.0F, 0);
-//    public static final ToolMaterial QUADROTIC_BACKSWORD = EnumHelper.addToolMaterial("drpg_quadrotic_backsword", 4, -1, 4.0F, 16.0F, 0);
-//    public static final ToolMaterial KAROS_BACKSWORD = EnumHelper.addToolMaterial("drpg_karos_backsword", 4, -1, 4.0F, 18.0F, 0);
-//    public static final ToolMaterial HELIOSIS_BACKSWORD = EnumHelper.addToolMaterial("drpg_heliosis_backsword", 4, -1, 4.0F, 25.0F, 0);
-//    public static final ToolMaterial ARKSIANE_BACKSWORD = EnumHelper.addToolMaterial("drpg_arksiane_backsword", 4, -1, 4.0F, 33.0F, 0);
-//
-//    //Claws
-//    public static final ToolMaterial TEAKER_CLAW = EnumHelper.addToolMaterial("drpg_teaker_claw", 4, -1, 4.0F, -1.0F, 0);
-//    public static final ToolMaterial AMTHIRMIS_CLAW = EnumHelper.addToolMaterial("drpg_amthirmis_claw", 4, -1, 4.0F, 1.0F, 0);
-//    public static final ToolMaterial DARVEN_CLAW = EnumHelper.addToolMaterial("drpg_darven_claw", 4, -1, 4.0F, 3.0F, 0);
-//    public static final ToolMaterial CERMILE_CLAW = EnumHelper.addToolMaterial("drpg_cermile_claw", 4, -1, 4.0F, 4.0F, 0);
-//    public static final ToolMaterial PARDIMAL_CLAW = EnumHelper.addToolMaterial("drpg_pardimal_claw", 4, -1, 4.0F, 8.0F, 0);
-//    public static final ToolMaterial QUADROTIC_CLAW = EnumHelper.addToolMaterial("drpg_quadrotic_claw", 4, -1, 4.0F, 10.0F, 0);
-//    public static final ToolMaterial KAROS_CLAW = EnumHelper.addToolMaterial("drpg_karos_claw", 4, -1, 4.0F, 15.0F, 0);
-//    public static final ToolMaterial HELIOSIS_CLAW = EnumHelper.addToolMaterial("drpg_heliosis_claw", 4, -1, 4.0F, 22.0F, 0);
-//    public static final ToolMaterial ARKSIANE_CLAW = EnumHelper.addToolMaterial("drpg_arksiane_claw", 4, -1, 4.0F, 31.0F, 0);
-//    public static final ToolMaterial EVERBRIGHT = EnumHelper.addToolMaterial("drpg_everbright", 4, -1, 4.0F, 38.0F, 0);
+    TEAKER_HAMMER(4, -1, 4.0F, 2.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    AMTHIRMIS_HAMMER(4, -1, 4.0F, 4.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    DARVEN_HAMMER(4, -1, 4.0F, 8.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    CERMILE_HAMMER(4, -1, 4.0F, 11.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    PARDIMAL_HAMMER(4, -1, 4.0F, 15.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    QUADROTIC_HAMMER(4, -1, 4.0F, 20.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    KAROS_HAMMER(4, -1, 4.0F, 22.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    HELIOSIS_HAMMER(4, -1, 4.0F, 29.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    ARKSIANE_HAMMER(4, -1, 4.0F, 35.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    EVERLIGHT(4, -1, 4.0F, 40.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    KAROS_ROCKMAUL(4, -1, 4.0F, 42.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    //    //Backswords
+    TEAKER_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    AMTHIRMIS_BACKSWORD(4, -1, 4.0F, 2.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    DARVEN_BACKSWORD(4, -1, 4.0F, 5.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    CERMILE_BACKSWORD(4, -1, 4.0F, 9.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    PARDIMAL_BACKSWORD(4, -1, 4.0F, 12.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    QUADROTIC_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    KAROS_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    HELIOSIS_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    ARKSIANE_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
 
+//    //Claws
+    TEAKER_CLAW(4, -1, 4.0F, -1.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    AMTHIRMIS_CLAW(4, -1, 4.0F, 1.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    DARVEN_CLAW(4, -1, 4.0F, 3.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    CERMILE_CLAW(4, -1, 4.0F, 4.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    PARDIMAL_CLAW(4, -1, 4.0F, 8.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    QUADROTIC_CLAW(4, -1, 4.0F, 10.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    KAROS_CLAW(4, -1, 4.0F, 15.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    HELIOSIS_CLAW(4, -1, 4.0F, 22.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    ARKSIANE_CLAW(4, -1, 4.0F, 31.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    }),
+    EVERBRIGHT(4, -1, 4.0F, 38.0F, 0, () -> {
+        return Ingredient.of(Items.AIR);
+    });
 
     private final int harvestLevel;
     private final int maxUses;

@@ -8,7 +8,10 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTheGrue extends EntityDivineMob {
 
@@ -45,4 +48,7 @@ public class EntityTheGrue extends EntityDivineMob {
         return SoundRegistry.DEATHCRYX_HURT;
     }
 
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() <= 16;
+    }
 }

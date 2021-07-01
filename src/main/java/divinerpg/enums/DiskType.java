@@ -41,8 +41,4 @@ public enum DiskType {
     private static ResourceLocation ItemLoc(String name) {
         return new ResourceLocation(DivineRPG.MODID, "textures/items/" + name + ".png");
     }
-
-    private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");
-    }
 }

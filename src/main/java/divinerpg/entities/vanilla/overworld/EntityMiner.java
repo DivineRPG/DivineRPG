@@ -10,9 +10,11 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
+import java.util.*;
 import java.util.function.*;
 
 public class EntityMiner extends EntityDivineMob {
@@ -107,4 +109,7 @@ public class EntityMiner extends EntityDivineMob {
         return spawnDataIn;
     }
 
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

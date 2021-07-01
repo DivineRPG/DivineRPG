@@ -21,10 +21,10 @@ public class EntityEnderTripletsFireball extends DivineFireball {
 
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
         if (!this.level.isClientSide) {
-            if (result.hitInfo != null) {
-                Entity entity = (Entity) result.hitInfo;
+            if (result.getEntity() != null) {
+                Entity entity = result.getEntity();
                 if (this.shootingEntity != null) {
                     entity.hurt(DamageSource.fireball(this, this.shootingEntity), 8);
                 }
@@ -32,6 +32,12 @@ public class EntityEnderTripletsFireball extends DivineFireball {
             this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Explosion.Mode.DESTROY);
             this.kill();
         }
+    }
+
+    @Override
+    protected void onHit(RayTraceResult result) {
+        this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Explosion.Mode.DESTROY);
+        this.kill();
     }
 
     @Override

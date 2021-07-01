@@ -81,7 +81,6 @@ public class EntityKobblin extends EntityDivineMob {
     @Nullable
     public void setProvoked(PlayerEntity player) {
         entityData.set(PROVOKED, Boolean.valueOf(true));
-        addBasicAI();
         addAttackingAI();
         if (player != null && !player.isCreative()) {
             this.setTarget(player);

@@ -42,8 +42,8 @@ public class EntityFrostShot extends DivineFireball {
      * Called when this EntityFireball hits a block or entity.
      */
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo == null || !result.hitInfo.equals(this.shootingEntity)) {
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() == null || !result.getEntity().equals(this.shootingEntity)) {
             if (!this.level.isClientSide) {
                 List<LivingEntity> list = this.level.<LivingEntity>getEntitiesOfClass(LivingEntity.class,
                         this.getBoundingBox().inflate(4.0D, 2.0D, 4.0D));

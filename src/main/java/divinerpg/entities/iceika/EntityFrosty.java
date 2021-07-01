@@ -8,8 +8,10 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityFrosty extends EntityPeacefulUntilAttacked {
 
@@ -52,5 +54,7 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.FROSTY_HURT;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

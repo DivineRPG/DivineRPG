@@ -1,6 +1,8 @@
 package divinerpg.entities.projectile;
 
+import divinerpg.entities.mortum.*;
 import divinerpg.enums.*;
+import divinerpg.registries.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.util.math.*;
@@ -22,10 +24,9 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
         if (!this.level.isClientSide) {
             if (result.hitInfo != null) {
                 for (int i = 0; i < 3; i++) {
-                    //TODO - soul spider in soul fiend shot
-//                    EntitySoulSpider soulSpider = new EntitySoulSpider(this.world);
-//                    soulSpider.setLocationAndAngles(this.posX, this.posY, this.posZ, 0, 0);
-//                    this.world.spawnEntity(soulSpider);
+                    EntitySoulSpider soulSpider = new EntitySoulSpider(EntityRegistry.SOUL_SPIDER, this.level);
+                    soulSpider.moveTo(this.xo, this.yo, this.zo, 0, 0);
+                    this.level.addFreshEntity(soulSpider);
                 }
                 this.kill();
             }

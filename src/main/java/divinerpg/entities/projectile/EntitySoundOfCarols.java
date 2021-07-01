@@ -41,9 +41,9 @@ public class EntitySoundOfCarols extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null) {
-            ((LivingEntity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), 16.0F);
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 16.0F);
         }
 
         if (!this.level.isClientSide) {

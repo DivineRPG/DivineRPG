@@ -210,4 +210,8 @@ public class EntityHellBat extends EntityDivineMob {
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height / 2.0F;
     }
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

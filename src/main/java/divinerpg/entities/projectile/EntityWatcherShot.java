@@ -23,15 +23,15 @@ public class EntityWatcherShot extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
         if (!this.level.isClientSide) {
             boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, this);
             this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Explosion.Mode.BREAK);
         }
 
-        if (result.hitInfo != null) {
-            if (result.hitInfo instanceof LivingEntity) {
-                LivingEntity entity = (LivingEntity) result.hitInfo;
+        if (result.getEntity() != null) {
+            if (result.getEntity() instanceof LivingEntity) {
+                LivingEntity entity = (LivingEntity) result.getEntity();
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
             }
         }
@@ -41,4 +41,12 @@ public class EntityWatcherShot extends DivineThrowable {
         }
     }
 
+    @Override
+    protected void onHitBlock(BlockRayTraceResult p_230299_1_) {
+        if (!this.level.isClientSide) {
+            boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, this);
+            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Explosion.Mode.BREAK);
+        this.kill();
+    }
+    }
 }

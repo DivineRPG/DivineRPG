@@ -33,10 +33,10 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
     }
 
     @Override
-    public void onHit(RayTraceResult result) {
+    public void onHitEntity(EntityRayTraceResult result) {
         super.onHit(result);
-        if (result.hitInfo != null && result.hitInfo instanceof PlayerEntity) {
-            ((PlayerEntity) result.hitInfo).addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
+        if (result.getEntity() != null && result.getEntity() instanceof PlayerEntity) {
+            ((PlayerEntity) result.getEntity()).addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
         }
     }
 }

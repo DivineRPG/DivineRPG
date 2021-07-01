@@ -36,10 +36,10 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
     }
 
     @Override
-    public void onHit(RayTraceResult pos) {
-        if (pos.hitInfo != null && pos.hitInfo instanceof Entity)
+    public void onHitEntity(EntityRayTraceResult pos) {
+        if (pos.getEntity() != null)
         {
-            Entity entity = (Entity) pos.hitInfo;
+            Entity entity = pos.getEntity();
             entity.hurt(DamageSources.arcanaSource, 12.0F);
         }
     }

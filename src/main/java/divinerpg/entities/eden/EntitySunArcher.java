@@ -1,14 +1,19 @@
 package divinerpg.entities.eden;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob {
     public EntitySunArcher(EntityType<? extends MobEntity> type, World worldIn) {
@@ -20,8 +25,8 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sunArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sunArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.sunArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sunArcherFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.EDEN_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
@@ -39,9 +44,7 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
 
     @Override
     public void performRangedAttack(LivingEntity target, float f) {
-        //TODO - ranged attack sun archer
-//        this.world
-//                .spawnEntity(new EntityDivineArrow(this.world, ArrowType.SUN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.SUN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override

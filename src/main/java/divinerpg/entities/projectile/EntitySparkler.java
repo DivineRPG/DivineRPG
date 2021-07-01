@@ -24,9 +24,9 @@ public class EntitySparkler extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null) {
-            ((LivingEntity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), 20);
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 20);
         }
         if (!this.level.isClientSide) {
             this.kill();

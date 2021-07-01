@@ -7,6 +7,7 @@ import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.client.util.*;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.item.*;
@@ -21,7 +22,7 @@ import java.util.function.*;
 
 public class ItemModRanged extends ItemMod {
 
-    private final Class<? extends ThrowableEntity> clazz;
+    private final EntityType entityType;
     private final SoundEvent sound;
     private final SoundCategory soundCategory;
     private final int delay;
@@ -37,10 +38,10 @@ public class ItemModRanged extends ItemMod {
      *
      * @param name
      *            - name of resource
-     * @param clazz
-     *            - Class of spawned entity
+     * @param entityType
+     *            - entity type
      * @param bulletType
-     *            - Type of bullets. Has lower priority than clazz param
+     *            - Type of bullets. Has lower priority than entityType param
      * @param sound
      *            - what sound will be on bullet spawn
      * @param soundCategory
@@ -54,10 +55,29 @@ public class ItemModRanged extends ItemMod {
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(String name, Class<? extends ThrowableEntity> clazz, BulletType bulletType,
-                            SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
+    public ItemModRanged(String name, EntityType entityType, BulletType bulletType,
+                         SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
         super(name, new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage));
-        this.clazz = clazz;
+        this.entityType = entityType;
+        this.sound = sound;
+        this.soundCategory = soundCategory;
+        this.delay = delay;
+
+        if(ammoSupplier == null) {
+            this.ammoSupplier = () -> null;
+        }
+        else {
+            this.ammoSupplier = ammoSupplier;
+        }
+
+        this.arcanaConsuming = arcanaConsuming;
+        this.bulletType = bulletType;
+    }
+
+    public ItemModRanged(String name, EntityType entityType, BulletType bulletType,
+                         SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming, ItemGroup tab) {
+        super(name, new Properties().tab(tab).durability(maxDamage));
+        this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
         this.delay = delay;
@@ -120,7 +140,7 @@ public class ItemModRanged extends ItemMod {
                             this.sound != null ? this.sound : SoundEvents.ARROW_SHOOT,
                             this.soundCategory != null ? this.soundCategory : SoundCategory.MASTER, 1, 1);
 
-                    spawnEntity(world, player, stack, bulletType, clazz);
+                        spawnEntity(world, player, stack, bulletType, entityType);
                 }
 
                 IArcana arcana = checkArcana.getObject();
@@ -227,14 +247,14 @@ public class ItemModRanged extends ItemMod {
     }
 
     protected void spawnEntity(World world, PlayerEntity player, ItemStack stack, BulletType bulletType,
-                               Class<? extends ThrowableEntity> clazz) {
+                               EntityType entityType) {
 
         ThrowableEntity bullet = null;
 
         // Class has the most priority
-        if (clazz != null) {
+        if (entityType != null) {
             try {
-                bullet = (clazz.getConstructor(World.class, PlayerEntity.class).newInstance(world, player));
+                bullet = (ThrowableEntity) entityType.create(world);
             } catch (Exception e) {
                 e.printStackTrace();
 
@@ -243,16 +263,14 @@ public class ItemModRanged extends ItemMod {
             }
         }
         // In other cases we look to a BulletType field
-        //TODO - particles for bullets n stuff i guess
-        else if (bulletType.getParticle() != ParticleTypes.EFFECT) {
-            bullet = new EntityParticleBullet(EntityRegistry.SHOOTER_BULLET, world, player, bulletType);
+        else if (bulletType.getParticle() != ParticleTypes.BUBBLE) {
+            bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET, world, player, bulletType);
         } else if (bulletType.getColor() != null) {
-            bullet = new EntityColoredBullet(EntityRegistry.SHOOTER_BULLET, player, world, bulletType);
+            bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET, player, world, bulletType);
         } else {
             bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET, player, world, bulletType);
         }
-
-//        PositionHelper.moveBullet(player, bullet);
+        bullet.moveTo(player.xo, player.getEyeY(), player.zo);
         bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
         world.addFreshEntity(bullet);
     }

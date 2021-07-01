@@ -7,7 +7,10 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityMortumCadillion extends EntityDivineMob {
 
@@ -28,8 +31,8 @@ public class EntityMortumCadillion extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumCadillionFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.MORTUM_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override

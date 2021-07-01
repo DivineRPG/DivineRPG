@@ -14,6 +14,8 @@ public class FoodList {
     public static final Food DREAM_CAKE = (new Food.Builder()).nutrition(8).saturationMod(0.8F).build();
     public static final Food DREAM_CARROT = (new Food.Builder()).nutrition(3).saturationMod(0.4F).build();
     public static final Food DREAM_MELON = (new Food.Builder()).nutrition(6).saturationMod(0.8F).build();
+    public static final Food DREAM_SWEETS = (new Food.Builder()).nutrition(2).saturationMod(0).build();
+    public static final Food DREAM_SOURS = (new Food.Builder()).nutrition(8).saturationMod(0).build();
     public static final Food DREAM_PIE = (new Food.Builder()).nutrition(4).saturationMod(0.8F).build();
     public static final Food EMPOWERED_MEAT = (new Food.Builder()).nutrition(10).saturationMod(1.0F).meat().build();
     public static final Food FRUIT_CAKE = (new Food.Builder()).nutrition(16).saturationMod(0.2F).build();
@@ -35,6 +37,7 @@ public class FoodList {
     public static final Food PINK_GLOWBONE = (new Food.Builder()).nutrition(3).saturationMod(2.0F).build();
     public static final Food PURPLE_GLOWBONE = (new Food.Builder()).nutrition(3).saturationMod(2.0F).build();
 
+    public static final Food SKY_FLOWER = (new Food.Builder()).nutrition(1).saturationMod(1).build();
 
     public static final Food EGG_NOG = (new Food.Builder()).nutrition(4).saturationMod(1.5F).build();
     public static final Food FORBIDDEN_FRUIT = (new Food.Builder()).nutrition(3).saturationMod(0.5F).effect(new EffectInstance(Effects.REGENERATION, 100, 3), 20).effect(new EffectInstance(Effects.WITHER, 120, 1), 40).effect(new EffectInstance(Effects.POISON, 300, 1), 10).build();

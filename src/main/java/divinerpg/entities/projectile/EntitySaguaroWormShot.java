@@ -22,11 +22,11 @@ public class EntitySaguaroWormShot extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && !(result.hitInfo instanceof EntitySaguaroWorm)) {
-            EntitySaguaroWorm worm = (EntitySaguaroWorm) result.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null && !(result.getEntity() instanceof EntitySaguaroWorm)) {
+            EntitySaguaroWorm worm = (EntitySaguaroWorm) result.getEntity();
             worm.hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
-        } else if (result.hitInfo == null) {
+        } else if (result.getEntity() == null) {
             if (!this.level.isClientSide)
                 this.kill();
         }

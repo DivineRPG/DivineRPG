@@ -35,10 +35,10 @@ public class EntityDissimentShot extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if(result.hitInfo != null && result.hitInfo instanceof Entity) {
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if(result.getEntity() != null) {
             byte var2 = 9;
-            Entity entity = (Entity) result.hitInfo;
+            Entity entity = result.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), var2);
         }
 

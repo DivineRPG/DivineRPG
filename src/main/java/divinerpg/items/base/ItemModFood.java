@@ -31,6 +31,11 @@ public class ItemModFood extends ItemMod {
         fast = fastFood;
     }
 
+    @Override
+    public int getUseDuration(ItemStack stack) {
+        return fastFood? super.getUseDuration(stack) / 4 : super.getUseDuration(stack);
+    }
+
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (food.isMeat()) {

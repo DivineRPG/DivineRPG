@@ -1,13 +1,19 @@
 package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
+import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackMob {
     public EntityFrostArcher(EntityType<? extends MobEntity> type, World worldIn) {
@@ -25,8 +31,7 @@ public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackM
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        //TODO - Frost archer arrow
-//        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override
@@ -43,5 +48,7 @@ public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackM
     protected SoundEvent getDeathSound() {
         return SoundEvents.ZOMBIE_DEATH;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

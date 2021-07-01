@@ -1,6 +1,8 @@
 package divinerpg.entities.skythern;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -8,7 +10,10 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntitySkythernArcher extends EntityDivineMob implements IRangedAttackMob {
 
@@ -23,8 +28,8 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernArcherFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
     @Override
     protected void registerGoals() {
@@ -40,8 +45,7 @@ public class EntitySkythernArcher extends EntityDivineMob implements IRangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity target, float f) {
-        //TODO - skythern archer arrow
-//        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.SKYTHERN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.SKYTHERN_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override

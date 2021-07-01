@@ -12,6 +12,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
+import java.util.*;
+
 public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob {
 
     public EntityCaveclops(EntityType<? extends MobEntity> type, World worldIn) {
@@ -59,5 +61,9 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
         rock.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
         this.level.addFreshEntity(rock);
+    }
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() <= 20;
     }
 }

@@ -25,11 +25,14 @@ public class EntityVileStorm extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null) {
-            ((Entity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), 7.0F);
-            ((LivingEntity)result.hitInfo).addEffect(new EffectInstance(Effects.POISON, 45, 3));
-        }
+    protected void onHitEntity(EntityRayTraceResult result) {
+        result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 7.0F);
+        if(result.getEntity() instanceof LivingEntity)
+        ((LivingEntity)result.getEntity()).addEffect(new EffectInstance(Effects.POISON, 45, 3));
+    }
+
+    @Override
+    protected void onHitBlock(BlockRayTraceResult p_230299_1_) {
         if (!this.level.isClientSide) {
             ItemEntity item = new ItemEntity(level, xo, yo, zo);
             item.setItem(new ItemStack(ItemRegistry.vileStorm));

@@ -1,16 +1,20 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityLivingStatue extends EntityDivineMob implements IRangedAttackMob {
     public EntityLivingStatue(EntityType<? extends MobEntity> type, World worldIn) {
@@ -23,10 +27,8 @@ public class EntityLivingStatue extends EntityDivineMob implements IRangedAttack
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.dungeonPrisonerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.dungeonPrisonerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.dungeonPrisonerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dungeonPrisonerFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        //TODO - set arcana canSpawn
-//        return level.dimension() == KeyRegistry.ARCANA_WORLD;
-        return true;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
@@ -40,8 +42,7 @@ public class EntityLivingStatue extends EntityDivineMob implements IRangedAttack
     
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-    	// TODO living_statue_arrow
-        //this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.LIVING_STATUE_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.LIVING_STATUE_ARROW, this, target, 1.6F, 12.0F));
     }
     
     @Override

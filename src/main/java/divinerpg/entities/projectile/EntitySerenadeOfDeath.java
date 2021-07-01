@@ -26,12 +26,12 @@ public class EntitySerenadeOfDeath extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult var1) {
-        if (var1.hitInfo != null && var1.hitInfo instanceof Entity) {
-            Entity entity = (Entity) var1.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult var1) {
+        if (var1.getEntity() != null) {
+            Entity entity = var1.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), 14.0F);
-            if (var1.hitInfo instanceof LivingEntity) {
-                ((LivingEntity) var1.hitInfo).addEffect(new EffectInstance(Effects.POISON, 45, 3));
+            if (var1.getEntity() instanceof LivingEntity) {
+                ((LivingEntity)entity).addEffect(new EffectInstance(Effects.POISON, 45, 3));
             }
         }
 

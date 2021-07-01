@@ -19,9 +19,9 @@ public class EntityCoriShot extends DivineThrowable {
     }
 
     @Override
-    public void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-            Entity entity = (Entity) result.hitInfo;
+    public void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            Entity entity = result.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);
         }
         if (!this.level.isClientSide) {

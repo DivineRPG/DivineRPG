@@ -21,16 +21,24 @@ public class EntityWildwoodLog extends DivineThrowable {
 	}
 
 	@Override
-	protected void onHit(RayTraceResult result) {
-		if (result.hitInfo != null) {
-			((LivingEntity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), 8.0F);
+	protected void onHitEntity(EntityRayTraceResult result) {
+		if (result.getEntity() != null) {
+			result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 8.0F);
 	    }
 	    if (!this.level.isClientSide) {
 			level.addFreshEntity(new ItemEntity(level, this.xo, this.yo, this.zo, new ItemStack(getBlock())));
 	        this.kill();
 	    }
 	}
-	
+
+	@Override
+	protected void onHitBlock(BlockRayTraceResult p_230299_1_) {
+		if (!this.level.isClientSide) {
+			level.addFreshEntity(new ItemEntity(level, this.xo, this.yo, this.zo, new ItemStack(getBlock())));
+			this.kill();
+		}
+	}
+
 	public static Block getBlock() {
 		return BlockRegistry.wildwoodLog;
 	}

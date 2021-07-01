@@ -19,13 +19,11 @@ public class EntityAttractor extends DivineThrowable {
 	}
 
 	@Override
-	protected void onHit(RayTraceResult pos) {
-		if(pos.hitInfo != null && this.getOwner() != null) {
-			if (pos.hitInfo instanceof Entity) {
-				Entity entity = (Entity) pos.hitInfo;
+	protected void onHitEntity(EntityRayTraceResult pos) {
+		if(pos.getEntity() != null && this.getOwner() != null) {
+				Entity entity = pos.getEntity();
 				double xDist = (this.getOwner().getX() - entity.getX()) / 5, yDist = (this.getOwner().getY() - entity.getY()) / 5, zDist = (this.getOwner().getZ() - entity.getZ()) / 5;
 				entity.setDeltaMovement(xDist, yDist, zDist);
-			}
 		}
 		this.kill();
 	}

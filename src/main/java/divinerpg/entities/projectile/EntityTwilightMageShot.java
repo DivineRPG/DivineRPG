@@ -32,9 +32,9 @@ public class EntityTwilightMageShot extends EntityColoredBullet {
     }
     
     @Override
-    public void onHit(RayTraceResult result) {
-        if (result.hitInfo != null) {
-            ((LivingEntity)result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()),
+    public void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()),
                     this.getBulletType().getDamage());
         }
         if (!this.level.isClientSide) {

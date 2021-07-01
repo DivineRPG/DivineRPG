@@ -21,9 +21,9 @@ public class EntityMandragoraProjectile extends EntityHeatSeekingProjectile {
 
 
     @Override
-    protected void onHit(RayTraceResult pos) {
-        if (pos.hitInfo != null && pos.hitInfo != this.thrower && pos.hitInfo instanceof Entity) {
-            Entity entity = (Entity) pos.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult pos) {
+        if (pos.getEntity() != null && pos.getEntity() != this.thrower) {
+            Entity entity = pos.getEntity();
             entity.hurt(DamageSource.thrown(this, this.thrower), 4.0F);
         }
 

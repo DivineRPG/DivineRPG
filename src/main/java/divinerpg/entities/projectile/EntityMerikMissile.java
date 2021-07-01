@@ -19,14 +19,22 @@ public class EntityMerikMissile extends EntityHeatSeekingProjectile {
     }
 
     @Override
-    protected void onHit(RayTraceResult pos) {
-        if (pos.hitInfo != null && pos.hitInfo instanceof Entity) {
-            Entity entity = (Entity) pos.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult pos) {
+        if (pos.getEntity() != null) {
+            Entity entity = pos.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
         }
         if (!this.level.isClientSide) {
             this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Explosion.Mode.BREAK);
             this.kill();
         }
+    }
+
+    @Override
+    protected void onHit(RayTraceResult result) {
+        if (!this.level.isClientSide) {
+        this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Explosion.Mode.BREAK);
+        this.kill();
+    }
     }
 }

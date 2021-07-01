@@ -3,7 +3,7 @@ package divinerpg.entities.projectile;
 import divinerpg.enums.BulletType;
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.*;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
 public class EntityGeneralsStaff extends EntityColoredBullet {
@@ -20,8 +20,7 @@ public class EntityGeneralsStaff extends EntityColoredBullet {
     }
 
     @Override
-    public void onHit(RayTraceResult position) {
-        super.onHit(position);
+    public void onHitEntity(EntityRayTraceResult position) {
         if (!this.level.isClientSide && this.getOwner() instanceof LivingEntity) {
             for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
                 EntityColoredBullet e = new EntityColoredBullet(type, (LivingEntity) this.getOwner(), this.level,

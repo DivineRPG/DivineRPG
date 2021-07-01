@@ -7,7 +7,10 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
 
@@ -40,5 +43,7 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

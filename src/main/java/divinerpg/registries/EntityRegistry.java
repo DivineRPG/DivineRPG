@@ -457,7 +457,6 @@ public class EntityRegistry {
         EntitySpawnPlacementRegistry.register(type, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, predicate);
     }
     public static void registerSpawns() {
-        //TODO - check spawns and fix it (mobs spawning in wrong locations)
         registerLandSpawn(ARID_WARRIOR, EntityAridWarrior::canSpawnOn);
         registerLandSpawn(BROWN_GRIZZLE, EntityBrownGrizzle::canSpawnOn);
         registerLandSpawn(CAVE_CRAWLER, EntityCaveCrawler::canSpawnOn);
@@ -585,6 +584,81 @@ public class EntityRegistry {
         registerLandSpawn(ZELUS, EntityWraith::canSpawnOn);
     }
 
+    public static void spawnStuff(BiomeLoadingEvent event) {
+        ArrayList<Biome.Category> overworldCats = new ArrayList<>();
+        overworldCats.add(Biome.Category.TAIGA);
+        overworldCats.add(Biome.Category.EXTREME_HILLS);
+        overworldCats.add(Biome.Category.JUNGLE);
+        overworldCats.add(Biome.Category.MESA);
+        overworldCats.add(Biome.Category.PLAINS);
+        overworldCats.add(Biome.Category.SAVANNA);
+        overworldCats.add(Biome.Category.ICY);
+        overworldCats.add(Biome.Category.BEACH);
+        overworldCats.add(Biome.Category.FOREST);
+        overworldCats.add(Biome.Category.OCEAN);
+        overworldCats.add(Biome.Category.DESERT);
+        overworldCats.add(Biome.Category.RIVER);
+        overworldCats.add(Biome.Category.SWAMP);
+        overworldCats.add(Biome.Category.MUSHROOM);
+        Biome.Category biome = event.getCategory();
+
+        if (biome == Biome.Category.THEEND) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  2, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  1, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  10, 4, 4));
+        }
+        if (biome == Biome.Category.NETHER) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_BAT, 50, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_PIG, 25, 5, 50));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_SPIDER, 50, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SCORCHER, 7, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(WILDFIRE, 50, 1, 1));
+        }
+        if (overworldCats.contains(biome)) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVE_CRAWLER, 70, 2, 3));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVECLOPS, 70, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  4, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENTHRALLED_DRAMCRYX, 70, 3, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JACK_O_MAN, 5, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(MINER, 5, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(RAINBOUR, 1, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ROTATICK, 70, 3, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(THE_EYE, 30, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(THE_GRUE, 30, 1, 4));
+        }
+        if (biome == Biome.Category.ICY) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(FROST, 50, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(GLACON, 30, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(GLACON, 30, 1, 1));
+        }
+        if (biome == Biome.Category.DESERT) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ARID_WARRIOR, 35, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(DESERT_CRAWLER, 50, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SAGUARO_WORM, 20, 1, 4));
+        }
+        if (biome == Biome.Category.BEACH) {
+            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(CRAB, 100, 4, 4));
+            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(KING_CRAB, 40, 4, 4));
+        }
+        if (biome == Biome.Category.JUNGLE) {
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_BAT, 50, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_DRAMCRYX, 80, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_SPIDER , 80, 1, 4));
+        }
+        if (biome == Biome.Category.PLAINS) {
+            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(CYCLOPS, 10, 2, 4));
+            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(KOBBLIN, 5, 1, 1));
+        }
+        if (biome == Biome.Category.FOREST) {
+            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(PUMPKIN_SPIDER, 20, 1, 1));
+        }
+        if (biome == Biome.Category.OCEAN) {
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(LIOPLEURODON, 1, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(SHARK, 2, 1, 2));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 3, 1, 3));
+        }
+    }
+
     @OnlyIn(Dist.CLIENT)
     public static void render() {
         EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();
@@ -594,7 +668,8 @@ public class EntityRegistry {
         manager.register(BOUNCING_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/bouncing_projectile.png")));
         manager.register(CAVE_ROCK, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cave_rock.png")));
         manager.register(CORI_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/cori_shot.png")));
-        manager.register(CORRUPTED_BULLET, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/corrupted_bullet.png")));
+        manager.register(CORRUPTED_BULLET, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/corrupted_bullet.png")));
+        manager.register(COLORED_BULLET, new RenderShooterBullet(manager));
         manager.register(DISK, new RenderDisk(manager));
         manager.register(DISSIMENT_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
         manager.register(ARROW_SHOT, new RenderDivineArrow(manager));
@@ -604,7 +679,7 @@ public class EntityRegistry {
         manager.register(FROST_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
         manager.register(FYRACRYX_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
         manager.register(GENERALS_STAFF, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png")));
-        manager.register(GRENADE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/grenade.png")));
+        manager.register(GRENADE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/grenade.png")));
         manager.register(KAZROTIC_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
         manager.register(KING_OF_SCORCHERS_METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_meteor.png")));
         manager.register(KING_OF_SCORCHERS_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/king_of_scorchers_shot.png")));
@@ -612,6 +687,7 @@ public class EntityRegistry {
         manager.register(MANDRAGORA_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/mandragora_projectile.png")));
         manager.register(MERIKS_MISSILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meriks_missile.png")));
         manager.register(METEOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/meteor.png")));
+        manager.register(PARTICLE_BULLET, new RenderShooterBullet(manager));
         manager.register(RAGLOK_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/raglok_bomb.png")));
         manager.register(REFLECTOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
         manager.register(SAGUARO_WORM_SHOT, new RenderSaguaroWormShot(manager));
@@ -620,7 +696,7 @@ public class EntityRegistry {
         manager.register(SERENADE_OF_ICE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
         manager.register(SHOOTER_BULLET, new RenderShooterBullet(manager));
         manager.register(SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/shuriken.png")));
-        manager.register(SNOWFLAKE_SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/snowflake_shuriken.png")));
+        manager.register(SNOWFLAKE_SHURIKEN, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/snowflake_shuriken.png")));
         manager.register(SOUL_FIEND_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
         manager.register(SOUND_OF_CAROLS, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/music.png")));
         manager.register(SOUND_OF_MUSIC, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/music.png")));
@@ -628,7 +704,7 @@ public class EntityRegistry {
         manager.register(STARLIGHT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/starlight.png")));
         manager.register(TWILIGHT_DEMON_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/twilight_demon_shot.png")));
         manager.register(TWILIGHT_MAGE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/blank.png")));
-        manager.register(VILE_STORM, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/vile_storm.png")));
+        manager.register(VILE_STORM, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/vile_storm.png")));
         manager.register(WATCHER_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/watcher_shot.png")));
         manager.register(WRECK_BOUNCING_PROJECTILE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_bouncing_projectile.png")));
         manager.register(WRECK_EXPLOSIVE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/wreck_explosive_shot.png")));
@@ -793,70 +869,13 @@ public class EntityRegistry {
         manager.register(ZELUS, new RenderZelus(manager));
     }
 
-    public static void spawnStuff(BiomeLoadingEvent event) {
-        Biome.Category biome = event.getCategory();
-        if (biome == Biome.Category.THEEND) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  2, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  1, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  10, 4, 4));
-        }
-        if (biome == Biome.Category.NETHER) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_BAT, 50, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_PIG, 25, 5, 50));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_SPIDER, 50, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SCORCHER, 7, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(WILDFIRE, 50, 1, 1));
-        }
-        if (biome != Biome.Category.MUSHROOM) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVE_CRAWLER, 70, 2, 3));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVECLOPS, 70, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  4, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENTHRALLED_DRAMCRYX, 70, 3, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JACK_O_MAN, 5, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(MINER, 5, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(RAINBOUR, 1, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ROTATICK, 70, 3, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(THE_EYE, 30, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(THE_GRUE, 30, 1, 4));
-        }
-        if (biome == Biome.Category.ICY) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(FROST, 50, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(GLACON, 30, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(GLACON, 30, 1, 1));
-        }
-        if (biome == Biome.Category.DESERT) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ARID_WARRIOR, 35, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(DESERT_CRAWLER, 50, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SAGUARO_WORM, 20, 1, 4));
-        }
-        if (biome == Biome.Category.BEACH) {
-            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(CRAB, 100, 4, 4));
-            event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(KING_CRAB, 40, 4, 4));
-        }
-        if (biome == Biome.Category.JUNGLE) {
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_BAT, 50, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_DRAMCRYX, 80, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_SPIDER , 80, 1, 4));
-        }
-        if (biome == Biome.Category.PLAINS) {
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(CYCLOPS, 10, 2, 4));
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(KOBBLIN, 5, 1, 1));
-        }
-        if (biome == Biome.Category.FOREST) {
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(PUMPKIN_SPIDER, 20, 1, 1));
-        }
-        if (biome == Biome.Category.OCEAN) {
-            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(LIOPLEURODON, 1, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(SHARK, 2, 1, 2));
-            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 3, 1, 3));
-        }
-    }
+
 
     private static <T extends Entity> EntityType<T> registerEntity(EntityType.IFactory<T> factory, String entityName, float width, float height, SpawnEggColors colors, EntityClassification classification) {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
         boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
-        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).build(location.getPath());
         entity.setRegistryName(location);
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
         ENTITIES.add(entity);
@@ -869,7 +888,7 @@ public class EntityRegistry {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
         boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;
-        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).setUpdateInterval(20).build(location.getPath());
+        EntityType<T> entity = EntityType.Builder.of(factory, classification).sized(width, height).setTrackingRange(120).build(location.getPath());
         entity.setRegistryName(location);
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
         ENTITIES.add(entity);

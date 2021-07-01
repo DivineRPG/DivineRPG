@@ -10,7 +10,10 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityMageBase extends EntityDivineMob {
     private final BulletType bullet;
@@ -63,5 +66,8 @@ public class EntityMageBase extends EntityDivineMob {
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundRegistry.INSECT;
+    }
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 }

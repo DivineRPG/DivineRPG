@@ -45,12 +45,18 @@ public class EntityFractiteShot extends DivineFireball {
      * Called when this EntityFireball hits a block or entity.
      */
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo instanceof Entity && shootingEntity != null) {
-            Entity entity = (Entity) result.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null && shootingEntity != null) {
+            Entity entity = result.getEntity();
             entity.hurt(DamageSource.fireball(this, this.shootingEntity), 12.0F);
         }
 
+        this.level.explode(null, this.xo, this.yo, this.zo, 3.0F, false, Explosion.Mode.BREAK);
+        this.kill();
+    }
+
+    @Override
+    protected void onHit(RayTraceResult p_70227_1_) {
         this.level.explode(null, this.xo, this.yo, this.zo, 3.0F, false, Explosion.Mode.BREAK);
         this.kill();
     }

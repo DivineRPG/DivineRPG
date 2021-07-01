@@ -9,8 +9,11 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTheEye extends EntityDivineMob {
 
@@ -38,7 +41,7 @@ public class EntityTheEye extends EntityDivineMob {
                 double distMagnitude = lookAtMeVec.length();
                 lookAtMeVec = lookAtMeVec.normalize();
                 double var7 = lookVec.distanceTo(lookAtMeVec);
-                if (var7 > 1.0D - 0.025D / distMagnitude && player.canSee(this)) {
+                if (var7 > 1.0D - 0.025D / distMagnitude && this.canSee(player)) {
                     player.addEffect(new EffectInstance(Effects.BLINDNESS, 100, 0, false, true));
                     if (player instanceof PlayerEntity) {
                         TriggerRegistry.DIVINERPG_EYE.trigger((ServerPlayerEntity) player);
@@ -63,4 +66,7 @@ public class EntityTheEye extends EntityDivineMob {
         return SoundRegistry.THE_EYE_HURT;
     }
 
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() <= 16;
+    }
 }

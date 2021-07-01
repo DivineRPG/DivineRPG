@@ -7,11 +7,8 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import java.util.*;
-
 public class EntityCorruptedBullet extends DivineThrowable {
     public static float damage = 10.0F;
-    private List<Entity> toExcludeList = new ArrayList<>();
 
     public EntityCorruptedBullet(EntityType<? extends ThrowableEntity> type, World world) {
         super(type, world);
@@ -27,21 +24,11 @@ public class EntityCorruptedBullet extends DivineThrowable {
         this.moveTo(getX() + vector.x, getY() + vector.y, getZ() + vector.z);
     }
 
-
-
-
     @Override
-    protected void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-            Entity entity = (Entity) result.hitInfo;
-            if (!this.toExcludeList.contains(result.hitInfo))
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            Entity entity = result.getEntity();
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);
-            List<Entity> surrounding = this.level.getEntities(this,
-                    this.getBoundingBox().expandTowards(1, 1, 1));
-            for (Entity e : surrounding) {
-                if (e instanceof EntityCorruptedBullet)
-                    ((EntityCorruptedBullet) e).toExcludeList.add(entity);
-            }
         }
 
         if (!this.level.isClientSide) {

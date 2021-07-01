@@ -9,7 +9,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
 public class EntityShooterBullet extends DivineThrowable {
@@ -34,9 +34,9 @@ public class EntityShooterBullet extends DivineThrowable {
     }
 
     @Override
-    public void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-            Entity entity = (Entity) result.hitInfo;
+    public void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            Entity entity = result.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()),
                     this.getBulletType().getDamage());
         }

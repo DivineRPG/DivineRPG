@@ -29,9 +29,9 @@ public class EntityWreckBouncingProjectile extends DivineThrowable
     }
 
     @Override
-    protected void onHit(RayTraceResult par1) {
-        if (par1.hitInfo != null && par1.hitInfo != this.thrower) {
-            ((LivingEntity)par1.hitInfo).hurt(DamageSources.arcanaSource, this.damage);
+    protected void onHitEntity(EntityRayTraceResult par1) {
+        if (par1.getEntity() != null && par1.getEntity() != this.thrower) {
+            par1.getEntity().hurt(DamageSources.arcanaSource, this.damage);
 
             if (!this.level.isClientSide) {
                 this.kill();

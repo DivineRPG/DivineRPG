@@ -3,7 +3,7 @@ package divinerpg.entities.projectile;
 import net.minecraft.entity.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
 public class EntityCaveRock extends DivineThrowable {
@@ -22,13 +22,13 @@ public class EntityCaveRock extends DivineThrowable {
     }
 
     @Override
-    public void onHit(RayTraceResult result) {
-        if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-            Entity entity = (Entity) result.hitInfo;
-            entity.hurt(DamageSource.thrown(this, this.getOwner()), 6.0F);
-        }
-        if (!this.level.isClientSide) {
-            this.kill();
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null) {
+            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 6.0F);
+
+            if (!this.level.isClientSide) {
+                this.kill();
+            }
         }
     }
 }

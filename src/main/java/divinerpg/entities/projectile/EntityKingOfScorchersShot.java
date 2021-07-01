@@ -31,10 +31,10 @@ public class EntityKingOfScorchersShot extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
         if (!level.isClientSide) {
-            if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-                Entity entity = (Entity) result.hitInfo;
+            if (result.getEntity() != null) {
+                Entity entity = result.getEntity();
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), 14);
                 entity.setSecondsOnFire(8);
             }

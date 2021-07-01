@@ -33,6 +33,11 @@ public class ItemModBow extends BowItem {
         this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier);
     }
 
+    public ItemModBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier, Properties properties) {
+        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier, properties);
+    }
+
+
     public ItemModBow(String name, ArrowType arrowType, int uses) {
         this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, () -> null);
     }
@@ -43,6 +48,16 @@ public class ItemModBow extends BowItem {
 
     public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
         super(new Properties().tab(DivineRPG.tabs.ranged).durability(uses));
+        this.setRegistryName(DivineRPG.MODID, name);
+        this.arrowType = arrowType;
+        this.arrowSupplier = arrowSupplier;
+        this.maxUseDuration = maxUseDuration;
+        unbreakable = true;
+
+    }
+
+    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier, Properties properties) {
+        super(properties);
         this.setRegistryName(DivineRPG.MODID, name);
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;

@@ -32,16 +32,10 @@ public class EntityScorcherShot extends DivineFireball {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
         if (!this.level.isClientSide) {
-            if (result.getType() == RayTraceResult.Type.BLOCK) {
-                BlockPos blockpos = new BlockPos(result.getLocation().x, result.getLocation().y, result.getLocation().z);
-
-                if (this.level.isEmptyBlock(blockpos)) {
-                    this.level.setBlock(blockpos, Blocks.FIRE.defaultBlockState(), 0);
-                }
-            } else if (result.hitInfo != null && result.hitInfo instanceof Entity) {
-                Entity entity = (Entity) result.hitInfo;
+            if (result.getEntity() != null && result.getEntity() instanceof Entity) {
+                Entity entity = result.getEntity();
                 if (!entity.fireImmune()) {
                     boolean flag = entity.hurt(DamageSource.fireball(this, this.shootingEntity), 4.0F);
 
@@ -52,6 +46,20 @@ public class EntityScorcherShot extends DivineFireball {
             }
         }
 
+        kill();
+    }
+
+    @Override
+    protected void onHit(RayTraceResult result) {
+        if (!this.level.isClientSide) {
+            if (result.getType() == RayTraceResult.Type.BLOCK) {
+                BlockPos blockpos = new BlockPos(result.getLocation().x, result.getLocation().y, result.getLocation().z);
+
+                if (this.level.isEmptyBlock(blockpos)) {
+                    this.level.setBlock(blockpos, Blocks.FIRE.defaultBlockState(), 0);
+                }
+            }
+        }
         kill();
     }
 

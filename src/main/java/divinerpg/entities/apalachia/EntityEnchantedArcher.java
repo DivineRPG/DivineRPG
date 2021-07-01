@@ -2,6 +2,8 @@ package divinerpg.entities.apalachia;
 
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -10,7 +12,10 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityEnchantedArcher extends EntityDivineMob implements IRangedAttackMob {
 
@@ -24,8 +29,8 @@ public class EntityEnchantedArcher extends EntityDivineMob implements IRangedAtt
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernArcherFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.APALACHIA_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
@@ -43,8 +48,7 @@ public class EntityEnchantedArcher extends EntityDivineMob implements IRangedAtt
 
     @Override
     public void performRangedAttack(LivingEntity target, float f) {
-        //TODO - Enchanted archer arrow
-//        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.ENCHANTED_ARCHER_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.ENCHANTED_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override

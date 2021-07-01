@@ -25,7 +25,7 @@ public class EntityDisk extends DivineThrowable {
         super(type, world);
     }
 
-    public EntityDisk(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity) {
+    public EntityDisk(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity, DiskType diskType, Item item) {
         super(type, entity, world);
         this.diskType = diskType;
         setDiskId((byte) diskType.ordinal());
@@ -58,11 +58,11 @@ public class EntityDisk extends DivineThrowable {
     }
 
     @Override
-    public void onHit(RayTraceResult result) {
+    public void onHitEntity(EntityRayTraceResult result) {
         if (this.getOwner() != null) {
-            if (result.hitInfo != null && result.hitInfo != this.getOwner() && result.hitInfo instanceof Entity) {
-                ((Entity) result.hitInfo).hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
-            } else if (result.hitInfo == this.getOwner() && this.getOwner() instanceof PlayerEntity
+            if (result.getEntity() != null && result.getEntity() != this.getOwner()) {
+                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+            } else if (result.getEntity() == this.getOwner() && this.getOwner() instanceof PlayerEntity
                     && this.bounces > 0) {
                 if (!((PlayerEntity) this.getOwner()).isCreative()) {
                     ((PlayerEntity) this.getOwner()).inventory.add(new ItemStack(this.item));

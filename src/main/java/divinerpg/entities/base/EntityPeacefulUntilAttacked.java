@@ -5,6 +5,7 @@ import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
@@ -66,7 +67,9 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
 //        if (isAngry()) {addAttackingAI();}
 //    }
 
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
     @Override
     public void setTarget(@Nullable LivingEntity livingBase) {
         super.setTarget(livingBase);

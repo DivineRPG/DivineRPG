@@ -28,15 +28,22 @@ public class EntityMeteor extends DivineThrowable {
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        if(result.hitInfo != null && result.hitInfo instanceof Entity) {
-            Entity entity = (Entity) result.hitInfo;
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if(result.hitInfo != null) {
+            Entity entity = result.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), 12);
         }
 
         level.explode(this, this.xo, this.yo, this.zo, 4.5F, false, Explosion.Mode.BREAK);
 
         if(!this.level.isClientSide) {
+            this.kill();
+        }
+    }
+    @Override
+    protected void onHit(RayTraceResult result) {
+        if (!this.level.isClientSide) {
+            this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Explosion.Mode.BREAK);
             this.kill();
         }
     }

@@ -9,9 +9,10 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
-import java.util.List;
+import java.util.*;
 
 public class EntityHastreus extends EntityDivineMob {
 
@@ -70,5 +71,7 @@ public class EntityHastreus extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.HASTREUS_HURT;
     }
-
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+    }
 }

@@ -1,6 +1,8 @@
 package divinerpg.entities.mortum;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -8,7 +10,10 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTwilightArcher extends EntityDivineMob implements IRangedAttackMob {
 
@@ -22,8 +27,8 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumArcherFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.MORTUM_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
@@ -40,8 +45,7 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity target, float f) {
-        //TODO - TWILIGHT_ARCHER_ARROW
-//        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.TWILIGHT_ARCHER_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.TWILIGHT_ARCHER_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override
