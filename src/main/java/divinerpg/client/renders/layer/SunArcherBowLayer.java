@@ -19,15 +19,13 @@ public class SunArcherBowLayer extends LayerRenderer<EntitySunArcher, ModelSunAr
     }
 
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, EntitySunArcher entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        //TODO - lower bow
         matrixStackIn.pushPose();
         ModelRenderer modelrenderer = this.getParentModel().armRight;
         modelrenderer.translateAndRotate(matrixStackIn);
-        matrixStackIn.translate(-0.0625F, 0.4375F, 0.0625F);
-        matrixStackIn.translate(-0.125F, -0.14f, -0.02);
-        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
-        matrixStackIn.translate(-0.125F, -0.14f, -0.02);
-//            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(-45.0F));
+        matrixStackIn.translate(-0.125F, 0.55F, -0.0F);
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.edenBow.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
 
         matrixStackIn.popPose();

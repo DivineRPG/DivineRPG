@@ -23,10 +23,10 @@ public class WildfireBowLayer extends LayerRenderer<EntityWildfire, ModelWildfir
         matrixStackIn.pushPose();
         ModelRenderer modelrenderer = this.getParentModel().rightarm;
         modelrenderer.translateAndRotate(matrixStackIn);
-        matrixStackIn.translate(-0.0625F, 0.4375F, 0.0625F);
-        matrixStackIn.translate(-0.125F, -0.14f, -0.02);
-        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
-//            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(-45.0F));
+        matrixStackIn.translate(-0.125F, 0.40F, -0.0F);
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.infernoBow.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
 
         matrixStackIn.popPose();
