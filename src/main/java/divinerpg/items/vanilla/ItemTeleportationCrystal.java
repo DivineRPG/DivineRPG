@@ -26,7 +26,7 @@ public class ItemTeleportationCrystal extends ItemMod {
     }
 
     public ItemTeleportationCrystal(String name, int durability) {
-        super("teleportation_crystal", new Item.Properties().durability(durability).tab(DivineRPG.tabs.utilities));
+        super(name, new Item.Properties().durability(durability).tab(DivineRPG.tabs.utilities));
     }
 
     /**
