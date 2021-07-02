@@ -824,7 +824,7 @@ public class EntityRegistry {
         manager.register(APALACHIA_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
         manager.register(APALACHIA_TOMO, new RenderDivineMob(manager, new ModelTomo(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
         manager.register(ENCHANTED_ARCHER, new RenderDivineMob(manager, new ModelEnchantedArcher(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
-        manager.register(ENCHANTED_WARRIOR, new RenderDivineMob(manager, new ModelEnchantedWarrior(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png")));
+        manager.register(ENCHANTED_WARRIOR, new RenderEnchantedWarrior(manager));
         manager.register(SPELLBINDER, new RenderDivineMob(manager, new ModelMystic(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
 
         //Skythern
