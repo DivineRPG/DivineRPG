@@ -2,10 +2,10 @@ package divinerpg.blocks.vethea;
 
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
+import divinerpg.util.teleport.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.merchant.villager.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.pathfinding.*;
@@ -18,10 +18,8 @@ import net.minecraft.util.math.shapes.*;
 import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
-import org.apache.commons.lang3.*;
 
 import javax.annotation.*;
-import java.util.*;
 
 public class BlockNightmareBed extends HorizontalBlock implements ITileEntityProvider {
     public static final EnumProperty<BedPart> PART = BlockStateProperties.BED_PART;
@@ -46,32 +44,11 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
         this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.FOOT).setValue(OCCUPIED, Boolean.valueOf(false)));
     }
 
-    @Nullable
-    @OnlyIn(Dist.CLIENT)
-    public static Direction getBedOrientation(IBlockReader p_220174_0_, BlockPos p_220174_1_) {
-        BlockState blockstate = p_220174_0_.getBlockState(p_220174_1_);
-        return blockstate.getBlock() instanceof BlockNightmareBed ? blockstate.getValue(FACING) : null;
-    }
-
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
     if(!worldIn.isClientSide) {
-        //TODO - vethean teleporter
+        player.changeDimension(player.getServer().getLevel(player.level.dimension()), new SecondaryTeleporter(player.getServer().getLevel(KeyRegistry.VETHEA_WORLD), player.getSleepingPos().get().getX(), player.getSleepingPos().get().getY(), player.getSleepingPos().get().getZ()));
     }
         return ActionResultType.PASS;
-    }
-
-    public static boolean canSetSpawn(World p_235330_0_) {
-        return p_235330_0_.dimensionType().bedWorks();
-    }
-
-    private boolean kickVillagerOutOfBed(World p_226861_1_, BlockPos p_226861_2_) {
-        List<VillagerEntity> list = p_226861_1_.getEntitiesOfClass(VillagerEntity.class, new AxisAlignedBB(p_226861_2_), LivingEntity::isSleeping);
-        if (list.isEmpty()) {
-            return false;
-        } else {
-            list.get(0).stopSleeping();
-            return true;
-        }
     }
 
     public void fallOn(World p_180658_1_, BlockPos p_180658_2_, Entity p_180658_3_, float p_180658_4_) {
@@ -151,71 +128,6 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
         return p_226862_0_.getValue(PART) == BedPart.HEAD ? direction.getOpposite() : direction;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static TileEntityMerger.Type getBlockType(BlockState p_226863_0_) {
-        BedPart bedpart = p_226863_0_.getValue(PART);
-        return bedpart == BedPart.HEAD ? TileEntityMerger.Type.FIRST : TileEntityMerger.Type.SECOND;
-    }
-
-    private static boolean isBunkBed(IBlockReader p_242657_0_, BlockPos p_242657_1_) {
-        return p_242657_0_.getBlockState(p_242657_1_.below()).getBlock() instanceof BlockNightmareBed;
-    }
-
-    public static Optional<Vector3d> findStandUpPosition(EntityType<?> p_242652_0_, ICollisionReader p_242652_1_, BlockPos p_242652_2_, float p_242652_3_) {
-        Direction direction = p_242652_1_.getBlockState(p_242652_2_).getValue(FACING);
-        Direction direction1 = direction.getClockWise();
-        Direction direction2 = direction1.isFacingAngle(p_242652_3_) ? direction1.getOpposite() : direction1;
-        if (isBunkBed(p_242652_1_, p_242652_2_)) {
-            return findBunkBedStandUpPosition(p_242652_0_, p_242652_1_, p_242652_2_, direction, direction2);
-        } else {
-            int[][] aint = bedStandUpOffsets(direction, direction2);
-            Optional<Vector3d> optional = findStandUpPositionAtOffset(p_242652_0_, p_242652_1_, p_242652_2_, aint, true);
-            return optional.isPresent() ? optional : findStandUpPositionAtOffset(p_242652_0_, p_242652_1_, p_242652_2_, aint, false);
-        }
-    }
-
-    private static Optional<Vector3d> findBunkBedStandUpPosition(EntityType<?> p_242653_0_, ICollisionReader p_242653_1_, BlockPos p_242653_2_, Direction p_242653_3_, Direction p_242653_4_) {
-        int[][] aint = bedSurroundStandUpOffsets(p_242653_3_, p_242653_4_);
-        Optional<Vector3d> optional = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint, true);
-        if (optional.isPresent()) {
-            return optional;
-        } else {
-            BlockPos blockpos = p_242653_2_.below();
-            Optional<Vector3d> optional1 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, blockpos, aint, true);
-            if (optional1.isPresent()) {
-                return optional1;
-            } else {
-                int[][] aint1 = bedAboveStandUpOffsets(p_242653_3_);
-                Optional<Vector3d> optional2 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint1, true);
-                if (optional2.isPresent()) {
-                    return optional2;
-                } else {
-                    Optional<Vector3d> optional3 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint, false);
-                    if (optional3.isPresent()) {
-                        return optional3;
-                    } else {
-                        Optional<Vector3d> optional4 = findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, blockpos, aint, false);
-                        return optional4.isPresent() ? optional4 : findStandUpPositionAtOffset(p_242653_0_, p_242653_1_, p_242653_2_, aint1, false);
-                    }
-                }
-            }
-        }
-    }
-
-    private static Optional<Vector3d> findStandUpPositionAtOffset(EntityType<?> p_242654_0_, ICollisionReader p_242654_1_, BlockPos p_242654_2_, int[][] p_242654_3_, boolean p_242654_4_) {
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
-
-        for(int[] aint : p_242654_3_) {
-            blockpos$mutable.set(p_242654_2_.getX() + aint[0], p_242654_2_.getY(), p_242654_2_.getZ() + aint[1]);
-            Vector3d vector3d = TransportationHelper.findSafeDismountLocation(p_242654_0_, p_242654_1_, blockpos$mutable, p_242654_4_);
-            if (vector3d != null) {
-                return Optional.of(vector3d);
-            }
-        }
-
-        return Optional.empty();
-    }
-
     public PushReaction getPistonPushReaction(BlockState p_149656_1_) {
         return PushReaction.DESTROY;
     }
@@ -253,15 +165,4 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
         return false;
     }
 
-    private static int[][] bedStandUpOffsets(Direction p_242656_0_, Direction p_242656_1_) {
-        return ArrayUtils.addAll((int[][])bedSurroundStandUpOffsets(p_242656_0_, p_242656_1_), (int[][])bedAboveStandUpOffsets(p_242656_0_));
-    }
-
-    private static int[][] bedSurroundStandUpOffsets(Direction p_242658_0_, Direction p_242658_1_) {
-        return new int[][]{{p_242658_1_.getStepX(), p_242658_1_.getStepZ()}, {p_242658_1_.getStepX() - p_242658_0_.getStepX(), p_242658_1_.getStepZ() - p_242658_0_.getStepZ()}, {p_242658_1_.getStepX() - p_242658_0_.getStepX() * 2, p_242658_1_.getStepZ() - p_242658_0_.getStepZ() * 2}, {-p_242658_0_.getStepX() * 2, -p_242658_0_.getStepZ() * 2}, {-p_242658_1_.getStepX() - p_242658_0_.getStepX() * 2, -p_242658_1_.getStepZ() - p_242658_0_.getStepZ() * 2}, {-p_242658_1_.getStepX() - p_242658_0_.getStepX(), -p_242658_1_.getStepZ() - p_242658_0_.getStepZ()}, {-p_242658_1_.getStepX(), -p_242658_1_.getStepZ()}, {-p_242658_1_.getStepX() + p_242658_0_.getStepX(), -p_242658_1_.getStepZ() + p_242658_0_.getStepZ()}, {p_242658_0_.getStepX(), p_242658_0_.getStepZ()}, {p_242658_1_.getStepX() + p_242658_0_.getStepX(), p_242658_1_.getStepZ() + p_242658_0_.getStepZ()}};
-    }
-
-    private static int[][] bedAboveStandUpOffsets(Direction p_242655_0_) {
-        return new int[][]{{0, 0}, {-p_242655_0_.getStepX(), -p_242655_0_.getStepZ()}};
-    }
 }

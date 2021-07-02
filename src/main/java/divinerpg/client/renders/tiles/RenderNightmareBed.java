@@ -9,7 +9,6 @@ import it.unimi.dsi.fastutil.ints.*;
 import net.minecraft.block.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.texture.*;
 import net.minecraft.client.renderer.tileentity.*;
 import net.minecraft.state.properties.*;
 import net.minecraft.tileentity.*;
@@ -49,7 +48,6 @@ public class RenderNightmareBed extends TileEntityRenderer<TileEntityNightmareBe
     }
 
     public void render(TileEntityNightmareBed p_225616_1_, float p_225616_2_, MatrixStack p_225616_3_, IRenderTypeBuffer p_225616_4_, int p_225616_5_, int p_225616_6_) {
-        RenderMaterial rendermaterial = new RenderMaterial(AtlasTexture.LOCATION_BLOCKS, new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare"));
         World world = p_225616_1_.getLevel();
         if (world != null) {
             BlockState blockstate = p_225616_1_.getBlockState();
@@ -57,15 +55,15 @@ public class RenderNightmareBed extends TileEntityRenderer<TileEntityNightmareBe
                 return false;
             });
             int i = icallbackwrapper.<Int2IntFunction>apply(new DualBrightnessCallback<>()).get(p_225616_5_);
-            this.renderPiece(p_225616_3_, p_225616_4_, blockstate.getValue(BedBlock.PART) == BedPart.HEAD, blockstate.getValue(BedBlock.FACING), rendermaterial, i, p_225616_6_, false);
+            this.renderPiece(p_225616_3_, p_225616_4_, blockstate.getValue(BedBlock.PART) == BedPart.HEAD, blockstate.getValue(BedBlock.FACING), i, p_225616_6_, false);
         } else {
-            this.renderPiece(p_225616_3_, p_225616_4_, true, Direction.SOUTH, rendermaterial, p_225616_5_, p_225616_6_, false);
-            this.renderPiece(p_225616_3_, p_225616_4_, false, Direction.SOUTH, rendermaterial, p_225616_5_, p_225616_6_, true);
+            this.renderPiece(p_225616_3_, p_225616_4_, true, Direction.SOUTH, p_225616_5_, p_225616_6_, false);
+            this.renderPiece(p_225616_3_, p_225616_4_, false, Direction.SOUTH, p_225616_5_, p_225616_6_, true);
         }
 
     }
 
-    private void renderPiece(MatrixStack p_228847_1_, IRenderTypeBuffer p_228847_2_, boolean p_228847_3_, Direction p_228847_4_, RenderMaterial p_228847_5_, int p_228847_6_, int p_228847_7_, boolean p_228847_8_) {
+    private void renderPiece(MatrixStack p_228847_1_, IRenderTypeBuffer buffer, boolean p_228847_3_, Direction direction, int p_228847_6_, int p_228847_7_, boolean p_228847_8_) {
         this.headPiece.visible = p_228847_3_;
         this.footPiece.visible = !p_228847_3_;
         this.legs[0].visible = !p_228847_3_;
@@ -76,9 +74,9 @@ public class RenderNightmareBed extends TileEntityRenderer<TileEntityNightmareBe
         p_228847_1_.translate(0.0D, 0.5625D, p_228847_8_ ? -1.0D : 0.0D);
         p_228847_1_.mulPose(Vector3f.XP.rotationDegrees(90.0F));
         p_228847_1_.translate(0.5D, 0.5D, 0.5D);
-        p_228847_1_.mulPose(Vector3f.ZP.rotationDegrees(180.0F + p_228847_4_.toYRot()));
+        p_228847_1_.mulPose(Vector3f.ZP.rotationDegrees(180.0F + direction.toYRot()));
         p_228847_1_.translate(-0.5D, -0.5D, -0.5D);
-        IVertexBuilder ivertexbuilder = p_228847_5_.buffer(p_228847_2_, RenderType::entitySolid);
+        IVertexBuilder ivertexbuilder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare.png")));
         this.headPiece.render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
         this.footPiece.render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
         this.legs[0].render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/template_bed",
+  "parent": "item/generated",
   "textures": {
-    "particle": "divinerpg:blocks/nightmare"
+    "layer0": "divinerpg:items/nightmare_bed"
   }
 }
