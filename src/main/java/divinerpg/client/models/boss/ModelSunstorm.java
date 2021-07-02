@@ -236,7 +236,10 @@ public class ModelSunstorm<T extends Entity> extends SegmentedModel<T> {
     @Override
     public void setupAnim(T e, float f, float f1, float f2, float f3, float f4)
   {
-      //TODO - animate sunstorm arms
+    this.armR.xRot = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 2.0F * f1 * 0.5F / f;
+    this.armL.xRot = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F / f;
+    this.armR.zRot = 0.0F;
+    this.armL.zRot = 0.0F;
 	this.legR.xRot = (MathHelper.cos(f * 0.6662F) * 1.4F * f1);
 	this.legL.xRot = (MathHelper.cos(f * 0.6662F + 3.141593F) * 1.4F * f1);
   }

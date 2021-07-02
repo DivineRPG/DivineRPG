@@ -144,7 +144,9 @@ public class ModelTermasect<T extends Entity> extends SegmentedModel<T> {
 
     @Override
     public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        //TODO - Termasect base rotate
+                base1.yRot = limbSwing % 1F;
+                base2.yRot = limbSwing % 2F;
+                base3.yRot = limbSwing % 3F;
     }
 
     @Override

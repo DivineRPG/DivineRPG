@@ -1,7 +1,6 @@
 package divinerpg.client.models.iceika;
 
 import com.google.common.collect.*;
-import com.mojang.blaze3d.matrix.*;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
@@ -96,11 +95,6 @@ public class ModelFractite<T extends Entity> extends SegmentedModel<T> {
     @Override
     public Iterable<ModelRenderer> parts() {
         return ImmutableList.of(frostBody, shard1, shard2, shard7, shard8, shard4, shard3, shard5, shard6);
-    }
-
-    protected void preRenderCallback(Entity entity, MatrixStack matrixStackIn, float partialTickTime) {
-        //TODO - check scale on fractite
-        matrixStackIn.scale(2, 2, 2);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)

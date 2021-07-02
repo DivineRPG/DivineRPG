@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
+import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -117,7 +118,8 @@ public class ModelTermid<T extends Entity> extends SegmentedModel<T> {
 
   @Override
   public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-  //TODO - Termid limb swing
+    this.legL.xRot = (MathHelper.cos(limbSwing * 0.6662F + 3.141593F) * 1.4F * limbSwingAmount);
+    this.legR.xRot = (MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
   }
 
   @Override

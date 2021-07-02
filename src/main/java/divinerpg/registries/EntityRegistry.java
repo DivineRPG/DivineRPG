@@ -782,7 +782,7 @@ public class EntityRegistry {
         manager.register(REYVOR, new RenderReyvor(manager));
         manager.register(SOUL_FIEND, new RenderDivineMob(manager, new ModelSoulFiend(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png")));
         manager.register(SUNSTORM, new RenderDivineMob(manager, new ModelSunstorm(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
-        manager.register(TERMASECT, new RenderDivineMob(manager, new ModelTermasect(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
+        manager.register(TERMASECT, new RenderDivineMob(manager, new ModelTermasect(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
         manager.register(THE_WATCHER, new RenderDivineMob(manager, new ModelTheWatcher(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
         manager.register(TWILIGHT_DEMON, new RenderDivineMob(manager, new ModelTwilightDemon(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
         manager.register(VAMACHERON, new RenderDivineMob(manager, new ModelVamacheron(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
