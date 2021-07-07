@@ -35,7 +35,8 @@ public class DivineRPG {
         DeferredRegister<?>[] registers = {
                 ParticleRegistry.PARTICLES,
                 StructureRegistry.DEFERRED_REGISTRY_STRUCTURE,
-                TraderProfession.PROFESSIONS
+                TraderProfession.PROFESSIONS,
+                ContainerRegistry.CONTAINER_TYPES
         };
 
         for (DeferredRegister<?> register : registers) {

@@ -2,7 +2,7 @@
   "parent": "builtin/entity",
   "gui_light": "front",
   "textures": {
-    "particle": "divinerpg:block/arlemite_block"
+    "particle": "divinerpg:blocks/arlemite_block"
   },
   "display": {
     "thirdperson_righthand": {

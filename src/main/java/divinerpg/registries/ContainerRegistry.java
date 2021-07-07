@@ -1,11 +1,12 @@
 package divinerpg.registries;
 
 import divinerpg.*;
-import net.minecraftforge.fml.common.*;
+import net.minecraft.inventory.container.*;
 import net.minecraftforge.registries.*;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder(DivineRPG.MODID)
-public class ContainerRegistry {
+
+public class ContainerRegistry
+{
+    public static final DeferredRegister<ContainerType<?>> CONTAINER_TYPES = DeferredRegister.create(ForgeRegistries.CONTAINERS, DivineRPG.MODID);
 
 }

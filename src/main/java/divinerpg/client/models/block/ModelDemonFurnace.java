@@ -2,10 +2,11 @@ package divinerpg.client.models.block;
 
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
+import net.minecraft.entity.*;
 
-public class ModelDemonFurnace extends Model {
+public class ModelDemonFurnace extends EntityModel {
     //fields
     ModelRenderer Box;
     ModelRenderer Arm1;
@@ -16,7 +17,7 @@ public class ModelDemonFurnace extends Model {
     ModelRenderer Arm6;
 
     public ModelDemonFurnace() {
-        super(RenderType::entityCutoutNoCull);
+        super();
         texWidth = 64;
         texHeight = 64;
 
@@ -62,6 +63,11 @@ public class ModelDemonFurnace extends Model {
         Arm6.setTexSize(64, 64);
         Arm6.mirror = true;
         setRotation(Arm6, 0F, 0F, -0.6632251F);
+    }
+
+    @Override
+    public void setupAnim(Entity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+
     }
 
     @Override

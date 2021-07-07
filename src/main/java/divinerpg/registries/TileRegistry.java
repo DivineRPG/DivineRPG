@@ -5,6 +5,7 @@ import divinerpg.tiles.*;
 import divinerpg.tiles.block.*;
 import divinerpg.tiles.bosses.*;
 import divinerpg.tiles.chests.*;
+import divinerpg.tiles.furnace.*;
 import net.minecraft.tileentity.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.eventbus.api.*;
@@ -27,6 +28,13 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityEdenChest> EDEN_CHEST;
     public static  TileEntityType<TileEntityPresentBox> PRESENT_BOX;
     public static  TileEntityType<PortalEntity> ARCANA_PORTAL;
+    public static  TileEntityType<TileEntityCoalstoneFurnace> COALSTONE_FURNACE;
+    public static  TileEntityType<TileEntityDemonFurnace> DEMON_FURNACE;
+    public static  TileEntityType<TileEntityGreenlightFurnace> GREENLIGHT_FURNACE;
+    public static  TileEntityType<TileEntityOceanfireFurnace> OCEANFIRE_FURNACE;
+    public static  TileEntityType<TileEntityMoltenFurnace> MOLTEN_FURNACE;
+    public static  TileEntityType<TileEntityWhitefireFurnace> WHITEFIRE_FURNACE;
+    public static  TileEntityType<TileEntityMoonlightFurnace> MOONLIGHT_FURNACE;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -42,6 +50,13 @@ public class TileRegistry {
         EDEN_CHEST = TileEntityType.Builder.of(() -> new TileEntityEdenChest(), BlockRegistry.edenChest).build(null);
         PRESENT_BOX = TileEntityType.Builder.of(() -> new TileEntityPresentBox(), BlockRegistry.presentBox).build(null);
         ARCANA_PORTAL = TileEntityType.Builder.of(() -> new PortalEntity(), BlockRegistry.arcanaPortal).build(null);
+        COALSTONE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityCoalstoneFurnace(), BlockRegistry.coalstoneFurnace).build(null);
+        DEMON_FURNACE = TileEntityType.Builder.of(() -> new TileEntityDemonFurnace(), BlockRegistry.demonFurnace).build(null);
+        GREENLIGHT_FURNACE = TileEntityType.Builder.of(() -> new TileEntityGreenlightFurnace(), BlockRegistry.greenlightFurnace).build(null);
+        OCEANFIRE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityOceanfireFurnace(), BlockRegistry.oceanfireFurnace).build(null);
+        MOLTEN_FURNACE = TileEntityType.Builder.of(() -> new TileEntityMoltenFurnace(), BlockRegistry.moltenFurnace).build(null);
+        WHITEFIRE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityWhitefireFurnace(), BlockRegistry.whitefireFurnace).build(null);
+        MOONLIGHT_FURNACE = TileEntityType.Builder.of(() -> new TileEntityMoonlightFurnace(), BlockRegistry.moonlightFurnace).build(null);
 
 
 
@@ -57,7 +72,14 @@ public class TileRegistry {
                 FROSTED_CHEST.setRegistryName(DivineRPG.MODID, "frosted_chest"),
                 EDEN_CHEST.setRegistryName(DivineRPG.MODID, "eden_chest"),
                 PRESENT_BOX.setRegistryName(DivineRPG.MODID, "present_box"),
-                ARCANA_PORTAL.setRegistryName(DivineRPG.MODID, "arcana_portal")
+                ARCANA_PORTAL.setRegistryName(DivineRPG.MODID, "arcana_portal"),
+                COALSTONE_FURNACE.setRegistryName(DivineRPG.MODID, "coalstone_furnace"),
+                DEMON_FURNACE.setRegistryName(DivineRPG.MODID, "demon_furnace"),
+                GREENLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "greenlight_furnace"),
+                OCEANFIRE_FURNACE.setRegistryName(DivineRPG.MODID, "oceanfire_furnace"),
+                MOLTEN_FURNACE.setRegistryName(DivineRPG.MODID, "molten_furnace"),
+                WHITEFIRE_FURNACE.setRegistryName(DivineRPG.MODID, "whitefire_furnace"),
+                MOONLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "moonlight_furnace")
         );
     }
 

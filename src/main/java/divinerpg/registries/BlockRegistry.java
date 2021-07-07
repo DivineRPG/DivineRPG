@@ -417,8 +417,6 @@ public class BlockRegistry {
     public static final Block coalstone = null;
     @ObjectHolder("coalstone_furnace")
     public static final Block coalstoneFurnace = null;
-    @ObjectHolder("coalstone_furnace_on")
-    public static final Block coalstoneFurnaceOn = null;
     @ObjectHolder("coalstone_stairs")
     public static final Block coalstoneStairs = null;
     @ObjectHolder("frost_archer_spawner")
@@ -887,28 +885,16 @@ public class BlockRegistry {
     // Furnace
     @ObjectHolder("greenlight_furnace")
     public static final Block greenlightFurnace = null;
-    @ObjectHolder("greenlight_furnace_on")
-    public static final Block greenlightFurnaceOn = null;
     @ObjectHolder("oceanfire_furnace")
     public static final Block oceanfireFurnace = null;
-    @ObjectHolder("oceanfire_furnace_on")
-    public static final Block oceanfireFurnaceOn = null;
     @ObjectHolder("molten_furnace")
     public static final Block moltenFurnace = null;
-    @ObjectHolder("molten_furnace_on")
-    public static final Block moltenFurnaceOn = null;
     @ObjectHolder("whitefire_furnace")
     public static final Block whitefireFurnace = null;
-    @ObjectHolder("whitefire_furnace_on")
-    public static final Block whitefireFurnaceOn = null;
     @ObjectHolder("moonlight_furnace")
     public static final Block moonlightFurnace = null;
-    @ObjectHolder("moonlight_furnace_on")
-    public static final Block moonlightFurnaceOn = null;
     @ObjectHolder("demon_furnace")
     public static final Block demonFurnace = null;
-    @ObjectHolder("demon_furnace_on")
-    public static final Block demonFurnaceOn = null;
 
     // Miscellaneous utility
     @ObjectHolder("acceleron")
@@ -1344,12 +1330,8 @@ public class BlockRegistry {
 //        // Structure blocks
         Block coalstone = new BlockMod("coalstone", 3.0F, 3.0F);
         register(registry, coalstone);
-        register(registry, new BlockModNotReady("coalstone_furnace"));
-        register(registry, new BlockModNotReady("coalstone_furnace_on"));
         register(registry, new BlockModStairs("coalstone_stairs", coalstone));
-        //TODO - Furnaces
-//        register(registry, new BlockCoalstoneFurnace("coalstone_furnace", false));
-//        register(registry, new BlockCoalstoneFurnace("coalstone_furnace_on", true));
+        register(registry, new BlockCoalstoneFurnace("coalstone_furnace"));
         register(registry, new BlockModSpawner("frost_archer_spawner", EntityRegistry.FROST_ARCHER));
         register(registry, new BlockFrostedChest("frosted_chest"));
         register(registry, new BlockModGlass("frosted_glass", 1.0F));
@@ -1615,32 +1597,13 @@ public class BlockRegistry {
         register(registry, new BlockModCrop("veilo_plant", 3, ItemRegistry.veiloSeeds));
 //
 //        // Furnace
-        register(registry, new BlockModNotReady("greenlight_furnace"));
-        register(registry, new BlockModNotReady("greenlight_furnace_on"));
-        register(registry, new BlockModNotReady("oceanfire_furnace"));
-        register(registry, new BlockModNotReady("oceanfire_furnace_on"));
-        register(registry, new BlockModNotReady("molten_furnace"));
-        register(registry, new BlockModNotReady("molten_furnace_on"));
-        register(registry, new BlockModNotReady("whitefire_furnace"));
-        register(registry, new BlockModNotReady("whitefire_furnace_on"));
-        register(registry, new BlockModNotReady("moonlight_furnace"));
-        register(registry, new BlockModNotReady("moonlight_furnace_on"));
-        register(registry, new BlockModNotReady("demon_furnace"));
-        register(registry, new BlockModNotReady("demon_furnace_on"));
-        //TODO - Furnaces
-//        register(registry, new BlockGreenlightFurnace("greenlight_furnace", false));
-//        register(registry, new BlockGreenlightFurnace("greenlight_furnace_on", true));
-//        register(registry, new BlockOceanfireFurnace("oceanfire_furnace", false));
-//        register(registry, new BlockOceanfireFurnace("oceanfire_furnace_on", true));
-//        register(registry, new BlockMoltenFurnace("molten_furnace", false));
-//        register(registry, new BlockMoltenFurnace("molten_furnace_on", true));
-//        register(registry, new BlockWhitefireFurnace("whitefire_furnace", false));
-//        register(registry, new BlockWhitefireFurnace("whitefire_furnace_on", true));
-//        register(registry, new BlockMoonlightFurnace("moonlight_furnace", false));
-//        register(registry, new BlockMoonlightFurnace("moonlight_furnace_on", true));
-//        register(registry, new BlockDemonFurnace("demon_furnace", false));
-//        register(registry, new BlockDemonFurnace("demon_furnace_on", true));
-//
+        register(registry, new BlockGreenlightFurnace("greenlight_furnace"));
+        register(registry, new BlockOceanfireFurnace("oceanfire_furnace"));
+        register(registry, new BlockMoltenFurnace("molten_furnace"));
+        register(registry, new BlockWhitefireFurnace("whitefire_furnace"));
+        register(registry, new BlockMoonlightFurnace("moonlight_furnace"));
+        register(registry, new BlockDemonFurnace("demon_furnace"));
+
 //        // Miscellaneous utility
         register(registry, new BlockAcceleron("acceleron"), false, true);
         registerItemlessBlock(registry, new BlockModTorch("arcanium_torch", ParticleTypes.FLAME));
@@ -1866,9 +1829,9 @@ public class BlockRegistry {
             if (block instanceof BlockStatue) {
                 Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderItemStatue())).setRegistryName(block.getRegistryName());
                 registry.getRegistry().register(statue);
-            }else if (block instanceof BlockNightmareBed) {
-                Item statue = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new NightmareBedTEISR())).setRegistryName(block.getRegistryName());
-                registry.getRegistry().register(statue);
+            }else if (block instanceof BlockDemonFurnace) {
+                Item demonFurnace = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderDemonFurnaceItem())).setRegistryName(block.getRegistryName());
+                registry.getRegistry().register(demonFurnace);
             } else {
                 registry.getRegistry().register(itemBlock);
             }

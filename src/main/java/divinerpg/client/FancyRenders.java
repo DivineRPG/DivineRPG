@@ -149,6 +149,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.altarOfCorruption, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.nightmareBed, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.ayeracoSpawn, RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.demonFurnace, RenderType.translucent());
 
 
 
@@ -156,6 +157,7 @@ public class FancyRenders {
         ClientRegistry.bindTileEntityRenderer(TileRegistry.NIGHTMARE_BED, RenderNightmareBed::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.STATUE, RenderStatue::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.BONE_CHEST, RenderBoneChest::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.DEMON_FURNACE, RenderDemonFurnace::new);
         //TODO - render present box
 //        ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
 
