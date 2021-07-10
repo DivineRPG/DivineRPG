@@ -35,6 +35,7 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityMoltenFurnace> MOLTEN_FURNACE;
     public static  TileEntityType<TileEntityWhitefireFurnace> WHITEFIRE_FURNACE;
     public static  TileEntityType<TileEntityMoonlightFurnace> MOONLIGHT_FURNACE;
+    public static  TileEntityType<TileEntityArcaniumExtractor> ARCANIUM_EXTRACTOR;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -57,6 +58,7 @@ public class TileRegistry {
         MOLTEN_FURNACE = TileEntityType.Builder.of(() -> new TileEntityMoltenFurnace(), BlockRegistry.moltenFurnace).build(null);
         WHITEFIRE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityWhitefireFurnace(), BlockRegistry.whitefireFurnace).build(null);
         MOONLIGHT_FURNACE = TileEntityType.Builder.of(() -> new TileEntityMoonlightFurnace(), BlockRegistry.moonlightFurnace).build(null);
+        ARCANIUM_EXTRACTOR = TileEntityType.Builder.of(() -> new TileEntityArcaniumExtractor(), BlockRegistry.arcaniumExtractor).build(null);
 
 
 
@@ -79,7 +81,8 @@ public class TileRegistry {
                 OCEANFIRE_FURNACE.setRegistryName(DivineRPG.MODID, "oceanfire_furnace"),
                 MOLTEN_FURNACE.setRegistryName(DivineRPG.MODID, "molten_furnace"),
                 WHITEFIRE_FURNACE.setRegistryName(DivineRPG.MODID, "whitefire_furnace"),
-                MOONLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "moonlight_furnace")
+                MOONLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "moonlight_furnace"),
+                ARCANIUM_EXTRACTOR.setRegistryName(DivineRPG.MODID, "arcanium_extractor")
         );
     }
 

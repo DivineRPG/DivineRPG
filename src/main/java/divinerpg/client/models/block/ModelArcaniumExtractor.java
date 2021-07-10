@@ -2,10 +2,11 @@ package divinerpg.client.models.block;
 
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
+import net.minecraft.entity.*;
 
-public class ModelArcaniumExtractor extends Model {
+public class ModelArcaniumExtractor extends EntityModel {
     //fields
     ModelRenderer P2;
     ModelRenderer S1;
@@ -30,7 +31,7 @@ public class ModelArcaniumExtractor extends Model {
     ModelRenderer P3;
 
     public ModelArcaniumExtractor() {
-        super(RenderType::entityCutoutNoCull);
+        super();
         texWidth = 64;
         texHeight = 32;
         P2 = new ModelRenderer(this, 0, 16);
@@ -159,6 +160,11 @@ public class ModelArcaniumExtractor extends Model {
         P3.setTexSize(64, 32);
         P3.mirror = true;
         setRotation(P3, 0F, 0F, 0F);
+    }
+
+    @Override
+    public void setupAnim(Entity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+
     }
 
     @Override

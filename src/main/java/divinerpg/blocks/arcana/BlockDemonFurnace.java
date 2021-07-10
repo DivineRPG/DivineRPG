@@ -3,6 +3,7 @@ package divinerpg.blocks.arcana;
 import divinerpg.blocks.base.*;
 import divinerpg.tiles.furnace.*;
 import net.minecraft.block.*;
+import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.stats.*;
@@ -15,7 +16,7 @@ import javax.annotation.*;
 public class BlockDemonFurnace extends BlockModFurnace {
 
     public BlockDemonFurnace(String name) {
-        super(name);
+        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE).noOcclusion());
     }
     protected void openContainer(World world, BlockPos pos, PlayerEntity player) {
         TileEntity tileentity = world.getBlockEntity(pos);

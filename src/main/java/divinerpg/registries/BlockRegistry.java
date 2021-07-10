@@ -1558,9 +1558,7 @@ public class BlockRegistry {
         register(registry, new BlockArcanaDoor("soul_stone_door", () -> ItemRegistry.soulKey));
 //
 //        // Utility
-        register(registry, new BlockModNotReady("arcanium_extractor"));
-        //TODO - Arcanium extractor
-//        register(registry, new BlockArcaniumExtractor("arcanium_extractor"));
+        register(registry, new BlockArcaniumExtractor("arcanium_extractor"));
 //
 //        // Boss altars
         register(registry, new BlockModNotReady("dramix_altar"));
@@ -1832,6 +1830,9 @@ public class BlockRegistry {
             }else if (block instanceof BlockDemonFurnace) {
                 Item demonFurnace = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderDemonFurnaceItem())).setRegistryName(block.getRegistryName());
                 registry.getRegistry().register(demonFurnace);
+            }else if (block instanceof BlockArcaniumExtractor) {
+                Item arcanium = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderArcaniumExtractorItem())).setRegistryName(block.getRegistryName());
+                registry.getRegistry().register(arcanium);
             } else {
                 registry.getRegistry().register(itemBlock);
             }

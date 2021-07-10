@@ -36,7 +36,8 @@ public class DivineRPG {
                 ParticleRegistry.PARTICLES,
                 StructureRegistry.DEFERRED_REGISTRY_STRUCTURE,
                 TraderProfession.PROFESSIONS,
-                ContainerRegistry.CONTAINER_TYPES
+                ContainerRegistry.CONTAINER_TYPES,
+                RecipeRegistry.Serailizers.RECIPE_SERIALIZERS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -64,6 +65,10 @@ public class DivineRPG {
         FancyRenders.init();
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         ModelPropRegistry.init();
+
+        event.enqueueWork(() -> {
+            ContainerRegistry.registerScreenFactories();
+        });
     }
 
     private void post(final FMLLoadCompleteEvent event){
