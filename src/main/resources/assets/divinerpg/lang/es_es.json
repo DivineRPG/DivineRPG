@@ -424,19 +424,12 @@
   "block.divinerpg.arcanite_rails": "Rieles de arcanita",
   "block.divinerpg.acceleron": "Acelerón",
   "block.divinerpg.coalstone_furnace": "Horno de carbópiedra",
-  "block.divinerpg.coalstone_furnace_on": "Horno de carbópiedra",
   "block.divinerpg.oceanfire_furnace": "Horno de fuego oceánico",
-  "block.divinerpg.oceanfire_furnace_on": "Horno de fuego oceánico",
   "block.divinerpg.molten_furnace": "Horno ígneo",
-  "block.divinerpg.molten_furnace_on": "Horno ígneo",
   "block.divinerpg.whitefire_furnace": "Horno de fuego blanco",
-  "block.divinerpg.whitefire_furnace_on": "Horno de fuego blanco",
   "block.divinerpg.demon_furnace": "Horno de demonio",
-  "block.divinerpg.demon_furnace_on": "Horno de demonio",
   "block.divinerpg.greenlight_furnace": "Horno de luz verde",
-  "block.divinerpg.greenlight_furnace_on": "Horno de luz verde",
   "block.divinerpg.moonlight_furnace": "Horno de luz lunar",
-  "block.divinerpg.moonlight_furnace_on": "Horno de luz lunar",
   "block.divinerpg.dark_bridge_on": "Puente oscuro",
   "block.divinerpg.slime_light_on": "Lámpara de slime",
   "block.divinerpg.divine_double_slab": "Losa doble divina",
@@ -1849,5 +1842,6 @@
   "divinerpg.sit.true": "Tu mascota se sentará ahora",
   "divinerpg.sit.false": "Tu mascota te seguirá ahora",
   "jeicompat.tile.raw_arcanium.information": "El arcanium crudo se genera en la mazmorra arcana, usualmente detrás de puertas cerradas.",
-  "tile.bone_chest.name": "Cofre de hueso"
+  "tile.bone_chest.name": "Cofre de hueso",
+  "category.divinerpg.arcanium_extractor": "Extractor de arcanium"
 }
