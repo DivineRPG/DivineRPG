@@ -132,7 +132,7 @@ public class EntityStats {
     public static double galroidHealth 			= 100.0D, galroidDamage = 25.0D, galroidSpeed = normalSpeed, galroidFollowRange = follow;
     public static double entHealth 				= 50.0D, entDamage = 20.0D, entSpeed = normalSpeed, entFollowRange = follow;
     public static double dissimentHealth 		= 70.0D;
-    public static double dreamWreckerHealth 	= 60.0D, dreamWreckerDamage = 8.0D, dreamWreckerSpeed = normalSpeed, dreamWreckerFollowRange = follow;
+    public static double dreamwreckerHealth 	= 60.0D, dreamwreckerDamage = 8.0D, dreamwreckerSpeed = normalSpeed, dreamwreckerFollowRange = follow;
     public static double duoHealth 				= 20.0D, duoDamage = 7.0D, duoSpeed = normalSpeed, duoFollowRange = follow;
     public static double gorgosionHealth 		= 60.0D, gorgosionSpeed = normalSpeed, gorgosionFollowRange = follow;
     public static double helioHealth 			= 140.0D, helioDamage = 40.0D, helioSpeed = normalSpeed, helioFollowRange = follow;
@@ -144,7 +144,7 @@ public class EntityStats {
     public static double karosHealth 			= 4000.0D, karosDamage = 20.0D, karosSpeed = normalSpeed, karosFollowRange = follow;
     public static double kazroticHealth 		= 65.0D, kazroticSpeed = normalSpeed, kazroticFollowRange = follow;
     public static double ladyLunaHealth 		= 8000.0D, ladyLunaDamage = 20.0D, ladyLunaSpeed = normalSpeed, ladyLunaFollowRange = follow;
-    public static double lheviaHealth 			= 85.0D, lheviaDamage = 19.0D, lheviaSpeed = normalSpeed, lheviaFollowRange = follow;
+    public static double lheivaHealth 			= 85.0D, lheivaDamage = 19.0D, lheivaSpeed = normalSpeed, lheivaFollowRange = follow;
     public static double lorgaHealth 			= 15.0D, lorgaDamage = 4.0D, lorgaSpeed = normalSpeed, lorgaFollowRange = follow;
     public static double lorgaFlightHealth 		= 40.0D, lorgaFlightDamage = 7.0D, lorgaFlightSpeed = normalSpeed, lorgaFlightFollowRange = follow;
     public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 4.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
@@ -154,7 +154,7 @@ public class EntityStats {
     public static double tocaxinHealth 			= 65.0D, tocaxinDamage = 10.0D, tocaxinSpeed = normalSpeed, tocaxinFollowRange = follow;
     public static double twinsHealth 			= 10.0D, twinsDamage = 2.0D, twinsSpeed = normalSpeed, twinsFollowRange = follow;
     public static double vermenousHealth 		= 100.0D, vermenousDamage = 13.0D, vermenousSpeed = normalSpeed, vermenousFollowRange = follow;
-    public static double varaakHealth 			= 100.0D, varaakDamage = 30.0D, varaakSpeed = normalSpeed, varaakFollowRange = follow;
+    public static double vhraakHealth 			= 100.0D, vhraakDamage = 30.0D, vhraakSpeed = normalSpeed, vhraakFollowRange = follow;
     public static double wreckHealth 			= 5000.0D, wreckDamage = 30.0D, wreckSpeed = normalSpeed, wreckSpeedFast = normalSpeed*2, wreckFollowRange = follow;
     public static double zoneHealth 			= 120.0D, zoneDamage = 0.0D, zoneSpeed = normalSpeed, zoneFollowRange = follow;
     public static double zoragonHealth 			= 110.0D, zoragonDamage = 0.0D, zoragonSpeed = normalSpeed, zoragonFollowRange = follow;

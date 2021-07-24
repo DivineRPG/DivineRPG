@@ -164,7 +164,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
         public void tick() {
             LivingEntity livingentity = this.mob.getTarget();
-            double d0 = 64.0D;
+//            double d0 = 64.0D;
             if (livingentity.distanceToSqr(this.mob) < 4096.0D && this.mob.canSee(livingentity)) {
                 World world = this.mob.level;
                 ++this.chargeTime;
@@ -173,7 +173,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
                 }
 
                 if (this.chargeTime == 20) {
-                    float d1 = 4.0F;
+//                    float d1 = 4.0F;
                     Vector3d vector3d = this.mob.getViewVector(1.0F);
                     double d2 = livingentity.getX() - (this.mob.getX() + vector3d.x * 4.0D);
                     double d3 = livingentity.getY(0.5D) - (0.5D + this.mob.getY(0.5D));
@@ -215,7 +215,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
                 this.mob.yBodyRot = this.mob.yRot;
             } else {
                 LivingEntity livingentity = this.mob.getTarget();
-                double d0 = 64.0D;
+//                double d0 = 64.0D;
                 if (livingentity.distanceToSqr(this.mob) < 4096.0D) {
                     double d1 = livingentity.getX() - this.mob.getX();
                     double d2 = livingentity.getZ() - this.mob.getZ();

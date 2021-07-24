@@ -34,5 +34,4 @@ public class EntityZelus extends EntityDivineMerchant {
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
 		super.updateTrades();
 	}
-
 }

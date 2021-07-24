@@ -49,7 +49,7 @@ public class EntityMageBase extends EntityDivineMob {
                 double tx = this.getTarget().getX() - this.getX();
                 double ty = this.getTarget().getBoundingBox().minY - this.getY();
                 double tz = this.getTarget().getZ() - this.getZ();
-                EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE, this, level, bullet);
+                EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, bullet);
                 shot.shoot(tx, ty, tz, 1.6f, 0);
                 this.level.addFreshEntity(shot);
                 level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),

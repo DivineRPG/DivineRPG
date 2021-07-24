@@ -129,7 +129,7 @@ public class EntityRaglok extends EntityDivineBoss {
     }
 
     private void message() {
-        List list = this.level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
+        List<Entity> list = this.level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
         for (int var1 = 0; var1 < list.size(); ++var1) {
             if (list.get(var1) instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) list.get(var1);

@@ -24,10 +24,10 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
 		if(this.distanceTo(e)<3) {
         	e.setSecondsOnFire(3);
         }
-		double y = this.getBoundingBox().minY + 2.7D;
-        double tx = e.getX() - this.getX();
-        double ty = e.getBoundingBox().minY - y;
-        double tz = e.getZ() - this.getZ();
+//		double y = this.getBoundingBox().minY + 2.7D;
+//        double tx = e.getX() - this.getX();
+//        double ty = e.getBoundingBox().minY - y;
+//        double tz = e.getZ() - this.getZ();
 
         for (double h = -1.5; h < 1.5; h += 0.5) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {

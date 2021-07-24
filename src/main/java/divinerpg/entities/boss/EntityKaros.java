@@ -164,7 +164,7 @@ public class EntityKaros extends EntityDivineBoss {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        int s = this.random.nextInt(4);
+//        int s = this.random.nextInt(4);
 
         String langKey;
         SoundEvent sound;

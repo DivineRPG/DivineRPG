@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.model.*;
 import net.minecraft.entity.*;
 import net.minecraft.util.math.*;
 
-public class ModelDungeonPrisoner<T extends Entity> extends SegmentedModel<T> 
+public class ModelDungeonPrisoner<T extends Entity> extends SegmentedModel<T>
 {
     //fields
 	ModelRenderer head;
@@ -85,8 +85,7 @@ public class ModelDungeonPrisoner<T extends Entity> extends SegmentedModel<T>
     }
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
         this.head.xRot = headPitch / (180F / (float)Math.PI);
         this.headp2.yRot = netHeadYaw / (180F / (float)Math.PI);

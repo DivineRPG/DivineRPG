@@ -48,10 +48,10 @@ public class EntityTwilightDemon extends EntityDivineBoss {
                 this.shooting = 100;
             this.setTarget(this.level.getNearestPlayer(this, 40.0D));
             if (this.getTarget() != null && this.shooting > 0) {
-                double tx = this.getTarget().getX() - this.getX();
-                double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
-                double tz = this.getTarget().getZ() - this.getZ();
-                double angle = Math.atan(-(tx) / (tz));
+//                double tx = this.getTarget().getX() - this.getX();
+//                double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
+//                double tz = this.getTarget().getZ() - this.getZ();
+//                double angle = Math.atan(-(tx) / (tz));
                 //TODO - twilight demon shot
 //                EntityTwilightDemonShot e = new EntityTwilightDemonShot(this.world, this, this.rand.nextInt(50) == 0 ?
 //                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);

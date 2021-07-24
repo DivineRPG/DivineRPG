@@ -509,35 +509,39 @@ public class ModelQuadro<T extends Entity> extends SegmentedModel<T>
             this.rightleg.xRot = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
             this.righttoe1.xRot = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
             this.righttoe2.xRot = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-            EntityQuadro quadro = (EntityQuadro) entity;
+//            EntityQuadro quadro = (EntityQuadro) entity;
             if (((EntityQuadro) entity).dir == true) {
                 this.dir = 0;
             }
 
             //TODO - sort quadro ability rotations
-//            if (quadro.ability == 0 && this.rotateOffset < Math.PI / 2 && this.dir == 0) {
-//                this.rotateOffset = 0.05F;
-//            } else if (quadro.ability == 2 && this.rotateOffset < Math.PI && this.dir == 0) {
-//                this.rotateOffset = 0.05F;
-//            } else if (quadro.ability == 1 && this.rotateOffset < Math.PI * 3 / 2 && this.dir == 0) {
-//                this.rotateOffset = 0.05F;
-//            } else {
+            double ageInSeconds = Math.ceil(f2/20);
+            if (Math.ceil(ageInSeconds/16)-0.5 <= ageInSeconds/16) {
+            if (Math.ceil(ageInSeconds/6) == ageInSeconds/6 && this.rotateOffset < Math.PI && this.dir == 0) {
+                this.rotateOffset = 0.05F;
+            } else if (Math.ceil(ageInSeconds/4) == ageInSeconds/4 && this.rotateOffset < Math.PI * 3 / 2 /*&& this.dir == 0*/) {
+                this.rotateOffset = 0.05F;
+            } else if (Math.ceil(ageInSeconds/2) == ageInSeconds/2 && this.rotateOffset < Math.PI / 2 /*&& this.dir == 0*/) {
+                this.rotateOffset = 0.05F;
+            } else {
 //                this.dir = 1;
-//                this.rotateOffset = 0;
-//            }
-
-//            if (quadro.ability == 0 && this.rotateOffset > Math.PI / 2 && this.dir == 1) {
-//                this.rotateOffset = -0.05F;
-//            } else if (quadro.ability == 2 && this.rotateOffset > Math.PI && this.dir == 1) {
-//                this.rotateOffset = -0.05F;
-//            } else if (quadro.ability == 1 && this.rotateOffset > Math.PI * 3 / 2 && this.dir == 1) {
-//                this.rotateOffset = -0.05F;
-//            } else if (quadro.ability == 3 && this.rotateOffset > 0 && this.dir == 1) {
-//                this.rotateOffset = -0.05F;
-//            } else {
-                this.dir = 2;
+            	this.dir = 0;
                 this.rotateOffset = 0;
-//            }
+            }} else {
+
+            if (Math.ceil(ageInSeconds/8) == ageInSeconds/8 && this.rotateOffset > Math.PI /*&& this.dir == 1*/) {
+                this.rotateOffset = -0.05F;
+            } else if (Math.ceil(ageInSeconds/6) == ageInSeconds/6 && this.rotateOffset > Math.PI * 3 / 2 /*&& this.dir == 1*/) {
+                this.rotateOffset = -0.05F;
+            } else if (Math.ceil(ageInSeconds/4) == ageInSeconds/4 && this.rotateOffset > Math.PI / 2 /*&& this.dir == 1*/) {
+                this.rotateOffset = -0.05F;
+            } else if (Math.ceil(ageInSeconds/2) == ageInSeconds/2 && this.rotateOffset > 0 /*&& this.dir == 1*/) {
+                this.rotateOffset = -0.05F;
+            } else {
+//                this.dir = 2;
+            	this.dir = 0;
+                this.rotateOffset = 0;
+            } }
 
             this.rotated1.yRot += this.rotateOffset;
             this.rotated2.yRot += this.rotateOffset;

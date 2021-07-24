@@ -21,7 +21,7 @@ import net.minecraft.world.server.*;
 public class EntityExperiencedCori extends EntityDivineFlyingMob {
     private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
             BossInfo.Overlay.PROGRESS));
-    private int deathTicks;
+//    private int deathTicks;
 
     public EntityExperiencedCori(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);

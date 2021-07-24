@@ -23,7 +23,7 @@ public class EntityWreck extends EntityDivineBoss {
 
     private final int MELEE = 0, ARCANA = 1, RANGED = 2;
     private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
-    private int waitTick;
+//    private int waitTick;
     private int abilityTimer;
     private boolean dead = false;
     private boolean loaded = false;
@@ -137,7 +137,7 @@ public class EntityWreck extends EntityDivineBoss {
     }
 
     private void message() {
-        List list = level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
+        List<Entity> list = level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
         for (int var1 = 0; var1 < list.size(); ++var1) {
             if (list.get(var1) instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) list.get(var1);
@@ -247,9 +247,9 @@ public class EntityWreck extends EntityDivineBoss {
 
     public void performRangedAttack(LivingEntity entity) {
         if (entity == null) return;
-        double tx = entity.getX() - this.getX();
-        double ty = entity.getBoundingBox().minY - this.getY();
-        double tz = entity.getZ() - this.getZ();
+//        double tx = entity.getX() - this.getX();
+//        double ty = entity.getBoundingBox().minY - this.getY();
+//        double tz = entity.getZ() - this.getZ();
         switch (this.getAbility()) {
             case BOUNCE:
                 //TODO - wreck projectiles

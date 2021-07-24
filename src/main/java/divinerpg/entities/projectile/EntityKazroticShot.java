@@ -19,7 +19,7 @@ public class EntityKazroticShot extends DivineThrowable {
         super(type, entity, world);
     }
 
-    @Override
+	@Override
     protected void onHit(RayTraceResult result) {
         if(!this.level.isClientSide) {
             this.level.explode(this, this.xo, this.yo, this.zo, 3, false, Explosion.Mode.BREAK);

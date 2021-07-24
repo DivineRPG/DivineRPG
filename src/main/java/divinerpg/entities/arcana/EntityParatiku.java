@@ -213,12 +213,14 @@ public class EntityParatiku extends EntityDivineTameable {
         }
     }
     
+    @Override
     public void readAdditionalSaveData(CompoundNBT compound)
     {
         super.readAdditionalSaveData(compound);
         this.entityData.set(HANGING, Byte.valueOf(compound.getByte("ParatikuFlags")));
     }
     
+    @Override
     public void addAdditionalSaveData(CompoundNBT compound)
     {
         super.addAdditionalSaveData(compound);

@@ -11,7 +11,7 @@ import net.minecraft.world.*;
 public class EntityHiveQueen extends EntityDivineBoss {
 
     private int spawnTick;
-    private int deathTicks;
+//    private int deathTicks;
 
     public EntityHiveQueen(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
