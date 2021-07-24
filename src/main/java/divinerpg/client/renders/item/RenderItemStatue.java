@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.model.*;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.client.renderer.tileentity.*;
 import net.minecraft.item.*;
+import net.minecraft.util.math.vector.*;
 import net.minecraftforge.api.distmarker.*;
 
 import java.util.concurrent.*;
@@ -27,13 +28,13 @@ public class RenderItemStatue extends ItemStackTileEntityRenderer implements Cal
                 Block block = ((BlockItem) stack.getItem()).getBlock();
                 if(block instanceof BlockStatue){
                     EntityModel model = ((BlockStatue) block).statueType.getModel();
-                        matrixStack.pushPose();
-                        float scale = -0.5F;
-                        matrixStack.scale(scale, scale, scale);
-                        matrixStack.translate(0.5F, 0.5F, 0.0F);
-                        IVertexBuilder builder = renderType.getBuffer(RenderType.entityCutout(((BlockStatue) block).statueType.getTexture()));
-                        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
-                        matrixStack.popPose();
+                    matrixStack.pushPose();
+                    matrixStack.translate(0.5, 0.5, 0.5);
+                    matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90));
+                    matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
+                    IVertexBuilder builder = renderType.getBuffer(RenderType.entityCutout(((BlockStatue) block).statueType.getTexture()));
+                    model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+                    matrixStack.popPose();
                 }
             }
     }

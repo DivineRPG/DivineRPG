@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_fragments"
+  },
+  "ingredient": {
+    "item": "divinerpg:mortum_ore"
+  },
+  "type": "minecraft:smelting",
+  "experience": 1.3,
+  "cookingtime": 100
+}

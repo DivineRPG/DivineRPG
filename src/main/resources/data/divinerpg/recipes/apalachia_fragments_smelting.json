@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_fragments"
+  },
+  "ingredient": {
+    "item": "divinerpg:apalachia_ore"
+  },
+  "type": "minecraft:smelting",
+  "experience": 1.3,
+  "cookingtime": 100
+}

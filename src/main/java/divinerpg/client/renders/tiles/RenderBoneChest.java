@@ -19,12 +19,12 @@ public class RenderBoneChest extends TileEntityRenderer<TileEntityBoneChest> {
 
     @Override
     public void render(TileEntityBoneChest tile, float partialTick, MatrixStack matrix, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-        //TODO - flip
         ModelBoneChest model = new ModelBoneChest();
         matrix.pushPose();
         if (!tile.isRemoved()) {
             matrix.translate(0.5D, 0.5D, 0.5D);
             matrix.mulPose(Vector3f.YP.rotationDegrees(-tile.getBlockState().getValue(BlockModChest.FACING).toYRot()));
+            matrix.mulPose(Vector3f.XN.rotationDegrees(180));
             matrix.translate(-0.5D, -0.5D, -0.5D);
         }
         float lidAngle = tile.oOpenness + (tile.openness - tile.oOpenness) * partialTick;

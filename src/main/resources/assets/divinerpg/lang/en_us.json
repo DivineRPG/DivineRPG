@@ -424,19 +424,12 @@
   "block.divinerpg.arcanite_rails": "Arcanite Rails",
   "block.divinerpg.acceleron": "Acceleron",
   "block.divinerpg.coalstone_furnace": "Coalstone Furnace",
-  "block.divinerpg.coalstone_furnace_on": "Coalstone Furnace",
   "block.divinerpg.oceanfire_furnace": "Oceanfire Furnace",
-  "block.divinerpg.oceanfire_furnace_on": "Oceanfire Furnace",
   "block.divinerpg.molten_furnace": "Molten Furnace",
-  "block.divinerpg.molten_furnace_on": "Molten Furnace",
   "block.divinerpg.whitefire_furnace": "Whitefire Furnace",
-  "block.divinerpg.whitefire_furnace_on": "Whitefire Furnace",
   "block.divinerpg.demon_furnace": "Demon Furnace",
-  "block.divinerpg.demon_furnace_on": "Demon Furnace",
   "block.divinerpg.greenlight_furnace": "Greenlight Furnace",
-  "block.divinerpg.greenlight_furnace_on": "Greenlight Furnace",
   "block.divinerpg.moonlight_furnace": "Moonlight Furnace",
-  "block.divinerpg.moonlight_furnace_on": "Moonlight Furnace",
   "block.divinerpg.dark_bridge_on": "Dark Bridge",
   "block.divinerpg.slime_light_on": "Slime Light",
   "block.divinerpg.divine_double_slab": "Double Divine Slab",
@@ -1849,5 +1842,6 @@
   "divinerpg.sit.true": "Your pet will now sit",
   "divinerpg.sit.false": "Your pet will now follow you",
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
-  "tile.bone_chest.name": "Bone Chest"
+  "tile.bone_chest.name": "Bone Chest",
+  "category.divinerpg.arcanium_extractor": "Arcanium Extractor"
 }
