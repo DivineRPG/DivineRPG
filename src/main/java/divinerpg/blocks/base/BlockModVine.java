@@ -10,6 +10,7 @@ public class BlockModVine extends VineBlock {
                 .dynamicShape()
                 .randomTicks()
                 .noCollission()
+                .noOcclusion()
                 .strength(2.0F, 3.0F)
                 .sound(SoundType.WET_GRASS));
         setRegistryName(name);

@@ -24,7 +24,6 @@ public class BlockAyeracoBeam extends ContainerBlock {
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new TileEntityAyeracoBeam(
-                new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_" + tex + ".png"));
+        return new TileEntityAyeracoBeam(new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_" + tex + ".png"));
     }
 }

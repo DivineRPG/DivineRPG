@@ -37,7 +37,8 @@ public class DivineRPG {
                 StructureRegistry.DEFERRED_REGISTRY_STRUCTURE,
                 TraderProfession.PROFESSIONS,
                 ContainerRegistry.CONTAINER_TYPES,
-                RecipeRegistry.Serailizers.RECIPE_SERIALIZERS
+                RecipeRegistry.Serailizers.RECIPE_SERIALIZERS,
+                KeyRegistry.POI
         };
 
         for (DeferredRegister<?> register : registers) {

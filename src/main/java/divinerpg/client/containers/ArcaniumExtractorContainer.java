@@ -1,6 +1,6 @@
-package divinerpg.containers;
+package divinerpg.client.containers;
 
-import divinerpg.containers.slot.*;
+import divinerpg.client.containers.slot.*;
 import divinerpg.recipe.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.furnace.*;
@@ -94,19 +94,19 @@ public class ArcaniumExtractorContainer extends RecipeBookContainer<IInventory> 
         return this.container.stillValid(entity);
     }
 
-    public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int p_82846_2_) {
+    public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int i) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(p_82846_2_);
+        Slot slot = this.slots.get(i);
         if (slot != null && slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
-            if (p_82846_2_ == 2) {
+            if (i == 2) {
                 if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickCraft(itemstack1, itemstack);
-            } else if (p_82846_2_ != 1 && p_82846_2_ != 0) {
+            } else if (i != 1 && i != 0) {
                 if (this.canSmelt(itemstack1)) {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
@@ -115,11 +115,11 @@ public class ArcaniumExtractorContainer extends RecipeBookContainer<IInventory> 
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (p_82846_2_ >= 3 && p_82846_2_ < 30) {
+                } else if (i >= 3 && i < 30) {
                     if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (p_82846_2_ >= 30 && p_82846_2_ < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
+                } else if (i >= 30 && i < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
                     return ItemStack.EMPTY;
                 }
             } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {

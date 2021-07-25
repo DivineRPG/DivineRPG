@@ -30,4 +30,9 @@ public class RenderArcaniumExtractor extends TileEntityRenderer<TileEntityArcani
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();
     }
+
+    @Override
+    public boolean shouldRenderOffScreen(TileEntityArcaniumExtractor p_188185_1_) {
+        return true;
+    }
 }

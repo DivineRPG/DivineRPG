@@ -70,12 +70,12 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven { url = "https://minecraft.curseforge.com/api/maven/"}
     maven { url = "http://dvs1.progwml6.com/files/maven"}
-    maven { url = "https://modmaven.k-4u.nl"}
+//    maven { url = "https://modmaven.k-4u.nl"}
     maven { url = "https://www.cursemaven.com"}
     maven { url 'https://maven.blamejared.com'}
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
     compileOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}:api") //Just Enough Items
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}") //Just Enough Items
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources

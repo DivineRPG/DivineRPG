@@ -1,8 +1,5 @@
 {
   "variants": {
-    "inventory": {
-      "model": "divinerpg:block/wildwood_vine_1"
-    },
     "east=false,north=false,south=false,up=false,west=false": {
       "model": "divinerpg:block/wildwood_vine_1"
     },

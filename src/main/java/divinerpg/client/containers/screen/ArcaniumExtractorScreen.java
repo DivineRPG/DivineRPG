@@ -1,9 +1,9 @@
-package divinerpg.containers.screen;
+package divinerpg.client.containers.screen;
 
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.systems.*;
 import divinerpg.*;
-import divinerpg.containers.*;
+import divinerpg.client.containers.*;
 import net.minecraft.client.gui.screen.inventory.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;

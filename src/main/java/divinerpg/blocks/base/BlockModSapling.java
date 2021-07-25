@@ -1,15 +1,13 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
+import divinerpg.*;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.material.*;
+import net.minecraft.block.trees.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
-import java.util.function.Supplier;
-
-import net.minecraft.block.AbstractBlock.Properties;
+import java.util.function.*;
 
 public class BlockModSapling extends SaplingBlock {
     private final Supplier<Block> grassSupplier;
@@ -19,6 +17,7 @@ public class BlockModSapling extends SaplingBlock {
         super(tree, Properties.of(Material.PLANT)
                 .dynamicShape()
                 .randomTicks()
+                .noOcclusion()
                 .noCollission()
                 .instabreak()
                 .sound(SoundType.WET_GRASS));

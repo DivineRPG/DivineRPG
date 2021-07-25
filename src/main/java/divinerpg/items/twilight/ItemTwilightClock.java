@@ -4,12 +4,16 @@ import divinerpg.*;
 import divinerpg.items.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
+import net.minecraft.client.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.util.text.*;
 import net.minecraft.world.*;
+import net.minecraftforge.api.distmarker.*;
 
+import javax.annotation.*;
 import java.util.*;
 
 public class ItemTwilightClock extends ItemMod {
@@ -33,20 +37,25 @@ public class ItemTwilightClock extends ItemMod {
         Direction facing = context.getClickedFace();
         ItemStack itemstack = player.getItemInHand(hand);
         World worldIn = context.getLevel();
-        Random itemRand = context.getLevel().random;
+        Random random = context.getLevel().random;
+
         if (!player.mayUseItemAt(pos, facing, itemstack)) {
             return ActionResultType.FAIL;
         }
 
-
         if (!worldIn.isClientSide) {
             worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
-                    itemRand.nextFloat() * 0.4F + 0.8F);
+                    random.nextFloat() * 0.4F + 0.8F);
 
-            Block block = worldIn.getBlockState(pos).getBlock();
-        //TODO - make portal from Twilight clock
+            if(possibleBlocks.contains(worldIn.getBlockState(context.getClickedPos()).getBlock())){
+                worldIn.setBlock(context.getClickedPos().above(), BlockRegistry.blueFire.defaultBlockState(), 0);
+            }
         }
-
         return ActionResultType.FAIL;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".twilight_clock"));
     }
 }

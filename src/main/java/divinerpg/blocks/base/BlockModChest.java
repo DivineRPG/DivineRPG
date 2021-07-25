@@ -92,7 +92,9 @@ public abstract class BlockModChest extends BlockMod implements IWaterLoggable, 
             TileEntity tileentity = worldIn.getBlockEntity(pos);
 
             if (tileentity instanceof TileEntityModChest) {
-                InventoryHelper.dropContents(worldIn, pos, (TileEntityModChest) tileentity);
+                if (!((TileEntityModChest) tileentity).isEmpty()){
+                    InventoryHelper.dropContents(worldIn, pos, (TileEntityModChest) tileentity);
+            }
                 worldIn.updateNeighbourForOutputSignal(pos, this);
             }
 

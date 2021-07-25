@@ -7,7 +7,6 @@ import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.inventory.container.*;
-import net.minecraft.stats.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
@@ -38,7 +37,6 @@ public class BlockArcaniumExtractor extends BlockModFurnace {
         TileEntity tileentity = world.getBlockEntity(pos);
         if (tileentity instanceof TileEntityArcaniumExtractor) {
             player.openMenu((INamedContainerProvider)tileentity);
-            player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }
     }
 

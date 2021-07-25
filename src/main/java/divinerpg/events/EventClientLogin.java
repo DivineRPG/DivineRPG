@@ -24,8 +24,8 @@ public class EventClientLogin {
                     ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
                     message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.BLUE));
                     player.sendMessage(message, player.getUUID());
-                } else if (Utils.isPatreon(player.getUUID())) {
-                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.patreon", player.getDisplayName());
+                } else if (Utils.isSpecial(player.getUUID())) {
+                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.special", player.getDisplayName());
                     message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GOLD));
                     player.sendMessage(message, player.getUUID());
                 } else if (Utils.isFriend(player.getUUID())) {

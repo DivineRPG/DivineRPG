@@ -18,9 +18,9 @@ public class TileEntityAyeracoBeam extends ModUpdatableTileEntity {
         super(TileRegistry.AYERACO_BEAM);
         texture = tex;
     }
-
     public TileEntityAyeracoBeam() {
         super(TileRegistry.AYERACO_BEAM);
+        texture = TileRegistry.AYERACO_BEAM.create().texture;
     }
 
     @Override

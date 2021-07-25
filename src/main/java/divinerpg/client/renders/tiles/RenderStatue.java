@@ -27,5 +27,8 @@ public class RenderStatue extends TileEntityRenderer<TileEntityStatue> {
         matrixStack.popPose();
     }
 
-
+    @Override
+    public boolean shouldRenderOffScreen(TileEntityStatue p_188185_1_) {
+        return true;
+    }
 }

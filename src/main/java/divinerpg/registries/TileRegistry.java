@@ -27,7 +27,7 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityFrostedChest> FROSTED_CHEST;
     public static  TileEntityType<TileEntityEdenChest> EDEN_CHEST;
     public static  TileEntityType<TileEntityPresentBox> PRESENT_BOX;
-    public static  TileEntityType<PortalEntity> ARCANA_PORTAL;
+//    public static  TileEntityType<PortalEntity> ARCANA_PORTAL;
     public static  TileEntityType<TileEntityCoalstoneFurnace> COALSTONE_FURNACE;
     public static  TileEntityType<TileEntityDemonFurnace> DEMON_FURNACE;
     public static  TileEntityType<TileEntityGreenlightFurnace> GREENLIGHT_FURNACE;
@@ -36,6 +36,10 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityWhitefireFurnace> WHITEFIRE_FURNACE;
     public static  TileEntityType<TileEntityMoonlightFurnace> MOONLIGHT_FURNACE;
     public static  TileEntityType<TileEntityArcaniumExtractor> ARCANIUM_EXTRACTOR;
+    public static  TileEntityType<TileEntityParasectaAltar> PARASECTA_ALTAR;
+    public static  TileEntityType<TileEntityDramixAltar> DRAMIX_ALTAR;
+    public static  TileEntityType<TileEntityDreamLamp> DREAM_LAMP;
+    public static  TileEntityType<TileEntityInfusionTable> INFUSION_TABLE;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -50,7 +54,7 @@ public class TileRegistry {
         FROSTED_CHEST = TileEntityType.Builder.of(() -> new TileEntityFrostedChest(), BlockRegistry.frostedChest).build(null);
         EDEN_CHEST = TileEntityType.Builder.of(() -> new TileEntityEdenChest(), BlockRegistry.edenChest).build(null);
         PRESENT_BOX = TileEntityType.Builder.of(() -> new TileEntityPresentBox(), BlockRegistry.presentBox).build(null);
-        ARCANA_PORTAL = TileEntityType.Builder.of(() -> new PortalEntity(), BlockRegistry.arcanaPortal).build(null);
+//        ARCANA_PORTAL = TileEntityType.Builder.of(() -> new PortalEntity(), BlockRegistry.arcanaPortal).build(null);
         COALSTONE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityCoalstoneFurnace(), BlockRegistry.coalstoneFurnace).build(null);
         DEMON_FURNACE = TileEntityType.Builder.of(() -> new TileEntityDemonFurnace(), BlockRegistry.demonFurnace).build(null);
         GREENLIGHT_FURNACE = TileEntityType.Builder.of(() -> new TileEntityGreenlightFurnace(), BlockRegistry.greenlightFurnace).build(null);
@@ -59,6 +63,10 @@ public class TileRegistry {
         WHITEFIRE_FURNACE = TileEntityType.Builder.of(() -> new TileEntityWhitefireFurnace(), BlockRegistry.whitefireFurnace).build(null);
         MOONLIGHT_FURNACE = TileEntityType.Builder.of(() -> new TileEntityMoonlightFurnace(), BlockRegistry.moonlightFurnace).build(null);
         ARCANIUM_EXTRACTOR = TileEntityType.Builder.of(() -> new TileEntityArcaniumExtractor(), BlockRegistry.arcaniumExtractor).build(null);
+        PARASECTA_ALTAR = TileEntityType.Builder.of(() -> new TileEntityParasectaAltar(), BlockRegistry.parasectaAltar).build(null);
+        DRAMIX_ALTAR = TileEntityType.Builder.of(() -> new TileEntityDramixAltar(), BlockRegistry.dramixAltar).build(null);
+        DREAM_LAMP = TileEntityType.Builder.of(() -> new TileEntityDreamLamp(), BlockRegistry.dreamLamp).build(null);
+        INFUSION_TABLE = TileEntityType.Builder.of(() -> new TileEntityInfusionTable(), BlockRegistry.infusionTable).build(null);
 
 
 
@@ -74,7 +82,7 @@ public class TileRegistry {
                 FROSTED_CHEST.setRegistryName(DivineRPG.MODID, "frosted_chest"),
                 EDEN_CHEST.setRegistryName(DivineRPG.MODID, "eden_chest"),
                 PRESENT_BOX.setRegistryName(DivineRPG.MODID, "present_box"),
-                ARCANA_PORTAL.setRegistryName(DivineRPG.MODID, "arcana_portal"),
+//                ARCANA_PORTAL.setRegistryName(DivineRPG.MODID, "arcana_portal"),
                 COALSTONE_FURNACE.setRegistryName(DivineRPG.MODID, "coalstone_furnace"),
                 DEMON_FURNACE.setRegistryName(DivineRPG.MODID, "demon_furnace"),
                 GREENLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "greenlight_furnace"),
@@ -82,7 +90,11 @@ public class TileRegistry {
                 MOLTEN_FURNACE.setRegistryName(DivineRPG.MODID, "molten_furnace"),
                 WHITEFIRE_FURNACE.setRegistryName(DivineRPG.MODID, "whitefire_furnace"),
                 MOONLIGHT_FURNACE.setRegistryName(DivineRPG.MODID, "moonlight_furnace"),
-                ARCANIUM_EXTRACTOR.setRegistryName(DivineRPG.MODID, "arcanium_extractor")
+                ARCANIUM_EXTRACTOR.setRegistryName(DivineRPG.MODID, "arcanium_extractor"),
+                PARASECTA_ALTAR.setRegistryName(DivineRPG.MODID, "parasecta_altar"),
+                DRAMIX_ALTAR.setRegistryName(DivineRPG.MODID, "dramix_altar"),
+                DREAM_LAMP.setRegistryName(DivineRPG.MODID, "dream_lamp"),
+                INFUSION_TABLE.setRegistryName(DivineRPG.MODID, "infusion_table")
         );
     }
 

@@ -21,7 +21,7 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
     }
 
     public BlockTwilightFlower(String name, Supplier<Block> grassSupplier, double width, double height, MaterialColor color) {
-        super(Block.Properties.of(Material.PLANT, color).instabreak().sound(SoundType.CROP).noCollission().randomTicks());
+        super(Block.Properties.of(Material.PLANT, color).instabreak().noOcclusion().sound(SoundType.CROP).noCollission().randomTicks());
         setRegistryName(DivineRPG.MODID, name);
         this.grassSupplier = grassSupplier;
 

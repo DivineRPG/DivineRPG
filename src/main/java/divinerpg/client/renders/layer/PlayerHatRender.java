@@ -24,7 +24,7 @@ public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> 
     private ResourceLocation dev = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_red.png");
     private ResourceLocation tester = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_blue.png");
     private ResourceLocation artist = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_purple.png");
-    private ResourceLocation patreon = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png");
+    private ResourceLocation special = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png");
     private ResourceLocation friend = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_pink.png");
 
     public PlayerHatRender(IEntityRenderer<T, M> entityRendererIn) {
@@ -54,8 +54,8 @@ public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> 
             return dev;
         }
 
-        if (Utils.isPatreon(id)) {
-            return patreon;
+        if (Utils.isSpecial(id)) {
+            return special;
         }
 
         if (Utils.isTesterName(id)) {

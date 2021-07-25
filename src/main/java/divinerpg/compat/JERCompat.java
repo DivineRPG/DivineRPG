@@ -16,7 +16,9 @@ public class JERCompat {
 
 
     public static void init(FMLCommonSetupEvent event) {
-//        initDungeonLoot();
+        if (jerAPI == null)
+        return;
+
         initOreGen();
         initPlants();
 

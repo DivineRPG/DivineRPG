@@ -17,7 +17,7 @@ import java.util.concurrent.*;
 public class Utils {
     private static Set<UUID> DEV_LIST = new ConcurrentSet<>();
     private static Set<UUID> TESTER_LIST = new ConcurrentSet<>();
-    private static Set<UUID> PATRON_LIST = new ConcurrentSet<>();
+    private static Set<UUID> SPECIAL_LIST = new ConcurrentSet<>();
     private static Set<UUID> ARTIST_LIST = new ConcurrentSet<>();
     private static Set<UUID> FRIEND_LIST = new ConcurrentSet<>();
 
@@ -29,8 +29,8 @@ public class Utils {
         return TESTER_LIST.contains(name);
     }
 
-    public static boolean isPatreon(UUID name) {
-        return PATRON_LIST.contains(name);
+    public static boolean isSpecial(UUID name) {
+        return SPECIAL_LIST.contains(name);
     }
 
     public static boolean isArtist(UUID name) {
@@ -60,7 +60,7 @@ public class Utils {
         }).thenApply(rawJson -> {
             DEV_LIST.clear();
             TESTER_LIST.clear();
-            PATRON_LIST.clear();
+            SPECIAL_LIST.clear();
             ARTIST_LIST.clear();
             FRIEND_LIST.clear();
 
@@ -71,7 +71,7 @@ public class Utils {
 
                         DEV_LIST.addAll(info.dev);
                         TESTER_LIST.addAll(info.tester);
-                        PATRON_LIST.addAll(info.patreon);
+                        SPECIAL_LIST.addAll(info.special);
                         ARTIST_LIST.addAll(info.artists);
                         FRIEND_LIST.addAll(info.friend);
                     }
@@ -113,7 +113,7 @@ public class Utils {
     public class HatsInfo {
         public List<UUID> dev;
         public List<UUID> tester;
-        public List<UUID> patreon;
+        public List<UUID> special;
         public List<UUID> artists;
         public List<UUID> friend;
     }

@@ -1,6 +1,6 @@
-package divinerpg.containers.slot;
+package divinerpg.client.containers.slot;
 
-import divinerpg.containers.*;
+import divinerpg.client.containers.*;
 import net.minecraft.inventory.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;

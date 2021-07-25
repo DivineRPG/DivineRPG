@@ -273,7 +273,7 @@ public abstract class TileEntityModFurnace extends LockableTileEntity implements
 
     protected boolean canBurn(@Nullable IRecipe<?> iRecipe) {
         if (!this.items.get(0).isEmpty() && iRecipe != null) {
-            ItemStack itemstack = iRecipe.getResultItem();
+            ItemStack itemstack = ((IRecipe<ISidedInventory>) iRecipe).assemble(this);
             if (itemstack.isEmpty()) {
                 return false;
             } else {
@@ -293,10 +293,10 @@ public abstract class TileEntityModFurnace extends LockableTileEntity implements
         }
     }
 
-    private void burn(@Nullable IRecipe<?> p_214007_1_) {
-        if (p_214007_1_ != null && this.canBurn(p_214007_1_)) {
+    private void burn(@Nullable IRecipe<?> iRecipe) {
+        if (iRecipe != null && this.canBurn(iRecipe)) {
             ItemStack itemstack = this.items.get(0);
-            ItemStack itemstack1 = p_214007_1_.getResultItem();
+            ItemStack itemstack1 = ((IRecipe<ISidedInventory>) iRecipe).assemble(this);
             ItemStack itemstack2 = this.items.get(2);
             if (itemstack2.isEmpty()) {
                 this.items.set(2, itemstack1.copy());
@@ -305,7 +305,7 @@ public abstract class TileEntityModFurnace extends LockableTileEntity implements
             }
 
             if (!this.level.isClientSide) {
-                this.setRecipeUsed(p_214007_1_);
+                this.setRecipeUsed(iRecipe);
             }
 
             itemstack.shrink(1);

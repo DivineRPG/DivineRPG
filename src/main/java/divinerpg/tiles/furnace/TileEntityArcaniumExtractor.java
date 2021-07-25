@@ -1,7 +1,7 @@
 package divinerpg.tiles.furnace;
 
 import com.google.common.collect.*;
-import divinerpg.containers.*;
+import divinerpg.client.containers.*;
 import divinerpg.recipe.*;
 import divinerpg.registries.*;
 import it.unimi.dsi.fastutil.objects.*;

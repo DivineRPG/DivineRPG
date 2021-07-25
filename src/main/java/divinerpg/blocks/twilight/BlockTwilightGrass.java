@@ -15,7 +15,7 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, ISheara
     private Supplier<Block> grassSupplier;
 
     public BlockTwilightGrass(String name, Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(Block.Properties.of(Material.PLANT, colour).instabreak().sound(SoundType.CROP).noCollission().randomTicks());
+        super(Block.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.CROP).noCollission().randomTicks());
         setRegistryName(DivineRPG.MODID, name);
         this.grassSupplier = grassSupplier;
     }

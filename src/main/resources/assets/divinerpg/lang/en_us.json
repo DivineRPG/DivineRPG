@@ -1724,7 +1724,7 @@
   "message.version": "[DivineRPG is out of date. The latest version is %s]",
   "message.developer": "Welcome DivineRPG developer! %s is on the DivineRPG dev team.",
   "message.tester": "Welcome DivineRPG tester! %s kindly offered their time to help test DivineRPG. Thank you for your service!",
-  "message.patreon": "Welcome DivineRPG patreon! %s kindly supported the DivineRPG dev team, thank you for your help!",
+  "message.special": "Welcome DivineRPG Player! %s has been noted as being extra cool!",
   "message.spawner.peaceful": "You cannot summon bosses on peaceful difficulty!",
   "message.friend": "Welcome %s! They are a friend of someone on the DivineRPG team.",
   "message.spawner.item": "You must be holding %s to spawn this boss!",
@@ -1834,6 +1834,8 @@
   "tooltip.food.satiety": "Fills %s Hunger Points",
   "tooltip.food.saturation": "%s Saturation",
   "tooltip.armor_info.fly": "Flight",
+  "divinerpg.twilight_clock": "You may need to let the blue fire burn for a moment to open the portal",
+  "divinerpg.snow_globe": "You may need to let the iceika fire burn for a moment to open the portal",
   "divinerpg.tooltip.food.pet": "Pet Food",
   "tooltip.food.heal": "Replenishes %s Health",
   "enchantment.divinerpg.rive": "Rive",
@@ -1842,6 +1844,5 @@
   "divinerpg.sit.true": "Your pet will now sit",
   "divinerpg.sit.false": "Your pet will now follow you",
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
-  "tile.bone_chest.name": "Bone Chest",
   "category.divinerpg.arcanium_extractor": "Arcanium Extractor"
 }

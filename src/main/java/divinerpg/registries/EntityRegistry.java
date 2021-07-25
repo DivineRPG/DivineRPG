@@ -263,7 +263,7 @@ public class EntityRegistry {
     public static final EntityType<? extends TameableEntity> WRAITH = registerEntity(EntityWraith::new, "wraith", 0.9F, 1.4F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
     public static final EntityType<EntityZelus> ZELUS = registerEntity(EntityZelus::new, "zelus", 0.8F, 1.8F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.ARCANA), EntityClassification.MISC);
 
-    // Vethea //TODO - Add Vethean mobs
+    // Vethea
     public static final EntityType<EntityAcidHag> ACID_HAG = registerEntity(EntityAcidHag::new, "acid_hag", 1.0F, 1.6F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
     public static final EntityType<EntityBiphron> BIPHRON = registerEntity(EntityBiphron::new, "biphron", 1.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
     public static final EntityType<EntityBohemite> BOHEMITE = registerEntity(EntityBohemite::new, "bohemite", 1.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
@@ -481,6 +481,7 @@ public class EntityRegistry {
         event.put(SHADAHIER, EntityShadahier.attributes().build());
         event.put(TEMPLE_GUARDIAN, EntityTempleGuardian.attributes().add(Attributes.MOVEMENT_SPEED, 0.32D).add(Attributes.FOLLOW_RANGE, 35.0D).build());
         event.put(THE_HUNGER, EntityTheHunger.attributes().build());
+        event.put(TOCAXIN, EntityTocaxin.attributes().build());
         event.put(TWINS, EntityTwins.attributes().add(Attributes.MOVEMENT_SPEED, 0.27000000417232513D).add(Attributes.FOLLOW_RANGE, 20.0D).build());
         event.put(VERMENOUS, EntityVermenous.attributes().build());
         event.put(VHRAAK, EntityVhraak.attributes().build());

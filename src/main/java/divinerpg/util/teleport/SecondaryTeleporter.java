@@ -25,6 +25,7 @@ public class SecondaryTeleporter extends Teleporter {
     @Override
     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
         this.worldServerInstance.getBlockState(entity.blockPosition());
+        entity.changeDimension(destWorld);
         entity.moveTo(this.x, this.y, this.z);
         entity.setDeltaMovement(0, 0 ,0);
         return null;

@@ -1,8 +1,5 @@
 {
   "variants": {
-    "inventory": {
-      "model": "divinerpg:block/blossomed_weedwood_vine_1"
-    },
     "east=false,north=false,south=false,up=false,west=false": {
       "model": "divinerpg:block/blossomed_weedwood_vine_1"
     },

@@ -1,4 +1,4 @@
-package divinerpg.containers;
+package divinerpg.client.containers;
 
 import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.systems.*;

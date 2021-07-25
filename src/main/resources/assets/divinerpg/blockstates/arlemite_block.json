@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:blocks/arlemite_block"
+      "model": "divinerpg:block/arlemite_block"
     }
   }
 }

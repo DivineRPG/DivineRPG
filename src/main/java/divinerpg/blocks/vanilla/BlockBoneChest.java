@@ -16,10 +16,6 @@ public class BlockBoneChest extends BlockModChest {
         super(name, Properties.of(Material.STONE).noOcclusion().sound(SoundType.STONE), () -> TileRegistry.BONE_CHEST);
     }
 
-    public int getGuiID() {
-        return 12;
-    }
-
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader p_196283_1_) {

@@ -1,7 +1,6 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.registries.*;
-import divinerpg.tiles.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.*;
@@ -29,7 +28,8 @@ public class BlockArcanaPortal extends ContainerBlock {
     }
 
     public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new PortalEntity();
+//        return new PortalEntity();
+    return null;
     }
 
     public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {

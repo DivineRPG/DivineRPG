@@ -68,16 +68,11 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements IT
                 if (!level.isClientSide) {
                     // Order is important!
                     ArrayList<EntityAyeraco> ayeracos = Lists.newArrayList(
-//                            new EntityAyeracoRed(this.level, redBeam),
-//                            new EntityAyeracoGreen(this.level, greenBeam),
-//                            new EntityAyeracoBlue(this.level, blueBeam),
-//                            new EntityAyeracoYellow(this.level, yellowBeam),
-//                            new EntityAyeracoPurple(this.level, purpleBeam));
-                    new EntityAyeracoRed(EntityRegistry.AYERACO_RED, this.level),
-                            new EntityAyeracoGreen(EntityRegistry.AYERACO_GREEN, this.level),
-                            new EntityAyeracoBlue(EntityRegistry.AYERACO_BLUE, this.level),
-                            new EntityAyeracoYellow(EntityRegistry.AYERACO_YELLOW, this.level),
-                            new EntityAyeracoPurple(EntityRegistry.AYERACO_PURPLE, this.level));
+                    new EntityAyeracoRed(EntityRegistry.AYERACO_RED, this.level, redBeam),
+                            new EntityAyeracoGreen(EntityRegistry.AYERACO_GREEN, this.level, greenBeam),
+                            new EntityAyeracoBlue(EntityRegistry.AYERACO_BLUE, this.level, blueBeam),
+                            new EntityAyeracoYellow(EntityRegistry.AYERACO_YELLOW, this.level, yellowBeam),
+                            new EntityAyeracoPurple(EntityRegistry.AYERACO_PURPLE, this.level, purpleBeam));
 
                     AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
 

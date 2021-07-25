@@ -25,7 +25,7 @@ public class BlockModCrop extends CropsBlock {
     }
 
     public BlockModCrop(String name, double maxHeight, int maxAge) {
-        super(AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP));
+        super(AbstractBlock.Properties.of(Material.PLANT).noCollission().noOcclusion().randomTicks().instabreak().sound(SoundType.CROP));
         this.setRegistryName(name);
         this.maxAge = maxAge;
 

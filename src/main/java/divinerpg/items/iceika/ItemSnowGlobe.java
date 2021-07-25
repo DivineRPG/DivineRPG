@@ -2,13 +2,19 @@ package divinerpg.items.iceika;
 
 import divinerpg.*;
 import divinerpg.items.base.*;
+import divinerpg.registries.*;
 import net.minecraft.block.*;
+import net.minecraft.client.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
+import net.minecraft.util.text.*;
 import net.minecraft.world.*;
+import net.minecraftforge.api.distmarker.*;
+
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemSnowGlobe extends ItemMod {
     public ItemSnowGlobe() {
@@ -17,36 +23,31 @@ public class ItemSnowGlobe extends ItemMod {
 
     @Override
     public ActionResultType useOn(ItemUseContext context) {
-        BlockPos pos = context.getClickedPos();
-        Vector3i facing = new Vector3i(context.getClickLocation().x, context.getClickLocation().y, context.getClickLocation().z);
         PlayerEntity player = context.getPlayer();
         Hand hand = context.getHand();
+        BlockPos pos = context.getClickedPos();
+        Direction facing = context.getClickedFace();
+        ItemStack itemstack = player.getItemInHand(hand);
         World worldIn = context.getLevel();
+        Random random = context.getLevel().random;
 
-
-        pos = pos.offset(facing);
-        if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(worldIn, player)) {
+        if (!player.mayUseItemAt(pos, facing, itemstack)) {
             return ActionResultType.FAIL;
         }
 
-        if (worldIn.isEmptyBlock(pos)) {
-            worldIn.playSound(player, pos, SoundEvents.SNOW_STEP, SoundCategory.BLOCKS, 1.0F,
+        if (!worldIn.isClientSide) {
+            worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
                     random.nextFloat() * 0.4F + 0.8F);
 
-            Block snow = Blocks.SNOW;
-
-
-            //TODO - Iceika portal item
-//            if (worldIn.getBlockState(pos.below()).getBlock() == snow) {
-//                IPortalDescription description = DimensionHelper.descriptionsByBlock.get(snow);
-//                if (description != null) {
-//                    BlockPattern.PatternHelper match = description.matchFrame(worldIn, pos.down());
-//                    if (match != null) {
-//                        description.lightPortal(worldIn, match);
-//                    }
-//                }
-//            }
+            if(worldIn.getBlockState(context.getClickedPos()).getBlock() == Blocks.SNOW_BLOCK){
+                worldIn.setBlock(context.getClickedPos().above(), BlockRegistry.iceikaFire.defaultBlockState(), 0);
+            }
         }
-        return super.useOn(context);
+        return ActionResultType.FAIL;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".snow_globe"));
     }
 }
