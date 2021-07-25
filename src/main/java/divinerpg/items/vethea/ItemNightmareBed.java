@@ -8,8 +8,6 @@ import net.minecraft.item.*;
 public class ItemNightmareBed extends BlockItem {
     public ItemNightmareBed() {
         super(BlockRegistry.nightmareBed, new Item.Properties().tab(DivineRPG.tabs.vethea).stacksTo(1)
-                //TODO - nightmare bed item render
-//                .setISTER(() -> () -> new NightmareBedTEISR())
         );
         setRegistryName("nightmare_bed");
     }

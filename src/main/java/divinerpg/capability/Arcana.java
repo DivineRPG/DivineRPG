@@ -1,6 +1,7 @@
 package divinerpg.capability;
 
 import divinerpg.config.*;
+import divinerpg.registries.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.math.*;
 import net.minecraftforge.common.util.*;
@@ -74,8 +75,7 @@ public class Arcana implements IArcana {
 
     private void sendPacket(PlayerEntity player) {
         if (!(player instanceof FakePlayer) && player instanceof ServerPlayerEntity) {
-            //TODO - send arcana bar networking
-//            DivineRPG.network.sendTo(new MessageArcanaBar(this), (ServerPlayerEntity) player);
+            NetworkingRegistry.INSTANCE.sendToServer(new PacketArcanaBar(this));
         }
     }
 }

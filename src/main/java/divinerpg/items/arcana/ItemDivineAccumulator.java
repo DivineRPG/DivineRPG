@@ -24,11 +24,10 @@ public class ItemDivineAccumulator extends ItemMod {
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if(player.getCapability(ArcanaProvider.ARCANA_CAP).isPresent()) {
             int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(new Arcana());
+            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElseThrow(RuntimeException::new);
             if (arcana.getArcana() >= 80) {
                 if (!world.isClientSide) {
-                    //TODO - MessageDivineAccumulator
-//                DivineRPG.network.sendToDimension(new MessageDivineAccumulator(x, y, z), player.dimension);
+                    NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
                     world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
                     arcana.consume(player, 80);
 
