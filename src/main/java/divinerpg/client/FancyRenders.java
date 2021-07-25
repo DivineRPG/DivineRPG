@@ -164,9 +164,8 @@ public class FancyRenders {
         ClientRegistry.bindTileEntityRenderer(TileRegistry.PARASECTA_ALTAR, RenderParasectaAltar::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.AYERACO_BEAM, RenderAyeracoBeam::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.AYERACO_SPAWN, RenderAyeracoSpawn::new);
-        //TODO - last renders
-//        ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
-//        ClientRegistry.bindTileEntityRenderer(TileRegistry.FROSTED_CHEST, RenderFrostedChest::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
+        ClientRegistry.bindTileEntityRenderer(TileRegistry.FROSTED_CHEST, RenderFrostedChest::new);
 
         Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap();
         PlayerRenderer render;

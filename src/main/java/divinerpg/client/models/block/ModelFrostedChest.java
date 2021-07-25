@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.model.*;
 public class ModelFrostedChest extends Model {
     ModelRenderer storage;
     public ModelRenderer lid;
-    ModelRenderer handle;
+    public ModelRenderer handle;
 
     public ModelFrostedChest() {
         super(RenderType::entityCutoutNoCull);

@@ -1809,6 +1809,12 @@ public class BlockRegistry {
                 if(block == parasectaAltar) {
                     Item altar = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderParasectaAltarItem())).setRegistryName(block.getRegistryName());
                     registry.getRegistry().register(altar);}
+            }else if (block instanceof BlockFrostedChest) {
+                Item chest = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderFrostedChestItem())).setRegistryName(block.getRegistryName());
+                registry.getRegistry().register(chest);
+            }else if (block instanceof BlockPresentBox) {
+                Item chest = new ItemModItemBlock(block, new Item.Properties().tab(DivineRPG.tabs.blocks).setISTER(() -> new RenderPresentBoxItem())).setRegistryName(block.getRegistryName());
+                registry.getRegistry().register(chest);
             } else {
                 registry.getRegistry().register(itemBlock);
             }
