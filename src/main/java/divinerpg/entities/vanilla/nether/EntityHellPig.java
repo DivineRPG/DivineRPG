@@ -2,6 +2,7 @@ package divinerpg.entities.vanilla.nether;
 
 import divinerpg.entities.base.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
@@ -11,7 +12,10 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityHellPig extends EntityDivineTameable {
     private static final DataParameter<Float> HEALTH = EntityDataManager.defineId(EntityHellPig.class,
@@ -121,5 +125,9 @@ public class EntityHellPig extends EntityDivineTameable {
 
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigHealth).add(Attributes.ATTACK_DAMAGE, 5).add(Attributes.MOVEMENT_SPEED, EntityStats.hellPigSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellPigRange);
+    }
+
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).getBlock() == Blocks.SOUL_SAND;
     }
 }

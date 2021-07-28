@@ -116,6 +116,6 @@ public class EntitySaguaroWorm extends EntityDivineMob {
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         BlockPos blockpos = pos.below();
-        return worldIn.getBlockState(blockpos).getBlock() == Blocks.SAND || reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) && worldIn.getBlockState(blockpos).getBlock() == Blocks.SAND;
     }
 }

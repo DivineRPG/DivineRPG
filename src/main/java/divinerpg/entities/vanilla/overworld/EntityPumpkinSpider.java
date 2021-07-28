@@ -228,6 +228,6 @@ public class EntityPumpkinSpider extends EntityDivineMob {
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         BlockPos blockpos = pos.below();
-        return worldIn.getBiome(pos).getTemperature(pos) < .5 || reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) && worldIn.getBlockState(pos.below()).getBlock() == Blocks.GRASS ;
     }
 }

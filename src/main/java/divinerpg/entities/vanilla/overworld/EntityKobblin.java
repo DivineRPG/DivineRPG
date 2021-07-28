@@ -26,7 +26,7 @@ public class EntityKobblin extends EntityDivineMob {
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) || worldIn.getBlockState(blockpos).getBlock() == Blocks.GRASS;
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) || worldIn.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS && worldIn.getBlockState(pos.below(2)).getBlock() != Blocks.AIR;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

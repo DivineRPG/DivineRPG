@@ -2,10 +2,12 @@
   "type": "minecraft:tree",
   "config": {
     "max_water_depth": 0,
-    "ignore_vines": false,
+    "ignore_vines": true,
     "heightmap": "WORLD_SURFACE_WG",
     "minimum_size": {
-      "type": "minecraft:two_layers_feature_size"
+      "type": "minecraft:two_layers_feature_size",
+      "min_clipped_height": 5,
+      "limit": 8
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
@@ -20,15 +22,15 @@
       }
     },
     "trunk_placer": {
-      "type": "minecraft:fancy_trunk_placer",
-      "base_height": 3,
-      "height_rand_a": 1,
-      "height_rand_b": 2
+      "type": "minecraft:straight_trunk_placer",
+      "base_height": 4,
+      "height_rand_a": 2,
+      "height_rand_b": 0
     },
     "foliage_placer": {
-      "type": "minecraft:fancy_foliage_placer",
-      "radius": 7,
-      "offset": 7,
+      "type": "minecraft:blob_foliage_placer",
+      "radius": 2,
+      "offset": 0,
       "height": 3
     },
     "decorators": []
