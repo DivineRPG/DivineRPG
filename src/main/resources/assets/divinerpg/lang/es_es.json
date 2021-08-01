@@ -1724,7 +1724,7 @@
   "message.version": "[DivineRPG está desactualizado. La última versión es %s]",
   "message.developer": "¡Bienvenido desarrollador de divineRPG! %s pertenece al equipo de desarrollo de divineRPG.",
   "message.tester": "¡Bienvenido tester de divineRPG! %s amablemente ofreció su tiempo para ayudar a probar divineRPG. ¡Gracias por tu servicio!",
-  "message.patreon": "¡Bienvenido colaborador de divineRPG! %s apoyó amablemente al equipo de desarrollo de divineRPG, ¡gracias por su ayuda!",
+  "message.special": "¡Bienvenido jugador de divineRPG! ¡%s se ha destacado por ser muy genial!",
   "message.spawner.peaceful": "No puedes invocar jefes en la dificultad pacífico!",
   "message.friend": "¡Bienvenido %s! son un amigo de alguien en el equipo de divineRPG.",
   "message.spawner.item": "¡Debes mantener %s para generar este jefe!",
@@ -1834,6 +1834,8 @@
   "tooltip.food.satiety": "Llena %s puntos de hambre",
   "tooltip.food.saturation": "%s saturación",
   "tooltip.armor_info.fly": "Vuelo",
+  "divinerpg.twilight_clock": "Es posible que deba dejar que el fuego azul arda por un momento para abrir el portal",
+  "divinerpg.snow_globe": "Es posible que deba dejar que el fuego del iceika arda por un momento para abrir el portal",
   "divinerpg.tooltip.food.pet": "Alimento de mascota",
   "tooltip.food.heal": "Repone %s puntos de salud",
   "enchantment.divinerpg.rive": "Descanso",
@@ -1842,6 +1844,5 @@
   "divinerpg.sit.true": "Tu mascota se sentará ahora",
   "divinerpg.sit.false": "Tu mascota te seguirá ahora",
   "jeicompat.tile.raw_arcanium.information": "El arcanium crudo se genera en la mazmorra arcana, usualmente detrás de puertas cerradas.",
-  "tile.bone_chest.name": "Cofre de hueso",
   "category.divinerpg.arcanium_extractor": "Extractor de arcanium"
 }
