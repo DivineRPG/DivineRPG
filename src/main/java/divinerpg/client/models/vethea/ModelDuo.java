@@ -238,8 +238,8 @@ public class ModelDuo<T extends Entity> extends SegmentedModel<T>
     	this.rightleg3.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
     	this.rightleg4.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
     	
-    	double ageInSeconds = Math.ceil(ageInTicks/20);
-    	if (Math.ceil(ageInSeconds/4) == ageInSeconds/4 && this.rotates1.yRot < Math.PI)
+    	int ageInSeconds = (int) (ageInTicks/20);
+    	if (ageInSeconds % 4 == 0 && this.rotates1.yRot < Math.PI)
           {
               this.rotates1.yRot += 0.15;
               this.rotates2.yRot += 0.15;
@@ -262,7 +262,7 @@ public class ModelDuo<T extends Entity> extends SegmentedModel<T>
               this.rotates19.yRot += 0.15;
               this.rotates20.yRot += 0.15;
           }
-          else if (Math.ceil(ageInSeconds/2) == ageInSeconds/2 && this.rotates1.yRot > 0)
+          else if (ageInSeconds % 2 == 0 && this.rotates1.yRot > 0)
           {
               this.rotates1.yRot -= 0.15;
               this.rotates2.yRot -= 0.15;

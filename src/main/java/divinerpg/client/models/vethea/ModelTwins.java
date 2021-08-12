@@ -351,8 +351,8 @@ public class ModelTwins<T extends Entity> extends SegmentedModel<T>
         this.righttoe1.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
         this.righttoe2.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 
-        double ageInSeconds = Math.ceil(ageInTicks/20);
-        if (Math.ceil(ageInSeconds/4) == ageInSeconds/4 && this.rotated1.yRot < Math.PI)
+        int ageInSeconds = (int) (ageInTicks/20);
+        if (ageInSeconds % 4 == 0 && this.rotated1.yRot < Math.PI)
         {
             this.rotated1.yRot += 0.15;
             this.rotated2.yRot += 0.15;
@@ -391,7 +391,7 @@ public class ModelTwins<T extends Entity> extends SegmentedModel<T>
             this.rotated35.yRot += 0.15;
             this.rotated36.yRot += 0.15;
         }
-        else if (Math.ceil(ageInSeconds/2) == ageInSeconds/2 && this.rotated1.yRot > 0)
+        else if (ageInSeconds % 2 == 0 && this.rotated1.yRot > 0)
         {
             this.rotated1.yRot -= 0.15;
             this.rotated2.yRot -= 0.15;
