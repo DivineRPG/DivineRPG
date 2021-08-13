@@ -16,7 +16,7 @@ public class ItemBossSpawner extends ItemMod {
     private final String langKey;
 
     //TODO - sort out mortum bosses
-    public ItemBossSpawner(String name, String langKey, RegistryKey<World> dimensionID, EntityType... ents) {
+    public ItemBossSpawner(String name, String langKey, RegistryKey<World> dimensionID, EntityType<?>... ents) {
         super(name, new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1));
         this.dimensionID = dimensionID;
         this.ents = ents;
@@ -32,7 +32,7 @@ public class ItemBossSpawner extends ItemMod {
                 player.sendMessage(message, player.getUUID());
                 return ActionResult.fail(player.getItemInHand(hand));
             } else {
-                for (EntityType entType : ents) {
+                for (EntityType<?> entType : ents) {
                     Entity entity = entType.create(world);
                     entity.moveTo(player.getX(), player.getY() + 1, player.getZ());
                     world.addFreshEntity(entity);

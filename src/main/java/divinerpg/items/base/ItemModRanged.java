@@ -22,7 +22,7 @@ import java.util.function.*;
 
 public class ItemModRanged extends ItemMod {
 
-    private final EntityType entityType;
+    private final EntityType<?> entityType;
     private final SoundEvent sound;
     private final SoundCategory soundCategory;
     private final int delay;
@@ -55,7 +55,7 @@ public class ItemModRanged extends ItemMod {
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(String name, EntityType entityType, BulletType bulletType,
+    public ItemModRanged(String name, EntityType<?> entityType, BulletType bulletType,
                          SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
         super(name, new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage));
         this.entityType = entityType;
@@ -74,7 +74,7 @@ public class ItemModRanged extends ItemMod {
         this.bulletType = bulletType;
     }
 
-    public ItemModRanged(String name, EntityType entityType, BulletType bulletType,
+    public ItemModRanged(String name, EntityType<?> entityType, BulletType bulletType,
                          SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming, ItemGroup tab) {
         super(name, new Properties().tab(tab).durability(maxDamage));
         this.entityType = entityType;
@@ -247,7 +247,7 @@ public class ItemModRanged extends ItemMod {
     }
 
     protected void spawnEntity(World world, PlayerEntity player, ItemStack stack, BulletType bulletType,
-                               EntityType entityType) {
+                               EntityType<?> entityType) {
 
         ThrowableEntity bullet = null;
 

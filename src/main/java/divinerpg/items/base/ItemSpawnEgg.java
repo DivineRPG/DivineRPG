@@ -30,7 +30,7 @@ public class ItemSpawnEgg extends ItemMod {
         BlockPos pos = context.getClickedPos();
         int x = pos.getX(), y = pos.getY(), z = pos.getZ();
         if (!world.isClientSide) {
-            EntityType entitytype = typeIn;
+            EntityType<?> entitytype = typeIn;
             Entity e = entitytype.create(world);
             e.moveTo(x, y + 1, z, 0.0F, 0.0F);
             if(e instanceof EntityDivineTameable) {

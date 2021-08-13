@@ -265,7 +265,7 @@ public class EntityRegistry {
 
     // Vethea
     public static final EntityType<EntityAcidHag> ACID_HAG = registerEntity(EntityAcidHag::new, "acid_hag", 1.0F, 1.6F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
-    public static final EntityType<EntityBiphron> BIPHRON = registerEntity(EntityBiphron::new, "biphron", 1.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
+    public static final EntityType<EntityBiphron> BIPHRON = registerEntity(EntityBiphron::new, "biphron", 1.0F, 4.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
     public static final EntityType<EntityBohemite> BOHEMITE = registerEntity(EntityBohemite::new, "bohemite", 1.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
     public static final EntityType<EntityCryptKeeper> CRYPT_KEEPER = registerEntity(EntityCryptKeeper::new, "crypt_keeper", 1.0F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MISC);
     public static final EntityType<EntityCymesoid> CYMESOID = registerEntity(EntityCymesoid::new, "cymesoid", 0.8F, 2.0F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.VETHEA), EntityClassification.MONSTER);
@@ -984,8 +984,7 @@ public class EntityRegistry {
         entity.setRegistryName(location);
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = cache;
         ENTITIES.add(entity);
-        Item spawnEgg = new SpawnEggItem(entity, colors.getPrimaryColor(), colors.getSecondaryColor(), (new Item.Properties()).tab(DivineRPG.tabs.spawners)).setRegistryName(entityName +"_spawn_egg");
-        SPAWN_EGGS.add(spawnEgg);
+        SPAWN_EGGS.add(new SpawnEggItem(entity, colors.getPrimaryColor(), colors.getSecondaryColor(), (new Item.Properties()).tab(DivineRPG.tabs.spawners)).setRegistryName(entityName +"_spawn_egg"));
         return entity;
     }
 
