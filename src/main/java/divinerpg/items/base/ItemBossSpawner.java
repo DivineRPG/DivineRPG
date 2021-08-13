@@ -1,6 +1,7 @@
 package divinerpg.items.base;
 
 import divinerpg.*;
+import divinerpg.registries.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
@@ -11,11 +12,10 @@ import net.minecraftforge.server.command.*;
 
 public class ItemBossSpawner extends ItemMod {
 
-    private final RegistryKey<World> dimensionID;
+    private RegistryKey<World> dimensionID;
     private final EntityType[] ents;
     private final String langKey;
 
-    //TODO - sort out mortum bosses
     public ItemBossSpawner(String name, String langKey, RegistryKey<World> dimensionID, EntityType<?>... ents) {
         super(name, new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1));
         this.dimensionID = dimensionID;
@@ -26,6 +26,9 @@ public class ItemBossSpawner extends ItemMod {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (!world.isClientSide) {
+            if(dimensionID == null){
+                dimensionID = KeyRegistry.MORTUM_WORLD;
+            }
             if (world.dimension() != dimensionID) {
                 TextComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
                 message.getStyle().withColor(TextFormatting.AQUA);
