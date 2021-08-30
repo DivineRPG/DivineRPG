@@ -62,7 +62,7 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
 
         if (heldItem.getItem() != activationItem && activationItem != null) {
             if (!world.isClientSide && hand == Hand.MAIN_HAND)
-                player.sendMessage(new TranslationTextComponent("message.spawner.item", String.format("%s", activationItem.getName(new ItemStack(activationItem)))), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("message.spawner.item", String.format("%s", activationItem.getDescriptionId())), player.getUUID());
 
             return ActionResultType.FAIL;
         }

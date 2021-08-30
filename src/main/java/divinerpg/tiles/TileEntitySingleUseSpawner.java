@@ -109,7 +109,6 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
         delay = defaultDelay;
 
         if (!level.isClientSide && delay > 0) {
-            //TODO - held item translation
             if(player.getMainHandItem().getItem() == ItemRegistry.edenChunk){
                 player.sendMessage(new TranslationTextComponent(String.format("%s", entityId)).withStyle(TextFormatting.YELLOW), player.getUUID());
             }else

@@ -62,7 +62,6 @@ public class DivineRPG {
         event.enqueueWork(() -> {
             StructureRegistry.setupStructures();
             ConfiguredStructureRegistry.registerConfiguredStructures();
-            EntityRegistry.registerSpawns();
         });
 
     }
