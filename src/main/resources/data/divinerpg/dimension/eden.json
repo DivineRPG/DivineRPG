@@ -17,11 +17,6 @@
   "generator": {
     "type": "minecraft:noise",
     "seed": 711147260,
-    "biome_source": {
-      "type": "minecraft:fixed",
-      "seed": 711147260,
-      "biome": "divinerpg:eden"
-    },
     "settings": {
       "name": "minecraft:end",
       "bedrock_roof_position": -10,
@@ -61,8 +56,18 @@
         }
       },
       "structures": {
-        "structures": {}
+        "structures": {
+          "divinerpg:sunstorm_dungeon": {
+            "spacing": 5,
+            "separation": 2,
+            "salt": 5318008
+          }
+        }
       }
+    },
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "divinerpg:eden"
     }
   }
 }

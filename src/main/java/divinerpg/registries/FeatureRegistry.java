@@ -43,8 +43,6 @@ public class FeatureRegistry {
         for(ConfiguredFeature<?, ?> ore : overworldOres){
             if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
 
-
-
         }
         if(!event.getCategory().equals(Biome.Category.NETHER) || !event.getCategory().equals(Biome.Category.THEEND) || !event.getCategory().equals(Biome.Category.JUNGLE) || !event.getCategory().equals(Biome.Category.SWAMP) || !event.getCategory().equals(Biome.Category.MESA) || !event.getCategory().equals(Biome.Category.MUSHROOM)){
             generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.decorated(Placement.CHANCE.configured(new ChanceConfig(25))).count(2));

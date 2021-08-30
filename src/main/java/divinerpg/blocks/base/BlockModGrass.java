@@ -23,6 +23,11 @@ public class BlockModGrass extends BlockMod implements IGrowable {
     }
 
     @Override
+    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, IPlantable plantable) {
+        return true;
+    }
+
+    @Override
     public boolean isBonemealSuccess(World p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
         return p_180670_1_.getBlockState(p_180670_3_.above()).isAir();
     }

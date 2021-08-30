@@ -44,11 +44,15 @@ public class DivineRPG {
         for (DeferredRegister<?> register : registers) {
             register.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
+
+        Logger rootLogger = LogManager.getRootLogger();
+        if (rootLogger instanceof org.apache.logging.log4j.core.Logger) {
+            ((org.apache.logging.log4j.core.Logger) rootLogger).addFilter(new SpamFilter());
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         tabs.init();
-        EntityRegistry.registerSpawns();
         KeyRegistry.init();
         FeatureRegistry.registerOres();
         ModCompat.initCommon(event);
@@ -58,7 +62,9 @@ public class DivineRPG {
         event.enqueueWork(() -> {
             StructureRegistry.setupStructures();
             ConfiguredStructureRegistry.registerConfiguredStructures();
+            EntityRegistry.registerSpawns();
         });
+
     }
 
     private void client(final FMLClientSetupEvent event) {

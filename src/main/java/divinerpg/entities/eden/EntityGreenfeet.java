@@ -24,8 +24,9 @@ public class EntityGreenfeet extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();

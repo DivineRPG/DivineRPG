@@ -33,7 +33,8 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
         BlockPos blockpos = pos.below();
         return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
     }
-    protected boolean isDespawnPeaceful() {
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
         return true;
     }
 
@@ -146,14 +147,14 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
-        public boolean shouldContinueExecuting() {
+        public boolean canContinueToUse() {
             return false;
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
-        public void startExecuting() {
+        public void start() {
             Random random = this.parentEntity.getRandom();
             double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);

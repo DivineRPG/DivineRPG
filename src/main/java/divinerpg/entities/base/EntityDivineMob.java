@@ -35,5 +35,4 @@ public abstract class EntityDivineMob extends MonsterEntity {
         this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
-
 }

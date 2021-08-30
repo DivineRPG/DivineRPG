@@ -53,7 +53,7 @@
         {
           "biome": "divinerpg:iceika_hills",
           "parameters": {
-            "altitude": 3.5,
+            "altitude": 2.0,
             "temperature": 0,
             "humidity": 0,
             "weirdness": 0,
@@ -63,7 +63,7 @@
         {
           "biome": "divinerpg:iceika_plains",
           "parameters": {
-            "altitude": 0,
+            "altitude": 2.0,
             "temperature": 0,
             "humidity": 0,
             "weirdness": 0,

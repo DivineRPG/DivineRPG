@@ -26,7 +26,11 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sunArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sunArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.sunArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sunArcherFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {
+        return 0.0F;
     }
 
     @Override

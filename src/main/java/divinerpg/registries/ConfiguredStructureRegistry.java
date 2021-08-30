@@ -12,6 +12,7 @@ public class ConfiguredStructureRegistry {
     public static StructureFeature<?, ?> CONFIGURED_WORKSHOP_HOUSE_4 = StructureRegistry.WORKSHOP_HOUSE_4.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_WORKSHOP_HOUSE_5 = StructureRegistry.WORKSHOP_HOUSE_5.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_WORKSHOP_HOUSE_6 = StructureRegistry.WORKSHOP_HOUSE_6.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<?, ?> CONFIGURED_SUNSTORM_DUNGEON = StructureRegistry.SUNSTORM_DUNGEON.get().configured(IFeatureConfig.NONE);
 
     public static void registerConfiguredStructures() {
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -23,5 +24,6 @@ public class ConfiguredStructureRegistry {
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.WORKSHOP_HOUSE_4.get(), CONFIGURED_WORKSHOP_HOUSE_4);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.WORKSHOP_HOUSE_5.get(), CONFIGURED_WORKSHOP_HOUSE_5);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.WORKSHOP_HOUSE_6.get(), CONFIGURED_WORKSHOP_HOUSE_6);
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.SUNSTORM_DUNGEON.get(), CONFIGURED_SUNSTORM_DUNGEON);
     }
 }

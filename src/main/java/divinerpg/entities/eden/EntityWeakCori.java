@@ -25,9 +25,6 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenCoriHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenCoriDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenCoriFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.EDEN_WORLD;
-    }
 
     @Override
     protected AIDivineFireballAttack createShootAI() {
@@ -47,7 +44,6 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
                 SoundRegistry.CORI_SHOOT);
     }
 
-
     @Override
     public int getMaxSpawnClusterSize() {return 1;
     }
@@ -66,5 +62,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.CORI_HURT;
     }
+
+
 
 }

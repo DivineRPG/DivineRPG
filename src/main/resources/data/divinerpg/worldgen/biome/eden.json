@@ -69,14 +69,26 @@
     ]
   },
   "spawn_costs": {},
-  "carvers": {
-    "air": [
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": {},
   "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
     [
       "divinerpg:ore_eden"
-    ]
-  ]
+    ],
+    [],
+    [
+      "divinerpg:eden_brush",
+      "divinerpg:sunbloom",
+      "divinerpg:sun_blossom"
+    ],
+    []
+  ],
+  "starts": [
+  "divinerpg:sunstorm_dungeon"
+]
 }

@@ -23,9 +23,7 @@ public class EntityEdenCadillion extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenCadillionHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenCadillionDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenCadillionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenCadillionFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.EDEN_WORLD;
-    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -45,7 +43,12 @@ public class EntityEdenCadillion extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT;
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {
+        return 0.0F;
     }
 }

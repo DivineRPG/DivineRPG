@@ -31,14 +31,17 @@ import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.*;
 import net.minecraftforge.api.distmarker.*;
@@ -488,7 +491,9 @@ public class EntityRegistry {
         event.put(ZONE, EntityZone.attributes().add(Attributes.MOVEMENT_SPEED, 0.27000000417232513D).add(Attributes.FOLLOW_RANGE, 20.0D).build());
         event.put(ZORAGON, EntityZoragon.attributes().build());
     }
-
+    public static boolean spawnLight(EntityType<? extends MobEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+        return !worldIn.getBlockState(pos.below()).is(Blocks.AIR) && worldIn.getLightEmission(pos) > 8;
+    }
     private static <T extends MobEntity> void registerWaterSpawn(final EntityType<T> type, EntitySpawnPlacementRegistry.IPlacementPredicate<T> predicate) {
         EntitySpawnPlacementRegistry.register(type, EntitySpawnPlacementRegistry.PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, predicate);
     }
@@ -554,13 +559,13 @@ public class EntityRegistry {
         registerLandSpawn(WORKSHOP_TINKERER, EntityWorkshopTinkerer::canSpawnOn);
 
         //Eden
-        registerLandSpawn(BUNNY, EntityBunny::canSpawnOn);
-        registerLandSpawn(EDEN_CADILLION, EntityEdenCadillion::canSpawnOn);
-        registerLandSpawn(EDEN_TOMO, EntityEdenTomo::canSpawnOn);
-        registerLandSpawn(GREENFEET, EntityGreenfeet::canSpawnOn);
-        registerLandSpawn(MADIVEL, EntityMadivel::canSpawnOn);
-        registerLandSpawn(SUN_ARCHER, EntitySunArcher::canSpawnOn);
-        registerLandSpawn(WEAK_CORI, EntityWeakCori::canSpawnOn);
+        EntitySpawnPlacementRegistry.register(BUNNY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(EDEN_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(EDEN_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(GREENFEET, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(MADIVEL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(SUN_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
+        EntitySpawnPlacementRegistry.register(WEAK_CORI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRegistry::spawnLight);
 
         //Wildwood
         registerLandSpawn(BEHEMOTH, EntityBehemoth::canSpawnOn);

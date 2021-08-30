@@ -25,9 +25,6 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.edenTomoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.edenTomoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.edenTomoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.edenTomoFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.EDEN_WORLD;
-    }
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -43,7 +40,12 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT;
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {
+        return 0.0F;
     }
 }

@@ -1,20 +1,22 @@
 package divinerpg.entities.eden;
 
-import divinerpg.entities.base.EntityDivineTameable;
-import divinerpg.entities.mortum.EntityAngryBunny;
+import divinerpg.entities.base.*;
+import divinerpg.entities.mortum.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
+import java.util.*;
 
 public class EntityBunny extends EntityDivineTameable {
     private static final DataParameter<Boolean> TAMED_AND_ANGRY = EntityDataManager.defineId(EntityBunny.class, DataSerializers.BOOLEAN);
@@ -29,10 +31,13 @@ public class EntityBunny extends EntityDivineTameable {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.bunnyHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.bunnySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.bunnyFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-    return level.dimension() == KeyRegistry.EDEN_WORLD;
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
-
+    @Override
+    public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {
+        return 0.0F;
+    }
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(TAMED_AND_ANGRY, false);

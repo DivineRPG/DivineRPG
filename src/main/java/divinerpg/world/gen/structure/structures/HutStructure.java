@@ -25,6 +25,11 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     @Override
+    public String getFeatureName() {
+        return "hut";
+    }
+
+    @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {
         return HutStructure.Start::new;
     }
