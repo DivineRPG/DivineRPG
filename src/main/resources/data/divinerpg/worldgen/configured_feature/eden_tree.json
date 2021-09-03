@@ -1,0 +1,40 @@
+{
+  "config": {
+    "feature": {
+      "config": {
+        "feature": {
+          "config": {
+            "feature": {
+              "config": {
+                "state": {
+                  "Properties": {
+                    "stage": "0"
+                  },
+                  "Name": "divinerpg:eden_sapling"
+                }
+              },
+              "type": "divinerpg:eden_tree"
+            },
+            "decorator": {
+              "config": {},
+              "type": "minecraft:heightmap_world_surface"
+            }
+          },
+          "type": "minecraft:decorated"
+        },
+        "decorator": {
+          "config": {},
+          "type": "minecraft:square"
+        }
+      },
+      "type": "minecraft:decorated"
+    },
+    "decorator": {
+      "config": {
+        "chance": 4
+      },
+      "type": "minecraft:chance"
+    }
+  },
+  "type": "minecraft:decorated"
+}

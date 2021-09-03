@@ -520,7 +520,7 @@ public class BlockRegistry {
 
     // Sapling
     @ObjectHolder("eden_sapling")
-    public static final Block edenSapling = null;
+    public static final SaplingBlock edenSapling = null;
     @ObjectHolder("wildwood_sapling")
     public static final Block wildwoodSapling = null;
     @ObjectHolder("apalachia_sapling")

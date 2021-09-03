@@ -9,10 +9,13 @@ import net.minecraft.world.*;
 public class BlockModLeaves extends LeavesBlock {
 
     public BlockModLeaves(String name, MaterialColor color, float hardness) {
-        super(Block.Properties.of(Material.LEAVES, color).dynamicShape().requiresCorrectToolForDrops().strength(1, 3.0F).sound(SoundType.WET_GRASS).noOcclusion().isViewBlocking(BlockModLeaves::never));
+        super(AbstractBlock.Properties.of(Material.LEAVES, color).strength(0.2F, hardness).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating(BlockModLeaves::never).isViewBlocking(BlockModLeaves::never));
         setRegistryName(DivineRPG.MODID, name);
+        this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, Integer.valueOf(7)).setValue(PERSISTENT, Boolean.valueOf(false)));
     }
     private static boolean never(BlockState state, IBlockReader reader, BlockPos pos) {
         return false;
     }
+
+    //TODO - stop leave decay when attached to logs
 }

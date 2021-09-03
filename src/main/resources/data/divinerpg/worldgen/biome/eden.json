@@ -72,7 +72,9 @@
   "carvers": {},
   "features": [
     [],
-    [],
+    [
+      "divinerpg:tar_lake"
+    ],
     [],
     [],
     [],
@@ -84,7 +86,8 @@
     [
       "divinerpg:eden_brush",
       "divinerpg:sunbloom",
-      "divinerpg:sun_blossom"
+      "divinerpg:sun_blossom",
+      "divinerpg:eden_tree"
     ],
     []
   ],

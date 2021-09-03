@@ -38,7 +38,9 @@ public class DivineRPG {
                 TraderProfession.PROFESSIONS,
                 ContainerRegistry.CONTAINER_TYPES,
                 RecipeRegistry.Serailizers.RECIPE_SERIALIZERS,
-                KeyRegistry.POI
+                KeyRegistry.POI,
+                FeatureRegistry.FEATURES,
+                DecoratorRegistry.DECORATORS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -54,7 +56,7 @@ public class DivineRPG {
     private void setup(final FMLCommonSetupEvent event) {
         tabs.init();
         KeyRegistry.init();
-        FeatureRegistry.registerOres();
+        FeatureRegistry.register();
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
         CapabilityManager.INSTANCE.register(IArcana.class, new ArcanaStorage(), Arcana::new);

@@ -15,13 +15,13 @@ public class BlockModLog extends RotatedPillarBlock {
     Supplier<Block> strippedLog;
 
     public BlockModLog(String name, MaterialColor color, Supplier<Block> strippedLog) {
-        super(Block.Properties.of(Material.WOOD, color).strength(3.0F, 5.0F).sound(SoundType.WOOD));
+        super(AbstractBlock.Properties.of(Material.WOOD, color).strength(2.0F).sound(SoundType.WOOD));
         setRegistryName(DivineRPG.MODID, name);
         this.strippedLog = strippedLog;
     }
 
     public BlockModLog(String name, MaterialColor color, Supplier<Block> strippedLog, float hardness) {
-        super(Block.Properties.of(Material.WOOD, color).strength(hardness, 5.0F).sound(SoundType.WOOD));
+        super(AbstractBlock.Properties.of(Material.WOOD, color).strength(2.0F).sound(SoundType.WOOD));
         setRegistryName(DivineRPG.MODID, name);
         this.strippedLog = strippedLog;
     }
