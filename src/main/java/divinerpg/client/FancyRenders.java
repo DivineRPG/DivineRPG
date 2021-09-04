@@ -3,6 +3,7 @@ package divinerpg.client;
 import divinerpg.client.renders.layer.*;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
@@ -152,7 +153,6 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.yellowDulah, RenderType.cutoutMipped());
 
 
-
         ClientRegistry.bindTileEntityRenderer(TileRegistry.ALTAR_OF_CORRUPTION, RenderAltarOfCorruption::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.NIGHTMARE_BED, RenderNightmareBed::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.STATUE, RenderStatue::new);
@@ -167,13 +167,18 @@ public class FancyRenders {
         ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.FROSTED_CHEST, RenderFrostedChest::new);
 
+
         Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap();
         PlayerRenderer render;
-        render = skinMap.get("default");
-        render.addLayer(new PlayerHatRender<>(render));
+        UUID id = Minecraft.getInstance().player.getUUID();
 
-        render = skinMap.get("slim");
-        render.addLayer(new PlayerHatRender<>(render));
+        if(id != null)
+        if (Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isArtist(id) || Utils.isSpecial(id)) {
+            render = skinMap.get("default");
+            render.addLayer(new PlayerHatRender<>(render));
+
+            render = skinMap.get("slim");
+            render.addLayer(new PlayerHatRender<>(render));
+        }
     }
-
 }

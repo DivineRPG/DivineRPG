@@ -5,7 +5,6 @@ import com.mojang.blaze3d.vertex.*;
 import divinerpg.*;
 import divinerpg.client.models.*;
 import divinerpg.util.*;
-import net.minecraft.client.entity.player.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.*;
@@ -20,7 +19,6 @@ import java.util.*;
 @OnlyIn(Dist.CLIENT)
 public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> extends LayerRenderer<T, M> {
     private ModelHat modelHat;
-    private IEntityRenderer<AbstractClientPlayerEntity, ModelHat<AbstractClientPlayerEntity>> renderManager;
     private ResourceLocation dev = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_red.png");
     private ResourceLocation tester = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_blue.png");
     private ResourceLocation artist = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_purple.png");
