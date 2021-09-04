@@ -5,7 +5,7 @@
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
-  "category": "the_end",
+  "category": "none",
   "player_spawn_friendly": false,
   "effects": {
     "sky_color": 10730239,
@@ -75,8 +75,27 @@
     ]
   },
   "features": [
+    [],
+    [
+      "divinerpg:tar_lake"
+    ],
+    [],
+    [],
+    [],
+    [],
     [
       "divinerpg:ore_wildwood"
-    ]
-  ]
+    ],
+    [],
+    [
+      "divinerpg:moon_bud",
+      "divinerpg:moonlight_fern",
+      "divinerpg:wildwood_tallgrass",
+      "divinerpg:wildwood_tree"
+    ],
+    []
+  ],
+  "starts": [
+  "divinerpg:wildwood"
+]
 }

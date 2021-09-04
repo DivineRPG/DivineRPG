@@ -8,9 +8,11 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
+import java.util.*;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob {
     public EntityEnderTriplets(EntityType<? extends FlyingEntity> type, World worldIn) {
@@ -36,9 +38,6 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundEvents.GHAST_SCREAM;
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.END;
-    }
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.GHAST_DEATH;
@@ -49,5 +48,8 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
     protected AIDivineFireballAttack createShootAI() {
         return new AIDivineFireballAttack(this,
                 (world1, parent, x, y, z, fireballStrength) -> new EntityEnderTripletsFireball(level, parent, x, y, z));
+    }
+    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

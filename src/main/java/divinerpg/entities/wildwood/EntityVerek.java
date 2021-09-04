@@ -25,7 +25,7 @@ public class EntityVerek extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.verekHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.verekDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.verekSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.verekFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 
     @Override
@@ -54,4 +54,8 @@ public class EntityVerek extends EntityDivineMob {
         return SoundRegistry.VEREK_HURT;
     }
 
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 }

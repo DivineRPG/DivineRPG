@@ -18,8 +18,7 @@ public class EntityEnderSpider extends EndermanEntity {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.45F;
@@ -32,7 +31,4 @@ public class EntityEnderSpider extends EndermanEntity {
         return SoundRegistry.HELL_SPIDER;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.END;
-    }
 }

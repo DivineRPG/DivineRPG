@@ -3,6 +3,7 @@ package divinerpg.registries;
 import com.google.common.collect.*;
 import divinerpg.*;
 import divinerpg.config.*;
+import divinerpg.world.gen.tree.decorator.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.village.*;
@@ -13,7 +14,6 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.gen.foliageplacer.*;
 import net.minecraft.world.gen.surfacebuilders.*;
-import net.minecraft.world.gen.treedecorator.*;
 import net.minecraft.world.gen.trunkplacer.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.registries.*;
@@ -46,7 +46,7 @@ public class KeyRegistry {
         WILDWOOD_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
         WILDWOOD_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
         WILDWOOD_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "wildwood"));
-        WILDWOOD_TREE = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.wildwoodLog.defaultBlockState()), new SimpleBlockStateProvider(BlockRegistry.wildwoodLeaves.defaultBlockState()), new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE)).build());
+        WILDWOOD_TREE = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.wildwoodLog.defaultBlockState()), new SimpleBlockStateProvider(BlockRegistry.wildwoodLeaves.defaultBlockState()), new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).decorators(ImmutableList.of(WildwoodVineTrunkDecorator.INSTANCE, WildwoodVineLeavesDecorator.INSTANCE)).build());
         register("ore_wildwood", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(BlockRegistry.twilightStone), BlockRegistry.wildwoodOre.defaultBlockState(), Config.twilightVein.get())).range(256).squared().count(Config.twilightTries.get()));
 
         APALACHIA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "apalachia"));

@@ -1,10 +1,9 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
@@ -26,12 +25,9 @@ public class EntityMoonWolf extends WolfEntity {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.moonWolfHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.moonWolfDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.moonWolfSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.moonWolfFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.WILDWOOD_WORLD;
-    }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 
     @Override
@@ -63,6 +59,10 @@ public class EntityMoonWolf extends WolfEntity {
 
     @Override
     public boolean removeWhenFarAway(double distance) {return !isTame();
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
     }
 
 }

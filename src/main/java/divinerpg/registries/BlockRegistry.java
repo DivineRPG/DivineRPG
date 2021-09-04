@@ -522,13 +522,13 @@ public class BlockRegistry {
     @ObjectHolder("eden_sapling")
     public static final SaplingBlock edenSapling = null;
     @ObjectHolder("wildwood_sapling")
-    public static final Block wildwoodSapling = null;
+    public static final SaplingBlock wildwoodSapling = null;
     @ObjectHolder("apalachia_sapling")
-    public static final Block apalachiaSapling = null;
+    public static final SaplingBlock apalachiaSapling = null;
     @ObjectHolder("skythern_sapling")
-    public static final Block skythernSapling = null;
+    public static final SaplingBlock skythernSapling = null;
     @ObjectHolder("mortum_sapling")
-    public static final Block mortumSapling = null;
+    public static final SaplingBlock mortumSapling = null;
 
     // Logs
     @ObjectHolder("eden_log")

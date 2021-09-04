@@ -42,9 +42,6 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
         arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
         this.level.addFreshEntity(arrow);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.NETHER;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.WILDFIRE;
@@ -60,6 +57,6 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
         return SoundRegistry.WILDFIRE_HURT;
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

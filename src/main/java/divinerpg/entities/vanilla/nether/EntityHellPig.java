@@ -2,7 +2,6 @@ package divinerpg.entities.vanilla.nether;
 
 import divinerpg.entities.base.*;
 import divinerpg.util.*;
-import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
@@ -34,9 +33,6 @@ public class EntityHellPig extends EntityDivineTameable {
         setHealth(getMaxHealth());
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.NETHER;
-    }
     @Override
     public boolean fireImmune() {
         return true;
@@ -128,6 +124,6 @@ public class EntityHellPig extends EntityDivineTameable {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).getBlock() == Blocks.SOUL_SAND;
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

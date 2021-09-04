@@ -28,9 +28,6 @@ public class EntityHastreus extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hastreusHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hastreusDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hastreusSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hastreusFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
-    }
 
     @Override
     protected void registerGoals() {
@@ -72,6 +69,6 @@ public class EntityHastreus extends EntityDivineMob {
         return SoundRegistry.HASTREUS_HURT;
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

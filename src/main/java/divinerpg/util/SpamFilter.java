@@ -14,7 +14,7 @@ public class SpamFilter extends AbstractFilter {
         Message message = event.getMessage();
         if (message != null) {
             if (message.getFormattedMessage().contains("Unknown structure piece")) {
-                if (message.getFormattedMessage().contains("Unknown structure start: divinerpg:")) {
+                if (message.getFormattedMessage().contains("Unknown structure start: divinerpg:") || message.getFormattedMessage().contains("Unknown structure start:")) {
                     return Result.DENY;
                 }
             }

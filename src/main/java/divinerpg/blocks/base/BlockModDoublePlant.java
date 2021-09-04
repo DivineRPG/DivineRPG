@@ -12,16 +12,19 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.common.*;
 
 import javax.annotation.*;
 import java.util.function.*;
 
-public class BlockModDoublePlant extends BushBlock {
+public class BlockModDoublePlant extends DoublePlantBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+    private Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(String name, Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(AbstractBlock.Properties.of(Material.PLANT, colour).instabreak().sound(SoundType.ROOTS));
+        super(AbstractBlock.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.ROOTS).noCollission().randomTicks());
         setRegistryName(name);
+        this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
@@ -87,6 +90,11 @@ public class BlockModDoublePlant extends BushBlock {
         }
 
     }
+    @Override
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        BlockState soil = worldIn.getBlockState(pos.below());
+        return super.mayPlaceOn(state, worldIn, pos) || !worldIn.getBlockState(pos.below()).isAir() && worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
+    }
 
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(HALF);
@@ -99,5 +107,10 @@ public class BlockModDoublePlant extends BushBlock {
     @OnlyIn(Dist.CLIENT)
     public long getSeed(BlockState p_209900_1_, BlockPos p_209900_2_) {
         return MathHelper.getSeed(p_209900_2_.getX(), p_209900_2_.below(p_209900_1_.getValue(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(), p_209900_2_.getZ());
+    }
+
+    @Override
+    public PlantType getPlantType(IBlockReader world, BlockPos pos) {
+        return PlantType.PLAINS;
     }
 }

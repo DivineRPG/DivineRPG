@@ -15,8 +15,6 @@ import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
-import java.time.*;
-import java.time.temporal.*;
 import java.util.*;
 
 public class EntityHellBat extends EntityDivineMob {
@@ -27,9 +25,6 @@ public class EntityHellBat extends EntityDivineMob {
     public EntityHellBat(EntityType<? extends EntityDivineMob> type, World worldIn) {
         super(type, worldIn);
         this.setResting(true);
-    }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.NETHER;
     }
 
     protected void defineSynchedData() {
@@ -184,34 +179,12 @@ public class EntityHellBat extends EntityDivineMob {
         p_213281_1_.putByte("BatFlags", this.entityData.get(DATA_ID_FLAGS));
     }
 
-    public static boolean checkBatSpawnRules(EntityType<EntityHellBat> p_223369_0_, IWorld p_223369_1_, SpawnReason p_223369_2_, BlockPos p_223369_3_, Random p_223369_4_) {
-        if (p_223369_3_.getY() >= p_223369_1_.getSeaLevel()) {
-            return false;
-        } else {
-            int i = p_223369_1_.getMaxLocalRawBrightness(p_223369_3_);
-            int j = 4;
-            if (isHalloween()) {
-                j = 7;
-            } else if (p_223369_4_.nextBoolean()) {
-                return false;
-            }
-
-            return i > p_223369_4_.nextInt(j) ? false : checkMobSpawnRules(p_223369_0_, p_223369_1_, p_223369_2_, p_223369_3_, p_223369_4_);
-        }
-    }
-
-    private static boolean isHalloween() {
-        LocalDate localdate = LocalDate.now();
-        int i = localdate.get(ChronoField.DAY_OF_MONTH);
-        int j = localdate.get(ChronoField.MONTH_OF_YEAR);
-        return j == 10 && i >= 20 || j == 11 && i <= 3;
-    }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return sizeIn.height / 2.0F;
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

@@ -53,9 +53,6 @@ public class EntityHellSpider extends EntityDivineMob {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte)0);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.NETHER;
-    }
     public void tick() {
         super.tick();
         if (!this.level.isClientSide) {
@@ -65,7 +62,7 @@ public class EntityHellSpider extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hellSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hellSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellSpiderFollowRange);

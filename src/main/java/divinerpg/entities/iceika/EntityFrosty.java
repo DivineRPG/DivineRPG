@@ -25,9 +25,7 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.frostyHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.frostyDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.frostySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.frostyFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
-    }
+
 
     @Override
     public boolean doHurtTarget(Entity entity) {
@@ -55,6 +53,6 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
         return SoundRegistry.FROSTY_HURT;
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

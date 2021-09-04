@@ -4,7 +4,6 @@ package divinerpg.registries;
 import com.google.common.collect.*;
 import divinerpg.*;
 import divinerpg.world.gen.structure.structures.*;
-import divinerpg.world.gen.structure.structures.eden.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
@@ -20,7 +19,8 @@ public class StructureRegistry {
     public static final DeferredRegister<Structure<?>> DEFERRED_REGISTRY_STRUCTURE = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, DivineRPG.MODID);
 
     public static final RegistryObject<Structure<NoFeatureConfig>> HUT = DEFERRED_REGISTRY_STRUCTURE.register("hut", () -> (new HutStructure(NoFeatureConfig.CODEC)));
-    public static final RegistryObject<Structure<NoFeatureConfig>> SUNSTORM_DUNGEON = DEFERRED_REGISTRY_STRUCTURE.register("sunstorm_dungeon", () -> (new EdenStructures(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> EDEN = DEFERRED_REGISTRY_STRUCTURE.register("eden", () -> (new EdenStructures(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> WILDWOOD = DEFERRED_REGISTRY_STRUCTURE.register("wildwood", () -> (new WildwoodStructures(NoFeatureConfig.CODEC)));
     //TODO - add loot to workshop house 1
     public static final RegistryObject<Structure<NoFeatureConfig>> WORKSHOP_HOUSE_1 = DEFERRED_REGISTRY_STRUCTURE.register("workshop_house_1", () -> (new DivineStructure(NoFeatureConfig.CODEC, ImmutableList.of(), "iceika/houses/workshop_house_1", GenerationStage.Decoration.SURFACE_STRUCTURES)));
     public static final RegistryObject<Structure<NoFeatureConfig>> WORKSHOP_HOUSE_2 = DEFERRED_REGISTRY_STRUCTURE.register("workshop_house_2", () -> (new DivineStructure(NoFeatureConfig.CODEC, ImmutableList.of(), "iceika/houses/workshop_house_2", GenerationStage.Decoration.SURFACE_STRUCTURES)));
@@ -33,7 +33,8 @@ public class StructureRegistry {
         setupMapSpacingAndLand(HUT.get(), new StructureSeparationSettings(30, 5, 45611502), true);
 
 
-        setupMapSpacingAndLand(SUNSTORM_DUNGEON.get(), new StructureSeparationSettings(30, 5, 45611502), true);
+        setupMapSpacingAndLand(EDEN.get(), new StructureSeparationSettings(30, 5, 45696902), true);
+        setupMapSpacingAndLand(WILDWOOD.get(), new StructureSeparationSettings(30, 5, 45611502), true);
 
 
         setupMapSpacingAndLand(WORKSHOP_HOUSE_1.get(), new StructureSeparationSettings(30, 5, 45611502), true);

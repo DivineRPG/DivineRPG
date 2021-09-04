@@ -61,7 +61,13 @@
         }
       },
       "structures": {
-        "structures": {}
+        "structures": {
+          "divinerpg:wildwood": {
+            "spacing": 5,
+            "separation": 2,
+            "salt": 308457
+          }
+        }
       }
     }
   }

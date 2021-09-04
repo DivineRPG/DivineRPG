@@ -24,7 +24,7 @@ public class EntityTermid extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.termidHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.termidDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.termidSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.termidFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
     @Override
     protected void registerGoals() {
@@ -55,5 +55,9 @@ public class EntityTermid extends EntityDivineMob {
     @Override
     protected int calculateFallDamage(float distance, float damageMultiplier) {
         return 0;
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
     }
 }

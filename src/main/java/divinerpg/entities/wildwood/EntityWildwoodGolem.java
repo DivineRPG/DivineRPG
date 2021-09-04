@@ -25,7 +25,7 @@ public class EntityWildwoodGolem extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.wildwoodGolemHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodGolemDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodGolemSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.wildwoodGolemFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 
     @Override
@@ -54,4 +54,8 @@ public class EntityWildwoodGolem extends EntityDivineMob {
         return SoundRegistry.GROWL_HURT;
     }
 
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 }

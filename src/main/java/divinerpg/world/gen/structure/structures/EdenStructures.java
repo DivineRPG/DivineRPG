@@ -1,4 +1,4 @@
-package divinerpg.world.gen.structure.structures.eden;
+package divinerpg.world.gen.structure.structures;
 
 import com.google.common.collect.*;
 import com.mojang.serialization.*;
@@ -23,7 +23,7 @@ public class EdenStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "eden_structure";
+        return "eden";
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {
@@ -97,7 +97,7 @@ public class EdenStructures extends Structure<NoFeatureConfig> {
                 JigsawManager.addPieces(
                         dynamicRegistryManager,
                         new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                                .get(new ResourceLocation(DivineRPG.MODID, "twilight/sunstorm_dungeon")), 10),
+                                .get(new ResourceLocation(DivineRPG.MODID, "twilight/eden")), 10),
                         AbstractVillagePiece::new,
                         chunkGenerator,
                         templateManagerIn,

@@ -1,5 +1,5 @@
 {
-  "name": "sunstorm_dungeon",
+  "name": "wildwood",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -7,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/ancient_eden_tree",
+        "location": "divinerpg:twilight/wildwood/giant_mangroove",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/broken_eden_portal1",
+        "location": "divinerpg:twilight/wildwood/giant_mangroove_dead",
         "processors": "minecraft:empty"
       }
     },
@@ -25,7 +25,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/broken_eden_portal2",
+        "location": "divinerpg:twilight/wildwood/giant_mangroove_treehouse",
         "processors": "minecraft:empty"
       }
     },
@@ -34,7 +34,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/broken_eden_portal3",
+        "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal1",
         "processors": "minecraft:empty"
       }
     },
@@ -43,7 +43,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_hut1",
+        "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal2",
         "processors": "minecraft:empty"
       }
     },
@@ -52,7 +52,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_hut2",
+        "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal3",
         "processors": "minecraft:empty"
       }
     },
@@ -61,7 +61,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_hut3",
+        "location": "divinerpg:twilight/wildwood/wildwood_dungeon1",
         "processors": "minecraft:empty"
       }
     },
@@ -70,7 +70,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_hut4",
+        "location": "divinerpg:twilight/wildwood/wildwood_house",
         "processors": "minecraft:empty"
       }
     },
@@ -79,7 +79,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_pillar1",
+        "location": "divinerpg:twilight/wildwood/wildwood_outpost",
         "processors": "minecraft:empty"
       }
     },
@@ -88,7 +88,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_pillar2",
+        "location": "divinerpg:twilight/wildwood/wildwood_pillar1",
         "processors": "minecraft:empty"
       }
     },
@@ -97,7 +97,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_pillar3",
+        "location": "divinerpg:twilight/wildwood/wildwood_pillar2",
         "processors": "minecraft:empty"
       }
     },
@@ -106,61 +106,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/eden_pillar4",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/laying_eden_portal1",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/laying_eden_portal2",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/overgrown_eden_portal1",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/overgrown_eden_portal2",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/sun_clock",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/eden/sunshrine",
+        "location": "divinerpg:twilight/wildwood/wildwood_treehouse",
         "processors": "minecraft:empty"
       }
     },
@@ -169,7 +115,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/eden/sunstorm_dungeon",
+        "location": "divinerpg:twilight/wildwood/termasect_nest",
         "processors": "minecraft:empty"
       }
     }

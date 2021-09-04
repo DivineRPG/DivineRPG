@@ -1,7 +1,7 @@
 {
   "type": "minecraft:village",
   "config": {
-    "start_pool": "divinerpg:twilight/sunstorm_dungeon",
+    "start_pool": "divinerpg:twilight/wildwood",
     "size": 6
   }
 }

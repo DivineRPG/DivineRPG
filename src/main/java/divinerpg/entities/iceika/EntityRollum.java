@@ -25,9 +25,6 @@ public class EntityRollum extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.rollumHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rollumDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rollumSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rollumFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
-    }
 
     @Override
     protected void registerGoals() {
@@ -57,6 +54,6 @@ public class EntityRollum extends EntityDivineMob {
         return SoundRegistry.ROLLUM_HURT;
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
 }

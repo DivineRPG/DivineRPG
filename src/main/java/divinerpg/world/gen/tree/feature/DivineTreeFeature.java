@@ -32,15 +32,18 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
 
         world.setBlock(pos, state, 0);
     }
+    protected void chanceSetBlock(ISeedReader world, BlockPos pos, BlockState state, int chance) {
+        if(world.getRandom().nextInt(chance) != 0){
+            return;
+        }
+        if (!hasSpace(world, pos))
+            return;
+
+        world.setBlock(pos, state, 0);
+    }
 
     protected void setBlock(ISeedReader world, BlockPos pos, BlockState state) {
         setBlock(world, pos, state, false);
-    }
-
-    protected void chanceSetBlock(ISeedReader world, BlockPos pos, BlockState state, int chance) {
-        if(world.getRandom().nextInt(chance) == 0) {
-            setBlock(world, pos, state, false);
-        }
     }
 
     protected static boolean hasSpace(ISeedReader world, BlockPos pos) {

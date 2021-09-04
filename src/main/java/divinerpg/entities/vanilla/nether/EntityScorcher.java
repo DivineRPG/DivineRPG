@@ -31,9 +31,6 @@ public class EntityScorcher extends EntityDivineMob {
         this.xpReward = 20;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.NETHER;
-    }
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new EntityScorcher.FireballAttackGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
@@ -48,7 +45,7 @@ public class EntityScorcher extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.ATTACK_DAMAGE, EntityStats.scorcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.scorcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.scorcherFollowRange).add(Attributes.MAX_HEALTH, EntityStats.scorcherHealth);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
     }
     @Override
     public boolean fireImmune() {

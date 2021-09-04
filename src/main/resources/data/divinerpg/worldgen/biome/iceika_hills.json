@@ -6,7 +6,7 @@
   "downfall": 0.4,
   "precipitation": "snow",
   "temperature_modifier": "frozen",
-  "category": "extreme_hills",
+  "category": "none",
   "effects": {
     "sky_color": 7907327,
     "fog_color": 12638463,
