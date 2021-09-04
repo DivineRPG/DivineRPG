@@ -31,16 +31,21 @@ public class PlayerHatRender <T extends PlayerEntity, M extends PlayerModel<T>> 
     }
 
     @Override
-    public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (entitylivingbaseIn.isCrouching()) {
-            matrixStackIn.translate(0.0F, 0.2F, 0.0F);
-        }
-        this.getParentModel().copyPropertiesTo(modelHat);
-        this.modelHat.prepareMobModel(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
-        this.modelHat.setupAnim(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entitylivingbaseIn)));
-        this.modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+    public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+        if (entity != null) {
+            UUID id = entity.getUUID();
+            if (Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
 
+                if (entity.isCrouching()) {
+                    matrixStackIn.translate(0.0F, 0.2F, 0.0F);
+                }
+                this.getParentModel().copyPropertiesTo(modelHat);
+                this.modelHat.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
+                this.modelHat.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+                IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));
+                this.modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            }
+        }
     }
 
     @Override
