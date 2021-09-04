@@ -190,14 +190,32 @@ public enum DivineToolMaterials implements IItemTier {
     }),
 
     //SHICKAXES
-    ARLEMITE_SHICKAXE(5, 12000, 13.0F, 8.0F, 15, () -> {
+    APALACHIA_SHICKAXE(8, 15000, 40.0F, 11.0F, 27, () -> {
+        return Ingredient.of(ItemRegistry.apalachiaChunk);
+    }),
+    ARLEMITE_SHICKAXE(5, 12000, 13.0F, 10.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.arlemiteIngot);
     }),
-    DIVINE_SHICKAXE(7, -1, 20.0F, 10.0F, 10, () -> {
-        return Ingredient.of(Blocks.AIR);
+    DIVINE_SHICKAXE(7, 87500, 20.0F, 10.0F, 15, () -> {
+        return Ingredient.of(ItemRegistry.divineStone);
     }),
-    RUPEE_SHICKAXE(4, -1, 16.0F, 9.0F, 15, () -> {
-        return Ingredient.of(Blocks.AIR);
+    EDEN_SHICKAXE(6, 15000, 20.0F, 10.0F, 27, () -> {
+        return Ingredient.of(ItemRegistry.edenChunk);
+    }),
+    HALITE_SHICKAXE(11, -1, 60.0F, 17.0F, 30, () -> {
+    	return Ingredient.of(Blocks.AIR);
+    }),
+    MORTUM_SHICKAXE(10, 15000, 55.0F, 14.0F, 27, () -> {
+        return Ingredient.of(ItemRegistry.mortumChunk);
+    }),
+    RUPEE_SHICKAXE(4, 20000, 16.0F, 10.0F, 15, () -> {
+        return Ingredient.of(ItemRegistry.rupeeIngot);
+    }),
+    SKYTHERN_SHICKAXE(9, 15000, 48.0F, 13.0F, 27, () -> {
+        return Ingredient.of(ItemRegistry.skythernChunk);
+    }),
+    WILDWOOD_SHICKAXE(7, 15000, 28.0F, 11.0F, 27, () -> {
+        return Ingredient.of(ItemRegistry.wildwoodChunk);
     }),
 
     //AXES
@@ -448,5 +466,4 @@ public enum DivineToolMaterials implements IItemTier {
         }
         else{return null;}
     }
-
 }

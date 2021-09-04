@@ -2165,9 +2165,15 @@ public class ItemRegistry {
         register(e, new ItemModSword("terran_knife", DivineToolMaterials.TERRAN_KNIFE, DivineRPG.tabs.melee));
         register(e, new ItemModSword("terran_maul", DivineToolMaterials.TERRAN_MAUL, DivineRPG.tabs.melee));
         register(e, new ItemModSword("wildwood_blade", DivineToolMaterials.WILDWOOD_BLADE, DivineRPG.tabs.melee));
+        register(e, new ItemShickaxe("apalachia_shickaxe", DivineToolMaterials.APALACHIA_SHICKAXE));
         register(e, new ItemShickaxe("arlemite_shickaxe", DivineToolMaterials.ARLEMITE_SHICKAXE));
         register(e, new ItemShickaxe("divine_shickaxe", DivineToolMaterials.DIVINE_SHICKAXE));
+        register(e, new ItemShickaxe("eden_shickaxe", DivineToolMaterials.EDEN_SHICKAXE));
+        register(e, new ItemShickaxe("halite_shickaxe", DivineToolMaterials.HALITE_SHICKAXE));
+        register(e, new ItemShickaxe("mortum_shickaxe", DivineToolMaterials.MORTUM_SHICKAXE));
         register(e, new ItemShickaxe("rupee_shickaxe", DivineToolMaterials.RUPEE_SHICKAXE));
+        register(e, new ItemShickaxe("skythern_shickaxe", DivineToolMaterials.SKYTHERN_SHICKAXE));
+        register(e, new ItemShickaxe("wildwood_shickaxe", DivineToolMaterials.WILDWOOD_SHICKAXE));
         register(e, new ItemModRanged("apalachia_phaser", BulletType.APALACHIA_PHASER_SHOT, SoundRegistry.PHASER, 3000, 12));
         register(e, new ItemModRanged("bowhead_cannon", BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON, () -> Item.byBlock(Blocks.CACTUS), 1000, 12));
         register(e, new ItemModRanged("crabclaw_cannon", BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON, () -> Item.byBlock(Blocks.CACTUS), 1000, 12));
