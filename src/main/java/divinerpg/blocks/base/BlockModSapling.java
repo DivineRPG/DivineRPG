@@ -29,6 +29,6 @@ public class BlockModSapling extends SaplingBlock {
     @Override
     public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockState soil = worldIn.getBlockState(pos.below());
-        return soil.getBlock() == grassSupplier.get() || soil.getBlock() == dirtSupplier.get();
+        return super.canSurvive(state, worldIn, pos) || soil.getBlock() == grassSupplier.get() || soil.getBlock() == dirtSupplier.get();
     }
 }
