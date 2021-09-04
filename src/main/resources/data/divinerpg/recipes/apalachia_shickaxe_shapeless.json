@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_pickaxe"
+    },
+    {
+      "item": "divinerpg:apalachia_shovel"
+    },
+    {
+      "item": "divinerpg:apalachia_axe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

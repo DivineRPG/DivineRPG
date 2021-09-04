@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:wildwood_pickaxe"
+    },
+    {
+      "item": "divinerpg:wildwood_shovel"
+    },
+    {
+      "item": "divinerpg:wildwood_axe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

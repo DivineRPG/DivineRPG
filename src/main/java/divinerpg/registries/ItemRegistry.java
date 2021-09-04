@@ -1084,6 +1084,20 @@ public class ItemRegistry {
     public static final Item rupeeShickaxe = null;
 
     // Twilight tools
+
+    @ObjectHolder("eden_shickaxe")
+    public static final Item edenShickaxe = null;
+    @ObjectHolder("wildwood_shickaxe")
+    public static final Item wildwoodShickaxe = null;
+    @ObjectHolder("apalachia_shickaxe")
+    public static final Item apalachiaShickaxe = null;
+    @ObjectHolder("skythern_shickaxe")
+    public static final Item skythernShickaxe = null;
+    @ObjectHolder("mortum_shickaxe")
+    public static final Item mortumShickaxe = null;
+    @ObjectHolder("halite_shickaxe")
+    public static final Item haliteShickaxe = null;
+
     @ObjectHolder("eden_shovel")
     public static final Item edenShovel = null;
     @ObjectHolder("eden_pickaxe")

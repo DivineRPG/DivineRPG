@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:eden_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:eden_pickaxe"
+    },
+    {
+      "item": "divinerpg:eden_shovel"
+    },
+    {
+      "item": "divinerpg:eden_axe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}
