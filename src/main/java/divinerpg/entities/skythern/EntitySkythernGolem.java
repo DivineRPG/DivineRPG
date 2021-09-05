@@ -53,5 +53,9 @@ public class EntitySkythernGolem extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT;
     }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 
 }

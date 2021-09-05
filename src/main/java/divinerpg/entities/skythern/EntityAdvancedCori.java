@@ -44,9 +44,6 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.skythernCoriHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.skythernCoriDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange);
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == KeyRegistry.SKYTHERN_WORLD;
-    }
 
     @Override
     public int getMaxSpawnClusterSize() {

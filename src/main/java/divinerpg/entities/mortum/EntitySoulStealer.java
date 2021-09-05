@@ -57,5 +57,9 @@ public class EntitySoulStealer extends EntityDivineMob {
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.INSECT;
     }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 
 }

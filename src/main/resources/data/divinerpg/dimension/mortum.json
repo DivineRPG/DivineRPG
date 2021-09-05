@@ -63,7 +63,13 @@
         }
       },
       "structures": {
-        "structures": {}
+        "structures": {
+          "divinerpg:mortum": {
+            "spacing": 5,
+            "separation": 2,
+            "salt": 4444
+          }
+        }
       }
     }
   }

@@ -61,7 +61,13 @@
         }
       },
       "structures": {
-        "structures": {}
+        "structures": {
+          "divinerpg:skythern": {
+            "spacing": 5,
+            "separation": 2,
+            "salt": 777
+          }
+        }
       }
     }
   }

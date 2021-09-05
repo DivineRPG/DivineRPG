@@ -69,8 +69,27 @@
     ]
   },
   "features": [
+    [],
+    [
+      "divinerpg:tar_lake"
+    ],
+    [],
+    [],
+    [],
+    [],
     [
       "divinerpg:ore_skythern"
-    ]
+    ],
+    [],
+    [
+      "divinerpg:skythern_tree",
+      "divinerpg:skythern_brush",
+      "divinerpg:dust_lily",
+      "divinerpg:dust_brambles"
+    ],
+    []
+  ],
+  "starts": [
+    "divinerpg:skythern"
   ]
 }

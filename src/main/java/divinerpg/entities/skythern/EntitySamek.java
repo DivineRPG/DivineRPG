@@ -44,5 +44,9 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.VEREK_HURT;
     }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 
 }

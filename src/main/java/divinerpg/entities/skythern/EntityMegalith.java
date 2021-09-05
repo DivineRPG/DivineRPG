@@ -67,5 +67,9 @@ public class EntityMegalith extends EntityDivineMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.MEGALITH_HURT;
     }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 
 }

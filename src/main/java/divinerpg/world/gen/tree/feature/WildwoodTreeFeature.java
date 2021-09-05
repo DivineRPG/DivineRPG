@@ -1,21 +1,19 @@
 package divinerpg.world.gen.tree.feature;
 
-import com.mojang.serialization.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.state.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
-import net.minecraft.world.gen.feature.*;
 
 import java.util.*;
 import java.util.function.*;
 
 public class WildwoodTreeFeature extends DivineTreeFeature {
 
-    public WildwoodTreeFeature(Codec<BlockStateFeatureConfig> codec, Supplier<SaplingBlock> sapling) {
-        super(codec, sapling);
+    public WildwoodTreeFeature(Supplier<SaplingBlock> sapling) {
+        super(sapling);
     }
     //TODO - redo wildwood tree all together
 

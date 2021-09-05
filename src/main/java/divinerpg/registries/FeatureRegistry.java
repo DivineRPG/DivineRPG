@@ -24,8 +24,11 @@ public class FeatureRegistry {
     private static final ArrayList<ConfiguredFeature<?, ?>> overworldOres = new ArrayList<ConfiguredFeature<?, ?>>();
     private static final ArrayList<ConfiguredFeature<?, ?>> netherOres = new ArrayList<ConfiguredFeature<?, ?>>();
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, DivineRPG.MODID);
-    public static final RegistryObject<DivineTreeFeature> EDEN_TREE = register("eden_tree", () -> new EdenTreeFeature(BlockStateFeatureConfig.CODEC, () -> BlockRegistry.edenSapling));
-    public static final RegistryObject<DivineTreeFeature> WILDWOOD_TREE = register("wildwood_tree", () -> new WildwoodTreeFeature(BlockStateFeatureConfig.CODEC, () -> BlockRegistry.wildwoodSapling));
+    public static final RegistryObject<DivineTreeFeature> EDEN_TREE = register("eden_tree", () -> new EdenTreeFeature(() -> BlockRegistry.edenSapling));
+    public static final RegistryObject<DivineTreeFeature> WILDWOOD_TREE = register("wildwood_tree", () -> new WildwoodTreeFeature(() -> BlockRegistry.wildwoodSapling));
+    public static final RegistryObject<DivineTreeFeature> APALACHIA_TREE = register("apalachia_tree", () -> new ApalachiaTreeFeature(() -> BlockRegistry.apalachiaSapling));
+    public static final RegistryObject<DivineTreeFeature> SKYTHERN_TREE = register("skythern_tree", () -> new SkythernTreeFeature(() -> BlockRegistry.skythernSapling));
+    public static final RegistryObject<DivineTreeFeature> MORTUM_TREE = register("mortum_tree", () -> new MortumTreeFeature(() -> BlockRegistry.mortumSapling));
     public static ConfiguredFeature<?, ?> TAR_LAKE;
 
 

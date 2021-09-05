@@ -63,8 +63,27 @@
     ]
   },
   "features": [
+    [],
+    [
+      "divinerpg:tar_lake"
+    ],
+    [],
+    [],
+    [],
+    [],
     [
       "divinerpg:ore_apalachia"
-    ]
+    ],
+    [],
+    [
+      "divinerpg:apalachia_tree",
+      "divinerpg:apalachia_tallgrass",
+      "divinerpg:dusk_flower",
+      "divinerpg:dusk_bloom"
+    ],
+    []
+  ],
+  "starts": [
+    "divinerpg:apalachia"
   ]
 }

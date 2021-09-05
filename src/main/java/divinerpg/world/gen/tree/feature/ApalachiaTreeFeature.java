@@ -9,9 +9,9 @@ import net.minecraft.world.*;
 import java.util.*;
 import java.util.function.*;
 
-public class EdenTreeFeature extends DivineTreeFeature {
+public class ApalachiaTreeFeature extends DivineTreeFeature {
 
-    public EdenTreeFeature(Supplier<SaplingBlock> saplingBlock) {
+    public ApalachiaTreeFeature(Supplier<SaplingBlock> saplingBlock) {
         super(saplingBlock);
     }
 
@@ -28,8 +28,8 @@ public class EdenTreeFeature extends DivineTreeFeature {
             return false;
 
         BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
-        BlockState log = BlockRegistry.edenLog.defaultBlockState();
-        BlockState leaves = BlockRegistry.edenLeaves.defaultBlockState();
+        BlockState log = BlockRegistry.apalachiaLog.defaultBlockState();
+        BlockState leaves = BlockRegistry.apalachiaLeaves.defaultBlockState();
 
 
         //Tree trunk
@@ -73,7 +73,7 @@ public class EdenTreeFeature extends DivineTreeFeature {
         setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
         setBlock(world, pos.offset(0, treeHeight + 2, 0), leaves);
         setBlock(world, pos.offset(0, treeHeight + 3, 0), leaves);
-        
+
         return true;
     }
 

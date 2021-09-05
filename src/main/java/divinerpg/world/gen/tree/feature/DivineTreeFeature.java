@@ -1,6 +1,5 @@
 package divinerpg.world.gen.tree.feature;
 
-import com.mojang.serialization.*;
 import net.minecraft.block.*;
 import net.minecraft.tags.*;
 import net.minecraft.util.math.*;
@@ -14,8 +13,8 @@ import java.util.function.*;
 public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig> {
     protected final Supplier<SaplingBlock> sapling;
 
-    public DivineTreeFeature(Codec<BlockStateFeatureConfig> codec, Supplier<SaplingBlock> sapling) {
-        super(codec);
+    public DivineTreeFeature(Supplier<SaplingBlock> sapling) {
+        super(BlockStateFeatureConfig.CODEC);
         this.sapling = sapling;
     }
 

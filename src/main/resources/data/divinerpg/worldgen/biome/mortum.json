@@ -63,8 +63,27 @@
     ]
   },
   "features": [
+    [],
+    [
+      "divinerpg:tar_lake"
+    ],
+    [],
+    [],
+    [],
+    [],
     [
       "divinerpg:ore_mortum"
-    ]
+    ],
+    [],
+    [
+      "divinerpg:mortum_tree",
+      "divinerpg:mortum_brush",
+      "divinerpg:eye_plant",
+      "divinerpg:demon_brambles"
+    ],
+    []
+  ],
+  "starts": [
+    "divinerpg:mortum"
   ]
 }
