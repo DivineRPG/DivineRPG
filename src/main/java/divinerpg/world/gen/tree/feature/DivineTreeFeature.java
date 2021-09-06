@@ -62,10 +62,8 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
                     }
                 }
             }
-
             return true;
         }
-
         return false;
     }
 
