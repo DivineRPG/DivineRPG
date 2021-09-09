@@ -24,7 +24,7 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     public static final BooleanProperty WEST = SixWayBlock.WEST;
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
-        int random = rand.nextInt(1) + 1;
+    	int random = rand.nextInt(1) + 1;
         int treeHeight = 12;
         int extraHeight = treeHeight + random;
 
@@ -37,11 +37,11 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
         BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
         BlockState log = BlockRegistry.wildwoodLog.defaultBlockState();
         BlockState leaves = BlockRegistry.wildwoodLeaves.defaultBlockState();
-        BlockState upVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(UP, Boolean.valueOf(true));
-        BlockState northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(NORTH, Boolean.valueOf(true));
-        BlockState eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(EAST, Boolean.valueOf(true));
-        BlockState southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SOUTH, Boolean.valueOf(true));
-        BlockState westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(WEST, Boolean.valueOf(true));
+//        BlockState upVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(UP, Boolean.TRUE);
+        BlockState northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(NORTH, Boolean.TRUE);
+        BlockState eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(EAST, Boolean.TRUE);
+        BlockState southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SOUTH, Boolean.TRUE);
+        BlockState westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(WEST, Boolean.TRUE);
 
 
         //Tree trunk
@@ -94,6 +94,4 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
 
         return true;
     }
-
-
 }

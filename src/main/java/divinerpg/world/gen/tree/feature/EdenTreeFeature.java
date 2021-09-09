@@ -21,8 +21,8 @@ public class EdenTreeFeature extends DivineTreeFeature {
     		int treeHeight, extraHeight, treeType = rand.nextInt(3);
         	switch(treeType) {
         	case 0:
-            	treeHeight = 12 + rand.nextInt(1);
-            	extraHeight = treeHeight + 4;
+            	treeHeight = 4 + rand.nextInt(10);
+            	extraHeight = treeHeight + 3 + rand.nextInt(2);
             	break;
         	case 1:
         		treeHeight = 3 + rand.nextInt(3);
@@ -42,21 +42,37 @@ public class EdenTreeFeature extends DivineTreeFeature {
                 }
                 switch(treeType) {
             	case 0:
-                    //Tree trunk
-                    chanceSetBlock(world, pos.offset(1, 0, 0), log, 1);
-                    chanceSetBlock(world, pos.offset(0, 0, 1), log, 1);
-                    chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1);
-                    chanceSetBlock(world, pos.offset(0, 0, -1), log, 1);
-
-                    //Leaves
-                    for(int i = -3; i < 3; i++) {
-                		setBlock(world, pos.offset(1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(-1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, 1), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, -1), leaves);
-                    }
-                    for(int i = 0; i < 4; i++) {
-                    	setBlock(world, pos.offset(0, treeHeight + i, 0), leaves);
+            		int bottomHeight = 1;
+            		if(treeHeight > 9 || treeHeight == 9 && rand.nextInt(2) == 1) {
+        				bottomHeight++;
+            			chanceSetBlock(world, pos.offset(1, 0, 0), log, 1);
+                        chanceSetBlock(world, pos.offset(0, 0, 1), log, 1);
+                        chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1);
+                        chanceSetBlock(world, pos.offset(0, 0, -1), log, 1);
+        			}
+            		coverTrunk(world, pos, leaves, bottomHeight, treeHeight + 1, 1, false);
+        			if(treeHeight > 8) {
+        				coverTrunk(world, pos, leaves, bottomHeight + 2, treeHeight - 3, 2, false);
+        				coverTrunk(world, pos, leaves, treeHeight - 2, treeHeight - 2, 2, true);
+        				coverTrunkCorners(world, pos, leaves, bottomHeight + 1, treeHeight - 2, false);
+        				coverTrunkCorners(world, pos, leaves, treeHeight - 1, treeHeight - 1, true);
+        			} else {
+        				coverTrunkCorners(world, pos, leaves, bottomHeight + 1, treeHeight - 1, false);
+        				if(treeHeight < 7) {
+        					coverTrunkCorners(world, pos, leaves, treeHeight, treeHeight, true);
+        				}
+        				if(treeHeight > 5) {
+        					coverTrunk(world, pos, leaves, bottomHeight + 2, treeHeight - 2, 2, false);
+        				}
+        				if(treeHeight != 4 && treeHeight < 8) {
+        					coverTrunk(world, pos, leaves, bottomHeight + 1, bottomHeight + 1, 2, true);
+                			if(treeHeight < 7) {
+                				coverTrunk(world, pos, leaves, treeHeight - 1, treeHeight - 1, 2, true);
+                			}
+        				}
+        			}
+            		for(int i = treeHeight + 1; i < extraHeight + 1; i++) {
+                    	setBlock(world, pos.offset(0, i, 0), leaves);
                     }
                     break;
             	case 1:
@@ -82,33 +98,17 @@ public class EdenTreeFeature extends DivineTreeFeature {
             		//Leaves
             		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
             		
-            		setBlock(world, pos.offset(1, treeHeight, 1), leaves);
-            		setBlock(world, pos.offset(1, treeHeight, -1), leaves);
-            		setBlock(world, pos.offset(-1, treeHeight, 1), leaves);
-            		setBlock(world, pos.offset(-1, treeHeight, -1), leaves);
-            		
-            		for(int i = -1; i < 2; i++) {
-                		setBlock(world, pos.offset(1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(-1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, 1), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, -1), leaves);
-                    }
+            		coverTrunk(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, false);
+            		coverTrunkCorners(world, pos, leaves, treeHeight, treeHeight, false);
             		break;
                 default:
                 	//Leaves
                 	setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
                 	
-                	for(int i = -2; i < 2; i++) {
-                		setBlock(world, pos.offset(1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(-1, treeHeight + i, 0), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, 1), leaves);
-                		setBlock(world, pos.offset(0, treeHeight + i, -1), leaves);
+                	coverTrunk(world, pos, leaves, treeHeight - 2, treeHeight + 1, 1, false);
+                	coverTrunkCorners(world, pos, leaves, treeHeight - 2, treeHeight - 1, false);
+                	for(int i = -2; i < 1; i++) {
                 		if(i < 0) {
-                			setBlock(world, pos.offset(1, treeHeight + i, 1), leaves);
-                			setBlock(world, pos.offset(1, treeHeight + i, -1), leaves);
-                			setBlock(world, pos.offset(-1, treeHeight + i, 1), leaves);
-                			setBlock(world, pos.offset(-1, treeHeight + i, -1), leaves);
-                			
                 			chanceSetBlock(world, pos.offset(2, treeHeight + i, 2), leaves, 1);
                 			chanceSetBlock(world, pos.offset(2, treeHeight + i, -2), leaves, 1);
                 			chanceSetBlock(world, pos.offset(-2, treeHeight + i, 2), leaves, 1);
@@ -120,7 +120,7 @@ public class EdenTreeFeature extends DivineTreeFeature {
                 				setBlock(world, pos.offset(offset, treeHeight + i, -2), leaves);
                 				setBlock(world, pos.offset(offset, treeHeight + i, 2), leaves);
                 			}
-                		} else if(i == 0) {
+                		} else {
                 			chanceSetBlock(world, pos.offset(1, treeHeight + i, 1), leaves, 1);
                 			chanceSetBlock(world, pos.offset(1, treeHeight + i, -1), leaves, 1);
                 			chanceSetBlock(world, pos.offset(-1, treeHeight + i, 1), leaves, 1);

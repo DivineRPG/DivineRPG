@@ -44,6 +44,40 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
     protected void setBlock(ISeedReader world, BlockPos pos, BlockState state) {
         setBlock(world, pos, state, false);
     }
+    protected void coverTrunk(ISeedReader world, BlockPos pos, BlockState state, int min, int max, int width, boolean chanced) {
+    	if(chanced) {
+    		for(int i = min; i < max + 1; i++) {
+        		chanceSetBlock(world, pos.offset(1 * width, i, 0), state, 1);
+        		chanceSetBlock(world, pos.offset(-1 * width, i, 0), state, 1);
+        		chanceSetBlock(world, pos.offset(0, i, 1 * width), state, 1);
+        		chanceSetBlock(world, pos.offset(0, i, -1 * width), state, 1);
+            }
+		} else {
+			for(int i = min; i < max + 1; i++) {
+	    		setBlock(world, pos.offset(1 * width, i, 0), state);
+	    		setBlock(world, pos.offset(-1 * width, i, 0), state);
+	    		setBlock(world, pos.offset(0, i, 1 * width), state);
+	    		setBlock(world, pos.offset(0, i, -1 * width), state);
+	        }
+		}
+    }
+    protected void coverTrunkCorners(ISeedReader world, BlockPos pos, BlockState state, int min, int max, boolean chanced) {
+    	if(chanced) {
+    		for(int i = min; i < max + 1; i++) {
+        		chanceSetBlock(world, pos.offset(1, i, 0), state, 1);
+        		chanceSetBlock(world, pos.offset(-1, i, 0), state, 1);
+        		chanceSetBlock(world, pos.offset(0, i, 1), state, 1);
+        		chanceSetBlock(world, pos.offset(0, i, -1), state, 1);
+            }
+    	} else {
+    		for(int i = min; i < max + 1; i++) {
+        		setBlock(world, pos.offset(1, i, 1), state);
+        		setBlock(world, pos.offset(1, i, -1), state);
+        		setBlock(world, pos.offset(-1, i, 1), state);
+        		setBlock(world, pos.offset(-1, i, -1), state);
+        	}
+    	}
+    }
 
     protected static boolean hasSpace(ISeedReader world, BlockPos pos) {
         BlockState oldState = world.getBlockState(pos);
@@ -70,5 +104,4 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
     protected boolean canSustain(ISeedReader world, BlockPos pos) {
         return TreeFeature.validTreePos(world, pos);
     }
-
 }
