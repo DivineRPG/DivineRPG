@@ -1,10 +1,14 @@
 {
+  "type": "minecraft:decorated",
   "config": {
     "feature": {
+      "type": "minecraft:decorated",
       "config": {
         "feature": {
+          "type": "minecraft:decorated",
           "config": {
             "feature": {
+              "type": "divinerpg:eden_tree",
               "config": {
                 "state": {
                   "Properties": {
@@ -12,29 +16,25 @@
                   },
                   "Name": "divinerpg:eden_sapling"
                 }
-              },
-              "type": "divinerpg:eden_tree"
+              }
             },
             "decorator": {
-              "config": {},
-              "type": "minecraft:heightmap_world_surface"
+              "type": "minecraft:heightmap_world_surface",
+              "config": {}
             }
-          },
-          "type": "minecraft:decorated"
+          }
         },
         "decorator": {
-          "config": {},
-          "type": "minecraft:square"
+          "type": "minecraft:square",
+          "config": {}
         }
-      },
-      "type": "minecraft:decorated"
+      }
     },
     "decorator": {
+      "type": "minecraft:chance",
       "config": {
-        "chance": 4
-      },
-      "type": "minecraft:chance"
+        "chance": 2
+      }
     }
-  },
-  "type": "minecraft:decorated"
+  }
 }

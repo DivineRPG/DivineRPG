@@ -44,39 +44,22 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
     protected void setBlock(ISeedReader world, BlockPos pos, BlockState state) {
         setBlock(world, pos, state, false);
     }
-    protected void coverTrunk(ISeedReader world, BlockPos pos, BlockState state, int min, int max, int width, boolean chanced) {
+    protected void grow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY, int width, int offset, boolean chanced) {
     	if(chanced) {
-    		for(int i = min; i < max + 1; i++) {
-        		chanceSetBlock(world, pos.offset(1 * width, i, 0), state, 1);
-        		chanceSetBlock(world, pos.offset(-1 * width, i, 0), state, 1);
-        		chanceSetBlock(world, pos.offset(0, i, 1 * width), state, 1);
-        		chanceSetBlock(world, pos.offset(0, i, -1 * width), state, 1);
+    		for(int i = minY; i < maxY + 1; i++) {
+        		chanceSetBlock(world, pos.offset(width, i, offset), state, 2);
+        		chanceSetBlock(world, pos.offset(-width, i, -offset), state, 2);
+        		chanceSetBlock(world, pos.offset(offset, i, -width), state, 2);
+        		chanceSetBlock(world, pos.offset(-offset, i, width), state, 2);
             }
 		} else {
-			for(int i = min; i < max + 1; i++) {
-	    		setBlock(world, pos.offset(1 * width, i, 0), state);
-	    		setBlock(world, pos.offset(-1 * width, i, 0), state);
-	    		setBlock(world, pos.offset(0, i, 1 * width), state);
-	    		setBlock(world, pos.offset(0, i, -1 * width), state);
+			for(int i = minY; i < maxY + 1; i++) {
+	    		setBlock(world, pos.offset(width, i, offset), state);
+	    		setBlock(world, pos.offset(-width, i, -offset), state);
+	    		setBlock(world, pos.offset(offset, i, -width), state);
+	    		setBlock(world, pos.offset(-offset, i, width), state);
 	        }
 		}
-    }
-    protected void coverTrunkCorners(ISeedReader world, BlockPos pos, BlockState state, int min, int max, boolean chanced) {
-    	if(chanced) {
-    		for(int i = min; i < max + 1; i++) {
-        		chanceSetBlock(world, pos.offset(1, i, 0), state, 1);
-        		chanceSetBlock(world, pos.offset(-1, i, 0), state, 1);
-        		chanceSetBlock(world, pos.offset(0, i, 1), state, 1);
-        		chanceSetBlock(world, pos.offset(0, i, -1), state, 1);
-            }
-    	} else {
-    		for(int i = min; i < max + 1; i++) {
-        		setBlock(world, pos.offset(1, i, 1), state);
-        		setBlock(world, pos.offset(1, i, -1), state);
-        		setBlock(world, pos.offset(-1, i, 1), state);
-        		setBlock(world, pos.offset(-1, i, -1), state);
-        	}
-    	}
     }
 
     protected static boolean hasSpace(ISeedReader world, BlockPos pos) {

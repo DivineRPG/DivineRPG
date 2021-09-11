@@ -2,7 +2,6 @@ package divinerpg.world.gen.tree.feature;
 
 import divinerpg.registries.*;
 import net.minecraft.block.*;
-import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -18,62 +17,59 @@ public class EdenTreeFeature extends DivineTreeFeature {
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
     	if (canSustain(world, pos)) {
-    		int treeHeight, extraHeight, treeType = rand.nextInt(3);
+    		int treeHeight, extraHeight, treeType = rand.nextInt(4);
         	switch(treeType) {
         	case 0:
-            	treeHeight = 4 + rand.nextInt(10);
+            	treeHeight = 3 + rand.nextInt(10);
             	extraHeight = treeHeight + 3 + rand.nextInt(2);
             	break;
         	case 1:
-        		treeHeight = 3 + rand.nextInt(3);
+        		treeHeight = 1 + rand.nextInt(3);
+        		extraHeight = treeHeight + 1;
+        		break;
+        	case 2:
+        		treeHeight = 0 + rand.nextInt(3);
         		extraHeight = treeHeight + 1;
         		break;
             default:
-            	treeHeight = 4 + rand.nextInt(3);
+            	treeHeight = 3 + rand.nextInt(3);
             	extraHeight = treeHeight + 2;
         	}
         	if (heightCheck(world, pos, extraHeight, 1)) {
-        		BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
-                BlockState log = BlockRegistry.edenLog.defaultBlockState();
-                BlockState leaves = BlockRegistry.edenLeaves.defaultBlockState();
+                BlockState log = BlockRegistry.edenLog.defaultBlockState(), leaves = BlockRegistry.edenLeaves.defaultBlockState();
                 //Main trunk
-                for (int i = 0; i < treeHeight + 1; i++) {
-                    setBlock(world, mut.move(Direction.UP), log);
-                }
+                grow(world, pos, log, 0, treeHeight, 0, 0, false);
                 switch(treeType) {
             	case 0:
             		int bottomHeight = 1;
-            		if(treeHeight > 9 || treeHeight == 9 && rand.nextInt(2) == 1) {
+            		if(treeHeight > 9 || (treeHeight == 9 && rand.nextInt(2) == 1)) {
         				bottomHeight++;
-            			chanceSetBlock(world, pos.offset(1, 0, 0), log, 1);
-                        chanceSetBlock(world, pos.offset(0, 0, 1), log, 1);
-                        chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1);
-                        chanceSetBlock(world, pos.offset(0, 0, -1), log, 1);
+        				grow(world, pos, log, 0, 0, 1, 0, true);
         			}
-            		coverTrunk(world, pos, leaves, bottomHeight, treeHeight + 1, 1, false);
-        			if(treeHeight > 8) {
-        				coverTrunk(world, pos, leaves, bottomHeight + 2, treeHeight - 3, 2, false);
-        				coverTrunk(world, pos, leaves, treeHeight - 2, treeHeight - 2, 2, true);
-        				coverTrunkCorners(world, pos, leaves, bottomHeight + 1, treeHeight - 2, false);
-        				coverTrunkCorners(world, pos, leaves, treeHeight - 1, treeHeight - 1, true);
+            		grow(world, pos, leaves, bottomHeight, treeHeight + 1, 1, 0, false);
+        			if(treeHeight > 7) {
+        				grow(world, pos, leaves, bottomHeight + 2, treeHeight - 3, 2, 0, false);
+        				grow(world, pos, leaves, treeHeight - 2, treeHeight - 2, 2, 0, true);
+        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 2, 1, 1, false);
+        				grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 1, 1, true);
         			} else {
-        				coverTrunkCorners(world, pos, leaves, bottomHeight + 1, treeHeight - 1, false);
+        				if(treeHeight - 2 >= bottomHeight + 2) {
+                			grow(world, pos, leaves, bottomHeight + 2, treeHeight - 2, 2, 0, false);
+                		}
+        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 1, 1, 1, false);
         				if(treeHeight < 7) {
-        					coverTrunkCorners(world, pos, leaves, treeHeight, treeHeight, true);
+        					grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, true);
         				}
-        				if(treeHeight > 5) {
-        					coverTrunk(world, pos, leaves, bottomHeight + 2, treeHeight - 2, 2, false);
-        				}
-        				if(treeHeight != 4 && treeHeight < 8) {
-        					coverTrunk(world, pos, leaves, bottomHeight + 1, bottomHeight + 1, 2, true);
-                			if(treeHeight < 7) {
-                				coverTrunk(world, pos, leaves, treeHeight - 1, treeHeight - 1, 2, true);
-                			}
+        				if(treeHeight != 3) {
+        					if(treeHeight < 7) {
+        						grow(world, pos, leaves, bottomHeight + 1, bottomHeight + 1, 2, 0, true);
+                    			if(treeHeight < 6) {
+                    				grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 2, 0, true);
+                    			}
+        					}
         				}
         			}
-            		for(int i = treeHeight + 1; i < extraHeight + 1; i++) {
-                    	setBlock(world, pos.offset(0, i, 0), leaves);
-                    }
+        			grow(world, pos, leaves, treeHeight + 1, extraHeight, 0, 0, false);
                     break;
             	case 1:
             		//Tree roots
@@ -84,49 +80,38 @@ public class EdenTreeFeature extends DivineTreeFeature {
             		setBlock(world, pos.offset(0, -1, 1), log, true);
             		switch(rand.nextInt(4)) {
             		case 0:
-            			chanceSetBlock(world, pos.offset(1, 0, 0), log, 1);
+            			chanceSetBlock(world, pos.offset(1, 0, 0), log, 2);
                         //Fall-through
             		case 1:
-            			chanceSetBlock(world, pos.offset(0, 0, 1), log, 1);
+            			chanceSetBlock(world, pos.offset(0, 0, 1), log, 2);
             			//Fall-through
             		case 2:
-            			chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1);
+            			chanceSetBlock(world, pos.offset(-1, 0, 0), log, 2);
             			//Fall-through
-            		case 3:
-            			chanceSetBlock(world, pos.offset(0, 0, -1), log, 1);
+            		default:
+            			chanceSetBlock(world, pos.offset(0, 0, -1), log, 2);
             		}
             		//Leaves
             		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
-            		
-            		coverTrunk(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, false);
-            		coverTrunkCorners(world, pos, leaves, treeHeight, treeHeight, false);
+            		chanceSetBlock(world, pos.offset(0, treeHeight + 2, 0), leaves, 2);
+            		grow(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, 0, false);
+            		grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 1, 1, true);
+            		grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false);
+            		grow(world, pos, leaves, treeHeight, treeHeight, 2, 0, true);
+            		break;
+            	case 2:
+            		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
+            		grow(world, pos, leaves, treeHeight, treeHeight, 1, 0, false);
             		break;
                 default:
-                	//Leaves
                 	setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
-                	
-                	coverTrunk(world, pos, leaves, treeHeight - 2, treeHeight + 1, 1, false);
-                	coverTrunkCorners(world, pos, leaves, treeHeight - 2, treeHeight - 1, false);
-                	for(int i = -2; i < 1; i++) {
-                		if(i < 0) {
-                			chanceSetBlock(world, pos.offset(2, treeHeight + i, 2), leaves, 1);
-                			chanceSetBlock(world, pos.offset(2, treeHeight + i, -2), leaves, 1);
-                			chanceSetBlock(world, pos.offset(-2, treeHeight + i, 2), leaves, 1);
-                			chanceSetBlock(world, pos.offset(-2, treeHeight + i, -2), leaves, 1);
-                			
-                			for(int offset = -1; offset < 2; offset++) {
-                				setBlock(world, pos.offset(-2, treeHeight + i, offset), leaves);
-                				setBlock(world, pos.offset(2, treeHeight + i, offset), leaves);
-                				setBlock(world, pos.offset(offset, treeHeight + i, -2), leaves);
-                				setBlock(world, pos.offset(offset, treeHeight + i, 2), leaves);
-                			}
-                		} else {
-                			chanceSetBlock(world, pos.offset(1, treeHeight + i, 1), leaves, 1);
-                			chanceSetBlock(world, pos.offset(1, treeHeight + i, -1), leaves, 1);
-                			chanceSetBlock(world, pos.offset(-1, treeHeight + i, 1), leaves, 1);
-                			chanceSetBlock(world, pos.offset(-1, treeHeight + i, -1), leaves, 1);
-                		}
-                	}
+                	grow(world, pos, leaves, treeHeight - 2, treeHeight + 1, 1, 0, false);
+                	grow(world, pos, leaves, treeHeight - 2, treeHeight - 1, 1, 1, false);
+                	grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, 2, true);
+                	for(int offset = -1; offset < 2; offset++) {
+        				grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, offset, false);
+        			}
+                	grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, true);
             	}
                 return true;
             }

@@ -15,7 +15,6 @@
     "grass_color": 0,
     "foliage_color": 0
   },
-  "starts": [],
   "spawners": {
     "monster": [
       {

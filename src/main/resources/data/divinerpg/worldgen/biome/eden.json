@@ -15,7 +15,6 @@
     "grass_color": 16774932,
     "foliage_color": 16774932
   },
-  "starts": [],
   "spawners": {
     "monster": [
       {
@@ -82,12 +81,13 @@
     [
       "divinerpg:ore_eden"
     ],
-    [],
+    [
+    	"divinerpg:eden_tree"
+    ],
     [
       "divinerpg:eden_brush",
       "divinerpg:sunbloom",
-      "divinerpg:sun_blossom",
-      "divinerpg:eden_tree"
+      "divinerpg:sun_blossom"
     ],
     []
   ],
