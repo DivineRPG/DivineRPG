@@ -12,6 +12,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.text.*;
 import net.minecraft.world.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.*;
 import java.util.*;
@@ -36,7 +38,8 @@ public class ItemScythe extends ItemModRanged {
                         : BulletType.SCYTHE_SHOT,
                 null);
     }
-
+    
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam(isJackoman(Minecraft.getInstance().player)

@@ -14,7 +14,7 @@ import java.util.function.*;
 
 public class ItemTwilightBlitz extends ItemModRanged {
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
-    protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac1300078");
+    protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac130007");
 
     public ItemTwilightBlitz(String name, BulletType projectileType, Supplier<Item> ammoSupplier) {
         super(name,null, projectileType, SoundRegistry.BLITZ, SoundCategory.MASTER,-1,0, ammoSupplier,0);
