@@ -23,7 +23,7 @@ public class WildwoodStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "wildwood";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {

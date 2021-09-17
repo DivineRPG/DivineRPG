@@ -23,7 +23,7 @@ public class EdenStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "eden";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {

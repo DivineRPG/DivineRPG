@@ -26,7 +26,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "hut";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
 
     @Override

@@ -32,7 +32,7 @@
         "Name": "divinerpg:twilight_stone"
       },
       "default_fluid": {
-        "Name": "minecraft:air",
+        "Name": "divinerpg:smoldering_tar",
         "Properties": {
           "level": "0"
         }
