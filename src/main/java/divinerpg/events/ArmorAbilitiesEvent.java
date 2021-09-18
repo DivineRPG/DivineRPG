@@ -24,10 +24,10 @@ public class ArmorAbilitiesEvent
         {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
-            ItemStack stackBoots = player.inventory.getArmor(0);
-            ItemStack stackLeggings = player.inventory.getArmor(1);
-            ItemStack stackChestplate = player.inventory.getArmor(2);
-            ItemStack stackHelmet = player.inventory.getArmor(3);
+            ItemStack stackBoots = player.inventory.armor.get(0);
+            ItemStack stackLeggings = player.inventory.armor.get(1);
+            ItemStack stackChestplate = player.inventory.armor.get(2);
+            ItemStack stackHelmet = player.inventory.armor.get(3);
 
             if (stackBoots != null) boots = stackBoots.getItem();
             else boots = null;
@@ -65,10 +65,10 @@ public class ArmorAbilitiesEvent
     {
         if (event.getEntityLiving() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-            ItemStack stackBoots = player.inventory.getArmor(0);
-            ItemStack stackLegs = player.inventory.getArmor(1);
-            ItemStack stackBody = player.inventory.getArmor(2);
-            ItemStack stackHelmet = player.inventory.getArmor(3);
+            ItemStack stackBoots = player.inventory.armor.get(0);
+            ItemStack stackLegs = player.inventory.armor.get(1);
+            ItemStack stackBody = player.inventory.armor.get(2);
+            ItemStack stackHelmet = player.inventory.armor.get(3);
 
             if (stackBoots != null) boots = stackBoots.getItem();
             else boots = null;
@@ -114,10 +114,10 @@ public class ArmorAbilitiesEvent
         if (e.getEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) e.getEntity();
 
-            ItemStack stackBoots = player.inventory.getArmor(0);
-            ItemStack stackLegs = player.inventory.getArmor(1);
-            ItemStack stackBody = player.inventory.getArmor(2);
-            ItemStack stackHelmet = player.inventory.getArmor(3);
+            ItemStack stackBoots = player.inventory.armor.get(0);
+            ItemStack stackLegs = player.inventory.armor.get(1);
+            ItemStack stackBody = player.inventory.armor.get(2);
+            ItemStack stackHelmet = player.inventory.armor.get(3);
 
             if (stackBoots != null) boots = stackBoots.getItem();
             else boots = null;
@@ -165,10 +165,10 @@ public class ArmorAbilitiesEvent
         if (e.getSource().getDirectEntity() != null && e.getSource().getDirectEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) e.getSource().getDirectEntity();
 
-            ItemStack stackBoots = player.inventory.getArmor(0);
-            ItemStack stackLeggings = player.inventory.getArmor(1);
-            ItemStack stackChestplate = player.inventory.getArmor(2);
-            ItemStack stackHelmet = player.inventory.getArmor(3);
+            ItemStack stackBoots = player.inventory.armor.get(0);
+            ItemStack stackLeggings = player.inventory.armor.get(1);
+            ItemStack stackChestplate = player.inventory.armor.get(2);
+            ItemStack stackHelmet = player.inventory.armor.get(3);
 
             if (stackBoots != null) boots = stackBoots.getItem();
             else boots = null;
@@ -291,10 +291,10 @@ public class ArmorAbilitiesEvent
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
-        ItemStack stackBoots = evt.player.inventory.getArmor(0);
-        ItemStack stackLegs = evt.player.inventory.getArmor(1);
-        ItemStack stackBody = evt.player.inventory.getArmor(2);
-        ItemStack stackHelmet = evt.player.inventory.getArmor(3);
+        ItemStack stackBoots = evt.player.inventory.armor.get(0);
+        ItemStack stackLegs = evt.player.inventory.armor.get(1);
+        ItemStack stackBody = evt.player.inventory.armor.get(2);
+        ItemStack stackHelmet = evt.player.inventory.armor.get(3);
 
         float speedMultiplier = 1;
 
@@ -449,7 +449,7 @@ public class ArmorAbilitiesEvent
             speedMultiplier = 2.2f;
         }
 
-        evt.player.abilities.setWalkingSpeed(0.1f*speedMultiplier);
+        evt.player.abilities.walkingSpeed = 0.1f*speedMultiplier;
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;

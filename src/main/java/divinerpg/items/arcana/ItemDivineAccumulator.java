@@ -27,10 +27,10 @@ public class ItemDivineAccumulator extends ItemMod {
             IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElseThrow(RuntimeException::new);
             if (arcana.getArcana() >= 80) {
                 if (!world.isClientSide) {
-                    NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
+                	//TODO - send particle
+                    //NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
                     world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
                     arcana.consume(player, 80);
-
                 }
                 player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
             }
