@@ -29,6 +29,8 @@ public class FeatureRegistry {
     public static final RegistryObject<DivineTreeFeature> APALACHIA_TREE = register("apalachia_tree", () -> new ApalachiaTreeFeature(() -> BlockRegistry.apalachiaSapling));
     public static final RegistryObject<DivineTreeFeature> SKYTHERN_TREE = register("skythern_tree", () -> new SkythernTreeFeature(() -> BlockRegistry.skythernSapling));
     public static final RegistryObject<DivineTreeFeature> MORTUM_TREE = register("mortum_tree", () -> new MortumTreeFeature(() -> BlockRegistry.mortumSapling));
+    public static final RegistryObject<MortumPlants> MORTUM_BRUSH = register("mortum_plants", () -> new MortumPlants(BlockStateProvidingFeatureConfig.CODEC));
+
     public static ConfiguredFeature<?, ?> TAR_LAKE;
 
 

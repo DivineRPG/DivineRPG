@@ -1,31 +1,26 @@
+
 {
-  "type": "minecraft:random_patch",
   "config": {
-    "can_replace": false,
-    "project": true,
-    "need_water": false,
-    "xspread": 18,
-    "yspread": 3,
-    "zspread": 13,
-    "tries": 93,
-    "state_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "divinerpg:mortum_brush"
-      }
+    "feature": {
+      "config": {
+        "state_provider": {
+          "state": {
+            "Name": "divinerpg:mortum_brush",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "type": "minecraft:simple_state_provider"
+        }
+      },
+      "type": "divinerpg:mortum_plants"
     },
-    "block_placer": {
-      "type": "minecraft:simple_block_placer"
-    },
-    "whitelist": [
-      {
-        "Name": "divinerpg:mortum_grass"
-      }
-    ],
-    "blacklist": [
-      {
-        "Name": "minecraft:air"
-      }
-    ]
-  }
+    "decorator": {
+      "config": {
+        "count": 1
+      },
+      "type": "minecraft:count_multilayer"
+    }
+  },
+  "type": "minecraft:decorated"
 }
