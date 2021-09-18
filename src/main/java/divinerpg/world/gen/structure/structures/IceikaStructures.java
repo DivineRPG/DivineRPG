@@ -23,7 +23,7 @@ public class IceikaStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "iceika";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {

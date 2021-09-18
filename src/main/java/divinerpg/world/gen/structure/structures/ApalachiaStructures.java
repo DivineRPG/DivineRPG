@@ -23,7 +23,7 @@ public class ApalachiaStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "apalachia";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {

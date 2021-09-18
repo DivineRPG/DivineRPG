@@ -23,7 +23,7 @@ public class SkythernStructures extends Structure<NoFeatureConfig> {
 
     @Override
     public String getFeatureName() {
-        return "skythern";
+        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
     }
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {

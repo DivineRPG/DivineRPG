@@ -47,10 +47,6 @@ public class DivineRPG {
             register.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
 
-        Logger rootLogger = LogManager.getRootLogger();
-        if (rootLogger instanceof org.apache.logging.log4j.core.Logger) {
-            ((org.apache.logging.log4j.core.Logger) rootLogger).addFilter(new SpamFilter());
-        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {
