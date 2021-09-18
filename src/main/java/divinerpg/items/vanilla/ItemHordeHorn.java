@@ -25,12 +25,14 @@ public class ItemHordeHorn extends ItemBossSpawner {
             PlayerEntity player = context.getPlayer();
             pos = pos.offset(facing.getStepX(), facing.getStepY()+1, facing.getStepZ());
             if (world.getBlockState(pos) == Blocks.AIR.defaultBlockState()) {
+            	if(world.dimension().equals(World.END)) {
                 world.playSound(null, pos, SoundRegistry.AYERACO_SPAWN, SoundCategory.MASTER, 20.0F, 1.0F);
                 world.setBlock(pos.below(), BlockRegistry.ayeracoSpawn.defaultBlockState(), 0);
 
                 if (!player.isCreative()) {
                     player.getMainHandItem().shrink(1);
                 }
+            	}
             }
         return result;
     }

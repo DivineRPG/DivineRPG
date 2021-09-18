@@ -13,7 +13,7 @@ import net.minecraftforge.common.*;
 import java.util.function.*;
 
 public class BlockModDoor extends DoorBlock {
-    private Supplier<Item> doorItem;
+	
     public BlockModDoor(String name, Material material, float hardness, float resistance, ToolType tool) {
         super(Block.Properties
                 .of(material)
@@ -31,7 +31,6 @@ public class BlockModDoor extends DoorBlock {
                 .harvestTool(ToolType.PICKAXE)
                 .requiresCorrectToolForDrops());
         setRegistryName(DivineRPG.MODID, name);
-        this.doorItem=doorItem;
     }
 
     @Override
@@ -52,7 +51,7 @@ public class BlockModDoor extends DoorBlock {
 
     @Override
     public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
-        return new ItemStack(doorItem.get());
+        return new ItemStack(state.getBlock());
     }
 
 }

@@ -21,7 +21,7 @@ import net.minecraft.world.*;
 import javax.annotation.*;
 import java.util.*;
 
-public abstract class TileEntityModFurnace extends LockableTileEntity implements ISidedInventory, IRecipeHolder, IRecipeHelperPopulator, ITickableTileEntity {
+public abstract class TileEntityModFurnace extends AbstractFurnaceTileEntity implements ISidedInventory, IRecipeHolder, IRecipeHelperPopulator, ITickableTileEntity {
     private static final int[] SLOTS_FOR_UP = new int[]{0};
     private static final int[] SLOTS_FOR_DOWN = new int[]{2, 1};
     private static final int[] SLOTS_FOR_SIDES = new int[]{1};
@@ -68,14 +68,14 @@ public abstract class TileEntityModFurnace extends LockableTileEntity implements
         }
     };
     private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
-    protected final IRecipeType<? extends AbstractCookingRecipe> recipeType;
+    protected IRecipeType<? extends AbstractCookingRecipe> recipeType = IRecipeType.SMELTING;
 
     protected TileEntityModFurnace(TileEntityType<?> p_i49964_1_) {
-        super(p_i49964_1_);
-        this.recipeType = IRecipeType.SMELTING;
+        super(p_i49964_1_, IRecipeType.SMELTING);
     }
 
-    @Deprecated //Forge - get burn times by calling ForgeHooks#getBurnTime(ItemStack)
+
+	@Deprecated //Forge - get burn times by calling ForgeHooks#getBurnTime(ItemStack)
     public static Map<Item, Integer> getFuel() {
         Map<Item, Integer> map = Maps.newLinkedHashMap();
         add(map, Items.LAVA_BUCKET, 20000);

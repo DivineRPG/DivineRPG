@@ -20,8 +20,11 @@ public class BlockDemonFurnace extends BlockModFurnace {
     }
     protected void openContainer(World world, BlockPos pos, PlayerEntity player) {
         TileEntity tileentity = world.getBlockEntity(pos);
-        if (tileentity instanceof TileEntityDemonFurnace) {
-            player.openMenu((INamedContainerProvider)tileentity);
+        if (tileentity != null && tileentity instanceof TileEntityDemonFurnace) {
+        	BlockState state = tileentity.getBlockState();
+        	World worldIn = tileentity.getLevel();
+        	INamedContainerProvider inamedcontainerprovider = this.getMenuProvider(state, worldIn, pos);
+            player.openMenu(inamedcontainerprovider);
             player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }
     }
