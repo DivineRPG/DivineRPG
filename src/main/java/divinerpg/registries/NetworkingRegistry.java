@@ -16,6 +16,7 @@ public class NetworkingRegistry {
     }
 
     public static void init() {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered networking");
         INSTANCE.registerMessage(nextID(),
                 PacketArcanaBar.class,
                 PacketArcanaBar::toBytes,

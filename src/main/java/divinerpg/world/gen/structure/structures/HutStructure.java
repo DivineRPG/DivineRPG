@@ -4,13 +4,10 @@ import com.google.common.collect.*;
 import com.mojang.serialization.*;
 import divinerpg.*;
 import divinerpg.registries.*;
-import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
-import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.jigsaw.*;
@@ -25,13 +22,8 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     @Override
-    public String getFeatureName() {
-        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
-    }
-
-    @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {
-        return HutStructure.Start::new;
+        return Start::new;
     }
 
     @Override
@@ -40,7 +32,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
-            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1, 1)
+            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1 ,1)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
@@ -48,7 +40,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
-            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1, 1)
+            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1 ,1)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
@@ -56,25 +48,15 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
 
-
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        BlockPos centerOfChunk = new BlockPos((chunkX << 4) + 7, 0, (chunkZ << 4) + 7);
-
-        int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
-        IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
-        BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
-        return topBlock.getFluidState().isEmpty();
-    }
-
     public static class Start extends StructureStart<NoFeatureConfig>  {
+        private final long seed;
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+            seed = seedIn;
         }
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
-
             int x = (chunkX << 4) + 7;
             int z = (chunkZ << 4) + 7;
 
@@ -83,7 +65,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(new ResourceLocation(DivineRPG.MODID, "overworld/hut")),10),
+                            .get(new ResourceLocation(DivineRPG.MODID, "overworld/hut")), 10),
                     AbstractVillagePiece::new,
                     chunkGenerator,
                     templateManagerIn,
@@ -92,11 +74,8 @@ public class HutStructure extends Structure<NoFeatureConfig> {
                     this.random,
                     false,
                     true);
-            this.pieces.forEach(piece -> piece.move(0, 1, 0));
-            this.pieces.forEach(piece -> piece.getBoundingBox().y0 -= 1);
 
             this.calculateBoundingBox();
         }
-
     }
 }

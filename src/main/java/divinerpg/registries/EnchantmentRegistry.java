@@ -18,6 +18,7 @@ public class EnchantmentRegistry {
 
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> e) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered enchantments");
         IForgeRegistry<Enchantment> registry = e.getRegistry();
 
         registry.register(new RiveEnchant());

@@ -1674,6 +1674,7 @@ public class ItemRegistry {
 
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> e) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered items");
         register(e, new ItemMod("apalachia_chunk"));
         register(e, new ItemMod("apalachia_dust"));
         register(e, new ItemMod("apalachia_fragments"));

@@ -11,6 +11,6 @@ public class TriggerRegistry {
     public static final AdvancementDivineEye DIVINERPG_EYE = CriteriaTriggers.register(new AdvancementDivineEye("divinerpg:eye"));
 
     public static void registerTriggers() {
-        DivineRPG.LOGGER.info("Registering custom triggers");
+        DivineRPG.LOGGER.info("[DivineRPG] Registered triggers");
     }
 }

@@ -43,6 +43,7 @@ public class TileRegistry {
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered tile entities");
         ALTAR_OF_CORRUPTION = TileEntityType.Builder.of(() -> new AltarOfCorruptionEntity(ALTAR_OF_CORRUPTION), BlockRegistry.altarOfCorruption).build(null);
         NIGHTMARE_BED = TileEntityType.Builder.of(() -> new TileEntityNightmareBed(NIGHTMARE_BED), BlockRegistry.nightmareBed).build(null);
         AYERACO_SPAWN = TileEntityType.Builder.of(() -> new TileEntityAyeracoSpawn(), BlockRegistry.ayeracoSpawn).build(null);

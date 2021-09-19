@@ -26,6 +26,7 @@ public class StructureRegistry {
     public static final RegistryObject<Structure<NoFeatureConfig>> ICEIKA = DEFERRED_REGISTRY_STRUCTURE.register("iceika", () -> (new IceikaStructures(NoFeatureConfig.CODEC)));
 
     public static void setupStructures() {
+        DivineRPG.LOGGER.info("[DivineRPG] Setup structures");
         setupMapSpacingAndLand(HUT.get(), new StructureSeparationSettings(30, 5, 45642069), true);
 
 

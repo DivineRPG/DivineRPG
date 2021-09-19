@@ -20,6 +20,7 @@ public class ContainerRegistry
     public static final RegistryObject<ContainerType<InfusionTableContainer>> INFUSION_TABLE = CONTAINER_TYPES.register("infusion_table", () -> IForgeContainerType.create(InfusionTableContainer::new));
 
     public static void registerScreenFactories() {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
         ScreenManager.register(ContainerRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorScreen::new);
         ScreenManager.register(ContainerRegistry.EDEN_CHEST.get(), EdenChestScreen::new);
         ScreenManager.register(ContainerRegistry.DREAM_LAMP.get(), DreamLampScreen::new);

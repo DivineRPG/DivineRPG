@@ -21,6 +21,7 @@ public class FluidRegistry {
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<Fluid> registry) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered fluids");
         registry.getRegistry().registerAll(TAR, TAR_FLOW);
     }
 

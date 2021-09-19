@@ -237,6 +237,7 @@ public class SoundRegistry {
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> evt) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered sounds");
         IForgeRegistry<SoundEvent> registry = evt.getRegistry();
         for (SoundEvent event : SOUND_EVENTS) {
             registry.register(event);

@@ -16,6 +16,7 @@ public class ConfiguredStructureRegistry {
     public static StructureFeature<?, ?> CONFIGURED_ICEIKA = StructureRegistry.ICEIKA.get().configured(IFeatureConfig.NONE);
 
     public static void registerConfiguredStructures() {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered configured structures");
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_hut"), CONFIGURED_HUT);
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_eden"), CONFIGURED_EDEN);

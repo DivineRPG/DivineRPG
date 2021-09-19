@@ -22,12 +22,8 @@ public class SkythernStructures extends Structure<NoFeatureConfig> {
     }
 
     @Override
-    public String getFeatureName() {
-        return net.minecraftforge.registries.ForgeRegistries.STRUCTURE_FEATURES.getKey(this).toString();
-    }
-    @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {
-        return SkythernStructures.Start::new;
+        return Start::new;
     }
 
     @Override

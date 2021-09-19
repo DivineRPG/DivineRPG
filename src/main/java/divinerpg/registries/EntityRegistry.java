@@ -31,7 +31,6 @@ import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
 import divinerpg.util.*;
-import net.minecraft.block.*;
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.*;
@@ -40,10 +39,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.*;
@@ -302,6 +298,7 @@ public class EntityRegistry {
 
     @SubscribeEvent
     public static void registerGlobalEntityAttributes(EntityAttributeCreationEvent event) {
+        DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
         // Vanilla
         event.put(ARID_WARRIOR, EntityAridWarrior.attributes().build());
         event.put(BROWN_GRIZZLE, EntityBrownGrizzle.attributes().build());
@@ -569,6 +566,7 @@ public class EntityRegistry {
 
     @OnlyIn(Dist.CLIENT)
     public static void render() {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered entity renders");
         EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();
 
         //Projectile

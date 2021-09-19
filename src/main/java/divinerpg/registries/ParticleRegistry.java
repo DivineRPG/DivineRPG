@@ -36,7 +36,7 @@ public class ParticleRegistry {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(ParticleFactoryRegisterEvent event) {
-        DivineRPG.LOGGER.info("registered particles");
+        DivineRPG.LOGGER.info("[DivineRPG] Registered particles");
         Minecraft.getInstance().particleEngine.register(APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Factory::new);
         Minecraft.getInstance().particleEngine.register(EDEN_PORTAL.get(), ParticleEdenPortal.Factory::new);
         Minecraft.getInstance().particleEngine.register(MORTUM_PORTAL.get(), ParticleMortumPortal.Factory::new);

@@ -58,7 +58,6 @@ public abstract class EntityDivineMerchant extends VillagerEntity implements IMe
     @Override
     public void startSeenByPlayer(ServerPlayerEntity player) {
         if(!level.isClientSide){
-            player.sendMessage(new TranslationTextComponent(Arrays.stream(getChatMessages()).iterator().next()), player.getUUID());
             if(level.hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && canRestock() && shouldRestock()){
                 this.restock();
             }
@@ -83,6 +82,7 @@ public abstract class EntityDivineMerchant extends VillagerEntity implements IMe
                 updateSpecialPrices(player);
                 setTradingPlayer(player);
                 openTradingScreen(player, getDisplayName(), 1);
+                player.sendMessage(new TranslationTextComponent(Arrays.stream(getChatMessages()).iterator().next()), player.getUUID());
             }
         }
         return ActionResultType.sidedSuccess(level.isClientSide);

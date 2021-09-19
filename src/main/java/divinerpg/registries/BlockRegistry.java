@@ -1109,6 +1109,7 @@ public class BlockRegistry {
 
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered blocks");
         // Vanilla dimensions
         // Ores
         register(registry, new BlockMod("arlemite_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(3.0F, 2000.0F).sound(SoundType.STONE)));

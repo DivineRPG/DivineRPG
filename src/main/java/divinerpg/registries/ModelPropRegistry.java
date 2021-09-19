@@ -1,5 +1,6 @@
 package divinerpg.registries;
 
+import divinerpg.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
 import net.minecraft.item.*;
@@ -11,6 +12,7 @@ import net.minecraftforge.api.distmarker.*;
 public class ModelPropRegistry {
 
     public static void init() {
+        DivineRPG.LOGGER.info("[DivineRPG] Attached model properties");
         registerBow((ItemModBow) ItemRegistry.apalachiaBow,
                 (ItemModBow) ItemRegistry.bluefireBow,
                 (ItemModBow) ItemRegistry.edenBow,

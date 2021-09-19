@@ -34,6 +34,7 @@ public class KeyRegistry {
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
     public static void init() {
+        DivineRPG.LOGGER.info("[DivineRPG] Registered registry keys");
 
 
         DIVINE_TREE = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.divineLog.defaultBlockState()), new SimpleBlockStateProvider(BlockRegistry.divineLeaves.defaultBlockState()), new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());

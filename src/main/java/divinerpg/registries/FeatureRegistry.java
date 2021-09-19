@@ -36,6 +36,7 @@ public class FeatureRegistry {
 
 
     public static void register(){
+        DivineRPG.LOGGER.info("[DivineRPG] Registered features");
         //Overworld Ore Register
         overworldOres.add(register("arlemite_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockRegistry.arlemiteOre.defaultBlockState(), Config.arlemiteVeinSize.get())).range(Config.arlemiteMaxHeight.get()).squared().count(Config.arlemiteTries.get())));
         overworldOres.add(register("realmite_ore", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockRegistry.realmiteOre.defaultBlockState(), Config.realmiteVeinSize.get())).range(Config.realmiteMaxHeight.get()).squared().count(Config.realmiteTries.get())));
@@ -74,7 +75,7 @@ public class FeatureRegistry {
             generation.addFeature(GenerationStage.Decoration.LAKES, TAR_LAKE.decorated(Placement.CHANCE.configured(new ChanceConfig(50))).count(1));
         }
 
-        if(biome != null && event.getCategory().equals(Biome.Category.PLAINS)) {
+        if(event.getCategory().equals(Biome.Category.PLAINS)) {
             generation.addStructureStart(ConfiguredStructureRegistry.CONFIGURED_HUT);
         }
 
