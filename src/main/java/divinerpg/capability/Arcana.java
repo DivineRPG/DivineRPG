@@ -57,7 +57,7 @@ public class Arcana {
 
     public void setMaxArcana(float max) {
         if (max < 0) {
-            throw new IllegalArgumentException("Max of arcana cn't be less then null!");
+            throw new IllegalArgumentException("Max of arcana can't be less then null!");
         }
 
         this.max = max;
