@@ -1,5 +1,6 @@
 package divinerpg.entities.boss;
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
@@ -35,22 +36,21 @@ public class EntityKingOfScorchers extends EntityDivineBoss {
         this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 
         // regular shoots
-        //TODO - King of scorchers projectile
-//        this.tasks.addTask(7, new AIDivineFireballAttack(
-//                this,
-//                this::createFireball,
-//                15,
-//                64,
-//                null,
-//                SoundEvents.ENTITY_BLAZE_SHOOT));
+        this.goalSelector.addGoal(7, new AIDivineFireballAttack(
+                this,
+                this::createFireball,
+                15,
+                64,
+                null,
+                SoundEvents.BLAZE_SHOOT));
 //
-//        this.tasks.addTask(8, new AIDivineFireballAttack(
-//                this,
-//                this::createMeteors,
-//                20 * 60,
-//                64,
-//                null,
-//                SoundEvents.ENTITY_BLAZE_SHOOT));
+        this.goalSelector.addGoal(8, new AIDivineFireballAttack(
+                this,
+                this::createMeteors,
+                20 * 60,
+                64,
+                null,
+                SoundEvents.BLAZE_SHOOT));
     }
 
         protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
@@ -87,17 +87,36 @@ public class EntityKingOfScorchers extends EntityDivineBoss {
         return meteors.get(0);
     }
 
-//    @Override
-//    public EntityThrowable createThowable(World world, LivingEntity parent, double x, double y, double z) {
-//        return new EntityKingOfScorchersShot(world, parent);
-//    }
-//
-//
-//
-//    @Override
-//    public float getInaccuracy(World world) {
-//        return 1;
-//    }
+    public Entity createFireball(LivingEntity parent, Entity victim) {
+        if (!(victim instanceof LivingEntity))
+            return null;
+
+        List<Entity> meteors = new ArrayList<>();
+
+
+        for (int i = 0; i < 4; i++) {
+            EntityKingOfScorchersShot meteor = new EntityKingOfScorchersShot(EntityRegistry.KING_OF_SCORCHERS_SHOT, ((LivingEntity) victim), level);
+
+            Random rand = meteor.level.random;
+
+            meteor.xo = rand.nextDouble() - rand.nextDouble() * 2;
+            meteor.xo += 10;
+            meteor.zo = rand.nextDouble() - rand.nextDouble() * 2;
+
+            meteor.setDeltaMovement((rand.nextDouble() - rand.nextDouble()) / 5, -0.7, (rand.nextDouble() - rand.nextDouble()) / 5);
+
+            meteors.add(meteor);
+        }
+
+        while (meteors.size() > 1) {
+            level.addFreshEntity(meteors.get(0));
+            meteors.remove(0);
+        }
+
+
+        return meteors.get(0);
+    }
+
 
     @Override
     public int getArmorValue() {
