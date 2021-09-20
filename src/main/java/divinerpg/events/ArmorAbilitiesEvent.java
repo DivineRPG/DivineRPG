@@ -339,7 +339,7 @@ public class ArmorAbilitiesEvent
 
         //Korma
         if (boots == ItemRegistry.kormaBoots && body == ItemRegistry.kormaChestplate && legs == ItemRegistry.kormaLeggings && helmet == ItemRegistry.kormaHelmet) {
-            evt.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null).fill(evt.player, 1);
+            evt.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null).fill(evt.player, 1);
         }
 
         //Vemos
@@ -401,7 +401,7 @@ public class ArmorAbilitiesEvent
             evt.player.maxUpStep = 1;
         }
         //Frozen
-        if (boots == ItemRegistry.frozenBoots && body == ItemRegistry.frozenChestplate && legs == ItemRegistry.frozenLeggings && helmet == ItemRegistry.frozenHelmet && !evt.player.getCommandSenderWorld().isClientSide && Ticker.tick % 10 == 0) {
+        if (boots == ItemRegistry.frozenBoots && body == ItemRegistry.frozenChestplate && legs == ItemRegistry.frozenLeggings && helmet == ItemRegistry.frozenHelmet && !evt.player.getCommandSenderWorld().isClientSide) {
             List<Entity> entities = evt.player.getCommandSenderWorld().getEntitiesOfClass(MobEntity.class, evt.player.getBoundingBox().expandTowards(6, 6, 6));
             for(Entity e : entities) {
                 ((MobEntity)e).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 40, 1, true, false));

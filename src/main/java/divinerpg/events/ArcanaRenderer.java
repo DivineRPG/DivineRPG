@@ -49,7 +49,7 @@ public class ArcanaRenderer {
     }
 
     private int getPercents() {
-    	IArcana arcana = mc.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(new Arcana());
+        Arcana arcana = mc.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         if (arcana != null) {
             float result = arcana.getArcana() / arcana.getMaxArcana() * 100;
 

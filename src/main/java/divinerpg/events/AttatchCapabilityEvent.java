@@ -1,5 +1,6 @@
 package divinerpg.events;
 
+import divinerpg.*;
 import divinerpg.capability.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
@@ -11,7 +12,7 @@ import net.minecraftforge.eventbus.api.*;
 public class AttatchCapabilityEvent {
     @SubscribeEvent
     public void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof PlayerEntity && !(event.getObject() instanceof FakePlayer))
-            event.addCapability(new ResourceLocation("arcana", "player_variables"), new ArcanaProvider());
+        if (event.getObject() instanceof PlayerEntity && !(event.getObject() instanceof FakePlayer))event
+                .addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
     }
 }

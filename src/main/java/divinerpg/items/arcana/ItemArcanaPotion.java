@@ -1,26 +1,20 @@
 package divinerpg.items.arcana;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import divinerpg.DivineRPG;
-import divinerpg.capability.ArcanaProvider;
-import divinerpg.capability.IArcana;
-import divinerpg.items.base.ItemMod;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import divinerpg.*;
+import divinerpg.capability.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import net.minecraft.client.util.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.util.text.*;
+import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
+
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemArcanaPotion extends ItemMod {
 
@@ -43,7 +37,7 @@ public class ItemArcanaPotion extends ItemMod {
             if (!player.isCreative()) {
                 stack.shrink(1);
             }
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             arcana.fill(player, amountToAdd);
         }
 
@@ -64,7 +58,7 @@ public class ItemArcanaPotion extends ItemMod {
 
         player.setItemInHand(hand, null);
 
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+        Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
 
         ActionResultType result = arcana.getArcana() < arcana.getMaxArcana() ? ActionResultType.SUCCESS :
                 ActionResultType.FAIL;

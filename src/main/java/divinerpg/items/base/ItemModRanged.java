@@ -130,7 +130,7 @@ public class ItemModRanged extends ItemMod {
 
         if (canUseRangedWeapon(player, stack)) {
             ActionResult<ItemStack> ammo = tryFindAmmo(player);
-            ActionResult<IArcana> checkArcana = tryCheckArcana(player);
+            ActionResult<Arcana> checkArcana = tryCheckArcana(player);
 
             if (ammo.getResult() == ActionResultType.SUCCESS && checkArcana.getResult() == ActionResultType.SUCCESS) {
                 doPreUsageEffects(world, player);
@@ -143,7 +143,7 @@ public class ItemModRanged extends ItemMod {
                         spawnEntity(world, player, stack, bulletType, entityType);
                 }
 
-                IArcana arcana = checkArcana.getObject();
+                Arcana arcana = checkArcana.getObject();
                 if (arcana != null)
                     arcana.consume(player, arcanaConsuming);
 
@@ -224,12 +224,12 @@ public class ItemModRanged extends ItemMod {
     /*
         Trying to get capability and check if we have enough arcana
      */
-    protected ActionResult<IArcana> tryCheckArcana(PlayerEntity player) {
-        IArcana arcana = null;
+    protected ActionResult<Arcana> tryCheckArcana(PlayerEntity player) {
+        Arcana arcana = null;
         ActionResultType result = ActionResultType.SUCCESS;
 
         if (!player.isCreative() && this.arcanaConsuming > 0) {
-            arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+            arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             if (arcana == null || arcana.getArcana() < this.arcanaConsuming) {
                 result = ActionResultType.FAIL;
             }

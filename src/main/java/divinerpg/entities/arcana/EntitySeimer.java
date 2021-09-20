@@ -53,7 +53,7 @@ public class EntitySeimer extends EntityDivineTameable {
     public void tick() {
         super.tick();
         if (this.getOwner() != null && this.getOwner() instanceof PlayerEntity) {
-            IArcana arcana = getOwner().getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+            Arcana arcana = getOwner().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             arcana.fill((PlayerEntity) this.getOwner(), 1);
         }
     }

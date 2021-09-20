@@ -9,7 +9,6 @@ import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.data.*;
 import net.minecraftforge.common.*;
-import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
@@ -57,7 +56,8 @@ public class DivineRPG {
         FeatureRegistry.register();
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
-        CapabilityManager.INSTANCE.register(IArcana.class, new ArcanaStorage(), Arcana::new);
+        ArcanaCapability.register();
+        NetworkingRegistry.init();
 
         event.enqueueWork(() -> {
             StructureRegistry.setupStructures();

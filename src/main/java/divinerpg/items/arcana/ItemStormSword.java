@@ -18,7 +18,7 @@ public class ItemStormSword extends ItemModSword {
 
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+        Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         if (arcana.getArcana() >= 20) {
             arcana.consume(player, 20);
             for (int i = 2; i < 5; i += 2) {

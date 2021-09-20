@@ -26,7 +26,7 @@ public class ItemShadowSaber extends ItemModSword {
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity hitter) {
         if (hitter instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) hitter;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             if (arcana.getArcana() >= 12) {
                 player.playSound(SoundRegistry.SHADOW_SABER, 1, 1);
                 player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 5 * 20, 1));

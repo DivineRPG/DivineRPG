@@ -1,38 +1,57 @@
 package divinerpg.capability;
 
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
-import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.*;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.INBT;
+import net.minecraft.util.Direction;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ICapabilitySerializable;
+import net.minecraftforge.common.util.LazyOptional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class ArcanaProvider implements ICapabilitySerializable<CompoundNBT>
-{
-    @CapabilityInject(IArcana.class)
-    public static final Capability<IArcana> ARCANA_CAP = null;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    private IArcana instance = ARCANA_CAP.getDefaultInstance();
+public class ArcanaProvider implements ICapabilitySerializable<INBT> {
 
-    @SuppressWarnings("unchecked")
+    private final Direction NO_SPECIFIC_SIDE = null;
+
+    @Nonnull
     @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side)
-    {
-        if (cap == ARCANA_CAP)
-            return (LazyOptional<T>) LazyOptional.of(() -> {
-                return new Arcana();
-            });
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction facing) {
+        if (ArcanaCapability.CAPABILITY_ARCANA == capability) {
+            return (LazyOptional<T>)LazyOptional.of(()-> arcana);
+
+        }
+
         return LazyOptional.empty();
     }
 
-    @Override
-    public CompoundNBT serializeNBT()
-    {
-        return (CompoundNBT) ARCANA_CAP.getStorage().writeNBT(ARCANA_CAP, instance, null);
-    }
+    private final static String ARCANA_NBT = "arcana";
 
     @Override
-    public void deserializeNBT(CompoundNBT nbt)
-    {
-        ARCANA_CAP.getStorage().readNBT(ARCANA_CAP, instance, null, nbt);
+    public INBT serializeNBT() {
+        CompoundNBT nbt = new CompoundNBT();
+        INBT arcanaNBT = ArcanaCapability.CAPABILITY_ARCANA.writeNBT(arcana, NO_SPECIFIC_SIDE);
+        nbt.put(ARCANA_NBT, arcanaNBT);
+        return nbt;
     }
+
+
+    @Override
+    public void deserializeNBT(INBT nbt) {
+        if (nbt.getId() != new CompoundNBT().getId()) {
+            LOGGER.warn("Unexpected NBT type:"+nbt);
+            return;  // leave as default in case of error
+        }
+        CompoundNBT compoundNBT = (CompoundNBT)nbt;
+        INBT arcanaNBT = compoundNBT.get(ARCANA_NBT);
+
+        ArcanaCapability.CAPABILITY_ARCANA.readNBT(arcana, NO_SPECIFIC_SIDE, arcanaNBT);
+    }
+
+    private Arcana arcana = new Arcana();
+
+    private static final Logger LOGGER = LogManager.getLogger();
 
 }

@@ -1,17 +1,30 @@
 package divinerpg.capability;
 
-import divinerpg.config.*;
 import divinerpg.registries.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.common.util.*;
 
-public class Arcana implements IArcana {
+public class Arcana {
     private int tickDelay = 4;
-    private float max = (float) Config.maxArcana.get();
+    private float max = 200;
     private float arcana = max;
 
-    @Override
+    public Arcana() {
+        this(200);
+    }
+
+    public Arcana(int initialChargeLevel) {
+        arcana = initialChargeLevel;
+    }
+
+    public float getArcana() {
+        return arcana;
+    }
+
     public void consume(PlayerEntity player, float points) {
         if (player.isCreative()) return;
 
@@ -19,7 +32,6 @@ public class Arcana implements IArcana {
         sendPacket(player);
     }
 
-    @Override
     public void fill(PlayerEntity player, float points) {
         float prev = getArcana();
         set(prev + points);
@@ -28,46 +40,36 @@ public class Arcana implements IArcana {
             sendPacket(player);
     }
 
-    @Override
     public void regen(PlayerEntity player) {
         if (player.level.getGameTime() % tickDelay == 0) {
             fill(player, 1);
         }
     }
 
-    @Override
     public void set(float points) {
         arcana = MathHelper.clamp(points, 0, getMaxArcana());
     }
 
-    @Override
-    public float getArcana() {
-        return arcana;
-    }
 
-    @Override
     public float getMaxArcana() {
         return max;
     }
 
-    @Override
     public void setMaxArcana(float max) {
         if (max < 0) {
-            throw new IllegalArgumentException("Max of arcana can't be less then null!");
+            throw new IllegalArgumentException("Max of arcana cn't be less then null!");
         }
 
         this.max = max;
     }
 
-    @Override
     public int getRegenDelay() {
         return tickDelay;
     }
 
-    @Override
     public void setRegenDelay(int delay) {
         if (delay < 1) {
-            throw new IllegalArgumentException("Tick delay between regen can't be less than one!");
+            throw new IllegalArgumentException("Tick delay beetween regen can't be less than one!");
         }
 
         tickDelay = delay;
@@ -77,5 +79,27 @@ public class Arcana implements IArcana {
         if (!(player instanceof FakePlayer) && player instanceof ServerPlayerEntity) {
             NetworkingRegistry.INSTANCE.sendToServer(new PacketArcanaBar(this));
         }
+    }
+
+
+    public static class ArcanaStorage implements Capability.IStorage<Arcana> {
+        @Override
+        public INBT writeNBT(Capability<Arcana> capability, Arcana instance, Direction side) {
+            FloatNBT floatNBT = FloatNBT.valueOf(instance.arcana);
+            return floatNBT;
+        }
+
+        @Override
+        public void readNBT(Capability<Arcana> capability, Arcana instance, Direction side, INBT nbt) {
+            int arcana = 0;
+            if (nbt.getType() == IntNBT.TYPE) {
+                arcana = ((IntNBT) nbt).getAsInt();
+            }
+            instance.set(arcana);
+        }
+    }
+
+    public static Arcana createADefaultInstance() {
+        return new Arcana();
     }
 }

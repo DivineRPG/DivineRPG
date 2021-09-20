@@ -22,12 +22,12 @@ public class ItemDivineAccumulator extends ItemMod {
 
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        if(player.getCapability(ArcanaProvider.ARCANA_CAP).isPresent()) {
+        if(player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).isPresent()) {
             int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElseThrow(RuntimeException::new);
+            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElseThrow(RuntimeException::new);
             if (arcana.getArcana() >= 80) {
                 if (!world.isClientSide) {
-                	//TODO - send particle
+                	//TODO - send divine accumulator particle
                     //NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
                     world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
                     arcana.consume(player, 80);

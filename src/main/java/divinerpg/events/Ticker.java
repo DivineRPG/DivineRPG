@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Ticker {
     public static int tick;
     @SubscribeEvent
@@ -19,15 +19,23 @@ public class Ticker {
     }
 
     @SubscribeEvent
-    public void onTick(TickEvent.PlayerTickEvent event){
+    public static void playerTick(TickEvent.PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
-            IArcana arcana = event.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(new Arcana());
+            Arcana arcana = event.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             arcana.regen(event.player);
         }
     }
+
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        IArcana arcana = event.getPlayer().getCapability(ArcanaProvider.ARCANA_CAP).orElse(new Arcana());
+        Arcana arcana = event.getPlayer().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         arcana.fill(event.getPlayer(), arcana.getMaxArcana());
+    }
+
+    @SubscribeEvent
+    public void onChangeDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        Arcana arcana = event.getPlayer().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
+        arcana.fill(event.getPlayer(), arcana.getMaxArcana()-arcana.getArcana());
+        event.getPlayer().giveExperiencePoints(0);
     }
 }

@@ -24,7 +24,7 @@ public class ItemEnderScepter extends ItemMod {
 
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+        Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         if (!world.isClientSide && arcana.getArcana() >= 75) {
             Vector3d start  = player.getEyePosition(1);
             Vector3d vec31 = player.getViewVector(1);

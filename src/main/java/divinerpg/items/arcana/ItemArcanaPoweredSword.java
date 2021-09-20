@@ -35,7 +35,7 @@ public class ItemArcanaPoweredSword extends ItemModSword {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
-        IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+        Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         if (!player.level.isClientSide && entity instanceof LivingEntity && arcana.getArcana() >= arcanaConsumed) {
             arcana.consume(player, arcanaConsumed);
         }

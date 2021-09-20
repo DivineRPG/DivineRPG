@@ -1,6 +1,5 @@
 package divinerpg.capability;
 
-import divinerpg.*;
 import io.netty.buffer.*;
 import net.minecraftforge.fml.network.*;
 
@@ -22,7 +21,7 @@ public class PacketArcanaBar {
         buf.writeInt(delay);
     }
 
-    public PacketArcanaBar(IArcana arcana) {
+    public PacketArcanaBar(Arcana arcana) {
         if (arcana == null)
             return;
 
@@ -34,12 +33,12 @@ public class PacketArcanaBar {
 
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
-            IArcana arcana = ctx.get().getSender().getCapability(ArcanaProvider.ARCANA_CAP).orElseThrow(RuntimeException::new);
+            Arcana arcana = ctx.get().getSender().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElseThrow(null);
             arcana.setMaxArcana(max);
             arcana.setRegenDelay(delay);
             arcana.set(this.arcana);
-            DivineRPG.LOGGER.info(ctx.get().getSender().getScoreboardName() + " has " + arcana.getArcana() + " arcana");
         });
         ctx.get().setPacketHandled(true);
     }
+
 }

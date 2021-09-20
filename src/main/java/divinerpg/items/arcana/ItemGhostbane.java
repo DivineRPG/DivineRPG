@@ -25,7 +25,7 @@ public class ItemGhostbane extends ItemMod {
     public ActionResultType useOn(ItemUseContext context) {
         World world = context.getLevel();
         PlayerEntity player = context.getPlayer();
-        IArcana arcana = ArcanaProvider.ARCANA_CAP.getDefaultInstance();
+        Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             if (!world.isClientSide && arcana.getArcana() >= 200) {
                 EntityWraith wraith = new EntityWraith(EntityRegistry.WRAITH, world, player);
                 wraith.moveTo(context.getClickedPos().above(), 0.0F, 0.0F);

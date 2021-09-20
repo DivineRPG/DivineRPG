@@ -30,7 +30,7 @@ public class ItemMeriksMissile extends ItemMod {
         if (stack.getItem() == ItemRegistry.meriksMissile && entityLiving instanceof PlayerEntity) {
             float charge = (float) (MAX_USE_DURATION) / 20.0F;
             PlayerEntity player = (PlayerEntity) entityLiving;
-            IArcana arcana = player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null);
+            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
 
             if (charge > 1.0) {
                 charge = 1.0F;
