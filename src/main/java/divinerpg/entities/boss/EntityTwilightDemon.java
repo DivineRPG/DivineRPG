@@ -1,6 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -48,24 +50,23 @@ public class EntityTwilightDemon extends EntityDivineBoss {
                 this.shooting = 100;
             this.setTarget(this.level.getNearestPlayer(this, 40.0D));
             if (this.getTarget() != null && this.shooting > 0) {
-//                double tx = this.getTarget().getX() - this.getX();
-//                double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
-//                double tz = this.getTarget().getZ() - this.getZ();
-//                double angle = Math.atan(-(tx) / (tz));
-                //TODO - twilight demon shot
-//                EntityTwilightDemonShot e = new EntityTwilightDemonShot(this.world, this, this.rand.nextInt(50) == 0 ?
-//                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
-//                e.posZ += Math.sin(angle);
-//                e.posX += Math.cos(angle);
-//                e.shoot(tx - Math.cos(angle), ty, tz - Math.sin(angle), 1.6f, 0);
-//                this.world.spawnEntity(e);
-//
-//                EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(this.world, this, this.rand.nextInt(50) == 0 ?
-//                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
-//                e1.posZ -= Math.sin(angle);
-//                e1.posX -= Math.cos(angle);
-//                e1.shoot(tx + Math.cos(angle), ty, tz + Math.sin(angle), 1.6f, 0);
-//                this.world.spawnEntity(e1);
+                double tx = this.getTarget().getX() - this.getX();
+                double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
+                double tz = this.getTarget().getZ() - this.getZ();
+                double angle = Math.atan(-(tx) / (tz));
+                EntityTwilightDemonShot e = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
+                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
+                e.zo += Math.sin(angle);
+                e.xo += Math.cos(angle);
+                e.shoot(tx - Math.cos(angle), ty, tz - Math.sin(angle), 1.6f, 0);
+                this.level.addFreshEntity(e);
+
+                EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
+                        BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
+                e1.zo -= Math.sin(angle);
+                e1.xo -= Math.cos(angle);
+                e1.shoot(tx + Math.cos(angle), ty, tz + Math.sin(angle), 1.6f, 0);
+                this.level.addFreshEntity(e1);
             }
             if (this.shooting > 0) {
                 this.shooting--;

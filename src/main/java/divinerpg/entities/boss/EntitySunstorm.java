@@ -1,6 +1,9 @@
 package divinerpg.entities.boss;
 
+import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -24,21 +27,20 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
 		if(this.distanceTo(e)<3) {
         	e.setSecondsOnFire(3);
         }
-//		double y = this.getBoundingBox().minY + 2.7D;
-//        double tx = e.getX() - this.getX();
-//        double ty = e.getBoundingBox().minY - y;
-//        double tz = e.getZ() - this.getZ();
+		double y = this.getBoundingBox().minY + 2.7D;
+        double tx = e.getX() - this.getX();
+        double ty = e.getBoundingBox().minY - y;
+        double tz = e.getZ() - this.getZ();
 
         for (double h = -1.5; h < 1.5; h += 0.5) {
             for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
                 for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                    //TODO - Sunstorm ranged attack
-//                    EntityTwilightMageShot shot = new EntityTwilightMageShot(this.world, this, BulletType.SUNSTORM);
-//                    shot.posX = this.posX + r * Math.cos(theta);
-//                    shot.posY = this.posY + 5 + h;
-//                    shot.posZ = this.posZ + r * Math.sin(theta);
-//                    shot.shoot(tx, ty, tz, 0.9f, 5);
-//                    world.spawnEntity(shot);
+                    EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, this.level, BulletType.SUNSTORM);
+                    shot.xo = this.xo + r * Math.cos(theta);
+                    shot.yo = this.yo + 5 + h;
+                    shot.zo = this.zo + r * Math.sin(theta);
+                    shot.shoot(tx, ty, tz, 0.9f, 5);
+                    level.addFreshEntity(shot);
                 }
             }
         }
@@ -47,8 +49,7 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        //TODO - Sunstorm AI
-//        this.targetSelector.addGoal(0, new AISunstormAttack(this, 0.27F, 50, 10));
+        this.targetSelector.addGoal(0, new AISunstormAttack(this, 0.27F, 50, 10));
         this.targetSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
         this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 0, true, false, null));
     }

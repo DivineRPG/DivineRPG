@@ -1,5 +1,6 @@
 package divinerpg.events;
 
+import divinerpg.capability.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -7,7 +8,6 @@ import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.*;
@@ -185,12 +185,10 @@ public class ArmorAbilitiesEvent
 
             DamageSource s = e.getSource();
 
-            //ignore that im not using += and *=. makes it more readable for me
             if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
-                //TODO - make only function in iceika
-//            if ((e.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) && ((s.getTrueSource().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagicDamage())) {
+            if ((e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) && ((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
                 e.setAmount(e.getAmount() + 6);
-//            }
+            }
             }
 
             //Halite
@@ -247,10 +245,9 @@ public class ArmorAbilitiesEvent
 
                 //Santa
                 if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
-                    //TODO - make only function in iceika
-//                if (evt.entityLiving.worldObj.provider.dimensionId == ConfigurationHelper.iceika) {
+                if (e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) {
                     e.setAmount(e.getAmount() * 0.2F);
-//                }
+                }
                 }
 
                 //Vethean
@@ -342,8 +339,7 @@ public class ArmorAbilitiesEvent
 
         //Korma
         if (boots == ItemRegistry.kormaBoots && body == ItemRegistry.kormaChestplate && legs == ItemRegistry.kormaLeggings && helmet == ItemRegistry.kormaHelmet) {
-            //TODO - arcana regen for korma
-//            ArcanaHelper.getProperties(evt.player).regen(1);
+            evt.player.getCapability(ArcanaProvider.ARCANA_CAP).orElse(null).fill(evt.player, 1);
         }
 
         //Vemos
@@ -425,9 +421,8 @@ public class ArmorAbilitiesEvent
         }
 
         //Santa
-        //TODO - make only function in iceika
         if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
-            if (evt.player.getCommandSenderWorld().dimension() == World.OVERWORLD) {
+            if (evt.player.level.dimension() == KeyRegistry.ICEIKA_WORLD) {
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);
                 }

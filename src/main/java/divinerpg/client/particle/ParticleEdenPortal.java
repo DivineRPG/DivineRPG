@@ -30,10 +30,12 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
+        this.random.nextFloat();
         float var14 = this.random.nextFloat() * 0.6F + 0.4F;
         this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
         this.bCol = 1.0F * var14;
         this.lifetime = (int) (Math.random() * 10.0D) + 40;
+        this.age = (int) (Math.random() * 10.0D) + 40;
         this.animatedSprite = sprite;
     }
 
@@ -90,18 +92,16 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType>
-    {
-        private final IAnimatedSprite spriteSet;
+    public static class Factory implements IParticleFactory<BasicParticleType> {
+        private final IAnimatedSprite sprite;
 
-        public Factory(IAnimatedSprite spriteSetIn) {
-            this.spriteSet = spriteSetIn;
+        public Factory(IAnimatedSprite p_i50836_1_) {
+            this.sprite = p_i50836_1_;
         }
 
-        @Override
-        public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleEdenPortal particle = new ParticleEdenPortal(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, spriteSet);
-            particle.setSpriteFromAge(this.spriteSet);
+        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+            ParticleEdenPortal particle = new ParticleEdenPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprite);
+            particle.pickSprite(this.sprite);
             return particle;
         }
     }

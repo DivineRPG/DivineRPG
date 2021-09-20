@@ -1,19 +1,18 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import divinerpg.entities.base.EntityVetheaMob;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.player.*;
+import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import javax.annotation.*;
+import java.util.*;
 
 public class EntityHoverStinger extends EntityVetheaMob {
 
@@ -51,14 +50,6 @@ public class EntityHoverStinger extends EntityVetheaMob {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, ZombifiedPiglinEntity.class));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
-	
-    //TODO - find getMaxSpawnedInChunk
-    /*
-    @Override
-    public int getMaxSpawnedInChunk() {
-        return 3;
-    }
-    */
 
     @Override
     public int getSpawnLayer() {

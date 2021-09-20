@@ -1,18 +1,18 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
 
@@ -77,7 +77,6 @@ public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity entity, float par2) {
-    	//TODO - check if the arrow solution is alright
     	ArrowEntity entityarrow = new ArrowEntity(EntityType.ARROW, this.level);//this.getArrow(64);
         double d0 = entity.getX() - this.getX();
         double d1 = entity.getBoundingBox().minY + (double)(entity.getBbHeight() / 3.0F) - entityarrow.getY();
@@ -122,9 +121,5 @@ public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.DUO_HURT;
     }
-    //TODO - find setSwingingArms
-/*
-	@Override
-	public void setSwingingArms(boolean swingingArms) {		
-	}*/
+
 }

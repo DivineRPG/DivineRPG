@@ -1,17 +1,19 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityZone extends EntityVetheaMob {
 
@@ -54,9 +56,8 @@ public class EntityZone extends EntityVetheaMob {
     }
 
     private void shootEntity(LivingEntity target) {
-    	//TODO - KAROS_ARROW
-/*        EntityDivineArrow arrow = new EntityDivineArrow(EntityRegistry.KAROS_ARROW, this.level, ArrowType.KAROS_ARROW, this, target, 1.6f, 12F);
-        this.level.addFreshEntity(arrow);*/
+        EntityDivineArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, target, 1.6f, 12F);
+        this.level.addFreshEntity(arrow);
     }
 
     @Override

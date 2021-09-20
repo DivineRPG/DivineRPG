@@ -1,6 +1,7 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -112,13 +113,10 @@ public class EntityRaglok extends EntityDivineBoss {
             if (abilityCooldown % 30 == 0 && player != null) {
 
                 for (int i = 0; i < 4; i++) {
-                    //TODO Raglok bomb
-//                    EntityRaglokBomb var2 = new EntityRaglokBomb(this.world);
-//                    var2.setPosition(player.posX, player.posY + 5, player.posZ);
-//                    var2.motionX = (rand.nextDouble() - rand.nextDouble()) / 5;
-//                    var2.motionY = -0.14;
-//                    var2.motionZ = (rand.nextDouble() - rand.nextDouble()) / 5;
-//                    this.world.spawnEntity(var2);
+                    EntityRaglokBomb var2 = new EntityRaglokBomb(EntityRegistry.RAGLOK_BOMB, this.level);
+                    var2.moveTo(player.xo, player.yo + 5, player.zo);
+                    var2.setDeltaMovement((random.nextDouble() - random.nextDouble()) / 5, -0.14, (random.nextDouble() - random.nextDouble()) / 5);
+                    this.level.addFreshEntity(var2);
                     ++this.rangedAttackCounter;
                 }
             }

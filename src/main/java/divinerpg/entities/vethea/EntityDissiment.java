@@ -1,19 +1,19 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import divinerpg.entities.ai.AIDivineFireballAttack;
-import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
+import divinerpg.entities.ai.*;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import javax.annotation.*;
+import java.util.*;
 
 public class EntityDissiment extends EntityDivineFlyingMob {
     private static final int spawnLayer = 4;
@@ -46,11 +46,9 @@ public class EntityDissiment extends EntityDivineFlyingMob {
     @Nullable
     @Override
     protected AIDivineFireballAttack createShootAI() {
-        //TODO - EntityDissimentShot
-    	/*return new AIDivineFireballAttack(this,
-                (world1, parent, x, y, z) -> new EntityDissimentShot(this.world, this),
-                null);*/
-    	return null;
+    	return new AIDivineFireballAttack(this,
+                (world1, parent, x, y, z) -> new EntityDissimentShot(EntityRegistry.DISSIMENT_SHOT, this, this.level),
+                null);
     }
 
     @Override

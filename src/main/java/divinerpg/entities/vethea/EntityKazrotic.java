@@ -1,19 +1,19 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
-import divinerpg.entities.projectile.EntityKazroticShot;
+import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityKazrotic extends EntityVetheaMob implements IRangedAttackMob {
 	
@@ -77,10 +77,5 @@ public class EntityKazrotic extends EntityVetheaMob implements IRangedAttackMob 
     protected SoundEvent getDeathSound() {
         return SoundRegistry.KAZROTIC_HURT;
     }
-    //TODO - find hasSwingingArms
-/*
-	@Override
-	public void hasSwingingArms(boolean swingingArms) {
-		
-	}*/
+
 }

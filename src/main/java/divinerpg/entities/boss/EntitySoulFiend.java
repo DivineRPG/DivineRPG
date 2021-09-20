@@ -1,6 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -38,11 +40,10 @@ public class EntitySoulFiend extends EntityDivineBoss {
         super.tick();
         if (!this.level.isClientSide && this.tickCount % 300 == 0) {
             for (int i = 0; i < 4; i++) {
-                //TODO - Soul fiend shot
-//                EntitySoulFiendShot shot = new EntitySoulFiendShot(this.world, this);
-//                shot.shoot(this.rand.nextDouble() - this.rand.nextDouble(), -0.25,
-//                        this.rand.nextDouble() - this.rand.nextDouble(), 0.5f, 12);
-//                this.world.spawnEntity(shot);
+                EntitySoulFiendShot shot = new EntitySoulFiendShot(EntityRegistry.SOUL_FIEND_SHOT, this, level);
+                shot.shoot(this.random.nextDouble() - this.random.nextDouble(), -0.25,
+                        this.random.nextDouble() - this.random.nextDouble(), 0.5f, 12);
+                this.level.addFreshEntity(shot);
             }
         }
     }

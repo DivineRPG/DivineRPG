@@ -1,6 +1,7 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.entities.wildwood.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
@@ -98,9 +99,9 @@ public class EntityTermasect extends EntityDivineBoss {
         double var9 = 100.0D;
 
         if (this.targetedEntity != null && this.targetedEntity.distanceToSqr(this) < var9 * var9) {
-//            double y = this.getBoundingBox().minY + 2.8D;
+            double y = this.getBoundingBox().minY + 2.8D;
             double tx = targetedEntity.getX() - this.getX();
-//            double ty = targetedEntity.getBoundingBox().minY - y;
+            double ty = targetedEntity.getBoundingBox().minY - y;
             double tz = targetedEntity.getZ() - this.getZ();
             this.xRotO = this.xRot = -((float) Math.atan2(tx, tz)) * 180.0F / (float) Math.PI;
 
@@ -112,11 +113,10 @@ public class EntityTermasect extends EntityDivineBoss {
                 ++this.attackCounter;
 
                 if (this.attackCounter == 5) {
-                    //TODO - Throw wildwood log
-//                    EntityWildwoodLog shot = new EntityWildwoodLog(this.world, this);
-//                    shot.shoot(tx, ty, tz, 4.0f, 1);
-//                    if (!this.world.isRemote)
-//                        this.world.spawnEntity(shot);
+                    EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG, this, this.level);
+                    shot.shoot(tx, ty, tz, 4.0f, 1);
+                    if (!this.level.isClientSide)
+                        this.level.addFreshEntity(shot);
                     this.attackCounter = -40;
                 }
             } else if (this.attackCounter > 0) {

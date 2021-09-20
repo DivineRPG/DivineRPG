@@ -1,6 +1,7 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
@@ -91,10 +92,9 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
                 if (this.level.getBlockState(pos).getBlock() != BlockRegistry.lunicAcid) iter.remove();
                 else if (this.random.nextInt(4) == 0) {
-                    //TODO - Lady luna sparkler
-//                    EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(this.world, this);
-//                    e.setPosition(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);
-//                    this.level.spawnEntity(e);
+                    EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(EntityRegistry.LADY_LUNA_SPARKLER, this.level, this);
+                    e.moveTo(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);
+                    this.level.addFreshEntity(e);
                 }
             }
         }

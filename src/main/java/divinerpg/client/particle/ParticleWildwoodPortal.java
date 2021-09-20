@@ -89,7 +89,7 @@ public class ParticleWildwoodPortal extends SpriteTexturedParticle {
 
 		public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			ParticleWildwoodPortal particle = new ParticleWildwoodPortal(worldIn, x, y, z);
-			particle.setSpriteFromAge(this.spriteSet);
+			particle.pickSprite(this.spriteSet);
 			return particle;
 		}
 	}

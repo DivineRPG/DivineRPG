@@ -1,6 +1,7 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
@@ -247,22 +248,21 @@ public class EntityWreck extends EntityDivineBoss {
 
     public void performRangedAttack(LivingEntity entity) {
         if (entity == null) return;
-//        double tx = entity.getX() - this.getX();
-//        double ty = entity.getBoundingBox().minY - this.getY();
-//        double tz = entity.getZ() - this.getZ();
+        double tx = entity.getX() - this.getX();
+        double ty = entity.getBoundingBox().minY - this.getY();
+        double tz = entity.getZ() - this.getZ();
         switch (this.getAbility()) {
             case BOUNCE:
-                //TODO - wreck projectiles
-//                EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(this.world, this, 35);
-//                projectile.shoot(tx, ty, tz, 1.6f, 12f);
-//                this.world.spawnEntity(projectile);
+                EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(EntityRegistry.WRECK_BOUNCING_PROJECTILE, this.level, this, 35);
+                projectile.shoot(tx, ty, tz, 1.6f, 12f);
+                this.level.addFreshEntity(projectile);
                 this.setAbility(DEFAULT);
                 break;
             case SPEED:
                 if (this.abilityTimer % 5 == 0) {
-//                    EntityWreckShot shot = new EntityWreckShot(this.world, this, 15);
-//                    shot.shoot(tx, ty, tz, 1.6f, 12f);
-//                    this.world.spawnEntity(shot);
+                    EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT, this.level, this, 15);
+                    shot.shoot(tx, ty, tz, 1.6f, 12f);
+                    this.level.addFreshEntity(shot);
                 }
                 if (this.abilityTimer <= 100) {
                     this.setAbility(DEFAULT);
@@ -270,17 +270,17 @@ public class EntityWreck extends EntityDivineBoss {
                 break;
             case EXPLOSIONS:
                 if ((this.abilityTimer % 40) == 0) {
-//                    EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(this.world, this);
-//                    shot.shoot(tx, ty, tz, 1.6f, 12f);
-//                    this.world.spawnEntity(shot);
+                    EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(EntityRegistry.WRECK_EXPLOSIVE_SHOT, this, this.level);
+                    shot.shoot(tx, ty, tz, 1.6f, 12f);
+                    this.level.addFreshEntity(shot);
                 }
                 if (this.abilityTimer == 0) this.setAbility(DEFAULT);
                 break;
             case STRENGTH:
                 if ((this.abilityTimer % 40) == 0) {
-//                    EntityWreckShot shot = new EntityWreckShot(this.world, this, 40);
-//                    shot.shoot(tx, ty, tz, 1.6f, 12f);
-//                    this.world.spawnEntity(shot);
+                    EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT, this.level, this, 40);
+                    shot.shoot(tx, ty, tz, 1.6f, 12f);
+                    this.level.addFreshEntity(shot);
                 }
                 if (this.abilityTimer == 0) this.setAbility(DEFAULT);
                 break;

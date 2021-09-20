@@ -10,6 +10,7 @@ import divinerpg.util.*;
 import net.minecraft.data.*;
 import net.minecraftforge.common.*;
 import net.minecraftforge.common.capabilities.*;
+import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.config.*;
@@ -25,10 +26,11 @@ public class DivineRPG {
     public static DRPGTab tabs = new DRPGTab();
 
     public DivineRPG() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::post);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::client);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        bus.addListener(this::setup);
+        bus.addListener(this::post);
+        bus.addListener(this::client);
+        bus.addListener(this::gatherData);
         EventRegistry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
@@ -44,7 +46,7 @@ public class DivineRPG {
         };
 
         for (DeferredRegister<?> register : registers) {
-            register.register(FMLJavaModLoadingContext.get().getModEventBus());
+            register.register(bus);
         }
 
     }

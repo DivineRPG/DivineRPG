@@ -6,7 +6,6 @@ import net.minecraft.block.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.item.*;
 import net.minecraft.util.*;
-import net.minecraft.world.biome.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.eventbus.api.*;
 
@@ -99,16 +98,6 @@ public class MissingMappingEvent
             }
             else if(mapping.key.equals(new ResourceLocation("divinerpg:arcanium_ore"))) {
                 mapping.remap(Item.byBlock(BlockRegistry.rawArcanium));
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void handleMissingBiomes(RegistryEvent.MissingMappings<Biome> event) {
-        for(RegistryEvent.MissingMappings.Mapping<Biome> mapping: event.getMappings()) {
-            if (mapping.key.equals(new ResourceLocation(DivineRPG.MODID, "arksiane"))) {
-                //TODO - biomeVethea remap
-//                mapping.remap(BiomeRegistry.biomeVethea);
             }
         }
     }

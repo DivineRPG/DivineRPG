@@ -1,6 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -32,8 +34,7 @@ public class EntityReyvor extends EntityDivineBoss implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity target, float f) {
-        //TODO - Reyvor arrow
-//        this.world.spawnEntity(new EntityDivineArrow(this.world, ArrowType.REYVOR_ARROW, this, target, 1.6F, 12.0F));
+        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.REYVOR_ARROW, this, target, 1.6F, 12.0F));
     }
 
     @Override

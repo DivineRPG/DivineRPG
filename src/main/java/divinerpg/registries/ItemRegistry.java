@@ -1631,13 +1631,12 @@ public class ItemRegistry {
     private static ArmorInfo kingInfo = new ArmorInfo(new StringTextComponent("Absorbs super-power from other sets"));
 
     // Iceika
-    //TODO - Dimension stuff
     private static ArmorInfo santaInfo = new ArmorInfo(new TranslationTextComponent("tooltip.armor_info.massive_buff"),
             getArmorAbility("speed", 2),
             getArmorAbility("melee_damage", 6),
             getArmorAbility("hunger"),
-            getArmorAbility("melee_protection", 80));
-//            .withDimension(new TranslationTextComponent("tooltip.armor_info.iceika"), x -> Objects.equals(x, DimensionRegistry.iceikaDimension));
+            getArmorAbility("melee_protection", 80))
+            .withDimension(new TranslationTextComponent("tooltip.armor_info.iceika"), x -> Objects.equals(x, KeyRegistry.ICEIKA_WORLD));
 
     // Twilight
     private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));

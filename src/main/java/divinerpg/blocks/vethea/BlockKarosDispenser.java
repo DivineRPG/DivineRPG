@@ -58,7 +58,7 @@ public class BlockKarosDispenser extends ContainerBlock {
         }
     }
 
-    protected void dispenseFrom(ServerWorld world, BlockPos pos) {
+    public void dispenseFrom(ServerWorld world, BlockPos pos) {
         double var5 = pos.getX();
         double var7 = pos.getY();
         double var9 = pos.getZ();

@@ -1,6 +1,9 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
+import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
@@ -62,10 +65,9 @@ public class EntityEternalArcher extends EntityDivineBoss {
         }
 
         if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level.isClientSide) {
-            //TODO - Eternal Archer arrow
-//            this.level.addFreshEntity(new EntityDivineArrow(this.level,
-//                    ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + this.armSelected), this,
-//                    this.getTarget(), 1.6F, 5.0F));
+            this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level,
+                    ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + this.armSelected), this,
+                    this.getTarget(), 1.6F, 5.0F));
         }
     }
 

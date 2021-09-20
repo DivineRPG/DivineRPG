@@ -1,15 +1,14 @@
 package divinerpg.util;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
 import net.minecraft.util.text.*;
-import net.minecraft.world.DimensionType;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import javax.annotation.*;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
 public class ArmorInfo {
     /**
@@ -24,7 +23,7 @@ public class ArmorInfo {
     /**
      * Predicate detects in which dimension powers will work
      */
-    private Predicate<DimensionType> dimensionPredicate;
+    private Predicate<RegistryKey<World>> dimensionPredicate;
 
     public ArmorInfo(TextComponent... fullSetPerks) {
         FullSetPerks = new StringTextComponent("");
@@ -36,7 +35,7 @@ public class ArmorInfo {
         FullSetPerks.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GRAY));
     }
 
-    public ArmorInfo withDimension(TextComponent dimensionName, Predicate<DimensionType> dimensionPredicate) {
+    public ArmorInfo withDimension(TextComponent dimensionName, Predicate<RegistryKey<World>> dimensionPredicate) {
         this.dimensionName = dimensionName;
         this.dimensionPredicate = dimensionPredicate;
         return this;
@@ -47,7 +46,7 @@ public class ArmorInfo {
         result.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GRAY));
 
         if (dimensionName != null) {
-            boolean isBoosted = worldIn != null && worldIn.dimension() != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.dimensionType());
+            boolean isBoosted = worldIn != null && worldIn.dimension() != null && dimensionPredicate != null && dimensionPredicate.test(worldIn.dimension());
 
             StringTextComponent dimName = new StringTextComponent(dimensionName.getString());
             if (isBoosted) {

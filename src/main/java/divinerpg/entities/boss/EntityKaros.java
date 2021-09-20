@@ -1,5 +1,6 @@
 package divinerpg.entities.boss;
 
+import divinerpg.blocks.vethea.*;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
@@ -124,10 +125,9 @@ public class EntityKaros extends EntityDivineBoss {
             if ((this.abilityCooldown % 8) == 0) {
                 BlockPos currentPos = ceiling.get(this.random.nextInt(ceiling.size()));
                 Block currentBlock = this.level.getBlockState(currentPos).getBlock();
-                 //TODO - HelioticBeam
-//                if (currentBlock instanceof BlockHelioticBeam) {
-//                    ((BlockHelioticBeam) currentBlock).dropBomb(this.level, currentPos);
-//                }
+                if (currentBlock instanceof BlockHelioticBeam) {
+                    ((BlockHelioticBeam) currentBlock).dropBomb(this.level, currentPos);
+                }
 
             }
         } else if (ability == CANNONS && this.cannons.size() != 0) {
@@ -135,23 +135,23 @@ public class EntityKaros extends EntityDivineBoss {
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.random.nextInt(cannons.size()));
                 Block currentBlock = this.level.getBlockState(currentPos).getBlock();
-                //TODO - KarosDispenser
-//                if (currentBlock instanceof BlockKarosDispenser) {
-//                    ((BlockKarosDispenser) currentBlock).dispense(this.level, currentPos);
+                if (currentBlock instanceof BlockKarosDispenser) {
+                    ((BlockKarosDispenser) currentBlock).dispenseFrom(level.getServer().getLevel(level.dimension()), currentPos);
 //                }
-            }
-        } else if (ability == FLOOR) {
-            for (int i = 0; i < 3; i++) {
-                double var4 = 0;
-                while (var4 < 2 * Math.PI) {
-                    int var1 = (int) Math.round(Math.sin(var4) * i);
-                    int var3 = (int) Math.round(Math.cos(var4) * i);
+                }
+            } else if (ability == FLOOR) {
+                for (int i = 0; i < 3; i++) {
+                    double var4 = 0;
+                    while (var4 < 2 * Math.PI) {
+                        int var1 = (int) Math.round(Math.sin(var4) * i);
+                        int var3 = (int) Math.round(Math.cos(var4) * i);
 
-                    BlockPos currentPos = new BlockPos((int) this.getX() + var1, (int) this.getY() - 1, (int) this.getZ() + var3);
-                    if (this.level.getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTileGreen) {
-                        this.level.setBlock(currentPos, BlockRegistry.karosHeatTileRed.defaultBlockState(), 0);
+                        BlockPos currentPos = new BlockPos((int) this.getX() + var1, (int) this.getY() - 1, (int) this.getZ() + var3);
+                        if (this.level.getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTileGreen) {
+                            this.level.setBlock(currentPos, BlockRegistry.karosHeatTileRed.defaultBlockState(), 0);
+                        }
+                        var4 += Math.PI / 8.0D;
                     }
-                    var4 += Math.PI / 8.0D;
                 }
             }
         }

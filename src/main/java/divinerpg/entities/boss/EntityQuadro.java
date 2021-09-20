@@ -1,6 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -143,20 +145,17 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
         switch (ability) {
             case RANGED_FAST:
                 if ((this.rangedAttackCounter % 5) == 0) {
-                    //1
-                    //TODO - Quadro projectiles
-//                    EntityDivineArrow var2 = new EntityDivineArrow(this.world, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
-//                    this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-//                    this.world.spawnEntity(var2);
+                    EntityDivineArrow var2 = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
+                    this.playSound(SoundEvents.ARROW_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                    this.level.addFreshEntity(var2);
                 }
                 this.rangedAttackCounter++;
                 break;
             case RANGED_SLOW:
                 if ((this.rangedAttackCounter % 15) == 0) {
-                    //2
-//                    EntityDivineArrow var4 = new EntityDivineArrow(this.world, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
-//                    this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-//                    this.world.spawnEntity(var4);
+                    EntityDivineArrow var4 = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
+                    this.playSound(SoundEvents.ARROW_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                    this.level.addFreshEntity(var4);
                 }
                 this.rangedAttackCounter++;
                 break;
