@@ -7,6 +7,7 @@ import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
+import net.minecraft.particles.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.*;
 
@@ -39,13 +40,12 @@ public class EntityHiveQueen extends EntityDivineBoss {
                     EntityHoverStinger var2 = new EntityHoverStinger(EntityRegistry.HOVER_STINGER, level);
                     var2.moveTo(this.getX(), this.getY(), this.getZ(), this.random.nextFloat() * 360.0F, 0.0F);
                     this.level.addFreshEntity(var2);
-                    //TODO - hive queen particles
-//                    this.level.addParticle((IParticleData) ParticleTypes.DUST, var2.xo, var2.yo, var2.zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
+                    this.level.addParticle(RedstoneParticleData.REDSTONE, var2.xo, var2.yo, var2.zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 } else {
                     EntityHiveSoldier var2 = new EntityHiveSoldier(EntityRegistry.HIVE_SOLDIER, this.level);
                     var2.moveTo(this.xo, this.yo, this.zo, this.random.nextFloat() * 360.0F, 0.0F);
                     this.level.addFreshEntity(var2);
-//                    this.level.addParticle((IParticleData) ParticleTypes.DUST, var2.xo, var2.yo, var2.zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
+                    this.level.addParticle(RedstoneParticleData.REDSTONE, var2.xo, var2.yo, var2.zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 }
                 spawnTick = 80;
             }

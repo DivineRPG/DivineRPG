@@ -1,6 +1,7 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -63,26 +64,24 @@ public class EntityKingOfScorchers extends EntityDivineBoss {
         List<Entity> meteors = new ArrayList<>();
 
 
-//        for (int i = 0; i < 4; i++) {
-//            EntityKingOfScorchersMeteor meteor = new EntityKingOfScorchersMeteor(world, ((LivingEntity) victim));
-//
-//            Random rand = meteor.world.rand;
-//
-//            meteor.posX = rand.nextDouble() - rand.nextDouble() * 2;
-//            meteor.posX += 10;
-//            meteor.posZ = rand.nextDouble() - rand.nextDouble() * 2;
-//
-//            meteor.motionX = (rand.nextDouble() - rand.nextDouble()) / 5;
-//            meteor.motionY = -0.7;
-//            meteor.motionZ = (rand.nextDouble() - rand.nextDouble()) / 5;
-//
-//            meteors.add(meteor);
-//        }
-//
-//        while (meteors.size() > 1) {
-//            world.spawnEntity(meteors.get(0));
-//            meteors.remove(0);
-//        }
+        for (int i = 0; i < 4; i++) {
+            EntityKingOfScorchersMeteor meteor = new EntityKingOfScorchersMeteor(EntityRegistry.KING_OF_SCORCHERS_METEOR, ((LivingEntity) victim), level);
+
+            Random rand = meteor.level.random;
+
+            meteor.xo = rand.nextDouble() - rand.nextDouble() * 2;
+            meteor.xo += 10;
+            meteor.zo = rand.nextDouble() - rand.nextDouble() * 2;
+
+            meteor.setDeltaMovement((rand.nextDouble() - rand.nextDouble()) / 5, -0.7, (rand.nextDouble() - rand.nextDouble()) / 5);
+
+            meteors.add(meteor);
+        }
+
+        while (meteors.size() > 1) {
+            level.addFreshEntity(meteors.get(0));
+            meteors.remove(0);
+        }
 
 
         return meteors.get(0);
