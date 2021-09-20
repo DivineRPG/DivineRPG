@@ -37,12 +37,11 @@ public class InfusionTableScreen extends ContainerScreen<InfusionTableContainer>
     @Override
     protected void renderBg(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-
         this.minecraft.getTextureManager().bind(LOCATION);
-        int x = (this.width - this.imageWidth) / 2;
-        int y = (this.height - this.imageHeight) / 2;
 
-        blit(matrixStack, x, y, 0, 0, 256, 256, this.imageWidth, this.imageHeight);
+        int edgeSpacingX = (this.width - this.getXSize()) / 2;
+        int edgeSpacingY = (this.height - this.getYSize()) / 2;
+        this.blit(matrixStack, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
     }
 
     @Override
