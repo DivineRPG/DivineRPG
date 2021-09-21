@@ -15,5 +15,6 @@ public class EventRegistry {
         MinecraftForge.EVENT_BUS.register(new AttatchCapabilityEvent());
         MinecraftForge.EVENT_BUS.register(new ChangeProfessionEvent());
         MinecraftForge.EVENT_BUS.register(new RiveHandler());
+        MinecraftForge.EVENT_BUS.register(new VetheaInventorySwapEvent());
     }
 }
