@@ -444,7 +444,7 @@ public class ArmorAbilitiesEvent
             speedMultiplier = 2.2f;
         }
 
-        evt.player.abilities.walkingSpeed = 0.1f*speedMultiplier;
+        evt.player.abilities.setWalkingSpeed(0.1f*speedMultiplier);
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;

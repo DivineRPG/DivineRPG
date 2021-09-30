@@ -36,10 +36,10 @@ public class MortumTreeFeature extends DivineTreeFeature {
         for (int i = 0; i < extraHeight; i++) {
             setBlock(world, mut.move(Direction.UP), log);
         }
-        chanceSetBlock(world, pos.offset(1, 0, 0), log, 1);
-        chanceSetBlock(world, pos.offset(0, 0, 1), log, 1);
-        chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1);
-        chanceSetBlock(world, pos.offset(0, 0, -1), log, 1);
+        chanceSetBlock(world, pos.offset(1, 0, 0), log, 1, false);
+        chanceSetBlock(world, pos.offset(0, 0, 1), log, 1, false);
+        chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1, false);
+        chanceSetBlock(world, pos.offset(0, 0, -1), log, 1, false);
 
         //Leaves
         setBlock(world, pos.offset(1, treeHeight - 3, 0), leaves);
