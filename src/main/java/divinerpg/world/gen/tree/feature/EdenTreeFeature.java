@@ -25,7 +25,7 @@ public class EdenTreeFeature extends DivineTreeFeature {
             	break;
         	case 1:
         		treeHeight = 1 + rand.nextInt(3);
-        		extraHeight = treeHeight + 1;
+        		extraHeight = treeHeight + 2;
         		break;
         	case 2:
         		treeHeight = 0 + rand.nextInt(3);
@@ -69,7 +69,7 @@ public class EdenTreeFeature extends DivineTreeFeature {
         					}
         				}
         			}
-        			grow(world, pos, leaves, treeHeight + 1, extraHeight, 1, 0, false, 1);
+        			grow(world, pos, leaves, treeHeight + 1, extraHeight, false, 1);
                     break;
             	case 1:
             		//Tree roots
@@ -78,14 +78,14 @@ public class EdenTreeFeature extends DivineTreeFeature {
             		grow(world, pos, log, 0, 0, 1, 0, false, 4);
             		//Leaves
             		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
-            		chanceSetBlock(world, pos.offset(0, treeHeight + 2, 0), leaves, 2, false);
+            		chanceSetBlock(world, pos.offset(0, extraHeight, 0), leaves, 2, false);
             		grow(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, 0, false, 1);
             		grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 1, 1, false, 2);
             		grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false, 1);
             		grow(world, pos, leaves, treeHeight, treeHeight, 2, 0, false, 2);
             		break;
             	case 2:
-            		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
+            		setBlock(world, pos.offset(0, extraHeight, 0), leaves);
             		grow(world, pos, leaves, treeHeight, treeHeight, 1, 0, false, 1);
             		break;
                 default:

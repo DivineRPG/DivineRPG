@@ -9,14 +9,13 @@ import java.util.*;
 import java.util.function.*;
 
 public class WildwoodTreeFeature extends DivineTreeFeature {
-
     public WildwoodTreeFeature(Supplier<SaplingBlock> sapling) {
         super(sapling);
     }
-    private static final BlockState northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.NORTH, Boolean.TRUE),
-    		eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.EAST, Boolean.TRUE),
-    		southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.SOUTH, Boolean.TRUE),
-    		westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.WEST, Boolean.TRUE);
+    private static final BlockState northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.NORTH, true),
+    		eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.EAST, true),
+    		southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.SOUTH, true),
+    		westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.WEST, true);
     private void growVines(ISeedReader world, BlockPos pos, int minY, int maxY, int width, int offset, boolean dynamicVines, int chance) {
     	if(dynamicVines && offset != 0) {
     		if(offset < 0) {
@@ -32,10 +31,10 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     		}
     	} else {
     		for(; minY < maxY + 1; minY++) {
-        		chanceSetBlock(world, pos.offset(width, minY, offset), northVines, chance, false);
-        		chanceSetBlock(world, pos.offset(-width, minY, -offset), southVines, chance, false);
-        		chanceSetBlock(world, pos.offset(offset, minY, -width), eastVines, chance, false);
-        		chanceSetBlock(world, pos.offset(-offset, minY, width), westVines, chance, false);
+        		chanceSetBlock(world, pos.offset(width, minY, offset), westVines, chance, false);
+        		chanceSetBlock(world, pos.offset(-width, minY, -offset), eastVines, chance, false);
+        		chanceSetBlock(world, pos.offset(offset, minY, -width), southVines, chance, false);
+        		chanceSetBlock(world, pos.offset(-offset, minY, width), northVines, chance, false);
         	}
     	}
     }
@@ -86,7 +85,6 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     	        case 1:
     	        	//Roots
     	        	grow(world, pos, log, -2, -2, 1, 0, true, 1);
-    	        	grow(world, pos, log, -2, -2, 1, 1, true, 1);
     	        	for(int offset = -1; offset < 2; offset++) {
         				grow(world, pos, log, -2, -2, 2, offset, true, 1);
         			}
@@ -99,12 +97,12 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     	        		tempHeight = treeHeight - 2;
     	        	}
     	        	grow(world, pos, log, -1, tempHeight, 1, 0, true, 1, 2);
-	        		grow(world, pos, log, -1, tempHeight, 1, 1, true, 1, 2);
+	        		grow(world, pos, log, -2, tempHeight, 1, 1, true, 1, 2);
 	        		//Leaves
 	        		setBlock(world, pos.offset(0, extraHeight, 0), leaves);
 	        		grow(world, pos, leaves, treeHeight, treeHeight + 2, 1, 0, false, 1);
 	        		grow(world, pos, leaves, treeHeight + 1, treeHeight + 2, 1, 1, false, 1);
-	        		growTheLeaves(world, pos, treeHeight, treeHeight, 2);
+	        		growTheLeaves(world, pos, treeHeight + 1, treeHeight + 1, 2);
 	        		grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false, 2);
 	        		grow(world, pos, leaves, treeHeight + 1, treeHeight + 1, 2, 2, false, 2);
     	        	break;
