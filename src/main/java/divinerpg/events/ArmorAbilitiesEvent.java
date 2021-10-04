@@ -433,18 +433,18 @@ public class ArmorAbilitiesEvent
         //Vethean
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
-            speedMultiplier = 1.4f;
+            speedMultiplier = 1.4F;
         }
 
         if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
-            speedMultiplier = 1.8f;
+            speedMultiplier = 1.8F;
         }
 
         if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
-            speedMultiplier = 2.2f;
+            speedMultiplier = 2.2F;
         }
 
-        evt.player.abilities.setWalkingSpeed(0.1f*speedMultiplier);
+        evt.player.abilities.walkingSpeed = 0.1F * speedMultiplier;
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;
