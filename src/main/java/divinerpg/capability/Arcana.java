@@ -1,5 +1,6 @@
 package divinerpg.capability;
 
+import divinerpg.config.*;
 import divinerpg.registries.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
@@ -11,13 +12,13 @@ import net.minecraftforge.common.util.*;
 public class Arcana {
     private int tickDelay = 4;
     private float max = 200;
-    private float arcana = max;
+    private float arcana = Config.maxArcana.get();
 
     public Arcana() {
         this(200);
     }
 
-    public Arcana(int initialChargeLevel) {
+    public Arcana(float initialChargeLevel) {
         arcana = initialChargeLevel;
     }
 
@@ -36,8 +37,9 @@ public class Arcana {
         float prev = getArcana();
         set(prev + points);
 
-        if (prev != getArcana())
-            sendPacket(player);
+        if (prev != getArcana()){
+             sendPacket(player);
+        }
     }
 
     public void regen(PlayerEntity player) {
@@ -76,7 +78,7 @@ public class Arcana {
     }
 
     private void sendPacket(PlayerEntity player) {
-        if (!(player instanceof FakePlayer) && player instanceof ServerPlayerEntity) {
+        if (!(player instanceof FakePlayer) && player instanceof ServerPlayerEntity && player != null) {
             NetworkingRegistry.INSTANCE.sendToServer(new PacketArcanaBar(this));
         }
     }
@@ -91,9 +93,9 @@ public class Arcana {
 
         @Override
         public void readNBT(Capability<Arcana> capability, Arcana instance, Direction side, INBT nbt) {
-            int arcana = 0;
-            if (nbt.getType() == IntNBT.TYPE) {
-                arcana = ((IntNBT) nbt).getAsInt();
+            float arcana = 0;
+            if (nbt.getType() == FloatNBT.TYPE) {
+                arcana = ((FloatNBT) nbt).getAsFloat();
             }
             instance.set(arcana);
         }

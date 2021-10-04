@@ -16,7 +16,7 @@ public class ContainerRegistry
 
     public static final RegistryObject<ContainerType<ArcaniumExtractorContainer>> ARCANIUM_EXTRACTOR = CONTAINER_TYPES.register("arcanium_extractor", () -> IForgeContainerType.create(ArcaniumExtractorContainer::new));
     public static final RegistryObject<ContainerType<ModChestContainer>> EDEN_CHEST = CONTAINER_TYPES.register("eden_chest", () -> IForgeContainerType.create(ModChestContainer::new));
-    public static final RegistryObject<ContainerType<DreamLampContainer>> DREAM_LAMP = CONTAINER_TYPES.register("dream_lamp", () -> IForgeContainerType.create(DreamLampContainer::new));
+    public static final RegistryObject<ContainerType<DreamLampContainer>> DREAM_LAMP = CONTAINER_TYPES.register("dream_lamp", () -> IForgeContainerType.create(DreamLampContainer::createContainerClientSide));
     public static final RegistryObject<ContainerType<InfusionTableContainer>> INFUSION_TABLE = CONTAINER_TYPES.register("infusion_table", () -> IForgeContainerType.create(InfusionTableContainer::new));
 
     public static void registerScreenFactories() {

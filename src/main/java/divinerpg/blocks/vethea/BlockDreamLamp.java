@@ -5,6 +5,7 @@ import divinerpg.tiles.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.fluid.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
 import net.minecraft.state.*;
@@ -69,7 +70,7 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
         worldIn.setBlock(pos, this.defaultBlockState(), 2);
     }
 
-    public boolean isPowered(BlockState state) {
+    public boolean hasAnalogOutputSignal(BlockState state) {
         return state.getValue(POWERED);
     }
 
@@ -80,6 +81,15 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
         }
         playerEntity.openMenu((INamedContainerProvider)world.getBlockEntity(pos));
         return super.use(state, world, pos, playerEntity, hand, result);
+    }
+
+    @Override
+    public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
+        TileEntity tile = world.getBlockEntity(pos).getTileEntity();
+        if(tile instanceof TileEntityDreamLamp){
+            ((TileEntityDreamLamp)tile).dropAllContents(world, pos);
+        }
+        return false;
     }
 
     @Nullable

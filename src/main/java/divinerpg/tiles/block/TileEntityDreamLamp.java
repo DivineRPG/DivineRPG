@@ -2,133 +2,128 @@ package divinerpg.tiles.block;
 
 import divinerpg.blocks.vethea.*;
 import divinerpg.client.containers.*;
+import divinerpg.events.*;
 import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.network.*;
+import net.minecraft.network.play.server.*;
 import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.util.text.*;
+import net.minecraft.world.*;
 
-public class TileEntityDreamLamp extends LockableTileEntity implements IInventory, ITickableTileEntity {
+import javax.annotation.*;
 
-    protected NonNullList<ItemStack> inventory;
+public class TileEntityDreamLamp extends TileEntity implements INamedContainerProvider, ITickableTileEntity {
+    public static final int NUMBER_OF_SLOTS = 1;
 
     public TileEntityDreamLamp() {
         super(TileRegistry.DREAM_LAMP);
-        this.inventory = NonNullList.withSize(1, ItemStack.EMPTY);
+        chestContents = TileInventoryHelper.createForTileEntity(NUMBER_OF_SLOTS,
+                this::canPlayerAccessInventory, this::setChanged);
     }
+
+    public boolean canPlayerAccessInventory(PlayerEntity player) {
+        if (this.level.getBlockEntity(this.worldPosition) != this) return false;
+        final double X_CENTRE_OFFSET = 0.5;
+        final double Y_CENTRE_OFFSET = 0.5;
+        final double Z_CENTRE_OFFSET = 0.5;
+        final double MAXIMUM_DISTANCE_SQ = 8.0 * 8.0;
+        return player.distanceToSqr(worldPosition.getX() + X_CENTRE_OFFSET, worldPosition.getY() + Y_CENTRE_OFFSET, worldPosition.getZ() + Z_CENTRE_OFFSET) < MAXIMUM_DISTANCE_SQ;
+    }
+
+    private static final String CHESTCONTENTS_INVENTORY_TAG = "contents";
+
+    @Override
+    public CompoundNBT save(CompoundNBT parentNBTTagCompound) {
+        super.save(parentNBTTagCompound);
+        CompoundNBT inventoryNBT = chestContents.serializeNBT();
+        parentNBTTagCompound.put(CHESTCONTENTS_INVENTORY_TAG, inventoryNBT);
+        return parentNBTTagCompound;
+    }
+
+    @Override
+    public void load(BlockState blockState, CompoundNBT parentNBTTagCompound) {
+        super.load(blockState, parentNBTTagCompound);
+        CompoundNBT inventoryNBT = parentNBTTagCompound.getCompound(CHESTCONTENTS_INVENTORY_TAG);
+        chestContents.deserializeNBT(inventoryNBT);
+        if (chestContents.getContainerSize() != NUMBER_OF_SLOTS)
+            throw new IllegalArgumentException("Corrupted NBT: Number of inventory slots did not match expected.");
+    }
+
+    @Override
+    @Nullable
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        CompoundNBT nbtTagCompound = new CompoundNBT();
+        save(nbtTagCompound);
+        int tileEntityType = 42;
+        return new SUpdateTileEntityPacket(this.worldPosition, tileEntityType, nbtTagCompound);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        BlockState blockState = level.getBlockState(worldPosition);
+        load(blockState, pkt.getTag());
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbtTagCompound = new CompoundNBT();
+        save(nbtTagCompound);
+        return nbtTagCompound;
+    }
+
+    @Override
+    public void handleUpdateTag(BlockState blockState, CompoundNBT tag) {
+        this.load(blockState, tag);
+    }
+
+
+    public void dropAllContents(World world, BlockPos blockPos) {
+        InventoryHelper.dropContents(world, blockPos, chestContents);
+    }
+
+
+
+    @Override
+    public ITextComponent getDisplayName() {
+        return new TranslationTextComponent(BlockRegistry.dreamLamp.getDescriptionId());
+    }
+
+    public final TileInventoryHelper chestContents;
+
+
+    @Nullable
+    @Override
+    public Container createMenu(int windowID, PlayerInventory playerInventory, PlayerEntity menu) {
+        return new DreamLampContainer(windowID, playerInventory, chestContents);
+    }
+
 
     @Override
     public void tick() {
-        if(!this.level.isClientSide) {
-            ItemStack acidStack = inventory.get(0);
-            boolean powerOn = false;
-            if (!acidStack.isEmpty() && acidStack.getItem() == ItemRegistry.acid) {
-                powerOn = true;
-            } else if (acidStack.isEmpty() || acidStack.getItem() != ItemRegistry.acid) {
-                powerOn = false;
-            }
-
+        if (!this.level.isClientSide) {
+            ItemStack acidStack = this.chestContents.getItem(0);
             Block block = this.level.getBlockState(this.worldPosition).getBlock();
-            if (block instanceof BlockDreamLamp) {
-                if (powerOn) {
-                    ((BlockDreamLamp) block).setOn(this.level, this.worldPosition);
-                } else {
-                    ((BlockDreamLamp) block).setOff(this.level, this.worldPosition);
+            int tick = Ticker.tick;
+            if (acidStack.getItem() == ItemRegistry.acid) {
+                ((BlockDreamLamp) block).setOn(this.level, this.worldPosition);
+                if (tick > 300) {
+                    tick = 0;
+                    acidStack.shrink(1);
                 }
             }
+            if (acidStack.getItem() != ItemRegistry.acid) {
+                ((BlockDreamLamp) block).setOff(this.level, this.worldPosition);
+            }
+
             this.setChanged();
         }
-    }
-
-
-    @Override
-    public int getContainerSize() {
-        return inventory.size();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        for (ItemStack stack : inventory) {
-            if (!stack.isEmpty()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public ItemStack getItem(int slot) {
-        return inventory.get(slot);
-    }
-
-    @Override
-    public ItemStack removeItem(int index, int count) {
-        return ItemStackHelper.removeItem(this.inventory, index, count);
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int i) {
-        return ItemStackHelper.takeItem(this.inventory, i);
-    }
-
-    @Override
-    public void setItem(int index, ItemStack itemstack) {
-        this.inventory.set(index, itemstack);
-        if (itemstack != null && itemstack.getCount() > getMaxStackSize()) {
-            itemstack.setCount(getMaxStackSize());
-        }
-    }
-
-    @Override
-    public boolean stillValid(PlayerEntity player) {
-        return player.level.getBlockEntity(worldPosition) == this && player.distanceToSqr(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()) < 64;
-    }
-
-    @Override
-    public boolean canPlaceItem(int index, ItemStack stack) {
-        return stack != ItemStack.EMPTY && stack.getItem() == ItemRegistry.acid;
-    }
-
-    @Override
-    public CompoundNBT save(CompoundNBT tag) {
-        super.save(tag);
-        ItemStackHelper.saveAllItems(tag, this.inventory);
-        return tag;
-    }
-
-    @Override
-    protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent(level.getBlockState(worldPosition).getBlock().getDescriptionId());
-    }
-
-    @Override
-    public void load(BlockState state, CompoundNBT tag) {
-        super.load(state, tag);
-        //TODO - save dream lamp inventory (means a rewrite)
-        ItemStackHelper.loadAllItems(tag, this.inventory);
-    }
-
-    @Override
-    public void startOpen(PlayerEntity player) {
-
-    }
-
-    @Override
-    public void stopOpen(PlayerEntity player) {
-    }
-
-
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
-        return new DreamLampContainer(playerInventory, level, this);
-    }
-
-    @Override
-    public void clearContent() {
-
     }
 }

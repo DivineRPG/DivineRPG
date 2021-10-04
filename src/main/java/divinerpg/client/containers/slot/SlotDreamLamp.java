@@ -1,17 +1,18 @@
 package divinerpg.client.containers.slot;
 
 import divinerpg.registries.*;
-import net.minecraft.inventory.*;
+import divinerpg.util.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
 
 public class SlotDreamLamp extends Slot {
 
-    public SlotDreamLamp(IInventory inventoryIn, int index, int xPosition, int yPosition) {
+    public SlotDreamLamp(TileInventoryHelper inventoryIn, int index, int xPosition, int yPosition) {
         super(inventoryIn, index, xPosition, yPosition);
     }
 
-    public boolean isItemValid(ItemStack stack) {
+    @Override
+    public boolean mayPlace(ItemStack stack) {
         return stack.getItem() == ItemRegistry.acid;
     }
 
