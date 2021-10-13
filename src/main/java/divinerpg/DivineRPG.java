@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.config.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.*;
-import net.minecraftforge.registries.*;
 import org.apache.logging.log4j.*;
 
 @Mod(DivineRPG.MODID)
@@ -33,20 +32,15 @@ public class DivineRPG {
         EventRegistry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
-        DeferredRegister<?>[] registers = {
-                ParticleRegistry.PARTICLES,
-                StructureRegistry.DEFERRED_REGISTRY_STRUCTURE,
-                TraderProfession.PROFESSIONS,
-                ContainerRegistry.CONTAINER_TYPES,
-                RecipeRegistry.Serailizers.RECIPE_SERIALIZERS,
-                KeyRegistry.POI,
-                FeatureRegistry.FEATURES,
-                DecoratorRegistry.DECORATORS
-        };
-
-        for (DeferredRegister<?> register : registers) {
-            register.register(bus);
-        }
+        ParticleRegistry.PARTICLES.register(bus);
+        StructureRegistry.DEFERRED_REGISTRY_STRUCTURE.register(bus);
+        TraderProfession.PROFESSIONS.register(bus);
+        ContainerRegistry.CONTAINER_TYPES.register(bus);
+        RecipeRegistry.Serailizers.RECIPE_SERIALIZERS.register(bus);
+        KeyRegistry.POI.register(bus);
+        FeatureRegistry.FEATURES.register(bus);
+        DecoratorRegistry.DECORATORS.register(bus);
+        BuilderRegistry.SURFACE_BUILDERS.register(bus);
 
     }
 
@@ -58,11 +52,8 @@ public class DivineRPG {
         TriggerRegistry.registerTriggers();
         ArcanaCapability.register();
         NetworkingRegistry.init();
-
-        event.enqueueWork(() -> {
-            StructureRegistry.setupStructures();
-            ConfiguredStructureRegistry.registerConfiguredStructures();
-        });
+        StructureRegistry.setupStructures();
+        ConfiguredStructureRegistry.registerConfiguredStructures();
 
     }
 
@@ -71,10 +62,7 @@ public class DivineRPG {
         FancyRenders.init();
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         ModelPropRegistry.init();
-
-        event.enqueueWork(() -> {
-            ContainerRegistry.registerScreenFactories();
-        });
+        ContainerRegistry.registerScreenFactories();
     }
 
     private void post(final FMLLoadCompleteEvent event){

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:default",
+  "type": "divinerpg:iceika",
   "config": {
     "top_material": {
       "Name": "divinerpg:frozen_grass",

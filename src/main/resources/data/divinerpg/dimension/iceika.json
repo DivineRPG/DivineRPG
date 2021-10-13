@@ -17,15 +17,58 @@
   "generator": {
     "type": "minecraft:noise",
     "seed": -1871202513,
-    "settings": "minecraft:overworld",
+    "settings": {
+      "name": "minecraft:overworld",
+      "bedrock_roof_position": -10,
+      "bedrock_floor_position": 0,
+      "sea_level": 63,
+      "disable_mob_generation": false,
+      "default_block": {
+        "Name": "minecraft:stone"
+      },
+      "default_fluid": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      },
+      "noise": {
+        "height": 256,
+        "density_factor": 1,
+        "density_offset": -0.46875,
+        "size_horizontal": 1,
+        "size_vertical": 4,
+        "simplex_surface_noise": true,
+        "random_density_offset": true,
+        "sampling": {
+          "xz_scale": 1,
+          "y_scale": 1,
+          "xz_factor": 80,
+          "y_factor": 400
+        },
+        "bottom_slide": {
+          "target": 20,
+          "size": 0,
+          "offset": 0
+        },
+        "top_slide": {
+          "target": -10,
+          "size": 3,
+          "offset": 0
+        }
+      },
+      "structures": {
+        "structures": {}
+      }
+    },
     "biome_source": {
       "type": "minecraft:multi_noise",
       "seed": -1871202513,
       "altitude_noise": {
-        "firstOctave": -7,
+        "firstOctave": 252,
         "amplitudes": [
           1,
-          1
+          100
         ]
       },
       "temperature_noise": {
@@ -51,22 +94,12 @@
       },
       "biomes": [
         {
-          "biome": "divinerpg:iceika_hills",
-          "parameters": {
-            "altitude": 2.0,
-            "temperature": 0,
-            "humidity": 0,
-            "weirdness": 0,
-            "offset": 0
-          }
-        },
-        {
           "biome": "divinerpg:iceika_plains",
           "parameters": {
-            "altitude": 2.0,
+            "altitude": 1,
             "temperature": 0,
             "humidity": 0,
-            "weirdness": 0,
+            "weirdness": 1,
             "offset": 0
           }
         }

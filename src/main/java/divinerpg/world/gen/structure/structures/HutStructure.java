@@ -3,11 +3,11 @@ package divinerpg.world.gen.structure.structures;
 import com.google.common.collect.*;
 import com.mojang.serialization.*;
 import divinerpg.*;
-import divinerpg.registries.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.jigsaw.*;
@@ -23,7 +23,7 @@ public class HutStructure extends Structure<NoFeatureConfig> {
 
     @Override
     public  IStartFactory<NoFeatureConfig> getStartFactory() {
-        return Start::new;
+        return HutStructure.Start::new;
     }
 
     @Override
@@ -32,7 +32,6 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
-            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1 ,1)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
@@ -40,13 +39,42 @@ public class HutStructure extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
-            new MobSpawnInfo.Spawners(EntityRegistry.LIVESTOCK_MERCHANT, 1, 1 ,1)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
         return STRUCTURE_CREATURES;
     }
 
+
+
+
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
+        return getYPositionForFeature(chunkX, chunkZ, chunkGenerator) >= 60;
+    }
+    private static int getYPositionForFeature(final int xChunk, final int zChunk, final ChunkGenerator chunkGen) {
+        final Random random4 = new Random((long)(xChunk + zChunk * 10387313));
+        final Rotation bzj5 = Rotation.getRandom(random4);
+        int integer3 = 5;
+        int integer4 = 5;
+        if (bzj5 == Rotation.CLOCKWISE_90) {
+            integer3 = -5;
+        }
+        else if (bzj5 == Rotation.CLOCKWISE_180) {
+            integer3 = -5;
+            integer4 = -5;
+        }
+        else if (bzj5 == Rotation.COUNTERCLOCKWISE_90) {
+            integer4 = -5;
+        }
+        final int integer5 = (xChunk << 4) + 7;
+        final int integer6 = (zChunk << 4) + 7;
+        final int integer7 = chunkGen.getFirstOccupiedHeight(integer5, integer6, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer8 = chunkGen.getFirstOccupiedHeight(integer5, integer6 + integer4, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer9 = chunkGen.getFirstOccupiedHeight(integer5 + integer3, integer6, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer10 = chunkGen.getFirstOccupiedHeight(integer5 + integer3, integer6 + integer4, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(integer7, integer8), Math.min(integer9, integer10));
+    }
 
     public static class Start extends StructureStart<NoFeatureConfig>  {
         private final long seed;
