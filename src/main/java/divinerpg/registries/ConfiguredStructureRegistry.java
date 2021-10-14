@@ -14,6 +14,7 @@ public class ConfiguredStructureRegistry {
     public static StructureFeature<?, ?> CONFIGURED_SKYTHERN = StructureRegistry.SKYTHERN.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_MORTUM = StructureRegistry.MORTUM.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<?, ?> CONFIGURED_ICEIKA = StructureRegistry.ICEIKA.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<?, ?> CONFIGURED_ICEIKA_DUNGEON = StructureRegistry.ICEIKA_DUNGEON.get().configured(IFeatureConfig.NONE);
 
     public static void registerConfiguredStructures() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered configured structures");
@@ -25,6 +26,7 @@ public class ConfiguredStructureRegistry {
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_skythern"), CONFIGURED_SKYTHERN);
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_mortum"), CONFIGURED_MORTUM);
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_iceika"), CONFIGURED_ICEIKA);
+        Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "configured_iceika_dungeons"), CONFIGURED_ICEIKA_DUNGEON);
 
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.HUT.get(), CONFIGURED_HUT);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.EDEN.get(), CONFIGURED_EDEN);
@@ -33,5 +35,6 @@ public class ConfiguredStructureRegistry {
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.SKYTHERN.get(), CONFIGURED_SKYTHERN);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.MORTUM.get(), CONFIGURED_MORTUM);
         FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.ICEIKA.get(), CONFIGURED_ICEIKA);
+        FlatGenerationSettings.STRUCTURE_FEATURES.put(StructureRegistry.ICEIKA_DUNGEON.get(), CONFIGURED_ICEIKA_DUNGEON);
     }
 }

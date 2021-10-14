@@ -82,6 +82,7 @@
     []
   ],
   "starts": [
-    "divinerpg:iceika"
+    "divinerpg:iceika",
+    "divinerpg:iceika_dungeons"
   ]
 }

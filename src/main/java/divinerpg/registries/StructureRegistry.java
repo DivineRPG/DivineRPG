@@ -24,6 +24,7 @@ public class StructureRegistry {
     public static final RegistryObject<Structure<NoFeatureConfig>> SKYTHERN = DEFERRED_REGISTRY_STRUCTURE.register("skythern", () -> (new SkythernStructures(NoFeatureConfig.CODEC)));
     public static final RegistryObject<Structure<NoFeatureConfig>> MORTUM = DEFERRED_REGISTRY_STRUCTURE.register("mortum", () -> (new MortumStructures(NoFeatureConfig.CODEC)));
     public static final RegistryObject<Structure<NoFeatureConfig>> ICEIKA = DEFERRED_REGISTRY_STRUCTURE.register("iceika", () -> (new IceikaStructures(NoFeatureConfig.CODEC)));
+    public static final RegistryObject<Structure<NoFeatureConfig>> ICEIKA_DUNGEON = DEFERRED_REGISTRY_STRUCTURE.register("iceika_dungeons", () -> (new IceikaDungeonStructures(NoFeatureConfig.CODEC)));
 
     public static void setupStructures() {
         DivineRPG.LOGGER.info("[DivineRPG] Setup structures");
@@ -36,6 +37,7 @@ public class StructureRegistry {
         setupMapSpacingAndLand(SKYTHERN.get(), new StructureSeparationSettings(30, 5, 3213265), true);
         setupMapSpacingAndLand(MORTUM.get(), new StructureSeparationSettings(30, 5, 9784512), true);
         setupMapSpacingAndLand(ICEIKA.get(), new StructureSeparationSettings(30, 5, 3512846), true);
+        setupMapSpacingAndLand(ICEIKA_DUNGEON.get(), new StructureSeparationSettings(30, 5, 6845645), true);
 
     }
 
