@@ -73,7 +73,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "divinerpg:frozen_tree"
+    ],
     []
   ],
   "starts": [

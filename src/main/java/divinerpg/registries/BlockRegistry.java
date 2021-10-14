@@ -408,7 +408,7 @@ public class BlockRegistry {
     @ObjectHolder("frozen_stairs")
     public static final Block frozenStairs = null;
     @ObjectHolder("frozen_sapling")
-    public static final Block frozenSapling = null;
+    public static final SaplingBlock frozenSapling = null;
 
     // Structure blocks
     @ObjectHolder("coalstone")
