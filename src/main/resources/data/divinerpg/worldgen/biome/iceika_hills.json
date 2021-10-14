@@ -16,7 +16,6 @@
     "foliage_color": 4159204,
     "ambient_sound": "divinerpg:iceika_music"
   },
-  "starts": [],
   "spawners": {
     "creature": [
       {
@@ -65,5 +64,19 @@
   },
   "spawn_costs": {},
   "carvers": {},
-  "features": []
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "starts": [
+    "divinerpg:iceika"
+  ]
 }

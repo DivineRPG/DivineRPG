@@ -58,7 +58,13 @@
         }
       },
       "structures": {
-        "structures": {}
+        "structures": {
+          "divinerpg:iceika": {
+            "spacing": 5,
+            "separation": 4,
+            "salt": 6428742
+          }
+        }
       }
     },
     "biome_source": {
