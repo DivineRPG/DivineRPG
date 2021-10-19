@@ -23,7 +23,7 @@
       "biome": "divinerpg:skythern"
     },
     "settings": {
-      "name": "minecraft:end",
+      "name": "minecraft:floating_islands",
       "bedrock_roof_position": -10,
       "bedrock_floor_position": -10,
       "sea_level": 0,
@@ -42,7 +42,7 @@
         "size_vertical": 1,
         "simplex_surface_noise": true,
         "random_density_offset": false,
-        "island_noise_override": true,
+        "island_noise_override": false,
         "sampling": {
           "xz_scale": 2,
           "y_scale": 1,
