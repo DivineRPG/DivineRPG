@@ -46,57 +46,57 @@ public class EdenTreeFeature extends DivineTreeFeature {
         				bottomHeight++;
         				grow(world, pos, log, 0, 0, 1, 0, false, 2);
         			}
-            		grow(world, pos, leaves, bottomHeight, treeHeight + 1, 1, 0, false, 1);
+            		grow(world, pos, leaves, bottomHeight, treeHeight + 1, 1, 0);
         			if(treeHeight > 7) {
-        				grow(world, pos, leaves, bottomHeight + 2, treeHeight - 3, 2, 0, false, 1);
-        				grow(world, pos, leaves, treeHeight - 2, treeHeight - 2, 2, 0, false, 2);
-        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 2, 1, 1, false, 1);
-        				grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 1, 1, false, 2);
+        				grow(world, pos, leaves, bottomHeight + 2, treeHeight - 3, 2, 0);
+        				grow(world, pos, leaves, treeHeight - 2, 2, 0, false, 2);
+        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 2, 1, 1);
+        				grow(world, pos, leaves, treeHeight - 1, 1, 1, false, 2);
         			} else {
         				if(treeHeight - 2 >= bottomHeight + 2) {
-                			grow(world, pos, leaves, bottomHeight + 2, treeHeight - 2, 2, 0, false, 1);
+                			grow(world, pos, leaves, bottomHeight + 2, treeHeight - 2, 2, 0);
                 		}
-        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 1, 1, 1, false, 1);
+        				grow(world, pos, leaves, bottomHeight + 1, treeHeight - 1, 1, 1);
         				if(treeHeight < 7) {
-        					grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false, 2);
+        					grow(world, pos, leaves, treeHeight, 1, 1, false, 2);
         				}
         				if(treeHeight != 3) {
         					if(treeHeight < 7) {
-        						grow(world, pos, leaves, bottomHeight + 1, bottomHeight + 1, 2, 0, false, 2);
+        						grow(world, pos, leaves, bottomHeight + 1, 2, 0, false, 2);
                     			if(treeHeight < 6) {
-                    				grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 2, 0, false, 2);
+                    				grow(world, pos, leaves, treeHeight - 1, 2, 0, false, 2);
                     			}
         					}
         				}
         			}
-        			grow(world, pos, leaves, treeHeight + 1, extraHeight, false, 1);
+        			grow(world, pos, leaves, treeHeight + 1, extraHeight);
                     break;
             	case 1:
             		//Tree roots
             		setBlock(world, pos.offset(0, -1, 0), log, true);
-            		grow(world, pos, log, -1, -1, 1, 0, true, 1);
-            		grow(world, pos, log, 0, 0, 1, 0, false, 4);
+            		grow(world, pos, log, -1, 1, 0, true);
+            		grow(world, pos, log, 0, 1, 0, false, 4);
             		//Leaves
             		setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
             		chanceSetBlock(world, pos.offset(0, extraHeight, 0), leaves, 2, false);
-            		grow(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, 0, false, 1);
-            		grow(world, pos, leaves, treeHeight - 1, treeHeight - 1, 1, 1, false, 2);
-            		grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false, 1);
-            		grow(world, pos, leaves, treeHeight, treeHeight, 2, 0, false, 2);
+            		grow(world, pos, leaves, treeHeight - 1, treeHeight + 1, 1, 0);
+            		grow(world, pos, leaves, treeHeight - 1, 1, 1, false, 2);
+            		grow(world, pos, leaves, treeHeight, 1, 1);
+            		grow(world, pos, leaves, treeHeight, 2, 0, false, 2);
             		break;
             	case 2:
             		setBlock(world, pos.offset(0, extraHeight, 0), leaves);
-            		grow(world, pos, leaves, treeHeight, treeHeight, 1, 0, false, 1);
+            		grow(world, pos, leaves, treeHeight, 1, 0);
             		break;
                 default:
                 	setBlock(world, pos.offset(0, extraHeight, 0), leaves);
-                	grow(world, pos, leaves, treeHeight - 2, extraHeight, 1, 0, false, 1);
-                	grow(world, pos, leaves, treeHeight - 2, treeHeight - 1, 1, 1, false, 1);
-                	grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, 2, false, 2);
+                	grow(world, pos, leaves, treeHeight - 2, extraHeight, 1, 0);
+                	grow(world, pos, leaves, treeHeight - 2, treeHeight - 1, 1, 1);
+                	grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, 2, 2);
                 	for(int offset = -1; offset < 2; offset++) {
-        				grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, offset, false, 1);
+        				grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, offset);
         			}
-                	grow(world, pos, leaves, treeHeight, treeHeight, 1, 1, false, 2);
+                	grow(world, pos, leaves, treeHeight, 1, 1, false, 2);
             	}
                 return true;
             }
