@@ -1,5 +1,6 @@
 package divinerpg.blocks.arcana;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -8,7 +9,6 @@ import net.minecraft.entity.player.*;
 import net.minecraft.fluid.*;
 import net.minecraft.item.*;
 import net.minecraft.particles.*;
-import net.minecraft.tileentity.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
 import net.minecraft.world.*;
@@ -17,20 +17,16 @@ import net.minecraftforge.api.distmarker.*;
 
 import java.util.*;
 
-public class BlockArcanaPortal extends ContainerBlock {
+public class BlockArcanaPortal extends BlockMod {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockArcanaPortal(String name) {
-        super(AbstractBlock.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLUE).noCollission().lightLevel((p_235460_0_) -> {
+        super(name, AbstractBlock.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLUE).noCollission().lightLevel((p_235460_0_) -> {
             return 15;
         }).strength(-1.0F, 3600000.0F).noDrops());
-        setRegistryName(name);
     }
 
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-//        return new PortalEntity();
-    return null;
-    }
+
 
     public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
         return SHAPE;
