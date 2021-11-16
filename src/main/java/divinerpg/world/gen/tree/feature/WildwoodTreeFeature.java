@@ -2,6 +2,8 @@ package divinerpg.world.gen.tree.feature;
 
 import divinerpg.registries.*;
 import net.minecraft.block.*;
+import net.minecraft.state.properties.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -18,9 +20,9 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     		eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.EAST, true),
     		southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.SOUTH, true),
     		westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.WEST, true),
-    		log = BlockRegistry.wildwoodLog.defaultBlockState();
-//			logNS = BlockRegistry.wildwoodLog.defaultBlockState().rotate(Rotation.CLOCKWISE_90),
-//			logEW = BlockRegistry.wildwoodLog.rotate(, null);
+    		log = BlockRegistry.wildwoodLog.defaultBlockState(),
+			logNS = BlockRegistry.wildwoodLog.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z),
+			logEW = BlockRegistry.wildwoodLog.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
 	
     private void growLeavesWithVines(ISeedReader world, BlockPos pos, int y, int width, int offset, int leavesChance, int vineChance) {
     	chanceSetBlock(world, pos.offset(width, y, offset), leaves, leavesChance, false);
@@ -57,11 +59,10 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     private void logCross(ISeedReader world, BlockPos pos, int y, int minWidth, int maxWidth, int offset, boolean replace) {
     	for(int i = minWidth; i < maxWidth + 1; i++) {
     		grow(world, pos, log, y, i, offset, replace);
-    		//TODO: find out how to set horizontal logs
-//    		setBlock(world, pos.offset(i, y, offset), logNS, replace);
-//    		setBlock(world, pos.offset(-i, y, -offset), logNS, replace);
-//    		setBlock(world, pos.offset(offset, y, -i), logEW, replace);
-//    		setBlock(world, pos.offset(-offset, y, i), logEW, replace);
+    		setBlock(world, pos.offset(i, y, offset), logNS, replace);
+    		setBlock(world, pos.offset(-i, y, -offset), logNS, replace);
+    		setBlock(world, pos.offset(offset, y, -i), logEW, replace);
+    		setBlock(world, pos.offset(-offset, y, i), logEW, replace);
     	}
     }
     @Override
