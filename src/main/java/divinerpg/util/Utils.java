@@ -142,8 +142,7 @@ public class Utils {
      * @param entity the entity to spawn
      */
     public static void spawnPersistentEntity(World world, BlockPos pos, LivingEntity entity) {
-        //TODO - enable persistence
-//        entity.enablePersistence();
+        entity.revive();
         entity.moveTo(pos, 0.0F, 0.0F);
         world.addFreshEntity(entity);
     }
