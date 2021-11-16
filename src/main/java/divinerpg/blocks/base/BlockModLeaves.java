@@ -5,6 +5,9 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+import net.minecraft.world.server.*;
+
+import java.util.*;
 
 public class BlockModLeaves extends LeavesBlock {
 
@@ -17,5 +20,11 @@ public class BlockModLeaves extends LeavesBlock {
         return false;
     }
 
-    //TODO - stop leave decay when attached to logs
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!state.getValue(PERSISTENT) && state.getValue(DISTANCE) >= 7) {
+            dropResources(state, world, pos);
+            world.removeBlock(pos, false);
+        }
+
+    }
 }

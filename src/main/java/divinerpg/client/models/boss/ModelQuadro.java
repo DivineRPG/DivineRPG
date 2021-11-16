@@ -514,33 +514,30 @@ public class ModelQuadro<T extends Entity> extends SegmentedModel<T>
                 this.dir = 0;
             }
 
-            //TODO - sort quadro ability rotations
             int ageInSeconds = (int) (f2/20);
             if(ageInSeconds != 0) {
             	if (ageInSeconds % 18 <= 9) {
                     if (ageInSeconds % 6 == 0 && this.rotateOffset < Math.PI && this.dir == 0) {
                         this.rotateOffset = 0.05F;
-                    } else if (ageInSeconds % 4 == 0 && this.rotateOffset < Math.PI * 3 / 2 /*&& this.dir == 0*/) {
+                    } else if (ageInSeconds % 4 == 0 && this.rotateOffset < Math.PI * 3 / 2 && this.dir == 0) {
                         this.rotateOffset = 0.05F;
-                    } else if (ageInSeconds % 2 == 0 && this.rotateOffset < Math.PI / 2 /*&& this.dir == 0*/) {
+                    } else if (ageInSeconds % 2 == 0 && this.rotateOffset < Math.PI / 2 && this.dir == 0) {
                         this.rotateOffset = 0.05F;
                     } else {
-//                        this.dir = 1;
-                    	this.dir = 0;
+                        this.dir = 1;
                         this.rotateOffset = 0;
                 }} else {
 
-                    if (ageInSeconds % 8 == 0 && this.rotateOffset > Math.PI /*&& this.dir == 1*/) {
+                    if (ageInSeconds % 8 == 0 && this.rotateOffset > Math.PI && this.dir == 1) {
                         this.rotateOffset = -0.05F;
-                    } else if (ageInSeconds % 6 == 0 && this.rotateOffset > Math.PI * 3 / 2 /*&& this.dir == 1*/) {
+                    } else if (ageInSeconds % 6 == 0 && this.rotateOffset > Math.PI * 3 / 2 && this.dir == 1) {
                         this.rotateOffset = -0.05F;
-                    } else if (ageInSeconds % 4 == 0 && this.rotateOffset > Math.PI / 2 /*&& this.dir == 1*/) {
+                    } else if (ageInSeconds % 4 == 0 && this.rotateOffset > Math.PI / 2 && this.dir == 1) {
                         this.rotateOffset = -0.05F;
-                    } else if (ageInSeconds % 2 == 0 && this.rotateOffset > 0 /*&& this.dir == 1*/) {
+                    } else if (ageInSeconds % 2 == 0 && this.rotateOffset > 0 && this.dir == 1) {
                         this.rotateOffset = -0.05F;
                     } else {
-//                        this.dir = 2;
-                    	this.dir = 0;
+                        this.dir = 2;
                         this.rotateOffset = 0;
             }}}
 

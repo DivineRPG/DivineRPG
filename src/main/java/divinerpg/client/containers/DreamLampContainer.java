@@ -7,7 +7,6 @@ import divinerpg.util.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
-import net.minecraftforge.items.*;
 import net.minecraftforge.items.wrapper.*;
 
 public class DreamLampContainer extends Container {
@@ -36,23 +35,14 @@ public class DreamLampContainer extends Container {
         PlayerInvWrapper playerInventoryForge = new PlayerInvWrapper(playerInventory);
         this.chestContents = chestContents;
 
-        final int SLOT_X_SPACING = 18;
-        final int SLOT_Y_SPACING = 18;
-        final int HOTBAR_XPOS = 8;
-        final int HOTBAR_YPOS = 109;
-        for (int x = 0; x < HOTBAR_SLOT_COUNT; x++) {
-            int slotNumber = x;
-            addSlot(new SlotItemHandler(playerInventoryForge, slotNumber, HOTBAR_XPOS + SLOT_X_SPACING * x, HOTBAR_YPOS));
+        for(int i = 0; i < 3; ++i) {
+            for(int j = 0; j < 9; ++j) {
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
         }
 
-        final int PLAYER_INVENTORY_XPOS = 8;
-        for (int y = 0; y < PLAYER_INVENTORY_ROW_COUNT; y++) {
-            for (int x = 0; x < PLAYER_INVENTORY_COLUMN_COUNT; x++) {
-                int slotNumber = HOTBAR_SLOT_COUNT + y * PLAYER_INVENTORY_COLUMN_COUNT + x;
-                int xpos = PLAYER_INVENTORY_XPOS + x * SLOT_X_SPACING;
-                int ypos = PLAYER_INVENTORY_YPOS + y * SLOT_Y_SPACING;
-                addSlot(new SlotItemHandler(playerInventoryForge, slotNumber,  xpos, ypos));
-            }
+        for(int k = 0; k < 9; ++k) {
+            this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
         }
             addSlot(new SlotDreamLamp(chestContents, 0, 80, 47));
     }
