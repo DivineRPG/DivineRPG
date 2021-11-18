@@ -1,6 +1,7 @@
 package divinerpg.world.arcana;
 
 import divinerpg.*;
+import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
@@ -29,6 +30,12 @@ public class ArcanaStructureHandler {
 
         if (template != null) {
             template.placeInWorldChunk(world, adjustedPosition, new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK), rand);
+            List<Template.BlockInfo> map = template.filterBlocks(pos, new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK), Blocks.STRUCTURE_BLOCK, true);
+            Iterator var16 = map.iterator();
+
+            if(var16.hasNext()) {
+                handleDataMarkers(world, rand, var16);
+            }
         }
         return true;
     }
@@ -59,7 +66,8 @@ public class ArcanaStructureHandler {
         }
         return null;
     }
-
+    public void handleDataMarkers(World world, Random random, Iterator iterator) {
+    }
     @Nullable
     private Template load(World world) {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
