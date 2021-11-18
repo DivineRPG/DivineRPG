@@ -1,11 +1,16 @@
 package divinerpg.util.teleport;
 
+import divinerpg.*;
 import divinerpg.registries.*;
 import divinerpg.world.arcana.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.server.*;
 import net.minecraftforge.common.util.*;
 
@@ -125,8 +130,9 @@ public class ArcanaTeleporter implements ITeleporter {
     public boolean placeInExistingPortal(Entity entity, float rotationYaw) {
         if (this.world.dimension().equals(KeyRegistry.ARCANA_WORLD)) {
             //Convert player location to chunk
-            int chunkX = (MathHelper.floor(entity.getX()) & ~0xf) / 16;
-            int chunkZ = (MathHelper.floor(entity.getZ()) & ~0xf) / 16;
+
+            int chunkX = entity.level.getChunk(entity.blockPosition()).getPos().x;
+            int chunkZ = entity.level.getChunk(entity.blockPosition()).getPos().z;
 
             //Coordinates where portal frame should be. Accounts for constant +8 offset in chunk generator to prevent cascading
             int portalLocationX = (chunkX * 16) + 6 + 8;
@@ -135,6 +141,7 @@ public class ArcanaTeleporter implements ITeleporter {
 
             // Find existing portal, first check the room corresponding to the chunk as this covers the most likely cases
             if (this.world.getBlockState(new BlockPos(portalLocationX, portalLocationY, portalLocationZ)).getBlock() == BlockRegistry.arcanaHardPortalFrame) {
+                //TODO - place player in correct location
                 entity.moveTo(portalLocationX + 1.5D, portalLocationY, portalLocationZ + 2.5D, rotationYaw, 0.0F);
                 entity.xo = entity.yo = entity.zo = 0.0D;
                 return true;
@@ -163,20 +170,62 @@ public class ArcanaTeleporter implements ITeleporter {
 
     public void makePortalRoom(int chunkX, int chunkZ) {
         Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, this.world.getSeed());
-        ArcanaStructureHandler portalRoom = ArcanaRooms.getPortalRoomByType(cell.getPieceType());
-        //TODO - move to correct height and chunk pos
-        portalRoom.generateWithRotation(this.world, this.random, new BlockPos(chunkX * 16 + 8, 8, chunkZ * 16 + 8), cell.getRotation());
-    }
 
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+        BlockPos pos = new BlockPos(x, 0, z);
+        Biome biome = world.getBiome(pos.offset(16, 0, 16));
+        long worldSeed = world.getSeed();
+        ArcanaStructureHandler portalRoom = ArcanaRooms.getPortalRoomByType(cell.getPieceType());
+        Rotation rotation;
+        Template template = world.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, portalRoom.getName()));
+
+        world.getRandom().setSeed(world.getSeed());
+        long k = world.getRandom().nextLong() / 2L * 2L + 1L;
+        long l = world.getRandom().nextLong() / 2L * 2L + 1L;
+        world.getRandom().setSeed((long) chunkX * k + (long) chunkZ * l ^ world.getSeed());
+
+
+        if(world.getBlockState(new BlockPos(x + 8, 8, z + 8)).getBlock() == Blocks.AIR) {
+            if(cell.getPieceType() == Cell.PieceType.CROSSROADS) {
+                rotation = Rotation.values()[world.getRandom().nextInt(4)];
+            } else {
+                rotation = cell.getRotation();
+            }
+
+            BlockPos adjustedPosition = adjustForRotation(pos, template.getSize(), rotation);
+            if (template != null && portalRoom.getName() != null ) {
+                template.placeInWorld(world,
+                        adjustedPosition,
+                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK),
+                        world.getRandom());
+            }
+        }
+    }
+    private BlockPos adjustForRotation(BlockPos position, BlockPos size, Rotation rotation) {
+        switch(rotation) {
+            case NONE:
+                return position;
+            case CLOCKWISE_90:
+                return position.offset(size.getZ() - 1, 0, 0);
+            case CLOCKWISE_180:
+                return position.offset(size.getX() - 1, 0, size.getZ() - 1);
+            case COUNTERCLOCKWISE_90:
+                return position.offset(0, 0, size.getX() - 1);
+            default:
+                DivineRPG.LOGGER.warn("Invalid structure rotation passed in somehow, please report this.");
+                return position;
+        }
+    }
     @Override
     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-
         if (entity instanceof ServerPlayerEntity) {
         this.placeInPortal(entity, yaw);
+            return repositionEntity.apply(false);
         } else {
         this.placeInExistingPortal(entity, yaw);
+            return repositionEntity.apply(false);
     }
-        return repositionEntity.apply(false);
     }
 
 }

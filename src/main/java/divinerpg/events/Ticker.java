@@ -22,6 +22,7 @@ public class Ticker {
     public static void playerTick(TickEvent.PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
             Arcana arcana = event.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
+            if(arcana != null)
             arcana.regen(event.player);
         }
     }
