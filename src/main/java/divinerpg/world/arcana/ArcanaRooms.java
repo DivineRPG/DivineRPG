@@ -54,8 +54,7 @@ public class ArcanaRooms {
         DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/leorna_hut"), 4);
         DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
         DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/captain_merik_forge"), 4);
-        //TODO: re-add war general chamber
-//        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/war_general_chamber"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/war_general_chamber"), 4);
         DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/zelus_farm"), 4);
 
         HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
