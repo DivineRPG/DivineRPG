@@ -2,6 +2,7 @@ package divinerpg.world.arcana;
 
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
+import divinerpg.*;
 import divinerpg.world.*;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
@@ -10,9 +11,9 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.gen.settings.*;
-
-import java.util.*;
+import net.minecraft.world.spawner.*;
 
 public class ArcanaChunkGenerator extends DivineChunkGenerator {
     public static final Codec<ArcanaChunkGenerator> CODEC = RecordCodecBuilder.create(
@@ -33,37 +34,53 @@ public class ArcanaChunkGenerator extends DivineChunkGenerator {
 
     @Override
     public void applyBiomeDecoration(WorldGenRegion region, StructureManager structureManager) {
-        //TODO - get maze to generate/add velocitys changes/loot chests
-        int chunkX = region.getCenterX(), chunkZ = region.getCenterZ();
-        int x = chunkX * 16;
-        int z = chunkZ * 16;
+        int x = region.getCenterX() * 16;
+        int z = region.getCenterZ() * 16;
         BlockPos pos = new BlockPos(x, 0, z);
         Biome biome = region.getBiome(pos.offset(16, 0, 16));
+        long worldSeed = region.getSeed();
+        Cell cell = ArcanaMazeGenerator.obtainMazePiece(region.getCenterX(), region.getCenterZ(), worldSeed);
+        ArcanaStructureHandler toGenerate = ArcanaRooms.getRandomStructureByType(region.getRandom(), cell.getPieceType());
+        Rotation rotation;
+        Template template = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, toGenerate.getName()));
 
         region.getRandom().setSeed(region.getSeed());
         long k = region.getRandom().nextLong() / 2L * 2L + 1L;
         long l = region.getRandom().nextLong() / 2L * 2L + 1L;
-        region.getRandom().setSeed((long) chunkX * k + (long) chunkZ * l ^ region.getSeed());
+        region.getRandom().setSeed((long) region.getCenterX() * k + (long) region.getCenterZ() * l ^ region.getSeed());
 
-        //this.rand is not used for overall maze generation which is specific to the region root instead of the specific chunk
-        //However, it will be used to determine per-chunk things like the specific room variant picked, as well as randomize specific things within a chunk
 
         if(region.getBlockState(new BlockPos(x + 8, 8, z + 8)).getBlock() == Blocks.AIR) {
-            long worldSeed = region.getSeed();
-            Cell cell = ArcanaMazeGenerator.obtainMazePiece(chunkX, chunkZ, worldSeed);
-
-            Structure<?> toGenerate = ArcanaRooms.getRandomStructureByType(region.getRandom(), cell.getPieceType());
-            Rotation rotation;
             if(cell.getPieceType() == Cell.PieceType.CROSSROADS) {
                 rotation = Rotation.values()[region.getRandom().nextInt(4)];
             } else {
                 rotation = cell.getRotation();
             }
-            Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(region.getLevel().getChunkSource().generator.getSettings().structureConfig());
-            tempMap.put(toGenerate, DimensionStructuresSettings.DEFAULTS.get(toGenerate));
-            region.getLevel().getChunkSource().generator.getSettings().structureConfig = tempMap;
+
+            BlockPos adjustedPosition = adjustForRotation(pos, template.getSize(), rotation);
+            if (template != null && toGenerate.getName() != null ) {
+                template.placeInWorld(region,
+                        adjustedPosition,
+                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK),
+                        region.getRandom());
+            }
+        }
+        WorldEntitySpawner.spawnMobsForChunkGeneration(region, biome, x + 8, z + 8, region.getRandom());
+    }
+    private BlockPos adjustForRotation(BlockPos position, BlockPos size, Rotation rotation) {
+        switch(rotation) {
+            case NONE:
+                return position;
+            case CLOCKWISE_90:
+                return position.offset(size.getZ() - 1, 0, 0);
+            case CLOCKWISE_180:
+                return position.offset(size.getX() - 1, 0, size.getZ() - 1);
+            case COUNTERCLOCKWISE_90:
+                return position.offset(0, 0, size.getX() - 1);
+            default:
+                DivineRPG.LOGGER.warn("Invalid structure rotation passed in somehow, please report this.");
+                return position;
         }
     }
-
 
 }

@@ -1,82 +1,81 @@
 package divinerpg.world.arcana;
 
 
-import divinerpg.registries.*;
 import divinerpg.util.*;
-import net.minecraft.world.gen.feature.structure.*;
 
 import java.util.*;
 
 public class ArcanaRooms {
-    private static final WeightedRandom<Structure<?>> CORNER_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> CROSSROAD_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> CROSSROAD_BOSS_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> DEAD_END_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> DEAD_END_NPC_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> HALLWAY_ROOMS = new WeightedRandom<>();
-    private static final WeightedRandom<Structure<?>> JUNCTION_ROOMS = new WeightedRandom<>();
-    private static final HashMap<Cell.PieceType, WeightedRandom<Structure<?>>> TYPE_MAP = new HashMap<>();
-    private static final HashMap<Cell.PieceType, Structure<?>> PORTAL_ROOMS = new HashMap<>();
+    private static final WeightedRandom<ArcanaStructureHandler> CORNER_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> CROSSROAD_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> CROSSROAD_BOSS_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> DEAD_END_NPC_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> HALLWAY_ROOMS = new WeightedRandom<>();
+    private static final WeightedRandom<ArcanaStructureHandler> JUNCTION_ROOMS = new WeightedRandom<>();
+    private static final HashMap<Cell.PieceType, WeightedRandom<ArcanaStructureHandler>> TYPE_MAP = new HashMap<>();
+    private static final HashMap<Cell.PieceType, ArcanaStructureHandler> PORTAL_ROOMS = new HashMap<>();
 
     static {
-        CORNER_ROOMS.addItem(StructureRegistry.COLUMN_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.CHAINED_ROOM_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.DELTA_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.GENERIC_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.HEAT_TRAP_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.LIVING_STATUE_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.METAL_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.PYRAMID_CORNER.get(), 4);
-        CORNER_ROOMS.addItem(StructureRegistry.RAZORBACK_CORNER.get(), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/column_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/chained_room_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/delta_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/generic_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/heat_trap_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/living_statue_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/metal_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/pyramid_corner"), 4);
+        CORNER_ROOMS.addItem(new ArcanaStructureHandler("arcana/corner/razorback_corner"), 4);
 
-        CROSSROAD_ROOMS.addItem(StructureRegistry.COLUMN_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.DELTA_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.DUNGEON_PRISONER_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.EXTRACTION_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.HEAT_TRAP_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.HEAT_TRAP_CROSSROADS_ARCANIUM.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.HOLLOW_COLUMN_CROSSROADS.get(), 4);
-        CROSSROAD_ROOMS.addItem(StructureRegistry.RAMP_CROSSROADS.get(), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/column_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/delta_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/dungeon_prisoner_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/extraction_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/heat_trap_crossroads_arcanium"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/hollow_column_crossroads"), 4);
+        CROSSROAD_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/ramp_crossroads"), 4);
 
-        CROSSROAD_BOSS_ROOMS.addItem(StructureRegistry.DRAMIX_ROOM.get(), 4);
-        CROSSROAD_BOSS_ROOMS.addItem(StructureRegistry.PARASECTA_ROOM.get(), 4);
+        CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/dramix_room"), 4);
+        CROSSROAD_BOSS_ROOMS.addItem(new ArcanaStructureHandler("arcana/crossroads/boss/parasecta_room"), 4);
 
-        DEAD_END_ROOMS.addItem(StructureRegistry.BANQUET_HALL.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.DUNGEON_LIBRARY.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.DUNGEON_PRISON.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.DUNGEON_PRISON_BROKEN.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.HEAT_TRAP_DEAD_END.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.HILL_DEAD_END.get(), 4);
-        DEAD_END_ROOMS.addItem(StructureRegistry.LAVA_DEAD_END.get(), 2);
-        DEAD_END_ROOMS.addItem(StructureRegistry.LAVA_DEAD_END_ARCANIUM.get(), 1);
-        DEAD_END_ROOMS.addItem(StructureRegistry.ROAMER_CHAMBER.get(), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaLootRoomHandler("arcana/deadend/banquet_hall"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_library"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/dungeon_prison_broken"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/heat_trap_dead_end"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/hill_dead_end"), 4);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end"), 2);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/lava_dead_end_arcanium"), 1);
+        DEAD_END_ROOMS.addItem(new ArcanaStructureHandler("arcana/deadend/roamer_chamber"), 4);
 
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.DATTICON_WORKSHOP.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.KAZARI_ROOM.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.LEORNA_HUT.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.LORD_VATTICUS_STUDY.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.CAPTAIN_MERIK_FORGE.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.WAR_GENERAL_CHAMBER.get(), 4);
-        DEAD_END_NPC_ROOMS.addItem(StructureRegistry.ZELUS_FARM.get(), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/datticon_workshop"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/kazari_room"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/leorna_hut"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/lord_vatticus_study"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/captain_merik_forge"), 4);
+        //TODO: re-add war general chamber
+//        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/war_general_chamber"), 4);
+        DEAD_END_NPC_ROOMS.addItem(new ArcanaNPCRoomHandler("arcana/deadend/npc/zelus_farm"), 4);
 
-        HALLWAY_ROOMS.addItem(StructureRegistry.HEAT_TRAP_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.LAVA_HALLWAY.get(), 2);
-        HALLWAY_ROOMS.addItem(StructureRegistry.MAZE_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.PILLAR_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.RAMP_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.SERPENTINE_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.TILED_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.UTILITY_HALLWAY.get(), 4);
-        HALLWAY_ROOMS.addItem(StructureRegistry.V_HALLWAY.get(), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/heat_trap_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/lava_hallway"), 2);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/maze_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/pillar_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/ramp_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/serpentine_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/tiled_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaLootRoomHandler("arcana/hallway/utility_hallway"), 4);
+        HALLWAY_ROOMS.addItem(new ArcanaStructureHandler("arcana/hallway/v_hallway"), 4);
 
-        JUNCTION_ROOMS.addItem(StructureRegistry.DEGRADED_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.DEGRADED_MAZE_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.HEAT_TRAP_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.MOUND_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.SERPENTINE_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.STAIR_COLUMN_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.TRIDENT_JUNCTION.get(), 4);
-        JUNCTION_ROOMS.addItem(StructureRegistry.UTILITY_ROOM_JUNCTION.get(), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/degraded_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/degraded_maze_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/heat_trap_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/mound_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/serpentine_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/stair_column_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/trident_junction"), 4);
+        JUNCTION_ROOMS.addItem(new ArcanaStructureHandler("arcana/junction/utility_room_junction"), 4);
 
         TYPE_MAP.put(Cell.PieceType.CORNER, CORNER_ROOMS);
         TYPE_MAP.put(Cell.PieceType.CROSSROADS, CROSSROAD_ROOMS);
@@ -84,15 +83,15 @@ public class ArcanaRooms {
         TYPE_MAP.put(Cell.PieceType.HALLWAY, HALLWAY_ROOMS);
         TYPE_MAP.put(Cell.PieceType.JUNCTION, JUNCTION_ROOMS);
 
-        PORTAL_ROOMS.put(Cell.PieceType.CORNER, StructureRegistry.CORNER_PORTAL.get());
-        PORTAL_ROOMS.put(Cell.PieceType.CROSSROADS, StructureRegistry.CROSSROADS_PORTAL.get());
-        PORTAL_ROOMS.put(Cell.PieceType.DEAD_END, StructureRegistry.DEAD_END_PORTAL.get());
-        PORTAL_ROOMS.put(Cell.PieceType.HALLWAY, StructureRegistry.HALLWAY_PORTAL.get());
-        PORTAL_ROOMS.put(Cell.PieceType.JUNCTION, StructureRegistry.JUNCTION_PORTAL.get());
+        PORTAL_ROOMS.put(Cell.PieceType.CORNER, new ArcanaStructureHandler("arcana/portal/corner_portal"));
+        PORTAL_ROOMS.put(Cell.PieceType.CROSSROADS, new ArcanaStructureHandler("arcana/portal/crossroads_portal"));
+        PORTAL_ROOMS.put(Cell.PieceType.DEAD_END, new ArcanaStructureHandler("arcana/portal/dead_end_portal"));
+        PORTAL_ROOMS.put(Cell.PieceType.HALLWAY, new ArcanaStructureHandler("arcana/portal/hallway_portal"));
+        PORTAL_ROOMS.put(Cell.PieceType.JUNCTION, new ArcanaStructureHandler("arcana/portal/junction_portal"));
     }
 
-    public static Structure<?> getRandomStructureByType(Random random, Cell.PieceType type) {
-        WeightedRandom<Structure<?>> weightedRandom;
+    public static ArcanaStructureHandler getRandomStructureByType(Random random, Cell.PieceType type) {
+        WeightedRandom<ArcanaStructureHandler> weightedRandom;
         if (type == Cell.PieceType.CROSSROADS && random.nextInt(7) == 0) {
             weightedRandom = CROSSROAD_BOSS_ROOMS;
         } else if (type == Cell.PieceType.DEAD_END && random.nextInt(4) == 0) {
@@ -104,7 +103,7 @@ public class ArcanaRooms {
         return weightedRandom.selectRandomItem(random);
     }
 
-    public static Structure<?> getPortalRoomByType(Cell.PieceType type) {
+    public static ArcanaStructureHandler getPortalRoomByType(Cell.PieceType type) {
         return PORTAL_ROOMS.get(type);
     }
 }

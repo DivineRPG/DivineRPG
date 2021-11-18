@@ -1,11 +1,11 @@
 package divinerpg.world.arcana;
 
 import divinerpg.*;
-import net.minecraft.server.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.gen.feature.template.*;
+import net.minecraft.world.server.*;
 
 import javax.annotation.*;
 import java.util.*;
@@ -22,21 +22,15 @@ public class ArcanaStructureHandler {
     }
 
     //Replacement to make passing in predefined rotations easier
-    public boolean generateWithRotation(World worldIn, Random rand, BlockPos position, Rotation rotation) {
-        BlockPos size = this.getSize(worldIn);
-        BlockPos adjustedPosition = adjustForRotation(position, size, rotation);
-        generateStructure(worldIn, rand, rotation, adjustedPosition);
-        return true;
-    }
-
-    public void generateStructure(World world, Random random, Rotation rotation, BlockPos pos) {
+    public boolean generateWithRotation(ServerWorld world, Random rand, BlockPos pos, Rotation rotation) {
+        BlockPos size = this.getSize(world);
+        BlockPos adjustedPosition = adjustForRotation(pos, size, rotation);
         Template template = load(world);
 
         if (template != null) {
-            PlacementSettings placementSettings = getSettings(pos, rotation);
-            template.placeInWorld(world.getServer().getLevel(world.dimension()), pos, placementSettings, world.random);
-
+            template.placeInWorldChunk(world, adjustedPosition, new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK), rand);
         }
+        return true;
     }
 
     /*
@@ -58,11 +52,6 @@ public class ArcanaStructureHandler {
         }
     }
 
-
-    public PlacementSettings getSettings(BlockPos pos, Rotation rotation) {
-        return new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
-    }
-
     public BlockPos getSize(World world) {
         Template template = load(world);
         if (template != null) {
@@ -73,9 +62,8 @@ public class ArcanaStructureHandler {
 
     @Nullable
     private Template load(World world) {
-        MinecraftServer mcServer = world.getServer();
-        TemplateManager manager = mcServer.getStructureManager();
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, structureName);
-        return manager.get(location);
+        return world.getServer().getLevel(world.dimension()).getStructureManager().get(location);
     }
+
 }
