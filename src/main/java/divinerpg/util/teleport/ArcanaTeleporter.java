@@ -49,22 +49,40 @@ public class ArcanaTeleporter implements ITeleporter {
             BlockPos pos = locateOverworldPortal(this.world, chunkX, chunkZ);
             if(pos == null) {
                 BlockPos spawnPoint = null;
-                if(entity instanceof PlayerEntity) {
-                    PlayerEntity player = (PlayerEntity)entity;
-                    spawnPoint = player.level.getServer().getLevel(player.level.dimension()).getSharedSpawnPos();
+                if(entity instanceof ServerPlayerEntity) {
+                    ServerPlayerEntity player = (ServerPlayerEntity) entity;
+                    spawnPoint = player.getRespawnPosition();
                 }
                 if(spawnPoint == null) {
-                    //TODO - bed point
-                    spawnPoint = this.world.getSharedSpawnPos();
+                    ServerPlayerEntity player = (ServerPlayerEntity) entity;
+                    spawnPoint = player.getRespawnPosition();
                 }
-                entity.moveTo(spawnPoint, rotationYaw, entity.yRot);
+                entity.teleportTo(spawnPoint.getX(), getTopBlock(world, pos), spawnPoint.getZ());
             }
             else {
-                //TODO - spawn but top layer
-                entity.moveTo(pos, rotationYaw, entity.yRot);
+                    entity.teleportTo(pos.getX() + random.nextInt(3), getTopBlock(world, pos) + 1, pos.getZ() + random.nextInt(3));
             }
         }
     }
+    protected int getTopBlock(World world, BlockPos pos) {
+        int j;
+        int y=-1;
+        int k=0;
+        boolean topBlock = false;
+        for ( j=255; j>=63; j--) {
+            if (!world.getBlockState(pos.offset(0, j, 0)).getBlock().equals(Blocks.AIR)) {
+                topBlock=true;
+                k++;
+            }
+            if (topBlock && (k==1)) {
+                y=j;
+            }
+        }
+        System.out.println(k);
+        return y;
+    }
+
+
 
     private BlockPos locateOverworldPortal(World world, int chunkX, int chunkZ) {
         //Attempt to locate portal within chunks, going outwards
@@ -227,7 +245,11 @@ public class ArcanaTeleporter implements ITeleporter {
 
         entity.setPortalCooldown();
         entity = repositionEntity.apply(false);
-        entity.teleportTo(entity.getX(), 2, entity.getZ());
+        if(destWorld!= entity.level.getServer().getLevel(World.OVERWORLD)) {
+            entity.teleportTo(entity.getX(), 2, entity.getZ());
+        }else{
+            entity.teleportTo(entity.getX(), getTopBlock(world, new BlockPos(entity.getX(), entity.getY(), entity.getZ())), entity.getZ());
+        }
         return entity;
     }
 
