@@ -220,12 +220,15 @@ public class ArcanaTeleporter implements ITeleporter {
     @Override
     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
         if (entity instanceof ServerPlayerEntity) {
-        this.placeInPortal(entity, yaw);
-            return repositionEntity.apply(false);
+            this.placeInPortal(entity, yaw);
         } else {
-        this.placeInExistingPortal(entity, yaw);
-            return repositionEntity.apply(false);
-    }
+            this.placeInExistingPortal(entity, yaw);
+        }
+
+        entity.setPortalCooldown();
+        entity = repositionEntity.apply(false);
+        entity.teleportTo(entity.getX(), 2, entity.getZ());
+        return entity;
     }
 
 }

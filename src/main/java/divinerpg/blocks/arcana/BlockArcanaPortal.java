@@ -43,7 +43,7 @@ public class BlockArcanaPortal extends BlockMod {
     @Override
     public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && VoxelShapes.joinIsNotEmpty(VoxelShapes.create(entity.getBoundingBox().move((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getShape(world, pos), IBooleanFunction.AND)) {
-            ServerWorld serverworld = ((ServerWorld)world).getServer().getLevel(world.dimension() == KeyRegistry.ARCANA_WORLD ? World.OVERWORLD : KeyRegistry.ARCANA_WORLD);
+            ServerWorld serverworld = ((ServerWorld) world).getServer().getLevel(world.dimension() == KeyRegistry.ARCANA_WORLD ? World.OVERWORLD : KeyRegistry.ARCANA_WORLD);
             if (serverworld == null) {
                 return;
             }
@@ -51,8 +51,9 @@ public class BlockArcanaPortal extends BlockMod {
             if (destination == world.dimension()) {
                 destination = World.OVERWORLD;
             }
-
-            transferEntity(entity, world.getServer().getLevel(destination));
+            if (entity.getPortalWaitTime()>0) {
+                transferEntity(entity, world.getServer().getLevel(destination));
+            }
         }
     }
 
