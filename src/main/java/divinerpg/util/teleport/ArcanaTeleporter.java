@@ -60,6 +60,7 @@ public class ArcanaTeleporter implements ITeleporter {
                 entity.moveTo(spawnPoint, rotationYaw, entity.yRot);
             }
             else {
+                //TODO - spawn but top layer
                 entity.moveTo(pos, rotationYaw, entity.yRot);
             }
         }
@@ -141,7 +142,6 @@ public class ArcanaTeleporter implements ITeleporter {
 
             // Find existing portal, first check the room corresponding to the chunk as this covers the most likely cases
             if (this.world.getBlockState(new BlockPos(portalLocationX, portalLocationY, portalLocationZ)).getBlock() == BlockRegistry.arcanaHardPortalFrame) {
-                //TODO - place player in correct location
                 entity.moveTo(portalLocationX + 1.5D, portalLocationY, portalLocationZ + 2.5D, rotationYaw, 0.0F);
                 entity.xo = entity.yo = entity.zo = 0.0D;
                 return true;
