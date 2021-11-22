@@ -10,7 +10,6 @@ import net.minecraft.util.registry.*;
 import net.minecraft.village.*;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.blockstateprovider.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.*;
@@ -34,9 +33,6 @@ public class KeyRegistry {
             ARCANA_PORTAL = POI.register("arcana_portal", () -> new PointOfInterestType("arcana_portal", PointOfInterestType.getBlockStates(BlockRegistry.arcanaPortal), 0, 1)),
             ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PointOfInterestType("iceika_portal", PointOfInterestType.getBlockStates(BlockRegistry.iceikaPortal), 0, 1));
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
-
-
-    public static RegistryKey<DimensionSettings> ARCANA_NS;
 
     public static void init() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered registry keys");
