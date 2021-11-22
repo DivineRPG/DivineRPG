@@ -7,13 +7,11 @@ import divinerpg.world.*;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.gen.settings.*;
-import net.minecraft.world.spawner.*;
 
 public class ArcanaChunkGenerator extends DivineChunkGenerator {
     public static final Codec<ArcanaChunkGenerator> CODEC = RecordCodecBuilder.create(
@@ -37,7 +35,6 @@ public class ArcanaChunkGenerator extends DivineChunkGenerator {
         int x = region.getCenterX() * 16;
         int z = region.getCenterZ() * 16;
         BlockPos pos = new BlockPos(x, 0, z);
-        Biome biome = region.getBiome(pos.offset(16, 0, 16));
         long worldSeed = region.getSeed();
         Cell cell = ArcanaMazeGenerator.obtainMazePiece(region.getCenterX(), region.getCenterZ(), worldSeed);
         ArcanaStructureHandler toGenerate = ArcanaRooms.getRandomStructureByType(region.getRandom(), cell.getPieceType());
@@ -65,7 +62,6 @@ public class ArcanaChunkGenerator extends DivineChunkGenerator {
                         region.getRandom());
             }
         }
-        WorldEntitySpawner.spawnMobsForChunkGeneration(region, biome, x + 8, z + 8, region.getRandom());
     }
     private BlockPos adjustForRotation(BlockPos position, BlockPos size, Rotation rotation) {
         switch(rotation) {
