@@ -78,7 +78,6 @@ public class ArcanaTeleporter implements ITeleporter {
                 y=j;
             }
         }
-        System.out.println(k);
         return y;
     }
 
