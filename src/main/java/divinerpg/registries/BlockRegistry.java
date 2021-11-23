@@ -1262,8 +1262,8 @@ public class BlockRegistry {
 
         // Divine blocks
         register(registry, new BlockModSapling("divine_sapling", () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTree()));
-        register(registry, new BlockModLog("divine_log", MaterialColor.COLOR_YELLOW, () -> strippedDivineLog));
-        register(registry, new BlockModLog("stripped_divine_log", MaterialColor.COLOR_YELLOW, null));
+        register(registry, new BlockModLog("divine_log", MaterialColor.COLOR_YELLOW));
+        register(registry, new BlockModLog("stripped_divine_log", MaterialColor.COLOR_YELLOW));
         register(registry, new BlockModLeaves("divine_leaves", MaterialColor.COLOR_YELLOW, 0.3F));
         Block divinePlanks = new BlockMod("divine_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, divinePlanks);
@@ -1318,8 +1318,8 @@ public class BlockRegistry {
         register(registry, new BlockModDirt("frozen_dirt", 0.5F, MaterialColor.TERRACOTTA_WHITE));
         register(registry, new BlockModGrass("frozen_grass", () -> BlockRegistry.frozenDirt, 1, MaterialColor.COLOR_LIGHT_BLUE));
         register(registry, new BlockMod("frozen_stone", 6.0F, 3.0F));
-        register(registry, new BlockModLog("frozen_log", MaterialColor.TERRACOTTA_WHITE, () -> strippedFrozenLog));
-        register(registry, new BlockModLog("stripped_frozen_log", MaterialColor.TERRACOTTA_WHITE, null));
+        register(registry, new BlockModLog("frozen_log", MaterialColor.TERRACOTTA_WHITE));
+        register(registry, new BlockModLog("stripped_frozen_log", MaterialColor.TERRACOTTA_WHITE));
         register(registry, new BlockModLeaves("brittle_leaves", MaterialColor.TERRACOTTA_WHITE, 10));
         Block frozenPlanks = new BlockMod("frozen_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, frozenPlanks);
@@ -1400,18 +1400,18 @@ public class BlockRegistry {
         register(registry, new BlockModSapling("mortum_sapling", () -> mortumGrass, () -> mortumDirt, new MortumTree()));
 
         // Logs
-        register(registry, new BlockModLog("eden_log", MaterialColor.COLOR_YELLOW, () -> strippedEdenLog));
-        register(registry, new BlockModLog("wildwood_log", MaterialColor.COLOR_BLUE, () -> strippedWildwoodLog));
-        register(registry, new BlockModLog("apalachia_log", MaterialColor.COLOR_PURPLE, () -> strippedApalachiaLog));
-        register(registry, new BlockModLog("skythern_log", MaterialColor.COLOR_GRAY, () -> strippedSkythernLog));
-        register(registry, new BlockModLog("mortum_log", MaterialColor.COLOR_RED, () -> strippedMortumLog));
+        register(registry, new BlockModLog("eden_log", MaterialColor.COLOR_YELLOW));
+        register(registry, new BlockModLog("wildwood_log", MaterialColor.COLOR_BLUE));
+        register(registry, new BlockModLog("apalachia_log", MaterialColor.COLOR_PURPLE));
+        register(registry, new BlockModLog("skythern_log", MaterialColor.COLOR_GRAY));
+        register(registry, new BlockModLog("mortum_log", MaterialColor.COLOR_RED));
 
         // Stripped Logs
-        register(registry, new BlockModLog("stripped_eden_log", MaterialColor.COLOR_YELLOW, null));
-        register(registry, new BlockModLog("stripped_wildwood_log", MaterialColor.COLOR_BLUE, null));
-        register(registry, new BlockModLog("stripped_apalachia_log", MaterialColor.COLOR_PURPLE, null));
-        register(registry, new BlockModLog("stripped_skythern_log", MaterialColor.COLOR_GRAY, null));
-        register(registry, new BlockModLog("stripped_mortum_log", MaterialColor.COLOR_RED, null));
+        register(registry, new BlockModLog("stripped_eden_log", MaterialColor.COLOR_YELLOW));
+        register(registry, new BlockModLog("stripped_wildwood_log", MaterialColor.COLOR_BLUE));
+        register(registry, new BlockModLog("stripped_apalachia_log", MaterialColor.COLOR_PURPLE));
+        register(registry, new BlockModLog("stripped_skythern_log", MaterialColor.COLOR_GRAY));
+        register(registry, new BlockModLog("stripped_mortum_log", MaterialColor.COLOR_RED));
 
         // Leaves
         register(registry, new BlockModLeaves("eden_leaves", MaterialColor.COLOR_YELLOW, 0.5F));
@@ -1570,8 +1570,8 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("stained_glass8", 0.3F));
 
         // Eucalyptus
-        register(registry, new BlockModLog("eucalyptus_log", MaterialColor.COLOR_PINK, () -> strippedEucalyptusLog));
-        register(registry, new BlockModLog("stripped_eucalyptus_log", MaterialColor.COLOR_PINK, null));
+        register(registry, new BlockModLog("eucalyptus_log", MaterialColor.COLOR_PINK));
+        register(registry, new BlockModLog("stripped_eucalyptus_log", MaterialColor.COLOR_PINK));
         Block eucalyptusPlanks = new BlockMod("eucalyptus_planks", 2.0F, 3.0F, Material.WOOD);
         register(registry, eucalyptusPlanks);
         register(registry, new BlockModStairs("eucalyptus_stairs", eucalyptusPlanks));
@@ -1609,16 +1609,16 @@ public class BlockRegistry {
         register(registry, new BlockMod("dream_stone", 1.5F), true);
 
         // Logs
-        register(registry, new BlockModLog("dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE, () -> strippedDreamwoodLog, 5.0F), true);
-        register(registry, new BlockModLog("firewood_log", MaterialColor.COLOR_RED, () -> strippedFirewoodLog, 5.0F), true);
-        register(registry, new BlockModLog("hyrewood_log", MaterialColor.COLOR_BLUE, () -> strippedHyrewoodLog, 5.0F), true);
-        register(registry, new BlockModLog("mintwood_log", MaterialColor.COLOR_LIGHT_BLUE, () -> strippedMintwoodLog, 5.0F), true);
+        register(registry, new BlockModLog("dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE), true);
+        register(registry, new BlockModLog("firewood_log", MaterialColor.COLOR_RED), true);
+        register(registry, new BlockModLog("hyrewood_log", MaterialColor.COLOR_BLUE), true);
+        register(registry, new BlockModLog("mintwood_log", MaterialColor.COLOR_LIGHT_BLUE), true);
 
         // Stripped Logs
-        register(registry, new BlockModLog("stripped_dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_firewood_log", MaterialColor.COLOR_RED, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_hyrewood_log", MaterialColor.COLOR_BLUE, null, 5.0F), true);
-        register(registry, new BlockModLog("stripped_mintwood_log", MaterialColor.COLOR_LIGHT_BLUE, null, 5.0F), true);
+        register(registry, new BlockModLog("stripped_dreamwood_log", MaterialColor.COLOR_LIGHT_BLUE), true);
+        register(registry, new BlockModLog("stripped_firewood_log", MaterialColor.COLOR_RED), true);
+        register(registry, new BlockModLog("stripped_hyrewood_log", MaterialColor.COLOR_BLUE), true);
+        register(registry, new BlockModLog("stripped_mintwood_log", MaterialColor.COLOR_LIGHT_BLUE), true);
 
         // Leaves
         register(registry, new BlockModLeaves("dreamwood_leaves", MaterialColor.COLOR_RED, 0.1F), true);
