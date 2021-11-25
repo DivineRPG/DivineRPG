@@ -9,6 +9,7 @@ public class BlockModLadder extends LadderBlock {
                 .strength(0.4F, 3.0F)
                 .sound(SoundType.LADDER)
                 .dynamicShape()
+                .noOcclusion()
                 .requiresCorrectToolForDrops());
         setRegistryName(name);
     }

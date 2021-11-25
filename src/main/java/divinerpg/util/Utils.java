@@ -4,6 +4,9 @@ import com.google.gson.*;
 import com.mojang.util.*;
 import divinerpg.registries.*;
 import io.netty.util.internal.*;
+import net.minecraft.entity.*;
+import net.minecraft.tileentity.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import org.apache.commons.io.*;
@@ -131,5 +134,32 @@ public class Utils {
 
         return false;
     }
+    /**
+     * Spawns a persistent entity at the given location.
+     *
+     * @param world the world to spawn the entity in
+     * @param pos the position to spawn the entity at
+     * @param entity the entity to spawn
+     */
+    public static void spawnPersistentEntity(World world, BlockPos pos, LivingEntity entity) {
+        entity.revive();
+        entity.moveTo(pos, 0.0F, 0.0F);
+        world.addFreshEntity(entity);
+    }
 
+    /**
+     * Populates the loot chest below the given position.
+     *
+     * @param world the world
+     * @param pos the position above the chest
+     * @param rand the seeded random number generator
+     * @param lootTable the loot table to fill it with
+     */
+    public static void populateLootChestBelow(World world, BlockPos pos, Random rand, ResourceLocation lootTable) {
+        BlockPos chestPosition = pos.below();
+        TileEntity tileEntity = world.getBlockEntity(chestPosition);
+        if(tileEntity instanceof LockableLootTileEntity) {
+            ((LockableLootTileEntity)tileEntity).setLootTable(lootTable, rand.nextLong());
+        }
+    }
 }

@@ -6,24 +6,23 @@
     "piglin_safe": false,
     "respawn_anchor_works": false,
     "bed_works": false,
-    "has_raids": false,
+    "has_raids": true,
     "has_skylight": true,
-    "has_ceiling": true,
+    "has_ceiling": false,
     "coordinate_scale": 1,
-    "ambient_light": 1,
+    "ambient_light": 0,
     "logical_height": 256,
     "infiniburn": "minecraft:infiniburn_overworld"
   },
   "generator": {
-    "type": "minecraft:flat",
-    "seed": 1342543243,
-    "settings": {
-      "biome": "divinerpg:arcana",
-      "lakes": false,
-      "features": false,
-      "layers": [],
+    "type": "divinerpg:arcana",
+    "seed": 711147260,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "divinerpg:arcana"
+    },
+    "structures": {
       "structures": {
-        "structures": {}
       }
     }
   }

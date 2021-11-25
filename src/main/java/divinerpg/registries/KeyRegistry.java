@@ -3,6 +3,7 @@ package divinerpg.registries;
 import com.google.common.collect.*;
 import divinerpg.*;
 import divinerpg.config.*;
+import divinerpg.world.arcana.*;
 import divinerpg.world.gen.tree.decorator.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
@@ -72,6 +73,7 @@ public class KeyRegistry {
 
         ARCANA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "arcana"));
         ARCANA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "arcana"));
+        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(DivineRPG.MODID, "arcana"), ArcanaChunkGenerator.CODEC);
 
         VETHEA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
         VETHEA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));

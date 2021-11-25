@@ -17,7 +17,52 @@
     "grass_color_modifier": "none"
   },
   "starts": [],
-  "spawners": {},
+  "spawners": {
+    "creature": [
+      {
+        "type": "divinerpg:deathcryx",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:death_hound",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:dungeon_constructor",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:dungeon_prisoner",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:living_statue",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:razorback",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:roamer",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ]
+  },
   "spawn_costs": {},
   "carvers": {},
   "features": []

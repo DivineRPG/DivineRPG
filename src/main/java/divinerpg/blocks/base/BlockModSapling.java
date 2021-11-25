@@ -14,13 +14,7 @@ public class BlockModSapling extends SaplingBlock {
     private final Supplier<Block> dirtSupplier;
 
     public BlockModSapling(String name, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, Tree tree) {
-        super(tree, Properties.of(Material.PLANT)
-                .dynamicShape()
-                .randomTicks()
-                .noOcclusion()
-                .noCollission()
-                .instabreak()
-                .sound(SoundType.WET_GRASS));
+        super(tree, AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
         setRegistryName(DivineRPG.MODID, name);
         this.grassSupplier = grassSupplier;
         this.dirtSupplier = dirtSupplier;

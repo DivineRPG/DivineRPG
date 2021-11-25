@@ -1,5 +1,6 @@
 package divinerpg;
 
+import com.google.common.collect.*;
 import divinerpg.capability.*;
 import divinerpg.client.*;
 import divinerpg.compat.*;
@@ -7,7 +8,9 @@ import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.data.*;
+import net.minecraft.item.*;
 import net.minecraftforge.common.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.*;
@@ -55,6 +58,25 @@ public class DivineRPG {
         StructureRegistry.setupStructures();
         ConfiguredStructureRegistry.registerConfiguredStructures();
 
+
+
+
+        event.enqueueWork(() -> {
+            AxeItem.STRIPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPABLES)
+                    .put(BlockRegistry.apalachiaLog, BlockRegistry.strippedApalachiaLog)
+                    .put(BlockRegistry.divineLog, BlockRegistry.strippedDivineLog)
+                    .put(BlockRegistry.dreamwoodLog, BlockRegistry.strippedDreamwoodLog)
+                    .put(BlockRegistry.edenLog, BlockRegistry.strippedEdenLog)
+                    .put(BlockRegistry.eucalyptusLog, BlockRegistry.strippedEucalyptusLog)
+                    .put(BlockRegistry.firewoodLog, BlockRegistry.strippedFirewoodLog)
+                    .put(BlockRegistry.frozenLog, BlockRegistry.strippedFrozenLog)
+                    .put(BlockRegistry.hyrewoodLog, BlockRegistry.strippedHyrewoodLog)
+                    .put(BlockRegistry.mintwoodLog, BlockRegistry.strippedMintwoodLog)
+                    .put(BlockRegistry.mortumLog, BlockRegistry.strippedMortumLog)
+                    .put(BlockRegistry.skythernLog, BlockRegistry.strippedSkythernLog)
+                    .put(BlockRegistry.wildwoodLog, BlockRegistry.strippedWildwoodLog)
+                    .build();
+        });
     }
 
     private void client(final FMLClientSetupEvent event) {

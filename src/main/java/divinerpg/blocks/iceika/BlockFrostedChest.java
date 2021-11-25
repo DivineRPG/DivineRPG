@@ -21,9 +21,6 @@ public class BlockFrostedChest extends BlockModChest {
         super(name, Properties.of(Material.GLASS).strength(2.5F).sound(SoundType.GLASS), () -> TileRegistry.FROSTED_CHEST);
     }
 
-    public int getGuiID() {
-        return 5;
-    }
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
@@ -34,8 +31,7 @@ public class BlockFrostedChest extends BlockModChest {
     public void playerDestroy(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
         super.playerDestroy(world, player, pos, state, te, stack);
         if (player instanceof ServerPlayerEntity) {
-            //TODO - frosted chest advancement trigger
-//            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayerEntity) player, this);
+            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayerEntity) player, this);
         }
     }
 

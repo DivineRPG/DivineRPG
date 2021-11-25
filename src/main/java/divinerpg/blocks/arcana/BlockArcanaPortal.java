@@ -1,6 +1,8 @@
 package divinerpg.blocks.arcana;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
+import divinerpg.util.teleport.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.*;
@@ -8,29 +10,26 @@ import net.minecraft.entity.player.*;
 import net.minecraft.fluid.*;
 import net.minecraft.item.*;
 import net.minecraft.particles.*;
-import net.minecraft.tileentity.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
 import net.minecraft.world.*;
 import net.minecraft.world.server.*;
 import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.common.util.*;
 
 import java.util.*;
 
-public class BlockArcanaPortal extends ContainerBlock {
+public class BlockArcanaPortal extends BlockMod {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockArcanaPortal(String name) {
-        super(AbstractBlock.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLUE).noCollission().lightLevel((p_235460_0_) -> {
+        super(name, AbstractBlock.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLUE).noCollission().lightLevel((p_235460_0_) -> {
             return 15;
         }).strength(-1.0F, 3600000.0F).noDrops());
-        setRegistryName(name);
     }
 
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-//        return new PortalEntity();
-    return null;
-    }
+
 
     public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
         return SHAPE;
@@ -44,12 +43,17 @@ public class BlockArcanaPortal extends ContainerBlock {
     @Override
     public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && VoxelShapes.joinIsNotEmpty(VoxelShapes.create(entity.getBoundingBox().move((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getShape(world, pos), IBooleanFunction.AND)) {
-            ServerWorld serverworld = ((ServerWorld)world).getServer().getLevel(world.dimension() == KeyRegistry.ARCANA_WORLD ? World.OVERWORLD : KeyRegistry.ARCANA_WORLD);
+            ServerWorld serverworld = ((ServerWorld) world).getServer().getLevel(world.dimension() == KeyRegistry.ARCANA_WORLD ? World.OVERWORLD : KeyRegistry.ARCANA_WORLD);
             if (serverworld == null) {
                 return;
             }
-            entity.changeDimension(serverworld);
-            //TODO - place arcana portal inside arcana when teleporting
+            RegistryKey<World> destination = KeyRegistry.ARCANA_WORLD;
+            if (destination == world.dimension()) {
+                destination = World.OVERWORLD;
+            }
+            if (entity.getPortalWaitTime()>0) {
+                transferEntity(entity, world.getServer().getLevel(destination));
+            }
         }
     }
 
@@ -67,5 +71,19 @@ public class BlockArcanaPortal extends ContainerBlock {
 
     public boolean canBeReplaced(BlockState p_225541_1_, Fluid p_225541_2_) {
         return false;
+    }
+
+    public static void transferEntity(Entity e, ServerWorld modDimension) {
+        if (e == null || modDimension == null)
+            return;
+
+        ITeleporter teleporter;
+        if(e.level.dimension() == KeyRegistry.ARCANA_WORLD) {
+            teleporter = new ArcanaTeleporter(e.getServer().getLevel(World.OVERWORLD));
+        }
+        else {
+            teleporter = new ArcanaTeleporter(e.getServer().getLevel(KeyRegistry.ARCANA_WORLD));
+        }
+        e.changeDimension(modDimension, teleporter);
     }
 }
