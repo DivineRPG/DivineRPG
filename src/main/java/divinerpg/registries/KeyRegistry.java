@@ -34,6 +34,9 @@ public class KeyRegistry {
             ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PointOfInterestType("iceika_portal", PointOfInterestType.getBlockStates(BlockRegistry.iceikaPortal), 0, 1));
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
+
+    public static IStructureProcessorType<ArcanaStructureBlockProcessor> CHEST_PROCESSOR = () -> ArcanaStructureBlockProcessor.CODEC;
+
     public static void init() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered registry keys");
 
@@ -83,6 +86,8 @@ public class KeyRegistry {
         ICEIKA_HILLS_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika_hills"));
         ICEIKA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika"));
         ICEIKA_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika"));
+
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(DivineRPG.MODID, "chest_processor"), CHEST_PROCESSOR);
     }
 
 
