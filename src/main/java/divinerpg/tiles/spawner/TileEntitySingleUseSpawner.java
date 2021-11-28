@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.tiles.spawner;
 
 
 import divinerpg.registries.*;

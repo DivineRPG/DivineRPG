@@ -1,7 +1,7 @@
 package divinerpg.blocks.base;
 
 import divinerpg.registries.*;
-import divinerpg.tiles.*;
+import divinerpg.tiles.spawner.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.*;

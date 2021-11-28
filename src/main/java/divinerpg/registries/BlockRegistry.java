@@ -1107,6 +1107,22 @@ public class BlockRegistry {
     @ObjectHolder("vethea_portal")
     public static final Block vetheaPortal = null;
 
+
+    @ObjectHolder("captain_merik_spawner")
+    public static final Block captainMerikSpawner = null;
+    @ObjectHolder("datticon_spawner")
+    public static final Block datticonSpawner = null;
+    @ObjectHolder("kazari_spawner")
+    public static final Block kazariSpawner = null;
+    @ObjectHolder("leorna_spawner")
+    public static final Block leornaSpawner = null;
+    @ObjectHolder("lord_vatticus_spawner")
+    public static final Block lordVatticusSpawner = null;
+    @ObjectHolder("war_general_spawner")
+    public static final Block warGeneralSpawner = null;
+    @ObjectHolder("zelus_spawner")
+    public static final Block zelusSpawner = null;
+
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
         DivineRPG.LOGGER.info("[DivineRPG] Registered blocks");
@@ -1600,6 +1616,14 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockModWallTorch("arcanium_wall_torch", ParticleTypes.FLAME));
         register(registry, new BlockElevantium("elevantium"), false, true);
         register(registry, new BlockModBridge("star_bridge", 1.5F));
+
+        register(registry, new BlockArcanaSpawner("captain_merik_spawner", EntityRegistry.CAPTAIN_MERIK));
+        register(registry, new BlockArcanaSpawner("datticon_spawner", EntityRegistry.DATTICON));
+        register(registry, new BlockArcanaSpawner("kazari_spawner", EntityRegistry.KAZARI));
+        register(registry, new BlockArcanaSpawner("leorna_spawner", EntityRegistry.LEORNA));
+        register(registry, new BlockArcanaSpawner("lord_vatticus_spawner", EntityRegistry.LORD_VATTICUS));
+        register(registry, new BlockArcanaSpawner("war_general_spawner", EntityRegistry.WAR_GENERAL));
+        register(registry, new BlockArcanaSpawner("zelus_spawner", EntityRegistry.ZELUS));
 
         // Vethea
 
