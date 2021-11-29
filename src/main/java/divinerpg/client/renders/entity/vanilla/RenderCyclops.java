@@ -18,7 +18,7 @@ public class RenderCyclops extends MobRenderer<EntityCyclops, ModelCyclops<Entit
         super(renderManagerIn, new ModelCyclops<EntityCyclops>(1), 0.8F);
     }
     protected void scale(EntityCyclops entity, MatrixStack matrixStackIn, float partialTickTime) {
-        matrixStackIn.scale(2, 2, 2);
+        matrixStackIn.scale(1.5F, 2, 1.5F);
     }
 
     public ResourceLocation getTextureLocation(EntityCyclops entity) {
