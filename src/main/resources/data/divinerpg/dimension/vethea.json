@@ -1,0 +1,29 @@
+{
+  "type": {
+    "name": "divinerpg:vethea",
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": false,
+    "has_raids": true,
+    "has_skylight": true,
+    "has_ceiling": false,
+    "coordinate_scale": 1,
+    "ambient_light": 0,
+    "logical_height": 256,
+    "infiniburn": "minecraft:infiniburn_overworld"
+  },
+  "generator": {
+    "type": "divinerpg:vethea",
+    "seed": 7111475230,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "divinerpg:vethea"
+    },
+    "structures": {
+      "structures": {
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import divinerpg.*;
 import divinerpg.config.*;
 import divinerpg.world.arcana.*;
 import divinerpg.world.gen.tree.decorator.*;
+import divinerpg.world.vethea.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.village.*;
@@ -81,6 +82,7 @@ public class KeyRegistry {
         VETHEA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
         VETHEA_WORLD = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
         VETHEA_BUILDER = RegistryKey.create(Registry.SURFACE_BUILDER_REGISTRY, new ResourceLocation(DivineRPG.MODID, "vethea"));
+        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(DivineRPG.MODID, "vethea"), VetheaChunkGenerator.CODEC);
 
         ICEIKA_PLAINS_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika_plains"));
         ICEIKA_HILLS_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DivineRPG.MODID, "iceika_hills"));

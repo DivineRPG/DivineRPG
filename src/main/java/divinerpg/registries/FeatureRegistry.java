@@ -3,6 +3,7 @@ package divinerpg.registries;
 import divinerpg.*;
 import divinerpg.config.*;
 import divinerpg.world.gen.tree.feature.*;
+import divinerpg.world.vethea.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
@@ -31,8 +32,10 @@ public class FeatureRegistry {
     public static final RegistryObject<DivineTreeFeature> MORTUM_TREE = register("mortum_tree", () -> new MortumTreeFeature(() -> BlockRegistry.mortumSapling));
     public static final RegistryObject<DivineTreeFeature> FROZEN_TREE = register("frozen_tree", () -> new FrozenTreeFeature(() -> BlockRegistry.frozenSapling));
     public static final RegistryObject<MortumPlants> MORTUM_BRUSH = register("mortum_plants", () -> new MortumPlants(BlockStateProvidingFeatureConfig.CODEC));
+    public static final RegistryObject<VetheaPillarFeature> VETHEA_PILLAR = register("vethea_pillar", () -> new VetheaPillarFeature(BlockStateFeatureConfig.CODEC, 32));
 
     public static ConfiguredFeature<?, ?> TAR_LAKE;
+    public static ConfiguredFeature<?, ?> VETHEA_PILLAR_CONFIGURED;
 
 
 
@@ -53,6 +56,10 @@ public class FeatureRegistry {
                 .configured(new BlockStateFeatureConfig(BlockRegistry.smolderingTar.defaultBlockState()))
                 .decorated(DecoratorRegistry.TAR_LAKE.get().configured(new ChanceConfig(5)));
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "tar_lake"), TAR_LAKE);
+
+        VETHEA_PILLAR_CONFIGURED = VETHEA_PILLAR.get().configured(new BlockStateFeatureConfig(BlockRegistry.dreamStone.defaultBlockState())).decorated(DecoratorRegistry.VETHEA_PILLARS.get().configured(new ChanceConfig(400000)));
+        Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "vethea_pillar"), VETHEA_PILLAR_CONFIGURED);
+
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

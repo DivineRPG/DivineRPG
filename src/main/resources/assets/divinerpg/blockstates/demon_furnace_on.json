@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/demon_furnace_on"
-      }
-    }
-  ]
-}

@@ -1,0 +1,28 @@
+{
+  "surface_builder": "minecraft:nope",
+  "depth": 0,
+  "scale": 0,
+  "temperature": 0.5,
+  "downfall": 0,
+  "precipitation": "none",
+  "temperature_modifier": "none",
+  "category": "none",
+  "player_spawn_friendly": true,
+  "effects": {
+    "sky_color": 9108991,
+    "fog_color": 8937217,
+    "water_color": 5013734,
+    "water_fog_color": 329011,
+    "grass_color": 80917,
+    "foliage_color": 1786368
+  },
+  "starts": [],
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [
+      "divinerpg:vethea_pillar"
+    ]
+  ]
+}

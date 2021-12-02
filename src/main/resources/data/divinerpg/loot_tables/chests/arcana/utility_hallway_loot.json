@@ -25,6 +25,7 @@
           "type": "minecraft:tag",
           "weight": 6,
           "name": "minecraft:planks",
+          "expand": false,
           "functions": [
             {
               "function": "minecraft:set_count",
