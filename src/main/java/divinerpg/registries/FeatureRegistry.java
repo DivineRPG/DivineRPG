@@ -33,9 +33,11 @@ public class FeatureRegistry {
     public static final RegistryObject<DivineTreeFeature> FROZEN_TREE = register("frozen_tree", () -> new FrozenTreeFeature(() -> BlockRegistry.frozenSapling));
     public static final RegistryObject<MortumPlants> MORTUM_BRUSH = register("mortum_plants", () -> new MortumPlants(BlockStateProvidingFeatureConfig.CODEC));
     public static final RegistryObject<VetheaPillarFeature> VETHEA_PILLAR = register("vethea_pillar", () -> new VetheaPillarFeature(BlockStateFeatureConfig.CODEC, 32));
+    public static final RegistryObject<FireCrystalFeature> FIRE_CRYSTAL = register("fire_crystal", () -> new FireCrystalFeature(NoFeatureConfig.CODEC));
 
-    public static ConfiguredFeature<?, ?> TAR_LAKE;
+    public static ConfiguredFeature<?, ?> TAR_LAKE_CONFIGURED;
     public static ConfiguredFeature<?, ?> VETHEA_PILLAR_CONFIGURED;
+    public static ConfiguredFeature<?, ?> FIRE_CRYSTAL_CONFIGURED;
 
 
 
@@ -52,13 +54,16 @@ public class FeatureRegistry {
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
 
         //TODO - change tar lake to a custom feature so we get twilight stone instead of stone in twilight dimensions
-        TAR_LAKE = Feature.LAKE
+        TAR_LAKE_CONFIGURED = Feature.LAKE
                 .configured(new BlockStateFeatureConfig(BlockRegistry.smolderingTar.defaultBlockState()))
                 .decorated(DecoratorRegistry.TAR_LAKE.get().configured(new ChanceConfig(5)));
-        Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "tar_lake"), TAR_LAKE);
+        Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "tar_lake"), TAR_LAKE_CONFIGURED);
 
         VETHEA_PILLAR_CONFIGURED = VETHEA_PILLAR.get().configured(new BlockStateFeatureConfig(BlockRegistry.dreamStone.defaultBlockState())).decorated(DecoratorRegistry.VETHEA_PILLARS.get().configured(new ChanceConfig(400000)));
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "vethea_pillar"), VETHEA_PILLAR_CONFIGURED);
+
+        FIRE_CRYSTAL_CONFIGURED = FIRE_CRYSTAL.get().configured(new NoFeatureConfig()).chance(500);
+        Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "fire_crystal"), FIRE_CRYSTAL_CONFIGURED);
 
     }
 
@@ -80,7 +85,7 @@ public class FeatureRegistry {
         if(!event.getCategory().equals(Biome.Category.NETHER) || !event.getCategory().equals(Biome.Category.THEEND) || !event.getCategory().equals(Biome.Category.JUNGLE) || !event.getCategory().equals(Biome.Category.SWAMP) || !event.getCategory().equals(Biome.Category.MESA) || !event.getCategory().equals(Biome.Category.MUSHROOM)){
             generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.decorated(Placement.CHANCE.configured(new ChanceConfig(25))).count(2));
 
-            generation.addFeature(GenerationStage.Decoration.LAKES, TAR_LAKE.decorated(Placement.CHANCE.configured(new ChanceConfig(50))).count(1));
+            generation.addFeature(GenerationStage.Decoration.LAKES, TAR_LAKE_CONFIGURED.decorated(Placement.CHANCE.configured(new ChanceConfig(50))).count(1));
         }
 
         if(event.getCategory().equals(Biome.Category.PLAINS)) {

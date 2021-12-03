@@ -76,27 +76,6 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 
 
     private void customize(VetheaLevelGenerators level, int position) {
-        //
-        // Crystal lakes
-        //
-//        WorldGenMinable large = new WorldGenMinable(BlockRegistry.fireCrystal.defaultBlockState(),
-//                50,
-//                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
-//
-//        WorldGenMinable meduim = new WorldGenMinable(BlockRegistry.fireCrystal.defaultBlockState(),
-//                45,
-//                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
-//
-//        WorldGenMinable small = new WorldGenMinable(BlockRegistry.fireCrystal.defaultBlockState(),
-//                20,
-//                BlockStateMatcher.forBlock(BlockRegistry.dreamGrass));
-
-        // surface Y pos for current floor
-        int surfaceLevel = position * floorHeight + roofHeight;
-
-//        level.addWorldGen(new FeatureEnhanced(large, 7 * 6, surfaceLevel));
-//        level.addWorldGen(new FeatureEnhanced(meduim, 2 * 6, surfaceLevel));
-//        level.addWorldGen(new FeatureEnhanced(small, 6, surfaceLevel));
 
         // ************************************************************************************
 

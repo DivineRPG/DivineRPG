@@ -56,6 +56,7 @@ public class VetheaLevelGenerators {
         BlockPos.betweenClosed(0, startHeight, 0, maxWidth, maxStoneLevel, maxWidth)
                 .forEach(pos -> region.setBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ()).mutable(), BlockRegistry.dreamStone.defaultBlockState(), false));
 
+
         // dirt level (1)
         BlockPos.betweenClosed(0, dirtLevel, 0, maxWidth, dirtLevel, maxWidth)
                 .forEach(pos -> region.setBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ()).mutable(), BlockRegistry.dreamDirt.defaultBlockState(), false));
@@ -64,5 +65,6 @@ public class VetheaLevelGenerators {
         // earth level (1)
         BlockPos.betweenClosed(0, earthLevel, 0, maxWidth, earthLevel, maxWidth)
                 .forEach(pos -> region.setBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ()).mutable(), BlockRegistry.dreamGrass.defaultBlockState(), false));
+
     }
 }
