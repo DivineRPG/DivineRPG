@@ -2,6 +2,7 @@ package divinerpg.blocks.vethea;
 
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
+import divinerpg.util.*;
 import divinerpg.util.teleport.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -45,9 +46,18 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
     }
 
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if(!worldIn.isClientSide) {
-        player.changeDimension(player.getServer().getLevel(player.level.dimension()), new SecondaryTeleporter(player.getServer().getLevel(KeyRegistry.VETHEA_WORLD), player.getSleepingPos().get().getX(), player.getSleepingPos().get().getY(), player.getSleepingPos().get().getZ()));
-    }
+        if (!worldIn.isClientSide) {
+            if (worldIn.dimension().getRegistryName() == Dimension.OVERWORLD.getRegistryName()) {
+                if (worldIn.getLightEmission(pos) < 7) {
+                    player.changeDimension(player.getServer().getLevel(KeyRegistry.VETHEA_WORLD), new VetheaTeleporter(worldIn.getServer().getLevel(KeyRegistry.VETHEA_WORLD)));
+                } else {
+                    player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.nightmare_bed.restrict"), player.getUUID());
+                }
+            } else {
+                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.nightmare_bed.overworld_only"), player.getUUID());
+            }
+        }
+
         return ActionResultType.PASS;
     }
 

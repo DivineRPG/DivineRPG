@@ -16,6 +16,7 @@ public class VetheaInventorySwapEvent {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event){
+        //TODO - make vethea inventory swap back to overworld when leaving vethea
         if (event.isCanceled() || !(event.getEntity() instanceof PlayerEntity))
             return;
 

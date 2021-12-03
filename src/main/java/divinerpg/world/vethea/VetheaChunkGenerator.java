@@ -3,15 +3,12 @@ package divinerpg.world.vethea;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import divinerpg.*;
-import divinerpg.registries.*;
 import divinerpg.world.*;
-import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.settings.*;
 
@@ -71,7 +68,6 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 //            int houseNumber = this.rand.nextInt(StructureRegistry.HUNGER_HOUSES.length);
 //            StructureRegistry.HUNGER_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y, z));
         }
-//        levels.forEach(level -> level.generateChunk(, x, z));
         this.rand.setSeed(region.getCenterX() * k + region.getCenterZ() * l ^ region.getSeed());
         super.applyBiomeDecoration(region, structureManager);
     }
@@ -112,28 +108,22 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
                     new BlockPos(11, (floorHeight - roofHeight) / 2, 11));
 
             // trees will be over player height
-            level.addWorldGen(new FeatureEnhanced(tree, 5, surfaceLevel + 8));
+//            level.addWorldGen(new FeatureEnhanced(tree, 5, surfaceLevel + 8));
         }
 
         // ************************************************************************************
 
-        //
-        // Pillar (does not generate on the top layer)
-        //
-        if(position < 3) {
-            level.addWorldGen(new FeatureEnhanced(new VetheaPillarFeature(BlockStateFeatureConfig.CODEC, floorHeight - roofHeight), 24, surfaceLevel));
-        }
 
         //
         // Infusion
         //
-        level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels("infusionoutpost"), true), 43, surfaceLevel));
+//        level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels("infusionoutpost"), true), 43, surfaceLevel));
 
         //
         // Lamps
         //
         for (int i = 1; i <= 2; i++) {
-            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(String.format("lamp%s", i)), new BlockPos(10, 0, 10)), 40, surfaceLevel));
+//            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(String.format("lamp%s", i)), new BlockPos(10, 0, 10)), 40, surfaceLevel));
         }
 
         //
@@ -142,7 +132,7 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         String[] items = {"bow", "hook", "mushroom", "pickaxe", "pointedsquare", "ring", "sword", "trident"};
 
         for (String item : items) {
-            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(item), new BlockPos(3, 0, 16)), 60, surfaceLevel));
+//            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(item), new BlockPos(3, 0, 16)), 60, surfaceLevel));
         }
 
         //
@@ -154,13 +144,12 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 //                level.addStructure(new Crypt1(world, 10));
 //                level.addStructure(new Crypt2(world, 12));
 //
-                for (int i = 4; i <= 6; i++) {
-                    level.addWorldGen(new FeatureEnhanced(
-                            new TemplatePlacer(createForVethea(position, "tree" + i),
-                                    true), 24, surfaceLevel));
-                }
+//                for (int i = 4; i <= 6; i++) {
+//                    level.addWorldGen(new FeatureEnhanced(
+//                            new TemplatePlacer(createForVethea(position, "tree" + i),
+//                                    true), 24, surfaceLevel));
+//                }
 
-                addFlowers(level, surfaceLevel, BlockRegistry.greenGemtop, BlockRegistry.purpleGemtop, BlockRegistry.yellowDulah, BlockRegistry.greenDulah);
                 break;
 
             case 1:
@@ -170,15 +159,14 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 //                level.addStructure(new Temple2(world, 64));
 
 
-                level.addWorldGen(new FeatureEnhanced(
-                        new TemplatePlacer(createForVethea(position, "tree3"),
-                                true), 10, surfaceLevel));
+//                level.addWorldGen(new FeatureEnhanced(
+//                        new TemplatePlacer(createForVethea(position, "tree3"),
+//                                true), 10, surfaceLevel));
 
-                level.addWorldGen(new FeatureEnhanced(
-                        new TemplatePlacer(createForVethea(0, "tree3"),
-                                true), 10, surfaceLevel));
+//                level.addWorldGen(new FeatureEnhanced(
+//                        new TemplatePlacer(createForVethea(0, "tree3"),
+//                                true), 10, surfaceLevel));
 
-                addFlowers(level, surfaceLevel, BlockRegistry.fernite, BlockRegistry.dreamglow, BlockRegistry.shimmer);
                 break;
 
             case 2:
@@ -186,13 +174,12 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 //                level.addStructure(new QuadroticPost(world, 112));
 //                level.addStructure(new KarosMadhouse(world, 112));
 //
-                for (int i = 7; i <= 8; i++) {
-                    level.addWorldGen(new FeatureEnhanced(
-                            new TemplatePlacer(createForVethea(position, "tree" + i),
-                                    true), 24, surfaceLevel));
-                }
+//                for (int i = 7; i <= 8; i++) {
+//                    level.addWorldGen(new FeatureEnhanced(
+//                            new TemplatePlacer(createForVethea(position, "tree" + i),
+//                                    true), 24, surfaceLevel));
+//                }
 
-                addFlowers(level, surfaceLevel, BlockRegistry.shineGrass, BlockRegistry.cracklespike, BlockRegistry.bulbatobe);
                 break;
 
             case 3:
@@ -200,14 +187,7 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 //                level.addStructure(new RaglokChamber(world, 160));
 //                level.addStructure(new WreckHall(world, 160));
 
-                addFlowers(level, surfaceLevel, BlockRegistry.shimmer, BlockRegistry.shineGrass, BlockRegistry.dreamglow);
                 break;
-        }
-    }
-    private void addFlowers(VetheaLevelGenerators level, int height, Block... blocks) {
-        for (Block block : blocks) {
-            DivineRPG.LOGGER.info("tried to spawn flower");
-//            level.addWorldGen(new FeatureEnhanced(new WorldGenVetheanFlower(block), 5, height));
         }
     }
 

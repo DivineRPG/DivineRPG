@@ -21,8 +21,27 @@
   "spawn_costs": {},
   "carvers": {},
   "features": [
+    [],
+    [],
+    [],
     [
       "divinerpg:vethea_pillar"
-    ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "divinerpg:shimmer",
+      "divinerpg:shine_grass",
+      "divinerpg:dreamglow",
+      "divinerpg:cracklespike",
+      "divinerpg:fernite",
+      "divinerpg:green_gemtop",
+      "divinerpg:purple_gemtop",
+      "divinerpg:yellow_dulah",
+      "divinerpg:green_dulah"
+    ],
+    []
   ]
 }

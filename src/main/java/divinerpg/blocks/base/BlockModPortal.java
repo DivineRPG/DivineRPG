@@ -61,7 +61,6 @@ public class BlockModPortal extends BlockMod {
         return !flag && facingState.getBlock() != this && !(new BlockModPortal.Size(worldIn, currentPos, direction$axis1, getBlock(), frame)).validatePortal() ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
-private static RegistryKey<World> destination;
     @Override
     public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
         if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide){
@@ -71,36 +70,29 @@ private static RegistryKey<World> destination;
                 if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
 
                     entity.level.getProfiler().push(world.dimension().getRegistryName().getPath());
-                    entity.level.getProfiler().pop();
                     if (this == BlockRegistry.edenPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.EDEN_WORLD ? World.OVERWORLD : KeyRegistry.EDEN_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.edenPortal, BlockRegistry.divineRock, true, KeyRegistry.EDEN_PORTAL.get()));
                     } else if (this == BlockRegistry.wildwoodPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.WILDWOOD_WORLD ? World.OVERWORLD : KeyRegistry.WILDWOOD_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.wildwoodPortal, BlockRegistry.edenBlock, true, KeyRegistry.WILDWOOD_PORTAL.get()));
                     } else if (this == BlockRegistry.apalachiaPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.APALACHIA_WORLD ? World.OVERWORLD : KeyRegistry.APALACHIA_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.apalachiaPortal, BlockRegistry.wildwoodBlock, true, KeyRegistry.APALACHIA_PORTAL.get()));
                     } else if (this == BlockRegistry.skythernPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.SKYTHERN_WORLD ? World.OVERWORLD : KeyRegistry.SKYTHERN_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.skythernPortal, BlockRegistry.apalachiaBlock, true, KeyRegistry.SKYTHERN_PORTAL.get()));
                     } else if (this == BlockRegistry.mortumPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.MORTUM_WORLD ? World.OVERWORLD : KeyRegistry.MORTUM_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.mortumPortal, BlockRegistry.skythernBlock, true, KeyRegistry.MORTUM_PORTAL.get()));
                     } else if (this == BlockRegistry.iceikaPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.ICEIKA_WORLD ? World.OVERWORLD : KeyRegistry.ICEIKA_WORLD;
-                        destination = key;
                         entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.iceikaPortal, Blocks.SNOW_BLOCK, true, KeyRegistry.ICEIKA_PORTAL.get()));
                     } else if (this == BlockRegistry.vetheaPortal) {
                         RegistryKey<World> key = world.dimension() == KeyRegistry.VETHEA_WORLD ? World.OVERWORLD : KeyRegistry.VETHEA_WORLD;
-                        destination = key;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.vetheaPortal, BlockRegistry.mortumBlock, false, null));
+                        entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(world.getServer().getLevel(key)));
                     }
+                    entity.level.getProfiler().pop();
                 }
         }
 
