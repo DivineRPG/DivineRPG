@@ -1123,6 +1123,11 @@ public class BlockRegistry {
     @ObjectHolder("zelus_spawner")
     public static final Block zelusSpawner = null;
 
+    @ObjectHolder("hunger_spawner_ls")
+    public static final Block hungerSpawnerLS = null;
+    @ObjectHolder("hunger_spawner_sg")
+    public static final Block hungerSpawnerSG = null;
+
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
         DivineRPG.LOGGER.info("[DivineRPG] Registered blocks");
@@ -1617,13 +1622,13 @@ public class BlockRegistry {
         register(registry, new BlockElevantium("elevantium"), false, true);
         register(registry, new BlockModBridge("star_bridge", 1.5F));
 
-        register(registry, new BlockArcanaSpawner("captain_merik_spawner", EntityRegistry.CAPTAIN_MERIK));
-        register(registry, new BlockArcanaSpawner("datticon_spawner", EntityRegistry.DATTICON));
-        register(registry, new BlockArcanaSpawner("kazari_spawner", EntityRegistry.KAZARI));
-        register(registry, new BlockArcanaSpawner("leorna_spawner", EntityRegistry.LEORNA));
-        register(registry, new BlockArcanaSpawner("lord_vatticus_spawner", EntityRegistry.LORD_VATTICUS));
-        register(registry, new BlockArcanaSpawner("war_general_spawner", EntityRegistry.WAR_GENERAL));
-        register(registry, new BlockArcanaSpawner("zelus_spawner", EntityRegistry.ZELUS));
+        register(registry, new BlockSingleMobSpawnerSpawner("captain_merik_spawner", EntityRegistry.CAPTAIN_MERIK));
+        register(registry, new BlockSingleMobSpawnerSpawner("datticon_spawner", EntityRegistry.DATTICON));
+        register(registry, new BlockSingleMobSpawnerSpawner("kazari_spawner", EntityRegistry.KAZARI));
+        register(registry, new BlockSingleMobSpawnerSpawner("leorna_spawner", EntityRegistry.LEORNA));
+        register(registry, new BlockSingleMobSpawnerSpawner("lord_vatticus_spawner", EntityRegistry.LORD_VATTICUS));
+        register(registry, new BlockSingleMobSpawnerSpawner("war_general_spawner", EntityRegistry.WAR_GENERAL));
+        register(registry, new BlockSingleMobSpawnerSpawner("zelus_spawner", EntityRegistry.ZELUS));
 
         // Vethea
 
@@ -1781,6 +1786,10 @@ public class BlockRegistry {
         //Walls
         register(registry, new BlockModWall("ancient_brick_wall", ancientBricks, -1F));
         register(registry, new BlockModWall("degraded_brick_wall", degradedBricks, -1F));
+
+        //Spawners
+        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_ls", EntityRegistry.THE_HUNGER));
+        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_sg", EntityRegistry.THE_HUNGER));
     }
 
     private static void register(RegistryEvent.Register<Block> event, Block block) {

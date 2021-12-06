@@ -59,12 +59,11 @@ public class FeatureRegistry {
                 .decorated(DecoratorRegistry.TAR_LAKE.get().configured(new ChanceConfig(5)));
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "tar_lake"), TAR_LAKE_CONFIGURED);
 
-        VETHEA_PILLAR_CONFIGURED = VETHEA_PILLAR.get().configured(new BlockStateFeatureConfig(BlockRegistry.dreamStone.defaultBlockState())).decorated(DecoratorRegistry.VETHEA_PILLARS.get().configured(new ChanceConfig(400000)));
+        VETHEA_PILLAR_CONFIGURED = VETHEA_PILLAR.get().configured(new BlockStateFeatureConfig(BlockRegistry.dreamStone.defaultBlockState())).count(32).decorated(DecoratorRegistry.VETHEA_PILLARS.get().configured(new ChanceConfig(400000)));
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "vethea_pillar"), VETHEA_PILLAR_CONFIGURED);
 
-        FIRE_CRYSTAL_CONFIGURED = FIRE_CRYSTAL.get().configured(new NoFeatureConfig()).chance(500);
+        FIRE_CRYSTAL_CONFIGURED = FIRE_CRYSTAL.get().configured(new NoFeatureConfig()).chance(500).count(32);
         Registry.register(registry, new ResourceLocation(DivineRPG.MODID, "fire_crystal"), FIRE_CRYSTAL_CONFIGURED);
-
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

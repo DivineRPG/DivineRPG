@@ -9,10 +9,10 @@ import net.minecraft.world.*;
 
 import javax.annotation.*;
 
-public class BlockArcanaSpawner extends BlockMod implements ITileEntityProvider {
+public class BlockSingleMobSpawnerSpawner extends BlockMod implements ITileEntityProvider {
     private EntityType mob;
 
-    public BlockArcanaSpawner(String name, EntityType mob) {
+    public BlockSingleMobSpawnerSpawner(String name, EntityType mob) {
         super(name, -1);
         this.mob = mob;
     }
@@ -20,6 +20,6 @@ public class BlockArcanaSpawner extends BlockMod implements ITileEntityProvider 
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader world) {
-        return new TileEntityArcanaSpawner(mob);
+        return new TileEntitySingleMobSpawner(mob);
     }
 }

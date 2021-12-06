@@ -41,7 +41,7 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityDramixAltar> DRAMIX_ALTAR;
     public static  TileEntityType<TileEntityDreamLamp> DREAM_LAMP;
     public static  TileEntityType<TileEntityInfusionTable> INFUSION_TABLE;
-    public static  TileEntityType<TileEntityArcanaSpawner> ARCANA_SPAWNER;
+    public static  TileEntityType<TileEntitySingleMobSpawner> ARCANA_SPAWNER;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -69,7 +69,7 @@ public class TileRegistry {
         DRAMIX_ALTAR = TileEntityType.Builder.of(() -> new TileEntityDramixAltar(), BlockRegistry.dramixAltar).build(null);
         DREAM_LAMP = TileEntityType.Builder.of(() -> new TileEntityDreamLamp(), BlockRegistry.dreamLamp).build(null);
         INFUSION_TABLE = TileEntityType.Builder.of(() -> new TileEntityInfusionTable(), BlockRegistry.infusionTable).build(null);
-        ARCANA_SPAWNER = TileEntityType.Builder.of(() -> new TileEntityArcanaSpawner(), BlockRegistry.captainMerikSpawner, BlockRegistry.datticonSpawner, BlockRegistry.kazariSpawner, BlockRegistry.leornaSpawner, BlockRegistry.lordVatticusSpawner, BlockRegistry.warGeneralSpawner, BlockRegistry.zelusSpawner).build(null);
+        ARCANA_SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySingleMobSpawner(), BlockRegistry.captainMerikSpawner, BlockRegistry.datticonSpawner, BlockRegistry.kazariSpawner, BlockRegistry.leornaSpawner, BlockRegistry.lordVatticusSpawner, BlockRegistry.warGeneralSpawner, BlockRegistry.zelusSpawner, BlockRegistry.hungerSpawnerLS, BlockRegistry.hungerSpawnerSG).build(null);
 
 
 

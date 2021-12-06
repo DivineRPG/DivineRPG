@@ -4,12 +4,14 @@ import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import divinerpg.*;
 import divinerpg.world.*;
+import divinerpg.world.arcana.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.structure.*;
+import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.gen.settings.*;
 
 import java.util.*;
@@ -65,8 +67,17 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         if(this.rand.nextInt(100) == 0) {
             int y = 20 + this.rand.nextInt(8);
 
-//            int houseNumber = this.rand.nextInt(StructureRegistry.HUNGER_HOUSES.length);
-//            StructureRegistry.HUNGER_HOUSES[houseNumber].generate(world, this.rand, new BlockPos(x, y, z));
+            List<ResourceLocation> locations = new ArrayList<>();
+            locations.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/houses/hunger_house_1"));
+            locations.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/houses/hunger_house_2"));
+            locations.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/houses/hunger_house_3"));
+            Template template = region.getLevel().getStructureManager().get(locations.get(random.nextInt(locations.size())));
+
+            if (template != null) {
+                template.placeInWorld(region,
+                        new BlockPos(x, y + 12, z),
+                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(ArcanaStructureBlockProcessor.INSTANCE), random);
+            }
         }
         this.rand.setSeed(region.getCenterX() * k + region.getCenterZ() * l ^ region.getSeed());
         super.applyBiomeDecoration(region, structureManager);

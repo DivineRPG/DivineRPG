@@ -9,21 +9,21 @@ import net.minecraft.util.math.*;
 
 import java.util.*;
 
-public class TileEntityArcanaSpawner extends TileEntity implements ITickableTileEntity {
+public class TileEntitySingleMobSpawner extends TileEntity implements ITickableTileEntity {
     private String entityName;
     private int spawnTimer;
     private boolean spawnParticles = false;
     private Random rand = new Random();
     private EntityType type;
 
-    public TileEntityArcanaSpawner(EntityType type) {
+    public TileEntitySingleMobSpawner(EntityType type) {
         super(TileRegistry.ARCANA_SPAWNER);
         spawnParticles = false;
         this.type=type;
         this.entityName=type.getDescriptionId();
     }
 
-    public TileEntityArcanaSpawner() {
+    public TileEntitySingleMobSpawner() {
         super(TileRegistry.ARCANA_SPAWNER);
     }
 
@@ -77,7 +77,11 @@ public class TileEntityArcanaSpawner extends TileEntity implements ITickableTile
                                 if (this.level.noCollision(boundingBox)
                                         && !this.level.getBlockCollisions(e, boundingBox).findAny().isPresent()
                                         && !this.level.containsAnyLiquid(boundingBox)) {
-                                    entity.moveTo(x, y-3, z, this.rand.nextInt(360), 0);
+                                    if(type == EntityRegistry.THE_HUNGER){
+                                        entity.moveTo(x, y+1, z, rand.nextInt(360), 0);
+                                    }else {
+                                        entity.moveTo(x, y - 3, z, this.rand.nextInt(360), 0);
+                                    }
                                     this.level.addFreshEntity(entity);
                                 }
                             }
