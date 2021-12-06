@@ -1,5 +1,6 @@
 package divinerpg.world.vethea;
 
+import com.google.common.collect.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import divinerpg.*;
@@ -37,7 +38,6 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
 
         for (int i = 0; i < 4; i++) {
             VetheaLevelGenerators level = new VetheaLevelGenerators(floorHeight * i, roofHeight);
-            customize(level, i);
             levels.add(level);
         }
     }
@@ -80,113 +80,63 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
             }
         }
         this.rand.setSeed(region.getCenterX() * k + region.getCenterZ() * l ^ region.getSeed());
+        customize(region, pos);
         super.applyBiomeDecoration(region, structureManager);
     }
 
 
 
 
-    private void customize(VetheaLevelGenerators level, int position) {
-
+    private void customize(WorldGenRegion region, BlockPos pos) {
+        Random random = region.getRandom();
         // ************************************************************************************
-
-        //
-        // Trees
-        //
-        for (int i = 0; i < 7; i++) {
-            TemplatePlacer tree = new TemplatePlacer(createForAllLevels(String.format("floatingtree%s", i + 1)),
-                    new BlockPos(11, (floorHeight - roofHeight) / 2, 11));
-
-            // trees will be over player height
-//            level.addWorldGen(new FeatureEnhanced(tree, 5, surfaceLevel + 8));
-        }
-
-        // ************************************************************************************
-
-
-        //
-        // Infusion
-        //
-//        level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels("infusionoutpost"), true), 43, surfaceLevel));
-
-        //
-        // Lamps
-        //
-        for (int i = 1; i <= 2; i++) {
-//            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(String.format("lamp%s", i)), new BlockPos(10, 0, 10)), 40, surfaceLevel));
-        }
-
-        //
-        // Items
-        //
-        String[] items = {"bow", "hook", "mushroom", "pickaxe", "pointedsquare", "ring", "sword", "trident"};
-
-        for (String item : items) {
-//            level.addWorldGen(new FeatureEnhanced(new TemplatePlacer(createForAllLevels(item), new BlockPos(3, 0, 16)), 60, surfaceLevel));
-        }
-
-        //
-        // Level dependent structures
-        //
-        switch (position) {
-            case 0:
-
-//                level.addStructure(new Crypt1(world, 10));
-//                level.addStructure(new Crypt2(world, 12));
-//
-//                for (int i = 4; i <= 6; i++) {
-//                    level.addWorldGen(new FeatureEnhanced(
-//                            new TemplatePlacer(createForVethea(position, "tree" + i),
-//                                    true), 24, surfaceLevel));
-//                }
-
-                break;
-
-            case 1:
-
-//                level.addStructure(new Hive(world, 64));
-//                level.addStructure(new Temple1(world, 64));
-//                level.addStructure(new Temple2(world, 64));
+        List<ResourceLocation> allLevels = new ArrayList<>();
+        List<ResourceLocation> level1 = new ArrayList<>();
+        List<ResourceLocation> level2 = new ArrayList<>();
+        List<ResourceLocation> level3 = new ArrayList<>();
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/bow"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree1"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree2"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree3"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree4"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree5"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree6"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree7"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/hook"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/infusionoutpost"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp1"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp2"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/mushroom"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pickaxe"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pointedsquare"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/ring"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/sword"));
+        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/trident"));
 
 
-//                level.addWorldGen(new FeatureEnhanced(
-//                        new TemplatePlacer(createForVethea(position, "tree3"),
-//                                true), 10, surfaceLevel));
+        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree4"));
+        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree5"));
+        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree6"));
 
-//                level.addWorldGen(new FeatureEnhanced(
-//                        new TemplatePlacer(createForVethea(0, "tree3"),
-//                                true), 10, surfaceLevel));
+        level2.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer2/tree3"));
 
-                break;
 
-            case 2:
+        level3.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree7"));
+        level3.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree8"));
 
-//                level.addStructure(new QuadroticPost(world, 112));
-//                level.addStructure(new KarosMadhouse(world, 112));
-//
-//                for (int i = 7; i <= 8; i++) {
-//                    level.addWorldGen(new FeatureEnhanced(
-//                            new TemplatePlacer(createForVethea(position, "tree" + i),
-//                                    true), 24, surfaceLevel));
-//                }
-
-                break;
-
-            case 3:
-//                level.addStructure(new Evergarden(world, 160));
-//                level.addStructure(new RaglokChamber(world, 160));
-//                level.addStructure(new WreckHall(world, 160));
-
-                break;
+        Template template = region.getLevel().getStructureManager().get(allLevels.get(random.nextInt(allLevels.size())));
+        List<BlockPos> posList = new ArrayList<>();
+        BlockPos bottom = BlockPos.betweenClosed(new BlockPos(pos.getX(), 18, pos.getZ()), new BlockPos(pos.getX(), 37, pos.getZ())).iterator().next();
+        BlockPos second = BlockPos.betweenClosed(new BlockPos(pos.getX(), 65, pos.getZ()), new BlockPos(pos.getX(), 86, pos.getZ())).iterator().next();
+        BlockPos third = BlockPos.betweenClosed(new BlockPos(pos.getX(), 113, pos.getZ()), new BlockPos(pos.getX(), 134, pos.getZ())).iterator().next();
+        BlockPos top = BlockPos.betweenClosed(new BlockPos(pos.getX(), 161, pos.getZ()), new BlockPos(pos.getX(), region.getMaxBuildHeight()-1, pos.getZ())).iterator().next();
+        posList.addAll(ImmutableList.of(bottom, second, third, top));
+        if (template != null) {
+            template.placeInWorld(region,
+                    posList.get(random.nextInt(posList.size())),
+                    new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(ArcanaStructureBlockProcessor.INSTANCE), random);
         }
     }
 
-    private ResourceLocation createForVethea(int level, String structureFolder) {
-        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/layer%s/%s", level + 1, structureFolder));
-    }
-
-    private ResourceLocation createForAllLevels(String structureName) {
-        return new ResourceLocation(DivineRPG.MODID, String.format("vethea/all_floors/%s", structureName));
-    }
 
 }
