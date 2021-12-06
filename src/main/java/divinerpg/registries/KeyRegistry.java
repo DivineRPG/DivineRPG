@@ -36,7 +36,7 @@ public class KeyRegistry {
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
 
-    public static IStructureProcessorType<ArcanaStructureBlockProcessor> CHEST_PROCESSOR = () -> ArcanaStructureBlockProcessor.CODEC;
+    public static IStructureProcessorType<DivineStructureBlockProcessor> CHEST_PROCESSOR = () -> DivineStructureBlockProcessor.CODEC;
 
     public static void init() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered registry keys");

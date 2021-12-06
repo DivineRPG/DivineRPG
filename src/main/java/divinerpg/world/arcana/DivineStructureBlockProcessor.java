@@ -10,10 +10,10 @@ import net.minecraft.world.*;
 import net.minecraft.world.gen.feature.template.*;
 import java.util.*;
 
-public class ArcanaStructureBlockProcessor extends StructureProcessor {
+public class DivineStructureBlockProcessor extends StructureProcessor {
 
-    public static final ArcanaStructureBlockProcessor INSTANCE = new ArcanaStructureBlockProcessor();
-    public static final Codec<ArcanaStructureBlockProcessor> CODEC = Codec.unit(ArcanaStructureBlockProcessor::new);
+    public static final DivineStructureBlockProcessor INSTANCE = new DivineStructureBlockProcessor();
+    public static final Codec<DivineStructureBlockProcessor> CODEC = Codec.unit(DivineStructureBlockProcessor::new);
 
     @Override
     public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {

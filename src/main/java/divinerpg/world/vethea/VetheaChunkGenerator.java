@@ -76,7 +76,7 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
             if (template != null) {
                 template.placeInWorld(region,
                         new BlockPos(x, y + 12, z),
-                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(ArcanaStructureBlockProcessor.INSTANCE), random);
+                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
             }
         }
         this.rand.setSeed(region.getCenterX() * k + region.getCenterZ() * l ^ region.getSeed());
@@ -134,7 +134,7 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         if (template != null) {
             template.placeInWorld(region,
                     posList.get(random.nextInt(posList.size())),
-                    new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(ArcanaStructureBlockProcessor.INSTANCE), random);
+                    new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
     }
 

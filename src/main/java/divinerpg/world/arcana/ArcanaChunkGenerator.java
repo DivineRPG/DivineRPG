@@ -58,7 +58,7 @@ public class ArcanaChunkGenerator extends DivineChunkGenerator {
             if (template != null && toGenerate.getName() != null ) {
                 template.placeInWorld(region,
                         adjustedPosition,
-                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(ArcanaStructureBlockProcessor.INSTANCE).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK), region.getRandom());
+                        new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).setRotation(rotation).addProcessor(DivineStructureBlockProcessor.INSTANCE).addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK), region.getRandom());
             }
         }
     }
