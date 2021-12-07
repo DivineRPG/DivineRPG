@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.*;
 import divinerpg.*;
+import divinerpg.util.WeightedRandom;
 import divinerpg.world.*;
 import divinerpg.world.arcana.*;
 import net.minecraft.util.*;
@@ -90,41 +91,41 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
     private void customize(WorldGenRegion region, BlockPos pos) {
         Random random = region.getRandom();
         // ************************************************************************************
-        List<ResourceLocation> allLevels = new ArrayList<>();
-        List<ResourceLocation> level1 = new ArrayList<>();
-        List<ResourceLocation> level2 = new ArrayList<>();
-        List<ResourceLocation> level3 = new ArrayList<>();
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/bow"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree1"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree2"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree3"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree4"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree5"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree6"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree7"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/hook"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/infusionoutpost"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp1"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp2"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/mushroom"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pickaxe"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pointedsquare"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/ring"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/sword"));
-        allLevels.add(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/trident"));
+        WeightedRandom<ResourceLocation> allLevels = new WeightedRandom();
+        WeightedRandom<ResourceLocation> level1 = new WeightedRandom();
+        WeightedRandom<ResourceLocation> level2 = new WeightedRandom();
+        WeightedRandom<ResourceLocation> level3 = new WeightedRandom();
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/bow"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree1"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree2"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree3"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree4"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree5"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree6"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree7"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/hook"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/infusionoutpost"), 1);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp1"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp2"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/mushroom"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pickaxe"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/pointedsquare"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/ring"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/sword"), 4);
+        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/trident"), 4);
 
 
-        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree4"));
-        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree5"));
-        level1.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree6"));
+        level1.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree4"), 4);
+        level1.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree5"), 4);
+        level1.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/tree6"), 4);
 
-        level2.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer2/tree3"));
+        level2.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer2/tree3"), 4);
 
 
-        level3.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree7"));
-        level3.add(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree8"));
+        level3.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree7"), 4);
+        level3.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree8"), 4);
 
-        Template template = region.getLevel().getStructureManager().get(allLevels.get(random.nextInt(allLevels.size())));
+        Template template = region.getLevel().getStructureManager().get(allLevels.selectRandomItem(random));
         List<BlockPos> posList = new ArrayList<>();
         BlockPos bottom = BlockPos.betweenClosed(new BlockPos(pos.getX(), 18, pos.getZ()), new BlockPos(pos.getX(), 37, pos.getZ())).iterator().next();
         BlockPos second = BlockPos.betweenClosed(new BlockPos(pos.getX(), 65, pos.getZ()), new BlockPos(pos.getX(), 86, pos.getZ())).iterator().next();
@@ -135,6 +136,12 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
             template.placeInWorld(region,
                     posList.get(random.nextInt(posList.size())),
                     new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        }
+        Template cryptTemplate = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt"));
+        if(cryptTemplate!=null && random.nextInt(500) == 0){
+            cryptTemplate.getBoundingBox(new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), bottom.below(6));
+            //TODO - staircase doesnt spawn
+            cryptTemplate.placeInWorldChunk(region, bottom.below(6), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
     }
 

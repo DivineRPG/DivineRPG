@@ -33,6 +33,11 @@ public class DivineStructureBlockProcessor extends StructureProcessor {
                     nbt.putString("LootTable", "divinerpg:chests/arcana/utility_hallway_loot");
                     return new Template.BlockInfo(worldPos.below(), Blocks.CHEST.defaultBlockState(), nbt);
                 }
+                case "Crypt": {
+                    CompoundNBT nbt = new CompoundNBT();
+                    nbt.putString("LootTable", "divinerpg:chests/vethea/crypt_loot");
+                    return new Template.BlockInfo(worldPos, Blocks.CHEST.defaultBlockState(), nbt);
+                }
             }
 
         }

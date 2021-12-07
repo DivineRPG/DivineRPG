@@ -150,6 +150,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.wildwoodVine, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.yellowChristmasLights, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.yellowDulah, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.metalCaging, RenderType.cutoutMipped());
 
 
 
