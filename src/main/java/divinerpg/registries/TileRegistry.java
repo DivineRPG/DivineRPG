@@ -42,6 +42,7 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityDreamLamp> DREAM_LAMP;
     public static  TileEntityType<TileEntityInfusionTable> INFUSION_TABLE;
     public static  TileEntityType<TileEntitySingleMobSpawner> ARCANA_SPAWNER;
+    public static  TileEntityType<TileEntityStructureAir> STRUCTURE_AIR;
 
     @SubscribeEvent
     public static void registerTE(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -70,6 +71,7 @@ public class TileRegistry {
         DREAM_LAMP = TileEntityType.Builder.of(() -> new TileEntityDreamLamp(), BlockRegistry.dreamLamp).build(null);
         INFUSION_TABLE = TileEntityType.Builder.of(() -> new TileEntityInfusionTable(), BlockRegistry.infusionTable).build(null);
         ARCANA_SPAWNER = TileEntityType.Builder.of(() -> new TileEntitySingleMobSpawner(), BlockRegistry.captainMerikSpawner, BlockRegistry.datticonSpawner, BlockRegistry.kazariSpawner, BlockRegistry.leornaSpawner, BlockRegistry.lordVatticusSpawner, BlockRegistry.warGeneralSpawner, BlockRegistry.zelusSpawner, BlockRegistry.hungerSpawnerLS, BlockRegistry.hungerSpawnerSG).build(null);
+        STRUCTURE_AIR = TileEntityType.Builder.of(() -> new TileEntityStructureAir(), BlockRegistry.structureAir).build(null);
 
 
 
@@ -97,7 +99,8 @@ public class TileRegistry {
                 DRAMIX_ALTAR.setRegistryName(DivineRPG.MODID, "dramix_altar"),
                 DREAM_LAMP.setRegistryName(DivineRPG.MODID, "dream_lamp"),
                 INFUSION_TABLE.setRegistryName(DivineRPG.MODID, "infusion_table"),
-                ARCANA_SPAWNER.setRegistryName(DivineRPG.MODID, "arcana_spawner")
+                ARCANA_SPAWNER.setRegistryName(DivineRPG.MODID, "arcana_spawner"),
+                STRUCTURE_AIR.setRegistryName(DivineRPG.MODID, "structure_air")
         );
     }
 

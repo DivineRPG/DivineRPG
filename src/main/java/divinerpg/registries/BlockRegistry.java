@@ -1127,6 +1127,8 @@ public class BlockRegistry {
     public static final Block hungerSpawnerLS = null;
     @ObjectHolder("hunger_spawner_sg")
     public static final Block hungerSpawnerSG = null;
+    @ObjectHolder("structure_air")
+    public static final Block structureAir = null;
 
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> registry) {
@@ -1790,6 +1792,9 @@ public class BlockRegistry {
         //Spawners
         register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_ls", EntityRegistry.THE_HUNGER));
         register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_sg", EntityRegistry.THE_HUNGER));
+
+        //Sructure Air
+        registerItemlessBlock(registry, new BlockModStructureAir());
     }
 
     private static void register(RegistryEvent.Register<Block> event, Block block) {
