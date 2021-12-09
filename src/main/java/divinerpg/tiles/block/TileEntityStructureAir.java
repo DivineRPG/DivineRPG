@@ -12,7 +12,7 @@ public class TileEntityStructureAir extends TileEntity implements ITickableTileE
     @Override
     public void tick() {
         if(level.isClientSide){
-            for (int time = 0; time < 100; time++) {
+            for (int time = 0; time < 1000; time++) {
                 level.setBlock(getBlockPos(), Blocks.AIR.defaultBlockState(), 0);
                 this.setRemoved();
             }

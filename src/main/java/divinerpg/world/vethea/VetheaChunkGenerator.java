@@ -138,10 +138,13 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
                     new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
         Template cryptTemplate = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt"));
-        if(cryptTemplate!=null && random.nextInt(500) == 0){
-            cryptTemplate.getBoundingBox(new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), bottom.below(6));
-            //TODO - staircase doesnt spawn
-            cryptTemplate.placeInWorldChunk(region, bottom.below(6), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        Template cryptTemplate2 = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt2"));
+        if(cryptTemplate!=null && random.nextInt(500) == 0) {
+            if (random.nextBoolean()) {
+                cryptTemplate.placeInWorldChunk(region, bottom.below(6), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+            } else {
+                cryptTemplate2.placeInWorldChunk(region, bottom.below(8), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+            }
         }
     }
 
