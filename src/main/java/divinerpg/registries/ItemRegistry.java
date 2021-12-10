@@ -374,8 +374,6 @@ public class ItemRegistry {
     public static final Item orbOfLight = null;
     @ObjectHolder("staff_of_enrichment")
     public static final Item staffOfEnrichment = null;
-    @ObjectHolder("frozen_charge")
-    public static final Item frozenCharge = null;
 
     // Arcana boss spawner
     @ObjectHolder("wizards_book")
