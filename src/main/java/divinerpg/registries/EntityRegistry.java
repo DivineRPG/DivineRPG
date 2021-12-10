@@ -796,9 +796,9 @@ public class EntityRegistry {
         manager.register(LORGA, new RenderDivineMob(manager, new ModelLorga<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lorga.png")));
         manager.register(LORGA_FLIGHT, new RenderDivineMob(manager, new ModelLorgaflight<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lorga_flight.png")));
         manager.register(MANDRAGORA, new RenderDivineMob(manager, new ModelMandragora<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mandragora.png")));
-        manager.register(MYSTERIOUS_MAN_LAYER1, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer1.png")));
-        manager.register(MYSTERIOUS_MAN_LAYER2, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer2.png")));
-        manager.register(MYSTERIOUS_MAN_LAYER3, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer3.png")));
+        manager.register(MYSTERIOUS_MAN_LAYER1, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_1.png")));
+        manager.register(MYSTERIOUS_MAN_LAYER2, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_2.png")));
+        manager.register(MYSTERIOUS_MAN_LAYER3, new RenderDivineMob(manager, new ModelMysteriousMan<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mysterious_man_layer_3.png")));
         manager.register(SHADAHIER, new RenderDivineMob(manager, new ModelShadahier<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/shadahier.png")));
         manager.register(THE_HUNGER, new RenderDivineMob(manager, new ModelTheHunger<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/the_hunger.png")));
         manager.register(TOCAXIN, new RenderDivineMob(manager, new ModelTocaxin<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/tocaxin.png")));
@@ -806,7 +806,7 @@ public class EntityRegistry {
         manager.register(VERMENOUS, new RenderDivineMob(manager, new ModelVermenous<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vermenous.png")));
         manager.register(VHRAAK, new RenderDivineMob(manager, new ModelVhraak<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vhraak.png")));
         manager.register(ZONE, new RenderDivineMob(manager, new ModelZone<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/zone.png")));
-        manager.register(ZORAGON, new RenderDivineMob(manager, new ModelZoragon<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/zoragon.png")));
+        manager.register(ZORAGON, new RenderDivineMob(manager, new ModelZoragon<Entity>(), 4, new ResourceLocation(DivineRPG.MODID, "textures/entity/zoragon.png")));
     }
 
     private static <T extends Entity> EntityType<T> registerEntity(EntityType.IFactory<T> factory, String entityName, float width, float height, SpawnEggColors colors, EntityClassification classification) {
