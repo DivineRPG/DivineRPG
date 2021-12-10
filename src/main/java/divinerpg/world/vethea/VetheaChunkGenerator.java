@@ -150,6 +150,10 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         if(layer2!=null && random.nextInt(500) == 0){
             layer2.placeInWorldChunk(region, second.below(1), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
+        Template layer3 = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, random.nextBoolean() ? "vethea/layer3/karos" : "vethea/layer3/quadrotic"));
+        if(layer3!=null && random.nextInt(500) == 0){
+            layer3.placeInWorldChunk(region, third.below(1), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        }
     }
 
 

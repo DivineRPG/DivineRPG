@@ -53,6 +53,16 @@ public class DivineStructureBlockProcessor extends StructureProcessor {
                     nbt.putString("LootTable", "divinerpg:chests/vethea/temple_loot_top");
                     return new Template.BlockInfo(worldPos, Blocks.CHEST.defaultBlockState(), nbt);
                 }
+                case "Karos": {
+                    CompoundNBT nbt = new CompoundNBT();
+                    nbt.putString("LootTable", "divinerpg:chests/vethea/karos_madhouse_loot");
+                    return new Template.BlockInfo(worldPos, Blocks.CHEST.defaultBlockState(), nbt);
+                }
+                case "Quad": {
+                    CompoundNBT nbt = new CompoundNBT();
+                    nbt.putString("LootTable", "divinerpg:chests/vethea/quadrotic_post_loot");
+                    return new Template.BlockInfo(worldPos, Blocks.CHEST.defaultBlockState(), nbt);
+                }
             }
 
         }
