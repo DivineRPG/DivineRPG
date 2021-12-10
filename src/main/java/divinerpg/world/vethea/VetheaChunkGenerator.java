@@ -104,7 +104,6 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree6"), 4);
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/floatingtree7"), 4);
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/hook"), 4);
-        allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/infusionoutpost"), 1);
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp1"), 4);
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/lamp2"), 4);
         allLevels.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/mushroom"), 4);
@@ -125,18 +124,25 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         level3.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree7"), 4);
         level3.addItem(new ResourceLocation(DivineRPG.MODID, "vethea/layer3/tree8"), 4);
 
-        Template template = region.getLevel().getStructureManager().get(allLevels.selectRandomItem(random));
         List<BlockPos> posList = new ArrayList<>();
         BlockPos bottom = BlockPos.betweenClosed(new BlockPos(pos.getX(), 18, pos.getZ()), new BlockPos(pos.getX(), 37, pos.getZ())).iterator().next();
         BlockPos second = BlockPos.betweenClosed(new BlockPos(pos.getX(), 65, pos.getZ()), new BlockPos(pos.getX(), 86, pos.getZ())).iterator().next();
         BlockPos third = BlockPos.betweenClosed(new BlockPos(pos.getX(), 113, pos.getZ()), new BlockPos(pos.getX(), 134, pos.getZ())).iterator().next();
         BlockPos top = BlockPos.betweenClosed(new BlockPos(pos.getX(), 161, pos.getZ()), new BlockPos(pos.getX(), region.getMaxBuildHeight()-1, pos.getZ())).iterator().next();
         posList.addAll(ImmutableList.of(bottom, second, third, top));
+
+
+        Template template = region.getLevel().getStructureManager().get(allLevels.selectRandomItem(random));
         if (template != null) {
-            template.placeInWorld(region,
-                    posList.get(random.nextInt(posList.size())).above(random.nextInt(6)),
-                    new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+            template.placeInWorld(region, posList.get(random.nextInt(posList.size())).above(random.nextInt(12)), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
+
+
+        Template infusion = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/all_floors/infusionoutpost"));
+        if (infusion != null && random.nextInt(500) == 0) {
+            infusion.placeInWorld(region, posList.get(random.nextInt(posList.size())), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        }
+
         Template cryptTemplate = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt"));
         Template cryptTemplate2 = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt2"));
         if(cryptTemplate!=null && random.nextInt(500) == 0) {
@@ -153,6 +159,18 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         Template layer3 = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, random.nextBoolean() ? "vethea/layer3/karos" : "vethea/layer3/quadrotic"));
         if(layer3!=null && random.nextInt(500) == 0){
             layer3.placeInWorldChunk(region, third.below(1), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        }
+        List<ResourceLocation> layer4List = new ArrayList<>();
+        layer4List.addAll(ImmutableList.of(
+                new ResourceLocation(DivineRPG.MODID, "vethea/layer4/evergarden"),
+                new ResourceLocation(DivineRPG.MODID, "vethea/layer4/layer4tree1"),
+                new ResourceLocation(DivineRPG.MODID, "vethea/layer4/layer4tree2"),
+                new ResourceLocation(DivineRPG.MODID, "vethea/layer4/raglokchamber"),
+                new ResourceLocation(DivineRPG.MODID, "vethea/layer4/wreckhall")
+        ));
+        Template layer4 = region.getLevel().getStructureManager().get(layer4List.get(random.nextInt(layer4List.size())));
+        if(layer4!=null && random.nextInt(500) == 0){
+            layer4.placeInWorldChunk(region, top.below(1), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
     }
 
