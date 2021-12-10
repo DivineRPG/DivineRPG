@@ -146,6 +146,10 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
                 cryptTemplate2.placeInWorldChunk(region, bottom.below(8), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
             }
         }
+        Template hive = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer2/hive"));
+        if(hive!=null && random.nextInt(500) == 0){
+            hive.placeInWorldChunk(region, second.below(1), new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
+        }
     }
 
 
