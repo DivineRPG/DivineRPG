@@ -31,7 +31,7 @@ public abstract class EntityGifterNPC extends EntityDivineMob {
     protected void sendRandomChatMessage(PlayerEntity player) {
         String[] messages = getMessages();
 
-        ITextComponent message = new StringTextComponent(LocalizeUtils.getClientSideTranslation(player, getTranslationName()) + ": " + LocalizeUtils.getClientSideTranslation(player, messages[random.nextInt(messages.length)]));
+        ITextComponent message = new TranslationTextComponent(LocalizeUtils.getClientSideTranslation(player, getTranslationName()) + ": " + LocalizeUtils.getClientSideTranslation(player, messages[random.nextInt(messages.length)]));
         player.sendMessage(message, player.getUUID());
     }
 
