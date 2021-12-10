@@ -1,13 +1,14 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityGifterNPC;
-import divinerpg.registries.ItemRegistry;
+import com.google.common.collect.*;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
 import net.minecraft.entity.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityTempleGuardian extends EntityGifterNPC {
 
@@ -25,13 +26,14 @@ public class EntityTempleGuardian extends EntityGifterNPC {
     }
 
     @Override
-    protected String[] getMessages() {
-        String[] messages = { "message.temple_guardian.1", "message.temple_guardian.2", "message.temple_guardian.3", "message.temple_guardian.4", "message.temple_guardian.5" };
+    protected ArrayList<String> getMessages() {
+        ArrayList<String> messages = new ArrayList<>();
+        messages.addAll(ImmutableList.of("message.temple_guardian.1", "message.temple_guardian.2", "message.temple_guardian.3", "message.temple_guardian.4", "message.temple_guardian.5"));
         return messages;
     }
 
     @Override
     protected String getTranslationName() {
-        return "entity.divinerpg.temple_guardian.name";
+        return "entity.divinerpg.temple_guardian";
     }
 }

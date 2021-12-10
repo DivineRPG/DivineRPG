@@ -1,12 +1,13 @@
 package divinerpg.entities.base;
 
-import divinerpg.util.LocalizeUtils;
 import net.minecraft.entity.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.text.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
+
+import java.util.*;
 
 public abstract class EntityGifterNPC extends EntityDivineMob {
 
@@ -29,13 +30,14 @@ public abstract class EntityGifterNPC extends EntityDivineMob {
     }
 
     protected void sendRandomChatMessage(PlayerEntity player) {
-        String[] messages = getMessages();
-
-        ITextComponent message = new TranslationTextComponent(LocalizeUtils.getClientSideTranslation(player, getTranslationName()) + ": " + LocalizeUtils.getClientSideTranslation(player, messages[random.nextInt(messages.length)]));
+        ArrayList<String> messages = getMessages();
+        String name = new TranslationTextComponent(getTranslationName()).getString();
+        String messageToTranslate = new TranslationTextComponent(messages.get(random.nextInt(messages.size()))).getString();
+        ITextComponent message = new StringTextComponent(name + ": " + messageToTranslate);
         player.sendMessage(message, player.getUUID());
     }
 
     protected abstract ItemStack getGift();
-    protected abstract String[] getMessages();
+    protected abstract ArrayList<String> getMessages();
     protected abstract String getTranslationName();
 }

@@ -1,16 +1,17 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityGifterNPC;
-import divinerpg.registries.ItemRegistry;
-import divinerpg.util.EntityStats;
+import com.google.common.collect.*;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.monster.*;
+import net.minecraft.item.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityCryptKeeper extends EntityGifterNPC {
 
@@ -36,13 +37,14 @@ public class EntityCryptKeeper extends EntityGifterNPC {
     }
 
     @Override
-    protected String[] getMessages() {
-        String[] messages = { "message.crypt_keeper.1", "message.crypt_keeper.2", "message.crypt_keeper.3", "message.crypt_keeper.4", "message.crypt_keeper.5" };
+    protected ArrayList<String> getMessages() {
+        ArrayList<String> messages = new ArrayList<>();
+        messages.addAll(ImmutableList.of("message.crypt_keeper.1", "message.crypt_keeper.2", "message.crypt_keeper.3", "message.crypt_keeper.4", "message.crypt_keeper.5"));
         return messages;
     }
 
     @Override
     protected String getTranslationName() {
-        return "entity.divinerpg.crypt_keeper.name";
+        return "entity.divinerpg.crypt_keeper";
     }
 }

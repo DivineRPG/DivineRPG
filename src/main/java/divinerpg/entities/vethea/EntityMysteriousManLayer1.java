@@ -1,13 +1,14 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityGifterNPC;
-import divinerpg.registries.ItemRegistry;
+import com.google.common.collect.*;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
 import net.minecraft.entity.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.*;
 
 public class EntityMysteriousManLayer1 extends EntityGifterNPC {
 
@@ -25,14 +26,15 @@ public class EntityMysteriousManLayer1 extends EntityGifterNPC {
     }
 
     @Override
-    protected String[] getMessages() {
-        String[] messages = { "message.mysterious_man_layer_1.1", "message.mysterious_man_layer_1.2", "message.mysterious_man_layer_1.3" };
+    protected ArrayList<String> getMessages() {
+        ArrayList<String> messages = new ArrayList<>();
+        messages.addAll(ImmutableList.of("message.mysterious_man_layer_1.1", "message.mysterious_man_layer_1.2", "message.mysterious_man_layer_1.3"));
         return messages;
     }
 
     @Override
     protected String getTranslationName() {
-        return "entity.divinerpg.mysterious_man_layer_1.name";
+        return "entity.divinerpg.mysterious_man_layer_1";
     }
 
     public int getSpawnLayer() {
