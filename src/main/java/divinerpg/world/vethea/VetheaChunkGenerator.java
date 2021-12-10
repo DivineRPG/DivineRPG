@@ -134,7 +134,7 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         posList.addAll(ImmutableList.of(bottom, second, third, top));
         if (template != null) {
             template.placeInWorld(region,
-                    posList.get(random.nextInt(posList.size())),
+                    posList.get(random.nextInt(posList.size())).above(random.nextInt(6)),
                     new PlacementSettings().setIgnoreEntities(false).setMirror(Mirror.NONE).addProcessor(DivineStructureBlockProcessor.INSTANCE), random);
         }
         Template cryptTemplate = region.getLevel().getStructureManager().get(new ResourceLocation(DivineRPG.MODID, "vethea/layer1/crypt"));
