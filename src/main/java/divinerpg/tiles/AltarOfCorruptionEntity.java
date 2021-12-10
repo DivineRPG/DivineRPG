@@ -1,6 +1,6 @@
 package divinerpg.tiles;
 
-import divinerpg.registries.TileRegistry;
+import divinerpg.registries.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -104,7 +104,7 @@ public class AltarOfCorruptionEntity extends TileEntity implements INameable, IT
     }
 
     public ITextComponent getName() {
-        return (ITextComponent)(this.name != null ? this.name : new TranslationTextComponent("tile.altar_of_corruption.name"));
+        return (ITextComponent)(this.name != null ? this.name : new TranslationTextComponent(BlockRegistry.altarOfCorruption.getDescriptionId()));
     }
 
     public void setCustomName(@Nullable ITextComponent p_200229_1_) {

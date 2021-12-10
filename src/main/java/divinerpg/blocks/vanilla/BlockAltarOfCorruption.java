@@ -1,5 +1,6 @@
 package divinerpg.blocks.vanilla;
 
+import divinerpg.client.containers.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
 import net.minecraft.block.*;
@@ -25,7 +26,6 @@ public class BlockAltarOfCorruption extends ContainerBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockAltarOfCorruption(String name) {
-        //TODO - UI
         super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(5.0F, 2000.0F).sound(SoundType.STONE));
         setRegistryName(name);
     }
@@ -88,7 +88,7 @@ public class BlockAltarOfCorruption extends ContainerBlock {
         if (tileentity instanceof AltarOfCorruptionEntity) {
             ITextComponent itextcomponent = ((INameable)tileentity).getDisplayName();
             return new SimpleNamedContainerProvider((id, inventory, player) -> {
-                return new EnchantmentContainer(id, inventory, IWorldPosCallable.create(worldIn, pos));
+                return new AltarOfCorruptionContainer(id, inventory, IWorldPosCallable.create(worldIn, pos));
             }, itextcomponent);
         } else {
             return null;
