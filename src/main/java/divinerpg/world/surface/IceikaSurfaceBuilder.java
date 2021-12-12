@@ -3,6 +3,8 @@ package divinerpg.world.surface;
 import com.mojang.serialization.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
+import net.minecraft.tags.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.chunk.*;
@@ -88,8 +90,83 @@ public class IceikaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
                     chunk.setBlockState(blockpos$mutable.above(), SNOW, false);
                 }
 
+                if(chunk.getBlockState(blockpos$mutable).is(BlockRegistry.frozenGrass) && random.nextInt(60) == 0) {
+                    int treeHeight = 12;
+                    int extraHeight = treeHeight + random.nextInt(1) + 1;
+                    BlockPos pos = blockpos$mutable;
+                    if (!heightCheck(chunk, pos, extraHeight + 4, 1)) {
+
+
+                        BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
+                        BlockState log = BlockRegistry.frozenLog.defaultBlockState();
+                        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState();
+
+
+                        //Tree trunk
+                        for (int g = 0; g < extraHeight; g++) {
+                            chunk.setBlockState(mut.move(Direction.UP), log, false);
+                        }
+                        chunk.setBlockState(pos.offset(1, 0, 0), log, false);
+                        chunk.setBlockState(pos.offset(0, 0, 1), log,  false);
+                        chunk.setBlockState(pos.offset(-1, 0, 0), log,  false);
+                        chunk.setBlockState(pos.offset(0, 0, -1), log,  false);
+
+                        //Leaves
+                        chunk.setBlockState(pos.offset(1, treeHeight - 3, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(1, treeHeight - 2, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(1, treeHeight - 1, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(1, treeHeight, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(1, treeHeight + 1, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(1, treeHeight + 2, 0), leaves, false);
+
+                        chunk.setBlockState(pos.offset(-1, treeHeight - 3, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(-1, treeHeight - 2, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(-1, treeHeight - 1, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(-1, treeHeight, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(-1, treeHeight + 1, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(-1, treeHeight + 2, 0), leaves, false);
+
+                        chunk.setBlockState(pos.offset(0, treeHeight - 3, 1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight - 2, 1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight - 1, 1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight, 1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 1, 1), leaves, false);
+
+                        chunk.setBlockState(pos.offset(0, treeHeight - 3, -1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight - 2, -1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight - 1, -1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight, -1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 1, -1), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 2, -1), leaves, false);
+
+                        chunk.setBlockState(pos.offset(0, treeHeight, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 1, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 2, 0), leaves, false);
+                        chunk.setBlockState(pos.offset(0, treeHeight + 3, 0), leaves, false);
+                    }
+                }
             }
+
         }
 
+    }
+    protected boolean heightCheck(IChunk world, BlockPos pos, int maxHeight, int width) {
+        if (pos.getY() >= 1 && pos.getY() + maxHeight < 256) {
+            for (int i = 1; i <= maxHeight; i++) {
+                for (int x = 0; x < width; x++) {
+                    for (int z = 0; z < width; z++) {
+                        if (!hasSpace(world, pos.offset(x, i, z)))
+                            return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    protected static boolean hasSpace(IChunk world, BlockPos pos) {
+        BlockState oldState = world.getBlockState(pos);
+        Block oldBlock = oldState.getBlock();
+        return oldBlock.isAir(oldState, world, pos) || oldBlock.is(BlockTags.LEAVES) || oldBlock.is(BlockTags.FLOWERS);
     }
 }

@@ -14,7 +14,6 @@ public class FrozenTreeFeature extends DivineTreeFeature {
     public FrozenTreeFeature(Supplier<SaplingBlock> saplingBlock) {
         super(saplingBlock);
     }
-    //TODO - make frozen tree actually decent
 
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
