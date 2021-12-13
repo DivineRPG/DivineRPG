@@ -134,7 +134,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass6, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass7, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass8, RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.steelDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.steelDoor, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.sunbloom, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.sunBlossom, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.sunstormSpawner, RenderType.translucent());

@@ -2,15 +2,16 @@ package divinerpg.world.gen.structure.structures;
 
 import com.google.common.collect.*;
 import com.mojang.serialization.*;
-import divinerpg.*;
+import divinerpg.world.gen.piece.*;
+import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
 
@@ -85,25 +86,27 @@ public class IceikaStructures extends Structure<NoFeatureConfig> {
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
-            int x = (chunkX << 4) + 7;
-            int z = (chunkZ << 4) + 7;
+            ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
+            int structureX = chunkpos.getMinBlockX() + this.random.nextInt(16);
+            int structureZ = chunkpos.getMinBlockZ() + this.random.nextInt(16);
+            int seaLevel = chunkGenerator.getSeaLevel();
+            int structureY = seaLevel + this.random.nextInt(chunkGenerator.getGenDepth() - seaLevel);
+            IBlockReader reader = chunkGenerator.getBaseColumn(structureX, structureZ);
 
-            BlockPos blockpos = new BlockPos(x, 0, z);
+            for (BlockPos.Mutable pos = new BlockPos.Mutable(structureX, structureY, structureZ); structureY > seaLevel; --structureY) {
+                BlockState blockstate = reader.getBlockState(pos);
+                pos.move(Direction.DOWN);
+                BlockState state = reader.getBlockState(pos);
+                if (blockstate.isAir() && state.isFaceSturdy(reader, pos, Direction.UP)) {
+                    break;
+                }
+            }
 
-            JigsawManager.addPieces(
-                    dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(new ResourceLocation(DivineRPG.MODID, "iceika/iceika")), 10),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManagerIn,
-                    blockpos,
-                    this.pieces,
-                    this.random,
-                    false,
-                    true);
-
-            this.calculateBoundingBox();
+            if (structureY > seaLevel) {
+                Rotation rotation = Rotation.getRandom(this.random);
+                this.pieces.add(new IceikaHousePiece.Piece(templateManagerIn, new BlockPos(structureX, structureY - 1, structureZ), rotation));
+                this.calculateBoundingBox();
+            }
         }
     }
 }

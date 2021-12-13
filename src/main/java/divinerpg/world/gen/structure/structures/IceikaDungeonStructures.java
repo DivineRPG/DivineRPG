@@ -2,7 +2,7 @@ package divinerpg.world.gen.structure.structures;
 
 import com.google.common.collect.*;
 import com.mojang.serialization.*;
-import divinerpg.*;
+import divinerpg.world.gen.piece.*;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -12,7 +12,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
 
@@ -66,32 +65,34 @@ public class IceikaDungeonStructures extends Structure<NoFeatureConfig> {
         }
 
 
+        @Override
+        public void placeInChunk(ISeedReader reader, StructureManager structureManager, ChunkGenerator generator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
+            super.placeInChunk(reader, structureManager, generator, random, box, chunkPos);
+        }
 
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
+            ChunkPos chunkpos = new ChunkPos(chunkX, chunkZ);
+            int structureX = chunkpos.getMinBlockX() + this.random.nextInt(16);
+            int structureZ = chunkpos.getMinBlockZ() + this.random.nextInt(16);
+            int seaLevel = chunkGenerator.getSeaLevel();
+            int structureY = seaLevel + this.random.nextInt(chunkGenerator.getGenDepth() - seaLevel);
+            IBlockReader reader = chunkGenerator.getBaseColumn(structureX, structureZ);
 
-            int x = (chunkX << 4) + 7;
-            int z = (chunkZ << 4) + 7;
+            for (BlockPos.Mutable pos = new BlockPos.Mutable(structureX, structureY, structureZ); structureY > seaLevel; --structureY) {
+                BlockState blockstate = reader.getBlockState(pos);
+                pos.move(Direction.DOWN);
+                BlockState state = reader.getBlockState(pos);
+                if (blockstate.isAir() && state.isFaceSturdy(reader, pos, Direction.UP)) {
+                    break;
+                }
+            }
 
-            int sl = chunkGenerator.getSeaLevel();
-            int y = sl + this.random.nextInt(chunkGenerator.getGenDepth() - 2 - sl);
-
-            JigsawManager.addPieces(
-                    dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(new ResourceLocation(DivineRPG.MODID, "iceika/iceika_dungeons")),
-                            5),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManagerIn,
-                    new BlockPos(x, y, z),
-                    this.pieces,
-                    this.random,
-                    false,
-                    false);
-
-            this.calculateBoundingBox();
-            this.moveBelowSeaLevel(sl, random, 10);
+            if (structureY > seaLevel) {
+                Rotation rotation = Rotation.getRandom(this.random);
+                this.pieces.add(new IceikaDungeonPiece.Piece(templateManagerIn, new BlockPos(structureX, structureY - random.nextInt(20) - 15, structureZ), rotation));
+                this.calculateBoundingBox();
+            }
         }
     }
 }
