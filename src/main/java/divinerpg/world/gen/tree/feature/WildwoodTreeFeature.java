@@ -2,8 +2,6 @@ package divinerpg.world.gen.tree.feature;
 
 import divinerpg.registries.*;
 import net.minecraft.block.*;
-import net.minecraft.state.properties.*;
-import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -14,15 +12,12 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     public WildwoodTreeFeature(Supplier<SaplingBlock> sapling) {
         super(sapling);
     }
-//    @SuppressWarnings("deprecation")
 	private static final BlockState  leaves = BlockRegistry.wildwoodLeaves.defaultBlockState(),
 			northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.NORTH, true),
     		eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.EAST, true),
     		southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.SOUTH, true),
     		westVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.WEST, true),
-    		log = BlockRegistry.wildwoodLog.defaultBlockState(),
-			logNS = BlockRegistry.wildwoodLog.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z),
-			logEW = BlockRegistry.wildwoodLog.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+    		log = BlockRegistry.wildwoodLog.defaultBlockState();
 	
     private void growLeavesWithVines(ISeedReader world, BlockPos pos, int y, int width, int offset, int leavesChance, int vineChance) {
     	chanceSetBlock(world, pos.offset(width, y, offset), leaves, leavesChance, false);
@@ -55,15 +50,6 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
 			grow(world, pos, leaves, minY, maxY, 2, offset);
 			growVines(world, pos, minY, maxY, 3, offset, vineChance);
 		}
-    }
-    private void logCross(ISeedReader world, BlockPos pos, int y, int minWidth, int maxWidth, int offset, boolean replace) {
-    	for(int i = minWidth; i < maxWidth + 1; i++) {
-    		grow(world, pos, log, y, i, offset, replace);
-    		setBlock(world, pos.offset(i, y, offset), logNS, replace);
-    		setBlock(world, pos.offset(-i, y, -offset), logNS, replace);
-    		setBlock(world, pos.offset(offset, y, -i), logEW, replace);
-    		setBlock(world, pos.offset(-offset, y, i), logEW, replace);
-    	}
     }
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
@@ -148,13 +134,16 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     	        	growVines(world, pos, 0, 0, 2, -1, 2);
     	        	//Leaves
     	        	int w = rand.nextInt(2);
-    	        	logCross(world, pos, treeHeight - 1, 1, 1, 0, false);
-    	        	logCross(world, pos, treeHeight - 3, 1, 1 + w, 0, false);
-    	        	logCross(world, pos, treeHeight - 4, 2 + w, 2 + w, 1, false);
-    	        	logCross(world, pos, treeHeight - 4, 2 + w, 2 + w, -1, false);
-    	        	logCross(world, pos, treeHeight - 5, 3 + w, 3 + w, 0, false);
-    	        	logCross(world, pos, treeHeight - 5, 3 + w, 3 + w, 2, false);
-    	        	logCross(world, pos, treeHeight - 5, 3 + w, 3 + w, -2, false);
+    	        	grow(world, pos, log, treeHeight - 1, 1, 0, false);
+    	        	grow(world, pos, log, treeHeight - 3, 1, 0, false);
+    	        	if(w == 1) {
+    	        		grow(world, pos, log, treeHeight - 3, 2, 0, false);
+    	        	}
+    	        	grow(world, pos, log, treeHeight - 4, 2 + w, 1, false);
+    	        	grow(world, pos, log, treeHeight - 4, 2 + w, -1, false);
+    	        	grow(world, pos, log, treeHeight - 5, 3 + w, 0, false);
+    	        	grow(world, pos, log, treeHeight - 5, 3 + w, 2, false);
+    	        	grow(world, pos, log, treeHeight - 5, 3 + w, -2, false);
     	        	growVines(world, pos, treeHeight - 5, treeHeight - 5, -2 - w, 0, 2);
     	        	growVines(world, pos, treeHeight - 5, treeHeight - 5, -2 - w, 2, 2);
     	        	growVines(world, pos, treeHeight - 5, treeHeight - 5, -2 - w, -2, 2);
