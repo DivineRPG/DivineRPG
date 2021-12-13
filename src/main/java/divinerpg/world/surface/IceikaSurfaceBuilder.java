@@ -90,7 +90,7 @@ public class IceikaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
                     chunk.setBlockState(blockpos$mutable.above(), SNOW, false);
                 }
 
-                if(chunk.getBlockState(blockpos$mutable).is(BlockRegistry.frozenGrass) && random.nextInt(60) == 0) {
+                if(chunk.getBlockState(blockpos$mutable).is(BlockRegistry.frozenGrass) && random.nextInt(240) == 0) {
                     int treeHeight = 12;
                     int extraHeight = treeHeight + random.nextInt(1) + 1;
                     BlockPos pos = blockpos$mutable;

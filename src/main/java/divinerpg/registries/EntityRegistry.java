@@ -730,7 +730,7 @@ public class EntityRegistry {
         manager.register(APALACHIA_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
         manager.register(APALACHIA_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
         manager.register(APALACHIA_TOMO, new RenderDivineMob(manager, new ModelTomo<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
-        manager.register(ENCHANTED_ARCHER, new RenderDivineMob(manager, new ModelEnchantedArcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_archer.png"))); //TODO - bow
+        manager.register(ENCHANTED_ARCHER, new RenderEnchantedArcher(manager));
         manager.register(ENCHANTED_WARRIOR, new RenderEnchantedWarrior(manager));
         manager.register(SPELLBINDER, new RenderDivineMob(manager, new ModelMystic<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/spellbinder.png")));
 
@@ -739,7 +739,7 @@ public class EntityRegistry {
         manager.register(MEGALITH, new RenderDivineMob(manager, new ModelMegalith<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/megalith.png")));
         manager.register(MYSTIC, new RenderDivineMob(manager, new ModelMystic<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mystic.png")));
         manager.register(SAMEK, new RenderDivineMob(manager, new ModelSamek<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/samek.png")));
-        manager.register(SKYTHERN_ARCHER, new RenderDivineMob(manager, new ModelTwilightArcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_archer.png"))); //TODO - bow
+        manager.register(SKYTHERN_ARCHER, new RenderSkythernArcher(manager));
         manager.register(SKYTHERN_FIEND, new RenderDivineMob(manager, new ModelSkythernFiend<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_fiend.png")));
         manager.register(SKYTHERN_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_golem.png")));
 
@@ -751,7 +751,7 @@ public class EntityRegistry {
         manager.register(SORCERER, new RenderDivineMob(manager, new ModelSorcerer<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sorcerer.png")));
         manager.register(SOUL_SPIDER, new RenderDivineMob(manager, new ModelSoulSpider<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
         manager.register(SOUL_STEALER, new RenderDivineMob(manager, new ModelSoulStealer<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
-        manager.register(TWILIGHT_ARCHER, new RenderDivineMob(manager, new ModelTwilightArcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png"))); //TODO - bow
+        manager.register(TWILIGHT_ARCHER, new RenderTwilightArcher(manager));
 
         //Arcana
         manager.register(CAPTAIN_MERIK, new RenderDivineMob(manager, new ModelSamek<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/captain_merik.png")));
