@@ -15,13 +15,13 @@ import net.minecraft.util.*;
 import net.minecraft.util.text.*;
 
 public class ArcaniumExtractorCategory implements IRecipeCategory<ArcaniumExtractorRecipe> {
-    public static final ResourceLocation ARCANIUM_EXTRACTOR = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcanium_extractor.png");
+    public static final ResourceLocation ARCANIUM_EXTRACTOR = new ResourceLocation(DivineRPG.MODID, "textures/gui/jei/arcanium_extractor.png");
 
     private final IDrawable back;
     private final IDrawable icon;
 
     public ArcaniumExtractorCategory(IGuiHelper helper) {
-        this.back = helper.createDrawable(ARCANIUM_EXTRACTOR, 1, 1, 180, 100);
+        this.back = helper.createDrawable(ARCANIUM_EXTRACTOR, 1, 1, 167, 78);
         this.icon = helper.createDrawableIngredient(new ItemStack(BlockRegistry.arcaniumExtractor));
     }
 
@@ -50,6 +50,7 @@ public class ArcaniumExtractorCategory implements IRecipeCategory<ArcaniumExtrac
         return icon;
     }
 
+
     @Override
     public void setIngredients(ArcaniumExtractorRecipe recipe, IIngredients ingredients) {
         ingredients.setInputIngredients(recipe.getIngredients());
@@ -60,10 +61,10 @@ public class ArcaniumExtractorCategory implements IRecipeCategory<ArcaniumExtrac
     public void setRecipe(IRecipeLayout recipeLayout, ArcaniumExtractorRecipe recipe, IIngredients ingredients) {
         IGuiItemStackGroup itemStackGroup = recipeLayout.getItemStacks();
 
-        itemStackGroup.init(0, true, 56, 17);
-        itemStackGroup.init(1, true, 56, 53);
+        itemStackGroup.init(0, true, 50, 11);
+        itemStackGroup.init(1, true, 50, 47);
         itemStackGroup.set(1, new ItemStack(ItemRegistry.collector));
-        itemStackGroup.init(2, false, 116, 35);
+        itemStackGroup.init(2, false, 110, 29);
 
         itemStackGroup.set(ingredients);
     }

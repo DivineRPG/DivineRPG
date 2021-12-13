@@ -53,7 +53,6 @@ public class FeatureRegistry {
 
         Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
 
-        //TODO - change tar lake to a custom feature so we get twilight stone instead of stone in twilight dimensions
         TAR_LAKE_CONFIGURED = Feature.LAKE
                 .configured(new BlockStateFeatureConfig(BlockRegistry.smolderingTar.defaultBlockState()))
                 .decorated(DecoratorRegistry.TAR_LAKE.get().configured(new ChanceConfig(5)));
