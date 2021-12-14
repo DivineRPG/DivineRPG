@@ -83,7 +83,6 @@ public class ModelCadillion extends EntityModel<Entity> {
 
 	@Override
 	public void setupAnim(Entity p_225597_1_, float var1, float var2, float var3, float var4, float var5) {
-		//TODO - better animate cadillion
 		this.Head.yRot = (var4 / 57.295776F);
 		this.RightEar_r1.yRot = (var4 / 57.295776F);
 		this.LeftEar_r1.yRot = (var4 / 57.295776F);

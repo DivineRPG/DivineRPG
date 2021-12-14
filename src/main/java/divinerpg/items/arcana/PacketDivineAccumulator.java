@@ -32,7 +32,6 @@ public class PacketDivineAccumulator {
             for (double r = 0; r < 4; r += 0.1) {
                 for (double theta = 0; theta < 2 * Math.PI; theta += (Math.PI / 24)) {
 
-                    //TODO - send particle
 //                    DivineRPG.proxy.spawnParticle(
 //                            DivineRPG.proxy.getPlayer().world,
 //                            ParticleType.EDEN_PORTAL,

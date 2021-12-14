@@ -29,8 +29,6 @@ public class RenderAyeracoSpawn extends TileEntityRenderer<TileEntityAyeracoSpaw
     @Override
     public void render(TileEntityAyeracoSpawn tile, float ticks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
     matrixStack.pushPose();
-    //TODO - ayeraco spawn doesnt wanna render. i need an adult
-
         if (tile.spawnTick > 430)
             Minecraft.getInstance().textureManager.bind(greenTexture);
         else if (tile.spawnTick > 300)

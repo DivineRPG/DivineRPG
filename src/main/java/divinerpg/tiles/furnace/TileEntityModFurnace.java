@@ -180,7 +180,6 @@ public abstract class TileEntityModFurnace extends AbstractFurnaceTileEntity imp
         return new TranslationTextComponent(getFuranceName());
     }
 
-    //TODO - Create containers for furnaces
     protected Container createMenu(int i, PlayerInventory playerInventory) {
         return new FurnaceContainer(i, playerInventory, this, this.dataAccess);
     }

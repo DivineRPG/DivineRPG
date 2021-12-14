@@ -11,8 +11,6 @@ import net.minecraftforge.items.wrapper.*;
 
 public class DreamLampContainer extends Container {
 
-    //TODO - center dream lamp container
-
     public static DreamLampContainer createContainerClientSide(int windowID, PlayerInventory playerInventory, net.minecraft.network.PacketBuffer extraData) {
         TileInventoryHelper chestContents = TileInventoryHelper.createForClientSideContainer(TileEntityDreamLamp.NUMBER_OF_SLOTS);
         return new DreamLampContainer(windowID, playerInventory, chestContents);

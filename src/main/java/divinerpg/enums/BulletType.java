@@ -22,7 +22,6 @@ public enum BulletType {
     FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
     FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
 
-    //TODO - BulletType particles
 //    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
 //    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get()),
 //    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get()),

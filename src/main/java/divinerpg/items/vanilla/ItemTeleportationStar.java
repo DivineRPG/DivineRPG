@@ -48,7 +48,6 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         String dimName = tag.getString(dimKey);
         ;
         try {
-            //TODO - integrate the multidimension saving for teleportation star
             return World.OVERWORLD;
         } catch (Exception e) {
             e.printStackTrace();

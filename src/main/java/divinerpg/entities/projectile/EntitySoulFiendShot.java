@@ -38,7 +38,6 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
     public void tick() {
         super.tick();
         for (int cnt = 0; cnt < 8; ++cnt) {
-            //TODO - coloured particles
 //            DivineRPG.proxy.spawnColoredParticle(this.world, this.posX + (rand.nextDouble() - rand.nextDouble()) / 4,
 //                    this.posY + (rand.nextDouble() - rand.nextDouble()) / 4,
 //                    this.posZ + (rand.nextDouble() - rand.nextDouble()) / 4, new Color(0, 0, 0), true, false);

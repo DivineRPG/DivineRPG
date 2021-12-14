@@ -23,7 +23,6 @@ public class EntityColoredBullet extends EntityShooterBullet {
             double x = this.getX() + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double y = this.getY() + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double z = this.getZ() + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-            //TODO - spawn coloured particle for coloured bullet
 //            DivineRPG.proxy.spawnColoredParticle(this.level, x, y, z, this.getBulletType().getColor(), true, false);
         }
     }
