@@ -31,9 +31,9 @@
     },
     "decorator": {
       "config": {
-        "chance": 4
+        "count": 6
       },
-      "type": "minecraft:chance"
+      "type": "minecraft:count_multilayer"
     }
   },
   "type": "minecraft:decorated"

@@ -38,11 +38,11 @@ public class EdenTreeFeature extends DivineTreeFeature {
         	if (heightCheck(world, pos, extraHeight, 1)) {
                 BlockState log = BlockRegistry.edenLog.defaultBlockState(), leaves = BlockRegistry.edenLeaves.defaultBlockState();
                 //Main trunk
-                grow(world, pos, log, 0, treeHeight, false);
+                grow(world, pos, log, 0, treeHeight);
                 switch(treeType) {
             	case 0:
             		int bottomHeight = 1;
-            		if(treeHeight > 9 || (treeHeight == 9 && rand.nextInt(2) == 1)) {
+            		if(treeHeight > 9 || (treeHeight == 9 && rand.nextBoolean())) {
         				bottomHeight++;
         				grow(world, pos, log, 0, 0, 1, 0, false, 2);
         			}

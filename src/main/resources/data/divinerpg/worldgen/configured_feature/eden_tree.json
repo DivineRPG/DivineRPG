@@ -1,40 +1,53 @@
 {
   "type": "minecraft:decorated",
   "config": {
-    "feature": {
-      "type": "minecraft:decorated",
+	"feature": {
+	  "type": "minecraft:decorated",
+	  "config": {
+	    "feature": {
+	      "type": "minecraft:decorated",
+	      "config": {
+	        "feature": {
+	          "type": "minecraft:decorated",
+	          "config": {
+	            "feature": {
+	              "type": "divinerpg:eden_tree",
+	              "config": {
+	                "state": {
+	                  "Properties": {
+	                    "stage": "0"
+	                  },
+	                  "Name": "divinerpg:eden_sapling"
+	                }
+	              }
+	            },
+	            "decorator": {
+	              "type": "minecraft:heightmap_world_surface",
+	              "config": {}
+	            }
+	          }
+	        },
+	        "decorator": {
+	          "type": "minecraft:square",
+	          "config": {}
+	        }
+	      }
+	    },
+	    "decorator": {
+	      "type": "minecraft:chance",
+	      "config": {
+	        "chance": 2
+	      }
+	    }
+	  }
+	},
+	"decorator": {
       "config": {
-        "feature": {
-          "type": "minecraft:decorated",
-          "config": {
-            "feature": {
-              "type": "divinerpg:eden_tree",
-              "config": {
-                "state": {
-                  "Properties": {
-                    "stage": "0"
-                  },
-                  "Name": "divinerpg:eden_sapling"
-                }
-              }
-            },
-            "decorator": {
-              "type": "minecraft:heightmap_world_surface",
-              "config": {}
-            }
-          }
-        },
-        "decorator": {
-          "type": "minecraft:square",
-          "config": {}
-        }
-      }
-    },
-    "decorator": {
-      "type": "minecraft:chance",
-      "config": {
-        "chance": 2
-      }
+        "count": 1,
+        "extra_chance": 0.5,
+        "extra_count": 2
+      },
+      "type": "minecraft:count_extra"
     }
   }
 }
