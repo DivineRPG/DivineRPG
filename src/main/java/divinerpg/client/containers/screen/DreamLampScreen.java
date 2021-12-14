@@ -15,10 +15,7 @@ public class DreamLampScreen extends ContainerScreen<DreamLampContainer> {
     public DreamLampScreen(DreamLampContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
 
-        this.imageWidth = 256;
-        this.imageHeight = 256;
-
-        this.passEvents = false;
+        this.titleLabelY -= 2;
     }
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
@@ -27,10 +24,15 @@ public class DreamLampScreen extends ContainerScreen<DreamLampContainer> {
     @Override
     protected void renderBg(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.minecraft.getTextureManager().bind(texture);   // this.minecraft.getTextureManager()
+        this.minecraft.getTextureManager().bind(texture);
 
         int edgeSpacingX = (this.width - this.getXSize()) / 2;
         int edgeSpacingY = (this.height - this.getYSize()) / 2;
         this.blit(matrixStack, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
+    }
+    @Override
+    protected void renderLabels(MatrixStack matrixStack, int mouseX, int mouseY) {
+        this.font.draw(matrixStack, this.title, 12, 8, 4210752);
+        this.font.draw(matrixStack, inventory.getName(), 12, 70, 4210752);
     }
 }

@@ -5,8 +5,6 @@ import divinerpg.tiles.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.entity.player.*;
-import net.minecraft.fluid.*;
-import net.minecraft.inventory.container.*;
 import net.minecraft.item.*;
 import net.minecraft.state.*;
 import net.minecraft.state.properties.*;
@@ -14,10 +12,8 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
-import net.minecraft.world.server.*;
 
 import javax.annotation.*;
-import java.util.*;
 
 public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -29,28 +25,7 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
-    }
-
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block block, BlockPos pos2, boolean p_220069_6_) {
-        if (!world.isClientSide) {
-            boolean flag = state.getValue(POWERED);
-            if (flag != world.hasNeighborSignal(pos)) {
-                if (flag) {
-                    world.getBlockTicks().scheduleTick(pos, this, 4);
-                } else {
-                    world.setBlock(pos, state.cycle(POWERED), 2);
-                }
-            }
-
-        }
-    }
-
-    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.getValue(POWERED) && !world.hasNeighborSignal(pos)) {
-            world.setBlock(pos, state.cycle(POWERED), 2);
-        }
-
+        return this.defaultBlockState().setValue(POWERED, false);
     }
 
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
@@ -59,37 +34,18 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
 
     @Override
     public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
-        return state.getValue(POWERED)? 15 : 0;
+        if(state.getValue(POWERED)){
+            return 15;
+        }
+        return 0;
     }
 
     public void setOn(World worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, this.defaultBlockState().setValue(POWERED, true), 2);
+        worldIn.setBlock(pos, worldIn.getBlockState(pos).setValue(POWERED, true), 2);
     }
 
     public void setOff(World worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, this.defaultBlockState(), 2);
-    }
-
-    public boolean hasAnalogOutputSignal(BlockState state) {
-        return state.getValue(POWERED);
-    }
-
-    @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockRayTraceResult result) {
-        if(playerEntity.isCrouching()) {
-            return ActionResultType.SUCCESS;
-        }
-        playerEntity.openMenu((INamedContainerProvider)world.getBlockEntity(pos));
-        return super.use(state, world, pos, playerEntity, hand, result);
-    }
-
-    @Override
-    public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
-        TileEntity tile = world.getBlockEntity(pos).getTileEntity();
-        if(tile instanceof TileEntityDreamLamp){
-            ((TileEntityDreamLamp)tile).dropAllContents(world, pos);
-        }
-        return false;
+        worldIn.setBlock(pos, worldIn.getBlockState(pos).setValue(POWERED, false), 2);
     }
 
     @Nullable
@@ -97,4 +53,16 @@ public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
     public TileEntity newBlockEntity(IBlockReader reader) {
         return new TileEntityDreamLamp();
     }
+
+    @Override
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockRayTraceResult result) {
+        if(!world.isClientSide){
+            TileEntity tileentity = world.getBlockEntity(pos);
+            if (tileentity instanceof TileEntityDreamLamp) {
+                playerEntity.openMenu((TileEntityDreamLamp) tileentity);
+            }
+        }
+        return super.use(state, world, pos, playerEntity, hand, result);
+    }
+
 }
