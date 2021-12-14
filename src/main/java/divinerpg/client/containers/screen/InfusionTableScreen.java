@@ -13,18 +13,11 @@ import net.minecraft.util.text.*;
 public class InfusionTableScreen extends ContainerScreen<InfusionTableContainer> implements IHasContainer<InfusionTableContainer> {
     private static final ResourceLocation LOCATION = new ResourceLocation(
             DivineRPG.MODID + ":textures/gui/infusion_table.png");
-    private final int containerRows;
-    private final PlayerInventory playerInventory;
 
     public InfusionTableScreen(InfusionTableContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
 
-        this.containerRows = container.slots.size()/9;
-        this.imageWidth = 256;
-        this.imageHeight = 256;
-        this.playerInventory = playerInventory;
-
-        this.passEvents = false;
+        this.titleLabelY -= 2;
     }
 
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
@@ -46,8 +39,7 @@ public class InfusionTableScreen extends ContainerScreen<InfusionTableContainer>
 
     @Override
     protected void renderLabels(MatrixStack matrixStack, int mouseX, int mouseY) {
-        this.font.draw(matrixStack, this.title, (float)this.titleLabelX, (float)this.titleLabelY, 4210752);
-        this.font.draw(matrixStack, this.inventory.getDisplayName(), (float)this.inventoryLabelX, 128F, 4210752);
+        this.font.draw(matrixStack, this.title, 50, 18, 4210752);
     }
 
 }

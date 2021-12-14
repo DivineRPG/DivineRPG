@@ -105,13 +105,17 @@ public class TileEntityInfusionTable extends LockableTileEntity implements ITick
             Item item = x.getOutput(input, template, inputCount);
             if(item != null) {
                 items.set(2, new ItemStack(item));
+                items.set(0, ItemStack.EMPTY);
             }
             else {
                 items.set(2, ItemStack.EMPTY);
             }
         }
         else {
-            items.set(2, ItemStack.EMPTY);
+//            items.set(2, ItemStack.EMPTY);
         }
     }
+
+
+
 }
