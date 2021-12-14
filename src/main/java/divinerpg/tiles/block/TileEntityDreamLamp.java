@@ -105,6 +105,7 @@ public class TileEntityDreamLamp extends TileEntity implements INamedContainerPr
     }
 
 
+    int ticks;
     @Override
     public void tick() {
         if(!this.level.isClientSide) {
@@ -120,12 +121,12 @@ public class TileEntityDreamLamp extends TileEntity implements INamedContainerPr
             if (block instanceof BlockDreamLamp) {
                 if (powerOn) {
                     ((BlockDreamLamp) block).setOn(this.level, this.getBlockPos());
-                    int i = 0;
-                    if(i > 120000){
-                        i = 0;
+                    ticks++;
+                    if(ticks > 1200){
+                        ticks = 0;
                         acidStack.shrink(1);
-                    }else{i++;}
-                    acidStack.shrink(1);
+                    }
+
                 } else {
                     ((BlockDreamLamp) block).setOff(this.level, this.getBlockPos());
                 }
