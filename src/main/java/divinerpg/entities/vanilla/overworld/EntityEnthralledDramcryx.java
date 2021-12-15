@@ -40,6 +40,6 @@ public class EntityEnthralledDramcryx extends EntityDivineMob {
         return SoundRegistry.DRAMCRYX_HURT;
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && worldIn.getLightEmission(pos) < 8 && pos.getY() <= 16;
+        return reason == SpawnReason.SPAWNER || worldIn.getLightEmission(pos) < 8 && pos.getY() <= 16;
     }
 }

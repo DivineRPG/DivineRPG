@@ -45,7 +45,7 @@ public class EntityRotatick extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) & worldIn.getLightEmission(pos) < 8 && pos.getY() < 25;
+        return reason == SpawnReason.SPAWNER || worldIn.getLightEmission(pos) < 8 && pos.getY() < 25;
     }
 
 }

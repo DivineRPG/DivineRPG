@@ -3,6 +3,7 @@ package divinerpg.entities.mortum;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
@@ -26,7 +27,7 @@ public class EntitySoulSpider extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.soulSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.soulSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.soulSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.soulSpiderFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
 
     @Override

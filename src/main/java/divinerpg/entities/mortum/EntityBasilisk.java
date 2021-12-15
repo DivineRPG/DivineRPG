@@ -3,6 +3,7 @@ package divinerpg.entities.mortum;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
@@ -28,7 +29,7 @@ public class EntityBasilisk extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.basliskHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.basliskDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.basliskSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.basliskFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
 
     @Override

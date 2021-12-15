@@ -42,26 +42,11 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
         return SoundRegistry.CYCLOPS_HURT;
     }
 
-    @Override
-    public boolean checkSpawnRules(IWorld world, SpawnReason reason) {
-        if (world.getBrightness(LightType.SKY, blockPosition()) > random.nextInt(32)) {
-            return false;
-        } else {
-            int i = world.getLightEmission(blockPosition());
-
-            if (level.isThundering()) {
-                int j = world.getSkyDarken();
-                world.getLightEngine().onBlockEmissionIncrease(blockPosition(), 10);
-                i = world.getLightEmission(blockPosition());
-                world.getLightEngine().onBlockEmissionIncrease(blockPosition(), j);
-            }
-
-            return i <= random.nextInt(8);
-        }
-    }
-
-
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() > (worldIn.getMaxBuildHeight()/2);
+        return true;
+    }
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+        return 0.0F;
     }
 }

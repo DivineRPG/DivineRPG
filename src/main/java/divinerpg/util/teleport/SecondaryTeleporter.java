@@ -1,33 +1,37 @@
 package divinerpg.util.teleport;
 
 import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.server.*;
 
 import java.util.function.*;
 
 public class SecondaryTeleporter extends Teleporter {
-    private final ServerWorld worldServerInstance;
 
-    private double x;
-    private double y;
-    private double z;
-
-    public SecondaryTeleporter(ServerWorld world, double x, double y, double z) {
+    public SecondaryTeleporter(ServerWorld world) {
         super(world);
-        this.worldServerInstance = world;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-
     }
 
+    public void placeInPortal(Entity entity, float rotationYaw) {
+        if(entity instanceof ServerPlayerEntity) {
+            ServerPlayerEntity player = (ServerPlayerEntity) entity;
+            if (player.getRespawnPosition() != null) {
+                BlockPos spawnPoint = player.getRespawnPosition();
+                entity.teleportTo(spawnPoint.getX(), spawnPoint.getY(), spawnPoint.getZ());
+            }
+        }
+    }
     @Override
     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-        this.worldServerInstance.getBlockState(entity.blockPosition());
-        entity.changeDimension(destWorld);
-        entity.moveTo(this.x, this.y, this.z);
-        entity.setDeltaMovement(0, 0 ,0);
-        return null;
+        if (entity instanceof ServerPlayerEntity) {
+            this.placeInPortal(entity, yaw);
+        }
+
+        entity.setPortalCooldown();
+        entity = repositionEntity.apply(false);
+
+        return entity;
     }
 }

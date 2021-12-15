@@ -5,6 +5,7 @@ import divinerpg.entities.projectile.*;
 import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
@@ -28,7 +29,7 @@ public class EntityTwilightArcher extends EntityDivineMob implements IRangedAtta
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumArcherFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
 
     @Override

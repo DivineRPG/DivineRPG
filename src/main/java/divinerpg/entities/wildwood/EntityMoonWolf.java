@@ -26,8 +26,9 @@ public class EntityMoonWolf extends WolfEntity {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.moonWolfHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.moonWolfDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.moonWolfSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.moonWolfFollowRange);
     }
 
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
 
     @Override

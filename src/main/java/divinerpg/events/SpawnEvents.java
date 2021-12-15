@@ -11,6 +11,7 @@ import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
@@ -190,18 +191,18 @@ public class SpawnEvents {
     }
 
     public static boolean arcanaSpawn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && !worldIn.canSeeSky(pos);
+        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
     public static boolean vetheaLayer1(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() > 18 && pos.getY() < 36;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 18 && pos.getY() < 36;
     }
     public static boolean vetheaLayer2(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() > 65 && pos.getY() < 85;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 65 && pos.getY() < 85;
     }
     public static boolean vetheaLayer3(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() > 113 && pos.getY() < 133;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 113 && pos.getY() < 133;
     }
     public static boolean vetheaLayer4(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() > 160;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 160;
     }
 }

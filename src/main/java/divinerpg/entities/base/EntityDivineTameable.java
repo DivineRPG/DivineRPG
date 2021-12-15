@@ -43,8 +43,14 @@ public class EntityDivineTameable extends TameableEntity {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.ATTACK_DAMAGE, 8).add(Attributes.MOVEMENT_SPEED, 0.27D);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return true;
+    }
+
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+        return 0.0F;
     }
     protected void increaseHealthIfTimable() {
         if (this.isTame()) {

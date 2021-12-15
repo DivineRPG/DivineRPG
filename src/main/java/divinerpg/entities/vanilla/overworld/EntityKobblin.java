@@ -1,20 +1,19 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.Blocks;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
 
 public class EntityKobblin extends EntityDivineMob {
@@ -25,8 +24,12 @@ public class EntityKobblin extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) || worldIn.getBlockState(blockpos.below()).getBlock() == Blocks.GRASS && worldIn.getBlockState(pos.below(2)).getBlock() != Blocks.AIR;
+        return true;
+    }
+
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+        return 0.0F;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

@@ -29,9 +29,11 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
             this.goalSelector.addGoal(7, attack);
         }
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
+
     @Override
     protected boolean shouldDespawnInPeaceful() {
         return true;

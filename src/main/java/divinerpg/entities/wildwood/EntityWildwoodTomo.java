@@ -25,8 +25,9 @@ public class EntityWildwoodTomo extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.wildwoodTomoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.wildwoodTomoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.wildwoodTomoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.wildwoodTomoFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
 
     @Override

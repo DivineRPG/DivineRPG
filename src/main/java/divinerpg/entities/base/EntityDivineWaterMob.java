@@ -1,20 +1,19 @@
 package divinerpg.entities.base;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.fish.AbstractFishEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.fish.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.particles.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import java.util.Random;
+import java.util.*;
 
 public class EntityDivineWaterMob extends AbstractFishEntity {
 
@@ -23,11 +22,8 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
         super(type, worldIn);
         this.random.setSeed(1 + this.getId());
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return worldIn.getBlockState(pos).is(Blocks.WATER) && worldIn.getBlockState(pos.above()).is(Blocks.WATER);
-    }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return true;
     }
 

@@ -39,12 +39,18 @@ public class EntityPumpkinSpider extends EntityDivineMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte)0);
+        this.entityData.define(PROVOKED, false);
     }
 
     public void tick() {
         super.tick();
         if (!this.level.isClientSide) {
             this.setClimbing(this.horizontalCollision);
+            if(entityData.get(PROVOKED).booleanValue() == false) {
+                setNoAi(true);
+            }else {
+                setNoAi(false);
+            }
         }
 
     }
@@ -227,7 +233,11 @@ public class EntityPumpkinSpider extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn) && worldIn.getBlockState(pos.below()).getBlock() == Blocks.GRASS ;
+        return true;
+    }
+
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+        return 0.0F;
     }
 }

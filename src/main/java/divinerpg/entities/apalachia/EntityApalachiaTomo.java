@@ -25,8 +25,9 @@ public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.apalachiaTomoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.apalachiaTomoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.apalachiaTomoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.apalachiaTomoFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return true;
     }
 
     @Override

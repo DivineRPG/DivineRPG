@@ -490,21 +490,6 @@ public class EntityRegistry {
     }
 
     public static void spawnStuff(BiomeLoadingEvent event) {
-        ArrayList<Biome.Category> overworldCats = new ArrayList<>();
-        overworldCats.add(Biome.Category.TAIGA);
-        overworldCats.add(Biome.Category.EXTREME_HILLS);
-        overworldCats.add(Biome.Category.JUNGLE);
-        overworldCats.add(Biome.Category.MESA);
-        overworldCats.add(Biome.Category.PLAINS);
-        overworldCats.add(Biome.Category.SAVANNA);
-        overworldCats.add(Biome.Category.ICY);
-        overworldCats.add(Biome.Category.BEACH);
-        overworldCats.add(Biome.Category.FOREST);
-        overworldCats.add(Biome.Category.OCEAN);
-        overworldCats.add(Biome.Category.DESERT);
-        overworldCats.add(Biome.Category.RIVER);
-        overworldCats.add(Biome.Category.SWAMP);
-        overworldCats.add(Biome.Category.MUSHROOM);
         Biome.Category biome = event.getCategory();
 
         if (biome == Biome.Category.THEEND) {
@@ -519,7 +504,9 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SCORCHER, 7, 1, 4));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(WILDFIRE, 50, 1, 1));
         }
-        if (overworldCats.contains(biome)) {
+        if (biome == Biome.Category.TAIGA || biome == Biome.Category.EXTREME_HILLS || biome == Biome.Category.JUNGLE || biome == Biome.Category.MESA || biome == Biome.Category.PLAINS || biome == Biome.Category.SAVANNA
+                || biome == Biome.Category.ICY || biome == Biome.Category.BEACH || biome == Biome.Category.FOREST || biome == Biome.Category.OCEAN || biome == Biome.Category.DESERT || biome == Biome.Category.RIVER
+                || biome == Biome.Category.SWAMP || biome == Biome.Category.MUSHROOM) {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVE_CRAWLER, 70, 2, 3));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVECLOPS, 70, 1, 4));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  4, 1, 4));
@@ -541,7 +528,7 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(DESERT_CRAWLER, 50, 1, 4));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SAGUARO_WORM, 20, 1, 4));
         }
-        if (biome == Biome.Category.BEACH) {
+        if (biome == Biome.Category.BEACH || biome == Biome.Category.RIVER || biome == Biome.Category.OCEAN) {
             event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(CRAB, 100, 4, 4));
             event.getSpawns().getSpawner(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(KING_CRAB, 40, 4, 4));
         }
@@ -550,11 +537,11 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_DRAMCRYX, 80, 1, 4));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_SPIDER , 80, 1, 4));
         }
-        if (biome == Biome.Category.PLAINS) {
+        if (biome == Biome.Category.PLAINS || biome == Biome.Category.SAVANNA || biome == Biome.Category.SWAMP || biome == Biome.Category.MESA || biome == Biome.Category.TAIGA) {
             event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(CYCLOPS, 10, 2, 4));
             event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(KOBBLIN, 5, 1, 1));
         }
-        if (biome == Biome.Category.FOREST) {
+        if (biome == Biome.Category.FOREST || biome == Biome.Category.MUSHROOM || biome == Biome.Category.SAVANNA) {
             event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(PUMPKIN_SPIDER, 20, 1, 1));
         }
         if (biome == Biome.Category.OCEAN) {

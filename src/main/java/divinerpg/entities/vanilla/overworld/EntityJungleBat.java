@@ -180,9 +180,9 @@ public class EntityJungleBat extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.jungleBatHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.jungleBatDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.jungleBatSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.jungleBatFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        BlockPos blockpos = pos.below();
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(blockpos).isValidSpawn(worldIn, blockpos, typeIn);
+        return true;
     }
 
 }

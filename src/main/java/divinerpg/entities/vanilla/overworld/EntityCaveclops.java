@@ -64,6 +64,6 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn) && pos.getY() < 20;
+        return reason == SpawnReason.SPAWNER || pos.getY() < 20;
     }
 }

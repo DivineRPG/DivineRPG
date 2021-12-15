@@ -26,8 +26,9 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.samekHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.samekDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.samekSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.samekFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return true;
     }
 
     @Override

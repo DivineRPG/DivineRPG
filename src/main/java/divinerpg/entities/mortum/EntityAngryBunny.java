@@ -3,6 +3,7 @@ package divinerpg.entities.mortum;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.monster.*;
@@ -25,8 +26,9 @@ public class EntityAngryBunny extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.angryBunnyHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.angryBunnyDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.angryBunnySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.angryBunnyFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
+        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
 
     @Override

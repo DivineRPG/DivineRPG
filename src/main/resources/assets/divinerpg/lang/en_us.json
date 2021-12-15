@@ -1805,7 +1805,7 @@
   "tooltip.mortum_only": "This item can only be used in Mortum.",
   "tooltip.sky_flower.breath": "Gives Speed and Water Breathing for 30 seconds.",
   "tooltip.vilestorm": "Poisons Enemies",
-  "tooltip.teleport_bed_spawn": "Teleport to bed or spawn point",
+  "tooltip.teleport_bed_spawn": "Teleport to the players bed",
   "tooltip.serenade_striker": "Shoots Lightning",
   "tooltip.serenade_of_infusion": "Gives the user regeneration",
   "tooltip.serenade_of_health": "Heals the user",

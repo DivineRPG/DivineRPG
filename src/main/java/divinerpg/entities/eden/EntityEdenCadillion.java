@@ -45,10 +45,11 @@ public class EntityEdenCadillion extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
+
     @Override
-    public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {
+    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
         return 0.0F;
     }
 }

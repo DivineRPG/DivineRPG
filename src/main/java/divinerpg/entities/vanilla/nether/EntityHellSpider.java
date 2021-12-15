@@ -62,8 +62,9 @@ public class EntityHellSpider extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
+
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hellSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hellSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellSpiderFollowRange);
     }

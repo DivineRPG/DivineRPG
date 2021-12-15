@@ -31,8 +31,9 @@ public class EntityBunny extends EntityDivineTameable {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.bunnyHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.bunnySpeed).add(Attributes.FOLLOW_RANGE, EntityStats.bunnyFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
     @Override
     public float getWalkTargetValue(BlockPos p_205022_1_, IWorldReader p_205022_2_) {

@@ -24,8 +24,9 @@ public class EntityVerek extends EntityDivineMob {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.verekHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.verekDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.verekSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.verekFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
 
     @Override

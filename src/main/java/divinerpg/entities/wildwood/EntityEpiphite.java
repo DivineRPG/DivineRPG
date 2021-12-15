@@ -25,8 +25,9 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.epiphiteHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.epiphiteDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.epiphiteSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.epiphiteFollowRange);
     }
+
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos, typeIn) && worldIn.getBlockState(pos.below()).isCollisionShapeFullBlock(worldIn, pos.below());
+        return true;
     }
 
     @Override

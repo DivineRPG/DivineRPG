@@ -29,31 +29,31 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         return stack.getTag();
     }
 
-    @Nullable
-    @Override
-    protected BlockPos getSavedPos(PlayerEntity player, ItemStack stack) {
-        CompoundNBT tag = getFromStack(stack);
-        if (!tag.contains(posKey))
-            return null;
-
-        return BlockPos.of(tag.getLong(posKey));
-    }
-
-    @Override
-    protected RegistryKey<World> getSavedDimType(PlayerEntity player, ItemStack stack) {
-        CompoundNBT tag = getFromStack(stack);
-        if (!tag.contains(dimKey))
-            return null;
-
-        String dimName = tag.getString(dimKey);
-        ;
-        try {
-            return World.OVERWORLD;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    @Nullable
+//    @Override
+//    protected BlockPos getSavedPos(PlayerEntity player, ItemStack stack) {
+//        CompoundNBT tag = getFromStack(stack);
+//        if (!tag.contains(posKey))
+//            return null;
+//
+//        return BlockPos.of(tag.getLong(posKey));
+//    }
+//
+//    @Override
+//    protected RegistryKey<World> getSavedDimType(PlayerEntity player, ItemStack stack) {
+//        CompoundNBT tag = getFromStack(stack);
+//        if (!tag.contains(dimKey))
+//            return null;
+//
+//        String dimName = tag.getString(dimKey);
+//        ;
+//        try {
+//            return World.OVERWORLD;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
     /**
      * Tries to set current position
@@ -105,7 +105,7 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compound = getFromStack(stack);
-
+        tooltip.add(LocalizeUtils.i18n("wip"));
         if (compound.contains(dimKey)) {
             tooltip.add(LocalizeUtils.i18n("tooltip.dimension", compound.getString(dimKey)));
         }
