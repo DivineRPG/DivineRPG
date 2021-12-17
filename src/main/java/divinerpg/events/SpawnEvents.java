@@ -1,6 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.*;
+import divinerpg.entities.ai.*;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
@@ -13,9 +14,13 @@ import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.passive.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.gen.*;
+import net.minecraftforge.event.entity.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.event.lifecycle.*;
@@ -189,6 +194,16 @@ public class SpawnEvents {
         EntitySpawnPlacementRegistry.register(ZORAGON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
 
     }
+
+    @SubscribeEvent
+    public void addVanillaMobGoals(EntityJoinWorldEvent event) {
+        if(event.getEntity() instanceof TurtleEntity) {
+            TurtleEntity turtle = (TurtleEntity) event.getEntity();
+            turtle.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(turtle, EntityAequorea.class, false));
+            turtle.goalSelector.addGoal(3, new TurtleEatAequorea(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
+        }
+    }
+
 
     public static boolean arcanaSpawn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);

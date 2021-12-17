@@ -29,12 +29,12 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
         setBlock(world, pos, state, false);
     }
     protected void setBlock(ISeedReader world, BlockPos pos, BlockState state, boolean replace) {
-        if ((replace && world.getBlockState(pos) != Blocks.BEDROCK.defaultBlockState()) || hasSpace(world, pos)) {
+        if ((replace && world.getBlockState(pos.below()) != Blocks.BEDROCK.defaultBlockState()) || hasSpace(world, pos)) {
         	world.setBlock(pos, state, 0);
         }
     }
     protected void chanceSetBlock(ISeedReader world, BlockPos pos, BlockState state, int chance, boolean replace) {
-        if(world.getRandom().nextInt(chance) == 0){
+        if(world.getRandom().nextInt(chance) == 0 && world.getBlockState(pos) != Blocks.AIR.defaultBlockState()){
         	setBlock(world, pos, state, replace);
         }
     }

@@ -136,6 +136,7 @@ public class EntityRegistry {
 
 
     // Vanilla
+    public static final EntityType<EntityAequorea> AEQUOREA = registerEntity(EntityAequorea::new, "aequorea",1.4F, 2.8f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
     public static final EntityType<EntityAridWarrior> ARID_WARRIOR = registerEntity(EntityAridWarrior::new, "arid_warrior",1.4F, 2.8f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
     public static final EntityType<EntityBrownGrizzle> BROWN_GRIZZLE = registerEntity(EntityBrownGrizzle::new, "brown_grizzle",0.8F, 1.4F, EntityClassification.MONSTER);
     public static final EntityType<EntityCaveCrawler> CAVE_CRAWLER = registerEntity(EntityCaveCrawler::new, "cave_crawler",1.0F, 1.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
@@ -300,6 +301,7 @@ public class EntityRegistry {
     public static void registerGlobalEntityAttributes(EntityAttributeCreationEvent event) {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
         // Vanilla
+        event.put(AEQUOREA, EntityAequorea.attributes().build());
         event.put(ARID_WARRIOR, EntityAridWarrior.attributes().build());
         event.put(BROWN_GRIZZLE, EntityBrownGrizzle.attributes().build());
         event.put(CAVE_CRAWLER, EntityCaveCrawler.attributes().build());
@@ -548,6 +550,7 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(LIOPLEURODON, 1, 1, 1));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(SHARK, 2, 1, 2));
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(WHALE, 3, 1, 3));
+            event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(AEQUOREA, 3, 1, 8));
         }
     }
 
@@ -608,6 +611,7 @@ public class EntityRegistry {
         manager.register(FROST_CLOUD, new RenderFrostCloud(manager));
 
         //Overworld
+        manager.register(AEQUOREA, new RenderAequorea(manager));
         manager.register(ARID_WARRIOR, new RenderAridWarrior(manager));
         manager.register(CAVE_CRAWLER, new RenderDivineMob(manager, new ModelCrawler<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/cave_crawler.png")));
         manager.register(BROWN_GRIZZLE, new RenderDivineMob(manager, new ModelGrizzle<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/brown_grizzle.png")));
