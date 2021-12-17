@@ -20,6 +20,13 @@ public class ContainerRegistry
     public static final RegistryObject<ContainerType<InfusionTableContainer>> INFUSION_TABLE = CONTAINER_TYPES.register("infusion_table", () -> IForgeContainerType.create(InfusionTableContainer::new));
     public static final RegistryObject<ContainerType<AltarOfCorruptionContainer>> ALTAR_OF_CORRUPTION = CONTAINER_TYPES.register("altar_of_corruption", () -> IForgeContainerType.create(AltarOfCorruptionContainer::new));
     public static final RegistryObject<ContainerType<PresentBoxContainer>> PRESENT_BOX = CONTAINER_TYPES.register("present_box", () -> IForgeContainerType.create(PresentBoxContainer::new));
+    public static final RegistryObject<ContainerType<CoalstoneFurnaceContainer>> COALSTONE_FURNACE = CONTAINER_TYPES.register("coalstone_furnace", () -> IForgeContainerType.create(CoalstoneFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<DemonFurnaceContainer>> DEMON_FURNACE = CONTAINER_TYPES.register("demon_furnace", () -> IForgeContainerType.create(DemonFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<GreenlightFurnaceContainer>> GREENLIGHT_FURNACE = CONTAINER_TYPES.register("greenlight_furnace", () -> IForgeContainerType.create(GreenlightFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<MoltenFurnaceContainer>> MOLTEN_FURNACE = CONTAINER_TYPES.register("molten_furnace", () -> IForgeContainerType.create(MoltenFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<MoonlightFurnaceContainer>> MOONLIGHT_FURNACE = CONTAINER_TYPES.register("moonlight_furnace", () -> IForgeContainerType.create(MoonlightFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<OceanfireFurnaceContainer>> OCEANFIRE_FURNACE = CONTAINER_TYPES.register("oceanfire_furnace", () -> IForgeContainerType.create(OceanfireFurnaceContainer::new));
+    public static final RegistryObject<ContainerType<WhitefireFurnaceContainer>> WHITEFIRE_FURNACE = CONTAINER_TYPES.register("whitefire_furnace", () -> IForgeContainerType.create(WhitefireFurnaceContainer::new));
 
     public static void registerScreenFactories() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
@@ -29,5 +36,12 @@ public class ContainerRegistry
         ScreenManager.register(ContainerRegistry.INFUSION_TABLE.get(), InfusionTableScreen::new);
         ScreenManager.register(ContainerRegistry.ALTAR_OF_CORRUPTION.get(), AltarOfCorruptionScreen::new);
         ScreenManager.register(ContainerRegistry.PRESENT_BOX.get(), PresentBoxScreen::new);
+        ScreenManager.register(ContainerRegistry.COALSTONE_FURNACE.get(), CoalstoneFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.DEMON_FURNACE.get(), DemonFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.GREENLIGHT_FURNACE.get(), GreenlightFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.MOLTEN_FURNACE.get(), MoltenFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.MOONLIGHT_FURNACE.get(), MoonlightFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.OCEANFIRE_FURNACE.get(), OceanfireFurnaceScreen::new);
+        ScreenManager.register(ContainerRegistry.WHITEFIRE_FURNACE.get(), WhitefireFurnaceScreen::new);
     }
 }

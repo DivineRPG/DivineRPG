@@ -1,6 +1,9 @@
 package divinerpg.tiles.furnace;
 
+import divinerpg.client.containers.*;
 import divinerpg.registries.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.inventory.container.*;
 
 public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
 
@@ -22,4 +25,8 @@ public class TileEntityCoalstoneFurnace extends TileEntityModFurnace {
         return false;
     }
 
+    @Override
+    protected Container createMenu(int i, PlayerInventory playerInventory) {
+        return new CoalstoneFurnaceContainer(i, playerInventory, this, this.dataAccess);
+    }
 }

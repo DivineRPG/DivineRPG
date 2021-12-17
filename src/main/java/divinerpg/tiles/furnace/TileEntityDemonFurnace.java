@@ -1,7 +1,10 @@
 package divinerpg.tiles.furnace;
 
+import divinerpg.client.containers.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.inventory.container.*;
 import net.minecraft.util.math.*;
 
 public class TileEntityDemonFurnace extends TileEntityModFurnace {
@@ -34,6 +37,10 @@ public class TileEntityDemonFurnace extends TileEntityModFurnace {
                 }
             }
         }
+    }
+    @Override
+    protected Container createMenu(int i, PlayerInventory playerInventory) {
+        return new DemonFurnaceContainer(i, playerInventory, this, this.dataAccess);
     }
 
 }
