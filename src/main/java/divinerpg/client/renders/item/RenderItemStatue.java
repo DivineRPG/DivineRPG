@@ -29,9 +29,10 @@ public class RenderItemStatue extends ItemStackTileEntityRenderer implements Cal
                 if(block instanceof BlockStatue){
                     EntityModel model = ((BlockStatue) block).statueType.getModel();
                     matrixStack.pushPose();
-                    matrixStack.translate(0.5, 0.5, 0.5);
+                    matrixStack.translate(0.5, 0.8, 0.5);
                     matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90));
                     matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
+                    matrixStack.scale(0.6F, 0.6F, 0.6F);
                     IVertexBuilder builder = renderType.getBuffer(RenderType.entityCutout(((BlockStatue) block).statueType.getTexture()));
                     model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
                     matrixStack.popPose();
