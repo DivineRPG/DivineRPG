@@ -16,8 +16,10 @@
               "type": "divinerpg:mortum_tree"
             },
             "decorator": {
-              "config": {},
-              "type": "minecraft:heightmap_world_surface"
+              "type": "minecraft:water_lake",
+              "config": {
+                "chance": 1
+              }
             }
           },
           "type": "minecraft:decorated"
