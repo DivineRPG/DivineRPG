@@ -1408,11 +1408,11 @@ public class BlockRegistry {
         register(registry, new BlockMod("twilight_stone", 6.0F, 3.0F));
 
         // Ore
-        register(registry, new BlockMod("eden_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(5.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("wildwood_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).strength(6.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("apalachia_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).strength(7.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("skythern_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).strength(8.0F, 2000.0F).sound(SoundType.STONE)));
-        register(registry, new BlockMod("mortum_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).strength(9.0F, 2000.0F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("eden_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(DIAMOND).harvestTool(ToolType.PICKAXE).strength(5.0F, 32F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("wildwood_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(EDEN).harvestTool(ToolType.PICKAXE).strength(6.0F, 32F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("apalachia_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(WILDWOOD).harvestTool(ToolType.PICKAXE).strength(7.0F, 32F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("skythern_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(APALACHIA).harvestTool(ToolType.PICKAXE).strength(8.0F, 32F).sound(SoundType.STONE)));
+        register(registry, new BlockMod("mortum_ore", Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestLevel(SKYTHERN).harvestTool(ToolType.PICKAXE).strength(9.0F, 32F).sound(SoundType.STONE)));
 
         // Sapling
         register(registry, new BlockModSapling("eden_sapling", () -> edenGrass, () -> edenDirt, new EdenTree()));
