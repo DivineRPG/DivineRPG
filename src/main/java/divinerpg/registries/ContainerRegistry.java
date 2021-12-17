@@ -19,6 +19,7 @@ public class ContainerRegistry
     public static final RegistryObject<ContainerType<DreamLampContainer>> DREAM_LAMP = CONTAINER_TYPES.register("dream_lamp", () -> IForgeContainerType.create(DreamLampContainer::createContainerClientSide));
     public static final RegistryObject<ContainerType<InfusionTableContainer>> INFUSION_TABLE = CONTAINER_TYPES.register("infusion_table", () -> IForgeContainerType.create(InfusionTableContainer::new));
     public static final RegistryObject<ContainerType<AltarOfCorruptionContainer>> ALTAR_OF_CORRUPTION = CONTAINER_TYPES.register("altar_of_corruption", () -> IForgeContainerType.create(AltarOfCorruptionContainer::new));
+    public static final RegistryObject<ContainerType<PresentBoxContainer>> PRESENT_BOX = CONTAINER_TYPES.register("present_box", () -> IForgeContainerType.create(PresentBoxContainer::new));
 
     public static void registerScreenFactories() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
@@ -27,5 +28,6 @@ public class ContainerRegistry
         ScreenManager.register(ContainerRegistry.DREAM_LAMP.get(), DreamLampScreen::new);
         ScreenManager.register(ContainerRegistry.INFUSION_TABLE.get(), InfusionTableScreen::new);
         ScreenManager.register(ContainerRegistry.ALTAR_OF_CORRUPTION.get(), AltarOfCorruptionScreen::new);
+        ScreenManager.register(ContainerRegistry.PRESENT_BOX.get(), PresentBoxScreen::new);
     }
 }
