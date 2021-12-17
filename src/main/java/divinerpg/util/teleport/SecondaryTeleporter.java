@@ -31,7 +31,8 @@ public class SecondaryTeleporter extends Teleporter {
 
         entity.setPortalCooldown();
         entity = repositionEntity.apply(false);
-
+        ServerPlayerEntity spe = (ServerPlayerEntity) entity;
+        entity.teleportTo(spe.getRespawnPosition().getX(), spe.getRespawnPosition().getY() + 1, spe.getRespawnPosition().getZ());
         return entity;
     }
 }
