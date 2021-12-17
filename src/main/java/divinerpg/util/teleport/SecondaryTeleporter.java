@@ -9,9 +9,14 @@ import net.minecraft.world.server.*;
 import java.util.function.*;
 
 public class SecondaryTeleporter extends Teleporter {
-
+    BlockPos pos;
     public SecondaryTeleporter(ServerWorld world) {
         super(world);
+    }
+
+    public SecondaryTeleporter(ServerWorld world, BlockPos pos) {
+        super(world);
+        this.pos = pos;
     }
 
     public void placeInPortal(Entity entity, float rotationYaw) {
@@ -31,8 +36,13 @@ public class SecondaryTeleporter extends Teleporter {
 
         entity.setPortalCooldown();
         entity = repositionEntity.apply(false);
-        ServerPlayerEntity spe = (ServerPlayerEntity) entity;
-        entity.teleportTo(spe.getRespawnPosition().getX(), spe.getRespawnPosition().getY() + 1, spe.getRespawnPosition().getZ());
+        if(pos == null) {
+            ServerPlayerEntity spe = (ServerPlayerEntity) entity;
+            entity.teleportTo(spe.getRespawnPosition().getX(), spe.getRespawnPosition().getY() + 1, spe.getRespawnPosition().getZ());
+        }else
+        {
+            entity.teleportTo(pos.getX(), pos.getY() + 1, pos.getZ());
+        }
         return entity;
     }
 }

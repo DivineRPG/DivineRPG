@@ -1,14 +1,18 @@
 package divinerpg.items.vanilla;
 
 import divinerpg.util.*;
+import divinerpg.util.teleport.*;
 import net.minecraft.client.util.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.util.registry.*;
 import net.minecraft.util.text.*;
 import net.minecraft.world.*;
+import net.minecraft.world.server.*;
 
 import javax.annotation.*;
 import java.util.*;
@@ -20,40 +24,6 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
     public ItemTeleportationStar() {
         super("teleportation_star", 64);
     }
-
-    private CompoundNBT getFromStack(ItemStack stack) {
-        if (!stack.hasTag()) {
-            stack.setTag(new CompoundNBT());
-        }
-
-        return stack.getTag();
-    }
-
-//    @Nullable
-//    @Override
-//    protected BlockPos getSavedPos(PlayerEntity player, ItemStack stack) {
-//        CompoundNBT tag = getFromStack(stack);
-//        if (!tag.contains(posKey))
-//            return null;
-//
-//        return BlockPos.of(tag.getLong(posKey));
-//    }
-//
-//    @Override
-//    protected RegistryKey<World> getSavedDimType(PlayerEntity player, ItemStack stack) {
-//        CompoundNBT tag = getFromStack(stack);
-//        if (!tag.contains(dimKey))
-//            return null;
-//
-//        String dimName = tag.getString(dimKey);
-//        ;
-//        try {
-//            return World.OVERWORLD;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
     /**
      * Tries to set current position
@@ -67,45 +37,51 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         if (hasInfo)
             return false;
 
-        compound.putString(dimKey, player.level.dimension().getRegistryName().getPath());
+        compound.putString(dimKey, player.level.dimension().location().toString());
         compound.putLong(posKey, player.blockPosition().asLong());
 
         return true;
     }
 
+
+
+
     @Override
-    public ActionResult<ItemStack> use(World worldIn, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-        CompoundNBT compound = getFromStack(stack);
-
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        CompoundNBT compound = getFromStack(player.getItemInHand(hand));
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
-
-
-        if (player.isCrouching()) {
-            if (trySetCords(compound, player, hasInfo)) {
-                return new ActionResult<>(ActionResultType.SUCCESS, stack);
+        if (!world.isClientSide) {
+            if(player.isCrouching()){
+                trySetCords(compound, player, hasInfo);
+                return ActionResult.success(player.getItemInHand(hand));
             }
-
-            // only on client side
-            if (player.level.isClientSide) {
-                ITextComponent message = new TranslationTextComponent("messaage.teleportation_star");
-                message.getStyle().withColor(TextFormatting.RED);
-                player.sendMessage(message, player.getUUID());
+            ServerWorld serverWorld = world.getServer().getLevel(RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(compound.getString(dimKey)))).getLevel();
+            if (player instanceof ServerPlayerEntity) {
+                player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
+                if (!player.isCreative()) {
+                    player.getUseItem().hurtAndBreak(1, player, (stage) -> {
+                        stage.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
+                    });
+                }
+                return ActionResult.success(player.getItemInHand(hand));
             }
+        }
+        return ActionResult.fail(player.getItemInHand(hand));
+    }
 
-            // failed during change position
-            hasInfo = false;
+
+
+    private CompoundNBT getFromStack(ItemStack stack) {
+        if (!stack.hasTag()) {
+            stack.setTag(new CompoundNBT());
         }
 
-        return hasInfo
-                ? super.use(worldIn, player, hand)
-                : ActionResult.fail(stack);
+        return stack.getTag();
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compound = getFromStack(stack);
-        tooltip.add(LocalizeUtils.i18n("wip"));
         if (compound.contains(dimKey)) {
             tooltip.add(LocalizeUtils.i18n("tooltip.dimension", compound.getString(dimKey)));
         }

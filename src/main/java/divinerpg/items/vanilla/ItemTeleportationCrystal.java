@@ -29,7 +29,6 @@ public class ItemTeleportationCrystal extends ItemMod {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.teleport_bed_spawn"));
-        tooltip.add(LocalizeUtils.i18n("wip"));
         tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
     }
 
