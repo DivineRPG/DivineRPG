@@ -44,7 +44,7 @@ public class DivineRPG {
         FeatureRegistry.FEATURES.register(bus);
         DecoratorRegistry.DECORATORS.register(bus);
         BuilderRegistry.SURFACE_BUILDERS.register(bus);
-
+        FluidRegistry.FLUIDS.register(bus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

@@ -3,7 +3,6 @@ package divinerpg.registries;
 import divinerpg.*;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
-import divinerpg.blocks.fluid.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
@@ -1333,7 +1332,7 @@ public class BlockRegistry {
         registerItemlessBlock(registry, new BlockAyeracoSpawn());
 
         // Liquid
-        registerFluidBlock(registry, new BlockTar(() -> FluidRegistry.TAR, AbstractBlock.Properties.of(Material.LAVA).noCollission().randomTicks().strength(100.0F)));
+        registerFluidBlock(registry, new FlowingFluidBlock(() -> FluidRegistry.TAR.get(), AbstractBlock.Properties.copy(Blocks.LAVA).randomTicks().strength(100.0F).noDrops()), "smoldering_tar");
 
         // Iceika
 
@@ -1890,7 +1889,8 @@ public class BlockRegistry {
         registry.getRegistry().register(block);
     }
 
-    private static void registerFluidBlock(RegistryEvent.Register<Block> registry, FlowingFluidBlock block) {
+    private static void registerFluidBlock(RegistryEvent.Register<Block> registry, FlowingFluidBlock block, String name) {
+        block.setRegistryName(name);
         registry.getRegistry().register(block);
     }
 

@@ -2205,7 +2205,7 @@ public class ItemRegistry {
         register(e, new WallOrFloorItem(BlockRegistry.arcaniumTorch, BlockRegistry.arcaniumWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("arcanium_torch"));
         register(e, new WallOrFloorItem(BlockRegistry.edenTorch, BlockRegistry.edenWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("eden_torch"));
         register(e, new WallOrFloorItem(BlockRegistry.skeletonTorch, BlockRegistry.skeletonWallTorch, (new Item.Properties()).tab(DivineRPG.tabs.blocks)).setRegistryName("skeleton_torch"));
-        register(e, new ItemModBucket("smoldering_tar_bucket", () -> FluidRegistry.TAR));
+        register(e, new ItemModBucket("smoldering_tar_bucket", () -> FluidRegistry.TAR.get()));
     }
 
     private static void register(RegistryEvent.Register<Item> event, Item item) {
