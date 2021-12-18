@@ -9,7 +9,7 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "divinerpg:nightmare_bed",
+              "block": "divinerpg:nightmare_bed_block",
               "properties": {
                 "part": "head"
               }
