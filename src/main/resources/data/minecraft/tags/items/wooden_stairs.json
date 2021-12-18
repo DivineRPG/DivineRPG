@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:divine_stairs",
+    "divinerpg:frozen_stairs",
+    "divinerpg:eden_stairs",
+    "divinerpg:wildwood_stairs",
+    "divinerpg:apalachia_stairs",
+    "divinerpg:skythern_stairs",
+    "divinerpg:mortum_stairs",
+    "divinerpg:eucalyptus_stairs"
+  ]
+}

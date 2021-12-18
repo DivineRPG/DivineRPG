@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:eden_slab",
+    "divinerpg:wildwood_slab",
+    "divinerpg:apalachia_slab",
+    "divinerpg:skythern_slab",
+    "divinerpg:mortum_slab",
+    "divinerpg:divine_slab",
+    "divinerpg:frozen_slab",
+    "divinerpg:eucalyptus_slab"
+  ]
+}

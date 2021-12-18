@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:divine_sapling",
+    "divinerpg:frozen_sapling",
+    "divinerpg:eden_sapling",
+    "divinerpg:wildwood_sapling",
+    "divinerpg:apalachia_sapling",
+    "divinerpg:skythern_sapling",
+    "divinerpg:mortum_sapling"
+  ]
+}
