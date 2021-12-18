@@ -4,10 +4,10 @@
     "can_replace": false,
     "project": true,
     "need_water": false,
-    "xspread": 7,
+    "xspread": 8,
     "yspread": 3,
-    "zspread": 7,
-    "tries": 100,
+    "zspread": 8,
+    "tries": 120,
     "state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

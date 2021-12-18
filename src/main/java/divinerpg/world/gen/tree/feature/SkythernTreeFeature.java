@@ -215,11 +215,12 @@ public class SkythernTreeFeature extends DivineTreeFeature {
     				grow(world, pos, log, treeHeight - 7, 3, 0);
     				grow(world, pos, leaves, treeHeight - 6, 3, 0);
     				grow(world, pos, leaves, treeHeight - 4, 3, 0);
-    				grow(world, pos, log, treeHeight - 6, 3, 3);
+    				grow(world, pos, log, treeHeight - 7, 3, 3);
     				grow(world, pos, leaves, treeHeight - 7, 3, -2);
     				grow(world, pos, leaves, treeHeight - 7, 3, -1);
     				grow(world, pos, leaves, treeHeight - 7, 3, 1);
     				grow(world, pos, leaves, treeHeight - 7, 3, 2);
+    				grow(world, pos, leaves, treeHeight - 6, 3, 3);
     				grow(world, pos, log, treeHeight - 7, 4, 0);
     				grow(world, pos, leaves, treeHeight - 6, 4, 0);
     				grow(world, pos, leaves, treeHeight - 7, 4, -3);
