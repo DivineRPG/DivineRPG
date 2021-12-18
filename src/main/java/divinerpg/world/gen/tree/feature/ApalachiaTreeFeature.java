@@ -38,7 +38,7 @@ public class ApalachiaTreeFeature extends DivineTreeFeature {
     		}
     		if(heightCheck(world, pos, extraHeight, 1)) {
     			BlockState log = BlockRegistry.apalachiaLog.defaultBlockState(), leaves = BlockRegistry.apalachiaLeaves.defaultBlockState();
-    			if(treeType != 14) {
+    			if(treeType != 12) {
     				grow(world, pos, log, 0, treeHeight);
     			}
     			switch(treeType) {
