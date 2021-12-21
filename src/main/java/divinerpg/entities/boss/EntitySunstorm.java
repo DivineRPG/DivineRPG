@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.*;
 
@@ -22,28 +23,18 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
         this.xpReward = 1000;
     }
 
-	@Override
-    public void performRangedAttack(LivingEntity e, float f) {
-		if(this.distanceTo(e)<3) {
-        	e.setSecondsOnFire(3);
-        }
-		double y = this.getBoundingBox().minY + 2.7D;
-        double tx = e.getX() - this.getX();
-        double ty = e.getBoundingBox().minY - y;
-        double tz = e.getZ() - this.getZ();
-
-        for (double h = -1.5; h < 1.5; h += 0.5) {
-            for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
-                for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                    EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, this.level, BulletType.SUNSTORM);
-                    shot.xo = this.xo + r * Math.cos(theta);
-                    shot.yo = this.yo + 5 + h;
-                    shot.zo = this.zo + r * Math.sin(theta);
-                    shot.shoot(tx, ty, tz, 0.9f, 5);
-                    level.addFreshEntity(shot);
-                }
+    @Override
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+            if(distanceTo(target) < 3){
+                target.setSecondsOnFire(3);
             }
-        }
+            EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, BulletType.SUNSTORM);
+            double d0 = target.getX() - this.getX();
+            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+            double d2 = target.getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
     }
 
     @Override

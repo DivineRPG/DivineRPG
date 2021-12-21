@@ -84,15 +84,15 @@ public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
         switch(ability) {
             case FAST:
-                entityarrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.level.getDifficulty().getId() * 4));
                 this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                entityarrow.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
                 this.level.addFreshEntity(entityarrow);
                 break;
             case SLOW:
                 this.rangedAttackCounter++;
                 if ((this.rangedAttackCounter & 4) == 0) {
-                    entityarrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.level.getDifficulty().getId() * 4));
                     this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                    entityarrow.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
                     this.level.addFreshEntity(entityarrow);
                 }
                 break;

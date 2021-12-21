@@ -53,14 +53,13 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        EntityCaveRock rock = new EntityCaveRock(EntityRegistry.CAVE_ROCK, this, level);
-        double d0 = target.xo - this.xo;
-        double d1 = target.getBoundingBox().minY + (double) (target.getEyeHeight() / 3.0F) - rock.yo;
-        double d2 = target.zo - this.zo;
-        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        rock.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
-        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
-        this.level.addFreshEntity(rock);
+            EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK, this, level);
+            double d0 = target.getX() - this.getX();
+            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+            double d2 = target.getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {

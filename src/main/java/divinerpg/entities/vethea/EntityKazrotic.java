@@ -44,17 +44,18 @@ public class EntityKazrotic extends EntityVetheaMob implements IRangedAttackMob 
     public int getSpawnLayer() {
     	return 3;
     }
-    
+
     @Override
-	public void performRangedAttack(LivingEntity entity, float par2) {
-		double tx = entity.getX() - this.getX();
-        double ty = entity.getBoundingBox().minY - this.getY();
-        double tz = entity.getZ() - this.getZ();
-        EntityKazroticShot shot = new EntityKazroticShot(EntityRegistry.KAZROTIC_SHOT, entity, this.level);
-        shot.shoot(tx, ty, tz, 0.6F, 0.3F);
-        level.playSound(lastHurtByPlayer, this.blockPosition(), SoundEvents.ARROW_SHOOT, SoundCategory.HOSTILE, 1F, 1F);
-        level.addFreshEntity(shot);
-	}
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+            EntityKazroticShot projectile = new EntityKazroticShot(EntityRegistry.KAZROTIC_SHOT, target, level);
+            double d0 = target.getX() - this.getX();
+            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+            double d2 = target.getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            level.playSound(lastHurtByPlayer, blockPosition(), SoundEvents.ARROW_SHOOT, SoundCategory.HOSTILE, 1F, 1F);
+            this.level.addFreshEntity(projectile);
+    }
 
     @Override
     public boolean hurt(DamageSource par1, float par2) {

@@ -12,6 +12,7 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.monster.piglin.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 import javax.annotation.*;
@@ -141,27 +142,36 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
     }
 
     @Override
-    public void performRangedAttack(LivingEntity par1, float par2) {
-        switch (ability) {
-            case RANGED_FAST:
-                if ((this.rangedAttackCounter % 5) == 0) {
-                    EntityDivineArrow var2 = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
-                    this.playSound(SoundEvents.ARROW_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
-                    this.level.addFreshEntity(var2);
-                }
-                this.rangedAttackCounter++;
-                break;
-            case RANGED_SLOW:
-                if ((this.rangedAttackCounter % 15) == 0) {
-                    EntityDivineArrow var4 = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, par1, 1.6f, 12);
-                    this.playSound(SoundEvents.ARROW_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
-                    this.level.addFreshEntity(var4);
-                }
-                this.rangedAttackCounter++;
-                break;
-            default:
-                break;
-        }
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+            switch (ability) {
+                case RANGED_FAST:
+                    if ((this.rangedAttackCounter % 5) == 0) {
+                        EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.KAROS_ARROW, this, target, 1.6F, 12.0F);
+                        double d0 = target.getX() - this.getX();
+                        double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+                        double d2 = target.getZ() - this.getZ();
+                        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+                        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                        this.level.addFreshEntity(projectile);
+                    }
+                    this.rangedAttackCounter++;
+                    break;
+                case RANGED_SLOW:
+                    if ((this.rangedAttackCounter % 15) == 0) {
+                        EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.KAROS_ARROW, this, target, 1.6F, 12.0F);
+                        double d0 = target.getX() - this.getX();
+                        double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+                        double d2 = target.getZ() - this.getZ();
+                        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+                        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                        this.level.addFreshEntity(projectile);
+                    }
+                    this.rangedAttackCounter++;
+                    break;
+                default:
+                    break;
+            }
+
     }
 
     @Override

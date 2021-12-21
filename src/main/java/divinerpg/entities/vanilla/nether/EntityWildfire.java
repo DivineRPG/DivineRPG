@@ -33,14 +33,14 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        EntityDivineArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.WILDFIRE_ARROW, this);
-        arrow.setSecondsOnFire(100);
-        double d0 = target.getX() - this.getX();
-        double d1 = target.getBoundingBox().minY + target.getBbHeight() / 3.0F - this.getY();
-        double d2 = target.getZ() - this.getZ();
-        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, 12.0F);
-        this.level.addFreshEntity(arrow);
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.WILDFIRE_ARROW, this, target, 1.6F, 12.0F);
+            projectile.setSecondsOnFire(100);
+            double d0 = target.getX() - this.getX();
+            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+            double d2 = target.getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
     }
     @Override
     protected SoundEvent getAmbientSound() {

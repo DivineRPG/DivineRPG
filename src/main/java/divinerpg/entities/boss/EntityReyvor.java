@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.*;
 
@@ -33,8 +34,14 @@ public class EntityReyvor extends EntityDivineBoss implements IRangedAttackMob {
     }
 
     @Override
-    public void performRangedAttack(LivingEntity target, float f) {
-        this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.REYVOR_ARROW, this, target, 1.6F, 12.0F));
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.REYVOR_ARROW, this, target, 1.6F, 12.0F);
+            double d0 = target.getX() - this.getX();
+            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+            double d2 = target.getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
     }
 
     @Override

@@ -249,7 +249,7 @@ public class EntityWreck extends EntityDivineBoss {
     public void performRangedAttack(LivingEntity entity) {
         if (entity == null) return;
         double tx = entity.getX() - this.getX();
-        double ty = entity.getBoundingBox().minY - this.getY();
+        double ty = entity.getY(0.3333333333333333D);
         double tz = entity.getZ() - this.getZ();
         switch (this.getAbility()) {
             case BOUNCE:
