@@ -1,5 +1,6 @@
 package divinerpg.world.gen.tree.feature;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.util.math.*;
@@ -37,7 +38,7 @@ public class ApalachiaTreeFeature extends DivineTreeFeature {
     			extraHeight = treeHeight + 4;
     		}
     		if(heightCheck(world, pos, extraHeight, 1)) {
-    			BlockState log = BlockRegistry.apalachiaLog.defaultBlockState(), leaves = BlockRegistry.apalachiaLeaves.defaultBlockState();
+    			BlockState log = BlockRegistry.apalachiaLog.defaultBlockState(), leaves = BlockRegistry.apalachiaLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
     			if(treeType != 12) {
     				grow(world, pos, log, 0, treeHeight);
     			}

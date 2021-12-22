@@ -1,5 +1,6 @@
 package divinerpg.world.gen.tree.feature;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -31,7 +32,7 @@ public class MortumTreeFeature extends DivineTreeFeature {
 
             BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
             BlockState log = BlockRegistry.mortumLog.defaultBlockState();
-            BlockState leaves = BlockRegistry.mortumLeaves.defaultBlockState();
+            BlockState leaves = BlockRegistry.mortumLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
 
 
             //Tree trunk

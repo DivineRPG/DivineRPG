@@ -1,5 +1,6 @@
 package divinerpg.world.gen.tree.feature;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.util.math.*;
@@ -12,7 +13,7 @@ public class WildwoodTreeFeature extends DivineTreeFeature {
     public WildwoodTreeFeature(Supplier<SaplingBlock> sapling) {
         super(sapling);
     }
-	private static final BlockState  leaves = BlockRegistry.wildwoodLeaves.defaultBlockState(),
+	private static final BlockState  leaves = BlockRegistry.wildwoodLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1),
 			northVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.NORTH, true),
     		eastVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.EAST, true),
     		southVines = BlockRegistry.wildwoodVine.defaultBlockState().setValue(SixWayBlock.SOUTH, true),

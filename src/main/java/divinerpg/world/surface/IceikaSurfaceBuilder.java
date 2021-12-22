@@ -1,6 +1,7 @@
 package divinerpg.world.surface;
 
 import com.mojang.serialization.*;
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.tags.*;
@@ -99,7 +100,7 @@ public class IceikaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
                         BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
                         BlockState log = BlockRegistry.frozenLog.defaultBlockState();
-                        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState();
+                        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
 
 
                         //Tree trunk

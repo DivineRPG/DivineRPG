@@ -1,5 +1,6 @@
 package divinerpg.world.gen.tree.feature;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.util.math.*;
@@ -36,7 +37,7 @@ public class EdenTreeFeature extends DivineTreeFeature {
             	extraHeight = treeHeight + 1;
         	}
         	if (heightCheck(world, pos, extraHeight, 1)) {
-                BlockState log = BlockRegistry.edenLog.defaultBlockState(), leaves = BlockRegistry.edenLeaves.defaultBlockState();
+                BlockState log = BlockRegistry.edenLog.defaultBlockState(), leaves = BlockRegistry.edenLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
                 //Main trunk
                 grow(world, pos, log, 0, treeHeight);
                 switch(treeType) {

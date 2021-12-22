@@ -1,5 +1,6 @@
 package divinerpg.world.gen.tree.feature;
 
+import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
@@ -29,7 +30,7 @@ public class FrozenTreeFeature extends DivineTreeFeature {
 
         BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
         BlockState log = BlockRegistry.frozenLog.defaultBlockState();
-        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState();
+        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
 
 
         //Tree trunk
