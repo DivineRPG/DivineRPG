@@ -54,13 +54,16 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
 		grow(world, pos.offset(-offset, y, width), secondState, y, 1, 0);
     }
     protected void grow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY) {
-    	grow(world, pos, state, minY, maxY, 0, 0, false, 1);
+    	grow(world, pos, state, minY, maxY, false, 1);
     }
     protected void grow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY, boolean replace) {
-    	grow(world, pos, state, minY, maxY, 0, 0, replace, 1);
+    	grow(world, pos, state, minY, maxY, replace, 1);
     }
     protected void grow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY, boolean replace, int chance) {
-    	grow(world, pos, state, minY, maxY, 0, 0, replace, chance);
+    	maxY++;
+    	for(; minY < maxY; minY++) {
+    		chanceSetBlock(world, pos.offset(0, minY, 0), state, chance, replace);
+    	}
     }
     protected void grow(ISeedReader world, BlockPos pos, BlockState state, int y, int width, int offset) {
     	grow(world, pos, state, y, width, offset, false, 1);
