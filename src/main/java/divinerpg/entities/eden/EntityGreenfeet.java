@@ -25,7 +25,7 @@ public class EntityGreenfeet extends EntityDivineMob {
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
+        return !worldIn.canSeeSky(pos);
     }
 
     @Override
