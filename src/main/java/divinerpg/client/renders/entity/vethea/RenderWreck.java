@@ -1,4 +1,4 @@
-package divinerpg.client.renders.entity.boss;
+package divinerpg.client.renders.entity.vethea;
 
 
 import com.mojang.blaze3d.matrix.*;

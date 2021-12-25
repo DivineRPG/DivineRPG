@@ -16,6 +16,7 @@ import divinerpg.client.renders.entity.iceika.*;
 import divinerpg.client.renders.entity.projectile.*;
 import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
+import divinerpg.client.renders.entity.vethea.*;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
 import divinerpg.entities.boss.*;
@@ -674,7 +675,7 @@ public class EntityRegistry {
         manager.register(KAROT, new RenderDivineMob(manager, new ModelKarot<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
         manager.register(KAROS, new RenderDivineMob(manager, new ModelKaros<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
         manager.register(KING_OF_SCORCHERS, new RenderDivineMob(manager, new ModelKingScorcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")));
-        manager.register(LADY_LUNA, new RenderDivineMob(manager, new ModelLadyLuna<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/lady_luna.png")));
+        manager.register(LADY_LUNA, new RenderLadyLuna(manager));
         manager.register(PARASECTA, new RenderDivineMob(manager, new ModelParasecta<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png")));
         manager.register(QUADRO, new RenderDivineMob(manager, new ModelQuadro<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/quadro.png")));
         manager.register(RAGLOK, new RenderDivineMob(manager, new ModelRaglok<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/raglok.png")));
@@ -778,7 +779,7 @@ public class EntityRegistry {
         manager.register(DUO, new RenderDivineMob(manager, new ModelDuo<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/duo.png")));
         manager.register(ENT, new RenderDivineMob(manager, new ModelEnt<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ent.png")));
         manager.register(FAKE_VHRAAK, new RenderDivineMob(manager, new ModelVhraak<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vhraak.png")));
-        manager.register(GALROID, new RenderDivineMob(manager, new ModelGalroid<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/galroid.png")));
+        manager.register(GALROID, new RenderGalroid(manager));
         manager.register(GORGOSION, new RenderDivineMob(manager, new ModelGorgosion<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/gorgosion.png")));
         manager.register(HELIO, new RenderDivineMob(manager, new ModelHelio<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/helio.png")));
         manager.register(HIVE_SOLDIER, new RenderDivineMob(manager, new ModelHiveSoldier<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_soldier.png")));
