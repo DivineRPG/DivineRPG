@@ -34,7 +34,7 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
         }
     }
     protected void chanceSetBlock(ISeedReader world, BlockPos pos, BlockState state, int chance, boolean replace) {
-        if(world.getRandom().nextInt(chance) == 0 && world.getBlockState(pos) != Blocks.AIR.defaultBlockState()){
+        if(world.getRandom().nextInt(chance) == 0) {
         	setBlock(world, pos, state, replace);
         }
     }
