@@ -1,23 +1,25 @@
 package divinerpg.items.arcana;
 
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.entities.projectile.EntityStar;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.block.Block;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemStaffStarlight extends ItemModRanged {
 
@@ -26,7 +28,7 @@ public class ItemStaffStarlight extends ItemModRanged {
      */
     private final int count;
 
-    private final TextComponent starsInfo;
+    private final ITextComponent starsInfo;
 
     /**
      * @param name   name of ite,
@@ -37,7 +39,7 @@ public class ItemStaffStarlight extends ItemModRanged {
         super(name, EntityRegistry.STARLIGHT, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 0, null, arcana);
         this.count = count;
 
-        starsInfo = new TranslationTextComponent(count > 1 ? "tooltip.staff_of_starlight" : "tooltip.starlight");
+        starsInfo = LocalizeUtils.i18n(count > 1 ? "tooltip.staff_of_starlight" : "tooltip.starlight");
     }
 
     @Override

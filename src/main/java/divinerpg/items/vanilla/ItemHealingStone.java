@@ -1,16 +1,20 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.items.base.ItemMod;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingStone extends ItemMod {
     private float healAmount;
@@ -40,6 +44,6 @@ public class ItemHealingStone extends ItemMod {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new TranslationTextComponent("Heals " + this.healAmount / 2 + " hearts on use"));
+        tooltip.add(LocalizeUtils.i18n("tooltip.heals",  healAmount / 2));
     }
 }

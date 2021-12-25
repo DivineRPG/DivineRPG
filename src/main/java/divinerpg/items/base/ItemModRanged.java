@@ -1,24 +1,30 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.particles.*;
+import divinerpg.DivineRPG;
+import divinerpg.capability.Arcana;
+import divinerpg.capability.ArcanaCapability;
+import divinerpg.entities.projectile.EntityColoredBullet;
+import divinerpg.entities.projectile.EntityParticleBullet;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.projectile.ThrowableEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
-import java.util.function.*;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemModRanged extends ItemMod {
 
@@ -109,7 +115,7 @@ public class ItemModRanged extends ItemMod {
         }
 
         if (!needsAmmo()) {
-            tooltip.add(LocalizeUtils.infiniteAmmo());
+            tooltip.add(LocalizeUtils.i18n("tooltip.ammo.infinite"));
         } else {
             ItemStack ammo = new ItemStack(ammoSupplier.get());
             tooltip.add(LocalizeUtils.ammo(getAmmo(), ammo != null));
