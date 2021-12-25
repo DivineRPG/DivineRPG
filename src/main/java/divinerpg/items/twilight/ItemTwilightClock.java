@@ -1,20 +1,27 @@
 package divinerpg.items.twilight;
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
+import divinerpg.DivineRPG;
+import divinerpg.items.base.ItemMod;
+import divinerpg.registries.BlockRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.block.Block;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class ItemTwilightClock extends ItemMod {
     private final Set<Block> possibleBlocks = new HashSet<Block>() {{
@@ -56,6 +63,6 @@ public class ItemTwilightClock extends ItemMod {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-            tooltip.add(new TranslationTextComponent(DivineRPG.MODID + ".twilight_clock"));
+            tooltip.add(LocalizeUtils.i18n(DivineRPG.MODID + ".twilight_clock"));
     }
 }

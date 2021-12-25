@@ -1,16 +1,24 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraftforge.api.distmarker.*;
+import divinerpg.DivineRPG;
+import divinerpg.util.ArmorInfo;
+import divinerpg.util.IFullSetInfo;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.List;
 
 public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public IArmorMaterial mat;
@@ -40,7 +48,7 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
 
             for (Iterator<String> iter = armorInfo.toString(stack,worldIn).iterator(); iter.hasNext(); ) {
                 String element = iter.next();
-            tooltip.add(new TranslationTextComponent(element));
+                tooltip.add(LocalizeUtils.i18n(element));
             }
         }
     }

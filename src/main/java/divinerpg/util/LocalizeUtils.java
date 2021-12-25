@@ -1,8 +1,11 @@
 package divinerpg.util;
 
 import net.minecraft.command.ICommandSource;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
+import net.minecraft.item.Item;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
@@ -12,8 +15,6 @@ public class LocalizeUtils {
     private static final TextComponent
             InfiniteUses = new TranslationTextComponent("tooltip.uses.infinite"),
             NoProtection = new TranslationTextComponent("tooltip.noprotection"),
-            InfiniteAmmo = new TranslationTextComponent("tooltip.ammo.infinite"),
-            ExposiveShoots = new TranslationTextComponent("tooltip.shots.explosive"),
             HomingShoots = new TranslationTextComponent("tooltip.shots.homing"),
             SingleUse = new TranslationTextComponent("tooltip.uses.single"),
             InstantConsumption = new TranslationTextComponent("tooltip.instant_consumption"),
@@ -68,7 +69,8 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent infiniteAmmo() {
-        return InfiniteAmmo;
+        return LocalizeUtils.i18n("tooltip.ammo.infinite");
+
     }
 
     /**
@@ -204,7 +206,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ITextComponent explosiveShots() {
-        return ExposiveShoots.withStyle(TextFormatting.BOLD);
+        return LocalizeUtils.i18n("tooltip.shots.explosive");
     }
 
     /**

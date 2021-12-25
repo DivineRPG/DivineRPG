@@ -1,25 +1,31 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.stats.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraftforge.event.*;
+import divinerpg.DivineRPG;
+import divinerpg.entities.projectile.EntityDivineArrow;
+import divinerpg.enums.ArrowType;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.event.ForgeEventFactory;
 
-import javax.annotation.*;
-import java.util.*;
-import java.util.function.*;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemModBow extends BowItem {
     private net.minecraft.util.SoundEvent shootSound = SoundEvents.ARROW_SHOOT;
@@ -94,9 +100,9 @@ public class ItemModBow extends BowItem {
         tooltip.add(LocalizeUtils.bowDam(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getUseDuration(stack);
         if (speed > 1)
-            tooltip.add(new TranslationTextComponent("tooltip.bow_speed.faster", String.format("%s", speed)));
+            tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.faster", String.format("%s", speed)));
         if (speed < 1)
-            tooltip.add(new TranslationTextComponent("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
+            tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
         tooltip.add(!unbreakable ? LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()) :
                 LocalizeUtils.infiniteUses());
         if (arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POSION)
