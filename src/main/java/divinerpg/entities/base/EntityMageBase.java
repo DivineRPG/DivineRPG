@@ -44,17 +44,19 @@ public class EntityMageBase extends EntityDivineMob {
     @Override
     public void tick() {
         super.tick();
-        if (this.tickCount % 20 == 0) {
-            setTarget(this.level.getNearestPlayer(this, 16D));
-            if (this.getTarget() != null && !this.level.isClientSide) {
-                double tx = this.getTarget().getX() - this.getX();
-                double ty = this.getTarget().getBoundingBox().minY - this.getY();
-                double tz = this.getTarget().getZ() - this.getZ();
-                EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, bullet);
-                shot.shoot(tx, ty, tz, 1.6f, 0);
-                this.level.addFreshEntity(shot);
-                level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),
-                        this.getTarget().getZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
+            if (this.tickCount % 20 == 0) {
+                setTarget(this.level.getNearestPlayer(this, 16D));
+                if (this.getTarget() != null && !this.level.isClientSide) {
+                    if (canAttack(getTarget())) {
+                    double tx = this.getTarget().getX() - this.getX();
+                    double ty = this.getTarget().getBoundingBox().minY - this.getY();
+                    double tz = this.getTarget().getZ() - this.getZ();
+                    EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, bullet);
+                    shot.shoot(tx, ty, tz, 1.6f, 0);
+                    this.level.addFreshEntity(shot);
+                    level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),
+                            this.getTarget().getZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                }
             }
         }
     }

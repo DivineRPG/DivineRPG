@@ -63,14 +63,14 @@ public enum BulletType {
     GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), new Color(31, 93, 210)),
     GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), new Color(56, 152, 186)),
 
-    MAGE_SHOT(5, ProjectileLoc("blank"), new Color(62, 212, 254)),
-    SPELLBINDER_SHOT(7, ProjectileLoc("blank"), new Color(234, 158, 253)),
-    MYSTIC_SHOT(10, ProjectileLoc("blank"), new Color(234, 223, 228)),
-    SORCERER_SHOT(12, ProjectileLoc("blank"), new Color(97, 31, 54)),
+    MAGE_SHOT(5, blank(), new Color(62, 212, 254)),
+    SPELLBINDER_SHOT(7, blank(), new Color(234, 158, 253)),
+    MYSTIC_SHOT(10, blank(), new Color(234, 223, 228)),
+    SORCERER_SHOT(12, blank(), new Color(97, 31, 54)),
     TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(0, 0, 0)),
     TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), new Color(255, 0, 0)),
-    SOUL_FIEND_SHOT(0, ProjectileLoc("blank")),
-    SUNSTORM(12, ProjectileLoc("blank"), new Color(255, 235, 0)),
+    SOUL_FIEND_SHOT(0, blank()),
+    SUNSTORM(12, blank(), new Color(255, 235, 0)),
     
     
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
@@ -84,8 +84,8 @@ public enum BulletType {
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
     EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
 
-//    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleRegistry.WILDWOOD_PORTAL.get());
-    LUNA_SPARKLER(12, ProjectileLoc("blank"), new Color(139, 103, 255), ParticleTypes.BUBBLE);
+//    LUNA_SPARKLER(12, blank(), new Color(139, 103, 255), ParticleRegistry.WILDWOOD_PORTAL.get());
+    LUNA_SPARKLER(12, blank(), new Color(139, 103, 255), ParticleTypes.BUBBLE);
 
     private final float damage;
     private final ResourceLocation texture;
@@ -145,6 +145,10 @@ public enum BulletType {
 
     private static ResourceLocation ProjectileLoc(String name) {
         return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");
+    }
+
+    private static ResourceLocation blank() {
+        return new ResourceLocation("textures/particle/generic_0.png");
     }
 
     private static ResourceLocation ItemLoc(String name) {

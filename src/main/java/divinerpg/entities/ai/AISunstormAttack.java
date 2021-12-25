@@ -86,47 +86,38 @@ public class AISunstormAttack extends Goal {
             this.rangedAttackTime = -1;
         }
 
-        public void tick()
-        {
-            double d0 = this.entityHost.distanceToSqr(this.attackTarget.xo, this.attackTarget.getBoundingBox().minY, this.attackTarget.zo);
-            boolean flag = this.entityHost.canSee(this.attackTarget);
+        public void tick() {
+            if (entityHost != null && attackTarget != null) {
+                double d0 = this.entityHost.distanceToSqr(this.attackTarget.xo, this.attackTarget.getBoundingBox().minY, this.attackTarget.zo);
+                boolean flag = this.entityHost.canSee(this.attackTarget);
 
-            if (flag)
-            {
-                ++this.seeTime;
-            }
-            else
-            {
-                this.seeTime = 0;
-            }
-
-            if (d0 <= (double)this.maxAttackDistance && this.seeTime >= 20)
-            {
-                this.entityHost.getNavigation().stop();
-            }
-            else
-            {
-                this.entityHost.getNavigation().moveTo(this.attackTarget, this.entityMoveSpeed);
-            }
-
-            this.entityHost.getLookControl().setLookAt(this.attackTarget, 30.0F, 30.0F);
-
-            if (--this.rangedAttackTime == 0)
-            {
-                if (!flag)
-                {
-                    return;
+                if (flag) {
+                    ++this.seeTime;
+                } else {
+                    this.seeTime = 0;
                 }
 
-                float f = MathHelper.sqrt(d0) / this.attackRadius;
-                float lvt_5_1_ = MathHelper.clamp(f, 0.1F, 1.0F);
-                this.rangedAttackEntityHost.performRangedAttack(this.attackTarget, lvt_5_1_);
-                this.rangedAttackTime = MathHelper.floor(f * (float)(this.maxRangedAttackTime - this.attackIntervalMin) + (float)this.attackIntervalMin);
-            }
-            else if (this.rangedAttackTime < 0)
-            {
-                float f2 = MathHelper.sqrt(d0) / this.attackRadius;
-                this.rangedAttackTime = MathHelper.floor(f2 * (float)(this.maxRangedAttackTime - this.attackIntervalMin) + (float)this.attackIntervalMin);
+                if (d0 <= (double) this.maxAttackDistance && this.seeTime >= 20) {
+                    this.entityHost.getNavigation().stop();
+                } else {
+                    this.entityHost.getNavigation().moveTo(this.attackTarget, this.entityMoveSpeed);
+                }
+
+                this.entityHost.getLookControl().setLookAt(this.attackTarget, 30.0F, 30.0F);
+
+                if (--this.rangedAttackTime == 0) {
+                    if (!flag) {
+                        return;
+                    }
+
+                    float f = MathHelper.sqrt(d0) / this.attackRadius;
+                    float lvt_5_1_ = MathHelper.clamp(f, 0.1F, 1.0F);
+                    this.rangedAttackEntityHost.performRangedAttack(this.attackTarget, lvt_5_1_);
+                    this.rangedAttackTime = MathHelper.floor(f * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
+                } else if (this.rangedAttackTime < 0) {
+                    float f2 = MathHelper.sqrt(d0) / this.attackRadius;
+                    this.rangedAttackTime = MathHelper.floor(f2 * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
+                }
             }
         }
 }

@@ -17,6 +17,7 @@ import java.util.function.*;
 public class TileEntitySingleUseSpawner extends TileEntity implements ITickableTileEntity {
 
     private EntityType entityId;
+    private String entityName;
     private int defaultDelay;
     private int delay;
     private int blockReachDistance;
@@ -51,6 +52,7 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
         this.delay = 0;
         this.blockReachDistance = blockReachDistance;
         this.baseOffset = baseOffset;
+        this.entityName = entityType.getDescriptionId();
     }
 
     @Override
@@ -60,7 +62,7 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
         result.putLong("addY", baseOffset.asLong());
         result.putBoolean("activated", isActivated);
         result.putInt("spawnNearPlayer", blockReachDistance);
-        result.putString("entityID", entityId.toString());
+        result.putString("entityID", entityId.getDescriptionId());
         return result;
     }
 
@@ -71,7 +73,7 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
         baseOffset = BlockPos.of(compound.getLong("addY"));
         isActivated = compound.getBoolean("activated");
         blockReachDistance = compound.getInt("spawnNearPlayer");
-        entityId = EntityType.byString(compound.getString("entityId")).get();
+        entityName = compound.getString("entityId");
     }
 
 
@@ -110,16 +112,16 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
 
         if (!level.isClientSide && delay > 0) {
             if(player.getMainHandItem().getItem() == ItemRegistry.edenChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityId)).withStyle(TextFormatting.YELLOW), player.getUUID());
+                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.YELLOW), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.wildwoodChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityId)).withStyle(TextFormatting.DARK_BLUE), player.getUUID());
+                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.DARK_BLUE), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.apalachiaChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityId)).withStyle(TextFormatting.DARK_PURPLE), player.getUUID());
+                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.DARK_PURPLE), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.skythernChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityId)).withStyle(TextFormatting.GRAY), player.getUUID());
+                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.GRAY), player.getUUID());
             }
             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "summon.single_use_spawner.delay", delay / 20), player.getUUID());
         }

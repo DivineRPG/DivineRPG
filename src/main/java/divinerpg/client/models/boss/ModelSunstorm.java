@@ -75,6 +75,8 @@ public class ModelSunstorm<T extends Entity> extends SegmentedModel<T> {
       armR.setTexSize(128, 128);
       armR.mirror = true;
       setRotation(armR, -1.047198F, 0F, 0F);
+      armL.addChild(staffPoleL);
+      armR.addChild(staffPoleR);
       staffPoleL = new ModelRenderer(this, 0, 104);
       staffPoleL.addBox(-1F, -9F, -17F, 2, 22, 2);
       staffPoleL.setPos(6F, -10F, 0F);

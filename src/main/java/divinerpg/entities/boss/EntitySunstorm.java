@@ -25,6 +25,7 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        if(canAttack(target))
             if(distanceTo(target) < 3){
                 target.setSecondsOnFire(3);
             }

@@ -60,88 +60,90 @@ public class EntityTermasect extends EntityDivineBoss {
         super.tick();
         setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y * 0.6000000238418579D, getDeltaMovement().z);
 
-        this.prevAttackCounter = this.attackCounter;
-        double var1 = this.waypointX - this.getX();
-        double var3 = this.waypointY - this.getY();
-        double var5 = this.waypointZ - this.getZ();
-        double var7 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
+            this.prevAttackCounter = this.attackCounter;
+            double var1 = this.waypointX - this.getX();
+            double var3 = this.waypointY - this.getY();
+            double var5 = this.waypointZ - this.getZ();
+            double var7 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
 
-        if (var7 < 1.0D || var7 > 60.0D) {
-            this.waypointX = this.getX() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.waypointY = this.getY() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.waypointZ = this.getZ() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-        }
+            if (var7 < 1.0D || var7 > 60.0D) {
+                this.waypointX = this.getX() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+                this.waypointY = this.getY() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+                this.waypointZ = this.getZ() + (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            }
 
-        if (this.courseChangeCooldown-- <= 0) {
-            this.courseChangeCooldown += this.random.nextInt(5) + 2;
+            if (this.courseChangeCooldown-- <= 0) {
+                this.courseChangeCooldown += this.random.nextInt(5) + 2;
 
-            if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, var7)) {
-                setDeltaMovement(getDeltaMovement().x + var1/var7 *0.1D, getDeltaMovement().y + var3/var7 *0.1D, getDeltaMovement().z + var5/var7 *0.1D);
+                if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, var7)) {
+                    setDeltaMovement(getDeltaMovement().x + var1 / var7 * 0.1D, getDeltaMovement().y + var3 / var7 * 0.1D, getDeltaMovement().z + var5 / var7 * 0.1D);
+                } else {
+                    this.waypointX = this.getX();
+                    this.waypointY = this.getY();
+                    this.waypointZ = this.getZ();
+                }
+            }
+
+            if (this.targetedEntity != null && !targetedEntity.isAlive()) {
+                this.targetedEntity = null;
+            }
+
+            if (this.targetedEntity == null || this.aggroCooldown-- <= 0) {
+                this.targetedEntity = this.level.getNearestPlayer(this, 100.0D);
+
+                if (this.targetedEntity != null) {
+                    this.aggroCooldown = 20;
+                }
+            }
+
+            double var9 = 100.0D;
+        if(getTarget() != null){
+        if (canAttack(getTarget())) {
+            if (this.targetedEntity != null && this.targetedEntity.distanceToSqr(this) < var9 * var9) {
+                double y = this.getBoundingBox().minY + 2.7D;
+                double tx = targetedEntity.getX() - getX();
+                double ty = targetedEntity.getBoundingBox().minY - y;
+                double tz = targetedEntity.getZ() - getZ();
+                this.xRotO = this.xRot = -((float) Math.atan2(tx, tz)) * 180.0F / (float) Math.PI;
+
+                if (this.canSee(this.targetedEntity)) {
+                    if (this.attackCounter == 20) {
+                        this.playSound(SoundRegistry.ROAR, 10.0F, 0.9F);
+                    }
+
+                    ++this.attackCounter;
+
+                    if (this.attackCounter == 5) {
+                        EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG, this, this.level);
+                        shot.shoot(tx, ty, tz, 4.0f, 1);
+                        if (!this.level.isClientSide)
+                            this.level.addFreshEntity(shot);
+                        this.attackCounter = -40;
+                    }
+                } else if (this.attackCounter > 0) {
+                    --this.attackCounter;
+                }
             } else {
-                this.waypointX = this.getX();
-                this.waypointY = this.getY();
-                this.waypointZ = this.getZ();
-            }
-        }
+                this.xRotO = this.xRot = -((float) Math.atan2(this.getDeltaMovement().x, this.getDeltaMovement().z)) * 180.0F
+                        / (float) Math.PI;
 
-        if (this.targetedEntity != null && !targetedEntity.isAlive()) {
-            this.targetedEntity = null;
-        }
-
-        if (this.targetedEntity == null || this.aggroCooldown-- <= 0) {
-            this.targetedEntity = this.level.getNearestPlayer(this, 100.0D);
-
-            if (this.targetedEntity != null) {
-                this.aggroCooldown = 20;
-            }
-        }
-
-        double var9 = 100.0D;
-
-        if (this.targetedEntity != null && this.targetedEntity.distanceToSqr(this) < var9 * var9) {
-            double y = this.getBoundingBox().minY + 2.8D;
-            double tx = targetedEntity.getX() - this.getX();
-            double ty = targetedEntity.getBoundingBox().minY - y;
-            double tz = targetedEntity.getZ() - this.getZ();
-            this.xRotO = this.xRot = -((float) Math.atan2(tx, tz)) * 180.0F / (float) Math.PI;
-
-            if (this.canSee(this.targetedEntity)) {
-                if (this.attackCounter == 20) {
-                    this.playSound(SoundRegistry.ROAR, 10.0F, 0.9F);
-                }
-
-                ++this.attackCounter;
-
-                if (this.attackCounter == 5) {
-                    EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG, this, this.level);
-                    shot.shoot(tx, ty, tz, 4.0f, 1);
-                    if (!this.level.isClientSide)
-                        this.level.addFreshEntity(shot);
-                    this.attackCounter = -40;
-                }
-            } else if (this.attackCounter > 0) {
-                --this.attackCounter;
-            }
-        } else {
-            this.xRotO = this.xRot = -((float) Math.atan2(this.getDeltaMovement().x, this.getDeltaMovement().z)) * 180.0F
-                    / (float) Math.PI;
-
-            if (this.attackCounter > 0) {
-                --this.attackCounter;
-            }
-        }
-        if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
-        {
-            this.playAmbientSound();
-            if(!this.level.isClientSide) {
-                EntityTermid termid = new EntityTermid(EntityRegistry.TERMID, level);
-                termid.moveTo(this.getX() + random.nextInt(4), this.getY(), this.getZ() + random.nextInt(4), this.xRot, this.yRot);
-                double yMot=getDeltaMovement().y;
-                termid.setDeltaMovement(getDeltaMovement().x, yMot++, getDeltaMovement().z);
-                if (random.nextInt(5) == 1) {
-                    level.addFreshEntity(termid);
+                if (this.attackCounter > 0) {
+                    --this.attackCounter;
                 }
             }
+            if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++) {
+                this.playAmbientSound();
+                if (!this.level.isClientSide) {
+                    EntityTermid termid = new EntityTermid(EntityRegistry.TERMID, level);
+                    termid.moveTo(this.getX() + random.nextInt(4), this.getY(), this.getZ() + random.nextInt(4), this.xRot, this.yRot);
+                    double yMot = getDeltaMovement().y;
+                    termid.setDeltaMovement(getDeltaMovement().x, yMot++, getDeltaMovement().z);
+                    if (random.nextInt(5) == 1) {
+                        level.addFreshEntity(termid);
+                    }
+                }
+            }
+        }
         }
     }
 

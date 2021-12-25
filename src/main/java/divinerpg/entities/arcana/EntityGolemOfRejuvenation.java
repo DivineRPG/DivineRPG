@@ -32,7 +32,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     }
     
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.golemRejuvHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.golemRejuvSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.golemRejuvFollowRange);
+        return TameableEntity.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MAX_HEALTH, EntityStats.golemRejuvHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.golemRejuvSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.golemRejuvFollowRange);
     }
 
     @Override
