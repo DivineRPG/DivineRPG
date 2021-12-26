@@ -11,7 +11,6 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.text.*;
 import net.minecraft.world.*;
-import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.*;
 import java.util.*;
@@ -25,10 +24,11 @@ public class ItemArcanaPotion extends ItemMod {
         this.amountToAdd = amountToAdd;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.arcanaRegen(amountToAdd));
     }
+
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
@@ -54,8 +54,8 @@ public class ItemArcanaPotion extends ItemMod {
         return 10;
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-
+    @Override
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         player.setItemInHand(hand, null);
 
         Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
