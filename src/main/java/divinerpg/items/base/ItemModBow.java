@@ -14,6 +14,7 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Rarity;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -35,8 +36,8 @@ public class ItemModBow extends BowItem {
     protected boolean unbreakable;
     protected Supplier<Item> arrowSupplier;
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier);
+    public ItemModBow(String name, Rarity rarity, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier) {
+        this(name, rarity, arrowType, uses, DEFAULT_MAX_USE_DURATION, arrowSupplier);
     }
 
     public ItemModBow(String name, ArrowType arrowType, int uses, Supplier<Item> arrowSupplier, Properties properties) {
@@ -44,16 +45,16 @@ public class ItemModBow extends BowItem {
     }
 
 
-    public ItemModBow(String name, ArrowType arrowType, int uses) {
-        this(name, arrowType, uses, DEFAULT_MAX_USE_DURATION, () -> null);
+    public ItemModBow(String name, Rarity rarity, ArrowType arrowType, int uses) {
+        this(name, rarity, arrowType, uses, DEFAULT_MAX_USE_DURATION, () -> null);
     }
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration) {
-        this(name, arrowType, uses, maxUseDuration, () -> null);
+    public ItemModBow(String name, Rarity rarity, ArrowType arrowType, int uses, int maxUseDuration) {
+        this(name, rarity, arrowType, uses, maxUseDuration, () -> null);
     }
 
-    public ItemModBow(String name, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
-        super(new Properties().tab(DivineRPG.tabs.ranged).durability(uses));
+    public ItemModBow(String name, Rarity rarity, ArrowType arrowType, int uses, int maxUseDuration, Supplier<Item> arrowSupplier) {
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(uses).rarity(rarity));
         this.setRegistryName(DivineRPG.MODID, name);
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;

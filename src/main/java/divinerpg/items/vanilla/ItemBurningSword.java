@@ -1,20 +1,22 @@
 package divinerpg.items.vanilla;
 
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
+import divinerpg.DivineRPG;
+import divinerpg.items.base.ItemModSword;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
 
-import java.util.*;
+import java.util.List;
 
 public class ItemBurningSword extends ItemModSword {
     private int burnSeconds;
 
     public ItemBurningSword(IItemTier tier, String name, int seconds) {
-        super(name, tier, DivineRPG.tabs.melee);
+        super(name, RarityList.COMMON, tier, DivineRPG.tabs.melee);
         this.burnSeconds = seconds;
     }
 

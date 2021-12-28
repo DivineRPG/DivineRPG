@@ -1,21 +1,23 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemGeneralsStaff extends ItemModRanged {
 
     public ItemGeneralsStaff() {
-        super("generals_staff", EntityRegistry.GENERALS_STAFF, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 12,
+        super("generals_staff", RarityList.COMMON, EntityRegistry.GENERALS_STAFF, null, SoundRegistry.STARLIGHT, SoundCategory.MASTER, -1, 12,
                 null, 20);
     }
 

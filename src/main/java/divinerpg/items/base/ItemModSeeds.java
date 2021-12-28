@@ -1,16 +1,24 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import net.minecraft.advancements.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.common.*;
+import divinerpg.DivineRPG;
+import divinerpg.util.RarityList;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 
-import java.util.function.*;
+import java.util.function.Supplier;
 
 public class ItemModSeeds extends ItemMod implements IPlantable {
     private Supplier<Block> cropSupplier;
@@ -20,7 +28,7 @@ public class ItemModSeeds extends ItemMod implements IPlantable {
         this(name, cropSupplier, () -> Blocks.FARMLAND);
     }
     public ItemModSeeds(String name, Supplier<Block> cropSupplier, Supplier<Block> soilSupplier) {
-        super(name, DivineRPG.tabs.food);
+        super(name, RarityList.COMMON, DivineRPG.tabs.food);
         this.cropSupplier = cropSupplier;
         this.soilSupplier = soilSupplier;
     }

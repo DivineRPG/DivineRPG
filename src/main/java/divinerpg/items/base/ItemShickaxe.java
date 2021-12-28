@@ -1,26 +1,29 @@
 package divinerpg.items.base;
 
+import com.google.common.collect.ImmutableSet;
 import divinerpg.DivineRPG;
 import divinerpg.util.LocalizeUtils;
-import com.google.common.collect.ImmutableSet;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 public class ItemShickaxe extends ToolItem {
     private static final Set<Block> EFFECTIVE_ON = ImmutableSet.of();
 
-    public ItemShickaxe(String name, IItemTier tier) {
-        super(1.0F, -2.8F, tier, EFFECTIVE_ON, new Item.Properties().tab(DivineRPG.tabs.tools).addToolType(ToolType.AXE, tier.getLevel()).addToolType(ToolType.PICKAXE, tier.getLevel()).addToolType(ToolType.SHOVEL, tier.getLevel()).durability(tier.getUses()));
+    public ItemShickaxe(String name, Rarity rarity, IItemTier tier) {
+        super(1.0F, -2.8F, tier, EFFECTIVE_ON, new Item.Properties().tab(DivineRPG.tabs.tools).addToolType(ToolType.AXE, tier.getLevel()).addToolType(ToolType.PICKAXE, tier.getLevel()).addToolType(ToolType.SHOVEL, tier.getLevel()).durability(tier.getUses()).rarity(rarity));
         setRegistryName(name);
     }
 

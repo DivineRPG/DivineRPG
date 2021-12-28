@@ -6,15 +6,16 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.List;
 
 public class ItemModSword extends SwordItem {
 
-    public ItemModSword(String name, IItemTier tier, ItemGroup group) {
-        super(tier, 3, 1.6F, new Item.Properties().tab(group));
+    public ItemModSword(String name, Rarity rarity, IItemTier tier, ItemGroup group) {
+        super(tier, 3, 1.6F, new Item.Properties().tab(group).rarity(rarity));
         setRegistryName(DivineRPG.MODID, name);
     }
     public ItemModSword(String name, IItemTier tier, Item.Properties properties) {
