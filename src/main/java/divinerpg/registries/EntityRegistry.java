@@ -867,7 +867,7 @@ public class EntityRegistry {
         ENTITIES.add(entity);
         return entity;
     }
-    private static <T extends SnowballEntity> EntityType<T> registerSnowballProjectile(EntityType.IFactory<T> factory, String entityName) {
+    private static <T extends ProjectileItemEntity> EntityType<T> registerSnowballProjectile(EntityType.IFactory<T> factory, String entityName) {
         ResourceLocation location = new ResourceLocation(DivineRPG.MODID, entityName);
         boolean cache = SharedConstants.CHECK_DATA_FIXER_SCHEMA;
         SharedConstants.CHECK_DATA_FIXER_SCHEMA = false;

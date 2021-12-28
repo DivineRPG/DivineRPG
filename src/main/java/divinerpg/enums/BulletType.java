@@ -156,7 +156,7 @@ public enum BulletType {
     }
 
     private static ResourceLocation VanillaItemLoc(String name) {
-        return new ResourceLocation("minecraft:textures/items/" + name + ".png");
+        return new ResourceLocation("minecraft:textures/item/" + name + ".png");
     }
 
 

@@ -14,9 +14,10 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-
 import javax.annotation.Nullable;
 import java.util.List;
+import divinerpg.registries.*;
+import net.minecraft.stats.*;
 
 public class ItemGrenade extends ItemMod {
 
@@ -27,22 +28,24 @@ public class ItemGrenade extends ItemMod {
 
     }
 
-    @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-        if (counter == 0) {
-            if (!world.isClientSide) {
-                EntityGrenade projectile = new EntityGrenade(world, player);
-                projectile.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
-
-                world.addFreshEntity(projectile);
-                world.playSound(player, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundCategory.PLAYERS, 1, 1);
-            }
-            if (!player.isCreative()) stack.shrink(1);
+        ItemStack itemstack = player.getItemInHand(hand);
+        world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.TRIDENT_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        player.getCooldowns().addCooldown(this, 20);
+        if (!world.isClientSide) {
+            EntityGrenade grenade = new EntityGrenade(EntityRegistry.GRENADE, world);
+            grenade.moveTo(player.getX(), player.getY(), player.getZ());
+            grenade.setItem(itemstack);
+            grenade.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+            world.addFreshEntity(grenade);
         }
-        if (counter < 3) counter++;
-        if (counter == 3) counter = 0;
-        return super.use(world, player, hand);
+
+        player.awardStat(Stats.ITEM_USED.get(this));
+        if (!player.abilities.instabuild) {
+            itemstack.shrink(1);
+        }
+
+        return ActionResult.sidedSuccess(itemstack, world.isClientSide());
     }
 
     @Override
