@@ -13,7 +13,7 @@ import java.util.*;
 public class BlockModFire extends FireBlock {
 
     public BlockModFire(String name) {
-        super(AbstractBlock.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().lightLevel((p_235468_0_) -> {
+        super(AbstractBlock.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().noDrops().lightLevel((p_235468_0_) -> {
             return 15;
         }).sound(SoundType.WOOL));
         this.setRegistryName(DivineRPG.MODID, name);
