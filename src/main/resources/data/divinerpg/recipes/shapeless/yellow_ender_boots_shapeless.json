@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_ender_boots"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:ender_boots"
+    },
+    {
+      "item": "divinerpg:yellow_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

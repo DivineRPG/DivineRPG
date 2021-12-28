@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:boiled_egg"
+  },
+  "ingredient": {
+    "item": "minecraft:egg"
+  },
+  "type": "minecraft:blasting",
+  "experience": 0.35,
+  "cookingtime": 100
+}
