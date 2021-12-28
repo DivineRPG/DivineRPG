@@ -1,13 +1,14 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 
 public class DRPGTab {
     public ItemGroup blocks = new ItemGroup(DivineRPG.MODID + "_blocks") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.divineShickaxe);
+            return new ItemStack(BlockRegistry.edenLamp);
         }
     };
     public ItemGroup ranged = new ItemGroup(DivineRPG.MODID + "_ranged_weapons") {
