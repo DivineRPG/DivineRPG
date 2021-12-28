@@ -1,21 +1,25 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.util.*;
-import divinerpg.util.teleport.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.registry.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.teleport.SecondaryTeleporter;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemTeleportationStar extends ItemTeleportationCrystal {
     private final static String posKey = "BlockPos";
@@ -59,8 +63,9 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
             if (player instanceof ServerPlayerEntity) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
                 if (!player.isCreative()) {
-                    player.getUseItem().hurtAndBreak(1, player, (stage) -> {
-                        stage.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
+                    ItemStack stack = player.getItemInHand(hand);
+                    stack.hurtAndBreak(1, player, (p_220009_1_) -> {
+                        p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
                     });
                 }
                 return ActionResult.success(player.getItemInHand(hand));
