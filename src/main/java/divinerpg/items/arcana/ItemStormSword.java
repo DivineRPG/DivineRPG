@@ -1,21 +1,25 @@
 package divinerpg.items.arcana;
 
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.items.base.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.effect.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.capability.Arcana;
+import divinerpg.capability.ArcanaCapability;
+import divinerpg.items.base.ItemModSword;
+import divinerpg.util.RarityList;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
 
 public class ItemStormSword extends ItemModSword {
 
     public ItemStormSword(String name, IItemTier toolMaterial) {
-        super(name, toolMaterial, DivineRPG.tabs.melee);
+        super(name, RarityList.COMMON, toolMaterial, DivineRPG.tabs.melee);
     }
 
     @Override

@@ -1,25 +1,28 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingSword extends ItemModSword {
 
     private float healAmount;
 
     public ItemHealingSword(String name, IItemTier material, float healAmount) {
-        super(name, material, DivineRPG.tabs.melee);
+        super(name, RarityList.COMMON, material, DivineRPG.tabs.melee);
         this.healAmount = healAmount;
     }
 

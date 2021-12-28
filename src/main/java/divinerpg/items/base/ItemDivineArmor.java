@@ -6,10 +6,7 @@ import divinerpg.util.IFullSetInfo;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
@@ -24,14 +21,14 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public IArmorMaterial mat;
     public ArmorInfo armorInfo;
 
-    public ItemDivineArmor(String name, IArmorMaterial materialIn, EquipmentSlotType slot) {
-        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
+    public ItemDivineArmor(String name, Rarity rarity, IArmorMaterial materialIn, EquipmentSlotType slot) {
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
         setRegistryName(DivineRPG.MODID, name);
         this.mat = materialIn;
     }
 
-    public ItemDivineArmor(String name, IArmorMaterial materialIn, EquipmentSlotType slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
+    public ItemDivineArmor(String name, Rarity rarity, IArmorMaterial materialIn, EquipmentSlotType slot, ArmorInfo armorInfo) {
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
         setRegistryName(DivineRPG.MODID, name);
         this.mat = materialIn;
         this.armorInfo=armorInfo;

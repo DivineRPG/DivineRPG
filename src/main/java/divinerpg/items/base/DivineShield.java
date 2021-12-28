@@ -1,16 +1,16 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.client.renders.item.*;
-import net.minecraft.block.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.renders.item.DivineShieldRenderer;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
 
 public class DivineShield extends ShieldItem {
     public ResourceLocation resource = new ResourceLocation("");
 
-    public DivineShield(String name, ItemGroup group, Item repairMaterial, int damage) {
-        super(new Item.Properties().tab(group).defaultDurability(damage).setISTER(() -> new DivineShieldRenderer()));
+    public DivineShield(String name, Rarity rarity, ItemGroup group, Item repairMaterial, int damage) {
+        super(new Item.Properties().tab(group).defaultDurability(damage).setISTER(() -> new DivineShieldRenderer()).rarity(rarity));
         setRegistryName(name);
         this.isRepairable(new ItemStack(repairMaterial));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);

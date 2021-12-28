@@ -1,26 +1,29 @@
 package divinerpg.items.arcana;
 
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ThrowableEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class ItemArcaniteBlaster extends ItemModRanged {
 
     public ItemArcaniteBlaster() {
-        super("arcanite_blaster", null, BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON, SoundCategory.PLAYERS,
+        super("arcanite_blaster", RarityList.COMMON, null, BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON, SoundCategory.PLAYERS,
                 6500, 7, null, 20);
     }
 

@@ -1,13 +1,16 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.items.base.ItemBossSpawner;
+import divinerpg.registries.BlockRegistry;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ItemHordeHorn extends ItemBossSpawner {
 

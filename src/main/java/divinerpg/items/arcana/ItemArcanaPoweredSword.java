@@ -1,21 +1,29 @@
 package divinerpg.items.arcana;
 
-import com.google.common.collect.*;
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.items.base.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import divinerpg.DivineRPG;
+import divinerpg.capability.Arcana;
+import divinerpg.capability.ArcanaCapability;
+import divinerpg.items.base.ItemModSword;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.UUID;
 
 public class ItemArcanaPoweredSword extends ItemModSword {
 
@@ -25,7 +33,7 @@ public class ItemArcanaPoweredSword extends ItemModSword {
     public float weakenedDamageValue;
 
     public ItemArcanaPoweredSword(String name, IItemTier tier, int arcanaConsumed, float weakenedDamageValue) {
-        super(name, tier, DivineRPG.tabs.melee);
+        super(name, RarityList.COMMON, tier, DivineRPG.tabs.melee);
         this.arcanaConsumed = arcanaConsumed;
         this.weakenedDamageValue = weakenedDamageValue;
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();

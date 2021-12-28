@@ -5,14 +5,15 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModShovel extends ShovelItem {
-    public ItemModShovel(IItemTier tier, String name, ItemGroup group) {
-        super(tier, 0, -1.2F, new Item.Properties().tab(group));
+    public ItemModShovel(IItemTier tier, String name, Rarity rarity, ItemGroup group) {
+        super(tier, 0, -1.2F, new Item.Properties().tab(group).rarity(rarity));
         setRegistryName(name);
     }
 

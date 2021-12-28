@@ -17,6 +17,7 @@ import net.minecraft.entity.projectile.ThrowableEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Rarity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
@@ -61,9 +62,9 @@ public class ItemModRanged extends ItemMod {
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(String name, EntityType<?> entityType, BulletType bulletType,
+    public ItemModRanged(String name, Rarity rarity, EntityType<?> entityType, BulletType bulletType,
                          SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
-        super(name, new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage));
+        super(name, new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage).rarity(rarity));
         this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
@@ -99,13 +100,13 @@ public class ItemModRanged extends ItemMod {
         this.bulletType = bulletType;
     }
 
-    public ItemModRanged(String name, BulletType bulletType, SoundEvent shotSound, Supplier<Item> ammoSupplier, int maxDamange,
+    public ItemModRanged(String name, Rarity rarity, BulletType bulletType, SoundEvent shotSound, Supplier<Item> ammoSupplier, int maxDamange,
                             int counter) {
-        this(name, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammoSupplier, 0);
+        this(name, rarity, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammoSupplier, 0);
     }
 
-    public ItemModRanged(String name, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
-        this(name, bulletType, shotSound, () -> null, uses, counter);
+    public ItemModRanged(String name, Rarity rarity, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
+        this(name, rarity, bulletType, shotSound, () -> null, uses, counter);
     }
 
     @Override

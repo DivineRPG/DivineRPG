@@ -1,17 +1,19 @@
 package divinerpg.items.vethea;
 
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.items.base.ItemMod;
+import divinerpg.util.RarityList;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
+import net.minecraft.world.World;
 
 public class ItemMinersAmulet extends ItemMod {
     public ItemMinersAmulet(String name) {
-        super(name, DivineRPG.tabs.vethea);
+        super(name, RarityList.COMMON, DivineRPG.tabs.vethea);
     }
 
     @Override

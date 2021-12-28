@@ -1,25 +1,29 @@
 package divinerpg.items.arcana;
 
-import divinerpg.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.items.base.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.entities.projectile.EntityGrenade;
+import divinerpg.items.base.ItemMod;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemGrenade extends ItemMod {
 
     private int counter = 0;
 
     public ItemGrenade() {
-        super("grenade", DivineRPG.tabs.ranged);
+        super("grenade", RarityList.COMMON, DivineRPG.tabs.ranged);
 
     }
 

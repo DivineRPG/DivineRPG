@@ -3,6 +3,7 @@ package divinerpg.items.vanilla;
 import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
+import divinerpg.util.RarityList;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
@@ -24,7 +25,7 @@ public class ItemHealingStone extends ItemMod {
     }
 
     public ItemHealingStone(String name, float healAmount, ItemGroup tab) {
-        super(name, tab);
+        super(name, RarityList.COMMON, tab);
         this.healAmount = healAmount;
     }
 

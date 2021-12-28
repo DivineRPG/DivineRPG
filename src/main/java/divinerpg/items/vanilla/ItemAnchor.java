@@ -1,15 +1,19 @@
 package divinerpg.items.vanilla;
 
-import com.google.common.collect.*;
-import divinerpg.enums.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.RarityList;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 
-import java.util.*;
+import java.util.UUID;
 
 public class ItemAnchor extends ItemModRanged {
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
@@ -17,6 +21,7 @@ public class ItemAnchor extends ItemModRanged {
     public ItemAnchor(String name, BulletType projectileType) {
 
         super(name,
+                RarityList.COMMON,
                 null,
                 projectileType,
                 SoundRegistry.BLITZ,
