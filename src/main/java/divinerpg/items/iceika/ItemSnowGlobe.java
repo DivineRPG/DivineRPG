@@ -39,6 +39,10 @@ public class ItemSnowGlobe extends ItemMod {
             return ActionResultType.FAIL;
         }
 
+        if(facing != Direction.UP) {
+            return ActionResultType.FAIL;
+        }
+
         if (!worldIn.isClientSide) {
             worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
                     random.nextFloat() * 0.4F + 0.8F);

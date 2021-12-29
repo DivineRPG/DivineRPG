@@ -14,9 +14,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.server.command.TextComponentHelper;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -56,8 +59,18 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
         if (!world.isClientSide) {
             if(player.isCrouching()){
-                trySetCords(compound, player, hasInfo);
+                if(!trySetCords(compound, player, hasInfo)){
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
+                    message.withStyle(TextFormatting.RED);
+                    player.sendMessage(message, player.getUUID());
+                }
                 return ActionResult.success(player.getItemInHand(hand));
+            }
+            if (!compound.contains(posKey) && !compound.contains(posKey)) {
+                TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_no_position");
+                message.withStyle(TextFormatting.RED);
+                player.sendMessage(message, player.getUUID());
+                return ActionResult.fail(player.getItemInHand(hand));
             }
             ServerWorld serverWorld = world.getServer().getLevel(RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if (player instanceof ServerPlayerEntity) {

@@ -1,19 +1,19 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import divinerpg.registries.*;
+import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
-import java.util.*;
+import java.util.Random;
 
 public class BlockModFire extends FireBlock {
 
     public BlockModFire(String name) {
-        super(AbstractBlock.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().lightLevel((p_235468_0_) -> {
+        super(AbstractBlock.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().noDrops().lightLevel((p_235468_0_) -> {
             return 15;
         }).sound(SoundType.WOOL));
         this.setRegistryName(DivineRPG.MODID, name);

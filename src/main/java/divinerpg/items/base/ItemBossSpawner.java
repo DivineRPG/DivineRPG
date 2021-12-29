@@ -37,7 +37,7 @@ public class ItemBossSpawner extends ItemMod {
             }
             if (world.dimension() != dimensionID) {
                 TextComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
-                message.getStyle().withColor(TextFormatting.AQUA);
+                message.withStyle(TextFormatting.AQUA);
                 player.sendMessage(message, player.getUUID());
                 return ActionResult.fail(player.getItemInHand(hand));
             } else {
