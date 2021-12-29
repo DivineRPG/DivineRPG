@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:donut"
+  },
+  "pattern": [
+    "WWW",
+    "E S",
+    "WWW"
+  ],
+
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  }
+}

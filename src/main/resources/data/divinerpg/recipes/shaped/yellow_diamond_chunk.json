@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:yellow_diamond_chunk"
+  },
+  "pattern": [
+    "RRR",
+    "RDR",
+    "RRR"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "R": {
+      "item": "divinerpg:realmite_ingot"
+    }
+  }
+}

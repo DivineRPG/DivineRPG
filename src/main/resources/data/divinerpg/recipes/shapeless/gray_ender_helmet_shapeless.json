@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:gray_ender_helmet"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:ender_helmet"
+    },
+    {
+      "item": "divinerpg:gray_diamond_chunk"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

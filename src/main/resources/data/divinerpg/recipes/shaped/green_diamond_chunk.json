@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:green_diamond_chunk"
+  },
+  "pattern": [
+    "AAA",
+    "ADA",
+    "AAA"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  }
+}

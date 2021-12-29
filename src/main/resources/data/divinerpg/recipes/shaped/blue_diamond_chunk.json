@@ -2,13 +2,18 @@
   "result": {
     "item": "divinerpg:blue_diamond_chunk"
   },
-  "ingredients": [
-    {
+  "pattern": [
+    "RRR",
+    "RDR",
+    "RRR"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
       "item": "minecraft:diamond"
     },
-    {
+    "R": {
       "item": "divinerpg:rupee_ingot"
     }
-  ],
-  "type": "minecraft:crafting_shapeless"
+  }
 }

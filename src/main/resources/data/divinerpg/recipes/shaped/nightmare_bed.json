@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:nightmare_bed"
+  },
+  "pattern": [
+    "   ",
+    "BBB",
+    "WWW"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "divinerpg:mortum_block"
+    },
+    "W": {
+      "item": "divinerpg:mortum_log"
+    }
+  }
+}

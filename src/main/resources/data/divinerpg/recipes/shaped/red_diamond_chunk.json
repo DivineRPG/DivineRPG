@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:red_diamond_chunk"
+  },
+  "pattern": [
+    "TTT",
+    "TDT",
+    "TTT"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "divinerpg:torridite_ingot"
+    }
+  }
+}

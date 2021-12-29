@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:gray_diamond_chunk"
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "divinerpg:shadow_bar"
+    }
+  }
+}
