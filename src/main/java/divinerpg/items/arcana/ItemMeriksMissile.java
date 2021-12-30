@@ -26,33 +26,38 @@ public class ItemMeriksMissile extends ItemMod {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entityLiving) {
-        if (stack.getItem() == ItemRegistry.meriksMissile && entityLiving instanceof PlayerEntity) {
-            float charge = (float) (MAX_USE_DURATION) / 20.0F;
-            PlayerEntity player = (PlayerEntity) entityLiving;
-            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
 
+        if (!player.abilities.instabuild) {
+            return ActionResult.fail(itemstack);
+        } else {
+            player.startUsingItem(hand);
+            return ActionResult.consume(itemstack);
+        }
+    }
+    @Override
+    public void releaseUsing(ItemStack stack, World world, LivingEntity livingEntity, int timeLeft) {
+        if (stack.getItem() == ItemRegistry.meriksMissile && livingEntity instanceof PlayerEntity) {
+            float charge = (float) (MAX_USE_DURATION - timeLeft) / 20.0F;
+            PlayerEntity player = (PlayerEntity) livingEntity;
+            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
             if (charge > 1.0) {
                 charge = 1.0F;
             }
             float arcanaPoints = 50.0F * charge;
-
             if (arcana.getArcana() >= arcanaPoints && !world.isClientSide) {
                 if (charge < 0.2F)
-                    return super.finishUsingItem(stack, world, entityLiving);
-
+                    return;
                 float damage = MathHelper.clamp(charge * 25F, 8F, 25F);
-
                 world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
-
                 EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE, world, player, damage);
-                bullet.moveTo(player.blockPosition().getX(), player.blockPosition().getY(), player.blockPosition().getZ());
-                bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+                bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
+                bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 3.0F, 1.0F);
                 world.addFreshEntity(bullet);
                 arcana.consume(player, arcanaPoints);
             }
         }
-        return super.finishUsingItem(stack, world, entityLiving);
     }
 
     @Override

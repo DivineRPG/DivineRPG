@@ -31,20 +31,17 @@ public class ItemSerenadeStriker extends ItemMod {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        Vector3d start  = player.getEyePosition(1);
-        Vector3d vec31 = player.getViewVector(1);
-        Vector3d end = start.add(vec31.x * 100, vec31.y * 100, vec31.z * 100);
-        RayTraceContext pos = new RayTraceContext(start, end, RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.ANY, player);
+        int blockReachDistance = 32;
+        Vector3d vec3d = player.getEyePosition(1);
+        Vector3d vec3d1 = player.getViewVector(1);
+        Vector3d vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
+        BlockRayTraceResult pos = player.level.clip(new RayTraceContext(vec3d, vec3d2, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, player));
 
-        double i = pos.getTo().x;
-        double j = pos.getTo().y;
-        double k = pos.getTo().z;
-
-        if (world.getBlockState(new BlockPos(i, j, k)) != null) {
+        if (world.getBlockState(pos.getBlockPos()) != null) {
             LightningBoltEntity bolt1 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world), bolt2 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world), bolt3 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world);
-            bolt1.moveTo(i,j,k);
-            bolt2.moveTo(i,j,k);
-            bolt3.moveTo(i,j,k);
+            bolt1.moveTo(pos.getLocation());
+            bolt2.moveTo(pos.getLocation());
+            bolt3.moveTo(pos.getLocation());
             world.addFreshEntity(bolt1);
             world.addFreshEntity(bolt2);
             world.addFreshEntity(bolt3);

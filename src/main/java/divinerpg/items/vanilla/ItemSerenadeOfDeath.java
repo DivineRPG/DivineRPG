@@ -36,6 +36,7 @@ public class ItemSerenadeOfDeath extends ItemMod {
         if (!world.isClientSide) {
             world.playSound(null, player.blockPosition(), SoundRegistry.SERENADE, SoundCategory.MASTER, 1, 1);
             ThrowableEntity bullet = new EntitySerenadeOfDeath(EntityRegistry.SERENADE_OF_DEATH, player, world);
+            bullet.moveTo(player.getX(), player.getEyeY(), player.getZ());
             bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
             world.addFreshEntity(bullet);
             if (!player.isCreative()) {

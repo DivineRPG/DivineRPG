@@ -23,9 +23,9 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
 
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult pos) {
-        if (pos.getEntity() != null){
-        Entity entity = pos.getEntity();
+    protected void onHitEntity(EntityRayTraceResult result) {
+        if (result.getEntity() != null){
+            LivingEntity entity = (LivingEntity) result.getEntity();
             entity.hurt(DamageSource.thrown(this, this.getOwner()), 15);
 
         }

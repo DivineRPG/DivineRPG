@@ -29,7 +29,7 @@ public class EntitySparkler extends DivineThrowable {
             result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 20);
         }
         if (!this.level.isClientSide) {
-            this.kill();
+            this.remove();
         }
 
     }
