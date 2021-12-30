@@ -12,7 +12,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
@@ -26,10 +26,11 @@ public class ItemStormSword extends ItemModSword {
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
         if (!world.isClientSide && arcana.getArcana() >= 75) {
-            Vector3d start  = player.getEyePosition(1);
-            Vector3d vec31 = player.getViewVector(1);
-            Vector3d end = start.add(vec31.x * 32, vec31.y * 32, vec31.z * 32);
-            RayTraceContext pos = new RayTraceContext(start, end, RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.ANY, player);
+            int blockReachDistance = 32;
+            Vector3d vec3d = player.getEyePosition(1);
+            Vector3d vec3d1 = player.getViewVector(1);
+            Vector3d vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
+            BlockRayTraceResult pos = player.level.clip(new RayTraceContext(vec3d, vec3d2, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, player));
 
             if (arcana.getArcana() >= 20) {
                 arcana.consume(player, 20);
@@ -37,7 +38,7 @@ public class ItemStormSword extends ItemModSword {
                     double angle = 0;
                     while (angle < 2 * Math.PI) {
                             LightningBoltEntity bolt = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world);
-                            bolt.moveTo(pos.getTo());
+                            bolt.moveTo(pos.getLocation());
                             world.addFreshEntity(bolt);
                             angle += Math.PI / 8.0D;
                     }
