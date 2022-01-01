@@ -44,7 +44,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
                 float targetDist = target == null ? 0 : this.distanceTo(target);
                 float compareDist = this.distanceTo(e);
                 if (findNewTarget
-                        && (target == null || (target != null && this.distanceTo(e) < this.distanceTo(target))))
+                        && (target == null || (target != null && compareDist < targetDist)))
                     target = e;
             }
         }
@@ -58,7 +58,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
             this.kill();
     }
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitEntity(EntityRayTraceResult result) {
     }
 
 }
