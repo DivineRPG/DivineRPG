@@ -298,8 +298,8 @@ public class LocalizeUtils {
      * @return
      */
     public static String normal(String message, TextFormatting format) {
-        ITextComponent text = new TranslationTextComponent(message);
-        text.getStyle().withColor(format);
+        TextComponent text = new TranslationTextComponent(message);
+        text.withStyle(format);
 
         return text.getContents();
     }
@@ -311,8 +311,8 @@ public class LocalizeUtils {
      * @return
      */
     public static String version(String vers) {
-        ITextComponent text = new TranslationTextComponent("message.version", vers);
-        text.getStyle().withColor(TextFormatting.RED);
+        TextComponent text = new TranslationTextComponent("message.version", vers);
+        text.withStyle(TextFormatting.RED);
 
         return text.getContents();
     }

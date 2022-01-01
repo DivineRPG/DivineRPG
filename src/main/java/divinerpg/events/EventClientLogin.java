@@ -17,20 +17,20 @@ public class EventClientLogin {
             //Send welcome messages
             if(Config.welcomeMessage.get()) {
                 if (Utils.isDeveloperName(player.getUUID())) {
-                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.developer", player.getDisplayName());
-                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.DARK_RED));
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.developer", player.getDisplayName());
+                    message.withStyle(TextFormatting.DARK_RED);
                     player.sendMessage(message, player.getUUID());
                 } else if (Utils.isTesterName(player.getUUID())) {
-                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
-                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.BLUE));
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
+                    message.withStyle(TextFormatting.BLUE);
                     player.sendMessage(message, player.getUUID());
                 } else if (Utils.isSpecial(player.getUUID())) {
-                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.special", player.getDisplayName());
-                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.GOLD));
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.special", player.getDisplayName());
+                    message.withStyle(TextFormatting.GOLD);
                     player.sendMessage(message, player.getUUID());
                 } else if (Utils.isFriend(player.getUUID())) {
-                    ITextComponent message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
-                    message.getStyle().withColor(Color.fromLegacyFormat(TextFormatting.LIGHT_PURPLE));
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
+                    message.withStyle(TextFormatting.LIGHT_PURPLE);
                     player.sendMessage(message, player.getUUID());
                 }
             }
