@@ -25,7 +25,6 @@ public class EntityPeacefulUntilAttacked extends EntityDivineMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ANGER, 0);
-        this.entityData.define(TARGET, null);
     }
 
     public void addAdditionalSaveData(CompoundNBT compound) {
