@@ -37,7 +37,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.arcaniumExtractor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.arcaniumTorch, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.arcaniumWallTorch, RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.ayeracoSpawn, RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.ayeracoSpawn, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.bacterialAcid, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.barredDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.blossomedWeedwoodVine, RenderType.cutoutMipped());
@@ -166,7 +166,6 @@ public class FancyRenders {
         ClientRegistry.bindTileEntityRenderer(TileRegistry.DRAMIX_ALTAR, RenderDramixAltar::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.PARASECTA_ALTAR, RenderParasectaAltar::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.AYERACO_BEAM, RenderAyeracoBeam::new);
-        ClientRegistry.bindTileEntityRenderer(TileRegistry.AYERACO_SPAWN, RenderAyeracoSpawn::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.PRESENT_BOX, RenderPresentBox::new);
         ClientRegistry.bindTileEntityRenderer(TileRegistry.FROSTED_CHEST, RenderFrostedChest::new);
 

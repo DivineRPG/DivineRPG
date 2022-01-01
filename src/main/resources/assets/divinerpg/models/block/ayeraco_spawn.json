@@ -1,6 +1,96 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "divinerpg:model/purple_ayeraco_symbol"
-  }
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "ayeraco_spawn": "divinerpg:blocks/ayeraco_spawn",
+        "bedrock": "minecraft:block/bedrock"
+    },
+    "display": {
+        "gui": {
+            "rotation": [ 30, 45, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.625, 0.625, 0.625 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale": [ 0.25, 0.25, 0.25 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "head": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 315, 0 ],
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 0.4, 0.4, 0.4 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 75, 315, 0 ],
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        }
+    },
+    "elements": [
+        {
+            "name": "Base",
+            "from": [ 6, 0, 6 ], 
+            "to": [ 10, 1, 10 ], 
+            "faces": {
+                "north": { "texture": "#bedrock", "uv": [ 8, 6, 12, 7 ] },
+                "east": { "texture": "#bedrock", "uv": [ 6, 9, 10, 10 ] },
+                "south": { "texture": "#bedrock", "uv": [ 5, 9, 9, 10 ] },
+                "west": { "texture": "#bedrock", "uv": [ 6, 6, 10, 7 ] },
+                "up": { "texture": "#bedrock", "uv": [ 5, 6, 9, 10 ] },
+                "down": { "texture": "#bedrock", "uv": [ 5, 6, 9, 10 ] }
+            }
+        },
+        {
+            "name": "Mid",
+            "from": [ 7, 1, 7 ], 
+            "to": [ 9, 2, 9 ], 
+            "faces": {
+                "north": { "texture": "#bedrock", "uv": [ 0, 0, 2, 1 ] },
+                "east": { "texture": "#bedrock", "uv": [ 4, 0, 6, 1 ] },
+                "south": { "texture": "#bedrock", "uv": [ 10, 0, 12, 1 ] },
+                "west": { "texture": "#bedrock", "uv": [ 4, 0, 6, 1 ] }
+            }
+        },
+        {
+            "name": "TopMid",
+            "from": [ 4, 2, 7 ], 
+            "to": [ 12, 2, 9 ], 
+            "faces": {
+                "north": { "texture": "#ayeraco_spawn", "uv": [ 4, 8, 12, 8 ] },
+                "south": { "texture": "#ayeraco_spawn", "uv": [ 4, 8, 12, 8 ] },
+                "up": { "texture": "#ayeraco_spawn", "uv": [ 4, 7, 12, 9 ] },
+                "down": { "texture": "#ayeraco_spawn", "uv": [ 4, 7, 12, 9 ] }
+            }
+        },
+        {
+            "name": "End1",
+            "from": [ 2, 2, 6 ], 
+            "to": [ 4, 2, 10 ], 
+            "faces": {
+                "north": { "texture": "#ayeraco_spawn", "uv": [ 3, 8, 5, 8 ] },
+                "up": { "texture": "#ayeraco_spawn", "uv": [ 3, 6, 5, 10 ] },
+                "down": { "texture": "#ayeraco_spawn", "uv": [ 3, 6, 5, 10 ] }
+            }
+        },
+        {
+            "name": "End2",
+            "from": [ 12, 2, 6 ], 
+            "to": [ 14, 2, 10 ], 
+            "faces": {
+                "north": { "texture": "#ayeraco_spawn", "uv": [ 11, 8, 13, 8 ] },
+                "up": { "texture": "#ayeraco_spawn", "uv": [ 11, 6, 13, 10 ] },
+                "down": { "texture": "#ayeraco_spawn", "uv": [ 11, 6, 13, 10 ] }
+            }
+        }
+    ]
 }

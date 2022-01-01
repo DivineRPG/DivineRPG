@@ -1,12 +1,7 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/ayeraco_spawn"
-      }
+  "variants": {
+    "": {
+      "model": "divinerpg:block/ayeraco_spawn"
     }
-  ],
-  "": {
-    "model": "divinerpg:block/ayeraco_spawn"
   }
 }

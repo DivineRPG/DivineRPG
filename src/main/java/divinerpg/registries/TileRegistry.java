@@ -28,7 +28,6 @@ public class TileRegistry {
     public static  TileEntityType<TileEntityFrostedChest> FROSTED_CHEST;
     public static  TileEntityType<TileEntityEdenChest> EDEN_CHEST;
     public static  TileEntityType<TileEntityPresentBox> PRESENT_BOX;
-//    public static  TileEntityType<PortalEntity> ARCANA_PORTAL;
     public static  TileEntityType<TileEntityCoalstoneFurnace> COALSTONE_FURNACE;
     public static  TileEntityType<TileEntityDemonFurnace> DEMON_FURNACE;
     public static  TileEntityType<TileEntityGreenlightFurnace> GREENLIGHT_FURNACE;

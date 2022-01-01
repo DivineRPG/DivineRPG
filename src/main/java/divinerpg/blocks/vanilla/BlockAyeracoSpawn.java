@@ -12,7 +12,7 @@ import javax.annotation.*;
 
 public class BlockAyeracoSpawn extends ContainerBlock {
     public BlockAyeracoSpawn() {
-        super(AbstractBlock.Properties.of(Material.FIRE).strength(6000000F, 6000000F).randomTicks());
+        super(AbstractBlock.Properties.of(Material.FIRE).strength(6000000F, 6000000F).noOcclusion().randomTicks());
         setRegistryName("ayeraco_spawn");
     }
 
@@ -27,8 +27,8 @@ public class BlockAyeracoSpawn extends ContainerBlock {
         return VoxelShapes.empty();
     }
 
-    @Override
-    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
-        return 0;
+    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
+        return BlockRenderType.MODEL;
     }
+
 }
