@@ -4,13 +4,16 @@
   },
   "pattern": [
     "bbb",
-    "b b",
+    "bcb",
     "bbb"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "b": {
       "item": "divinerpg:eden_fragments"
+    },
+    "c": {
+      "item": "minecraft:chest"
     }
   }
 }

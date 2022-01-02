@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_ingot"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "divinerpg:rupee_nugget"
+    }
+  }
+}

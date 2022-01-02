@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_nugget",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

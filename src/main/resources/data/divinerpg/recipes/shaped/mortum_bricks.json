@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_bricks",
+    "count": 4
+  },
+  "pattern": [
+    "ss ",
+    "si "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "tag": "minecraft:stone_bricks"
+    },
+    "i": {
+      "item": "divinerpg:mortum_gem"
+    }
+  }
+}

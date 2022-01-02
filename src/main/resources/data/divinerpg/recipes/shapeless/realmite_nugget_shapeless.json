@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_nugget",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:realmite_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

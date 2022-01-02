@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:wildwood_tallgrass"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:mortum_brush"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

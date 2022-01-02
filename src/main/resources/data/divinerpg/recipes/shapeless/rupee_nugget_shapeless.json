@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_nugget",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_ingot"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}
