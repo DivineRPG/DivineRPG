@@ -669,7 +669,7 @@ public class EntityRegistry {
         manager.register(AYERACO_YELLOW, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
         manager.register(DENSOS, new RenderDivineMob(manager, new ModelDensos<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
         manager.register(DRAMIX, new RenderDivineMob(manager, new ModelDramix<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
-        manager.register(ETERNAL_ARCHER, new RenderDivineMob(manager, new ModelEternalArcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png")));
+        manager.register(ETERNAL_ARCHER, new RenderEternalArcher(manager));
         manager.register(EXPERIENCED_CORI, new RenderDivineMob(manager, new ModelExperiencedCori<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
         manager.register(HIVE_QUEEN, new RenderDivineMob(manager, new ModelHiveQueen<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
         manager.register(KAROT, new RenderDivineMob(manager, new ModelKarot<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));

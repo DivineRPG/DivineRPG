@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 public class EntityEternalArcher extends EntityDivineBoss {
@@ -64,10 +65,15 @@ public class EntityEternalArcher extends EntityDivineBoss {
             this.abilityTick = 400;
         }
 
-        if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level.isClientSide) {
-            this.level.addFreshEntity(new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level,
-                    ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + this.armSelected), this,
-                    this.getTarget(), 1.6F, 5.0F));
+        if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level.isClientSide && getTarget() != null) {
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + this.armSelected), this, this.getTarget(), 1.6F, 5.0F);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
+
         }
     }
 
