@@ -18,7 +18,7 @@ import net.minecraftforge.api.distmarker.*;
         _interface = IChestLid.class
 )
 public abstract class TileEntityModChest extends LockableLootTileEntity implements IChestLid, ITickableTileEntity {
-    public NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
+    public NonNullList<ItemStack> items = NonNullList.withSize(54, ItemStack.EMPTY);
     public float openness;
     public float oOpenness;
     public int openCount;
@@ -32,7 +32,7 @@ public abstract class TileEntityModChest extends LockableLootTileEntity implemen
     }
 
     public int getContainerSize() {
-        return 27;
+        return 54;
     }
 
     @Override

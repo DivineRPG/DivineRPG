@@ -8,7 +8,13 @@ public class TileEntityFrostedChest extends TileEntityModChest {
         super(TileRegistry.FROSTED_CHEST);
     }
 
+    @Override
     public String getChestName() {
         return BlockRegistry.frostedChest.getDescriptionId();
+    }
+
+    @Override
+    public int getContainerSize() {
+        return 27;
     }
 }

@@ -12,4 +12,9 @@ public class TileEntityBoneChest extends TileEntityModChest {
     public String getChestName() {
         return BlockRegistry.boneChest.getDescriptionId();
     }
+
+    @Override
+    public int getContainerSize() {
+        return 27;
+    }
 }
