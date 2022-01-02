@@ -104,13 +104,9 @@ public abstract class BlockModChest extends BlockMod implements IWaterLoggable, 
 
     @Override
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!worldIn.isClientSide) {
-            INamedContainerProvider inamedcontainerprovider = this.getMenuProvider(state, worldIn, pos);
-            if (inamedcontainerprovider != null) {
-                player.openMenu(inamedcontainerprovider);
-                player.awardStat(this.getOpenStat());
-            }
-
+        TileEntity tileentity = worldIn.getBlockEntity(pos);
+        if (tileentity instanceof TileEntityModChest) {
+            player.openMenu((INamedContainerProvider)tileentity);
         }
         return ActionResultType.SUCCESS;
     }

@@ -18,6 +18,8 @@ public class ModChestContainer<C extends IInventory> extends Container {
         return new ModChestContainer(ContainerRegistry.EDEN_CHEST.get(), windowId, playerInventory, inventory);
     }
 
+
+
     public ModChestContainer(ContainerType<?> containerType, int windowId, PlayerInventory playerInventory, IInventory inventory) {
         super(containerType, windowId);
         checkContainerSize(inventory, 54);
@@ -73,10 +75,6 @@ public class ModChestContainer<C extends IInventory> extends Container {
     public void removed(PlayerEntity p_75134_1_) {
         super.removed(p_75134_1_);
         this.inventory.stopOpen(p_75134_1_);
-    }
-
-    public IInventory getInventory() {
-        return this.inventory;
     }
 
 }
