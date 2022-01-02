@@ -62,7 +62,7 @@ public class ParticleColoredFlame extends SpriteTexturedParticle {
         this.zo = this.z;
 
         if (this.age++ >= this.lifetime) {
-            this.shouldCull();
+            this.remove();
         }
 
         this.move(this.xd, this.yd, this.zd);
