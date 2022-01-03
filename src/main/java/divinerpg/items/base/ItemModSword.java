@@ -42,7 +42,7 @@ public class ItemModSword extends SwordItem {
         final Multimap<Attribute, AttributeModifier> modifiers = ArrayListMultimap.create(super.getAttributeModifiers(slot, stack));
 
         if (slot == EquipmentSlotType.MAINHAND) {
-            replaceModifier(modifiers, Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_UUID, -1.4F);
+            replaceModifier(modifiers, Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_UUID, getTier().getSpeed());
         }
 
         return ImmutableMultimap.copyOf(modifiers);
