@@ -138,7 +138,7 @@ public class EntityRegistry {
 
 
     // Vanilla
-    public static final EntityType<EntityAequorea> AEQUOREA = registerEntity(EntityAequorea::new, "aequorea",1.4F, 2.8f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
+    public static final EntityType<EntityAequorea> AEQUOREA = registerEntity(EntityAequorea::new, "aequorea",0.3F, 0.4f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
     public static final EntityType<EntityAridWarrior> ARID_WARRIOR = registerEntity(EntityAridWarrior::new, "arid_warrior",1.4F, 2.8f, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
     public static final EntityType<EntityBrownGrizzle> BROWN_GRIZZLE = registerEntity(EntityBrownGrizzle::new, "brown_grizzle",0.8F, 1.4F, EntityClassification.MONSTER);
     public static final EntityType<EntityCaveCrawler> CAVE_CRAWLER = registerEntity(EntityCaveCrawler::new, "cave_crawler",1.0F, 1.5F, SpawnEggColors.getColorsForDimension(SpawnEggColors.Dimension.OVERWORLD), EntityClassification.MONSTER);
@@ -542,11 +542,11 @@ public class EntityRegistry {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JUNGLE_SPIDER , 80, 1, 4));
         }
         if (biome == Biome.Category.PLAINS || biome == Biome.Category.SAVANNA || biome == Biome.Category.SWAMP || biome == Biome.Category.MESA || biome == Biome.Category.TAIGA) {
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(CYCLOPS, 10, 2, 4));
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(KOBBLIN, 5, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CYCLOPS, 10, 2, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(KOBBLIN, 5, 1, 1));
         }
         if (biome == Biome.Category.FOREST || biome == Biome.Category.MUSHROOM || biome == Biome.Category.SAVANNA) {
-            event.getSpawns().getSpawner(EntityClassification.MISC).add(new MobSpawnInfo.Spawners(PUMPKIN_SPIDER, 20, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(PUMPKIN_SPIDER, 20, 1, 1));
         }
         if (biome == Biome.Category.OCEAN) {
             event.getSpawns().getSpawner(EntityClassification.WATER_CREATURE).add(new MobSpawnInfo.Spawners(LIOPLEURODON, 1, 1, 1));

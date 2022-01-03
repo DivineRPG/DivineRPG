@@ -40,6 +40,7 @@ public class EntityKobblin extends EntityDivineMob {
         super.defineSynchedData();
         entityData.define(PROVOKED, Boolean.valueOf(false));
     }
+
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.kobblinHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.kobblinDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.kobblinSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.kobblinFollowRange);
     }
