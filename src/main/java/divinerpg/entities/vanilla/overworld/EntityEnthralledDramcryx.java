@@ -17,11 +17,14 @@ public class EntityEnthralledDramcryx extends EntityDivineMob {
     public EntityEnthralledDramcryx(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
     }
-
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.25F;
     }
-
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+    }
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.corruptedDramcryxHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.corruptedDramcryxDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.corruptedDramcryxSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.corruptedDramcryxFollowRange);
     }

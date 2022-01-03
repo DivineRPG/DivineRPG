@@ -21,6 +21,11 @@ public class EntityCaveCrawler extends EntityDivineMob {
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.15F;
     }
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+    }
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.caveCrawlerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.caveCrawlerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.caveCrawlerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.caveCrawlerFollowRange);
     }
