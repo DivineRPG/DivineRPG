@@ -84,26 +84,26 @@ public class ArmorAbilitiesEvent
 
             //Divine
             if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
-                player.setDeltaMovement(0, 0.2D, 0);
+                player.setDeltaMovement(player.getDeltaMovement().add(0, 0.2D, 0));
             }
 
             //Skythern
             if (boots == ItemRegistry.skythernBoots && body == ItemRegistry.skythernChestplate && legs == ItemRegistry.skythernLeggings && helmet == ItemRegistry.skythernHelmet) {
-                player.setDeltaMovement(0, 0.5D, 0);
+                player.setDeltaMovement(player.getDeltaMovement().add(0, 0.5D, 0));
             }
 
             //Vethean
 
             if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
-                player.setDeltaMovement(0, 0.2D, 0);
+                player.setDeltaMovement(player.getDeltaMovement().add(0, 0.2D, 0));
             }
 
             if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHood) {
-                player.setDeltaMovement(0, 0.3D, 0);
+                player.setDeltaMovement(player.getDeltaMovement().add(0, 0.3D, 0));
             }
 
             if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHood) {
-                player.setDeltaMovement(0, 0.4D, 0);
+                player.setDeltaMovement(player.getDeltaMovement().add(0, 0.4D, 0));
             }
 
         }
