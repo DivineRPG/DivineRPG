@@ -53,6 +53,21 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
 		setBlock(world, pos.offset(-offset, y, width), firstState, false);
 		grow(world, pos.offset(-offset, y, width), secondState, y, 1, 0);
     }
+    protected void wideGrow(ISeedReader world, BlockPos pos, BlockState state, int y, int width, int offset) {
+    	setBlock(world, pos.offset(width + 1, y, offset), state);
+		setBlock(world, pos.offset(-width, y, 1 - offset), state);
+		setBlock(world, pos.offset(offset, y, -width), state);
+		setBlock(world, pos.offset(1 - offset, y, width + 1), state);
+    }
+    protected void wideGrow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY, int width, int offset) {
+    	maxY++;
+    	for(; minY < maxY; minY++) {
+    		setBlock(world, pos.offset(width + 1, minY, offset), state);
+    		setBlock(world, pos.offset(-width, minY, 1 - offset), state);
+    		setBlock(world, pos.offset(offset, minY, -width), state);
+    		setBlock(world, pos.offset(1 - offset, minY, width + 1), state);
+    	}
+    }
     protected void grow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY) {
     	grow(world, pos, state, minY, maxY, false, 1);
     }
@@ -106,7 +121,7 @@ public abstract class DivineTreeFeature extends Feature<BlockStateFeatureConfig>
     		chanceSetBlock(world, pos.offset(-offset, minY, width), state, chance, replace);
     	}
     }
-    protected static boolean hasSpace(ISeedReader world, BlockPos pos) {
+    protected boolean hasSpace(ISeedReader world, BlockPos pos) {
         BlockState oldState = world.getBlockState(pos);
         Block oldBlock = oldState.getBlock();
         return oldBlock.isAir(oldState, world, pos) || oldBlock.is(BlockTags.LEAVES) || oldBlock.is(BlockTags.FLOWERS);

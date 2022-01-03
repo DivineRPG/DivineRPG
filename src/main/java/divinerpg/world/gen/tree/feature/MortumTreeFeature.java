@@ -4,7 +4,6 @@ import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
-import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -20,67 +19,23 @@ public class MortumTreeFeature extends DivineTreeFeature {
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
         if(world.getBlockState(pos.below()).getMaterial() == Material.DIRT || world.getBlockState(pos.below()).getMaterial() == Material.GRASS) {
-            int random = rand.nextInt(1) + 1;
-            int treeHeight = 6;
-            int extraHeight = treeHeight + random;
-
-            if (!heightCheck(world, pos, extraHeight + 4, 1))
-                return false;
-
-            if (!canSustain(world, pos))
-                return false;
-
-            BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
-            BlockState log = BlockRegistry.mortumLog.defaultBlockState();
-            BlockState leaves = BlockRegistry.mortumLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
-
-
-            //Tree trunk
-            for (int i = 0; i < extraHeight; i++) {
-                setBlock(world, mut.move(Direction.UP), log);
-            }
-            chanceSetBlock(world, pos.offset(1, 0, 0), log, 1, false);
-            chanceSetBlock(world, pos.offset(0, 0, 1), log, 1, false);
-            chanceSetBlock(world, pos.offset(-1, 0, 0), log, 1, false);
-            chanceSetBlock(world, pos.offset(0, 0, -1), log, 1, false);
-
-            //Leaves
-            setBlock(world, pos.offset(1, treeHeight - 3, 0), leaves);
-            setBlock(world, pos.offset(1, treeHeight - 2, 0), leaves);
-            setBlock(world, pos.offset(1, treeHeight - 1, 0), leaves);
-            setBlock(world, pos.offset(1, treeHeight, 0), leaves);
-            setBlock(world, pos.offset(1, treeHeight + 1, 0), leaves);
-            setBlock(world, pos.offset(1, treeHeight + 2, 0), leaves);
-
-            setBlock(world, pos.offset(-1, treeHeight - 3, 0), leaves);
-            setBlock(world, pos.offset(-1, treeHeight - 2, 0), leaves);
-            setBlock(world, pos.offset(-1, treeHeight - 1, 0), leaves);
-            setBlock(world, pos.offset(-1, treeHeight, 0), leaves);
-            setBlock(world, pos.offset(-1, treeHeight + 1, 0), leaves);
-            setBlock(world, pos.offset(-1, treeHeight + 2, 0), leaves);
-
-            setBlock(world, pos.offset(0, treeHeight - 3, 1), leaves);
-            setBlock(world, pos.offset(0, treeHeight - 2, 1), leaves);
-            setBlock(world, pos.offset(0, treeHeight - 1, 1), leaves);
-            setBlock(world, pos.offset(0, treeHeight, 1), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 1, 1), leaves);
-
-            setBlock(world, pos.offset(0, treeHeight - 3, -1), leaves);
-            setBlock(world, pos.offset(0, treeHeight - 2, -1), leaves);
-            setBlock(world, pos.offset(0, treeHeight - 1, -1), leaves);
-            setBlock(world, pos.offset(0, treeHeight, -1), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 1, -1), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 2, -1), leaves);
-
-            setBlock(world, pos.offset(0, treeHeight, 0), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 1, 0), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 2, 0), leaves);
-            setBlock(world, pos.offset(0, treeHeight + 3, 0), leaves);
-
-            return true;
+        	if (canSustain(world, pos)) {
+        		int treeHeight = 3 + rand.nextInt(3), extraHeight = treeHeight + 1;
+        		if (heightCheck(world, pos, extraHeight, 1)) {
+        			BlockState log = BlockRegistry.mortumLog.defaultBlockState(), leaves = BlockRegistry.mortumLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
+        			grow(world, pos, log, 0, treeHeight);
+        			setBlock(world, pos.offset(0, extraHeight, 0), leaves);
+                	grow(world, pos, leaves, treeHeight - 2, extraHeight, 1, 0);
+                	grow(world, pos, leaves, treeHeight - 2, treeHeight - 1, 1, 1);
+                	grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, 2, 2);
+                	for(int offset = -1; offset < 2; offset++) {
+        				grow(world, pos, leaves, treeHeight -2, treeHeight -1, 2, offset);
+        			}
+                	grow(world, pos, leaves, treeHeight, 1, 1, false, 2);
+                	return true;
+        		}
+        	}
         }
         return false;
     }
-
-
 }

@@ -14,21 +14,6 @@ public class SkythernTreeFeature extends DivineTreeFeature {
     public SkythernTreeFeature(Supplier<SaplingBlock> saplingBlock) {
         super(saplingBlock);
     }
-    private void wideGrow(ISeedReader world, BlockPos pos, BlockState state, int y, int width, int offset) {
-    	setBlock(world, pos.offset(width + 1, y, offset), state);
-		setBlock(world, pos.offset(-width, y, 1 - offset), state);
-		setBlock(world, pos.offset(offset, y, -width), state);
-		setBlock(world, pos.offset(1 - offset, y, width + 1), state);
-    }
-    private void wideGrow(ISeedReader world, BlockPos pos, BlockState state, int minY, int maxY, int width, int offset) {
-    	maxY++;
-    	for(; minY < maxY; minY++) {
-    		setBlock(world, pos.offset(width + 1, minY, offset), state);
-    		setBlock(world, pos.offset(-width, minY, 1 - offset), state);
-    		setBlock(world, pos.offset(offset, minY, -width), state);
-    		setBlock(world, pos.offset(1 - offset, minY, width + 1), state);
-    	}
-    }
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
     	if(canSustain(world, pos)) {

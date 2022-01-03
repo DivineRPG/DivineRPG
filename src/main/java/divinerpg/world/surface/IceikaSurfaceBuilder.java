@@ -90,66 +90,8 @@ public class IceikaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
                 if(chunk.getBlockState(blockpos$mutable).is(BlockRegistry.frozenGrass)){
                     chunk.setBlockState(blockpos$mutable.above(), SNOW, false);
                 }
-
-                if(chunk.getBlockState(blockpos$mutable).is(BlockRegistry.frozenGrass) && random.nextInt(240) == 0) {
-                    int treeHeight = 12;
-                    int extraHeight = treeHeight + random.nextInt(1) + 1;
-                    BlockPos pos = blockpos$mutable;
-                    if (!heightCheck(chunk, pos, extraHeight + 4, 1)) {
-
-
-                        BlockPos.Mutable mut = new BlockPos.Mutable().set(pos.below());
-                        BlockState log = BlockRegistry.frozenLog.defaultBlockState();
-                        BlockState leaves = BlockRegistry.brittleLeaves.defaultBlockState().setValue(BlockModLeaves.DISTANCE, 1);
-
-
-                        //Tree trunk
-                        for (int g = 0; g < extraHeight; g++) {
-                            chunk.setBlockState(mut.move(Direction.UP), log, false);
-                        }
-                        chunk.setBlockState(pos.offset(1, 0, 0), log, false);
-                        chunk.setBlockState(pos.offset(0, 0, 1), log,  false);
-                        chunk.setBlockState(pos.offset(-1, 0, 0), log,  false);
-                        chunk.setBlockState(pos.offset(0, 0, -1), log,  false);
-
-                        //Leaves
-                        chunk.setBlockState(pos.offset(1, treeHeight - 3, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(1, treeHeight - 2, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(1, treeHeight - 1, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(1, treeHeight, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(1, treeHeight + 1, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(1, treeHeight + 2, 0), leaves, false);
-
-                        chunk.setBlockState(pos.offset(-1, treeHeight - 3, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(-1, treeHeight - 2, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(-1, treeHeight - 1, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(-1, treeHeight, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(-1, treeHeight + 1, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(-1, treeHeight + 2, 0), leaves, false);
-
-                        chunk.setBlockState(pos.offset(0, treeHeight - 3, 1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight - 2, 1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight - 1, 1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight, 1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 1, 1), leaves, false);
-
-                        chunk.setBlockState(pos.offset(0, treeHeight - 3, -1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight - 2, -1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight - 1, -1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight, -1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 1, -1), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 2, -1), leaves, false);
-
-                        chunk.setBlockState(pos.offset(0, treeHeight, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 1, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 2, 0), leaves, false);
-                        chunk.setBlockState(pos.offset(0, treeHeight + 3, 0), leaves, false);
-                    }
-                }
             }
-
         }
-
     }
     protected boolean heightCheck(IChunk world, BlockPos pos, int maxHeight, int width) {
         if (pos.getY() >= 1 && pos.getY() + maxHeight < 256) {
