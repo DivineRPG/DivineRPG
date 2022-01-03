@@ -82,14 +82,14 @@ public class ModelFractite<T extends Entity> extends SegmentedModel<T> {
 
     @Override
     public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.shard1.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard2.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard3.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard4.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard5.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard6.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard7.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
-        this.shard8.xRot = MathHelper.cos(netHeadYaw * 0.1F) * (float)Math.PI;
+        this.shard1.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard2.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard3.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard4.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard5.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard6.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard7.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
+        this.shard8.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
     }
 
     @Override

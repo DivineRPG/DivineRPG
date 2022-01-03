@@ -235,29 +235,29 @@ public class ModelDissiment<T extends Entity> extends SegmentedModel<T>
 
     @Override
 	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.part1.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part2.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part3.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part4.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part5.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part6.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part7.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part8.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part9.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part10.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part11.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part12.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part13.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part14.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part15.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part16.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part17.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part18.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part19.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part20.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part21.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part22.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
-        this.part23.zRot += MathHelper.sin(limbSwingAmount * 0.067F) * 0.05F;
+        this.part1.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part2.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part3.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part4.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part5.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part6.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part7.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part8.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part9.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part10.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part11.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part12.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part13.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part14.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part15.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part16.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part17.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part18.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part19.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part20.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part21.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part22.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        this.part23.zRot += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
     }
 
 }

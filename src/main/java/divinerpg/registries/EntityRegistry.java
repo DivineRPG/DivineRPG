@@ -690,7 +690,7 @@ public class EntityRegistry {
 
         //Iceika
         manager.register(ALICANTO, new RenderDivineMob(manager, new ModelAlicanto<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/alicanto.png")));
-        manager.register(FRACTITE, new RenderDivineMob(manager, new ModelFractite<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
+        manager.register(FRACTITE, new RenderDivineMob(manager, new ModelFractite<Entity>(), 2, new ResourceLocation(DivineRPG.MODID, "textures/entity/fractite.png")));
         manager.register(FROST_ARCHER, new RenderFrostArcher(manager));
         manager.register(FROSTY, new RenderDivineMob(manager, new ModelFrosty<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/frosty.png")));
         manager.register(GLACIDE, new RenderDivineMob(manager, new ModelGlacide<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/glacon.png")));
