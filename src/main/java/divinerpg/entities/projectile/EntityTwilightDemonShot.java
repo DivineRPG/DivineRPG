@@ -5,6 +5,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.potion.*;
+import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
@@ -36,6 +37,7 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
     public void onHitEntity(EntityRayTraceResult result) {
         if (result.getEntity() != null && result.getEntity() instanceof PlayerEntity) {
             ((PlayerEntity) result.getEntity()).addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
+            ((PlayerEntity) result.getEntity()).hurt(DamageSource.mobAttack((LivingEntity)this.getOwner()), 5);
         }
     }
 }

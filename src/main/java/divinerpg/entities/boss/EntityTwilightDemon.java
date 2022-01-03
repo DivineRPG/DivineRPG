@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.*;
 
@@ -55,19 +56,19 @@ public class EntityTwilightDemon extends EntityDivineBoss {
                     double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
                     double tz = this.getTarget().getZ() - this.getZ();
                     double angle = Math.atan(-(tx) / (tz));
-                    EntityTwilightDemonShot e = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
+                    EntityTwilightDemonShot projectile = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
                             BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
-                    e.zo += Math.sin(angle);
-                    e.xo += Math.cos(angle);
-                    e.shoot(tx - Math.cos(angle), ty, tz - Math.sin(angle), 1.6f, 0);
-                    this.level.addFreshEntity(e);
+                    double d0 = getTarget().getX() - this.getX();
+                    double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+                    double d2 = getTarget().getZ() - this.getZ();
+                    double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+                    projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                    this.level.addFreshEntity(projectile);
 
-                    EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
+                    EntityTwilightDemonShot projectile2 = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT, this, this.level, this.random.nextInt(50) == 0 ?
                             BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
-                    e1.zo -= Math.sin(angle);
-                    e1.xo -= Math.cos(angle);
-                    e1.shoot(tx + Math.cos(angle), ty, tz + Math.sin(angle), 1.6f, 0);
-                    this.level.addFreshEntity(e1);
+                    projectile2.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                    this.level.addFreshEntity(projectile2);
                 }
                 if (this.shooting > 0) {
                     this.shooting--;
