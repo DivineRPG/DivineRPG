@@ -37,6 +37,18 @@ public class ModelCadillion extends EntityModel<Entity> {
 		Head.addChild(Horn_r1);
 		setRotationAngle(Horn_r1, 0.3927F, 0.0F, 0.0F);
 		Horn_r1.texOffs(14, 56).addBox(-1.0F, -7.5F, -1.0F, 2.0F, 7.0F, 2.0F, 0.0F, false);
+		
+		RightEar_r1 = new ModelRenderer(this);
+		RightEar_r1.setPos(-8.0F, -21.0F, -10.0F);
+		Head.addChild(RightEar_r1);
+		setRotationAngle(RightEar_r1, 0.0F, 0.0F, -0.1309F);
+		RightEar_r1.texOffs(55, 31).addBox(0.0F, -6.47F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
+
+		LeftEar_r1 = new ModelRenderer(this);
+		LeftEar_r1.setPos(3.0F, -21.0F, -10.0F);
+		Head.addChild(LeftEar_r1);
+		setRotationAngle(LeftEar_r1, 0.0F, 0.0F, 0.1309F);
+		LeftEar_r1.texOffs(1, 56).addBox(-1.0F, -7.0F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
 
 		Mouth = new ModelRenderer(this);
 		Mouth.setPos(0.0F, -16.5F, -15.5F);
@@ -66,27 +78,14 @@ public class ModelCadillion extends EntityModel<Entity> {
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setPos(0.0F, 24.0F, 0.0F);
-
-
-		RightEar_r1 = new ModelRenderer(this);
-		RightEar_r1.setPos(-8.0F, -21.0F, -10.0F);
-		bb_main.addChild(RightEar_r1);
-		setRotationAngle(RightEar_r1, 0.0F, 0.0F, -0.1309F);
-		RightEar_r1.texOffs(55, 31).addBox(0.0F, -6.47F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
-
-		LeftEar_r1 = new ModelRenderer(this);
-		LeftEar_r1.setPos(3.0F, -21.0F, -10.0F);
-		bb_main.addChild(LeftEar_r1);
-		setRotationAngle(LeftEar_r1, 0.0F, 0.0F, 0.1309F);
-		LeftEar_r1.texOffs(1, 56).addBox(-1.0F, -7.0F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
 	}
 
 	@Override
 	public void setupAnim(Entity p_225597_1_, float var1, float var2, float var3, float var4, float var5) {
 		this.Head.yRot = (var4 / 57.295776F);
-		this.RightEar_r1.yRot = (var4 / 57.295776F);
-		this.LeftEar_r1.yRot = (var4 / 57.295776F);
-		this.Horn_r1.yRot = (var4 / 57.295776F);
+//		this.RightEar_r1.yRot = (var4 / 57.295776F);
+//		this.LeftEar_r1.yRot = (var4 / 57.295776F);
+//		this.Horn_r1.yRot = (var4 / 57.295776F);
 		this.FrontLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
 		this.FrontRightLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
 		this.BackLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
