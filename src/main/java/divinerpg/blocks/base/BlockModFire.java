@@ -1,14 +1,14 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.registries.BlockRegistry;
+import divinerpg.*;
+import divinerpg.registries.*;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.block.material.*;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import net.minecraft.world.server.*;
 
-import java.util.Random;
+import java.util.*;
 
 public class BlockModFire extends FireBlock {
 
@@ -41,11 +41,6 @@ public class BlockModFire extends FireBlock {
     }
 
 
-
-    @Override
-    public void onPlace(BlockState state, World world, BlockPos pos, BlockState state1, boolean b) {
-        lightPortal(world, pos);
-        }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
