@@ -58,9 +58,6 @@ public class DivineRPG {
         StructureRegistry.setupStructures();
         ConfiguredStructureRegistry.registerConfiguredStructures();
 
-
-
-
         event.enqueueWork(() -> {
             AxeItem.STRIPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPABLES)
                     .put(BlockRegistry.apalachiaLog, BlockRegistry.strippedApalachiaLog)

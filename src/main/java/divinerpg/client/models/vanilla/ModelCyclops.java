@@ -48,12 +48,12 @@ public class ModelCyclops<T extends LivingEntity> extends AgeableModel<T> implem
         this.body.addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, p_i225946_2_);
         this.body.setPos(0.0F, 0.0F + p_i225946_3_, 0.0F);
         this.rightArm = new ModelRenderer(this, 40, 16);
-        this.rightArm.addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, p_i225946_2_);
-        this.rightArm.setPos(-5.0F, 2.0F + p_i225946_3_, 0.0F);
+        this.rightArm.addBox(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, p_i225946_2_);
+        this.rightArm.setPos(-5.0F, 2.5F, 0.0F);
         this.leftArm = new ModelRenderer(this, 40, 16);
         this.leftArm.mirror = true;
-        this.leftArm.addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, p_i225946_2_);
-        this.leftArm.setPos(5.0F, 2.0F + p_i225946_3_, 0.0F);
+        this.leftArm.addBox(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, p_i225946_2_);
+        this.leftArm.setPos(5.0F, 2.5F, 0.0F);
         this.rightLeg = new ModelRenderer(this, 0, 16);
         this.rightLeg.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, p_i225946_2_);
         this.rightLeg.setPos(-1.9F, 12.0F + p_i225946_3_, 0.0F);
