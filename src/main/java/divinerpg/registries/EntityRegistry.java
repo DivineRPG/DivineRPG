@@ -715,12 +715,12 @@ public class EntityRegistry {
         manager.register(MOON_WOLF, new RenderDivineMob(manager, new ModelMoonWolf<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf.png")));
         manager.register(TERMID, new RenderDivineMob(manager, new ModelTermid<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/termid.png")));
         manager.register(VEREK, new RenderDivineMob(manager, new ModelSamek<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/verek.png")));
-        manager.register(WILDWOOD_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_cadillion.png")));
+        manager.register(WILDWOOD_CADILLION, new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_cadillion.png")));
         manager.register(WILDWOOD_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_golem.png")));
         manager.register(WILDWOOD_TOMO, new RenderDivineMob(manager, new ModelTomo<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/wildwood_tomo.png")));
 
         //Apalachia
-        manager.register(APALACHIA_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
+        manager.register(APALACHIA_CADILLION, new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_cadillion.png")));
         manager.register(APALACHIA_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_golem.png")));
         manager.register(APALACHIA_TOMO, new RenderDivineMob(manager, new ModelTomo<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/apalachia_tomo.png")));
         manager.register(ENCHANTED_ARCHER, new RenderEnchantedArcher(manager));
@@ -740,7 +740,7 @@ public class EntityRegistry {
         manager.register(ANGRY_BUNNY, new RenderDivineMob(manager, new ModelAngryBunny<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
         manager.register(BASILISK, new RenderDivineMob(manager, new ModelBasilisk<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/basilisk.png")));
         manager.register(DEMON_OF_DARKNESS, new RenderDivineMob(manager, new ModelDemonOfDarkness<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/demon_of_darkness.png")));
-        manager.register(MORTUM_CADILLION, new RenderDivineMob(manager, new ModelCadillionTEMP<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png")));
+        manager.register(MORTUM_CADILLION, new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png")));
         manager.register(SORCERER, new RenderDivineMob(manager, new ModelSorcerer<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sorcerer.png")));
         manager.register(SOUL_SPIDER, new RenderDivineMob(manager, new ModelSoulSpider<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_spider.png")));
         manager.register(SOUL_STEALER, new RenderDivineMob(manager, new ModelSoulStealer<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_stealer.png")));
