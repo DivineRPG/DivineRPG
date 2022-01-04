@@ -7,6 +7,7 @@ import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.monster.*;
 import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
@@ -26,6 +27,13 @@ public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackM
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.frostArcherHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.frostArcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.frostArcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.frostArcherFollowRange);
     }
+    
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+    }
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
@@ -34,7 +42,7 @@ public class EntityFrostArcher extends EntityDivineMob implements IRangedAttackM
             double d1 = target.getY(0.3333333333333333D) - projectile.getY();
             double d2 = target.getZ() - this.getZ();
             double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            projectile.shoot(d0, d1 + d3 * (double) 0.3F, d2, 1.8F, (float) (14 - this.level.getDifficulty().getId() * 4));
             this.level.addFreshEntity(projectile);
     }
 

@@ -39,14 +39,13 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
     protected void registerGoals() {
         super.registerGoals();
     addAttackingAI();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 1, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 30, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
 
     @Override
     public CreatureAttribute getMobType() {
         return CreatureAttribute.UNDEFINED;
     }
-
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
@@ -73,5 +72,4 @@ public class EntitySunArcher extends EntityDivineMob implements IRangedAttackMob
     protected SoundEvent getDeathSound() {
         return SoundEvents.ZOMBIE_DEATH;
     }
-
 }
