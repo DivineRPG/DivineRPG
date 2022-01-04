@@ -1,42 +1,31 @@
 {
-  "config": {
-    "feature": {
-      "config": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {
-                "state": {
-                  "Properties": {
-                    "stage": "0"
-                  },
-                  "Name": "divinerpg:mortum_sapling"
-                }
-              },
-              "type": "divinerpg:mortum_tree"
-            },
-            "decorator": {
-              "type": "minecraft:water_lake",
-              "config": {
-                "chance": 1
-              }
-            }
-          },
-          "type": "minecraft:decorated"
-        },
-        "decorator": {
-          "config": {},
-          "type": "minecraft:square"
-        }
-      },
-      "type": "minecraft:decorated"
-    },
-    "decorator": {
-      "config": {
-        "chance": 4
-      },
-      "type": "minecraft:chance"
-    }
-  },
-  "type": "minecraft:decorated"
+ "type": "minecraft:decorated",
+ "config": {
+   "decorator": {
+     "type": "minecraft:count_multilayer",
+     "config": {
+       "count": 2
+     }
+   },
+   "feature": {
+     "type": "minecraft:decorated",
+     "config": {
+       "decorator": {
+         "type": "minecraft:square",
+         "config": {}
+       },
+       "feature": {
+         "type": "divinerpg:mortum_tree",
+         "config": {
+           "state": {
+             "Name": "divinerpg:skythern_sapling",
+             "Properties": {
+               "stage": "0"
+             }
+           }
+         }
+       }
+     }
+   }
+ }
 }

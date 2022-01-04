@@ -23,7 +23,7 @@ public class FrozenTreeFeature extends DivineTreeFeature {
     }
     @Override
     protected boolean gen(ISeedReader world, Random rand, BlockPos pos) {
-    	if((canSustain(world, pos) || world.getBlockState(pos).is(Blocks.SNOW)) && !world.getBlockState(pos.offset(0, -1, 0)).is(Blocks.WATER)) {
+    	if((canSustain(world, pos) || world.getBlockState(pos).is(Blocks.SNOW)) && !world.getBlockState(pos.below()).is(Blocks.WATER)) {
     		int treeHeight, extraHeight, treeType = rand.nextInt(11), width = 1;
     		switch(treeType) {
     		case 0:
