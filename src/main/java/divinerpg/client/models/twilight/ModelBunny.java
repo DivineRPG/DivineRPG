@@ -10,81 +10,55 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelBunny<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer Head;
-    ModelRenderer Body;
-    ModelRenderer Leg1;
-    ModelRenderer Leg2;
-    ModelRenderer Leg3;
-    ModelRenderer Leg4;
-    ModelRenderer Ear1;
-    ModelRenderer Ear2;
-    ModelRenderer tail;
+	private final ModelRenderer Head;
+	private final ModelRenderer Body;
+	private final ModelRenderer tail;
+	private final ModelRenderer Leg1;
+	private final ModelRenderer Leg2;
+	private final ModelRenderer Leg3;
+	private final ModelRenderer Leg4;
 
     public ModelBunny() {
         texWidth = 64;
         texHeight = 32;
 
-        Head = new ModelRenderer(this, 0, 0);
-        Head.addBox(-3F, -3F, -2F, 6, 6, 4);
-        Head.setPos(-1F, 16.5F, -7F);
-        Head.setTexSize(64, 32);
-        Head.mirror = true;
-        setRotation(Head, 0F, 0F, 0F);
-        Body = new ModelRenderer(this, 18, 14);
-        Body.addBox(-4F, -2F, -3F, 6, 9, 6);
-        Body.setPos(0F, 17F, -3F);
-        Body.setTexSize(64, 32);
-        Body.mirror = true;
-        setRotation(Body, 1.570796F, 0F, 0F);
-        Leg1 = new ModelRenderer(this, 0, 18);
-        Leg1.addBox(-1F, 0F, -1F, 2, 5, 2);
-        Leg1.setPos(-2.5F, 19F, 3F);
-        Leg1.setTexSize(64, 32);
-        Leg1.mirror = true;
-        setRotation(Leg1, 0F, 0F, 0F);
-        Leg2 = new ModelRenderer(this, 0, 18);
-        Leg2.addBox(-1F, 0F, -1F, 2, 5, 2);
-        Leg2.setPos(0.5F, 19F, 3F);
-        Leg2.setTexSize(64, 32);
-        Leg2.mirror = true;
-        setRotation(Leg2, 0F, 0F, 0F);
-        Leg3 = new ModelRenderer(this, 0, 18);
-        Leg3.addBox(-1F, 0F, -1F, 2, 5, 2);
-        Leg3.setPos(-2.5F, 19F, -4F);
-        Leg3.setTexSize(64, 32);
-        Leg3.mirror = true;
-        setRotation(Leg3, 0F, 0F, 0F);
-        Leg4 = new ModelRenderer(this, 0, 18);
-        Leg4.addBox(-1F, 0F, -1F, 2, 5, 2);
-        Leg4.setPos(0.5F, 19F, -4F);
-        Leg4.setTexSize(64, 32);
-        Leg4.mirror = true;
-        setRotation(Leg4, 0F, 0F, 0F);
-        Ear1 = new ModelRenderer(this, 16, 14);
-        Ear1.addBox(-3F, -5F, 0F, 2, 2, 1);
-        Ear1.setPos(-1F, 16.5F, -7F);
-        Ear1.setTexSize(64, 32);
-        Ear1.mirror = true;
-        setRotation(Ear1, 0F, 0F, 0F);
-        Ear2 = new ModelRenderer(this, 16, 14);
-        Ear2.addBox(1F, -5F, 0F, 2, 2, 1);
-        Ear2.setPos(-1F, 16.5F, -7F);
-        Ear2.setTexSize(64, 32);
-        Ear2.mirror = true;
-        setRotation(Ear2, 0F, 0F, 0F);
-        tail = new ModelRenderer(this, 6, 0);
-        tail.addBox(0F, -5F, 8F, 2, 2, 1);
-        tail.setPos(-2F, 16F, 4F);
-        tail.setTexSize(64, 32);
-        tail.mirror = true;
-        setRotation(tail, 0F, 0F, 0F);
-        Body.addChild(tail);
-    }
+        Head = new ModelRenderer(this);
+		Head.setPos(0.0F, 15.0F, -6.0F);
+		Head.texOffs(0, 0).addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 4.0F, 0.0F, true);
+		Head.texOffs(16, 14).addBox(-3.0F, -5.0F, 0.0F, 2.0F, 2.0F, 1.0F, 0.0F, true);
+		Head.texOffs(16, 14).addBox(1.0F, -5.0F, 0.0F, 2.0F, 2.0F, 1.0F, 0.0F, true);
 
+		Body = new ModelRenderer(this);
+		Body.setPos(1.0F, 16.0F, -2.0F);
+		setRotation(Body, 1.5708F, 0.0F, 0.0F);
+		Body.texOffs(18, 14).addBox(-4.0F, -2.0F, -3.0F, 6.0F, 9.0F, 6.0F, 0.0F, true);
+
+		tail = new ModelRenderer(this);
+		tail.setPos(-1.0F, 7.0F, 1.0F);
+		Body.addChild(tail);
+		setRotation(tail, -1.5708F, 0.0F, 0.0F);
+		tail.texOffs(6, 0).addBox(-1.0F, -1.0F, 0.0F, 2.0F, 2.0F, 1.0F, 0.0F, true);
+
+		Leg1 = new ModelRenderer(this);
+		Leg1.setPos(2.0F, 19.0F, -2.0F);
+		Leg1.texOffs(0, 18).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, true);
+
+		Leg2 = new ModelRenderer(this);
+		Leg2.setPos(-2.0F, 19.0F, -2.0F);
+		Leg2.texOffs(0, 18).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, true);
+
+		Leg3 = new ModelRenderer(this);
+		Leg3.setPos(2.0F, 19.0F, 3.0F);
+		Leg3.texOffs(0, 18).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, true);
+
+		Leg4 = new ModelRenderer(this);
+		Leg4.setPos(-2.0F, 19.0F, 3.0F);
+		Leg4.texOffs(0, 18).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F, 0.0F, true);
+    }
 
     @Override
     public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(Head, Body, Leg1, Leg2, Leg3, Leg4, Ear1, Ear2);
+        return ImmutableList.of(Head, Body, Leg1, Leg2, Leg3, Leg4);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -102,8 +76,6 @@ public class ModelBunny<T extends Entity> extends SegmentedModel<T> {
             Leg1.yRot = Leg2.yRot = 23;
             Leg1.zRot = Leg2.zRot = 2;
         } else {
-            Leg1.yRot = Leg2.yRot = 19;
-            Leg1.zRot = Leg2.zRot = 3;
             this.Body.xRot = ((float) Math.PI / 2F);
             this.Leg1.xRot = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
             this.Leg2.xRot = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
@@ -112,10 +84,6 @@ public class ModelBunny<T extends Entity> extends SegmentedModel<T> {
         }
         this.Head.xRot = f4 / (180F / (float) Math.PI);
         this.Head.yRot = f3 / (180F / (float) Math.PI);
-        this.Ear1.xRot = f4 / (180F / (float) Math.PI);
-        this.Ear1.yRot = f3 / (180F / (float) Math.PI);
-        this.Ear2.xRot = f4 / (180F / (float) Math.PI);
-        this.Ear2.yRot = f3 / (180F / (float) Math.PI);
         this.tail.xRot = ((float) Math.PI / 2F);
     }
 }
