@@ -60,7 +60,7 @@ public class EntityFrostShot extends DivineFireball {
                         double d0 = this.distanceTo(entitylivingbase);
 
                         if (d0 < 16.0D) {
-                            frostCloud.setPos(entitylivingbase.xo, entitylivingbase.yo, entitylivingbase.zo);
+                            frostCloud.moveTo(entitylivingbase.xo, entitylivingbase.yo, entitylivingbase.zo);
                             break;
                         }
                     }

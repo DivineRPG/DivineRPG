@@ -16,6 +16,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.server.*;
+import net.minecraftforge.fml.network.*;
 
 import javax.annotation.*;
 import java.util.*;
@@ -212,8 +213,9 @@ public class EntityFrostCloud extends Entity {
         }
     }
 
+
     @Override
     public IPacket<?> getAddEntityPacket() {
-        return null;
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
 }
