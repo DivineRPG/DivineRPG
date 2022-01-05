@@ -2,7 +2,6 @@ package divinerpg.blocks.vethea;
 
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
-import divinerpg.util.*;
 import divinerpg.util.teleport.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -17,8 +16,10 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.shapes.*;
 import net.minecraft.util.math.vector.*;
+import net.minecraft.util.text.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.server.command.*;
 
 import javax.annotation.*;
 
@@ -46,15 +47,20 @@ public class BlockNightmareBed extends HorizontalBlock implements ITileEntityPro
     }
 
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!worldIn.isClientSide) {
-            if (worldIn.dimension().getRegistryName() == Dimension.OVERWORLD.getRegistryName()) {
-                if (worldIn.getLightEmission(pos) < 7) {
+        if (!worldIn.isClientSide && player.getUsedItemHand() == handIn) {
+            if (worldIn.dimension() == World.OVERWORLD) {
+                if (worldIn.getChunkSource().getLightEngine().getLayerListener(LightType.BLOCK).getLightValue(pos) < 7
+                        && worldIn.getChunkSource().getLightEngine().getLayerListener(LightType.SKY).getLightValue(pos) < 7) {
                     player.changeDimension(player.getServer().getLevel(KeyRegistry.VETHEA_WORLD), new VetheaTeleporter(worldIn.getServer().getLevel(KeyRegistry.VETHEA_WORLD)));
                 } else {
-                    player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.nightmare_bed.restrict"), player.getUUID());
+                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.nightmare_bed.restrict", player.getDisplayName());
+                    message.withStyle(TextFormatting.RED);
+                    player.sendMessage(message, player.getUUID());
                 }
             } else {
-                player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.nightmare_bed.overworld_only"), player.getUUID());
+                TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.nightmare_bed.overworld_only", player.getDisplayName());
+                message.withStyle(TextFormatting.RED);
+                player.sendMessage(message, player.getUUID());
             }
         }
 
