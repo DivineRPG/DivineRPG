@@ -10,7 +10,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "divinerpg:ice_stone"
+      "item": "divinerpg:shadow_stone"
     },
     "I": {
       "item": "divinerpg:bluefire_stone"
