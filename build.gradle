@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.8.2'
+version = '1.8.3'
 group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DivineRPG'
 
