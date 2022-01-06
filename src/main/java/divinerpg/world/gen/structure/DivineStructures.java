@@ -1,10 +1,14 @@
 package divinerpg.world.gen.structure;
 
 
+import java.util.Random;
+
 import divinerpg.*;
 import divinerpg.world.gen.structure.structures.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.settings.*;
@@ -49,5 +53,25 @@ public class DivineStructures {
             DivineStructures.Configured.registerStructures();
             DivineStructures.noise();
         });
+    }
+    public static int getYPositionForFeature(int x, int z, final ChunkGenerator chunkGen) {
+        final Rotation bzj5 = Rotation.getRandom(new Random((long)(x + z * 1024)));
+        int integer3 = 5;
+        int integer4 = 5;
+        if (bzj5 == Rotation.CLOCKWISE_90) {
+            integer3 = -5;
+        }
+        else if (bzj5 == Rotation.CLOCKWISE_180) {
+            integer3 = -5;
+            integer4 = -5;
+        }
+        else if (bzj5 == Rotation.COUNTERCLOCKWISE_90) {
+            integer4 = -5;
+        }
+        final int integer7 = chunkGen.getFirstOccupiedHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer8 = chunkGen.getFirstOccupiedHeight(x, z + integer4, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer9 = chunkGen.getFirstOccupiedHeight(x + integer3, z, Heightmap.Type.WORLD_SURFACE_WG);
+        final int integer10 = chunkGen.getFirstOccupiedHeight(x + integer3, z + integer4, Heightmap.Type.WORLD_SURFACE_WG);
+        return Math.min(Math.min(integer7, integer8), Math.min(integer9, integer10));
     }
 }

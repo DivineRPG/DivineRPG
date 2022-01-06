@@ -7,6 +7,7 @@ import divinerpg.world.vethea.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
@@ -69,9 +70,10 @@ public class FeatureRegistry {
     public static void gen(BiomeLoadingEvent event) {
         ResourceLocation biome = event.getName();
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
+        Category eventCategory = event.getCategory();
         if (biome == null) return;
 
-        if(event.getCategory().equals(Biome.Category.NETHER)){
+        if(eventCategory.equals(Biome.Category.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
                 if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
@@ -80,13 +82,14 @@ public class FeatureRegistry {
             if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
 
         }
-        if(!event.getCategory().equals(Biome.Category.NETHER) || !event.getCategory().equals(Biome.Category.THEEND) || !event.getCategory().equals(Biome.Category.JUNGLE) || !event.getCategory().equals(Biome.Category.SWAMP) || !event.getCategory().equals(Biome.Category.MESA) || !event.getCategory().equals(Biome.Category.MUSHROOM)){
-            generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.decorated(Placement.CHANCE.configured(new ChanceConfig(25))).count(2));
-
-            generation.addFeature(GenerationStage.Decoration.LAKES, TAR_LAKE_CONFIGURED.decorated(Placement.CHANCE.configured(new ChanceConfig(50))).count(1));
+        if(!eventCategory.equals(Biome.Category.NETHER) && !eventCategory.equals(Biome.Category.THEEND) && !eventCategory.equals(Biome.Category.RIVER) && !eventCategory.equals(Biome.Category.OCEAN) && !eventCategory.equals(Biome.Category.BEACH)){
+            generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, KeyRegistry.DIVINE_TREE.decorated(Placement.CHANCE.configured(new ChanceConfig(75))).count(1));
+            if(!eventCategory.equals(Biome.Category.JUNGLE) && !eventCategory.equals(Biome.Category.SWAMP) && !eventCategory.equals(Biome.Category.MUSHROOM)) {
+            	generation.addFeature(GenerationStage.Decoration.LAKES, TAR_LAKE_CONFIGURED.decorated(Placement.CHANCE.configured(new ChanceConfig(50))).count(1));
+            }
         }
 
-        if(event.getCategory().equals(Biome.Category.PLAINS)) {
+        if(eventCategory.equals(Biome.Category.PLAINS)) {
             generation.addStructureStart(ConfiguredStructureRegistry.CONFIGURED_HUT);
         }
 

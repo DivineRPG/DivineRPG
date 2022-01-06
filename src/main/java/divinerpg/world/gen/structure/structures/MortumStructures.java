@@ -10,7 +10,6 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.jigsaw.*;
@@ -47,17 +46,6 @@ public class MortumStructures extends Structure<NoFeatureConfig> {
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
         return STRUCTURE_CREATURES;
     }
-
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        BlockPos centerOfChunk = new BlockPos((chunkX << 4)+7, 0, (chunkZ<<4)+7);
-
-        int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
-        IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
-        BlockState topBlock = columnOfBlocks.getBlockState(centerOfChunk.above(landHeight));
-        return topBlock.getFluidState().isEmpty();
-    }
-
     public static class Start extends StructureStart<NoFeatureConfig> {
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
@@ -66,8 +54,8 @@ public class MortumStructures extends Structure<NoFeatureConfig> {
         @Override
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
 
-            int x = (chunkX << 4) + 7;
-            int z = (chunkZ << 4) + 7;
+            int x = chunkX * 16 + 8;
+            int z = chunkZ * 16 + 8;
 
             int sl = chunkGenerator.getSeaLevel();
             int y = sl + this.random.nextInt(chunkGenerator.getGenDepth() - 2 - sl);
@@ -84,7 +72,6 @@ public class MortumStructures extends Structure<NoFeatureConfig> {
                     break;
                 }
             }
-
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
@@ -98,7 +85,6 @@ public class MortumStructures extends Structure<NoFeatureConfig> {
                     this.random,
                     false,
                     false);
-
             this.calculateBoundingBox();
         }
     }

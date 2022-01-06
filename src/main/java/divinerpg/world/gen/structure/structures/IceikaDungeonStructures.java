@@ -45,13 +45,9 @@ public class IceikaDungeonStructures extends Structure<NoFeatureConfig> {
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
         return STRUCTURE_CREATURES;
     }
-
-
-
-
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        BlockPos centerOfChunk = new BlockPos((chunkX << 4)+7, 0, (chunkZ<<4)+7);
+        BlockPos centerOfChunk = new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8);
 
         int landHeight = chunkGenerator.getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Type.WORLD_SURFACE_WG);
         IBlockReader columnOfBlocks = chunkGenerator.getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ());
@@ -63,8 +59,6 @@ public class IceikaDungeonStructures extends Structure<NoFeatureConfig> {
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
         }
-
-
         @Override
         public void placeInChunk(ISeedReader reader, StructureManager structureManager, ChunkGenerator generator, Random random, MutableBoundingBox box, ChunkPos chunkPos) {
             super.placeInChunk(reader, structureManager, generator, random, box, chunkPos);
@@ -83,7 +77,7 @@ public class IceikaDungeonStructures extends Structure<NoFeatureConfig> {
                 BlockState blockstate = reader.getBlockState(pos);
                 pos.move(Direction.DOWN);
                 BlockState state = reader.getBlockState(pos);
-                if (blockstate.isAir() && state.isFaceSturdy(reader, pos, Direction.UP)) {
+                if (blockstate.is(Blocks.AIR) && state.isFaceSturdy(reader, pos, Direction.UP)) {
                     break;
                 }
             }
