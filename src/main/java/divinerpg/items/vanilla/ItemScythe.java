@@ -1,23 +1,21 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.enums.BulletType;
-import divinerpg.items.base.ItemModRanged;
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import divinerpg.enums.*;
+import divinerpg.items.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.client.*;
+import net.minecraft.client.util.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.util.*;
+import net.minecraft.util.text.*;
+import net.minecraft.world.*;
+import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemScythe extends ItemModRanged {
     public ItemScythe() {
@@ -44,6 +42,7 @@ public class ItemScythe extends ItemModRanged {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(Minecraft.getInstance().player != null)
         tooltip.add(LocalizeUtils.rangedDam(isJackoman(Minecraft.getInstance().player)
                 ? BulletType.MEGA_SCYTHE_SHOT.getDamage()
                 : BulletType.SCYTHE_SHOT.getDamage()));
@@ -51,10 +50,33 @@ public class ItemScythe extends ItemModRanged {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 
+    private static Item boots, body = null, legs = null, helmet = null;
     private boolean isJackoman(PlayerEntity player) {
-        if (player == null)
-            return false;
-        else
+
+        ItemStack stackBoots = player.inventory.armor.get(0);
+        ItemStack stackLegs = player.inventory.armor.get(1);
+        ItemStack stackBody = player.inventory.armor.get(2);
+        ItemStack stackHelmet = player.inventory.armor.get(3);
+
+        if (stackBoots != null) boots = stackBoots.getItem();
+        else boots = null;
+
+        if (stackBody != null) body = stackBody.getItem();
+        else body = null;
+
+        if (stackLegs != null) legs = stackLegs.getItem();
+        else legs = null;
+
+        if (stackHelmet != null) helmet = stackHelmet.getItem();
+        else helmet = null;
+
+
+
+        if (boots == ItemRegistry.jackOManBoots && body == ItemRegistry.jackOManChestplate && legs == ItemRegistry.jackOManLeggings && helmet == ItemRegistry.jackOManHelmet) {
             return true;
+        }
+        else{
+            return false;
+        }
     }
 }
