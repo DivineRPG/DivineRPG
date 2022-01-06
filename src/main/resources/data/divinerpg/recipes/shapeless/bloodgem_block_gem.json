@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:bloodgem_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:bloodgem",
+    "count": 9
+  }
+}
