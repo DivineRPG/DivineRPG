@@ -616,6 +616,18 @@ public class BlockRegistry {
     public static final Block ancientBrickWall = null;
     @ObjectHolder("degraded_brick_wall")
     public static final Block degradedBrickWall = null;
+    
+    //Doors
+    @ObjectHolder("eden_door")
+    public static final Block edenDoor = null;
+    @ObjectHolder("wildwood_door")
+    public static final Block wildwoodDoor = null;
+    @ObjectHolder("apalachia_door")
+    public static final Block apalachiaDoor = null;
+    @ObjectHolder("skythern_door")
+    public static final Block skythernDoor = null;
+    @ObjectHolder("mortum_door")
+    public static final Block mortumDoor = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -1461,6 +1473,13 @@ public class BlockRegistry {
         register(registry, new BlockModStairs("apalachia_stairs", apalachiaPlanks));
         register(registry, new BlockModStairs("skythern_stairs", skythernPlanks));
         register(registry, new BlockModStairs("mortum_stairs", mortumPlanks));
+        
+        //Doors
+        register(registry, new BlockModDoor("eden_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
+        register(registry, new BlockModDoor("wildwood_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
+        register(registry, new BlockModDoor("apalachia_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
+        register(registry, new BlockModDoor("skythern_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
+        register(registry, new BlockModDoor("mortum_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
 
         // Compressed blocks
         register(registry, new BlockMod("eden_block", 9.0F));

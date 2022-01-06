@@ -20,9 +20,9 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.ancientBrickStairsBreakable, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.ancientBrickWall, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.ancientBrickWallBreakable, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaLeaves, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaPortal, RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaSapling, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaSapling, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaStairs, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaTallgrass, RenderType.cutoutMipped());
@@ -99,6 +99,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.moonbulbPlant, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.moonlightFern, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.mortumBrush, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.mortumDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.mortumLeaves, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.mortumPortal, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.mortumSapling, RenderType.cutoutMipped());

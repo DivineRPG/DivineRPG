@@ -55,3 +55,4 @@ src/main/java/divinerpg/util/ModRecipes.java
 src/main/java/divinerpg/util/GenBlockLoot.java
 src/generated/*
 src/main/resources/.cache/cache
+*.bat
