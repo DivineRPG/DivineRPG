@@ -235,98 +235,100 @@ public class EntityDivineArrow extends ArrowEntity {
     @Override
     protected void onHitEntity(EntityRayTraceResult result) {
         super.onHitEntity(result);
-        LivingEntity entity = (LivingEntity) result.getEntity();
-        if(entity != null){
-            float f = MathHelper
-                    .sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y + this.getDeltaMovement().z * this.getDeltaMovement().z);
-            int i = MathHelper.ceil((double) f * this.damageMin);
-            if (i > this.damageMax)
-                i = MathHelper.ceil(this.damageMax);
+        if (result.getEntity() instanceof LivingEntity) {
+            LivingEntity entity = (LivingEntity) result.getEntity();
+            if (entity != null) {
+                float f = MathHelper
+                        .sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y + this.getDeltaMovement().z * this.getDeltaMovement().z);
+                int i = MathHelper.ceil((double) f * this.damageMin);
+                if (i > this.damageMax)
+                    i = MathHelper.ceil(this.damageMax);
 
-            if (this.getIsCritical()) {
-                i += this.random.nextInt(i / 2 + 2);
-            }
-
-            DamageSource damagesource;
-
-            if (this.shootingEntity == null) {
-                damagesource = DamageSource.arrow(this, this);
-            } else {
-                damagesource = DamageSource.arrow(this, this.shootingEntity);
-            }
-
-            if (entity instanceof LivingEntity) {
-                if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
-                    entity.addEffect(new EffectInstance(Effects.WITHER, 100, 2));
-                else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.SLOW)
-                    entity.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 2));
-                else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.BLIND)
-                    entity.addEffect(new EffectInstance(Effects.BLINDNESS, 100, 0));
-                else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.NAUSEA)
-                    entity.addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
-            }
-
-            // Fire Damage
-            if (!(entity instanceof EndermanEntity)) {
-                if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) {
-                    entity.setSecondsOnFire(12);
-                } else if (this.isOnFire()) {
-                    entity.setSecondsOnFire(5);
+                if (this.getIsCritical()) {
+                    i += this.random.nextInt(i / 2 + 2);
                 }
-            }
 
-            if (entity.hurt(damagesource, (float) i)) {
+                DamageSource damagesource;
+
+                if (this.shootingEntity == null) {
+                    damagesource = DamageSource.arrow(this, this);
+                } else {
+                    damagesource = DamageSource.arrow(this, this.shootingEntity);
+                }
+
                 if (entity instanceof LivingEntity) {
-                    LivingEntity entitylivingbase = (LivingEntity) entity;
+                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
+                        entity.addEffect(new EffectInstance(Effects.WITHER, 100, 2));
+                    else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.SLOW)
+                        entity.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 2));
+                    else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.BLIND)
+                        entity.addEffect(new EffectInstance(Effects.BLINDNESS, 100, 0));
+                    else if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.NAUSEA)
+                        entity.addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
+                }
 
-                    // Poison Damage
-                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION) {
-                        ((LivingEntity) entity).addEffect(new EffectInstance(Effects.POISON, 40, 2));
+                // Fire Damage
+                if (!(entity instanceof EndermanEntity)) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) {
+                        entity.setSecondsOnFire(12);
+                    } else if (this.isOnFire()) {
+                        entity.setSecondsOnFire(5);
                     }
+                }
 
-                    // Explosion Damage
-                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
-                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.Mode.BREAK);
-                    }
+                if (entity.hurt(damagesource, (float) i)) {
+                    if (entity instanceof LivingEntity) {
+                        LivingEntity entitylivingbase = (LivingEntity) entity;
 
-                    if (!this.level.isClientSide) {
-                        entitylivingbase.setArrowCount(entitylivingbase.getArrowCount() + 1);
-                    }
-                    if (this.knockbackStrength > 0) {
-                        float f1 = MathHelper.sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z);
-                        if (f1 > 0.0F) {
-                            entitylivingbase.setDeltaMovement(
-                                    this.getDeltaMovement().x * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1,
-                                    0.1D,
-                                    this.getDeltaMovement().z * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1);
+                        // Poison Damage
+                        if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION) {
+                            ((LivingEntity) entity).addEffect(new EffectInstance(Effects.POISON, 40, 2));
+                        }
+
+                        // Explosion Damage
+                        if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
+                            this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.Mode.BREAK);
+                        }
+
+                        if (!this.level.isClientSide) {
+                            entitylivingbase.setArrowCount(entitylivingbase.getArrowCount() + 1);
+                        }
+                        if (this.knockbackStrength > 0) {
+                            float f1 = MathHelper.sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z);
+                            if (f1 > 0.0F) {
+                                entitylivingbase.setDeltaMovement(
+                                        this.getDeltaMovement().x * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1,
+                                        0.1D,
+                                        this.getDeltaMovement().z * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1);
+                            }
+                        }
+                        if (this.shootingEntity instanceof LivingEntity) {
+                            EnchantmentHelper.doPostHurtEffects(entitylivingbase, this.shootingEntity);
+                        }
+                        if (this.shootingEntity != null && entitylivingbase != this.shootingEntity
+                                && entitylivingbase instanceof PlayerEntity
+                                && this.shootingEntity instanceof ServerPlayerEntity) {
+                            ((ServerPlayerEntity) this.shootingEntity).connection.send(new SChangeGameStatePacket(SChangeGameStatePacket.ARROW_HIT_PLAYER, 0.0F));
                         }
                     }
-                    if (this.shootingEntity instanceof LivingEntity) {
-                        EnchantmentHelper.doPostHurtEffects(entitylivingbase, this.shootingEntity);
+                    this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+                    if (!(entity instanceof EndermanEntity)) {
+                        this.kill();
                     }
-                    if (this.shootingEntity != null && entitylivingbase != this.shootingEntity
-                            && entitylivingbase instanceof PlayerEntity
-                            && this.shootingEntity instanceof ServerPlayerEntity) {
-                        ((ServerPlayerEntity) this.shootingEntity).connection.send(new SChangeGameStatePacket(SChangeGameStatePacket.ARROW_HIT_PLAYER, 0.0F));
+                } else {
+                    setDeltaMovement(getDeltaMovement().x * -0.10000000149011612D, getDeltaMovement().y * -0.10000000149011612D, getDeltaMovement().z * -0.10000000149011612D);
+                    this.yRot += 180.0F;
+                    this.yRotO += 180.0F;
+                    this.ticksInAir = 0;
+                    if (!this.level.isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
+                            + this.getDeltaMovement().z * this.getDeltaMovement().z < 0.0010000000474974513D) {
+                        if (this.pickupStatus == PickupStatus.ALLOWED) {
+                            ItemEntity itemEnt = new ItemEntity(level, xo, yo, zo);
+                            itemEnt.setItem(getArrowStack());
+                            level.addFreshEntity(itemEnt);
+                        }
+                        this.kill();
                     }
-                }
-                this.playSound(SoundEvents.ARROW_HIT, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
-                if (!(entity instanceof EndermanEntity)) {
-                    this.kill();
-                }
-            } else {
-                setDeltaMovement(getDeltaMovement().x * -0.10000000149011612D, getDeltaMovement().y * -0.10000000149011612D, getDeltaMovement().z * -0.10000000149011612D);
-                this.yRot += 180.0F;
-                this.yRotO += 180.0F;
-                this.ticksInAir = 0;
-                if (!this.level.isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
-                        + this.getDeltaMovement().z * this.getDeltaMovement().z < 0.0010000000474974513D) {
-                    if (this.pickupStatus == PickupStatus.ALLOWED) {
-                        ItemEntity itemEnt = new ItemEntity(level, xo, yo, zo);
-                        itemEnt.setItem(getArrowStack());
-                        level.addFreshEntity(itemEnt);
-                    }
-                    this.kill();
                 }
             }
         }
@@ -575,7 +577,7 @@ public class EntityDivineArrow extends ArrowEntity {
     public void setAmmoItem(Item ammo, boolean infiniteAmmo) {
         this.ammoItem = ammo;
 
-        if (infiniteAmmo){
+        if (infiniteAmmo) {
             this.pickupStatus = PickupStatus.DISALLOWED;
         }
     }
