@@ -46,6 +46,12 @@ public class EntityPumpkinSpider extends EntityDivineMob {
         super.tick();
         if (!this.level.isClientSide) {
             this.setClimbing(this.horizontalCollision);
+            PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
+            if (player != null) {
+                if (!player.isCreative() && !player.isSpectator()) {
+                    this.setProvoked(player);
+                }
+            }
             if(entityData.get(PROVOKED).booleanValue() == false) {
                 setNoAi(true);
             }else {

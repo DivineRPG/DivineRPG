@@ -62,8 +62,10 @@ public class EntityKobblin extends EntityDivineMob {
             this.xRotO = 0;
             PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
             if (player != null) {
-                this.setProvoked(player);
-                this.setDeltaMovement(0, 0.6, 0);
+                if (!player.isCreative() && !player.isSpectator()) {
+                    this.setProvoked(player);
+                    this.setDeltaMovement(0, 0.6, 0);
+                }
             }
         }
     }
