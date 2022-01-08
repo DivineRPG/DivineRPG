@@ -2,6 +2,7 @@ package divinerpg.blocks.base;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
+import net.minecraftforge.common.ToolType;
 
 public class BlockMod extends Block {
 
@@ -24,9 +25,14 @@ public class BlockMod extends Block {
         super(Block.Properties.of(material, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.STONE));
         setRegistryName(name);
     }
-
+    
     public BlockMod(String name, float hardness, float resistance, Material material, SoundType sound) {
         super(Block.Properties.of(material, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(sound));
+        setRegistryName(name);
+    }
+    
+    public BlockMod(String name, float hardness, float resistance, Material material, ToolType tool, SoundType sound) {
+    	super(Block.Properties.of(material).strength(hardness, resistance).harvestTool(tool).requiresCorrectToolForDrops().sound(sound));
         setRegistryName(name);
     }
 }

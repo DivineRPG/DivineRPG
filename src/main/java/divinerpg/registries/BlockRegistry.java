@@ -628,6 +628,18 @@ public class BlockRegistry {
     public static final Block skythernDoor = null;
     @ObjectHolder("mortum_door")
     public static final Block mortumDoor = null;
+    
+    //Trapdoors
+    @ObjectHolder("eden_trapdoor")
+    public static final Block edenTrapdoor = null;
+    @ObjectHolder("wildwood_trapdoor")
+    public static final Block wildwoodTrapdoor = null;
+    @ObjectHolder("apalachia_trapdoor")
+    public static final Block apalachiaTrapdoor = null;
+    @ObjectHolder("skythern_trapdoor")
+    public static final Block skythernTrapdoor = null;
+    @ObjectHolder("mortum_trapdoor")
+    public static final Block mortumTrapdoor = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -1372,7 +1384,7 @@ public class BlockRegistry {
         register(registry, new BlockMod("icy_stone", 2.0F, 3.0F));
         register(registry, new BlockModSpawner("rollum_spawner", EntityRegistry.ROLLUM));
         register(registry, new BlockMod("snow_bricks", 6.0F, 3.0F));
-        register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, () -> steelDoor.asItem()));
+        register(registry, new BlockModDoor("steel_door", Material.METAL, 7.0F, 3.0F, ToolType.PICKAXE, SoundType.METAL));
         register(registry, new BlockModBookshelf("workshop_bookcase", 1.5F, Material.STONE));
         register(registry, new BlockMod("workshop_carpet", 0.1F, 3.0F, Material.CLOTH_DECORATION));
         register(registry, new BlockModLamp("workshop_lamp", 0.3F, 3.0F, 15));
@@ -1455,11 +1467,11 @@ public class BlockRegistry {
         register(registry, new BlockModLeaves("mortum_leaves", MaterialColor.COLOR_RED, 0.5F));
 
         // Planks
-        Block edenPlanks = new BlockMod("eden_planks", 2.0F, 3.0F, Material.WOOD);
-        Block wildwoodPlanks = new BlockMod("wildwood_planks", 2.0F, 3.0F, Material.WOOD);
-        Block apalachiaPlanks = new BlockMod("apalachia_planks", 2.0F, 3.0F, Material.WOOD);
-        Block skythernPlanks = new BlockMod("skythern_planks", 2.0F, 3.0F, Material.WOOD);
-        Block mortumPlanks = new BlockMod("mortum_planks", 2.0F, 3.0F, Material.WOOD);
+        Block edenPlanks = new BlockMod("eden_planks", 2.0F, 3.0F, Material.WOOD, ToolType.AXE, SoundType.WOOD);
+        Block wildwoodPlanks = new BlockMod("wildwood_planks", 2.0F, 3.0F, Material.WOOD, ToolType.AXE, SoundType.WOOD);
+        Block apalachiaPlanks = new BlockMod("apalachia_planks", 2.0F, 3.0F, Material.WOOD, ToolType.AXE, SoundType.WOOD);
+        Block skythernPlanks = new BlockMod("skythern_planks", 2.0F, 3.0F, Material.WOOD, ToolType.AXE, SoundType.WOOD);
+        Block mortumPlanks = new BlockMod("mortum_planks", 2.0F, 3.0F, Material.WOOD, ToolType.AXE, SoundType.WOOD);
 
         register(registry, edenPlanks);
         register(registry, wildwoodPlanks);
@@ -1475,11 +1487,18 @@ public class BlockRegistry {
         register(registry, new BlockModStairs("mortum_stairs", mortumPlanks));
         
         //Doors
-        register(registry, new BlockModDoor("eden_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
-        register(registry, new BlockModDoor("wildwood_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
-        register(registry, new BlockModDoor("apalachia_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
-        register(registry, new BlockModDoor("skythern_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
-        register(registry, new BlockModDoor("mortum_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE));
+        register(registry, new BlockModDoor("eden_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("wildwood_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("apalachia_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("skythern_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("mortum_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        
+        //Trapdoors
+        register(registry, new BlockModTrapdoor("eden_trapdoor"));
+        register(registry, new BlockModTrapdoor("wildwood_trapdoor"));
+        register(registry, new BlockModTrapdoor("apalachia_trapdoor"));
+        register(registry, new BlockModTrapdoor("skythern_trapdoor"));
+        register(registry, new BlockModTrapdoor("mortum_trapdoor"));
 
         // Compressed blocks
         register(registry, new BlockMod("eden_block", 9.0F));
@@ -1698,7 +1717,7 @@ public class BlockRegistry {
         register(registry, new BlockModGlass("smooth_glass", 0.3F), true);
 
         // Door
-        register(registry, new BlockModDoor("barred_door", Material.HEAVY_METAL, 2.0f, 1.0F, ToolType.PICKAXE));
+        register(registry, new BlockModDoor("barred_door", Material.HEAVY_METAL, 2.0f, 1.0F, ToolType.PICKAXE, SoundType.STONE));
 
         // Lighting
         register(registry, new BlockLightCrystal("fire_crystal", 1.0F), true);

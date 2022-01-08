@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "divinerpg:steel_door",
+              "block": "divinerpg:apalachia_door",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "divinerpg:steel_door"
+          "name": "divinerpg:apalachia_door"
         }
       ],
       "conditions": [

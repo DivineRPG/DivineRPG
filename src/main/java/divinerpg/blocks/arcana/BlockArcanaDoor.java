@@ -16,7 +16,7 @@ public class BlockArcanaDoor extends BlockModDoor {
     private Supplier<Item> keyItem;
 
     public BlockArcanaDoor(String name, Supplier<Item> key) {
-        super(name, Material.STONE, -1, 6000000F, ToolType.PICKAXE);
+        super(name, Material.STONE, -1, 6000000F, ToolType.PICKAXE, SoundType.STONE);
         this.keyItem = key;
     }
 

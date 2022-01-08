@@ -10,26 +10,16 @@ import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraftforge.common.*;
 
-import java.util.function.*;
-
 public class BlockModDoor extends DoorBlock {
 	
-    public BlockModDoor(String name, Material material, float hardness, float resistance, ToolType tool) {
+    public BlockModDoor(String name, Material material, float hardness, float resistance, ToolType tool, SoundType sound) {
         super(Block.Properties
                 .of(material)
                 .strength(hardness, resistance)
                 .harvestTool(tool)
                 .noOcclusion()
-                .requiresCorrectToolForDrops());
-        setRegistryName(DivineRPG.MODID, name);
-    }
-
-    public BlockModDoor(String name, Material material, float hardness, Supplier<Item> doorItem) {
-        super(Block.Properties
-                .of(material)
-                .strength(hardness, 2)
-                .harvestTool(ToolType.PICKAXE)
-                .requiresCorrectToolForDrops());
+                .requiresCorrectToolForDrops()
+                .sound(sound));
         setRegistryName(DivineRPG.MODID, name);
     }
 

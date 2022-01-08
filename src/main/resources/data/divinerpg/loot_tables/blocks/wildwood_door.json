@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "divinerpg:steel_door",
+              "block": "divinerpg:wildwood_door",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "divinerpg:steel_door"
+          "name": "divinerpg:wildwood_door"
         }
       ],
       "conditions": [

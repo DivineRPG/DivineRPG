@@ -7,6 +7,7 @@ public class BlockModSlab extends SlabBlock {
         super(Block.Properties.of(base.defaultBlockState().getMaterial(), base.defaultBlockState().getMaterial().getColor())
                 .requiresCorrectToolForDrops()
                 .strength(hardness, 3.0F)
+                .harvestTool(base.defaultBlockState().getHarvestTool())
                 .sound(base.defaultBlockState().getSoundType()));
         setRegistryName(name);
     }
