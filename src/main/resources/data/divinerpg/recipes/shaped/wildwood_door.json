@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_door",
+    "count": 3
+  },
+  "pattern": [
+    "WW",
+    "WW",
+    "WW"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "divinerpg:wildwood_planks"
+    }
+  }
+}

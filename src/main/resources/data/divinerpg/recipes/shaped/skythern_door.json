@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_door",
+    "count": 3
+  },
+  "pattern": [
+    "WW",
+    "WW",
+    "WW"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "divinerpg:skythern_planks"
+    }
+  }
+}
