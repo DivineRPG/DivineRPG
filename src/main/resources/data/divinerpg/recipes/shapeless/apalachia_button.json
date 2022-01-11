@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:apalachia_button",
+    "count": 1
+  }
+}

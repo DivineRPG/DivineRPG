@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:eden_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:eden_button",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:mortum_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:mortum_button",
+    "count": 1
+  }
+}

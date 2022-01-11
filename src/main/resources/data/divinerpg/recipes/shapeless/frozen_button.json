@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:frozen_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:frozen_button",
+    "count": 1
+  }
+}

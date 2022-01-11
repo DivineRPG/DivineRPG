@@ -647,6 +647,24 @@ public class BlockRegistry {
     @ObjectHolder("eucalyptus_trapdoor")
     public static final Block eucalyptusTrapdoor = null;
 
+    //Buttons
+    @ObjectHolder("eden_button")
+    public static final Block edenButton = null;
+    @ObjectHolder("wildwood_button")
+    public static final Block wildwoodButton = null;
+    @ObjectHolder("apalachia_button")
+    public static final Block apalachiaButton = null;
+    @ObjectHolder("skythern_button")
+    public static final Block skythernButton = null;
+    @ObjectHolder("mortum_button")
+    public static final Block mortumButton = null;
+    @ObjectHolder("divine_button")
+    public static final Block divineButton = null;
+    @ObjectHolder("frozen_button")
+    public static final Block frozenButton = null;
+    @ObjectHolder("eucalyptus_button")
+    public static final Block eucalyptusButton = null;
+
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static final Block edenBlock = null;
@@ -1508,6 +1526,16 @@ public class BlockRegistry {
         register(registry, new BlockModTrapdoor("divine_trapdoor"));
         register(registry, new BlockModTrapdoor("frozen_trapdoor"));
         register(registry, new BlockModTrapdoor("eucalyptus_trapdoor"));
+
+        //Buttons
+        register(registry, new BlockModButton("eden_button"));
+        register(registry, new BlockModButton("wildwood_button"));
+        register(registry, new BlockModButton("apalachia_button"));
+        register(registry, new BlockModButton("skythern_button"));
+        register(registry, new BlockModButton("mortum_button"));
+        register(registry, new BlockModButton("divine_button"));
+        register(registry, new BlockModButton("frozen_button"));
+        register(registry, new BlockModButton("eucalyptus_button"));
 
         // Compressed blocks
         register(registry, new BlockMod("eden_block", 9.0F));

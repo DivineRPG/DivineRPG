@@ -1,0 +1,6 @@
+{
+  "parent": "block/button_pressed",
+  "textures": {
+    "texture": "divinerpg:blocks/eden_planks"
+  }
+}

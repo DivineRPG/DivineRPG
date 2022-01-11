@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:eucalyptus_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:eucalyptus_button",
+    "count": 1
+  }
+}

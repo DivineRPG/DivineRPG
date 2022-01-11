@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:skythern_button",
+    "count": 1
+  }
+}
