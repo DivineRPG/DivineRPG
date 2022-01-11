@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:eucalyptus_pressure_plate"
+  },
+  "pattern": [
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "key": {
+    "s": {
+      "item": "divinerpg:eucalyptus_planks"
+    }
+  }
+}

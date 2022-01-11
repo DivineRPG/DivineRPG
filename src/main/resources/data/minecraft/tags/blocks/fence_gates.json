@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:eden_fence_gate",
+    "divinerpg:wildwood_fence_gate",
+    "divinerpg:apalachia_fence_gate",
+    "divinerpg:skythern_fence_gate",
+    "divinerpg:mortum_fence_gate",
+    "divinerpg:divine_fence_gate",
+    "divinerpg:frozen_fence_gate",
+    "divinerpg:eucalyptus_fence_gate"
+  ]
+}

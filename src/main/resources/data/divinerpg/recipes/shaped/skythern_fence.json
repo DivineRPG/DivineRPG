@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_fence",
+    "count": 3
+  },
+  "pattern": [
+    "psp",
+    "psp"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "key": {
+    "p": {
+      "item": "divinerpg:skythern_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

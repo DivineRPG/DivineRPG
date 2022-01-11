@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:apalachia_fence_gate"
+  },
+  "pattern": [
+    "sps",
+    "sps"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "key": {
+    "p": {
+      "item": "divinerpg:apalachia_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

@@ -665,6 +665,60 @@ public class BlockRegistry {
     @ObjectHolder("eucalyptus_button")
     public static final Block eucalyptusButton = null;
 
+    //Pressure Plates
+    @ObjectHolder("eden_pressure_plate")
+    public static final Block edenPressurePlate = null;
+    @ObjectHolder("wildwood_pressure_plate")
+    public static final Block wildwoodPressurePlate = null;
+    @ObjectHolder("apalachia_pressure_plate")
+    public static final Block apalachiaPressurePlate = null;
+    @ObjectHolder("skythern_pressure_plate")
+    public static final Block skythernPressurePlate = null;
+    @ObjectHolder("mortum_pressure_plate")
+    public static final Block mortumPressurePlate = null;
+    @ObjectHolder("divine_pressure_plate")
+    public static final Block divinePressurePlate = null;
+    @ObjectHolder("frozen_pressure_plate")
+    public static final Block frozenPressurePlate = null;
+    @ObjectHolder("eucalyptus_pressure_plate")
+    public static final Block eucalyptusPressurePlate = null;
+
+    //Fence Gates
+    @ObjectHolder("eden_fence_gate")
+    public static final Block edenFenceGate = null;
+    @ObjectHolder("wildwood_fence_gate")
+    public static final Block wildwoodFenceGate = null;
+    @ObjectHolder("apalachia_fence_gate")
+    public static final Block apalachiaFenceGate = null;
+    @ObjectHolder("skythern_fence_gate")
+    public static final Block skythernFenceGate = null;
+    @ObjectHolder("mortum_fence_gate")
+    public static final Block mortumFenceGate = null;
+    @ObjectHolder("divine_fence_gate")
+    public static final Block divineFenceGate = null;
+    @ObjectHolder("frozen_fence_gate")
+    public static final Block frozenFenceGate = null;
+    @ObjectHolder("eucalyptus_fence_gate")
+    public static final Block eucalyptusFenceGate = null;
+
+    //Fence
+    @ObjectHolder("eden_fence")
+    public static final Block edenFence = null;
+    @ObjectHolder("wildwood_fence")
+    public static final Block wildwoodFence = null;
+    @ObjectHolder("apalachia_fence")
+    public static final Block apalachiaFence = null;
+    @ObjectHolder("skythern_fence")
+    public static final Block skythernFence = null;
+    @ObjectHolder("mortum_fence")
+    public static final Block mortumFence = null;
+    @ObjectHolder("divine_fence")
+    public static final Block divineFence = null;
+    @ObjectHolder("frozen_fence")
+    public static final Block frozenFence = null;
+    @ObjectHolder("eucalyptus_fence")
+    public static final Block eucalyptusFence = null;
+
     // Compressed blocks
     @ObjectHolder("eden_block")
     public static final Block edenBlock = null;
@@ -1299,12 +1353,12 @@ public class BlockRegistry {
         register(registry, new BlockModLamp("rupee_lamp", 0.3F, 30.0F, 15));
         register(registry, new BlockModLamp("terran_lamp", 0.3F, 30.0F, 15));
         // Powered fences
-        register(registry, new BlockModFence(MaterialColor.COLOR_BLUE, "blue_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.COLOR_BLUE, "blue_fence_on", true, 0.5F, 15));
-        register(registry, new BlockModFence(MaterialColor.COLOR_GREEN, "green_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.COLOR_GREEN, "green_fence_on", true, 0.5F, 15));
-        register(registry, new BlockModFence(MaterialColor.COLOR_RED, "red_fence", false, 0.5F, 0));
-        register(registry, new BlockModFence(MaterialColor.COLOR_RED, "red_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_BLUE, "blue_fence", false, 0.5F, 0));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_BLUE, "blue_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_GREEN, "green_fence", false, 0.5F, 0));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_GREEN, "green_fence_on", true, 0.5F, 15));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_RED, "red_fence", false, 0.5F, 0));
+        register(registry, new BlockModLightFence(MaterialColor.COLOR_RED, "red_fence_on", true, 0.5F, 15));
 
         // Miscellaneous decorative blocks
         register(registry, new BlockMod("asphalt", 2.0F, 3.0F));
@@ -1536,6 +1590,36 @@ public class BlockRegistry {
         register(registry, new BlockModButton("divine_button"));
         register(registry, new BlockModButton("frozen_button"));
         register(registry, new BlockModButton("eucalyptus_button"));
+
+        //Pressure Plate
+        register(registry, new BlockModPressurePlate("eden_pressure_plate"));
+        register(registry, new BlockModPressurePlate("wildwood_pressure_plate"));
+        register(registry, new BlockModPressurePlate("apalachia_pressure_plate"));
+        register(registry, new BlockModPressurePlate("skythern_pressure_plate"));
+        register(registry, new BlockModPressurePlate("mortum_pressure_plate"));
+        register(registry, new BlockModPressurePlate("divine_pressure_plate"));
+        register(registry, new BlockModPressurePlate("frozen_pressure_plate"));
+        register(registry, new BlockModPressurePlate("eucalyptus_pressure_plate"));
+
+        //Fence
+        register(registry, new BlockModFence("eden_fence"));
+        register(registry, new BlockModFence("wildwood_fence"));
+        register(registry, new BlockModFence("apalachia_fence"));
+        register(registry, new BlockModFence("skythern_fence"));
+        register(registry, new BlockModFence("mortum_fence"));
+        register(registry, new BlockModFence("divine_fence"));
+        register(registry, new BlockModFence("frozen_fence"));
+        register(registry, new BlockModFence("eucalyptus_fence"));
+
+        //Fence Gate
+        register(registry, new BlockModGate("eden_fence_gate"));
+        register(registry, new BlockModGate("wildwood_fence_gate"));
+        register(registry, new BlockModGate("apalachia_fence_gate"));
+        register(registry, new BlockModGate("skythern_fence_gate"));
+        register(registry, new BlockModGate("mortum_fence_gate"));
+        register(registry, new BlockModGate("divine_fence_gate"));
+        register(registry, new BlockModGate("frozen_fence_gate"));
+        register(registry, new BlockModGate("eucalyptus_fence_gate"));
 
         // Compressed blocks
         register(registry, new BlockMod("eden_block", 9.0F));

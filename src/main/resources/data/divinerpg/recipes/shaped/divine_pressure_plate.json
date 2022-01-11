@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:divine_pressure_plate",
+    "group": "wooden_pressure_plate"
+  },
+  "pattern": [
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:divine_planks"
+    }
+  }
+}

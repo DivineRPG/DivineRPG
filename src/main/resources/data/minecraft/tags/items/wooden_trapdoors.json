@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:eden_trapdoor",
+    "divinerpg:wildwood_trapdoor",
+    "divinerpg:apalachia_trapdoor",
+    "divinerpg:skythern_trapdoor",
+    "divinerpg:mortum_trapdoor",
+    "divinerpg:divine_trapdoor",
+    "divinerpg:frozen_trapdoor",
+    "divinerpg:eucalyptus_trapdoor"
+  ]
+}

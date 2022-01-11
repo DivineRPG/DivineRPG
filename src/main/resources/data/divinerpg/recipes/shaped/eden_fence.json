@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:eden_fence",
+    "count": 3
+  },
+  "pattern": [
+    "psp",
+    "psp"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "key": {
+    "p": {
+      "item": "divinerpg:eden_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

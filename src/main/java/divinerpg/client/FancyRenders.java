@@ -154,6 +154,35 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.yellowChristmasLights, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.yellowDulah, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.metalCaging, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.edenFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.edenFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.edenTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.edenDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.wildwoodFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.wildwoodFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.wildwoodTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.wildwoodDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.apalachiaDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.skythernFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.skythernFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.skythernTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.skythernDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.mortumFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.mortumFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.mortumTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.mortumDoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.divineFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.divineFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.divineTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusFence, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusFenceGate, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusTrapdoor, RenderType.cutoutMipped());
 
 
 
