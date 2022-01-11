@@ -640,6 +640,12 @@ public class BlockRegistry {
     public static final Block skythernTrapdoor = null;
     @ObjectHolder("mortum_trapdoor")
     public static final Block mortumTrapdoor = null;
+    @ObjectHolder("divine_trapdoor")
+    public static final Block divineTrapdoor = null;
+    @ObjectHolder("frozen_trapdoor")
+    public static final Block frozenTrapdoor = null;
+    @ObjectHolder("eucalyptus_trapdoor")
+    public static final Block eucalyptusTrapdoor = null;
 
     // Compressed blocks
     @ObjectHolder("eden_block")
@@ -1499,6 +1505,9 @@ public class BlockRegistry {
         register(registry, new BlockModTrapdoor("apalachia_trapdoor"));
         register(registry, new BlockModTrapdoor("skythern_trapdoor"));
         register(registry, new BlockModTrapdoor("mortum_trapdoor"));
+        register(registry, new BlockModTrapdoor("divine_trapdoor"));
+        register(registry, new BlockModTrapdoor("frozen_trapdoor"));
+        register(registry, new BlockModTrapdoor("eucalyptus_trapdoor"));
 
         // Compressed blocks
         register(registry, new BlockMod("eden_block", 9.0F));

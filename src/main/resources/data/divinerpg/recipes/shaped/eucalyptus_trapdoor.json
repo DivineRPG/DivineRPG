@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "divinerpg:eucalyptus_planks"
+    }
+  },
+  "result": {
+    "item": "divinerpg:eucalyptus_trapdoor"
+  }
+}

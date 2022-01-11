@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "divinerpg:skythern_planks"
+    }
+  },
+  "result": {
+    "item": "divinerpg:skythern_trapdoor"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "divinerpg:apalachia_planks"
+    }
+  },
+  "result": {
+    "item": "divinerpg:apalachia_trapdoor"
+  }
+}
