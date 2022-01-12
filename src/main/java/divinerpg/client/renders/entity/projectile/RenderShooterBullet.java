@@ -39,6 +39,6 @@ public class RenderShooterBullet<T extends EntityShooterBullet> extends EntityRe
 
     @Override
     public ResourceLocation getTextureLocation(EntityShooterBullet entity) {
-        return entity.getTexture();
+        return entity.getTexture() == null ? entity.getTexture() : new ResourceLocation("minecraft:textures/particle/generic_" + entity.level.random.nextInt(7));
     }
 }
