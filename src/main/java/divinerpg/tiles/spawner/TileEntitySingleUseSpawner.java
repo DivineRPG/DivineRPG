@@ -132,20 +132,23 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
     }
 
     protected Entity getRelocatedEntity(EntityType entityType) {
-        Entity e = entityType.create(level);
-        BlockPos intialSpawnPosition = worldPosition.above(searchRadius.getY() / 2).offset(baseOffset);
+        if(entityType != null) {
+            Entity e = entityType.create(level);
+            BlockPos intialSpawnPosition = worldPosition.above(searchRadius.getY() / 2).offset(baseOffset);
 
-        BlockPos blockPos = searchInRadius(level, intialSpawnPosition, searchRadius, x -> {
-            e.moveTo(x.getX(), x.getY(), x.getZ());
+            BlockPos blockPos = searchInRadius(level, intialSpawnPosition, searchRadius, x -> {
+                e.moveTo(x.getX(), x.getY(), x.getZ());
 
-            return level.getBlockCollisions(e, e.getBoundingBox()).isParallel();
-        });
+                return level.getBlockCollisions(e, e.getBoundingBox()).isParallel();
+            });
 
-        if (blockPos == null)
-            return null;
+            if (blockPos == null)
+                return null;
 
-        e.moveTo(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-        return e;
+            e.moveTo(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+            return e;
+        }
+        return null;
     }
 
     public boolean isActivated() {

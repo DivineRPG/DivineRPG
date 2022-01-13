@@ -147,6 +147,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(new ItemStack(ItemRegistry.apalachiaDust, 1)), 64L);
         register(NSSItem.createItem(new ItemStack(ItemRegistry.skythernDust, 1)), 72L);
         register(NSSItem.createItem(new ItemStack(ItemRegistry.mortumDust, 1)), 80L);
+        register(NSSItem.createItem(new ItemStack(ItemRegistry.angelicChestplate, 1)), 45000L);
     }
     public static void register(@Nonnull NormalizedSimpleStack stack, long emcValue) {
         CUSTOM_EMC_VALUES.put(stack, emcValue);
