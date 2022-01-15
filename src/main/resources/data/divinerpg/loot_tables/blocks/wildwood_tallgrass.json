@@ -44,7 +44,7 @@
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "divinerpg:wildwood_tallgrass ",
+          "block": "divinerpg:wildwood_tallgrass",
           "properties": {
             "half": "lower"
           }

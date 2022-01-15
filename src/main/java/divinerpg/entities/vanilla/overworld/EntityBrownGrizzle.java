@@ -45,8 +45,8 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
                     if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
                         if (!player.isCreative()) {
                             itemstack.shrink(1);
-                            this.heal(item.getFoodProperties().getNutrition());
                         }
+                        this.heal(item.getFoodProperties().getNutrition());
                         if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
                             this.tame(player);
                             this.navigation.recomputePath();
