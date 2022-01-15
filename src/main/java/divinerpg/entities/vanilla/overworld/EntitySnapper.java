@@ -18,6 +18,7 @@ public class EntitySnapper extends EntityDivineTameable {
         super((EntityType<? extends TameableEntity>) type, worldIn);
         setHealth(getMaxHealth());
     }
+
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.4F;
     }
@@ -31,32 +32,36 @@ public class EntitySnapper extends EntityDivineTameable {
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.snapperHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.snapperDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.snapperSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.snapperFollowRange);
     }
-    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getItemInHand(hand);
-        Item item = itemstack.getItem();
 
-        if (this.isTame()) {
-            if (ItemTags.FISHES.getValues().contains(item) && this.getHealth() < this.getMaxHealth()) {
-                if (!player.isCreative()) {
-                    itemstack.shrink(1);
-                }
-                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.tame(player);
-                    this.navigation.recomputePath();
-                    this.setTarget((LivingEntity)null);
-                    this.level.broadcastEntityEvent(this, (byte)7);
-                    this.heal(item.getFoodProperties().getNutrition());
+    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+        if (!this.level.isClientSide) {
+            ItemStack itemstack = player.getItemInHand(hand);
+            Item item = itemstack.getItem();
+            if (this.isTame()) {
+                if (ItemTags.FISHES.getValues().contains(item) && this.getHealth() < this.getMaxHealth()) {
+                    if (!player.isCreative()) {
+                        itemstack.shrink(1);
+                    }
+                    if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                        this.tame(player);
+                        this.navigation.recomputePath();
+                        this.setTarget((LivingEntity) null);
+                        this.level.broadcastEntityEvent(this, (byte) 7);
+                        this.heal(item.getFoodProperties().getNutrition());
+                    } else {
+                        this.level.broadcastEntityEvent(this, (byte) 6);
+                        this.heal(item.getFoodProperties().getNutrition());
+                    }
                 } else {
-                    this.level.broadcastEntityEvent(this, (byte)6);
-                    this.heal(item.getFoodProperties().getNutrition());
+                    tame(player);
+                    this.setTame(true);
                 }
-            } else {
-                tame(player);
-                this.setTame(true);
             }
+            return super.mobInteract(player, hand);
         }
-        return super.mobInteract(player, hand);
+        return ActionResultType.PASS;
     }
+
     @Override
     public void tick() {
         super.tick();

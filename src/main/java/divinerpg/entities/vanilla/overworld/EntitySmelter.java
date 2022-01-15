@@ -22,6 +22,7 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
         super((EntityType<? extends TameableEntity>) type, worldIn);
         setHealth(getMaxHealth());
     }
+
     protected EntitySmelter(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
@@ -51,34 +52,38 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
     public int getAttackTimer() {
         return this.entityData.get(ATTACK_TIMER).intValue();
     }
+
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.smelterHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.smelterDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.smelterSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.smelterFollowRange);
     }
 
     public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getItemInHand(hand);
-        Item item = itemstack.getItem();
-        if (this.isTame()) {
-            if (item == Items.FLINT && this.getHealth() < this.getMaxHealth()) {
-                if (!player.isCreative()) {
-                    itemstack.shrink(1);
-                }
-                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.tame(player);
-                    this.navigation.recomputePath();
-                    this.setTarget((LivingEntity)null);
-                    this.level.broadcastEntityEvent(this, (byte)7);
-                    this.heal(4.0F);
+        if (!this.level.isClientSide) {
+            ItemStack itemstack = player.getItemInHand(hand);
+            Item item = itemstack.getItem();
+            if (this.isTame()) {
+                if (item == Items.FLINT && this.getHealth() < this.getMaxHealth()) {
+                    if (!player.isCreative()) {
+                        itemstack.shrink(1);
+                    }
+                    if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                        this.tame(player);
+                        this.navigation.recomputePath();
+                        this.setTarget((LivingEntity) null);
+                        this.level.broadcastEntityEvent(this, (byte) 7);
+                        this.heal(4.0F);
+                    } else {
+                        this.level.broadcastEntityEvent(this, (byte) 6);
+                        this.heal(4.0F);
+                    }
                 } else {
-                    this.level.broadcastEntityEvent(this, (byte)6);
-                    this.heal(4.0F);
+                    tame(player);
+                    this.setTame(true);
                 }
-            } else {
-                tame(player);
-                this.setTame(true);
             }
+            return super.mobInteract(player, hand);
         }
-        return super.mobInteract(player, hand);
+        return ActionResultType.PASS;
     }
 
     @Override

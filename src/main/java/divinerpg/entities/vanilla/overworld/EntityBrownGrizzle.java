@@ -17,6 +17,7 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
         super((EntityType<? extends TameableEntity>) type, worldIn);
         setHealth(getMaxHealth());
     }
+
     protected EntityBrownGrizzle(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
@@ -26,36 +27,45 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
     protected void registerGoals() {
         this.targetSelector.addGoal(3, (new net.minecraft.entity.ai.goal.HurtByTargetGoal(this)).setAlertOthers());
     }
+
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.2F;
     }
+
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.grizzleHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.grizzleDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.grizzleSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.grizzleFollowRange);
     }
+
     public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getItemInHand(hand);
-        Item item = itemstack.getItem();
-        if (this.isTame()) {
-            if (item.getFoodProperties().isMeat()) {
-                if (!player.isCreative()) {
-                    itemstack.shrink(1);
-                    this.heal(item.getFoodProperties().getNutrition());
+        if (!this.level.isClientSide) {
+            ItemStack itemstack = player.getItemInHand(hand);
+            Item item = itemstack.getItem();
+            if (this.isTame()) {
+                if (item.getFoodProperties() != null) {
+                    if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
+                        if (!player.isCreative()) {
+                            itemstack.shrink(1);
+                            this.heal(item.getFoodProperties().getNutrition());
+                        }
+                        if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                            this.tame(player);
+                            this.navigation.recomputePath();
+                            this.setTarget((LivingEntity) null);
+                            this.level.broadcastEntityEvent(this, (byte) 7);
+                        } else {
+                            this.level.broadcastEntityEvent(this, (byte) 6);
+                        }
+                    } else {
+                        tame(player);
+                        this.setTame(true);
+                    }
                 }
-                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.tame(player);
-                    this.navigation.recomputePath();
-                    this.setTarget((LivingEntity)null);
-                    this.level.broadcastEntityEvent(this, (byte)7);
-                } else {
-                    this.level.broadcastEntityEvent(this, (byte)6);
-                }
-            } else {
-                tame(player);
-                this.setTame(true);
             }
+            return super.mobInteract(player, hand);
         }
-        return super.mobInteract(player, hand);
+        return ActionResultType.PASS;
     }
+
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GRIZZLE;
