@@ -63,17 +63,19 @@ public class BlockArcanaPortalFrame extends BlockMod {
     @Override
     public void neighborChanged(BlockState state, World world, BlockPos pos, Block block, BlockPos pos2, boolean unknown) {
         super.neighborChanged(state, world, pos, block, pos2, unknown);
-        BlockPattern.PatternHelper frame = getOrCreatePortalShape().find(world, pos);
-        if (frame != null) {
-            BlockPos blockpos1 = frame.getFrontTopLeft().offset(-3, 0, -3);
+        if (world.getBlockState(pos2).getBlock().defaultBlockState() == BlockRegistry.arcanaPortal.defaultBlockState() || world.getBlockState(pos2).getBlock().getBlock().defaultBlockState() == BlockRegistry.arcanaPortalFrame.defaultBlockState()) {
+            BlockPattern.PatternHelper frame = getOrCreatePortalShape().find(world, pos);
+            if (frame != null) {
+                BlockPos blockpos1 = frame.getFrontTopLeft().offset(-3, 0, -3);
 
-            for (int i = 0; i < 3; ++i) {
-                for (int j = 0; j < 3; ++j) {
-                    world.setBlock(blockpos1.offset(i, 0, j), BlockRegistry.arcanaPortal.defaultBlockState(), 2);
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        world.setBlock(blockpos1.offset(i, 0, j), BlockRegistry.arcanaPortal.defaultBlockState(), 2);
+                    }
                 }
-            }
 
-            world.globalLevelEvent(1038, blockpos1.offset(1, 0, 1), 0);
+                world.globalLevelEvent(1038, blockpos1.offset(1, 0, 1), 0);
+            }
         }
     }
 
