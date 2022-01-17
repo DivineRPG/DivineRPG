@@ -27,6 +27,7 @@ public class VetheaInventorySwapEvent {
                     ListNBT inv = persistentData.getList("OverworldInv", 10);
                     playerIn.inventory.load(inv);
                     playerIn.inventoryMenu.broadcastChanges();
+                    playerIn.removeAllEffects();
                 } if(event.getTo() == vetheaID) {
                     persistentData.put("OverworldInv", playerIn.inventory.save(new ListNBT()));
                     playerIn.getPersistentData().put("PlayerPersisted", persistentData);
@@ -34,6 +35,7 @@ public class VetheaInventorySwapEvent {
                     ListNBT inv = persistentData.getList("VetheaInv", 10);
                     playerIn.inventory.load(inv);
                     playerIn.inventoryMenu.broadcastChanges();
+                    playerIn.removeAllEffects();
         }
 
     }

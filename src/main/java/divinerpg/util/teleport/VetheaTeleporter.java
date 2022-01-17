@@ -128,10 +128,10 @@ public class VetheaTeleporter implements ITeleporter {
             for(int x = 0; x < 16; x++) {
                 for(int z = 0; z < 16; z++) {
                     searchPos.set(baseX + x, y, baseZ + z);
-                    if(world.getBlockState(searchPos).getBlock() == BlockRegistry.vetheaPortal) {
+                    if(world.getBlockState(searchPos).getBlock().defaultBlockState() == BlockRegistry.vetheaPortal.defaultBlockState()) {
                         return searchPos;
                     }
-                    if(world.getBlockState(searchPos).getBlock() == BlockRegistry.nightmareBed) {
+                    if(world.getBlockState(searchPos).getBlock().defaultBlockState() == BlockRegistry.nightmareBed.defaultBlockState()) {
                         return searchPos;
                     }
                 }
@@ -199,7 +199,7 @@ public class VetheaTeleporter implements ITeleporter {
 
 
     public boolean isBlockPortal(World var1, int var2, int var3, int var4) {
-        return var1.getBlockState(new BlockPos(var2, var3, var4)) == BlockRegistry.vetheaPortal.defaultBlockState();
+        return var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock().defaultBlockState() == BlockRegistry.vetheaPortal.defaultBlockState();
     }
 
 
