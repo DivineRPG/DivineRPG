@@ -310,9 +310,9 @@ public class ArmorAbilitiesEvent
         if (!entity.isCreative() && !entity.isSpectator()){
         if (boots == ItemRegistry.angelicBoots || body == ItemRegistry.angelicChestplate || legs == ItemRegistry.angelicLeggings || helmet == ItemRegistry.angelicHelmet) {
                 entity.abilities.mayfly = true;
+                entity.fallDistance = 0.0F;
         }
         if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
-            entity.abilities.mayfly = false;
             entity.abilities.flying = false;
             }
         }
