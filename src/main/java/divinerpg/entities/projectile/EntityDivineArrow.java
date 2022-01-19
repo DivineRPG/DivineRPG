@@ -23,10 +23,9 @@ import net.minecraft.util.math.shapes.*;
 import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.event.*;
 import net.minecraftforge.fml.network.*;
 
-public class EntityDivineArrow extends ArrowEntity {
+public class EntityDivineArrow extends AbstractArrowEntity {
     private static final DataParameter<Byte> CRITICAL = EntityDataManager.<Byte>defineId(EntityDivineArrow.class,
             DataSerializers.BYTE);
     private static final DataParameter<Byte> ARROW_ID = EntityDataManager.<Byte>defineId(EntityDivineArrow.class,
@@ -49,7 +48,7 @@ public class EntityDivineArrow extends ArrowEntity {
     private ArrowType arrowType;
     public Item ammoItem;
 
-    public EntityDivineArrow(EntityType<? extends ArrowEntity> type, World world) {
+    public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World world) {
         super(type, world);
         this.xTile = -1;
         this.yTile = -1;
@@ -57,7 +56,7 @@ public class EntityDivineArrow extends ArrowEntity {
         this.pickupStatus = PickupStatus.DISALLOWED;
     }
 
-    public EntityDivineArrow(EntityType<? extends ArrowEntity> type, World world, ArrowType arrowType, double x, double y, double z) {
+    public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World world, ArrowType arrowType, double x, double y, double z) {
         this(type, world);
         this.arrowType = arrowType;
         setArrowId((byte) arrowType.ordinal());
@@ -66,17 +65,17 @@ public class EntityDivineArrow extends ArrowEntity {
         this.setPos(x, y, z);
     }
 
-    public EntityDivineArrow(EntityType<? extends ArrowEntity> type, World world, ArrowType arrowType, LivingEntity shooter) {
+    public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World world, ArrowType arrowType, LivingEntity shooter) {
         this(type, world, arrowType, shooter.xo, shooter.yo + (double) shooter.getEyeHeight() - 0.10000000149011612D, shooter.zo);
     }
 
-    public EntityDivineArrow(EntityType<? extends ArrowEntity> type, World worldIn, ArrowType arrowType, LivingEntity shooter, LivingEntity target, float velocity, float inaccuracy) {
+    public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World worldIn, ArrowType arrowType, LivingEntity shooter, LivingEntity target, float velocity, float inaccuracy) {
         this(type, worldIn, arrowType, shooter);
         double d0 = target.xo - this.xo;
         double d1 = target.getBoundingBox().minY + target.getEyeHeight() / 3.0F - this.yo;
         double d2 = target.zo - this.zo;
         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        this.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, velocity, inaccuracy);
+        this.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, velocity + arrowType.getMinDamage()/arrowType.getMaxDamage(), inaccuracy);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
     }
 
@@ -163,72 +162,6 @@ public class EntityDivineArrow extends ArrowEntity {
                 }
             }
             ++this.timeInGround;
-        } else {
-            this.timeInGround = 0;
-            ++this.ticksInAir;
-            Vector3d vec3d1 = new Vector3d(this.xo, this.yo, this.zo);
-            Vector3d vec3d = new Vector3d(this.xo + this.getDeltaMovement().x, this.yo + this.getDeltaMovement().y, this.zo + this.getDeltaMovement().z);
-            RayTraceResult raytraceresult = this.level.clipWithInteractionOverride(vec3d1, vec3d, blockpos, VoxelShapes.block(), level.getBlockState(blockpos));
-
-            if (raytraceresult != null && raytraceresult.hitInfo instanceof PlayerEntity) {
-                PlayerEntity entityplayer = (PlayerEntity) raytraceresult.hitInfo;
-                if (this.shootingEntity instanceof PlayerEntity
-                        && !((PlayerEntity) this.shootingEntity).canAttack(entityplayer)) {
-                    raytraceresult = null;
-                }
-            }
-            if (raytraceresult != null
-                    && !ForgeEventFactory.onProjectileImpact(this, raytraceresult)) {
-                this.onHit(raytraceresult);
-            }
-            if (this.getIsCritical()) {
-                for (int k = 0; k < 4; ++k) {
-                    this.level.addParticle(ParticleTypes.CRIT, this.xo + this.getDeltaMovement().x * (double) k / 4.0D,
-                            this.yo + this.getDeltaMovement().y * (double) k / 4.0D, this.zo + this.getDeltaMovement().z * (double) k / 4.0D,
-                            -this.getDeltaMovement().x, -this.getDeltaMovement().y + 0.2D, -this.getDeltaMovement().z);
-                }
-            }
-            this.xo += this.getDeltaMovement().x;
-            this.yo += this.getDeltaMovement().y;
-            this.zo += this.getDeltaMovement().z;
-            float f4 = MathHelper.sqrt(this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z);
-            this.yRot = (float) (MathHelper.atan2(this.getDeltaMovement().x, this.getDeltaMovement().z) * (180D / Math.PI));
-            for (this.xRot = (float) (MathHelper.atan2(this.getDeltaMovement().y, (double) f4)
-                    * (180D / Math.PI)); this.xRot
-                         - this.xRotO < -180.0F; this.xRotO -= 360.0F) {
-                ;
-            }
-            while (this.xRot - this.xRotO >= 180.0F) {
-                this.xRotO += 360.0F;
-            }
-            while (this.yRot - this.yRotO < -180.0F) {
-                this.yRotO -= 360.0F;
-            }
-            while (this.yRot - this.yRotO >= 180.0F) {
-                this.yRotO += 360.0F;
-            }
-            this.xRot = this.xRotO + (this.xRot - this.xRotO) * 0.2F;
-            this.yRot = this.yRotO + (this.yRot - this.yRotO) * 0.2F;
-            float f1 = 0.99F;
-            float f2 = 0.05F;
-            if (this.isInWater()) {
-                for (int i = 0; i < 4; ++i) {
-                    float f3 = 0.25F;
-                    this.level.addParticle(ParticleTypes.BUBBLE, this.xo - this.getDeltaMovement().x * 0.25D,
-                            this.yo - this.getDeltaMovement().y * 0.25D, this.zo - this.getDeltaMovement().z * 0.25D, this.getDeltaMovement().x,
-                            this.getDeltaMovement().y, this.getDeltaMovement().z);
-                }
-                f1 = 0.6F;
-            }
-            if (this.isInWater()) {
-                this.clearFire();
-            }
-            setDeltaMovement(getDeltaMovement().x * f1, getDeltaMovement().y * f1, getDeltaMovement().z * f1);
-            if (!this.isNoGravity()) {
-                setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y - 0.05000000074505806D, getDeltaMovement().z);
-            }
-            this.setPos(this.xo, this.yo, this.zo);
-            this.canBeCollidedWith();
         }
     }
 
@@ -520,6 +453,11 @@ public class EntityDivineArrow extends ArrowEntity {
                 this.kill();
             }
         }
+    }
+
+    @Override
+    protected ItemStack getPickupItem() {
+        return getArrowStack();
     }
 
     @Override
