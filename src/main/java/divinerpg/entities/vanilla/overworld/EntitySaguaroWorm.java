@@ -40,18 +40,12 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         super.defineSynchedData();
         entityData.define(PROVOKED, Boolean.valueOf(false));
     }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
     public boolean getProvoked() {
-        return this.entityData.get(PROVOKED).booleanValue();
+        return this.entityData.get(PROVOKED);
     }
 
     public void setProvoked(boolean provoked) {
-        entityData.set(PROVOKED, Boolean.valueOf(provoked));
+        entityData.set(PROVOKED, provoked);
     }
     public void tick() {
         super.tick();
