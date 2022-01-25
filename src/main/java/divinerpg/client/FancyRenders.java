@@ -177,12 +177,15 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.divineFence, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.divineFenceGate, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.divineTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.divineDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.frozenFence, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.frozenFenceGate, RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenTrapdoor, RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.frozenDoor, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusFence, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusFenceGate, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusTrapdoor, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.eucalyptusDoor, RenderType.cutoutMipped());
 
 
 

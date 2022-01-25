@@ -628,6 +628,12 @@ public class BlockRegistry {
     public static final Block skythernDoor = null;
     @ObjectHolder("mortum_door")
     public static final Block mortumDoor = null;
+    @ObjectHolder("divine_door")
+    public static final Block divineDoor = null;
+    @ObjectHolder("frozen_door")
+    public static final Block frozenDoor = null;
+    @ObjectHolder("eucalyptus_door")
+    public static final Block eucalyptusDoor = null;
     
     //Trapdoors
     @ObjectHolder("eden_trapdoor")
@@ -1570,6 +1576,10 @@ public class BlockRegistry {
         register(registry, new BlockModDoor("apalachia_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
         register(registry, new BlockModDoor("skythern_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
         register(registry, new BlockModDoor("mortum_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("divine_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("frozen_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        register(registry, new BlockModDoor("eucalyptus_door", Material.WOOD, 2.0f, 3.0F, ToolType.AXE, SoundType.WOOD));
+        
         
         //Trapdoors
         register(registry, new BlockModTrapdoor("eden_trapdoor"));
