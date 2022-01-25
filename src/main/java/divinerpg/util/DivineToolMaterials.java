@@ -9,172 +9,172 @@ import java.util.function.*;
 
 public enum DivineToolMaterials implements IItemTier {
 
-    APALACHIA_BLADE(4, 2000, -0.8F, 25.0F, 22, () -> {
+    APALACHIA_BLADE(4, 2000, -2.4F, 27.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.apalachiaGem);
     }),
-    AQUA_DAGGER(4, 2000, -1.4F, 6.0F, 15, () -> {
+    AQUA_DAGGER(4, 2000, -1.4F, 8.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    AQUA_MAUL(4, 4000, -1.4F, 14.0F, 10, () -> {
+    AQUA_MAUL(4, 4000, -2.4F, 16.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    AQUA_TRIDENT(4, 7000, -1.6F, 10.0F, 15, () -> {
+    AQUA_TRIDENT(4, 7000, -2.6F, 12.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    AQUATON(4, 5000, -1.4F, 12.0F, 15, () -> {
+    AQUATON(4, 5000, -2.4F, 14.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    AQUATOOTH_MAUL(4, 3500, -1.4F, 14.0F, 10, () -> {
+    AQUATOOTH_MAUL(4, 3500, -2.4F, 16.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.liopleurodonTeeth);
     }),
-    AQUATOOTH_SWORD(4, 3500, 0.8F, 11.0F, 10, () -> {
+    AQUATOOTH_SWORD(4, 3500, 1.8F, 13.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.liopleurodonTeeth);
     }),
-    ARCANITE_BLADE(4, 7000, 0.0F, 30.0F, 15, () -> {
+    ARCANITE_BLADE(4, 7000, -1.4F, 30.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ARCANIUM_SABER(4, -1, -1.4F, 18.0F, 22, () -> {
+    ARCANIUM_SABER(4, -1, -2.4F, 18.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ARLEMITE_STABBER(4, 4000, -0.4F, 8.0F, 10, () -> {
+    ARLEMITE_STABBER(4, 4000, -1.4F, 10.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.arlemiteIngot);
     }),
-    BEDROCK_SWORD(4, 14000, -1.6F, 10.0F, 2, () -> {
+    BEDROCK_SWORD(4, 14000, -2.6F, 12.0F, 2, () -> {
         return Ingredient.of(ItemRegistry.bedrockChunk);
     }),
-    BEDROCK_MAUL(4, -1, -1.4F, 10.0F, 22, () -> {
+    BEDROCK_MAUL(4, -1, -2.4F, 12.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    BLOODGEM_SWORD(4, -1, -0.6F, 5.0F, 15, () -> {
+    BLOODGEM_SWORD(4, -1, -1.6F, 7.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    BLUEFIRE_SWORD(4, 3000, -0.2F, 16.0F, 15, () -> {
+    BLUEFIRE_SWORD(4, 3000, -1.2F, 18.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.bluefireStone);
     }),
-    CORRUPTED_MAUL(4, 6000, -1.4F, 9.0F, 15, () -> {
+    CORRUPTED_MAUL(4, 6000, -2.4F, 11.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.corruptedStone);
     }),
-    CRABCLAW_MAUL(4, 4000, -1.4F, 7.0F, 15, () -> {
+    CRABCLAW_MAUL(4, 4000, -2.4F, 9.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.crabClaw);
     }),
-    CYCLOPSIAN_SWORD(4, 1000, -1.6F, 2.0F, 10, () -> {
+    CYCLOPSIAN_SWORD(4, 1000, -2.6F, 4.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.cyclopsEye);
     }),
-    DEATH_BRINGER(4, 6000, 0.2F, 8.0F, 15, () -> {
+    DEATH_BRINGER(4, 6000, -0.8F, 10.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.corruptedStone);
     }),
-    DIVINE_SWORD(4, -1, 0.3F, 15.0F, 22, () -> {
+    DIVINE_SWORD(4, -1, -0.7F, 17.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    DUAL_CLAW(4, 4000, -1.4F, 8.0F, 15, () -> {
+    DUAL_CLAW(4, 4000, -2.4F, 10.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.crabClaw);
     }),
-    EDEN_BLADE(4, 2000, -1.0F, 20.0F, 22, () -> {
+    EDEN_BLADE(4, 2000, -2.0F, 22.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.edenGem);
     }),
-    ENDER_SWORD(4, -1, -0.7F, 12.0F, 16, () -> {
+    ENDER_SWORD(4, -1, -1.7F, 14.0F, 16, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ENDERICE(4, -1, -1.4F, 15.0F, 15, () -> {
+    ENDERICE(4, -1, -2.4F, 17.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    FLAMING_FURY(4, 6000, -0.4F, 22.0F, 15, () -> {
+    FLAMING_FURY(4, 6000, -1.4F, 24.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.moltenStone);
     }),
-    FROSSIVENCE(4, 270, -1.9F, -3.0F, 0, () -> {
+    FROSSIVENCE(4, 270, -2.9F, -1.0F, 0, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    FROST_SWORD(4, 5000, -1.4F, 6.0F, 15, () -> {
+    FROST_SWORD(4, 5000, -2.4F, 8.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.iceStone);
     }),
-    FROSTKING_SWORD(4, 6000, -1.4F, 12.0F, 15, () -> {
+    FROSTKING_SWORD(4, 6000, -2.4F, 14.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    FROZEN_MAUL(4, -1, -1.4F, 13.0F, 15, () -> {
+    FROZEN_MAUL(4, -1, -2.4F, 15.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    FURY_MAUL(4, 4000, -0.1F, 14.0F, 15, () -> {
+    FURY_MAUL(4, 4000, -1.1F, 16.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.bedrockChunk);
     }),
-    GLACIER_SWORD(4, 1000, -1.4F, 14.0F, 15, () -> {
+    GLACIER_SWORD(4, 1000, -2.4F, 16.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    HALITE_BLADE(4, 2000, 1.0F, 32.0F, 22, () -> {
+    HALITE_BLADE(4, 2000, 0.0F, 34.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.mortumGem);
     }),
-    ICICLE_BANE(4, -1, -1.4F, 10.0F, 15, () -> {
+    ICICLE_BANE(4, -1, -2.4F, 12.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ICINE_SWORD(4, -1, -1.4F, 10.0F, 18, () -> {
+    ICINE_SWORD(4, -1, -2.4F, 12.0F, 18, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    INFERNO_SWORD(4, -1, -0.2F, 8.0F, 22, () -> {
+    INFERNO_SWORD(4, -1, -1.2F, 10.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    JUNGLE_KNIFE(4, 2000, -1.6F, 8.0F, 10, () -> {
+    JUNGLE_KNIFE(4, 2000, -2.6F, 10.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.jungleStone);
     }),
-    JUNGLE_RAPIER(4, 1200, -1.8F, 12.0F, 10, () -> {
+    JUNGLE_RAPIER(4, 1200, -2.8F, 14.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.jungleStone);
     }),
-    LIVICIA_SWORD(4, 10000, -1.0F, 22.0F, 22, () -> {
+    LIVICIA_SWORD(4, 10000, -2.0F, 24.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.shadowStone);
     }),
-    MOLTEN_SWORD(4, 5000, -0.4F, 6.0F, 15, () -> {
+    MOLTEN_SWORD(4, 5000, -1.4F, 8.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.moltenStone);
     }),
-    MORTUM_BLADE(4, 2000, -0.5F, 29.0F, 22, () -> {
+    MORTUM_BLADE(4, 2000, -1.5F, 31.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.mortumGem);
     }),
-    OCEAN_KNIFE(4, 2000, -1.4F, 10.0F, 10, () -> {
+    OCEAN_KNIFE(4, 2000, -2.4F, 12.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    PALAVENCE(4, 60, -1.4F, -3.0F, 0, () -> {
+    PALAVENCE(4, 60, -2.4F, -1.0F, 0, () -> {
         return Ingredient.of(ItemRegistry.realmiteIngot);
     }),
-    POISON_SABER(4, 5000, -0.7F, 12.0F, 15, () -> {
+    POISON_SABER(4, 5000, -1.7F, 14.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.jungleStone);
     }),
-    REALMITE_SWORD(4, 4000, -1.4F, 2.0F, 10, () -> {
+    REALMITE_SWORD(4, 4000, -2.4F, 4.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.realmiteIngot);
     }),
-    RUPEE_RAPIER(4, 2500, -1.4F, 8.0F, 15, () -> {
+    RUPEE_RAPIER(4, 2500, -2.4F, 10.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.rupeeIngot);
     }),
-    SANDSLASH(4, 100, -1.4F, 17.0F, 22, () -> {
+    SANDSLASH(4, 100, -2.4F, 19.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.shadowBar);
     }),
-    SCORCHING_SWORD(4, 500, -0.5F, 16.0F, 15, () -> {
+    SCORCHING_SWORD(4, 500, -1.5F, 18.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.purpleBlaze);
     }),
-    SHADOW_SABER(4, -1, -0.5F, 16.0F, 22, () -> {
+    SHADOW_SABER(4, -1, -1.5F, 18.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    SHARK_SWORD(4, 2000, -1.4F, 10.0F, 15, () -> {
+    SHARK_SWORD(4, 2000, -2.4F, 12.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
-    SKYTHERN_BLADE(4, 2000, -0.7F, 27.0F, 22, () -> {
+    SKYTHERN_BLADE(4, 2000, -1.7F, 29.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.skythernGem);
     }),
-    SLIME_SWORD(4, 1000, -1.8F, 7.0F, 22, () -> {
+    SLIME_SWORD(4, 1000, -2.8F, 9.0F, 22, () -> {
         return Ingredient.of(Items.DIAMOND);
     }),
-    SNOWSLASH(4, 150, -1.9F, 21.0F, 15, () -> {
+    SNOWSLASH(4, 150, -2.9F, 23.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    STORM_SWORD(4, -1, 1.4F, 1.0F, 22, () -> {
+    STORM_SWORD(4, -1, 0.4F, 3.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    TERRAN_DAGGER(4, 350, -1.4F, 7.0F, 10, () -> {
+    TERRAN_DAGGER(4, 350, -1.4F, 9.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.terranStone);
     }),
-    TERRAN_KNIFE(4, 750, -1.4F, 9.0F, 10, () -> {
+    TERRAN_KNIFE(4, 750, -2.4F, 11.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.terranStone);
     }),
-    TERRAN_MAUL(4, 1200, -1.4F, 11.0F, 10, () -> {
+    TERRAN_MAUL(4, 1200, -2.4F, 13.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.terranStone);
     }),
-    WILDWOOD_BLADE(4, 2000, -0.9F, 22.0F, 22, () -> {
+    WILDWOOD_BLADE(4, 2000, -1.9F, 24.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.wildwoodGem);
     }),
 
@@ -324,97 +324,97 @@ public enum DivineToolMaterials implements IItemTier {
     }),
 //    //VETHEA
 //    //Hammers
-    TEAKER_HAMMER(4, -1, 4.0F, 2.0F, 0, () -> {
+    TEAKER_HAMMER(4, -1, -2.4F, 4.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    AMTHIRMIS_HAMMER(4, -1, 4.0F, 4.0F, 0, () -> {
+    AMTHIRMIS_HAMMER(4, -1, -2.4F, 6.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    DARVEN_HAMMER(4, -1, 4.0F, 8.0F, 0, () -> {
+    DARVEN_HAMMER(4, -1, -2.4F, 10.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    CERMILE_HAMMER(4, -1, 4.0F, 11.0F, 0, () -> {
+    CERMILE_HAMMER(4, -1, -2.4F, 13.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    PARDIMAL_HAMMER(4, -1, 4.0F, 15.0F, 0, () -> {
+    PARDIMAL_HAMMER(4, -1, -2.4F, 17.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    QUADROTIC_HAMMER(4, -1, 4.0F, 20.0F, 0, () -> {
+    QUADROTIC_HAMMER(4, -1, -2.4F, 22.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    KAROS_HAMMER(4, -1, 4.0F, 22.0F, 0, () -> {
+    KAROS_HAMMER(4, -1, -2.4F, 26.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    HELIOSIS_HAMMER(4, -1, 4.0F, 29.0F, 0, () -> {
+    HELIOSIS_HAMMER(4, -1, -2.4F, 31.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    ARKSIANE_HAMMER(4, -1, 4.0F, 35.0F, 0, () -> {
+    ARKSIANE_HAMMER(4, -1, -2.4F, 37.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    EVERLIGHT(4, -1, 4.0F, 40.0F, 0, () -> {
+    EVERLIGHT(4, -1, -2.4F, 40.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    KAROS_ROCKMAUL(4, -1, 4.0F, 42.0F, 0, () -> {
+    KAROS_ROCKMAUL(4, -1, -2.4F, 42.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
     //    //Backswords
-    TEAKER_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+    TEAKER_BACKSWORD(4, -1, -2.4F, 2.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    AMTHIRMIS_BACKSWORD(4, -1, 4.0F, 2.0F, 0, () -> {
+    AMTHIRMIS_BACKSWORD(4, -1, -2.4F, 4.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    DARVEN_BACKSWORD(4, -1, 4.0F, 5.0F, 0, () -> {
+    DARVEN_BACKSWORD(4, -1, -2.4F, 7.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    CERMILE_BACKSWORD(4, -1, 4.0F, 9.0F, 0, () -> {
+    CERMILE_BACKSWORD(4, -1, -2.4F, 11.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    PARDIMAL_BACKSWORD(4, -1, 4.0F, 12.0F, 0, () -> {
+    PARDIMAL_BACKSWORD(4, -1, -2.4F, 14.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    QUADROTIC_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+    QUADROTIC_BACKSWORD(4, -1, -2.4F, 18.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    KAROS_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+    KAROS_BACKSWORD(4, -1, -2.4F, 20.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    HELIOSIS_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+    HELIOSIS_BACKSWORD(4, -1, -2.4F, 27.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    ARKSIANE_BACKSWORD(4, -1, 4.0F, 0.0F, 0, () -> {
+    ARKSIANE_BACKSWORD(4, -1, -2.4F, 35.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
 
 //    //Claws
-    TEAKER_CLAW(4, -1, 4.0F, -1.0F, 0, () -> {
+    TEAKER_CLAW(4, -1, -2.0F, 1.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    AMTHIRMIS_CLAW(4, -1, 4.0F, 1.0F, 0, () -> {
+    AMTHIRMIS_CLAW(4, -1, -2.0F, 3.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    DARVEN_CLAW(4, -1, 4.0F, 3.0F, 0, () -> {
+    DARVEN_CLAW(4, -1, -2.0F, 5.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    CERMILE_CLAW(4, -1, 4.0F, 4.0F, 0, () -> {
+    CERMILE_CLAW(4, -1, -2.0F, 6.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    PARDIMAL_CLAW(4, -1, 4.0F, 8.0F, 0, () -> {
+    PARDIMAL_CLAW(4, -1, -2.0F, 10.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    QUADROTIC_CLAW(4, -1, 4.0F, 10.0F, 0, () -> {
+    QUADROTIC_CLAW(4, -1, -2.0F, 12.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    KAROS_CLAW(4, -1, 4.0F, 15.0F, 0, () -> {
+    KAROS_CLAW(4, -1, -2.0F, 17.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    HELIOSIS_CLAW(4, -1, 4.0F, 22.0F, 0, () -> {
+    HELIOSIS_CLAW(4, -1, -2.0F, 24.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    ARKSIANE_CLAW(4, -1, 4.0F, 31.0F, 0, () -> {
+    ARKSIANE_CLAW(4, -1, -2.0F, 33.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     }),
-    EVERBRIGHT(4, -1, 4.0F, 38.0F, 0, () -> {
+    EVERBRIGHT(4, -1, -2.0F, 40.0F, 0, () -> {
         return Ingredient.of(Items.AIR);
     });
 

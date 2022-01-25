@@ -18,11 +18,11 @@ import java.util.*;
 public class ItemModSword extends SwordItem {
 
     public ItemModSword(String name, Rarity rarity, IItemTier tier, ItemGroup group) {
-        super(tier, 3, 1.6F, new Item.Properties().tab(group).rarity(rarity));
+        super(tier, 1, 1.0F, new Item.Properties().tab(group).rarity(rarity));
         setRegistryName(DivineRPG.MODID, name);
     }
     public ItemModSword(String name, IItemTier tier, Item.Properties properties) {
-        super(tier, 3, 1.6F, properties);
+        super(tier, 1, 1.0F, properties);
         setRegistryName(DivineRPG.MODID, name);
     }
 
