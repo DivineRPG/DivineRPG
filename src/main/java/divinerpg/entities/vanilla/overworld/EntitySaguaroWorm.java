@@ -55,22 +55,17 @@ public class EntitySaguaroWorm extends EntityDivineMob {
     }
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level.isClientSide && this.getHealth() > 0.0f) {
             PlayerEntity player = this.level.getNearestPlayer(this, 10.0D);
-            this.setTarget(player);
-            if (player != null ) {
-                if (!player.isCreative() && !player.isSpectator()){
-                    this.setNoAi(false);
-                    this.setProvoked(true);
-                    if (this.tickCount % 50 == 0) {
-                        this.attack(player);
-                    }
-                }
-                else {
-                    this.setProvoked(false);
-                    this.setNoAi(true);
+            if (player != null && !player.isCreative() && !player.isSpectator() && this.canSee(player)) {
+            	this.setTarget(player);
+            	this.setNoAi(false);
+                this.setProvoked(true);
+                if (this.tickCount % 50 == 0) {
+                    this.attack(player);
                 }
             } else {
+            	this.setTarget(null);
                 this.setProvoked(false);
                 this.setNoAi(true);
             }

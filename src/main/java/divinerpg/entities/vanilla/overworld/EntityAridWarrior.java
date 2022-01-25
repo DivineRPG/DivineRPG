@@ -30,19 +30,17 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     @Override
     protected void registerGoals() {
         addAttackingAI();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 1, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 5, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (random.nextInt(5) == 0) {
-            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.ARID_WARRIOR_ARROW, this);
-            double d0 = target.getX() - this.getX();
-            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
-            double d2 = target.getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
-        }
+    	EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.ARID_WARRIOR_ARROW, this);
+        double d0 = target.getX() - this.getX();
+        double d1 = target.getY(0.3333333333333333D) - projectile.getY();
+        double d2 = target.getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
     }
     @Override
     protected SoundEvent getAmbientSound() {
