@@ -16,6 +16,6 @@ public class RenderDivineArrow extends ArrowRenderer<EntityDivineArrow> {
         if(arrow.getArrowType() != null) {
             return arrow.getTexture();
         }else
-            return new ResourceLocation("minecraft:textures/entities/projectiles/arrow.png");
+            return new ResourceLocation("minecraft:textures/entity/projectiles/arrow.png");
     }
 }
