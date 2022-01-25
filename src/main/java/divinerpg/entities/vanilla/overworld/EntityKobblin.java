@@ -5,6 +5,7 @@ import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
@@ -38,7 +39,7 @@ public class EntityKobblin extends EntityDivineMob {
 
     protected void defineSynchedData() {
         super.defineSynchedData();
-        entityData.define(PROVOKED, Boolean.valueOf(false));
+        entityData.define(PROVOKED, false);
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
@@ -47,6 +48,12 @@ public class EntityKobblin extends EntityDivineMob {
 
     @Override
     public int getMaxSpawnClusterSize() {return 1;
+    }
+    
+    @Override
+    protected void registerGoals() {
+    	super.registerGoals();
+    	this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
     }
 
     @Override
@@ -58,15 +65,20 @@ public class EntityKobblin extends EntityDivineMob {
     @Override
     public void tick() {
         super.tick();
-        if (!getProvoked()) {
+        if(!this.level.isClientSide) {
+        	PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
+        	if(player == null) {
+        		setProvoked(this.getTarget());
+        	} else {
+        		if(!getProvoked()) {
+        			this.setDeltaMovement(0, 0.6, 0);
+        		}
+        		setProvoked(player);
+        	}
+        	setNoAi(!entityData.get(PROVOKED));
+        }
+        if (!this.getProvoked()) {
             this.xRotO = 0;
-            PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
-            if (player != null) {
-                if (!player.isCreative() && !player.isSpectator()) {
-                    this.setProvoked(player);
-                    this.setDeltaMovement(0, 0.6, 0);
-                }
-            }
         }
     }
     public void readAdditionalSaveData(CompoundNBT tag) {
@@ -81,18 +93,29 @@ public class EntityKobblin extends EntityDivineMob {
     }
 
     public boolean getProvoked() {
-        return entityData.get(PROVOKED).booleanValue();
+        return entityData.get(PROVOKED);
     }
 
     @Nullable
-    public void setProvoked(PlayerEntity player) {
-        entityData.set(PROVOKED, Boolean.valueOf(true));
-        addAttackingAI();
-        if (player != null && !player.isCreative()) {
-            this.setTarget(player);
-        }
+    public void setProvoked(LivingEntity entity) {
+    	if (entity == null || entity.distanceTo(this) > 16.0f) {
+			calmDown();
+		} else {
+			if(entity instanceof PlayerEntity) {
+				PlayerEntity player = (PlayerEntity) entity;
+				if(player.isCreative() || player.isSpectator()) {
+					calmDown();
+					return;
+				}
+			}
+			entityData.set(PROVOKED, true);
+			this.setTarget(entity);
+		}
     }
-
+    public void calmDown() {
+		entityData.set(PROVOKED, false);
+		this.setTarget(null);
+	}
     @Override
     public boolean hurt(DamageSource source, float amount) {
         Entity entity = source.getDirectEntity();

@@ -7,8 +7,7 @@ import javax.annotation.Nullable;
 import divinerpg.util.EntityStats;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -42,15 +41,12 @@ public class EntityPumpkinSpider extends SpiderEntity {
         super.tick();
         if (!this.level.isClientSide) {
         	PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
-        	if(player != null && !player.isCreative() && !player.isSpectator() && canSee(player)) {
+        	if(player != null && canSee(player)) {
         		setProvoked(player);
         	} else {
         		setProvoked(this.getTarget());
         	}
             setNoAi(!entityData.get(PROVOKED));
-        }
-        if (!this.getProvoked()) {
-            this.xRotO = 0;
         }
     }
 	@Override
@@ -68,12 +64,22 @@ public class EntityPumpkinSpider extends SpiderEntity {
 	@Nullable
 	public void setProvoked(LivingEntity entity) {
 		if (entity == null || (!canSee(entity) && entity.distanceTo(this) > 32.0f)) {
-			entityData.set(PROVOKED, false);
-			this.setTarget(null);
+			calmDown();
 		} else {
+			if(entity instanceof PlayerEntity) {
+				PlayerEntity player = (PlayerEntity) entity;
+				if(player.isCreative() || player.isSpectator()) {
+					calmDown();
+					return;
+				}
+			}
 			entityData.set(PROVOKED, true);
 			this.setTarget(entity);
 		}
+	}
+	public void calmDown() {
+		entityData.set(PROVOKED, false);
+		this.setTarget(null);
 	}
 	public void readAdditionalSaveData(CompoundNBT tag) {
         super.readAdditionalSaveData(tag);
