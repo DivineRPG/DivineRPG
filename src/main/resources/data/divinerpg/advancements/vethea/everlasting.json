@@ -4,11 +4,11 @@
       "item": "divinerpg:eversight"
     },
     "title": {
-      "translate": "advancement.divinerpg.vethea.ever_cry_never_life"
+      "translate": "advancement.divinerpg.vethea.everlasting"
     },
     "frame": "challenge",
     "description": {
-      "translate": "advancement.divinerpg.vethea.ever_cry_never_life.desc"
+      "translate": "advancement.divinerpg.vethea.everlasting.desc"
     },
     "announce_to_chat": true
   },
