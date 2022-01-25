@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:darkstone"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}
