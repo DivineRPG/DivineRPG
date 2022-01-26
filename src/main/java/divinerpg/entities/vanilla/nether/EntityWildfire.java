@@ -28,8 +28,9 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
     }
     @Override
     protected void registerGoals() {
+    	super.registerGoals();
         addAttackingAI();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 1, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
