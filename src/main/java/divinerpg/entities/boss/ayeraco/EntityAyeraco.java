@@ -143,15 +143,16 @@ public class EntityAyeraco extends EntityDivineBoss {
 
     @Override
     public boolean hurt(DamageSource damageSource, float par2) {
-        if (isInvulnerableTo(damageSource)
-                || (damageSource.isProjectile() && group.projectileProtected(this))) {
-            return false;
-        }
+        if(group != null) {
+            if (isInvulnerableTo(damageSource)
+                    || (damageSource.isProjectile() && group.projectileProtected(this))) {
+                return false;
+            }
 
-        if (damageSource.getDirectEntity() instanceof PlayerEntity) {
-            attacks = true;
+            if (damageSource.getDirectEntity() instanceof PlayerEntity) {
+                attacks = true;
+            }
         }
-
         return super.hurt(damageSource, par2);
     }
 
