@@ -22,6 +22,12 @@ public class EntityGlacide extends EntityDivineMob {
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 1.8F;
     }
+    
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+    }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.glacideHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.glacideDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.glacideSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.glacideFollowRange);
