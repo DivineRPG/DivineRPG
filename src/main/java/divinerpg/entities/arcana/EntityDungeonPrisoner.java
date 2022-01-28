@@ -37,10 +37,13 @@ public class EntityDungeonPrisoner extends EntityDivineMob {
     
     @Override
     public boolean doHurtTarget(Entity entity) {
-        EntityDungeonDemon demon = new EntityDungeonDemon( null, level);
-        this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE, 1, 1);
-        demon.moveTo(this.getX(), this.getY(), this.getZ(), this.xRot, 0.0F);
-        this.level.addFreshEntity(demon);
+        if(level.isClientSide) {
+            EntityDungeonDemon demon = new EntityDungeonDemon(null, level);
+            this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE, 1, 1);
+            demon.moveTo(this.getX(), this.getY(), this.getZ(), this.xRot, 0.0F);
+            this.level.addFreshEntity(demon);
+        }
+        super.doHurtTarget(entity);
         this.kill();
         return true;
     }
