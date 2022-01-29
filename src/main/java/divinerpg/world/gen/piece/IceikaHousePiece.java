@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import divinerpg.*;
 import divinerpg.entities.iceika.*;
 import divinerpg.registries.*;
+import net.minecraft.entity.*;
 import net.minecraft.nbt.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
@@ -64,13 +65,17 @@ public class IceikaHousePiece {
             LockableLootTileEntity.setLootTable(worldIn, rand, pos.below(), new ResourceLocation(DivineRPG.MODID, "chests/iceika/iceika_chest_hut"));
         }
         if ("WorkshopMerchant".equals(function)) {
-            EntityWorkshopMerchant merchant = new EntityWorkshopMerchant(EntityRegistry.WORKSHOP_MERCHANT, worldIn.getLevel());
+            EntityWorkshopMerchant merchant = EntityRegistry.WORKSHOP_MERCHANT.create(worldIn.getLevel());
+            merchant.setPersistenceRequired();
             merchant.moveTo(pos, rand.nextInt(360), 0);
+            merchant.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(pos), SpawnReason.STRUCTURE, null, null);
             worldIn.addFreshEntity(merchant);
         }
         if ("WorkshopTinkerer".equals(function)) {
-            EntityWorkshopTinkerer tinkerer = new EntityWorkshopTinkerer(EntityRegistry.WORKSHOP_TINKERER, worldIn.getLevel());
+            EntityWorkshopTinkerer tinkerer = EntityRegistry.WORKSHOP_TINKERER.create(worldIn.getLevel());
+            tinkerer.setPersistenceRequired();
             tinkerer.moveTo(pos, rand.nextInt(360), 0);
+            tinkerer.finalizeSpawn(worldIn, worldIn.getCurrentDifficultyAt(pos), SpawnReason.STRUCTURE, null, null);
             worldIn.addFreshEntity(tinkerer);
         }
     }
