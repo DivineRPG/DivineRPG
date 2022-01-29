@@ -52,7 +52,8 @@ public class IceikaDungeonPiece {
         @Override
         protected void handleDataMarker(String function, BlockPos pos, IServerWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if ("Dungeon".equals(function)) {
-                LockableLootTileEntity.setLootTable(worldIn, rand, pos.below(), new ResourceLocation(DivineRPG.MODID, "chests/iceika/iceika_chest_dungeon"));
+                worldIn.setBlock(pos, StructurePiece.reorient(worldIn, pos, BlockRegistry.frostedChest.defaultBlockState()), 18 );
+                LockableLootTileEntity.setLootTable(worldIn, rand, pos, new ResourceLocation(DivineRPG.MODID, "chests/iceika/iceika_chest_dungeon"));
             }
         }
 
