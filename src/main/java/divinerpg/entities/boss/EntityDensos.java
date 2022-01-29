@@ -18,6 +18,7 @@ public class EntityDensos extends EntityDivineBoss {
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2F;
     }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();

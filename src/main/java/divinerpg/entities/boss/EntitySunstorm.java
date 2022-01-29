@@ -73,7 +73,7 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 1000).add(Attributes.ATTACK_DAMAGE, 8)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.vamacheronSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.vamacheronFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sunstormHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sunstormDamage)
+                .add(Attributes.MOVEMENT_SPEED, EntityStats.sunstormSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sunstormFollowRange);
     }
 }

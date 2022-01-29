@@ -57,6 +57,7 @@ public class EntityStats {
     public static double skythernArcherHealth 	= 55.0D, skythernArcherDamage = 5.0D, skythernArcherSpeed = normalSpeed, skythernArcherFollowRange = follow;
     public static double skythernFiendHealth 	= 80.0D, skythernFiendDamage = 20.0D, skythernFiendSpeed = normalSpeed, skythernFiendFollowRange = follow;
     public static double skythernGolemHealth 	= 300.0D, skythernGolemDamage = 18.0D, skythernGolemSpeed = normalSpeed, skythernGolemFollowRange = follow;
+    public static double sunstormHealth 	    = 1000.0D, sunstormDamage = 12.0D, sunstormSpeed = normalSpeed, sunstormFollowRange = follow;
     public static double megalithHealth         = 350.0D, megalithDamage = 20.0D, megalithSpeed = normalSpeed*0.9f, megalithFollowRange = follow;
     public static double verekHealth 			= 50.0D, verekDamage = 12.0D, verekSpeed = normalSpeed, verekFollowRange = follow;
     public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 24.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;

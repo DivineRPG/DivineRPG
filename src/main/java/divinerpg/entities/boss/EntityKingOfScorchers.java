@@ -3,6 +3,7 @@ package divinerpg.entities.boss;
 import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -10,13 +11,14 @@ import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.*;
 
 import java.util.*;
 
-public class EntityKingOfScorchers extends EntityDivineBoss {
+public class EntityKingOfScorchers extends EntityDivineBoss implements ILaunchThrowable {
     public EntityKingOfScorchers(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
     }
@@ -85,6 +87,16 @@ public class EntityKingOfScorchers extends EntityDivineBoss {
 
 
         return meteors.get(0);
+    }
+
+    @Override
+    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
+        return new EntityKingOfScorchersShot(EntityRegistry.KING_OF_SCORCHERS_SHOT, parent, world);
+    }
+
+    @Override
+    public float getInaccuracy(World world) {
+        return 1;
     }
 
     public Entity createFireball(LivingEntity parent, Entity victim) {

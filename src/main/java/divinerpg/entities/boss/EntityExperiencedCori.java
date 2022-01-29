@@ -10,6 +10,7 @@ import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.*;
@@ -50,6 +51,11 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob {
                 SoundRegistry.CORI_SHOOT);
     }
 
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        goalSelector.addGoal(2, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
+    }
 
     @Override
     public int getMaxSpawnClusterSize() {return 1;
@@ -99,8 +105,8 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob {
     }
     
     @Override
-    public void baseTick() {
-        super.baseTick();
+    public void customServerAiStep() {
+        super.customServerAiStep();
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();

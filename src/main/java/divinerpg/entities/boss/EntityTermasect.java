@@ -223,9 +223,10 @@ public class EntityTermasect extends EntityDivineBoss {
         double d2 = (double) this.spawnPosition.getZ() + 0.01D - this.getZ();
         double d3 = MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
         setDeltaMovement(getDeltaMovement().x + d0 / d3 * 0.05D, getDeltaMovement().y + d1 / d3 * 0.1D, getDeltaMovement().z + d2 / d3 * 0.05D);
-//        float f = (float) (Math.atan2(this.getDeltaMovement().z, this.getDeltaMovement().x) * 180.0D / Math.PI) - 90.0F;
-//        float f1 = MathHelper.wrapDegrees(f - this.xRot);
+        float f = (float) (Math.atan2(this.getDeltaMovement().z, this.getDeltaMovement().x) * 180.0D / Math.PI) - 90.0F;
+        float f1 = MathHelper.wrapDegrees(f - this.xRot);
         this.moveDist = 0.001F;
+        this.yRot =+ f1;
     }
     
     @Override

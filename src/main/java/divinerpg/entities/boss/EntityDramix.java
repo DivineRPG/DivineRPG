@@ -32,7 +32,7 @@ public class EntityDramix extends EntityDivineBoss {
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.dramixHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.dramixDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.dramixSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dramixFollowRange);
+                .add(Attributes.MOVEMENT_SPEED, EntityStats.dramixSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dramixFollowRange).add(Attributes.KNOCKBACK_RESISTANCE, 1);
     }
 
     @Override

@@ -672,9 +672,9 @@ public class EntityRegistry {
         manager.register(DENSOS, new RenderDivineMob(manager, new ModelDensos<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
         manager.register(DRAMIX, new RenderDivineMob(manager, new ModelDramix<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
         manager.register(ETERNAL_ARCHER, new RenderEternalArcher(manager));
-        manager.register(EXPERIENCED_CORI, new RenderDivineMob(manager, new ModelExperiencedCori<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
+        manager.register(EXPERIENCED_CORI, new RenderDivineMob(manager, new ModelExperiencedCori<Entity>(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png")));
         manager.register(HIVE_QUEEN, new RenderDivineMob(manager, new ModelHiveQueen<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/hive_queen.png")));
-        manager.register(KAROT, new RenderDivineMob(manager, new ModelKarot<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
+        manager.register(KAROT, new RenderDivineMob(manager, new ModelKarot<Entity>(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png")));
         manager.register(KAROS, new RenderDivineMob(manager, new ModelKaros<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/karos.png")));
         manager.register(KING_OF_SCORCHERS, new RenderDivineMob(manager, new ModelKingScorcher<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png")));
         manager.register(LADY_LUNA, new RenderLadyLuna(manager));
@@ -686,8 +686,8 @@ public class EntityRegistry {
         manager.register(SUNSTORM, new RenderDivineMob(manager, new ModelSunstorm<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png")));
         manager.register(TERMASECT, new RenderDivineMob(manager, new ModelTermasect<Entity>(), 5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png")));
         manager.register(THE_WATCHER, new RenderDivineMob(manager, new ModelTheWatcher<Entity>(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png")));
-        manager.register(TWILIGHT_DEMON, new RenderDivineMob(manager, new ModelTwilightDemon<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
-        manager.register(VAMACHERON, new RenderDivineMob(manager, new ModelVamacheron<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
+        manager.register(TWILIGHT_DEMON, new RenderDivineMob(manager, new ModelTwilightDemon<Entity>(), 2F, new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png")));
+        manager.register(VAMACHERON, new RenderDivineMob(manager, new ModelVamacheron<Entity>(), 1.5F, new ResourceLocation(DivineRPG.MODID, "textures/entity/vamacheron.png")));
         manager.register(WRECK, new RenderWreck(manager));
 
         //Iceika
