@@ -284,7 +284,7 @@ public class ArmorAbilitiesEvent
             }
         }
     }
-
+    private boolean flag = true;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
@@ -307,13 +307,17 @@ public class ArmorAbilitiesEvent
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
 
-        if (!entity.isCreative() && !entity.isSpectator()){
-        if (boots == ItemRegistry.angelicBoots || body == ItemRegistry.angelicChestplate || legs == ItemRegistry.angelicLeggings || helmet == ItemRegistry.angelicHelmet) {
+        if (!entity.isCreative() && !entity.isSpectator() && flag) {
+            if (boots == ItemRegistry.angelicBoots || body == ItemRegistry.angelicChestplate || legs == ItemRegistry.angelicLeggings || helmet == ItemRegistry.angelicHelmet) {
+                flag = false;
                 entity.abilities.mayfly = true;
                 entity.fallDistance = 0.0F;
+            }
         }
-        if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
-            entity.abilities.flying = false;
+        if(!flag) {
+            if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
+                entity.abilities.flying = false;
+                flag = true;
             }
         }
 
