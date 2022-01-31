@@ -4,6 +4,7 @@ import divinerpg.capability.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
@@ -286,7 +287,7 @@ public class ArmorAbilitiesEvent
         }
     }
 
-    private boolean flag = true, swimFlag = true;
+    private boolean flag, swimFlag, shadow;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
@@ -383,10 +384,17 @@ public class ArmorAbilitiesEvent
         }
 
         //Shadow
-        if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet) {
-            speedMultiplier = 3;
+        if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet && shadow) {
+            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.33F);
             evt.player.maxUpStep = 1;
+            shadow = false;
         }
+        if (boots != ItemRegistry.shadowBoots && body != ItemRegistry.shadowChestplate && legs != ItemRegistry.shadowLeggings && helmet != ItemRegistry.shadowHelmet && !shadow) {
+            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
+            evt.player.maxUpStep = 0.6F;
+            shadow = true;
+        }
+
         //Frozen
         if (boots == ItemRegistry.frozenBoots && body == ItemRegistry.frozenChestplate && legs == ItemRegistry.frozenLeggings && helmet == ItemRegistry.frozenHelmet && !evt.player.getCommandSenderWorld().isClientSide) {
             List<Entity> entities = evt.player.getCommandSenderWorld().getEntitiesOfClass(MobEntity.class, evt.player.getBoundingBox().expandTowards(6, 6, 6));
@@ -431,7 +439,7 @@ public class ArmorAbilitiesEvent
             speedMultiplier = 2.2F;
         }
 
-        evt.player.abilities.walkingSpeed = 0.1F * speedMultiplier;
+//        evt.player.abilities.walkingSpeed = 0.1F * speedMultiplier;
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;
