@@ -262,24 +262,30 @@ public class BlockModPortal extends BlockMod {
             for(this.height = 0; this.height < 21; ++this.height) {
                 for(int i = 0; i < this.width; ++i) {
                     BlockPos blockpos = this.bottomLeft.relative(this.rightDir, i).above(this.height);
-                    BlockState blockstate = this.world.getBlockState(blockpos);
+                    BlockState blockstate = world.getBlockState(blockpos);
                     if (!this.canConnect(blockstate)) {
                         break label56;
                     }
 
                     Block block = blockstate.getBlock();
-                    if (block == this.portal) {
+                    if (block == portal) {
                         ++this.portalBlockCount;
                     }
 
                     if (i == 0) {
                         BlockPos framePos = blockpos.relative(this.leftDir);
-                        if (!(this.world.getBlockState(framePos).getBlock().is(this.world.getBlockState(framePos).getBlock()))) {
+                        if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                            break label56;
+                        }
+                        if (!(world.getBlockState(framePos).getBlock() == frame)) {
                             break label56;
                         }
                     } else if (i == this.width - 1) {
                         BlockPos framePos = blockpos.relative(this.rightDir);
-                        if (!(this.world.getBlockState(framePos).getBlock().is(this.world.getBlockState(framePos).getBlock()))) {
+                        if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                            break label56;
+                        }
+                        if (!(world.getBlockState(framePos).getBlock() == frame)) {
                             break label56;
                         }
                     }
@@ -288,7 +294,11 @@ public class BlockModPortal extends BlockMod {
 
             for(int j = 0; j < this.width; ++j) {
                 BlockPos framePos = this.bottomLeft.relative(this.rightDir, j).above(this.height);
-                if (!(this.world.getBlockState(framePos).getBlock().is(this.world.getBlockState(framePos).getBlock()))) {
+                if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                    this.height = 0;
+                    break;
+                }
+                if (!(world.getBlockState(framePos).getBlock() == frame)) {
                     this.height = 0;
                     break;
                 }
