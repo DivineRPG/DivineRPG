@@ -8,6 +8,7 @@ import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.*;
+import net.minecraftforge.common.*;
 import net.minecraftforge.event.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.*;
@@ -284,7 +285,8 @@ public class ArmorAbilitiesEvent
             }
         }
     }
-    private boolean flag = true;
+
+    private boolean flag = true, swimFlag = true;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
@@ -320,6 +322,15 @@ public class ArmorAbilitiesEvent
                 flag = true;
             }
         }
+        if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
+            entity.getAttribute(ForgeMod.SWIM_SPEED.get()).setBaseValue(3.0F);
+            swimFlag = false;
+        }
+        if(boots != ItemRegistry.aquastriveBoots && legs != ItemRegistry.aquastriveLeggings && body != ItemRegistry.aquastriveChestplate && helmet != ItemRegistry.aquastriveHelmet && !swimFlag){
+            entity.getAttribute(ForgeMod.SWIM_SPEED.get()).setBaseValue(1.0F);
+            swimFlag = true;
+        }
+
 
         //Elite Realmite
         if (boots == ItemRegistry.eliteRealmiteBoots && body == ItemRegistry.eliteRealmiteChestplate && legs == ItemRegistry.eliteRealmiteLeggings && helmet == ItemRegistry.eliteRealmiteHelmet) {
@@ -369,34 +380,6 @@ public class ArmorAbilitiesEvent
                 || (boots == ItemRegistry.infernoBoots && legs == ItemRegistry.infernoLeggings && body == ItemRegistry.infernoChestplate && helmet == ItemRegistry.infernoHelmet)
                 || (boots == ItemRegistry.bedrockBoots && legs == ItemRegistry.bedrockLeggings && body == ItemRegistry.bedrockChestplate && helmet == ItemRegistry.bedrockHelmet)) {
             evt.player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 40, 0, true, false));
-        }
-
-        //Aquastrive
-        if (boots == ItemRegistry.aquastriveBoots && body == ItemRegistry.aquastriveChestplate && legs == ItemRegistry.aquastriveLeggings && helmet == ItemRegistry.aquastriveHelmet) {
-            float speed = 1.1F;
-            PlayerEntity player = evt.player;
-
-            if (player.isInWater()) {
-                if (!player.isCrouching()) {
-
-                    player.getDeltaMovement().add(player.getDeltaMovement().x + speed, player.getDeltaMovement().y + speed, player.getDeltaMovement().z + speed);
-                    if (player.getDeltaMovement().x > -speed && player.getDeltaMovement().x < speed) {
-                        player.setDeltaMovement(player.getDeltaMovement().x * speed, player.getDeltaMovement().y, player.getDeltaMovement().z);
-                    }
-                    if (player.getDeltaMovement().z > -speed && player.getDeltaMovement().z < speed) {
-                        player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y, player.getDeltaMovement().z * speed);
-                    }
-                }
-                if (player.isCrouching()) {
-                    player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y * speed, player.getDeltaMovement().z);
-                    if (player.getDeltaMovement().x > -speed && player.getDeltaMovement().x < speed) {
-                        player.setDeltaMovement(player.getDeltaMovement().x * speed, player.getDeltaMovement().y, player.getDeltaMovement().z);
-                    }
-                    if (player.getDeltaMovement().z > -speed && player.getDeltaMovement().z < speed) {
-                        player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y, player.getDeltaMovement().z * speed);
-                    }
-                }
-            }
         }
 
         //Shadow
