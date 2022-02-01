@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:gorgosion_spawner"
+          "name": "divinerpg:fire_crystal"
         }
       ],
       "conditions": [

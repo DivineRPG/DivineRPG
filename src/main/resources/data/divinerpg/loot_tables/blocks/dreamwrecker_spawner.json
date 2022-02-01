@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:dreamwrecker_spawner"
+          "name": "divinerpg:fire_crystal"
         }
       ],
       "conditions": [

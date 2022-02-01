@@ -127,6 +127,7 @@ public class FancyRenders {
         RenderTypeLookup.setRenderLayer(BlockRegistry.soulSludgeDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.soulStoneDoor, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.smoothGlass, RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.hungerSpawnerSG, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass2, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlockRegistry.stainedGlass3, RenderType.translucent());

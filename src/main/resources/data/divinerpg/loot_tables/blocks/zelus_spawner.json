@@ -1,13 +1,11 @@
 {
-  "type": "minecraft:block",
   "pools": [
     {
-      "name": "main",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:fire_crystal"
+          "name": "divinerpg:degraded_bricks"
         }
       ],
       "conditions": [
