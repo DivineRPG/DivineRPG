@@ -287,7 +287,7 @@ public class ArmorAbilitiesEvent
         }
     }
 
-    private boolean flag, swimFlag, shadow;
+    private boolean flag, swimFlag, shadow, santa, glistening, tormented, demonized;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
@@ -416,30 +416,48 @@ public class ArmorAbilitiesEvent
         }
 
         //Santa
-        if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
+        if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet && santa) {
             if (evt.player.level.dimension() == KeyRegistry.ICEIKA_WORLD) {
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);
                 }
-                speedMultiplier = 2;
+                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F);
+                santa = false;
             }
+        }
+        if (boots != ItemRegistry.santaBoots || body != ItemRegistry.santaChestplate || legs != ItemRegistry.santaLeggings || helmet != ItemRegistry.santaHelmet && !santa) {
+                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
+                santa = true;
         }
 
         //Vethean
 
-        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
-            speedMultiplier = 1.4F;
+        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask && glistening) {
+            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.14F);
+        }
+        if(!glistening) {
+            if (body == ItemRegistry.glisteningChestplate || legs == ItemRegistry.glisteningLeggings || boots == ItemRegistry.glisteningBoots || helmet == ItemRegistry.glisteningMask) {
+                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
+            }
         }
 
-        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
-            speedMultiplier = 1.8F;
+        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask && demonized) {
+            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.18F);
+        }
+        if(!demonized){
+            if(body == ItemRegistry.demonizedChestplate || legs == ItemRegistry.demonizedLeggings || boots == ItemRegistry.demonizedBoots || helmet == ItemRegistry.demonizedMask) {
+                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
+            }
         }
 
-        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
-            speedMultiplier = 2.2F;
+        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask && tormented) {
+            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.22F);
         }
-
-//        evt.player.abilities.walkingSpeed = 0.1F * speedMultiplier;
+        if(!tormented) {
+            if (body == ItemRegistry.tormentedChestplate || legs == ItemRegistry.tormentedLeggings || boots == ItemRegistry.tormentedBoots || helmet == ItemRegistry.tormentedMask) {
+                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
+            }
+        }
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;
