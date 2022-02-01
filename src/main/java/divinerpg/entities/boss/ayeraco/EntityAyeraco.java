@@ -3,8 +3,11 @@ package divinerpg.entities.boss.ayeraco;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
+import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
 import net.minecraft.util.*;
@@ -48,6 +51,10 @@ public class EntityAyeraco extends EntityDivineBoss {
                 : null;
 
         group = new AyeracoGroup(serverWorld);
+    }
+
+    public static AttributeModifierMap.MutableAttribute attributes() {
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.ayeracoHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.ayeracoSpeed).add(Attributes.ATTACK_DAMAGE, EntityStats.ayeracoDamage).add(Attributes.FOLLOW_RANGE, EntityStats.ayeracoFollowRange);
     }
 
     @Override
