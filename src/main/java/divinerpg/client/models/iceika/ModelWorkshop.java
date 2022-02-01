@@ -90,7 +90,7 @@ public class ModelWorkshop<T extends Entity> extends SegmentedModel<T> {
 
     @Override
     public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.head.yRot = ageInTicks / (180F / (float)Math.PI);
+        this.head.yRot = headPitch / (180F / (float)Math.PI);
         this.head.xRot = netHeadYaw / (180F / (float)Math.PI);
         this.rightarm.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
         this.leftarm.xRot = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
