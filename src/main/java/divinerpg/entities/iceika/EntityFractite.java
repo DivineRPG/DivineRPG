@@ -21,7 +21,7 @@ public class EntityFractite extends EntityDivineFlyingMob {
         return 0.7F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.fractiteHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.fractiteSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.fractiteFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.fractiteHealth).add(Attributes.FLYING_SPEED, EntityStats.fractiteSpeed).add(Attributes.MOVEMENT_SPEED, EntityStats.fractiteSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.fractiteFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());

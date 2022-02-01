@@ -30,7 +30,7 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
         return 1.3F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.alicantoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.alicantoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.alicantoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.alicantoFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.alicantoHealth).add(Attributes.FLYING_SPEED, EntityStats.alicantoSpeed).add(Attributes.ATTACK_DAMAGE, EntityStats.alicantoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.alicantoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.alicantoFollowRange);
     }
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());

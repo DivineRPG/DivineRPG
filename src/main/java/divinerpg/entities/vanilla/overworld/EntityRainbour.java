@@ -3,20 +3,21 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.controller.*;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.player.*;
+import net.minecraft.nbt.*;
 import net.minecraft.network.datasync.*;
 import net.minecraft.particles.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
-import java.util.UUID;
+import javax.annotation.*;
+import java.util.*;
 
 public class EntityRainbour extends EntityDivineFlyingMob {
     private int angerLevel;
@@ -24,9 +25,15 @@ public class EntityRainbour extends EntityDivineFlyingMob {
 
     public EntityRainbour(EntityType<? extends EntityDivineFlyingMob> type, World worldIn) {
         super(type, worldIn);
+        this.lookControl = new EntityRainbour.RainbourLookController(this);
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.rainbourHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rainbourDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rainbourSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rainbourFollowRange);
+        return MonsterEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.rainbourHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rainbourDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rainbourSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rainbourFollowRange).add(Attributes.FLYING_SPEED, EntityStats.rainbourSpeed);
+    }
+
+    @Override
+    public float getEyeHeight(Pose pose) {
+        return 0.6F;
     }
 
     @Override
@@ -155,7 +162,6 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return true;
     }
 
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.RAINBOUR;
@@ -171,13 +177,21 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return SoundRegistry.RAINBOUR_HURT;
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD && super.checkSpawnRules(worldIn, spawnReasonIn) && getCommandSenderWorld().getLightEmission(blockPosition()) <= random.nextInt(7);
-    }
-
     @Nullable
     @Override
     protected AIDivineFireballAttack createShootAI() {
         return null;
+    }
+
+    class RainbourLookController extends LookController {
+        RainbourLookController(MobEntity entity) {
+            super(entity);
+        }
+
+        public void tick() {
+            if (!EntityRainbour.this.isAngry()) {
+                super.tick();
+            }
+        }
     }
 }

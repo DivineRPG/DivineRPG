@@ -40,7 +40,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
     public static AttributeModifierMap.MutableAttribute attributes() {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).add(Attributes.ATTACK_DAMAGE, 0)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange);
+                .add(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange).add(Attributes.FLYING_SPEED, EntityStats.theWatcherSpeed);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 2.6F;

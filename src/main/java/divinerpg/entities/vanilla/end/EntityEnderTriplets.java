@@ -20,7 +20,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
         this.xpReward = 5;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.enderTripletsHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.enderTripletsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.enderTripletsFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.enderTripletsHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.enderTripletsSpeed).add(Attributes.FLYING_SPEED, EntityStats.enderTripletsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.enderTripletsFollowRange);
     }
 
     @Override

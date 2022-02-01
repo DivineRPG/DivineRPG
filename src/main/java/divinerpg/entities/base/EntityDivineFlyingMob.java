@@ -2,6 +2,7 @@ package divinerpg.entities.base;
 
 import divinerpg.entities.ai.*;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.controller.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
@@ -91,12 +92,41 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
 
         public void tick() {
             if (this.operation == MovementController.Action.MOVE_TO) {
+
+                this.mob.setNoGravity(true);
+                double d0 = this.wantedX - this.mob.getX();
+                double d1 = this.wantedY - this.mob.getY();
+                double d2 = this.wantedZ - this.mob.getZ();
+                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+                if (d3 < (double)2.5000003E-7F) {
+                    this.mob.setYya(0.0F);
+                    this.mob.setZza(0.0F);
+                    return;
+                }
+
+                float f = (float)(MathHelper.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F;
+                this.mob.yRot = this.rotlerp(this.mob.yRot, f, 90.0F);
+                float f1;
+                if (this.mob.isOnGround()) {
+                    f1 = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
+                } else {
+                    f1 = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.FLYING_SPEED));
+                }
+
+                this.mob.setSpeed(f1);
+                double d4 = (double)MathHelper.sqrt(d0 * d0 + d2 * d2);
+                float f2 = (float)(-(MathHelper.atan2(d1, d4) * (double)(180F / (float)Math.PI)));
+                this.mob.xRot = this.rotlerp(this.mob.xRot, f2, (float)20);
+                this.mob.setYya(d1 > 0.0D ? f1 : -f1);
+
+
+
                 if (this.courseChangeCooldown-- <= 0) {
                     this.courseChangeCooldown += this.parentEntity.getRandom().nextInt(5) + 2;
                     Vector3d vector3d = new Vector3d(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
-                    double d0 = vector3d.length();
+                    double d5 = vector3d.length();
                     vector3d = vector3d.normalize();
-                    if (this.canReach(vector3d, MathHelper.ceil(d0))) {
+                    if (this.canReach(vector3d, MathHelper.ceil(d5))) {
                         this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(vector3d.scale(0.1D)));
                     } else {
                         this.operation = MovementController.Action.WAIT;
