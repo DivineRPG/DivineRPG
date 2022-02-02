@@ -278,7 +278,7 @@ public class ItemModRanged extends ItemMod {
             bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET, player, world, bulletType);
         }
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
-        bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+        bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 0.5F);
         world.addFreshEntity(bullet);
     }
 
