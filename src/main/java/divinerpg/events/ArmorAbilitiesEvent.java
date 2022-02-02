@@ -332,7 +332,7 @@ public class ArmorAbilitiesEvent
         }
 
         if(boots != ItemRegistry.aquastriveBoots && legs != ItemRegistry.aquastriveLeggings && body != ItemRegistry.aquastriveChestplate && helmet != ItemRegistry.aquastriveHelmet && !swimFlag){
-            swim.removeModifiers();
+            swim.removeModifier(SWIM_MOD);
             swimFlag = true;
         }
 
