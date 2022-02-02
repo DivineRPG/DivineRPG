@@ -1848,7 +1848,7 @@
   "tooltip.armor_info.fire_protection": "Protección contra fuego",
   "tooltip.armor_info.no_fall": "Sin daño por caída",
   "tooltip.armor_info.flight": "Vuelo",
-  "tooltip.armor_info.speed": "%sx velocidad de movimiento",
+  "tooltip.armor_info.speed": "Velocidad %sx",
   "tooltip.armor_info.melee_damage": "+%s daño a cuerpo",
   "tooltip.armor_info.ranged_damage": "+%s%% daño a distancia",
   "tooltip.armor_info.hunger": "Regeneración de hambre",

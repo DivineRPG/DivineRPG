@@ -287,7 +287,9 @@ public class ArmorAbilitiesEvent
         }
     }
 
-    private boolean flag, swimFlag, shadow, santa, glistening, tormented, demonized;
+    private static final String SWIM_MOD_STRING = "c7b490d7-2bfc-400f-b7bb-e89670daea62";
+    public static final AttributeModifier SWIM_MOD = new AttributeModifier(SWIM_MOD_STRING, 2.0D, AttributeModifier.Operation.ADDITION);
+    private boolean flag, swimFlag, shadow = true;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity entity = evt.player;
@@ -295,6 +297,7 @@ public class ArmorAbilitiesEvent
         ItemStack stackLegs = evt.player.inventory.armor.get(1);
         ItemStack stackBody = evt.player.inventory.armor.get(2);
         ItemStack stackHelmet = evt.player.inventory.armor.get(3);
+        ModifiableAttributeInstance swim = entity.getAttribute(ForgeMod.SWIM_SPEED.get());
 
         float speedMultiplier = 1;
 
@@ -324,11 +327,12 @@ public class ArmorAbilitiesEvent
             }
         }
         if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
-            entity.getAttribute(ForgeMod.SWIM_SPEED.get()).setBaseValue(3.0F);
+            swim.addTransientModifier(SWIM_MOD);
             swimFlag = false;
         }
+
         if(boots != ItemRegistry.aquastriveBoots && legs != ItemRegistry.aquastriveLeggings && body != ItemRegistry.aquastriveChestplate && helmet != ItemRegistry.aquastriveHelmet && !swimFlag){
-            entity.getAttribute(ForgeMod.SWIM_SPEED.get()).setBaseValue(1.0F);
+            swim.removeModifiers();
             swimFlag = true;
         }
 
@@ -384,14 +388,17 @@ public class ArmorAbilitiesEvent
         }
 
         //Shadow
-        if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet && shadow) {
-            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.33F);
-            evt.player.maxUpStep = 1;
-            shadow = false;
+        if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet) {
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 3, false, false));
+            if (shadow) {
+                evt.player.maxUpStep = 1;
+                shadow = false;
+            }
         }
-        if (boots != ItemRegistry.shadowBoots && body != ItemRegistry.shadowChestplate && legs != ItemRegistry.shadowLeggings && helmet != ItemRegistry.shadowHelmet && !shadow) {
-            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-            evt.player.maxUpStep = 0.6F;
+        if (boots != ItemRegistry.shadowBoots || legs != ItemRegistry.shadowLeggings || body != ItemRegistry.shadowChestplate || helmet != ItemRegistry.shadowHelmet) {
+            if(!shadow) {
+                evt.player.maxUpStep = 0.6F;
+            }
             shadow = true;
         }
 
@@ -416,47 +423,28 @@ public class ArmorAbilitiesEvent
         }
 
         //Santa
-        if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet && santa) {
+        if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
             if (evt.player.level.dimension() == KeyRegistry.ICEIKA_WORLD) {
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);
                 }
-                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F);
-                santa = false;
+                entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
             }
         }
-        if (boots != ItemRegistry.santaBoots || body != ItemRegistry.santaChestplate || legs != ItemRegistry.santaLeggings || helmet != ItemRegistry.santaHelmet && !santa) {
-                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-                santa = true;
-        }
-
         //Vethean
 
-        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask && glistening) {
-            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.14F);
-        }
-        if(!glistening) {
-            if (body == ItemRegistry.glisteningChestplate || legs == ItemRegistry.glisteningLeggings || boots == ItemRegistry.glisteningBoots || helmet == ItemRegistry.glisteningMask) {
-                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-            }
+        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
+
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
         }
 
-        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask && demonized) {
-            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.18F);
-        }
-        if(!demonized){
-            if(body == ItemRegistry.demonizedChestplate || legs == ItemRegistry.demonizedLeggings || boots == ItemRegistry.demonizedBoots || helmet == ItemRegistry.demonizedMask) {
-                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-            }
+        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
+
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
         }
 
-        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask && tormented) {
-            evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.22F);
-        }
-        if(!tormented) {
-            if (body == ItemRegistry.tormentedChestplate || legs == ItemRegistry.tormentedLeggings || boots == ItemRegistry.tormentedBoots || helmet == ItemRegistry.tormentedMask) {
-                evt.player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-            }
+        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 3, false, false));
         }
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
