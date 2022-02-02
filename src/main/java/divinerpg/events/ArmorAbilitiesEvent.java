@@ -389,7 +389,7 @@ public class ArmorAbilitiesEvent
 
         //Shadow
         if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet) {
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 3, false, false));
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
             if (shadow) {
                 evt.player.maxUpStep = 1;
                 shadow = false;
@@ -428,23 +428,23 @@ public class ArmorAbilitiesEvent
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);
                 }
-                entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
+                entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
             }
         }
         //Vethean
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
 
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 0, false, false));
         }
 
         if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
 
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
         }
 
         if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 3, false, false));
+            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
         }
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
