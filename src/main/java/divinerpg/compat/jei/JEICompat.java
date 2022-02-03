@@ -38,28 +38,35 @@ public final class JEICompat implements IModPlugin {
 
 
         registration.addRecipeCatalyst(new ItemStack(BlockRegistry.arcaniumExtractor), ArcaniumExtractorCategory.ARCANIUM_EXTRACTOR);
+        registration.addRecipeCatalyst(new ItemStack(BlockRegistry.infusionTable), InfusionTableCategory.TEXTURE);
     }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         IJeiHelpers jeiHelpers = registration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
         registration.addRecipeCategories(new ArcaniumExtractorCategory(guiHelper));
+        registration.addRecipeCategories(new InfusionTableCategory(guiHelper));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         Results recipes = getAllRecipes();
 
-        registration.addRecipes(recipes.getBakingRecipes(), ArcaniumExtractorCategory.ARCANIUM_EXTRACTOR);
+        registration.addRecipes(recipes.arcaniumExtractorRecipes(), ArcaniumExtractorCategory.ARCANIUM_EXTRACTOR);
+        registration.addRecipes(recipes.infusionTableRecipes(), InfusionTableCategory.TEXTURE);
     }
 
 
 
     public static class Results {
         private final List<ArcaniumExtractorRecipe> arcaniumExtractorRecipes = new ArrayList<>();
+        private final List<InfusionTableRecipe> infusionTableRecipes = new ArrayList<>();
 
-        public List<ArcaniumExtractorRecipe> getBakingRecipes() {
+        public List<ArcaniumExtractorRecipe> arcaniumExtractorRecipes() {
             return arcaniumExtractorRecipes;
+        }
+        public List<InfusionTableRecipe> infusionTableRecipes() {
+            return infusionTableRecipes;
         }
     }
 
@@ -69,7 +76,8 @@ public final class JEICompat implements IModPlugin {
         ClientWorld world = Minecraft.getInstance().level;
         RecipeManager recipeManager = world.getRecipeManager();
 
-        results.arcaniumExtractorRecipes.addAll(getRecipes(recipeManager, RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTORRECIPE_TYPE));
+        results.arcaniumExtractorRecipes.addAll(getRecipes(recipeManager, RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTOR_RECIPE_TYPE));
+        results.infusionTableRecipes.addAll(getRecipes(recipeManager, DivineRPG.INFUSION_TABLE_RECIPE));
 
         return results;
     }

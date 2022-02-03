@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:darven_lump",
+    "count": 6
+  },
+  "template": {
+    "item": "divinerpg:disk_template"
+  },
+  "output": {
+    "item": "divinerpg:darven_disk"
+  }
+}

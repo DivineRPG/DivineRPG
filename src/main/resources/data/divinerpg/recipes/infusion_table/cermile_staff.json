@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:cermile_lump",
+    "count": 6
+  },
+  "template": {
+    "item": "divinerpg:staff_template"
+  },
+  "output": {
+    "item": "divinerpg:cermile_staff"
+  }
+}

@@ -6,12 +6,17 @@ import divinerpg.client.*;
 import divinerpg.compat.*;
 import divinerpg.config.*;
 import divinerpg.events.*;
+import divinerpg.recipe.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.block.*;
 import net.minecraft.data.*;
 import net.minecraft.item.*;
+import net.minecraft.item.crafting.*;
+import net.minecraft.util.*;
+import net.minecraft.util.registry.*;
 import net.minecraftforge.common.*;
+import net.minecraftforge.event.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.common.*;
@@ -32,6 +37,7 @@ public class DivineRPG {
         bus.addListener(this::post);
         bus.addListener(this::client);
         bus.addListener(this::gatherData);
+        bus.addGenericListener(IRecipeSerializer.class, this::registerRecipeSerializers);
         EventRegistry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
@@ -76,12 +82,18 @@ public class DivineRPG {
         });
     }
 
+    public static final IRecipeType<InfusionTableRecipe> INFUSION_TABLE_RECIPE = new InfusionTableRecipeType();
     private void client(final FMLClientSetupEvent event) {
         EntityRegistry.render();
         FancyRenders.init();
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         ModelPropRegistry.init();
         ContainerRegistry.registerScreenFactories();
+    }
+
+    private void registerRecipeSerializers (RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(INFUSION_TABLE_RECIPE.toString()), INFUSION_TABLE_RECIPE);
+        event.getRegistry().register(InfusionTableRecipe.SERIALIZER);
     }
 
     private void post(final FMLLoadCompleteEvent event){

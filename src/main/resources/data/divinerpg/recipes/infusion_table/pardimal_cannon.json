@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:pardimal_lump",
+    "count": 17
+  },
+  "template": {
+    "item": "divinerpg:cannon_template"
+  },
+  "output": {
+    "item": "divinerpg:pardimal_cannon"
+  }
+}

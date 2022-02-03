@@ -1,6 +1,5 @@
 package divinerpg.client.containers;
 
-import divinerpg.client.containers.slot.*;
 import divinerpg.registries.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
@@ -20,12 +19,12 @@ public class InfusionTableContainer<C extends IInventory> extends Container {
     public InfusionTableContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray data) {
         super(ContainerRegistry.INFUSION_TABLE.get(), id);
         checkContainerSize(inventory, 3);
-        checkContainerDataCount(data, 3);
+        checkContainerDataCount(data, 2);
         this.inventory = inventory;
         this.data = data;
         addSlot(new Slot(inventory, 0, 18, 39));
         addSlot(new Slot(inventory, 1, 18, 59));
-        addSlot(new SlotInfusion(inventory, 2, 63, 49));
+        addSlot(new Slot(inventory, 2, 63, 49));
 
         this.addDataSlots(data);
 

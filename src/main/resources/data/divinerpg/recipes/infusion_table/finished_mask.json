@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:amthirmis_lump",
+    "count": 9
+  },
+  "template": {
+    "item": "divinerpg:finished_template"
+  },
+  "output": {
+    "item": "divinerpg:finished_mask"
+  }
+}

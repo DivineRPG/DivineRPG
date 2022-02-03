@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:teaker_lump",
+    "count": 7
+  },
+  "template": {
+    "item": "divinerpg:hammer_template"
+  },
+  "output": {
+    "item": "divinerpg:teaker_hammer"
+  }
+}

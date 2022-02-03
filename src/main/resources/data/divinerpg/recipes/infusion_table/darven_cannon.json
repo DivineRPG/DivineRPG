@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:darven_lump",
+    "count": 11
+  },
+  "template": {
+    "item": "divinerpg:cannon_template"
+  },
+  "output": {
+    "item": "divinerpg:darven_cannon"
+  }
+}

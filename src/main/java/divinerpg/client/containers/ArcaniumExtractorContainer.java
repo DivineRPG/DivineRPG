@@ -26,7 +26,7 @@ public class ArcaniumExtractorContainer extends RecipeBookContainer<IInventory> 
     }
     public ArcaniumExtractorContainer(int id, PlayerInventory playerInventory, IInventory inventory, IIntArray data) {
         super(ContainerRegistry.ARCANIUM_EXTRACTOR.get(), id);
-        this.recipeType = RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTORRECIPE_TYPE;
+        this.recipeType = RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTOR_RECIPE_TYPE;
         checkContainerSize(inventory, 3);
         checkContainerDataCount(data, 4);
         this.container = inventory;

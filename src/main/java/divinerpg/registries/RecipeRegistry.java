@@ -14,6 +14,6 @@ public class RecipeRegistry {
     }
 
     public static class RecipeTypes {
-        public static final IRecipeType<ArcaniumExtractorRecipe> ARCANIUM_EXTRACTORRECIPE_TYPE = IRecipeType.register(DivineRPG.MODID + ":arcanium_extractor");
+        public static final IRecipeType<ArcaniumExtractorRecipe> ARCANIUM_EXTRACTOR_RECIPE_TYPE = IRecipeType.register(DivineRPG.MODID + ":arcanium_extractor");
     }
 }

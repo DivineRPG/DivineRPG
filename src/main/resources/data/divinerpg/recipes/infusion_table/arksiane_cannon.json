@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:arksiane_lump",
+    "count": 31
+  },
+  "template": {
+    "item": "divinerpg:cannon_template"
+  },
+  "output": {
+    "item": "divinerpg:arksiane_cannon"
+  }
+}

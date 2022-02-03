@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:pardimal_lump",
+    "count": 11
+  },
+  "template": {
+    "item": "divinerpg:disk_template"
+  },
+  "output": {
+    "item": "divinerpg:pardimal_disk"
+  }
+}

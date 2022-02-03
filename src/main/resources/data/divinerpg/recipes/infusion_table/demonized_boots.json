@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:cermile_lump",
+    "count": 8
+  },
+  "template": {
+    "item": "divinerpg:demonized_template"
+  },
+  "output": {
+    "item": "divinerpg:demonized_boots"
+  }
+}

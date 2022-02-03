@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:quadrotic_lump",
+    "count": 10
+  },
+  "template": {
+    "item": "divinerpg:staff_template"
+  },
+  "output": {
+    "item": "divinerpg:quadrotic_staff"
+  }
+}

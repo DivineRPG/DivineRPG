@@ -74,7 +74,7 @@ public class TileEntityArcaniumExtractor extends LockableTileEntity implements I
 
     public TileEntityArcaniumExtractor() {
         super(TileRegistry.ARCANIUM_EXTRACTOR);
-        this.recipeType = RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTORRECIPE_TYPE;
+        this.recipeType = RecipeRegistry.RecipeTypes.ARCANIUM_EXTRACTOR_RECIPE_TYPE;
     }
 
     @Deprecated

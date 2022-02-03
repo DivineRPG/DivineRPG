@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:teaker_lump",
+    "count": 6
+  },
+  "template": {
+    "item": "divinerpg:degraded_template"
+  },
+  "output": {
+    "item": "divinerpg:degraded_mask"
+  }
+}

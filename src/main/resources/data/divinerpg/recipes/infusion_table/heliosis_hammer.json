@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:heliosis_lump",
+    "count": 27
+  },
+  "template": {
+    "item": "divinerpg:hammer_template"
+  },
+  "output": {
+    "item": "divinerpg:heliosis_hammer"
+  }
+}

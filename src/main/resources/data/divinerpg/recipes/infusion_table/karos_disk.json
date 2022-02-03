@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:karos_lump",
+    "count": 18
+  },
+  "template": {
+    "item": "divinerpg:disk_template"
+  },
+  "output": {
+    "item": "divinerpg:karos_disk"
+  }
+}

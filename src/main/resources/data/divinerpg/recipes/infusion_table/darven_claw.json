@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:darven_lump",
+    "count": 4
+  },
+  "template": {
+    "item": "divinerpg:claw_template"
+  },
+  "output": {
+    "item": "divinerpg:darven_claw"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:amthirmis_lump",
+    "count": 3
+  },
+  "template": {
+    "item": "divinerpg:claw_template"
+  },
+  "output": {
+    "item": "divinerpg:amthirmis_claw"
+  }
+}
