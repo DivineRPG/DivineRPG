@@ -7,10 +7,12 @@ import divinerpg.*;
 import divinerpg.util.WeightedRandom;
 import divinerpg.world.*;
 import divinerpg.world.arcana.*;
+import net.minecraft.block.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.biome.provider.*;
+import net.minecraft.world.chunk.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
@@ -85,8 +87,18 @@ public class VetheaChunkGenerator extends DivineChunkGenerator {
         super.applyBiomeDecoration(region, structureManager);
     }
 
-
-
+    @Override
+    public void buildSurfaceAndBedrock(WorldGenRegion region, IChunk chunk) {
+        BlockState bedrock = Blocks.BEDROCK.defaultBlockState();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
+        int x;
+        int z;
+        for (x = 0; x < 16; x++) {
+            for (z = 0; z < 16; z++) {
+                chunk.setBlockState(pos.set(x, 0, z), bedrock, false);
+            }
+        }
+    }
 
     private void customize(WorldGenRegion region, BlockPos pos) {
         Random random = region.getRandom();
