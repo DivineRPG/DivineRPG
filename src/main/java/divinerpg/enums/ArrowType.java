@@ -4,7 +4,7 @@ import divinerpg.DivineRPG;
 import net.minecraft.util.ResourceLocation;
 
 public enum ArrowType {
-    NONE(0, 0, null),
+    NONE(0, 0, VanillaLoc()),
     HUNTER_ARROW(2, 11, ProjectileLoc("hunter_arrow"), ArrowSpecial.POSION),
     SHADOW_ARROW(2, 11, ProjectileLoc("shadow_arrow")),
     ENDER_ARROW(4, 16, ProjectileLoc("ender_arrow")),
