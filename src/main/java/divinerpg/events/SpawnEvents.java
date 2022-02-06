@@ -209,15 +209,15 @@ public class SpawnEvents {
         return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
     }
     public static boolean vetheaLayer1(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 18 && pos.getY() < 36;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 1 && pos.getY() < 48;
     }
     public static boolean vetheaLayer2(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 65 && pos.getY() < 85;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 49 && pos.getY() < 96;
     }
     public static boolean vetheaLayer3(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 113 && pos.getY() < 133;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 97 && pos.getY() < 144;
     }
     public static boolean vetheaLayer4(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 160;
+        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 145;
     }
 }
