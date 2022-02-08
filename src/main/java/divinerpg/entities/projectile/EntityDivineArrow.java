@@ -67,6 +67,7 @@ public class EntityDivineArrow extends AbstractArrowEntity {
 
     public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World world, ArrowType arrowType, LivingEntity shooter) {
         this(type, world, arrowType, shooter.xo, shooter.yo + (double) shooter.getEyeHeight() - 0.10000000149011612D, shooter.zo);
+        this.shootingEntity = shooter;
     }
 
     public EntityDivineArrow(EntityType<? extends AbstractArrowEntity> type, World worldIn, ArrowType arrowType, LivingEntity shooter, LivingEntity target, float velocity, float inaccuracy) {
@@ -77,6 +78,7 @@ public class EntityDivineArrow extends AbstractArrowEntity {
         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
         this.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, velocity + arrowType.getMinDamage()/arrowType.getMaxDamage(), inaccuracy);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+        this.shootingEntity = shooter;
     }
 
     @Override
