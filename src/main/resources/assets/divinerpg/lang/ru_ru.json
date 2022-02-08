@@ -1762,6 +1762,7 @@
   "message.ancient_entity": "Древняя сущность может быть призвана только в обычном мире.",
   "message.nightmare_bed.restrict": "Кровать кошмаров можно использовать только в тёмном месте.",
   "message.nightmare_bed.overworld_only": "Кровать кошмаров можно использовать только в обычном мире.",
+  "message.teleportation_crystal_no_respawn": "У вас не установлена точка респауна.",
   "message.teleportation_star_no_position": "Используйте КРАСТЬСЯ + ПКМ, чтобы установить точку телепортации.",
   "message.teleportation_star_change_position": "Вы не можете изменить точку телепортации.",
   "message.standard": "Спасибо %s за скачивание и игру в DivineRPG!",

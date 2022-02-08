@@ -1815,6 +1815,7 @@
   "message.ancient_entity": "The Ancient Entity can only be spawned in the Overworld.",
   "message.nightmare_bed.restrict": "You can only use the Nightmare Bed in a dark place.",
   "message.nightmare_bed.overworld_only": "You can only use the Nightmare Bed in the overworld.",
+  "message.teleportation_crystal_no_respawn": "You don't have a respawn point.",
   "message.teleportation_star_no_position": "Use Sneak + Right Click, to set a teleportation position.",
   "message.teleportation_star_change_position": "You can't change initial position.",
   "message.standard": "Thank you %s for downloading and playing DivineRPG!",
