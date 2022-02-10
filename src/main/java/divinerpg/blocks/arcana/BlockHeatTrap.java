@@ -38,21 +38,12 @@ public class BlockHeatTrap extends BlockModUnbreakable {
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
-        return VoxelShapes.create(new AxisAlignedBB(1.1, 1.1, 1.1, -0.1, -0.1, -0.1));
-    }
-
-
-
-    @Override
-    public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
-        super.entityInside(state, world, pos, entity);
-        if (world.getBlockState(pos).getValue(ACTIVE) == false) {
-            world.setBlock(pos, BlockRegistry.heatTrap.defaultBlockState().setValue(ACTIVE, Boolean.valueOf(true)), 1);
+    public void updateEntityAfterFallOn(IBlockReader block, Entity entityIn){
+        if (!block.getBlockState(entityIn.blockPosition().below()).getBlockState().getValue(ACTIVE)) {
+            entityIn.level.setBlock(entityIn.blockPosition().below(), BlockRegistry.heatTrap.defaultBlockState().setValue(ACTIVE, Boolean.valueOf(true)), 1);
         }
-
-        if (world.getBlockState(pos).getValue(ACTIVE) == true && entity instanceof ServerPlayerEntity) {
-            LivingEntity entityLivingBase = (LivingEntity)entity;
+        if (block.getBlockState(entityIn.blockPosition().below()).getValue(ACTIVE) && entityIn instanceof ServerPlayerEntity) {
+            LivingEntity entityLivingBase = (LivingEntity) entityIn;
             if(entityLivingBase.getEffect(new EffectInstance(Effects.FIRE_RESISTANCE).getEffect()) == null) {
                 entityLivingBase.hurt(DamageSources.trapSource, 6);
             }

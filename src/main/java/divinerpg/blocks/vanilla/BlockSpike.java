@@ -17,12 +17,7 @@ public class BlockSpike extends BlockMod {
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
-        return VoxelShapes.create(new AxisAlignedBB(1.1, 1.1, 1.1, -0.1, -0.1, -0.1));
-    }
-
-    @Override
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void updateEntityAfterFallOn(IBlockReader block, Entity entityIn){
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
                 entityIn.hurt(DamageSources.spikeSource, 8);
@@ -34,4 +29,5 @@ public class BlockSpike extends BlockMod {
             }
         }
     }
+
 }
