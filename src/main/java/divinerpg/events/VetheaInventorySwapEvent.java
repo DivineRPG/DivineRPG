@@ -13,14 +13,17 @@ public class VetheaInventorySwapEvent {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        if (event.isCanceled() || !(event.getEntity() instanceof PlayerEntity)) return;
+        if (event.isCanceled() || !(event.getEntity() instanceof PlayerEntity))
+            return;
 
         PlayerEntity playerIn = event.getPlayer();
-        if (!persistentData.getList("OverworldInv", 10).isEmpty() && persistentData.getList("OverworldInv", 10) != null) {
-            ListNBT inv = persistentData.getList("OverworldInv", 10);
-            playerIn.inventory.load(inv);
-            playerIn.inventoryMenu.broadcastChanges();
-            persistentData.getList("OverworldInv", 10).clear();
+        if (persistentData != null) {
+            if (!persistentData.getList("OverworldInv", 10).isEmpty()) {
+                ListNBT inv = persistentData.getList("OverworldInv", 10);
+                playerIn.inventory.load(inv);
+                playerIn.inventoryMenu.broadcastChanges();
+                persistentData.getList("OverworldInv", 10).clear();
+            }
         }
     }
 

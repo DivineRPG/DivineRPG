@@ -60,16 +60,16 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
         ItemStack heldItem = player.getMainHandItem();
         Item activationItem = activationItemSupplier.get();
 
-        if (heldItem.getItem() != activationItem && activationItem != null) {
+        if (world.getDifficulty() == Difficulty.PEACEFUL) {
             if (!world.isClientSide && hand == Hand.MAIN_HAND)
-                player.sendMessage(new TranslationTextComponent("message.spawner.item", String.format("%s", activationItem.getDescriptionId())), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("message.spawner.peaceful"), player.getUUID());
 
             return ActionResultType.FAIL;
         }
 
-        if (world.getDifficulty() == Difficulty.PEACEFUL) {
+        if (heldItem.getItem() != activationItem && activationItem != null) {
             if (!world.isClientSide && hand == Hand.MAIN_HAND)
-                player.sendMessage(new TranslationTextComponent("message.spawner.peaceful"), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("message.spawner.item", String.format("%s", activationItem.getDescription().getString())), player.getUUID());
 
             return ActionResultType.FAIL;
         }
