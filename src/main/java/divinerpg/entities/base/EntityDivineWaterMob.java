@@ -31,6 +31,10 @@ public class EntityDivineWaterMob extends AbstractFishEntity {
         return worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);
     }
 
+    @Override
+    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+        return 0.0F;
+    }
 
     @Override
     public CreatureAttribute getMobType() {
