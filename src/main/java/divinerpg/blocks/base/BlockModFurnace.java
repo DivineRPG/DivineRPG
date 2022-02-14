@@ -14,7 +14,7 @@ import java.util.*;
 public abstract class BlockModFurnace extends AbstractFurnaceBlock {
 
     public BlockModFurnace(String name) {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE));
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
         setRegistryName(DivineRPG.MODID, name);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }
