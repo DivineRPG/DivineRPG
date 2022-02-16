@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:corrupted_shard"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:corrupted_bullet",
+    "count": 16
+  }
+}
