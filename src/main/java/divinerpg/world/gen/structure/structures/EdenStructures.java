@@ -2,15 +2,14 @@ package divinerpg.world.gen.structure.structures;
 
 import com.google.common.collect.*;
 import com.mojang.serialization.*;
-import divinerpg.*;
-import divinerpg.world.gen.structure.DivineStructures;
+import divinerpg.world.gen.piece.*;
+import divinerpg.world.gen.structure.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.feature.template.*;
 
@@ -52,19 +51,8 @@ public class EdenStructures extends Structure<NoFeatureConfig> {
         public void generatePieces(DynamicRegistries dynamicRegistryManager, ChunkGenerator chunkGenerator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig config) {
             chunkX = chunkX * 16 + random.nextInt(16);
             chunkZ = chunkZ * 16 + random.nextInt(16);
-            if(DivineStructures.getYPositionForFeature(chunkX, chunkZ, chunkGenerator) > 50) {
-            	JigsawManager.addPieces(
-                    dynamicRegistryManager,
-                    new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(new ResourceLocation(DivineRPG.MODID, "twilight/eden")), 10),
-                    AbstractVillagePiece::new,
-                    chunkGenerator,
-                    templateManagerIn,
-                    new BlockPos(chunkX, 0, chunkZ),
-                    pieces,
-                    random,
-                    false,
-                    true);
+            if(!chunkGenerator.getBaseColumn(chunkX, chunkZ).getBlockState(new BlockPos(chunkX, DivineStructures.getYPositionForFeature(chunkX, chunkZ, chunkGenerator) - 2, chunkZ)).isAir()) {
+                this.pieces.add(new EdenPiece.Piece(templateManagerIn, new BlockPos(chunkX, DivineStructures.getYPositionForFeature(chunkX, chunkZ, chunkGenerator) - 1, chunkZ), Rotation.getRandom(this.random)));
                 this.calculateBoundingBox();
             }
         }

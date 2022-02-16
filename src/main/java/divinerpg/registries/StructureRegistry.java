@@ -79,6 +79,7 @@ public class StructureRegistry {
         IStructurePieceType ARCANA_PIECE = register(ArcanaPieces.Piece::new, "arcana");
         IStructurePieceType ICEIKA_HOUSE = register(IceikaHousePiece.Piece::new, "iceika_house");
         IStructurePieceType ICEIKA_DUNGEON = register(IceikaDungeonPiece.Piece::new, "iceika_dungeon");
+        IStructurePieceType EDEN_PIECE = register(EdenPiece.Piece::new, "eden");
 
         static IStructurePieceType register(IStructurePieceType piece, String name) {
             return Registry.register(Registry.STRUCTURE_PIECE, name.toLowerCase(Locale.ROOT), piece);

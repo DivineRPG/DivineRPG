@@ -1,0 +1,168 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "divinerpg:eden_sapling",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_bow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_blade"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:eden_phaser"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "divinerpg:eden_torch",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_shield"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_blitz"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_slicer"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "divinerpg:eden_soul",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "divinerpg:eden_fragments",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:eden_arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "minecraft:apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CustomPotionEffects:[{Id:1,Duration:400,ShowParticles:0b},{Id:8,Duration:300,ShowParticles:0b},{Id:10,Amplifier:1,Duration:400,ShowParticles:0b},{Id:11,Duration:3600,ShowParticles:0b},{Id:21,Amplifier:2,Duration:1200,ShowParticles:0b}],CustomPotionColor:16122624,display:{Name:\"\\\"Red Cattle\\\"\",Lore:[\"The fear of failure that drives you\"]}}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
