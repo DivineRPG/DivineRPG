@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:corrupted_shard"
+      "item": "divinerpg:corrupted_shards"
     }
   ],
   "result": {
