@@ -1943,6 +1943,27 @@
   "divinerpg.sit.false": "Your pet will now follow you",
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
   "category.divinerpg.arcanium_extractor": "Arcanium Extractor",
+
   "book.divinerpg.book_name": "DivineRPG guide",
-  "book.divinerpg.landing_text": "This guide book is still WIP but will contain the most frequently asked questions aswell as some general good knowledge about how to play the mod."
+  "book.divinerpg.landing_text": "This guide book is still WIP but will contain the most frequently asked questions aswell as some general good knowledge about how to play the mod.",
+
+  "book.divinerpg.category.getting_started": "Getting started",
+  "book.divinerpg.category.getting_started.desc": "As with all mods, you have to start somewhere",
+
+  "book.divinerpg.category.eden": "Eden",
+  "book.divinerpg.category.eden.desc": "The first twilight dimension",
+  "book.divinerpg.category.wildwood": "Wildwood",
+  "book.divinerpg.category.wildwood.desc": "The second twilight dimension",
+  "book.divinerpg.category.apalachia": "Apalachia",
+  "book.divinerpg.category.apalachia.desc": "The third twilight dimension",
+  "book.divinerpg.category.skythern": "Skythern",
+  "book.divinerpg.category.skythern.desc": "The fourth twilight dimension",
+  "book.divinerpg.category.mortum": "Mortum",
+  "book.divinerpg.category.mortum.desc": "The fifth and final twilight dimension",
+  "book.divinerpg.category.iceika": "Iceika",
+  "book.divinerpg.category.iceika.desc": "The snow dimension",
+  "book.divinerpg.category.arcana": "Arcana",
+  "book.divinerpg.category.arcana.desc": "The maze dimension",
+  "book.divinerpg.category.vethea": "Vethea",
+  "book.divinerpg.category.vethea.desc": "The nightmare dimension"
 }
