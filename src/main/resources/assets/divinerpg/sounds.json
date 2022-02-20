@@ -1266,5 +1266,17 @@
     "sounds": [
       "divinerpg:iceika_music"
     ]
+  },
+  "patchouli_open": {
+    "category": "player",
+    "sounds": [
+      "divinerpg:patchouli_open"
+    ]
+  },
+  "patchouli_flip": {
+    "category": "player",
+    "sounds": [
+      "divinerpg:patchouli_flip"
+    ]
   }
 }

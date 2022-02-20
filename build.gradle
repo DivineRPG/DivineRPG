@@ -27,6 +27,8 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 divinerpg {
@@ -80,6 +82,8 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}") //Just Enough Items
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
     compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT:api") //Patchouli
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT") //Patchouli
 }
 
 jar {

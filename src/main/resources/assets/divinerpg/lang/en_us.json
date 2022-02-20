@@ -1942,5 +1942,7 @@
   "divinerpg.sit.true": "Your pet will now sit",
   "divinerpg.sit.false": "Your pet will now follow you",
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
-  "category.divinerpg.arcanium_extractor": "Arcanium Extractor"
+  "category.divinerpg.arcanium_extractor": "Arcanium Extractor",
+  "book.divinerpg.book_name": "DivineRPG guide",
+  "book.divinerpg.landing_text": "This guide book is still WIP but will contain the most frequently asked questions aswell as some general good knowledge about how to play the mod."
 }

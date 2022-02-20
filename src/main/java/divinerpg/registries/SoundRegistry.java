@@ -227,6 +227,8 @@ public class SoundRegistry {
     public static final SoundEvent ZORAGON_HURT = createEvent("zoragon_hurt");
 
     public static final SoundEvent ICEIKA_MUSIC = createEvent("iceika_music");
+    public static final SoundEvent PATCHOULI_FLIP = createEvent("patchouli_flip");
+    public static final SoundEvent PATCHOULI_OPEN = createEvent("patchouli_open");
 
     private static SoundEvent createEvent(String sound) {
         ResourceLocation soundLocation = new ResourceLocation(DivineRPG.MODID, sound);

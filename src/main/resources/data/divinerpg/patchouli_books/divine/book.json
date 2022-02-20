@@ -1,0 +1,13 @@
+{
+  "name": "book.divinerpg.book_name",
+  "landing_text": "book.divinerpg.landing_text",
+  "version": 1,
+  "texture": "patchouli:textures/gui/book_cyan.png",
+  "model": "patchouli:book_cyan",
+  "open_sound": "divinerpg:patchouli_open",
+  "flip_sound": "divinerpg:patchouli_flip",
+  "creative_tab": "divinerpg_utility",
+  "show_progress": false,
+  "show_toasts": false,
+  "i18n": true
+}
