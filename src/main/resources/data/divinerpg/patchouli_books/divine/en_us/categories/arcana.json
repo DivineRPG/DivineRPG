@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.arcana",
   "description": "book.divinerpg.category.arcana.desc",
-  "icon": "divinerpg:arcana_portal_frame"
+  "icon": "divinerpg:arcana_portal_frame",
+  "sortnum": 7
 }

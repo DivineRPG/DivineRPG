@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.apalachia",
   "description": "book.divinerpg.category.apalachia.desc",
-  "icon": "divinerpg:apalachia_block"
+  "icon": "divinerpg:apalachia_block",
+  "sortnum": 3
 }

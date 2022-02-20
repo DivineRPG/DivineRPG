@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.getting_started",
   "description": "book.divinerpg.category.getting_started.desc",
-  "icon": "divinerpg:realmite_ore"
+  "icon": "divinerpg:realmite_ore",
+  "sortnum": 0
 }

@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.vethea",
   "description": "book.divinerpg.category.vethea.desc",
-  "icon": "divinerpg:nightmare_bed"
+  "icon": "divinerpg:nightmare_bed",
+  "sortnum": 8
 }

@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.eden",
   "description": "book.divinerpg.category.eden.desc",
-  "icon": "divinerpg:eden_block"
+  "icon": "divinerpg:eden_block",
+  "sortnum": 1
 }

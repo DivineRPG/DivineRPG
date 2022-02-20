@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.iceika",
   "description": "book.divinerpg.category.iceika.desc",
-  "icon": "divinerpg:snow_globe"
+  "icon": "divinerpg:snow_globe",
+  "sortnum": 6
 }

@@ -1,5 +1,6 @@
 {
   "name": "book.divinerpg.category.wildwood",
   "description": "book.divinerpg.category.wildwood.desc",
-  "icon": "divinerpg:wildwood_block"
+  "icon": "divinerpg:wildwood_block",
+  "sortnum": 2
 }
