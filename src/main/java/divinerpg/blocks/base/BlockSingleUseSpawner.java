@@ -77,11 +77,13 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
         TileEntity spawnerTile = world.getBlockEntity(pos);
 
         if (spawnerTile instanceof TileEntitySingleUseSpawner) {
-            if (!world.isClientSide && hand == Hand.MAIN_HAND) {
-                ((TileEntitySingleUseSpawner) spawnerTile).activate(player);
+            if (!((TileEntitySingleUseSpawner) spawnerTile).isActivated()) {
+                if (!world.isClientSide && hand == Hand.MAIN_HAND) {
+                    ((TileEntitySingleUseSpawner) spawnerTile).activate(player);
 
-                if (!player.isCreative())
-                    heldItem.shrink(1);
+                    if (!player.isCreative())
+                        heldItem.shrink(1);
+                }
             }
         }
         return ActionResultType.PASS;
@@ -113,6 +115,7 @@ public class BlockSingleUseSpawner extends BlockMod implements ITileEntityProvid
     public VoxelShape getVisualShape(BlockState p_230322_1_, IBlockReader p_230322_2_, BlockPos p_230322_3_, ISelectionContext p_230322_4_) {
         return VoxelShapes.empty();
     }
+
     public boolean propagatesSkylightDown(BlockState p_200123_1_, IBlockReader p_200123_2_, BlockPos p_200123_3_) {
         return true;
     }
