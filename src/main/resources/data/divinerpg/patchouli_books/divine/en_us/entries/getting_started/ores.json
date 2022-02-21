@@ -1,0 +1,43 @@
+{
+  "name": "book.entries.getting_started.ores",
+  "category": "divinerpg:getting_started",
+  "icon": "divinerpg:realmite_ore",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.ores.title",
+      "text": "book.divinerpg.entry.getting_started.ores.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:arlemite_ore",
+      "title": "book.divinerpg.entry.getting_started.arlemite.title",
+      "text": "book.divinerpg.entry.getting_started.arlemite.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:realmite_ore",
+      "title": "book.divinerpg.entry.getting_started.realmite.title",
+      "text": "book.divinerpg.entry.getting_started.realmite.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:rupee_ore",
+      "title": "book.divinerpg.entry.getting_started.rupee.title",
+      "text": "book.divinerpg.entry.getting_started.rupee.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:bloodgem_ore",
+      "title": "book.divinerpg.entry.getting_started.bloodgem.title",
+      "text": "book.divinerpg.entry.getting_started.bloodgem.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:torridite_ore",
+      "title": "book.divinerpg.entry.getting_started.torridite.title",
+      "text": "book.divinerpg.entry.getting_started.torridite.1"
+    }
+  ]
+}

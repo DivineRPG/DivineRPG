@@ -1,0 +1,54 @@
+{
+  "name": "book.entries.getting_started.bosses",
+  "category": "divinerpg:getting_started",
+  "icon": "divinerpg:horde_horn",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:the_watcher",
+      "scale": 0.6,
+      "name": "The Watcher",
+      "offset": 1.4
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.the_watcher",
+      "text": "book.divinerpg.entry.getting_started.the_watcher.1"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:ancient_entity",
+      "scale": 0.4,
+      "name": "Ancient Entity",
+      "offset": 3
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.ancient_entity",
+      "text": "book.divinerpg.entry.getting_started.ancient_entity.1"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:king_of_scorchers",
+      "scale": 0.8,
+      "name": "King of Scorchers"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.king_of_scorchers",
+      "text": "book.divinerpg.entry.getting_started.king_of_scorchers.1"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:horde_horn",
+      "title": "book.divinerpg.entry.getting_started.ayeraco.title",
+      "text": "book.divinerpg.entry.getting_started.ayeraco.1"
+    },
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.ayeraco.title",
+      "text": "book.divinerpg.entry.getting_started.ayeraco.2"
+    }
+  ]
+}
