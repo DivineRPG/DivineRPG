@@ -1,0 +1,18 @@
+{
+  "name": "book.entries.getting_started.enchantments",
+  "category": "divinerpg:getting_started",
+  "icon": "minecraft:enchanted_book",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "enchantment.divinerpg.rive",
+      "text": "book.divinerpg.entry.getting_started.enchantments.1"
+    },
+    {
+      "type": "text",
+      "title": "enchantment.divinerpg.aftershock",
+      "text": "book.divinerpg.entry.getting_started.enchantments.2"
+    }
+  ]
+}
