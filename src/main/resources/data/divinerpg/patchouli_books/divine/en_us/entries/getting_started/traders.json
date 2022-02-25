@@ -1,0 +1,30 @@
+{
+  "name": "book.entries.getting_started.traders",
+  "category": "divinerpg:getting_started",
+  "icon": "divinerpg:scythe",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:jack_o_man",
+      "scale": 1,
+      "name": "Jack-O-Man"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.jack_o_man",
+      "text": "book.divinerpg.entry.getting_started.jack_o_man.1"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:livestock_merchant",
+      "scale": 1,
+      "name": "Livestock Merchant"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.livestock_merchant",
+      "text": "book.divinerpg.entry.getting_started.livestock_merchant.1"
+    }
+  ]
+}

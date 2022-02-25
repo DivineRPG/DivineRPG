@@ -1953,6 +1953,7 @@
   "book.entries.getting_started.bosses": "Vanilla dimension bosses",
   "book.entries.getting_started.enchantments": "Enchantments",
   "book.entries.getting_started.ores": "Vanilla dimension ores",
+  "book.entries.getting_started.traders": "Trader mobs",
 
   "book.divinerpg.category.eden": "Eden",
   "book.divinerpg.category.eden.desc": "The first twilight dimension",
@@ -1991,7 +1992,9 @@
   "book.divinerpg.entry.getting_started.ayeraco.2": "The Yellow Ayeraco increases the other ayeraco damage and finally the Purple Ayeraco will teleport the other ayeraco at half health. This is the third and final mob that drops divine shards",
   "book.divinerpg.entry.getting_started.ayeraco.title": "Ayeraco Horde",
   "book.divinerpg.entry.getting_started.enchantments.1": "Rive when applied to a mining tool will excavate in a (enchant level x enchant level x enchant level) sized radius.",
-  "book.divinerpg.entry.getting_started.enchantments.2": "Aftershock has a chance to double the damage done by melee weapons."
+  "book.divinerpg.entry.getting_started.enchantments.2": "Aftershock has a chance to double the damage done by melee weapons.",
+  "book.divinerpg.entry.getting_started.jack_o_man.1": "The Jack-O-Man offers the Skeleman armor, the Jack-O-Man armor, the Wither Reaper armor and lastly the scythe",
+  "book.divinerpg.entry.getting_started.livestock_merchant.1": "The Livestock Merchant offers the following pets as trades: Ehu, Husk, Stone Golem, Smelter, Snapper, White Grizzle and lastly the Brown Grizzle"
 
 
 }
