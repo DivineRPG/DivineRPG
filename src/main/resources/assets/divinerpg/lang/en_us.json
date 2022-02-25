@@ -1954,6 +1954,14 @@
   "book.entries.getting_started.enchantments": "Enchantments",
   "book.entries.getting_started.ores": "Vanilla dimension ores",
   "book.entries.getting_started.traders": "Trader mobs",
+  "book.entries.eden.eden_portal": "Eden portal",
+  "book.entries.wildwood.wildwood_portal": "Wildwood portal",
+  "book.entries.apalachia.apalachia_portal": "Apalachia portal",
+  "book.entries.skythern.skythern_portal": "Skythern portal",
+  "book.entries.mortum.mortum_portal": "Mortum portal",
+  "book.entries.iceika.iceika_portal": "Iceika portal",
+  "book.entries.vethea.nightmare_bed": "Nightmare Bed",
+  "book.entries.arcana.arcana_portal": "Arcana portal",
 
   "book.divinerpg.category.eden": "Eden",
   "book.divinerpg.category.eden.desc": "The first twilight dimension",
@@ -1984,7 +1992,6 @@
   "book.divinerpg.entry.getting_started.bloodgem.1": "Bloodgem ore spawns all throughout the nether.",
   "book.divinerpg.entry.getting_started.torridite.title": "Torridite ore",
   "book.divinerpg.entry.getting_started.torridite.1": "Torridite ore spawns all throughout the nether. Torridite was previously known as Netherite!",
-
   "book.divinerpg.entry.getting_started.the_watcher.1": "The Watcher is a boss that is spawned using the Call of the Watcher inside of the nether. It flys around and shoots fireballs that explode and can break the environment. The Watcher is one of a 3 mobs that drop the divine shards",
   "book.divinerpg.entry.getting_started.ancient_entity.1": "The Ancient Entity is a large boss that is spawned by using the Mysterious Clock. The Ancient Entity can launch the player into the air. It is one of the three boss mobs that drop divine shards",
   "book.divinerpg.entry.getting_started.king_of_scorchers.1": "The King of Scorchers is a boss that is spawned by using the Infernal Flame. It shoots fireballs fastly at the player. They drop bluefire stones as well as fury fire",
@@ -1994,7 +2001,17 @@
   "book.divinerpg.entry.getting_started.enchantments.1": "Rive when applied to a mining tool will excavate in a (enchant level x enchant level x enchant level) sized radius.",
   "book.divinerpg.entry.getting_started.enchantments.2": "Aftershock has a chance to double the damage done by melee weapons.",
   "book.divinerpg.entry.getting_started.jack_o_man.1": "The Jack-O-Man offers the Skeleman armor, the Jack-O-Man armor, the Wither Reaper armor and lastly the scythe",
-  "book.divinerpg.entry.getting_started.livestock_merchant.1": "The Livestock Merchant offers the following pets as trades: Ehu, Husk, Stone Golem, Smelter, Snapper, White Grizzle and lastly the Brown Grizzle"
+  "book.divinerpg.entry.getting_started.livestock_merchant.1": "The Livestock Merchant offers the following pets as trades: Ehu, Husk, Stone Golem, Smelter, Snapper, White Grizzle and lastly the Brown Grizzle",
 
+  "book.divinerpg.entry.eden.eden_portal.1": "The eden portal is created using a minimum of 10 divine rock in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Twilight Clock.",
+  "book.divinerpg.entry.wildwood.wildwood_portal.1": "The wildwood portal is created using a minimum of 10 eden blocks in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Twilight Clock.",
+  "book.divinerpg.entry.apalachia.apalachia_portal.1": "The apalachia portal is created using a minimum of 10 wildwood blocks in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Twilight Clock.",
+  "book.divinerpg.entry.skythern.skythern_portal.1": "The skythern portal is created using a minimum of 10 apalachia blocks in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Twilight Clock.",
+  "book.divinerpg.entry.mortum.mortum_portal.1": "The mortum portal is created using a minimum of 10 skythern blocks in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Twilight Clock.",
+  "book.divinerpg.entry.iceika.iceika_portal.1": "The iceika portal is created using a minimum of 10 snow blocks in the shape of a nether portal then to ignite the portal you right click the bottom blocks with a Snow Globe.",
+  "book.divinerpg.entry.arcana.arcana_portal.1": "The arcana portal is created using 12 arcana portal frame blocks in the shape of an end portal.",
+  "book.divinerpg.entry.arcana.arcana_portal.2": "There is a video on the next page",
+  "book.divinerpg.entry.arcana.arcana_portal.3": "Does the description not make sense? Check out this video",
+  "book.divinerpg.entry.vethea.nightmare_bed.1": "The nightmare bed must be placed in darkness to transfer the player to the vethea dimension. The player will have their inventory swapped because once you enter vethea you are in a dream. The overworld inventory gets restored when leaving vethea."
 
 }

@@ -1,0 +1,18 @@
+{
+  "name": "book.entries.wildwood.wildwood_portal",
+  "category": "divinerpg:wildwood",
+  "icon": "divinerpg:wildwood_block",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.wildwood.wildwood_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/wildwood_portal.png"],
+      "title": "Wildwood Portal",
+      "border": true
+    }
+  ]
+}

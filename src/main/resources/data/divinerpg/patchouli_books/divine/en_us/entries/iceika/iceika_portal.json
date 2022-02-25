@@ -1,0 +1,18 @@
+{
+  "name": "book.entries.iceika.iceika_portal",
+  "category": "divinerpg:iceika",
+  "icon": "divinerpg:snow_globe",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.iceika.iceika_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/iceika_portal.png"],
+      "title": "Iceika Portal",
+      "border": true
+    }
+  ]
+}

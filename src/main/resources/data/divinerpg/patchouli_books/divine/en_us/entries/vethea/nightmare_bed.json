@@ -1,0 +1,18 @@
+{
+  "name": "book.entries.vethea.nightmare_bed",
+  "category": "divinerpg:vethea",
+  "icon": "divinerpg:nightmare_bed",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.vethea.nightmare_bed.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/nightmare_bed.png"],
+      "title": "Nightmare Bed",
+      "border": true
+    }
+  ]
+}
