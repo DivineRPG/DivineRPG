@@ -1,0 +1,58 @@
+{
+  "name": "book.entries.twilight.portals",
+  "category": "divinerpg:twilight",
+  "icon": "divinerpg:eden_block",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.twilight.eden_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/eden_portal.png"],
+      "title": "Eden Portal",
+      "border": true
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.twilight.wildwood_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/wildwood_portal.png"],
+      "title": "Wildwood Portal",
+      "border": true
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.twilight.apalachia_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/apalachia_portal.png"],
+      "title": "Apalachia Portal",
+      "border": true
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.twilight.skythern_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/skythern_portal.png"],
+      "title": "Skythern Portal",
+      "border": true
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.twilight.mortum_portal.1"
+    },
+    {
+      "type": "image",
+      "images": ["divinerpg:textures/gui/patchouli/mortum_portal.png"],
+      "title": "Mortum Portal",
+      "border": true
+    }
+    ]
+}
