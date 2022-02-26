@@ -1958,6 +1958,7 @@
   "book.entries.iceika.iceika_portal": "Iceika portal",
   "book.entries.vethea.nightmare_bed": "Nightmare Bed",
   "book.entries.arcana.arcana_portal": "Arcana portal",
+  "book.entries.twilight.bosses": "Twilight Bosses",
 
   "book.divinerpg.category.twilight": "The Twilight Dimensions",
   "book.divinerpg.category.twilight.desc": "The five twilight dimensions",
@@ -2000,6 +2001,15 @@
   "book.divinerpg.entry.arcana.arcana_portal.1": "The arcana portal is created using 12 arcana portal frame blocks in the shape of an end portal.",
   "book.divinerpg.entry.arcana.arcana_portal.2": "There is a video on the next page",
   "book.divinerpg.entry.arcana.arcana_portal.3": "Does the description not make sense? Check out this video",
-  "book.divinerpg.entry.vethea.nightmare_bed.1": "The nightmare bed must be placed in darkness to transfer the player to the vethea dimension. The player will have their inventory swapped because once you enter vethea you are in a dream. The overworld inventory gets restored when leaving vethea."
-
+  "book.divinerpg.entry.vethea.nightmare_bed.1": "The nightmare bed must be placed in darkness to transfer the player to the vethea dimension. The player will have their inventory swapped because once you enter vethea you are in a dream. The overworld inventory gets restored when leaving vethea.",
+  "book.divinerpg.entry.twilight.sunstorm": "Sunstorm dungeons spawn inside Eden and require a eden chunk to activate.",
+  "book.divinerpg.entry.twilight.termasect": "Termasect nests spawn inside Wildwood and require a wildwood chunk to activate.",
+  "book.divinerpg.entry.twilight.eternal_archer": "Sunstorm dungeons spawn inside Apalachia and require a apalachia chunk to activate.",
+  "book.divinerpg.entry.twilight.experienced_cori": "Sunstorm dungeons spawn inside Skythern and require a skythern chunk to activate.",
+  "book.divinerpg.entry.twilight.densos": "Densos is a melee boss. He deals roughly 31 damage and has 500 hearts of health. Densos's best friend is Reyvor!",
+  "book.divinerpg.entry.twilight.karot": "Karot is basically a large angry bunny that spawns smaller angry bunnies as minions. Karot has 625 hearts of health attacks with melee.",
+  "book.divinerpg.entry.twilight.reyvor": "Reyvor is a ranged boss. He deals roughly 40 damage and has 500 hearts of health. Reyvor's best friend is Densos!",
+  "book.divinerpg.entry.twilight.soul_fiend": "Soul Fiend will give you multiple negative effects and attacks with melee. it has 550 hearts of health and deals 34 damage.",
+  "book.divinerpg.entry.twilight.twilight_demon": "Twilight demon has both melee and ranged attacks, its ranged attack will give you negative effects. It has 800 hearts of health.",
+  "book.divinerpg.entry.twilight.vamacheron": "Vamacheron is a fast melee boss and has 675 hearts of health. Due to his speed he hits like a truck!"
 }

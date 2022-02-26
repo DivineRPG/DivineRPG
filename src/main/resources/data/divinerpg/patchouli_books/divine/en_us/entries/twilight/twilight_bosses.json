@@ -1,0 +1,145 @@
+{
+  "name": "book.entries.twilight.bosses",
+  "category": "divinerpg:twilight",
+  "icon": "divinerpg:eden_chunk",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:sunstorm",
+      "scale": 1,
+      "name": "Sunstorm",
+      "offset": 0.4
+    },
+    {
+      "type": "image",
+      "title": "entity.divinerpg.sunstorm",
+      "text": "book.divinerpg.entry.twilight.sunstorm",
+      "images": [
+        "divinerpg:textures/gui/patchouli/eden_dungeon.png"
+      ]
+    },{
+      "type": "entity",
+      "entity": "divinerpg:termasect",
+      "scale": 0.6,
+      "name": "Termasect",
+      "offset": 2
+    },
+    {
+      "type": "image",
+      "title": "entity.divinerpg.termasect",
+      "text": "book.divinerpg.entry.twilight.termasect",
+      "images": [
+        "divinerpg:textures/gui/patchouli/wildwood_dungeon.png"
+      ]
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:eternal_archer",
+      "scale": 0.8,
+      "name": "Eternal Archer",
+      "offset": 1.4
+    },
+    {
+      "type": "image",
+      "title": "entity.divinerpg.eternal_archer",
+      "text": "book.divinerpg.entry.twilight.eternal_archer",
+      "images": [
+        "divinerpg:textures/gui/patchouli/apalachia_dungeon.png"
+      ]
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:experienced_cori",
+      "scale": 1,
+      "name": "Experienced Cori",
+      "offset": 1.4
+    },
+    {
+      "type": "image",
+      "title": "entity.divinerpg.experienced_cori",
+      "text": "book.divinerpg.entry.twilight.experienced_cori",
+      "images": [
+        "divinerpg:textures/gui/patchouli/skythern_dungeon.png"
+      ]
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:densos",
+      "scale": 1,
+      "name": "Densos",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/densos_crystal_shapeless",
+      "title": "Densos",
+      "text": "book.divinerpg.entry.twilight.densos"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:karot",
+      "scale": 0.8,
+      "name": "Karot",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/karot_crystal_shapeless",
+      "title": "Karot",
+      "text": "book.divinerpg.entry.twilight.karot"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:reyvor",
+      "scale": 1,
+      "name": "Reyvor",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/reyvor_crystal_shapeless",
+      "title": "Reyvor",
+      "text": "book.divinerpg.entry.twilight.reyvor"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:soul_fiend",
+      "scale": 1,
+      "name": "Soul Fiend",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/soul_fiend_crystal_shapeless",
+      "title": "Soul Fiend",
+      "text": "book.divinerpg.entry.twilight.soul_fiend"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:twilight_demon",
+      "scale": 1,
+      "name": "Twilight Demon",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/twilight_demon_crystal_shapeless",
+      "title": "Twilight Demon",
+      "text": "book.divinerpg.entry.twilight.twilight_demon"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:vamacheron",
+      "scale": 0.8,
+      "name": "Vamacheron",
+      "offset": 0
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/vamacheron_crystal_shapeless",
+      "title": "Vamacheron",
+      "text": "book.divinerpg.entry.twilight.vamacheron"
+    }
+  ]
+}
