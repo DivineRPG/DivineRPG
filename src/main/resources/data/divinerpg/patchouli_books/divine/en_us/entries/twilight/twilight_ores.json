@@ -1,0 +1,38 @@
+{
+  "name": "book.entries.twilight.twilight_ore",
+  "category": "divinerpg:twilight",
+  "icon": "divinerpg:eden_ore",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "divinerpg:eden_ore",
+      "title": "block.divinerpg.eden_ore",
+      "text": "book.divinerpg.entry.twilight.eden_ore"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:wildwood_ore",
+      "title": "block.divinerpg.wildwood_ore",
+      "text": "book.divinerpg.entry.twilight.wildwood_ore"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:apalachia_ore",
+      "title": "block.divinerpg.apalachia_ore",
+      "text": "book.divinerpg.entry.twilight.apalachia_ore"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:skythern_ore",
+      "title": "block.divinerpg.skythern_ore",
+      "text": "book.divinerpg.entry.twilight.skythern_ore"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:mortum_ore",
+      "title": "block.divinerpg.mortum_ore",
+      "text": "book.divinerpg.entry.twilight.mortum_ore"
+    }
+  ]
+}

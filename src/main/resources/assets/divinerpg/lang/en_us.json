@@ -1958,7 +1958,9 @@
   "book.entries.iceika.iceika_portal": "Iceika portal",
   "book.entries.vethea.nightmare_bed": "Nightmare Bed",
   "book.entries.arcana.arcana_portal": "Arcana portal",
-  "book.entries.twilight.bosses": "Twilight Bosses",
+  "book.entries.twilight.bosses": "Twilight bosses",
+  "book.entries.twilight.twilight_ore": "Twilight ores",
+  "book.entries.iceika.structures": "Iceika structures",
 
   "book.divinerpg.category.twilight": "The Twilight Dimensions",
   "book.divinerpg.category.twilight.desc": "The five twilight dimensions",
@@ -2011,5 +2013,12 @@
   "book.divinerpg.entry.twilight.reyvor": "Reyvor is a ranged boss. He deals roughly 40 damage and has 500 hearts of health. Reyvor's best friend is Densos!",
   "book.divinerpg.entry.twilight.soul_fiend": "Soul Fiend will give you multiple negative effects and attacks with melee. it has 550 hearts of health and deals 34 damage.",
   "book.divinerpg.entry.twilight.twilight_demon": "Twilight demon has both melee and ranged attacks, its ranged attack will give you negative effects. It has 800 hearts of health.",
-  "book.divinerpg.entry.twilight.vamacheron": "Vamacheron is a fast melee boss and has 675 hearts of health. Due to his speed he hits like a truck!"
+  "book.divinerpg.entry.twilight.vamacheron": "Vamacheron is a fast melee boss and has 675 hearts of health. Due to his speed he hits like a truck!",
+  "book.divinerpg.entry.twilight.eden_ore": "Eden ore spawns at all heights inside the Eden dimension, however it is very rare.",
+  "book.divinerpg.entry.twilight.wildwood_ore": "Wildwood ore spawns at all heights inside the Wildwood dimension, however it is very rare.",
+  "book.divinerpg.entry.twilight.apalachia_ore": "Apalachia ore spawns at all heights inside the Apalachia dimension, however it is very rare.",
+  "book.divinerpg.entry.twilight.skythern_ore": "Skythern ore spawns at all heights inside the Skythern dimension, however it is very rare.",
+  "book.divinerpg.entry.twilight.mortum_ore": "Mortum ore spawns at all heights inside the Mortum dimension, however it is very rare.",
+  "book.divinerpg.entry.iceika.structures.1": "Iceika has multiple structures that spawn. Some of these different structures contain two mobs, The workshop tinkerer and the workshop merchant. Within the other structures, there are a few Tile Entities. The coalstone furnace does not require any fuel to smelt but it is slightly slower than a regular furnace.",
+  "book.divinerpg.entry.iceika.structures.2": "The tile entities contain frosted chests which contain loot, this loot contains snowflakes, ice shards, snow cones, chocolate logs, peppermints, egg nog, fruit cake, sound of carols, iceicle bane and the santa armor."
 }

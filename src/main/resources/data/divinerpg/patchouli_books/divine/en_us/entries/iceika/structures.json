@@ -1,0 +1,16 @@
+{
+  "name": "book.entries.iceika.structures",
+  "category": "divinerpg:iceika",
+  "icon": "divinerpg:snow_globe",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.iceika.structures.1"
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.iceika.structures.2"
+    }
+  ]
+}
