@@ -1,0 +1,27 @@
+{
+  "name": "book.entries.vethea.layer_1",
+  "category": "divinerpg:vethea",
+  "icon": "divinerpg:teaker_lump",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:the_hunger",
+      "text": "book.divinerpg.entry.vethea.the_hunger"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:mysterious_man_layer_1",
+      "text": "book.divinerpg.entry.vethea.mysterious_man"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:infusion_table",
+      "text": "book.divinerpg.entry.vethea.infusion_table"
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.vethea.exit_level1"
+    }
+  ]
+}

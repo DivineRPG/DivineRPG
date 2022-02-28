@@ -1963,6 +1963,10 @@
   "book.entries.iceika.structures": "Iceika structures",
   "book.entries.arcana.bosses": "Arcana Bosses",
   "book.entries.arcana.traders": "Arcana Traders",
+  "book.entries.vethea.layer_1": "Layer 1",
+  "book.entries.vethea.layer_2": "Layer 2",
+  "book.entries.vethea.layer_3": "Layer 3",
+  "book.entries.vethea.layer_4": "Layer 4",
 
   "book.divinerpg.category.twilight": "The Twilight Dimensions",
   "book.divinerpg.category.twilight.desc": "The five twilight dimensions",
@@ -2005,7 +2009,7 @@
   "book.divinerpg.entry.arcana.arcana_portal.1": "The arcana portal is created using 12 arcana portal frame blocks in the shape of an end portal.",
   "book.divinerpg.entry.arcana.arcana_portal.2": "There is a video on the next page",
   "book.divinerpg.entry.arcana.arcana_portal.3": "Does the description not make sense? Check out this video",
-  "book.divinerpg.entry.vethea.nightmare_bed.1": "The nightmare bed must be placed in darkness to transfer the player to the vethea dimension. The player will have their inventory swapped because once you enter vethea you are in a dream. The overworld inventory gets restored when leaving vethea.",
+  "book.divinerpg.entry.vethea.nightmare_bed": "The nightmare bed must be placed in darkness to transfer the player to the vethea dimension. The player will have their inventory swapped because once you enter vethea you are in a dream. The overworld inventory gets restored when leaving vethea.",
   "book.divinerpg.entry.twilight.sunstorm": "Sunstorm dungeons spawn inside Eden and require a eden chunk to activate.",
   "book.divinerpg.entry.twilight.termasect": "Termasect nests spawn inside Wildwood and require a wildwood chunk to activate.",
   "book.divinerpg.entry.twilight.eternal_archer": "Sunstorm dungeons spawn inside Apalachia and require a apalachia chunk to activate.",
@@ -2031,6 +2035,10 @@
   "book.divinerpg.entry.arcana.leorna": "Leorna offers many trades. These trades include: Eucalyptus Root Seeds, Marsine Seeds, Firestock Seeds, Pinfly Seeds, Aquamarine Seeds, Hitchak Seeds, Veilo Seeds, Lamona Seeds, Arcanite Dirt and Arcanite Grass",
   "book.divinerpg.entry.arcana.lord_vatticus": "Lord Vatticus offers many trades. These trades include: Blue Dye, Experience Bottles, Soul Sand, Weak Arcana Potion, Strong Arcana Potion, Blaze Rod, Nether Wart, Wizards Book and Enchanting Table",
   "book.divinerpg.entry.arcana.war_general": "War General offers many trades. These trades include: Meteor Mash. Starlight, Staff of Starlight, Arcanite Blaster, Arcanite Blade, General's Staff and the Vemos armor set",
-  "book.divinerpg.entry.arcana.zelus": "Zelus offers a few trades. These trades include: Fyracryz Egg, Seimer Egg, Paratiku Egg and lastly Golem of Rejuvenation Egg"
+  "book.divinerpg.entry.arcana.zelus": "Zelus offers a few trades. These trades include: Fyracryz Egg, Seimer Egg, Paratiku Egg and lastly Golem of Rejuvenation Egg",
+  "book.divinerpg.entry.vethea.the_hunger": "The hunger spawns in the ceiling huts and is the only source of food and early vethea weapons and armor",
+  "book.divinerpg.entry.vethea.mysterious_man": "Mysterious Man and Crypt Keeper are the primary source of lumps",
+  "book.divinerpg.entry.vethea.infusion_table": "The infusion table is how you're going to craft the majority of your tools. The Teaker Hammer is a great place to start. The way to use the infusion table is placing a template in the bottom slot and the correct amount of lumps in the top slot.",
+  "book.divinerpg.entry.vethea.exit_level1": "To get to the second layer you can do a few things, you could mine a staircase into the pillars, you could also make a staircase out of dream dirt. There is one other way, but lets not get into why nerdpolling is bad."
 
 }
