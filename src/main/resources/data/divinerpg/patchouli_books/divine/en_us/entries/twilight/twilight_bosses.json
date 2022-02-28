@@ -18,7 +18,8 @@
       "images": [
         "divinerpg:textures/gui/patchouli/eden_dungeon.png"
       ]
-    },{
+    },
+    {
       "type": "entity",
       "entity": "divinerpg:termasect",
       "scale": 0.6,

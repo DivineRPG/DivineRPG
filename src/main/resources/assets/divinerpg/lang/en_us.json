@@ -1961,6 +1961,8 @@
   "book.entries.twilight.bosses": "Twilight bosses",
   "book.entries.twilight.twilight_ore": "Twilight ores",
   "book.entries.iceika.structures": "Iceika structures",
+  "book.entries.arcana.bosses": "Arcana Bosses",
+  "book.entries.arcana.traders": "Arcana Traders",
 
   "book.divinerpg.category.twilight": "The Twilight Dimensions",
   "book.divinerpg.category.twilight.desc": "The five twilight dimensions",
@@ -2020,5 +2022,15 @@
   "book.divinerpg.entry.twilight.skythern_ore": "Skythern ore spawns at all heights inside the Skythern dimension, however it is very rare.",
   "book.divinerpg.entry.twilight.mortum_ore": "Mortum ore spawns at all heights inside the Mortum dimension, however it is very rare.",
   "book.divinerpg.entry.iceika.structures.1": "Iceika has multiple structures that spawn. Some of these different structures contain two mobs, The workshop tinkerer and the workshop merchant. Within the other structures, there are a few Tile Entities. The coalstone furnace does not require any fuel to smelt but it is slightly slower than a regular furnace.",
-  "book.divinerpg.entry.iceika.structures.2": "The tile entities contain frosted chests which contain loot, this loot contains snowflakes, ice shards, snow cones, chocolate logs, peppermints, egg nog, fruit cake, sound of carols, iceicle bane and the santa armor."
+  "book.divinerpg.entry.iceika.structures.2": "The tile entities contain frosted chests which contain loot, this loot contains snowflakes, ice shards, snow cones, chocolate logs, peppermints, egg nog, fruit cake, sound of carols, iceicle bane and the santa armor.",
+  "book.divinerpg.entry.arcana.dramix": "Dramix is a boss with 2500 hearts of health, he is 3 blocks tall and he can go invisible. His attacks are melee however he hits like a truck. Dramix is spawned by right clicking a wizards book on a Dramix Altar",
+  "book.divinerpg.entry.arcana.parasecta": "Parasecta is a flying boss. Parasecta will fly around a player and hit them, it is recommended you find a way to negate knockback. Parasecta can be spawned by right clicking a wizards book on a Parasecta Altar",
+  "book.divinerpg.entry.arcana.captain_merik": "Captain Merik offers many trades. These trades include: Storm Sword, Ghostbane, Shadow Saber, Arcanium Saber, Captains Sparkler, Firefly, Merik's Missile, Livicia Sword, La Vekor, Grenade and the Korma armor set",
+  "book.divinerpg.entry.arcana.datticon": "Datticon offers many trades. These trades include: Star Bridge, Arcanite Tubes, Arcanite Ladder, Molten Furnace, Greenlight Furnace, Oceanfire Furnace, Moonling Furnace, Whitefire Furnace, Demon Furnace, Elevantium, Acceleron and the Korma armor set",
+  "book.divinerpg.entry.arcana.kazari": "Kazari offers many trades. These trades include: Ancient Key, Degraded Key, Soul Key, Sludge Key, Ancient Bricks, Ancient Stone, Ancient Tile, Arcanium Metal, Arcanium Power, Degraded Bricks, Dungeon Lamp, Soul Sludge and Soul Stone",
+  "book.divinerpg.entry.arcana.leorna": "Leorna offers many trades. These trades include: Eucalyptus Root Seeds, Marsine Seeds, Firestock Seeds, Pinfly Seeds, Aquamarine Seeds, Hitchak Seeds, Veilo Seeds, Lamona Seeds, Arcanite Dirt and Arcanite Grass",
+  "book.divinerpg.entry.arcana.lord_vatticus": "Lord Vatticus offers many trades. These trades include: Blue Dye, Experience Bottles, Soul Sand, Weak Arcana Potion, Strong Arcana Potion, Blaze Rod, Nether Wart, Wizards Book and Enchanting Table",
+  "book.divinerpg.entry.arcana.war_general": "War General offers many trades. These trades include: Meteor Mash. Starlight, Staff of Starlight, Arcanite Blaster, Arcanite Blade, General's Staff and the Vemos armor set",
+  "book.divinerpg.entry.arcana.zelus": "Zelus offers a few trades. These trades include: Fyracryz Egg, Seimer Egg, Paratiku Egg and lastly Golem of Rejuvenation Egg"
+
 }

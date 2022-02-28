@@ -1,0 +1,32 @@
+{
+  "name": "book.entries.arcana.bosses",
+  "category": "divinerpg:arcana",
+  "icon": "divinerpg:dramix_statue",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:dramix",
+      "scale": 1,
+      "name": "Dramix",
+      "offset": 0.4
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.dramix",
+      "text": "book.divinerpg.entry.arcana.dramix"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:parasecta",
+      "scale": 1,
+      "name": "Parasecta",
+      "offset": 0.4
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.parasecta",
+      "text": "book.divinerpg.entry.arcana.parasecta"
+    }
+    ]
+}

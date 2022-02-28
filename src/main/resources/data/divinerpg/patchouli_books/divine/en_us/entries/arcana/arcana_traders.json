@@ -1,0 +1,85 @@
+{
+  "name": "book.entries.arcana.traders",
+  "category": "divinerpg:arcana",
+  "icon": "divinerpg:arcanium",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "divinerpg:captain_merik",
+      "scale": 1,
+      "name": "Captain Merik"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.captain_merik",
+      "text": "book.divinerpg.entry.arcana.captain_merik"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:datticon",
+      "scale": 1,
+      "name": "Datticon"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.datticon",
+      "text": "book.divinerpg.entry.arcana.datticon"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:kazari",
+      "scale": 1,
+      "name": "Kazari"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.kazari",
+      "text": "book.divinerpg.entry.arcana.kazari"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:leorna",
+      "scale": 1,
+      "name": "Leorna"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.leorna",
+      "text": "book.divinerpg.entry.arcana.leorna"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:lord_vatticus",
+      "scale": 1,
+      "name": "Lord Vatticus"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.lord_vatticus",
+      "text": "book.divinerpg.entry.arcana.lord_vatticus"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:war_general",
+      "scale": 1,
+      "name": "War General"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.war_general",
+      "text": "book.divinerpg.entry.arcana.war_general"
+    },
+    {
+      "type": "entity",
+      "entity": "divinerpg:zelus",
+      "scale": 1,
+      "name": "Zelus"
+    },
+    {
+      "type": "text",
+      "title": "entity.divinerpg.zelus",
+      "text": "book.divinerpg.entry.arcana.zelus"
+    }
+  ]
+}
