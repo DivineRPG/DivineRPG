@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "divinerpg:eden_fragments"
+  },
+  "result": "divinerpg:eden_sparkles",
+  "experience": 5,
+  "cookingtime": 200
+}
