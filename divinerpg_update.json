@@ -1,5 +1,8 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg",
+	"1.16.5": {
+		"1.8.6": "First non beta build",
+	},
 	"1.12.2": {
 		"1.7.1": "Arcana generation change and miscellaneous fixes",
 		"1.7": "Arcana rework",
@@ -31,6 +34,8 @@
 		"1.4.0": "Ported to 1.7.10"
 	},
 	"promos": {
+		"1.16.5-latest": "1.8.6",
+		"1.16.5-recommended": "1.8.6",
 		"1.12.2-latest": "1.7.1",
 		"1.12.2-recommended": "1.7.1",
 		"1.7.10-latest": "1.4.1.4",
