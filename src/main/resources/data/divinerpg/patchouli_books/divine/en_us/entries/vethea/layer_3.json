@@ -3,5 +3,16 @@
   "category": "divinerpg:vethea",
   "icon": "divinerpg:quadrotic_lump",
   "sortnum": 4,
-  "pages": []
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "divinerpg:quadrotic_altar",
+      "text": "book.divinerpg.entry.vethea.quadrotic_altar"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:karos_altar",
+      "text": "book.divinerpg.entry.vethea.karos_altar"
+    }
+  ]
 }

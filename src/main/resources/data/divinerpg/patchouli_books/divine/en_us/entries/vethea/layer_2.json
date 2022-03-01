@@ -3,5 +3,15 @@
   "category": "divinerpg:vethea",
   "icon": "divinerpg:cermile_lump",
   "sortnum": 3,
-  "pages": []
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "divinerpg:hive_egg",
+      "text": "book.divinerpg.entry.vethea.hive"
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.vethea.pyramid"
+    }
+  ]
 }

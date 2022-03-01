@@ -2039,6 +2039,12 @@
   "book.divinerpg.entry.vethea.the_hunger": "The hunger spawns in the ceiling huts and is the only source of food and early vethea weapons and armor",
   "book.divinerpg.entry.vethea.mysterious_man": "Mysterious Man and Crypt Keeper are the primary source of lumps",
   "book.divinerpg.entry.vethea.infusion_table": "The infusion table is how you're going to craft the majority of your tools. The Teaker Hammer is a great place to start. The way to use the infusion table is placing a template in the bottom slot and the correct amount of lumps in the top slot.",
-  "book.divinerpg.entry.vethea.exit_level1": "To get to the second layer you can do a few things, you could mine a staircase into the pillars, you could also make a staircase out of dream dirt. There is one other way, but lets not get into why nerdpolling is bad."
+  "book.divinerpg.entry.vethea.exit_level1": "To get to the second layer you can do a few things, you could mine a staircase into the pillars, you could also make a staircase out of dream dirt. There is one other way, but lets not get into why nerdpolling is bad.",
+  "book.divinerpg.entry.vethea.hive": "The Hive queen is a boss that drops a decent quantity of Cermile lumps.",
+  "book.divinerpg.entry.vethea.pyramid": "The large pyramid structures that spawn are temples, they contain alot of decent loot however, proceed with caution because they are very maze like and have alot of minion mobs inside.",
+  "book.divinerpg.entry.vethea.quadrotic_altar": "The Quadrotic Altar is activated with dream flint. Once active the Quadro will spawn. The Quadro has 4 attacks, the first being a quick but weak melee attack, the second being a stronger melee, third being a weak rapid fire arrow and lastly a slower but stronger ranged attack!",
+  "book.divinerpg.entry.vethea.karos_altar": "The Karos Altar is activated with dream flint. Once active Dr. Karos will spawn. The Dr's main attack is raining exploding red balls. The Dr also shoots Karos Arrows from the cannons in the walls!",
+  "book.divinerpg.entry.vethea.lunic_altar": "The Lunic Altar is activated with a moon clock. Once active Lady Luna will spawn. Lady luna has 3 forms: Melee (red), Arcana (blue) and Ranged (green). Each form means she can only take that sort of damage.",
+  "book.divinerpg.entry.vethea.raglok_altar": "The Raglok Altar is activated with dream flint. Raglok Gogdure can smite you, it can blind you, it can drop heavy particles on you and lastly it can slow you down and push you very far."
 
 }

@@ -3,5 +3,16 @@
   "category": "divinerpg:vethea",
   "icon": "divinerpg:arksiane_lump",
   "sortnum": 5,
-  "pages": []
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "divinerpg:lunic_altar",
+      "text": "book.divinerpg.entry.vethea.lunic_altar"
+    },
+    {
+      "type": "spotlight",
+      "item": "divinerpg:raglok_altar",
+      "text": "book.divinerpg.entry.vethea.raglok_altar"
+    }
+  ]
 }
