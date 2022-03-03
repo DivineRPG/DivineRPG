@@ -2,7 +2,6 @@ package divinerpg.events.enchant;
 
 import divinerpg.registries.*;
 import net.minecraft.block.*;
-import net.minecraft.block.material.*;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
@@ -52,7 +51,7 @@ public class RiveHandler {
     }
 
     private void tryToBreakBlock(World world, PlayerEntity player, BlockPos pos, BlockState blockState, ItemStack tool) {
-        if(blockState.getBlock() == Blocks.AIR || blockState.getMaterial() == Material.STONE || blockState.getMaterial() == Material.HEAVY_METAL || blockState.getMaterial() == Material.DIRT || blockState.getMaterial() == Material.CLAY || blockState.getMaterial() == Material.GRASS || blockState.getMaterial() == Material.LEAVES || blockState.getMaterial() == Material.METAL || blockState.getMaterial() == Material.NETHER_WOOD || blockState.getMaterial() == Material.SAND || blockState.getMaterial() == Material.SNOW || blockState.getMaterial() == Material.TOP_SNOW || blockState.getMaterial() == Material.WOOD) {
+        if(blockState.getBlock() == Blocks.AIR) {
             return;
         }
 
