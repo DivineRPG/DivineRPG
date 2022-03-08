@@ -282,19 +282,19 @@ public class ArmorAbilitiesEvent
 
         if (stackHelmet != null) helmet = stackHelmet.getItem();
         else helmet = null;
-
-        if (!entity.isCreative() && !entity.isSpectator() && flag) {
-            if (boots == ItemRegistry.angelicBoots || body == ItemRegistry.angelicChestplate || legs == ItemRegistry.angelicLeggings || helmet == ItemRegistry.angelicHelmet) {
-                flag = false;
+        if (!entity.isCreative() && !entity.isSpectator()) {
+            if (boots == ItemRegistry.angelicBoots && body == ItemRegistry.angelicChestplate && legs == ItemRegistry.angelicLeggings && helmet == ItemRegistry.angelicHelmet) {
                 entity.abilities.mayfly = true;
                 entity.fallDistance = 0.0F;
+                flag = true;
             }
         }
-        if(!flag) {
+        if (!entity.isCreative() && !entity.isSpectator() && flag) {
             if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
-                entity.abilities.flying = false;
                 entity.abilities.mayfly = false;
-                flag = true;
+                entity.abilities.flying = false;
+                entity.fallDistance = 1.0F;
+                flag = false;
             }
         }
         if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
