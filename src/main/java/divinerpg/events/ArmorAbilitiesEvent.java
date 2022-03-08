@@ -293,7 +293,6 @@ public class ArmorAbilitiesEvent
             if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
                 entity.abilities.mayfly = false;
                 entity.abilities.flying = false;
-                entity.fallDistance = 1.0F;
                 flag = false;
             }
         }
