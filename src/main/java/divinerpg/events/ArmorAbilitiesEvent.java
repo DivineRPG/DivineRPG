@@ -19,48 +19,6 @@ import java.util.*;
 public class ArmorAbilitiesEvent
 {
     private static Item boots, body = null, legs = null, helmet = null;
-    @SubscribeEvent
-    public static void detectArmor(LivingEquipmentChangeEvent event)
-    {
-        if(event.getEntityLiving() instanceof PlayerEntity)
-        {
-            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-
-            ItemStack stackBoots = player.inventory.armor.get(0);
-            ItemStack stackLeggings = player.inventory.armor.get(1);
-            ItemStack stackChestplate = player.inventory.armor.get(2);
-            ItemStack stackHelmet = player.inventory.armor.get(3);
-
-            if (stackBoots != null) boots = stackBoots.getItem();
-            else boots = null;
-
-            if (stackChestplate != null) body = stackChestplate.getItem();
-            else body = null;
-
-            if (stackLeggings != null) legs = stackLeggings.getItem();
-            else legs = null;
-
-            if (stackHelmet != null) helmet = stackHelmet.getItem();
-            else helmet = null;
-
-            DamageSource s = event.getEntityLiving().getLastDamageSource();
-
-            if ((boots == ItemRegistry.bedrockBoots && legs == ItemRegistry.bedrockLeggings && body == ItemRegistry.bedrockChestplate && helmet == ItemRegistry.bedrockHelmet)) {
-                if (s.isExplosion()) {
-                    event.setCanceled(true);
-                }
-            }
-
-            //Ender
-            if ((boots == ItemRegistry.enderBoots || boots == ItemRegistry.redEnderBoots || boots == ItemRegistry.yellowEnderBoots || boots == ItemRegistry.greenEnderBoots || boots == ItemRegistry.blueEnderBoots || boots == ItemRegistry.grayEnderBoots) && (legs == ItemRegistry.enderLeggings || legs == ItemRegistry.redEnderLeggings || legs == ItemRegistry.yellowEnderLeggings || legs == ItemRegistry.greenEnderLeggings || legs == ItemRegistry.blueEnderLeggings || legs == ItemRegistry.grayEnderLeggings) && (body == ItemRegistry.enderChestplate || body == ItemRegistry.redEnderChestplate || body == ItemRegistry.yellowEnderChestplate || body == ItemRegistry.greenEnderChestplate || body == ItemRegistry.blueEnderChestplate || body == ItemRegistry.grayEnderChestplate) && (helmet == ItemRegistry.enderHelmet || helmet == ItemRegistry.redEnderHelmet || helmet == ItemRegistry.yellowEnderHelmet || helmet == ItemRegistry.greenEnderHelmet || helmet == ItemRegistry.blueEnderHelmet || helmet == ItemRegistry.grayEnderHelmet)) {
-                if (s.isExplosion()) {
-                    event.setCanceled(true);
-                }
-            }
-
-        }
-    }
-
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event)
@@ -156,6 +114,18 @@ public class ArmorAbilitiesEvent
 
             if (boots == ItemRegistry.jungleBoots && legs == ItemRegistry.jungleLeggings && body == ItemRegistry.jungleChestplate && helmet == ItemRegistry.jungleHelmet) {
                 if (s.equals(DamageSource.MAGIC)) {
+                    e.setCanceled(true);
+                }
+            }
+            if ((boots == ItemRegistry.bedrockBoots && legs == ItemRegistry.bedrockLeggings && body == ItemRegistry.bedrockChestplate && helmet == ItemRegistry.bedrockHelmet)) {
+                if (s.isExplosion()) {
+                    e.setCanceled(true);
+                }
+            }
+
+            //Ender
+            if ((boots == ItemRegistry.enderBoots || boots == ItemRegistry.redEnderBoots || boots == ItemRegistry.yellowEnderBoots || boots == ItemRegistry.greenEnderBoots || boots == ItemRegistry.blueEnderBoots || boots == ItemRegistry.grayEnderBoots) && (legs == ItemRegistry.enderLeggings || legs == ItemRegistry.redEnderLeggings || legs == ItemRegistry.yellowEnderLeggings || legs == ItemRegistry.greenEnderLeggings || legs == ItemRegistry.blueEnderLeggings || legs == ItemRegistry.grayEnderLeggings) && (body == ItemRegistry.enderChestplate || body == ItemRegistry.redEnderChestplate || body == ItemRegistry.yellowEnderChestplate || body == ItemRegistry.greenEnderChestplate || body == ItemRegistry.blueEnderChestplate || body == ItemRegistry.grayEnderChestplate) && (helmet == ItemRegistry.enderHelmet || helmet == ItemRegistry.redEnderHelmet || helmet == ItemRegistry.yellowEnderHelmet || helmet == ItemRegistry.greenEnderHelmet || helmet == ItemRegistry.blueEnderHelmet || helmet == ItemRegistry.grayEnderHelmet)) {
+                if (s.isExplosion()) {
                     e.setCanceled(true);
                 }
             }
