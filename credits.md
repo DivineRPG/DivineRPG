@@ -3,54 +3,55 @@
 * Tslat (Scimiguy) - current owner and coding assistant
 
 ### Main Team
+* Locomen_ - Developer
 * NicosaurusRex99 - Developer
-* Dash - Developer
-* Zachtoplasm - Texture artist
+* Velocityraptor - Developer
 
 ### Ex-Developers
-* AstralScourge
-* krwminer
-* Wufflez (LiteWolf101)
-* RadioactiveStud
-* Eternaldoom
-* The_SlayerMC
-* Sheenrox82
-* Mazetar
-* TLHPoE
 * Aginsun
-* Hologuardian
-* Vazkii
+* AstralScourge - Developer
 * Blued00r
+* Dash - Developer
+* Eternaldoom
+* Hologuardian
+* krwminer - Lead Developer
+* Mazetar
+* RadioactiveStud
+* Sheenrox82
+* TLHPoE
+* The_SlayerMC
+* Vazkii
+* Wufflez (LiteWolf101) - Developer
+* Zachtoplasm - Texture artist
 
 ### Translations
-* Imbarainbow - Simplified Chinese translations
-* MCUmbrella - Simplified Chinese translations
-* Locomen - Russian translations
-* Dash - Russian translations
-* FrozenYT - Russian translations
-* Kellixon - Russian translations
-* Davoleo - Italian translations
-
-
-### Older Version Translations
-* TikenTVC - Portuguese translations
-* THEVOLCO - German translations
-* ShadowOfStrelok - Russian translations
-* fewizz - Russian translations
 * Adaptivity - Russian translations
+* AlaanRS - Spanish translations
+* Dash - Russian translations
+* Davoleo - Italian translations
+* Fewizz - Russian translations
+* FrozenYT - Russian translations
+* Imbarainbow - Simplified Chinese translations
+* Kellixon - Russian translations
+* Locomen - Russian translations
+* MCUmbrella - Simplified Chinese translations
+* ShadowOfStrelok - Russian translations
+* THEVOLCO - German translations
+* TikenTVC - Portuguese translations
+* Zeedif - Spanish translations
 
 ### Special Thanks to
-* Dizzlepop12 - A few models/textures
-* Declan (UKDeccy) - A few models/textures
 * BlueEyes9 - A few models/textures
+* BossLetsPlays - Sound artist, maintenance developer, and former server owner
+* Declan (UKDeccy) - A few models/textures
+* Dizzlepop12 - A few models/textures
 * Insanity414all - Former wiki admin
 * Laorwick - Some recipes
-* BossLetsPlays - Sound artist, maintenance developer, and former server owner
 * Sactage - Former server owner and maintainer
 
 ### Other Credits
 * Majorsir - for the name of the mod.
+* Reika - for ore textures.
 * Terraria - for some resources. (removed in 1.12.2)
 * Vattic - for some block textures, featured in a version of the faithful32 pack (removed in 1.12.2)
-* Reika - for ore textures.
 * XL biomes - for tree style. (removed in 1.12.2)
