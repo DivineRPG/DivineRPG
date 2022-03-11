@@ -259,43 +259,33 @@ public class ArmorAbilitiesEvent
 
     private static final String SWIM_MOD_STRING = "c7b490d7-2bfc-400f-b7bb-e89670daea62";
     public static final AttributeModifier SWIM_MOD = new AttributeModifier(SWIM_MOD_STRING, 2.0D, AttributeModifier.Operation.ADDITION);
-    private boolean flag, swimFlag, shadow = true;
+    private boolean flightFlag = false, swimFlag, shadow = true;
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
-        PlayerEntity entity = evt.player;
-        ItemStack stackBoots = evt.player.inventory.armor.get(0);
-        ItemStack stackLegs = evt.player.inventory.armor.get(1);
-        ItemStack stackBody = evt.player.inventory.armor.get(2);
-        ItemStack stackHelmet = evt.player.inventory.armor.get(3);
-        ModifiableAttributeInstance swim = entity.getAttribute(ForgeMod.SWIM_SPEED.get());
+        PlayerEntity player = evt.player;
+        ModifiableAttributeInstance swim = player.getAttribute(ForgeMod.SWIM_SPEED.get());
 
-        float speedMultiplier = 1;
 
-        if (stackBoots != null) boots = stackBoots.getItem();
-        else boots = null;
+            NonNullList<ItemStack> armour = player.inventory.armor;
+            DamageSource damageSource = player.getLastDamageSource();
+            Item helmet = armour.get(3).getItem();
+            Item body = armour.get(2).getItem();
+            Item legs = armour.get(1).getItem();
+            Item boots = armour.get(0).getItem();
 
-        if (stackBody != null) body = stackBody.getItem();
-        else body = null;
 
-        if (stackLegs != null) legs = stackLegs.getItem();
-        else legs = null;
-
-        if (stackHelmet != null) helmet = stackHelmet.getItem();
-        else helmet = null;
-        if (!entity.isCreative() && !entity.isSpectator()) {
-            if (boots == ItemRegistry.angelicBoots && body == ItemRegistry.angelicChestplate && legs == ItemRegistry.angelicLeggings && helmet == ItemRegistry.angelicHelmet) {
-                entity.abilities.mayfly = true;
-                entity.fallDistance = 0.0F;
-                flag = true;
-            }
+        if(boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet){
+            flightFlag = true;
         }
-        if (!entity.isCreative() && !entity.isSpectator() && flag) {
-            if (boots != ItemRegistry.angelicBoots || body != ItemRegistry.angelicChestplate || legs != ItemRegistry.angelicLeggings || helmet != ItemRegistry.angelicHelmet) {
-                entity.abilities.mayfly = false;
-                entity.abilities.flying = false;
-                flag = false;
-            }
+        if (flightFlag) {
+            player.abilities.mayfly = true;
+            player.fallDistance = 0;
+            flightFlag = false;
+        }else{
+            player.abilities.mayfly = false;
+            player.abilities.flying = false;
         }
+
         if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
             swim.addTransientModifier(SWIM_MOD);
             swimFlag = false;
@@ -359,7 +349,7 @@ public class ArmorAbilitiesEvent
 
         //Shadow
         if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet) {
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
             if (shadow) {
                 evt.player.maxUpStep = 1;
                 shadow = false;
@@ -398,23 +388,23 @@ public class ArmorAbilitiesEvent
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);
                 }
-                entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
+                player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
             }
         }
         //Vethean
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
 
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 0, false, false));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 0, false, false));
         }
 
         if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
 
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
         }
 
         if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
-            entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
         }
 
         if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
