@@ -24,7 +24,7 @@ Discord: https://discord.gg/R9Zc32D
 * Copy ANY of DivineRPG's code and/or assets for use in a different project
 
 ### Credits
-See [here](https://github.com/DivineRPG/DivineRPG/blob/1.12.2/credits.md).
+See [here](https://github.com/DivineRPG/DivineRPG/blob/1.16x/credits.md).
 
 ***
 ### Contributing
