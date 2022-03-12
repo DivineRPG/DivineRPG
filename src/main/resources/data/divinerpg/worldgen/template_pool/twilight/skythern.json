@@ -151,7 +151,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/apalachia/advanced_cori_dungeon",
+        "location": "divinerpg:twilight/skythern/experienced_cori_dungeon",
         "processors": "minecraft:empty"
       }
     }
