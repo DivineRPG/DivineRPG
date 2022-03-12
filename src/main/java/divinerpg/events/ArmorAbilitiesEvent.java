@@ -273,18 +273,19 @@ public class ArmorAbilitiesEvent
             Item legs = armour.get(1).getItem();
             Item boots = armour.get(0).getItem();
 
+        if (!player.isCreative() && !player.isSpectator()){
+            if(boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet){
+                player.abilities.mayfly = true;
+                player.fallDistance = 0;
+                flightFlag = true;
+            }
+            if ((boots != ItemRegistry.angelicBoots || legs != ItemRegistry.angelicLeggings || body != ItemRegistry.angelicChestplate || helmet != ItemRegistry.angelicHelmet) && flightFlag) {
+                player.abilities.mayfly = false;
+                player.abilities.flying = false;
+                flightFlag = false;
+            }
+        }
 
-        if(boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet){
-            flightFlag = true;
-        }
-        if (flightFlag) {
-            player.abilities.mayfly = true;
-            player.fallDistance = 0;
-            flightFlag = false;
-        }else{
-            player.abilities.mayfly = false;
-            player.abilities.flying = false;
-        }
 
         if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
             swim.addTransientModifier(SWIM_MOD);
