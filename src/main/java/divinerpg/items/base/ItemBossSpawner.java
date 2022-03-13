@@ -27,28 +27,28 @@ public class ItemBossSpawner extends ItemMod {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (!world.isClientSide) {
-            if (hand == Hand.MAIN_HAND) {
-                if (dimensionID == null) {
-                    dimensionID = KeyRegistry.MORTUM_WORLD;
-                }
-                if (world.dimension() != dimensionID) {
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
-                    message.withStyle(TextFormatting.AQUA);
-                    player.sendMessage(message, player.getUUID());
-                    return ActionResult.fail(player.getItemInHand(hand));
-                } else {
-                    for (EntityType<?> entType : ents) {
-                        Entity entity = entType.create(world);
-                        entity.moveTo(player.getX(), player.getY() + 1, player.getZ());
-                        world.addFreshEntity(entity);
-                        DivineRPG.LOGGER.info("spawned " + entType.getDescriptionId() + " at " + entity.blockPosition());
-                        if (!player.isCreative())
-                            player.getMainHandItem().shrink(1);
-                        return ActionResult.success(player.getItemInHand(hand));
-                    }
-                }
-            } else {
+            if (dimensionID == null) {
+                dimensionID = KeyRegistry.MORTUM_WORLD;
+            }
+            if (world.dimension() != dimensionID) {
+                TextComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
+                message.withStyle(TextFormatting.AQUA);
+                player.sendMessage(message, player.getUUID());
                 return ActionResult.fail(player.getItemInHand(hand));
+            } else if (world.getDifficulty() == Difficulty.PEACEFUL) {
+                player.sendMessage(new TranslationTextComponent("message.spawner.peaceful"), player.getUUID());
+                return ActionResult.fail(player.getItemInHand(hand));
+            } else {
+                for (EntityType<?> entType : ents) {
+                    Entity entity = entType.create(world);
+                    entity.moveTo(player.getX(), player.getY() + 1, player.getZ());
+                    world.addFreshEntity(entity);
+                    DivineRPG.LOGGER.info("spawned " + entType.getDescriptionId() + " at " + entity.blockPosition());
+                    if (!player.isCreative()) {
+                        player.getItemInHand(hand).shrink(1);
+                    }
+                    return ActionResult.success(player.getItemInHand(hand));
+                }
             }
         }
 
