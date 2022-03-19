@@ -12,7 +12,7 @@ public enum DivineToolMaterials implements IItemTier {
     APALACHIA_BLADE(4, 2000, -2.4F, 27.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.apalachiaGem);
     }),
-    AQUA_DAGGER(4, 2000, -1.4F, 8.0F, 15, () -> {
+    AQUA_DAGGER(4, 2000, -1.6F, 8.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.aquaticIngot);
     }),
     AQUA_MAUL(4, 4000, -2.4F, 16.0F, 10, () -> {
@@ -27,7 +27,7 @@ public enum DivineToolMaterials implements IItemTier {
     AQUATOOTH_MAUL(4, 3500, -2.4F, 16.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.liopleurodonTeeth);
     }),
-    AQUATOOTH_SWORD(4, 3500, 1.8F, 13.0F, 10, () -> {
+    AQUATOOTH_SWORD(4, 3500, -2.4F, 13.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.liopleurodonTeeth);
     }),
     ARCANITE_BLADE(4, 7000, -1.4F, 30.0F, 15, () -> {
@@ -36,7 +36,7 @@ public enum DivineToolMaterials implements IItemTier {
     ARCANIUM_SABER(4, -1, -2.4F, 18.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ARLEMITE_STABBER(4, 4000, -1.4F, 10.0F, 10, () -> {
+    ARLEMITE_STABBER(4, 4000, -2.4F, 10.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.arlemiteIngot);
     }),
     BEDROCK_SWORD(4, 14000, -2.6F, 12.0F, 2, () -> {
@@ -45,10 +45,10 @@ public enum DivineToolMaterials implements IItemTier {
     BEDROCK_MAUL(4, -1, -2.4F, 12.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    BLOODGEM_SWORD(4, -1, -1.6F, 7.0F, 15, () -> {
+    BLOODGEM_SWORD(4, -1, -2F, 7.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    BLUEFIRE_SWORD(4, 3000, -1.2F, 18.0F, 15, () -> {
+    BLUEFIRE_SWORD(4, 3000, -1.6F, 18.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.bluefireStone);
     }),
     CORRUPTED_MAUL(4, 6000, -2.4F, 11.0F, 15, () -> {
@@ -60,10 +60,10 @@ public enum DivineToolMaterials implements IItemTier {
     CYCLOPSIAN_SWORD(4, 1000, -2.6F, 4.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.cyclopsEye);
     }),
-    DEATH_BRINGER(4, 6000, -0.8F, 10.0F, 15, () -> {
+    DEATH_BRINGER(4, 6000, -1.6F, 10.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.corruptedStone);
     }),
-    DIVINE_SWORD(4, -1, -0.7F, 17.0F, 22, () -> {
+    DIVINE_SWORD(4, -1, -1.4F, 17.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
     DUAL_CLAW(4, 4000, -2.4F, 10.0F, 15, () -> {
@@ -78,10 +78,10 @@ public enum DivineToolMaterials implements IItemTier {
     ENDERICE(4, -1, -2.4F, 17.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    FLAMING_FURY(4, 6000, -1.4F, 24.0F, 15, () -> {
+    FLAMING_FURY(4, 6000, -1.8F, 24.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.moltenStone);
     }),
-    FROSSIVENCE(4, 270, -2.9F, -1.0F, 0, () -> {
+    FROSSIVENCE(4, 270, -2.2F, -1.0F, 0, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
     FROST_SWORD(4, 5000, -2.4F, 8.0F, 15, () -> {
@@ -93,34 +93,34 @@ public enum DivineToolMaterials implements IItemTier {
     FROZEN_MAUL(4, -1, -2.4F, 15.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    FURY_MAUL(4, 4000, -1.1F, 16.0F, 15, () -> {
+    FURY_MAUL(4, 4000, -1.5F, 16.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.bedrockChunk);
     }),
     GLACIER_SWORD(4, 1000, -2.4F, 16.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    HALITE_BLADE(4, 2000, 0.0F, 34.0F, 22, () -> {
+    HALITE_BLADE(4, 2000, -0.8F, 34.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.mortumGem);
     }),
     ICICLE_BANE(4, -1, -2.4F, 12.0F, 15, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    ICINE_SWORD(4, -1, -2.4F, 12.0F, 18, () -> {
+    ICINE_SWORD(4, -1, -2.7F, 20.0F, 18, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    INFERNO_SWORD(4, -1, -1.2F, 10.0F, 22, () -> {
+    INFERNO_SWORD(4, -1, -2.0F, 10.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
-    JUNGLE_KNIFE(4, 2000, -2.6F, 10.0F, 10, () -> {
+    JUNGLE_KNIFE(4, 2000, -2.4F, 10.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.jungleStone);
     }),
-    JUNGLE_RAPIER(4, 1200, -2.8F, 14.0F, 10, () -> {
+    JUNGLE_RAPIER(4, 1200, -2.6F, 14.0F, 10, () -> {
         return Ingredient.of(ItemRegistry.jungleStone);
     }),
     LIVICIA_SWORD(4, 10000, -2.0F, 24.0F, 22, () -> {
         return Ingredient.of(ItemRegistry.shadowStone);
     }),
-    MOLTEN_SWORD(4, 5000, -1.4F, 8.0F, 15, () -> {
+    MOLTEN_SWORD(4, 5000, -1.6F, 8.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.moltenStone);
     }),
     MORTUM_BLADE(4, 2000, -1.5F, 31.0F, 22, () -> {
@@ -159,10 +159,10 @@ public enum DivineToolMaterials implements IItemTier {
     SLIME_SWORD(4, 1000, -2.8F, 9.0F, 22, () -> {
         return Ingredient.of(Items.DIAMOND);
     }),
-    SNOWSLASH(4, 150, -2.9F, 23.0F, 15, () -> {
+    SNOWSLASH(4, 150, -2.5F, 23.0F, 15, () -> {
         return Ingredient.of(ItemRegistry.snowflake);
     }),
-    STORM_SWORD(4, -1, 0.4F, 3.0F, 22, () -> {
+    STORM_SWORD(4, -1, -0.8F, 3.0F, 22, () -> {
         return Ingredient.of(Blocks.AIR);
     }),
     TERRAN_DAGGER(4, 350, -1.4F, 9.0F, 10, () -> {
