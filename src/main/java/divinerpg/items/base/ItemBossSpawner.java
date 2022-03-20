@@ -47,8 +47,8 @@ public class ItemBossSpawner extends ItemMod {
                     if (!player.isCreative()) {
                         player.getItemInHand(hand).shrink(1);
                     }
-                    return ActionResult.success(player.getItemInHand(hand));
                 }
+                return ActionResult.success(player.getItemInHand(hand));
             }
         }
 
