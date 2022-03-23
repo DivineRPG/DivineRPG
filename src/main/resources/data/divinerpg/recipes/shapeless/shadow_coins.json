@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:shadow_stone"
+    },
+    {
+      "item": "divinerpg:shadow_stone"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:shadow_coins"
+  }
+}
