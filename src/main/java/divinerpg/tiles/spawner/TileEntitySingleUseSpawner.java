@@ -113,16 +113,16 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
 
         if (!level.isClientSide && delay > 0) {
             if(player.getMainHandItem().getItem() == ItemRegistry.edenChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.YELLOW), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("entity.divinerpg.sunstorm").withStyle(TextFormatting.YELLOW), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.wildwoodChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.DARK_BLUE), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("entity.divinerpg.termasect").withStyle(TextFormatting.DARK_BLUE), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.apalachiaChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.DARK_PURPLE), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("entity.divinerpg.eternal_archer").withStyle(TextFormatting.DARK_PURPLE), player.getUUID());
             }else
             if(player.getMainHandItem().getItem() == ItemRegistry.skythernChunk){
-                player.sendMessage(new TranslationTextComponent(String.format("%s", entityName)).withStyle(TextFormatting.GRAY), player.getUUID());
+                player.sendMessage(new TranslationTextComponent("entity.divinerpg.experienced_cori").withStyle(TextFormatting.GRAY), player.getUUID());
             }
             player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "summon.single_use_spawner.delay", delay / 20), player.getUUID());
         }
