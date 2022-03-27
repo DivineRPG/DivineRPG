@@ -55,15 +55,16 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
         this.entityName = entityType.getDescriptionId();
     }
 
+
+
     @Override
     public CompoundNBT save(CompoundNBT compound) {
-        CompoundNBT result = super.save(compound);
-        result.putInt("delay", delay);
-        result.putLong("addY", baseOffset.asLong());
-        result.putBoolean("activated", isActivated);
-        result.putInt("spawnNearPlayer", blockReachDistance);
-        result.putString("entityID", entityId.getDescriptionId());
-        return result;
+        compound.putInt("delay", delay);
+        compound.putLong("addY", baseOffset.asLong());
+        compound.putBoolean("activated", isActivated);
+        compound.putInt("spawnNearPlayer", blockReachDistance);
+        compound.putString("entityID", entityId.getDescriptionId());
+        return compound;
     }
 
     @Override
