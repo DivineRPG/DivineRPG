@@ -19,6 +19,7 @@ import java.util.*;
 public class ArmorAbilitiesEvent
 {
     private static Item boots, body = null, legs = null, helmet = null;
+    private boolean flightArmour, flightAbilities;
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event)
@@ -259,7 +260,8 @@ public class ArmorAbilitiesEvent
 
     private static final String SWIM_MOD_STRING = "c7b490d7-2bfc-400f-b7bb-e89670daea62";
     public static final AttributeModifier SWIM_MOD = new AttributeModifier(SWIM_MOD_STRING, 2.0D, AttributeModifier.Operation.ADDITION);
-    private boolean flightFlag = false, swimFlag, shadow = true;
+    private boolean swimFlag, shadow = true;
+
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity player = evt.player;
@@ -273,19 +275,23 @@ public class ArmorAbilitiesEvent
             Item legs = armour.get(1).getItem();
             Item boots = armour.get(0).getItem();
 
-        if(boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet){
-            flightFlag = true;
-        }
-        if (flightFlag) {
-            player.abilities.mayfly = true;
+        if (boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet) {
+            flightArmour = true;
             player.fallDistance = 0;
-            flightFlag = false;
-        }else {
-            if (!player.isCreative() && !player.isSpectator()) {
-                player.abilities.mayfly = false;
-                player.abilities.flying = false;
-            }
+        } else {
+            flightArmour = false;
         }
+
+        if (flightArmour && !flightAbilities) {
+            player.abilities.mayfly = true;
+            flightAbilities = true;
+        }
+        if (!flightArmour && flightAbilities) {
+            player.abilities.mayfly = false;
+            player.abilities.flying = false;
+            flightAbilities = false;
+        }
+
 
 
         if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
