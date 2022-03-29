@@ -276,20 +276,22 @@ public class ArmorAbilitiesEvent
             Item boots = armour.get(0).getItem();
 
         if (boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet) {
-            flightArmour = true;
+            player.getPersistentData().putBoolean("flight_armour", true);
+//            flightArmour = true;
             player.fallDistance = 0;
         } else {
-            flightArmour = false;
+            player.getPersistentData().putBoolean("flight_armour", false);
+//            flightArmour = false;
         }
 
-        if (flightArmour && !flightAbilities) {
+        if (player.getPersistentData().getBoolean("flight_armour") && !player.getPersistentData().getBoolean("flight_abilities")) {
             player.abilities.mayfly = true;
-            flightAbilities = true;
+            player.getPersistentData().putBoolean("flight_abilities", true);
         }
-        if (!flightArmour && flightAbilities) {
+        if (!player.getPersistentData().getBoolean("flight_armour") && player.getPersistentData().getBoolean("flight_abilities")) {
             player.abilities.mayfly = false;
             player.abilities.flying = false;
-            flightAbilities = false;
+            player.getPersistentData().putBoolean("flight_abilities", false);
         }
 
 
