@@ -1,0 +1,122 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 8,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "divinerpg:skythern_sapling",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_slicer"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_blitz"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_shield"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_bow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_blade"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_shickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:skythern_phaser"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "minecraft:torch",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 48
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "minecraft:cooked_beef",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

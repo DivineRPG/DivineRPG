@@ -1,0 +1,136 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 8,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "divinerpg:wildwood_sapling",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_slicer"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_blitz"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_shield"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_bow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_shovel"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_blade"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_shickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:wildwood_phaser"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "minecraft:torch",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 48
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "minecraft:beef",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
