@@ -16,32 +16,16 @@ import net.minecraftforge.eventbus.api.*;
 
 import java.util.*;
 
-public class ArmorAbilitiesEvent
-{
-    private static Item boots, body = null, legs = null, helmet = null;
-    private boolean flightArmour, flightAbilities;
-
+public class ArmorAbilitiesEvent {
     @SubscribeEvent
-    public void onJump(LivingEvent.LivingJumpEvent event)
-    {
+    public void onJump(LivingEvent.LivingJumpEvent event) {
         if (event.getEntityLiving() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-            ItemStack stackBoots = player.inventory.armor.get(0);
-            ItemStack stackLegs = player.inventory.armor.get(1);
-            ItemStack stackBody = player.inventory.armor.get(2);
-            ItemStack stackHelmet = player.inventory.armor.get(3);
+            Item boots = player.inventory.armor.get(0).getItem();
+            Item legs = player.inventory.armor.get(1).getItem();
+            Item body = player.inventory.armor.get(2).getItem();
+            Item helmet = player.inventory.armor.get(3).getItem();
 
-            if (stackBoots != null) boots = stackBoots.getItem();
-            else boots = null;
-
-            if (stackBody != null) body = stackBody.getItem();
-            else body = null;
-
-            if (stackLegs != null) legs = stackLegs.getItem();
-            else legs = null;
-
-            if (stackHelmet != null) helmet = stackHelmet.getItem();
-            else helmet = null;
 
             //Divine
             if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
@@ -55,15 +39,15 @@ public class ArmorAbilitiesEvent
 
             //Vethean
 
-            if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
+            if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
                 player.setDeltaMovement(player.getDeltaMovement().add(0, 0.2D, 0));
             }
 
-            if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHood) {
+            if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHood) {
                 player.setDeltaMovement(player.getDeltaMovement().add(0, 0.3D, 0));
             }
 
-            if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHood) {
+            if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHood) {
                 player.setDeltaMovement(player.getDeltaMovement().add(0, 0.4D, 0));
             }
 
@@ -75,22 +59,10 @@ public class ArmorAbilitiesEvent
         if (e.getEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) e.getEntity();
 
-            ItemStack stackBoots = player.inventory.armor.get(0);
-            ItemStack stackLegs = player.inventory.armor.get(1);
-            ItemStack stackBody = player.inventory.armor.get(2);
-            ItemStack stackHelmet = player.inventory.armor.get(3);
-
-            if (stackBoots != null) boots = stackBoots.getItem();
-            else boots = null;
-
-            if (stackBody != null) body = stackBody.getItem();
-            else body = null;
-
-            if (stackLegs != null) legs = stackLegs.getItem();
-            else legs = null;
-
-            if (stackHelmet != null) helmet = stackHelmet.getItem();
-            else helmet = null;
+            Item boots = player.inventory.armor.get(0).getItem();
+            Item legs = player.inventory.armor.get(1).getItem();
+            Item body = player.inventory.armor.get(2).getItem();
+            Item helmet = player.inventory.armor.get(3).getItem();
 
             DamageSource s = e.getSource();
 
@@ -138,30 +110,18 @@ public class ArmorAbilitiesEvent
         if (e.getSource().getDirectEntity() != null && e.getSource().getDirectEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) e.getSource().getDirectEntity();
 
-            ItemStack stackBoots = player.inventory.armor.get(0);
-            ItemStack stackLeggings = player.inventory.armor.get(1);
-            ItemStack stackChestplate = player.inventory.armor.get(2);
-            ItemStack stackHelmet = player.inventory.armor.get(3);
-
-            if (stackBoots != null) boots = stackBoots.getItem();
-            else boots = null;
-
-            if (stackChestplate != null) body = stackChestplate.getItem();
-            else body = null;
-
-            if (stackLeggings != null) legs = stackLeggings.getItem();
-            else legs = null;
-
-            if (stackHelmet != null) helmet = stackHelmet.getItem();
-            else helmet = null;
+            Item boots = player.inventory.armor.get(0).getItem();
+            Item legs = player.inventory.armor.get(1).getItem();
+            Item body = player.inventory.armor.get(2).getItem();
+            Item helmet = player.inventory.armor.get(3).getItem();
 
 
             DamageSource s = e.getSource();
 
             if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
-            if ((e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) && ((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                e.setAmount(e.getAmount() + 6);
-            }
+                if ((e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) && ((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
+                    e.setAmount(e.getAmount() + 6);
+                }
             }
 
             //Halite
@@ -218,9 +178,9 @@ public class ArmorAbilitiesEvent
 
                 //Santa
                 if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
-                if (e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) {
-                    e.setAmount(e.getAmount() * 0.2F);
-                }
+                    if (e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) {
+                        e.setAmount(e.getAmount() * 0.2F);
+                    }
                 }
 
                 //Vethean
@@ -260,28 +220,25 @@ public class ArmorAbilitiesEvent
 
     private static final String SWIM_MOD_STRING = "c7b490d7-2bfc-400f-b7bb-e89670daea62";
     public static final AttributeModifier SWIM_MOD = new AttributeModifier(SWIM_MOD_STRING, 2.0D, AttributeModifier.Operation.ADDITION);
-    private boolean swimFlag, shadow = true;
 
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent evt) {
         PlayerEntity player = evt.player;
         ModifiableAttributeInstance swim = player.getAttribute(ForgeMod.SWIM_SPEED.get());
 
+        NonNullList<ItemStack> armour = player.inventory.armor;
+//      DamageSource damageSource = player.getLastDamageSource();
 
-            NonNullList<ItemStack> armour = player.inventory.armor;
-            DamageSource damageSource = player.getLastDamageSource();
-            Item helmet = armour.get(3).getItem();
-            Item body = armour.get(2).getItem();
-            Item legs = armour.get(1).getItem();
-            Item boots = armour.get(0).getItem();
+        Item boots = player.inventory.armor.get(0).getItem();
+        Item legs = player.inventory.armor.get(1).getItem();
+        Item body = player.inventory.armor.get(2).getItem();
+        Item helmet = player.inventory.armor.get(3).getItem();
 
         if (boots == ItemRegistry.angelicBoots && legs == ItemRegistry.angelicLeggings && body == ItemRegistry.angelicChestplate && helmet == ItemRegistry.angelicHelmet) {
             player.getPersistentData().putBoolean("flight_armour", true);
-//            flightArmour = true;
             player.fallDistance = 0;
         } else {
             player.getPersistentData().putBoolean("flight_armour", false);
-//            flightArmour = false;
         }
 
         if (player.getPersistentData().getBoolean("flight_armour") && !player.getPersistentData().getBoolean("flight_abilities")) {
@@ -294,16 +251,18 @@ public class ArmorAbilitiesEvent
             player.getPersistentData().putBoolean("flight_abilities", false);
         }
 
-
-
-        if(boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && swimFlag) {
-            swim.addTransientModifier(SWIM_MOD);
-            swimFlag = false;
+        if (player.getPersistentData().get("swimFlag") == null) {
+            player.getPersistentData().putBoolean("swimFlag", false);
         }
 
-        if(boots != ItemRegistry.aquastriveBoots && legs != ItemRegistry.aquastriveLeggings && body != ItemRegistry.aquastriveChestplate && helmet != ItemRegistry.aquastriveHelmet && !swimFlag){
+        if (boots == ItemRegistry.aquastriveBoots && legs == ItemRegistry.aquastriveLeggings && body == ItemRegistry.aquastriveChestplate && helmet == ItemRegistry.aquastriveHelmet && player.getPersistentData().getBoolean("swimFlag")) {
+            swim.addTransientModifier(SWIM_MOD);
+            player.getPersistentData().putBoolean("swimFlag", false);
+        }
+
+        if (boots != ItemRegistry.aquastriveBoots && legs != ItemRegistry.aquastriveLeggings && body != ItemRegistry.aquastriveChestplate && helmet != ItemRegistry.aquastriveHelmet && !player.getPersistentData().getBoolean("swimFlag")) {
             swim.removeModifier(SWIM_MOD);
-            swimFlag = true;
+            player.getPersistentData().putBoolean("swimFlag", true);
         }
 
 
@@ -357,26 +316,30 @@ public class ArmorAbilitiesEvent
             evt.player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 40, 0, true, false));
         }
 
+        if (player.getPersistentData().get("shadow") == null) {
+            player.getPersistentData().putBoolean("shadow", true);
+        }
+
         //Shadow
         if (boots == ItemRegistry.shadowBoots && body == ItemRegistry.shadowChestplate && legs == ItemRegistry.shadowLeggings && helmet == ItemRegistry.shadowHelmet) {
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
-            if (shadow) {
+            if (player.getPersistentData().getBoolean("shadow")) {
                 evt.player.maxUpStep = 1;
-                shadow = false;
+                player.getPersistentData().putBoolean("shadow", false);
             }
         }
         if (boots != ItemRegistry.shadowBoots || legs != ItemRegistry.shadowLeggings || body != ItemRegistry.shadowChestplate || helmet != ItemRegistry.shadowHelmet) {
-            if(!shadow) {
+            if (!player.getPersistentData().getBoolean("shadow")) {
                 evt.player.maxUpStep = 0.6F;
             }
-            shadow = true;
+            player.getPersistentData().putBoolean("shadow", true);
         }
 
         //Frozen
         if (boots == ItemRegistry.frozenBoots && body == ItemRegistry.frozenChestplate && legs == ItemRegistry.frozenLeggings && helmet == ItemRegistry.frozenHelmet && !evt.player.getCommandSenderWorld().isClientSide) {
             List<Entity> entities = evt.player.getCommandSenderWorld().getEntitiesOfClass(MobEntity.class, evt.player.getBoundingBox().expandTowards(6, 6, 6));
-            for(Entity e : entities) {
-                ((MobEntity)e).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 40, 1, true, false));
+            for (Entity e : entities) {
+                ((MobEntity) e).addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 40, 1, true, false));
             }
         }
 
@@ -403,32 +366,33 @@ public class ArmorAbilitiesEvent
         }
         //Vethean
 
-        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
+        if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningMask) {
 
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 0, false, false));
         }
 
-        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
+        if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedMask) {
 
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 1, false, false));
         }
 
-        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
+        if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedMask) {
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 3, 2, false, false));
         }
 
-        if(body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
+        if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHood) {
             evt.player.fallDistance = -0.5F;
         }
 
-        if(body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHood) {
+        if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHood) {
             evt.player.fallDistance = -0.5F;
         }
 
-        if(body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHood) {
+        if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHood) {
             evt.player.fallDistance = -0.5F;
         }
 
-        if(evt.player.inventory.contains(new ItemStack(ItemRegistry.minersAmulet))) evt.player.addEffect(new EffectInstance(Effects.DIG_SPEED, 1, 2, true, false));
+        if (evt.player.inventory.contains(new ItemStack(ItemRegistry.minersAmulet)))
+            evt.player.addEffect(new EffectInstance(Effects.DIG_SPEED, 1, 2, true, false));
     }
 }
