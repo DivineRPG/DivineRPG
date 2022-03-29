@@ -496,17 +496,17 @@ public class EntityRegistry {
     public static void spawnStuff(BiomeLoadingEvent event) {
         Biome.Category biome = event.getCategory();
 
-        if (biome == Biome.Category.THEEND) {
+        if (biome == Biome.Category.THEEND) {                                                        //EntType      //Weight        //Min       //Max
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  2, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  1, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_TRIPLETS,  2, 1, 4));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_WATCHER,  4, 4, 4));
         }
         if (biome == Biome.Category.NETHER) {
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_BAT, 1, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_PIG, 2, 5, 5));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_PIG, 1, 5, 5));
             event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(HELL_SPIDER, 3, 1, 1));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SCORCHER, 1, 1, 4));
-            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(WILDFIRE, 3, 1, 1));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(SCORCHER, 2, 1, 4));
+            event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(WILDFIRE, 5, 1, 1));
         }
         if (biome == Biome.Category.TAIGA || biome == Biome.Category.EXTREME_HILLS || biome == Biome.Category.JUNGLE || biome == Biome.Category.MESA || biome == Biome.Category.PLAINS || biome == Biome.Category.SAVANNA
                 || biome == Biome.Category.ICY || biome == Biome.Category.BEACH || biome == Biome.Category.FOREST || biome == Biome.Category.OCEAN || biome == Biome.Category.DESERT || biome == Biome.Category.RIVER
@@ -520,7 +520,7 @@ public class EntityRegistry {
             	event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(CAVECLOPS, 15, 1, 4));
             	event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENDER_SPIDER,  4, 1, 4));
                 event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(ENTHRALLED_DRAMCRYX, 70, 3, 4));
-                event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JACK_O_MAN, 5, 1, 1));
+                event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(JACK_O_MAN, 3, 1, 1));
                 event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(THE_GRUE, 5, 1, 4));
             }
         }
