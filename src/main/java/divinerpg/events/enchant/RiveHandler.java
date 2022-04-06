@@ -8,6 +8,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+import net.minecraftforge.common.*;
 import net.minecraftforge.event.world.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
@@ -54,15 +55,19 @@ public class RiveHandler {
         if(blockState.getBlock() == Blocks.AIR) {
             return;
         }
+        if(!blockState.getBlock().canHarvestBlock(blockState, world, pos, player)){
+            return;
+        }
+        if(!ForgeHooks.isToolEffective(world, pos, tool)){
+        return;
+        }
 
         Block block = blockState.getBlock();
-        if(block.canHarvestBlock(blockState, world, pos, player)) {
             block.playerDestroy(world, player, pos, blockState, null, tool);
             world.destroyBlock(pos, false);
             tool.hurtAndBreak(1, player, (context) -> {
                 context.broadcastBreakEvent(player.getUsedItemHand());
             });
-        }
     }
 
     private int[] getSizeByDirection(Direction facing, int level) {
