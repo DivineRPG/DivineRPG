@@ -131,6 +131,13 @@ public class ArmorAbilitiesEvent {
                 }
             }
 
+            //AWAKENED HALITE
+            if (boots == ItemRegistry.awakened_haliteBoots && body == ItemRegistry.awakened_haliteChestplate && legs == ItemRegistry.awakened_haliteLeggings && helmet == ItemRegistry.awakened_haliteHelmet) {
+                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
+                    e.setAmount(e.getAmount() + 20);
+                }
+            }
+
             //Divine
             if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
                 if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
