@@ -69,7 +69,6 @@ public class TileEntitySingleUseSpawner extends TileEntity implements ITickableT
 
     @Override
     public void load(BlockState state, CompoundNBT compound) {
-        super.load(state, compound);
         delay = compound.getInt("delay");
         baseOffset = BlockPos.of(compound.getLong("addY"));
         isActivated = compound.getBoolean("activated");

@@ -85,9 +85,6 @@ dependencies {
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT:api") //Patchouli
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT") //Patchouli
 
-
-    runtimeOnly fg.deobf("curse.maven:vampirism-become-a-vampire-233029:3568777") //Vampirism
-
 }
 
 jar {
