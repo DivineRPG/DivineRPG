@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    },
+    {
+      "item": "divinerpg:collector_fragments"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:collector"
+  }
+}
