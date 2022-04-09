@@ -1,11 +1,9 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.entities.skythern.*;
-import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -15,11 +13,12 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.server.*;
 
-public class EntityExperiencedCori extends EntityDivineFlyingMob {
+public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRangedAttackMob{
     private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
             BossInfo.Overlay.PROGRESS));
 //    private int deathTicks;
@@ -33,28 +32,24 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob {
         return 3.8F;
     }
 
+
     @Override
-    protected AIDivineFireballAttack createShootAI() {
-        return new AIDivineFireballAttack(this,
-                new ILaunchThrowable() {
-
-                    @Override
-                    public float getInaccuracy(World world) {
-                        return 0;
-                    }
-
-                    @Override
-                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
-                        return new EntityCoriShot(EntityRegistry.CORI_SHOT, world, parent, (float) parent.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
-                    }
-                },
-                SoundRegistry.CORI_SHOOT);
+    public void performRangedAttack(LivingEntity entity, float range) {
+        ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
     }
 
     @Override
     protected void registerGoals() {
         super.registerGoals();
+        addAttackingAI();
         goalSelector.addGoal(2, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
     }
 
     @Override
@@ -128,4 +123,5 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 1150).add(Attributes.ATTACK_DAMAGE, 16)
                 .add(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange).add(Attributes.FLYING_SPEED, EntityStats.skythernCoriSpeed);
     }
+
 }

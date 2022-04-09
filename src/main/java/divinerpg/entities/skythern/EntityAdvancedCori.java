@@ -1,17 +1,17 @@
 package divinerpg.entities.skythern;
 
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 
 public class EntityAdvancedCori extends EntityDivineFlyingMob {
@@ -22,22 +22,12 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected AIDivineFireballAttack createShootAI() {
-        return new AIDivineFireballAttack(this,
-                new ILaunchThrowable() {
-
-                    @Override
-                    public float getInaccuracy(World world) {
-                        return 0;
-                    }
-
-                    @Override
-                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
-                        return new EntityCoriShot(EntityRegistry.CORI_SHOT, world, parent, (float) parent.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
-                    }
-                },
-                SoundRegistry.CORI_SHOOT);
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
     }
+
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.8F;
     }
@@ -63,6 +53,18 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.CORI_HURT;
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity entity, float range) {
+        super.performRangedAttack(entity, range);
+        ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
     }
 
 }

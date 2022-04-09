@@ -1,6 +1,5 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
@@ -177,11 +176,6 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return SoundRegistry.RAINBOUR_HURT;
     }
 
-    @Nullable
-    @Override
-    protected AIDivineFireballAttack createShootAI() {
-        return null;
-    }
 
     class RainbourLookController extends LookController {
         RainbourLookController(MobEntity entity) {

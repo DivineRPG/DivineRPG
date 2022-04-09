@@ -1,29 +1,20 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
+import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.entity.monster.*;
+import net.minecraft.pathfinding.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
-
-import javax.annotation.*;
 
 public class EntityAlicanto extends EntityDivineFlyingMob {
     public EntityAlicanto(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
         this.fallDistance = 0;
         this.setPathfindingMalus(PathNodeType.WATER, -1.0F);
-    }
-
-    @Nullable
-    @Override
-    protected AIDivineFireballAttack createShootAI() {
-        return null;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

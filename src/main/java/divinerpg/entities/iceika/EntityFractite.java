@@ -1,17 +1,17 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.projectile.*;
 import net.minecraft.util.*;
+import net.minecraft.util.math.*;
 import net.minecraft.world.*;
-
-import javax.annotation.*;
 
 public class EntityFractite extends EntityDivineFlyingMob {
     public EntityFractite(EntityType<? extends FlyingEntity> type, World worldIn) {
@@ -27,16 +27,24 @@ public class EntityFractite extends EntityDivineFlyingMob {
         return level.getBiome(blockPosition()).shouldSnow(worldIn, blockPosition());
     }
 
-    @Nullable
     @Override
-    protected AIDivineFireballAttack createShootAI() {
-
-        return new AIDivineFireballAttack(this,
-                (world1, parent, x, y, z, fireballStrength) ->
-                        new EntityFractiteShot(world1, this, x, y, z),
-                SoundRegistry.FRACTITE_ATTACK);
+    protected void registerGoals() {
+        super.registerGoals();
+        addAttackingAI();
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
     }
 
+    @Override
+    public void performRangedAttack(LivingEntity entity, float range) {
+        super.performRangedAttack(entity, range);
+        ProjectileEntity projectile = new EntityFractiteShot(EntityRegistry.FRACTITE_SHOT, level);
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
+    }
 
     @Override
     public int getMaxSpawnClusterSize() {

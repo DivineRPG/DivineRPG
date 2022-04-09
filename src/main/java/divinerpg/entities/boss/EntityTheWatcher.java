@@ -1,9 +1,7 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.ai.*;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
 import divinerpg.registries.*;
 import divinerpg.util.*;
 import net.minecraft.entity.*;
@@ -50,6 +48,8 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     }
 
     protected void registerGoals() {
+        addAttackingAI();
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
         this.goalSelector.addGoal(5, new EntityTheWatcher.RandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EntityTheWatcher.LookAroundGoal(this));
         this.goalSelector.addGoal(7, new EntityTheWatcher.FireballAttackGoal(this));
@@ -57,6 +57,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
             return Math.abs(p_213812_1_.getY() - this.getY()) <= 4.0D;
         }));
     }
+
 
     @OnlyIn(Dist.CLIENT)
     public boolean isAttacking() {
@@ -76,21 +77,15 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     }
 
     @Override
-    protected AIDivineFireballAttack createShootAI() {
-        return new AIDivineFireballAttack(this,
-                new ILaunchThrowable() {
-
-                    @Override
-                    public float getInaccuracy(World world) {
-                        return 0;
-                    }
-
-                    @Override
-                    public ThrowableEntity createThowable(World world, LivingEntity parent, double x, double y, double z) {
-                        return new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, world, parent);
-                    }
-                },
-                SoundRegistry.CORI_SHOOT);
+    public void performRangedAttack(LivingEntity entity, float range) {
+        super.performRangedAttack(entity, range);
+        ProjectileEntity projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, level, this);
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
     }
 
     public boolean hurt(DamageSource source, float amount) {
@@ -141,6 +136,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         }
 
     }
+
 
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher mob;

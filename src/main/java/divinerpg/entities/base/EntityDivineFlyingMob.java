@@ -1,6 +1,5 @@
 package divinerpg.entities.base;
 
-import divinerpg.entities.ai.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.controller.*;
@@ -13,8 +12,15 @@ import net.minecraft.world.*;
 
 import javax.annotation.*;
 import java.util.*;
+import java.util.function.*;
 
-public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob {
+public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob, IRangedAttackMob {
+
+
+    private static final Predicate<LivingEntity> LIVING_ENTITY_SELECTOR = (p_213797_0_) -> {
+        return p_213797_0_.getMobType() != CreatureAttribute.UNDEAD && p_213797_0_.attackable();
+    };
+
     protected EntityDivineFlyingMob(EntityType<? extends FlyingEntity> type, World worldIn) {
         super(type, worldIn);
         this.moveControl = new EntityDivineFlyingMob.MoveHelperController(this);
@@ -22,13 +28,10 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
     protected void registerGoals() {
         this.goalSelector.addGoal(5, new EntityDivineFlyingMob.RandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EntityDivineFlyingMob.LookAroundGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
-            return Math.abs(p_213812_1_.getY() - this.getY()) <= 4.0D;
-        }));
-        AIDivineFireballAttack attack = createShootAI();
-        if (attack != null) {
-            this.goalSelector.addGoal(7, attack);
-        }
+        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 0, false, false, LIVING_ENTITY_SELECTOR));
+
     }
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
@@ -42,7 +45,7 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
 
 
     @Nullable
-    protected abstract AIDivineFireballAttack createShootAI();
+//    protected abstract AIDivineFireballAttack createShootAI();
 
     static class LookAroundGoal extends Goal {
         private final EntityDivineFlyingMob parentEntity;
@@ -192,5 +195,13 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
             double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
         }
+    }
+    protected void addAttackingAI() {
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity entity, float range) {
+
     }
 }
