@@ -27,6 +27,5 @@ public class TraderAI extends Goal {
 
     @Override
     public void stop() {
-        merchant.setTradingPlayer(null);
     }
 }
