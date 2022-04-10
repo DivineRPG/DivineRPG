@@ -1,10 +1,12 @@
 package divinerpg.entities.base;
 
 import com.mojang.serialization.*;
+import divinerpg.entities.ai.*;
 import divinerpg.registries.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.*;
 import net.minecraft.entity.ai.brain.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.*;
 import net.minecraft.entity.merchant.villager.*;
 import net.minecraft.entity.monster.*;
@@ -25,6 +27,18 @@ public abstract class EntityDivineMerchant extends VillagerEntity implements IMe
     protected EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
         super(type, worldIn);
     }
+
+    @Override
+    protected void registerGoals() {
+        goalSelector.addGoal(0, new SwimGoal(this));
+        goalSelector.addGoal(1, new AvoidEntityGoal<MonsterEntity>(this, MonsterEntity.class, 8f, 0.8d, 1d));
+        goalSelector.addGoal(1, new TraderAI(this));
+        goalSelector.addGoal(2, new OpenDoorGoal(this, true));
+        goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 3f, 1f));
+        goalSelector.addGoal(4, new RandomWalkingGoal(this, 0.6d));
+        goalSelector.addGoal(5, new LookRandomlyGoal(this));
+    }
+
     @Nullable
     @Override
     public ILivingEntityData finalizeSpawn(IServerWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
@@ -51,7 +65,7 @@ public abstract class EntityDivineMerchant extends VillagerEntity implements IMe
 
 
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
+        return !worldIn.canSeeSky(pos);
     }
 
     @Override
@@ -60,16 +74,6 @@ public abstract class EntityDivineMerchant extends VillagerEntity implements IMe
     }
 
     public abstract String[] getChatMessages();
-
-    @Override
-    public void startSeenByPlayer(ServerPlayerEntity player) {
-        if(!level.isClientSide){
-            if(level.hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && canRestock() && shouldRestock()){
-                this.restock();
-            }
-        }
-        super.startSeenByPlayer(player);
-    }
 
     @Override
     public SoundEvent getNotifyTradeSound() {
