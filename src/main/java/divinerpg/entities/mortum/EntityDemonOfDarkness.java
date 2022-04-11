@@ -23,7 +23,7 @@ public class EntityDemonOfDarkness extends EntityDivineMob {
         return 0.95F;
     }
     public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumDemonHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumDemonHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumDemonSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumDemonFollowRange);
+        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mortumDemonHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mortumDemonDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mortumDemonSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mortumDemonFollowRange);
     }
     public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
