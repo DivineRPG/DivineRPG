@@ -62,7 +62,7 @@ public class RiveHandler {
         return;
         }
 
-        if(!(blockState.getBlock() instanceof TorchBlock)){
+        if((blockState.getBlock() instanceof TorchBlock)){
             return;
         }
 
