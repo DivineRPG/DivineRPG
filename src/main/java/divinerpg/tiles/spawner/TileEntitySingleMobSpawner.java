@@ -54,7 +54,7 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
                 }
             }
         } else if (this.level.getNearestPlayer(this.worldPosition.getX() + 0.5D, this.worldPosition.getY() + 0.5D, this.worldPosition.getZ() + 0.5D,
-                16D, false) != null) {
+                48D, false) != null) {
             if (this.spawnTimer > 0)
                 this.spawnTimer--;
             if (this.spawnTimer == 0) {
@@ -91,7 +91,7 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
                         }
                     }
                 }
-                this.spawnTimer = 300;
+                this.spawnTimer = 180;
             }
         }
     }
