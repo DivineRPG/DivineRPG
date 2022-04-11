@@ -6,6 +6,7 @@ import net.minecraft.entity.*;
 import net.minecraft.nbt.*;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.math.*;
+import net.minecraft.world.server.*;
 
 import java.util.*;
 
@@ -79,10 +80,12 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
                                         && !this.level.containsAnyLiquid(boundingBox)) {
                                     if(type == EntityRegistry.THE_HUNGER){
                                         entity.moveTo(x, y+1, z, rand.nextInt(360), 0);
+                                        worldPosition = new BlockPos(x, y+1, z);
                                     }else {
-                                        entity.moveTo(x, y - 3, z, this.rand.nextInt(360), 0);
+                                        worldPosition = new BlockPos(x, y-3, z);
                                     }
-                                    this.level.addFreshEntity(entity);
+                                    if (type.spawn((ServerWorld)level, null, null, worldPosition, SpawnReason.SPAWN_EGG, false, false) == null) {
+                                    }
                                 }
                             }
                         }

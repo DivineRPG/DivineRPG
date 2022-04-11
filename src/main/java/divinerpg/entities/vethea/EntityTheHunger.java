@@ -4,13 +4,19 @@ import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
+import javax.annotation.*;
+
 public class EntityTheHunger extends EntityDivineMerchant {
-    public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
-        super(type, worldIn);
-    }
+
+
+	public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
+		super(type, worldIn);
+	}
 
     public String[] getChatMessages() {
         return new String[] {
@@ -21,7 +27,7 @@ public class EntityTheHunger extends EntityDivineMerchant {
         };
     }
 
-    @Override
+	@Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();
 
@@ -68,5 +74,36 @@ public class EntityTheHunger extends EntityDivineMerchant {
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
 		super.updateTrades();
+	}
+
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return SoundEvents.WOLF_AMBIENT;
+	}
+
+	@Override
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return SoundEvents.PLAYER_HURT;
+	}
+
+	@Override
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.WOLF_DEATH;
+	}
+
+	@Override
+	public void setTradingPlayer(@Nullable PlayerEntity player) {
+		boolean flag = this.getTradingPlayer() != null && player == null;
+		super.setTradingPlayer(player);
+		if (flag) {
+			this.stopTrading();
+		}
+
+	}
+
+	@Nullable
+	@Override
+	public PlayerEntity getTradingPlayer() {
+		return super.getTradingPlayer();
 	}
 }
