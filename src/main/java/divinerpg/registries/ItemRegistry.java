@@ -1998,11 +1998,11 @@ public class ItemRegistry {
         register(e, new ItemArcanaPotion("weak_arcana_potion", 100));
         register(e, new ItemDivineAccumulator());
         register(e, new ItemEggNog("egg_nog"));
-        register(e, new ItemModFood("moonbulb", FoodList.MOONBULB, DivineRPG.tabs.food));
-        register(e, new ItemModFood("pink_glowbone", FoodList.PINK_GLOWBONE, DivineRPG.tabs.food));
-        register(e, new ItemModFood("purple_glowbone", FoodList.PURPLE_GLOWBONE, DivineRPG.tabs.food));
-        register(e, new ItemModFood("magic_meat", FoodList.MAGIC_MEAT, DivineRPG.tabs.food));
-        register(e, new ItemModFood("enriched_magic_meat", FoodList.ENRICHED_MAGIC_MEAT, DivineRPG.tabs.food));
+        register(e, new ItemModFood("moonbulb", FoodList.MOONBULB, DivineRPG.tabs.food, true));
+        register(e, new ItemModFood("pink_glowbone", FoodList.PINK_GLOWBONE, DivineRPG.tabs.food, true));
+        register(e, new ItemModFood("purple_glowbone", FoodList.PURPLE_GLOWBONE, DivineRPG.tabs.food, true));
+        register(e, new ItemModFood("magic_meat", FoodList.MAGIC_MEAT, DivineRPG.tabs.food, true));
+        register(e, new ItemModFood("enriched_magic_meat", FoodList.ENRICHED_MAGIC_MEAT, DivineRPG.tabs.food, true));
         register(e, new ItemForbiddenFruit());
         register(e, new ItemGhostbane());
         register(e, new ItemHordeHorn("horde_horn"));

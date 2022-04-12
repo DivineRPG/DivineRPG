@@ -25,15 +25,15 @@ public class ItemModFood extends ItemMod {
         this.food = food;
     }
 
-    public ItemModFood(String name, Food food, ItemGroup tab, boolean fast) {
+    public ItemModFood(String name, Food food, ItemGroup tab, boolean fastFood) {
         super(name, new Item.Properties().tab(tab).food(food));
         this.food = food;
-        fast = fastFood;
+        this.fastFood = fastFood;
     }
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return fastFood? super.getUseDuration(stack) / 4 : super.getUseDuration(stack);
+        return fastFood? 1 : super.getUseDuration(stack);
     }
 
     @OnlyIn(Dist.CLIENT)

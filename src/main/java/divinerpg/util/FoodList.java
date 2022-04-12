@@ -31,8 +31,8 @@ public class FoodList {
     public static final Food WHITE_MUSHROOM = (new Food.Builder()).nutrition(1).saturationMod(0.1F).build();
     public static final Food WINTERBERRY = (new Food.Builder()).nutrition(4).saturationMod(1.0F).build();
 
-    public static final Food ENRICHED_MAGIC_MEAT = (new Food.Builder()).nutrition(7).saturationMod(1.0F).build();
-    public static final Food MAGIC_MEAT = (new Food.Builder()).nutrition(5).saturationMod(1.0F).build();
+    public static final Food ENRICHED_MAGIC_MEAT = (new Food.Builder()).nutrition(7).saturationMod(1.0F).meat().build();
+    public static final Food MAGIC_MEAT = (new Food.Builder()).nutrition(5).saturationMod(1.0F).meat().build();
     public static final Food MOONBULB = (new Food.Builder()).nutrition(1).saturationMod(2.0F).build();
     public static final Food PINK_GLOWBONE = (new Food.Builder()).nutrition(3).saturationMod(2.0F).build();
     public static final Food PURPLE_GLOWBONE = (new Food.Builder()).nutrition(3).saturationMod(2.0F).build();
