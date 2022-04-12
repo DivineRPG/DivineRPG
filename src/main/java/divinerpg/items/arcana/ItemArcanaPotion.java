@@ -51,12 +51,12 @@ public class ItemArcanaPotion extends ItemMod {
 
     @Override
     public int getUseDuration(ItemStack par1ItemStack) {
-        return 10;
+        return 12;
     }
 
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        player.setItemInHand(hand, null);
+        player.startUsingItem(hand);
 
         Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
 
