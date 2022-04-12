@@ -7,10 +7,10 @@ issueTrackerURL = "https://github.com/DivineRPG/DivineRPG/issues" #optional
 modId = "divinerpg" #mandatory
 version = "${file.jarVersion}" #mandatory
 displayName = "DivineRPG" #mandatory
-updateJSONURL = "https://raw.githubusercontent.com/DivineRPG/DivineRPG/1.12.2/divinerpg_update.json" #optional
+updateJSONURL = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/divinerpg_update.json" #optional
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg" #optional
 logoFile = "logo.png" #optional
-credits = "https://github.com/DivineRPG/DivineRPG/blob/1.12.2/credits.md" #optional
+credits = "https://github.com/DivineRPG/DivineRPG-Assets/blob/main/credits.md" #optional
 description = '''Adds various dimensions, weapons, and mobs'''
 
 [[dependencies.divinerpg]] #optional
