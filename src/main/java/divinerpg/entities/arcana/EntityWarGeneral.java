@@ -32,7 +32,7 @@ public class EntityWarGeneral extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 30), new ItemStack(ItemRegistry.arcaniteBlade, 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 18), new ItemStack(ItemRegistry.generalsStaff, 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ItemRegistry.vemosHelmet, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ItemRegistry.vemosLeggings, 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 10), new ItemStack(ItemRegistry.vemosChestplate, 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.vemosLeggings, 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(ItemRegistry.vemosBoots, 1), random.nextInt(7), 5)
 		};
