@@ -573,11 +573,11 @@ public class EntityRegistry {
         manager.register(DISK, new RenderDisk(manager));
         manager.register(DISSIMENT_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/dissiment_shot.png")));
         manager.register(ARROW_SHOT, new RenderDivineArrow(manager));
-        manager.register(ENDER_TRIPLETS_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/ender_triplets_fireball.png")));
+        manager.register(ENDER_TRIPLETS_FIREBALL, new RenderFireballProjectile<FireballEntity>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/ender_triplets_fireball.png")));
         manager.register(FIREFLY, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/firefly.png")));
-        manager.register(FRACTITE_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/fractite_shot.png")));
-        manager.register(FROST_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
-        manager.register(FYRACRYX_FIREBALL, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
+        manager.register(FRACTITE_SHOT, new RenderFireballProjectile<FireballEntity>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/fractite_shot.png")));
+        manager.register(FROST_SHOT, new RenderFireballProjectile<FireballEntity>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/frost_shot.png")));
+        manager.register(FYRACRYX_FIREBALL, new RenderFireballProjectile<FireballEntity>(manager, new ResourceLocation("minecraft:textures/items/fireball.png")));
         manager.register(GENERALS_STAFF, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/generals_staff.png")));
         manager.register(GRENADE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/items/grenade.png")));
         manager.register(KAZROTIC_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/kazrotic_shot.png")));
@@ -592,7 +592,7 @@ public class EntityRegistry {
         manager.register(RAGLOK_BOMB, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/raglok_bomb.png")));
         manager.register(REFLECTOR, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation("textures/particle/generic_0.png")));
         manager.register(SAGUARO_WORM_SHOT, new RenderSaguaroWormShot(manager));
-        manager.register(SCORCHER_SHOT, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/scorcher_shot.png")));
+        manager.register(SCORCHER_SHOT, new RenderFireballProjectile<FireballEntity>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/scorcher_shot.png")));
         manager.register(SERENADE_OF_DEATH, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/serenade_of_death.png")));
         manager.register(SERENADE_OF_ICE, new RenderDivineProjectile<DivineThrowable>(manager, new ResourceLocation("textures/particle/generic_0.png")));
         manager.register(SHOOTER_BULLET, new RenderShooterBullet(manager));
