@@ -58,8 +58,8 @@ public class InfusionTableCategory implements IRecipeCategory<InfusionTableRecip
     @Override
     public void setIngredients(InfusionTableRecipe recipe, IIngredients ingredients) {
         List<List<ItemStack>> itemStacks = new ArrayList<>();
-        itemStacks.add(Arrays.asList(recipe.input.getItems()));
-        itemStacks.add(Arrays.asList(recipe.template.getItems()));
+        itemStacks.add(Arrays.asList(recipe.input.copy()));
+        itemStacks.add(Arrays.asList(recipe.template.copy()));
         itemStacks.add(Collections.singletonList(recipe.getResultItem()));
         ingredients.setInputLists(VanillaTypes.ITEM, itemStacks);
         ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());

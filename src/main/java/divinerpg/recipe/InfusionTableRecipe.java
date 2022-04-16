@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.*;
 import net.minecraft.network.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
+import net.minecraftforge.common.crafting.*;
 import net.minecraftforge.registries.*;
 
 import javax.annotation.*;
@@ -15,13 +16,13 @@ import javax.annotation.*;
 public class InfusionTableRecipe implements IRecipe<IInventory> {
     public static final Serializer SERIALIZER = new Serializer();
 
-    public    final Ingredient input;
-    public    final Ingredient template;
+    public    final ItemStack input;
+    public    final ItemStack template;
     public    final ItemStack output;
     public    final int count;
     private   final ResourceLocation id;
 
-    public InfusionTableRecipe(ResourceLocation id, Ingredient input, Ingredient template, ItemStack output, int count) {
+    public InfusionTableRecipe(ResourceLocation id, ItemStack input, ItemStack template, ItemStack output, int count) {
 
         this.id = id;
         this.input = input;
@@ -33,13 +34,12 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
     @Override
     public boolean matches(IInventory inv, World worldIn){
-        ItemStack stack = inv.getItem(0);
-        return input.test(stack) && template.test(inv.getItem(1)) && inv.getItem(0).getCount() >= this.count;
+        return ItemStack.isSame(input, inv.getItem(0)) && ItemStack.isSame(template, inv.getItem(1)) && inv.getItem(0).getCount() == count;
     }
 
     @Override
     public ItemStack assemble(IInventory inv){
-        return ItemStack.EMPTY;
+        return output.copy();
     }
 
     @Override
@@ -49,11 +49,13 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
     @Override
     public ItemStack getResultItem() {
-        return this.output;
+        return output.copy();
     }
 
     public NonNullList<Ingredient> getTemplate() {
-        return NonNullList.of(this.template);
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        ingredients.add(Ingredient.of(input));
+        return ingredients;
     }
 
     @Override
@@ -67,7 +69,7 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return SERIALIZER;
+        return InfusionTableRecipe.SERIALIZER;
     }
 
     @Override
@@ -85,37 +87,25 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
         int count = 1;
         @Override
         public InfusionTableRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            ItemStack input;
-            if (json.get("input").isJsonObject()) {
-                input = ShapedRecipe.itemFromJson(json.getAsJsonObject("input"));
-            } else {
-                ResourceLocation id = new ResourceLocation(JSONUtils.getAsString(json, "input"));
-                Item item = ForgeRegistries.ITEMS.getValue(id);
-                if (item == null) {
-                    throw new JsonSyntaxException("Unknown item '" + id + "'");
-                }
                 if (!json.has("count")) {
                     count = 1;
                 } else {
                     count = JSONUtils.getAsInt(json, "count");
                 }
-                input = new ItemStack(item, count);
-            }
+
+            ItemStack input = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "input"), false);
+            ItemStack template = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "template"), false);
+            ItemStack output = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "output"), false);
 
 
-            final JsonElement templateElement = JSONUtils.isArrayNode(json, "template") ? JSONUtils.getAsJsonArray(json, "template") : JSONUtils.getAsJsonObject(json, "template");
-            final Ingredient template = Ingredient.fromJson(templateElement);
-
-            final ItemStack output = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "output"));
-
-            return new InfusionTableRecipe(recipeId, Ingredient.of(input), template, output, input.getCount());
+            return new InfusionTableRecipe(recipeId, new ItemStack(input.getItem(), count), template, output, input.getCount());
         }
 
         @Nullable
         @Override
         public InfusionTableRecipe fromNetwork(ResourceLocation resourceLocation, PacketBuffer buffer) {
-            final Ingredient input = Ingredient.fromNetwork(buffer);
-            final Ingredient template = Ingredient.fromNetwork(buffer);
+            final ItemStack input = buffer.readItem();
+            final ItemStack template = buffer.readItem();
             final ItemStack output = buffer.readItem();
             final int count = buffer.readByte();
 
@@ -124,8 +114,8 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
         @Override
         public void toNetwork(PacketBuffer buffer, InfusionTableRecipe recipe) {
-            recipe.input.toNetwork(buffer);
-            recipe.template.toNetwork(buffer);
+            buffer.writeItem(recipe.input);
+            buffer.writeItem(recipe.template);
             buffer.writeItem(recipe.output);
             buffer.writeByte(recipe.count);
         }
