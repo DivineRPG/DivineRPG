@@ -10,7 +10,6 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
 
-import javax.annotation.*;
 import java.util.*;
 import java.util.function.*;
 
@@ -43,9 +42,6 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
         return true;
     }
 
-
-    @Nullable
-//    protected abstract AIDivineFireballAttack createShootAI();
 
     static class LookAroundGoal extends Goal {
         private final EntityDivineFlyingMob parentEntity;

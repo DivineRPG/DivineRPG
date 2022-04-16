@@ -18,7 +18,7 @@ import net.minecraft.world.*;
 
 import java.util.*;
 
-public class EntityScorcher extends EntityDivineMob {
+public class EntityScorcher extends EntityDivineMob implements IRangedAttackMob {
     private float heightOffset = 0.5F;
     private int heightOffsetUpdateTime;
 
@@ -32,13 +32,15 @@ public class EntityScorcher extends EntityDivineMob {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new EntityScorcher.FireballAttackGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D, 0.0F));
         this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        addAttackingAI();
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+
     }
 
     public static AttributeModifierMap.MutableAttribute attributes() {
@@ -122,107 +124,16 @@ public class EntityScorcher extends EntityDivineMob {
         return false;
     }
 
-    static class FireballAttackGoal extends Goal {
-        private final EntityScorcher mob;
-        private int attackStep;
-        private int attackTime;
-        private int firedRecentlyTimer;
-
-        public FireballAttackGoal(EntityScorcher mob) {
-            this.mob = mob;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-        }
-
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean canUse() {
-            LivingEntity livingentity = this.mob.getTarget();
-            return livingentity != null && livingentity.isAlive() && this.mob.canAttack(livingentity);
-        }
-
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-
-        public void start() {
-            this.attackStep = 0;
-        }
-
-        /**
-         * Reset the task's internal state. Called when this task is interrupted by another one
-         */
-        public void stop() {
-            this.firedRecentlyTimer = 0;
-        }
-
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
-        public void tick() {
-            --this.attackTime;
-            LivingEntity livingentity = this.mob.getTarget();
-            if (livingentity != null) {
-                boolean flag = this.mob.canSee(livingentity);
-                if (flag) {
-                    this.firedRecentlyTimer = 0;
-                } else {
-                    ++this.firedRecentlyTimer;
-                }
-
-                double d0 = this.mob.distanceToSqr(livingentity);
-                if (d0 < 4.0D) {
-                    if (!flag) {
-                        return;
-                    }
-
-                    if (this.attackTime <= 0) {
-                        this.attackTime = 20;
-                        this.mob.doHurtTarget(livingentity);
-                    }
-
-                    this.mob.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
-                } else if (d0 < this.getFollowDistance() * this.getFollowDistance() && flag) {
-                    double d1 = livingentity.getX() - this.mob.getX();
-                    double d2 = livingentity.getY(0.5D) - this.mob.getY(0.5D);
-                    double d3 = livingentity.getZ() - this.mob.getZ();
-                    if (this.attackTime <= 0) {
-                        ++this.attackStep;
-                        if (this.attackStep == 1) {
-                            this.attackTime = 60;
-                        } else if (this.attackStep <= 4) {
-                            this.attackTime = 6;
-                        } else {
-                            this.attackTime = 100;
-                            this.attackStep = 0;
-                        }
-
-                        if (this.attackStep > 1) {
-                            float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                            if (!this.mob.isSilent()) {
-                                this.mob.level.levelEvent((PlayerEntity)null, 1018, this.mob.blockPosition(), 0);
-                            }
-
-                            for(int i = 0; i < 1; ++i) {
-                                EntityScorcherShot smallfireballentity = new EntityScorcherShot(this.mob.level, this.mob, d1 + this.mob.getRandom().nextGaussian() * (double)f, d2, d3 + this.mob.getRandom().nextGaussian() * (double)f);
-                                smallfireballentity.moveTo(smallfireballentity.getX(), this.mob.getY(0.5D) + 0.5D, smallfireballentity.getZ());
-                                this.mob.level.addFreshEntity(smallfireballentity);
-                            }
-                        }
-                    }
-
-                    this.mob.getLookControl().setLookAt(livingentity, 10.0F, 10.0F);
-                } else if (this.firedRecentlyTimer < 5) {
-                    this.mob.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
-                }
-
-                super.tick();
-            }
-        }
-
-        private double getFollowDistance() {
-            return this.mob.getAttributeValue(Attributes.FOLLOW_RANGE);
-        }
+    @Override
+    public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
+        EntityScorcherShot projectile = new EntityScorcherShot(EntityRegistry.SCORCHER_SHOT, level);
+        projectile.setSecondsOnFire(100);
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        this.level.addFreshEntity(projectile);
     }
+
 }
