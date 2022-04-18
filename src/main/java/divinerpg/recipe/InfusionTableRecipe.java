@@ -87,18 +87,28 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
         int count = 1;
         @Override
         public InfusionTableRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            ItemStack input;
+            if (json.get("input").isJsonObject()) {
+                input = ShapedRecipe.itemFromJson(json.getAsJsonObject("input"));
+            } else {
+                ResourceLocation id = new ResourceLocation(JSONUtils.getAsString(json, "input"));
+                Item item = ForgeRegistries.ITEMS.getValue(id);
+                if (item == null) {
+                    throw new JsonSyntaxException("Unknown item '" + id + "'");
+                }
                 if (!json.has("count")) {
                     count = 1;
                 } else {
                     count = JSONUtils.getAsInt(json, "count");
                 }
+                input = new ItemStack(item, count);
+            }
 
-            ItemStack input = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "input"), false);
             ItemStack template = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "template"), false);
             ItemStack output = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "output"), false);
 
 
-            return new InfusionTableRecipe(recipeId, new ItemStack(input.getItem(), count), template, output, input.getCount());
+            return new InfusionTableRecipe(recipeId, input, template, output, input.getCount());
         }
 
         @Nullable
@@ -107,7 +117,7 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
             final ItemStack input = buffer.readItem();
             final ItemStack template = buffer.readItem();
             final ItemStack output = buffer.readItem();
-            final int count = buffer.readByte();
+            final int count = buffer.readInt();
 
             return new InfusionTableRecipe(resourceLocation, input, template, output, count);
         }
@@ -117,7 +127,7 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
             buffer.writeItem(recipe.input);
             buffer.writeItem(recipe.template);
             buffer.writeItem(recipe.output);
-            buffer.writeByte(recipe.count);
+            buffer.writeInt(recipe.count);
         }
     }
 }
