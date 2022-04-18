@@ -40,6 +40,8 @@ Want to help improve our code? Fix bugs? Add to the mod? Make artistic improveme
 5. Click `Click to create a pull request for this comparison`, enter your Pull Request's title, and write a detailed description telling us what you changed.
 6. Click `Send pull request`, and be patient, we will review your changes
 
+##### All contributions are considered irrevocable property of the DivineRPG project
+
 #### Creating an Issue
 Found a bug in our mod?  Please let us know so we can fix it ASAP!
 
