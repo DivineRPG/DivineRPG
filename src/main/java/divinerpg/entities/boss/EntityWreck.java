@@ -118,11 +118,9 @@ public class EntityWreck extends EntityDivineBoss {
         if (this.getAbility() == FIRE) {
             if (player != null) {
                 for (int i = 1; i < 20; ++i) {
-                    int var2 = (int) (((this.getX() - player.getX())) * i) / 5;
-                    int var3 = (int) (((this.getZ() - player.getZ())) * i) / 5;
-                    if (this.level.getBlockState(new BlockPos((int) this.getX() - var2, (int) this.getY(), (int) this.getZ() - var3)).getBlock() == Blocks.AIR) {
-                        this.level.setBlock(new BlockPos((int) this.getX() - var2, (int) this.getY(), (int) this.getZ() - var3), Blocks.FIRE.defaultBlockState(), 1);
-                    }
+                    int var2 = (int) (((this.blockPosition().getX() - player.blockPosition().getX())) * i) / 5;
+                    int var3 = (int) (((this.blockPosition().getZ() - player.blockPosition().getZ())) * i) / 5;
+                    if (this.level.getBlockState(new BlockPos((int) this.blockPosition().getX() - var2, (int) this.blockPosition().getY(), (int) this.blockPosition().getZ() - var3)) == Blocks.AIR.defaultBlockState()) this.level.setBlock(new BlockPos((int) this.blockPosition().getX() - var2, (int) this.blockPosition().getY(), (int) this.blockPosition().getZ() - var3), Blocks.FIRE.defaultBlockState(), 0);
                 }
                 this.setAbility(DEFAULT);
             }
