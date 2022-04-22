@@ -50,6 +50,48 @@ public class InfusionTableContainer<C extends IInventory> extends Container {
     public InfusionTableContainer(int i, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
         this(i, playerInventory);
     }
+
+    @Override
+    public ItemStack quickMoveStack(PlayerEntity player, int index) {
+        ItemStack stack = ItemStack.EMPTY;
+        Slot slot = slots.get(index);
+
+        if (slot != null && slot.hasItem()) {
+            ItemStack slotStack = slot.getItem();
+            stack = slotStack.copy();
+
+            if (index == 2) {
+                access.execute((world, pos) -> slotStack.getItem().onCraftedBy(slotStack, world, player));
+
+                if (!moveItemStackTo(slotStack, 3, 39, true))
+                    return ItemStack.EMPTY;
+
+                slot.onQuickCraft(slotStack, stack);
+            }
+            else if (index != 0 && index != 1) {
+                if (index < 39 && !moveItemStackTo(slotStack, 0, 2, false))
+                    return ItemStack.EMPTY;
+            }
+            else if (!moveItemStackTo(slotStack, 3, 39, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (slotStack.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            }
+            else {
+                slot.setChanged();
+            }
+
+            if (slotStack.getCount() == stack.getCount())
+                return ItemStack.EMPTY;
+
+            slot.onTake(player, slotStack);
+        }
+
+        return stack;
+    }
+
     @Override
     public void slotsChanged(IInventory inventory) {
         access.execute((world, pos) -> slotChangedCraftingGrid(world, player, infusion, output));
