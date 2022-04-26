@@ -36,8 +36,7 @@ public class EntityMoonWolf extends WolfEntity {
         if (this.getRemainingPersistentAngerTime()>0) {
             return SoundEvents.WOLF_GROWL;
         } else if (this.random.nextInt(3) == 0) {
-            return this.isTame() && this.entityData.get(DATA_HEALTH_ID) < 10.0F ?
-                    SoundEvents.WOLF_WHINE : SoundEvents.WOLF_PANT;
+            return this.isTame() && this.getHealth() < 10.0F ? SoundEvents.WOLF_WHINE : SoundEvents.WOLF_PANT;
         } else {
             return SoundEvents.WOLF_AMBIENT;
         }
