@@ -1,5 +1,6 @@
 package divinerpg.blocks.base;
 
+import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.tags.*;
@@ -37,10 +38,30 @@ public class BlockModGrass extends BlockMod implements IGrowable {
         return true;
     }
 
+    public BlockState grass(){
+        BlockState state = Blocks.GRASS.defaultBlockState();
+        if(this.is(BlockRegistry.edenGrass)){
+            return BlockRegistry.edenBrush.defaultBlockState();
+        }
+        if(this.is(BlockRegistry.wildwoodGrass)){
+            return BlockRegistry.wildwoodTallgrass.defaultBlockState();
+        }
+        if(this.is(BlockRegistry.apalachiaGrass)){
+            return BlockRegistry.apalachiaTallgrass.defaultBlockState();
+        }
+        if(this.is(BlockRegistry.skythernGrass)){
+            return BlockRegistry.skythernBrush.defaultBlockState();
+        }
+        if(this.is(BlockRegistry.mortumGrass)){
+            return BlockRegistry.mortumBrush.defaultBlockState();
+        }
+        return state;
+    }
+
     @Override
     public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         BlockPos blockpos = pos.above();
-        BlockState blockstate = this.defaultBlockState();
+        BlockState blockstate = grass();
 
 
         label48:
@@ -56,7 +77,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
             BlockState blockstate2 = worldIn.getBlockState(blockpos1);
             if (blockstate2.is(blockstate.getBlock()) && rand.nextInt(10) == 0) {
-                ((IGrowable) blockstate.getBlock()).performBonemeal(worldIn, rand, blockpos1, blockstate2);
+                performBonemeal(worldIn, rand, blockpos1, blockstate2);
             }
 
             if (blockstate2.isAir()) {
