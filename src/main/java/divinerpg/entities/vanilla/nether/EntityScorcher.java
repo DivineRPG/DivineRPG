@@ -126,14 +126,16 @@ public class EntityScorcher extends EntityDivineMob implements IRangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity p_82196_1_, float p_82196_2_) {
-        EntityScorcherShot projectile = new EntityScorcherShot(EntityRegistry.SCORCHER_SHOT, level);
-        projectile.setSecondsOnFire(100);
-        double d0 = getTarget().getX() - this.getX();
-        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-        double d2 = getTarget().getZ() - this.getZ();
-        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-        this.level.addFreshEntity(projectile);
+        if (getTarget() != null) {
+            EntityScorcherShot projectile = new EntityScorcherShot(EntityRegistry.SCORCHER_SHOT, level);
+            projectile.setSecondsOnFire(100);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
+        }
     }
 
 }

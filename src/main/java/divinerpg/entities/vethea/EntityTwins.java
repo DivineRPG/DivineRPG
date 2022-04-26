@@ -77,27 +77,29 @@ public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity entity, float par2) {
-    	ArrowEntity entityarrow = new ArrowEntity(EntityType.ARROW, this.level);//this.getArrow(64);
-        double d0 = entity.getX() - this.getX();
-        double d1 = entity.getBoundingBox().minY + (double)(entity.getBbHeight() / 3.0F) - entityarrow.getY();
-        double d2 = entity.getZ() - this.getZ();
-        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        switch(ability) {
-            case FAST:
-                this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
-                entityarrow.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-                this.level.addFreshEntity(entityarrow);
-                break;
-            case SLOW:
-                this.rangedAttackCounter++;
-                if ((this.rangedAttackCounter & 4) == 0) {
+        if (getTarget() != null) {
+            ArrowEntity entityarrow = new ArrowEntity(EntityType.ARROW, this.level);//this.getArrow(64);
+            double d0 = entity.getX() - this.getX();
+            double d1 = entity.getBoundingBox().minY + (double) (entity.getBbHeight() / 3.0F) - entityarrow.getY();
+            double d2 = entity.getZ() - this.getZ();
+            double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
+            switch (ability) {
+                case FAST:
                     this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
                     entityarrow.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
                     this.level.addFreshEntity(entityarrow);
-                }
-                break;
-            default: 
-            	break;
+                    break;
+                case SLOW:
+                    this.rangedAttackCounter++;
+                    if ((this.rangedAttackCounter & 4) == 0) {
+                        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                        entityarrow.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                        this.level.addFreshEntity(entityarrow);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
     /*protected ArrowEntity getArrow(float p_190726_1_)
