@@ -2036,11 +2036,11 @@ public class ItemRegistry {
         register(e, new ItemModSeeds("hitchak_seeds", () -> BlockRegistry.hitchakPlant));
         register(e, new ItemModSeeds("lamona_seeds", () -> BlockRegistry.lamonaPlant));
         register(e, new ItemModSeeds("marsine_seeds", () -> BlockRegistry.marsinePlant));
-        register(e, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("moonbulb_seeds", () -> BlockRegistry.moonbulbPlant, () -> Blocks.GRASS_BLOCK));
         register(e, new ItemModSeeds("pinfly_seeds", () -> BlockRegistry.pinflyPlant));
-        register(e, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS));
-        register(e, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS));
-        register(e, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS));
+        register(e, new ItemModSeeds("pink_glowbone_seeds", () -> BlockRegistry.pinkGlowbonePlant, () -> Blocks.GRASS_BLOCK));
+        register(e, new ItemModSeeds("purple_glowbone_seeds", () -> BlockRegistry.purpleGlowbonePlant, () -> Blocks.GRASS_BLOCK));
+        register(e, new ItemModSeeds("sky_plant_seeds", () -> BlockRegistry.skyPlant, () -> Blocks.GRASS_BLOCK));
         register(e, new ItemModSeeds("tomato_seeds", () -> BlockRegistry.tomatoPlant));
         register(e, new ItemModSeeds("veilo_seeds", () -> BlockRegistry.veiloPlant));
         register(e, new ItemModSeeds("white_mushroom_seeds", () -> BlockRegistry.whiteMushroomPlant));
