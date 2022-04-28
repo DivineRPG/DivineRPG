@@ -82,7 +82,7 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
         this.z = this.portalPosZ + this.zd * var1;
 
         if (this.age++ >= this.lifetime) {
-            this.shouldCull();
+            this.remove();
         }
     }
 
