@@ -3,6 +3,8 @@ package divinerpg.blocks.base;
 import divinerpg.registries.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.*;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
@@ -95,8 +97,11 @@ public class BlockModGrass extends BlockMod implements IGrowable {
                     blockstate1 = blockstate;
                 }
 
-                if (blockstate1.canSurvive(worldIn, blockpos1)) {
+                if (blockstate1.canSurvive(worldIn, blockpos1) && worldIn.getBlockState(blockpos1.below()) != blockstate1) {
                     worldIn.setBlock(blockpos1, blockstate1, 3);
+                    if(blockstate1.getBlock() instanceof DoublePlantBlock){
+                        worldIn.setBlock(blockpos1.above(), blockstate1.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
+                    }
                 }
             }
         }
