@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:frozen_dirt",
+    "divinerpg:frozen_grass",
+    "divinerpg:eden_dirt",
+    "divinerpg:eden_grass",
+    "divinerpg:wildwood_dirt",
+    "divinerpg:wildwood_grass",
+    "divinerpg:apalachia_dirt",
+    "divinerpg:apalachia_grass",
+    "divinerpg:skythern_dirt",
+    "divinerpg:skythern_grass",
+    "divinerpg:mortum_dirt",
+    "divinerpg:mortum_grass",
+    "divinerpg:arcanite_dirt",
+    "divinerpg:arcanite_grass",
+    "divinerpg:dream_dirt",
+    "divinerpg:dream_grass"
+  ]
+}
