@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:bloodgem",
+    "divinerpg:eden_gem",
+    "divinerpg:wildwood_gem",
+    "divinerpg:apalachia_gem",
+    "divinerpg:skythern_gem",
+    "divinerpg:mortum_gem"
+  ]
+}

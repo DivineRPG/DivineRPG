@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:arlemite_nugget",
+    "divinerpg:realmite_nugget",
+    "divinerpg:rupee_nugget",
+    "divinerpg:torridite_nugget"
+  ]
+}

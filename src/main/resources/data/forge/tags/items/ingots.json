@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:arlemite_ingot",
+    "divinerpg:realmite_ingot",
+    "divinerpg:rupee_ingot",
+    "divinerpg:torridite_ingot",
+    "divinerpg:hellstone_ingot",
+    "divinerpg:aquatic_ingot"
+  ]
+}
