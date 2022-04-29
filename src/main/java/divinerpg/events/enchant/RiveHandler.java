@@ -69,6 +69,9 @@ public class RiveHandler {
         if(blockState.getBlock() instanceof DoorBlock){
             return;
         }
+        if(blockState.hasTileEntity()){
+            return;
+        }
 
         Block block = blockState.getBlock();
             block.playerDestroy(world, player, pos, blockState, null, tool);
