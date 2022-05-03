@@ -30,7 +30,7 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, ISheara
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        BlockState soil = worldIn.getBlockState(pos.below());
+        BlockState soil = worldIn.getBlockState(pos);
         return !worldIn.getBlockState(pos.below()).isAir() && worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
     }
 
