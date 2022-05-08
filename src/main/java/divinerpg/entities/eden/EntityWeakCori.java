@@ -56,12 +56,14 @@ public class EntityWeakCori extends EntityDivineFlyingMob {
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         super.performRangedAttack(entity, range);
-        ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
-        double d0 = getTarget().getX() - this.getX();
-        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-        double d2 = getTarget().getZ() - this.getZ();
-        double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-        this.level.addFreshEntity(projectile);
+        if (getTarget() != null) {
+            ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+            this.level.addFreshEntity(projectile);
+        }
     }
 }
