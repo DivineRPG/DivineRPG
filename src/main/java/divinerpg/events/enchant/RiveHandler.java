@@ -55,12 +55,12 @@ public class RiveHandler {
         if(blockState.getBlock() == Blocks.AIR) {
             return;
         }
-        if(!blockState.getBlock().canHarvestBlock(blockState, world, pos, player)){
+        if(!ForgeHooks.canHarvestBlock(blockState, player, world, pos)){
             return;
         }
-        if(!ForgeHooks.isToolEffective(world, pos, tool)){
-        return;
-        }
+//        if(!ForgeHooks.isToolEffective(world, pos, tool)){
+//        return;
+//        }
 
         if((blockState.getBlock() instanceof TorchBlock)){
             return;
@@ -74,11 +74,15 @@ public class RiveHandler {
         }
 
         Block block = blockState.getBlock();
+        if(!player.isCreative()) {
             block.playerDestroy(world, player, pos, blockState, null, tool);
             world.destroyBlock(pos, false);
             tool.hurtAndBreak(1, player, (context) -> {
                 context.broadcastBreakEvent(player.getUsedItemHand());
             });
+        } else {
+            world.destroyBlock(pos, false);
+        }
     }
 
     private int[] getSizeByDirection(Direction facing, int level) {

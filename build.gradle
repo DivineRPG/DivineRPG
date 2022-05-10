@@ -82,8 +82,8 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:${jei_version}") //Just Enough Items
     compile fg.deobf("curse.maven:jer-240630:${jer_file_id}") //Just Enough Resources
     compile fg.deobf("curse.maven:pe-226410:${projecte_file_id}") //ProjectE
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT:api") //Patchouli
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-54-SNAPSHOT") //Patchouli
+    compileOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_file_id}") //Patchouli
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_file_id}") //Patchouli
 
 }
 
