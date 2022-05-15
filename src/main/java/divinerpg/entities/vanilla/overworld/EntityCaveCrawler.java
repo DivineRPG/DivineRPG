@@ -30,9 +30,6 @@ public class EntityCaveCrawler extends EntityDivineMob {
         return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.caveCrawlerHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.caveCrawlerDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.caveCrawlerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.caveCrawlerFollowRange);
     }
 
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-            return level.dimension() == World.OVERWORLD && getY() < 35;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.CRAWLER;

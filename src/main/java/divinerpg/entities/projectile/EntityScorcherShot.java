@@ -1,11 +1,14 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
 
 public class EntityScorcherShot extends DivineFireball {
     public EntityScorcherShot(EntityType<? extends FireballEntity> type, World world) {
@@ -31,36 +34,31 @@ public class EntityScorcherShot extends DivineFireball {
         return false;
     }
 
-    @Override
     protected void onHitEntity(EntityRayTraceResult result) {
+        super.onHitEntity(result);
         if (!this.level.isClientSide) {
-            if (result.getEntity() != null && result.getEntity() instanceof Entity) {
-                Entity entity = result.getEntity();
-                if (!entity.fireImmune()) {
-                    boolean flag = entity.hurt(DamageSource.fireball(this, this.shootingEntity), 4.0F);
-
-                    if (flag && this.random.nextInt(3) == 0) {
-                        entity.setSecondsOnFire(5);
-                    }
+            Entity entity = result.getEntity();
+            if (!entity.fireImmune()) {
+                Entity entity1 = this.getOwner();
+                int i = entity.getRemainingFireTicks();
+                entity.setSecondsOnFire(5);
+                boolean flag = entity.hurt(DamageSource.fireball(this, entity1), 5.0F);
+                if (!flag) {
+                    entity.setRemainingFireTicks(i);
+                } else if (entity1 instanceof LivingEntity) {
+                    this.doEnchantDamageEffects((LivingEntity)entity1, entity);
                 }
             }
-        }
 
-        kill();
+        }
     }
 
-    @Override
     protected void onHit(RayTraceResult result) {
+        super.onHit(result);
         if (!this.level.isClientSide) {
-            if (result.getType() == RayTraceResult.Type.BLOCK) {
-                BlockPos blockpos = new BlockPos(result.getLocation().x, result.getLocation().y, result.getLocation().z);
-
-                if (this.level.isEmptyBlock(blockpos)) {
-                    this.level.setBlock(blockpos, Blocks.FIRE.defaultBlockState(), 0);
-                }
-            }
+            this.remove();
         }
-        kill();
+
     }
 
     @Override

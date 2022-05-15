@@ -1,14 +1,18 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.ParticleRegistry;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.world.World;
 
-import java.util.*;
+import java.util.List;
 
 public class EntityFrostShot extends DivineFireball {
     public EntityFrostShot(EntityType<? extends FireballEntity> type, World world) {
@@ -79,5 +83,9 @@ public class EntityFrostShot extends DivineFireball {
         super.tick();
         level.addParticle(ParticleRegistry.FROST.get(), this.xo + (random.nextFloat() * 2),
                 this.yo + (random.nextFloat() * 2), this.zo + (random.nextFloat() * 2), 0, 1, 0);
+
+        if ((tickCount > 40)) {
+            kill();
+        }
     }
 }
