@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:eden_ore"
+          "name": "divinerpg:eden_fragments"
         }
       ],
       "conditions": [
