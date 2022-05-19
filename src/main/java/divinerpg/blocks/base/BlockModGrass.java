@@ -27,7 +27,7 @@ public class BlockModGrass extends BlockMod implements IGrowable {
 
     @Override
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, IPlantable plantable) {
-        return true;
+        return false;
     }
 
     @Override
