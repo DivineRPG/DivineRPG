@@ -664,11 +664,11 @@ public class EntityRegistry {
 
         //Boss
         manager.register(ANCIENT_ENTITY, new RenderDivineMob(manager, new ModelAncientEntity<Entity>(), 6F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png")));
-        manager.register(AYERACO_BLUE, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")));
-        manager.register(AYERACO_GREEN, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")));
-        manager.register(AYERACO_RED, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")));
-        manager.register(AYERACO_PURPLE, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_purple.png")));
-        manager.register(AYERACO_YELLOW, new RenderDivineMob(manager, new ModelAyeraco(), new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
+        manager.register(AYERACO_BLUE, new RenderDivineMob(manager, new ModelAyeraco(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_blue.png")));
+        manager.register(AYERACO_GREEN, new RenderDivineMob(manager, new ModelAyeraco(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_green.png")));
+        manager.register(AYERACO_RED, new RenderDivineMob(manager, new ModelAyeraco(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_red.png")));
+        manager.register(AYERACO_PURPLE, new RenderDivineMob(manager, new ModelAyeraco(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_purple.png")));
+        manager.register(AYERACO_YELLOW, new RenderDivineMob(manager, new ModelAyeraco(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_yellow.png")));
         manager.register(DENSOS, new RenderDivineMob(manager, new ModelDensos<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png")));
         manager.register(DRAMIX, new RenderDivineMob(manager, new ModelDramix<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png")));
         manager.register(ETERNAL_ARCHER, new RenderEternalArcher(manager));
@@ -739,7 +739,7 @@ public class EntityRegistry {
         manager.register(SKYTHERN_GOLEM, new RenderDivineMob(manager, new ModelTwilightGolem<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/skythern_golem.png")));
 
         //Mortum
-        manager.register(ANGRY_BUNNY, new RenderDivineMob(manager, new ModelAngryBunny<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
+        manager.register(ANGRY_BUNNY, new RenderDivineMob(manager, new ModelAngryBunny<Entity>(), 2.0F, new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_bunny.png")));
         manager.register(BASILISK, new RenderDivineMob(manager, new ModelBasilisk<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/basilisk.png")));
         manager.register(DEMON_OF_DARKNESS, new RenderDivineMob(manager, new ModelDemonOfDarkness<Entity>(), new ResourceLocation(DivineRPG.MODID, "textures/entity/demon_of_darkness.png")));
         manager.register(MORTUM_CADILLION, new RenderDivineMob(manager, new ModelCadillion(), new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png")));
