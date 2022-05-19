@@ -61,6 +61,15 @@ public class RiveHandler {
 //        if(!ForgeHooks.isToolEffective(world, pos, tool)){
 //        return;
 //        }
+        if(!blockState.getBlock().isToolEffective(blockState, ToolType.AXE)){
+            if(!blockState.getBlock().isToolEffective(blockState, ToolType.HOE)) {
+                if (!blockState.getBlock().isToolEffective(blockState, ToolType.PICKAXE)) {
+                    if (!blockState.getBlock().isToolEffective(blockState, ToolType.SHOVEL)) {
+                        return;
+                    }
+                }
+            }
+        }
 
         if((blockState.getBlock() instanceof TorchBlock)){
             return;
