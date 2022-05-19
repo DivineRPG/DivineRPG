@@ -1,20 +1,28 @@
 package divinerpg.events;
 
-import divinerpg.capability.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.*;
-import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.eventbus.api.*;
+import divinerpg.capability.ArcanaCapability;
+import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.KeyRegistry;
+import divinerpg.util.DamageSources;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.NonNullList;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.*;
+import java.util.List;
 
 public class ArmorAbilitiesEvent {
     @SubscribeEvent
@@ -106,124 +114,135 @@ public class ArmorAbilitiesEvent {
     }
 
     @SubscribeEvent
-    public void onLivingHurtEvent(LivingHurtEvent e) {
-        if (e.getSource().getDirectEntity() != null && e.getSource().getDirectEntity() instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) e.getSource().getDirectEntity();
-
+    public void onLivingHurtEvent(LivingHurtEvent event) {
+        if (event.getSource().getDirectEntity() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) event.getSource().getDirectEntity();
             Item boots = player.inventory.armor.get(0).getItem();
             Item legs = player.inventory.armor.get(1).getItem();
             Item body = player.inventory.armor.get(2).getItem();
             Item helmet = player.inventory.armor.get(3).getItem();
-
-
-            DamageSource s = e.getSource();
+            DamageSource source = event.getSource();
 
             if (boots == ItemRegistry.santaBoots && body == ItemRegistry.santaChestplate && legs == ItemRegistry.santaLeggings && helmet == ItemRegistry.santaHelmet) {
-                if ((e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) && ((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 6);
+                if ((event.getSource().getDirectEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) && ((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
+                    return;
                 }
             }
-
             //Halite
             if (boots == ItemRegistry.haliteBoots && body == ItemRegistry.haliteChestplate && legs == ItemRegistry.haliteLeggings && helmet == ItemRegistry.haliteHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 16);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 16);
+                    return;
                 }
             }
-
-            //AWAKENED HALITE
+            //Awakened Halite
             if (boots == ItemRegistry.awakened_haliteBoots && body == ItemRegistry.awakened_haliteChestplate && legs == ItemRegistry.awakened_haliteLeggings && helmet == ItemRegistry.awakened_haliteHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 20);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 20);
+                    return;
                 }
             }
-
             //Divine
             if (boots == ItemRegistry.divineBoots && body == ItemRegistry.divineChestplate && legs == ItemRegistry.divineLeggings && helmet == ItemRegistry.divineHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 6);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
+                    return;
                 }
             }
 
             //Corrupted
             if (body == ItemRegistry.corruptedChestplate && legs == ItemRegistry.corruptedLeggings && boots == ItemRegistry.corruptedBoots && helmet == ItemRegistry.corruptedHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && s.isProjectile())) {
-                    e.setAmount(e.getAmount() * 1.2F);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && source.isProjectile())) {
+                    event.setAmount(event.getAmount() * 1.2F);
+                    return;
                 }
             }
 
             //Vethean
             if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots && helmet == ItemRegistry.glisteningHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 3);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 3);
+                    return;
                 }
             }
 
             if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots && helmet == ItemRegistry.demonizedHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 6);
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
+                    return;
+                }
+            }
+            if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHelmet) {
+                if (((source.getDirectEntity().getEntity() instanceof PlayerEntity) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 9);
+                    return;
                 }
             }
 
-            if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots && helmet == ItemRegistry.tormentedHelmet) {
-                if (((s.getDirectEntity().getEntity() instanceof PlayerEntity) && !s.isProjectile() && !s.isMagic())) {
-                    e.setAmount(e.getAmount() + 9);
+            //Arlemite
+            if (boots == ItemRegistry.arlemiteBoots && legs == ItemRegistry.arlemiteLeggings && body == ItemRegistry.arlemiteChestplate && helmet == ItemRegistry.arlemiteHelmet) {
+                if (source.isProjectile() || source.msgId.equals("thrown")) {
+                    event.setAmount(event.getAmount() * 0.3F);
+                    return;
                 }
-                //Arlemite
-                if (boots == ItemRegistry.arlemiteBoots && legs == ItemRegistry.arlemiteLeggings && body == ItemRegistry.arlemiteChestplate && helmet == ItemRegistry.arlemiteHelmet) {
-                    if (s.isProjectile() || s.msgId.equals("thrown")) {
-                        e.setAmount(e.getAmount() * 0.3F);
-                    }
-                }
+            }
 
-                //Rupee
-                if ((boots == ItemRegistry.rupeeBoots || boots == ItemRegistry.redRupeeBoots || boots == ItemRegistry.yellowRupeeBoots || boots == ItemRegistry.greenRupeeBoots || boots == ItemRegistry.blueRupeeBoots || boots == ItemRegistry.grayRupeeBoots) && (legs == ItemRegistry.rupeeLeggings || legs == ItemRegistry.redRupeeLeggings || legs == ItemRegistry.yellowRupeeLeggings || legs == ItemRegistry.greenRupeeLeggings || legs == ItemRegistry.blueRupeeLeggings || legs == ItemRegistry.grayRupeeLeggings) && (body == ItemRegistry.rupeeChestplate || body == ItemRegistry.redRupeeChestplate || body == ItemRegistry.yellowRupeeChestplate || body == ItemRegistry.greenRupeeChestplate || body == ItemRegistry.blueRupeeChestplate || body == ItemRegistry.grayRupeeChestplate) && (helmet == ItemRegistry.rupeeHelmet || helmet == ItemRegistry.redRupeeHelmet || helmet == ItemRegistry.yellowRupeeHelmet || helmet == ItemRegistry.greenRupeeHelmet || helmet == ItemRegistry.blueRupeeHelmet || helmet == ItemRegistry.grayRupeeHelmet)) {
-                    if ((s.msgId.equals("mob")) && !s.isProjectile()) {
-                        e.setAmount(e.getAmount() * 0.3F);
-                    }
+            //Rupee
+            if ((boots == ItemRegistry.rupeeBoots || boots == ItemRegistry.redRupeeBoots || boots == ItemRegistry.yellowRupeeBoots || boots == ItemRegistry.greenRupeeBoots || boots == ItemRegistry.blueRupeeBoots || boots == ItemRegistry.grayRupeeBoots) && (legs == ItemRegistry.rupeeLeggings || legs == ItemRegistry.redRupeeLeggings || legs == ItemRegistry.yellowRupeeLeggings || legs == ItemRegistry.greenRupeeLeggings || legs == ItemRegistry.blueRupeeLeggings || legs == ItemRegistry.grayRupeeLeggings) && (body == ItemRegistry.rupeeChestplate || body == ItemRegistry.redRupeeChestplate || body == ItemRegistry.yellowRupeeChestplate || body == ItemRegistry.greenRupeeChestplate || body == ItemRegistry.blueRupeeChestplate || body == ItemRegistry.grayRupeeChestplate) && (helmet == ItemRegistry.rupeeHelmet || helmet == ItemRegistry.redRupeeHelmet || helmet == ItemRegistry.yellowRupeeHelmet || helmet == ItemRegistry.greenRupeeHelmet || helmet == ItemRegistry.blueRupeeHelmet || helmet == ItemRegistry.grayRupeeHelmet)) {
+                if ((source.msgId.equals("mob")) && !source.isProjectile()) {
+                    event.setAmount(event.getAmount() * 0.3F);
+                    return;
                 }
+            }
 
-                //Santa
-                if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
-                    if (e.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) {
-                        e.setAmount(e.getAmount() * 0.2F);
-                    }
+            //Santa
+            if (boots == ItemRegistry.santaBoots && legs == ItemRegistry.santaLeggings && body == ItemRegistry.santaChestplate && helmet == ItemRegistry.santaHelmet) {
+                if (event.getEntity().level.dimension() == KeyRegistry.ICEIKA_WORLD) {
+                    event.setAmount(event.getAmount() * 0.2F);
+                    return;
                 }
+            }
 
-                //Vethean
+            //Vethean
 
-                if (body == ItemRegistry.degradedChestplate && legs == ItemRegistry.degradedLeggings && boots == ItemRegistry.degradedBoots) {
-                    if ((helmet == ItemRegistry.degradedHelmet && !s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.degradedMask && s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.degradedHood && s.isMagic()))
-                        e.setAmount(e.getAmount() * 0.82F);
-                    ;
+            if (body == ItemRegistry.degradedChestplate && legs == ItemRegistry.degradedLeggings && boots == ItemRegistry.degradedBoots) {
+                if ((helmet == ItemRegistry.degradedHelmet && !source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.degradedMask && source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.degradedHood && source.isMagic())) {
+                    event.setAmount(event.getAmount() * 0.82F);
+                    return;
                 }
+            }
 
-                if (body == ItemRegistry.finishedChestplate && legs == ItemRegistry.finishedLeggings && boots == ItemRegistry.finishedBoots) {
-                    if ((helmet == ItemRegistry.finishedHelmet && !s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.finishedMask && s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.finishedHood && s.isMagic()))
-                        e.setAmount(e.getAmount() * 0.773F);
-                    ;
+            if (body == ItemRegistry.finishedChestplate && legs == ItemRegistry.finishedLeggings && boots == ItemRegistry.finishedBoots) {
+                if ((helmet == ItemRegistry.finishedHelmet && !source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.finishedMask && source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.finishedHood && source.isMagic())) {
+                    event.setAmount(event.getAmount() * 0.773F);
+                    return;
                 }
+            }
 
-                if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots) {
-                    if ((helmet == ItemRegistry.glisteningHelmet && !s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.glisteningMask && s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.glisteningHood && s.isMagic()))
-                        e.setAmount(e.getAmount() * 0.7F);
-                    ;
+            if (body == ItemRegistry.glisteningChestplate && legs == ItemRegistry.glisteningLeggings && boots == ItemRegistry.glisteningBoots) {
+                if ((helmet == ItemRegistry.glisteningHelmet && !source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.glisteningMask && source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.glisteningHood && source.isMagic())) {
+                    event.setAmount(event.getAmount() * 0.7F);
+                    return;
                 }
+            }
 
-                if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots) {
-                    if ((helmet == ItemRegistry.demonizedHelmet && !s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.demonizedMask && s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.demonizedHood && s.isMagic()))
-                        e.setAmount(e.getAmount() * 0.625F);
-                    ;
+            if (body == ItemRegistry.demonizedChestplate && legs == ItemRegistry.demonizedLeggings && boots == ItemRegistry.demonizedBoots) {
+                if ((helmet == ItemRegistry.demonizedHelmet && !source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.demonizedMask && source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.demonizedHood && source.isMagic())) {
+                    event.setAmount(event.getAmount() * 0.625F);
+                    return;
                 }
+            }
 
-                if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots) {
-                    if ((helmet == ItemRegistry.tormentedHelmet && !s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.tormentedMask && s.isProjectile() && !s.isMagic()) || (helmet == ItemRegistry.tormentedHood && s.isMagic()))
-                        e.setAmount(e.getAmount() * 0.348F);
-                    ;
+            if (body == ItemRegistry.tormentedChestplate && legs == ItemRegistry.tormentedLeggings && boots == ItemRegistry.tormentedBoots) {
+                if ((helmet == ItemRegistry.tormentedHelmet && !source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.tormentedMask && source.isProjectile() && !source.isMagic()) || (helmet == ItemRegistry.tormentedHood && source.isMagic())) {
+                    event.setAmount(event.getAmount() * 0.348F);
+                    return;
                 }
+            }
+
             }
         }
-    }
 
     private static final String SWIM_MOD_STRING = "c7b490d7-2bfc-400f-b7bb-e89670daea62";
     public static final AttributeModifier SWIM_MOD = new AttributeModifier(SWIM_MOD_STRING, 2.0D, AttributeModifier.Operation.ADDITION);
