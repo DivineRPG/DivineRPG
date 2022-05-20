@@ -68,7 +68,7 @@ public class DivineArmorMaterials implements IArmorMaterial {
 
     @Override
     public float getToughness() {
-        return 0;
+        return toughness;
     }
 
     @Override
