@@ -39,6 +39,20 @@ public class ModelPropRegistry {
                 (ItemModBow) ItemRegistry.teakerBow
         );
         registerMerik((ItemMeriksMissile) ItemRegistry.meriksMissile);
+
+        registerShield(new ResourceLocation(DivineRPG.MODID, "blocking"),
+                (stack, world, entity) -> entity != null && entity.isUsingItem()
+                        && entity.getUseItem() == stack ? 1.0F : 0.0F,
+                ItemRegistry.realmite_shield,
+                ItemRegistry.arlemite_shield,
+                ItemRegistry.rupee_shield,
+                ItemRegistry.eden_shield,
+                ItemRegistry.wildwood_shield,
+                ItemRegistry.apalachia_shield,
+                ItemRegistry.skythern_shield,
+                ItemRegistry.mortum_shield,
+                ItemRegistry.halite_shield
+        );
     }
 
     public static void registerBow(ItemModBow... item){
@@ -64,6 +78,12 @@ public class ModelPropRegistry {
                 }
             });
             ItemModelsProperties.register(missile, new ResourceLocation("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getMainHandItem() == itemStack ? 1.0F : 0.0F);
+        }
+    }
+    private static void registerShield(ResourceLocation override, IItemPropertyGetter propertyGetter,
+                                       IItemProvider... shields) {
+        for (IItemProvider shield : shields) {
+            ItemModelsProperties.register(shield.asItem(), override, propertyGetter);
         }
     }
 }
