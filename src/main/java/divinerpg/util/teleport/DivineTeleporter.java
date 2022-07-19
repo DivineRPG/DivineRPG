@@ -115,6 +115,9 @@ public class DivineTeleporter implements ITeleporter {
                     for (int i3 = -1; i3 < 3; ++i3) {
                         BlockState blockstate1 = i3 < 0 ? frame.defaultBlockState() : Blocks.AIR.defaultBlockState();
                         mutablePos.setWithOffset(blockpos, k2 * direction.getStepX() + l1 * direction1.getStepX(), i3, k2 * direction.getStepZ() + l1 * direction1.getStepZ());
+                        if(mutablePos.getY() > 120 - 20){
+                            mutablePos.move(Direction.DOWN, 20);
+                        }
                         this.world.setBlockAndUpdate(mutablePos, blockstate1);
                     }
                 }
@@ -125,6 +128,9 @@ public class DivineTeleporter implements ITeleporter {
             for (int i2 = -1; i2 < 4; ++i2) {
                 if (k1 == -1 || k1 == 2 || i2 == -1 || i2 == 3) {
                     mutablePos.setWithOffset(blockpos, k1 * direction.getStepX(), i2, k1 * direction.getStepZ());
+                    if(mutablePos.getY() > 120 - 20){
+                        mutablePos.move(Direction.DOWN, 20);
+                    }
                     this.world.setBlock(mutablePos, frame.defaultBlockState(), 3);
                 }
             }
@@ -135,6 +141,9 @@ public class DivineTeleporter implements ITeleporter {
         for (int j2 = 0; j2 < 2; ++j2) {
             for (int l2 = 0; l2 < 3; ++l2) {
                 mutablePos.setWithOffset(blockpos, j2 * direction.getStepX(), l2, j2 * direction.getStepZ());
+                if(mutablePos.getY() > 120 - 20){
+                    mutablePos.move(Direction.DOWN, 20);
+                }
                 this.world.setBlock(mutablePos, portal, 18);
             }
         }
