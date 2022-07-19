@@ -7,7 +7,7 @@
       "model": "divinerpg:block/pink_glowbone_plant_bottom"
     },
     "age=0": {
-      "model": "divinerpg:block/pink_glowbone_plant_top"
+      "model": "divinerpg:block/pink_glowbone_plant_bottom"
     }
   }
 }
