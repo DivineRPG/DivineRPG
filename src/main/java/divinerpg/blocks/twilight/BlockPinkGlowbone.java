@@ -11,7 +11,10 @@ public class BlockPinkGlowbone extends BlockModDoubleCrop {
     public BlockPinkGlowbone() {
         super("pink_glowbone_plant");
     }
-
+    @Override
+    public int getMaxAge() {
+        return 1;
+    }
     @Override
     protected IItemProvider getBaseSeedId() {
         return ItemRegistry.pinkGlowboneSeeds;

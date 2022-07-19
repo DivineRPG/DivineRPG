@@ -12,17 +12,17 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "divinerpg:sky_plant",
+                  "block": "divinerpg:purple_glowbone_plant",
                   "properties": {
-                    "age": "3"
+                    "age": "1"
                   }
                 }
               ],
-              "name": "divinerpg:sky_flower"
+              "name": "divinerpg:purple_glowbone"
             },
             {
               "type": "minecraft:item",
-              "name": "divinerpg:sky_plant_seeds"
+              "name": "divinerpg:purple_glowbone_seeds"
             }
           ]
         }
@@ -44,15 +44,15 @@
               }
             }
           ],
-          "name": "divinerpg:sky_flower"
+          "name": "divinerpg:purple_glowbone"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "divinerpg:sky_plant",
+          "block": "divinerpg:purple_glowbone_plant",
           "properties": {
-            "age": "3"
+            "age": "1"
           }
         }
       ]

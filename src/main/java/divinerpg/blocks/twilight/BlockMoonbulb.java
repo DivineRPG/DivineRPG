@@ -21,6 +21,12 @@ public class BlockMoonbulb extends BlockModDoubleCrop {
     public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
         return 2;
     }
+
+    @Override
+    public int getMaxAge() {
+        return 1;
+    }
+
     @Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos) {
         return PlantType.CROP;

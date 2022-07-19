@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:purple_glowbone"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:purple_glowbone_seeds",
+    "count": 3
+  }
+}
