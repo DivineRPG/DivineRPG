@@ -15,9 +15,13 @@
   "parent": "divinerpg:overworld/root",
   "criteria": {
     "use_altar_of_corruption": {
-      "trigger": "divinerpg:block",
+      "trigger": "minecraft:item_used_on_block",
       "conditions": {
-        "block": "divinerpg:altar_of_corruption"
+        "location": {
+          "block": {
+            "block": "divinerpg:altar_of_corruption"
+          }
+        }
       }
     }
   }
