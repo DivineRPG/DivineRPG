@@ -89,6 +89,7 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
         ModelPropRegistry.init();
         ContainerRegistry.registerScreenFactories();
+        Utils.loadHatInformation();
     }
 
     private void registerRecipeSerializers (RegistryEvent.Register<IRecipeSerializer<?>> event) {
@@ -97,7 +98,6 @@ public class DivineRPG {
     }
 
     private void post(final FMLLoadCompleteEvent event){
-        Utils.loadHatInformation();
     }
 
     private void gatherData(final GatherDataEvent event) {

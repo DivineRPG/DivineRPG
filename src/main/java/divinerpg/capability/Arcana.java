@@ -1,13 +1,14 @@
 package divinerpg.capability;
 
-import divinerpg.config.*;
-import divinerpg.registries.*;
+import divinerpg.config.Config;
+import divinerpg.registries.NetworkingRegistry;
 import net.minecraft.entity.player.*;
 import net.minecraft.nbt.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.*;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.fml.network.NetworkDirection;
 
 public class Arcana {
     private int tickDelay = 4;
@@ -79,7 +80,7 @@ public class Arcana {
 
     private void sendPacket(PlayerEntity player) {
         if (!(player instanceof FakePlayer) && player instanceof ServerPlayerEntity && player != null) {
-            NetworkingRegistry.INSTANCE.sendToServer(new PacketArcanaBar(this));
+            NetworkingRegistry.INSTANCE.sendTo(new PacketArcanaBar(this),((ServerPlayerEntity) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
         }
     }
 
