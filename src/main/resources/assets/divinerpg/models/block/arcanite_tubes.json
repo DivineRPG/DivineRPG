@@ -1,42 +1,62 @@
 {
-  "textures": {
-    "texture": "divinerpg:blocks/arcanite_tubes",
-    "particle": "divinerpg:blocks/arcanite_tubes"
-  },
-  "ambientocclusion": false,
-  "elements": [
-    {
-      "shade": false,
-      "from": [
-        0.0,
-        0.0,
-        15.2
-      ],
-      "to": [
-        16.0,
-        16.0,
-        15.2
-      ],
-      "faces": {
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#texture"
-        },
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#texture"
-        }
-      }
-    }
-  ]
+	"credit": "Made with Blockbench",
+	"render_type": "cutout_mipped",
+	"textures": {
+		"0": "divinerpg:blocks/arcanite_tubes",
+		"particle": "divinerpg:blocks/arcanite_tubes"
+	},
+	"elements": [
+		{
+			"name": "1",
+			"from": [13, 0, 15],
+			"to": [15, 16, 16],
+			"faces": {
+				"north": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"east": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"south": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"west": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"up": {"uv": [1, 0, 3, 1], "texture": "#0"},
+				"down": {"uv": [1, 15, 3, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "2",
+			"from": [9, 0, 15],
+			"to": [11, 16, 16],
+			"faces": {
+				"north": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"east": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"south": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"west": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"up": {"uv": [1, 0, 3, 1], "texture": "#0"},
+				"down": {"uv": [1, 15, 3, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "3",
+			"from": [5, 0, 15],
+			"to": [7, 16, 16],
+			"faces": {
+				"north": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"east": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"south": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"west": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"up": {"uv": [1, 0, 3, 1], "texture": "#0"},
+				"down": {"uv": [1, 15, 3, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "4",
+			"from": [1, 0, 15],
+			"to": [3, 16, 16],
+			"faces": {
+				"north": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"east": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"south": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"west": {"uv": [1, 0, 3, 16], "texture": "#0"},
+				"up": {"uv": [1, 0, 3, 1], "texture": "#0"},
+				"down": {"uv": [1, 15, 3, 16], "texture": "#0"}
+			}
+		}
+	]
 }
