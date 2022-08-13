@@ -26,13 +26,16 @@ public class KeyRegistry {
     public static RegistryKey<Biome> EDEN_BIOME, WILDWOOD_BIOME, APALACHIA_BIOME, SKYTHERN_BIOME, MORTUM_BIOME, ARCANA_BIOME, VETHEA_BIOME, ICEIKA_PLAINS_BIOME, ICEIKA_HILLS_BIOME;
     public static RegistryKey<SurfaceBuilder<?>> EDEN_BUILDER, WILDWOOD_BUILDER, APALACHIA_BUILDER, SKYTHERN_BUILDER, MORTUM_BUILDER, VETHEA_BUILDER, ICEIKA_BUILDER;
     public static final DeferredRegister<PointOfInterestType> POI = DeferredRegister.create(ForgeRegistries.POI_TYPES, DivineRPG.MODID);
-    public static RegistryObject<PointOfInterestType> EDEN_PORTAL = POI.register("eden_portal", () -> new PointOfInterestType("eden_portal", PointOfInterestType.getBlockStates(BlockRegistry.edenPortal), 0, 1)),
-            WILDWOOD_PORTAL = POI.register("wildwood_portal", () -> new PointOfInterestType("wildwood_portal", PointOfInterestType.getBlockStates(BlockRegistry.wildwoodPortal), 0, 1)),
-            APALACHIA_PORTAL = POI.register("apalachia_portal", () -> new PointOfInterestType("apalachia_portal", PointOfInterestType.getBlockStates(BlockRegistry.apalachiaPortal), 0, 1)),
-            SKYTHERN_PORTAL = POI.register("skythern_portal", () -> new PointOfInterestType("skythern_portal", PointOfInterestType.getBlockStates(BlockRegistry.skythernPortal), 0, 1)),
-            MORTUM_PORTAL = POI.register("mortum_portal", () -> new PointOfInterestType("mortum_portal", PointOfInterestType.getBlockStates(BlockRegistry.mortumPortal), 0, 1)),
-            ARCANA_PORTAL = POI.register("arcana_portal", () -> new PointOfInterestType("arcana_portal", PointOfInterestType.getBlockStates(BlockRegistry.arcanaPortal), 0, 1)),
-            ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PointOfInterestType("iceika_portal", PointOfInterestType.getBlockStates(BlockRegistry.iceikaPortal), 0, 1));
+
+    public static final RegistryObject<PointOfInterestType> EDEN_PORTAL = POI.register("eden_portal", () -> new PointOfInterestType("eden_portal", ImmutableSet.copyOf(BlockRegistry.edenPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> WILDWOOD_PORTAL = POI.register("wildwood_portal", () -> new PointOfInterestType("wildwood_portal", ImmutableSet.copyOf(BlockRegistry.wildwoodPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> APALACHIA_PORTAL = POI.register("apalachia_portal", () -> new PointOfInterestType("apalachia_portal", ImmutableSet.copyOf(BlockRegistry.apalachiaPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> SKYTHERN_PORTAL = POI.register("skythern_portal", () -> new PointOfInterestType("skythern_portal", ImmutableSet.copyOf(BlockRegistry.skythernPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> MORTUM_PORTAL = POI.register("mortum_portal", () -> new PointOfInterestType("mortum_portal", ImmutableSet.copyOf(BlockRegistry.mortumPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PointOfInterestType("iceika_portal", ImmutableSet.copyOf(BlockRegistry.iceikaPortal.getStateDefinition().getPossibleStates()), 0, 1));
+    public static final RegistryObject<PointOfInterestType> ARCANA_PORTAL = POI.register("arcana_portal", () -> new PointOfInterestType("arcana_portal", ImmutableSet.copyOf(BlockRegistry.arcanaPortal.getStateDefinition().getPossibleStates()), 0, 1));
+
+
     public static ConfiguredFeature<BaseTreeFeatureConfig, ?> DIVINE_TREE, EDEN_TREE, WILDWOOD_TREE, APALACHIA_TREE, SKYTHERN_TREE, MORTUM_TREE, FROZEN_TREE;
 
 
