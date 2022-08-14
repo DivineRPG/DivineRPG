@@ -189,19 +189,21 @@ public class PortalShape {
         return new Vector3d(d2, d4, d3);
     }
 
-    public static PortalInfo createPortalInfo(ServerWorld p_242963_0_, TeleportationRepositioner.Result p_242963_1_, Direction.Axis p_242963_2_, Vector3d p_242963_3_, EntitySize p_242963_4_, Vector3d p_242963_5_, float p_242963_6_, float p_242963_7_) {
-        BlockPos blockpos = p_242963_1_.minCorner;
-        BlockState blockstate = p_242963_0_.getBlockState(blockpos);
-        Direction.Axis direction$axis = blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-        double d0 = (double)p_242963_1_.axis1Size;
-        double d1 = (double)p_242963_1_.axis2Size;
-        int i = p_242963_2_ == direction$axis ? 0 : 90;
-        Vector3d vector3d = p_242963_2_ == direction$axis ? p_242963_5_ : new Vector3d(p_242963_5_.z, p_242963_5_.y, -p_242963_5_.x);
-        double d2 = (double)p_242963_4_.width / 2.0D + (d0 - (double)p_242963_4_.width) * p_242963_3_.x();
-        double d3 = (d1 - (double)p_242963_4_.height) * p_242963_3_.y();
-        double d4 = 0.5D + p_242963_3_.z();
+    public static PortalInfo createPortalInfo(ServerWorld world, TeleportationRepositioner.Result result, Direction.Axis axis, Vector3d pos,
+                                              EntitySize size, Vector3d speed, float yRot, float xRot) {
+        BlockPos blockpos = result.minCorner;
+        BlockState blockstate = world.getBlockState(blockpos);
+        Direction.Axis direction$axis = blockstate.getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
+        double d0 = (double) result.axis1Size;
+        double d1 = (double) result.axis2Size;
+        int i = axis == direction$axis ? 0 : 90;
+        Vector3d vec3 = axis == direction$axis ? speed : new Vector3d(speed.z, speed.y, -speed.x);
+        double d2 = (double) size.width / 2.0D + (d0 - (double) size.width) * pos.x();
+        double d3 = (d1 - (double) size.height) * pos.y();
+        double d4 = 0.5D + pos.z();
         boolean flag = direction$axis == Direction.Axis.X;
-        Vector3d vector3d1 = new Vector3d((double)blockpos.getX() + (flag ? d2 : d4), (double)blockpos.getY() + d3, (double)blockpos.getZ() + (flag ? d4 : d2));
-        return new PortalInfo(vector3d1, vector3d, p_242963_6_ + (float)i, p_242963_7_);
+        Vector3d vec31 = new Vector3d((double) blockpos.getX() + (flag ? d2 : d4), (double) blockpos.getY() + d3,
+                (double) blockpos.getZ() + (flag ? d4 : d2));
+        return new PortalInfo(vec31, vec3, yRot + (float) i, xRot);
     }
 }

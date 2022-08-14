@@ -21,12 +21,11 @@ import java.util.function.*;
 
 public class DivineTeleporter implements ITeleporter {
     public static DivineTeleporter INSTANCE = null;
-    private static Block portal;
-    private static Block frame;
-    protected final ServerWorld world;
-    private boolean hasFrame;
+    protected static Block portal;
+    protected static Block frame;
     private static PointOfInterestType point;
-
+    protected final ServerWorld world;
+    private final boolean hasFrame;
     public DivineTeleporter(ServerWorld worldIn, Block portal, Block frame, boolean hasFrame, PointOfInterestType point) {
         this.portal = portal;
         this.frame = frame;
@@ -38,9 +37,9 @@ public class DivineTeleporter implements ITeleporter {
 
     public Optional<TeleportationRepositioner.Result> getExistingPortal(BlockPos pos) {
         PointOfInterestManager poiManager = this.world.getPoiManager();
-        poiManager.ensureLoadedAndValid(this.world, pos, 128);
+        poiManager.ensureLoadedAndValid(this.world, pos, 64);
         Optional<PointOfInterest> optional = poiManager.getInSquare((poiType) ->
-                poiType == point, pos, 128, PointOfInterestManager.Status.ANY).sorted(Comparator.<PointOfInterest>comparingDouble((poi) ->
+                poiType.equals(point), pos, 64, PointOfInterestManager.Status.ANY).sorted(Comparator.<PointOfInterest>comparingDouble((poi) ->
                 poi.getPos().distSqr(pos)).thenComparingInt((poi) ->
                 poi.getPos().getY())).filter((poi) ->
                 this.world.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
@@ -52,6 +51,7 @@ public class DivineTeleporter implements ITeleporter {
                     this.world.getBlockState(posIn) == blockstate);
         });
     }
+
 
     public Optional<TeleportationRepositioner.Result> makePortal(BlockPos pos, Direction.Axis axis) {
         Direction direction = Direction.get(Direction.AxisDirection.NEGATIVE, axis);
@@ -176,11 +176,9 @@ public class DivineTeleporter implements ITeleporter {
         boolean isntOverworld = destWorld.dimension() == world.dimension();
         if (entity.level.dimension() != world.dimension() && !isntOverworld) {
             return null;
-        }
-        else if(!this.hasFrame) {
+        } else if (!this.hasFrame) {
             return new PortalInfo(new Vector3d(entity.getX(), 255D, entity.getZ()), Vector3d.ZERO, entity.yRot, entity.xRot);
-        }
-        else {
+        } else {
             WorldBorder border = destWorld.getWorldBorder();
             double minX = Math.max(-2.9999872E7D, border.getMinX() + 16.0D);
             double minZ = Math.max(-2.9999872E7D, border.getMinZ() + 16.0D);
@@ -210,8 +208,7 @@ public class DivineTeleporter implements ITeleporter {
         Optional<TeleportationRepositioner.Result> existingPortal = this.getExistingPortal(pos);
         if (existingPortal.isPresent()) {
             return existingPortal;
-        }
-        else {
+        } else {
             Direction.Axis portalAxis = this.world.getBlockState(entity.blockPosition()).getOptionalValue(BlockModPortal.AXIS).orElse(Direction.Axis.X);
             Optional<TeleportationRepositioner.Result> makePortal = this.makePortal(pos, portalAxis);
             if (!makePortal.isPresent()) {
