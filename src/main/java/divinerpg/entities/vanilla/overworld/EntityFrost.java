@@ -41,14 +41,16 @@ public class EntityFrost extends EntityDivineFlyingMob implements IRangedAttackM
 
     @Override
     public void performRangedAttack(LivingEntity entity, float p_82196_2_) {
-        if (getTarget() != null) {
-            EntityFrostShot projectile = new EntityFrostShot(level, this, 0, 0, 0);
-            double d0 = getTarget().getX() - this.getX();
-            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-            double d2 = getTarget().getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 2.3F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
+        if(this.isAlive()) {
+            if (getTarget() != null) {
+                EntityFrostShot projectile = new EntityFrostShot(level, this, 0, 0, 0);
+                double d0 = getTarget().getX() - this.getX();
+                double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+                double d2 = getTarget().getZ() - this.getZ();
+                double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 2.3F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                this.level.addFreshEntity(projectile);
+            }
         }
     }
 

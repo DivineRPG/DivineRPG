@@ -35,6 +35,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
+        if(this.isAlive()) {
         if (getTarget() != null) {
             ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
             double d0 = getTarget().getX() - this.getX();
@@ -43,6 +44,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
             double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
             this.level.addFreshEntity(projectile);
+        }
         }
     }
 
