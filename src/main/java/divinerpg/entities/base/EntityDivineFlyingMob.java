@@ -28,7 +28,6 @@ public abstract class EntityDivineFlyingMob extends FlyingEntity implements IMob
         this.goalSelector.addGoal(5, new EntityDivineFlyingMob.RandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EntityDivineFlyingMob.LookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 0, false, false, LIVING_ENTITY_SELECTOR));
 
     }

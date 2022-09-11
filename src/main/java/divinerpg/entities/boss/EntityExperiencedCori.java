@@ -18,7 +18,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.BossInfo.*;
 import net.minecraft.world.server.*;
 
-public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRangedAttackMob{
+public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRangedAttackMob {
     private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
             BossInfo.Overlay.PROGRESS));
 //    private int deathTicks;
