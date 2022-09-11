@@ -89,7 +89,7 @@ public class EntityTermasect extends EntityDivineBoss {
             }
 
             if (this.targetedEntity == null || this.aggroCooldown-- <= 0) {
-                this.targetedEntity = this.level.getNearestPlayer(this, 100.0D);
+                this.targetedEntity = this.level.getNearestPlayer(this, 64.0D);
 
                 if (this.targetedEntity != null) {
                     this.aggroCooldown = 20;
@@ -97,7 +97,7 @@ public class EntityTermasect extends EntityDivineBoss {
             }
 
             double var9 = 100.0D;
-        if(getTarget() != null){
+        if(getTarget() != null && this.isAlive()){
         if (canAttack(getTarget())) {
             if (this.targetedEntity != null && this.targetedEntity.distanceToSqr(this) < var9 * var9) {
                 double y = this.getBoundingBox().minY + 2.7D;

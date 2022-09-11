@@ -38,7 +38,7 @@ public class EntitySoulFiend extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide && this.tickCount % 300 == 0) {
+        if (!this.level.isClientSide && this.tickCount % 300 == 0 && this.isAlive()) {
             for (int i = 0; i < 4; i++) {
                 EntitySoulFiendShot shot = new EntitySoulFiendShot(EntityRegistry.SOUL_FIEND_SHOT, this, level);
                 shot.shoot(this.random.nextDouble() - this.random.nextDouble(), -0.25,

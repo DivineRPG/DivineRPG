@@ -1,7 +1,5 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
 import divinerpg.entities.base.EntityVetheaMob;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.EntityStats;
@@ -11,6 +9,8 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
+
+import java.util.Random;
 
 public class EntityHelio extends EntityVetheaMob {
 
@@ -38,7 +38,7 @@ public class EntityHelio extends EntityVetheaMob {
 
     @Override
     public boolean canAttack(LivingEntity target) {
-        if(super.canAttack(target)) {
+        if(super.canAttack(target) && this.isAlive()) {
             target.setDeltaMovement(getDeltaMovement().x + MathHelper.sin(this.xRot * (float)Math.PI / 180.0F) * 7.0F * 0.5F, getDeltaMovement().y + 0.4D, getDeltaMovement().z + MathHelper.cos(this.xRot * (float)Math.PI / 180.0F) * 7.0F * 0.5F);
             //this.motionX *= 0.6D;
             //this.motionZ *= 0.6D;

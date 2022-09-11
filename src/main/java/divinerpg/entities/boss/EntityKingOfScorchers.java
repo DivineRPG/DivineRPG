@@ -80,10 +80,20 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements IRangedAt
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        ProjectileEntity projectile = new EntityKingOfScorchersShot(EntityRegistry.KING_OF_SCORCHERS_SHOT, this, level);
-        if (level.random.nextInt(10) == 0) {
-            projectile = new EntityKingOfScorchersMeteor(EntityRegistry.KING_OF_SCORCHERS_METEOR, this, level);
-            for (int i = 0; i < 4; i++) {
+        if (this.isAlive()) {
+            ProjectileEntity projectile = new EntityKingOfScorchersShot(EntityRegistry.KING_OF_SCORCHERS_SHOT, this, level);
+            if (level.random.nextInt(10) == 0) {
+                projectile = new EntityKingOfScorchersMeteor(EntityRegistry.KING_OF_SCORCHERS_METEOR, this, level);
+                for (int i = 0; i < 4; i++) {
+                    double d0 = getTarget().getX() - this.getX();
+                    double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+                    double d2 = getTarget().getZ() - this.getZ();
+                    double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+                    projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                    this.level.addFreshEntity(projectile);
+                }
+
+            } else {
                 double d0 = getTarget().getX() - this.getX();
                 double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
                 double d2 = getTarget().getZ() - this.getZ();
@@ -91,14 +101,6 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements IRangedAt
                 projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
                 this.level.addFreshEntity(projectile);
             }
-
-        } else {
-            double d0 = getTarget().getX() - this.getX();
-            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-            double d2 = getTarget().getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
         }
     }
 }

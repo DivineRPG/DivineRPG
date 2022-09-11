@@ -34,7 +34,7 @@ public class EntityAridWarrior extends EntityDivineMob implements IRangedAttackM
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.ARID_WARRIOR_ARROW, this);
             double d0 = target.getX() - this.getX();
             double d1 = target.getY(0.3333333333333333D) - projectile.getY();

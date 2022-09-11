@@ -190,13 +190,15 @@ public class EntityScorcher extends EntityDivineMob {
                             }
 
                             for(int i = 0; i < 1; ++i) {
-                                ProjectileEntity projectile = new EntityScorcherShot(scorcher.level, scorcher, 1.4D, 1.4D, 1.4D);
-                                double livingX = livingentity.getX() - scorcher.getX();
-                                double livingY = livingentity.getY(0.3333333333333333D) - projectile.getY() - 0.4;
-                                double livingZ = livingentity.getZ() - scorcher.getZ();
-                                double randomness = (double) MathHelper.sqrt(livingX * livingX + livingZ * livingZ);
-                                projectile.shoot(livingX, livingY + randomness * (double) 0.2F, livingZ, 1.6F, (float) (14 - scorcher.level.getDifficulty().getId() * 4));
-                                scorcher.level.addFreshEntity(projectile);
+                                if (scorcher.isAlive()) {
+                                    ProjectileEntity projectile = new EntityScorcherShot(scorcher.level, scorcher, 1.4D, 1.4D, 1.4D);
+                                    double livingX = livingentity.getX() - scorcher.getX();
+                                    double livingY = livingentity.getY(0.3333333333333333D) - projectile.getY() - 0.4;
+                                    double livingZ = livingentity.getZ() - scorcher.getZ();
+                                    double randomness = (double) MathHelper.sqrt(livingX * livingX + livingZ * livingZ);
+                                    projectile.shoot(livingX, livingY + randomness * (double) 0.2F, livingZ, 1.6F, (float) (14 - scorcher.level.getDifficulty().getId() * 4));
+                                    scorcher.level.addFreshEntity(projectile);
+                                }
                             }
                         }
                     }

@@ -69,21 +69,23 @@ public class EntitySaguaroWorm extends EntityDivineMob {
         }
     }
     public void attack(LivingEntity e) {
-        if (canAttack(getTarget())) {
-            double y = this.getBoundingBox().minY + 2.7D;
-            double tx = e.getX() - getX();
-            double ty = e.getBoundingBox().minY - y;
-            double tz = e.getZ() - getZ();
+        if (getTarget() != null && this.isAlive()) {
+            if (canAttack(getTarget())) {
+                double y = this.getBoundingBox().minY + 2.7D;
+                double tx = e.getX() - getX();
+                double ty = e.getBoundingBox().minY - y;
+                double tz = e.getZ() - getZ();
 
-            for (double h = -1.5; h < 1.5; h += 0.5) {
-                for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
-                    for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                        EntitySaguaroWormShot shot = new EntitySaguaroWormShot(EntityRegistry.SAGUARO_WORM_SHOT, this, this.level);
-                        shot.xo = this.xo + r * Math.cos(theta);
-                        shot.yo = this.yo + 5 + h;
-                        shot.zo = this.zo + r * Math.sin(theta);
-                        shot.shoot(tx, ty, tz, 0.9f, 5);
-                        level.addFreshEntity(shot);
+                for (double h = -1.5; h < 1.5; h += 0.5) {
+                    for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
+                        for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
+                            EntitySaguaroWormShot shot = new EntitySaguaroWormShot(EntityRegistry.SAGUARO_WORM_SHOT, this, this.level);
+                            shot.xo = this.xo + r * Math.cos(theta);
+                            shot.yo = this.yo + 5 + h;
+                            shot.zo = this.zo + r * Math.sin(theta);
+                            shot.shoot(tx, ty, tz, 0.9f, 5);
+                            level.addFreshEntity(shot);
+                        }
                     }
                 }
             }

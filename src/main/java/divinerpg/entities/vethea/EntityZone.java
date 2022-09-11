@@ -49,7 +49,7 @@ public class EntityZone extends EntityVetheaMob {
             this.setTarget(player);
 
             LivingEntity target = this.getTarget();
-            if(!this.level.isClientSide && target != null && this.tickCount % 40 == 0) {
+            if(!this.level.isClientSide && target != null && this.tickCount % 40 == 0 && this.isAlive()) {
                 this.shootEntity(target);
             }
         }

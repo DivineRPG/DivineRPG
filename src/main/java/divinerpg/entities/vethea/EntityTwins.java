@@ -77,7 +77,7 @@ public class EntityTwins extends EntityVetheaMob implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity entity, float par2) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             ArrowEntity entityarrow = new ArrowEntity(EntityType.ARROW, this.level);//this.getArrow(64);
             double d0 = entity.getX() - this.getX();
             double d1 = entity.getBoundingBox().minY + (double) (entity.getBbHeight() / 3.0F) - entityarrow.getY();

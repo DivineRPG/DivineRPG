@@ -47,7 +47,7 @@ public class EntityKazrotic extends EntityVetheaMob implements IRangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             EntityKazroticShot projectile = new EntityKazroticShot(EntityRegistry.KAZROTIC_SHOT, target, level);
             double d0 = target.getX() - this.getX();
             double d1 = target.getY(0.3333333333333333D) - projectile.getY();

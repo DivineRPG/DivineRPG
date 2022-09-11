@@ -34,7 +34,7 @@ public class EntityWildfire extends EntityDivineMob implements IRangedAttackMob 
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.WILDFIRE_ARROW, this, target, 1.6F, 12.0F);
             projectile.setSecondsOnFire(100);
             double d0 = target.getX() - this.getX();

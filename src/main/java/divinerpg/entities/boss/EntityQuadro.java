@@ -143,6 +143,7 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        if(this.isAlive()) {
             switch (ability) {
                 case RANGED_FAST:
                     if ((this.rangedAttackCounter % 5) == 0) {
@@ -175,7 +176,7 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
                 default:
                     break;
             }
-
+        }
     }
 
     @Override

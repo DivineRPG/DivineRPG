@@ -53,7 +53,7 @@ public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK, this, level);
             double d0 = target.getX() - this.getX();
             double d1 = target.getY(0.3333333333333333D) - projectile.getY();

@@ -81,7 +81,7 @@ public class EntityFyracryx extends EntityDivineTameable implements IRangedAttac
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null) {
+        if (getTarget() != null && this.isAlive()) {
             EntityFyracryxFireball projectile = new EntityFyracryxFireball(level, this, target.xo - xo + random.nextGaussian() * MathHelper.sqrt(this.distanceTo(this)) * 0.5F, target.getBoundingBox().minY - this.xo,
                     target.zo - zo + random.nextGaussian() * MathHelper.sqrt(distanceTo(this)) * 0.5F);
             double d0 = target.getX() - this.getX();

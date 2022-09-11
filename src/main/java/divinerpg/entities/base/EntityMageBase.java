@@ -46,7 +46,7 @@ public class EntityMageBase extends EntityDivineMob {
         super.tick();
             if (this.tickCount % 20 == 0) {
                 setTarget(this.level.getNearestPlayer(this, 16D));
-                if (this.getTarget() != null && !this.level.isClientSide) {
+                if (this.getTarget() != null && !this.level.isClientSide && this.isAlive()) {
                     if (canAttack(getTarget())) {
                     double tx = this.getTarget().getX() - this.getX();
                     double ty = this.getTarget().getBoundingBox().minY - this.getY();

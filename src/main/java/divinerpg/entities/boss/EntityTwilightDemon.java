@@ -49,7 +49,7 @@ public class EntityTwilightDemon extends EntityDivineBoss {
             if (this.tickCount % 160 == 0)
                 this.shooting = 100;
             this.setTarget(this.level.getNearestPlayer(this, 40.0D));
-            if (this.getTarget() != null && this.shooting > 0) {
+            if (this.getTarget() != null && this.shooting > 0 && this.isAlive()) {
                 double tx = this.getTarget().getX() - this.getX();
                 double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
                 double tz = this.getTarget().getZ() - this.getZ();

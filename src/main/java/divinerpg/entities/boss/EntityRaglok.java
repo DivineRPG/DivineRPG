@@ -110,7 +110,7 @@ public class EntityRaglok extends EntityDivineBoss {
             }
         }
         if (ability == BOMBS) {
-            if (abilityCooldown % 30 == 0 && player != null) {
+            if (abilityCooldown % 30 == 0 && player != null && this.isAlive()) {
 
                 for (int i = 0; i < 4; i++) {
                     EntityRaglokBomb var2 = new EntityRaglokBomb(EntityRegistry.RAGLOK_BOMB, this.level);
