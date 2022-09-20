@@ -1,18 +1,18 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
+import net.minecraft.client.renderer.ActiveRenderInfo;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleSkythernPortal extends SpriteTexturedParticle
 {
 	IAnimatedSprite animatedSprite;
-	private float sparkleParticleScale;
+	private float portalParticleScale;
 	private double portalPosX;
 	private double portalPosY;
 	private double portalPosZ;
@@ -24,15 +24,17 @@ public class ParticleSkythernPortal extends SpriteTexturedParticle
 	public ParticleSkythernPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
 	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
-		this.xd = xSpeed;
-		this.yd = ySpeed;
-		this.zd = zSpeed;
+		this.xd = 0;
+		this.yd = 0;
+		this.zd = 0;
+		this.quadSize *= 0.75F;
+		this.quadSize *= 0.9F;
+		this.portalParticleScale = this.quadSize;
+		this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
 		this.portalPosX = this.x = xCoordIn;
 		this.portalPosY = this.y = yCoordIn;
 		this.portalPosZ = this.z = zCoordIn;
-		float var14 = this.random.nextFloat() * 0.6F + 0.4F;
-		this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
-		this.lifetime = (int) (Math.random() * 10.0D) + 40;
+		this.lifetime = (int)((float)this.lifetime * 0.5F);
 		this.animatedSprite = sprite;
 	}
 
@@ -56,11 +58,11 @@ public class ParticleSkythernPortal extends SpriteTexturedParticle
 
 	@Override
 	public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
-		float var8 = (this.age + partialTicks) / this.lifetime;
+		float var8 = (this.age + partialTicks) / this.lifetime * 3;
 		var8 = 1.0F - var8;
 		var8 *= var8;
 		var8 = 1.0F - var8;
-		this.quadSize = this.quadSize * var8;
+		this.quadSize = this.portalParticleScale * var8;
 		super.render(buffer, renderInfo, partialTicks);
 	}
 
@@ -77,9 +79,8 @@ public class ParticleSkythernPortal extends SpriteTexturedParticle
 		this.x = this.portalPosX + this.xd * var1;
 		this.y = this.portalPosY + this.yd * var1 + (1.0F - var2);
 		this.z = this.portalPosZ + this.zd * var1;
-
 		if (this.age++ >= this.lifetime) {
-			this.shouldCull();
+			this.remove();
 		}
 	}
 

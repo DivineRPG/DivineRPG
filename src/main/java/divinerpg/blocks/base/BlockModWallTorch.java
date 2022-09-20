@@ -1,12 +1,14 @@
 package divinerpg.blocks.base;
+
+import divinerpg.registries.*;
 import net.minecraft.block.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.*;
 
-import java.util.*;
+import java.util.Random;
 
 public class BlockModWallTorch extends WallTorchBlock {
 
@@ -25,6 +27,19 @@ public class BlockModWallTorch extends WallTorchBlock {
         double d0 = 0.22D;
         double d1 = 0.27D;
         Direction opposite = direction.getOpposite();
-        world.addParticle(flameParticle, dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        if (this == BlockRegistry.aquaWallTorch) {
+            world.addParticle(ParticleRegistry.BLUE_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        }
+        else if (this == BlockRegistry.skeletonWallTorch) {
+            world.addParticle(ParticleRegistry.BLACK_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        }
+        else if (this == BlockRegistry.arcaniumWallTorch) {
+            world.addParticle(ParticleRegistry.GREEN_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        }
+        else if (this == BlockRegistry.edenWallTorch) {
+            world.addParticle(ParticleRegistry.PURPLE_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        } else {
+            world.addParticle(flameParticle, dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
+        }
     }
 }

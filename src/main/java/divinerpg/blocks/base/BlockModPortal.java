@@ -1,25 +1,27 @@
 package divinerpg.blocks.base;
 
+import divinerpg.DivineRPG;
 import divinerpg.registries.*;
 import divinerpg.util.teleport.*;
 import net.minecraft.block.*;
-import net.minecraft.block.material.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.particles.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.*;
-import net.minecraft.state.properties.*;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.*;
 import net.minecraft.world.*;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.world.*;
-import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.eventbus.api.Cancelable;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class BlockModPortal extends BlockMod {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
@@ -118,7 +120,23 @@ public class BlockModPortal extends BlockMod {
                 zSpeed = rand.nextFloat() * 2.0F * (float)j;
             }
 
-            worldIn.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
+            if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
+                worldIn.addParticle(ParticleRegistry.EDEN_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
+                worldIn.addParticle(ParticleRegistry.WILDWOOD_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
+                worldIn.addParticle(ParticleRegistry.APALACHIA_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
+                worldIn.addParticle(ParticleRegistry.SKYTHERN_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
+                worldIn.addParticle(ParticleRegistry.MORTUM_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
+                worldIn.addParticle(ParticleRegistry.FROST.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
+                worldIn.addParticle(ParticleRegistry.MORTUM_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
+            } else {
+                worldIn.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
+            }
         }
 
     }

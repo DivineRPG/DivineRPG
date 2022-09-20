@@ -1,10 +1,10 @@
 package divinerpg.client.particle;
 
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
+import net.minecraft.client.renderer.ActiveRenderInfo;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -22,18 +22,18 @@ public class ParticleGreenPortal extends SpriteTexturedParticle
     public ParticleGreenPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
-        this.xd = xSpeed;
-        this.yd = ySpeed;
-        this.zd = zSpeed;
+        this.xd = 0;
+        this.yd = 0;
+        this.zd = 0;
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
-        float var14 = this.random.nextFloat() * 0.6F + 0.4F;
-        this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
-        this.bCol = 0.0F;
+        this.quadSize *= 0.75F;
+        this.quadSize *= 0.9F;
+        this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
+        this.lifetime = (int)((float)this.lifetime * 0.5F);
         this.gCol = 1.0F;
-        this.rCol = 0.0F;
-        this.lifetime = (int) (Math.random() * 10.0D) + 40;
+        this.roll = (float)Math.random() * ((float)Math.PI * 2F);
         this.animatedSprite = sprite;
     }
 
@@ -80,9 +80,10 @@ public class ParticleGreenPortal extends SpriteTexturedParticle
         this.z = this.portalPosZ + this.zd * var1;
 
         if (this.age++ >= this.lifetime) {
-            this.shouldCull();
+            this.remove();
         }
     }
+
 
     @Override
     public IParticleRenderType getRenderType() {

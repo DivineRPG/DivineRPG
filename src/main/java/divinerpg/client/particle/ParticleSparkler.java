@@ -24,9 +24,14 @@ public class ParticleSparkler extends SpriteTexturedParticle
     public ParticleSparkler(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
+
         this.xd = xSpeed;
         this.yd = ySpeed;
         this.zd = zSpeed;
+        this.quadSize *= 0.75F;
+        this.quadSize *= 0.9F;
+        this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
+        this.lifetime = (int)((float)this.lifetime * 0.5F);
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
@@ -35,7 +40,7 @@ public class ParticleSparkler extends SpriteTexturedParticle
         this.bCol = (float) this.random.nextGaussian();
         this.gCol = (float) this.random.nextGaussian();
         this.rCol = (float) this.random.nextGaussian();
-        this.age = (int) (Math.random() * 10.0D) + 40;
+        this.roll = (float)Math.random() * ((float)Math.PI * 2F);
         this.animatedSprite = sprite;
     }
 
@@ -84,8 +89,8 @@ public class ParticleSparkler extends SpriteTexturedParticle
             }
 
         }
-
     }
+
 
     @Override
     public IParticleRenderType getRenderType() {

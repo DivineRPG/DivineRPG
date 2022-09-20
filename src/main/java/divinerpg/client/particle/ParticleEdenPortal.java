@@ -1,11 +1,11 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
+import net.minecraft.client.renderer.ActiveRenderInfo;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -91,17 +91,18 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
         return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprite;
 
-        public Factory(IAnimatedSprite p_i50836_1_) {
-            this.sprite = p_i50836_1_;
+    @OnlyIn(Dist.CLIENT)
+    public static class Provider implements IParticleFactory<BasicParticleType> {
+        private final IAnimatedSprite sprites;
+
+        public Provider(IAnimatedSprite spriteSet) {
+            this.sprites = spriteSet;
         }
 
         public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleEdenPortal particle = new ParticleEdenPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprite);
-            particle.pickSprite(this.sprite);
+            ParticleEdenPortal particle = new ParticleEdenPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+            particle.pickSprite(this.sprites);
             return particle;
         }
     }
