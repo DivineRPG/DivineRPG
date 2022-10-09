@@ -44,6 +44,13 @@ public class DivineThrowable extends ThrowableEntity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        if (this.tickCount > 200)
+            this.kill();
+    }
+
+    @Override
     public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }

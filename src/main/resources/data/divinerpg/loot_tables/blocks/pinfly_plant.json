@@ -2,13 +2,22 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "divinerpg:pinfly_plant",
+                  "properties": {
+                    "age": "2"
+                  }
+                }
+              ],
               "name": "divinerpg:pinfly"
             },
             {
@@ -20,7 +29,7 @@
       ]
     },
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
@@ -36,6 +45,15 @@
             }
           ],
           "name": "divinerpg:pinfly"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "divinerpg:pinfly_plant",
+          "properties": {
+            "age": "2"
+          }
         }
       ]
     }

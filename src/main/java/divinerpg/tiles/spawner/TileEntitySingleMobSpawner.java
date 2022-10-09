@@ -5,8 +5,10 @@ import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.nbt.*;
 import net.minecraft.tileentity.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.*;
 import net.minecraft.world.server.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -15,13 +17,13 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
     private int spawnTimer;
     private boolean spawnParticles = false;
     private Random rand = new Random();
-    private EntityType type;
+    private ResourceLocation type;
 
-    public TileEntitySingleMobSpawner(EntityType type) {
+    public TileEntitySingleMobSpawner(ResourceLocation type) {
         super(TileRegistry.ARCANA_SPAWNER);
         spawnParticles = false;
-        this.type=type;
-        this.entityName=type.getDescriptionId();
+        this.type = type;
+        this.entityName = type.getPath();
     }
 
     public TileEntitySingleMobSpawner() {
@@ -59,13 +61,13 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
                 this.spawnTimer--;
             if (this.spawnTimer == 0) {
                 int c = this.level
-                        .getEntitiesOfClass(type.create(level).getClass(),
+                        .getEntitiesOfClass(ForgeRegistries.ENTITIES.getValue(type).create(level).getClass(),
                                 new AxisAlignedBB(this.worldPosition.getX(), this.worldPosition.getY() + 8, this.worldPosition.getZ(),
                                         this.worldPosition.getX() + 1, this.worldPosition.getY() - 8, this.worldPosition.getZ() + 1).expandTowards(8, 6, 8))
                         .size();
                 if (c < 1) {
                     for (int i = 0; i < 1; i++) {
-                            Entity e = type.create(level);
+                            Entity e = ForgeRegistries.ENTITIES.getValue(type).create(level);
                             if (e != null && e instanceof LivingEntity) {
                                 LivingEntity entity = (LivingEntity) e;
                                 int x = this.worldPosition.getX() + this.rand.nextInt(9) - 4;
@@ -78,13 +80,13 @@ public class TileEntitySingleMobSpawner extends TileEntity implements ITickableT
                                 if (this.level.noCollision(boundingBox)
                                         && !this.level.getBlockCollisions(e, boundingBox).findAny().isPresent()
                                         && !this.level.containsAnyLiquid(boundingBox)) {
-                                    if(type == EntityRegistry.THE_HUNGER){
+                                    if(ForgeRegistries.ENTITIES.getValue(type) == EntityRegistry.THE_HUNGER){
                                         entity.moveTo(x, y+1, z, rand.nextInt(360), 0);
                                         worldPosition = new BlockPos(x, y+1, z);
                                     }else {
                                         worldPosition = new BlockPos(x, y-3, z);
                                     }
-                                    if (type.spawn((ServerWorld)level, null, null, worldPosition, SpawnReason.SPAWN_EGG, false, false) == null) {
+                                    if (ForgeRegistries.ENTITIES.getValue(type).spawn((ServerWorld)level, null, null, worldPosition, SpawnReason.SPAWN_EGG, false, false) == null) {
                                     }
                                 }
                             }

@@ -1,25 +1,25 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
-import divinerpg.tiles.spawner.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.world.*;
+import divinerpg.blocks.base.BlockMod;
+import divinerpg.tiles.spawner.TileEntitySingleMobSpawner;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.IBlockReader;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockSingleMobSpawnerSpawner extends BlockMod implements ITileEntityProvider {
-    private EntityType mob;
+    private ResourceLocation mobName;
 
-    public BlockSingleMobSpawnerSpawner(String name, EntityType mob) {
+    public BlockSingleMobSpawnerSpawner(String name, ResourceLocation mobName) {
         super(name, -1);
-        this.mob = mob;
+        this.mobName = mobName;
     }
 
     @Nullable
     @Override
     public TileEntity newBlockEntity(IBlockReader world) {
-        return new TileEntitySingleMobSpawner(mob);
+        return new TileEntitySingleMobSpawner(mobName);
     }
 }

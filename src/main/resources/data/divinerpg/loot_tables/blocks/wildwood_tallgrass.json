@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -13,7 +13,9 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "item": "minecraft:shears"
+                    "items": [
+                      "minecraft:shears"
+                    ]
                   }
                 }
               ],
@@ -53,10 +55,12 @@
           "condition": "minecraft:location_check",
           "predicate": {
             "block": {
-              "block": "divinerpg:wildwood_tallgrass",
               "state": {
                 "half": "upper"
-              }
+              },
+              "blocks": [
+                "divinerpg:wildwood_tallgrass"
+              ]
             }
           },
           "offsetY": 1
@@ -64,7 +68,7 @@
       ]
     },
     {
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -75,7 +79,9 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "item": "minecraft:shears"
+                    "items": [
+                      "minecraft:shears"
+                    ]
                   }
                 }
               ],
@@ -115,10 +121,12 @@
           "condition": "minecraft:location_check",
           "predicate": {
             "block": {
-              "block": "divinerpg:wildwood_tallgrass",
               "state": {
                 "half": "lower"
-              }
+              },
+              "blocks": [
+                "divinerpg:wildwood_tallgrass"
+              ]
             }
           },
           "offsetY": -1

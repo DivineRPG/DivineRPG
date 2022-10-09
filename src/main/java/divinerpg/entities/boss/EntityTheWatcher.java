@@ -111,15 +111,15 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.GHAST_AMBIENT;
+        return SoundRegistry.ROAR;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.GHAST_HURT;
+        return SoundRegistry.ROAR;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.GHAST_DEATH;
+        return SoundRegistry.ROAR;
     }
 
     protected float getSoundVolume() {

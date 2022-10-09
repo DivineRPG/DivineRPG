@@ -16,6 +16,13 @@ public class DivineFireball extends FireballEntity {
         super(world, x, y, z, accelX, accelY, accelZ);
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.tickCount > 200)
+            this.kill();
+    }
+
     public DivineFireball(World world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
         super(world, shooter, accelX, accelY, accelZ);
     this.shootingEntity=shooter;

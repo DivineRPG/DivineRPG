@@ -1792,13 +1792,13 @@ public class BlockRegistry {
         register(registry, new BlockElevantium("elevantium"), false, true);
         register(registry, new BlockModBridge("star_bridge", 1.5F));
 
-        register(registry, new BlockSingleMobSpawnerSpawner("captain_merik_spawner", EntityRegistry.CAPTAIN_MERIK));
-        register(registry, new BlockSingleMobSpawnerSpawner("datticon_spawner", EntityRegistry.DATTICON));
-        register(registry, new BlockSingleMobSpawnerSpawner("kazari_spawner", EntityRegistry.KAZARI));
-        register(registry, new BlockSingleMobSpawnerSpawner("leorna_spawner", EntityRegistry.LEORNA));
-        register(registry, new BlockSingleMobSpawnerSpawner("lord_vatticus_spawner", EntityRegistry.LORD_VATTICUS));
-        register(registry, new BlockSingleMobSpawnerSpawner("war_general_spawner", EntityRegistry.WAR_GENERAL));
-        register(registry, new BlockSingleMobSpawnerSpawner("zelus_spawner", EntityRegistry.ZELUS));
+        register(registry, new BlockSingleMobSpawnerSpawner("captain_merik_spawner", new ResourceLocation(DivineRPG.MODID, "captain_merik")));
+        register(registry, new BlockSingleMobSpawnerSpawner("datticon_spawner", new ResourceLocation(DivineRPG.MODID, "datticon")));
+        register(registry, new BlockSingleMobSpawnerSpawner("kazari_spawner", new ResourceLocation(DivineRPG.MODID, "kazari")));
+        register(registry, new BlockSingleMobSpawnerSpawner("leorna_spawner", new ResourceLocation(DivineRPG.MODID, "leorna")));
+        register(registry, new BlockSingleMobSpawnerSpawner("lord_vatticus_spawner", new ResourceLocation(DivineRPG.MODID, "lord_vatticus")));
+        register(registry, new BlockSingleMobSpawnerSpawner("war_general_spawner", new ResourceLocation(DivineRPG.MODID, "war_general")));
+        register(registry, new BlockSingleMobSpawnerSpawner("zelus_spawner", new ResourceLocation(DivineRPG.MODID, "zelus")));
 
         // Vethea
 
@@ -1958,8 +1958,8 @@ public class BlockRegistry {
         register(registry, new BlockModWall("degraded_brick_wall", degradedBricks, -1F));
 
         //Spawners
-        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_ls", EntityRegistry.THE_HUNGER));
-        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_sg", EntityRegistry.THE_HUNGER));
+        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_ls", new ResourceLocation(DivineRPG.MODID, "the_hunger")));
+        register(registry, new BlockSingleMobSpawnerSpawner("hunger_spawner_sg", new ResourceLocation(DivineRPG.MODID, "the_hunger")));
 
         //Sructure Air
         registerItemlessBlock(registry, new BlockModStructureAir());
