@@ -7,6 +7,9 @@ assignees: ''
 
 ---
 
+**Minecraft version**
+What version of Minecraft did this occur on?
+
 **DivineRPG version**
 This is the version number on the mod file and is also viewable in-game. "Latest" or the Minecraft version are not acceptable answers. Unfortunatley we cannot change versions below 1.16.5, feel free to leave a report but there is nothing we can do
 
