@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:demon_furnace"
+            "items": [
+              "divinerpg:demon_furnace"
+            ]
           }
         ]
       }

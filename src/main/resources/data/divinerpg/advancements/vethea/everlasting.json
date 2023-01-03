@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:everbright"
+            "items": [
+              "divinerpg:everbright"
+            ]
           }
         ]
       }
@@ -29,7 +31,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:everfright"
+            "items": [
+              "divinerpg:everfright"
+            ]
           }
         ]
       }
@@ -39,7 +43,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:everlight"
+            "items": [
+              "divinerpg:everlight"
+            ]
           }
         ]
       }
@@ -49,7 +55,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:evernight"
+            "items": [
+              "divinerpg:evernight"
+            ]
           }
         ]
       }
@@ -59,7 +67,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:eversight"
+            "items": [
+              "divinerpg:eversight"
+            ]
           }
         ]
       }

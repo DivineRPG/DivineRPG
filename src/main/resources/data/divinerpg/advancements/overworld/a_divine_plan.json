@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_sword"
+            "items": [
+              "divinerpg:divine_sword"
+            ]
           }
         ]
       }

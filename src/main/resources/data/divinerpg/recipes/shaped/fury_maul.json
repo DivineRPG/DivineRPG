@@ -1,19 +1,19 @@
 {
-  "result": {
-    "item": "divinerpg:fury_maul"
-  },
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "OBO",
     "BBB",
     "OBO"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
       "item": "divinerpg:bedrock_chunk"
     },
     "O": {
-      "item": "minecraft:diamond_ore"
+      "tag": "minecraft:diamond_ores"
     }
+  },
+  "result": {
+    "item": "divinerpg:fury_maul"
   }
 }

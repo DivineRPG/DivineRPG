@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#forge:chests/eden",
-    "#forge:chests/bone",
-    "#forge:chests/present",
-    "#forge:chests/frosted"
+    "divinerpg:eden_chest",
+    "divinerpg:bone_chest",
+    "divinerpg:present_box",
+    "divinerpg:frosted_chest"
   ]
 }

@@ -42,7 +42,7 @@
           "functions": [
             {
               "function": "set_nbt",
-              "tag": "{display:{Name:\"Wreck Potion\",Lore:[\"Maybe there's a use for this somewhere...\"]}, CustomPotionEffects:[{Id:12b,Duration:700}], CustomPotionColor:14981690}"
+              "tag": "{display:{Name:\"Wreck Potion\",Lore:[\"Maybe there's a use for this somewhere...\"]}, CustomPotionEffects:[{Id:12b,Duration:1400}], CustomPotionColor:14981690}"
             }
           ]
         }

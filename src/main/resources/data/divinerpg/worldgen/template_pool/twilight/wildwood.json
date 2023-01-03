@@ -102,15 +102,6 @@
       }
     },
     {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/wildwood/wildwood_treehouse",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
       "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",

@@ -3,7 +3,7 @@
     "item": "divinerpg:rupee_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:rupee_ore"
+    "item": "divinerpg:raw_rupee"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

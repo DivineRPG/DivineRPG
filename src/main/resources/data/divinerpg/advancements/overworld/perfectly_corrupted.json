@@ -6,10 +6,10 @@
     "title": {
       "translate": "advancement.divinerpg.overworld.perfectly_corrupted"
     },
-    "frame": "goal",
     "description": {
       "translate": "advancement.divinerpg.overworld.perfectly_corrupted.desc"
     },
+    "frame": "goal",
     "announce_to_chat": true
   },
   "parent": "divinerpg:overworld/root",
@@ -19,7 +19,9 @@
       "conditions": {
         "location": {
           "block": {
-            "block": "divinerpg:altar_of_corruption"
+            "blocks": [
+              "divinerpg:altar_of_corruption"
+            ]
           }
         }
       }

@@ -17,7 +17,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "divinerpg:chicken_dinner"
+          "items": [
+            "divinerpg:chicken_dinner"
+          ]
         }
       }
     }

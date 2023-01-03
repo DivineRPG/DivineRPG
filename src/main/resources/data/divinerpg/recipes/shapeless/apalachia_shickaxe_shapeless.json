@@ -11,6 +11,9 @@
     },
     {
       "item": "divinerpg:apalachia_axe"
+    },
+    {
+      "item": "divinerpg:apalachia_hoe"
     }
   ],
   "type": "minecraft:crafting_shapeless"

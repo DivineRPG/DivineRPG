@@ -19,16 +19,24 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:angelic_helmet"
+            "items": [
+              "divinerpg:angelic_helmet"
+            ]
           },
           {
-            "item": "divinerpg:angelic_chestplate"
+            "items": [
+              "divinerpg:angelic_chestplate"
+            ]
           },
           {
-            "item": "divinerpg:angelic_leggings"
+            "items": [
+              "divinerpg:angelic_leggings"
+            ]
           },
           {
-            "item": "divinerpg:angelic_boots"
+            "items": [
+              "divinerpg:angelic_boots"
+            ]
           }
         ]
       }

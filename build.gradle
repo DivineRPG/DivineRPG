@@ -77,8 +77,7 @@ repositories {
     maven { url = "https://modmaven.dev"}
     maven { url = "https://www.cursemaven.com"}
     maven { url 'https://maven.blamejared.com'}
-    maven { url = uri("https://maven.shedaniel.me/") }
-    maven { url = uri("https://maven.architectury.dev/") }
+    maven { url "https://maven.shedaniel.me" }
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
@@ -107,9 +106,6 @@ dependencies {
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:additions")// Mekanism: Additions
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:generators")// Mekanism: Generators
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:tools")// Mekanism: Tools
-    runtimeOnly fg.deobf("dev.architectury:architectury-forge:7.0.66") // Architectury
-    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:9.0.94") // Cloth
-    runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581") //Rei
 
 
 }

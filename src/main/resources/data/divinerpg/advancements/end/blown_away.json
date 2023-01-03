@@ -18,7 +18,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:horde_horn"
+            "items": [
+              "divinerpg:horde_horn"
+            ]
           }
         ]
       }

@@ -13,11 +13,11 @@
   },
   "parent": "divinerpg:twilight/1001_possibilities",
   "criteria": {
-    "kill_twilight_bunny": {
+    "kill_twilight_glinthop": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "divinerpg:bunny"
+          "type": "divinerpg:glinthop"
         }
       }
     }

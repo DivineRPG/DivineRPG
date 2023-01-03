@@ -11,6 +11,9 @@
     },
     {
       "item": "divinerpg:skythern_axe"
+    },
+    {
+      "item": "divinerpg:skythern_hoe"
     }
   ],
   "type": "minecraft:crafting_shapeless"

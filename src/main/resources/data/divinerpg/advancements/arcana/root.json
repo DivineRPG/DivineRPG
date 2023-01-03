@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.divinerpg.arcana.root.desc"
     },
-    "background": "divinerpg:textures/blocks/ancient_bricks.png",
+    "background": "divinerpg:textures/block/ancient_bricks.png",
     "announce_to_chat": true
   },
   "criteria": {

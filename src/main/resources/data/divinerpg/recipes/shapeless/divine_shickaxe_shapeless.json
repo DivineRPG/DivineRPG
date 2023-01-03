@@ -11,6 +11,9 @@
     },
     {
       "item": "divinerpg:divine_axe"
+    },
+    {
+      "item": "divinerpg:divine_hoe"
     }
   ],
   "type": "minecraft:crafting_shapeless"

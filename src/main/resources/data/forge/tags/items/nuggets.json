@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#forge:nuggets/arlemite",
-    "#forge:nuggets/realmite",
-    "#forge:nuggets/rupee",
-    "#forge:nuggets/torridite"
+    "divinerpg:arlemite_nugget",
+    "divinerpg:realmite_nugget",
+    "divinerpg:rupee_nugget",
+    "divinerpg:torridite_nugget"
   ]
 }
