@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/glistening_mask"
+    "layer0": "divinerpg:item/glistening_mask"
   }
 }

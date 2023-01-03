@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/skythern_blade"
+    "layer0": "divinerpg:item/skythern_blade"
   }
 }

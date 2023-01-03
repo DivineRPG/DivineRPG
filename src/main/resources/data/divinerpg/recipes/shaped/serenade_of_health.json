@@ -1,16 +1,20 @@
 {
-  "result": {
-    "item": "divinerpg:serenade_of_health"
-  },
-  "pattern": [
-    "I  ",
-    "III",
-    "  I"
-  ],
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "#T#",
+    "  #"
+  ],
   "key": {
-    "I": {
-      "item": "divinerpg:torridite_chunk"
+    "#": {
+      "item": "divinerpg:healing_stone"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
     }
+  },
+  "result": {
+    "item": "divinerpg:serenade_of_health",
+    "count": 1
   }
 }

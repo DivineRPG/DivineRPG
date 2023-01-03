@@ -1,358 +1,266 @@
 package divinerpg.client.models.twilight;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelEpiphite<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer leg1;
-    ModelRenderer foot1;
-    ModelRenderer leg2;
-    ModelRenderer foot2;
-    ModelRenderer foot3;
-    ModelRenderer leg3;
-    ModelRenderer leg4;
-    ModelRenderer foot4;
-    ModelRenderer body;
-    ModelRenderer neck;
-    ModelRenderer spike1;
-    ModelRenderer spike2;
-    ModelRenderer spike3;
-    ModelRenderer spike4;
-    ModelRenderer spike5;
-    ModelRenderer spike6;
-    ModelRenderer spike7;
-    ModelRenderer spike8;
-    ModelRenderer spike9;
-    ModelRenderer spike10;
-    ModelRenderer head;
-    ModelRenderer spike11;
-    ModelRenderer spike12;
-    ModelRenderer spike13;
-    ModelRenderer spike14;
-    ModelRenderer spike15;
-    ModelRenderer spike16;
-    ModelRenderer spike17;
-    ModelRenderer spike18;
-    ModelRenderer tooth1;
-    ModelRenderer tooth2;
-    ModelRenderer tooth3;
-    ModelRenderer tooth4;
-    ModelRenderer spike19;
-    ModelRenderer spike20;
-    ModelRenderer spike21;
-    ModelRenderer side1;
-    ModelRenderer side2;
-    ModelRenderer side3;
-    ModelRenderer side4;
-    ModelRenderer side5;
-    ModelRenderer side6;
-    ModelRenderer side7;
-    ModelRenderer side8;
-    ModelRenderer tail1;
-    ModelRenderer tail2;
-  
-  public ModelEpiphite() {
-    texWidth = 64;
-    texHeight = 32;
-    
-      leg1 = new ModelRenderer(this, 8, 0);
-      leg1.addBox(-1F, 0F, 0F, 2, 4, 1);
-      leg1.setPos(2F, 20F, 5F);
-      leg1.setTexSize(64, 32);
-      leg1.mirror = true;
-      setRotation(leg1, 0F, 0F, 0F);
-      foot1 = new ModelRenderer(this, 0, 0);
-      foot1.addBox(-1F, 3F, -2F, 2, 1, 2);
-      foot1.setPos(2F, 20F, 5F);
-      foot1.setTexSize(64, 32);
-      foot1.mirror = true;
-      setRotation(foot1, 0F, 0F, 0F);
-      leg2 = new ModelRenderer(this, 8, 0);
-      leg2.addBox(-1F, 0F, 0F, 2, 4, 1);
-      leg2.setPos(-2F, 20F, 5F);
-      leg2.setTexSize(64, 32);
-      leg2.mirror = true;
-      setRotation(leg2, 0F, 0F, 0F);
-      foot2 = new ModelRenderer(this, 0, 0);
-      foot2.addBox(-1F, 3F, -2F, 2, 1, 2);
-      foot2.setPos(-2F, 20F, 5F);
-      foot2.setTexSize(64, 32);
-      foot2.mirror = true;
-      setRotation(foot2, 0F, 0F, 0F);
-      foot3 = new ModelRenderer(this, 0, 0);
-      foot3.addBox(-1F, 3F, -2F, 2, 1, 2);
-      foot3.setPos(-2F, 20F, -6F);
-      foot3.setTexSize(64, 32);
-      foot3.mirror = true;
-      setRotation(foot3, 0F, 0F, 0F);
-      leg3 = new ModelRenderer(this, 8, 0);
-      leg3.addBox(-1F, 0F, 0F, 2, 4, 1);
-      leg3.setPos(-2F, 20F, -6F);
-      leg3.setTexSize(64, 32);
-      leg3.mirror = true;
-      setRotation(leg3, 0F, 0F, 0F);
-      leg4 = new ModelRenderer(this, 8, 0);
-      leg4.addBox(-1F, 0F, 0F, 2, 4, 1);
-      leg4.setPos(2F, 20F, -6F);
-      leg4.setTexSize(64, 32);
-      leg4.mirror = true;
-      setRotation(leg4, 0F, 0F, 0F);
-      foot4 = new ModelRenderer(this, 0, 0);
-      foot4.addBox(-1F, 3F, -2F, 2, 1, 2);
-      foot4.setPos(2F, 20F, -6F);
-      foot4.setTexSize(64, 32);
-      foot4.mirror = true;
-      setRotation(foot4, 0F, 0F, 0F);
-      body = new ModelRenderer(this, 0, 12);
-      body.addBox(0F, 0F, 0F, 8, 4, 16);
-      body.setPos(-4F, 16F, -8F);
-      body.setTexSize(64, 32);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0F);
-      neck = new ModelRenderer(this, 32, 0);
-      neck.addBox(-1F, -6F, -1F, 2, 6, 2);
-      neck.setPos(0F, 17F, -7F);
-      neck.setTexSize(64, 32);
-      neck.mirror = true;
-      setRotation(neck, 0.4363323F, 0F, 0F);
-      spike1 = new ModelRenderer(this, 60, 0);
-      spike1.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike1.setPos(0.5F, 16F, -5F);
-      spike1.setTexSize(64, 32);
-      spike1.mirror = true;
-      setRotation(spike1, -0.8726646F, 0F, 0F);
-      spike2 = new ModelRenderer(this, 60, 0);
-      spike2.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike2.setPos(-0.5F, 16F, -3F);
-      spike2.setTexSize(64, 32);
-      spike2.mirror = true;
-      setRotation(spike2, -0.8726646F, 0F, 0F);
-      spike3 = new ModelRenderer(this, 60, 0);
-      spike3.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike3.setPos(-1.5F, 16F, -5F);
-      spike3.setTexSize(64, 32);
-      spike3.mirror = true;
-      setRotation(spike3, -0.8726646F, 0F, 0F);
-      spike4 = new ModelRenderer(this, 60, 0);
-      spike4.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike4.setPos(1.5F, 16F, -3F);
-      spike4.setTexSize(64, 32);
-      spike4.mirror = true;
-      setRotation(spike4, -0.8726646F, 0F, 0F);
-      spike5 = new ModelRenderer(this, 60, 0);
-      spike5.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike5.setPos(-2.5F, 16F, -3F);
-      spike5.setTexSize(64, 32);
-      spike5.mirror = true;
-      setRotation(spike5, -0.8726646F, 0F, 0F);
-      spike6 = new ModelRenderer(this, 60, 0);
-      spike6.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike6.setPos(0.5F, 16F, -1F);
-      spike6.setTexSize(64, 32);
-      spike6.mirror = true;
-      setRotation(spike6, -0.8726646F, 0F, 0F);
-      spike7 = new ModelRenderer(this, 60, 0);
-      spike7.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike7.setPos(-3.5F, 16F, -5F);
-      spike7.setTexSize(64, 32);
-      spike7.mirror = true;
-      setRotation(spike7, -0.8726646F, 0F, 0F);
-      spike8 = new ModelRenderer(this, 60, 0);
-      spike8.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike8.setPos(-3.5F, 16F, -1F);
-      spike8.setTexSize(64, 32);
-      spike8.mirror = true;
-      setRotation(spike8, -0.8726646F, 0F, 0F);
-      spike9 = new ModelRenderer(this, 60, 0);
-      spike9.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike9.setPos(-1.5F, 16F, -1F);
-      spike9.setTexSize(64, 32);
-      spike9.mirror = true;
-      setRotation(spike9, -0.8726646F, 0F, 0F);
-      spike10 = new ModelRenderer(this, 60, 0);
-      spike10.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike10.setPos(2.5F, 16F, -1F);
-      spike10.setTexSize(64, 32);
-      spike10.mirror = true;
-      setRotation(spike10, -0.8726646F, 0F, 0F);
-      head = new ModelRenderer(this, 40, 0);
-      head.addBox(-3F, -10F, -5F, 6, 6, 6);
-      head.setPos(0F, 17F, -7F);
-      head.setTexSize(64, 32);
-      head.mirror = true;
-      setRotation(head, 0F, 0F, 0F);
-      spike11 = new ModelRenderer(this, 60, 0);
-      spike11.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike11.setPos(2.5F, 16F, -5F);
-      spike11.setTexSize(64, 32);
-      spike11.mirror = true;
-      setRotation(spike11, -0.8726646F, 0F, 0F);
-      spike12 = new ModelRenderer(this, 60, 0);
-      spike12.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike12.setPos(-0.5F, 16F, 1F);
-      spike12.setTexSize(64, 32);
-      spike12.mirror = true;
-      setRotation(spike12, -0.8726646F, 0F, 0F);
-      spike13 = new ModelRenderer(this, 60, 0);
-      spike13.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike13.setPos(1.5F, 16F, 1F);
-      spike13.setTexSize(64, 32);
-      spike13.mirror = true;
-      setRotation(spike13, -0.8726646F, 0F, 0F);
-      spike14 = new ModelRenderer(this, 60, 0);
-      spike14.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike14.setPos(-2.5F, 16F, 1F);
-      spike14.setTexSize(64, 32);
-      spike14.mirror = true;
-      setRotation(spike14, -0.8726646F, 0F, 0F);
-      spike15 = new ModelRenderer(this, 60, 0);
-      spike15.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike15.setPos(0.5F, 16F, 3F);
-      spike15.setTexSize(64, 32);
-      spike15.mirror = true;
-      setRotation(spike15, -0.8726646F, 0F, 0F);
-      spike16 = new ModelRenderer(this, 60, 0);
-      spike16.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike16.setPos(-1.5F, 16F, 3F);
-      spike16.setTexSize(64, 32);
-      spike16.mirror = true;
-      setRotation(spike16, -0.8726646F, 0F, 0F);
-      spike17 = new ModelRenderer(this, 60, 0);
-      spike17.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike17.setPos(-3.5F, 16F, 3F);
-      spike17.setTexSize(64, 32);
-      spike17.mirror = true;
-      setRotation(spike17, -0.8726646F, 0F, 0F);
-      spike18 = new ModelRenderer(this, 60, 0);
-      spike18.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike18.setPos(2.5F, 16F, 3F);
-      spike18.setTexSize(64, 32);
-      spike18.mirror = true;
-      setRotation(spike18, -0.8726646F, 0F, 0F);
-      tooth1 = new ModelRenderer(this, 0, 3);
-      tooth1.addBox(0F, 0F, 0F, 1, 1, 1);
-      tooth1.setPos(1F, 13F, -12F);
-      tooth1.setTexSize(64, 32);
-      tooth1.mirror = true;
-      setRotation(tooth1, 0F, 0F, 0F);
-      tooth2 = new ModelRenderer(this, 0, 3);
-      tooth2.addBox(0F, 0F, 0F, 1, 1, 1);
-      tooth2.setPos(-2F, 13F, -12F);
-      tooth2.setTexSize(64, 32);
-      tooth2.mirror = true;
-      setRotation(tooth2, 0F, 0F, 0F);
-      tooth3 = new ModelRenderer(this, 0, 3);
-      tooth3.addBox(0F, 0F, 0F, 1, 1, 1);
-      tooth3.setPos(2F, 13F, -10F);
-      tooth3.setTexSize(64, 32);
-      tooth3.mirror = true;
-      setRotation(tooth3, 0F, 0F, 0F);
-      tooth4 = new ModelRenderer(this, 0, 3);
-      tooth4.addBox(0F, 0F, 0F, 1, 1, 1);
-      tooth4.setPos(-3F, 13F, -10F);
-      tooth4.setTexSize(64, 32);
-      tooth4.mirror = true;
-      setRotation(tooth4, 0F, 0F, 0F);
-      spike19 = new ModelRenderer(this, 60, 0);
-      spike19.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike19.setPos(-0.5F, 16F, 5F);
-      spike19.setTexSize(64, 32);
-      spike19.mirror = true;
-      setRotation(spike19, -0.8726646F, 0F, 0F);
-      spike20 = new ModelRenderer(this, 60, 0);
-      spike20.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike20.setPos(1.5F, 16F, 5F);
-      spike20.setTexSize(64, 32);
-      spike20.mirror = true;
-      setRotation(spike20, -0.8726646F, 0F, 0F);
-      spike21 = new ModelRenderer(this, 60, 0);
-      spike21.addBox(0F, -4F, 0F, 1, 4, 1);
-      spike21.setPos(-2.5F, 16F, 5F);
-      spike21.setTexSize(64, 32);
-      spike21.mirror = true;
-      setRotation(spike21, -0.8726646F, 0F, 0F);
-      side1 = new ModelRenderer(this, 14, 0);
-      side1.addBox(0F, 0F, 0F, 1, 2, 5);
-      side1.setPos(-4F, 17F, -5F);
-      side1.setTexSize(64, 32);
-      side1.mirror = true;
-      setRotation(side1, 0F, -0.5235988F, 0F);
-      side2 = new ModelRenderer(this, 14, 0);
-      side2.addBox(0F, 0F, 0F, 1, 2, 5);
-      side2.setPos(-4F, 17F, -2F);
-      side2.setTexSize(64, 32);
-      side2.mirror = true;
-      setRotation(side2, 0F, -0.5235988F, 0F);
-      side3 = new ModelRenderer(this, 14, 0);
-      side3.addBox(0F, 0F, 0F, 1, 2, 5);
-      side3.setPos(-4F, 17F, 1F);
-      side3.setTexSize(64, 32);
-      side3.mirror = true;
-      setRotation(side3, 0F, -0.5235988F, 0F);
-      side4 = new ModelRenderer(this, 14, 0);
-      side4.addBox(0F, 0F, 0F, 1, 2, 5);
-      side4.setPos(-4F, 17F, 4F);
-      side4.setTexSize(64, 32);
-      side4.mirror = true;
-      setRotation(side4, 0F, -0.5235988F, 0F);
-      side5 = new ModelRenderer(this, 14, 0);
-      side5.addBox(-1F, 0F, 0F, 1, 2, 5);
-      side5.setPos(4F, 17F, -5F);
-      side5.setTexSize(64, 32);
-      side5.mirror = true;
-      setRotation(side5, 0F, 0.5235988F, 0F);
-      side6 = new ModelRenderer(this, 14, 0);
-      side6.addBox(-1F, 0F, 0F, 1, 2, 5);
-      side6.setPos(4F, 17F, -2F);
-      side6.setTexSize(64, 32);
-      side6.mirror = true;
-      setRotation(side6, 0F, 0.5235988F, 0F);
-      side7 = new ModelRenderer(this, 14, 0);
-      side7.addBox(-1F, 0F, 0F, 1, 2, 5);
-      side7.setPos(4F, 17F, 1F);
-      side7.setTexSize(64, 32);
-      side7.mirror = true;
-      setRotation(side7, 0F, 0.5235988F, 0F);
-      side8 = new ModelRenderer(this, 14, 0);
-      side8.addBox(-1F, 0F, 0F, 1, 2, 5);
-      side8.setPos(4F, 17F, 4F);
-      side8.setTexSize(64, 32);
-      side8.mirror = true;
-      setRotation(side8, 0F, 0.5235988F, 0F);
-      tail1 = new ModelRenderer(this, 14, 0);
-      tail1.addBox(-1F, 0F, 0F, 1, 2, 5);
-      tail1.setPos(-2F, 17F, 7F);
-      tail1.setTexSize(64, 32);
-      tail1.mirror = true;
-      setRotation(tail1, 0F, 0.2617994F, 0F);
-      tail2 = new ModelRenderer(this, 14, 0);
-      tail2.addBox(0F, 0F, 0F, 1, 2, 5);
-      tail2.setPos(2F, 17F, 7F);
-      tail2.setTexSize(64, 32);
-      tail2.mirror = true;
-      setRotation(tail2, 0F, -0.2617994F, 0F);
-  }
+import static divinerpg.util.ClientUtils.createLocation;
 
 
-  @Override
-  public Iterable<ModelRenderer> parts() {
-    return ImmutableList.of(leg1, foot1, leg2, foot2, foot3, leg3, leg4, foot4, body, neck, spike1, spike2, spike3, spike4, spike5, spike6, spike7, spike8, spike9, spike10, head,
-    spike11, spike12, spike13, spike14, spike15, spike16, spike17, spike18, tooth1, tooth2, tooth3, tooth4, spike19, spike20, spike21, side1, side2, side3, side4,  side5, side6, side7, side8, tail1, tail2);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z) {
-    model.xRot = x;
-    model.yRot = y;
-    model.zRot = z;
-  }
-  @Override
-  public void setupAnim(T ent, float f, float f1, float f2, float f3, float f4) {
-    this.leg1.xRot = this.leg4.xRot = this.foot1.xRot = this.foot4.xRot = (float) Math.sin(f/2)*f1*1.3f;
-    this.leg2.xRot = this.leg3.xRot = this.foot2.xRot = this.foot3.xRot = (float) Math.cos(f/2)*f1*1.3f;
-  }
+public class ModelEpiphite<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("epiphite");
+	private final ModelPart leg1;
+	private final ModelPart foot1;
+	private final ModelPart leg2;
+	private final ModelPart foot2;
+	private final ModelPart foot3;
+	private final ModelPart leg3;
+	private final ModelPart leg4;
+	private final ModelPart foot4;
+	private final ModelPart body;
+	private final ModelPart neck;
+	private final ModelPart spike1;
+	private final ModelPart spike2;
+	private final ModelPart spike3;
+	private final ModelPart spike4;
+	private final ModelPart spike5;
+	private final ModelPart spike6;
+	private final ModelPart spike7;
+	private final ModelPart spike8;
+	private final ModelPart spike9;
+	private final ModelPart spike10;
+	private final ModelPart head;
+	private final ModelPart spike11;
+	private final ModelPart spike12;
+	private final ModelPart spike13;
+	private final ModelPart spike14;
+	private final ModelPart spike15;
+	private final ModelPart spike16;
+	private final ModelPart spike17;
+	private final ModelPart spike18;
+	private final ModelPart tooth1;
+	private final ModelPart tooth2;
+	private final ModelPart tooth3;
+	private final ModelPart tooth4;
+	private final ModelPart spike19;
+	private final ModelPart spike20;
+	private final ModelPart spike21;
+	private final ModelPart side1;
+	private final ModelPart side2;
+	private final ModelPart side3;
+	private final ModelPart side4;
+	private final ModelPart side5;
+	private final ModelPart side6;
+	private final ModelPart side7;
+	private final ModelPart side8;
+	private final ModelPart tail1;
+	private final ModelPart tail2;
 
+	public ModelEpiphite(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.leg1 = root.getChild("leg1");
+		this.foot1 = root.getChild("foot1");
+		this.leg2 = root.getChild("leg2");
+		this.foot2 = root.getChild("foot2");
+		this.foot3 = root.getChild("foot3");
+		this.leg3 = root.getChild("leg3");
+		this.leg4 = root.getChild("leg4");
+		this.foot4 = root.getChild("foot4");
+		this.body = root.getChild("body");
+		this.neck = root.getChild("neck");
+		this.spike1 = root.getChild("spike1");
+		this.spike2 = root.getChild("spike2");
+		this.spike3 = root.getChild("spike3");
+		this.spike4 = root.getChild("spike4");
+		this.spike5 = root.getChild("spike5");
+		this.spike6 = root.getChild("spike6");
+		this.spike7 = root.getChild("spike7");
+		this.spike8 = root.getChild("spike8");
+		this.spike9 = root.getChild("spike9");
+		this.spike10 = root.getChild("spike10");
+		this.head = root.getChild("head");
+		this.spike11 = root.getChild("spike11");
+		this.spike12 = root.getChild("spike12");
+		this.spike13 = root.getChild("spike13");
+		this.spike14 = root.getChild("spike14");
+		this.spike15 = root.getChild("spike15");
+		this.spike16 = root.getChild("spike16");
+		this.spike17 = root.getChild("spike17");
+		this.spike18 = root.getChild("spike18");
+		this.tooth1 = root.getChild("tooth1");
+		this.tooth2 = root.getChild("tooth2");
+		this.tooth3 = root.getChild("tooth3");
+		this.tooth4 = root.getChild("tooth4");
+		this.spike19 = root.getChild("spike19");
+		this.spike20 = root.getChild("spike20");
+		this.spike21 = root.getChild("spike21");
+		this.side1 = root.getChild("side1");
+		this.side2 = root.getChild("side2");
+		this.side3 = root.getChild("side3");
+		this.side4 = root.getChild("side4");
+		this.side5 = root.getChild("side5");
+		this.side6 = root.getChild("side6");
+		this.side7 = root.getChild("side7");
+		this.side8 = root.getChild("side8");
+		this.tail1 = root.getChild("tail1");
+		this.tail2 = root.getChild("tail2");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(8, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 20.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("foot1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 3.0F, -2.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 20.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(8, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 20.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("foot2", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 3.0F, -2.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 20.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("foot3", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 3.0F, -2.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 20.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(8, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 20.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("leg4", CubeListBuilder.create().texOffs(8, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 20.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("foot4", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 3.0F, -2.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 20.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 12).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 4.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 16.0F, -8.0F));
+
+		partdefinition.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(-1.0F, -6.0F, -1.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 17.0F, -7.0F, 0.4363F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike1", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.5F, 16.0F, -5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike2", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.5F, 16.0F, -3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike3", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 16.0F, -5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike4", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.5F, 16.0F, -3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike5", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.5F, 16.0F, -3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike6", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.5F, 16.0F, -1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike7", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.5F, 16.0F, -5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike8", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.5F, 16.0F, -1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike9", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 16.0F, -1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike10", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 16.0F, -1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(40, 0).mirror().addBox(-3.0F, -10.0F, -5.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 17.0F, -7.0F));
+
+		partdefinition.addOrReplaceChild("spike11", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 16.0F, -5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike12", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.5F, 16.0F, 1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike13", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.5F, 16.0F, 1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike14", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.5F, 16.0F, 1.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike15", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.5F, 16.0F, 3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike16", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 16.0F, 3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike17", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.5F, 16.0F, 3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike18", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 16.0F, 3.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("tooth1", CubeListBuilder.create().texOffs(0, 3).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 13.0F, -12.0F));
+
+		partdefinition.addOrReplaceChild("tooth2", CubeListBuilder.create().texOffs(0, 3).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 13.0F, -12.0F));
+
+		partdefinition.addOrReplaceChild("tooth3", CubeListBuilder.create().texOffs(0, 3).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 13.0F, -10.0F));
+
+		partdefinition.addOrReplaceChild("tooth4", CubeListBuilder.create().texOffs(0, 3).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 13.0F, -10.0F));
+
+		partdefinition.addOrReplaceChild("spike19", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.5F, 16.0F, 5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike20", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.5F, 16.0F, 5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("spike21", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.5F, 16.0F, 5.0F, -0.8727F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side1", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 17.0F, -5.0F, 0.0F, -0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side2", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 17.0F, -2.0F, 0.0F, -0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side3", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 17.0F, 1.0F, 0.0F, -0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side4", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 17.0F, 4.0F, 0.0F, -0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side5", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 17.0F, -5.0F, 0.0F, 0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side6", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 17.0F, -2.0F, 0.0F, 0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side7", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 17.0F, 1.0F, 0.0F, 0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("side8", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 17.0F, 4.0F, 0.0F, 0.5236F, 0.0F));
+
+		partdefinition.addOrReplaceChild("tail1", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 17.0F, 7.0F, 0.0F, 0.2618F, 0.0F));
+
+		partdefinition.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 17.0F, 7.0F, 0.0F, -0.2618F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.leg1.xRot = this.leg4.xRot = this.foot1.xRot = this.foot4.xRot = (float) Math.sin(limbSwing/2)*limbSwingAmount*1.3f;
+		this.leg2.xRot = this.leg3.xRot = this.foot2.xRot = this.foot3.xRot = (float) Math.cos(limbSwing/2)*limbSwingAmount*1.3f;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tooth1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tooth2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tooth3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tooth4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		spike21.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		side8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tail1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		tail2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

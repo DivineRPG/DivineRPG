@@ -2,36 +2,35 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.IAttackTimer;
 import divinerpg.entities.base.EntityDivineTameable;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
-import net.minecraft.network.datasync.*;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.tags.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.network.syncher.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
 
 public class EntityStoneGolem extends EntityDivineTameable implements IAttackTimer {
-    private static final DataParameter<Integer> ATTACK_TIMER = EntityDataManager.defineId(EntityStoneGolem.class,
-            DataSerializers.INT);
+    private static final EntityDataAccessor<Integer> ATTACK_TIMER = SynchedEntityData.defineId(EntityStoneGolem.class,
+            EntityDataSerializers.INT);
 
-    public <T extends Entity> EntityStoneGolem(EntityType<T> type, World worldIn) {
-        super((EntityType<? extends TameableEntity>) type, worldIn);
+    public EntityStoneGolem(EntityType<? extends TamableAnimal> type, Level worldIn) {
+        super(type, worldIn);
         setHealth(getMaxHealth());
     }
 
-    protected EntityStoneGolem(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
+    protected EntityStoneGolem(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
         tame(player);
     }
 
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 3.2F;
     }
 
@@ -54,16 +53,12 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
         return this.entityData.get(ATTACK_TIMER).intValue();
     }
 
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.stoneGolemHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.stoneGolemDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.stoneGolemSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.stoneGolemFollowRange);
-    }
-
-    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!this.level.isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
-            Item item = itemstack.getItem();
+            Ingredient stone = Ingredient.of(ItemTags.STONE_CRAFTING_MATERIALS);
             if (this.isTame()) {
-                if (ItemTags.STONE_CRAFTING_MATERIALS.getValues().contains(item) && this.getHealth() < this.getMaxHealth()) {
+                if (stone.test(itemstack) && this.getHealth() < this.getMaxHealth()) {
                     if (!player.isCreative()) {
                         itemstack.shrink(1);
                     }
@@ -84,15 +79,15 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
             }
             return super.mobInteract(player, hand);
         }
-        return ActionResultType.PASS;
+        return InteractionResult.PASS;
     }
 
     @Override
     public boolean doHurtTarget(Entity entity) {
         boolean attack = super.doHurtTarget(entity);
         if (attack) {
-            entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F), 0.1D,
-                    MathHelper.cos(this.xRot * (float) Math.PI / 180.0F));
+            entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F), 0.1D,
+                    Mth.cos(this.xRot * (float) Math.PI / 180.0F));
             this.entityData.set(ATTACK_TIMER, Integer.valueOf(10));
         }
         return attack;

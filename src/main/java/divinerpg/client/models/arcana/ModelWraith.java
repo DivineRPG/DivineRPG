@@ -1,69 +1,60 @@
 package divinerpg.client.models.arcana;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-public class ModelWraith<T extends Entity> extends SegmentedModel<T> 
-{
-    //fields
-	ModelRenderer head;
-    ModelRenderer body;
-    ModelRenderer leg3;
-    ModelRenderer leg4;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelWraith()
-    {
-    	texWidth = 64;
-        texHeight = 32;
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-4F, -4F, -6F, 8, 8, 6);
-        head.setPos(0F, 6F, -8F);
-        head.setTexSize(64, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 19, 0);
-        body.addBox(-6F, -10F, -7F, 12, 22, 10);
-        body.setPos(0F, 11F, 2F);
-        body.setTexSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0.8644027F, 0F, 0F);
-        leg3 = new ModelRenderer(this, 0, 16);
-        leg3.addBox(-3F, 0F, -3F, 4, 11, 4);
-        leg3.setPos(-3F, 13F, -5F);
-        leg3.setTexSize(64, 32);
-        leg3.mirror = true;
-        setRotation(leg3, -1.308997F, 1.134464F, 0F);
-        leg4 = new ModelRenderer(this, 0, 16);
-        leg4.addBox(-1F, 0F, -3F, 4, 11, 4);
-        leg4.setPos(3F, 13F, -5F);
-        leg4.setTexSize(64, 32);
-        leg4.mirror = true;
-        setRotation(leg4, -1.308997F, -1.134464F, -0.0743572F);
-    }
-    
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, body, leg3, leg4);
-    }
+public class ModelWraith<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("wraith");
+	private final ModelPart head;
+	private final ModelPart body;
+	private final ModelPart leg3;
+	private final ModelPart leg4;
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public ModelWraith(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.head = root.getChild("head");
+		this.body = root.getChild("body");
+		this.leg3 = root.getChild("leg3");
+		this.leg4 = root.getChild("leg4");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -4.0F, -6.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 6.0F, -8.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(19, 0).mirror().addBox(-6.0F, -10.0F, -7.0F, 12.0F, 22.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, 0.8644F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-3.0F, 0.0F, -3.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.0F, 13.0F, -5.0F, -1.309F, 1.1345F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leg4", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-1.0F, 0.0F, -3.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(3.0F, 13.0F, -5.0F, -1.309F, -1.1345F, -0.0744F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
-	      this.head.xRot = headPitch / (180F / (float)Math.PI);
-	      this.leg4.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-	      this.leg3.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-	      this.leg4.yRot = 0.0F;
-	      this.leg3.yRot = 0.0F;
+		this.head.xRot = headPitch / (180F / (float)Math.PI);
+		this.leg4.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.leg3.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.leg4.yRot = 0.0F;
+		this.leg3.yRot = 0.0F;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

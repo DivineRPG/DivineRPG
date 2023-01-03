@@ -1,163 +1,153 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelTermasect<T extends Entity> extends SegmentedModel<T> {
-    //fields
-    ModelRenderer base1;
-    ModelRenderer base2;
-    ModelRenderer base3;
-    ModelRenderer body;
-    ModelRenderer headR;
-    ModelRenderer headL;
-    ModelRenderer neck;
-    ModelRenderer headMid;
-    ModelRenderer slab1;
-    ModelRenderer slab2;
-    ModelRenderer slab3;
-    ModelRenderer slab4;
-    ModelRenderer armRa;
-    ModelRenderer armLa;
-    ModelRenderer armRb;
-    ModelRenderer armLb;
-    ModelRenderer armRc;
-    ModelRenderer armRc2;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelTermasect() {
-        texWidth = 128;
-        texHeight = 128;
+public class ModelTermasect<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("termasect");
+	private final ModelPart base1;
+	private final ModelPart base2;
+	private final ModelPart base3;
+	private final ModelPart body;
+	private final ModelPart headR;
+	private final ModelPart headL;
+	private final ModelPart neck;
+	private final ModelPart headMid;
+	private final ModelPart slab1;
+	private final ModelPart slab2;
+	private final ModelPart slab3;
+	private final ModelPart slab4;
+	private final ModelPart armRa;
+	private final ModelPart armLa;
+	private final ModelPart armRb;
+	private final ModelPart armLb;
+	private final ModelPart armRc;
+	private final ModelPart armRc2;
 
-        base1 = new ModelRenderer(this, 0, 0);
-        base1.addBox(-3F, 0F, -3F, 6, 1, 6);
-        base1.setPos(0F, 20F, 0F);
-        base1.setTexSize(128, 128);
-        base1.mirror = true;
-        setRotation(base1, 0F, 0F, 0F);
-        base2 = new ModelRenderer(this, 0, 7);
-        base2.addBox(-5F, 0F, -5F, 10, 1, 10);
-        base2.setPos(0F, 16F, 0F);
-        base2.setTexSize(128, 128);
-        base2.mirror = true;
-        setRotation(base2, 0F, 0F, 0F);
-        base3 = new ModelRenderer(this, 0, 18);
-        base3.addBox(-7F, 0F, -7F, 14, 1, 14);
-        base3.setPos(0F, 12F, 0F);
-        base3.setTexSize(128, 128);
-        base3.mirror = true;
-        setRotation(base3, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 56, 0);
-        body.addBox(-6F, 0F, -6F, 12, 24, 12);
-        body.setPos(0F, -15F, 0F);
-        body.setTexSize(128, 128);
-        body.mirror = true;
-        setRotation(body, 0F, 0F, 0F);
-        headR = new ModelRenderer(this, 0, 33);
-        headR.addBox(-3F, -6F, -5F, 6, 6, 5);
-        headR.setPos(-4F, -12F, -3F);
-        headR.setTexSize(128, 128);
-        headR.mirror = true;
-        setRotation(headR, 0F, 0F, 0F);
-        headL = new ModelRenderer(this, 0, 33);
-        headL.addBox(-3F, -6F, -5F, 6, 6, 5);
-        headL.setPos(4F, -12F, -3F);
-        headL.setTexSize(128, 128);
-        headL.mirror = true;
-        setRotation(headL, 0F, 0F, 0F);
-        neck = new ModelRenderer(this, 0, 44);
-        neck.addBox(-1F, 0F, -1F, 2, 6, 2);
-        neck.setPos(0F, -21F, 0F);
-        neck.setTexSize(128, 128);
-        neck.mirror = true;
-        setRotation(neck, 0F, 0F, 0F);
-        headMid = new ModelRenderer(this, 0, 33);
-        headMid.addBox(-3F, -6F, -5F, 6, 6, 5);
-        headMid.setPos(0F, -19F, 0F);
-        headMid.setTexSize(128, 128);
-        headMid.mirror = true;
-        setRotation(headMid, 0F, 0F, 0F);
-        slab1 = new ModelRenderer(this, 0, 52);
-        slab1.addBox(-8F, 0F, -8F, 16, 2, 16);
-        slab1.setPos(0F, 5F, 0F);
-        slab1.setTexSize(128, 128);
-        slab1.mirror = true;
-        setRotation(slab1, 0F, 0F, 0F);
-        slab2 = new ModelRenderer(this, 0, 52);
-        slab2.addBox(-8F, 0F, -8F, 16, 2, 16);
-        slab2.setPos(0F, 1F, 0F);
-        slab2.setTexSize(128, 128);
-        slab2.mirror = true;
-        setRotation(slab2, 0F, 0F, 0F);
-        slab3 = new ModelRenderer(this, 0, 52);
-        slab3.addBox(-8F, 0F, -8F, 16, 2, 16);
-        slab3.setPos(0F, -3F, 0F);
-        slab3.setTexSize(128, 128);
-        slab3.mirror = true;
-        setRotation(slab3, 0F, 0F, 0F);
-        slab4 = new ModelRenderer(this, 0, 52);
-        slab4.addBox(-8F, 0F, -8F, 16, 2, 16);
-        slab4.setPos(0F, -7F, 0F);
-        slab4.setTexSize(128, 128);
-        slab4.mirror = true;
-        setRotation(slab4, 0F, 0F, 0F);
-        armRa = new ModelRenderer(this, 0, 70);
-        armRa.addBox(-2F, -0.5F, -2F, 4, 14, 4);
-        armRa.setPos(-5F, -13F, 0F);
-        armRa.setTexSize(128, 128);
-        armRa.mirror = true;
-        setRotation(armRa, 0F, 0F, 0.7853982F);
-        armLa = new ModelRenderer(this, 0, 70);
-        armLa.addBox(-2F, -0.5F, -2F, 4, 14, 4);
-        armLa.setPos(5F, -13F, 0F);
-        armLa.setTexSize(128, 128);
-        armLa.mirror = true;
-        setRotation(armLa, 0F, 0F, -0.7853982F);
-        armRb = new ModelRenderer(this, 16, 70);
-        armRb.addBox(-2F, 9.5F, -10F, 4, 4, 8);
-        armRb.setPos(-5F, -13F, 0F);
-        armRb.setTexSize(128, 128);
-        armRb.mirror = true;
-        setRotation(armRb, 0F, 0F, 0.7853982F);
-        armLb = new ModelRenderer(this, 16, 70);
-        armLb.addBox(-2F, 9.5F, -10F, 4, 4, 8);
-        armLb.setPos(5F, -13F, 0F);
-        armLb.setTexSize(128, 128);
-        armLb.mirror = true;
-        setRotation(armLb, 0F, 0F, -0.7853982F);
-        armRc = new ModelRenderer(this, 40, 70);
-        armRc.addBox(-1F, 10.5F, -16F, 2, 2, 6);
-        armRc.setPos(-5F, -13F, 0F);
-        armRc.setTexSize(128, 128);
-        armRc.mirror = true;
-        setRotation(armRc, 0F, 0F, 0.7853982F);
-        armRc2 = new ModelRenderer(this, 40, 70);
-        armRc2.addBox(-1F, 10.5F, -16F, 2, 2, 6);
-        armRc2.setPos(5F, -13F, 0F);
-        armRc2.setTexSize(128, 128);
-        armRc2.mirror = true;
-        setRotation(armRc2, 0F, 0F, -0.7853982F);
-    }
+	public ModelTermasect(ModelPart root) {
+		this.base1 = root.getChild("base1");
+		this.base2 = root.getChild("base2");
+		this.base3 = root.getChild("base3");
+		this.body = root.getChild("body");
+		this.headR = root.getChild("headR");
+		this.headL = root.getChild("headL");
+		this.neck = root.getChild("neck");
+		this.headMid = root.getChild("headMid");
+		this.slab1 = root.getChild("slab1");
+		this.slab2 = root.getChild("slab2");
+		this.slab3 = root.getChild("slab3");
+		this.slab4 = root.getChild("slab4");
+		this.armRa = root.getChild("armRa");
+		this.armLa = root.getChild("armLa");
+		this.armRb = root.getChild("armRb");
+		this.armLb = root.getChild("armLb");
+		this.armRc = root.getChild("armRc");
+		this.armRc2 = root.getChild("armRc2");
+	}
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-                base1.yRot = limbSwing % 1F;
-                base2.yRot = limbSwing % 2F;
-                base3.yRot = limbSwing % 3F;
-    }
+	public ModelTermasect(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.base1 = root.getChild("base1");
+		this.base2 = root.getChild("base2");
+		this.base3 = root.getChild("base3");
+		this.body = root.getChild("body");
+		this.headR = root.getChild("headR");
+		this.headL = root.getChild("headL");
+		this.neck = root.getChild("neck");
+		this.headMid = root.getChild("headMid");
+		this.slab1 = root.getChild("slab1");
+		this.slab2 = root.getChild("slab2");
+		this.slab3 = root.getChild("slab3");
+		this.slab4 = root.getChild("slab4");
+		this.armRa = root.getChild("armRa");
+		this.armLa = root.getChild("armLa");
+		this.armRb = root.getChild("armRb");
+		this.armLb = root.getChild("armLb");
+		this.armRc = root.getChild("armRc");
+		this.armRc2 = root.getChild("armRc2");
+	}
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(base1, base2, base3, body, headR, headL, neck, headMid, slab1, slab2, slab3, slab4, armRa, armLa, armRb, armLb, armRc, armRc2);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		partdefinition.addOrReplaceChild("base1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-3.0F, 0.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 20.0F, 0.0F));
 
+		partdefinition.addOrReplaceChild("base2", CubeListBuilder.create().texOffs(0, 7).mirror().addBox(-5.0F, 0.0F, -5.0F, 10.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 16.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("base3", CubeListBuilder.create().texOffs(0, 18).mirror().addBox(-7.0F, 0.0F, -7.0F, 14.0F, 1.0F, 14.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(56, 0).mirror().addBox(-6.0F, 0.0F, -6.0F, 12.0F, 24.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -15.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headR", CubeListBuilder.create().texOffs(0, 33).mirror().addBox(-3.0F, -6.0F, -5.0F, 6.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, -12.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("headL", CubeListBuilder.create().texOffs(0, 33).mirror().addBox(-3.0F, -6.0F, -5.0F, 6.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, -12.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(0, 44).mirror().addBox(-1.0F, 0.0F, -1.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -21.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headMid", CubeListBuilder.create().texOffs(0, 33).mirror().addBox(-3.0F, -6.0F, -5.0F, 6.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -19.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("slab1", CubeListBuilder.create().texOffs(0, 52).mirror().addBox(-8.0F, 0.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 5.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("slab2", CubeListBuilder.create().texOffs(0, 52).mirror().addBox(-8.0F, 0.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 1.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("slab3", CubeListBuilder.create().texOffs(0, 52).mirror().addBox(-8.0F, 0.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -3.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("slab4", CubeListBuilder.create().texOffs(0, 52).mirror().addBox(-8.0F, 0.0F, -8.0F, 16.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -7.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("armRa", CubeListBuilder.create().texOffs(0, 70).mirror().addBox(-2.0F, -0.5F, -2.0F, 4.0F, 14.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, -13.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("armLa", CubeListBuilder.create().texOffs(0, 70).mirror().addBox(-2.0F, -0.5F, -2.0F, 4.0F, 14.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(5.0F, -13.0F, 0.0F, 0.0F, 0.0F, -0.7854F));
+
+		partdefinition.addOrReplaceChild("armRb", CubeListBuilder.create().texOffs(16, 70).mirror().addBox(-2.0F, 9.5F, -10.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, -13.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("armLb", CubeListBuilder.create().texOffs(16, 70).mirror().addBox(-2.0F, 9.5F, -10.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(5.0F, -13.0F, 0.0F, 0.0F, 0.0F, -0.7854F));
+
+		partdefinition.addOrReplaceChild("armRc", CubeListBuilder.create().texOffs(40, 70).mirror().addBox(-1.0F, 10.5F, -16.0F, 2.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, -13.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("armRc2", CubeListBuilder.create().texOffs(40, 70).mirror().addBox(-1.0F, 10.5F, -16.0F, 2.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(5.0F, -13.0F, 0.0F, 0.0F, 0.0F, -0.7854F));
+
+		return LayerDefinition.create(meshdefinition, 128, 128);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		base1.yRot = limbSwing % 1F;
+		base2.yRot = limbSwing % 2F;
+		base3.yRot = limbSwing % 3F;
+		headL.yRot = netHeadYaw / (180F / (float) Math.PI);
+		headL.xRot = headPitch / (180F / (float) Math.PI);
+		headMid.yRot = netHeadYaw / (180F / (float) Math.PI);
+		headMid.xRot = headPitch / (180F / (float) Math.PI);
+		headR.yRot = netHeadYaw / (180F / (float) Math.PI);
+		headR.xRot = headPitch / (180F / (float) Math.PI);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		base1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		base2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		base3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headMid.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		slab1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		slab2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		slab3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		slab4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armRa.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armLa.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armRb.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armLb.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armRc.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armRc2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

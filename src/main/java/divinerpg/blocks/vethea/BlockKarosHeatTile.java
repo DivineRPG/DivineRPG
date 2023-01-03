@@ -1,48 +1,48 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
-
-import java.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockModUnbreakable;
+import divinerpg.util.DamageSources;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.*;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.shapes.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockKarosHeatTile extends BlockModUnbreakable {
-    private static final AxisAlignedBB KAROS_HEAT_TILE_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
+    private static final AABB KAROS_HEAT_TILE_AABB = new AABB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
             0.9375D);
 
-    public BlockKarosHeatTile(String name) {
-        super(name, AbstractBlock.Properties.of(Material.STONE).randomTicks().strength(-1, 600000F));
+    public BlockKarosHeatTile() {
+        super(BlockBehaviour.Properties.of(Material.STONE).randomTicks().strength(-1, 600000F));
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
-        return VoxelShapes.create(KAROS_HEAT_TILE_AABB);
+    public VoxelShape getCollisionShape(BlockState p_220071_1_, BlockGetter p_220071_2_, BlockPos p_220071_3_, CollisionContext p_220071_4_) {
+        return Shapes.create(KAROS_HEAT_TILE_AABB);
     }
 
     @Override
-    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        return VoxelShapes.create(KAROS_HEAT_TILE_AABB);
+    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
+        return Shapes.create(KAROS_HEAT_TILE_AABB);
     }
 
     @Override
-    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (this == BlockRegistry.karosHeatTileRed) {
-            world.setBlock(pos, BlockRegistry.karosHeatTileGreen.defaultBlockState(), 0);
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red"))) {
+            world.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_green")).defaultBlockState(), 0);
         }
     }
 
     @Override
-    public void entityInside(BlockState state, World world, BlockPos pos, Entity entityIn) {
-            super.entityInside(state, world, pos, entityIn);
-        if (this == BlockRegistry.karosHeatTileRed && entityIn instanceof ServerPlayerEntity) {
+    public void entityInside(BlockState state, Level world, BlockPos pos, Entity entityIn) {
+        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red")) && entityIn instanceof ServerPlayer) {
             entityIn.hurt(DamageSources.trapSource, 6);
             entityIn.setSecondsOnFire(5);
         }

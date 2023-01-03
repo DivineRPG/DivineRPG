@@ -1,38 +1,43 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class EntityCorruptedBullet extends DivineThrowable {
     public static float damage = 10.0F;
 
-    public EntityCorruptedBullet(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityCorruptedBullet(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityCorruptedBullet(EntityType<? extends ThrowableEntity> type, double x, double y, double z, World world) {
+    public EntityCorruptedBullet(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world) {
         super(type, x, y, z, world);
     }
 
-    public EntityCorruptedBullet(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntityCorruptedBullet(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
-        Vector3d vector = entity.getLookAngle().scale(1.5);
+        Vec3 vector = entity.getLookAngle().scale(1.5);
         this.moveTo(getX() + vector.x, getY() + vector.y, getZ() + vector.z);
     }
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null) {
-            Entity entity = result.getEntity();
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null) {
+                Entity entity = result.getEntity();
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);
-        }
+            }
 
-        if (!this.level.isClientSide) {
-            this.kill();
+            if (!this.level.isClientSide) {
+                this.kill();
+            }
         }
     }
 }

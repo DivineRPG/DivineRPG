@@ -1,19 +1,25 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.enums.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
 import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityDisk extends DivineThrowable {
-    private static final DataParameter<Byte> DISK_ID = EntityDataManager.<Byte>defineId(EntityDisk.class,
-            DataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DISK_ID = SynchedEntityData.<Byte>defineId(EntityDisk.class,
+            EntityDataSerializers.BYTE);
     private DiskType diskType;
     public float damage;
     public int counter;
@@ -21,11 +27,11 @@ public class EntityDisk extends DivineThrowable {
     public Item item;
     private int bounces;
 
-    public EntityDisk(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityDisk(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityDisk(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity, DiskType diskType, Item item) {
+    public EntityDisk(EntityType<? extends ThrowableProjectile> type, Level world, LivingEntity entity, DiskType diskType, Item item) {
         super(type, entity, world);
         this.diskType = diskType;
         setDiskId((byte) diskType.ordinal());
@@ -58,25 +64,27 @@ public class EntityDisk extends DivineThrowable {
     }
 
     @Override
-    public void onHitEntity(EntityRayTraceResult result) {
-        if (this.getOwner() != null) {
-            if (result.getEntity() != null && result.getEntity() != this.getOwner()) {
-                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
-            } else if (result.getEntity() == this.getOwner() && this.getOwner() instanceof PlayerEntity
-                    && this.bounces > 0) {
-                if (!((PlayerEntity) this.getOwner()).isCreative()) {
-                    ((PlayerEntity) this.getOwner()).inventory.add(new ItemStack(this.item));
+    public void onHitEntity(EntityHitResult result) {
+        if (tickCount != 1 || tickCount != 0) {
+            if (this.getOwner() != null) {
+                if (result.getEntity() != null && result.getEntity() != this.getOwner()) {
+                    result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+                } else if (result.getEntity() == this.getOwner() && this.getOwner() instanceof Player
+                        && this.bounces > 0) {
+                    if (!((Player) this.getOwner()).isCreative()) {
+                        ((Player) this.getOwner()).inventory.add(new ItemStack(this.item));
+                    }
+                    if (!this.level.isClientSide) {
+                        this.kill();
+                    }
                 }
-                if (!this.level.isClientSide) {
-                    this.kill();
+                if (this.bounces == 0) {
+                    this.counter = 0;
+                    this.bounces++;
                 }
+            } else if (!this.level.isClientSide) {
+                this.kill();
             }
-            if (this.bounces == 0) {
-                this.counter = 0;
-                this.bounces++;
-            }
-        } else if (!this.level.isClientSide) {
-            this.kill();
         }
     }
 
@@ -86,14 +94,14 @@ public class EntityDisk extends DivineThrowable {
     }
 
     @Override
-    public boolean save(CompoundNBT compound) {
+    public boolean save(CompoundTag compound) {
         super.save(compound);
         compound.putByte("projectileId", getDiskId());
         return false;
     }
 
     @Override
-    public void load(CompoundNBT compound) {
+    public void load(CompoundTag compound) {
         super.load(compound);
         setDiskId(compound.getByte("projectileId"));
         this.diskType = DiskType.getDiskFromOrdinal(getDiskId());

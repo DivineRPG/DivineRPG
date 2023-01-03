@@ -1,0 +1,7 @@
+{
+  "parent": "block/flower_pot_cross",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "plant": "divinerpg:block/sun_blossom"
+  }
+}

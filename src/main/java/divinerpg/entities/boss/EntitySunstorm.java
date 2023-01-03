@@ -5,37 +5,38 @@ import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.*;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
+import net.minecraft.sounds.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.*;
+import net.minecraft.world.BossEvent.*;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.level.*;
 
-public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob {
+public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob {
 
-    public EntitySunstorm(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntitySunstorm(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 1000;
     }
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null && this.isAlive()) {
+        if (isAlive() && getTarget() != null && !level.isClientSide) {
             if (canAttack(target))
                 if (distanceTo(target) < 3) {
                     target.setSecondsOnFire(3);
                 }
-            EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, BulletType.SUNSTORM);
-            double d0 = target.getX() - this.getX();
-            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
-            double d2 = target.getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+
+            EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, BulletType.SUNSTORM);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.3F);
             this.level.addFreshEntity(projectile);
         }
     }
@@ -45,23 +46,23 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
         super.registerGoals();
         this.targetSelector.addGoal(0, new AISunstormAttack(this, 0.27F, 50, 10));
         this.targetSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
-        this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 0, true, false, null));
+        this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));
     }
 
     @Override
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.UNDEFINED;
+    public MobType getMobType() {
+        return MobType.UNDEFINED;
     }
 
     @Override
-    public Color getBarColor() {
-        return Color.YELLOW;
+    public BossBarColor getBarColor() {
+        return BossBarColor.YELLOW;
     }
 
     
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.SPARKLER;
+        return SoundRegistry.SPARKLER.get();
     }
 
     @Override
@@ -72,10 +73,5 @@ public class EntitySunstorm extends EntityDivineBoss implements IRangedAttackMob
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.FIRE_EXTINGUISH;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.sunstormHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.sunstormDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.sunstormSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.sunstormFollowRange);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:block/scorched_grass_side",
+    "south": "divinerpg:block/scorched_grass_side",
+    "north": "divinerpg:block/scorched_grass_side",
+    "west": "divinerpg:block/scorched_grass_side",
+    "particle": "divinerpg:block/dream_stone",
+    "up": "divinerpg:block/scorched_grass_top",
+    "down": "divinerpg:block/dream_stone"
+  }
+}

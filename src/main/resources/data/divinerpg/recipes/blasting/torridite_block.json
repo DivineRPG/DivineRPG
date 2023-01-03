@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:torridite_block"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_torridite_block"
+  },
+  "type": "minecraft:blasting",
+  "experience": 1.2,
+  "cookingtime": 400
+}

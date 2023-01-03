@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/frosted_allure"
+    "category=0": {
+      "model": "divinerpg:block/frosted_allure_all"
+    },
+    "category=1": {
+      "model": "divinerpg:block/frosted_allure_monster"
+    },
+    "category=2": {
+      "model": "divinerpg:block/frosted_allure_creature"
+    },
+    "category=3": {
+      "model": "divinerpg:block/frosted_allure_ambient"
+    },
+    "category=4": {
+      "model": "divinerpg:block/frosted_allure_water"
+    },
+    "category=5": {
+      "model": "divinerpg:block/frosted_allure_misc"
     }
   }
 }

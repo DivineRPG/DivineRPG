@@ -1,8 +1,9 @@
 {
   "parent": "block/block",
+  "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:blocks/mortum_portal",
-    "portal": "divinerpg:blocks/mortum_portal"
+    "particle": "divinerpg:block/mortum_portal",
+    "portal": "divinerpg:block/mortum_portal"
   },
   "elements": [
     {

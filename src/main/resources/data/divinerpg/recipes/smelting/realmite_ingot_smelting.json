@@ -3,7 +3,7 @@
     "item": "divinerpg:realmite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:realmite_ore"
+    "item": "divinerpg:raw_realmite"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:realmite_shield",
+    "divinerpg:arlemite_shield",
+    "divinerpg:rupee_shield",
+    "divinerpg:eden_shield",
+    "divinerpg:wildwood_shield",
+    "divinerpg:apalachia_shield",
+    "divinerpg:skythern_shield",
+    "divinerpg:mortum_shield",
+    "divinerpg:halite_shield"
+  ]
+}

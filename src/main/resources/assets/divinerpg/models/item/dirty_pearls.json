@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/dirty_pearls"
+    "layer0": "divinerpg:item/dirty_pearls"
   },
   "display": {
     "ground": {

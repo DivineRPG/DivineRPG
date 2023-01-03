@@ -1,78 +1,54 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Explosion.Mode;
-import net.minecraft.world.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
-public class EntityGorgosion extends EntityVetheaMob {
+public class EntityGorgosion extends EntityDivineMonster {
 
-	public EntityGorgosion(EntityType<? extends MobEntity> type, World worldIn) {
+	public EntityGorgosion(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.2F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.gorgosionHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.gorgosionSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.gorgosionFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
 	@Override
 	public void tick() {
 		super.tick();
-		PlayerEntity closestPlayer = this.level.getNearestPlayer(this, 10);
+		Player closestPlayer = this.level.getNearestPlayer(this, 10);
 		if(closestPlayer != null && !closestPlayer.isCreative() && this.random.nextInt(30) == 0) {
 			this.setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + 1, getDeltaMovement().z);
 		}
 	}
 	
 	@Override
-    public boolean causeFallDamage(float distance, float damageMultiplier) {
+    public boolean causeFallDamage(float distance, float damageMultiplier, DamageSource damagesource) {
 		if(distance > 2) {
-			this.level.explode(this, this.getX(), this.getY(), this.getZ(), 3, false, Mode.NONE);
+			this.level.explode(this, this.getX(), this.getY(), this.getZ(), 3, false, Level.ExplosionInteraction.NONE);
 			return false;
 		}
-		return super.causeFallDamage(distance, damageMultiplier);
+		return super.causeFallDamage(distance, damageMultiplier, damagesource);
     }
 
 	@Override
-	public int getSpawnLayer() {
-		return 2;
-	}
-
-	@Override
 	protected SoundEvent getAmbientSound() {
-		return SoundRegistry.GORGOSION;
+		return SoundRegistry.GORGOSION.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundRegistry.GORGOSION_HURT;
+		return SoundRegistry.GORGOSION_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return SoundRegistry.GORGOSION_HURT;
+		return SoundRegistry.GORGOSION_HURT.get();
 	}
 }

@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "cutout_mipped",
   "textures": {
-    "all": "divinerpg:blocks/blossomed_weedwood_vine"
+    "all": "divinerpg:block/blossomed_weedwood_vine"
   }
 }

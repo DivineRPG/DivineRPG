@@ -1,0 +1,23 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:crypt",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:crypt2",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:temple",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 1587242645,
+		"spread_type": "linear",
+		"spacing": 16,
+		"separation": 12
+	}
+}

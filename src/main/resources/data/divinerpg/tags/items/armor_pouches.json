@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:blue_armor_pouch",
+    "divinerpg:armor_pouch",
+    "divinerpg:gray_armor_pouch",
+    "divinerpg:green_armor_pouch",
+    "divinerpg:red_armor_pouch",
+    "divinerpg:yellow_armor_pouch"
+  ]
+}

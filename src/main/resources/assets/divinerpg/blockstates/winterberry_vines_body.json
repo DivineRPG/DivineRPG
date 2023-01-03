@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "divinerpg:block/winterberry_vines_body"
+    },
+    "berries=true": {
+      "model": "divinerpg:block/ripe_winterberry_vines"
+    }
+  }
+}

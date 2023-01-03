@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/blue_divine_sword"
+    "layer0": "divinerpg:item/blue_divine_sword"
   }
 }

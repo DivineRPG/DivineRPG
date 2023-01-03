@@ -1,46 +1,41 @@
 package divinerpg.client.renders.base;
 
-
-import com.mojang.blaze3d.matrix.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import divinerpg.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraftforge.api.distmarker.*;
 
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
+
 @OnlyIn(Dist.CLIENT)
-public class RenderDivineMob extends MobRenderer<MobEntity, EntityModel<MobEntity>> {
-    private ResourceLocation TEXTURE;
-    private float scaleFactor;
-
-    public RenderDivineMob(EntityRendererManager renderManagerIn, EntityModel model, ResourceLocation TEXTURE) {
-        super(renderManagerIn, model, 0.8F);
-        this.TEXTURE = TEXTURE;
-        this.scaleFactor=1f;
+public class RenderDivineMob<Type extends Mob> extends MobRenderer<Type, EntityModel<Type>> {
+    protected final ResourceLocation TEXTURE;
+    protected final float scale;
+    public RenderDivineMob(Context context, String name, EntityModel<Type> model) {
+    	this(context, name, model, 1F);
     }
-    public RenderDivineMob(EntityRendererManager renderManagerIn, EntityModel model, ResourceLocation TEXTURE, float shadowSize) {
-        super(renderManagerIn, model, shadowSize);
-        this.TEXTURE = TEXTURE;
-        this.scaleFactor=1f;
-    }
-    public RenderDivineMob(EntityRendererManager renderManagerIn, EntityModel model, float scaleFactor, ResourceLocation TEXTURE) {
-        super(renderManagerIn, model, 0.8F);
-        this.TEXTURE = TEXTURE;
-        this.scaleFactor=scaleFactor;
-    }
-    public RenderDivineMob(EntityRendererManager renderManagerIn, EntityModel model, float scaleFactor, ResourceLocation TEXTURE, float shadowSize) {
-        super(renderManagerIn, model, shadowSize);
-        this.TEXTURE = TEXTURE;
-        this.scaleFactor=scaleFactor;
+    public RenderDivineMob(Context context, String name, EntityModel<Type> model, float shadowSize) {
+        super(context, model, shadowSize);
+        this.scale = 1;
+        this.TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
 
-    protected void scale(MobEntity entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
-        matrixStackIn.scale(scaleFactor, scaleFactor, scaleFactor);
+    public RenderDivineMob(Context context, String name, EntityModel<Type> model, float shadowSize, float scale) {
+        super(context, model, shadowSize);
+        this.scale = scale;
+        this.TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
-
 
     @Override
-    public ResourceLocation getTextureLocation(MobEntity entity) {
+    protected void scale(Type type, PoseStack stack, float s) {
+        stack.scale(this.scale, this.scale, this.scale);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(Type type) {
         return TEXTURE;
     }
 }

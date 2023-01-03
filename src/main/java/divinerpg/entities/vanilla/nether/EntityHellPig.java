@@ -1,36 +1,37 @@
 package divinerpg.entities.vanilla.nether;
 
-import divinerpg.entities.base.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import divinerpg.entities.base.EntityDivineTameable;
+import divinerpg.util.EntityStats;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.gameevent.GameEvent;
 
-import java.util.*;
+import java.util.Random;
 
 public class EntityHellPig extends EntityDivineTameable {
-    private static final DataParameter<Float> HEALTH = EntityDataManager.defineId(EntityHellPig.class,
-            DataSerializers.FLOAT);
-    private static final DataParameter<Boolean> ANGRY = EntityDataManager.defineId(EntityHellPig.class,
-            DataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Float> HEALTH = SynchedEntityData.defineId(EntityHellPig.class,
+            EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Boolean> ANGRY = SynchedEntityData.defineId(EntityHellPig.class,
+            EntityDataSerializers.BOOLEAN);
 
-    protected EntityHellPig(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
+    protected EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        tame(player);
+        this.setTame(false);
     }
 
-    public <T extends Entity> EntityHellPig(EntityType<T> type, World worldIn) {
-        super((EntityType<? extends TameableEntity>) type, worldIn);
+    public EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn) {
+        super(type, worldIn);
         setHealth(getMaxHealth());
+        this.setTame(false);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class EntityHellPig extends EntityDivineTameable {
         return true;
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.8F;
     }
     @Override
@@ -62,32 +63,36 @@ public class EntityHellPig extends EntityDivineTameable {
         else if (!this.isTame())
             this.setAngry(true);
     }
-    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.isTame()) {
-            if (item.getFoodProperties().isMeat() && this.getHealth() < this.getMaxHealth()) {
-                if (!player.isCreative()) {
+        if (this.isTame() && item.getFoodProperties(itemstack, player) != null) {
+            if (item.getFoodProperties(itemstack, player).isMeat() && this.getHealth() < this.getMaxHealth()) {
+                if (!player.getAbilities().instabuild) {
                     itemstack.shrink(1);
                 }
-        }
-            if (item == Items.BLAZE_POWDER && !isAngry()) {
-                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    this.tame(player);
-                    this.getNavigation().recomputePath();
-                    this.setTarget((LivingEntity)null);
-                    this.level.broadcastEntityEvent(this, (byte)7);
-                    this.heal(item.getFoodProperties().getNutrition());
-                } else {
-                    this.level.broadcastEntityEvent(this, (byte)6);
-                    this.heal(item.getFoodProperties().getNutrition());
-                }
-            } else {
-                tame(player);
-                this.setTame(true);
+                this.heal((float) itemstack.getFoodProperties(this).getNutrition());
+                this.gameEvent(GameEvent.EAT, this);
+                return InteractionResult.SUCCESS;
             }
         }
-        return super.mobInteract(player, hand);
+        if (itemstack.is(Items.BLAZE_POWDER) && !isAngry() && !this.isTame()) {
+            if (!player.getAbilities().instabuild) {
+                itemstack.shrink(1);
+            }
+            if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                this.tame(player);
+                this.navigation.stop();
+                this.setTarget((LivingEntity)null);
+                this.level.broadcastEntityEvent(this, (byte)7);
+            } else {
+                this.level.broadcastEntityEvent(this, (byte)6);
+            }
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.FAIL;
     }
 
 
@@ -99,13 +104,13 @@ public class EntityHellPig extends EntityDivineTameable {
 
 
     @Override
-    public void addAdditionalSaveData(CompoundNBT tag) {
+    public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putBoolean("Angry", this.isAngry());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundNBT tag) {
+    public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         setAngry(tag.getBoolean("Angry"));
     }
@@ -116,14 +121,10 @@ public class EntityHellPig extends EntityDivineTameable {
 
     public void setAngry(boolean angry) {
         this.entityData.set(ANGRY, angry);
-        MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
+        Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
     }
 
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigHealth).add(Attributes.ATTACK_DAMAGE, 5).add(Attributes.MOVEMENT_SPEED, EntityStats.hellPigSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellPigRange);
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+    public static boolean canSpawnOn(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
         return true;
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/ancient_brick_door"
+    "layer0": "divinerpg:item/ancient_brick_door"
   }
 }

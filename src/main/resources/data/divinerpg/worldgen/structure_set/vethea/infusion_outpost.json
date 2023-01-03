@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:infusion_outpost",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 791986225,
+		"spread_type": "linear",
+		"spacing": 12,
+		"separation": 6
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "minecraft:soul_sand"
+  },
+  "ingredient": {
+    "item": "divinerpg:soul_sludge_breakable"
+  },
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "cookingtime": 100
+}

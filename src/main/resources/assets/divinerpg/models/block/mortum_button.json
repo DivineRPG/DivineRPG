@@ -1,6 +1,6 @@
 {
   "parent": "block/button",
   "textures": {
-    "texture": "divinerpg:blocks/mortum_planks"
+    "texture": "divinerpg:block/mortum_planks"
   }
 }

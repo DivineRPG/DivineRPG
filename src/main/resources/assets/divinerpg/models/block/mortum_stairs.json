@@ -1,8 +1,9 @@
 {
   "parent": "block/stairs",
+  "render_type": "cutout_mipped",
   "textures": {
-    "side": "divinerpg:blocks/mortum_planks",
-    "top": "divinerpg:blocks/mortum_planks",
-    "bottom": "divinerpg:blocks/mortum_planks"
+    "side": "divinerpg:block/mortum_planks",
+    "top": "divinerpg:block/mortum_planks",
+    "bottom": "divinerpg:block/mortum_planks"
   }
 }

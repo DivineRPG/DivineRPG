@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_bottom",
+  "render_type": "cutout_mipped",
   "textures": {
-    "texture": "divinerpg:blocks/apalachia_trapdoor"
+    "texture": "divinerpg:block/apalachia_trapdoor"
   }
 }

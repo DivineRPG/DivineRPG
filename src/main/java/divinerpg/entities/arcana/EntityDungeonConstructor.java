@@ -1,39 +1,32 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
 
-public class EntityDungeonConstructor extends EntityDivineMob {
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
+
+public class EntityDungeonConstructor extends EntityDivineMonster {
     
 	private int angerLevel;
 	
-	public EntityDungeonConstructor(EntityType<? extends MobEntity> type, World worldIn) {
+	public EntityDungeonConstructor(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.angerLevel = 0;
-        this.maxUpStep = 1.0F;
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+	@Override
+	public float getStepHeight() {
+		return 1F;
+	}
+    @Override public boolean fireImmune() {return true;}
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.9F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.constructorHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.constructorDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.constructorSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.constructorFollowRange);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-    
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         if (this.getTarget() != null) {
@@ -42,7 +35,7 @@ public class EntityDungeonConstructor extends EntityDivineMob {
 
         if (!this.level.isClientSide && this.isAlive()) {
             if (this.getTarget() != null) {
-                if (this.getTarget() instanceof PlayerEntity && this.angerLevel < 3) {
+                if (this.getTarget() instanceof Player && this.angerLevel < 3) {
                     this.moveDist = 0.0F;
                 }
             }
@@ -52,17 +45,17 @@ public class EntityDungeonConstructor extends EntityDivineMob {
     
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.CONSTRUCTOR_HURT;
+        return SoundRegistry.CONSTRUCTOR_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.CONSTRUCTOR_HURT;
+        return SoundRegistry.CONSTRUCTOR_HURT.get();
     }
     
     @Override
     public boolean doHurtTarget(Entity par1Entity) {
-        par1Entity.playSound(SoundRegistry.CONSTRUCTOR_PUNCH, 1, 1);
+        par1Entity.playSound(SoundRegistry.CONSTRUCTOR_PUNCH.get(), 1, 1);
         return super.doHurtTarget(par1Entity);
     }
 }

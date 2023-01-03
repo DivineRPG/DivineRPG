@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:terran_hoe"
+  },
+  "pattern": [
+    "TT",
+    " S",
+    " S"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "divinerpg:terran_stone"
+    }
+  }
+}

@@ -1,46 +1,39 @@
 package divinerpg.client.renders.item;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.client.models.block.*;
-import divinerpg.registries.*;
+import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.block.ModelEdenChest;
+import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.vector.*;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.concurrent.*;
+public class RenderEdenChestItem extends BlockEntityWithoutLevelRenderer {
+    private final ModelEdenChest<?> model;
 
-public class RenderEdenChestItem extends ItemStackTileEntityRenderer implements Callable<ItemStackTileEntityRenderer> {
-    public final ItemStackTileEntityRenderer instance;
-
-    private final ModelEdenChest model = new ModelEdenChest();
-
-    public RenderEdenChestItem() {
-        instance = this;
+    public RenderEdenChestItem(BlockEntityRenderDispatcher dispatcher, EntityModelSet set) {
+        super(dispatcher, set);
+        model = new ModelEdenChest<>(set.bakeLayer(ModelEdenChest.LAYER_LOCATION));
     }
 
     @Override
-    public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.renderByItem(stack, transformType, matrixStack, buffer, combinedLight, combinedOverlay);
         Item item = stack.getItem();
-        if (item == Item.byBlock(BlockRegistry.edenChest)) {
+        if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_chest")).asItem()) {
             matrixStack.pushPose();
             matrixStack.translate(0.0, 1.0, 0.0);
-            matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90));
-            matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
-            IVertexBuilder builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/eden_chest.png")));
+            matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
+            matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/eden_chest.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();
         }
 
     }
 
-    @Override
-    public ItemStackTileEntityRenderer call() throws Exception {
-        return instance;
-    }
 }

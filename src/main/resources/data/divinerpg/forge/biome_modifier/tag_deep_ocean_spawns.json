@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#is_deep_ocean",
+  "spawners":
+  {
+    "type": "divinerpg:liopleurodon",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

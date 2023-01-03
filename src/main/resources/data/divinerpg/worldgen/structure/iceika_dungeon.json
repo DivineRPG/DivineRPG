@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#divinerpg:is_iceika",
+  "step": "underground_structures",
+  "spawn_overrides": {
+  },
+  "terrain_adaptation": "bury",
+  "start_pool": "divinerpg:iceika/iceika_dungeons",
+  "size": 6,
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": 5
+    },
+    "max_inclusive": {
+      "absolute": 50
+    }
+  },
+  "max_distance_from_center": 1,
+  "use_expansion_hack": false
+}

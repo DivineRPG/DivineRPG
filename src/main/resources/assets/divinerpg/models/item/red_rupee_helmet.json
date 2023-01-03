@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/red_rupee_helmet"
+    "layer0": "divinerpg:item/red_rupee_helmet"
   }
 }

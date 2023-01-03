@@ -1,46 +1,54 @@
 package divinerpg.client.models.block;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.model.*;
+import net.minecraft.client.model.Model;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Entity;
 
-public class ModelEdenChest extends Model {
-    public ModelRenderer lid;
-    public ModelRenderer storage;
-    public ModelRenderer chestKnobLeft;
-    public ModelRenderer chestKnobMiddle;
-    public ModelRenderer chestKnobRight;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelEdenChest() {
-        super(RenderType::entityCutoutNoCull);
-        this.texWidth = 64;
-        this.texHeight = 64;
+public class ModelEdenChest<T extends Entity> extends Model {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("eden_chest");
+	public final ModelPart lid;
+	public final ModelPart storage;
+	public final ModelPart chestKnobLeft;
+	public final ModelPart chestKnobMiddle;
+	public final ModelPart chestKnobRight;
 
-        this.lid = new ModelRenderer(this, 0, 0);
-        this.lid.setPos(1.0F, 7.0F, 15.0F);
-        this.lid.addBox(0.0F, -5.0F, -14.0F, 14, 5, 14, 0.0F);
-        this.chestKnobLeft = new ModelRenderer(this, 0, 0);
-        this.chestKnobLeft.setPos(4.0F, 7.0F, 15.0F);
-        this.chestKnobLeft.addBox(-1.0F, -2.0F, -15.0F, 2, 4, 1, 0.0F);
-        this.chestKnobMiddle = new ModelRenderer(this, 0, 0);
-        this.chestKnobMiddle.setPos(8.0F, 7.0F, 15.0F);
-        this.chestKnobMiddle.addBox(-1.0F, -2.0F, -15.0F, 2, 4, 1, 0.0F);
-        this.chestKnobRight = new ModelRenderer(this, 0, 0);
-        this.chestKnobRight.setPos(12.0F, 7.0F, 15.0F);
-        this.chestKnobRight.addBox(-1.0F, -2.0F, -15.0F, 2, 4, 1, 0.0F);
-        this.storage = new ModelRenderer(this, 0, 19);
-        this.storage.setPos(1.0F, 6.0F, 1.0F);
-        this.storage.addBox(0.0F, 0.0F, 0.0F, 14, 10, 14, 0.0F);
-    }
+	public ModelEdenChest(ModelPart root) {
+		super(RenderType::entityCutout);
+		this.lid = root.getChild("lid");
+		this.storage = root.getChild("storage");
+		this.chestKnobLeft = root.getChild("chestKnobLeft");
+		this.chestKnobMiddle = root.getChild("chestKnobMiddle");
+		this.chestKnobRight = root.getChild("chestKnobRight");
+	}
 
-    @Override
-    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder builder, int light, int overlay, float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
-        this.chestKnobRight.xRot = this.chestKnobMiddle.xRot = this.chestKnobLeft.xRot = this.lid.xRot;
-        this.lid.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        this.chestKnobLeft.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        this.chestKnobMiddle.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        this.chestKnobRight.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        this.storage.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("lid", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -5.0F, -14.0F, 14.0F, 5.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 7.0F, 15.0F));
+
+		partdefinition.addOrReplaceChild("storage", CubeListBuilder.create().texOffs(0, 19).addBox(0.0F, 0.0F, 0.0F, 14.0F, 10.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 6.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("chestKnobLeft", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -2.0F, -15.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 7.0F, 15.0F));
+
+		partdefinition.addOrReplaceChild("chestKnobMiddle", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -2.0F, -15.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, 7.0F, 15.0F));
+
+		partdefinition.addOrReplaceChild("chestKnobRight", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -2.0F, -15.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(12.0F, 7.0F, 15.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		lid.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		storage.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		chestKnobLeft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		chestKnobMiddle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		chestKnobRight.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

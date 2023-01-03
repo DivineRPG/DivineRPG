@@ -18,7 +18,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:amthirmis_lump"
+            "items": [
+              "divinerpg:amthirmis_lump"
+            ]
           }
         ]
       }

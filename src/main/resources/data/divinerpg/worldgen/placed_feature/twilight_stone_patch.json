@@ -1,0 +1,23 @@
+{
+	"feature": "divinerpg:twilight_stone_patch",
+	"placement": [
+		{
+			"type": "minecraft:height_range",
+			"height": {
+				"type": "minecraft:trapezoid",
+				"min_inclusive": {
+					"absolute": -32
+				},
+				"max_inclusive": {
+					"absolute": 48
+				}
+			}
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

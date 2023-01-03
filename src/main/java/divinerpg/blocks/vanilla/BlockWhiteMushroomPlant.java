@@ -1,12 +1,14 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import net.minecraft.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockModCrop;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWhiteMushroomPlant extends BlockModCrop {
     public BlockWhiteMushroomPlant() {
-        super("white_mushroom_plant", 0.3);
+        super(0.3);
     }
 
     @Override
@@ -15,7 +17,7 @@ public class BlockWhiteMushroomPlant extends BlockModCrop {
     }
 
     @Override
-    protected IItemProvider getBaseSeedId() {
-        return ItemRegistry.whiteMushroomSeeds;
+    protected ItemLike getBaseSeedId() {
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "white_mushroom_seeds"));
     }
 }

@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:floating_items",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 1586506120,
+		"spread_type": "linear",
+		"spacing": 2,
+		"separation": 1
+	}
+}

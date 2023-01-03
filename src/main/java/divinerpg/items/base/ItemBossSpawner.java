@@ -1,57 +1,58 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
+import divinerpg.registries.LevelRegistry;
+import divinerpg.util.RarityList;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
-import net.minecraftforge.server.command.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.server.command.TextComponentHelper;
+
+import java.util.function.Supplier;
 
 public class ItemBossSpawner extends ItemMod {
 
-    private RegistryKey<World> dimensionID;
-    private final EntityType[] ents;
+    private final Supplier<EntityType<?>>[] ents;
     private final String langKey;
+    private ResourceKey<Level> dimensionID;
 
-    public ItemBossSpawner(String name, String langKey, RegistryKey<World> dimensionID, EntityType<?>... ents) {
-        super(name, new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1).rarity(RarityList.BOSS));
+    public ItemBossSpawner(String langKey, ResourceKey<Level> dimensionID, Supplier<EntityType<?>>... ents) {
+        super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
         this.dimensionID = dimensionID;
         this.ents = ents;
         this.langKey = langKey;
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (!world.isClientSide) {
             if (dimensionID == null) {
-                dimensionID = KeyRegistry.MORTUM_WORLD;
+                dimensionID = LevelRegistry.MORTUM;
             }
             if (world.dimension() != dimensionID) {
-                TextComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
-                message.withStyle(TextFormatting.AQUA);
-                player.sendMessage(message, player.getUUID());
-                return ActionResult.fail(player.getItemInHand(hand));
+                MutableComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
+                message.withStyle(ChatFormatting.AQUA);
+                player.displayClientMessage(message, true);
+                return InteractionResultHolder.fail(player.getItemInHand(hand));
             } else if (world.getDifficulty() == Difficulty.PEACEFUL) {
-                player.sendMessage(new TranslationTextComponent("message.spawner.peaceful"), player.getUUID());
-                return ActionResult.fail(player.getItemInHand(hand));
+                player.displayClientMessage(Component.translatable("message.spawner.peaceful"), true);
+                return InteractionResultHolder.fail(player.getItemInHand(hand));
             } else {
-                for (EntityType<?> entType : ents) {
-                    Entity entity = entType.create(world);
-                    entity.moveTo(player.getX(), player.getY() + 1, player.getZ());
-                    world.addFreshEntity(entity);
-                    DivineRPG.LOGGER.info("spawned " + entType.getDescriptionId() + " at " + entity.blockPosition());
+                for (Supplier<EntityType<?>> entType : ents) {
+                    entType.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, player.blockPosition().above(), MobSpawnType.MOB_SUMMONED, true, false);
                     if (!player.isCreative()) {
                         player.getItemInHand(hand).shrink(1);
                     }
                 }
-                return ActionResult.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
             }
         }
 
-        return ActionResult.fail(player.getItemInHand(hand));
+        return InteractionResultHolder.fail(player.getItemInHand(hand));
     }
 }

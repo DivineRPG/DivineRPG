@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:corrupted_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:corrupted_pickaxe"
+    },
+    {
+      "item": "divinerpg:corrupted_shovel"
+    },
+    {
+      "item": "divinerpg:corrupted_axe"
+    },
+    {
+      "item": "divinerpg:corrupted_hoe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

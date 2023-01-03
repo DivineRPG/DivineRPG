@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/rainbow_wool"
+    "all": "divinerpg:block/rainbow_wool"
   }
 }

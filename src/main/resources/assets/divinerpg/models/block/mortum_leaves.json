@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/leaves",
   "textures": {
-    "all": "divinerpg:blocks/mortum_leaves"
+    "all": "divinerpg:block/mortum_leaves"
   }
 }

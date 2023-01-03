@@ -1,25 +1,25 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.util.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class EntityScorcherShot extends DivineFireball {
-    public EntityScorcherShot(EntityType<? extends FireballEntity> type, World world) {
+    public EntityScorcherShot(EntityType<? extends LargeFireball> type, Level world) {
         super(type, world);
     }
 
-    public EntityScorcherShot(World world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
+    public EntityScorcherShot(Level world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
         super(world, shooter, accelX, accelY, accelZ);
         this.moveTo(shooter.xo, shooter.yo, shooter.zo, shooter.xRot, shooter.yRot);
         this.setPos(shooter.xo, shooter.yo, shooter.zo);
-        double d = (double) MathHelper.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ);
+        double d = Mth.sqrt((float) (accelX * accelX + accelY * accelY + accelZ * accelZ));
         setDeltaMovement(accelX / d * 0.1D, accelY / d * 0.1D, accelZ / d * 0.1D);
         this.shootingEntity = shooter;
     }
@@ -34,7 +34,9 @@ public class EntityScorcherShot extends DivineFireball {
         return false;
     }
 
-    protected void onHitEntity(EntityRayTraceResult result) {
+    @Override
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
         super.onHitEntity(result);
         if (!this.level.isClientSide) {
             Entity entity = result.getEntity();
@@ -46,19 +48,21 @@ public class EntityScorcherShot extends DivineFireball {
                 if (!flag) {
                     entity.setRemainingFireTicks(i);
                 } else if (entity1 instanceof LivingEntity) {
-                    this.doEnchantDamageEffects((LivingEntity)entity1, entity);
+                    this.doEnchantDamageEffects((LivingEntity) entity1, entity);
                 }
             }
-
+        }
         }
     }
 
-    protected void onHit(RayTraceResult result) {
-        super.onHit(result);
-        if (!this.level.isClientSide) {
-            this.remove();
+    @Override
+    protected void onHit(HitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            super.onHit(result);
+            if (!this.level.isClientSide) {
+                this.kill();
+            }
         }
-
     }
 
     @Override

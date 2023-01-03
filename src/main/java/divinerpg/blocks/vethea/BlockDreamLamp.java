@@ -1,68 +1,73 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.blocks.base.*;
+import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.tiles.block.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.state.*;
-import net.minecraft.state.properties.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import divinerpg.tiles.furnace.TileEntityInfiniFurnace;
+import net.minecraft.core.*;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.context.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
 
 import javax.annotation.*;
 
-public class BlockDreamLamp extends BlockMod implements ITileEntityProvider {
+public class BlockDreamLamp extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-    public BlockDreamLamp(String name) {
-        super(name, 3.0F, 3.0F, Material.BUILDABLE_GLASS);
+    public BlockDreamLamp() {
+        super(Block.Properties.of(Material.BUILDABLE_GLASS, MaterialColor.COLOR_GREEN).strength(3.0F));
         this.registerDefaultState(this.getStateDefinition().any().setValue(POWERED, false));
     }
-
-
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    	return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.DREAM_LAMP.get(), TileEntityDreamLamp::serverTick);
+    }
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(POWERED, false);
     }
-
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    @Override
+    public RenderShape getRenderShape(BlockState p_49232_) {
+    	return RenderShape.MODEL;
+    }
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(POWERED);
     }
-
+    @SuppressWarnings("deprecation")
+	@Override
+	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
+		if (!state.is(st.getBlock())) {
+			BlockEntity blockentity = level.getBlockEntity(pos);
+			if (blockentity instanceof TileEntityDreamLamp) {
+				if (level instanceof ServerLevel) Containers.dropContents(level, pos, (TileEntityDreamLamp)blockentity);
+	            level.updateNeighbourForOutputSignal(pos, this);
+			}
+			super.onRemove(state, level, pos, st, b);
+		}
+	}
     @Override
-    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
-        if(state.getValue(POWERED)){
-            return 15;
-        }
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        if(state.getValue(POWERED)) return 15;
         return 0;
     }
-
-    public void setOn(World worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, worldIn.getBlockState(pos).setValue(POWERED, true), 2);
-    }
-
-    public void setOff(World worldIn, BlockPos pos) {
-        worldIn.setBlock(pos, worldIn.getBlockState(pos).setValue(POWERED, false), 2);
-    }
-
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader reader) {
-        return new TileEntityDreamLamp();
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new TileEntityDreamLamp(p_153215_, p_153216_);
     }
-
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity playerEntity, Hand hand, BlockRayTraceResult result) {
-        if(!world.isClientSide){
-            TileEntity tileentity = world.getBlockEntity(pos);
-            if (tileentity instanceof TileEntityDreamLamp) {
-                playerEntity.openMenu((TileEntityDreamLamp) tileentity);
-            }
-        }
-        return super.use(state, world, pos, playerEntity, hand, result);
-    }
-
+	public InteractionResult use(BlockState p_48706_, Level level, BlockPos pos, Player player, InteractionHand p_48710_, BlockHitResult p_48711_) {
+		if (level.isClientSide) return InteractionResult.SUCCESS;
+		else {
+			BlockEntity blockentity = level.getBlockEntity(pos);
+	        if (blockentity instanceof TileEntityInfiniFurnace) player.openMenu((MenuProvider)blockentity);
+	        return InteractionResult.CONSUME;
+		}
+	}
 }

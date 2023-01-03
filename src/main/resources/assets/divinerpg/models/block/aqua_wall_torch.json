@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_torch_wall",
+  "render_type": "cutout_mipped",
   "textures": {
-    "torch": "divinerpg:blocks/aqua_torch"
+    "torch": "divinerpg:block/aqua_torch"
   }
 }

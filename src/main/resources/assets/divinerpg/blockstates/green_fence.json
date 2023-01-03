@@ -3,45 +3,103 @@
     {
       "apply": {
         "model": "divinerpg:block/green_fence_post"
+      },
+      "when": {
+        "powered": "false"
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "divinerpg:block/green_fence_side",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "divinerpg:block/green_fence_side",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "divinerpg:block/green_fence_side",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "divinerpg:block/green_fence_side",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/green_fence_on_post"
+      },
+      "when": {
+        "powered": "true"
       }
     },
     {
       "apply": {
         "uvlock": true,
-        "model": "divinerpg:block/green_fence_side"
+        "model": "divinerpg:block/green_fence_on_side"
       },
       "when": {
-        "north": "true"
+        "north": "true",
+        "powered": "true"
       }
     },
     {
       "apply": {
         "uvlock": true,
         "y": 90,
-        "model": "divinerpg:block/green_fence_side"
+        "model": "divinerpg:block/green_fence_on_side"
       },
       "when": {
-        "east": "true"
+        "east": "true",
+        "powered": "true"
       }
     },
     {
       "apply": {
         "uvlock": true,
         "y": 180,
-        "model": "divinerpg:block/green_fence_side"
+        "model": "divinerpg:block/green_fence_on_side"
       },
       "when": {
-        "south": "true"
+        "south": "true",
+        "powered": "true"
       }
     },
     {
       "apply": {
         "uvlock": true,
         "y": 270,
-        "model": "divinerpg:block/green_fence_side"
+        "model": "divinerpg:block/green_fence_on_side"
       },
       "when": {
-        "west": "true"
+        "west": "true",
+        "powered": "true"
       }
     }
   ]

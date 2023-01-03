@@ -1,145 +1,115 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.boss.EntityKarot;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelKarot<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer Head;
-    ModelRenderer Body;
-    ModelRenderer Leg1;
-    ModelRenderer Leg2;
-    ModelRenderer Leg3;
-    ModelRenderer Leg4;
-    ModelRenderer Ear1;
-    ModelRenderer Ear2;
-    ModelRenderer Tail;
-    ModelRenderer Shape1;
-    ModelRenderer Shape2;
-    ModelRenderer Shape3;
-    ModelRenderer Shape4;
-    ModelRenderer Ear3;
-    ModelRenderer Ear4;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelKarot()
-    {
-        this.texWidth = 64;
-        this.texHeight = 32;
-        this.Head = new ModelRenderer(this, 0, 0);
-        this.Head.addBox(-3.0F, -3.0F, -2.0F, 6, 6, 4);
-        this.Head.setPos(-1.0F, 13.5F, -7.0F);
-        this.Head.setTexSize(64, 32);
-        this.Head.mirror = true;
-        this.setRotation(this.Head, 0.0F, 0.0F, 0.0F);
-        this.Body = new ModelRenderer(this, 18, 14);
-        this.Body.addBox(-4.0F, -2.0F, -3.0F, 6, 9, 6);
-        this.Body.setPos(0.0F, 14.0F, -3.0F);
-        this.Body.setTexSize(64, 32);
-        this.Body.mirror = true;
-        this.setRotation(this.Body, ((float)Math.PI / 2F), 0.0F, 0.0F);
-        this.Leg1 = new ModelRenderer(this, 0, 18);
-        this.Leg1.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2);
-        this.Leg1.setPos(-2.5F, 16.0F, 3.0F);
-        this.Leg1.setTexSize(64, 32);
-        this.Leg1.mirror = true;
-        this.setRotation(this.Leg1, 0.0F, 0.0F, 0.0F);
-        this.Leg2 = new ModelRenderer(this, 0, 18);
-        this.Leg2.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2);
-        this.Leg2.setPos(0.5F, 16.0F, 3.0F);
-        this.Leg2.setTexSize(64, 32);
-        this.Leg2.mirror = true;
-        this.setRotation(this.Leg2, 0.0F, 0.0F, 0.0F);
-        this.Leg3 = new ModelRenderer(this, 0, 18);
-        this.Leg3.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2);
-        this.Leg3.setPos(-2.5F, 16.0F, -4.0F);
-        this.Leg3.setTexSize(64, 32);
-        this.Leg3.mirror = true;
-        this.setRotation(this.Leg3, 0.0F, 0.0F, 0.0F);
-        this.Leg4 = new ModelRenderer(this, 0, 18);
-        this.Leg4.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2);
-        this.Leg4.setPos(0.5F, 16.0F, -4.0F);
-        this.Leg4.setTexSize(64, 32);
-        this.Leg4.mirror = true;
-        this.setRotation(this.Leg4, 0.0F, 0.0F, 0.0F);
-        this.Ear1 = new ModelRenderer(this, 16, 14);
-        this.Ear1.addBox(-3.0F, -5.0F, 0.0F, 2, 2, 1);
-        this.Ear1.setPos(-1.0F, 13.5F, -7.0F);
-        this.Ear1.setTexSize(64, 32);
-        this.Ear1.mirror = true;
-        this.setRotation(this.Ear1, 0.0F, 0.0F, 0.0F);
-        this.Ear2 = new ModelRenderer(this, 16, 14);
-        this.Ear2.addBox(1.0F, -5.0F, 0.0F, 2, 2, 1);
-        this.Ear2.setPos(-1.0F, 13.5F, -7.0F);
-        this.Ear2.setTexSize(64, 32);
-        this.Ear2.mirror = true;
-        this.setRotation(this.Ear2, 0.0F, 0.0F, 0.0F);
-        this.Tail = new ModelRenderer(this, 6, 0);
-        this.Tail.addBox(0.0F, 0.0F, 0.0F, 2, 2, 1);
-        this.Tail.setPos(-2.0F, 13.0F, 4.0F);
-        this.Tail.setTexSize(64, 32);
-        this.Tail.mirror = true;
-        this.setRotation(this.Tail, 0.0F, 0.0F, 0.0F);
-        this.Shape1 = new ModelRenderer(this, 50, 18);
-        this.Shape1.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
-        this.Shape1.setPos(0.0F, 9.0F, 0.0F);
-        this.Shape1.setTexSize(64, 32);
-        this.Shape1.mirror = true;
-        this.setRotation(this.Shape1, 0.0F, 0.0F, 0.0F);
-        this.Shape2 = new ModelRenderer(this, 50, 18);
-        this.Shape2.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
-        this.Shape2.setPos(-4.0F, 9.0F, 0.0F);
-        this.Shape2.setTexSize(64, 32);
-        this.Shape2.mirror = true;
-        this.setRotation(this.Shape2, 0.0F, 0.0F, 0.0F);
-        this.Shape3 = new ModelRenderer(this, 50, 18);
-        this.Shape3.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
-        this.Shape3.setPos(0.0F, 9.0F, -4.0F);
-        this.Shape3.setTexSize(64, 32);
-        this.Shape3.mirror = true;
-        this.setRotation(this.Shape3, 0.0F, 0.0F, 0.0F);
-        this.Shape4 = new ModelRenderer(this, 50, 18);
-        this.Shape4.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
-        this.Shape4.setPos(-4.0F, 9.0F, -4.0F);
-        this.Shape4.setTexSize(64, 32);
-        this.Shape4.mirror = true;
-        this.setRotation(this.Shape4, 0.0F, 0.0F, 0.0F);
-        this.Ear3 = new ModelRenderer(this, 16, 10);
-        this.Ear3.addBox(0.0F, 0.0F, 0.0F, 2, 2, 6);
-        this.Ear3.setPos(-6.0F, 11.0F, -13.0F);
-        this.Ear3.setTexSize(64, 32);
-        this.Ear3.mirror = true;
-        this.setRotation(this.Ear3, 0.0F, 0.0F, 0.0F);
-        this.Ear4 = new ModelRenderer(this, 16, 10);
-        this.Ear4.addBox(0.0F, 0.0F, 0.0F, 2, 2, 6);
-        this.Ear4.setPos(2.0F, 11.0F, -13.0F);
-        this.Ear4.setTexSize(64, 32);
-        this.Ear4.mirror = true;
-        this.setRotation(this.Ear4, 0.0F, 0.0F, 0.0F);
-    }
+public class ModelKarot extends EntityModel<EntityKarot> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("karot");
+	private final ModelPart Head;
+	private final ModelPart Body;
+	private final ModelPart Leg1;
+	private final ModelPart Leg2;
+	private final ModelPart Leg3;
+	private final ModelPart Leg4;
+	private final ModelPart Tail;
+	private final ModelPart Shape1;
+	private final ModelPart Shape2;
+	private final ModelPart Shape3;
+	private final ModelPart Shape4;
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(Head, Body, Leg1, Leg2, Leg3, Leg4, Ear1, Ear2, Tail, Shape1, Shape2, Shape3, Shape4, Ear3, Ear4);
-    }
+	public ModelKarot(ModelPart root) {
+		this.Head = root.getChild("Head");
+		this.Body = root.getChild("Body");
+		this.Leg1 = root.getChild("Leg1");
+		this.Leg2 = root.getChild("Leg2");
+		this.Leg3 = root.getChild("Leg3");
+		this.Leg4 = root.getChild("Leg4");
+		this.Tail = root.getChild("Tail");
+		this.Shape1 = root.getChild("Shape1");
+		this.Shape2 = root.getChild("Shape2");
+		this.Shape3 = root.getChild("Shape3");
+		this.Shape4 = root.getChild("Shape4");
+	}
+	public ModelKarot(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.Head = root.getChild("Head");
+		this.Body = root.getChild("Body");
+		this.Leg1 = root.getChild("Leg1");
+		this.Leg2 = root.getChild("Leg2");
+		this.Leg3 = root.getChild("Leg3");
+		this.Leg4 = root.getChild("Leg4");
+		this.Tail = root.getChild("Tail");
+		this.Shape1 = root.getChild("Shape1");
+		this.Shape2 = root.getChild("Shape2");
+		this.Shape3 = root.getChild("Shape3");
+		this.Shape4 = root.getChild("Shape4");
+	}
 
-    private void setRotation(ModelRenderer var1, float var2, float var3, float var4)
-    {
-        var1.xRot = var2;
-        var1.yRot = var3;
-        var1.zRot = var4;
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation cubedef = new CubeDeformation(0.0F);
 
-    @Override
-    public void setupAnim(T ent, float var1, float var2, float var3, float var4, float var5)
-    {
-        this.Body.xRot = ((float)Math.PI / 2F);
-        this.Leg1.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-        this.Leg2.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
-        this.Leg3.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
-        this.Leg4.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-    }
+		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(16, 10).mirror().addBox(-5.0F, -2.5F, -6.0F, 2.0F, 2.0F, 6.0F, cubedef).mirror(false)
+		.texOffs(16, 10).mirror().addBox(3.0F, -2.5F, -6.0F, 2.0F, 2.0F, 6.0F, cubedef).mirror(false)
+		.texOffs(16, 14).mirror().addBox(-3.0F, -5.0F, 0.0F, 2.0F, 2.0F, 1.0F, cubedef).mirror(false)
+		.texOffs(16, 14).mirror().addBox(1.0F, -5.0F, 0.0F, 2.0F, 2.0F, 1.0F, cubedef).mirror(false), PartPose.offset(-1.0F, 13.5F, -7.0F));
+
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create(), PartPose.offset(0.0F, 14.0F, -3.0F));
+
+		Body.addOrReplaceChild("Body_r1", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(-4.0F, -5.0F, -5.0F, 6.0F, 9.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, -2.0F, 3.0F, 1.5708F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Leg1", CubeListBuilder.create().texOffs(0, 18).mirror().addBox(-1.0F, 0.0F, -0.9F, 2.0F, 8.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-2.5F, 16.0F, 3.0F));
+
+		partdefinition.addOrReplaceChild("Leg2", CubeListBuilder.create().texOffs(0, 18).mirror().addBox(-1.0F, 0.0F, -0.9F, 2.0F, 8.0F, 2.0F, cubedef).mirror(false), PartPose.offset(0.5F, 16.0F, 3.0F));
+
+		partdefinition.addOrReplaceChild("Leg3", CubeListBuilder.create().texOffs(0, 18).mirror().addBox(-1.0F, 0.0F, -1.1F, 2.0F, 8.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-2.5F, 16.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Leg4", CubeListBuilder.create().texOffs(0, 18).mirror().addBox(-1.0F, 0.0F, -1.1F, 2.0F, 8.0F, 2.0F, cubedef).mirror(false), PartPose.offset(0.5F, 16.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(6, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 1.0F, cubedef).mirror(false), PartPose.offset(-2.0F, 13.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(50, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 2.0F, cubedef).mirror(false), PartPose.offset(0.0F, 9.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape2", CubeListBuilder.create().texOffs(50, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-4.0F, 9.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape3", CubeListBuilder.create().texOffs(50, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 2.0F, cubedef).mirror(false), PartPose.offset(0.0F, 9.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Shape4", CubeListBuilder.create().texOffs(50, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-4.0F, 9.0F, -4.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(EntityKarot entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
+        this.Head.xRot = headPitch / (180F / (float) Math.PI);
+		this.Body.xRot = ((float)Math.PI / 2F);
+        this.Leg1.xRot = (float) (Math.cos(limbSwing * 0.6662) * 1.4 * limbSwingAmount);
+        this.Leg2.xRot = (float) (Math.cos(limbSwing * 0.6662 + Math.PI) * 1.4 * limbSwingAmount);
+        this.Leg3.xRot = (float) (Math.cos(limbSwing * 0.6662 + Math.PI) * 1.4 * limbSwingAmount);
+        this.Leg4.xRot = (float) (Math.cos(limbSwing * 0.6662) * 1.4 * limbSwingAmount);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

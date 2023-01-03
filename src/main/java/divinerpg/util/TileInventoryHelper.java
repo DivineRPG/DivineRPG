@@ -1,31 +1,55 @@
 package divinerpg.util;
 
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
 import net.minecraftforge.items.*;
 
 import java.util.function.*;
 
-public class TileInventoryHelper implements IInventory {
+public class TileInventoryHelper implements Container {
+
+    private final ItemStackHandler chestContents;
+    private Predicate<Player> canPlayerAccessInventoryLambda = x -> true;
+    private Notify markDirtyNotificationLambda = () -> {
+    };
+    private final Notify openInventoryNotificationLambda = () -> {
+    };
+    private final Notify closeInventoryNotificationLambda = () -> {
+    };
+
+    private TileInventoryHelper(int size) {
+        this.chestContents = new ItemStackHandler(size);
+    }
+
+
+    private TileInventoryHelper(int size, Predicate<Player> canPlayerAccessInventoryLambda, Notify markDirtyNotificationLambda) {
+        this.chestContents = new ItemStackHandler(size);
+        this.canPlayerAccessInventoryLambda = canPlayerAccessInventoryLambda;
+        this.markDirtyNotificationLambda = markDirtyNotificationLambda;
+    }
 
     public static TileInventoryHelper createForTileEntity(int size,
-                                                          Predicate<PlayerEntity> canPlayerAccessInventoryLambda,
+                                                          Predicate<Player> canPlayerAccessInventoryLambda,
                                                           Notify markDirtyNotificationLambda) {
         return new TileInventoryHelper(size, canPlayerAccessInventoryLambda, markDirtyNotificationLambda);
     }
 
-    public CompoundNBT serializeNBT()  {
+    public static TileInventoryHelper createForClientSideContainer(int size) {
+        return new TileInventoryHelper(size);
+    }
+
+    public CompoundTag serializeNBT() {
         return chestContents.serializeNBT();
     }
 
-    public void deserializeNBT(CompoundNBT nbt)   {
+    public void deserializeNBT(CompoundTag nbt) {
         chestContents.deserializeNBT(nbt);
     }
 
     @Override
-    public boolean stillValid(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return canPlayerAccessInventoryLambda.test(player);
     }
 
@@ -34,24 +58,18 @@ public class TileInventoryHelper implements IInventory {
         return chestContents.isItemValid(index, stack);
     }
 
-    @FunctionalInterface
-    public interface Notify {
-        void invoke();
-    }
-
-
     @Override
     public void setChanged() {
         markDirtyNotificationLambda.invoke();
     }
 
     @Override
-    public void startOpen(PlayerEntity player) {
+    public void startOpen(Player player) {
         openInventoryNotificationLambda.invoke();
     }
 
     @Override
-    public void stopOpen(PlayerEntity player) {
+    public void stopOpen(Player player) {
         closeInventoryNotificationLambda.invoke();
     }
 
@@ -95,24 +113,8 @@ public class TileInventoryHelper implements IInventory {
             chestContents.setStackInSlot(i, ItemStack.EMPTY);
         }
     }
-
-    public static TileInventoryHelper createForClientSideContainer(int size) {
-        return new TileInventoryHelper(size);
+    @FunctionalInterface
+    public interface Notify {
+        void invoke();
     }
-
-    private TileInventoryHelper(int size) {
-        this.chestContents = new ItemStackHandler(size);
-    }
-
-    private TileInventoryHelper(int size, Predicate<PlayerEntity> canPlayerAccessInventoryLambda, Notify markDirtyNotificationLambda) {
-        this.chestContents = new ItemStackHandler(size);
-        this.canPlayerAccessInventoryLambda = canPlayerAccessInventoryLambda;
-        this.markDirtyNotificationLambda = markDirtyNotificationLambda;
-    }
-
-    private Predicate<PlayerEntity> canPlayerAccessInventoryLambda = x-> true;
-    private Notify markDirtyNotificationLambda = ()->{};
-    private Notify openInventoryNotificationLambda = ()->{};
-    private Notify closeInventoryNotificationLambda = ()->{};
-    private final ItemStackHandler chestContents;
 }

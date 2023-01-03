@@ -1,19 +1,26 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.trading.MerchantOffers;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class EntityJackOMan extends EntityDivineMerchant {
-    public EntityJackOMan(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
+    public EntityJackOMan(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.25F;
     }
 
@@ -32,22 +39,21 @@ public class EntityJackOMan extends EntityDivineMerchant {
         MerchantOffers merchantoffers = this.getOffers();
 
         DivineTrades[] tradetrades = new DivineTrades[]{
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skelemanHelmet), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skelemanChestplate), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skelemanLeggings), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 40), new ItemStack(ItemRegistry.skelemanBoots), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jackOManHelmet), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jackOManChestplate), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jackOManLeggings), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jackOManBoots), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 3), new ItemStack(ItemRegistry.witherReaperHelmet), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 5), new ItemStack(ItemRegistry.witherReaperChestplate), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 4), new ItemStack(ItemRegistry.witherReaperLeggings), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 2), new ItemStack(ItemRegistry.witherReaperBoots), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 6), new ItemStack(Items.ENDER_EYE, 60), new ItemStack(ItemRegistry.scythe), random.nextInt(7), 5)
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skeleman_helmet.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skeleman_chestplate.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 60), new ItemStack(ItemRegistry.skeleman_leggings.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 60), new ItemStack(Items.SPIDER_EYE, 40), new ItemStack(ItemRegistry.skeleman_boots.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jack_o_man_helmet.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jack_o_man_chestplate.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jack_o_man_leggings.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.PUMPKIN, 50), new ItemStack(Items.ENDER_EYE, 10), new ItemStack(ItemRegistry.jack_o_man_boots.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 3), new ItemStack(ItemRegistry.wither_reaper_helmet.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 5), new ItemStack(ItemRegistry.wither_reaper_chestplate.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 4), new ItemStack(ItemRegistry.wither_reaper_leggings.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 2), new ItemStack(ItemRegistry.wither_reaper_boots.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 6), new ItemStack(Items.ENDER_EYE, 60), new ItemStack(ItemRegistry.scythe.get()), random.nextInt(7), 5)
         };
         this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
-        super.updateTrades();
     }
 
     @Override
@@ -57,18 +63,22 @@ public class EntityJackOMan extends EntityDivineMerchant {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.JACKOMAN;
+        return SoundRegistry.JACKOMAN.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.JACKOMAN;
+        return SoundRegistry.JACKOMAN.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.JACKOMAN;
+        return SoundRegistry.JACKOMAN.get();
     }
 
-
+    public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        BlockPos blockpos = pos.below();
+        List<EntityJackOMan> entityList = level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32));
+        return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
+    }
 }

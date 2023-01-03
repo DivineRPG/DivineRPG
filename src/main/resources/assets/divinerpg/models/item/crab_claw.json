@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/crab_claw"
+    "layer0": "divinerpg:item/crab_claw"
   }
 }

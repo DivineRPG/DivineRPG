@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/shadow_coins"
+    "layer0": "divinerpg:item/shadow_coins"
   },
   "display": {
     "ground": {

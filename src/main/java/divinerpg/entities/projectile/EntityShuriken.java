@@ -1,40 +1,45 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.item.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityShuriken extends DivineThrowable {
 
-    public EntityShuriken(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityShuriken(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityShuriken(EntityType<? extends ThrowableEntity> type, double x, double y, double z, World world) {
+    public EntityShuriken(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world) {
         super(type, x, y, z, world);
     }
 
-    public EntityShuriken(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntityShuriken(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
     }
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 4.0F);
+    protected void onHitEntity(EntityHitResult result) {
+        if (tickCount != 1 || tickCount != 0) {
+            result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 4.0F);
+        }
     }
 
     @Override
-    protected void onHitBlock(BlockRayTraceResult result) {
-        if (!this.level.isClientSide) {
-            ItemEntity item = new ItemEntity(level, xo, yo, zo);
-            item.setItem(new ItemStack(ItemRegistry.shuriken));
-            level.addFreshEntity(item);
-            this.kill();
+    protected void onHitBlock(BlockHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (!this.level.isClientSide) {
+                ItemEntity item = new ItemEntity(level, xo, yo, zo, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shuriken"))));
+                level.addFreshEntity(item);
+                this.kill();
+            }
         }
     }
 }

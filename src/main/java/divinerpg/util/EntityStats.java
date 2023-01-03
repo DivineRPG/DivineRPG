@@ -1,163 +1,185 @@
 package divinerpg.util;
 
 
-public class EntityStats {
+public final class EntityStats {
+	private EntityStats(){}
+	public static final double normalHealth = 20D, normalDamage = 5D, normalSpeed = .27000000417232513, normalFollowRange = 20D;
 
-    public static double normalSpeed = 0.27000000417232513D, follow = 20.0D;
+	public static final double //Boss
+			ancientEntityHealth 	= 800D, ancientEntityDamage = 12D,
+			ayeracoHealth 			= 600D,
+			densosHealth 			= 1000D, densosDamage = 30D,
+			dramixHealth 			= 1400D, dramixDamage = 30D,
+			eternalArcherHealth 	= 1550D, eternalArcherDamage = 12D,
+			experiencedCoriHealth	= 1150D, experiencedCoriDamage = 26D,
+			hiveQueenHealth 		= 1500D, hiveQueenDamage = 60D,
+			karosHealth 			= 4000D, karosDamage = 20D,
+			karotHealth 			= 1250D, karotDamage = 32D,
+			kingOfScorchersHealth 	= 1100D, kingOfScorchersDamage = 22D,
+			ladyLunaHealth 			= 8000D, ladyLunaDamage = 20D,
+			parasectaHealth 		= 1000D, parasectaDamage = 22D,
+			quadroHealth 			= 4000D, quadroDamage = 12D, quadroSpeedFast = .5, quadroSpeedSlow = .25,
+			raglokHealth 			= 5000D, raglokDamage = 30D,
+			reyvorHealth 			= 1000D, reyvorDamage = 28D,
+			soulFiendHealth 		= 1100D, soulFiendDamage = 26D,
+			sunstormHealth 	    	= 1000D, sunstormDamage = 18D,
+			termasectHealth			= 1050D, termasectDamage = 20D,
+			theWatcherHealth 		= 950D, theWatcherDamage = 12D,
+			twilightDemonHealth 	= 1600D, twilightDemonDamage = 30D,
+			vamacheronHealth 		= 1350D, vamacheronDamage = 34D, vamacheronSpeed = normalSpeed * 1.5,
+			wreckHealth 			= 5000D, wreckDamage = 30D;
 
-    //Arcana
-    public static double paratikuHealth 		= 100.0D, paratikuSpeed = normalSpeed, paratikuFollowRange = follow;
-    public static double seimerHealth 			= 150.0D, seimerSpeed = normalSpeed, seimerFollowRange = follow;
-    public static double vermsillionHealth 		= 30.0D, vermsillionSpeed = normalSpeed, vermsillionFollowRange = follow;
-    public static double razorbackHealth 		= 35.0D, razorbackDamage = 7.0D, razorbackSpeed = normalSpeed, razorbackFollowRange = follow;
-    public static double livingStatueHealth 	= 60.0D, livingStatueSpeed = normalSpeed, livingStatueFollowRange = follow;
-    public static double golemRejuvHealth 		= 30.0D, golemRejuvSpeed = normalSpeed, golemRejuvFollowRange = follow;
-    public static double fyracryxHealth 		= 60.0D, fyracryxSpeed = normalSpeed, fyracryxFollowRange = follow;
-    public static double dungeonPrisonerHealth 	= 85.0D, dungeonPrisonerDamage = 17.0D, dungeonPrisonerSpeed = normalSpeed, dungeonPrisonerFollowRange = follow;
-    public static double dramixHealth 			= 1400.0D, dramixDamage = 30.0D, dramixSpeed = normalSpeed, dramixFollowRange = follow;
-    public static double deathHoundHealth 		= 120.0D, deathHoundDamage = 10.0D, deathHoundSpeed = normalSpeed, deathHoundFollowRange = follow;
-    public static double deathcryxHealth 		= 160.0D, deathcryxDamage = 6.0D, deathcryxSpeed = normalSpeed, deathcryxFollowRange = follow;
-    public static double constructorHealth 		= 100.0D, constructorDamage = 19.0D, constructorSpeed = normalSpeed, constructorFollowRange = follow;
-    public static double parasectaHealth 		= 1000.0D, parasectaDamage = 16.0D, parasectaSpeed = normalSpeed, parasectaFollowRange = follow;
-    public static double roamerHealth 			= 110.0D, roamerDamage = 20.0D, roamerSpeed = normalSpeed, roamerFollowRange = follow;
+	public static final double //Overworld
+			aequoreaHealth         	= 4D, aequoreaDamage = 3D, aequoreaSpeed = normalSpeed / 2D, aequoreaFollowRange = normalFollowRange / 4D,
+			aridWarriorHealth 		= 40D, aridWarriorDamage = 8D,
+			enthralledDramcryxHealth= 80D, enthralledDramcryxDamage = 7D,
+			caveclopsHealth 		= 60D, caveclopsDamage = 6D,
+			caveCrawlerHealth 		= 30D, caveCrawlerDamage = 4D,
+			crabHealth 				= 45D, crabDamage = 6D,
+			cyclopsHealth 			= 35D,
+			desertCrawlerHealth 	= 40D, desertCrawlerDamage = 6D,
+			frostHealth 			= 50D, frostDamage = 6D,
+			glaconHealth 			= 60D, glaconDamage = 7D, glaconSpeed = normalSpeed * 1.6,
+			jungleDramcryxHealth 	= 40D, jungleDramcryxDamage = 7D,
+			jungleBatHealth 		= 20D, jungleBatDamage = 5D,
+			jungleSpiderHealth		= 45D, jungleSpiderDamage = 7D,
+			rainbourHealth 			= 100D, rainbourDamage = 18D,
+			kingCrabHealth 			= 100D, kingCrabDamage = 9D,
+			minerHealth 			= 40D, minerArmor = 10D,
+			rotatickHealth 			= 40D, rotatickDamage = 6D,
+			sharkHealth 			= 80D, sharkDamage = 8D,
+			theEyeHealth 			= 40D, theEyeDamage = 10D,
+			whaleHealth 			= 120D, whaleDamage = 10D,
+			liopleurodonHealth     	= 150D, liopleurodonDamage = 13D,
+			kobblinHealth 		    = 35D, kobblinDamage = 7D,
+			theGrueHealth 			= 30D, theGrueDamage = 10D, theGrueSpeed = normalSpeed * 1.3,
+			saguaroWormHealth 		= 80D, saguaroWormDamage = 4D, saguaroWormSpeed = 0,
+			pumpkinSpiderHealth 	= 50D, pumpkinSpiderDamage = 7D,
 
-    //Iceika
-    public static double alicantoHealth 		= 75.0D, alicantoDamage = 10.0D, alicantoSpeed = normalSpeed, alicantoFollowRange = follow;
-    public static double fractiteHealth 		= 50.0D, fractiteSpeed = normalSpeed, fractiteFollowRange = follow;
-    public static double frostArcherHealth 		= 40.0D, frostArcherDamage = 1.0D, frostArcherSpeed = normalSpeed, frostArcherFollowRange = follow;
-    public static double glacideHealth 			= 80.0D, glacideDamage = 12.0D, glacideSpeed = normalSpeed, glacideFollowRange = follow;
-    public static double hastreusHealth 		= 120.0D, hastreusDamage = 16.0D, hastreusSpeed = normalSpeed, hastreusFollowRange = follow;
-    public static double rollumHealth 			= 180.0D, rollumDamage = 5.0D, rollumSpeed = normalSpeed/1.2, rollumFollowRange = follow;
-    public static double frostyHealth			= 150.0D, frostyDamage = 20.0D, frostySpeed = normalSpeed/1.6, frostyFollowRange = follow;
-    public static double modVillagerHealth 		= 1000.0D, modVillagerSpeed = normalSpeed, modVillagerFollowRange = follow;
+	ehuHealth 				= 60D,
+			huskHealth 				= 80D, huskDamage = 10D,
+			stoneGolemHealth 		= 100D,
+			smelterHealth 			= 120D, smelterDamage = 7D,
+			grizzleHealth          	= 100D, grizzleDamage = 9D, grizzleSpeed = normalSpeed * 1.3,
+			snapperHealth          	= 150D, snapperDamage = 4D, snapperSpeed = normalSpeed / 1.4;
 
-    //Twilight
-    public static double angryBunnyHealth 		= 60.0D, angryBunnyDamage = 12.0D, angryBunnySpeed = normalSpeed, angryBunnyFollowRange = follow;
-    public static double apalachiaArcherHealth 	= 55.0D, apalachiaArcherDamage = 5.0D, apalachiaArcherSpeed = normalSpeed, apalachiaArcherFollowRange = follow;
-    public static double apalachiaCadillionHealth= 90.0D, apalachiaCadillionDamage = 12.0D, apalachiaCadillionSpeed = normalSpeed, apalachiaCadillionFollowRange = follow;
-    public static double apalachiaGolemHealth 	= 250.0D, apalachiaGolemDamage = 16.0D, apalachiaGolemSpeed = normalSpeed, apalachiaGolemFollowRange = follow;
-    public static double apalachiaTomoHealth 	= 115.0D, apalachiaTomoDamage = 10.0D, apalachiaTomoSpeed = normalSpeed, apalachiaTomoFollowRange = follow;
-    public static double apalachiaWarriorHealth = 60.0D, apalachiaWarriorDamage = 20.0D, apalachiaWarriorSpeed = normalSpeed, apalachiaWarriorFollowRange = follow;
-    public static double bunnyHealth 			= 10.0D, bunnyDamage = 1.0D, bunnySpeed = normalSpeed, bunnyFollowRange = follow;
-    public static double edenTomoHealth 		= 100.0D, edenTomoDamage = 8.0D, edenTomoSpeed = normalSpeed, edenTomoFollowRange = follow;
-    public static double edenCadillionHealth 	= 75.0D, edenCadillionDamage = 10.0D, edenCadillionSpeed = normalSpeed, edenCadillionFollowRange = follow;
-    public static double basliskHealth 			= 500.0D, basliskDamage = 6.0D, basliskSpeed = normalSpeed, basliskFollowRange = follow;
-    public static double densosHealth 			= 1000.0D, densosDamage = 28.0D, densosSpeed = normalSpeed, densosFollowRange = follow;
-    public static double karotHealth 			= 1250.0D, karotDamage = 32.0D, karotSpeed = normalSpeed, karotFollowRange = follow;
-    public static double eternalArcherHealth 	= 1550.0D, eternalArcherSpeed = normalSpeed, eternalArcherFollowRange = follow;
-    public static double madivelHealth 			= 150.0D, madivelDamage = 18.0D, madivelSpeed = normalSpeed, madivelFollowRange = follow;
-    public static double sunArcherHealth        = 85.0D, sunArcherDamage = 9.0D, sunArcherSpeed = normalSpeed, sunArcherFollowRange = follow;
-    public static double moonWolfHealth 		= 200.0D, moonWolfDamage = 1.0D, moonWolfSpeed = normalSpeed, moonWolfFollowRange = follow;
-    public static double moonWolfTamedHealth 	= 250.0D, moonWolfTamedDamage = 10.0D, moonWolfTamedSpeed = normalSpeed, moonWolfTamedFollowRange = follow;
-    public static double mortumArcherHealth 	= 55.0D, mortumArcherDamage = 5.0D, mortumArcherSpeed = normalSpeed, mortumArcherFollowRange = follow;
-    public static double mortumCadillionHealth 	= 130.0D, mortumCadillionDamage = 20.0D, mortumCadillionSpeed = normalSpeed, mortumCadillionFollowRange = follow;
-    public static double mortumDemonHealth 		= 200.0D, mortumDemonDamage = 17.0D, mortumDemonSpeed = normalSpeed, mortumDemonFollowRange = follow;
-    public static double greenfeetHealth 		= 200.0D, greenfeetDamage = 14.0D, greenfeetSpeed = normalSpeed, greenfeetFollowRange = follow;
-    public static double samekHealth 			= 160.0D, samekDamage = 20.0D, samekSpeed = normalSpeed, samekFollowRange = follow;
-    public static double skythernArcherHealth 	= 55.0D, skythernArcherDamage = 5.0D, skythernArcherSpeed = normalSpeed, skythernArcherFollowRange = follow;
-    public static double skythernFiendHealth 	= 80.0D, skythernFiendDamage = 20.0D, skythernFiendSpeed = normalSpeed, skythernFiendFollowRange = follow;
-    public static double skythernGolemHealth 	= 300.0D, skythernGolemDamage = 18.0D, skythernGolemSpeed = normalSpeed, skythernGolemFollowRange = follow;
-    public static double sunstormHealth 	    = 1000.0D, sunstormDamage = 12.0D, sunstormSpeed = normalSpeed, sunstormFollowRange = follow;
-    public static double megalithHealth         = 350.0D, megalithDamage = 20.0D, megalithSpeed = normalSpeed*0.9f, megalithFollowRange = follow;
-    public static double verekHealth 			= 50.0D, verekDamage = 12.0D, verekSpeed = normalSpeed, verekFollowRange = follow;
-    public static double soulFiendHealth 		= 1100.0D, soulFiendDamage = 24.0D, soulFiendSpeed = normalSpeed, soulFiendFollowRange = follow;
-    public static double soulStealerHealth 		= 140.0D, soulStealerDamage = 20.0D, soulStealerSpeed = normalSpeed, soulStealerFollowRange = follow;
-    public static double twilightDemonHealth 	= 1600.0D, twilightDemonDamage = 30.0D, twilightDemonSpeed = normalSpeed, twilightDemonFollowRange = follow;
-    public static double vamacheronHealth 		= 1350.0D, vamacheronDamage = 34.0D, vamacheronSpeed = normalSpeed*1.5, vamacheronFollowRange = follow;
-    public static double wildwoodCadillionHealth= 85.0D, wildwoodCadillionDamage = 12.0D, wildwoodCadillionSpeed = normalSpeed, wildwoodCadillionFollowRange = follow;
-    public static double wildwoodGolemHealth 	= 200.0D, wildwoodGolemDamage = 16.0D, wildwoodGolemSpeed = normalSpeed, wildwoodGolemFollowRange = follow;
-    public static double epiphiteHealth 		= 100.0D, epiphiteDamage = 14.0D, epiphiteSpeed = normalSpeed, epiphiteFollowRange = follow;
-    public static double wildwoodTomoHealth 	= 110.0D, wildwoodTomoDamage = 10.0D, wildwoodTomoSpeed = normalSpeed, wildwoodTomoFollowRange = follow;
-    public static double behemothHealth         = 180.0D, behemothDamage = 9.0D, behemothSpeed = normalSpeed, behemothFollowRange = follow;
-    public static double edenCoriHealth 		= 10.0D, edenCoriDamage = 30.0D, edenCoriSpeed = normalSpeed, edenCoriFollowRange = follow * 2.5;
-    public static double skythernCoriHealth 	= 35.0D, skythernCoriDamage = 100.0D, skythernCoriSpeed = normalSpeed, skythernCoriFollowRange = follow * 2.5;
-    public static double reyvorHealth 			= 1000.0D, reyvorDamage = 20.0D, reyvorSpeed = normalSpeed, reyvorFollowRange = follow;
-    public static double soulSpiderHealth 		= 35.0D, soulSpiderDamage = 12.0D, soulSpiderSpeed = normalSpeed, soulSpiderFollowRange = follow;
-    public static double mageHealth             = 90.0D, mageDamage = 5.0D, mageSpeed = normalSpeed, mageFollowRange = follow;
-    public static double spellbinderHealth      = 95.0D, spellbinderDamage = 7.0D, spellbinderSpeed = normalSpeed, spellbinderFollowRange = follow;
-    public static double mysticHealth           = 120.0D, mysticDamage = 10.0D, mysticSpeed = normalSpeed, mysticFollowRange = follow;
-    public static double sorcererHealth         = 150.0D, sorcererDamage = 12.0D, sorcererSpeed = normalSpeed, sorcererFollowRange = follow;
-    public static double termidHealth           = 40.0D, termidDamage = 4.0D, termidSpeed = normalSpeed, termidFollowRange = follow;
+	public static final double //Nether
+			hellBatHealth 		    = 30D, hellBatDamage = 7D, hellBatFollowRange = normalFollowRange * 2D,
+			hellPigHealth	 		= 50D, hellPigTamedHealth = 20D,
+			hellSpiderHealth 		= 50D, hellSpiderDamage = 8D,
+			scorcherHealth 			= 75D,
+			wildFireHealth 			= 50D, wildFireDamage = 8D;
 
-    //Overworld
-    public static double ancientEntityHealth 	= 800.0D, ancientEntityDamage = 12.0D, ancientEntitySpeed = normalSpeed, ancientEntityFollowRange = follow;
-    public static double aridWarriorHealth 		= 40.0D, aridWarriorDamage = 8.0D, aridWarriorSpeed = normalSpeed, aridWarriorFollowRange = follow;
-    public static double ayeracoHealth 			= 600.0D, ayeracoDamage = 5.0D, ayeracoSpeed = normalSpeed, ayeracoFollowRange = follow;
-    public static double corruptedDramcryxHealth= 80.0D, corruptedDramcryxDamage = 7.0D, corruptedDramcryxSpeed = normalSpeed, corruptedDramcryxFollowRange = follow;
-    public static double caveclopsHealth 		= 60.0D, caveclopsDamage = 6.0D, caveclopsSpeed = normalSpeed, caveclopsFollowRange = follow;
-    public static double caveCrawlerHealth 		= 30.0D, caveCrawlerDamage = 4.0D, caveCrawlerSpeed = normalSpeed, caveCrawlerFollowRange = follow;
-    public static double crabHealth 			= 45.0D, crabDamage = 6.0D, crabSpeed = normalSpeed, crabFollowRange = follow;
-    public static double cyclopsHealth 			= 35.0D, cyclopsDamage = 5.0D, cyclopsSpeed = normalSpeed, cyclopsFollowRange = follow;
-    public static double desertCrawlerHealth 	= 40.0D, desertCrawlerDamage = 6.0D, desertCrawlerSpeed = normalSpeed, desertCrawlerFollowRange = follow;
-    public static double enderSpiderHealth 		= 35.0D, enderSpiderDamage = 8.0D, enderSpiderSpeed = normalSpeed, enderSpiderFollowRange = follow;
-    public static double enderTripletsHealth 	= 10.0D,  enderTripletsSpeed = normalSpeed, enderTripletsFollowRange = follow;
-    public static double enderWatcherHealth 	= 50.0D, enderWatcherDamage = 8.0D, enderWatcherSpeed = normalSpeed, enderWatcherFollowRange = follow;
-    public static double frostHealth 			= 50.0D, frostDamage = 6.0D, frostSpeed = normalSpeed, frostFollowRange = follow;
-    public static double glaconHealth 			= 60.0D, glaconDamage = 7.0D, glaconSpeed = normalSpeed*1.6, glaconFollowRange = follow;
-    public static double aequoreaHealth         = 4.0D, aequoreaDamage = 3.0D, aequoreaSpeed = normalSpeed / 2, aequoreaFollowRange = follow / 4;
-    public static double jungleDramcryxHealth 	= 40.0D, jungleDramcryxDamage = 7.0D, jungleDramcryxSpeed = normalSpeed, jungleDramcryxFollowRange = follow;
-    public static double jungleBatHealth 		= 20.0D, jungleBatDamage = 5.0D, jungleBatSpeed = normalSpeed, jungleBatFollowRange = follow;
-    public static double jungleSpiderHealth		= 45.0D, jungleSpiderDamage = 7.0D, jungleSpiderSpeed = normalSpeed, jungleSpiderFollowRange = follow;
-    public static double hellSpiderHealth 		= 50.0D, hellSpiderDamage = 9.0D, hellSpiderSpeed = normalSpeed, hellSpiderFollowRange = follow;
-    public static double rainbourHealth 		= 100.0D, rainbourDamage = 18.0D, rainbourSpeed = normalSpeed, rainbourFollowRange = follow;
-    public static double kingCrabHealth 		= 100.0D, kingCrabDamage = 9.0D, kingCrabSpeed = normalSpeed, kingCrabFollowRange = follow;
-    public static double kingOfScorchersHealth 	= 1100.0D, kingOfScorchersDamage = 22.0D, kingOfScorchersSpeed = normalSpeed, kingOfScorchersFollowRange = follow;
-    public static double minerHealth 			= 40.0D, minerDamage = 5.0D, minerSpeed = normalSpeed, minerFollowRange = follow;
-    public static double theWatcherHealth 		= 950.0D, theWatcherSpeed = normalSpeed, theWatcherFollowRange = follow;
-    public static double rotatickHealth 		= 40.0D, rotatickDamage = 6.0D, rotatickSpeed = normalSpeed, rotatickFollowRange = follow;
-    public static double scorcherHealth 		= 75.0D, scorcherDamage = 5.0D, scorcherSpeed = normalSpeed, scorcherFollowRange = follow;
-    public static double sharkHealth 			= 80.0D, sharkDamage = 8.0D, sharkSpeed = normalSpeed, sharkFollowRange = follow;
-    public static double theEyeHealth 			= 40.0D, theEyeDamage = 10.0D, theEyeSpeed = normalSpeed, theEyeFollowRange = follow;
-    public static double whaleHealth 			= 120.0D, whaleDamage = 10.0D, whaleSpeed = normalSpeed, whaleFollowRange = follow;
-    public static double liopleurodonHealth     = 150.0D, liopleurodonDamage = 13.0D, liopleurodonSpeed = normalSpeed, liopleurodonFollowRange = follow;
-    public static double wildFireHealth 		= 50.0D, wildFireDamage = 8.0D, wildFireSpeed = normalSpeed, wildFireFollowRange = follow;
-    public static double hellPigHealth	 		= 50.0D, hellPigTamedHealth = 20.0D, hellPigSpeed = normalSpeed, hellPigRange = follow;
-    public static double hellBatHealth 		    = 30.0D, hellBatDamage = 7.0D, hellBatSpeed = normalSpeed, hellBatFollowRange = follow*2;
-    public static double kobblinHealth 		    = 35.0D, kobblinDamage = 7.0D, kobblinSpeed = normalSpeed, kobblinFollowRange = follow;
-    public static double theGrueHealth 			= 30.0D, theGrueDamage = 10.0D, theGrueSpeed = normalSpeed*1.3, theGrueFollowRange = follow;
-    public static double saguaroWormHealth 		= 80.0D, saguaroWormDamage = 4.0D, saguaroWormSpeed = 0, saguaroWormFollowRange = follow;
-    public static double pumpkinSpiderHealth 	= 50.0D, pumpkinSpiderDamage = 7.0D, pumpkinSpiderSpeed = normalSpeed, pumpkinSpiderFollowRange = follow;
+	public static final double //End
+			enderSpiderHealth 		= 35D, enderSpiderDamage = 12D,
+			enderTripletsHealth 	= 10D,
+			enderWatcherHealth 		= 50D, enderWatcherDamage = 11D;
 
-    public static double ehuHealth 				= 60.0D, ehuDamage = 6.0D, ehuSpeed = normalSpeed, ehuFollowRange = follow;
-    public static double huskHealth 			= 80.0D, huskDamage = 10.0D, huskSpeed = normalSpeed, huskFollowRange = follow;
-    public static double stoneGolemHealth 		= 100.0D, stoneGolemDamage = 5.0D, stoneGolemSpeed = normalSpeed, stoneGolemFollowRange = follow;
-    public static double smelterHealth 			= 120.0D, smelterDamage = 7.0D, smelterSpeed = normalSpeed, smelterFollowRange = follow;
-    public static double grizzleHealth          = 100.0D, grizzleDamage = 9.0D, grizzleSpeed = normalSpeed*1.3, grizzleFollowRange = follow;
-    public static double snapperHealth          = 150.0D, snapperDamage = 4.0D, snapperSpeed = normalSpeed/1.4, snapperFollowRange = follow;
+	public static final double //Iceika
+			alicantoHealth 			= 75D, alicantoDamage = 11D,
+			fractiteHealth 			= 50D,
+			frostArcherHealth 		= 40D, frostArcherDamage = 2D,
+			glacideHealth 			= 80D, glacideDamage = 12D, glacideSpeed = normalSpeed * 1.7,
+			hastreusHealth 			= 120D, hastreusDamage = 16D,
+			rollumHealth 			= 150D, rollumDamage = 12D, rollumSpeed = normalSpeed / 1.2,
+			frostyHealth			= 140D, frostyDamage = 16D, frostySpeed = normalSpeed / 1.6,
+			groglinHealth			= 40D,  groglinDamage = 5D, groglinSpeed = normalSpeed / 1.1,
 
-    //Vethea
-    public static double cryptKeeperHealth 		= 200.0D, cryptKeeperSpeed = normalSpeed, cryptKeeperFollowRange = follow;
-    public static double bohemiteHealth 		= 60.0D, bohemiteDamage = 13.0D, bohemiteSpeed = normalSpeed*1.5, bohemiteFollowRange = follow;
-    public static double biphronHealth 			= 40.0D, biphronDamage = 14.0D, biphronSpeed = normalSpeed, biphronFollowRange = follow;
-    public static double acidHagHealth 			= 25.0D, acidHagDamage = 5.0D, acidHagSpeed = normalSpeed, acidHagFollowRange = follow;
-    public static double cymesoidHealth 		= 25.0D, cymesoidDamage = 8.0D, cymesoidSpeed = normalSpeed, cymesoidFollowRange = follow;
-    public static double galroidHealth 			= 100.0D, galroidDamage = 25.0D, galroidSpeed = normalSpeed, galroidFollowRange = follow;
-    public static double entHealth 				= 50.0D, entDamage = 20.0D, entSpeed = normalSpeed, entFollowRange = follow;
-    public static double dissimentHealth 		= 70.0D;
-    public static double dreamwreckerHealth 	= 60.0D, dreamwreckerDamage = 8.0D, dreamwreckerSpeed = normalSpeed, dreamwreckerFollowRange = follow;
-    public static double duoHealth 				= 20.0D, duoDamage = 7.0D, duoSpeed = normalSpeed, duoFollowRange = follow;
-    public static double gorgosionHealth 		= 60.0D, gorgosionSpeed = normalSpeed, gorgosionFollowRange = follow;
-    public static double helioHealth 			= 140.0D, helioDamage = 40.0D, helioSpeed = normalSpeed, helioFollowRange = follow;
-    public static double herbomancerHealth 		= 40.0D, herbomancerDamage = 5.0D, herbomancerSpeed = normalSpeed, herbomancerFollowRange = follow;
-    public static double herbomancerMinionHealth= 10.0D, herbomancerMinionDamage = 5.0D, herbomancerMinionSpeed = normalSpeed, herbomancerMinionFollowRange = follow;
-    public static double hiveQueenHealth 		= 1500.0D, hiveQueenDamage = 60.0D, hiveQueenSpeed = normalSpeed, hiveQueenFollowRange = follow;
-    public static double hiveSoldierHealth 		= 20.0D, hiveSoldierDamage = 6.0D, hiveSoldierSpeed = normalSpeed, hiveSoldierFollowRange = follow;
-    public static double hoverStingerHealth 	= 20.0D, hoverStingerDamage = 4.0D, hoverStingerSpeed = normalSpeed, hoverStingerFollowRange = follow;
-    public static double karosHealth 			= 4000.0D, karosDamage = 20.0D, karosSpeed = normalSpeed, karosFollowRange = follow;
-    public static double kazroticHealth 		= 65.0D, kazroticSpeed = normalSpeed, kazroticFollowRange = follow;
-    public static double ladyLunaHealth 		= 8000.0D, ladyLunaDamage = 20.0D, ladyLunaSpeed = normalSpeed, ladyLunaFollowRange = follow;
-    public static double lheivaHealth 			= 85.0D, lheivaDamage = 19.0D, lheivaSpeed = normalSpeed, lheivaFollowRange = follow;
-    public static double lorgaHealth 			= 15.0D, lorgaDamage = 4.0D, lorgaSpeed = normalSpeed, lorgaFollowRange = follow;
-    public static double lorgaFlightHealth 		= 40.0D, lorgaFlightDamage = 7.0D, lorgaFlightSpeed = normalSpeed, lorgaFlightFollowRange = follow;
-    public static double mandragoraHealth 		= 35.0D, mandragoraDamage = 4.0D, mandragoraSpeed = normalSpeed, mandragoraFollowRange = follow;
-    public static double quadroHealth 			= 4000.0D, quadroAttack = 1D, quadroSpeedFast = 0.5D, quadroSpeedSlow = 0.25D, quadroFollowRange = follow;
-    public static double raglokHealth 			= 5000.0D, raglokDamage = 30.0D, raglokSpeed = normalSpeed, raglokFollowRange = follow;
-    public static double shadahierHealth 		= 10.0D, shadahierDamage = 6.0D, shadahierSpeed = normalSpeed, shadahierFollowRange = follow;
-    public static double tocaxinHealth 			= 65.0D, tocaxinDamage = 10.0D, tocaxinSpeed = normalSpeed, tocaxinFollowRange = follow;
-    public static double twinsHealth 			= 10.0D, twinsDamage = 2.0D, twinsSpeed = normalSpeed, twinsFollowRange = follow;
-    public static double vermenousHealth 		= 100.0D, vermenousDamage = 13.0D, vermenousSpeed = normalSpeed, vermenousFollowRange = follow;
-    public static double vhraakHealth 			= 100.0D, vhraakDamage = 30.0D, vhraakSpeed = normalSpeed, vhraakFollowRange = follow;
-    public static double wreckHealth 			= 5000.0D, wreckDamage = 30.0D, wreckSpeed = normalSpeed, wreckSpeedFast = normalSpeed*2, wreckFollowRange = follow;
-    public static double zoneHealth 			= 120.0D, zoneDamage = 0.0D, zoneSpeed = normalSpeed, zoneFollowRange = follow;
-    public static double zoragonHealth 			= 110.0D, zoragonDamage = 0.0D, zoragonSpeed = normalSpeed, zoragonFollowRange = follow;
+
+	sengHealth				= 55D, sengSpeed = normalSpeed * 1.3, sengRange = normalFollowRange / 2,
+			modVillagerHealth 		= 1000D;
+
+	public static final double //Eden
+			glinthopHealth 			= 10D, glinthopDamage = 12D,
+			edenTomoHealth 			= 96D, edenTomoDamage = 16D,
+			edenCadillionHealth 	= 120D, edenCadillionDamage = 18D,
+			greenfeetHealth 		= 200D, greenfeetDamage = 22D,
+			madivelHealth 			= 150D, madivelDamage = 20D,
+			sunArcherHealth        	= 72D, sunArcherDamage = 15D,
+			weakCoriHealth 			= 10D, weakCoriDamage = 30D;
+
+	public static final double //Wildwood
+			behemothHealth         	= 180D, behemothDamage = 16D,
+			epiphiteHealth 			= 100D, epiphiteDamage = 16D,
+			mageHealth             	= 90D, mageDamage = 12D,
+			moonWolfHealth 			= 130D, moonWolfDamage = 12D,
+			moonWolfTamedHealth 	= 160D, moonWolfTamedDamage = 12D,
+			termidHealth           	= 50D, termidDamage = 12D,
+			verekHealth 			= 78D, verekDamage = 18D,
+			wildwoodCadillionHealth	= 130D, wildwoodCadillionDamage = 20D,
+			wildwoodGolemHealth 	= 200D, wildwoodGolemDamage = 23D,
+			wildwoodTomoHealth 		= 110D, wildwoodTomoDamage = 18D;
+
+	public static final double //Apalachia
+			apalachiaCadillionHealth= 145D, apalachiaCadillionDamage = 22D,
+			apalachiaGolemHealth 	= 200D, apalachiaGolemDamage = 24D,
+			apalachiaTomoHealth 	= 116D, apalachiaTomoDamage = 20D,
+			enchantedArcherHealth 	= 87D,
+			enchantedWarriorHealth 	= 87D, enchantedWarriorDamage = 22D,
+			spellbinderHealth      	= 100D, spellbinderDamage = 14D;
+
+	public static final double //Skythern
+			advancedCoriHealth 		= 35D, advancedCoriDamage = 100D,
+			megalithHealth         	= 310D, megalithDamage = 25D, megalithSpeed = normalSpeed * .9, megalithKnockbackResistance = 1D,
+			mysticHealth           	= 120D, mysticDamage = 12D,
+			samekHealth 			= 160D, samekDamage = 23D,
+			skythernArcherHealth 	= 124D,
+			skythernFiendHealth 	= 155D, skythernFiendDamage = 24D,
+			skythernGolemHealth 	= 248D, skythernGolemDamage = 25D;
+
+	public static final double //Mortum
+			angryGlinthopHealth 	= 96D, angryGlinthopDamage = 23D,
+			basliskHealth 			= 300D, basliskDamage = 23D,
+			demonOfDarknessHealth 	= 200D, demonOfDarknessDamage = 24D,
+			mortumCadillionHealth 	= 165D, mortumCadillionDamage = 26D,
+			sorcererHealth         	= 132D, sorcererDamage = 14D,
+			soulSpiderHealth 		= 64D, soulSpiderDamage = 21D,
+			soulStealerHealth 		= 140D, soulStealerDamage = 26D,
+			twilightArcherHealth 	= 96D;
+
+	public static final double //Arcana
+			paratikuHealth 			= 100D,
+			seimerHealth 			= 150D,
+			vermsillionHealth 		= 30D,
+			razorbackHealth 		= 35D, razorbackDamage = 9D,
+			skyreHealth 			= 35D, skyreDamage = 8D, skyreFollowRange = 16D,
+			livingStatueHealth 		= 60D,
+			golemRejuvHealth 		= 30D, golemRejuvDamage = 2D,
+			fyracryxHealth 			= 60D, fyracryxDamage = 5D,
+			dungeonPrisonerHealth 	= 85D, dungeonPrisonerDamage = 17D,
+			deathHoundHealth 		= 120D, deathHoundDamage = 12D,
+			deathcryxHealth 		= 160D, deathcryxDamage = 14D,
+			constructorHealth 		= 100D, constructorDamage = 19D,
+			roamerHealth 			= 110D, roamerDamage = 20D;
+
+	public static final double //Vethea
+			cryptKeeperHealth 		= 200D, cryptKeeperMovementSpeed = .32, cryptKeeperFollowRange = 35D,
+			bohemiteHealth 			= 60D, bohemiteDamage = 13D, bohemiteSpeed = normalSpeed * 1.5,
+			biphronHealth 			= 40D, biphronDamage = 14D,
+			acidHagHealth 			= 25D,
+			cymesoidHealth 			= 25D, cymesoidDamage = 8D,
+			galroidHealth 			= 100D, galroidDamage = 25D,
+			entHealth 				= 50D, entDamage = 20D,
+			dissimentHealth 		= 70D, //Others empty
+			dreamwreckerHealth 		= 60D, dreamwreckerDamage = 8D,
+			duoHealth 				= 20D, duoDamage = 7D, duoSpeed = normalSpeed / 1.5,
+			gorgosionHealth 		= 60D,
+			helioHealth 			= 140D, helioDamage = 40D,
+			herbomancerHealth 		= 40D,
+			herbomancerMinionHealth = 10D,
+			hiveSoldierHealth 		= 20D, hiveSoldierDamage = 6D,
+			hoverStingerHealth 		= 20D, hoverStingerDamage = 4D, hoverStingerMovementSpeed = .32D, hoverStingerFollowRange = 35D,
+			kazroticHealth 			= 65D, kazroticDamage = 1,
+			lheivaHealth 			= 85D, lheivaDamage = 22D,
+			lorgaHealth 			= 15D, lorgaDamage = 4D,
+			lorgaFlightHealth 		= 40D, lorgaFlightDamage = 8D,
+			mandragoraHealth 		= 35D,
+			mysteriousManSpeed		= .32, mysteriousManFollowRange = 35D,
+			shadahierHealth 		= 10D, shadahierDamage = 7D,
+			tocaxinHealth 			= 65D, tocaxinDamage = 13D,
+			twinsHealth 			= 10D,
+			vermenousHealth 		= 100D, vermenousDamage = 14D,
+			vhraakHealth 			= 100D, vhraakDamage = 30D,
+			zoneHealth 				= 120D,
+			zoragonHealth 			= 110D, zoragonDamage = 0D, zoragonSpeed = normalSpeed / 3;
 }

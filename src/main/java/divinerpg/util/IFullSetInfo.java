@@ -1,6 +1,6 @@
 package divinerpg.util;
 
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.chat.*;
 
 /**
  * Provides full set perks inforamtion
@@ -13,5 +13,5 @@ public interface IFullSetInfo {
      *
      * @return - pretty description
      */
-    ITextComponent getFullSetPerks();
+    Component getFullSetPerks();
 }

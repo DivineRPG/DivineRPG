@@ -1,9 +1,10 @@
 {
   "parent": "block/block",
+  "render_type": "cutout_mipped",
   "textures": {
-    "outer": "divinerpg:blocks/arcana_portal_frame_outer",
-    "particle": "divinerpg:blocks/arcana_portal_frame",
-    "portal": "divinerpg:blocks/arcana_portal_frame"
+    "outer": "divinerpg:block/arcana_portal_frame_outer",
+    "particle": "divinerpg:block/arcana_portal_frame",
+    "portal": "divinerpg:block/arcana_portal_frame"
   },
   "elements": [
     {

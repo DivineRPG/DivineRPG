@@ -1,14 +1,16 @@
 package divinerpg.entities.ai;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.util.math.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.monster.RangedAttackMob;
 
 public class AISunstormAttack extends Goal {
         /** The entity the AI instance has been applied to */
-        private final MobEntity entityHost;
+        private final Mob entityHost;
         /** The entity (as a RangedAttackMob) the AI instance has been applied to. */
-        private final IRangedAttackMob rangedAttackEntityHost;
+        private final RangedAttackMob rangedAttackEntityHost;
         private LivingEntity attackTarget;
         /**
          * A decrementing tick that spawns a ranged attack once this value reaches 0. It is then set back to the
@@ -23,23 +25,23 @@ public class AISunstormAttack extends Goal {
         private final float attackRadius;
         private final float maxAttackDistance;
 
-    public AISunstormAttack(IRangedAttackMob attacker, double movespeed, int maxAttackTime, float maxAttackDistanceIn)
+    public AISunstormAttack(RangedAttackMob attacker, double movespeed, int maxAttackTime, float maxAttackDistanceIn)
         {
             this(attacker, movespeed, maxAttackTime, maxAttackTime, maxAttackDistanceIn);
         }
 
-    public AISunstormAttack(IRangedAttackMob attacker, double movespeed, int p_i1650_4_, int maxAttackTime, float maxAttackDistanceIn)
+    public AISunstormAttack(RangedAttackMob attacker, double movespeed, int p_i1650_4_, int maxAttackTime, float maxAttackDistanceIn)
         {
             this.rangedAttackTime = -1;
 
-            if (!(attacker instanceof MobEntity))
+            if (!(attacker instanceof Mob))
             {
                 throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
             }
             else
             {
                 this.rangedAttackEntityHost = attacker;
-                this.entityHost = (MobEntity)attacker;
+                this.entityHost = (Mob)attacker;
                 this.entityMoveSpeed = movespeed;
                 this.attackIntervalMin = p_i1650_4_;
                 this.maxRangedAttackTime = maxAttackTime;
@@ -89,7 +91,7 @@ public class AISunstormAttack extends Goal {
         public void tick() {
             if (entityHost != null && attackTarget != null) {
                 double d0 = this.entityHost.distanceToSqr(this.attackTarget.xo, this.attackTarget.getBoundingBox().minY, this.attackTarget.zo);
-                boolean flag = this.entityHost.canSee(this.attackTarget);
+                boolean flag = this.entityHost.hasLineOfSight(this.attackTarget);
 
                 if (flag) {
                     ++this.seeTime;
@@ -110,13 +112,13 @@ public class AISunstormAttack extends Goal {
                         return;
                     }
 
-                    float f = MathHelper.sqrt(d0) / this.attackRadius;
-                    float lvt_5_1_ = MathHelper.clamp(f, 0.1F, 1.0F);
+                    float f = Mth.sqrt((float) d0) / this.attackRadius;
+                    float lvt_5_1_ = Mth.clamp(f, 0.1F, 1.0F);
                     this.rangedAttackEntityHost.performRangedAttack(this.attackTarget, lvt_5_1_);
-                    this.rangedAttackTime = MathHelper.floor(f * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
+                    this.rangedAttackTime = Mth.floor(f * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
                 } else if (this.rangedAttackTime < 0) {
-                    float f2 = MathHelper.sqrt(d0) / this.attackRadius;
-                    this.rangedAttackTime = MathHelper.floor(f2 * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
+                    float f2 = Mth.sqrt((float) d0) / this.attackRadius;
+                    this.rangedAttackTime = Mth.floor(f2 * (float) (this.maxRangedAttackTime - this.attackIntervalMin) + (float) this.attackIntervalMin);
                 }
             }
         }

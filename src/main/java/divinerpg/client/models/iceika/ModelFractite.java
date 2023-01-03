@@ -1,108 +1,87 @@
 package divinerpg.client.models.iceika;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelFractite<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer frostBody;
-    ModelRenderer shard1;
-    ModelRenderer shard2;
-    ModelRenderer shard7;
-    ModelRenderer shard8;
-    ModelRenderer shard4;
-    ModelRenderer shard3;
-    ModelRenderer shard5;
-    ModelRenderer shard6;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelFractite()
-    {
-        texWidth = 64;
-        texHeight = 32;
+public class ModelFractite<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("fractite");
+	private final ModelPart frostBody;
+	private final ModelPart shard1;
+	private final ModelPart shard2;
+	private final ModelPart shard7;
+	private final ModelPart shard8;
+	private final ModelPart shard4;
+	private final ModelPart shard3;
+	private final ModelPart shard5;
+	private final ModelPart shard6;
 
-        frostBody = new ModelRenderer(this, 0, 11);
-        frostBody.addBox(0F, 0F, 0F, 8, 8, 6);
-        frostBody.setPos(-4F, 5F, -4F);
-        frostBody.setTexSize(64, 32);
-        frostBody.mirror = true;
-        setRotation(frostBody, 0F, 0F, 0F);
-        shard1 = new ModelRenderer(this, 0, 0);
-        shard1.addBox(8F, 0F, 0F, 9, 1, 2);
-        shard1.setPos(1F, 8F, -2F);
-        shard1.setTexSize(64, 32);
-        shard1.mirror = true;
-        setRotation(shard1, 0F, 0F, -0.7853982F);
-        shard2 = new ModelRenderer(this, 0, 0);
-        shard2.addBox(-19F, 0F, 0F, 9, 1, 2);
-        shard2.setPos(0F, 9F, -2F);
-        shard2.setTexSize(64, 32);
-        shard2.mirror = true;
-        setRotation(shard2, 0F, 0F, -0.7853982F);
-        shard7 = new ModelRenderer(this, 0, 0);
-        shard7.addBox(10F, 0F, 0F, 10, 1, 2);
-        shard7.setPos(0F, 9F, -2F);
-        shard7.setTexSize(64, 32);
-        shard7.mirror = true;
-        setRotation(shard7, 0F, 0F, 0.7853982F);
-        shard8 = new ModelRenderer(this, 0, 0);
-        shard8.addBox(-19F, 0F, 0F, 10, 1, 2);
-        shard8.setPos(-1F, 9F, -2F);
-        shard8.setTexSize(64, 32);
-        shard8.mirror = true;
-        setRotation(shard8, 0F, 0F, 0.7853982F);
-        shard4 = new ModelRenderer(this, 0, 0);
-        shard4.addBox(-6F, -8F, 0F, 15, 1, 2);
-        shard4.setPos(0F, 8F, -2F);
-        shard4.setTexSize(64, 32);
-        shard4.mirror = true;
-        setRotation(shard4, 0F, 0F, 1.570796F);
-        shard3 = new ModelRenderer(this, 0, 0);
-        shard3.addBox(-7F, 7F, 0F, 15, 1, 2);
-        shard3.setPos(0F, 9F, -2F);
-        shard3.setTexSize(64, 32);
-        shard3.mirror = true;
-        setRotation(shard3, 0F, 0F, 1.570796F);
-        shard5 = new ModelRenderer(this, 0, 0);
-        shard5.addBox(-8F, -7F, 0F, 14, 1, 2);
-        shard5.setPos(1F, 9F, -2F);
-        shard5.setTexSize(64, 32);
-        shard5.mirror = true;
-        setRotation(shard5, 0F, 0F, 0F);
-        shard6 = new ModelRenderer(this, 0, 0);
-        shard6.addBox(-7F, 7F, 0F, 14, 1, 2);
-        shard6.setPos(0F, 9F, -2F);
-        shard6.setTexSize(64, 32);
-        shard6.mirror = true;
-        setRotation(shard6, 0F, 0F, 0F);
-    }
+	public ModelFractite(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.frostBody = root.getChild("frostBody");
+		this.shard1 = root.getChild("shard1");
+		this.shard2 = root.getChild("shard2");
+		this.shard7 = root.getChild("shard7");
+		this.shard8 = root.getChild("shard8");
+		this.shard4 = root.getChild("shard4");
+		this.shard3 = root.getChild("shard3");
+		this.shard5 = root.getChild("shard5");
+		this.shard6 = root.getChild("shard6");
+	}
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.shard1.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard2.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard3.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard4.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard5.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard6.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard7.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-        this.shard8.xRot = MathHelper.cos(ageInTicks * 0.1F) * (float)Math.PI;
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(frostBody, shard1, shard2, shard7, shard8, shard4, shard3, shard5, shard6);
-    }
+		partdefinition.addOrReplaceChild("frostBody", CubeListBuilder.create().texOffs(0, 11).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 5.0F, -4.0F));
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		partdefinition.addOrReplaceChild("shard1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(8.0F, 0.0F, 0.0F, 9.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 8.0F, -2.0F, 0.0F, 0.0F, -0.7854F));
 
+		partdefinition.addOrReplaceChild("shard2", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-19.0F, 0.0F, 0.0F, 9.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 9.0F, -2.0F, 0.0F, 0.0F, -0.7854F));
 
+		partdefinition.addOrReplaceChild("shard7", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(10.0F, 0.0F, 0.0F, 10.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 9.0F, -2.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("shard8", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-19.0F, 0.0F, 0.0F, 10.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 9.0F, -2.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("shard4", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-6.0F, -8.0F, 0.0F, 15.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, -2.0F, 0.0F, 0.0F, 1.5708F));
+
+		partdefinition.addOrReplaceChild("shard3", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-7.0F, 7.0F, 0.0F, 15.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 9.0F, -2.0F, 0.0F, 0.0F, 1.5708F));
+
+		partdefinition.addOrReplaceChild("shard5", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-8.0F, -7.0F, 0.0F, 14.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 9.0F, -2.0F));
+
+		partdefinition.addOrReplaceChild("shard6", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-7.0F, 7.0F, 0.0F, 14.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 9.0F, -2.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.shard1.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard2.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard3.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard4.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard5.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard6.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard7.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+		this.shard8.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		frostBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		shard6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

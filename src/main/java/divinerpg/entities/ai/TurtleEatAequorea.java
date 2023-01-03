@@ -1,17 +1,20 @@
 package divinerpg.entities.ai;
 
 import divinerpg.entities.vanilla.overworld.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.pathfinding.*;
-import net.minecraft.util.*;
 
 import java.util.*;
 
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.pathfinder.Node;
+import net.minecraft.world.level.pathfinder.Path;
+
 public class TurtleEatAequorea extends Goal {
-    TurtleEntity turtle;
+    Turtle turtle;
     private final double speedModifier;
     private final boolean followingTargetEvenIfNotSeen;
     private Path path;
@@ -20,12 +23,12 @@ public class TurtleEatAequorea extends Goal {
     private double pathedTargetZ;
     private int ticksUntilNextPathRecalculation;
     private int ticksUntilNextAttack;
-    private final int attackInterval = 20;
-    private long lastCanUseCheck;
+//    private final int attackInterval = 20;
+//    private long lastCanUseCheck;
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
 
-    public TurtleEatAequorea(TurtleEntity turtle, double speed, boolean followAtAllCosts) {
+    public TurtleEatAequorea(Turtle turtle, double speed, boolean followAtAllCosts) {
     this.turtle = turtle;
         this.speedModifier = speed;
         this.followingTargetEvenIfNotSeen = followAtAllCosts;
@@ -48,7 +51,7 @@ public class TurtleEatAequorea extends Goal {
         } else if (!this.turtle.isWithinRestriction(livingentity.blockPosition())) {
             return false;
         } else {
-            return !(livingentity instanceof PlayerEntity) || !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
+            return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
         }
     }
 
@@ -61,7 +64,7 @@ public class TurtleEatAequorea extends Goal {
 
     public void stop() {
         LivingEntity livingentity = this.turtle.getTarget();
-        if (!EntityPredicates.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
+        if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
             this.turtle.setTarget((LivingEntity)null);
         }
 
@@ -74,7 +77,7 @@ public class TurtleEatAequorea extends Goal {
         this.turtle.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
         double d0 = this.turtle.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
         this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
-        if ((this.followingTargetEvenIfNotSeen || this.turtle.getSensing().canSee(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.turtle.getRandom().nextFloat() < 0.05F)) {
+        if ((this.followingTargetEvenIfNotSeen || this.turtle.getSensing().hasLineOfSight(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.turtle.getRandom().nextFloat() < 0.05F)) {
             this.pathedTargetX = livingentity.getX();
             this.pathedTargetY = livingentity.getY();
             this.pathedTargetZ = livingentity.getZ();
@@ -82,7 +85,7 @@ public class TurtleEatAequorea extends Goal {
             if (this.canPenalize) {
                 this.ticksUntilNextPathRecalculation += failedPathFindingPenalty;
                 if (this.turtle.getNavigation().getPath() != null) {
-                    PathPoint finalPathPoint = this.turtle.getNavigation().getPath().getEndNode();
+                    Node finalPathPoint = this.turtle.getNavigation().getPath().getEndNode();
                     if (finalPathPoint != null && livingentity.distanceToSqr(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1)
                         failedPathFindingPenalty = 0;
                     else

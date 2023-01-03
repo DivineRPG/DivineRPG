@@ -1,61 +1,65 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
+import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.tiles.furnace.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.util.math.vector.*;
+import net.minecraft.core.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.shapes.*;
 
 import javax.annotation.*;
 
-public class BlockArcaniumExtractor extends BlockModFurnace {
-    public static final VoxelShape BLOCK_AABB = VoxelShapes.create(new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F));
-
-    public BlockArcaniumExtractor(String name) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).strength(60000000F).noOcclusion());
+public class BlockArcaniumExtractor extends FurnaceBlock {
+    public static final VoxelShape BLOCK_AABB = Shapes.create(new AABB(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F));
+    public BlockArcaniumExtractor() {
+        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).strength(60000000F).noOcclusion());
     }
-
     @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
+    public VoxelShape getCollisionShape(BlockState p_220071_1_, BlockGetter p_220071_2_, BlockPos p_220071_3_, CollisionContext p_220071_4_) {
         return BLOCK_AABB;
     }
-
     @Override
-    public BlockRenderType getRenderShape(BlockState state) {
-        return BlockRenderType.INVISIBLE;
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.INVISIBLE;
     }
-
     @Override
-    protected void openContainer(World world, BlockPos pos, PlayerEntity player) {
-        TileEntity tileentity = world.getBlockEntity(pos);
-        if (tileentity instanceof TileEntityArcaniumExtractor) {
-            player.openMenu((INamedContainerProvider)tileentity);
-        }
+    protected void openContainer(Level world, BlockPos pos, Player player) {
+        BlockEntity tileentity = world.getBlockEntity(pos);
+        if (tileentity instanceof TileEntityArcaniumExtractor) player.openMenu((MenuProvider)tileentity);
     }
-
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new TileEntityArcaniumExtractor();
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return BlockEntityRegistry.ARCANIUM_EXTRACTOR.get().create(pos, state);
     }
-
-    public void onRemove(BlockState state, World world, BlockPos pos, BlockState state1, boolean b) {
+    @Override
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean b) {
         if (!state.is(state1.getBlock())) {
-            TileEntity tileentity = world.getBlockEntity(pos);
+            BlockEntity tileentity = world.getBlockEntity(pos);
             if (tileentity instanceof TileEntityArcaniumExtractor) {
-                InventoryHelper.dropContents(world, pos, (TileEntityArcaniumExtractor)tileentity);
-                ((TileEntityArcaniumExtractor)tileentity).getRecipesToAwardAndPopExperience(world, Vector3d.atCenterOf(pos));
+                Containers.dropContents(world, pos, (TileEntityArcaniumExtractor)tileentity);
+                ((TileEntityArcaniumExtractor)tileentity).getRecipesToAwardAndPopExperience((ServerLevel) world, Vec3.atCenterOf(pos));
                 world.updateNeighbourForOutputSignal(pos, this);
             }
-
             super.onRemove(state, world, pos, state1, b);
         }
     }
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    	return createFurnaceTicker(type, level);
+    }
+	@Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_) {
+       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), TileEntityArcaniumExtractor::serverTick);
+    }
+	@Override public void animateTick(BlockState p_221253_, Level p_221254_, BlockPos p_221255_, RandomSource p_221256_) {}
 }

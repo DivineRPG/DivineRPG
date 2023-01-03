@@ -1,121 +1,93 @@
 package divinerpg.client.models.vethea;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.*;
+import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelMysteriousMan<T extends Entity> extends SegmentedModel<T>
-{
-    //fields
-    ModelRenderer head;
-    ModelRenderer rightarm;
-    ModelRenderer leftarm;
-    ModelRenderer rightleg;
-    ModelRenderer leftleg;
-    ModelRenderer body;
-    ModelRenderer neck;
-    ModelRenderer facemask1;
-    ModelRenderer facemask2;
-    ModelRenderer facemask3;
-    ModelRenderer facemask4;
+public class ModelMysteriousMan<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("mysterious_man");
+	private final ModelPart head;
+	private final ModelPart rightarm;
+	private final ModelPart leftarm;
+	private final ModelPart rightleg;
+	private final ModelPart leftleg;
+	private final ModelPart body;
+	private final ModelPart neck;
+	private final ModelPart facemask1;
+	private final ModelPart facemask2;
+	private final ModelPart facemask3;
+	private final ModelPart facemask4;
 
-    public ModelMysteriousMan()
-    {
-        texWidth = 64;
-        texHeight = 32;
+	public ModelMysteriousMan(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.head = root.getChild("head");
+		this.rightarm = root.getChild("rightarm");
+		this.leftarm = root.getChild("leftarm");
+		this.rightleg = root.getChild("rightleg");
+		this.leftleg = root.getChild("leftleg");
+		this.body = root.getChild("body");
+		this.neck = root.getChild("neck");
+		this.facemask1 = root.getChild("facemask1");
+		this.facemask2 = root.getChild("facemask2");
+		this.facemask3 = root.getChild("facemask3");
+		this.facemask4 = root.getChild("facemask4");
+	}
 
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-4F, -8F, -4F, 8, 8, 8);
-        head.setPos(0F, -2F, 0F);
-        head.setTexSize(64, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        rightarm = new ModelRenderer(this, 40, 16);
-        rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
-        rightarm.setPos(-5F, 2F, 0F);
-        rightarm.setTexSize(64, 32);
-        rightarm.mirror = true;
-        setRotation(rightarm, 0F, 0F, 0F);
-        leftarm = new ModelRenderer(this, 40, 16);
-        leftarm.addBox(-1F, -2F, -2F, 4, 12, 4);
-        leftarm.setPos(5F, 2F, 0F);
-        leftarm.setTexSize(64, 32);
-        leftarm.mirror = true;
-        setRotation(leftarm, 0F, 0F, 0F);
-        rightleg = new ModelRenderer(this, 0, 16);
-        rightleg.addBox(-2F, 0F, -2F, 4, 12, 4);
-        rightleg.setPos(-2F, 12F, 0F);
-        rightleg.setTexSize(64, 32);
-        rightleg.mirror = true;
-        setRotation(rightleg, 0F, 0F, 0F);
-        leftleg = new ModelRenderer(this, 0, 16);
-        leftleg.addBox(-2F, 0F, -2F, 4, 12, 4);
-        leftleg.setPos(2F, 12F, 0F);
-        leftleg.setTexSize(64, 32);
-        leftleg.mirror = true;
-        setRotation(leftleg, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 16, 16);
-        body.addBox(-4F, 0F, -2F, 8, 12, 4);
-        body.setPos(0F, 0F, 0F);
-        body.setTexSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0F, 0F, 0F);
-        neck = new ModelRenderer(this, 20, 18);
-        neck.addBox(-4F, 0F, -2F, 4, 2, 4);
-        neck.setPos(2F, -2F, 0F);
-        neck.setTexSize(64, 32);
-        neck.mirror = true;
-        setRotation(neck, 0F, 0F, 0F);
-        facemask1 = new ModelRenderer(this, 37, 3);
-        facemask1.addBox(-4F, 0F, -2F, 8, 2, 0);
-        facemask1.setPos(0F, -2F, -2F);
-        facemask1.setTexSize(64, 32);
-        facemask1.mirror = true;
-        setRotation(facemask1, 0F, 0F, 0F);
-        facemask2 = new ModelRenderer(this, 37, 3);
-        facemask2.addBox(-4F, 0F, -2F, 8, 2, 0);
-        facemask2.setPos(0F, -2F, 6F);
-        facemask2.setTexSize(64, 32);
-        facemask2.mirror = true;
-        setRotation(facemask2, 0F, 0F, 0F);
-        facemask3 = new ModelRenderer(this, 37, 3);
-        facemask3.addBox(4F, 0F, -2F, 0, 2, 8);
-        facemask3.setPos(0F, -2F, -2F);
-        facemask3.setTexSize(64, 32);
-        facemask3.mirror = true;
-        setRotation(facemask3, 0F, 0F, 0F);
-        facemask4 = new ModelRenderer(this, 37, 3);
-        facemask4.addBox(-4F, 0F, -2F, 0, 2, 8);
-        facemask4.setPos(0F, -2F, -2F);
-        facemask4.setTexSize(64, 32);
-        facemask4.mirror = true;
-        setRotation(facemask4, 0F, 0F, 0F);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, rightarm, leftarm, rightleg, leftleg, body, neck, facemask1, facemask2, facemask3, facemask4);
-    }
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -2.0F, 0.0F));
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-5.0F, 2.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(5.0F, 2.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(20, 18).mirror().addBox(-4.0F, 0.0F, -2.0F, 4.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, -2.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("facemask1", CubeListBuilder.create().texOffs(37, 3).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -2.0F, -2.0F));
+
+		partdefinition.addOrReplaceChild("facemask2", CubeListBuilder.create().texOffs(37, 3).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -2.0F, 6.0F));
+
+		partdefinition.addOrReplaceChild("facemask3", CubeListBuilder.create().texOffs(37, 3).mirror().addBox(4.0F, 0.0F, -2.0F, 0.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -2.0F, -2.0F));
+
+		partdefinition.addOrReplaceChild("facemask4", CubeListBuilder.create().texOffs(37, 3).mirror().addBox(-4.0F, 0.0F, -2.0F, 0.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -2.0F, -2.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.rightarm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+		this.leftarm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+	}
 
-        this.leftleg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-
-        this.rightleg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-
-        this.rightarm.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
-
-        this.leftarm.xRot = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
-    }
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		facemask1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		facemask2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		facemask3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		facemask4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

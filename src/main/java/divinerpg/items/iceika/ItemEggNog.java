@@ -1,34 +1,34 @@
 package divinerpg.items.iceika;
 
-import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.util.FoodList;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
 public class ItemEggNog extends ItemModFood {
 
-    public ItemEggNog(String name) {
-        super(name, new Item.Properties().tab(DivineRPG.tabs.food).food(FoodList.EGG_NOG).stacksTo(1), FoodList.EGG_NOG);
+    public ItemEggNog() {
+        super(new Item.Properties().food(FoodList.EGG_NOG).stacksTo(1), FoodList.EGG_NOG);
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
         if (!worldIn.isClientSide)
-            entityLiving.curePotionEffects(stack); // FORGE - move up so stack.shrink does not turn stack into air
+            entityLiving.curePotionEffects(stack);
 
-        if (entityLiving instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
+        if (entityLiving instanceof ServerPlayer) {
+            ServerPlayer serverplayerentity = (ServerPlayer) entityLiving;
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
             serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
             serverplayerentity.getFoodData().eat(4, 1.5F);
         }
 
-        if (entityLiving instanceof PlayerEntity && !((PlayerEntity) entityLiving).isCreative()) {
+        if (entityLiving instanceof Player && !((Player) entityLiving).isCreative()) {
             stack.shrink(1);
         }
 
@@ -36,12 +36,12 @@ public class ItemEggNog extends ItemModFood {
     }
 
     @Override
-    public UseAction getUseAnimation(ItemStack stack) {
-        return UseAction.DRINK;
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.DRINK;
     }
 
-    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return DrinkHelper.useDrink(worldIn, playerIn, handIn);
+    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
+        return ItemUtils.startUsingInstantly(worldIn, playerIn, handIn);
     }
 
 }

@@ -1,0 +1,30 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#is_end",
+  "spawners": [
+	  {
+	    "type": "divinerpg:ender_spider",
+	    "weight": 2,
+	    "minCount": 1,
+	    "maxCount": 4
+	  },
+	  {
+	    "type": "divinerpg:ender_triplets",
+	    "weight": 2,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+	  {
+		  "type": "divinerpg:ender_watcher",
+		  "weight": 4,
+		  "minCount": 1,
+		  "maxCount": 4
+	  },
+	  {
+		  "type": "divinerpg:end_mouse",
+		  "weight": 4,
+		  "minCount": 2,
+		  "maxCount": 3
+	  }
+  ]
+}

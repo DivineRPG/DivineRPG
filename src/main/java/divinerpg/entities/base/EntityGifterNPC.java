@@ -1,40 +1,53 @@
 package divinerpg.entities.base;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
 import net.minecraft.world.*;
 
 import java.util.*;
 
-public abstract class EntityGifterNPC extends EntityDivineMob {
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
 
-    public EntityGifterNPC(EntityType<? extends MobEntity> type, World worldIn) {
+public abstract class EntityGifterNPC extends PathfinderMob {
+
+    public EntityGifterNPC(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
     }
-
     @Override
-    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+    protected void registerGoals() {
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+    }
+    @Override
+    public boolean checkSpawnRules(LevelAccessor p_21686_, MobSpawnType p_21687_) {
+    	return true;
+    }
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if(this.isAlive()) {
             if(!this.level.isClientSide) {
                 player.inventory.add(this.getGift());
                 sendRandomChatMessage(player);
                 this.kill();
             }
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
         } else {
         	return super.mobInteract(player, hand);
         }
     }
 
-    protected void sendRandomChatMessage(PlayerEntity player) {
+    protected void sendRandomChatMessage(Player player) {
         ArrayList<String> messages = getMessages();
-        String name = new TranslationTextComponent(getTranslationName()).getString();
-        String messageToTranslate = new TranslationTextComponent(messages.get(random.nextInt(messages.size()))).getString();
-        ITextComponent message = new StringTextComponent(name + ": " + messageToTranslate);
-        player.sendMessage(message, player.getUUID());
+        String name = Component.translatable(getTranslationName()).getString();
+        String messageToTranslate = Component.translatable(messages.get(random.nextInt(messages.size()))).getString();
+        Component message = Component.translatable(name + ": " + messageToTranslate);
+        player.displayClientMessage(message, true);
     }
 
     protected abstract ItemStack getGift();

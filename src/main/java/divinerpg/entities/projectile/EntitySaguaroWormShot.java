@@ -1,33 +1,37 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.entities.vanilla.overworld.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntitySaguaroWormShot extends DivineThrowable {
 
-    public EntitySaguaroWormShot(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntitySaguaroWormShot(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntitySaguaroWormShot(EntityType<? extends ThrowableEntity> type, double x, double y, double z, World world) {
+    public EntitySaguaroWormShot(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world) {
         super(type, x, y, z, world);
     }
 
-    public EntitySaguaroWormShot(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntitySaguaroWormShot(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
     }
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null && !(result.hitInfo instanceof EntitySaguaroWorm)) {
-            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
-        } else if (result.getEntity() == null) {
-            if (!this.level.isClientSide)
-                this.kill();
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null && !(result.getEntity() instanceof EntitySaguaroWorm)) {
+                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
+            } else if (result.getEntity() == null) {
+                if (!this.level.isClientSide)
+                    this.kill();
+            }
         }
     }
 

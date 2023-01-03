@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    },
+    {
+      "item": "divinerpg:raw_arlemite"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:raw_arlemite_block",
+    "count": 1
+  }
+}

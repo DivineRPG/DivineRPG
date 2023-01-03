@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "cutout_mipped",
   "textures": {
-    "all": "divinerpg:blocks/blank_break"
+    "all": "divinerpg:block/blank_break"
   }
 }

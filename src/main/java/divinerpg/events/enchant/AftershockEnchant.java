@@ -1,8 +1,8 @@
 package divinerpg.events.enchant;
 
 import divinerpg.registries.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
@@ -18,7 +18,7 @@ public class AftershockEnchant {
         if (!(entity instanceof LivingEntity))
             return;
 
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.AFTERSHOCK, ((LivingEntity) entity));
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.AFTERSHOCK.get(), ((LivingEntity) entity));
         if (level < 1)
             return;
 

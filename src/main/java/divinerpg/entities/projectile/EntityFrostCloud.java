@@ -1,45 +1,42 @@
 package divinerpg.entities.projectile;
 
 
-import com.google.common.collect.*;
+import com.google.common.collect.Maps;
 import divinerpg.entities.iceika.*;
 import divinerpg.entities.vanilla.overworld.*;
-import divinerpg.registries.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
-import net.minecraftforge.fml.network.*;
+import divinerpg.registries.ParticleRegistry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.SnowGolem;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.PushReaction;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class EntityFrostCloud extends Entity {
-    private static final DataParameter<Float> RADIUS = EntityDataManager.defineId(EntityFrostCloud.class,
-            DataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> RADIUS = SynchedEntityData.defineId(EntityFrostCloud.class,
+            EntityDataSerializers.FLOAT);
     private final Map<Entity, Integer> reapplicationDelayMap;
     private int duration;
     private int reapplicationDelay;
     private float radiusPerTick;
     private LivingEntity owner;
     private UUID ownerUniqueId;
-    private PlayerEntity player;
+    //private Player player;
 
-    public EntityFrostCloud(EntityType<?> type, World world) {
+    public EntityFrostCloud(EntityType<EntityFrostCloud> type, Level world) {
         super(type, world);
         this.reapplicationDelayMap = Maps.newHashMap();
         this.duration = 600;
         this.reapplicationDelay = 10;
         this.noPhysics = true;
         }
-    public EntityFrostCloud(EntityType<?> type, World world, double x, double y, double z) {
+    public EntityFrostCloud(EntityType<EntityFrostCloud> type, Level world, double x, double y, double z) {
         this(type, world);
         setPos(x, y, z);
     }
@@ -65,8 +62,8 @@ public class EntityFrostCloud extends Entity {
 
     @Nullable
     public LivingEntity getOwner() {
-        if (this.owner == null && this.ownerUniqueId != null && this.level instanceof ServerWorld) {
-            Entity entity = ((ServerWorld) this.level).getEntity(this.ownerUniqueId);
+        if (this.owner == null && this.ownerUniqueId != null && this.level instanceof ServerLevel) {
+            Entity entity = ((ServerLevel) this.level).getEntity(this.ownerUniqueId);
             if (entity instanceof LivingEntity) {
                 this.owner = (LivingEntity) entity;
             }
@@ -84,7 +81,7 @@ public class EntityFrostCloud extends Entity {
     }
 
     @Override
-    public void onSyncedDataUpdated(DataParameter<?> key) {
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
         if(RADIUS.equals(key)) {
         setRadius(getRadius());
         }
@@ -102,9 +99,9 @@ public class EntityFrostCloud extends Entity {
 
             for (int k1 = 0; k1 < f5; ++k1) {
                 float f6 = this.random.nextFloat() * ((float) Math.PI * 2F);
-                float f7 = MathHelper.sqrt(this.random.nextFloat()) * f;
-                float f8 = MathHelper.cos(f6) * f7;
-                float f9 = MathHelper.sin(f6) * f7;
+                float f7 = Mth.sqrt(this.random.nextFloat()) * f;
+                float f8 = Mth.cos(f6) * f7;
+                float f9 = Mth.sin(f6) * f7;
 
                 level.addParticle(ParticleRegistry.FROST.get(), this.xo + f8, this.yo, this.zo + f9,
                         (0.5D - this.random.nextDouble()) * 0.15D, 0.009999999776482582D,
@@ -150,7 +147,7 @@ public class EntityFrostCloud extends Entity {
                             if (d2 <= f * f) {
                                 this.reapplicationDelayMap.put(entity,
                                         Integer.valueOf(this.tickCount + this.reapplicationDelay));
-                                if (!(entity.isDeadOrDying() || entity instanceof SnowGolemEntity
+                                if (!(entity.isDeadOrDying() || entity instanceof SnowGolem
                                         || entity instanceof EntityGlacon || entity instanceof EntityFrost
                                         || entity instanceof EntityAlicanto || entity instanceof EntityFractite
                                         || entity instanceof EntityFrostArcher || entity instanceof EntityFrosty
@@ -192,7 +189,7 @@ public class EntityFrostCloud extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundNBT compound) {
+    protected void readAdditionalSaveData(CompoundTag compound) {
         this.tickCount = compound.getInt("Age");
         this.duration = compound.getInt("Duration");
         this.reapplicationDelay = compound.getInt("ReapplicationDelay");
@@ -202,7 +199,7 @@ public class EntityFrostCloud extends Entity {
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundNBT compound) {
+    protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putInt("Age", this.tickCount);
         compound.putInt("Duration", this.duration);
         compound.putInt("ReapplicationDelay", this.reapplicationDelay);
@@ -214,8 +211,8 @@ public class EntityFrostCloud extends Entity {
     }
 
 
-    @Override
-    public IPacket<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
+//    @Override
+//    public Packet<?> getAddEntityPacket() {
+//        return NetworkHooks.getEntitySpawningPacket(this);
+//    }
 }

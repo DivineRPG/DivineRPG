@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/ayeraco_statue_green"
-      }
-    }
-  ]
-}

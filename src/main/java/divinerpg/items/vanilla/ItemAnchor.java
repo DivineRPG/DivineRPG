@@ -1,35 +1,21 @@
 package divinerpg.items.vanilla;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
+import com.google.common.collect.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.RarityList;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.UUID;
 
 public class ItemAnchor extends ItemModRanged {
-    private final Multimap<Attribute, AttributeModifier> attributeModifiers;
     protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac130003");
-    public ItemAnchor(String name, BulletType projectileType) {
+    private final Multimap<Attribute, AttributeModifier> attributeModifiers;
 
-        super(name,
-                RarityList.COMMON,
-                null,
-                projectileType,
-                SoundRegistry.BLITZ,
-                SoundCategory.MASTER,
-                -1,
-                0,
-                null,
-                0);
+    public ItemAnchor(BulletType projectileType) {
+        super(projectileType, () -> SoundRegistry.BLITZ.get(), null, -1, 0);
 
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_MODIFIER, "Weapon attack", 7.0D, AttributeModifier.Operation.ADDITION));
@@ -38,7 +24,7 @@ public class ItemAnchor extends ItemModRanged {
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot, ItemStack stack) {
-        return equipmentSlot == EquipmentSlotType.OFFHAND ? this.attributeModifiers : super.getAttributeModifiers(equipmentSlot, stack);
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot, ItemStack stack) {
+        return equipmentSlot == EquipmentSlot.OFFHAND ? this.attributeModifiers : super.getAttributeModifiers(equipmentSlot, stack);
     }
 }

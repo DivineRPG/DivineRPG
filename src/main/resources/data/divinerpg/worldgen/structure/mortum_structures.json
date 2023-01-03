@@ -1,0 +1,14 @@
+{
+  "type": "divinerpg:lowest_ground",
+  "biomes": "divinerpg:mortum",
+  "step": "underground_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "divinerpg:twilight/mortum",
+  "size": 6,
+  "min_height": 32,
+  "max_height": 100,
+  "bury": 0,
+  "mode": "random_section",
+  "max_distance_from_center": 1
+}

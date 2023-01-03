@@ -1,0 +1,36 @@
+{
+	"name": "divinerpg:ruined_portal_arcana",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "minecraft:single_pool_element",
+				"projection": "rigid",
+				"location": "divinerpg:arcana/ruined_portal_arcana",
+				"processors": {
+					"processors": [
+						{
+							"processor_type": "minecraft:rule",
+							"rules": [
+								{
+									"location_predicate": {
+										"predicate_type": "minecraft:always_true"
+									},
+									"input_predicate": {
+										"predicate_type": "minecraft:random_block_match",
+										"block": "divinerpg:arcana_hard_portal_frame",
+										"probability": 0.5
+									},
+									"output_state": {
+										"Name": "minecraft:air"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		}
+	]
+}

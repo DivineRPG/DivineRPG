@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:blocks/purple_glowbone_plant_top"
+    "layer0": "divinerpg:block/purple_glowbone_plant_top"
   }
 }

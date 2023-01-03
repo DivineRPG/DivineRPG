@@ -1,26 +1,26 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.ActiveRenderInfo;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ParticleApalachiaPortal extends SpriteTexturedParticle
+public class ParticleApalachiaPortal extends TextureSheetParticle
 {
-	IAnimatedSprite animatedSprite;
+	SpriteSet animatedSprite;
 	private float portalParticleScale;
 	private double portalPosX, portalPosY, portalPosZ;
 
-	public ParticleApalachiaPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, IAnimatedSprite sprite)
+	public ParticleApalachiaPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
 	{
 		this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
 	}
 
-	public ParticleApalachiaPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
+	public ParticleApalachiaPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
 	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
 		this.xo = xSpeed;
@@ -57,12 +57,12 @@ public class ParticleApalachiaPortal extends SpriteTexturedParticle
 
 
 	@Override
-	public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
-		float var8 = (this.age + partialTicks) / this.lifetime * 3;
-		var8 = 1.0F - var8;
-		var8 *= var8;
-		var8 = 1.0F - var8;
-		this.quadSize = this.portalParticleScale * var8;
+	public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
+			float var8 = (this.age + partialTicks) / this.lifetime * 3;
+			var8 = 1.0F - var8;
+			var8 *= var8;
+			var8 = 1.0F - var8;
+			this.quadSize = this.portalParticleScale * var8;
 		super.render(buffer, renderInfo, partialTicks);
 	}
 
@@ -84,25 +84,22 @@ public class ParticleApalachiaPortal extends SpriteTexturedParticle
 		}
 	}
 
-
 	@Override
-	public IParticleRenderType getRenderType() {
-		return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+	public ParticleRenderType getRenderType() {
+		return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public static class Factory implements IParticleFactory<BasicParticleType>
-	{
-		private final IAnimatedSprite spriteSet;
+	public static class Provider implements ParticleProvider<SimpleParticleType> {
+		private final SpriteSet sprites;
 
-		public Factory(IAnimatedSprite spriteSetIn) {
-			this.spriteSet = spriteSetIn;
+		public Provider(SpriteSet spriteSet) {
+			this.sprites = spriteSet;
 		}
 
-		@Override
-		public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			ParticleApalachiaPortal particle = new ParticleApalachiaPortal(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, spriteSet);
-			particle.pickSprite(this.spriteSet);
+		public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+			ParticleApalachiaPortal particle = new ParticleApalachiaPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+			particle.pickSprite(this.sprites);
 			return particle;
 		}
 	}

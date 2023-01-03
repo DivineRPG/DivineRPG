@@ -1,31 +1,30 @@
 package divinerpg.items.iceika;
 
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModRanged;
-import divinerpg.registries.ItemRegistry;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemMusicShooter extends ItemModRanged {
 
-    public ItemMusicShooter(String name, SoundEvent event, EntityType type) {
-        super(name, RarityList.COMMON, type, null, event, SoundCategory.MASTER, 4000, 0,
-                () -> null,
+    public ItemMusicShooter(Supplier<SoundEvent> event, String name) {
+        super(name, null, event, SoundSource.MASTER, 4000, 1,
+                null,
                 0);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if (this == ItemRegistry.soundOfCarols) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sound_of_carols"))) {
             tooltip.add(LocalizeUtils.rangedDam(16));
         } else {
             tooltip.add(LocalizeUtils.rangedDam(10));

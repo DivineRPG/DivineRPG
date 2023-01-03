@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:ancient_tomb",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 213551,
+    "spread_type": "linear",
+    "spacing": 50,
+    "separation": 25
+  }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/skythern_block"
+    "all": "divinerpg:block/skythern_block"
   }
 }

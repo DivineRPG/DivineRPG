@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "divinerpg:blocks/hyrewood_log_top",
-    "side": "divinerpg:blocks/hyrewood_log_side"
+    "end": "divinerpg:block/hyrewood_log_top",
+    "side": "divinerpg:block/hyrewood_log_side"
   }
 }

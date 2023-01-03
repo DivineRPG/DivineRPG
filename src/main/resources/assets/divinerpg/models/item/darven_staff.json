@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/darven_staff"
+    "layer0": "divinerpg:item/darven_staff"
   }
 }

@@ -1,52 +1,50 @@
 package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.potion.*;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
 import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.*;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
+import java.util.EnumSet;
 
 public class EntityWraith extends EntityDivineTameable {
 
-    private static final DataParameter<Byte> DATA_ID_FLAGS = EntityDataManager.defineId(EntityWraith.class, DataSerializers.BYTE);
-    private static final EntityPredicate RESTING_TARGETING = (new EntityPredicate()).range(4.0D).allowSameTeam();
     private BlockPos targetPosition;
 	
-	public EntityWraith(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
+	public EntityWraith(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
+        this(type, worldIn);
+        tame(player);
+    }
+	
+	public EntityWraith(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn);
         setHealth(getMaxHealth());
-        tame(player);
-        this.setResting(true);
+        this.moveControl = new EntityWraith.MoveHelperController(this);
     }
-	
-	public <T extends Entity> EntityWraith(EntityType<T> type, World worldIn) {
-        super((EntityType<? extends TameableEntity>) type, worldIn);
-        setHealth(getMaxHealth());
+    protected void registerGoals() {
+        this.goalSelector.addGoal(5, new EntityWraith.RandomFlyGoal(this));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        this.goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
     }
-	
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+
+
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.5F;
     }
     
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return TameableEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.seimerHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.seimerSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.seimerFollowRange);
-    }
-    
-    public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
         if (this.isTame()) {
@@ -54,8 +52,8 @@ public class EntityWraith extends EntityDivineTameable {
                 if (!player.isCreative()) {
                     itemstack.shrink(1);
                 }
-                this.heal((float) item.getFoodProperties().getNutrition());
-                return ActionResultType.PASS;
+                this.heal((float) item.getFoodProperties(itemstack, null).getNutrition());
+                return InteractionResult.PASS;
             } else {
                 tame(player);
                 this.setTame(true);
@@ -66,59 +64,9 @@ public class EntityWraith extends EntityDivineTameable {
 
     public boolean isFood(ItemStack stack) {
         Item item = stack.getItem();
-        return item.isEdible() && item.getFoodProperties().isMeat();
+        return item.isEdible() && item.getFoodProperties(stack, null).isMeat();
     }
 
-    @Override
-    public boolean doHurtTarget(Entity entity) {
-        float damage = (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue();
-
-        if (this.hasEffect(Effects.DAMAGE_BOOST)) {
-            damage += 3 << this.getEffect(Effects.DAMAGE_BOOST).getAmplifier();
-        }
-        if (this.hasEffect(Effects.WEAKNESS)) {
-            damage -= 2 << this.getEffect(Effects.WEAKNESS).getAmplifier();
-        }
-
-        int knockback = 0;
-        if (entity instanceof LivingEntity) {
-            damage += EnchantmentHelper.getBlockEfficiency((LivingEntity) entity);
-            knockback += EnchantmentHelper.getKnockbackBonus((LivingEntity) entity);
-        }
-
-        boolean attacked = entity.hurt(DamageSource.mobAttack(this), damage);
-
-        if (attacked) {
-            if (knockback > 0) {
-                entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F) * knockback * 0.5F,
-                        0.1D, MathHelper.cos(this.xRot * (float) Math.PI / 180.0F) * knockback * 0.5F);
-                this.setDeltaMovement(getDeltaMovement().x * 0.6D, getDeltaMovement().y, getDeltaMovement().z * 0.6D);
-            }
-
-            int fire = EnchantmentHelper.getFireAspect(this);
-            if (fire > 0) {
-                entity.setRemainingFireTicks(fire * 4);
-            }
-        }
-
-        return attacked;
-    }
-    
-    public void addAdditionalSaveData(CompoundNBT compound) {
-        super.addAdditionalSaveData(compound);
-        if (this.getOwnerUUID() == null) {
-            compound.putString("Owner", "");
-        } else {
-            compound.putString("Owner", this.getOwnerUUID().toString());
-        }
-        compound.putBoolean("Sitting", this.isOrderedToSit());
-        compound.putByte("BatFlags", this.entityData.get(DATA_ID_FLAGS));
-    }
-    
-    public void readAdditionalSaveData(CompoundNBT compound) {
-        super.readAdditionalSaveData(compound);
-        this.entityData.set(DATA_ID_FLAGS, compound.getByte("BatFlags"));
-    }
     
     @Override
     protected float getSoundVolume() {
@@ -126,123 +74,179 @@ public class EntityWraith extends EntityDivineTameable {
     }
     
     @Override
-    protected float getVoicePitch() {
+	public float getVoicePitch() {
         return super.getVoicePitch() * 0.95F;
     }
     
     @Nullable
     @Override
     public SoundEvent getAmbientSound() {
-        return this.isResting() && this.random.nextInt(4) != 0 ? null : SoundRegistry.WRAITH;
+        return SoundRegistry.WRAITH.get();
     }
     
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundRegistry.WRAITH_HURT;
+        return SoundRegistry.WRAITH_HURT.get();
     }
     
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.WRAITH_HURT;
+        return SoundRegistry.WRAITH_HURT.get();
     }
 
-    public boolean isPushable() {
-        return false;
-    }
 
-    protected void doPush(Entity p_82167_1_) {
-    }
 
-    protected void pushEntities() {
-    }
+    static class LookAroundGoal extends Goal {
+        private final EntityWraith parentEntity;
 
-    public boolean isResting() {
-        return (this.entityData.get(DATA_ID_FLAGS) & 1) != 0;
-    }
-
-    public void setResting(boolean p_82236_1_) {
-        byte b0 = this.entityData.get(DATA_ID_FLAGS);
-        if (p_82236_1_) {
-            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 | 1));
-        } else {
-            this.entityData.set(DATA_ID_FLAGS, (byte)(b0 & -2));
+        public LookAroundGoal(EntityWraith ent) {
+            this.parentEntity = ent;
+            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
         }
 
-    }
-    
-    @Override
-    public void tick() {
-        if (this.isResting()) {
-            this.setDeltaMovement(Vector3d.ZERO);
-            this.setPosRaw(this.getX(), (double)MathHelper.floor(this.getY()) + 1.0D - (double)this.getBbHeight(), this.getZ());
-        } else {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean canUse() {
+            return true;
         }
 
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void tick() {
+            if (this.parentEntity.getTarget() == null) {
+                Vec3 vector3d = this.parentEntity.getDeltaMovement();
+                this.parentEntity.xRot = -((float) Mth.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.parentEntity.xRotO = this.parentEntity.xRot;
+            } else {
+                LivingEntity livingentity = this.parentEntity.getTarget();
+//                double d0 = 64.0D;
+                if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
+                    double d1 = livingentity.getX() - this.parentEntity.getX();
+                    double d2 = livingentity.getZ() - this.parentEntity.getZ();
+                    this.parentEntity.xRot = -((float)Mth.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.parentEntity.xRotO = this.parentEntity.xRot;
+                }
+            }
+
+        }
     }
-    
-    @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
-        BlockPos blockpos = this.blockPosition();
-        BlockPos blockpos1 = blockpos.above();
-        if (this.isResting()) {
-            boolean flag = this.isSilent();
-            if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos)) {
-                if (this.random.nextInt(200) == 0) {
-                    this.yHeadRot = (float)this.random.nextInt(360);
+    static class MoveHelperController extends MoveControl {
+        private final EntityWraith parentEntity;
+        private int courseChangeCooldown;
+
+        public MoveHelperController(EntityWraith ent) {
+            super(ent);
+            this.parentEntity = ent;
+        }
+
+        public void tick() {
+            if (this.operation == MoveControl.Operation.MOVE_TO) {
+
+                this.mob.setNoGravity(true);
+                double d0 = this.wantedX - this.mob.getX();
+                double d1 = this.wantedY - this.mob.getY();
+                double d2 = this.wantedZ - this.mob.getZ();
+                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+                if (d3 < (double)2.5000003E-7F) {
+                    this.mob.setYya(0.0F);
+                    this.mob.setZza(0.0F);
+                    return;
                 }
 
-                if (this.level.getNearestPlayer(RESTING_TARGETING, this) != null) {
-                    this.setResting(false);
-                    if (!flag) {
-                        this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
+                float f = (float)(Mth.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F;
+                this.mob.yRot = this.rotlerp(this.mob.yRot, f, 90.0F);
+                float f1;
+                if (this.mob.isOnGround()) {
+                    f1 = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
+                } else {
+                    f1 = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.FLYING_SPEED));
+                }
+
+                this.mob.setSpeed(f1);
+                double d4 = (double)Mth.sqrt((float) (d0 * d0 + d2 * d2));
+                float f2 = (float)(-(Mth.atan2(d1, d4) * (double)(180F / (float)Math.PI)));
+                this.mob.xRot = this.rotlerp(this.mob.xRot, f2, (float)20);
+                this.mob.setYya(d1 > 0.0D ? f1 : -f1);
+
+
+
+                if (this.courseChangeCooldown-- <= 0) {
+                    this.courseChangeCooldown += this.parentEntity.getRandom().nextInt(5) + 2;
+                    Vec3 vector3d = new Vec3(this.wantedX - this.parentEntity.getX(), this.wantedY - this.parentEntity.getY(), this.wantedZ - this.parentEntity.getZ());
+                    double d5 = vector3d.length();
+                    vector3d = vector3d.normalize();
+                    if (this.canReach(vector3d, Mth.ceil(d5))) {
+                        this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add(vector3d.scale(0.1D)));
+                    } else {
+                        this.operation = MoveControl.Operation.WAIT;
                     }
                 }
-            } else {
-                this.setResting(false);
-                if (!flag) {
-                    this.level.levelEvent((PlayerEntity)null, 1025, blockpos, 0);
+
+            }
+        }
+
+        private boolean canReach(Vec3 p_220673_1_, int p_220673_2_) {
+            AABB axisalignedbb = this.parentEntity.getBoundingBox();
+
+            for(int i = 1; i < p_220673_2_; ++i) {
+                axisalignedbb = axisalignedbb.move(p_220673_1_);
+                if (!this.parentEntity.level.noCollision(this.parentEntity, axisalignedbb)) {
+                    return false;
                 }
             }
-        } else {
-            if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() < 1)) {
-                this.targetPosition = null;
-            }
 
-            if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerThan(this.position(), 2.0D)) {
-                this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
-            }
-
-            double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();
-            double d0 = (double)this.targetPosition.getY() + 0.1D - this.getY();
-            double d1 = (double)this.targetPosition.getZ() + 0.5D - this.getZ();
-            Vector3d vector3d = this.getDeltaMovement();
-            Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double)0.1F, (Math.signum(d0) * (double)0.7F - vector3d.y) * (double)0.1F, (Math.signum(d1) * 0.5D - vector3d.z) * (double)0.1F);
-            this.setDeltaMovement(vector3d1);
-            float f = (float)(MathHelper.atan2(vector3d1.z, vector3d1.x) * (double)(180F / (float)Math.PI)) - 90.0F;
-            float f1 = MathHelper.wrapDegrees(f - this.yRot);
-            this.zza = 0.5F;
-            this.yRot += f1;
-            if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
-                this.setResting(true);
-            }
+            return true;
         }
     }
 
-    protected boolean isMovementNoisy() {
-        return false;
-    }
+    static class RandomFlyGoal extends Goal {
+        private final EntityWraith parentEntity;
 
-    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
-        return false;
-    }
+        public RandomFlyGoal(EntityWraith ent) {
+            this.parentEntity = ent;
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
 
-    protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {
-    }
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean canUse() {
+            if(parentEntity.getTarget() != null){
+                return false;
+            }
+            MoveControl movementcontroller = this.parentEntity.getMoveControl();
+            if (!movementcontroller.hasWanted()) {
+                return true;
+            } else {
+                double d0 = movementcontroller.getWantedX() - this.parentEntity.getX();
+                double d1 = movementcontroller.getWantedY() - this.parentEntity.getY();
+                double d2 = movementcontroller.getWantedZ() - this.parentEntity.getZ();
+                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+                return d3 < 1.0D || d3 > 3600.0D;
+            }
+        }
 
-    public boolean isIgnoringBlockTriggers() {
-        return true;
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean canContinueToUse() {
+            return false;
+        }
+
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void start() {
+            RandomSource random = this.parentEntity.getRandom();
+            double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
+        }
     }
 
 }

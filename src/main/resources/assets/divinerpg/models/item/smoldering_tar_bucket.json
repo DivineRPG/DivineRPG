@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "divinerpg:items/smoldering_tar_bucket"
+    "layer0": "divinerpg:item/smoldering_tar_bucket"
   }
 }

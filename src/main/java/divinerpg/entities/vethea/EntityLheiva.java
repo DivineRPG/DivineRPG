@@ -1,70 +1,50 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.DivineRPG;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class EntityLheiva extends EntityVetheaMob {
+public class EntityLheiva extends EntityDivineMonster {
 
-    public EntityLheiva(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityLheiva(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.2F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.lheivaHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.lheivaDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.lheivaSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.lheivaFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public boolean hurt(DamageSource source, float par2) {
         Entity var1 = source.getDirectEntity();
-        if (var1 != null && var1 instanceof PlayerEntity) {
-            if (((PlayerEntity)var1).inventory.contains(new ItemStack(ItemRegistry.bandOfHeivaHunting)))
+        if (var1 != null && var1 instanceof Player) {
+            if (((Player)var1).inventory.contains(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "band_of_heiva_hunting")))))
                 return super.hurt(source, par2);
         } else if(source == DamageSource.OUT_OF_WORLD) return super.hurt(source, par2);
         return false;
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 3;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.LHEIVA;
+        return SoundRegistry.LHEIVA.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.LHEIVA_HURT;
+        return SoundRegistry.LHEIVA_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.LHEIVA_HURT;
+        return SoundRegistry.LHEIVA_HURT.get();
     }
 }

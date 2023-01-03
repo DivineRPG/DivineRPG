@@ -1,47 +1,40 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import net.minecraft.core.*;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.*;
-import net.minecraftforge.common.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
 
 public class BlockModDoor extends DoorBlock {
-	
-    public BlockModDoor(String name, Material material, float hardness, float resistance, ToolType tool, SoundType sound) {
+    public BlockModDoor(Material material, float hardness, float resistance, SoundType sound) {
         super(Block.Properties
                 .of(material)
                 .strength(hardness, resistance)
-                .harvestTool(tool)
                 .noOcclusion()
                 .requiresCorrectToolForDrops()
-                .sound(sound));
-        setRegistryName(DivineRPG.MODID, name);
+                .sound(sound), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN);
     }
-
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
             state = state.cycle(OPEN);
             world.setBlock(pos, state, 10);
             world.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-            return ActionResultType.sidedSuccess(world.isClientSide);
+            return InteractionResult.sidedSuccess(world.isClientSide);
     }
-
     private int getCloseSound() {
         return this.material == Material.METAL ? 1011 : 1012;
     }
-
     private int getOpenSound() {
         return this.material == Material.METAL ? 1005 : 1006;
     }
-
     @Override
-    public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
+    public ItemStack getCloneItemStack(BlockGetter block, BlockPos pos, BlockState state) {
         return new ItemStack(state.getBlock());
     }
-
 }

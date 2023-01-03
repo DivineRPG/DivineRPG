@@ -1,48 +1,26 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.EntityMandragoraProjectile;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
-public class EntityMandragora extends EntityVetheaMob {
+public class EntityMandragora extends EntityDivineMonster {
 
-    public EntityMandragora(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityMandragora(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.mandragoraHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.mandragoraDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.mandragoraSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.mandragoraFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
-    @Override
-    public int getSpawnLayer() {
-        return 2;
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     protected float getSoundVolume() {
         return 0.7F;
@@ -51,32 +29,34 @@ public class EntityMandragora extends EntityVetheaMob {
     @Override
     public void tick() {
         super.tick();
-        PlayerEntity target = this.level.getNearestPlayer(this, 16);
+        Player target = this.level.getNearestPlayer(this, 16);
         if(!level.isClientSide && target != null && this.tickCount%20 == 0) attackEntity(target);
     }
 
     public void attackEntity(LivingEntity e) {
-  //      double tx = e.getX() - this.getX();
-    //    double ty = e.getBoundingBox().minY - this.getY();
-      //  double tz = e.getZ() - this.getZ();
-        EntityMandragoraProjectile p = new EntityMandragoraProjectile(EntityRegistry.MANDRAGORA_PROJECTILE, this, this.level);
-//        p.setThrowableHeading(tx, ty, tz, 1.3f, 15);
-        this.playSound(SoundRegistry.MANDRAGORA, 2.0F, 2.0F);
-        if(!level.isClientSide)this.level.addFreshEntity(p);
+        if (isAlive() && getTarget() != null && !level.isClientSide) {
+            EntityMandragoraProjectile projectile = new EntityMandragoraProjectile(EntityRegistry.MANDRAGORA_PROJECTILE.get(), this, this.level);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+            this.level.addFreshEntity(projectile);
+        }
     }   
     
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.MANDRAGORA;
+        return SoundRegistry.MANDRAGORA.get();
     }
 }

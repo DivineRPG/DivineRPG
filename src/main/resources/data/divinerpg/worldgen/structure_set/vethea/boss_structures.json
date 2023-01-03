@@ -1,0 +1,35 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:evergarden",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:hive",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:karos_madhouse",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:quadrotic_post",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:raglok_chamber",
+			"weight": 1
+		},
+		{
+			"structure": "divinerpg:wreck_hall",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 1733680842,
+		"spread_type": "linear",
+		"spacing": 25,
+		"separation": 12
+	}
+}

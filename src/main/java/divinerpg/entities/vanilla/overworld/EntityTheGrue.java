@@ -1,54 +1,37 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
 
-import java.util.*;
+import static divinerpg.registries.SoundRegistry.*;
 
-public class EntityTheGrue extends EntityDivineMob {
-
-    public EntityTheGrue(EntityType<? extends MobEntity> type, World worldIn) {
-        super(type, worldIn);
-    }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-        return 1.4F;
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theGrueHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.theGrueDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.theGrueSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theGrueFollowRange);
-    }
-
+public class EntityTheGrue extends EntityDivineMonster {
+	public EntityTheGrue(EntityType<? extends Monster> type, Level level) {super(type, level);}
+	@Override
+	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 1.4F;}
+	@Override
+    protected SoundEvent getAmbientSound() {return DEATHCRYX.get();}
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-        goalSelector.addGoal(0, new LeapAtTargetGoal(this, 0.6F));
-    }
-
+    protected SoundEvent getHurtSound(DamageSource source) {return DEATHCRYX_HURT.get();}
     @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.DEATHCRYX;
-    }
-
+    protected SoundEvent getDeathSound() {return DEATHCRYX_HURT.get();}
+	@Override public boolean isAggressive() {return true;}
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.DEATHCRYX_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.DEATHCRYX_HURT;
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER ||  pos.getY() <= 16 && worldIn.getLightEmission(pos) < 8;
-    }
+	protected void registerGoals() {
+		super.registerGoals();
+		goalSelector.addGoal(0, new LeapAtTargetGoal(this, 0.6F));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+	}
+	public static boolean theGrueSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+		return pos.getY() < 0 && checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn);
+	}
 }

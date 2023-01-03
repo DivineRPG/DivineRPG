@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:cracklespike"
+          }
+        },
+        {
+          "weight": 3,
+          "data": {
+            "Name": "divinerpg:dreamglow"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:fernite"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:shimmer"
+          }
+        },
+        {
+          "weight": 5,
+          "data": {
+            "Name": "divinerpg:shine_grass"
+          }
+        }
+      ]
+    }
+  }
+}

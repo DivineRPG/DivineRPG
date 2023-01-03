@@ -1,0 +1,12 @@
+{
+	"feature": "divinerpg:arcanite_vines",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": 48
+		},
+		{
+			"type": "minecraft:in_square"
+		}
+	]
+}

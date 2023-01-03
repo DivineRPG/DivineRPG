@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "divinerpg:block/arcanium_rich_sand"
+  }
+}

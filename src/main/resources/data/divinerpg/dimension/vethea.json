@@ -1,29 +1,60 @@
 {
-  "type": {
-    "name": "divinerpg:vethea",
-    "ultrawarm": false,
-    "natural": true,
-    "piglin_safe": false,
-    "respawn_anchor_works": false,
-    "bed_works": false,
-    "has_raids": true,
-    "has_skylight": true,
-    "has_ceiling": false,
-    "coordinate_scale": 1,
-    "ambient_light": 0,
-    "logical_height": 256,
-    "infiniburn": "minecraft:infiniburn_overworld"
-  },
-  "generator": {
-    "type": "divinerpg:vethea",
-    "seed": 7111475230,
-    "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "divinerpg:vethea"
-    },
-    "structures": {
-      "structures": {
-      }
-    }
-  }
+	"type": "divinerpg:vethea",
+	"generator": {
+		"type": "minecraft:noise",
+		"settings": "divinerpg:vethea",
+		"biome_source": {
+			"type": "minecraft:multi_noise",
+			"biomes": [
+				{
+					"biome": "divinerpg:scorched_tops",
+					"parameters": {
+						"temperature": 0,
+						"humidity": 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": -0.711,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:hyrelands",
+					"parameters": {
+						"temperature": 0,
+						"humidity": 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": -0.68,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:dream_grounds",
+					"parameters": {
+						"temperature": 0,
+						"humidity": 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": 0.39,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:ember_caverns",
+					"parameters": {
+						"temperature": 0,
+						"humidity": 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": 0.4,
+						"offset": 0
+					}
+				}
+			]
+		}
+	}
 }

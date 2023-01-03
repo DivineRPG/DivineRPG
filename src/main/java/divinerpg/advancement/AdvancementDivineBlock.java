@@ -3,23 +3,23 @@ package divinerpg.advancement;
 import com.google.common.collect.*;
 import com.google.gson.*;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.criterion.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.loot.*;
-import net.minecraft.util.*;
+import net.minecraft.advancements.critereon.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.util.*;
 import net.minecraftforge.registries.*;
 
 import javax.annotation.*;
 import java.util.*;
 
-public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivineBlock.Instance> {
-    public static class Instance extends CriterionInstance {
+public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivineBlock.Instance> {
+    public static class Instance extends AbstractCriterionTriggerInstance {
         private final Block block;
 
         public Instance(ResourceLocation parRL, @Nullable Block block) {
-            super(parRL, EntityPredicate.AndPredicate.ANY);
+            super(parRL, EntityPredicate.Composite.ANY);
             this.block = block;
         }
 
@@ -39,7 +39,7 @@ public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivi
             playerAdvancements = playerAdvancementsIn;
         }
 
-        public void add(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+        public void add(CriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
             listeners.add(listener);
         }
 
@@ -47,13 +47,13 @@ public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivi
             return listeners.isEmpty();
         }
 
-        public void remove(ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
+        public void remove(CriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener) {
             listeners.remove(listener);
         }
 
-        public void trigger(ServerPlayerEntity player, Block block) {
-            ArrayList<ICriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
-            for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
+        public void trigger(ServerPlayer player, Block block) {
+            ArrayList<CriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
+            for (CriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
                 if (listener.getTriggerInstance().test(block)) {
                     if (list == null) {
                         list = Lists.newArrayList();
@@ -62,7 +62,7 @@ public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivi
                 }
             }
             if (list != null) {
-                for (ICriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener1 : list) {
+                for (CriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener1 : list) {
                     listener1.run(playerAdvancements);
                 }
             }
@@ -87,7 +87,7 @@ public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivi
         return RL;
     }
 
-    public void trigger(ServerPlayerEntity player, Block block) {
+    public void trigger(ServerPlayer player, Block block) {
         AdvancementDivineBlock.Listeners myCustomTrigger$listeners = listeners.get(player.getAdvancements());
         if (myCustomTrigger$listeners != null) {
             myCustomTrigger$listeners.trigger(player, block);
@@ -121,7 +121,7 @@ public class AdvancementDivineBlock implements ICriterionTrigger<AdvancementDivi
     }
 
     @Override
-    public Instance createInstance(JsonObject json, ConditionArrayParser parser) {
+    public Instance createInstance(JsonObject json, DeserializationContext parser) {
         Block block = null;
         if (json.has("block")) {
             ResourceLocation resourcelocation = new ResourceLocation(JsonUtils.readNBT(json, "block").getAsString());

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/heliosis_backsword"
+    "layer0": "divinerpg:item/heliosis_backsword"
   }
 }

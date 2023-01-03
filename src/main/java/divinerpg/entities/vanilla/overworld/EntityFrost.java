@@ -1,62 +1,70 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.EntityFrostShot;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
-import java.util.Random;
-
-public class EntityFrost extends EntityDivineFlyingMob implements IRangedAttackMob {
-
-    public EntityFrost(EntityType<? extends EntityFrost> type, World worldIn) {
+public class EntityFrost extends EntityDivineMonster implements RangedAttackMob {
+    public EntityFrost(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 20;
+        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.6F;
     }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.frostHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.frostDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.frostSpeed).add(Attributes.FLYING_SPEED, EntityStats.frostSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.follow);
-    }
-    @Override
     protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
+        this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+    }
+
+    @Override
+    public void tick() {
+        if (!this.onGround && this.getDeltaMovement().y < 0.0D) {
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+        }
+        super.tick();
     }
 
     @Override
     public void performRangedAttack(LivingEntity entity, float p_82196_2_) {
-        if(this.isAlive()) {
-            if (getTarget() != null) {
-                EntityFrostShot projectile = new EntityFrostShot(level, this, 0, 0, 0);
-                double d0 = getTarget().getX() - this.getX();
-                double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-                double d2 = getTarget().getZ() - this.getZ();
-                double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 2.3F, (float) (14 - this.level.getDifficulty().getId() * 4));
-                this.level.addFreshEntity(projectile);
-            }
+        if(isAlive() && getTarget() != null && !level.isClientSide && this.tickCount % 50 == 0) {
+            EntityFrostShot projectile = new EntityFrostShot(level, this, 0, 0, 0);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+            this.level.addFreshEntity(projectile);
         }
     }
 
     @Override
+    public boolean causeFallDamage(float distance, float damageMultiplier, DamageSource source) {
+    	return false;
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.FROST;
+        return SoundRegistry.FROST.get();
     }
 
     @Override
@@ -69,9 +77,8 @@ public class EntityFrost extends EntityDivineFlyingMob implements IRangedAttackM
         return SoundEvents.BLAZE_DEATH;
     }
 
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
+    @Override
+    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
+        return 0.0F;
     }
-
 }

@@ -1,41 +1,27 @@
 package divinerpg.entities.wildwood;
 
 import divinerpg.entities.base.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
 
-import java.util.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
 
-public class EntityTermid extends EntityDivineMob {
+public class EntityTermid extends EntityDivineMonster {
 
 
-    public EntityTermid(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityTermid(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.1F;
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.termidHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.termidDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.termidSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.termidFollowRange);
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
-    }
+    @Override public boolean isAggressive() {return true;}
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
-    @Override
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.UNDEFINED;
+    public MobType getMobType() {
+        return MobType.UNDEFINED;
     }
 
     @Override
@@ -58,7 +44,7 @@ public class EntityTermid extends EntityDivineMob {
         return 0;
     }
     @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+    public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
 }

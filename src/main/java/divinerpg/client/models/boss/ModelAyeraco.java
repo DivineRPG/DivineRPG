@@ -1,348 +1,180 @@
 package divinerpg.client.models.boss;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelAyeraco<T extends Entity> extends EntityModel<T> {
-    // fields
-    ModelRenderer BodyLower;
-    ModelRenderer Neck;
-    ModelRenderer Head;
-    ModelRenderer Tail;
-    ModelRenderer WingLB;
-    ModelRenderer Tail2;
-    ModelRenderer Tail3;
-    ModelRenderer Shape1;
-    ModelRenderer WingRB;
-    ModelRenderer WingRF;
-    ModelRenderer WingLF;
-    ModelRenderer WingRExtB;
-    ModelRenderer WingLExtB;
-    ModelRenderer WingLExtF;
-    ModelRenderer WingRExtF;
-    ModelRenderer WingRExt;
-    ModelRenderer WingRM;
-    ModelRenderer WingLM;
-    ModelRenderer WingLExtM;
-    ModelRenderer Mouth1;
-    ModelRenderer Butt;
-    ModelRenderer Head2;
-    ModelRenderer Mouth2;
-    ModelRenderer Body;
-    ModelRenderer Shape2;
-    ModelRenderer Shape3;
-    ModelRenderer Shape4;
-    ModelRenderer Shape5;
-    ModelRenderer Shape6;
-    ModelRenderer Shape7;
-    ModelRenderer Shape8;
-    ModelRenderer Shape9;
-    ModelRenderer Shape10;
-    ModelRenderer Shape11;
-    ModelRenderer Shape12;
-    ModelRenderer Shape13;
-    ModelRenderer Shape14;
+import divinerpg.entities.boss.EntityAyeraco;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-    public ModelAyeraco() {
-        texWidth = 64;
-        texHeight = 32;
+import static divinerpg.util.ClientUtils.createLocation;
 
-        BodyLower = new ModelRenderer(this, 0, 0);
-        BodyLower.addBox(0F, -1F, 0F, 10, 1, 12);
-        BodyLower.setPos(-5F, 18F, -6F);
-        BodyLower.setTexSize(64, 32);
-        BodyLower.mirror = true;
-        setRotation(BodyLower, 0F, 0F, 0F);
-        Neck = new ModelRenderer(this, 13, 16);
-        Neck.addBox(0F, -1F, 0F, 12, 4, 2);
-        Neck.setPos(-6F, 13F, -10F);
-        Neck.setTexSize(64, 32);
-        Neck.mirror = true;
-        setRotation(Neck, 0F, 0F, 0F);
-        Head = new ModelRenderer(this, 0, 19);
-        Head.addBox(0F, -1F, 0F, 6, 6, 7);
-        Head.setPos(3F, 12F, -17F);
-        Head.setTexSize(64, 32);
-        Head.mirror = true;
-        setRotation(Head, 0F, 0F, 0F);
-        Tail = new ModelRenderer(this, 40, 0);
-        Tail.addBox(-1F, 0F, 0F, 2, 1, 10);
-        Tail.setPos(3F, 14F, 14F);
-        Tail.setTexSize(64, 32);
-        Tail.mirror = true;
-        setRotation(Tail, 0F, 0F, 0F);
-        WingLB = new ModelRenderer(this, 28, 27);
-        WingLB.addBox(0F, 0F, 2F, 8, 1, 4);
-        WingLB.setPos(5F, 13F, 1F);
-        WingLB.setTexSize(64, 32);
-        WingLB.mirror = true;
-        setRotation(WingLB, 0F, 0F, 0F);
-        Tail2 = new ModelRenderer(this, 40, 0);
-        Tail2.addBox(-1F, 0F, 0F, 2, 1, 10);
-        Tail2.setPos(0F, 14F, 14F);
-        Tail2.setTexSize(64, 32);
-        Tail2.mirror = true;
-        setRotation(Tail2, 0F, 0F, 0F);
-        Tail3 = new ModelRenderer(this, 40, 0);
-        Tail3.addBox(-1F, 0F, 0F, 2, 1, 10);
-        Tail3.setPos(-3F, 14F, 14F);
-        Tail3.setTexSize(64, 32);
-        Tail3.mirror = true;
-        setRotation(Tail3, 0F, 0F, 0F);
-        Shape1 = new ModelRenderer(this, 44, 20);
-        Shape1.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape1.setPos(-2F, 9F, 14F);
-        Shape1.setTexSize(64, 32);
-        Shape1.mirror = true;
-        setRotation(Shape1, 0.4089647F, 0F, 0F);
-        WingRB = new ModelRenderer(this, 28, 27);
-        WingRB.addBox(-7F, 0F, 2F, 8, 1, 4);
-        WingRB.setPos(-6F, 13F, 1F);
-        WingRB.setTexSize(64, 32);
-        WingRB.mirror = true;
-        setRotation(WingRB, 0F, 0F, 0F);
-        WingRF = new ModelRenderer(this, 28, 27);
-        WingRF.addBox(-7F, 0F, -2F, 8, 1, 4);
-        WingRF.setPos(-6F, 13F, -3F);
-        WingRF.setTexSize(64, 32);
-        WingRF.mirror = true;
-        setRotation(WingRF, 0F, 0F, 0F);
-        WingLF = new ModelRenderer(this, 28, 27);
-        WingLF.addBox(0F, 0F, -2F, 8, 1, 4);
-        WingLF.setPos(5F, 13F, -3F);
-        WingLF.setTexSize(64, 32);
-        WingLF.mirror = true;
-        setRotation(WingLF, 0F, 0F, 0F);
-        WingRExtB = new ModelRenderer(this, 28, 27);
-        WingRExtB.addBox(-15F, 0F, 3F, 8, 1, 2);
-        WingRExtB.setPos(-6F, 13F, 1F);
-        WingRExtB.setTexSize(64, 32);
-        WingRExtB.mirror = true;
-        setRotation(WingRExtB, 0F, 0F, 0F);
-        WingLExtB = new ModelRenderer(this, 28, 27);
-        WingLExtB.addBox(8F, 0F, 3F, 8, 1, 2);
-        WingLExtB.setPos(5F, 13F, 1F);
-        WingLExtB.setTexSize(64, 32);
-        WingLExtB.mirror = true;
-        setRotation(WingLExtB, 0F, 0F, 0F);
-        WingLExtF = new ModelRenderer(this, 28, 27);
-        WingLExtF.addBox(8F, 0F, -1F, 8, 1, 2);
-        WingLExtF.setPos(5F, 13F, -3F);
-        WingLExtF.setTexSize(64, 32);
-        WingLExtF.mirror = true;
-        setRotation(WingLExtF, 0F, 0F, 0F);
-        WingRExtF = new ModelRenderer(this, 28, 27);
-        WingRExtF.addBox(-15F, 0F, -1F, 8, 1, 2);
-        WingRExtF.setPos(-6F, 13F, -3F);
-        WingRExtF.setTexSize(64, 32);
-        WingRExtF.mirror = true;
-        setRotation(WingRExtF, 0F, 0F, 0F);
-        WingRExt = new ModelRenderer(this, 28, 27);
-        WingRExt.addBox(-15F, 0F, 3F, 8, 1, 2);
-        WingRExt.setPos(-6F, 13F, -3F);
-        WingRExt.setTexSize(64, 32);
-        WingRExt.mirror = true;
-        setRotation(WingRExt, 0F, 0F, 0F);
-        WingRM = new ModelRenderer(this, 28, 27);
-        WingRM.addBox(-7F, 0F, 2F, 8, 1, 4);
-        WingRM.setPos(-6F, 13F, -3F);
-        WingRM.setTexSize(64, 32);
-        WingRM.mirror = true;
-        setRotation(WingRM, 0F, 0F, 0F);
-        WingLM = new ModelRenderer(this, 28, 27);
-        WingLM.addBox(0F, 0F, 2F, 8, 1, 4);
-        WingLM.setPos(5F, 13F, -3F);
-        WingLM.setTexSize(64, 32);
-        WingLM.mirror = true;
-        setRotation(WingLM, 0F, 0F, 0F);
-        WingLExtM = new ModelRenderer(this, 28, 27);
-        WingLExtM.addBox(8F, 0F, 3F, 8, 1, 2);
-        WingLExtM.setPos(5F, 13F, -3F);
-        WingLExtM.setTexSize(64, 32);
-        WingLExtM.mirror = true;
-        setRotation(WingLExtM, 0F, 0F, 0F);
-        Mouth1 = new ModelRenderer(this, 0, 19);
-        Mouth1.addBox(0F, -1F, -7F, 6, 1, 7);
-        Mouth1.setPos(3F, 18F, -10F);
-        Mouth1.setTexSize(64, 32);
-        Mouth1.mirror = true;
-        setRotation(Mouth1, 0.0743572F, 0F, 0F);
-        Butt = new ModelRenderer(this, 10, 12);
-        Butt.addBox(0F, -1F, 0F, 10, 4, 6);
-        Butt.setPos(-5F, 13F, 8F);
-        Butt.setTexSize(64, 32);
-        Butt.mirror = true;
-        setRotation(Butt, 0F, 0F, 0F);
-        Head2 = new ModelRenderer(this, 0, 19);
-        Head2.addBox(0F, -1F, 0F, 6, 6, 7);
-        Head2.setPos(-9F, 12F, -17F);
-        Head2.setTexSize(64, 32);
-        Head2.mirror = true;
-        setRotation(Head2, 0F, 0F, 0F);
-        Mouth2 = new ModelRenderer(this, 0, 19);
-        Mouth2.addBox(0F, -1F, -7F, 6, 1, 7);
-        Mouth2.setPos(-9F, 18F, -10F);
-        Mouth2.setTexSize(64, 32);
-        Mouth2.mirror = true;
-        setRotation(Mouth2, 0.0743572F, 0F, 0F);
-        Body = new ModelRenderer(this, 0, 0);
-        Body.addBox(0F, -1F, 0F, 10, 6, 16);
-        Body.setPos(-5F, 12F, -8F);
-        Body.setTexSize(64, 32);
-        Body.mirror = true;
-        setRotation(Body, 0F, 0F, 0F);
-        Shape2 = new ModelRenderer(this, 44, 20);
-        Shape2.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape2.setPos(-2F, 13F, 10F);
-        Shape2.setTexSize(64, 32);
-        Shape2.mirror = true;
-        setRotation(Shape2, 0.7807508F, 0F, 0F);
-        Shape3 = new ModelRenderer(this, 46, 20);
-        Shape3.addBox(0F, -1F, 0F, 2, 1, 6);
-        Shape3.setPos(5F, 12F, -16F);
-        Shape3.setTexSize(64, 32);
-        Shape3.mirror = true;
-        setRotation(Shape3, 0.7807508F, 0F, 0F);
-        Shape4 = new ModelRenderer(this, 46, 20);
-        Shape4.addBox(0F, -1F, 0F, 2, 1, 6);
-        Shape4.setPos(5F, 8F, -12F);
-        Shape4.setTexSize(64, 32);
-        Shape4.mirror = true;
-        setRotation(Shape4, 0.4089647F, 0F, 0F);
-        Shape5 = new ModelRenderer(this, 44, 20);
-        Shape5.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape5.setPos(-2F, 12F, -2F);
-        Shape5.setTexSize(64, 32);
-        Shape5.mirror = true;
-        setRotation(Shape5, 0.7807508F, 0F, 0F);
-        Shape6 = new ModelRenderer(this, 44, 20);
-        Shape6.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape6.setPos(-2F, 8F, 2F);
-        Shape6.setTexSize(64, 32);
-        Shape6.mirror = true;
-        setRotation(Shape6, 0.4089647F, 0F, 0F);
-        Shape7 = new ModelRenderer(this, 44, 20);
-        Shape7.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape7.setPos(-2F, 12F, 3F);
-        Shape7.setTexSize(64, 32);
-        Shape7.mirror = true;
-        setRotation(Shape7, 0.7807508F, 0F, 0F);
-        Shape8 = new ModelRenderer(this, 44, 20);
-        Shape8.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape8.setPos(-2F, 8F, 7F);
-        Shape8.setTexSize(64, 32);
-        Shape8.mirror = true;
-        setRotation(Shape8, 0.4089647F, 0F, 0F);
-        Shape9 = new ModelRenderer(this, 44, 20);
-        Shape9.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape9.setPos(-2F, 12F, 7F);
-        Shape9.setTexSize(64, 32);
-        Shape9.mirror = true;
-        setRotation(Shape9, 0.7807508F, 0F, 0F);
-        Shape10 = new ModelRenderer(this, 44, 20);
-        Shape10.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape10.setPos(-2F, 8F, 11F);
-        Shape10.setTexSize(64, 32);
-        Shape10.mirror = true;
-        setRotation(Shape10, 0.4089647F, 0F, 0F);
-        Shape11 = new ModelRenderer(this, 44, 20);
-        Shape11.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape11.setPos(-2F, 12F, -7F);
-        Shape11.setTexSize(64, 32);
-        Shape11.mirror = true;
-        setRotation(Shape11, 0.7807508F, 0F, 0F);
-        Shape12 = new ModelRenderer(this, 44, 20);
-        Shape12.addBox(0F, -1F, 0F, 4, 1, 6);
-        Shape12.setPos(-2F, 8F, -3F);
-        Shape12.setTexSize(64, 32);
-        Shape12.mirror = true;
-        setRotation(Shape12, 0.4089647F, 0F, 0F);
-        Shape13 = new ModelRenderer(this, 46, 20);
-        Shape13.addBox(0F, -1F, 0F, 2, 1, 6);
-        Shape13.setPos(-7F, 12F, -16F);
-        Shape13.setTexSize(64, 32);
-        Shape13.mirror = true;
-        setRotation(Shape13, 0.7807508F, 0F, 0F);
-        Shape14 = new ModelRenderer(this, 46, 20);
-        Shape14.addBox(0F, -1F, 0F, 2, 1, 6);
-        Shape14.setPos(-7F, 8F, -12F);
-        Shape14.setTexSize(64, 32);
-        Shape14.mirror = true;
-        setRotation(Shape14, 0.4089647F, 0F, 0F);
-    }
+public class ModelAyeraco extends EntityModel<EntityAyeraco> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("ayeraco");
+	private final ModelPart Head;
+	private final ModelPart Tail;
+	private final ModelPart WingLB;
+	private final ModelPart Tail2;
+	private final ModelPart Tail3;
+	private final ModelPart WingRB;
+	private final ModelPart WingRF;
+	private final ModelPart WingLF;
+	private final ModelPart WingRM;
+	private final ModelPart WingLM;
+	private final ModelPart Head2;
+	private final ModelPart Body;
+	private final ModelPart Shape2;
+	private final ModelPart Shape3;
+	private final ModelPart Shape5;
+	private final ModelPart Shape7;
+	private final ModelPart Shape9;
+	private final ModelPart Shape11;
+	private final ModelPart Shape13;
 
-    @Override
-    public void setupAnim(T entityIn, float par1, float par2, float par3, float par4, float par5) {
-        this.WingRF.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.WingRM.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.WingRB.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.WingRExtF.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.WingRExt.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.WingRExtB.zRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
+	public ModelAyeraco(Context context) {
+		this(context.bakeLayer(LAYER_LOCATION));
+	}
+
+	public ModelAyeraco(ModelPart root) {
+		this.Head = root.getChild("Head");
+		this.Tail = root.getChild("Tail");
+		this.WingLB = root.getChild("WingLB");
+		this.Tail2 = root.getChild("Tail2");
+		this.Tail3 = root.getChild("Tail3");
+		this.WingRB = root.getChild("WingRB");
+		this.WingRF = root.getChild("WingRF");
+		this.WingLF = root.getChild("WingLF");
+		this.WingRM = root.getChild("WingRM");
+		this.WingLM = root.getChild("WingLM");
+		this.Head2 = root.getChild("Head2");
+		this.Body = root.getChild("Body");
+		this.Shape2 = root.getChild("Shape2");
+		this.Shape3 = root.getChild("Shape3");
+		this.Shape5 = root.getChild("Shape5");
+		this.Shape7 = root.getChild("Shape7");
+		this.Shape9 = root.getChild("Shape9");
+		this.Shape11 = root.getChild("Shape11");
+		this.Shape13 = root.getChild("Shape13");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation cubedef = new CubeDeformation(0.0F);
+
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(0.0F, -1.0F, 0.0F, 6.0F, 6.0F, 7.0F, cubedef).mirror(false), PartPose.offset(3.0F, 12.0F, -17.0F));
+
+		Head.addOrReplaceChild("Mouth1_r1", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(-3.0F, 0.0F, -7.0F, 6.0F, 1.0F, 7.0F, cubedef).mirror(false), PartPose.offsetAndRotation(3.0F, 5.0F, 7.0F, 0.0873F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(40, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 1.0F, 10.0F, cubedef).mirror(false), PartPose.offset(3.0F, 14.0F, 14.0F));
+
+		partdefinition.addOrReplaceChild("WingLB", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(0.0F, 0.0F, 2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(8.0F, 0.0F, 3.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(5.0F, 13.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Tail2", CubeListBuilder.create().texOffs(40, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 1.0F, 10.0F, cubedef).mirror(false), PartPose.offset(0.0F, 14.0F, 14.0F));
+
+		partdefinition.addOrReplaceChild("Tail3", CubeListBuilder.create().texOffs(40, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 2.0F, 1.0F, 10.0F, cubedef).mirror(false), PartPose.offset(-3.0F, 14.0F, 14.0F));
+
+		partdefinition.addOrReplaceChild("WingRB", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(-7.0F, 0.0F, 2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(-15.0F, 0.0F, 3.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-6.0F, 13.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("WingRF", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(-7.0F, 0.0F, -2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(-15.0F, 0.0F, -1.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-6.0F, 13.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("WingLF", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(0.0F, 0.0F, -2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(8.0F, 0.0F, -1.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(5.0F, 13.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("WingRM", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(-7.0F, 0.0F, 2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(-15.0F, 0.0F, 3.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(-6.0F, 13.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("WingLM", CubeListBuilder.create().texOffs(28, 27).mirror().addBox(0.0F, 0.0F, 2.0F, 8.0F, 1.0F, 4.0F, cubedef).mirror(false)
+		.texOffs(28, 27).mirror().addBox(8.0F, 0.0F, 3.0F, 8.0F, 1.0F, 2.0F, cubedef).mirror(false), PartPose.offset(5.0F, 13.0F, -3.0F));
+
+		PartDefinition Head2 = partdefinition.addOrReplaceChild("Head2", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(0.0F, -1.0F, 0.0F, 6.0F, 6.0F, 7.0F, cubedef).mirror(false), PartPose.offset(-9.0F, 12.0F, -17.0F));
+
+		Head2.addOrReplaceChild("Mouth2_r1", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(-3.0F, 0.0F, -7.0F, 6.0F, 1.0F, 7.0F, cubedef).mirror(false), PartPose.offsetAndRotation(3.0F, 5.0F, 7.0F, 0.0873F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, -1.0F, 0.0F, 10.0F, 6.0F, 16.0F, cubedef).mirror(false)
+		.texOffs(0, 0).mirror().addBox(0.0F, 5.0F, 2.0F, 10.0F, 1.0F, 12.0F, cubedef).mirror(false)
+		.texOffs(13, 16).mirror().addBox(-1.0F, 0.0F, -2.0F, 12.0F, 4.0F, 2.0F, cubedef).mirror(false)
+		.texOffs(10, 12).mirror().addBox(0.0F, 0.0F, 16.0F, 10.0F, 4.0F, 6.0F, cubedef).mirror(false), PartPose.offset(-5.0F, 12.0F, -8.0F));
+
+		PartDefinition Shape2 = partdefinition.addOrReplaceChild("Shape2", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-2.0F, 13.0F, 10.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape2.addOrReplaceChild("Shape1_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -7.0F, 5.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 4.0F, -1.0F, -0.3491F, 0.0F, 0.0F));
+
+		PartDefinition Shape3 = partdefinition.addOrReplaceChild("Shape3", CubeListBuilder.create().texOffs(46, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 2.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(5.0F, 12.0F, -16.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape3.addOrReplaceChild("Shape4_r1", CubeListBuilder.create().texOffs(46, 20).mirror().addBox(5.0F, -5.0F, -1.0F, 2.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-5.0F, 4.0F, 5.0F, -0.3927F, 0.0F, 0.0F));
+
+		PartDefinition Shape5 = partdefinition.addOrReplaceChild("Shape5", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-2.0F, 12.0F, -2.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape5.addOrReplaceChild("Shape6_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -5.0F, 2.5F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 3.0F, 2.0F, -0.3054F, 0.0F, 0.0F));
+
+		PartDefinition Shape7 = partdefinition.addOrReplaceChild("Shape7", CubeListBuilder.create(), PartPose.offsetAndRotation(-2.0F, 12.0F, 3.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape7.addOrReplaceChild("Shape8_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -15.3F, 4.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 12.0F, -3.0F, -0.3054F, 0.0F, 0.0F));
+
+		Shape7.addOrReplaceChild("Shape7_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -13.0F, 3.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 12.0F, -3.0F, 0.0436F, 0.0F, 0.0F));
+
+		PartDefinition Shape9 = partdefinition.addOrReplaceChild("Shape9", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-2.0F, 12.0F, 7.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape9.addOrReplaceChild("Shape10_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -9.3F, 6.4F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 6.0F, -3.0F, -0.3054F, 0.0F, 0.0F));
+
+		PartDefinition Shape11 = partdefinition.addOrReplaceChild("Shape11", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-2.0F, 12.0F, -7.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape11.addOrReplaceChild("Shape12_r1", CubeListBuilder.create().texOffs(44, 20).mirror().addBox(-2.0F, -7.0F, -1.0F, 4.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(2.0F, 6.0F, 5.0F, -0.2618F, 0.0F, 0.0F));
+
+		PartDefinition Shape13 = partdefinition.addOrReplaceChild("Shape13", CubeListBuilder.create().texOffs(46, 20).mirror().addBox(0.0F, -1.0F, 0.0F, 2.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-7.0F, 12.0F, -16.0F, 0.7808F, 0.0F, 0.0F));
+
+		Shape13.addOrReplaceChild("Shape14_r1", CubeListBuilder.create().texOffs(46, 20).mirror().addBox(-7.0F, -8.2F, -14.1F, 2.0F, 1.0F, 6.0F, cubedef).mirror(false), PartPose.offsetAndRotation(7.0F, 12.0F, 16.0F, -0.3927F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(EntityAyeraco entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.WingRF.zRot = this.WingRM.zRot = this.WingRB.zRot = (float) (Math.cos(ageInTicks * 0.1F) * Math.PI * 0.15F);
 
         this.WingLF.zRot = -this.WingRF.zRot;
         this.WingLM.zRot = -this.WingRF.zRot;
         this.WingLB.zRot = -this.WingRF.zRot;
-        this.WingLExtF.zRot = -this.WingRF.zRot;
-        this.WingLExtM.zRot = -this.WingRF.zRot;
-        this.WingLExtB.zRot = -this.WingRF.zRot;
 
-        this.Tail.xRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.Tail2.xRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-        this.Tail3.xRot = MathHelper.cos(par4 * 0.1F) * (float) Math.PI * 0.15F;
-    }
+        this.Tail.xRot = Tail3.xRot = (float) (-Math.cos(ageInTicks * 0.1F) * Math.PI * 0.15F);
+        this.Tail2.xRot = (float) (Math.sin(ageInTicks * 0.1F) * Math.PI * 0.15F);
+        
+        this.Shape2.yRot = (float) (Math.cos(ageInTicks * 0.1F) * Math.PI * 0.05F);
+        this.Shape5.yRot = this.Shape2.yRot;
+        this.Shape7.yRot = this.Shape2.yRot;
+        this.Shape9.yRot = this.Shape2.yRot;
+        this.Shape11.yRot = this.Shape2.yRot;
+        this.Shape3.yRot = this.Head.yRot + this.Shape2.yRot;
+        this.Shape3.xRot = this.Head.xRot;
+        this.Shape13.xRot = this.Head.xRot;
+        this.Shape13.yRot = this.Head.yRot + this.Shape2.yRot;
+	}
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
-
-
-    @Override
-    public void renderToBuffer(MatrixStack stack, IVertexBuilder vertexBuilder, int limbSwing, int limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        BodyLower.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Neck.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Head.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Tail.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Tail2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Tail3.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape1.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRExtB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLExtB.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLExtF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRExtF.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRExt.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingRM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        WingLExtM.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Mouth1.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Butt.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Head2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Mouth2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Body.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape2.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape3.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape4.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape5.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape6.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape7.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape8.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape9.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape10.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape11.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape12.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape13.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        Shape14.render(stack, vertexBuilder, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-    }
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Head.render(poseStack, buffer, packedLight, packedOverlay);
+		Tail.render(poseStack, buffer, packedLight, packedOverlay);
+		WingLB.render(poseStack, buffer, packedLight, packedOverlay);
+		Tail2.render(poseStack, buffer, packedLight, packedOverlay);
+		Tail3.render(poseStack, buffer, packedLight, packedOverlay);
+		WingRB.render(poseStack, buffer, packedLight, packedOverlay);
+		WingRF.render(poseStack, buffer, packedLight, packedOverlay);
+		WingLF.render(poseStack, buffer, packedLight, packedOverlay);
+		WingRM.render(poseStack, buffer, packedLight, packedOverlay);
+		WingLM.render(poseStack, buffer, packedLight, packedOverlay);
+		Head2.render(poseStack, buffer, packedLight, packedOverlay);
+		Body.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape2.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape3.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape5.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape7.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape9.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape11.render(poseStack, buffer, packedLight, packedOverlay);
+		Shape13.render(poseStack, buffer, packedLight, packedOverlay);
+	}
 }

@@ -1,0 +1,20 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:wildwood_structures",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 21896785,
+    "locate_offset": [
+      0,
+      5,
+      0
+    ],
+    "spread_type": "linear",
+    "spacing": 4,
+    "separation": 2
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top_rh",
-  "textures": {
-    "top": "divinerpg:blocks/mortum_door_top",
-    "bottom": "divinerpg:blocks/mortum_door_bottom"
-  }
-}

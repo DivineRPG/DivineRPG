@@ -1,0 +1,9 @@
+{
+  "parent": "block/stairs",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "side": "divinerpg:block/asphalt",
+    "top": "divinerpg:block/asphalt",
+    "bottom": "divinerpg:block/asphalt"
+  }
+}

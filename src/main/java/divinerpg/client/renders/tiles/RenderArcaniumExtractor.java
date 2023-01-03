@@ -1,38 +1,30 @@
 package divinerpg.client.renders.tiles;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.blocks.arcana.*;
-import divinerpg.client.models.block.*;
-import divinerpg.tiles.furnace.*;
+import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.arcana.BlockArcaniumExtractor;
+import divinerpg.client.models.block.ModelArcaniumExtractor;
+import divinerpg.tiles.furnace.TileEntityArcaniumExtractor;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.vector.*;
+import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.resources.ResourceLocation;
 
-public class RenderArcaniumExtractor extends TileEntityRenderer<TileEntityArcaniumExtractor> {
+public class RenderArcaniumExtractor implements BlockEntityRenderer<TileEntityArcaniumExtractor> {
     private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/arcanium_extractor.png");
 
-    public RenderArcaniumExtractor(TileEntityRendererDispatcher p_i226006_1_) {
-        super(p_i226006_1_);
+    private final ModelArcaniumExtractor<?> model;
+    public RenderArcaniumExtractor(BlockEntityRendererProvider.Context context) {
+        this.model = new ModelArcaniumExtractor<>(context.bakeLayer(ModelArcaniumExtractor.LAYER_LOCATION));
     }
 
     @Override
-    public void render(TileEntityArcaniumExtractor te, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-        EntityModel model = new ModelArcaniumExtractor();
-
-        matrixStack.pushPose();
-        matrixStack.translate(0.5D, 0D, 0.5D);
-        matrixStack.mulPose(Vector3f.YP.rotationDegrees(te.getBlockState().getValue(BlockDemonFurnace.FACING).toYRot()));
-        IVertexBuilder builder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
-        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
-        matrixStack.popPose();
-    }
-
-    @Override
-    public boolean shouldRenderOffScreen(TileEntityArcaniumExtractor p_188185_1_) {
-        return true;
+    public void render(TileEntityArcaniumExtractor te, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        poseStack.pushPose();
+        poseStack.translate(0.5D, 0D, 0.5D);
+        poseStack.mulPose(Axis.YP.rotationDegrees(te.getBlockState().getValue(BlockArcaniumExtractor.FACING).toYRot()));
+        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
+        model.renderToBuffer(poseStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        poseStack.popPose();
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/teal_steel"
+    "all": "divinerpg:block/teal_steel"
   }
 }

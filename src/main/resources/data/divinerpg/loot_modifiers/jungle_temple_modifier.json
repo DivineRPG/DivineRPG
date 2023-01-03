@@ -1,0 +1,17 @@
+{
+  "type": "divinerpg:jungle_temple_modifier",
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/jungle_temple"
+        }
+      ]
+    }
+  ],
+  "min": 1,
+  "max": 4,
+  "chance": 0.5
+}

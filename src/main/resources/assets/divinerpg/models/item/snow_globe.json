@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/snow_globe"
+    "layer0": "divinerpg:item/snow_globe"
   }
 }

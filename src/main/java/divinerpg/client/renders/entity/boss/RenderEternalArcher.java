@@ -1,31 +1,30 @@
 package divinerpg.client.renders.entity.boss;
 
 
-import com.mojang.blaze3d.matrix.*;
-import divinerpg.*;
-import divinerpg.client.models.boss.*;
-import divinerpg.client.renders.layer.*;
-import divinerpg.entities.boss.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.boss.ModelEternalArcher;
+import divinerpg.client.renders.layer.EternalArcherLayer;
+import divinerpg.entities.boss.EntityEternalArcher;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderEternalArcher extends MobRenderer<EntityEternalArcher, ModelEternalArcher<EntityEternalArcher>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png");
-
-    public RenderEternalArcher(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new ModelEternalArcher<>(), 0.8F);
-        addLayer(new EternalArcherLayer(this));
+    public RenderEternalArcher(Context context) {
+        super(context, new ModelEternalArcher<>(context), 0.8F);
+        this.addLayer(new EternalArcherLayer(this));
     }
-
     @Override
     public ResourceLocation getTextureLocation(EntityEternalArcher entity) {
         return TEXTURE;
     }
 
     @Override
-    protected void scale(EntityEternalArcher p_225620_1_, MatrixStack p_225620_2_, float p_225620_3_) {
-        p_225620_2_.scale(2.5F, 2.5F, 2.5F);
+    protected void scale(EntityEternalArcher type, PoseStack stack, float s) {
+        stack.scale(2.5F, 2.5F, 2.5F);
     }
 }

@@ -1,6 +1,7 @@
 {
   "parent": "block/crop",
+  "render_type": "cutout_mipped",
   "textures": {
-    "crop": "divinerpg:blocks/aquamarine_plant_3"
+    "crop": "divinerpg:block/aquamarine_plant_3"
   }
 }

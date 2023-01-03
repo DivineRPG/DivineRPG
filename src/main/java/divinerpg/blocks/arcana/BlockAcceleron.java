@@ -1,29 +1,29 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.BlockMod;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.*;
+import divinerpg.blocks.base.*;
+import net.minecraft.world.item.context.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockAcceleron extends BlockMod {
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    @Deprecated
-    public BlockAcceleron(String name) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE)
+    public BlockAcceleron() {
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE)
                 .requiresCorrectToolForDrops()
                 .strength(3.0F, 3.0F)
                 .sound(SoundType.WOOD)
                 .friction(1.2F));
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 }

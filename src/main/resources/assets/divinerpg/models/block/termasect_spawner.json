@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:blocks/wildwood_spawner"
+    "all": "divinerpg:block/wildwood_spawner"
   }
 }

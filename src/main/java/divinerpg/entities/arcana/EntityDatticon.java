@@ -1,51 +1,62 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.trading.MerchantOffers;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class EntityDatticon extends EntityDivineMerchant {
 
-	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
-        super(type, worldIn);
-    }
+	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
+		super(type, worldIn);
+	}
 
 	public String[] getChatMessages() {
-        return new String[] {
-                "message.datticon.merik",
-                "message.datticon.furnace",
-                "message.datticon.science",
-                "message.datticon.plugged",
-                "message.datticon.redstone"
-        };
-    }
+		return new String[] {
+				"message.datticon.merik",
+				"message.datticon.furnace",
+				"message.datticon.science",
+				"message.datticon.plugged",
+				"message.datticon.redstone"
+		};
+	}
 
 	@Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();
 
 		DivineTrades[] tradetrades = new DivineTrades[]{
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 8), new ItemStack(BlockRegistry.starBridge, 16), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteTubes, 16), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector, 2), new ItemStack(BlockRegistry.arcaniteLadder, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 2), new ItemStack(BlockRegistry.moltenFurnace, 16), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.greenlightFurnace, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 4), new ItemStack(BlockRegistry.oceanfireFurnace, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 5), new ItemStack(BlockRegistry.moonlightFurnace, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(BlockRegistry.whitefireFurnace, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 9), new ItemStack(BlockRegistry.demonFurnace, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.elevantium, 9), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 3), new ItemStack(BlockRegistry.acceleron, 3), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 1), new ItemStack(BlockRegistry.arcaniteLadder, 8), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 6), new ItemStack(ItemRegistry.kormaHelmet, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.kormaChestplate, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 7), new ItemStack(ItemRegistry.kormaLeggings, 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium, 12), new ItemStack(ItemRegistry.kormaBoots, 1), random.nextInt(7), 5)
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(BlockRegistry.starBridge.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteTubes.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteLadder.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 2), new ItemStack(BlockRegistry.moltenFurnace.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 3), new ItemStack(BlockRegistry.greenlightFurnace.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 4), new ItemStack(BlockRegistry.oceanfireFurnace.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 5), new ItemStack(BlockRegistry.moonlightFurnace.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 7), new ItemStack(BlockRegistry.whitefireFurnace.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 9), new ItemStack(BlockRegistry.demonFurnace.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 3), new ItemStack(BlockRegistry.elevantium.get(), 9), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 3), new ItemStack(BlockRegistry.acceleron.get(), 3), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 1), new ItemStack(BlockRegistry.arcaniteLadder.get(), 8), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.korma_helmet.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 7), new ItemStack(ItemRegistry.korma_chestplate.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 7), new ItemStack(ItemRegistry.korma_leggings.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 12), new ItemStack(ItemRegistry.korma_boots.get(), 1), random.nextInt(7), 5)
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
-		super.updateTrades();
+	}
+
+	public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+		BlockPos blockpos = pos.below();
+		List<EntityDatticon> entityList = level.getEntitiesOfClass(EntityDatticon.class, new AABB(pos).inflate(16));
+		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
 	}
 
 }

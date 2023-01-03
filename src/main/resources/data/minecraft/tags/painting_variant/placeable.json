@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:hill",
+    "divinerpg:island",
+    "divinerpg:eden",
+    "divinerpg:monster",
+    "divinerpg:cave"
+  ]
+}

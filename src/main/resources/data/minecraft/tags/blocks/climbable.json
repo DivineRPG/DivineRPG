@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "divinerpg:arcanite_tubes",
-    "divinerpg:arcanite_ladder"
+    "divinerpg:arcanite_ladder",
+    "divinerpg:wildwood_vine",
+    "divinerpg:weedwood_vine",
+    "divinerpg:blossomed_weedwood_vine",
+    "divinerpg:arcanite_vines_head",
+    "divinerpg:arcanite_vines_body",
+    "divinerpg:winterberry_vines_head",
+    "divinerpg:winterberry_vines_body"
   ]
 }

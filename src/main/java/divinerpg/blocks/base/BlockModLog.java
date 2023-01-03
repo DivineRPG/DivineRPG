@@ -1,33 +1,33 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import divinerpg.entities.vethea.*;
+import divinerpg.DivineRPG;
 import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockModLog extends RotatedPillarBlock {
 
-    public BlockModLog(String name, MaterialColor color) {
-        super(AbstractBlock.Properties.of(Material.WOOD, color).strength(2.0F).sound(SoundType.WOOD));
-        setRegistryName(DivineRPG.MODID, name);
+    public BlockModLog(MaterialColor color) {
+        super(BlockBehaviour.Properties.of(Material.WOOD, color).strength(2.0F).sound(SoundType.WOOD));
     }
 
     @Override
-    public void playerDestroy(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity tileEntity, ItemStack stack) {
-        if(this == BlockRegistry.dreamwoodLog || this == BlockRegistry.hyrewoodLog || this == BlockRegistry.hyrewoodLog || this == BlockRegistry.mintwoodLog) {
+    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity tileEntity, ItemStack stack) {
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dreamwood_log")) || this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "firewood_log")) || this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "hyrewood_log")) || this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mintwood_log"))) {
             if (world.isClientSide) {
-                LivingEntity ent = new EntityEnt(EntityRegistry.ENT, world);
-                ent.moveTo(pos, world.random.nextInt(360), 0);
-                world.addFreshEntity(ent);
+                EntityRegistry.ENT.get().spawn((ServerLevel) world, stack, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
             }
         }
         super.playerDestroy(world, player, pos, state, tileEntity, stack);

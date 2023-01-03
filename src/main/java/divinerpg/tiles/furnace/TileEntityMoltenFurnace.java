@@ -2,29 +2,17 @@ package divinerpg.tiles.furnace;
 
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
+import net.minecraft.core.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.block.state.*;
 
-public class TileEntityMoltenFurnace extends TileEntityModFurnace {
-
-    public TileEntityMoltenFurnace() {
-        super(TileRegistry.MOLTEN_FURNACE);
+public class TileEntityMoltenFurnace extends TileEntityInfiniFurnace {
+    public TileEntityMoltenFurnace(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.MOLTEN_FURNACE.get(), pos, state, "block.divinerpg.molten_furnace", 2.0);
     }
-
-    public String getFuranceName() {
-        return "block.divinerpg.molten_furnace";
-    }
-
-    int getFurnaceSpeed() {
-        return 275;
-    }
-
-    public boolean needsFuel() {
-        return false;
-    }
-
     @Override
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
+    protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
         return new MoltenFurnaceContainer(i, playerInventory, this, this.dataAccess);
     }
 }

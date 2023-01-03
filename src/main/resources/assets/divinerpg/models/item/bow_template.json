@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/bow_template"
+    "layer0": "divinerpg:item/bow_template"
   }
 }

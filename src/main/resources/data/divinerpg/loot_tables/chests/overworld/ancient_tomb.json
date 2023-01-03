@@ -1,0 +1,223 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 1,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:golden_apple"
+				}
+			]
+		},
+		{
+			"rolls": {
+				"type": "minecraft:uniform",
+				"min": 5,
+				"max": 8
+			},
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 20,
+					"name": "minecraft:iron_ingot",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 4
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"name": "minecraft:gold_ingot",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 4
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"name": "divinerpg:arlemite_ingot",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 2
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:rupee_ingot",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 2
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"type": "minecraft:uniform",
+				"min": 1,
+				"max": 3
+			},
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 5,
+					"name": "minecraft:emerald",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 4,
+								"max": 8
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 5,
+					"name": "minecraft:amethyst_shard",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 2
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"name": "divinerpg:corrupted_shards",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 5
+							},
+							"add": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"type": "minecraft:uniform",
+				"min": 0,
+				"max": 1
+			},
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:arlemite_shield"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:terran_knife"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:cyclopsian_staff"
+				}
+			]
+		},
+		{
+			"rolls": 2,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:donut",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 2,
+								"max": 4
+							},
+							"add": false
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:hot_pumpkin_pie",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"type": "minecraft:uniform",
+								"min": 1,
+								"max": 3
+							},
+							"add": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"type": "minecraft:uniform",
+				"min": 0,
+				"max": 2
+			},
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:potion"
+				}
+			],
+			"functions": [
+				{
+					"function": "minecraft:set_potion",
+					"id": "minecraft:strength"
+				}
+			]
+		}
+	]
+}

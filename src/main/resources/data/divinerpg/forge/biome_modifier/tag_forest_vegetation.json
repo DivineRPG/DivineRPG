@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_forest",
+  "features": "divinerpg:divine_tree",
+  "step": "top_layer_modification"
+}

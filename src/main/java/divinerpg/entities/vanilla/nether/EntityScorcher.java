@@ -1,74 +1,69 @@
 package divinerpg.entities.vanilla.nether;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.entities.projectile.EntityScorcherShot;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.syncher.*;
+import net.minecraft.sounds.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.phys.Vec3;
 
-import java.util.EnumSet;
-import java.util.Random;
-
-public class EntityScorcher extends EntityDivineMob {
+public class EntityScorcher extends EntityDivineMonster implements RangedAttackMob {
     private float allowedHeightOffset = 0.5F;
     private int nextHeightOffsetChangeTick;
-    private static final DataParameter<Byte> DATA_FLAGS_ID = EntityDataManager.defineId(EntityScorcher.class, DataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(EntityScorcher.class, EntityDataSerializers.BYTE);
 
-    public EntityScorcher(EntityType<? extends EntityScorcher> type, World level) {
-        super(type, level);
-        this.setPathfindingMalus(PathNodeType.WATER, -1.0F);
-        this.setPathfindingMalus(PathNodeType.LAVA, 8.0F);
-        this.setPathfindingMalus(PathNodeType.DANGER_FIRE, 0.0F);
-        this.setPathfindingMalus(PathNodeType.DAMAGE_FIRE, 0.0F);
+    public EntityScorcher(EntityType<? extends EntityScorcher> type, Level world) {
+        super(type, world);
+        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
+        this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
+        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
+        this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
         this.xpReward = 20;
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new EntityScorcher.FireballAttackGoal(this));
+        this.goalSelector.addGoal(4, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D, 0.0F));
-        this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
 
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_FLAGS_ID, (byte)0);
     }
 
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.SCORCHER;
+    @Override
+    public boolean fireImmune() {
+        return true;
     }
 
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundRegistry.SCORCHER.get();
+    }
+
+    @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundEvents.BLAZE_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.BLAZE_DEATH;
     }
@@ -108,119 +103,29 @@ public class EntityScorcher extends EntityDivineMob {
 
         LivingEntity livingentity = this.getTarget();
         if (livingentity != null && livingentity.getEyeY() > this.getEyeY() + (double)this.allowedHeightOffset && this.canAttack(livingentity)) {
-            Vector3d vector3d = this.getDeltaMovement();
-            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, ((double)0.3F - vector3d.y) * (double)0.3F, 0.0D));
+            Vec3 vec3 = this.getDeltaMovement();
+            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, ((double)0.3F - vec3.y) * (double)0.3F, 0.0D));
             this.hasImpulse = true;
         }
 
         super.customServerAiStep();
     }
 
-    public boolean causeFallDamage(float i, float y) {
+    public boolean causeFallDamage(float p_149683_, float p_149684_, DamageSource p_149685_) {
         return false;
     }
 
-
-    static class FireballAttackGoal extends Goal {
-        private final EntityScorcher scorcher;
-        private int attackStep;
-        private int attackTime;
-        private int lastSeen;
-
-        public FireballAttackGoal(EntityScorcher scorcher) {
-            this.scorcher = scorcher;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+    @Override
+    public void performRangedAttack(LivingEntity target, float p_33318_) {
+        if (isAlive() && getTarget() != null && !level.isClientSide && this.tickCount % 80 == 0) {
+                Vec3 vec3 = this.getViewVector(1.0F);
+                double d0 = getTarget().getX() - (this.getX() + vec3.x * 4.0D);
+                double d1 = getTarget().getY(0.5D) - (0.5D + this.getY(0.5D));
+                double d2 = getTarget().getZ() - (this.getZ() + vec3.z * 4.0D);
+                double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+                LargeFireball projectile = new LargeFireball(level, this, d0, d1, d2, 1);
+                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+                level.addFreshEntity(projectile);
         }
-
-        public boolean canUse() {
-            LivingEntity livingentity = this.scorcher.getTarget();
-            return livingentity != null && livingentity.isAlive() && this.scorcher.canAttack(livingentity);
-        }
-
-        public void start() {
-            this.attackStep = 0;
-        }
-
-        public void stop() {
-            this.lastSeen = 0;
-        }
-
-        public void tick() {
-            --this.attackTime;
-            LivingEntity livingentity = this.scorcher.getTarget();
-            if (livingentity != null) {
-                boolean flag = this.scorcher.getSensing().canSee(livingentity);
-                if (flag) {
-                    this.lastSeen = 0;
-                } else {
-                    ++this.lastSeen;
-                }
-
-                double d0 = this.scorcher.distanceToSqr(livingentity);
-                if (d0 < 4.0D) {
-                    if (!flag) {
-                        return;
-                    }
-
-                    if (this.attackTime <= 0) {
-                        this.attackTime = 20;
-                        this.scorcher.doHurtTarget(livingentity);
-                    }
-
-                    this.scorcher.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
-                } else if (d0 < this.getFollowDistance() * this.getFollowDistance() && flag) {
-                    double d1 = livingentity.getX() - this.scorcher.getX();
-                    double d2 = livingentity.getY(0.5D) - this.scorcher.getY(0.5D);
-                    double d3 = livingentity.getZ() - this.scorcher.getZ();
-                    if (this.attackTime <= 0) {
-                        ++this.attackStep;
-                        if (this.attackStep == 1) {
-                            this.attackTime = 60;
-                        } else if (this.attackStep <= 4) {
-                            this.attackTime = 6;
-                        } else {
-                            this.attackTime = 100;
-                            this.attackStep = 0;
-                        }
-
-                        if (this.attackStep > 1) {
-                            float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
-                            if (!this.scorcher.isSilent()) {
-                                this.scorcher.level.levelEvent((PlayerEntity)null, 1018, this.scorcher.blockPosition(), 0);
-                            }
-
-                            for(int i = 0; i < 1; ++i) {
-                                if (scorcher.isAlive()) {
-                                    ProjectileEntity projectile = new EntityScorcherShot(scorcher.level, scorcher, 1.4D, 1.4D, 1.4D);
-                                    double livingX = livingentity.getX() - scorcher.getX();
-                                    double livingY = livingentity.getY(0.3333333333333333D) - projectile.getY() - 0.4;
-                                    double livingZ = livingentity.getZ() - scorcher.getZ();
-                                    double randomness = (double) MathHelper.sqrt(livingX * livingX + livingZ * livingZ);
-                                    projectile.shoot(livingX, livingY + randomness * (double) 0.2F, livingZ, 1.6F, (float) (14 - scorcher.level.getDifficulty().getId() * 4));
-                                    scorcher.level.addFreshEntity(projectile);
-                                }
-                            }
-                        }
-                    }
-
-                    this.scorcher.getLookControl().setLookAt(livingentity, 10.0F, 10.0F);
-                } else if (this.lastSeen < 5) {
-                    this.scorcher.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
-                }
-
-                super.tick();
-            }
-        }
-
-        private double getFollowDistance() {
-            return this.scorcher.getAttributeValue(Attributes.FOLLOW_RANGE);
-        }
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.ATTACK_DAMAGE, EntityStats.scorcherDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.scorcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.scorcherFollowRange).add(Attributes.MAX_HEALTH, EntityStats.scorcherHealth);
     }
 }

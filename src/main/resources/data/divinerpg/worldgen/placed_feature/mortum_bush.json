@@ -1,0 +1,16 @@
+{
+	"feature": "divinerpg:mortum_bush",
+	"placement": [
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "lowest_ground",
+			"mode": "slice",
+			"min_height": 0,
+			"max_height": 127,
+			"bury": 0
+		}
+	]
+}

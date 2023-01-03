@@ -1,0 +1,12 @@
+{
+	"type": "forge:add_features",
+	"biomes": "#is_overworld",
+	"features": [
+		"divinerpg:arlemite",
+		"divinerpg:rupee",
+		"divinerpg:realmite",
+		"divinerpg:realmite_extra",
+		"divinerpg:realmite_blobs"
+	],
+	"step": "underground_ores"
+}

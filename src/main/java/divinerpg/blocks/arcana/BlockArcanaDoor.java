@@ -1,40 +1,41 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import divinerpg.blocks.base.BlockModDoor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
-import net.minecraftforge.common.*;
-
-import java.util.function.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcanaDoor extends BlockModDoor {
-    private Supplier<Item> keyItem;
+    private ResourceLocation keyItem;
 
-    public BlockArcanaDoor(String name, Supplier<Item> key) {
-        super(name, Material.STONE, -1, 6000000F, ToolType.PICKAXE, SoundType.STONE);
+    public BlockArcanaDoor(ResourceLocation key) {
+        super(Material.STONE, -1, 6000000F, SoundType.STONE);
         this.keyItem = key;
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
         BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());
 
         if (iblockstate.getBlock() != this) {
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
         } else {
             if (!player.isCreative()) {
                 if (iblockstate.getValue(OPEN).equals(true)) {
-                    return ActionResultType.FAIL;
+                    return InteractionResult.FAIL;
                 }
-                Item key = this.keyItem.get();
+                Item key = ForgeRegistries.ITEMS.getValue(keyItem);
                 ItemStack itemstack = player.getItemInHand(hand);
                 if (itemstack == null || itemstack.getItem() != key) {
-                    return ActionResultType.FAIL;
+                    return InteractionResult.FAIL;
                 }
                 itemstack.shrink(1);
             }
@@ -61,10 +62,10 @@ public class BlockArcanaDoor extends BlockModDoor {
                     world.setBlock(adjacentPos, adjacentBlockState, 10);
                     world.setBlockAndUpdate(adjacentPos, state);
                     world.levelEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, adjacentPos, 0);
-                    return ActionResultType.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
         }
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }

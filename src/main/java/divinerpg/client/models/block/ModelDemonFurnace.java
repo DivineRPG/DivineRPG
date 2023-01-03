@@ -1,90 +1,55 @@
 package divinerpg.client.models.block;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
+import net.minecraft.client.model.Model;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Entity;
 
-public class ModelDemonFurnace extends EntityModel {
-    //fields
-    ModelRenderer Box;
-    ModelRenderer Arm1;
-    ModelRenderer Arm2;
-    ModelRenderer Arm3;
-    ModelRenderer Arm4;
-    ModelRenderer Arm5;
-    ModelRenderer Arm6;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelDemonFurnace() {
-        super();
-        texWidth = 64;
-        texHeight = 64;
+public class ModelDemonFurnace<T extends Entity> extends Model{
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("demon_furnace");
+	private final ModelPart Box, Arm1, Arm2, Arm3, Arm4, Arm5, Arm6;
+	public ModelDemonFurnace(ModelPart root) {
+		super(RenderType::entityCutout);
+		this.Box = root.getChild("Box");
+		this.Arm1 = root.getChild("Arm1");
+		this.Arm2 = root.getChild("Arm2");
+		this.Arm3 = root.getChild("Arm3");
+		this.Arm4 = root.getChild("Arm4");
+		this.Arm5 = root.getChild("Arm5");
+		this.Arm6 = root.getChild("Arm6");
+	}
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-        Box = new ModelRenderer(this, 0, 0);
-        Box.addBox(0F, 0F, 0F, 16, 16, 16);
-        Box.setPos(8F, 8F, -8F);
-        Box.setTexSize(64, 64);
-        Box.mirror = true;
-        setRotation(Box, 0F, 0F, 3.141593F);
-        Arm1 = new ModelRenderer(this, 0, 32);
-        Arm1.addBox(0F, 0F, 0F, 4, 19, 2);
-        Arm1.setPos(-7F, -7F, 3F);
-        Arm1.setTexSize(64, 64);
-        Arm1.mirror = true;
-        setRotation(Arm1, 0F, 0F, 1.256637F);
-        Arm2 = new ModelRenderer(this, 0, 32);
-        Arm2.addBox(0F, 0F, 0F, 4, 16, 2);
-        Arm2.setPos(-8F, 8F, 3F);
-        Arm2.setTexSize(64, 64);
-        Arm2.mirror = true;
-        setRotation(Arm2, 0F, 0F, 0F);
-        Arm3 = new ModelRenderer(this, 0, 32);
-        Arm3.addBox(0F, 0F, 0F, 4, 16, 2);
-        Arm3.setPos(4F, 8F, 3F);
-        Arm3.setTexSize(64, 64);
-        Arm3.mirror = true;
-        setRotation(Arm3, 0F, 0F, 0F);
-        Arm4 = new ModelRenderer(this, 0, 32);
-        Arm4.addBox(0F, 0F, 0F, 4, 19, 2);
-        Arm4.setPos(-8F, -4F, 3F);
-        Arm4.setTexSize(64, 64);
-        Arm4.mirror = true;
-        setRotation(Arm4, 0F, 0F, 0.6632251F);
-        Arm5 = new ModelRenderer(this, 0, 32);
-        Arm5.addBox(0F, 0F, 0F, 4, 19, 2);
-        Arm5.setPos(6F, -3F, 3F);
-        Arm5.setTexSize(64, 64);
-        Arm5.mirror = true;
-        setRotation(Arm5, 0F, 0F, -1.256637F);
-        Arm6 = new ModelRenderer(this, 0, 32);
-        Arm6.addBox(0F, 0F, 0F, 4, 19, 2);
-        Arm6.setPos(4F, -3F, 3F);
-        Arm6.setTexSize(64, 64);
-        Arm6.mirror = true;
-        setRotation(Arm6, 0F, 0F, -0.6632251F);
-    }
+		partdefinition.addOrReplaceChild("Box", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, 8.0F, -8.0F, 0.0F, 0.0F, 3.1416F));
 
-    @Override
-    public void setupAnim(Entity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+		partdefinition.addOrReplaceChild("Arm1", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-7.0F, -7.0F, 3.0F, 0.0F, 0.0F, 1.2566F));
 
-    }
+		partdefinition.addOrReplaceChild("Arm2", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 8.0F, 3.0F));
 
-    @Override
-    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder builder, int light, int overlay, float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
-        Box.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm1.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm2.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm3.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm4.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm5.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        Arm6.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-    }
+		partdefinition.addOrReplaceChild("Arm3", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 8.0F, 3.0F));
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		partdefinition.addOrReplaceChild("Arm4", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-8.0F, -4.0F, 3.0F, 0.0F, 0.0F, 0.6632F));
 
+		partdefinition.addOrReplaceChild("Arm5", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, -3.0F, 3.0F, 0.0F, 0.0F, -1.2566F));
+
+		partdefinition.addOrReplaceChild("Arm6", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 19.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, -3.0F, 3.0F, 0.0F, 0.0F, -0.6632F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Box.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Arm6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

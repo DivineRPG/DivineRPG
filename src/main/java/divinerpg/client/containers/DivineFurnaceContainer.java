@@ -1,19 +1,20 @@
 package divinerpg.client.containers;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.systems.*;
-import net.minecraft.client.gui.screen.inventory.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
 import net.minecraftforge.api.distmarker.*;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+
 @OnlyIn(Dist.CLIENT)
-public abstract class DivineFurnaceContainer<T extends AbstractFurnaceContainer> extends ContainerScreen<T> {
+public abstract class DivineFurnaceContainer<T extends AbstractFurnaceMenu> extends AbstractContainerScreen<T> {
     private final ResourceLocation guiTexture;
 
-    public DivineFurnaceContainer(T screenContainer, PlayerInventory inv, ITextComponent titleIn, ResourceLocation guiTexture) {
+    public DivineFurnaceContainer(T screenContainer, Inventory inv, Component titleIn, ResourceLocation guiTexture) {
         super(screenContainer, inv, titleIn);
         this.guiTexture = guiTexture;
     }
@@ -24,21 +25,17 @@ public abstract class DivineFurnaceContainer<T extends AbstractFurnaceContainer>
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
     }
 
-    public void tick() {
-        super.tick();
-    }
-
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 
     @Override
-    protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.minecraft.getTextureManager().bind(this.guiTexture);
+    protected void renderBg(PoseStack matrixStack, float partialTicks, int x, int y) {
+        RenderSystem.clearColor(1.0F, 1.0F, 1.0F, 1.0F);
+        this.minecraft.getTextureManager().getTexture(this.guiTexture);
         int i = this.leftPos;
         int j = this.topPos;
         this.blit(matrixStack, i, j, 0, 0, this.imageWidth, this.imageHeight);

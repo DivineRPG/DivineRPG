@@ -1,28 +1,25 @@
 package divinerpg.entities.vethea;
 
-import com.google.common.collect.*;
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import com.google.common.collect.ImmutableList;
+import divinerpg.DivineRPG;
+import divinerpg.entities.base.EntityGifterNPC;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class EntityMysteriousManLayer2 extends EntityGifterNPC {
 
-    public EntityMysteriousManLayer2(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityMysteriousManLayer2(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
     protected ItemStack getGift() {
-        return new ItemStack(ItemRegistry.darvenLump, 6);
+        return new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "darven_lump")), 6);
     }
 
     @Override
@@ -42,7 +39,7 @@ public class EntityMysteriousManLayer2 extends EntityGifterNPC {
     }
 
     @Override
-    public boolean checkSpawnRules(IWorld world, SpawnReason spawnReason) {
+    public boolean checkSpawnRules(LevelAccessor world, MobSpawnType spawnReason) {
         int spawnLayer = this.getSpawnLayer();
 
         if(spawnLayer == 0) {

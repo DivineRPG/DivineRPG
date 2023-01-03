@@ -1,91 +1,55 @@
 package divinerpg.client.containers;
 
-import divinerpg.client.containers.slot.*;
+import divinerpg.DivineRPG;
 import divinerpg.registries.*;
-import divinerpg.tiles.block.*;
-import divinerpg.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
-import net.minecraftforge.items.wrapper.*;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class DreamLampContainer extends Container {
-
-    public static DreamLampContainer createContainerClientSide(int windowID, PlayerInventory playerInventory, net.minecraft.network.PacketBuffer extraData) {
-        TileInventoryHelper chestContents = TileInventoryHelper.createForClientSideContainer(TileEntityDreamLamp.NUMBER_OF_SLOTS);
-        return new DreamLampContainer(windowID, playerInventory, chestContents);
+public class DreamLampContainer extends AbstractContainerMenu {
+	private final Container container;
+	protected final Level level;
+	public DreamLampContainer(int i, Inventory playerInventory, FriendlyByteBuf buffer) {
+        this(i, playerInventory);
     }
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-    private static final int TE_INVENTORY_SLOT_COUNT = TileEntityDreamLamp.NUMBER_OF_SLOTS;
-
-    public static final int PLAYER_INVENTORY_YPOS = 51;
-
-    public DreamLampContainer(int windowID, PlayerInventory playerInventory, TileInventoryHelper chestContents) {
-        super(ContainerRegistry.DREAM_LAMP.get(), windowID);
-
-        PlayerInvWrapper playerInventoryForge = new PlayerInvWrapper(playerInventory);
-        this.chestContents = chestContents;
-
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-
-        for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
-        }
-            addSlot(new SlotDreamLamp(chestContents, 0, 80, 47));
-    }
-
-    @Override
-    public boolean stillValid(PlayerEntity playerEntity)
-    {
-        return chestContents.stillValid(playerEntity);
-    }
-
-    @Override
-    public ItemStack quickMoveStack(PlayerEntity playerEntity, int sourceSlotIndex)
-    {
-        Slot sourceSlot = slots.get(sourceSlotIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
-
-        if (sourceSlotIndex >= VANILLA_FIRST_SLOT_INDEX && sourceSlotIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)){
-                return ItemStack.EMPTY;
-            }
-        } else if (sourceSlotIndex >= TE_INVENTORY_FIRST_SLOT_INDEX && sourceSlotIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;
-            }
-        } else {
-            return ItemStack.EMPTY;
-        }
-
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-
-        sourceSlot.onTake(playerEntity, sourceStack);
-        return copyOfSourceStack;
-    }
-
-    @Override
-    public void removed(PlayerEntity playerIn)
-    {
-        super.removed(playerIn);
-    }
-
-    private TileInventoryHelper chestContents;
+	public DreamLampContainer(int i, Inventory inv) {
+		this(i, inv, new SimpleContainer(1));
+	}
+	public DreamLampContainer(int num, Inventory inv, Container container) {
+		super(MenuTypeRegistry.DREAM_LAMP.get(), num);
+		checkContainerSize(container, 1);
+	    this.container = container;
+	    level = inv.player.level;
+	    addSlot(new Slot(container, 0, 80, 47));
+	    for(int i = 0; i < 3; ++i) for(int j = 0; j < 9; ++j) addSlot(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+	    for(int k = 0; k < 9; ++k) addSlot(new Slot(inv, k, 8 + k * 18, 142));
+	}
+	@Override public boolean stillValid(Player player) {return container.stillValid(player);}
+	@Override
+	public ItemStack quickMoveStack(Player player, int i) {
+	      ItemStack itemstack = ItemStack.EMPTY;
+	      Slot slot = slots.get(i);
+	      if (slot != null && slot.hasItem()) {
+	         ItemStack itemstack1 = slot.getItem();
+	         itemstack = itemstack1.copy();
+	         if (i == 0) {
+	            if (!moveItemStackTo(itemstack1, 1, 37, true)) return ItemStack.EMPTY;
+	         } else if (itemstack.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+	        	 if (!moveItemStackTo(itemstack1, 0, 0, false)) return ItemStack.EMPTY;
+	         } else if (i >= 1 && i < 28) {
+	        	 if (!moveItemStackTo(itemstack1, 28, 37, false)) return ItemStack.EMPTY;
+	         } else if (i >= 28 && i < 37 && !this.moveItemStackTo(itemstack1, 1, 28, false)) return ItemStack.EMPTY;
+	         else if (!moveItemStackTo(itemstack1, 1, 37, false)) return ItemStack.EMPTY;
+	         if (itemstack1.isEmpty()) slot.set(ItemStack.EMPTY);
+	         else slot.setChanged();
+	         if (itemstack1.getCount() == itemstack.getCount()) return ItemStack.EMPTY;
+	         slot.onTake(player, itemstack1);
+	      }
+	      return itemstack;
+	}
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/aquatooth_maul"
+    "layer0": "divinerpg:item/aquatooth_maul"
   }
 }

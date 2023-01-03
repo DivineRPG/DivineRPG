@@ -1,30 +1,29 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
+import divinerpg.entities.base.EntityDivineBoss;
+import divinerpg.entities.projectile.EntityDivineArrow;
+import divinerpg.enums.ArrowType;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.monster.piglin.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.sounds.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
-public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
+public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     private QuadroAbility ability;
     private int abilityCooldown;
     private int rangedAttackCounter;
     public boolean dir;
 
-    public EntityQuadro(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityQuadro(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.ability = getRandomAbility();
     }
@@ -45,15 +44,15 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
 
     @Override
     protected void registerGoals() {
-        this.targetSelector.addGoal(0, new SwimGoal(this));
+        this.targetSelector.addGoal(0, new FloatGoal(this));
         this.targetSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.targetSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.targetSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.targetSelector.addGoal(8, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.targetSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.targetSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(8, new MeleeAttackGoal(this, 1, true));
         this.targetSelector.addGoal(8, new FollowMobGoal(this, 1, 1, 1));
-        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, PiglinEntity.class));
-        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
@@ -67,54 +66,54 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
             this.rangedAttackCounter = 0;
             this.dir = true;
             int s = this.random.nextInt(9);
-            List<PlayerEntity> players = this.level.getEntitiesOfClass(PlayerEntity.class, this.getBoundingBox().expandTowards(30, 30, 30));
-            for (PlayerEntity p : players) {
+            List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+            for (Player p : players) {
 
                 SoundEvent sound;
                 String chatMessage;
                 switch (s) {
                     case 0:
-                        sound = SoundRegistry.QUADRO_DIE_BEFORE;
+                        sound = SoundRegistry.QUADRO_DIE_BEFORE.get();
                         chatMessage = "message.quadro.die";
                         break;
                     case 1:
-                        sound = SoundRegistry.QUADRO_ENOUGH;
+                        sound = SoundRegistry.QUADRO_ENOUGH.get();
                         chatMessage = "message.quadro.enough";
                         break;
                     case 2:
-                        sound = SoundRegistry.QUADRO_INCOMING_PUNCH;
+                        sound = SoundRegistry.QUADRO_INCOMING_PUNCH.get();
                         chatMessage = "message.quadro.punch";
                         break;
                     case 3:
-                        sound = SoundRegistry.QUADRO_IS_NEXT;
+                        sound = SoundRegistry.QUADRO_IS_NEXT.get();
                         chatMessage = "message.quadro.next";
                         break;
                     case 4:
-                        sound = SoundRegistry.QUADRO_KILL_MINE;
+                        sound = SoundRegistry.QUADRO_KILL_MINE.get();
                         chatMessage = "message.quadro.mine";
                         break;
                     case 5:
-                        sound = SoundRegistry.QUADRO_MY_KILL;
+                        sound = SoundRegistry.QUADRO_MY_KILL.get();
                         chatMessage = "message.quadro.kill";
                         break;
                     case 6:
-                        sound = SoundRegistry.QUADRO_NO_DIE;
+                        sound = SoundRegistry.QUADRO_NO_DIE.get();
                         chatMessage = "message.quadro.no";
                         break;
                     case 7:
-                        sound = SoundRegistry.QUADRO_SIT_DOWN;
+                        sound = SoundRegistry.QUADRO_SIT_DOWN.get();
                         chatMessage = "message.quadro.sit"; //deserve
                         break;
                     default:
-                        sound = SoundRegistry.QUADRO_TASTE_FIST;
+                        sound = SoundRegistry.QUADRO_TASTE_FIST.get();
                         chatMessage = "message.quadro.taste";
                         break;
                 }
 
-                this.level.playSound(p, p.blockPosition(), sound, SoundCategory.HOSTILE, 1.0F, 1.0F);
+                this.level.playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
 
                 if (!level.isClientSide)
-                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage), p.getUUID());
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage), true);
 
             }
         }
@@ -143,38 +142,34 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if(this.isAlive()) {
-            switch (ability) {
-                case RANGED_FAST:
-                    if ((this.rangedAttackCounter % 5) == 0) {
-                        if (getTarget() != null) {
-                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.KAROS_ARROW, this, target, 1.6F, 12.0F);
-                            double d0 = target.getX() - this.getX();
-                            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
-                            double d2 = target.getZ() - this.getZ();
-                            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-                            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+        if (getTarget() != null) {
+            if (isAlive() && !level.isClientSide) {
+                switch (ability) {
+                    case RANGED_FAST:
+                        if ((this.rangedAttackCounter % 5) == 0) {
+                            double tx = getTarget().getX() - this.getX();
+                            double ty = getTarget().getBoundingBox().minY - this.getY();
+                            double tz = getTarget().getZ() - this.getZ();
+                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.KAROS_ARROW, this, target, 2.6F, 3.0F);
+                            projectile.shoot(tx, ty, tz, 2.6f, 3.0F);
                             this.level.addFreshEntity(projectile);
                         }
-                    }
-                    this.rangedAttackCounter++;
-                    break;
-                case RANGED_SLOW:
-                    if ((this.rangedAttackCounter % 15) == 0) {
-                        if (getTarget() != null) {
-                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, level, ArrowType.KAROS_ARROW, this, target, 1.6F, 12.0F);
-                            double d0 = target.getX() - this.getX();
-                            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
-                            double d2 = target.getZ() - this.getZ();
-                            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-                            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+                        this.rangedAttackCounter++;
+                        break;
+                    case RANGED_SLOW:
+                        if ((this.rangedAttackCounter % 15) == 0) {
+                            double tx = getTarget().getX() - this.getX();
+                            double ty = getTarget().getBoundingBox().minY - this.getY();
+                            double tz = getTarget().getZ() - this.getZ();
+                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.KAROS_ARROW, this, target, 2.6F, 0.8F);
+                            projectile.shoot(tx, ty, tz, 2.6f, 0.8F);
                             this.level.addFreshEntity(projectile);
                         }
-                    }
-                    this.rangedAttackCounter++;
-                    break;
-                default:
-                    break;
+                        this.rangedAttackCounter++;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -203,9 +198,5 @@ public class EntityQuadro extends EntityDivineBoss implements IRangedAttackMob {
             default:
                 return null;
         }
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.quadroHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.quadroAttack)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.quadroSpeedSlow).add(Attributes.FOLLOW_RANGE, EntityStats.quadroFollowRange);
     }
 }

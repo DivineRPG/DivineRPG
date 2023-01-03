@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#is_forest",
+  "spawners": [
+	  {
+	    "type": "divinerpg:cyclops",
+	    "weight": 10,
+	    "minCount": 2,
+	    "maxCount": 4
+	  },
+	  {
+	    "type": "divinerpg:pumpkin_spider",
+	    "weight": 10,
+	    "minCount": 1,
+	    "maxCount": 3
+  	  }
+  ]
+}

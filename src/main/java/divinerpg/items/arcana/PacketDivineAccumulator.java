@@ -1,23 +1,20 @@
 package divinerpg.items.arcana;
 
 import io.netty.buffer.*;
-import net.minecraftforge.fml.network.*;
+import net.minecraftforge.network.*;
 
 import java.util.function.*;
 
 public class PacketDivineAccumulator {
-    private double x, y, z;
+    private final double x;
+    private final double y;
+    private final double z;
+
     public PacketDivineAccumulator(ByteBuf buf) {
 
         x = buf.readDouble();
         y = buf.readDouble();
         z = buf.readDouble();
-    }
-
-    public void toBytes(ByteBuf buf) {
-        buf.writeDouble(x);
-        buf.writeDouble(y);
-        buf.writeDouble(z);
     }
 
     public PacketDivineAccumulator(double x, double y, double z) {
@@ -26,6 +23,11 @@ public class PacketDivineAccumulator {
         this.z = z;
     }
 
+    public void toBytes(ByteBuf buf) {
+        buf.writeDouble(x);
+        buf.writeDouble(y);
+        buf.writeDouble(z);
+    }
 
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {

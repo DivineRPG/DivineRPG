@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/asphalt_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/asphalt"
+    },
+    "type=top": {
+      "model": "divinerpg:block/asphalt_upper_slab"
+    }
+  }
+}

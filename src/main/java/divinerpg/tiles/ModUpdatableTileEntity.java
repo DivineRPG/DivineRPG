@@ -1,44 +1,40 @@
 package divinerpg.tiles;
 
-import net.minecraft.block.*;
+import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.*;
-import net.minecraft.network.play.server.*;
-import net.minecraft.tileentity.*;
+import net.minecraft.network.protocol.game.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
 
 import javax.annotation.*;
 
 /**
  * Base implementation of networking TileEntity
  */
-public class ModUpdatableTileEntity extends TileEntity {
+public class ModUpdatableTileEntity extends BlockEntity {
     /**
      * Always should be a empty ctor
      */
-    public ModUpdatableTileEntity(TileEntityType type) {
-        super(type);
+    public ModUpdatableTileEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
+        super(p_155228_, p_155229_, p_155230_);
     }
 
     @Nullable
     @Override
-    public SUpdateTileEntityPacket getUpdatePacket() {
-        return new SUpdateTileEntityPacket(getBlockPos(), -1, getUpdateTag());
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-     this.deserializeNBT(pkt.getTag());
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        this.deserializeNBT(pkt.getTag());
 
     }
+
 
     @Override
-    public CompoundNBT getUpdateTag() {
-        return save(new CompoundNBT());
+    public void handleUpdateTag(CompoundTag tag) {
+        load(tag);
     }
-
-    @Override
-    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-        load(state, tag);
-    }
-
 }

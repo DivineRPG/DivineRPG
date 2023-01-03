@@ -1,10 +1,10 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModVine extends VineBlock {
-    public BlockModVine(String name) {
+    public BlockModVine() {
         super(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_LIGHT_BLUE)
                 .requiresCorrectToolForDrops()
                 .dynamicShape()
@@ -13,6 +13,5 @@ public class BlockModVine extends VineBlock {
                 .noOcclusion()
                 .strength(2.0F, 3.0F)
                 .sound(SoundType.WET_GRASS));
-        setRegistryName(name);
     }
 }

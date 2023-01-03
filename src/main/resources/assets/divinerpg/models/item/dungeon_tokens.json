@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/dungeon_tokens"
+    "layer0": "divinerpg:item/dungeon_tokens"
   },
   "display": {
   "ground": {

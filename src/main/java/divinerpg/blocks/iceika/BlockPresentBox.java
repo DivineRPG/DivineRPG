@@ -4,35 +4,35 @@ import divinerpg.blocks.base.*;
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.chests.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.text.*;
+import net.minecraft.core.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 
 import javax.annotation.*;
 
 public class BlockPresentBox extends BlockModChest {
 
-    public BlockPresentBox(String name) {
-        super(name, Properties.of(Material.WOOD).sound(SoundType.STONE).strength(2, 1000000), () -> TileRegistry.PRESENT_BOX);
+    public BlockPresentBox() {
+        super(Properties.of(Material.WOOD).sound(SoundType.STONE).strength(2, 1000000), () -> BlockEntityRegistry.PRESENT_BOX.get());
     }
 
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new TileEntityPresentBox();
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new TileEntityPresentBox(p_153215_, p_153216_);
     }
 
     @Nullable
-    public INamedContainerProvider getMenuProvider(BlockState state, World worldIn, BlockPos pos) {
-        TileEntity tileentity = worldIn.getBlockEntity(pos);
+    public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+        BlockEntity tileentity = worldIn.getBlockEntity(pos);
         if (tileentity instanceof TileEntityPresentBox) {
-            ITextComponent itextcomponent = ((INameable)tileentity).getDisplayName();
-            return new SimpleNamedContainerProvider((id, inventory, player) -> {
+            Component itextcomponent = ((Nameable)tileentity).getDisplayName();
+            return new SimpleMenuProvider((id, inventory, player) -> {
                 return new PresentBoxContainer(id, inventory, 3);
             }, itextcomponent);
         } else {

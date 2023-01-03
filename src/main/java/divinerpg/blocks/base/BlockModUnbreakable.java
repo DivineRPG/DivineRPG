@@ -1,21 +1,19 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-
-import net.minecraft.block.AbstractBlock.Properties;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModUnbreakable extends BlockMod {
-    public BlockModUnbreakable(String name) {
-        this(name, Material.STONE);
+    public BlockModUnbreakable() {
+        this(Material.STONE);
     }
 
-    public BlockModUnbreakable(String name, Properties properties) {
-        super(name, properties);
+    public BlockModUnbreakable(Properties properties) {
+        super(properties);
     }
 
-    public BlockModUnbreakable(String name, boolean isLamp) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE)
+    public BlockModUnbreakable(boolean isLamp) {
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE)
                 .requiresCorrectToolForDrops()
                 .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE)
@@ -24,8 +22,8 @@ public class BlockModUnbreakable extends BlockMod {
                 }));
     }
 
-    public BlockModUnbreakable(String name, Material material) {
-        super(name, Block.Properties.of(material, MaterialColor.STONE)
+    public BlockModUnbreakable(Material material) {
+        super(Block.Properties.of(material, MaterialColor.STONE)
                 .requiresCorrectToolForDrops()
                 .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE));

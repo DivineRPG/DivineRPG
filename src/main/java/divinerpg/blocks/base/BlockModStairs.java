@@ -1,11 +1,10 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
-import net.minecraft.block.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
 
-public class BlockModStairs extends StairsBlock {
-    public BlockModStairs(String name, Block base) {
-        super(base.defaultBlockState(), AbstractBlock.Properties.copy(base));
-        setRegistryName(DivineRPG.MODID, name);
+public class BlockModStairs extends StairBlock {
+    public BlockModStairs(Block base) {
+        super(() -> base.defaultBlockState(), BlockBehaviour.Properties.copy(base));
     }
 }

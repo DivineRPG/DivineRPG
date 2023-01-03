@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "divinerpg:shimmer"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:purple_gemtop"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:bulbatobe"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:green_dulah"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:yellow_dulah"
+          }
+        }
+      ]
+    }
+  }
+}

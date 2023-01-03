@@ -1,45 +1,38 @@
 package divinerpg.client.renders.item;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.client.models.block.*;
-import divinerpg.registries.*;
+import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.block.ModelArcaniumExtractor;
+import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.vector.*;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.concurrent.*;
+public class RenderArcaniumExtractorItem extends BlockEntityWithoutLevelRenderer {
+    private final ModelArcaniumExtractor<?> model;
 
-public class RenderArcaniumExtractorItem extends ItemStackTileEntityRenderer implements Callable<ItemStackTileEntityRenderer> {
-    public final ItemStackTileEntityRenderer instance;
-
-    private final ModelArcaniumExtractor model = new ModelArcaniumExtractor();
-
-    public RenderArcaniumExtractorItem() {
-        instance = this;
+    public RenderArcaniumExtractorItem(BlockEntityRenderDispatcher dispatcher, EntityModelSet set) {
+        super(dispatcher, set);
+        model = new ModelArcaniumExtractor<>(set.bakeLayer(ModelArcaniumExtractor.LAYER_LOCATION));
     }
 
     @Override
-    public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.renderByItem(stack, transformType, matrixStack, buffer, combinedLight, combinedOverlay);
         Item item = stack.getItem();
-        if (item == Item.byBlock(BlockRegistry.arcaniumExtractor)) {
+        if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor")).asItem()) {
             matrixStack.pushPose();
             matrixStack.translate(0.5, 0, 0.5);
-            matrixStack.mulPose(Vector3f.YP.rotationDegrees(270));
-            IVertexBuilder builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/arcanium_extractor.png")));
+            matrixStack.mulPose(Axis.YP.rotationDegrees(270));
+            matrixStack.mulPose(Axis.YN.rotationDegrees(270));
+            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/arcanium_extractor.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();
         }
-
     }
 
-    @Override
-    public ItemStackTileEntityRenderer call() throws Exception {
-        return instance;
-    }
 }

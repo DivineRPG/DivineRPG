@@ -1,0 +1,48 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#is_overworld",
+  "spawners": [
+	  {
+	    "type": "divinerpg:rotatick",
+	    "weight": 15,
+	    "minCount": 1,
+	    "maxCount": 4
+	  },
+	  {
+	    "type": "divinerpg:the_eye",
+	    "weight": 5,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:caveclops",
+	    "weight": 10,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:enthralled_dramcryx",
+	    "weight": 7,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:the_grue",
+	    "weight": 5,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:kobblin",
+	    "weight": 5,
+	    "minCount": 1,
+	    "maxCount": 3
+  	  },
+  	  {
+  	  	"type": "divinerpg:cave_crawler",
+  	  	"weight": 5,
+  	  	"minCount": 1,
+  	  	"maxCount": 3
+  	  }
+  ]
+}

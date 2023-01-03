@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "divinerpg:blocks/skythern_planks"
+    "texture": "divinerpg:block/skythern_planks"
   }
 }

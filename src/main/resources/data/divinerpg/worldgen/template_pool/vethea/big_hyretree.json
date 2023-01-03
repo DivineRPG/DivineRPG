@@ -1,0 +1,24 @@
+{
+  "name": "big_hyretree",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:vethea/hyrelands/big_hyretree",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:vethea/hyrelands/big_hyretree2",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

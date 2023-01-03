@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:highest_ground",
+  "biomes": "#forge:is_plains",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none",
+  "start_pool": "divinerpg:overworld/ancient_tomb",
+  "size": 6,
+  "min_height": 55,
+  "max_height": 200,
+  "bury": 4,
+  "max_distance_from_center": 1
+}

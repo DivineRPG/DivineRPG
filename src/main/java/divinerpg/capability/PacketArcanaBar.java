@@ -1,7 +1,7 @@
 package divinerpg.capability;
 
 import io.netty.buffer.*;
-import net.minecraftforge.fml.network.*;
+import net.minecraftforge.network.*;
 
 import java.util.function.*;
 
@@ -21,7 +21,7 @@ public class PacketArcanaBar {
         buf.writeInt(delay);
     }
 
-    public PacketArcanaBar(Arcana arcana) {
+    public PacketArcanaBar(IArcana arcana) {
         if (arcana == null)
             return;
 
@@ -30,15 +30,14 @@ public class PacketArcanaBar {
         max = arcana.getMaxArcana();
     }
 
-
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
-            Arcana arcana = ctx.get().getSender().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElseThrow(null);
-            arcana.setMaxArcana(max);
-            arcana.setRegenDelay(delay);
-            arcana.set(this.arcana);
-        });
+                    ctx.get().getSender().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+                        arcana.setMaxArcana(max);
+                        arcana.setRegenDelay(delay);
+                        arcana.set(this.arcana);
+                    });
+                });
         ctx.get().setPacketHandled(true);
     }
-
 }

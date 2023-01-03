@@ -1,8 +1,8 @@
 package divinerpg.recipe;
 
-import net.minecraft.item.crafting.*;
+import net.minecraft.world.item.crafting.RecipeType;
 
-public class InfusionTableRecipeType implements IRecipeType<InfusionTableRecipe> {
+public class InfusionTableRecipeType implements RecipeType<InfusionTableRecipe> {
 
     @Override
     public String toString () {

@@ -1,24 +1,26 @@
 package divinerpg.client.renders.entity.vanilla;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.DivineRPG;
-import divinerpg.entities.vanilla.nether.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.model.PigModel;
-import net.minecraft.util.ResourceLocation;
+import divinerpg.entities.vanilla.nether.EntityHellPig;
+import net.minecraft.client.model.PigModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
+
+import static divinerpg.util.ClientUtils.layerPig;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderHellPig extends MobRenderer<EntityHellPig, PigModel<EntityHellPig>> {
-    ResourceLocation hellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig.png");
-    ResourceLocation madHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/mad_hell_pig.png");
-    ResourceLocation tamedHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/tamed_hell_pig.png");
+    public static final ResourceLocation
+    	hellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig.png"),
+    	madHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/mad_hell_pig.png"),
+    	tamedHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/tamed_hell_pig.png");
 
-    public RenderHellPig(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new PigModel<EntityHellPig>(), 1.0F);
+    public RenderHellPig(Context context) {
+        super(context, new PigModel<EntityHellPig>(context.bakeLayer(layerPig)), 1.0F);
     }
-    protected void scale(EntityHellPig entity, MatrixStack matrixStackIn, float partialTickTime) {
-    }
+    @Override
     public ResourceLocation getTextureLocation(EntityHellPig entity) {
         return entity.isTame() ? tamedHellPigLoc : (entity.isAngry() ? madHellPigLoc : hellPigLoc);
     }

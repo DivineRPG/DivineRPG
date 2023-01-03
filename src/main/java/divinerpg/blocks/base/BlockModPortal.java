@@ -3,25 +3,25 @@ package divinerpg.blocks.base;
 import divinerpg.DivineRPG;
 import divinerpg.registries.*;
 import divinerpg.util.teleport.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.*;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.*;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class BlockModPortal extends BlockMod {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
@@ -29,23 +29,22 @@ public class BlockModPortal extends BlockMod {
     protected static final VoxelShape Z_AXIS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
     private static Block frame;
 
-    public BlockModPortal(String name, Block frame) {
-        super(name, AbstractBlock.Properties.of(Material.PORTAL)
+    public BlockModPortal(Block frame) {
+        super(BlockBehaviour.Properties.of(Material.PORTAL)
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 11)
-                .noDrops()
         );
-        this.frame=frame;
+//        this.frame=frame;
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
     }
 
-    private Block getFrame(){
-        return this.frame;
-    }
+//    private Block getFrame(){
+//        return this.frame;
+//    }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         switch(state.getValue(AXIS)) {
             case Z:
                 return Z_AXIS_AABB;
@@ -56,43 +55,56 @@ public class BlockModPortal extends BlockMod {
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
         Direction.Axis direction$axis = facing.getAxis();
         Direction.Axis direction$axis1 = stateIn.getValue(AXIS);
         boolean flag = direction$axis1 != direction$axis && direction$axis.isHorizontal();
-        return !flag && facingState.getBlock() != this && !(new BlockModPortal.Size(worldIn, currentPos, direction$axis1, getBlock(), frame)).validatePortal() ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return !flag && facingState.getBlock() != this && !(new BlockModPortal.Size(worldIn, currentPos, direction$axis1, this, frame)).validatePortal() ? Blocks.AIR.defaultBlockState() : stateIn;
     }
 
     @Override
-    public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide){
+    public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide && world != null && world.dimension() != null){
             if(entity.isOnPortalCooldown()) {
                 entity.setPortalCooldown();
             }
                 if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
-
-                    entity.level.getProfiler().push(world.dimension().getRegistryName().getPath());
-                    if (this == BlockRegistry.edenPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.EDEN_WORLD ? World.OVERWORLD : KeyRegistry.EDEN_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.edenPortal, BlockRegistry.divineRock, true, KeyRegistry.EDEN_PORTAL.get()));
-                    } else if (this == BlockRegistry.wildwoodPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.WILDWOOD_WORLD ? World.OVERWORLD : KeyRegistry.WILDWOOD_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.wildwoodPortal, BlockRegistry.edenBlock, true, KeyRegistry.WILDWOOD_PORTAL.get()));
-                    } else if (this == BlockRegistry.apalachiaPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.APALACHIA_WORLD ? World.OVERWORLD : KeyRegistry.APALACHIA_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.apalachiaPortal, BlockRegistry.wildwoodBlock, true, KeyRegistry.APALACHIA_PORTAL.get()));
-                    } else if (this == BlockRegistry.skythernPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.SKYTHERN_WORLD ? World.OVERWORLD : KeyRegistry.SKYTHERN_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.skythernPortal, BlockRegistry.apalachiaBlock, true, KeyRegistry.SKYTHERN_PORTAL.get()));
-                    } else if (this == BlockRegistry.mortumPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.MORTUM_WORLD ? World.OVERWORLD : KeyRegistry.MORTUM_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.mortumPortal, BlockRegistry.skythernBlock, true, KeyRegistry.MORTUM_PORTAL.get()));
-                    } else if (this == BlockRegistry.iceikaPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.ICEIKA_WORLD ? World.OVERWORLD : KeyRegistry.ICEIKA_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BlockRegistry.iceikaPortal, Blocks.SNOW_BLOCK, true, KeyRegistry.ICEIKA_PORTAL.get()));
-                    } else if (this == BlockRegistry.vetheaPortal) {
-                        RegistryKey<World> key = world.dimension() == KeyRegistry.VETHEA_WORLD ? World.OVERWORLD : KeyRegistry.VETHEA_WORLD;
-                        entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(world.getServer().getLevel(key)));
+                    entity.level.getProfiler().push(world.dimension().location().getPath());
+                    if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.EDEN ? Level.OVERWORLD : LevelRegistry.EDEN;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock")), true, PointOfInterestRegistry.EDEN_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.WILDWOOD ? Level.OVERWORLD : LevelRegistry.WILDWOOD;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block")), true, PointOfInterestRegistry.WILDWOOD_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.APALACHIA ? Level.OVERWORLD : LevelRegistry.APALACHIA;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block")), true, PointOfInterestRegistry.APALACHIA_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.SKYTHERN ? Level.OVERWORLD : LevelRegistry.SKYTHERN;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_block")), true, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.MORTUM ? Level.OVERWORLD : LevelRegistry.MORTUM;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_block")), true, PointOfInterestRegistry.MORTUM_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.ICEIKA ? Level.OVERWORLD : LevelRegistry.ICEIKA;
+                        if(world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal")), Blocks.SNOW_BLOCK, true, PointOfInterestRegistry.ICEIKA_PORTAL.getKey()));
+                        }
+                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
+                        ResourceKey<Level> key = world.dimension() == LevelRegistry.VETHEA ? Level.OVERWORLD : LevelRegistry.VETHEA;
+                        if (world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
+                        }
                     }
                     entity.level.getProfiler().pop();
                 }
@@ -102,22 +114,22 @@ public class BlockModPortal extends BlockMod {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
 
         for(int i = 0; i < 4; ++i) {
-            double x = (double)pos.getX() + rand.nextDouble();
-            double y = (double)pos.getY() + rand.nextDouble();
-            double z = (double)pos.getZ() + rand.nextDouble();
-            double xSpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
-            double ySpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
-            double zSpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
+            double x = (double) pos.getX() + rand.nextDouble();
+            double y = (double) pos.getY() + rand.nextDouble();
+            double z = (double) pos.getZ() + rand.nextDouble();
+            double xSpeed = ((double) rand.nextFloat() - 0.5D) * 0.5D;
+            double ySpeed = ((double) rand.nextFloat() - 0.5D) * 0.5D;
+            double zSpeed = ((double) rand.nextFloat() - 0.5D) * 0.5D;
             int j = rand.nextInt(2) * 2 - 1;
             if (!worldIn.getBlockState(pos.west()).is(this) && !worldIn.getBlockState(pos.east()).is(this)) {
-                x = (double)pos.getX() + 0.5D + 0.25D * (double)j;
-                xSpeed = rand.nextFloat() * 2.0F * (float)j;
+                x = (double) pos.getX() + 0.5D + 0.25D * (double) j;
+                xSpeed = rand.nextFloat() * 2.0F * (float) j;
             } else {
-                z = (double)pos.getZ() + 0.5D + 0.25D * (double)j;
-                zSpeed = rand.nextFloat() * 2.0F * (float)j;
+                z = (double) pos.getZ() + 0.5D + 0.25D * (double) j;
+                zSpeed = rand.nextFloat() * 2.0F * (float) j;
             }
 
             if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
@@ -142,7 +154,7 @@ public class BlockModPortal extends BlockMod {
     }
 
     @Override
-    public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }
 
@@ -165,12 +177,15 @@ public class BlockModPortal extends BlockMod {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AXIS);
     }
 
-    public boolean makePortal(IWorld worldIn, BlockPos pos) {
+    public boolean makePortal(LevelAccessor worldIn, BlockPos pos) {
         BlockModPortal.Size portal = this.isPortal(worldIn, pos);
+        if(worldIn.getBlockState(pos.below()) == Blocks.BEDROCK.defaultBlockState()){
+            pos = pos.below(10);
+        }
         if (portal != null && !onTrySpawnPortal(worldIn, pos, portal)) {
             portal.createPortalBlocks();
             return true;
@@ -179,7 +194,7 @@ public class BlockModPortal extends BlockMod {
         }
     }
 
-    public static boolean onTrySpawnPortal(IWorld world, BlockPos pos, BlockModPortal.Size size) {
+    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, BlockModPortal.Size size) {
         return MinecraftForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
     }
 
@@ -187,7 +202,7 @@ public class BlockModPortal extends BlockMod {
     public static class PortalSpawnEvent extends BlockEvent {
         private final BlockModPortal.Size size;
 
-        public PortalSpawnEvent(IWorld world, BlockPos pos, BlockState state, BlockModPortal.Size size) {
+        public PortalSpawnEvent(LevelAccessor world, BlockPos pos, BlockState state, BlockModPortal.Size size) {
             super(world, pos, state);
             this.size = size;
         }
@@ -199,7 +214,7 @@ public class BlockModPortal extends BlockMod {
     }
 
     @Nullable
-    public BlockModPortal.Size isPortal(IWorld worldIn, BlockPos pos) {
+    public BlockModPortal.Size isPortal(LevelAccessor worldIn, BlockPos pos) {
         BlockModPortal.Size portalX = new Size(worldIn, pos, Direction.Axis.X, this, worldIn.getBlockState(pos.below()).getBlock());
         if (portalX.isValid() && portalX.portalBlockCount == 0) {
             return portalX;
@@ -210,7 +225,7 @@ public class BlockModPortal extends BlockMod {
     }
 
     public static class Size {
-        private final IWorld world;
+        private final LevelAccessor world;
         private final Direction.Axis axis;
         private final Direction rightDir;
         private final Direction leftDir;
@@ -221,7 +236,7 @@ public class BlockModPortal extends BlockMod {
         private int width;
         private Block portal, frame;
 
-        public Size(IWorld worldIn, BlockPos pos, Direction.Axis axisIn, Block portal, Block frame) {
+        public Size(LevelAccessor worldIn, BlockPos pos, Direction.Axis axisIn, Block portal, Block frame) {
             this.world = worldIn;
             this.axis = axisIn;
             this.portal=portal;
@@ -258,13 +273,13 @@ public class BlockModPortal extends BlockMod {
             int i;
             for(i = 0; i < 22; ++i) {
                 BlockPos blockpos = pos.relative(directionIn, i);
-                if (!this.canConnect(this.world.getBlockState(blockpos)) || !(this.world.getBlockState(blockpos.below()).getBlock().is(this.world.getBlockState(pos.below()).getBlock()))) {
+                if (!this.canConnect(this.world.getBlockState(blockpos)) || !(this.world.getBlockState(blockpos.below()).getBlock().equals(this.world.getBlockState(pos.below()).getBlock()))) {
                     break;
                 }
             }
 
             BlockPos framePos = pos.relative(directionIn, i);
-            return this.world.getBlockState(framePos).getBlock().is(this.world.getBlockState(pos.below()).getBlock()) ? i : 0;
+            return this.world.getBlockState(framePos).getBlock().equals(this.world.getBlockState(pos.below()).getBlock()) ? i : 0;
         }
 
         public int getHeight() {
@@ -292,7 +307,7 @@ public class BlockModPortal extends BlockMod {
 
                     if (i == 0) {
                         BlockPos framePos = blockpos.relative(this.leftDir);
-                        if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                        if (!(world.getBlockState(framePos).getBlock().equals(frame))) {
                             break label56;
                         }
                         if (!(world.getBlockState(framePos).getBlock() == frame)) {
@@ -300,7 +315,7 @@ public class BlockModPortal extends BlockMod {
                         }
                     } else if (i == this.width - 1) {
                         BlockPos framePos = blockpos.relative(this.rightDir);
-                        if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                        if (!(world.getBlockState(framePos).getBlock().equals(frame))) {
                             break label56;
                         }
                         if (!(world.getBlockState(framePos).getBlock() == frame)) {
@@ -312,7 +327,7 @@ public class BlockModPortal extends BlockMod {
 
             for(int j = 0; j < this.width; ++j) {
                 BlockPos framePos = this.bottomLeft.relative(this.rightDir, j).above(this.height);
-                if (!(world.getBlockState(framePos).getBlock().is(frame))) {
+                if (!(world.getBlockState(framePos).getBlock().equals(frame))) {
                     this.height = 0;
                     break;
                 }

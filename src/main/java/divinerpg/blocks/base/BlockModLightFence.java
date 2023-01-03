@@ -1,77 +1,57 @@
 package divinerpg.blocks.base;
 
-import divinerpg.registries.BlockRegistry;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-
-import javax.annotation.*;
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModLightFence extends FenceBlock {
-    private final boolean isOn;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public BlockModLightFence(MaterialColor color, float hardness) {
+        super(Block.Properties.of(Material.STONE, color).dynamicShape().strength(hardness, 3.0F).sound(SoundType.GLASS));
+        this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(WATERLOGGED, Boolean.valueOf(false)));
 
-    public BlockModLightFence(MaterialColor color, String name, boolean isOn, float hardness, int luminance) {
-        super(Block.Properties.of(Material.STONE, color).dynamicShape().strength(hardness, 3.0F).sound(SoundType.GLASS).lightLevel((p_235464_0_) -> {
-            return luminance;
-        }));
-        this.isOn = isOn;
-        setRegistryName(name);
     }
 
     @Override
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState p_180633_3_, @Nullable LivingEntity p_180633_4_, ItemStack p_180633_5_) {
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.getValue(POWERED) ? 15 : 0;
+    }
+
+    @Override
+    public void onPlace(BlockState state, Level worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+        handleBlockState(state, worldIn, pos);
+    }
+
+    @Override
+    public void neighborChanged(BlockState state, Level worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+        handleBlockState(state, worldIn, pos);
+        DebugPackets.sendNeighborsUpdatePacket(worldIn, pos);
+    }
+
+    @Override
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
+        handleBlockState(state, worldIn, pos);
+    }
+
+
+
+    public void handleBlockState(BlockState state, Level worldIn, BlockPos pos) {
         if (!worldIn.isClientSide) {
-            if (this.isOn && worldIn.hasNeighborSignal(pos)) {
-                worldIn.getBlockTicks().scheduleTick(pos, this, 4);
-            } else if (!this.isOn && worldIn.hasNeighborSignal(pos)) {
-                if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.redFence) {
-                    worldIn.setBlock(pos, BlockRegistry.redFenceOn.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.blueFence) {
-                    worldIn.setBlock(pos, BlockRegistry.blueFenceOn.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.greenFence) {
-                    worldIn.setBlock(pos, BlockRegistry.greenFenceOn.defaultBlockState(), 2);
-                }
+            if (state.getValue(POWERED) && !worldIn.hasNeighborSignal(pos)) {
+                worldIn.setBlock(pos, state.setValue(POWERED, false), 2);
+            } else if (!state.getValue(POWERED) && worldIn.hasNeighborSignal(pos)) {
+                worldIn.setBlock(pos, state.setValue(POWERED, Boolean.valueOf(true)), 2);
             }
         }
     }
 
-    @Override
-    public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-        if (!worldIn.isClientSide) {
-            if (this.isOn && !worldIn.hasNeighborSignal(pos)) {
-                worldIn.getBlockTicks().scheduleTick(pos, this, 4);
-            } else if (!this.isOn && worldIn.hasNeighborSignal(pos)) {
-                if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.redFence) {
-                    worldIn.setBlock(pos, BlockRegistry.redFenceOn.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.blueFence) {
-                    worldIn.setBlock(pos, BlockRegistry.blueFenceOn.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.greenFence) {
-                    worldIn.setBlock(pos, BlockRegistry.greenFenceOn.defaultBlockState(), 2);
-                }
-            }
-        }
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(NORTH, EAST, WEST, SOUTH, WATERLOGGED, POWERED);
     }
-
-    @Override
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (!worldIn.isClientSide) {
-            if (this.isOn && !worldIn.hasNeighborSignal(pos)) {
-                if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.redFenceOn) {
-                    worldIn.setBlock(pos, BlockRegistry.redFence.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.blueFenceOn) {
-                    worldIn.setBlock(pos, BlockRegistry.blueFence.defaultBlockState(), 2);
-                } else if (worldIn.getBlockState(pos).getBlock() == BlockRegistry.greenFenceOn) {
-                    worldIn.setBlock(pos, BlockRegistry.greenFence.defaultBlockState(), 2);
-                }
-            }
-        }
-        super.tick(state, worldIn, pos, rand);
-    }
-
-
 }

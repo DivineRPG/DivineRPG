@@ -1,43 +1,28 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
 
-public class EntityVhraak extends EntityVetheaMob {
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
+
+public class EntityVhraak extends EntityDivineMonster {
 
     private int spawnTick = 80;
 
-    public EntityVhraak(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityVhraak(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.vhraakHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.vhraakDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.vhraakSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.vhraakFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
@@ -45,21 +30,10 @@ public class EntityVhraak extends EntityVetheaMob {
         if(!level.isClientSide) {
             if(this.getTarget() != null) {
                 if (this.spawnTick == 0) {
-                    EntityFakeVhraak fakeVhraak = new EntityFakeVhraak(EntityRegistry.FAKE_VHRAAK, this.level);
-                    fakeVhraak.moveTo(this.getX() + 1, this.getY(), this.getZ() + 1, this.xRot, this.yRot);
-                    this.level.addFreshEntity(fakeVhraak);
-
-                    fakeVhraak = new EntityFakeVhraak(EntityRegistry.FAKE_VHRAAK, this.level);
-                    fakeVhraak.moveTo(this.getX() - 1, this.getY(), this.getZ() + 1, this.xRot, this.yRot);
-                    this.level.addFreshEntity(fakeVhraak);
-
-                    fakeVhraak = new EntityFakeVhraak(EntityRegistry.FAKE_VHRAAK, this.level);
-                    fakeVhraak.moveTo(this.getX() + 1, this.getY(), this.getZ() - 1, this.xRot, this.yRot);
-                    this.level.addFreshEntity(fakeVhraak);
-
-                    fakeVhraak = new EntityFakeVhraak(EntityRegistry.FAKE_VHRAAK, this.level);
-                    fakeVhraak.moveTo(this.getX() - 1, this.getY(), this.getZ() - 1, this.xRot, this.yRot);
-                    this.level.addFreshEntity(fakeVhraak);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(-1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(-1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
                     this.spawnTick = 80;
                 }
                 else {
@@ -70,22 +44,17 @@ public class EntityVhraak extends EntityVetheaMob {
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 4;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.VHRAAK;
+        return SoundRegistry.VHRAAK.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.VHRAAK_HURT;
+        return SoundRegistry.VHRAAK_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.VHRAAK_HURT;
+        return SoundRegistry.VHRAAK_HURT.get();
     }
 }

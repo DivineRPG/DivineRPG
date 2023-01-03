@@ -1,0 +1,36 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_lush",
+  "spawners": [
+	  {
+	    "type": "divinerpg:cave_crawler",
+	    "weight": 15,
+	    "minCount": 2,
+	    "maxCount": 3
+	  },
+	  {
+	    "type": "divinerpg:caveclops",
+	    "weight": 15,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:crab",
+	    "weight": 5,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:jungle_bat",
+	    "weight": 2,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  },
+  	  {
+	    "type": "divinerpg:aequorea",
+	    "weight": 4,
+	    "minCount": 1,
+	    "maxCount": 4
+  	  }
+  ]
+}

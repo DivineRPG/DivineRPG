@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/ender_lamp"
+    "all": "divinerpg:block/ender_lamp"
   }
 }

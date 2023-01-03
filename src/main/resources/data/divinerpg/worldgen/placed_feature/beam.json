@@ -1,0 +1,20 @@
+{
+	"feature": "divinerpg:beam",
+	"placement": [
+		{
+			"type": "minecraft:rarity_filter",
+			"chance": 32
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "lowest_ground",
+			"mode": "random_section",
+			"min_height": -60,
+			"max_height": 310,
+			"bury": 1
+		}
+	]
+}

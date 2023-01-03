@@ -1,100 +1,93 @@
 package divinerpg.entities.vanilla.overworld;
 
-import java.util.Random;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.syncher.*;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+public class EntityPumpkinSpider extends Spider {
+	private static final EntityDataAccessor<Boolean> PROVOKED = SynchedEntityData.defineId(EntityPumpkinSpider.class, EntityDataSerializers.BOOLEAN);
 
-public class EntityPumpkinSpider extends SpiderEntity {
-    private static final DataParameter<Boolean> PROVOKED = EntityDataManager.defineId(EntityPumpkinSpider.class, DataSerializers.BOOLEAN);
-	
-    public EntityPumpkinSpider(EntityType<? extends MonsterEntity> type, World worldIn) {
-		super((EntityType<? extends SpiderEntity>) type, worldIn);
+	public EntityPumpkinSpider(EntityType<? extends Spider> type, Level worldIn) {
+		super(type, worldIn);
 	}
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.pumpkinSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.pumpkinSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.pumpkinSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.pumpkinSpiderFollowRange);
-    }
 	@Override
 	protected void defineSynchedData() {
-	      super.defineSynchedData();
-	      this.entityData.define(PROVOKED, false);
+		super.defineSynchedData();
+		this.entityData.define(PROVOKED, false);
 	}
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+		goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
+		targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
+	}
+	@Override
+	public double getMeleeAttackRangeSqr(LivingEntity entity) {
+		return super.getMeleeAttackRangeSqr(entity) * 1.25;
 	}
 	@Override
 	public void tick() {
-        super.tick();
-        if (!this.level.isClientSide) {
-        	PlayerEntity player = this.level.getNearestPlayer(this, 4.0D);
-        	if(player != null && canSee(player)) {
-        		setProvoked(player);
-        	} else {
-        		setProvoked(this.getTarget());
-        	}
-            setNoAi(!entityData.get(PROVOKED));
-        }
-    }
+		super.tick();
+		if(!level.isClientSide) {
+			Player player = level.getNearestPlayer(this, 4D);
+			if(player != null && hasLineOfSight(player)) setProvoked(player);
+			else setProvoked(getTarget());
+			if(!getProvoked()) setDeltaMovement(0, -0.3, 0);
+			setNoAi(!entityData.get(PROVOKED));
+		}
+		if(!getProvoked()) xRotO = 0;
+	}
 	@Override
-    public boolean hurt(DamageSource source, float amount) {
-        Entity entity = source.getDirectEntity();
-        if (entity instanceof LivingEntity) {
-            this.setProvoked((LivingEntity) entity);
-            this.setDeltaMovement(0, 0.6, 0);
-        }
-        return super.hurt(source, amount);
-    }
+	public boolean hurt(DamageSource source, float amount) {
+		Entity entity = source.getDirectEntity();
+		if(!(entity instanceof LivingEntity)) entity = source.getEntity();
+		if(entity != null && entity instanceof LivingEntity) {
+			setProvoked((LivingEntity) entity);
+			setDeltaMovement(0, .6, 0);
+		}
+		return super.hurt(source, amount);
+	}
 	public boolean getProvoked() {
-        return entityData.get(PROVOKED);
-    }
+		return entityData.get(PROVOKED);
+	}
 	@Nullable
 	public void setProvoked(LivingEntity entity) {
-		if (entity == null || (!canSee(entity) && entity.distanceTo(this) > 32.0f)) {
-			calmDown();
-		} else {
-			if(entity instanceof PlayerEntity) {
-				PlayerEntity player = (PlayerEntity) entity;
+		if(entity == null || (!hasLineOfSight(entity) && entity.distanceTo(this) > 32F)) calmDown();
+		else {
+			if(entity instanceof Player) {
+				Player player = (Player) entity;
 				if(player.isCreative() || player.isSpectator()) {
 					calmDown();
 					return;
 				}
 			}
 			entityData.set(PROVOKED, true);
-			this.setTarget(entity);
+			setTarget(entity);
 		}
 	}
 	public void calmDown() {
 		entityData.set(PROVOKED, false);
-		this.setTarget(null);
+		setTarget(null);
 	}
-	public void readAdditionalSaveData(CompoundNBT tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.getBoolean("Provoked"))
-            setProvoked(null);
-    }
-    public void addAdditionalSaveData(CompoundNBT tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("Provoked", this.getProvoked());
-    }
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
-    }
-    @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
-        return 0.0F;
-    }
+	public void readAdditionalSaveData(CompoundTag tag) {
+		super.readAdditionalSaveData(tag);
+		entityData.set(PROVOKED, tag.getBoolean("Provoked"));
+	}
+	public void addAdditionalSaveData(CompoundTag tag) {
+		super.addAdditionalSaveData(tag);
+		tag.putBoolean("Provoked", getProvoked());
+	}
+	@Override
+	public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
+		return 0F;
+	}
 }

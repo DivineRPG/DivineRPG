@@ -1,12 +1,11 @@
 package divinerpg.enchant;
 
-import net.minecraft.enchantment.*;
-import net.minecraft.inventory.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.*;
 
 public class RiveEnchant extends Enchantment {
     public RiveEnchant() {
-        super(Rarity.VERY_RARE, EnchantmentType.DIGGER, new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});
-        this.setRegistryName("rive");
+        super(Rarity.VERY_RARE, EnchantmentCategory.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override

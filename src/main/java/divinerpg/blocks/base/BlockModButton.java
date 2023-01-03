@@ -1,20 +1,12 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.util.*;
+import net.minecraft.sounds.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
 
-public class BlockModButton extends AbstractButtonBlock {
-    SoundEvent sound1, sound2;
-
-    public BlockModButton(String name) {
-        super(true, AbstractBlock.Properties.copy(Blocks.OAK_BUTTON));
-        setRegistryName(name);
-        this.sound1 = SoundEvents.WOODEN_BUTTON_CLICK_ON;
-        this.sound2 = SoundEvents.WOODEN_BUTTON_CLICK_OFF;
+public class BlockModButton extends ButtonBlock {
+    public BlockModButton() {
+        super(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON), 30, true, SoundEvents.WOODEN_BUTTON_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON);
     }
 
-    @Override
-    protected SoundEvent getSound(boolean on) {
-        return on ? sound1 : sound2;
-    }
 }

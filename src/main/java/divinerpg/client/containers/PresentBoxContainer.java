@@ -1,31 +1,36 @@
 package divinerpg.client.containers;
 
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
 import net.minecraft.network.*;
 import net.minecraftforge.api.distmarker.*;
 
-public class PresentBoxContainer extends Container {
-    private final IInventory container;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+
+public class PresentBoxContainer extends AbstractContainerMenu {
+    private final Container container;
     private final int containerRows;
 
-    public PresentBoxContainer(int p_i50091_2_, PlayerInventory p_i50091_3_, int p_i50091_4_) {
-        this(ContainerRegistry.PRESENT_BOX.get(), p_i50091_2_, p_i50091_3_, new Inventory(9 * p_i50091_4_), p_i50091_4_);
+    public PresentBoxContainer(int p_i50091_2_, Inventory p_i50091_3_, int p_i50091_4_) {
+        this(MenuTypeRegistry.PRESENT_BOX.get(), p_i50091_2_, p_i50091_3_, new SimpleContainer(9 * p_i50091_4_), p_i50091_4_);
     }
 
-    public PresentBoxContainer(int i, PlayerInventory playerInventory, PacketBuffer buffer) {
+    public PresentBoxContainer(int i, Inventory playerInventory, FriendlyByteBuf buffer) {
         this(i, playerInventory, 3);
     }
 
-    public static PresentBoxContainer threeRows(int p_216988_0_, PlayerInventory p_216988_1_) {
+    public static PresentBoxContainer threeRows(int p_216988_0_, Inventory p_216988_1_) {
         return new PresentBoxContainer(p_216988_0_, p_216988_1_, 3);
     }
 
 
-    public PresentBoxContainer(ContainerType<?> p_i50092_1_, int p_i50092_2_, PlayerInventory p_i50092_3_, IInventory p_i50092_4_, int p_i50092_5_) {
+    public PresentBoxContainer(MenuType<?> p_i50092_1_, int p_i50092_2_, Inventory p_i50092_3_, Container p_i50092_4_, int p_i50092_5_) {
         super(p_i50092_1_, p_i50092_2_);
         checkContainerSize(p_i50092_4_, p_i50092_5_ * 9);
         this.container = p_i50092_4_;
@@ -51,11 +56,11 @@ public class PresentBoxContainer extends Container {
 
     }
 
-    public boolean stillValid(PlayerEntity p_75145_1_) {
+    public boolean stillValid(Player p_75145_1_) {
         return this.container.stillValid(p_75145_1_);
     }
 
-    public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int p_82846_2_) {
+    public ItemStack quickMoveStack(Player p_82846_1_, int p_82846_2_) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(p_82846_2_);
         if (slot != null && slot.hasItem()) {
@@ -79,12 +84,12 @@ public class PresentBoxContainer extends Container {
         return itemstack;
     }
 
-    public void removed(PlayerEntity p_75134_1_) {
+    public void removed(Player p_75134_1_) {
         super.removed(p_75134_1_);
         this.container.stopOpen(p_75134_1_);
     }
 
-    public IInventory getContainer() {
+    public Container getContainer() {
         return this.container;
     }
 

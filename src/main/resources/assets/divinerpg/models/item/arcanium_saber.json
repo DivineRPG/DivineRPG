@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/arcanium_saber"
+    "layer0": "divinerpg:item/arcanium_saber"
   }
 }

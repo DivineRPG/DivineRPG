@@ -1,153 +1,119 @@
 package divinerpg.client.models.arcana;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.Entity;
 
-public class ModelSeimer<T extends Entity> extends SegmentedModel<T> 
-{
-    //fields
-	ModelRenderer body;
-    ModelRenderer headtop;
-    ModelRenderer headbottom;
-    ModelRenderer headright;
-    ModelRenderer headleft;
-    ModelRenderer hornright;
-    ModelRenderer hornright2;
-    ModelRenderer sensorright2;
-    ModelRenderer sensorleft;
-    ModelRenderer wingright;
-    ModelRenderer wingleft;
-    ModelRenderer wingleft1;
-    ModelRenderer wingright2;
-    ModelRenderer hornleft;
-    ModelRenderer sensorright;
-    ModelRenderer hornleft2;
-    ModelRenderer sensorleft2;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelSeimer()
-    {
-    	texWidth = 64;
-        texHeight = 32;
-        body = new ModelRenderer(this, 0, 7);
-        body.addBox(0F, 0F, 0F, 16, 9, 16);
-        body.setPos(8F, 10F, -8F);
-        body.setTexSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0F, -1.570796F, 0F);
-        headtop = new ModelRenderer(this, 15, 14);
-        headtop.addBox(0F, 0F, 0F, 2, 2, 16);
-        headtop.setPos(8F, 10F, -10F);
-        headtop.setTexSize(64, 32);
-        headtop.mirror = true;
-        setRotation(headtop, 0F, -1.570796F, 0F);
-        headbottom = new ModelRenderer(this, 32, 0);
-        headbottom.addBox(0F, 0F, 0F, 2, 2, 14);
-        headbottom.setPos(7F, 16F, -10F);
-        headbottom.setTexSize(64, 32);
-        headbottom.mirror = true;
-        setRotation(headbottom, 0F, -1.570796F, 0F);
-        headright = new ModelRenderer(this, 54, 0);
-        headright.addBox(0F, 0F, 0F, 2, 4, 2);
-        headright.setPos(7F, 12F, -10F);
-        headright.setTexSize(64, 32);
-        headright.mirror = true;
-        setRotation(headright, 0F, -1.570796F, 0F);
-        headleft = new ModelRenderer(this, 54, 0);
-        headleft.addBox(0F, -1F, 0F, 2, 4, 2);
-        headleft.setPos(-5F, 13F, -10F);
-        headleft.setTexSize(64, 32);
-        headleft.mirror = true;
-        setRotation(headleft, 0F, -1.570796F, 0F);
-        hornright = new ModelRenderer(this, 0, 12);
-        hornright.addBox(0F, 0F, 0F, 2, 6, 2);
-        hornright.setPos(6F, 4F, -3F);
-        hornright.setTexSize(64, 32);
-        hornright.mirror = true;
-        setRotation(hornright, 0F, -1.570796F, 0F);
-        hornright2 = new ModelRenderer(this, 0, 13);
-        hornright2.addBox(0F, 0F, 0F, 2, 6, 2);
-        hornright2.setPos(3F, 4F, -3F);
-        hornright2.setTexSize(64, 32);
-        hornright2.mirror = true;
-        setRotation(hornright2, 0F, -1.570796F, 0F);
-        sensorright2 = new ModelRenderer(this, 0, 20);
-        sensorright2.addBox(0F, 0F, 0F, 6, 2, 2);
-        sensorright2.setPos(3F, 4F, -9F);
-        sensorright2.setTexSize(64, 32);
-        sensorright2.mirror = true;
-        setRotation(sensorright2, 0F, -1.570796F, 0F);
-        sensorleft = new ModelRenderer(this, 0, 20);
-        sensorleft.addBox(0F, 0F, 0F, 6, 2, 2);
-        sensorleft.setPos(6F, 4F, -9F);
-        sensorleft.setTexSize(64, 32);
-        sensorleft.mirror = true;
-        setRotation(sensorleft, 0F, -1.570796F, 0F);
-        wingright = new ModelRenderer(this, 27, 0);
-        wingright.addBox(0F, 0F, 0F, 10, 2, 8);
-        wingright.setPos(-8F, 16F, -6F);
-        wingright.setTexSize(64, 32);
-        wingright.mirror = true;
-        setRotation(wingright, 0F, -1.570796F, 0F);
-        wingleft = new ModelRenderer(this, 29, 0);
-        wingleft.addBox(0F, 0F, 0F, 10, 2, 8);
-        wingleft.setPos(16F, 16F, -6F);
-        wingleft.setTexSize(64, 32);
-        wingleft.mirror = true;
-        setRotation(wingleft, 0F, -1.570796F, 0F);
-        wingleft1 = new ModelRenderer(this, 29, 0);
-        wingleft1.addBox(0F, 0F, 0F, 10, 2, 8);
-        wingleft1.setPos(16F, 12F, -6F);
-        wingleft1.setTexSize(64, 32);
-        wingleft1.mirror = true;
-        setRotation(wingleft1, 0F, -1.570796F, 0F);
-        wingright2 = new ModelRenderer(this, 27, 0);
-        wingright2.addBox(0F, 0F, 0F, 10, 2, 8);
-        wingright2.setPos(-8F, 12F, -6F);
-        wingright2.setTexSize(64, 32);
-        wingright2.mirror = true;
-        setRotation(wingright2, 0F, -1.570796F, 0F);
-        hornleft = new ModelRenderer(this, 0, 13);
-        hornleft.addBox(0F, 0F, 0F, 2, 6, 2);
-        hornleft.setPos(-4F, 4F, -3F);
-        hornleft.setTexSize(64, 32);
-        hornleft.mirror = true;
-        setRotation(hornleft, 0F, -1.570796F, 0F);
-        sensorright = new ModelRenderer(this, 0, 20);
-        sensorright.addBox(0F, 0F, 0F, 6, 2, 2);
-        sensorright.setPos(-4F, 4F, -9F);
-        sensorright.setTexSize(64, 32);
-        sensorright.mirror = true;
-        setRotation(sensorright, 0F, -1.570796F, 0F);
-        hornleft2 = new ModelRenderer(this, 0, 13);
-        hornleft2.addBox(0F, 0F, 0F, 2, 6, 2);
-        hornleft2.setPos(-1F, 4F, -3F);
-        hornleft2.setTexSize(64, 32);
-        hornleft2.mirror = true;
-        setRotation(hornleft2, 0F, -1.570796F, 0F);
-        sensorleft2 = new ModelRenderer(this, 0, 20);
-        sensorleft2.addBox(0F, 0F, 0F, 6, 2, 2);
-        sensorleft2.setPos(-1F, 4F, -9F);
-        sensorleft2.setTexSize(64, 32);
-        sensorleft2.mirror = true;
-        setRotation(sensorleft2, 0F, -1.570796F, 0F);
-    }
-    
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(body, headtop, headbottom, headright, headleft, hornright, hornright2, sensorright2, sensorright2, sensorleft, wingright, wingleft, wingleft1, wingright2, hornleft, sensorright, hornleft2, sensorleft2);
-    }
+public class ModelSeimer<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("seimer");
+	private final ModelPart body;
+	private final ModelPart headtop;
+	private final ModelPart headbottom;
+	private final ModelPart headright;
+	private final ModelPart headleft;
+	private final ModelPart hornright;
+	private final ModelPart hornright2;
+	private final ModelPart sensorright2;
+	private final ModelPart sensorleft;
+	private final ModelPart wingright;
+	private final ModelPart wingleft;
+	private final ModelPart wingleft1;
+	private final ModelPart wingright2;
+	private final ModelPart hornleft;
+	private final ModelPart sensorright;
+	private final ModelPart hornleft2;
+	private final ModelPart sensorleft2;
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public ModelSeimer(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.body = root.getChild("body");
+		this.headtop = root.getChild("headtop");
+		this.headbottom = root.getChild("headbottom");
+		this.headright = root.getChild("headright");
+		this.headleft = root.getChild("headleft");
+		this.hornright = root.getChild("hornright");
+		this.hornright2 = root.getChild("hornright2");
+		this.sensorright2 = root.getChild("sensorright2");
+		this.sensorleft = root.getChild("sensorleft");
+		this.wingright = root.getChild("wingright");
+		this.wingleft = root.getChild("wingleft");
+		this.wingleft1 = root.getChild("wingleft1");
+		this.wingright2 = root.getChild("wingright2");
+		this.hornleft = root.getChild("hornleft");
+		this.sensorright = root.getChild("sensorright");
+		this.hornleft2 = root.getChild("hornleft2");
+		this.sensorleft2 = root.getChild("sensorleft2");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 7).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 9.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, 10.0F, -8.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headtop", CubeListBuilder.create().texOffs(15, 14).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, 10.0F, -10.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headbottom", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 14.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(7.0F, 16.0F, -10.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headright", CubeListBuilder.create().texOffs(54, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(7.0F, 12.0F, -10.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headleft", CubeListBuilder.create().texOffs(54, 0).mirror().addBox(0.0F, -1.0F, 0.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, 13.0F, -10.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("hornright", CubeListBuilder.create().texOffs(0, 12).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 4.0F, -3.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("hornright2", CubeListBuilder.create().texOffs(0, 13).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(3.0F, 4.0F, -3.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("sensorright2", CubeListBuilder.create().texOffs(0, 20).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(3.0F, 4.0F, -9.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("sensorleft", CubeListBuilder.create().texOffs(0, 20).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 4.0F, -9.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("wingright", CubeListBuilder.create().texOffs(27, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-8.0F, 16.0F, -6.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("wingleft", CubeListBuilder.create().texOffs(29, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(16.0F, 16.0F, -6.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("wingleft1", CubeListBuilder.create().texOffs(29, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(16.0F, 12.0F, -6.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("wingright2", CubeListBuilder.create().texOffs(27, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-8.0F, 12.0F, -6.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("hornleft", CubeListBuilder.create().texOffs(0, 13).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 4.0F, -3.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("sensorright", CubeListBuilder.create().texOffs(0, 20).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 4.0F, -9.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("hornleft2", CubeListBuilder.create().texOffs(0, 13).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 4.0F, -3.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("sensorleft2", CubeListBuilder.create().texOffs(0, 20).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 4.0F, -9.0F, 0.0F, -1.5708F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headtop.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headbottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		hornright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		hornright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		sensorright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		sensorleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wingright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wingleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wingleft1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wingright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		hornleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		sensorright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		hornleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		sensorleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

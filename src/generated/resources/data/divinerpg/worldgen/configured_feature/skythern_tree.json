@@ -1,0 +1,20 @@
+{
+  "type": "divinerpg:skythern_tree",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "divinerpg:skythern_leaves",
+      "Properties": {
+        "distance": "1",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    },
+    "log": {
+      "Name": "divinerpg:skythern_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

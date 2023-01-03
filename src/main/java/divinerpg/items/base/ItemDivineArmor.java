@@ -1,37 +1,44 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.util.ArmorInfo;
-import divinerpg.util.IFullSetInfo;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.*;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import divinerpg.util.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.Nullable;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
-    public IArmorMaterial mat;
+    public ArmorMaterial mat;
     public ArmorInfo armorInfo;
 
-    public ItemDivineArmor(String name, Rarity rarity, IArmorMaterial materialIn, EquipmentSlotType slot) {
-        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
-        setRegistryName(DivineRPG.MODID, name);
+    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot) {
+        super(materialIn, slot, new Item.Properties().rarity(rarity));
         this.mat = materialIn;
     }
 
-    public ItemDivineArmor(String name, Rarity rarity, IArmorMaterial materialIn, EquipmentSlotType slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
-        setRegistryName(DivineRPG.MODID, name);
+    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
+        super(materialIn, slot, new Item.Properties().rarity(rarity));
         this.mat = materialIn;
-        this.armorInfo=armorInfo;
+        this.armorInfo = armorInfo;
+    }
+
+    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot) {
+        super(materialIn, slot, new Item.Properties());
+        this.mat = materialIn;
+    }
+
+    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
+        super(materialIn, slot, new Item.Properties());
+        this.mat = materialIn;
+        this.armorInfo = armorInfo;
+    }
+    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo, Properties properties) {
+        super(materialIn, slot, properties);
+        this.mat = materialIn;
+        this.armorInfo = armorInfo;
     }
 
     public int getEnchantmentValue() {
@@ -40,10 +47,10 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
 
 
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(armorInfo != null && getFullSetPerks() != null){
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if (armorInfo != null && getFullSetPerks() != null) {
 
-            for (Iterator<String> iter = armorInfo.toString(stack,worldIn).iterator(); iter.hasNext(); ) {
+            for (Iterator<String> iter = armorInfo.toString(stack, worldIn).iterator(); iter.hasNext(); ) {
                 String element = iter.next();
                 tooltip.add(LocalizeUtils.i18n(element));
             }
@@ -51,7 +58,7 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     }
 
     @Override
-    public TextComponent getFullSetPerks() {
+    public Component getFullSetPerks() {
         if (armorInfo == null)
             return null;
 

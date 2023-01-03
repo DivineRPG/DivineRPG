@@ -1,8 +1,9 @@
 {
 	"credit": "Made with Blockbench",
+	"render_type": "cutout_mipped",
 	"textures": {
-		"0": "divinerpg:blocks/arcana_portal",
-		"particle": "divinerpg:blocks/arcana_portal"
+		"0": "divinerpg:block/arcana_portal",
+		"particle": "divinerpg:block/arcana_portal"
 	},
 	"elements": [
 		{

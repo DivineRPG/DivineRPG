@@ -1,69 +1,64 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.DivineRPG;
-import divinerpg.entities.projectile.DivineThrowable;
-import divinerpg.entities.projectile.EntityShuriken;
-import divinerpg.entities.projectile.EntitySnowflakeShuriken;
-import divinerpg.entities.projectile.EntityVileStorm;
-import divinerpg.items.base.ItemMod;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.ItemRegistry;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import divinerpg.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.items.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemThrowingStar extends ItemMod {
 
-    public ItemThrowingStar(String name) {
-        super(name, RarityList.COMMON, DivineRPG.tabs.ranged);
+    public ItemThrowingStar() {
+        super();
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(this == ItemRegistry.vileStorm){
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "vile_storm"))) {
             tooltip.add(LocalizeUtils.rangedDam(7));
             tooltip.add(LocalizeUtils.i18n("tooltip.vilestorm"));
         }
-        if(this == ItemRegistry.shuriken){
+        if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shuriken"))) {
             tooltip.add(LocalizeUtils.rangedDam(4));
         }
-        if(this == ItemRegistry.snowflakeShuriken){
+        if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "snowflake_shuriken"))) {
             tooltip.add(LocalizeUtils.rangedDam(7));
         }
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
         if (!player.isCreative()) {
             itemstack.shrink(1);
         }
 
-        world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundCategory.MASTER, 1, 1);
+        world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.MASTER, 1, 1);
         DivineThrowable bullet;
         if (!world.isClientSide) {
-            if(this == ItemRegistry.vileStorm) {
-                bullet = new EntityVileStorm(EntityRegistry.VILE_STORM, player, world);
-            }
-            else if(this == ItemRegistry.snowflakeShuriken){
-                bullet = new EntitySnowflakeShuriken(EntityRegistry.SNOWFLAKE_SHURIKEN, player, world);
-            }
-            else{
-                bullet = new EntityShuriken(EntityRegistry.SHURIKEN, player, world);
+            if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "vile_storm"))) {
+                bullet = new EntityVileStorm(EntityRegistry.VILE_STORM.get(), player, world);
+            } else if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "snowflake_shuriken"))) {
+                bullet = new EntitySnowflakeShuriken(EntityRegistry.SNOWFLAKE_SHURIKEN.get(), player, world);
+            } else {
+                bullet = new EntityShuriken(EntityRegistry.SHURIKEN.get(), player, world);
             }
             bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
             world.addFreshEntity(bullet);
         }
 
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
+        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, itemstack);
     }
 }

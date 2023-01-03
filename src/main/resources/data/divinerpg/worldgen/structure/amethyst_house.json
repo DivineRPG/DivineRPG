@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#minecraft:is_overworld",
+  "step": "underground_structures",
+  "spawn_overrides": {
+    "ambient": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "divinerpg:diamond_dave",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  },
+  "terrain_adaptation": "bury",
+  "start_pool": "divinerpg:overworld/amethyst_house",
+  "size": 6,
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": -56
+    },
+    "max_inclusive": {
+      "absolute": -21
+    }
+  },
+  "max_distance_from_center": 1,
+  "use_expansion_hack": false
+}

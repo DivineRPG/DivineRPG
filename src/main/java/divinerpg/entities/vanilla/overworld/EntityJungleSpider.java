@@ -1,53 +1,55 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.pathfinding.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
+import net.minecraft.sounds.*;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
 
-public class EntityJungleSpider extends EntityDivineMob {
+public class EntityJungleSpider extends EntityDivineMonster {
 
-    private static final DataParameter<Byte> DATA_FLAGS_ID = EntityDataManager.defineId(EntityJungleSpider.class, DataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(EntityJungleSpider.class, EntityDataSerializers.BYTE);
 
-    public EntityJungleSpider(EntityType<? extends EntityJungleSpider> p_i48550_1_, World p_i48550_2_) {
+    public EntityJungleSpider(EntityType<? extends EntityJungleSpider> p_i48550_1_, Level p_i48550_2_) {
         super(p_i48550_1_, p_i48550_2_);
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new SwimGoal(this));
+        this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(4, new EntityJungleSpider.AttackGoal(this));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new EntityJungleSpider.TargetGoal<>(this, PlayerEntity.class));
-        this.targetSelector.addGoal(3, new EntityJungleSpider.TargetGoal<>(this, IronGolemEntity.class));
+        this.targetSelector.addGoal(2, new EntityJungleSpider.TargetGoal<>(this, Player.class));
+        this.targetSelector.addGoal(3, new EntityJungleSpider.TargetGoal<>(this, IronGolem.class));
     }
 
     public double getPassengersRidingOffset() {
         return (double)(this.getBbHeight() * 0.5F);
     }
 
-    protected PathNavigator createNavigation(World p_175447_1_) {
-        return new ClimberPathNavigator(this, p_175447_1_);
+    protected PathNavigation createNavigation(Level p_175447_1_) {
+        return new WallClimberNavigation(this, p_175447_1_);
     }
 
     protected void defineSynchedData() {
@@ -60,7 +62,6 @@ public class EntityJungleSpider extends EntityDivineMob {
         if (!this.level.isClientSide) {
             this.setClimbing(this.horizontalCollision);
         }
-
     }
 
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
@@ -79,24 +80,22 @@ public class EntityJungleSpider extends EntityDivineMob {
         return this.isClimbing();
     }
 
-    public void makeStuckInBlock(BlockState p_213295_1_, Vector3d p_213295_2_) {
+    public void makeStuckInBlock(BlockState p_213295_1_, Vec3 p_213295_2_) {
         if (!p_213295_1_.is(Blocks.COBWEB)) {
             super.makeStuckInBlock(p_213295_1_, p_213295_2_);
         }
 
     }
 
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.ARTHROPOD;
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
     }
 
-    public boolean canBeAffected(EffectInstance p_70687_1_) {
-        if (p_70687_1_.getEffect() == Effects.POISON) {
-            net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent event = new net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent(this, p_70687_1_);
-            net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-            return event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW;
+    public boolean canBeAffected(MobEffectInstance effectInstance) {
+        if (effectInstance.getEffect() == MobEffects.POISON) {
+            return false;
         }
-        return super.canBeAffected(p_70687_1_);
+        return super.canBeAffected(effectInstance);
     }
 
     public boolean isClimbing() {
@@ -115,12 +114,12 @@ public class EntityJungleSpider extends EntityDivineMob {
     }
 
     @Nullable
-    public ILivingEntityData finalizeSpawn(IServerWorld p_213386_1_, DifficultyInstance p_213386_2_, SpawnReason p_213386_3_, @Nullable ILivingEntityData p_213386_4_, @Nullable CompoundNBT p_213386_5_) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_213386_1_, DifficultyInstance p_213386_2_, MobSpawnType p_213386_3_, @Nullable SpawnGroupData p_213386_4_, @Nullable CompoundTag p_213386_5_) {
         p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
         if (p_213386_1_.getRandom().nextInt(100) == 0) {
-            SkeletonEntity skeletonentity = EntityType.SKELETON.create(this.level);
+            Skeleton skeletonentity = EntityType.SKELETON.create(this.level);
             skeletonentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
-            skeletonentity.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, (ILivingEntityData)null, (CompoundNBT)null);
+            skeletonentity.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, (SpawnGroupData)null, (CompoundTag)null);
             skeletonentity.startRiding(this);
         }
 
@@ -132,16 +131,16 @@ public class EntityJungleSpider extends EntityDivineMob {
         }
 
         if (p_213386_4_ instanceof EntityJungleSpider.GroupData) {
-            Effect effect = ((EntityJungleSpider.GroupData)p_213386_4_).effect;
+            MobEffect effect = ((EntityJungleSpider.GroupData)p_213386_4_).effect;
             if (effect != null) {
-                this.addEffect(new EffectInstance(effect, Integer.MAX_VALUE));
+                this.addEffect(new MobEffectInstance(effect, Integer.MAX_VALUE));
             }
         }
 
         return p_213386_4_;
     }
 
-    protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+    protected float getStandingEyeHeight(Pose p_213348_1_, EntityDimensions p_213348_2_) {
         return 0.65F;
     }
 
@@ -155,7 +154,7 @@ public class EntityJungleSpider extends EntityDivineMob {
         }
 
         public boolean canContinueToUse() {
-            float f = this.mob.getBrightness();
+            float f = this.mob.level.getLightEmission(mob.blockPosition());
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
                 this.mob.setTarget((LivingEntity)null);
                 return false;
@@ -169,19 +168,19 @@ public class EntityJungleSpider extends EntityDivineMob {
         }
     }
 
-    public static class GroupData implements ILivingEntityData {
-        public Effect effect;
+    public static class GroupData implements SpawnGroupData {
+        public MobEffect effect;
 
-        public void setRandomEffect(Random p_111104_1_) {
+        public void setRandomEffect(RandomSource p_111104_1_) {
             int i = p_111104_1_.nextInt(5);
             if (i <= 1) {
-                this.effect = Effects.MOVEMENT_SPEED;
+                this.effect = MobEffects.MOVEMENT_SPEED;
             } else if (i <= 2) {
-                this.effect = Effects.DAMAGE_BOOST;
+                this.effect = MobEffects.DAMAGE_BOOST;
             } else if (i <= 3) {
-                this.effect = Effects.REGENERATION;
+                this.effect = MobEffects.REGENERATION;
             } else if (i <= 4) {
-                this.effect = Effects.INVISIBILITY;
+                this.effect = MobEffects.INVISIBILITY;
             }
 
         }
@@ -193,25 +192,17 @@ public class EntityJungleSpider extends EntityDivineMob {
         }
 
         public boolean canUse() {
-            float f = this.mob.getBrightness();
+            float f = this.mob.level.getLightEmission(mob.blockPosition());
             return f >= 0.5F ? false : super.canUse();
         }
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.jungleSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.jungleSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.jungleSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.follow);
-    }
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.JUNGLE_SPIDER;
-    }
-
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
+        return SoundRegistry.JUNGLE_SPIDER.get();
     }
 
     @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
 }

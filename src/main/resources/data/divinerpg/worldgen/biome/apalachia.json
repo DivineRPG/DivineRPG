@@ -1,12 +1,7 @@
 {
-  "surface_builder": "divinerpg:apalachia",
-  "depth": 0.125,
-  "scale": 0.05,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
-  "category": "none",
-  "player_spawn_friendly": false,
   "effects": {
     "sky_color": 14853119,
     "fog_color": 14900734,
@@ -63,27 +58,19 @@
   },
   "features": [
     [],
-    [
-      "divinerpg:tar_lake"
-    ],
+    [],
     [],
     [],
     [],
     [],
     [
-      "divinerpg:ore_apalachia"
-    ],
-    [
-      "divinerpg:apalachia_tree"
+      "divinerpg:apalachia_ore",
+      "divinerpg:twilight_tar_lake"
     ],
     [
-      "divinerpg:apalachia_tallgrass",
-      "divinerpg:dusk_flower",
-      "divinerpg:dusk_bloom"
+      "divinerpg:apalachia_tree",
+      "divinerpg:apalachia_plants"
     ],
     []
-  ],
-  "starts": [
-    "divinerpg:apalachia"
   ]
 }

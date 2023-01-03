@@ -1,20 +1,21 @@
 package divinerpg.recipe;
 
 import com.google.gson.*;
-import divinerpg.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.item.crafting.*;
-import net.minecraft.network.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
-import net.minecraftforge.common.crafting.*;
-import net.minecraftforge.registries.*;
+import divinerpg.registries.RecipeRegistry;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
-public class InfusionTableRecipe implements IRecipe<IInventory> {
-    public static final Serializer SERIALIZER = new Serializer();
+public class InfusionTableRecipe implements Recipe<Container> {
 
     public    final ItemStack input;
     public    final ItemStack template;
@@ -33,12 +34,12 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
 
     @Override
-    public boolean matches(IInventory inv, World worldIn){
+    public boolean matches(Container inv, Level worldIn){
         return ItemStack.isSame(input, inv.getItem(0)) && ItemStack.isSame(template, inv.getItem(1)) && inv.getItem(0).getCount() == count;
     }
 
     @Override
-    public ItemStack assemble(IInventory inv){
+    public ItemStack assemble(Container inv){
         return output.copy();
     }
 
@@ -49,7 +50,7 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
 
     @Override
     public ItemStack getResultItem() {
-        return output.copy();
+        return this.output;
     }
 
     public NonNullList<Ingredient> getTemplate() {
@@ -68,52 +69,55 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
-        return InfusionTableRecipe.SERIALIZER;
+    public RecipeSerializer<?> getSerializer() {
+        return RecipeRegistry.Serailizers.INFUSION_TABLE_SERIALIZER.get();
     }
 
     @Override
-    public IRecipeType<?> getType() {
-        return DivineRPG.INFUSION_TABLE_RECIPE;
+    public RecipeType<?> getType() {
+        return Type.INSTANCE;
+    }
+    public static class Type implements RecipeType<InfusionTableRecipe> {
+        private Type() { }
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "infusion_table";
     }
 
+    public static class Serializer implements RecipeSerializer<InfusionTableRecipe> {
 
-    private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionTableRecipe> {
-
-        Serializer() {
-            this.setRegistryName(new ResourceLocation(DivineRPG.MODID, "infusion_table"));
+        public Serializer() {
         }
 
         int count = 1;
         @Override
         public InfusionTableRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            ItemStack input;
+            ItemStack inputItem;
             if (json.get("input").isJsonObject()) {
-                input = ShapedRecipe.itemFromJson(json.getAsJsonObject("input"));
+                inputItem = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("input"));
             } else {
-                ResourceLocation id = new ResourceLocation(JSONUtils.getAsString(json, "input"));
+                ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(json, "input"));
                 Item item = ForgeRegistries.ITEMS.getValue(id);
                 if (item == null) {
                     throw new JsonSyntaxException("Unknown item '" + id + "'");
                 }
-                if (!json.has("count")) {
-                    count = 1;
-                } else {
-                    count = JSONUtils.getAsInt(json, "count");
-                }
-                input = new ItemStack(item, count);
+            if (!json.has("count")) {
+                count = 1;
+            } else {
+                count = GsonHelper.getAsInt(json, "count");
+            }
+                inputItem = new ItemStack(item, count);
             }
 
-            ItemStack template = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "template"), false);
-            ItemStack output = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "output"), false);
+            ItemStack template = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "template"), false);
+            ItemStack output = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "output"), false);
 
 
-            return new InfusionTableRecipe(recipeId, input, template, output, input.getCount());
+            return new InfusionTableRecipe(recipeId, inputItem, template, output, inputItem.getCount());
         }
 
         @Nullable
         @Override
-        public InfusionTableRecipe fromNetwork(ResourceLocation resourceLocation, PacketBuffer buffer) {
+        public InfusionTableRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf buffer) {
             final ItemStack input = buffer.readItem();
             final ItemStack template = buffer.readItem();
             final ItemStack output = buffer.readItem();
@@ -123,7 +127,7 @@ public class InfusionTableRecipe implements IRecipe<IInventory> {
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, InfusionTableRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, InfusionTableRecipe recipe) {
             buffer.writeItem(recipe.input);
             buffer.writeItem(recipe.template);
             buffer.writeItem(recipe.output);

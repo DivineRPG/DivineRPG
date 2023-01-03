@@ -1,43 +1,29 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.DivineRPG;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import divinerpg.registries.BlockRegistry;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class EntityAcidHag extends EntityVetheaMob {
+public class EntityAcidHag extends EntityDivineMonster {
 
-    public EntityAcidHag(EntityType<? extends MobEntity> type, World world) {
+    public EntityAcidHag(EntityType<? extends Monster> type, Level world) {
         super(type, world);
     }
     
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.4F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.acidHagHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.acidHagDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.acidHagSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.acidHagFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-    
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
@@ -47,29 +33,24 @@ public class EntityAcidHag extends EntityVetheaMob {
         BlockState belowState = this.level.getBlockState(below);
 
         if(this.level.getBlockState(current).getBlock() == Blocks.AIR) {
-            if(belowState.isValidSpawn(level, below, EntityRegistry.ACID_HAG) && belowState.canOcclude()) {
-                this.level.setBlockAndUpdate(current, BlockRegistry.acidBlock.defaultBlockState());
+            if(belowState.isValidSpawn(level, below, EntityRegistry.ACID_HAG.get()) && belowState.canOcclude()) {
+                this.level.setBlockAndUpdate(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "acid_block")).defaultBlockState());
             }
         }
-    }
-    
-    @Override
-    public int getSpawnLayer() {
-        return 1;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.ACID_HAG;
+        return SoundRegistry.ACID_HAG.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ACID_HAG_HURT;
+        return SoundRegistry.ACID_HAG_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.ACID_HAG_HURT;
+        return SoundRegistry.ACID_HAG_HURT.get();
     }
 }

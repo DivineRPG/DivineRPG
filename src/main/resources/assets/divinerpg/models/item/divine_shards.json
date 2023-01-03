@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/divine_shards"
+    "layer0": "divinerpg:item/divine_shards"
   }
 }

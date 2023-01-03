@@ -1,27 +1,25 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.enums.BulletType;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
+import divinerpg.enums.*;
 import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.network.syncher.*;
+import net.minecraft.resources.*;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.*;
 
 public class EntityShooterBullet extends DivineThrowable {
-    private static final DataParameter<Byte> BULLET_ID = EntityDataManager.<Byte>defineId(EntityShooterBullet.class,
-            DataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> BULLET_ID = SynchedEntityData.<Byte>defineId(EntityShooterBullet.class,
+            EntityDataSerializers.BYTE);
     private BulletType bulletType;
 
-    public EntityShooterBullet(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityShooterBullet(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world, BulletType bulletType) {
+    public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world, BulletType bulletType) {
         super(type, entity, world);
         this.bulletType = bulletType;
         setBulletId((byte) bulletType.ordinal());
@@ -34,27 +32,29 @@ public class EntityShooterBullet extends DivineThrowable {
     }
 
     @Override
-    public void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null) {
-            Entity entity = result.getEntity();
-            entity.hurt(DamageSource.thrown(this, this.getOwner()),
-                    this.getBulletType().getDamage());
-        }
-        if (!this.level.isClientSide) {
-            this.kill();
+    public void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null) {
+                Entity entity = result.getEntity();
+                entity.hurt(DamageSource.thrown(this, this.getOwner()),
+                        this.getBulletType().getDamage());
+            }
+            if (!this.level.isClientSide) {
+                this.kill();
+            }
         }
     }
 
 
     @Override
-    public boolean save(CompoundNBT compound) {
+    public boolean save(CompoundTag compound) {
         super.save(compound);
         compound.putByte("projectileId", getBulletId());
         return false;
     }
 
     @Override
-    public void load(CompoundNBT compound) {
+    public void load(CompoundTag compound) {
         super.load(compound);
         setBulletId(compound.getByte("projectileId"));
         this.bulletType = BulletType.getBulletFromOrdinal(getBulletId());

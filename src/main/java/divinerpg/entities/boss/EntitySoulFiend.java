@@ -3,33 +3,25 @@ package divinerpg.entities.boss;
 import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.*;
+import net.minecraft.util.*;
+import net.minecraft.world.BossEvent.*;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.level.*;
 
 public class EntitySoulFiend extends EntityDivineBoss {
 
 
-    public EntitySoulFiend(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntitySoulFiend(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.725F;
     }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public int getArmorValue() {
         return 10;
@@ -38,9 +30,9 @@ public class EntitySoulFiend extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide && this.tickCount % 300 == 0 && this.isAlive()) {
+        if (!this.level.isClientSide && this.tickCount % 300 == 0) {
             for (int i = 0; i < 4; i++) {
-                EntitySoulFiendShot shot = new EntitySoulFiendShot(EntityRegistry.SOUL_FIEND_SHOT, this, level);
+                EntitySoulFiendShot shot = new EntitySoulFiendShot(EntityRegistry.SOUL_FIEND_SHOT.get(), this, level);
                 shot.shoot(this.random.nextDouble() - this.random.nextDouble(), -0.25,
                         this.random.nextDouble() - this.random.nextDouble(), 0.5f, 12);
                 this.level.addFreshEntity(shot);
@@ -51,12 +43,12 @@ public class EntitySoulFiend extends EntityDivineBoss {
     @Override
     public boolean doHurtTarget(Entity entity) {
         if (super.doHurtTarget(entity)) {
-            if (entity instanceof PlayerEntity) {
-                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.CONFUSION, 12 * 20, 0));
-                ((LivingEntity) entity).addEffect(new EffectInstance(Effects.BLINDNESS, 12 * 20, 0));
+            if (entity instanceof Player) {
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 12 * 20, 0));
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 12 * 20, 0));
             }
-            entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F) * 2.5, 0.4D,
-                    MathHelper.cos(this.xRot * (float) Math.PI / 180.0F) * 2.5);
+            entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * 2.5, 0.4D,
+                    Mth.cos(this.xRot * (float) Math.PI / 180.0F) * 2.5);
             setDeltaMovement(getDeltaMovement().x*0.6D, getDeltaMovement().y, getDeltaMovement().z*0.6D);
             return true;
         } else {
@@ -65,12 +57,7 @@ public class EntitySoulFiend extends EntityDivineBoss {
     }
 
     @Override
-    public Color getBarColor() {
-        return Color.YELLOW;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.soulFiendHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.soulFiendDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.soulFiendSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.soulFiendFollowRange);
+    public BossBarColor getBarColor() {
+        return BossBarColor.YELLOW;
     }
 }

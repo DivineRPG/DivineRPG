@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:arcanium_extractor",
+  "ingredient": {
+    "item": "divinerpg:arcanium_rich_sand"
+  },
+  "result": "divinerpg:piece_of_raw_arcanium",
+  "experience": 0.1,
+  "cookingtime": 1000
+}

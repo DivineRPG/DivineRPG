@@ -1,244 +1,124 @@
 {
   "variants": {
-    "facing=south,half=upper,hinge=left,open=true,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=east,half=lower,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_left"
     },
-    "facing=south,half=upper,hinge=right,open=true,powered=false": {
-      "model": "divinerpg:block/divine_door_top"
+    "facing=east,half=lower,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_left_open",
+      "y": 90
     },
-    "facing=south,half=upper,hinge=right,open=false,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=east,half=lower,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_right"
     },
-    "facing=south,half=lower,hinge=left,open=true,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=east,half=lower,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_right_open",
+      "y": 270
     },
-    "facing=south,half=lower,hinge=left,open=true,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=east,half=upper,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_top_left"
     },
-    "facing=south,half=lower,hinge=left,open=false,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=east,half=upper,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_top_left_open",
+      "y": 90
     },
-    "facing=south,half=lower,hinge=left,open=false,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=east,half=upper,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_top_right"
     },
-    "facing=south,half=lower,hinge=right,open=false,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=east,half=upper,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_top_right_open",
+      "y": 270
     },
-    "facing=west,half=upper,hinge=left,open=false,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=north,half=lower,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_left",
+      "y": 270
     },
-    "facing=west,half=upper,hinge=right,open=true,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=north,half=lower,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_left_open"
     },
-    "facing=west,half=upper,hinge=right,open=true,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=north,half=lower,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_right",
+      "y": 270
     },
-     "facing=west,half=upper,hinge=right,open=false,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=north,half=lower,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_right_open",
+      "y": 180
     },
-    "facing=west,half=lower,hinge=left,open=false,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=north,half=upper,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_top_left",
+      "y": 270
     },
-    "facing=west,half=lower,hinge=left,open=false,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=north,half=upper,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_top_left_open"
     },
-    "facing=west,half=lower,hinge=right,open=true,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=north,half=upper,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_top_right",
+      "y": 270
     },
-    "facing=west,half=lower,hinge=right,open=false,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=north,half=upper,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_top_right_open",
+      "y": 180
     },
-    "facing=west,half=lower,hinge=right,open=false,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=south,half=lower,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_left",
+      "y": 90
     },
-    "facing=north,half=upper,hinge=left,open=true,powered=true": {
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=south,half=lower,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_left_open",
+      "y": 180
     },
-    "facing=north,half=upper,hinge=left,open=true,powered=false": {
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=south,half=lower,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_right",
+      "y": 90
     },
-    "facing=north,half=upper,hinge=left,open=false,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=south,half=lower,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_right_open"
     },
-    "facing=north,half=upper,hinge=right,open=true,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=south,half=upper,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_top_left",
+      "y": 90
     },
-    "facing=north,half=upper,hinge=right,open=true,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=south,half=upper,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_top_left_open",
+      "y": 180
     },
-    "facing=north,half=lower,hinge=left,open=true,powered=false": {
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=south,half=upper,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_top_right",
+      "y": 90
     },
-    "facing=north,half=lower,hinge=left,open=false,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=south,half=upper,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_top_right_open"
     },
-    "facing=north,half=lower,hinge=left,open=false,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=west,half=lower,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_left",
+      "y": 180
     },
-    "facing=north,half=lower,hinge=right,open=true,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom"
+    "facing=west,half=lower,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_left_open",
+      "y": 270
     },
-    "facing=north,half=lower,hinge=right,open=false,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=west,half=lower,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_bottom_right",
+      "y": 180
     },
-    "facing=east,half=upper,hinge=left,open=true,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=west,half=lower,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_bottom_right_open",
+      "y": 90
     },
-    "facing=east,half=upper,hinge=left,open=true,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top_rh"
+    "facing=west,half=upper,hinge=left,open=false": {
+      "model": "divinerpg:block/divine_door_top_left",
+      "y": 180
     },
-    "facing=east,half=upper,hinge=left,open=false,powered=true": {
-      "model": "divinerpg:block/divine_door_top"
+    "facing=west,half=upper,hinge=left,open=true": {
+      "model": "divinerpg:block/divine_door_top_left_open",
+      "y": 270
     },
-    "facing=east,half=upper,hinge=right,open=true,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top"
+    "facing=west,half=upper,hinge=right,open=false": {
+      "model": "divinerpg:block/divine_door_top_right",
+      "y": 180
     },
-    "facing=east,half=upper,hinge=right,open=false,powered=true": {
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=east,half=lower,hinge=left,open=true,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=east,half=lower,hinge=left,open=false,powered=true": {
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=lower,hinge=left,open=false,powered=false": {
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=lower,hinge=right,open=true,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=lower,hinge=right,open=true,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=lower,hinge=right,open=false,powered=true": {
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=south,half=lower,hinge=right,open=false,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=south,half=lower,hinge=right,open=true,powered=true": {
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=upper,hinge=left,open=false,powered=false": {
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=south,half=upper,hinge=left,open=true,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=south,half=upper,hinge=right,open=true,powered=true": {
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=west,half=upper,hinge=left,open=true,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=west,half=upper,hinge=left,open=false,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=west,half=upper,hinge=right,open=false,powered=true": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=east,half=lower,hinge=left,open=true,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=north,half=upper,hinge=right,open=false,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=south,half=lower,hinge=right,open=true,powered=false": {
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=north,half=lower,hinge=right,open=true,powered=false": {
-      "y": 180,
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=east,half=upper,hinge=right,open=false,powered=false": {
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=south,half=upper,hinge=left,open=false,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=east,half=upper,hinge=right,open=true,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=south,half=upper,hinge=left,open=false,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=south,half=upper,hinge=right,open=false,powered=false": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=west,half=lower,hinge=left,open=true,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=north,half=lower,hinge=left,open=true,powered=true": {
-      "model": "divinerpg:block/divine_door_bottom"
-    },
-    "facing=north,half=upper,hinge=right,open=false,powered=true": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=west,half=lower,hinge=left,open=true,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=west,half=lower,hinge=right,open=true,powered=true": {
-      "y": 90,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=west,half=upper,hinge=left,open=true,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top_rh"
-    },
-    "facing=north,half=lower,hinge=right,open=false,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_bottom_rh"
-    },
-    "facing=north,half=upper,hinge=left,open=false,powered=false": {
-      "y": 270,
-      "model": "divinerpg:block/divine_door_top"
-    },
-    "facing=east,half=lower,hinge=right,open=false,powered=false": {
-      "model": "divinerpg:block/divine_door_bottom_rh"
+    "facing=west,half=upper,hinge=right,open=true": {
+      "model": "divinerpg:block/divine_door_top_right_open",
+      "y": 90
     }
   }
 }

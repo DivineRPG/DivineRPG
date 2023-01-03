@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:pinfly"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:pinfly_seeds",
+    "count": 2
+  }
+}

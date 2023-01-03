@@ -1,51 +1,83 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.api.distmarker.*;
+import java.util.function.Supplier;
 
-import java.util.*;
+import javax.annotation.Nullable;
 
-public abstract class BlockModFurnace extends AbstractFurnaceBlock {
+import divinerpg.tiles.furnace.TileEntityModFurnace;
+import net.minecraft.core.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.Vec3;
 
-    public BlockModFurnace(String name) {
+public final class BlockModFurnace extends FurnaceBlock {
+	public final Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntityType;
+    public BlockModFurnace(Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntity) {
         super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
-        setRegistryName(DivineRPG.MODID, name);
+        this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }
-
-    public BlockModFurnace(String name, AbstractBlock.Properties properties) {
+    public BlockModFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntity) {
         super(properties);
-        setRegistryName(DivineRPG.MODID, name);
+        this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }
-
-
-    @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
-        if (p_180655_1_.getValue(LIT)) {
-            double d0 = (double)p_180655_3_.getX() + 0.5D;
-            double d1 = (double)p_180655_3_.getY();
-            double d2 = (double)p_180655_3_.getZ() + 0.5D;
-            if (p_180655_4_.nextDouble() < 0.1D) {
-                p_180655_2_.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-            }
-
-            Direction direction = p_180655_1_.getValue(FACING);
-            Direction.Axis direction$axis = direction.getAxis();
-            double d3 = 0.52D;
-            double d4 = p_180655_4_.nextDouble() * 0.6D - 0.3D;
-            double d5 = direction$axis == Direction.Axis.X ? (double)direction.getStepX() * 0.52D : d4;
-            double d6 = p_180655_4_.nextDouble() * 6.0D / 16.0D;
-            double d7 = direction$axis == Direction.Axis.Z ? (double)direction.getStepZ() * 0.52D : d4;
-            p_180655_2_.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-            p_180655_2_.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
+    @Override
+	public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+		return state.getValue(AbstractFurnaceBlock.LIT) ? 12 : 0;
+	}
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
+        if (stack.hasCustomHoverName()) {
+           BlockEntity blockentity = level.getBlockEntity(pos);
+           if (blockentity instanceof TileEntityModFurnace) ((TileEntityModFurnace)blockentity).setCustomName(stack.getHoverName());
         }
+	}
+	@Override
+	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
+		if (!state.is(st.getBlock())) {
+			BlockEntity blockentity = level.getBlockEntity(pos);
+			if (blockentity instanceof TileEntityModFurnace) {
+				if (level instanceof ServerLevel) {
+					Containers.dropContents(level, pos, (TileEntityModFurnace)blockentity);
+					((TileEntityModFurnace)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
+	            }
+	            level.updateNeighbourForOutputSignal(pos, this);
+			}
+			super.onRemove(state, level, pos, st, b);
+		}
+	}
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    	return createFurnaceTicker(type, level, blockEntityType.get());
     }
-
+    @Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_, BlockEntityType<? extends TileEntityModFurnace> p_151990_) {
+       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, p_151990_, TileEntityModFurnace::serverTick);
+    }
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return blockEntityType.get().create(pos, state);
+    }
+    @Override
+    protected void openContainer(Level level, BlockPos pos, Player player) {
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        if (blockentity instanceof TileEntityModFurnace) {
+           player.openMenu((MenuProvider)blockentity);
+           player.awardStat(Stats.INTERACT_WITH_FURNACE);
+        }
+	}
 }

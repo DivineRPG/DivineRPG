@@ -1,434 +1,304 @@
 package divinerpg.client.models.vethea;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.*;
 
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.*;
+import divinerpg.entities.vethea.EntityTwins;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
-public class ModelTwins<T extends Entity> extends SegmentedModel<T>
-{
-    //fields
-    ModelRenderer rightlegt;
-    ModelRenderer leftlegt;
-    ModelRenderer rotated1;
-    ModelRenderer rotated2;
-    ModelRenderer rotated3;
-    ModelRenderer rotated4;
-    ModelRenderer rotated5;
-    ModelRenderer rotated6;
-    ModelRenderer rotated7;
-    ModelRenderer rotated8;
-    ModelRenderer rotated9;
-    ModelRenderer rotated10;
-    ModelRenderer rotated11;
-    ModelRenderer rotated12;
-    ModelRenderer rotated13;
-    ModelRenderer rotated14;
-    ModelRenderer rotated15;
-    ModelRenderer rotated16;
-    ModelRenderer rotated17;
-    ModelRenderer rotated18;
-    ModelRenderer righttoe1;
-    ModelRenderer lefttoe1;
-    ModelRenderer leftleg;
-    ModelRenderer rightleg;
-    ModelRenderer lefttoe2;
-    ModelRenderer righttoe2;
-    ModelRenderer rotated19;
-    ModelRenderer rotated20;
-    ModelRenderer rotated21;
-    ModelRenderer rotated22;
-    ModelRenderer rotated23;
-    ModelRenderer rotated24;
-    ModelRenderer rotated25;
-    ModelRenderer rotated26;
-    ModelRenderer rotated27;
-    ModelRenderer rotated28;
-    ModelRenderer rotated29;
-    ModelRenderer rotated30;
-    ModelRenderer rotated31;
-    ModelRenderer rotated32;
-    ModelRenderer rotated33;
-    ModelRenderer rotated34;
-    ModelRenderer rotated35;
-    ModelRenderer rotated36;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelTwins()
-    {
-        texWidth = 128;
-        texHeight = 32;
+public class ModelTwins extends EntityModel<EntityTwins> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("twins");
+	private final ModelPart rightlegt;
+	private final ModelPart leftlegt;
+	private final ModelPart rotated1;
+	private final ModelPart rotated2;
+	private final ModelPart rotated3;
+	private final ModelPart rotated4;
+	private final ModelPart rotated5;
+	private final ModelPart rotated6;
+	private final ModelPart rotated7;
+	private final ModelPart rotated8;
+	private final ModelPart rotated9;
+	private final ModelPart rotated10;
+	private final ModelPart rotated11;
+	private final ModelPart rotated12;
+	private final ModelPart rotated13;
+	private final ModelPart rotated14;
+	private final ModelPart rotated15;
+	private final ModelPart rotated16;
+	private final ModelPart rotated17;
+	private final ModelPart rotated18;
+	private final ModelPart righttoe1;
+	private final ModelPart lefttoe1;
+	private final ModelPart leftleg;
+	private final ModelPart rightleg;
+	private final ModelPart lefttoe2;
+	private final ModelPart righttoe2;
+	private final ModelPart rotated19;
+	private final ModelPart rotated20;
+	private final ModelPart rotated21;
+	private final ModelPart rotated22;
+	private final ModelPart rotated23;
+	private final ModelPart rotated24;
+	private final ModelPart rotated25;
+	private final ModelPart rotated26;
+	private final ModelPart rotated27;
+	private final ModelPart rotated28;
+	private final ModelPart rotated29;
+	private final ModelPart rotated30;
+	private final ModelPart rotated31;
+	private final ModelPart rotated32;
+	private final ModelPart rotated33;
+	private final ModelPart rotated34;
+	private final ModelPart rotated35;
+	private final ModelPart rotated36;
 
-        rightlegt = new ModelRenderer(this, 101, 16);
-        rightlegt.addBox(-4F, -4F, -3F, 6, 4, 6);
-        rightlegt.setPos(-7F, 12F, 0F);
-        rightlegt.setTexSize(128, 32);
-        rightlegt.mirror = true;
-        setRotation(rightlegt, 0F, 0F, 0F);
-        leftlegt = new ModelRenderer(this, 101, 16);
-        leftlegt.addBox(-3F, -4F, -3F, 6, 4, 6);
-        leftlegt.setPos(8F, 12F, 0F);
-        leftlegt.setTexSize(128, 32);
-        leftlegt.mirror = true;
-        setRotation(leftlegt, 0F, 0F, 0F);
-        rotated1 = new ModelRenderer(this, 82, 16);
-        rotated1.addBox(4F, -16F, -12F, 4, 12, 4);
-        rotated1.setPos(1F, 14F, 0F);
-        rotated1.setTexSize(128, 32);
-        rotated1.mirror = true;
-        setRotation(rotated1, -0.1745329F, -3.141593F, 0F);
-        rotated2 = new ModelRenderer(this, 82, 16);
-        rotated2.addBox(-8F, -15F, -12F, 4, 12, 4);
-        rotated2.setPos(-1F, 13F, 0F);
-        rotated2.setTexSize(128, 32);
-        rotated2.mirror = true;
-        setRotation(rotated2, -0.1745329F, -3.141593F, 0F);
-        rotated3 = new ModelRenderer(this, 34, 0);
-        rotated3.addBox(-3F, -18F, -6F, 6, 12, 4);
-        rotated3.setPos(0F, 12F, 0F);
-        rotated3.setTexSize(128, 32);
-        rotated3.mirror = true;
-        setRotation(rotated3, 0.2617994F, -3.141593F, 0F);
-        rotated4 = new ModelRenderer(this, 40, 16);
-        rotated4.addBox(-6F, -15F, -9F, 4, 2, 2);
-        rotated4.setPos(-1F, 12F, 0F);
-        rotated4.setTexSize(128, 32);
-        rotated4.mirror = true;
-        setRotation(rotated4, 0F, -3.141593F, 0F);
-        rotated5 = new ModelRenderer(this, 40, 16);
-        rotated5.addBox(2F, -16F, -9F, 4, 2, 2);
-        rotated5.setPos(1F, 14F, 0F);
-        rotated5.setTexSize(128, 32);
-        rotated5.mirror = true;
-        setRotation(rotated5, 0F, -3.141593F, 0F);
-        rotated6 = new ModelRenderer(this, 56, 1);
-        rotated6.addBox(-4F, -10F, -7F, 8, 7, 6);
-        rotated6.setPos(0F, 12F, 0F);
-        rotated6.setTexSize(128, 32);
-        rotated6.mirror = true;
-        setRotation(rotated6, 0.2617994F, -3.141593F, 0F);
-        rotated7 = new ModelRenderer(this, 0, 0);
-        rotated7.addBox(-4F, -25F, -9F, 8, 8, 8);
-        rotated7.setPos(0F, 12F, 0F);
-        rotated7.setTexSize(128, 32);
-        rotated7.mirror = true;
-        setRotation(rotated7, 0.1745329F, -3.141593F, 0F);
-        rotated8 = new ModelRenderer(this, 0, 0);
-        rotated8.addBox(-4F, -25F, -10F, 8, 8, 8);
-        rotated8.setPos(0F, 12F, 0F);
-        rotated8.setTexSize(128, 32);
-        rotated8.mirror = true;
-        setRotation(rotated8, 0.1745329F, 0F, 0F);
-        rotated9 = new ModelRenderer(this, 82, 16);
-        rotated9.addBox(4F, -16F, -13F, 4, 12, 4);
-        rotated9.setPos(1F, 14F, 0F);
-        rotated9.setTexSize(128, 32);
-        rotated9.mirror = true;
-        setRotation(rotated9, -0.1745329F, 0F, 0F);
-        rotated10 = new ModelRenderer(this, 40, 16);
-        rotated10.addBox(-6F, -15F, -10F, 4, 2, 2);
-        rotated10.setPos(-1F, 13F, 0F);
-        rotated10.setTexSize(128, 32);
-        rotated10.mirror = true;
-        setRotation(rotated10, 0F, 0F, 0F);
-        rotated11 = new ModelRenderer(this, 40, 16);
-        rotated11.addBox(2F, -16F, -10F, 4, 2, 2);
-        rotated11.setPos(1F, 14F, 0F);
-        rotated11.setTexSize(128, 32);
-        rotated11.mirror = true;
-        setRotation(rotated11, 0F, 0F, 0F);
-        rotated12 = new ModelRenderer(this, 55, 22);
-        rotated12.addBox(5F, -7F, -19F, 2, 2, 8);
-        rotated12.setPos(1F, 14F, 0F);
-        rotated12.setTexSize(128, 32);
-        rotated12.mirror = true;
-        setRotation(rotated12, -0.1745329F, 3.141593F, 0F);
-        rotated13 = new ModelRenderer(this, 59, 26);
-        rotated13.addBox(-18F, -9F, -3F, 2, 2, 4);
-        rotated13.setPos(-1F, 13F, 0F);
-        rotated13.setTexSize(128, 32);
-        rotated13.mirror = true;
-        setRotation(rotated13, 0F, 1.570796F, 0F);
-        rotated14 = new ModelRenderer(this, 86, 2);
-        rotated14.addBox(-5F, -4F, 0F, 10, 4, 8);
-        rotated14.setPos(0F, 12F, 0F);
-        rotated14.setTexSize(128, 32);
-        rotated14.mirror = true;
-        setRotation(rotated14, 0F, 0F, 0F);
-        rotated15 = new ModelRenderer(this, 82, 16);
-        rotated15.addBox(-8F, -15F, -13F, 4, 12, 4);
-        rotated15.setPos(-1F, 13F, 0F);
-        rotated15.setTexSize(128, 32);
-        rotated15.mirror = true;
-        setRotation(rotated15, -0.1745329F, 0F, 0F);
-        rotated16 = new ModelRenderer(this, 34, 0);
-        rotated16.addBox(-3F, -18F, -7F, 6, 12, 4);
-        rotated16.setPos(0F, 12F, 0F);
-        rotated16.setTexSize(128, 32);
-        rotated16.mirror = true;
-        setRotation(rotated16, 0.2617994F, 0F, 0F);
-        rotated17 = new ModelRenderer(this, 56, 1);
-        rotated17.addBox(-4F, -10F, -8F, 8, 7, 6);
-        rotated17.setPos(0F, 12F, 0F);
-        rotated17.setTexSize(128, 32);
-        rotated17.mirror = true;
-        setRotation(rotated17, 0.2617994F, 0F, 0F);
-        rotated18 = new ModelRenderer(this, 86, 2);
-        rotated18.addBox(-5F, -4F, -8F, 10, 4, 8);
-        rotated18.setPos(0F, 12F, 0F);
-        rotated18.setTexSize(128, 32);
-        rotated18.mirror = true;
-        setRotation(rotated18, 0F, 0F, 0F);
-        righttoe1 = new ModelRenderer(this, 19, 17);
-        righttoe1.addBox(1F, 9F, -10F, 2, 3, 12);
-        righttoe1.setPos(-7F, 12F, 0F);
-        righttoe1.setTexSize(128, 32);
-        righttoe1.mirror = true;
-        setRotation(righttoe1, 0F, 0F, 0F);
-        lefttoe1 = new ModelRenderer(this, 19, 17);
-        lefttoe1.addBox(2F, 9F, -10F, 2, 3, 12);
-        lefttoe1.setPos(8F, 12F, 0F);
-        lefttoe1.setTexSize(128, 32);
-        lefttoe1.mirror = true;
-        setRotation(lefttoe1, 0F, 0F, 0F);
-        leftleg = new ModelRenderer(this, 0, 16);
-        leftleg.addBox(-2F, 0F, -2F, 4, 12, 4);
-        leftleg.setPos(8F, 12F, 0F);
-        leftleg.setTexSize(128, 32);
-        leftleg.mirror = true;
-        setRotation(leftleg, 0F, 0F, 0F);
-        rightleg = new ModelRenderer(this, 0, 16);
-        rightleg.addBox(-3F, 0F, -2F, 4, 12, 4);
-        rightleg.setPos(-7F, 12F, 0F);
-        rightleg.setTexSize(128, 32);
-        rightleg.mirror = true;
-        setRotation(rightleg, 0F, 0F, 0F);
-        lefttoe2 = new ModelRenderer(this, 19, 17);
-        lefttoe2.addBox(-4F, 9F, -10F, 2, 3, 12);
-        lefttoe2.setPos(8F, 12F, 0F);
-        lefttoe2.setTexSize(128, 32);
-        lefttoe2.mirror = true;
-        setRotation(lefttoe2, 0F, 0F, 0F);
-        righttoe2 = new ModelRenderer(this, 19, 17);
-        righttoe2.addBox(-5F, 9F, -10F, 2, 3, 12);
-        righttoe2.setPos(-7F, 12F, 0F);
-        righttoe2.setTexSize(128, 32);
-        righttoe2.mirror = true;
-        setRotation(righttoe2, 0F, 0F, 0F);
-        rotated19 = new ModelRenderer(this, 55, 22);
-        rotated19.addBox(-7F, -6F, -19F, 2, 2, 8);
-        rotated19.setPos(-1F, 13F, 0F);
-        rotated19.setTexSize(128, 32);
-        rotated19.mirror = true;
-        setRotation(rotated19, -0.1745329F, 3.141593F, 0F);
-        rotated20 = new ModelRenderer(this, 59, 26);
-        rotated20.addBox(-18F, -9F, 1F, 2, 2, 4);
-        rotated20.setPos(-1F, 13F, 0F);
-        rotated20.setTexSize(128, 32);
-        rotated20.mirror = true;
-        setRotation(rotated20, 0F, 1.570796F, 0F);
-        rotated21 = new ModelRenderer(this, 58, 24);
-        rotated21.addBox(-19F, -9F, -7F, 2, 2, 6);
-        rotated21.setPos(-1F, 13F, 0F);
-        rotated21.setTexSize(128, 32);
-        rotated21.mirror = true;
-        setRotation(rotated21, 0F, -1.570796F, 0F);
-        rotated22 = new ModelRenderer(this, 61, 28);
-        rotated22.addBox(-22F, -11F, -1F, 6, 2, 2);
-        rotated22.setPos(-1F, 13F, 0F);
-        rotated22.setTexSize(128, 32);
-        rotated22.mirror = true;
-        setRotation(rotated22, 0F, 1.570796F, 0F);
-        rotated23 = new ModelRenderer(this, 55, 22);
-        rotated23.addBox(5F, -7F, -21F, 2, 2, 8);
-        rotated23.setPos(1F, 14F, 0F);
-        rotated23.setTexSize(128, 32);
-        rotated23.mirror = true;
-        setRotation(rotated23, -0.1745329F, 0F, 0F);
-        rotated24 = new ModelRenderer(this, 55, 22);
-        rotated24.addBox(-7F, -6F, -21F, 2, 2, 8);
-        rotated24.setPos(-1F, 13F, 0F);
-        rotated24.setTexSize(128, 32);
-        rotated24.mirror = true;
-        setRotation(rotated24, -0.1745329F, 0F, 0F);
-        rotated25 = new ModelRenderer(this, 58, 24);
-        rotated25.addBox(-19F, -9F, -1F, 2, 2, 6);
-        rotated25.setPos(-1F, 13F, 0F);
-        rotated25.setTexSize(128, 32);
-        rotated25.mirror = true;
-        setRotation(rotated25, 0F, -1.570796F, 0F);
-        rotated26 = new ModelRenderer(this, 61, 28);
-        rotated26.addBox(-22F, -11F, 1F, 6, 2, 2);
-        rotated26.setPos(-1F, 13F, 0F);
-        rotated26.setTexSize(128, 32);
-        rotated26.mirror = true;
-        setRotation(rotated26, 0F, 1.570796F, 0F);
-        rotated27 = new ModelRenderer(this, 61, 28);
-        rotated27.addBox(-23F, -11F, -7F, 6, 2, 2);
-        rotated27.setPos(-1F, 13F, 0F);
-        rotated27.setTexSize(128, 32);
-        rotated27.mirror = true;
-        setRotation(rotated27, 0F, -1.570796F, 0F);
-        rotated28 = new ModelRenderer(this, 61, 28);
-        rotated28.addBox(-23F, -11F, 2F, 6, 2, 2);
-        rotated28.setPos(-1F, 13F, 0F);
-        rotated28.setTexSize(128, 32);
-        rotated28.mirror = true;
-        setRotation(rotated28, 0F, -1.570796F, 0F);
-        rotated29 = new ModelRenderer(this, 61, 28);
-        rotated29.addBox(-22F, -13F, 1F, 6, 2, 2);
-        rotated29.setPos(-1F, 13F, 0F);
-        rotated29.setTexSize(128, 32);
-        rotated29.mirror = true;
-        setRotation(rotated29, 0F, 1.570796F, 0F);
-        rotated30 = new ModelRenderer(this, 61, 28);
-        rotated30.addBox(-22F, -13F, -1F, 6, 2, 2);
-        rotated30.setPos(-1F, 13F, 0F);
-        rotated30.setTexSize(128, 32);
-        rotated30.mirror = true;
-        setRotation(rotated30, 0F, 1.570796F, 0F);
-        rotated31 = new ModelRenderer(this, 61, 28);
-        rotated31.addBox(-23F, -7F, -7F, 6, 2, 2);
-        rotated31.setPos(-1F, 13F, 0F);
-        rotated31.setTexSize(128, 32);
-        rotated31.mirror = true;
-        setRotation(rotated31, 0F, -1.570796F, 0F);
-        rotated32 = new ModelRenderer(this, 61, 28);
-        rotated32.addBox(-23F, -7F, 2F, 6, 2, 2);
-        rotated32.setPos(-1F, 13F, 0F);
-        rotated32.setTexSize(128, 32);
-        rotated32.mirror = true;
-        setRotation(rotated32, 0F, -1.570796F, 0F);
-        rotated33 = new ModelRenderer(this, 61, 28);
-        rotated33.addBox(-22F, -7F, 1F, 6, 2, 2);
-        rotated33.setPos(-1F, 13F, 0F);
-        rotated33.setTexSize(128, 32);
-        rotated33.mirror = true;
-        setRotation(rotated33, 0F, 1.570796F, 0F);
-        rotated34 = new ModelRenderer(this, 61, 28);
-        rotated34.addBox(-22F, -7F, -1F, 6, 2, 2);
-        rotated34.setPos(-1F, 13F, 0F);
-        rotated34.setTexSize(128, 32);
-        rotated34.mirror = true;
-        setRotation(rotated34, 0F, 1.570796F, 0F);
-        rotated35 = new ModelRenderer(this, 61, 28);
-        rotated35.addBox(-22F, -5F, -1F, 6, 2, 2);
-        rotated35.setPos(-1F, 13F, 0F);
-        rotated35.setTexSize(128, 32);
-        rotated35.mirror = true;
-        setRotation(rotated35, 0F, 1.570796F, 0F);
-        rotated36 = new ModelRenderer(this, 61, 28);
-        rotated36.addBox(-22F, -5F, 1F, 6, 2, 2);
-        rotated36.setPos(-1F, 13F, 0F);
-        rotated36.setTexSize(128, 32);
-        rotated36.mirror = true;
-        setRotation(rotated36, 0F, 1.570796F, 0F);
-    }
+	public ModelTwins(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.rightlegt = root.getChild("rightlegt");
+		this.leftlegt = root.getChild("leftlegt");
+		this.rotated1 = root.getChild("rotated1");
+		this.rotated2 = root.getChild("rotated2");
+		this.rotated3 = root.getChild("rotated3");
+		this.rotated4 = root.getChild("rotated4");
+		this.rotated5 = root.getChild("rotated5");
+		this.rotated6 = root.getChild("rotated6");
+		this.rotated7 = root.getChild("rotated7");
+		this.rotated8 = root.getChild("rotated8");
+		this.rotated9 = root.getChild("rotated9");
+		this.rotated10 = root.getChild("rotated10");
+		this.rotated11 = root.getChild("rotated11");
+		this.rotated12 = root.getChild("rotated12");
+		this.rotated13 = root.getChild("rotated13");
+		this.rotated14 = root.getChild("rotated14");
+		this.rotated15 = root.getChild("rotated15");
+		this.rotated16 = root.getChild("rotated16");
+		this.rotated17 = root.getChild("rotated17");
+		this.rotated18 = root.getChild("rotated18");
+		this.righttoe1 = root.getChild("righttoe1");
+		this.lefttoe1 = root.getChild("lefttoe1");
+		this.leftleg = root.getChild("leftleg");
+		this.rightleg = root.getChild("rightleg");
+		this.lefttoe2 = root.getChild("lefttoe2");
+		this.righttoe2 = root.getChild("righttoe2");
+		this.rotated19 = root.getChild("rotated19");
+		this.rotated20 = root.getChild("rotated20");
+		this.rotated21 = root.getChild("rotated21");
+		this.rotated22 = root.getChild("rotated22");
+		this.rotated23 = root.getChild("rotated23");
+		this.rotated24 = root.getChild("rotated24");
+		this.rotated25 = root.getChild("rotated25");
+		this.rotated26 = root.getChild("rotated26");
+		this.rotated27 = root.getChild("rotated27");
+		this.rotated28 = root.getChild("rotated28");
+		this.rotated29 = root.getChild("rotated29");
+		this.rotated30 = root.getChild("rotated30");
+		this.rotated31 = root.getChild("rotated31");
+		this.rotated32 = root.getChild("rotated32");
+		this.rotated33 = root.getChild("rotated33");
+		this.rotated34 = root.getChild("rotated34");
+		this.rotated35 = root.getChild("rotated35");
+		this.rotated36 = root.getChild("rotated36");
+	}
 
-  
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(rightlegt, leftlegt, rotated1, rotated2, rotated3, rotated4, rotated5, rotated6, rotated7, rotated8, rotated9, rotated10, rotated11, rotated12, rotated13, rotated14, rotated15, rotated16, rotated17, rotated18, righttoe1, lefttoe1, leftleg, rightleg, lefttoe2, righttoe2, rotated19, rotated20, rotated21, rotated22, rotated23, rotated24, rotated25, rotated26, rotated27, rotated28, rotated29, rotated30, rotated31, rotated32, rotated33, rotated34, rotated35, rotated36);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
-  //setRotationAngles((EntityTwins) entity, f, f1, f2, f3, f4, f5);
+		partdefinition.addOrReplaceChild("rightlegt", CubeListBuilder.create().texOffs(101, 16).mirror().addBox(-4.0F, -4.0F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-7.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftlegt", CubeListBuilder.create().texOffs(101, 16).mirror().addBox(-3.0F, -4.0F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated1", CubeListBuilder.create().texOffs(82, 16).mirror().addBox(4.0F, -16.0F, -12.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 14.0F, 0.0F, -0.1745F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated2", CubeListBuilder.create().texOffs(82, 16).mirror().addBox(-8.0F, -15.0F, -12.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, -0.1745F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated3", CubeListBuilder.create().texOffs(34, 0).mirror().addBox(-3.0F, -18.0F, -6.0F, 6.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.2618F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated4", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-6.0F, -15.0F, -9.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 12.0F, 0.0F, 0.0F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated5", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(2.0F, -16.0F, -9.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 14.0F, 0.0F, 0.0F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated6", CubeListBuilder.create().texOffs(56, 1).mirror().addBox(-4.0F, -10.0F, -7.0F, 8.0F, 7.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.2618F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated7", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -25.0F, -9.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, -3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated8", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -25.0F, -10.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated9", CubeListBuilder.create().texOffs(82, 16).mirror().addBox(4.0F, -16.0F, -13.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 14.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated10", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-6.0F, -15.0F, -10.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-1.0F, 13.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated11", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(2.0F, -16.0F, -10.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 14.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated12", CubeListBuilder.create().texOffs(55, 22).mirror().addBox(5.0F, -7.0F, -19.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 14.0F, 0.0F, -0.1745F, 3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated13", CubeListBuilder.create().texOffs(59, 26).mirror().addBox(-18.0F, -9.0F, -3.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated14", CubeListBuilder.create().texOffs(86, 2).mirror().addBox(-5.0F, -4.0F, 0.0F, 10.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated15", CubeListBuilder.create().texOffs(82, 16).mirror().addBox(-8.0F, -15.0F, -13.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated16", CubeListBuilder.create().texOffs(34, 0).mirror().addBox(-3.0F, -18.0F, -7.0F, 6.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated17", CubeListBuilder.create().texOffs(56, 1).mirror().addBox(-4.0F, -10.0F, -8.0F, 8.0F, 7.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated18", CubeListBuilder.create().texOffs(86, 2).mirror().addBox(-5.0F, -4.0F, -8.0F, 10.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("righttoe1", CubeListBuilder.create().texOffs(19, 17).mirror().addBox(1.0F, 9.0F, -10.0F, 2.0F, 3.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-7.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("lefttoe1", CubeListBuilder.create().texOffs(19, 17).mirror().addBox(2.0F, 9.0F, -10.0F, 2.0F, 3.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-3.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-7.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("lefttoe2", CubeListBuilder.create().texOffs(19, 17).mirror().addBox(-4.0F, 9.0F, -10.0F, 2.0F, 3.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("righttoe2", CubeListBuilder.create().texOffs(19, 17).mirror().addBox(-5.0F, 9.0F, -10.0F, 2.0F, 3.0F, 12.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-7.0F, 12.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated19", CubeListBuilder.create().texOffs(55, 22).mirror().addBox(-7.0F, -6.0F, -19.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, -0.1745F, 3.1416F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated20", CubeListBuilder.create().texOffs(59, 26).mirror().addBox(-18.0F, -9.0F, 1.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated21", CubeListBuilder.create().texOffs(58, 24).mirror().addBox(-19.0F, -9.0F, -7.0F, 2.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated22", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -11.0F, -1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated23", CubeListBuilder.create().texOffs(55, 22).mirror().addBox(5.0F, -7.0F, -21.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 14.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated24", CubeListBuilder.create().texOffs(55, 22).mirror().addBox(-7.0F, -6.0F, -21.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated25", CubeListBuilder.create().texOffs(58, 24).mirror().addBox(-19.0F, -9.0F, -1.0F, 2.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated26", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -11.0F, 1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated27", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-23.0F, -11.0F, -7.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated28", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-23.0F, -11.0F, 2.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated29", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -13.0F, 1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated30", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -13.0F, -1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated31", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-23.0F, -7.0F, -7.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated32", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-23.0F, -7.0F, 2.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated33", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -7.0F, 1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated34", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -7.0F, -1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated35", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -5.0F, -1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rotated36", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-22.0F, -5.0F, 1.0F, 6.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 32);
+	}
+
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.leftleg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.leftlegt.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.lefttoe1.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.lefttoe2.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+	public void setupAnim(EntityTwins entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.leftlegt.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.lefttoe1.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.lefttoe2.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-        this.rightleg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.rightleg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.righttoe1.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-        this.righttoe2.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.righttoe1.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.righttoe2.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		
+		if(entity.abilityCoolDown < 11) {
+			float f = (float)((entity.isFast ? 1 : -1) * (Math.PI / 20.));
+			this.rotated1.yRot += f;
+			this.rotated2.yRot += f;
+			this.rotated3.yRot += f;
+			this.rotated4.yRot += f;
+			this.rotated5.yRot += f;
+			this.rotated6.yRot += f;
+			this.rotated7.yRot += f;
+			this.rotated8.yRot += f;
+			this.rotated9.yRot += f;
+			this.rotated10.yRot += f;
+			this.rotated11.yRot += f;
+			this.rotated12.yRot += f;
+			this.rotated13.yRot += f;
+			this.rotated14.yRot += f;
+			this.rotated15.yRot += f;
+			this.rotated16.yRot += f;
+			this.rotated17.yRot += f;
+			this.rotated18.yRot += f;
+			this.rotated19.yRot += f;
+			this.rotated20.yRot += f;
+			this.rotated21.yRot += f;
+			this.rotated22.yRot += f;
+			this.rotated23.yRot += f;
+			this.rotated24.yRot += f;
+			this.rotated25.yRot += f;
+			this.rotated26.yRot += f;
+			this.rotated27.yRot += f;
+			this.rotated28.yRot += f;
+			this.rotated29.yRot += f;
+			this.rotated30.yRot += f;
+			this.rotated31.yRot += f;
+			this.rotated32.yRot += f;
+			this.rotated33.yRot += f;
+			this.rotated34.yRot += f;
+			this.rotated35.yRot += f;
+			this.rotated36.yRot += f;
+		}
+	}
 
-        int ageInSeconds = (int) (ageInTicks/20);
-        if (ageInSeconds % 4 == 0 && this.rotated1.yRot < Math.PI)
-        {
-            this.rotated1.yRot += 0.15;
-            this.rotated2.yRot += 0.15;
-            this.rotated3.yRot += 0.15;
-            this.rotated4.yRot += 0.15;
-            this.rotated5.yRot += 0.15;
-            this.rotated6.yRot += 0.15;
-            this.rotated7.yRot += 0.15;
-            this.rotated8.yRot += 0.15;
-            this.rotated9.yRot += 0.15;
-            this.rotated10.yRot += 0.15;
-            this.rotated11.yRot += 0.15;
-            this.rotated12.yRot += 0.15;
-            this.rotated13.yRot += 0.15;
-            this.rotated14.yRot += 0.15;
-            this.rotated15.yRot += 0.15;
-            this.rotated16.yRot += 0.15;
-            this.rotated17.yRot += 0.15;
-            this.rotated18.yRot += 0.15;
-            this.rotated19.yRot += 0.15;
-            this.rotated20.yRot += 0.15;
-            this.rotated21.yRot += 0.15;
-            this.rotated22.yRot += 0.15;
-            this.rotated23.yRot += 0.15;
-            this.rotated24.yRot += 0.15;
-            this.rotated25.yRot += 0.15;
-            this.rotated26.yRot += 0.15;
-            this.rotated27.yRot += 0.15;
-            this.rotated28.yRot += 0.15;
-            this.rotated29.yRot += 0.15;
-            this.rotated30.yRot += 0.15;
-            this.rotated31.yRot += 0.15;
-            this.rotated32.yRot += 0.15;
-            this.rotated33.yRot += 0.15;
-            this.rotated34.yRot += 0.15;
-            this.rotated35.yRot += 0.15;
-            this.rotated36.yRot += 0.15;
-        }
-        else if (ageInSeconds % 2 == 0 && this.rotated1.yRot > 0)
-        {
-            this.rotated1.yRot -= 0.15;
-            this.rotated2.yRot -= 0.15;
-            this.rotated3.yRot -= 0.15;
-            this.rotated4.yRot -= 0.15;
-            this.rotated5.yRot -= 0.15;
-            this.rotated6.yRot -= 0.15;
-            this.rotated7.yRot -= 0.15;
-            this.rotated8.yRot -= 0.15;
-            this.rotated9.yRot -= 0.15;
-            this.rotated10.yRot -= 0.15;
-            this.rotated11.yRot -= 0.15;
-            this.rotated12.yRot -= 0.15;
-            this.rotated13.yRot -= 0.15;
-            this.rotated14.yRot -= 0.15;
-            this.rotated15.yRot -= 0.15;
-            this.rotated16.yRot -= 0.15;
-            this.rotated17.yRot -= 0.15;
-            this.rotated18.yRot -= 0.15;
-            this.rotated19.yRot -= 0.15;
-            this.rotated20.yRot -= 0.15;
-            this.rotated21.yRot -= 0.15;
-            this.rotated22.yRot -= 0.15;
-            this.rotated23.yRot -= 0.15;
-            this.rotated24.yRot -= 0.15;
-            this.rotated25.yRot -= 0.15;
-            this.rotated26.yRot -= 0.15;
-            this.rotated27.yRot -= 0.15;
-            this.rotated28.yRot -= 0.15;
-            this.rotated29.yRot -= 0.15;
-            this.rotated30.yRot -= 0.15;
-            this.rotated31.yRot -= 0.15;
-            this.rotated32.yRot -= 0.15;
-            this.rotated33.yRot -= 0.15;
-            this.rotated34.yRot -= 0.15;
-            this.rotated35.yRot -= 0.15;
-            this.rotated36.yRot -= 0.15;
-        }
-    }
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		rightlegt.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftlegt.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		righttoe1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		lefttoe1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		lefttoe2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		righttoe2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated21.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated22.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated23.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated24.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated25.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated26.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated27.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated28.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated29.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated30.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated31.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated32.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated33.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated34.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated35.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rotated36.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

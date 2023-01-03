@@ -1,22 +1,21 @@
 package divinerpg.items.vanilla;
 
 
-import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
 public class ItemBurningSword extends ItemModSword {
-    private int burnSeconds;
+    private final int burnSeconds;
 
-    public ItemBurningSword(IItemTier tier, String name, int seconds) {
-        super(name, RarityList.COMMON, tier, DivineRPG.tabs.melee);
+    public ItemBurningSword(Tier tier, int seconds) {
+        super(tier, new Item.Properties().fireResistant());
         this.burnSeconds = seconds;
     }
 
@@ -29,8 +28,17 @@ public class ItemBurningSword extends ItemModSword {
         return true;
     }
 
+
     @Override
-    protected void addAdditionalInformation(List<ITextComponent> list) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
+        super.inventoryTick(stack, level, entity, p_41407_, p_41408_);
+        if (!stack.isEnchanted()) {
+            stack.enchant(Enchantments.FIRE_ASPECT, 1);
+        }
+    }
+
+    @Override
+    protected void addAdditionalInformation(List<Component> list) {
         list.add(LocalizeUtils.burn(this.burnSeconds));
     }
 }

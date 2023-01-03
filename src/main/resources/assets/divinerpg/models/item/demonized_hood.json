@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/demonized_hood"
+    "layer0": "divinerpg:item/demonized_hood"
   }
 }

@@ -1,32 +1,34 @@
 package divinerpg.registries;
 
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.items.arcana.*;
-import net.minecraft.util.*;
-import net.minecraftforge.fml.network.*;
-import net.minecraftforge.fml.network.simple.*;
+import divinerpg.DivineRPG;
+import divinerpg.capability.PacketArcanaBar;
+import divinerpg.items.arcana.PacketDivineAccumulator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.network.*;
+import net.minecraftforge.network.simple.SimpleChannel;
 
 public class NetworkingRegistry {
-    private static int packetId = 0;
-    public static SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(DivineRPG.MODID, "divinerpg_packet"), () -> "1.0", s -> true, s -> true);
+    public static SimpleChannel INSTANCE = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(DivineRPG.MODID, "messages")).networkProtocolVersion(() -> "1.0").clientAcceptedVersions(s -> true).serverAcceptedVersions(s -> true).simpleChannel();
 
-    private static int nextID() {
+    private static int packetId = 0;
+    private static int id() {
         return packetId++;
     }
 
-    public static void init() {
+    public static void register() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered networking");
-        INSTANCE.registerMessage(nextID(),
-                PacketArcanaBar.class,
-                PacketArcanaBar::toBytes,
-                PacketArcanaBar::new,
-                PacketArcanaBar::handle);
-        INSTANCE.registerMessage(nextID(),
-                PacketDivineAccumulator.class,
-                PacketDivineAccumulator::toBytes,
-                PacketDivineAccumulator::new,
-                PacketDivineAccumulator::handle);
+        INSTANCE.messageBuilder(PacketArcanaBar.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(PacketArcanaBar::new)
+                .encoder(PacketArcanaBar::toBytes)
+                .consumerMainThread(PacketArcanaBar::handle)
+                .add();
+
+        INSTANCE.messageBuilder(PacketDivineAccumulator.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(PacketDivineAccumulator::new)
+                .encoder(PacketDivineAccumulator::toBytes)
+                .consumerMainThread(PacketDivineAccumulator::handle)
+                .add();
 
     }
+
 }

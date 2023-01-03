@@ -1,30 +1,31 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 
-public class EntityGrenade extends DivineSnowball {
+public class EntityGrenade extends ThrowableProjectile {
 
-	public EntityGrenade(EntityType<? extends DivineSnowball> type, World world) {
+	public EntityGrenade(EntityType<? extends ThrowableProjectile> type, Level world) {
 		super(type, world);
 	}
 
 	@Override
-	protected Item getDefaultItem() {
-		return ItemRegistry.grenade;
+	protected void onHit(HitResult result) {
+		if(tickCount != 1 || tickCount != 0) {
+			super.onHit(result);
+			if (!this.level.isClientSide) {
+				this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+				this.level.broadcastEntityEvent(this, (byte) 3);
+				this.kill();
+			}
+		}
 	}
 
 	@Override
-	protected void onHit(RayTraceResult result) {
-		super.onHit(result);
-		if (!this.level.isClientSide) {
-			this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.Mode.BREAK);
-			this.level.broadcastEntityEvent(this, (byte)3);
-			this.remove();
-		}
+	protected void defineSynchedData() {
+
 	}
 }
 

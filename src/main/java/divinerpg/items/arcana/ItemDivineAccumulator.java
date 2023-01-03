@@ -1,44 +1,40 @@
 package divinerpg.items.arcana;
 
-import divinerpg.*;
-import divinerpg.capability.*;
-import divinerpg.items.base.*;
+import divinerpg.capability.ArcanaProvider;
+import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemDivineAccumulator extends ItemMod {
     public ItemDivineAccumulator() {
-        super("divine_accumulator", new Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
+        super(new Properties().stacksTo(1));
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        if(player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).isPresent()) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
             int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
-            Arcana arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElseThrow(RuntimeException::new);
-            if (arcana.getArcana() >= 80) {
-                if (!world.isClientSide) {
-                    //NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
-                    world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR, SoundCategory.PLAYERS, 1, 1);
-                    arcana.consume(player, 80);
+            player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+                if (arcana.getArcana() >= 80) {
+                        NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
+                        world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR.get(), SoundSource.PLAYERS, 1, 1);
+                        arcana.consume(player, 80);
+                    player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
                 }
-                player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
-            }
-        }
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, player.getMainHandItem());
+            });
+        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, player.getMainHandItem());
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> list, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> list, TooltipFlag flagIn) {
         list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.launch"));
         list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.fall"));
         list.add(LocalizeUtils.arcanaConsumed(80));

@@ -1,44 +1,30 @@
 package divinerpg.entities.eden;
 
-import divinerpg.entities.base.EntityDivineMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
 
-import java.util.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
 
-public class EntityGreenfeet extends EntityDivineMob {
+public class EntityGreenfeet extends EntityDivineMonster {
 
-    public EntityGreenfeet(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityGreenfeet(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.75F;
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.greenfeetHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.greenfeetDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.greenfeetSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.greenfeetFollowRange);
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return !worldIn.canSeeSky(pos);
-    }
 
     @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader reader) {
+    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public int getArmorValue() {
         return 10;
@@ -47,10 +33,10 @@ public class EntityGreenfeet extends EntityDivineMob {
     @Override
     public void tick() {
         if (this.level.isDay() && !this.level.isClientSide) {
-            float lightLevel = this.getBrightness();
+            float lightLevel = this.level.getLightEmission(blockPosition());
             if (lightLevel > 0.5F
-                    && this.level.canSeeSky(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()),
-                    MathHelper.floor(this.getZ())))
+                    && this.level.canSeeSky(new BlockPos(Mth.floor(this.getX()), Mth.floor(this.getY()),
+                    Mth.floor(this.getZ())))
                     && this.random.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
                 this.setRemainingFireTicks(8);
             }
@@ -60,17 +46,17 @@ public class EntityGreenfeet extends EntityDivineMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.NESRO;
+        return SoundRegistry.NESRO.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.NESRO_HURT;
+        return SoundRegistry.NESRO_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.NESRO_HURT;
+        return SoundRegistry.NESRO_HURT.get();
     }
 
 }

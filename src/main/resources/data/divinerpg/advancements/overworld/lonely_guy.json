@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:realmite_pickaxe"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.overworld.lonely_guy"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.overworld.lonely_guy.desc"
+    },
+    "background": "minecraft:diamond_block",
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "divinerpg:overworld/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "divinerpg:diamond_dave"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

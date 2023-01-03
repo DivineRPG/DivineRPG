@@ -1,21 +1,20 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingFood extends ItemModFood {
-    private int healthGain;
+    private final int healthGain;
 
-    public ItemHealingFood(Food food, String name) {
-        super(name, food, DivineRPG.tabs.food);
+    public ItemHealingFood(FoodProperties food) {
+        super(food);
         this.healthGain = food.getNutrition();
     }
 
@@ -25,15 +24,15 @@ public class ItemHealingFood extends ItemModFood {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
-        if(entity.getHealth() < entity.getMaxHealth()){
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
+        if (entity.getHealth() < entity.getMaxHealth()) {
             entity.heal(healthGain);
         }
         return super.finishUsingItem(stack, world, entity);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.food.heal", healthGain));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

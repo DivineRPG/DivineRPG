@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/advanced_mushroom_stew"
+    "layer0": "divinerpg:item/advanced_mushroom_stew"
   }
 }

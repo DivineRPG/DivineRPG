@@ -1,8 +1,9 @@
 {
   "parent": "block/inner_stairs",
+  "render_type": "cutout_mipped",
   "textures": {
-    "side": "divinerpg:blocks/degraded_bricks",
-    "top": "divinerpg:blocks/degraded_bricks",
-    "bottom": "divinerpg:blocks/degraded_bricks"
+    "side": "divinerpg:block/degraded_bricks",
+    "top": "divinerpg:block/degraded_bricks",
+    "bottom": "divinerpg:block/degraded_bricks"
   }
 }

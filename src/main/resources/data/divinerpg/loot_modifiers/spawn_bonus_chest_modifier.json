@@ -1,0 +1,17 @@
+{
+  "type": "divinerpg:spawn_bonus_modifier",
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/spawn_bonus_chest"
+        }
+      ]
+    }
+  ],
+  "min": 1,
+  "max": 3,
+  "chance": 0.5
+}

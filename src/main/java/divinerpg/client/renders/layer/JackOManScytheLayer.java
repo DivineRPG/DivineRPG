@@ -1,33 +1,36 @@
 package divinerpg.client.renders.layer;
 
-import com.mojang.blaze3d.matrix.*;
-import divinerpg.client.models.vanilla.*;
-import divinerpg.client.renders.entity.vanilla.*;
-import divinerpg.entities.vanilla.overworld.*;
-import divinerpg.registries.*;
-import net.minecraft.client.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.layers.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.util.math.vector.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
+import divinerpg.client.renders.entity.vanilla.RenderJackOMan;
+import divinerpg.entities.vanilla.overworld.EntityJackOMan;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @OnlyIn(Dist.CLIENT)
-public class JackOManScytheLayer extends LayerRenderer<EntityJackOMan, ModelJackOMan<EntityJackOMan>> {
-    public JackOManScytheLayer(RenderJackOMan p_i50935_1_) {
-        super(p_i50935_1_);
+public class JackOManScytheLayer extends RenderLayer<EntityJackOMan, HumanoidModel<EntityJackOMan>> {
+    public JackOManScytheLayer(RenderJackOMan render) {
+        super(render);
     }
 
-    public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, EntityJackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, EntityJackOMan entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         matrixStackIn.pushPose();
-        ModelRenderer parentModel = this.getParentModel().RightArm;
+        ModelPart parentModel = this.getParentModel().rightArm;
         parentModel.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.0625F, 0.55F, -0.4F);
-        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.scythe.getDefaultInstance(), ItemCameraTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F));
+        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "scythe")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
 
         matrixStackIn.popPose();
     }

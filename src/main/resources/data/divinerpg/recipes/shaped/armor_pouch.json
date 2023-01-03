@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "divinerpg:armor_pouch"
+  },
+  "pattern": [
+    " s ",
+    "lal",
+    "dld"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "minecraft:string"
+    },
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "a": {
+      "item": "minecraft:armor_stand"
+    },
+    "d": {
+      "item": "divinerpg:divine_log"
+    }
+  }
+}

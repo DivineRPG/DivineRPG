@@ -1,23 +1,19 @@
 package divinerpg.client.containers;
 
-import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.crafting.*;
-import net.minecraft.network.*;
-import net.minecraft.util.*;
+import divinerpg.registries.MenuTypeRegistry;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ContainerData;
 
-public class CoalstoneFurnaceContainer extends AbstractFurnaceContainer {
-    public CoalstoneFurnaceContainer(int p_i50082_1_, PlayerInventory p_i50082_2_) {
-        super(ContainerRegistry.COALSTONE_FURNACE.get(), IRecipeType.SMELTING, RecipeBookCategory.FURNACE, p_i50082_1_, p_i50082_2_);
+public class CoalstoneFurnaceContainer extends InfiniFurnaceContainer {
+	public CoalstoneFurnaceContainer(int i, Inventory inv) {
+        super(MenuTypeRegistry.COALSTONE_FURNACE.get(), i, inv);
     }
-
-    public CoalstoneFurnaceContainer(int p_i50083_1_, PlayerInventory p_i50083_2_, IInventory p_i50083_3_, IIntArray p_i50083_4_) {
-        super(ContainerRegistry.COALSTONE_FURNACE.get(), IRecipeType.SMELTING, RecipeBookCategory.FURNACE, p_i50083_1_, p_i50083_2_, p_i50083_3_, p_i50083_4_);
+    public CoalstoneFurnaceContainer(int i, Inventory inv, Container container, ContainerData data) {
+        super(MenuTypeRegistry.COALSTONE_FURNACE.get(), i, inv, container, data);
     }
-
-    public CoalstoneFurnaceContainer(int i, PlayerInventory playerInventory, PacketBuffer buffer) {
+    public CoalstoneFurnaceContainer(int i, Inventory playerInventory, FriendlyByteBuf buffer) {
         this(i, playerInventory);
     }
 }

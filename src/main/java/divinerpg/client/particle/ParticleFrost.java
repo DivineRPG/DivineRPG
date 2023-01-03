@@ -2,11 +2,12 @@ package divinerpg.client.particle;
 
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
+
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.Mth;
 
 /**
  * Created by LiteWolf101 on Feb
@@ -14,18 +15,18 @@ import net.minecraftforge.api.distmarker.*;
  */
 
 @OnlyIn(Dist.CLIENT)
-public class ParticleFrost extends SpriteTexturedParticle
+public class ParticleFrost extends TextureSheetParticle
 {
-    IAnimatedSprite animatedSprite;
+    SpriteSet animatedSprite;
     final float rotSpeed;
     float oSize;
 
-    public ParticleFrost(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, IAnimatedSprite sprite)
+    public ParticleFrost(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
     }
 
-    public ParticleFrost(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
+    public ParticleFrost(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
         this.xd = 0;
@@ -40,6 +41,7 @@ public class ParticleFrost extends SpriteTexturedParticle
         this.rCol = ((float)(Math.random() * 0.20000000298023224D) + 0.8F) * f;
         this.rotSpeed = ((float)Math.random() - 0.9F) * 0.1F;
         this.roll = (float)Math.random() * ((float)Math.PI * 2F);
+        this.animatedSprite = sprite;
     }
 
     @Override
@@ -61,9 +63,9 @@ public class ParticleFrost extends SpriteTexturedParticle
 
 
     @Override
-    public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
+    public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
         float f = ((float)this.age + partialTicks) / (float)this.lifetime * 2.0F;
-        f = MathHelper.clamp(f, 0.0F, 1.0F);
+        f = Mth.clamp(f, 0.0F, 1.0F);
         this.quadSize = this.oSize * f;
         super.render(buffer, renderInfo, partialTicks);
     }
@@ -79,7 +81,7 @@ public class ParticleFrost extends SpriteTexturedParticle
         if (this.age++ >= this.lifetime)
         {
             this.alpha = 0;
-            this.shouldCull();
+            this.remove();
         }
 
         this.oRoll = this.roll;
@@ -97,23 +99,21 @@ public class ParticleFrost extends SpriteTexturedParticle
     }
 
     @Override
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType>
-    {
-        private final IAnimatedSprite spriteSet;
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public Factory(IAnimatedSprite spriteSetIn) {
-            this.spriteSet = spriteSetIn;
+        public Provider(SpriteSet spriteSet) {
+            this.sprites = spriteSet;
         }
 
-        @Override
-        public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleFrost particle = new ParticleFrost(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, spriteSet);
-            particle.pickSprite(this.spriteSet);
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+            ParticleFrost particle = new ParticleFrost(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+            particle.pickSprite(this.sprites);
             return particle;
         }
     }

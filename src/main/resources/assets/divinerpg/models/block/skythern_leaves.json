@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/leaves",
   "textures": {
-    "all": "divinerpg:blocks/skythern_leaves"
+    "all": "divinerpg:block/skythern_leaves"
   }
 }

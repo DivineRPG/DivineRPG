@@ -1,0 +1,20 @@
+{
+  "feature": "divinerpg:apalachia_tree",
+  "placement": [
+    {
+      "type": "minecraft:noise_based_count",
+      "noise_to_count_ratio": 12,
+      "noise_factor": 90
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

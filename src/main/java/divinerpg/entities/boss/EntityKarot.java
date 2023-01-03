@@ -1,42 +1,33 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.mortum.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.*;
+import divinerpg.entities.base.EntityDivineBoss;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class EntityKarot extends EntityDivineBoss {
 
     private int spawnTick;
 
-    public EntityKarot(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityKarot(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         spawnTick=240;
     }
 
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 3.7F;
     }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.karotHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.karotDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.karotSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.karotFollowRange);
-    }
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
+    @Override public boolean isAggressive() {return true;}
 
     @Override
     public int getArmorValue() {
@@ -46,11 +37,9 @@ public class EntityKarot extends EntityDivineBoss {
     @Override
     public void tick() {
         if (this.spawnTick == 0 && !this.level.isClientSide) {
-            EntityAngryBunny angryBunny = new EntityAngryBunny(EntityRegistry.ANGRY_BUNNY, level);
-            angryBunny.moveTo(this.getX(), this.getY(), this.getZ(), this.random.nextFloat() * 360.0F, 0.0F);
-            this.level.addFreshEntity(angryBunny);
-            this.level.addParticle(ParticleTypes.FLASH, angryBunny.getX(), angryBunny.getY() + 0.5D,
-                    angryBunny.getZ(), this.random.nextGaussian() * 2.0D - 1.0D, this.random.nextGaussian() * 2.0D - 1.0D,
+            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+            this.level.addParticle(ParticleTypes.FLASH, getX(), getY() + 0.5D,
+                    getZ(), this.random.nextGaussian() * 2.0D - 1.0D, this.random.nextGaussian() * 2.0D - 1.0D,
                     this.random.nextGaussian() * 2.0D - 1.0D);
             this.spawnTick = 240;
         }
@@ -82,16 +71,14 @@ public class EntityKarot extends EntityDivineBoss {
         super.die(source);
         if (!this.level.isClientSide) {
             for (int i = 0; i < 5; i++) {
-                EntityAngryBunny angryBunny = new EntityAngryBunny(EntityRegistry.ANGRY_BUNNY, this.level);
-                angryBunny.moveTo(this.getX(), this.getY(), this.getZ());
-                this.level.addFreshEntity(angryBunny);
+                EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             }
         }
         super.kill();
     }
 
     @Override
-    public Color getBarColor() {
-        return Color.WHITE;
+    public BossBarColor getBarColor() {
+        return BossBarColor.WHITE;
     }
 }

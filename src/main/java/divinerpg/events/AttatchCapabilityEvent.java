@@ -1,18 +1,25 @@
 package divinerpg.events;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.capability.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraftforge.common.util.*;
-import net.minecraftforge.event.*;
-import net.minecraftforge.eventbus.api.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.capabilities.*;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 
 public class AttatchCapabilityEvent {
-    @SubscribeEvent
-    public void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof PlayerEntity && !(event.getObject() instanceof FakePlayer))event
-                .addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
+    public static final Capability<Arcana> ARCANA = CapabilityManager.get(new CapabilityToken<>() {});
+
+    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(Arcana.class);
+    }
+
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event){
+        if (event.getObject() instanceof Player) {
+            if (!event.getObject().getCapability(ArcanaProvider.ARCANA).isPresent()) {
+                event.addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
+            }
+        }
     }
 }

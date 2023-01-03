@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/inferno_boots"
+    "layer0": "divinerpg:item/inferno_boots"
   }
 }

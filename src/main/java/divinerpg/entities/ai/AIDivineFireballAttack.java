@@ -1,17 +1,21 @@
 package divinerpg.entities.ai;
 
 import divinerpg.enums.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
-
-import java.util.*;
 import java.util.function.*;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.level.Level;
+
 public class AIDivineFireballAttack extends Goal {
-    private final MobEntity parentEntity;
-    private final BiFunction<MobEntity, Entity, Entity> createFireballFunc;
+    private final Mob parentEntity;
+    private final BiFunction<Mob, Entity, Entity> createFireballFunc;
     public int attackTimer;
 
     /**
@@ -34,7 +38,7 @@ public class AIDivineFireballAttack extends Goal {
      */
     private final SoundEvent onShoot;
 
-    public AIDivineFireballAttack(MobEntity parentEntity, BiFunction<MobEntity, Entity, Entity> createFireballFunc, int attackDelay, int maxDistance, SoundEvent beforeShoot, SoundEvent onShoot) {
+    public AIDivineFireballAttack(Mob parentEntity, BiFunction<Mob, Entity, Entity> createFireballFunc, int attackDelay, int maxDistance, SoundEvent beforeShoot, SoundEvent onShoot) {
         this.parentEntity = parentEntity;
         this.createFireballFunc = createFireballFunc;
         this.attackDelay = attackDelay;
@@ -43,15 +47,15 @@ public class AIDivineFireballAttack extends Goal {
         this.onShoot = onShoot;
     }
 
-    public AIDivineFireballAttack(MobEntity ghast, ILaunchFireBall func) {
+    public AIDivineFireballAttack(Mob ghast, ILaunchFireBall func) {
         this(ghast, func::createFireball, 20, 64, SoundEvents.GHAST_WARN, SoundEvents.GHAST_SHOOT);
     }
 
-    public AIDivineFireballAttack(MobEntity ghast, ILaunchFireBall createFireball, SoundEvent onShoot) {
+    public AIDivineFireballAttack(Mob ghast, ILaunchFireBall createFireball, SoundEvent onShoot) {
         this(ghast, createFireball::createFireball, 20, 64, null, onShoot);
     }
 
-    public AIDivineFireballAttack(MobEntity ghast, ILaunchThrowable createThrowable, SoundEvent onShoot) {
+    public AIDivineFireballAttack(Mob ghast, ILaunchThrowable createThrowable, SoundEvent onShoot) {
         this(ghast, createThrowable::createFireball, 20, 64, null, onShoot);
     }
     @Override
@@ -74,8 +78,8 @@ public class AIDivineFireballAttack extends Goal {
             LivingEntity entitylivingbase = parentEntity.getTarget();
             if (entitylivingbase != null) {
                 if (Math.sqrt(entitylivingbase.distanceTo(this.parentEntity)) < maxDistance
-                        && this.parentEntity.canSee(entitylivingbase)) {
-                    World world = this.parentEntity.level;
+                        && this.parentEntity.hasLineOfSight(entitylivingbase)) {
+                    Level world = this.parentEntity.level;
                     ++this.attackTimer;
 
                     if (this.attackTimer == attackDelay - 10) {
@@ -106,12 +110,12 @@ public class AIDivineFireballAttack extends Goal {
         if (parentEntity == null || parentEntity.level == null || event == null)
             return;
 
-        Random rand = parentEntity.level.random;
+        RandomSource rand = parentEntity.level.random;
 
         parentEntity.level.playSound(null,
                 parentEntity.blockPosition(),
                 event,
-                SoundCategory.HOSTILE,
+                SoundSource.HOSTILE,
                 10,
                 (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
     }

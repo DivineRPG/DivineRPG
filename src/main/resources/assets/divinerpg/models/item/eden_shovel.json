@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/eden_shovel"
+    "layer0": "divinerpg:item/eden_shovel"
   }
 }

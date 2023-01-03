@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:blocks/mortum_sapling"
+    "layer0": "divinerpg:block/mortum_sapling"
   }
 }

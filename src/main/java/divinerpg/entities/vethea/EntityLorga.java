@@ -1,95 +1,68 @@
 package divinerpg.entities.vethea;
 
-import java.util.List;
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.AABB;
 
-public class EntityLorga extends EntityVetheaMob {
-	
-    private int spawnTick;
+public class EntityLorga extends EntityDivineMonster {
     public boolean canSpawnMinions;
-    
-    public EntityLorga(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityLorga(EntityType<? extends Monster> type, Level worldIn) {
     	this(type, worldIn, true);
-    }
-
-    public EntityLorga(EntityType<? extends MobEntity> type, World worldIn, boolean canSpawnMinions) {
+	}
+    public EntityLorga(EntityType<? extends Monster> type, Level worldIn, boolean canSpawnMinions) {
         super(type, worldIn);
         this.canSpawnMinions = canSpawnMinions;
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    @Override
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.lorgaHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.lorgaDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.lorgaSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.lorgaFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-    
+    @Override public boolean isAggressive() {return true;}
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
+    public int getMaxSpawnClusterSize() {
+    	return 8;
     }
- 
     @Override
-    public int getSpawnLayer() {
-    	return 1;
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i < 8;
     }
-
     @Override
     public void tick() {
         super.tick();
-        List<Entity> nearby = level.getEntities(this, this.getBoundingBox().expandTowards(10D, 10D, 10D));
-        if (this.spawnTick == 0 && this.canSpawnMinions && !this.level.isClientSide && nearby.size() < 12) {
-            this.spawnTick = 260;
-            EntityLorga var2 = new EntityLorga(EntityRegistry.LORGA, this.level, false);
-            var2.moveTo(this.getX() + 1, this.getY(), this.getZ() + 1, this.xRot, this.yRot);
-            this.level.addFreshEntity(var2);
-        }
-        else if (this.spawnTick > 0) {
-            this.spawnTick--;
+        if(!level.isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level.getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
+        	BlockPos pos = blockPosition().offset(random.nextInt(5) - 2, 0, random.nextInt(5) - 2);
+        	if(level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()) ((EntityLorga) EntityRegistry.LORGA.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
         }
     }
-    
     @Override
-    public void addAdditionalSaveData(CompoundNBT tag) {
+    public void addAdditionalSaveData(CompoundTag tag) {
     	super.addAdditionalSaveData(tag);
-    	tag.putBoolean("CanSpawnMinions", this.canSpawnMinions);
+    	tag.putBoolean("CanSpawnMinions", canSpawnMinions);
     }
-    
     @Override
-    public void readAdditionalSaveData(CompoundNBT tag) {
+    public void readAdditionalSaveData(CompoundTag tag) {
     	super.readAdditionalSaveData(tag);
-    	this.canSpawnMinions = tag.getBoolean("CanSpawnMinions");
+    	canSpawnMinions = tag.getBoolean("CanSpawnMinions");
     }
-
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.LORGA;
+        return SoundRegistry.LORGA.get();
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.LORGA_HURT;
+        return SoundRegistry.LORGA_HURT.get();
     }
-
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.LORGA_HURT;
+        return SoundRegistry.LORGA_HURT.get();
     }
 }

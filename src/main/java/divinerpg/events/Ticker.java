@@ -21,22 +21,26 @@ public class Ticker {
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
-            Arcana arcana = event.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
+            event.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if(arcana != null)
             arcana.regen(event.player);
+        });
         }
     }
 
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        Arcana arcana = event.getPlayer().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
-        arcana.fill(event.getPlayer(), arcana.getMaxArcana());
+        event.getEntity().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+            arcana.fill(event.getEntity(), arcana.getMaxArcana());
+        });
     }
+
 
     @SubscribeEvent
     public void onChangeDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        Arcana arcana = event.getPlayer().getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
-        arcana.fill(event.getPlayer(), arcana.getMaxArcana()-arcana.getArcana());
-        event.getPlayer().giveExperiencePoints(0);
-    }
-}
+        event.getEntity().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+            arcana.fill(event.getEntity(), arcana.getMaxArcana()-arcana.getArcana());
+            event.getEntity().giveExperiencePoints(0);
+        });
+
+    }}

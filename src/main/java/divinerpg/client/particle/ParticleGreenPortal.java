@@ -1,25 +1,26 @@
 package divinerpg.client.particle;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.ActiveRenderInfo;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
 import net.minecraftforge.api.distmarker.*;
 
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.SimpleParticleType;
+
 @OnlyIn(Dist.CLIENT)
-public class ParticleGreenPortal extends SpriteTexturedParticle
+public class ParticleGreenPortal extends TextureSheetParticle
 {
-    IAnimatedSprite animatedSprite;
+    SpriteSet animatedSprite;
     private double portalPosX;
     private double portalPosY;
     private double portalPosZ;
-    public ParticleGreenPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, IAnimatedSprite sprite)
+    public ParticleGreenPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
     }
 
-    public ParticleGreenPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
+    public ParticleGreenPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
         this.xd = 0;
@@ -33,6 +34,8 @@ public class ParticleGreenPortal extends SpriteTexturedParticle
         this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
         this.lifetime = (int)((float)this.lifetime * 0.5F);
         this.gCol = 1.0F;
+        this.rCol = 0.0F;
+        this.bCol = 0.0F;
         this.roll = (float)Math.random() * ((float)Math.PI * 2F);
         this.animatedSprite = sprite;
     }
@@ -56,7 +59,7 @@ public class ParticleGreenPortal extends SpriteTexturedParticle
 
 
     @Override
-    public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
+    public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
         float var8 = (this.age + partialTicks) / this.lifetime;
         var8 = 1.0F - var8;
         var8 *= var8;
@@ -84,25 +87,22 @@ public class ParticleGreenPortal extends SpriteTexturedParticle
         }
     }
 
-
     @Override
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType>
-    {
-        private final IAnimatedSprite spriteSet;
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public Factory(IAnimatedSprite spriteSetIn) {
-            this.spriteSet = spriteSetIn;
+        public Provider(SpriteSet spriteSet) {
+            this.sprites = spriteSet;
         }
 
-        @Override
-        public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleGreenPortal particle = new ParticleGreenPortal(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, spriteSet);
-            particle.pickSprite(this.spriteSet);
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+            ParticleGreenPortal particle = new ParticleGreenPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+            particle.pickSprite(this.sprites);
             return particle;
         }
     }

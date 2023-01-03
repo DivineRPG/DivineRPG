@@ -2,17 +2,20 @@ package divinerpg.entities.projectile;
 
 import divinerpg.enums.*;
 import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityLadyLunaSparkler extends EntityParticleBullet {
-    public EntityLadyLunaSparkler(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityLadyLunaSparkler(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityLadyLunaSparkler(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity) {
+    public EntityLadyLunaSparkler(EntityType<? extends ThrowableProjectile> type, Level world, LivingEntity entity) {
         super(type, world, entity, BulletType.LUNA_SPARKLER);
         setDeltaMovement(0, 0, 0);
     }
@@ -36,11 +39,12 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
     }
 
     @Override
-    public void onHitEntity(EntityRayTraceResult pos) {
-        if (pos.getEntity() != null)
-        {
-            Entity entity = pos.getEntity();
-            entity.hurt(DamageSources.arcanaSource, 12.0F);
+    public void onHitEntity(EntityHitResult pos) {
+        if (tickCount != 1 || tickCount != 0) {
+            if (pos.getEntity() != null) {
+                Entity entity = pos.getEntity();
+                entity.hurt(DamageSources.arcanaSource, 12.0F);
+            }
         }
     }
 }

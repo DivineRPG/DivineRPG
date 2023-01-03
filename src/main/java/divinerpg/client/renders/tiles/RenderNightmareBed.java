@@ -1,88 +1,80 @@
 package divinerpg.client.renders.tiles;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.registries.*;
-import divinerpg.tiles.*;
-import it.unimi.dsi.fastutil.ints.*;
-import net.minecraft.block.*;
+import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
+import divinerpg.registries.BlockEntityRegistry;
+import divinerpg.tiles.TileEntityNightmareBed;
+import it.unimi.dsi.fastutil.ints.Int2IntFunction;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.client.renderer.tileentity.*;
-import net.minecraft.state.properties.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderNightmareBed extends TileEntityRenderer<TileEntityNightmareBed> {
-    private final ModelRenderer headPiece;
-    private final ModelRenderer footPiece;
-    private final ModelRenderer[] legs = new ModelRenderer[4];
+public class RenderNightmareBed implements BlockEntityRenderer<TileEntityNightmareBed> {
+    private final ModelPart headRoot;
+    private final ModelPart footRoot;
 
-    public RenderNightmareBed(TileEntityRendererDispatcher p_i226004_1_) {
-        super(p_i226004_1_);
-        this.headPiece = new ModelRenderer(64, 64, 0, 0);
-        this.headPiece.addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 6.0F, 0.0F);
-        this.footPiece = new ModelRenderer(64, 64, 0, 22);
-        this.footPiece.addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 6.0F, 0.0F);
-        this.legs[0] = new ModelRenderer(64, 64, 50, 0);
-        this.legs[1] = new ModelRenderer(64, 64, 50, 6);
-        this.legs[2] = new ModelRenderer(64, 64, 50, 12);
-        this.legs[3] = new ModelRenderer(64, 64, 50, 18);
-        this.legs[0].addBox(0.0F, 6.0F, -16.0F, 3.0F, 3.0F, 3.0F);
-        this.legs[1].addBox(0.0F, 6.0F, 0.0F, 3.0F, 3.0F, 3.0F);
-        this.legs[2].addBox(-16.0F, 6.0F, -16.0F, 3.0F, 3.0F, 3.0F);
-        this.legs[3].addBox(-16.0F, 6.0F, 0.0F, 3.0F, 3.0F, 3.0F);
-        this.legs[0].xRot = ((float)Math.PI / 2F);
-        this.legs[1].xRot = ((float)Math.PI / 2F);
-        this.legs[2].xRot = ((float)Math.PI / 2F);
-        this.legs[3].xRot = ((float)Math.PI / 2F);
-        this.legs[0].zRot = 0.0F;
-        this.legs[1].zRot = ((float)Math.PI / 2F);
-        this.legs[2].zRot = ((float)Math.PI * 1.5F);
-        this.legs[3].zRot = (float)Math.PI;
+        public static final ModelLayerLocation HEAD = new ModelLayerLocation(new ResourceLocation(DivineRPG.MODID, "head"), "main");
+        public static final ModelLayerLocation FOOT = new ModelLayerLocation(new ResourceLocation(DivineRPG.MODID, "foot"), "main");
+    public RenderNightmareBed(BlockEntityRendererProvider.Context context) {
+        this.headRoot = context.bakeLayer(HEAD);
+        this.footRoot = context.bakeLayer(FOOT);
     }
 
-    public void render(TileEntityNightmareBed p_225616_1_, float p_225616_2_, MatrixStack p_225616_3_, IRenderTypeBuffer p_225616_4_, int p_225616_5_, int p_225616_6_) {
-        World world = p_225616_1_.getLevel();
-        if (world != null) {
-            BlockState blockstate = p_225616_1_.getBlockState();
-            TileEntityMerger.ICallbackWrapper<? extends TileEntityNightmareBed> icallbackwrapper = TileEntityMerger.combineWithNeigbour(TileRegistry.NIGHTMARE_BED, BedBlock::getBlockType, BedBlock::getConnectedDirection, ChestBlock.FACING, blockstate, world, p_225616_1_.getBlockPos(), (p_228846_0_, p_228846_1_) -> {
-                return false;
-            });
-            int i = icallbackwrapper.<Int2IntFunction>apply(new DualBrightnessCallback<>()).get(p_225616_5_);
-            this.renderPiece(p_225616_3_, p_225616_4_, blockstate.getValue(BedBlock.PART) == BedPart.HEAD, blockstate.getValue(BedBlock.FACING), i, p_225616_6_, false);
-        } else {
-            this.renderPiece(p_225616_3_, p_225616_4_, true, Direction.SOUTH, p_225616_5_, p_225616_6_, false);
-            this.renderPiece(p_225616_3_, p_225616_4_, false, Direction.SOUTH, p_225616_5_, p_225616_6_, true);
+        public static LayerDefinition createHeadLayer() {
+            MeshDefinition meshdefinition = new MeshDefinition();
+            PartDefinition partdefinition = meshdefinition.getRoot();
+            partdefinition.addOrReplaceChild("main", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 6.0F), PartPose.ZERO);
+            partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(50, 6).addBox(0.0F, 6.0F, 0.0F, 3.0F, 3.0F, 3.0F), PartPose.rotation(((float)Math.PI / 2F), 0.0F, ((float)Math.PI / 2F)));
+            partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(50, 18).addBox(-16.0F, 6.0F, 0.0F, 3.0F, 3.0F, 3.0F), PartPose.rotation(((float)Math.PI / 2F), 0.0F, (float)Math.PI));
+            return LayerDefinition.create(meshdefinition, 64, 64);
         }
 
-    }
+        public static LayerDefinition createFootLayer() {
+            MeshDefinition meshdefinition = new MeshDefinition();
+            PartDefinition partdefinition = meshdefinition.getRoot();
+            partdefinition.addOrReplaceChild("main", CubeListBuilder.create().texOffs(0, 22).addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 6.0F), PartPose.ZERO);
+            partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(50, 0).addBox(0.0F, 6.0F, -16.0F, 3.0F, 3.0F, 3.0F), PartPose.rotation(((float)Math.PI / 2F), 0.0F, 0.0F));
+            partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(50, 12).addBox(-16.0F, 6.0F, -16.0F, 3.0F, 3.0F, 3.0F), PartPose.rotation(((float)Math.PI / 2F), 0.0F, ((float)Math.PI * 1.5F)));
+            return LayerDefinition.create(meshdefinition, 64, 64);
+        }
 
-    private void renderPiece(MatrixStack p_228847_1_, IRenderTypeBuffer buffer, boolean p_228847_3_, Direction direction, int p_228847_6_, int p_228847_7_, boolean p_228847_8_) {
-        this.headPiece.visible = p_228847_3_;
-        this.footPiece.visible = !p_228847_3_;
-        this.legs[0].visible = !p_228847_3_;
-        this.legs[1].visible = p_228847_3_;
-        this.legs[2].visible = !p_228847_3_;
-        this.legs[3].visible = p_228847_3_;
-        p_228847_1_.pushPose();
-        p_228847_1_.translate(0.0D, 0.5625D, p_228847_8_ ? -1.0D : 0.0D);
-        p_228847_1_.mulPose(Vector3f.XP.rotationDegrees(90.0F));
-        p_228847_1_.translate(0.5D, 0.5D, 0.5D);
-        p_228847_1_.mulPose(Vector3f.ZP.rotationDegrees(180.0F + direction.toYRot()));
-        p_228847_1_.translate(-0.5D, -0.5D, -0.5D);
-        IVertexBuilder ivertexbuilder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare.png")));
-        this.headPiece.render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        this.footPiece.render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        this.legs[0].render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        this.legs[1].render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        this.legs[2].render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        this.legs[3].render(p_228847_1_, ivertexbuilder, p_228847_6_, p_228847_7_);
-        p_228847_1_.popPose();
-    }
+        public void render(TileEntityNightmareBed tile, float p_112206_, PoseStack poseStack, MultiBufferSource buffer, int light, int p_112210_) {
+            Material material = new Material(Sheets.BED_SHEET, new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare.png"));
+            Level level = tile.getLevel();
+            if (level != null) {
+                BlockState blockstate = tile.getBlockState();
+                DoubleBlockCombiner.NeighborCombineResult<? extends TileEntityNightmareBed> neighborcombineresult = DoubleBlockCombiner.combineWithNeigbour(BlockEntityRegistry.NIGHTMARE_BED.get(), BedBlock::getBlockType, BedBlock::getConnectedDirection, ChestBlock.FACING, blockstate, level, tile.getBlockPos(), (levelAccessor, pos) -> {
+                    return false;
+                });
+                int i = neighborcombineresult.<Int2IntFunction>apply(new BrightnessCombiner<>()).get(light);
+                this.renderPiece(poseStack, buffer, blockstate.getValue(BedBlock.PART) == BedPart.HEAD ? this.headRoot : this.footRoot, blockstate.getValue(BedBlock.FACING), material, i, p_112210_, false);
+            } else {
+                this.renderPiece(poseStack, buffer, this.headRoot, Direction.SOUTH, material, light, p_112210_, false);
+                this.renderPiece(poseStack, buffer, this.footRoot, Direction.SOUTH, material, light, p_112210_, true);
+            }
+
+        }
+
+        private void renderPiece(PoseStack stack, MultiBufferSource bufferSource, ModelPart part, Direction direction, Material material, int p_173547_, int p_173548_, boolean p_173549_) {
+            stack.pushPose();
+            stack.translate(0.0D, 0.5625D, p_173549_ ? -1.0D : 0.0D);
+            stack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            stack.translate(0.5D, 0.5D, 0.5D);
+            stack.mulPose(Axis.ZP.rotationDegrees(180.0F + direction.toYRot()));
+            stack.translate(-0.5D, -0.5D, -0.5D);
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare.png")));
+            part.render(stack, vertexconsumer, p_173547_, p_173548_);
+            stack.popPose();
+        }
 }

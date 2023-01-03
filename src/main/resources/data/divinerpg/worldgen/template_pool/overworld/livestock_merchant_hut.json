@@ -1,0 +1,15 @@
+{
+	"name": "divinerpg:livestock_merchant_hut",
+	"fallback": "minecraft:empty",
+	"elements": [
+		{
+			"weight": 1,
+			"element": {
+				"element_type": "single_pool_element",
+				"location": "divinerpg:overworld/livestock_merchant_hut",
+				"processors": "minecraft:empty",
+				"projection": "rigid"
+			}
+		}
+	]
+}

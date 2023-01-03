@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"render_type": "cutout_mipped",
 	"textures": {
-		"0": "divinerpg:blocks/arcanite_ladder",
-		"particle": "divinerpg:blocks/arcanite_ladder"
+		"0": "divinerpg:block/arcanite_ladder",
+		"particle": "divinerpg:block/arcanite_ladder"
 	},
 	"elements": [
 		{

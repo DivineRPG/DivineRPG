@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:blocks/arcanite_ladder"
+    "layer0": "divinerpg:block/arcanite_ladder"
   }
 }

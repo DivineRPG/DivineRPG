@@ -1,59 +1,49 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.client.containers.*;
-import divinerpg.registries.*;
-import divinerpg.tiles.block.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.text.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockMod;
+import divinerpg.client.containers.InfusionTableContainer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
-public class BlockInfusionTable extends Block {
+public class BlockInfusionTable extends BlockMod {
 
-    public BlockInfusionTable(String name) {
-        super(AbstractBlock.Properties.of(Material.STONE).strength(-1, 6000000F));
-        setRegistryName(name);
+    public BlockInfusionTable() {
+        super(BlockBehaviour.Properties.of(Material.STONE).strength(-1, 6000000F));
     }
 
     @Override
-    public BlockRenderType getRenderShape(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new TileEntityInfusionTable();
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
-        if (player instanceof ServerPlayerEntity) {
-            player.openMenu(state.getMenuProvider(world, pos));
-            return ActionResultType.CONSUME;
-        }
-        return ActionResultType.SUCCESS;
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if (player instanceof ServerPlayer)
+            InfusionTableContainer.openContainer((ServerPlayer)player, pos);
+
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable
     @Override
-    public INamedContainerProvider getMenuProvider(BlockState state, World world, BlockPos pos) {
-        return new SimpleNamedContainerProvider((i, inventory, player) -> {
-            return new InfusionTableContainer<>(i, inventory, IWorldPosCallable.create(world, pos));
-        }, new TranslationTextComponent(BlockRegistry.infusionTable.getDescriptionId()));
+    public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+        return new SimpleMenuProvider((i, inventory, player) -> {
+            return new InfusionTableContainer(i, inventory, ContainerLevelAccess.create(level, pos));
+        }, Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId()));
     }
 
 }

@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:arlemite_axe",
+    "divinerpg:realmite_axe",
+    "divinerpg:rupee_axe",
+    "divinerpg:bedrock_axe",
+    "divinerpg:divine_axe",
+    "divinerpg:terran_axe",
+    "divinerpg:eden_axe",
+    "divinerpg:wildwood_axe",
+    "divinerpg:apalachia_axe",
+    "divinerpg:skythern_axe",
+    "divinerpg:mortum_axe",
+    "divinerpg:apalachia_shickaxe",
+    "divinerpg:arlemite_shickaxe",
+    "divinerpg:divine_shickaxe",
+    "divinerpg:eden_shickaxe",
+    "divinerpg:halite_shickaxe",
+    "divinerpg:mortum_shickaxe",
+    "divinerpg:rupee_shickaxe",
+    "divinerpg:skythern_shickaxe",
+    "divinerpg:wildwood_shickaxe",
+    "divinerpg:dream_axe"
+  ]
+}

@@ -2,79 +2,75 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.projectile.EntityWildwoodLog;
-import divinerpg.entities.wildwood.EntityTermid;
 import divinerpg.registries.EntityRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.controller.MovementController;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.*;
+import net.minecraft.sounds.*;
 import net.minecraft.util.*;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.*;
-import net.minecraft.world.server.ServerBossInfo;
+import net.minecraft.world.BossEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
-import java.util.*;
+import java.util.EnumSet;
 
-public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAttackMob {
-    private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
-            BossInfo.Overlay.PROGRESS));
-    public EntityTermasect(EntityType<? extends FlyingEntity> type, World worldIn) {
+public class EntityTermasect extends EntityDivineFlyingMob implements RangedAttackMob {
+    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS));
+
+    public EntityTermasect(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 1500;
     }
 
     @Override
     protected void registerGoals() {
-        goalSelector.addGoal(2, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
+        goalSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, false));
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 64.0F));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
         goalSelector.addGoal(1, new FlyToPlayer(this));
-        addAttackingAI();
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.UNDEFINED;
-    }
-    @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if(this.isAlive()) {
-            if (getTarget() != null) {
-                EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG, this, this.level);
-                double d0 = getTarget().getX() - this.getX();
-                double d1 = getTarget().getY(0.3333333333333333D) - shot.getY();
-                double d2 = getTarget().getZ() - this.getZ();
-                double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-                shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 2.3F, (float) (14 - this.level.getDifficulty().getId() * 4));
-                if (!this.level.isClientSide)
-                    this.level.addFreshEntity(shot);
-            }
+        if (isAlive() && getTarget() != null && !level.isClientSide) {
+            EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG.get(), this, this.level);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - shot.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.5F);
+            this.level.addFreshEntity(shot);
         }
     }
 
-
-
     @Override
-    public boolean removeWhenFarAway(double dist) {
-        return false;
+    public MobType getMobType() {
+        return MobType.UNDEFINED;
     }
 
-    public BossInfo.Color getBarColor() {
-        return BossInfo.Color.BLUE;
+
+
+    public BossEvent.BossBarColor getBarColor() {
+        return BossEvent.BossBarColor.BLUE;
     }
 
     @Override
-    public void startSeenByPlayer(ServerPlayerEntity player) {
+    public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
 
     @Override
-    public void stopSeenByPlayer(ServerPlayerEntity player) {
+    public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
     }
@@ -82,7 +78,12 @@ public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAtt
     @Override
     public void tick() {
         super.tick();
-        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distance) {
+        return false;
     }
 
     @Override
@@ -100,10 +101,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAtt
         return SoundEvents.WOOD_BREAK;
     }
 
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 1050).add(Attributes.ATTACK_DAMAGE, 0)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange).add(Attributes.FLYING_SPEED, EntityStats.skythernCoriSpeed);
-    }
+
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
@@ -111,10 +109,9 @@ public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAtt
         {
             this.playAmbientSound();
             if(!this.level.isClientSide) {
-                EntityTermid termid = new EntityTermid(EntityRegistry.TERMID, level);
-                termid.moveTo(this.getX() + random.nextInt(8), this.getY(), this.getZ() + random.nextInt(8), this.xRot, this.yRot);
                 if (random.nextInt(10) == 1) {
-                    level.addFreshEntity(termid);
+                    BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
+                    EntityRegistry.TERMID.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }
@@ -134,7 +131,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAtt
          * method as well.
          */
         public boolean canUse() {
-            MovementController movementcontroller = this.parentEntity.getMoveControl();
+            MoveControl movementcontroller = this.parentEntity.getMoveControl();
             if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
@@ -157,7 +154,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements IRangedAtt
          * Execute a one shot task or start executing a continuous task
          */
         public void start() {
-            Random random = this.parentEntity.getRandom();
+            RandomSource random = this.parentEntity.getRandom();
             if (parentEntity.level.getNearestPlayer(parentEntity, 64) != null) {
                 double d0 = random.nextInt(48) + parentEntity.level.getNearestPlayer(parentEntity, 64).getX();
                 double d1 = random.nextInt(16) + parentEntity.level.getNearestPlayer(parentEntity, 64).getY();

@@ -1,20 +1,17 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModTrapdoor extends TrapDoorBlock {
 
-	public BlockModTrapdoor(String name) {
+	public BlockModTrapdoor() {
 		super(Block.Properties
                 .of(Material.WOOD)
                 .strength(2.0f, 3.0F)
-                .harvestTool(ToolType.AXE)
                 .noOcclusion()
                 .requiresCorrectToolForDrops()
-                .sound(SoundType.WOOD));
-        setRegistryName(DivineRPG.MODID, name);
+                .sound(SoundType.WOOD), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN);
 	}
 }

@@ -1,11 +1,10 @@
 package divinerpg.items.base;
 
 import divinerpg.blocks.iceika.*;
-import net.minecraft.block.*;
-import net.minecraft.client.util.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.*;
@@ -20,10 +19,10 @@ public class ItemModItemBlock extends BlockItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         //info - all tooltips for blocks must go here
         if (block instanceof BlockFrostedAllure) {
-            tooltip.add(new TranslationTextComponent("tooltip.frosted_allure"));
+            tooltip.add(Component.translatable("tooltip.frosted_allure"));
         }
 
     }

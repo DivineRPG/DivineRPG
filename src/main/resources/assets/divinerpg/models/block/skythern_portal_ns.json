@@ -1,8 +1,9 @@
 {
   "parent": "block/block",
+  "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:blocks/skythern_portal",
-    "portal": "divinerpg:blocks/skythern_portal"
+    "particle": "divinerpg:block/skythern_portal",
+    "portal": "divinerpg:block/skythern_portal"
   },
   "elements": [
     {

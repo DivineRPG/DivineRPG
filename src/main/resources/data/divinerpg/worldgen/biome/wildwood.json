@@ -1,12 +1,8 @@
 {
-  "surface_builder": "divinerpg:wildwood",
-  "depth": 0.125,
-  "scale": 0.05,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
-  "category": "none",
-  "player_spawn_friendly": false,
+  "creature_spawn_probability": 1,
   "effects": {
     "sky_color": 10730239,
     "fog_color": 6133246,
@@ -75,26 +71,20 @@
   },
   "features": [
     [],
+    [],
+    [],
+    [],
+    [],
+    [],
     [
-      "divinerpg:tar_lake"
+      "divinerpg:wildwood_ore",
+      "divinerpg:twilight_tar_lake"
     ],
     [],
-    [],
-    [],
-    [],
     [
-      "divinerpg:ore_wildwood"
-    ],
-    [],
-    [
-      "divinerpg:moon_bud",
-      "divinerpg:moonlight_fern",
-      "divinerpg:wildwood_tallgrass",
+      "divinerpg:wildwood_plants",
       "divinerpg:wildwood_tree"
     ],
     []
-  ],
-  "starts": [
-  "divinerpg:wildwood"
-]
+  ]
 }

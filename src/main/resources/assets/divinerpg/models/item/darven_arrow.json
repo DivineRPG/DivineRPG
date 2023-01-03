@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/darven_arrow"
+    "layer0": "divinerpg:item/darven_arrow"
   }
 }

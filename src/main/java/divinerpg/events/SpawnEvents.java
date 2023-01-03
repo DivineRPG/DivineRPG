@@ -1,223 +1,238 @@
 package divinerpg.events;
 
-import divinerpg.*;
-import divinerpg.entities.ai.*;
-import divinerpg.entities.apalachia.*;
-import divinerpg.entities.eden.*;
+import divinerpg.DivineRPG;
+import divinerpg.entities.ai.TurtleEatAequorea;
+import divinerpg.entities.arcana.*;
 import divinerpg.entities.iceika.*;
-import divinerpg.entities.mortum.*;
-import divinerpg.entities.skythern.*;
-import divinerpg.entities.vanilla.end.*;
-import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
-import divinerpg.entities.vethea.*;
-import divinerpg.entities.wildwood.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.gen.*;
-import net.minecraftforge.event.entity.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.*;
-import net.minecraftforge.fml.event.lifecycle.*;
-
-import java.util.*;
+import divinerpg.entities.vethea.EntityTheHunger;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static divinerpg.registries.EntityRegistry.*;
+import static net.minecraft.world.entity.SpawnPlacements.Type.*;
+import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SpawnEvents {
     @SubscribeEvent
     public static void registerEntitySpawnPlacements(FMLCommonSetupEvent event) {
-        EntitySpawnPlacementRegistry.register(ARID_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAridWarrior::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(BROWN_GRIZZLE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBrownGrizzle::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CAVE_CRAWLER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaveCrawler::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CAVECLOPS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCaveclops::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CRAB, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCrab::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CYCLOPS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCyclops::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DESERT_CRAWLER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDesertCrawler::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EHU, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEhu::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENTHRALLED_DRAMCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnthralledDramcryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROST, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrost::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GLACON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGlacon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HUSK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHusk::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JACK_O_MAN, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJackOMan::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_BAT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleBat::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_DRAMCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleDramcryx::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(JUNGLE_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityJungleSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KING_CRAB, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKingCrab::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KOBBLIN, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityKobblin::canSpawnOn);
-//        EntitySpawnPlacementRegistry.register(LIOPLEURODON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLiopleurodon::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(LIVESTOCK_MERCHANT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityLivestockMerchant::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MINER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMiner::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(PUMPKIN_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityPumpkinSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(RAINBOUR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRainbour::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ROTATICK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRotatick::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SAGUARO_WORM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySaguaroWorm::canSpawnOn);
-//        EntitySpawnPlacementRegistry.register(SHARK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityShark::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SMELTER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySmelter::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SNAPPER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySnapper::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(STONE_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityStoneGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(THE_EYE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheEye::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(THE_GRUE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheGrue::canSpawnOn);
-//        EntitySpawnPlacementRegistry.register(WHALE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhale::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WHITE_GRIZZLE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWhiteGrizzle::canSpawnOn);
+    	//Boss
+    	registerSpawn(AYERACO.get());
+    	
+    	//Overworld
+    	registerWaterSpawn(AEQUOREA.get());
+    	registerMonsterSpawn(ARID_WARRIOR.get());
+    	registerSpawn(BROWN_GRIZZLE.get());
+    	registerDarkSpawn(CAVE_CRAWLER.get());
+    	registerSpawn(CAVECLOPS.get(), EntityCaveclops::caveClopsSpawnRule);
+    	registerMobSpawn(CRAB.get());
+    	registerSpawn(CYCLOPS.get(), EntityKobblin::kobblinSpawnRule);
+		registerMonsterSpawn(DESERT_CRAWLER.get());
+		registerSpawn(DIAMOND_DAVE.get(), EntityDiamondDave::rules);
+    	registerSpawn(EHU.get());
+    	registerSpawn(ENTHRALLED_DRAMCRYX.get(), EntityEnthralledDramcryx::enthralledDramcryxSpawnRule);
+    	registerAirSpawn(FROST.get());
+    	registerMonsterSpawn(GLACON.get());
+    	registerSpawn(HUSK.get());
+    	registerSpawn(JACK_O_MAN.get(), EntityJackOMan::rules);
+    	registerAirSpawn(JUNGLE_BAT.get());
+    	registerAgileSpawn(JUNGLE_DRAMCRYX.get());
+    	registerAgileSpawn(JUNGLE_SPIDER.get());
+    	registerMonsterSpawn(KING_CRAB.get());
+    	registerSpawn(KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
+    	registerWaterSpawn(LIOPLEURODON.get());
+		registerSpawn(LIVESTOCK_MERCHANT.get(), EntityLivestockMerchant::rules);
+    	registerDarkSpawn(MINER.get());
+    	registerSpawn(PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
+    	registerAirSpawn(RAINBOUR.get());
+    	registerSpawn(ROTATICK.get(), EntityRotatick::rotatickSpawnRule);
+    	registerSpawn(SAGUARO_WORM.get(), EntitySaguaroWorm::saguaroWormSpawnRule);
+    	registerWaterSpawn(SHARK.get());
+    	registerSpawn(SMELTER.get());
+    	registerSpawn(SNAPPER.get());
+    	registerSpawn(STONE_GOLEM.get());
+    	registerSpawn(THE_EYE.get(), EntityTheEye::theEyeSpawnRule);
+    	registerSpawn(THE_GRUE.get(), EntityTheGrue::theGrueSpawnRule);
+    	registerWaterSpawn(WHALE.get());
+    	registerSpawn(WHITE_GRIZZLE.get());
 
         //Nether
-        EntitySpawnPlacementRegistry.register(HELL_BAT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellBat::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HELL_PIG, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellPig::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HELL_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHellSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SCORCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityScorcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDFIRE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildfire::canSpawnOn);
+    	registerAirSpawn(HELL_BAT.get());
+    	registerMobSpawn(HELL_PIG.get());
+    	registerAgileSpawn(HELL_SPIDER.get());
+    	registerAirSpawn(SCORCHER.get());
+    	registerMonsterSpawn(WILDFIRE.get());
 
         //End
-        EntitySpawnPlacementRegistry.register(ENDER_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENDER_TRIPLETS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderTriplets::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENDER_WATCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnderWatcher::canSpawnOn);
+    	registerAgileSpawn(ENDER_SPIDER.get());
+    	registerAirSpawn(ENDER_TRIPLETS.get());
+    	registerMonsterSpawn(ENDER_WATCHER.get());
 
         //Iceika
-        EntitySpawnPlacementRegistry.register(ALICANTO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAlicanto::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FRACTITE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFractite::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROST_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrostArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FROSTY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFrosty::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GLACIDE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGlacide::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HASTREUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHastreus::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ROLLUM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityRollum::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WORKSHOP_MERCHANT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWorkshopMerchant::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WORKSHOP_TINKERER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWorkshopTinkerer::canSpawnOn);
+    	registerAirSpawn(ALICANTO.get());
+    	registerAirSpawn(FRACTITE.get());
+    	registerMonsterSpawn(FROST_ARCHER.get());
+    	registerMonsterSpawn(FROSTY.get());
+    	registerMonsterSpawn(GLACIDE.get());
+    	registerMonsterSpawn(HASTREUS.get());
+    	registerMonsterSpawn(ROLLUM.get());
+    	registerSpawn(WORKSHOP_MERCHANT.get(), EntityWorkshopMerchant::rules);
+    	registerSpawn(WORKSHOP_TINKERER.get(), EntityWorkshopTinkerer::rules);
 
         //Eden
-        EntitySpawnPlacementRegistry.register(BUNNY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBunny::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EDEN_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEdenCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EDEN_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEdenTomo::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GREENFEET, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityGreenfeet::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MADIVEL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMadivel::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SUN_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySunArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WEAK_CORI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWeakCori::canSpawnOn);
+    	registerMobSpawn(GLINTHOP.get());
+    	registerMonsterSpawn(EDEN_CADILLION.get());
+    	registerMonsterSpawn(EDEN_TOMO.get());
+    	registerDarkSpawn(GREENFEET.get());
+    	registerDarkSpawn(MADIVEL.get());
+    	registerMonsterSpawn(SUN_ARCHER.get());
+    	registerAirSpawn(WEAK_CORI.get());
 
         //Wildwood
-        EntitySpawnPlacementRegistry.register(BEHEMOTH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBehemoth::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(EPIPHITE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEpiphite::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MAGE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMage::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MOON_WOLF, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMoonWolf::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(TERMID, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTermid::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(VEREK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityVerek::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(WILDWOOD_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityWildwoodTomo::canSpawnOn);
+    	registerMonsterSpawn(BEHEMOTH.get());
+    	registerMobSpawn(EPIPHITE.get());
+    	registerMonsterSpawn(MAGE.get());
+    	registerMobSpawn(MOON_WOLF.get());
+    	registerMonsterSpawn(TERMID.get());
+    	registerMonsterSpawn(VEREK.get());
+    	registerMonsterSpawn(WILDWOOD_CADILLION.get());
+    	registerMonsterSpawn(WILDWOOD_GOLEM.get());
+    	registerMonsterSpawn(WILDWOOD_TOMO.get());
 
         //Apalachia
-        EntitySpawnPlacementRegistry.register(APALACHIA_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(APALACHIA_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaGolem::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(APALACHIA_TOMO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityApalachiaTomo::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENCHANTED_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnchantedArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(ENCHANTED_WARRIOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnchantedWarrior::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SPELLBINDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySpellbinder::canSpawnOn);
+    	registerMonsterSpawn(APALACHIA_CADILLION.get());
+    	registerMonsterSpawn(APALACHIA_GOLEM.get());
+    	registerMonsterSpawn(APALACHIA_TOMO.get());
+    	registerMonsterSpawn(ENCHANTED_ARCHER.get());
+    	registerMonsterSpawn(ENCHANTED_WARRIOR.get());
+    	registerMonsterSpawn(SPELLBINDER.get());
 
         //Skythern
-        EntitySpawnPlacementRegistry.register(ADVANCED_CORI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAdvancedCori::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MEGALITH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMegalith::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MYSTIC, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMystic::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SAMEK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySamek::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernArcher::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_FIEND, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernFiend::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SKYTHERN_GOLEM, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySkythernGolem::canSpawnOn);
+    	registerAirSpawn(ADVANCED_CORI.get());
+    	registerMonsterSpawn(MEGALITH.get());
+    	registerMonsterSpawn(MYSTIC.get());
+    	registerMonsterSpawn(SAMEK.get());
+    	registerMonsterSpawn(SKYTHERN_ARCHER.get());
+    	registerMonsterSpawn(SKYTHERN_FIEND.get());
+    	registerMonsterSpawn(SKYTHERN_GOLEM.get());
 
         //Mortum
-        EntitySpawnPlacementRegistry.register(ANGRY_BUNNY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityAngryBunny::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(BASILISK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityBasilisk::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(DEMON_OF_DARKNESS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityDemonOfDarkness::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(MORTUM_CADILLION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityMortumCadillion::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SORCERER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySorcerer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SOUL_SPIDER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySoulSpider::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(SOUL_STEALER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntitySoulStealer::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(TWILIGHT_ARCHER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTwilightArcher::canSpawnOn);
+    	registerMonsterSpawn(ANGRY_GLINTHOP.get());
+    	registerMonsterSpawn(BASILISK.get());
+    	registerMonsterSpawn(DEMON_OF_DARKNESS.get());
+    	registerMonsterSpawn(MORTUM_CADILLION.get());
+    	registerMonsterSpawn(SORCERER.get());
+    	registerMonsterSpawn(SOUL_SPIDER.get());
+    	registerMonsterSpawn(SOUL_STEALER.get());
+    	registerMonsterSpawn(TWILIGHT_ARCHER.get());
 
         //Arcana
-        EntitySpawnPlacementRegistry.register(CAPTAIN_MERIK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DATTICON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DEATHCRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DEATH_HOUND, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_CONSTRUCTOR, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_DEMON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(DUNGEON_PRISONER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(FYRACRYX, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(GOLEM_OF_REJUVENATION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(KAZARI, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(LEORNA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(LORD_VATTICUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(LIVING_STATUE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(PARATIKU, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(RAZORBACK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(ROAMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(SEIMER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(WAR_GENERAL, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(WRAITH, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
-        EntitySpawnPlacementRegistry.register(ZELUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::arcanaSpawn);
+    	registerSpawn(CAPTAIN_MERIK.get(), EntityCaptainMerik::rules);
+    	registerSpawn(DATTICON.get(), EntityCaptainMerik::rules);
+    	registerMonsterSpawn(DEATHCRYX.get());
+    	registerMonsterSpawn(DEATH_HOUND.get());
+    	registerMonsterSpawn(DUNGEON_CONSTRUCTOR.get());
+    	registerMonsterSpawn(DUNGEON_DEMON.get());
+    	registerMonsterSpawn(DUNGEON_PRISONER.get());
+    	registerSpawn(FYRACRYX.get());
+    	registerSpawn(GOLEM_OF_REJUVENATION.get());
+    	registerSpawn(KAZARI.get(), EntityKazari::rules);
+    	registerSpawn(LEORNA.get(), EntityLeorna::rules);
+    	registerSpawn(LORD_VATTICUS.get(), EntityLordVatticus::rules);
+    	registerMonsterSpawn(LIVING_STATUE.get());
+    	registerSpawn(PARATIKU.get());
+    	registerMonsterSpawn(RAZORBACK.get());
+    	registerMonsterSpawn(ROAMER.get());
+    	registerSpawn(SEIMER.get());
+    	registerMonsterSpawn(SKYRE.get());
+    	registerSpawn(WAR_GENERAL.get(), EntityWarGeneral::rules);
+    	registerSpawn(WRAITH.get());
+    	registerSpawn(ZELUS.get(), EntityZelus::rules);
 
         //Vethea
-        EntitySpawnPlacementRegistry.register(ACID_HAG, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(BIPHRON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer2);
-        EntitySpawnPlacementRegistry.register(BOHEMITE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(CRYPT_KEEPER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityCryptKeeper::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(CYMESOID, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(DISSIMENT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
-        EntitySpawnPlacementRegistry.register(DREAMWRECKER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(DUO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(ENT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityEnt::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(FAKE_VHRAAK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityFakeVhraak::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(GALROID, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(GORGOSION, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer2);
-        EntitySpawnPlacementRegistry.register(HELIO, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
-        EntitySpawnPlacementRegistry.register(HIVE_SOLDIER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHiveSoldier::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(HOVER_STINGER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityHoverStinger::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(KAZROTIC, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(LHEIVA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(LORGA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(LORGA_FLIGHT, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(MANDRAGORA, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer2);
-        EntitySpawnPlacementRegistry.register(MYSTERIOUS_MAN_LAYER1, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(MYSTERIOUS_MAN_LAYER2, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer2);
-        EntitySpawnPlacementRegistry.register(MYSTERIOUS_MAN_LAYER3, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(SHADAHIER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer1);
-        EntitySpawnPlacementRegistry.register(TEMPLE_GUARDIAN, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTempleGuardian::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(THE_HUNGER, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EntityTheHunger::canSpawnOn);
-        EntitySpawnPlacementRegistry.register(TOCAXIN, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(TWINS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer2);
-        EntitySpawnPlacementRegistry.register(VERMENOUS, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer3);
-        EntitySpawnPlacementRegistry.register(VHRAAK, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
-        EntitySpawnPlacementRegistry.register(ZONE, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
-        EntitySpawnPlacementRegistry.register(ZORAGON, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SpawnEvents::vetheaLayer4);
-
+    	registerMonsterSpawn(ACID_HAG.get());
+    	registerMonsterSpawn(BIPHRON.get());
+    	registerMonsterSpawn(BOHEMITE.get());
+    	registerMobSpawn(CRYPT_KEEPER.get());
+    	registerMonsterSpawn(CYMESOID.get());
+    	registerAirSpawn(DISSIMENT.get());
+    	registerMonsterSpawn(DREAMWRECKER.get());
+    	registerMonsterSpawn(DUO.get());
+    	registerMonsterSpawn(ENT.get());
+    	registerMonsterSpawn(FAKE_VHRAAK.get());
+    	registerMonsterSpawn(GALROID.get());
+    	registerMonsterSpawn(GORGOSION.get());
+    	registerMonsterSpawn(HELIO.get());
+    	registerMonsterSpawn(HIVE_SOLDIER.get());
+    	registerDarkSpawn(HOVER_STINGER.get());
+    	registerMonsterSpawn(KAZROTIC.get());
+    	registerMonsterSpawn(LHEIVA.get());
+    	registerMonsterSpawn(LORGA.get());
+    	registerAirSpawn(LORGA_FLIGHT.get());
+    	registerMonsterSpawn(MANDRAGORA.get());
+    	registerMobSpawn(MYSTERIOUS_MAN_LAYER1.get());
+    	registerMobSpawn(MYSTERIOUS_MAN_LAYER2.get());
+    	registerMobSpawn(MYSTERIOUS_MAN_LAYER3.get());
+    	registerMonsterSpawn(SHADAHIER.get());
+    	registerMobSpawn(TEMPLE_GUARDIAN.get());
+    	registerSpawn(THE_HUNGER.get(), EntityTheHunger::rules);
+    	registerMonsterSpawn(TOCAXIN.get());
+    	registerMonsterSpawn(TWINS.get());
+    	registerMonsterSpawn(VERMENOUS.get());
+    	registerMonsterSpawn(VHRAAK.get());
+    	registerMonsterSpawn(ZONE.get());
+    	registerAirSpawn(ZORAGON.get());
     }
 
+
+	public static void registerSpawn(EntityType<? extends Mob> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::always);
+    }
+    public static <T extends Mob> void registerSpawn(EntityType<T> type, SpawnPredicate<T> predicate) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, predicate);
+    }
+    public static void registerAgileSpawn(EntityType<? extends Monster> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules);
+    }
+    public static void registerWaterSpawn(EntityType<? extends Mob> type) {
+    	SpawnPlacements.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always);
+    }
+    public static void registerLavaSpawn(EntityType<? extends Mob> type) {
+    	SpawnPlacements.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always);
+    }
+    public static void registerAirSpawn(EntityType<? extends Mob> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules);
+    }
+    public static void registerMobSpawn(EntityType<? extends Mob> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
+    }
+    public static void registerMonsterSpawn(EntityType<? extends Monster> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules);
+    }
+    public static void registerDarkSpawn(EntityType<? extends Monster> type) {
+    	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules);
+    }
+    public static boolean always(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return true;
+    }
     @SubscribeEvent
-    public void addVanillaMobGoals(EntityJoinWorldEvent event) {
-        if(event.getEntity() instanceof TurtleEntity) {
-            TurtleEntity turtle = (TurtleEntity) event.getEntity();
+    public void addVanillaMobGoals(EntityJoinLevelEvent event) {
+        if(event.getEntity() instanceof Turtle) {
+            Turtle turtle = (Turtle) event.getEntity();
             turtle.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(turtle, EntityAequorea.class, false));
             turtle.goalSelector.addGoal(3, new TurtleEatAequorea(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
         }
-    }
-
-
-    public static boolean arcanaSpawn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
-    }
-    public static boolean vetheaLayer1(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 1 && pos.getY() < 48;
-    }
-    public static boolean vetheaLayer2(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 49 && pos.getY() < 96;
-    }
-    public static boolean vetheaLayer3(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 97 && pos.getY() < 144;
-    }
-    public static boolean vetheaLayer4(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK) && pos.getY() > 145;
     }
 }

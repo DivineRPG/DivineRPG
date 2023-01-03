@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:realmite_ore",
+    "divinerpg:realmite_ore_deepslate",
+    "divinerpg:realmite_block",
+    "divinerpg:raw_realmite_block",
+    "divinerpg:arcanite_stone"
+  ]
+}

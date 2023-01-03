@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top",
-  "textures": {
-    "top": "divinerpg:blocks/wildwood_door_top",
-    "bottom": "divinerpg:blocks/wildwood_door_bottom"
-  }
-}

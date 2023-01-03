@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "nether_wastes",
+  "spawners": [
+	  {
+	    "type": "divinerpg:hell_spider",
+	    "weight": 3,
+	    "minCount": 1,
+	    "maxCount": 2
+  	  },
+  	  {
+	    "type": "divinerpg:wildfire",
+	    "weight": 5,
+	    "minCount": 1,
+	    "maxCount": 2
+  	  }
+  ]
+}

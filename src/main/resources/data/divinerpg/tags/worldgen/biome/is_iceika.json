@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:frozen_peaks",
+    "divinerpg:snowy_peaks",
+    "divinerpg:taiga",
+    "divinerpg:tundra",
+    "divinerpg:ice_spikes",
+    "divinerpg:frozen_ocean",
+    "divinerpg:deep_frozen_ocean",
+    "divinerpg:thermal_vents"
+  ]
+}

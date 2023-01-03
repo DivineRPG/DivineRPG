@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:lamp",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 404134514,
+		"spread_type": "linear",
+		"spacing": 8,
+		"separation": 4
+	}
+}

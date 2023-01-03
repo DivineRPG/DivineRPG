@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/maelstrom"
+    "layer0": "divinerpg:item/maelstrom"
   }
 }

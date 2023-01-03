@@ -1,138 +1,107 @@
 package divinerpg.client.models.twilight;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelTermid<T extends Entity> extends SegmentedModel<T> {
-  //fields
-    ModelRenderer legR;
-    ModelRenderer legL;
-    ModelRenderer body;
-    ModelRenderer ridge1;
-    ModelRenderer ridge2;
-    ModelRenderer ridge3;
-    ModelRenderer ridge4;
-    ModelRenderer ridge5;
-    ModelRenderer ridge6;
-    ModelRenderer ridge7;
-    ModelRenderer neck;
-    ModelRenderer head;
-    ModelRenderer jawL;
-    ModelRenderer jawR;
-  
-  public ModelTermid()
-  {
-    texWidth = 128;
-    texHeight = 64;
-    
-      legR = new ModelRenderer(this, 0, 19);
-      legR.addBox(-1F, 0F, -1F, 2, 4, 2);
-      legR.setPos(-2.5F, 20F, 0F);
-      legR.setTexSize(128, 64);
-      legR.mirror = true;
-      setRotation(legR, 0F, 0F, 0F);
-      legL = new ModelRenderer(this, 0, 19);
-      legL.addBox(-1F, 0F, -1F, 2, 4, 2);
-      legL.setPos(2.5F, 20F, 0F);
-      legL.setTexSize(128, 64);
-      legL.mirror = true;
-      setRotation(legL, 0F, 0F, 0F);
-      body = new ModelRenderer(this, 0, 0);
-      body.addBox(0F, 0F, 0F, 6, 15, 4);
-      body.setPos(-3F, 5F, -2F);
-      body.setTexSize(128, 64);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0F);
-      ridge1 = new ModelRenderer(this, 20, 0);
-      ridge1.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge1.setPos(-4F, 18F, -3F);
-      ridge1.setTexSize(128, 64);
-      ridge1.mirror = true;
-      setRotation(ridge1, 0F, 0F, 0F);
-      ridge2 = new ModelRenderer(this, 20, 0);
-      ridge2.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge2.setPos(-4F, 16F, -3F);
-      ridge2.setTexSize(128, 64);
-      ridge2.mirror = true;
-      setRotation(ridge2, 0F, 0F, 0F);
-      ridge3 = new ModelRenderer(this, 20, 0);
-      ridge3.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge3.setPos(-4F, 14F, -3F);
-      ridge3.setTexSize(128, 64);
-      ridge3.mirror = true;
-      setRotation(ridge3, 0F, 0F, 0F);
-      ridge4 = new ModelRenderer(this, 20, 0);
-      ridge4.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge4.setPos(-4F, 12F, -3F);
-      ridge4.setTexSize(128, 64);
-      ridge4.mirror = true;
-      setRotation(ridge4, 0F, 0F, 0F);
-      ridge5 = new ModelRenderer(this, 20, 0);
-      ridge5.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge5.setPos(-4F, 10F, -3F);
-      ridge5.setTexSize(128, 64);
-      ridge5.mirror = true;
-      setRotation(ridge5, 0F, 0F, 0F);
-      ridge6 = new ModelRenderer(this, 20, 0);
-      ridge6.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge6.setPos(-4F, 8F, -3F);
-      ridge6.setTexSize(128, 64);
-      ridge6.mirror = true;
-      setRotation(ridge6, 0F, 0F, 0F);
-      ridge7 = new ModelRenderer(this, 20, 0);
-      ridge7.addBox(0F, 0F, 0F, 8, 1, 6);
-      ridge7.setPos(-4F, 6F, -3F);
-      ridge7.setTexSize(128, 64);
-      ridge7.mirror = true;
-      setRotation(ridge7, 0F, 0F, 0F);
-      neck = new ModelRenderer(this, 22, 25);
-      neck.addBox(-1.5F, -6F, -1.5F, 3, 6, 3);
-      neck.setPos(0F, 6F, 1F);
-      neck.setTexSize(128, 64);
-      neck.mirror = true;
-      setRotation(neck, 0.7853982F, 0F, 0F);
-      head = new ModelRenderer(this, 0, 25);
-      head.addBox(-3F, -6F, -2.5F, 6, 6, 5);
-      head.setPos(0F, 3F, -3F);
-      head.setTexSize(128, 64);
-      head.mirror = true;
-      setRotation(head, 0F, 0F, 0F);
-      jawL = new ModelRenderer(this, 0, 36);
-      jawL.addBox(2F, -1F, -5.5F, 1, 1, 3);
-      jawL.setPos(0F, 3F, -3F);
-      jawL.setTexSize(128, 64);
-      jawL.mirror = true;
-      setRotation(jawL, 0F, 0F, 0F);
-      jawR = new ModelRenderer(this, 0, 36);
-      jawR.addBox(-3F, -1F, -5.5F, 1, 1, 3);
-      jawR.setPos(0F, 3F, -3F);
-      jawR.setTexSize(128, 64);
-      jawR.mirror = true;
-      setRotation(jawR, 0F, 0F, 0F);
-  }
-
-  @Override
-  public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.legL.xRot = (MathHelper.cos(limbSwing * 0.6662F + 3.141593F) * 1.4F * limbSwingAmount);
-    this.legR.xRot = (MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-  }
-
-  @Override
-  public Iterable<ModelRenderer> parts() {
-    return ImmutableList.of(legR, legL, body, ridge1, ridge2, ridge3, ridge4, ridge5, ridge6, ridge7, neck, head, jawL, jawR);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.xRot = x;
-    model.yRot = y;
-    model.zRot = z;
-  }
+import static divinerpg.util.ClientUtils.createLocation;
 
 
+public class ModelTermid<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("termid");
+	private final ModelPart legR;
+	private final ModelPart legL;
+	private final ModelPart body;
+	private final ModelPart ridge1;
+	private final ModelPart ridge2;
+	private final ModelPart ridge3;
+	private final ModelPart ridge4;
+	private final ModelPart ridge5;
+	private final ModelPart ridge6;
+	private final ModelPart ridge7;
+	private final ModelPart neck;
+	private final ModelPart head;
+	private final ModelPart jawL;
+	private final ModelPart jawR;
+
+	public ModelTermid(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.legR = root.getChild("legR");
+		this.legL = root.getChild("legL");
+		this.body = root.getChild("body");
+		this.ridge1 = root.getChild("ridge1");
+		this.ridge2 = root.getChild("ridge2");
+		this.ridge3 = root.getChild("ridge3");
+		this.ridge4 = root.getChild("ridge4");
+		this.ridge5 = root.getChild("ridge5");
+		this.ridge6 = root.getChild("ridge6");
+		this.ridge7 = root.getChild("ridge7");
+		this.neck = root.getChild("neck");
+		this.head = root.getChild("head");
+		this.jawL = root.getChild("jawL");
+		this.jawR = root.getChild("jawR");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("legR", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(-1.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.5F, 20.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("legL", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(-1.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.5F, 20.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 15.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 5.0F, -2.0F));
+
+		partdefinition.addOrReplaceChild("ridge1", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 18.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge2", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 16.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge3", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 14.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge4", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 12.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge5", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 10.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge6", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 8.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("ridge7", CubeListBuilder.create().texOffs(20, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 6.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(22, 25).mirror().addBox(-1.5F, -6.0F, -1.5F, 3.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 6.0F, 1.0F, 0.7854F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 25).mirror().addBox(-3.0F, -6.0F, -2.5F, 6.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 3.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("jawL", CubeListBuilder.create().texOffs(0, 36).mirror().addBox(2.0F, -1.0F, -5.5F, 1.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 3.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("jawR", CubeListBuilder.create().texOffs(0, 36).mirror().addBox(-3.0F, -1.0F, -5.5F, 1.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 3.0F, -3.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 64);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.legL.xRot = (Mth.cos(limbSwing * 0.6662F + 3.141593F) * 1.4F * limbSwingAmount);
+		this.legR.xRot = (Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		legR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		legL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		ridge7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		jawL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		jawR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

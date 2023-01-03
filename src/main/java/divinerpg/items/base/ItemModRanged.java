@@ -1,27 +1,21 @@
 package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.capability.Arcana;
-import divinerpg.capability.ArcanaCapability;
-import divinerpg.entities.projectile.EntityColoredBullet;
-import divinerpg.entities.projectile.EntityParticleBullet;
-import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.capability.*;
+import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.projectile.ThrowableEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Rarity;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.*;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -29,22 +23,20 @@ import java.util.function.Supplier;
 
 public class ItemModRanged extends ItemMod {
 
-    private final EntityType<?> entityType;
-    private final SoundEvent sound;
-    private final SoundCategory soundCategory;
+    protected final String entityType;
+    private final Supplier<SoundEvent> sound;
+    private final SoundSource soundCategory;
     private final int delay;
-    private final Supplier<Item> ammoSupplier;
+    private final ResourceLocation ammoSupplier;
     private int arcanaConsuming;
 
-    private final String delayTagName = "CanShootTime";
+//    private final String delayTagName = "CanShootTime";
 
     protected BulletType bulletType;
 
     /**
      * Constructor for Divine RPG ranged weapons
      *
-     * @param name
-     *            - name of resource
      * @param entityType
      *            - entity type
      * @param bulletType
@@ -62,16 +54,16 @@ public class ItemModRanged extends ItemMod {
      * @param arcanaConsuming
      *            - Arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(String name, Rarity rarity, EntityType<?> entityType, BulletType bulletType,
-                         SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming) {
-        super(name, new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage).rarity(rarity));
+    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType,
+                         Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming) {
+        super(new Properties().durability(maxDamage).rarity(rarity));
         this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
         this.delay = delay;
 
         if(ammoSupplier == null) {
-            this.ammoSupplier = () -> null;
+            this.ammoSupplier = null;
         }
         else {
             this.ammoSupplier = ammoSupplier;
@@ -81,16 +73,16 @@ public class ItemModRanged extends ItemMod {
         this.bulletType = bulletType;
     }
 
-    public ItemModRanged(String name, EntityType<?> entityType, BulletType bulletType,
-                         SoundEvent sound, SoundCategory soundCategory, int maxDamage, int delay, Supplier<Item> ammoSupplier, int arcanaConsuming, ItemGroup tab) {
-        super(name, new Properties().tab(tab).durability(maxDamage));
+    public ItemModRanged(String entityType, BulletType bulletType,
+                         Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming) {
+        super(new Properties().durability(maxDamage));
         this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
         this.delay = delay;
 
         if(ammoSupplier == null) {
-            this.ammoSupplier = () -> null;
+            this.ammoSupplier = null;
         }
         else {
             this.ammoSupplier = ammoSupplier;
@@ -100,17 +92,27 @@ public class ItemModRanged extends ItemMod {
         this.bulletType = bulletType;
     }
 
-    public ItemModRanged(String name, Rarity rarity, BulletType bulletType, SoundEvent shotSound, Supplier<Item> ammoSupplier, int maxDamange,
-                            int counter) {
-        this(name, rarity, null, bulletType, shotSound, SoundCategory.MASTER, maxDamange, counter, ammoSupplier, 0);
+
+    public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> shotSound, ResourceLocation ammoSupplier, int maxDamange,
+                         int counter) {
+        this(null, bulletType, shotSound, SoundSource.MASTER, maxDamange, counter, ammoSupplier, 0);
     }
 
-    public ItemModRanged(String name, Rarity rarity, BulletType bulletType, SoundEvent shotSound, int uses, int counter) {
-        this(name, rarity, bulletType, shotSound, () -> null, uses, counter);
+    public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> shotSound, int uses, int counter) {
+        this(bulletType, shotSound, null, uses, counter);
+    }
+
+    public ItemModRanged(Rarity rarity, BulletType bulletType, Supplier<SoundEvent> shotSound, ResourceLocation ammoSupplier, int maxDamange,
+                         int counter) {
+        this(rarity, null, bulletType, shotSound, SoundSource.MASTER, maxDamange, counter, ammoSupplier, 0);
+    }
+
+    public ItemModRanged(Rarity rarity, BulletType bulletType, Supplier<SoundEvent> shotSound, int uses, int counter) {
+        this(rarity, bulletType, shotSound, null, uses, counter);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (bulletType != null) {
             tooltip.add(LocalizeUtils.rangedDam(bulletType.getDamage()));
         }
@@ -118,7 +120,7 @@ public class ItemModRanged extends ItemMod {
         if (!needsAmmo()) {
             tooltip.add(LocalizeUtils.i18n("tooltip.ammo.infinite"));
         } else {
-            ItemStack ammo = new ItemStack(ammoSupplier.get());
+            ItemStack ammo = new ItemStack(ForgeRegistries.ITEMS.getValue(ammoSupplier));
             tooltip.add(LocalizeUtils.ammo(getAmmo(), ammo != null));
         }
 
@@ -131,23 +133,23 @@ public class ItemModRanged extends ItemMod {
 
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        ActionResultType result = ActionResultType.FAIL;
+        InteractionResult result = InteractionResult.FAIL;
 
         if (canUseRangedWeapon(player, stack)) {
-            ActionResult<ItemStack> ammo = tryFindAmmo(player);
-            ActionResult<Arcana> checkArcana = tryCheckArcana(player);
+            InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
+            InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
 
-            if (ammo.getResult() == ActionResultType.SUCCESS && checkArcana.getResult() == ActionResultType.SUCCESS) {
+            if (ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
                 doPreUsageEffects(world, player);
 
                 if (!world.isClientSide) {
                     world.playSound(null, player.blockPosition(),
-                            this.sound != null ? this.sound : SoundEvents.ARROW_SHOOT,
-                            this.soundCategory != null ? this.soundCategory : SoundCategory.MASTER, 1, 1);
+                            this.sound.get() != null ? this.sound.get() : SoundEvents.ARROW_SHOOT,
+                            this.soundCategory != null ? this.soundCategory : SoundSource.MASTER, 1, 1);
 
-                        spawnEntity(world, player, stack, bulletType, entityType);
+                    spawnEntity(world, player, stack, bulletType, entityType);
                 }
 
                 Arcana arcana = checkArcana.getObject();
@@ -167,9 +169,9 @@ public class ItemModRanged extends ItemMod {
 
                 player.getCooldowns().addCooldown(stack.getItem(), delay * 4 + 1);
 
-                if (player instanceof ServerPlayerEntity) {
-                    ((ServerPlayerEntity) player).refreshContainer(player.containerMenu);
-                }
+//                if (player instanceof ServerPlayer) {
+//                    ((ServerPlayer) player)(player.containerMenu);
+//                }
 
                 doPostUsageEffects(world, player);
             }
@@ -177,27 +179,31 @@ public class ItemModRanged extends ItemMod {
 
         }
 
-        return new ActionResult<>(result, stack);
+        return new InteractionResultHolder<>(result, stack);
     }
 
 
     private Item getAmmo() {
-        return this.ammoSupplier.get();
+        if(ForgeRegistries.ITEMS.getValue(ammoSupplier) != Items.AIR) {
+            return ForgeRegistries.ITEMS.getValue(ammoSupplier);
+        }else {
+            return null;
+        }
     }
 
     private boolean needsAmmo() {
-        return this.ammoSupplier.get() != null;
+        return ForgeRegistries.ITEMS.getValue(ammoSupplier) != Items.AIR;
     }
 
     private boolean isAmmo(@Nullable ItemStack stack) {
         return stack != null && stack.getItem() == getAmmo();
     }
 
-    private ItemStack findAmmo(PlayerEntity player) {
-        if (this.isAmmo(player.getItemInHand(Hand.OFF_HAND))) {
-            return player.getItemInHand(Hand.OFF_HAND);
-        } else if (this.isAmmo(player.getItemInHand(Hand.MAIN_HAND))) {
-            return player.getItemInHand(Hand.MAIN_HAND);
+    private ItemStack findAmmo(Player player) {
+        if (this.isAmmo(player.getItemInHand(InteractionHand.OFF_HAND))) {
+            return player.getItemInHand(InteractionHand.OFF_HAND);
+        } else if (this.isAmmo(player.getItemInHand(InteractionHand.MAIN_HAND))) {
+            return player.getItemInHand(InteractionHand.MAIN_HAND);
         } else {
             for (int i = 0; i < player.inventory.getContainerSize(); ++i) {
                 ItemStack itemstack = player.inventory.getItem(i);
@@ -214,54 +220,54 @@ public class ItemModRanged extends ItemMod {
         If SUCCESS, can continue
         If ItemStack is not null, we need to shrink it
      */
-    protected ActionResult<ItemStack> tryFindAmmo(PlayerEntity player) {
+    protected InteractionResultHolder<ItemStack> tryFindAmmo(Player player) {
         ItemStack stack = null;
-        ActionResultType result = ActionResultType.SUCCESS;
+        InteractionResult result = InteractionResult.SUCCESS;
 
         if (!player.isCreative() && needsAmmo()) {
             stack = findAmmo(player);
             if (stack == null || stack.getCount() < 1) {
-                result = ActionResultType.FAIL;
+                result = InteractionResult.FAIL;
             }
         }
 
-        return new ActionResult<>(result, stack);
+        return new InteractionResultHolder<>(result, stack);
     }
 
     /*
         Trying to get capability and check if we have enough arcana
      */
-    protected ActionResult<Arcana> tryCheckArcana(PlayerEntity player) {
+    protected InteractionResultHolder<Arcana> tryCheckArcana(Player player) {
         Arcana arcana = null;
-        ActionResultType result = ActionResultType.SUCCESS;
+        InteractionResult result = InteractionResult.SUCCESS;
 
         if (!player.isCreative() && this.arcanaConsuming > 0) {
-            arcana = player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
+            arcana = player.getCapability(ArcanaProvider.ARCANA).orElseThrow(RuntimeException::new);
             if (arcana == null || arcana.getArcana() < this.arcanaConsuming) {
-                result = ActionResultType.FAIL;
+                result = InteractionResult.FAIL;
             }
         }
 
-        return new ActionResult<>(result, arcana);
+        return new InteractionResultHolder<>(result, arcana);
     }
 
     /*
         Trying to detect if we can use the item.
      */
-    protected boolean canUseRangedWeapon(PlayerEntity player, ItemStack stack) {
+    protected boolean canUseRangedWeapon(Player player, ItemStack stack) {
         return (player.isCreative() || stack.getMaxDamage() <= 0
                 || stack.getDamageValue() < stack.getMaxDamage());
     }
 
-    protected void spawnEntity(World world, PlayerEntity player, ItemStack stack, BulletType bulletType,
-                               EntityType<?> entityType) {
+    protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType,
+                               String entityType) {
 
-        ThrowableEntity bullet = null;
+        ThrowableProjectile bullet = null;
 
         // Class has the most priority
         if (entityType != null) {
             try {
-                bullet = (ThrowableEntity) entityType.create(world);
+                bullet = (ThrowableProjectile) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);
             } catch (Exception e) {
                 e.printStackTrace();
 
@@ -271,11 +277,11 @@ public class ItemModRanged extends ItemMod {
         }
         // In other cases we look to a BulletType field
         else if (bulletType.getParticle() != ParticleTypes.BUBBLE) {
-            bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET, world, player, bulletType);
-        } else if (bulletType.getColor() != null) {
-            bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET, player, world, bulletType);
+            bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
+        } else if (bulletType.getRed() != 0 && bulletType.getGreen() != 0 && bulletType.getBlue() != 0) {
+            bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), player, world, bulletType);
         } else {
-            bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET, player, world, bulletType);
+            bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
         }
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
         bullet.setOwner(player);
@@ -283,11 +289,11 @@ public class ItemModRanged extends ItemMod {
         world.addFreshEntity(bullet);
     }
 
-    protected void doPreUsageEffects(World world, PlayerEntity player) {
+    protected void doPreUsageEffects(Level world, Player player) {
         return;
     }
 
-    protected void doPostUsageEffects(World world, PlayerEntity player) {
+    protected void doPostUsageEffects(Level world, Player player) {
         return;
     }
 }

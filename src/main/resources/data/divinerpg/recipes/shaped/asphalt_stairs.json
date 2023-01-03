@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s  ",
+    "ss ",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "divinerpg:asphalt"
+    }
+  },
+  "result": {
+    "item": "divinerpg:asphalt_stairs",
+    "count": 4
+  }
+}

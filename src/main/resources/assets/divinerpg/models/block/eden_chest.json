@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/eden_chest_break"
+    "all": "divinerpg:block/eden_chest_break"
   }
 }

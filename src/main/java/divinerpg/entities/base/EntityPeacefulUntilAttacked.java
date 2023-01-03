@@ -1,126 +1,93 @@
 package divinerpg.entities.base;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.UUID;
 
-public class EntityPeacefulUntilAttacked extends EntityDivineMob {
-    protected static final DataParameter<Integer> ANGER = EntityDataManager.defineId(EntityPeacefulUntilAttacked.class, DataSerializers.INT);
-    protected static final DataParameter<String> TARGET = EntityDataManager.defineId(EntityPeacefulUntilAttacked.class, DataSerializers.STRING);
+public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
+    protected static final EntityDataAccessor<Integer> ANGER = SynchedEntityData.defineId(EntityPeacefulUntilAttacked.class, EntityDataSerializers.INT);
+    protected static final EntityDataAccessor<String> TARGET = SynchedEntityData.defineId(EntityPeacefulUntilAttacked.class, EntityDataSerializers.STRING);
     private int angerLevel;
     private UUID angerTargetUUID;
-
-    public EntityPeacefulUntilAttacked(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityPeacefulUntilAttacked(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(ANGER, 0);
+        entityData.define(ANGER, 0);
     }
-
-    public void addAdditionalSaveData(CompoundNBT compound) {
+    public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        compound.putInt("Anger", (short)this.angerLevel);
-
-        if (this.angerTargetUUID != null)
-        {
-            compound.putString("HurtBy", this.angerTargetUUID.toString());
-        }
-        else
-        {
-            compound.putString("HurtBy", "");
-        }
+        compound.putInt("Anger", (short)angerLevel);
+        if(angerTargetUUID != null) compound.putString("HurtBy", angerTargetUUID.toString());
+        else compound.putString("HurtBy", "");
     }
-
-    public void readAdditionalSaveData(CompoundNBT compound) {
+    public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.angerLevel = compound.getShort("Anger");
         String s = compound.getString("HurtBy");
-
-        if (!s.isEmpty())
-        {
-            this.angerTargetUUID = UUID.fromString(s);
-            PlayerEntity entityplayer = this.level.getPlayerByUUID(this.angerTargetUUID);
-            this.setTarget(entityplayer);
-
-            if (entityplayer != null)
-            {
-                this.setTarget(entityplayer);
-                this.lastHurt = this.getLastHurtByMobTimestamp();
+        if(!s.isEmpty()) {
+            angerTargetUUID = UUID.fromString(s);
+            Player entityplayer = level.getPlayerByUUID(angerTargetUUID);
+            setTarget(entityplayer);
+            if(entityplayer != null) {
+                setTarget(entityplayer);
+                lastHurt = getLastHurtByMobTimestamp();
+                goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+                targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
             }
         }
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        if (isAngry()) {addAttackingAI();}
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
     @Override
     public void setTarget(@Nullable LivingEntity livingBase) {
         super.setTarget(livingBase);
-
-        if (livingBase != null) {
-            this.angerTargetUUID = livingBase.getUUID();
-        }
+        if(livingBase != null && livingBase instanceof Player) angerTargetUUID = livingBase.getUUID();
     }
-
-
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source)) {
-            return false;
-        } else {
-            Entity entity = source.getDirectEntity();
-            if (entity instanceof PlayerEntity) {
-                this.becomeAngryAt(entity);
-            }
-            return super.hurt(source, amount);
-        }
+        boolean b = super.hurt(source, amount);
+        if(b && source.getDirectEntity() instanceof LivingEntity) {
+            LivingEntity target = (LivingEntity) source.getDirectEntity();
+            setTarget(target);
+            goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+            targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, getTarget().getClass(), true));
+            angerLevel = 400 + random.nextInt(400);
+            double d = getAttributeValue(Attributes.FOLLOW_RANGE);
+            if(d < 10D) d = 10D;
+            level.getEntitiesOfClass(EntityPeacefulUntilAttacked.class, new AABB(position().add(-d, -10D, -d), position().add(d, 10D, d)), EntitySelector.NO_SPECTATORS).stream().filter((entity) -> {
+                return entity.getTarget() == null;
+            }).forEach((entity) -> {
+                entity.setTarget(target);
+                entity.goalSelector.addGoal(0, new MeleeAttackGoal(entity, 1, true));
+                entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, entity.getTarget().getClass(), true));
+                entity.angerLevel = 400 + entity.random.nextInt(400);
+            });
+        } return b;
     }
-
-
-    public boolean isAngry() {
-        return this.angerLevel > 0;
+    @Override
+    public boolean isAggressive() {
+        return angerLevel > 0;
     }
-
-    private void becomeAngryAt(Entity target) {
-        this.angerLevel = 400 + this.random.nextInt(400);
-
-        if (target instanceof LivingEntity) {
-            this.setTarget((LivingEntity) target);
-        }
-    }
-
-
-
     @Override
     public boolean doHurtTarget(Entity entity) {
-        if (this.isAngry()) {
-            return super.doHurtTarget(entity);
-        }
+        if(angerLevel > 0) return super.doHurtTarget(entity);
         return false;
     }
-
     @Override
     public void tick() {
         super.tick();
-        if (isAngry()) {
-            angerLevel--;
-            addAttackingAI();
-        }
+        if(isAggressive()) angerLevel--;
     }
 }

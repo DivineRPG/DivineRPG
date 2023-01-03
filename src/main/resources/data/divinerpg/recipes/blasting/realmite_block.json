@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_block"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_realmite_block"
+  },
+  "type": "minecraft:blasting",
+  "experience": 1.0,
+  "cookingtime": 300
+}

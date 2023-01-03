@@ -1,6 +1,6 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:items/halite_bow_1"
+    "layer0": "divinerpg:item/halite_bow_1"
   }
 }

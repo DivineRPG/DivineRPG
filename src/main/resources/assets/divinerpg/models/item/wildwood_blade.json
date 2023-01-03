@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/wildwood_blade"
+    "layer0": "divinerpg:item/wildwood_blade"
   }
 }

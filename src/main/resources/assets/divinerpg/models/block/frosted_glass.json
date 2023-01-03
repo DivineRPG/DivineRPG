@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:blocks/frosted_glass"
+    "all": "divinerpg:block/frosted_glass"
   }
 }

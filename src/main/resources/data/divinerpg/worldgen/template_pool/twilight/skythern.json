@@ -7,24 +7,6 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/skythern/big_skythern_tree1",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:twilight/skythern/big_skythern_tree2",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 5,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
         "location": "divinerpg:twilight/skythern/pieces_of_skythern_portal1",
         "processors": "minecraft:empty"
       }
@@ -147,7 +129,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",

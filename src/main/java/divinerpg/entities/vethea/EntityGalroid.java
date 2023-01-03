@@ -1,44 +1,27 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
 
-public class EntityGalroid extends EntityVetheaMob {
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
+
+public class EntityGalroid extends EntityDivineMonster {
 
     private int protectionTimer;
 
-    public EntityGalroid(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityGalroid(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		this.protectionTimer = 200;
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.5F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.galroidHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.galroidDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.galroidSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.galroidFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
@@ -63,22 +46,17 @@ public class EntityGalroid extends EntityVetheaMob {
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 3;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.GALROID;
+        return SoundRegistry.GALROID.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.GALROID_HURT;
+        return SoundRegistry.GALROID_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.GALROID_HURT;
+        return SoundRegistry.GALROID_HURT.get();
     }
 }

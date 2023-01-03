@@ -1,111 +1,89 @@
 package divinerpg.client.models.arcana;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-public class ModelParatiku<T extends Entity> extends SegmentedModel<T> 
-{
-    //fields
-	ModelRenderer head;
-    ModelRenderer body;
-    ModelRenderer WingRT;
-    ModelRenderer WingRB;
-    ModelRenderer WingLB;
-    ModelRenderer WingLT;
-    ModelRenderer Shape1;
-    ModelRenderer Shape2;
-    ModelRenderer Shape3;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelParatiku()
-    {
-    	texWidth = 64;
-        texHeight = 32;
-        head = new ModelRenderer(this, 0, 7);
-        head.addBox(-4F, -4F, -6F, 8, 8, 6);
-        head.setPos(0F, 6F, -8F);
-        head.setTexSize(64, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 19, 0);
-        body.addBox(-6F, -10F, -7F, 12, 22, 10);
-        body.setPos(0F, 11F, 2F);
-        body.setTexSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0.8644027F, 0F, 0F);
-        WingRT = new ModelRenderer(this, 0, 0);
-        WingRT.addBox(-14F, 0F, -5F, 14, 1, 10);
-        WingRT.setPos(-6F, 7F, 0F);
-        WingRT.setTexSize(64, 32);
-        WingRT.mirror = true;
-        setRotation(WingRT, -0.7330383F, 0F, 0F);
-        WingRB = new ModelRenderer(this, 0, 0);
-        WingRB.addBox(-14F, 0F, -5F, 14, 1, 10);
-        WingRB.setPos(-6F, 14F, 0F);
-        WingRB.setTexSize(64, 32);
-        WingRB.mirror = true;
-        setRotation(WingRB, -0.7330383F, 0F, 0F);
-        WingLB = new ModelRenderer(this, 0, 0);
-        WingLB.addBox(0F, 0F, -5F, 14, 1, 10);
-        WingLB.setPos(6F, 14F, 0F);
-        WingLB.setTexSize(64, 32);
-        WingLB.mirror = true;
-        setRotation(WingLB, -0.7330383F, 0F, 0F);
-        WingLT = new ModelRenderer(this, 0, 0);
-        WingLT.addBox(0F, 0F, -5F, 14, 1, 10);
-        WingLT.setPos(6F, 7F, 0F);
-        WingLT.setTexSize(64, 32);
-        WingLT.mirror = true;
-        setRotation(WingLT, -0.7330383F, 0F, 0F);
-        Shape1 = new ModelRenderer(this, 13, 21);
-        Shape1.addBox(0F, 0F, 0F, 2, 10, 1);
-        Shape1.setPos(-1F, 4F, 10F);
-        Shape1.setTexSize(64, 32);
-        Shape1.mirror = true;
-        setRotation(Shape1, -0.2602503F, 0F, 0F);
-        Shape2 = new ModelRenderer(this, 13, 21);
-        Shape2.addBox(0F, 0F, 0F, 2, 10, 1);
-        Shape2.setPos(-1F, -4F, 0F);
-        Shape2.setTexSize(64, 32);
-        Shape2.mirror = true;
-        setRotation(Shape2, -0.2602503F, 0F, 0F);
-        Shape3 = new ModelRenderer(this, 13, 21);
-        Shape3.addBox(0F, 0F, 0F, 2, 10, 1);
-        Shape3.setPos(-1F, -1F, 5F);
-        Shape3.setTexSize(64, 32);
-        Shape3.mirror = true;
-        setRotation(Shape3, -0.2602503F, 0F, 0F);
-    }
-    
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, body, WingRT, WingRB, WingLB, WingLT, Shape1, Shape2, Shape3);
-    }
+public class ModelParatiku<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("paratiku");
+	private final ModelPart head;
+	private final ModelPart body;
+	private final ModelPart WingRT;
+	private final ModelPart WingRB;
+	private final ModelPart WingLB;
+	private final ModelPart WingLT;
+	private final ModelPart Shape1;
+	private final ModelPart Shape2;
+	private final ModelPart Shape3;
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public ModelParatiku(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.head = root.getChild("head");
+		this.body = root.getChild("body");
+		this.WingRT = root.getChild("WingRT");
+		this.WingRB = root.getChild("WingRB");
+		this.WingLB = root.getChild("WingLB");
+		this.WingLT = root.getChild("WingLT");
+		this.Shape1 = root.getChild("Shape1");
+		this.Shape2 = root.getChild("Shape2");
+		this.Shape3 = root.getChild("Shape3");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 7).mirror().addBox(-4.0F, -4.0F, -6.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 6.0F, -8.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(19, 0).mirror().addBox(-6.0F, -10.0F, -7.0F, 12.0F, 22.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, 0.8644F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("WingRT", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-14.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 7.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("WingRB", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-14.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 14.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("WingLB", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 14.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("WingLT", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 7.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(13, 21).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 4.0F, 10.0F, -0.2603F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape2", CubeListBuilder.create().texOffs(13, 21).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, -4.0F, 0.0F, -0.2603F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape3", CubeListBuilder.create().texOffs(13, 21).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, -1.0F, 5.0F, -0.2603F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
-		//EntityParatiku var8 = (EntityParatiku)entity;
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.xRot = headPitch / (180F / (float)Math.PI);
+		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
+		this.head.zRot = 0.0F;
+		this.body.xRot = ((float)Math.PI / 4F) + Mth.cos(ageInTicks * 0.1F) * 0.15F;
+		this.body.yRot = 0.0F;
+		this.WingRT.yRot = Mth.cos(ageInTicks * 1.3F) * (float)Math.PI * 0.25F;
+		this.WingLT.yRot = -this.WingRT.yRot;
 
-		 this.head.xRot = headPitch / (180F / (float)Math.PI);
-		 this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
-		 this.head.zRot = 0.0F;
-		 this.body.xRot = ((float)Math.PI / 4F) + MathHelper.cos(ageInTicks * 0.1F) * 0.15F;
-		 this.body.yRot = 0.0F;
-		 this.WingRT.yRot = MathHelper.cos(ageInTicks * 1.3F) * (float)Math.PI * 0.25F;
-		 this.WingLT.yRot = -this.WingRT.yRot;
-		 
-		 this.WingRB.yRot = MathHelper.cos(ageInTicks * 1.3F) * (float)Math.PI * 0.25F;
-		 this.WingLB.yRot = -this.WingRB.yRot;
+		this.WingRB.yRot = Mth.cos(ageInTicks * 1.3F) * (float)Math.PI * 0.25F;
+		this.WingLB.yRot = -this.WingRB.yRot;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		WingRT.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		WingRB.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		WingLB.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		WingLT.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }
-

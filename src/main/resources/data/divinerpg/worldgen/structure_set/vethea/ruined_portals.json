@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:ruined_portal_vethea",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 1724795294,
+		"spread_type": "linear",
+		"spacing": 14,
+		"separation": 10
+	}
+}

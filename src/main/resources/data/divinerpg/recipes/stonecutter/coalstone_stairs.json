@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "group": "divinerpg:coalstone",
+  "ingredient": {
+    "item": "divinerpg:coalstone"
+  },
+  "result": "divinerpg:coalstone_stairs",
+  "count": 1
+}

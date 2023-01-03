@@ -2,29 +2,17 @@ package divinerpg.tiles.furnace;
 
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
+import net.minecraft.core.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.block.state.*;
 
-public class TileEntityWhitefireFurnace extends TileEntityModFurnace {
-
-    public TileEntityWhitefireFurnace() {
-        super(TileRegistry.WHITEFIRE_FURNACE);
+public class TileEntityWhitefireFurnace extends TileEntityInfiniFurnace {
+    public TileEntityWhitefireFurnace(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.WHITEFIRE_FURNACE.get(), pos, state, "block.divinerpg.whitefire_furnace", 2.3);
     }
-
-    public String getFuranceName() {
-        return "block.divinerpg.whitefire_furnace";
-    }
-
-    int getFurnaceSpeed() {
-        return 150;
-    }
-
-    public boolean needsFuel() {
-        return false;
-    }
-
     @Override
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
+    protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
         return new WhitefireFurnaceContainer(i, playerInventory, this, this.dataAccess);
     }
 }

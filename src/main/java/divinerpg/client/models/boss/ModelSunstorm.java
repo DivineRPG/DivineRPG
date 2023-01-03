@@ -1,273 +1,146 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelSunstorm<T extends Entity> extends SegmentedModel<T> {
-    //fields
-    ModelRenderer legR;
-    ModelRenderer legL;
-    ModelRenderer body;
-    ModelRenderer armL;
-    ModelRenderer armR;
-    ModelRenderer staffPoleL;
-    ModelRenderer staffCapL;
-    ModelRenderer staffPoleR;
-    ModelRenderer staffCapR;
-    ModelRenderer neck;
-    ModelRenderer head;
-    ModelRenderer rayMid;
-    ModelRenderer rayL;
-    ModelRenderer rayR;
-    ModelRenderer headSideL;
-    ModelRenderer headSideR;
-    ModelRenderer staffProng1L;
-    ModelRenderer staffProng2L;
-    ModelRenderer staffProng3L;
-    ModelRenderer staffProng4L;
-    ModelRenderer staffProng1R;
-    ModelRenderer staffProng2R;
-    ModelRenderer staffProng3R;
-    ModelRenderer staffProng4R;
-    ModelRenderer armSpikeL;
-    ModelRenderer armSpikeR;
-    ModelRenderer backSpine1;
-    ModelRenderer backSpine2;
-    ModelRenderer backSpine3;
-  
-  public ModelSunstorm()
-  {
-    texWidth = 128;
-    texHeight = 128;
-    
-      legR = new ModelRenderer(this, 0, 0);
-      legR.addBox(-3F, 0F, -3F, 6, 16, 6);
-      legR.setPos(-4F, 8F, 0F);
-      legR.setTexSize(128, 128);
-      legR.mirror = true;
-      setRotation(legR, 0F, 0F, 0F);
-      legL = new ModelRenderer(this, 0, 0);
-      legL.addBox(-3F, 0F, -3F, 6, 16, 6);
-      legL.setPos(4F, 8F, 0F);
-      legL.setTexSize(128, 128);
-      legL.mirror = true;
-      setRotation(legL, 0F, 0F, 0F);
-      body = new ModelRenderer(this, 24, 0);
-      body.addBox(0F, 0F, 0F, 12, 20, 6);
-      body.setPos(-6F, -12F, -3F);
-      body.setTexSize(128, 128);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0F);
-      armL = new ModelRenderer(this, 0, 22);
-      armL.addBox(-2F, 0F, -2F, 4, 16, 4);
-      armL.setPos(6F, -10F, 0F);
-      armL.setTexSize(128, 128);
-      armL.mirror = true;
-      setRotation(armL, -1.047198F, 0F, 0F);
-      armR = new ModelRenderer(this, 0, 22);
-      armR.addBox(-2F, 0F, -2F, 4, 16, 4);
-      armR.setPos(-6F, -10F, 0F);
-      armR.setTexSize(128, 128);
-      armR.mirror = true;
-      setRotation(armR, -1.047198F, 0F, 0F);
-      staffPoleL = new ModelRenderer(this, 0, 104);
-      staffPoleL.addBox(-1F, -9F, -17F, 2, 22, 2);
-      staffPoleL.setPos(0F, 0.0F, 3.0F);
-      staffPoleL.setTexSize(128, 128);
-      staffPoleL.mirror = true;
-      setRotation(staffPoleL, 1.5235988F, 0F, 0F);
-      staffCapL = new ModelRenderer(this, 8, 121);
-      staffCapL.addBox(-3F, -7F, -19F, 6, 1, 6);
-      staffCapL.setPos(0F, 0.0F, 3.0F);
-      staffCapL.setTexSize(128, 128);
-      staffCapL.mirror = true;
-      setRotation(staffCapL, 1.5235988F, 0F, 0F);
-      staffPoleR = new ModelRenderer(this, 0, 104);
-      staffPoleR.addBox(-1F, -9F, -17F, 2, 22, 2);
-      staffPoleR.setPos(0F, 0.0F, 3.0F);
-      staffPoleR.setTexSize(128, 128);
-      staffPoleR.mirror = true;
-      setRotation(staffPoleR, 1.5235988F, 0F, 0F);
-      staffCapR = new ModelRenderer(this, 8, 121);
-      staffCapR.addBox(-3F, -7F, -19F, 6, 1, 6);
-      staffCapR.setPos(0F, 0.0F, 3.0F);
-      staffCapR.setTexSize(128, 128);
-      staffCapR.mirror = true;
-      setRotation(staffCapR, 1.5235988F, 0F, 0F);
-      neck = new ModelRenderer(this, 60, 0);
-      neck.addBox(-3F, 0F, -3F, 6, 4, 6);
-      neck.setPos(0F, -16F, 0F);
-      neck.setTexSize(128, 128);
-      neck.mirror = true;
-      setRotation(neck, 0F, 0F, 0F);
-      head = new ModelRenderer(this, 60, 10);
-      head.addBox(-4F, -8F, -4F, 8, 8, 8);
-      head.setPos(0F, -16F, 0F);
-      head.setTexSize(128, 128);
-      head.mirror = true;
-      setRotation(head, 0F, 0F, 0F);
-      rayMid = new ModelRenderer(this, 84, 0);
-      rayMid.addBox(-2.5F, -15F, 0F, 5, 8, 1);
-      rayMid.setPos(0F, -3F, 0F);
-      rayMid.setTexSize(128, 128);
-      rayMid.mirror = true;
-      setRotation(rayMid, 0F, 0F, 0F);
-      rayL = new ModelRenderer(this, 84, 0);
-      rayL.addBox(-2.5F, -15F, 0F, 5, 8, 1);
-      rayL.setPos(0F, -3F, 0F);
-      rayL.setTexSize(128, 128);
-      rayL.mirror = true;
-      setRotation(rayL, 0F, 0F, 0.7853982F);
-      rayR = new ModelRenderer(this, 84, 0);
-      rayR.addBox(-2.5F, -15F, 0F, 5, 8, 1);
-      rayR.setPos(0F, -3F, 0F);
-      rayR.setTexSize(128, 128);
-      rayR.mirror = true;
-      setRotation(rayR, 0F, 0F, -0.7853982F);
-      headSideL = new ModelRenderer(this, 0, 67);
-      headSideL.addBox(4F, -3F, -1F, 4, 2, 2);
-      headSideL.setPos(0F, -16F, 0F);
-      headSideL.setTexSize(128, 128);
-      headSideL.mirror = true;
-      setRotation(headSideL, 0F, 0F, 0F);
-      headSideR = new ModelRenderer(this, 0, 67);
-      headSideR.addBox(-8F, -3F, -1F, 4, 2, 2);
-      headSideR.setPos(0F, -16F, 0F);
-      headSideR.setTexSize(128, 128);
-      headSideR.mirror = true;
-      setRotation(headSideR, 0F, 0F, 0F);
-      staffProng1L = new ModelRenderer(this, 32, 123);
-      staffProng1L.addBox(2F, -11F, -14F, 1, 4, 1);
-      staffProng1L.setPos(0F, 0.0F, 3.0F);
-      staffProng1L.setTexSize(128, 128);
-      staffProng1L.mirror = true;
-      setRotation(staffProng1L, 1.5235988F, 0F, 0F);
-      staffProng2L = new ModelRenderer(this, 32, 123);
-      staffProng2L.addBox(2F, -11F, -19F, 1, 4, 1);
-      staffProng2L.setPos(0F, 0.0F, 3.0F);
-      staffProng2L.setTexSize(128, 128);
-      staffProng2L.mirror = true;
-      setRotation(staffProng2L, 1.5235988F, 0F, 0F);
-      staffProng3L = new ModelRenderer(this, 32, 123);
-      staffProng3L.addBox(-3F, -11F, -19F, 1, 4, 1);
-      staffProng3L.setPos(0F, 0.0F, 3.0F);
-      staffProng3L.setTexSize(128, 128);
-      staffProng3L.mirror = true;
-      setRotation(staffProng3L, 1.5235988F, 0F, 0F);
-      staffProng4L = new ModelRenderer(this, 32, 123);
-      staffProng4L.addBox(-3F, -11F, -14F, 1, 4, 1);
-      staffProng4L.setPos(0F, 0.0F, 3.0F);
-      staffProng4L.setTexSize(128, 128);
-      staffProng4L.mirror = true;
-      setRotation(staffProng4L, 1.5235988F, 0F, 0F);
-      staffProng1R = new ModelRenderer(this, 32, 123);
-      staffProng1R.addBox(2F, -11F, -14F, 1, 4, 1);
-      staffProng1R.setPos(0F, 0.0F, 3.0F);
-      staffProng1R.setTexSize(128, 128);
-      staffProng1R.mirror = true;
-      setRotation(staffProng1R, 1.5235988F, 0F, 0F);
-      staffProng2R = new ModelRenderer(this, 32, 123);
-      staffProng2R.addBox(2F, -11F, -19F, 1, 4, 1);
-      staffProng2R.setPos(0F, 0.0F, 3.0F);
-      staffProng2R.setTexSize(128, 128);
-      staffProng2R.mirror = true;
-      setRotation(staffProng2R, 1.5235988F, 0F, 0F);
-      staffProng3R = new ModelRenderer(this, 32, 123);
-      staffProng3R.addBox(-3F, -11F, -19F, 1, 4, 1);
-      staffProng3R.setPos(0F, 0.0F, 3.0F);
-      staffProng3R.setTexSize(128, 128);
-      staffProng3R.mirror = true;
-      setRotation(staffProng3R, 1.5235988F, 0F, 0F);
-      staffProng4R = new ModelRenderer(this, 32, 123);
-      staffProng4R.addBox(-3F, -11F, -14F, 1, 4, 1);
-      staffProng4R.setPos(0F, 0.0F, 3.0F);
-      staffProng4R.setTexSize(128, 128);
-      staffProng4R.mirror = true;
-      setRotation(staffProng4R, 1.5235988F, 0F, 0F);
-      armSpikeL = new ModelRenderer(this, 0, 62);
-      armSpikeL.addBox(2F, 6F, -1F, 6, 3, 2);
-      armSpikeL.setPos(-1F, 1F, 6.5F);
-      armSpikeL.setTexSize(128, 128);
-      armSpikeL.mirror = true;
-      setRotation(armSpikeL, -1.047198F, 0F, 0F);
-      armSpikeR = new ModelRenderer(this, 0, 62);
-      armSpikeR.addBox(-8F, 6F, -1F, 6, 3, 2);
-      armSpikeR.setPos(-0F, 1F, 6.5F);
-      armSpikeR.setTexSize(128, 128);
-      armSpikeR.mirror = true;
-      setRotation(armSpikeR, -1.047198F, 0F, 0F);
-      backSpine1 = new ModelRenderer(this, 0, 71);
-      backSpine1.addBox(-1F, -7F, -1F, 2, 7, 2);
-      backSpine1.setPos(0F, 5F, 2F);
-      backSpine1.setTexSize(128, 128);
-      backSpine1.mirror = true;
-      setRotation(backSpine1, -0.3839724F, 0F, 0F);
-      backSpine2 = new ModelRenderer(this, 0, 71);
-      backSpine2.addBox(-1F, -7F, -1F, 2, 7, 2);
-      backSpine2.setPos(0F, -1F, 2F);
-      backSpine2.setTexSize(128, 128);
-      backSpine2.mirror = true;
-      setRotation(backSpine2, -0.3839724F, 0F, 0F);
-      backSpine3 = new ModelRenderer(this, 0, 71);
-      backSpine3.addBox(-1F, -7F, -1F, 2, 7, 2);
-      backSpine3.setPos(0F, -7F, 2F);
-      backSpine3.setTexSize(128, 128);
-      backSpine3.mirror = true;
-      setRotation(backSpine3, -0.3839724F, 0F, 0F);
+import static divinerpg.util.ClientUtils.createLocation;
 
-      //Child
-      head.addChild(rayR);
-      head.addChild(rayMid);
-      head.addChild(rayL);
-      armR.addChild(armSpikeR);
-      armL.addChild(armSpikeL);
-      armL.addChild(staffPoleL);
-      armR.addChild(staffPoleR);
-      armL.addChild(staffCapL);
-      armL.addChild(staffProng1L);
-      armL.addChild(staffProng2L);
-      armL.addChild(staffProng3L);
-      armL.addChild(staffProng4L);
-      armR.addChild(staffCapR);
-      armR.addChild(staffProng1R);
-      armR.addChild(staffProng2R);
-      armR.addChild(staffProng3R);
-      armR.addChild(staffProng4R);
-  }
+public class ModelSunstorm<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("sunstorm");
+	private final ModelPart legR;
+	private final ModelPart legL;
+	private final ModelPart body;
+	private final ModelPart armL;
+	private final ModelPart armR;
+	private final ModelPart neck;
+	private final ModelPart head;
+	private final ModelPart headSideL;
+	private final ModelPart headSideR;
+	private final ModelPart backSpine1;
+	private final ModelPart backSpine2;
+	private final ModelPart backSpine3;
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(legR, legL, body, armL, armR, neck, head, headSideL, headSideR, backSpine1, backSpine2, backSpine3);
-    }
+	public ModelSunstorm(ModelPart root) {
+		this.legR = root.getChild("legR");
+		this.legL = root.getChild("legL");
+		this.body = root.getChild("body");
+		this.armL = root.getChild("armL");
+		this.armR = root.getChild("armR");
+		this.neck = root.getChild("neck");
+		this.head = root.getChild("head");
+		this.headSideL = root.getChild("headSideL");
+		this.headSideR = root.getChild("headSideR");
+		this.backSpine1 = root.getChild("backSpine1");
+		this.backSpine2 = root.getChild("backSpine2");
+		this.backSpine3 = root.getChild("backSpine3");
+	}
+	public ModelSunstorm(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.legR = root.getChild("legR");
+		this.legL = root.getChild("legL");
+		this.body = root.getChild("body");
+		this.armL = root.getChild("armL");
+		this.armR = root.getChild("armR");
+		this.neck = root.getChild("neck");
+		this.head = root.getChild("head");
+		this.headSideL = root.getChild("headSideL");
+		this.headSideR = root.getChild("headSideR");
+		this.backSpine1 = root.getChild("backSpine1");
+		this.backSpine2 = root.getChild("backSpine2");
+		this.backSpine3 = root.getChild("backSpine3");
+	}
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-  @Override
-  public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float p_225597_4_, float p_225597_5_, float headSpin) {
-    this.body.yRot = 0.0F;
-    this.armR.z = 0.0F;
-    this.armR.x = -5.0F;
-    this.armL.z = 0.0F;
-    this.armL.x = 5.0F;
-    this.armR.xRot = -32 + MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
-    this.armL.xRot = -32 + MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
-    this.armR.zRot = 0.0F;
-    this.armL.zRot = 0.0F;
-    this.legR.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-    this.legL.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-    this.legR.yRot = 0.0F;
-    this.legL.yRot = 0.0F;
-    this.legR.zRot = 0.0F;
-    this.legL.zRot = 0.0F;
-  }
+		partdefinition.addOrReplaceChild("legR", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-3.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("legL", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-3.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(24, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 12.0F, 20.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -12.0F, -3.0F));
+
+		PartDefinition armL = partdefinition.addOrReplaceChild("armL", CubeListBuilder.create().texOffs(0, 22).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, -10.0F, 0.0F, -1.0472F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("armSpikeL", CubeListBuilder.create().texOffs(0, 62).mirror().addBox(2.0F, 6.0F, -1.0F, 6.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 1.0F, 6.5F, -1.0472F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffPoleL", CubeListBuilder.create().texOffs(0, 104).mirror().addBox(-1.0F, -9.0F, -17.0F, 2.0F, 22.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffCapL", CubeListBuilder.create().texOffs(8, 121).mirror().addBox(-3.0F, -7.0F, -19.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffProng1L", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(2.0F, -11.0F, -14.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffProng2L", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(2.0F, -11.0F, -19.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffProng3L", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(-3.0F, -11.0F, -19.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armL.addOrReplaceChild("staffProng4L", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(-3.0F, -11.0F, -14.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		PartDefinition armR = partdefinition.addOrReplaceChild("armR", CubeListBuilder.create().texOffs(0, 22).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, -10.0F, 0.0F, -1.0472F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("armSpikeR", CubeListBuilder.create().texOffs(0, 62).mirror().addBox(-8.0F, 6.0F, -1.0F, 6.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 1.0F, 6.5F, -1.0472F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffPoleR", CubeListBuilder.create().texOffs(0, 104).mirror().addBox(-1.0F, -9.0F, -17.0F, 2.0F, 22.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffCapR", CubeListBuilder.create().texOffs(8, 121).mirror().addBox(-3.0F, -7.0F, -19.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffProng1R", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(2.0F, -11.0F, -14.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffProng2R", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(2.0F, -11.0F, -19.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffProng3R", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(-3.0F, -11.0F, -19.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		armR.addOrReplaceChild("staffProng4R", CubeListBuilder.create().texOffs(32, 123).mirror().addBox(-3.0F, -11.0F, -14.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 3.0F, 1.5236F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(-3.0F, 0.0F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -16.0F, 0.0F));
+
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(60, 10).mirror().addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -16.0F, 0.0F));
+
+		head.addOrReplaceChild("rayR", CubeListBuilder.create().texOffs(84, 0).mirror().addBox(-2.5F, -15.0F, 0.0F, 5.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -3.0F, 0.0F, 0.0F, 0.0F, -0.7854F));
+
+		head.addOrReplaceChild("rayMid", CubeListBuilder.create().texOffs(84, 0).mirror().addBox(-2.5F, -15.0F, 0.0F, 5.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -3.0F, 0.0F));
+
+		head.addOrReplaceChild("rayL", CubeListBuilder.create().texOffs(84, 0).mirror().addBox(-2.5F, -15.0F, 0.0F, 5.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -3.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+
+		partdefinition.addOrReplaceChild("headSideL", CubeListBuilder.create().texOffs(0, 67).mirror().addBox(4.0F, -3.0F, -1.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -16.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("headSideR", CubeListBuilder.create().texOffs(0, 67).mirror().addBox(-8.0F, -3.0F, -1.0F, 4.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -16.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("backSpine1", CubeListBuilder.create().texOffs(0, 71).mirror().addBox(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, -0.384F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("backSpine2", CubeListBuilder.create().texOffs(0, 71).mirror().addBox(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -1.0F, 2.0F, -0.384F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("backSpine3", CubeListBuilder.create().texOffs(0, 71).mirror().addBox(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -7.0F, 2.0F, -0.384F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 128);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.armR.xRot = (Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F);
+		this.armL.xRot = (Mth.cos(limbSwing * 0.6662F + 3.141593F) * 1.4F * limbSwingAmount * 0.5F);
+		this.legR.xRot = (Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		this.legL.xRot = (Mth.cos(limbSwing * 0.6662F + 3.141593F) * 1.4F * limbSwingAmount);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		legR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		legL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		armR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headSideL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		headSideR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		backSpine1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		backSpine2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		backSpine3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

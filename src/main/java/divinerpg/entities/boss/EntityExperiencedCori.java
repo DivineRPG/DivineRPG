@@ -1,59 +1,56 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.eden.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.entities.skythern.*;
+import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.projectile.EntityCoriShot;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.server.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.BossEvent;
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
-public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRangedAttackMob {
-    private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
-            BossInfo.Overlay.PROGRESS));
+public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS));
 //    private int deathTicks;
 
-    public EntityExperiencedCori(EntityType<? extends FlyingEntity> type, World worldIn) {
+    public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         xpReward=2000;
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 3.8F;
     }
 
-
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if(this.isAlive()) {
-        if (getTarget() != null) {
-            ProjectileEntity projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT, level, this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
-            double d0 = getTarget().getX() - this.getX();
-            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-            double d2 = getTarget().getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
-        }
+        if (this.isAlive()) {
+            if (getTarget() != null && !level.isClientSide) {
+                double tx = getTarget().getX() - this.getX();
+                double ty = getTarget().getBoundingBox().minY - this.getY();
+                double tz = getTarget().getZ() - this.getZ();
+                EntityCoriShot e = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level, this, (float) getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                e.shoot(tx, ty, tz, 1.6f, 0);
+                this.level.addFreshEntity(e);
+            }
         }
     }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        addAttackingAI();
-        goalSelector.addGoal(2, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
-        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
+        goalSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, false));
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 64.0F));
     }
 
     @Override
@@ -62,17 +59,17 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.CORI_IDLE;
+        return SoundRegistry.CORI_IDLE.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.CORI_HURT;
+        return SoundRegistry.CORI_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.CORI_HURT;
+        return SoundRegistry.CORI_HURT.get();
     }
 
     @Override
@@ -80,19 +77,19 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
         return false;
     }
 
-    public Color getBarColor() {
-        return Color.WHITE;
+    public BossBarColor getBarColor() {
+        return BossBarColor.WHITE;
     }
 
     @Override
-    public void startSeenByPlayer(ServerPlayerEntity player) {
+    public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
 
     @Override
-    public void stopSeenByPlayer(ServerPlayerEntity player) {
+    public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
     }
@@ -100,7 +97,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
     @Override
     public void tick() {
         super.tick();
-        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
     
     @Override
@@ -110,22 +107,14 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements IRan
         {
             this.playAmbientSound();
             if(!this.level.isClientSide) {
-                EntityWeakCori weak = new EntityWeakCori(EntityRegistry.WEAK_CORI, level);
-                EntityAdvancedCori advanced = new EntityAdvancedCori(EntityRegistry.ADVANCED_CORI, level);
-                weak.moveTo(this.getX() + random.nextInt(8), this.getY(), this.getZ() + random.nextInt(8), this.xRot, this.yRot);
-                advanced.moveTo(this.getX() + random.nextInt(4), this.getY(), this.getZ() + random.nextInt(4), this.xRot, this.yRot);
+                BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
                 if (random.nextInt(10) == 1) {
-                    level.addFreshEntity(weak);
+                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 if (random.nextInt(20) == 1) {
-                    level.addFreshEntity(advanced);
+                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 1150).add(Attributes.ATTACK_DAMAGE, 16)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.skythernCoriSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.skythernCoriFollowRange).add(Attributes.FLYING_SPEED, EntityStats.skythernCoriSpeed);
-    }
-
 }

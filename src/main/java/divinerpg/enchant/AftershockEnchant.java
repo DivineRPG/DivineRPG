@@ -1,12 +1,11 @@
 package divinerpg.enchant;
 
-import net.minecraft.enchantment.*;
-import net.minecraft.inventory.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.*;
 
 public class AftershockEnchant  extends Enchantment {
     public AftershockEnchant() {
-        super(Rarity.VERY_RARE, EnchantmentType.WEAPON, new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});
-        this.setRegistryName("aftershock");
+        super(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override

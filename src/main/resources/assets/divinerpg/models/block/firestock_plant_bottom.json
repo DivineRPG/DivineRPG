@@ -1,6 +1,7 @@
 {
   "parent": "block/cross",
+  "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:blocks/firestock_plant_bottom"
+    "cross": "divinerpg:block/firestock_plant_bottom"
   }
 }

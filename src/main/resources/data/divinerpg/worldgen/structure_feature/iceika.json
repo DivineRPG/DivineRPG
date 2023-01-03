@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:village",
-  "config": {
-    "start_pool": "divinerpg:iceika/iceika",
-    "size": 6
-  }
-}

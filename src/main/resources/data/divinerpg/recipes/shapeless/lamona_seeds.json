@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:lamona"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:lamona_seeds",
+    "count": 2
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_snowy",
+  "spawners": [
+	  {
+	    "type": "divinerpg:frost",
+	    "weight": 15,
+	    "minCount": 1,
+	    "maxCount": 4
+	  },
+	  {
+	    "type": "divinerpg:glacon",
+	    "weight": 11,
+	    "minCount": 1,
+	    "maxCount": 3
+  	  }
+  ]
+}

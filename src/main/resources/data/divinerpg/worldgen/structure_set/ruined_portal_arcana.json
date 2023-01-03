@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:ruined_portal_arcana",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "random_spread",
+		"spread_type": "linear",
+		"salt": 25565566,
+		"spacing": 25,
+		"separation": 16
+	}
+}

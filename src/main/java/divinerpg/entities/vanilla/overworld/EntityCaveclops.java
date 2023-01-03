@@ -1,70 +1,66 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.entities.projectile.EntityCaveRock;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.common.Tags.Biomes;
 
-import java.util.*;
-
-public class EntityCaveclops extends EntityDivineMob implements IRangedAttackMob {
-
-    public EntityCaveclops(EntityType<? extends MobEntity> type, World worldIn) {
+public class EntityCaveclops extends EntityDivineMonster implements RangedAttackMob {
+    public EntityCaveclops(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 3.5F;
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.caveclopsHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.caveclopsDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.caveclopsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.caveclopsFollowRange);
+    public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
+        return getY() < 20 && level.dimension() == Level.OVERWORLD;
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return getY() < 20 && level.dimension() == World.OVERWORLD;
-    }
+    @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
-        addAttackingAI();
+    	super.registerGoals();
         goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 30, 10));
-
+        goalSelector.addGoal(0, new FleeSunGoal(this, 0.27D));
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.CYCLOPS;
+        return SoundRegistry.CYCLOPS.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.CYCLOPS_HURT;
+        return SoundRegistry.CYCLOPS_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.CYCLOPS_HURT;
+        return SoundRegistry.CYCLOPS_HURT.get();
     }
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (getTarget() != null && this.isAlive()) {
-            EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK, this, level);
-            double d0 = target.getX() - this.getX();
-            double d1 = target.getY(0.3333333333333333D) - projectile.getY();
-            double d2 = target.getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
+        if (isAlive() && getTarget() != null && !level.isClientSide) {
+            EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK.get(), this, level);
+            double d0 = getTarget().getX() - this.getX();
+            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+            double d2 = getTarget().getZ() - this.getZ();
+            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+            level.addFreshEntity(projectile);
         }
     }
 
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || pos.getY() < 20;
+    public static boolean caveClopsSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return pos.getY() < 60 && (pos.getY() < 32 || worldIn.getBiome(pos).is(Biomes.IS_LUSH)) && worldIn.getLightEmission(pos) < 8;
     }
 }

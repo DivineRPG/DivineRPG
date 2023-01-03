@@ -1,176 +1,79 @@
 {
-  "pools": [
-    {
-      "name": "divinerpg:iceika_chest_guaranteed_snowflake",
-      "rolls": {
-        "min": 1,
-        "max": 1
-      },
-      "entries": [
-        {
-          "type": "item",
-          "name": "divinerpg:snowflake",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "divinerpg:iceika_chest_dungeon",
-      "rolls": {
-        "min": 4,
-        "max": 8
-      },
-      "entries": [
-        {
-          "type": "item",
-          "name": "divinerpg:ice_shards",
-          "weight": 14,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 8
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:snowflake_shuriken",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 16
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:peppermints",
-          "weight": 7,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 5
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:snowflake",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:ice_stone",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:frostking_sword",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:serenade_of_ice",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:snowslash",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:snowstorm_bow",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:frozen_maul",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"pools": [
+		{
+			"rolls": 1,
+			"bonus_rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:snowflake",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"min": 4,
+				"max": 6
+			},
+			"bonus_rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 25,
+					"name": "divinerpg:ice_shards",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1,
+								"max": 8
+							}
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 10,
+					"name": "divinerpg:peppermints",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 7,
+					"name": "divinerpg:snowflake",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"name": "divinerpg:ice_stone",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1,
+								"max": 4
+							}
+						}
+					]
+				}
+			]
+		}
+	]
 }

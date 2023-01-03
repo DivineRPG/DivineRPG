@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:white_mushroom"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:white_mushroom_seeds",
+    "count": 1
+  }
+}

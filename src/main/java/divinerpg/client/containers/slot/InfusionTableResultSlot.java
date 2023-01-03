@@ -1,20 +1,22 @@
 package divinerpg.client.containers.slot;
 
-import divinerpg.*;
-import divinerpg.recipe.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
+import divinerpg.client.containers.InfusionTableContainer;
+import divinerpg.recipe.InfusionTableRecipe;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ResultContainer;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 
-import java.util.*;
+import java.util.Optional;
 
 public class InfusionTableResultSlot extends Slot {
-    private final CraftingInventory craftSlots;
-    private final PlayerEntity player;
+    private final InfusionTableContainer.InfusionInventory craftSlots;
+    private final Player player;
     private int removeCount;
 
-    public InfusionTableResultSlot(PlayerEntity player, CraftingInventory craftSlots, IInventory inventory, int p_i45790_4_, int p_i45790_5_, int p_i45790_6_) {
+    public InfusionTableResultSlot(Player player, InfusionTableContainer.InfusionInventory craftSlots, ResultContainer inventory, int p_i45790_4_, int p_i45790_5_, int p_i45790_6_) {
         super(inventory, p_i45790_4_, p_i45790_5_, p_i45790_6_);
         this.player = player;
         this.craftSlots = craftSlots;
@@ -41,33 +43,29 @@ public class InfusionTableResultSlot extends Slot {
         this.removeCount += p_190900_1_;
     }
 
-    protected void checkTakeAchievements(ItemStack p_75208_1_) {
-        if (this.removeCount > 0) {
-            p_75208_1_.onCraftedBy(this.player.level, this.player, this.removeCount);
-            net.minecraftforge.fml.hooks.BasicEventHooks.firePlayerCraftingEvent(this.player, p_75208_1_, this.craftSlots);
-        }
-
-        if (this.container instanceof IRecipeHolder) {
-            ((IRecipeHolder)this.container).awardUsedRecipes(this.player);
+    protected void checkTakeAchievements(ItemStack p_39558_) {
+        p_39558_.onCraftedBy(this.player.level, this.player, this.removeCount);
+        if (this.player instanceof ServerPlayer && this.container instanceof AbstractFurnaceBlockEntity) {
+            ((AbstractFurnaceBlockEntity)this.container).awardUsedRecipesAndPopExperience((ServerPlayer)this.player);
         }
 
         this.removeCount = 0;
+        net.minecraftforge.event.ForgeEventFactory.firePlayerSmeltedEvent(this.player, p_39558_);
     }
 
-    public ItemStack onTake(PlayerEntity player, ItemStack stack) {
+    public void onTake(Player player, ItemStack stack) {
         if(player.level != null) {
             if (!player.level.isClientSide) {
                 this.checkTakeAchievements(stack);
                 net.minecraftforge.common.ForgeHooks.setCraftingPlayer(player);
-                Optional<InfusionTableRecipe> recipe = player.level.getServer().getRecipeManager().getRecipeFor(DivineRPG.INFUSION_TABLE_RECIPE, craftSlots, player.level);
+                Optional<InfusionTableRecipe> recipe = player.level.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level);
                 net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
                 if (recipe.isPresent()) {
                     craftSlots.getItem(0).shrink(recipe.get().getCount());
                 }
 //        slotsChanged(inputs);
-                return stack;
+                super.onTake(player, stack);
             }
         }
-        return ItemStack.EMPTY;
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/button_pressed",
   "textures": {
-    "texture": "divinerpg:blocks/wildwood_planks"
+    "texture": "divinerpg:block/wildwood_planks"
   }
 }

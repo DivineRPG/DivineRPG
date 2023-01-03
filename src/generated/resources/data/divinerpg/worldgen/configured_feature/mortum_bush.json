@@ -1,0 +1,20 @@
+{
+  "type": "divinerpg:bush",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "divinerpg:mortum_leaves",
+      "Properties": {
+        "distance": "1",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    },
+    "log": {
+      "Name": "divinerpg:mortum_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

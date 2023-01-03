@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:marsine"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:marsine_seeds",
+    "count": 2
+  }
+}

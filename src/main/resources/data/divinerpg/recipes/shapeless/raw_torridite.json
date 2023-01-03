@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:raw_torridite_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:raw_torridite",
+    "count": 9
+  }
+}

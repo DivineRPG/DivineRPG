@@ -1,37 +1,24 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
 
 public class EntityVamacheron extends EntityDivineBoss {
-
-
-    public EntityVamacheron(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityVamacheron(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.0F;
     }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
+    public BossBarColor getBarColor() {
+        return BossBarColor.RED;
     }
 
-    @Override
-    public Color getBarColor() {
-        return Color.RED;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.vamacheronHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.vamacheronDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.vamacheronSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.vamacheronFollowRange);
-    }
 }

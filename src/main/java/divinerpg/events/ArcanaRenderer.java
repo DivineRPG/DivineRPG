@@ -1,61 +1,50 @@
 package divinerpg.events;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
-import divinerpg.capability.*;
-import divinerpg.config.Config;
+import divinerpg.capability.ArcanaProvider;
+import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.IngameGui;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class ArcanaRenderer {
-	
-	Minecraft mc = Minecraft.getInstance();
+@OnlyIn(Dist.CLIENT)
+public class ArcanaRenderer extends Gui {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png");
+	Minecraft mc;
+
+    public ArcanaRenderer() {
+        super(Minecraft.getInstance(), Minecraft.getInstance().getItemRenderer());
+        this.mc = Minecraft.getInstance();
+    }
 
     @SubscribeEvent
-    public void onRender(RenderGameOverlayEvent.Post event) {
-        if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
-            onTickRender(event);
-        }
-    }
+    public void renderGameOverlayEvent(RenderGuiOverlayEvent.Post event) {
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderTexture(0, TEXTURE);
+        Gui ui = mc.gui;
 
-    @SuppressWarnings("deprecation")
-	private void onTickRender(RenderGameOverlayEvent.Post event) {
-        if (mc.screen == null) {
-            GlStateManager._color4f(1.0F, 1.0F, 1.0F, 1.0F);//resets color
+        int windowWidth = this.mc.getWindow().getGuiScaledWidth();
+        int windowHeight = this.mc.getWindow().getGuiScaledHeight();
+        int yLocation = windowHeight - ClientConfig.arcanaY.get();
+        int xLocation = windowWidth - ClientConfig.arcanaX.get();
 
-            IngameGui gig = mc.gui;
-            int i = this.mc.getWindow().getGuiScaledWidth();
-            int k = this.mc.getWindow().getGuiScaledHeight();
-            this.mc.getTextureManager().bind(new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png"));
-            int y = k - Config.arcanaY.get();
-            int x = i - Config.arcanaX.get();
-
-        	if(Config.hideArcanaBar.get() != false) {
-        		if(getPercents() != 100) {
-        			gig.blit(event.getMatrixStack(), x, y, 0, 0, 100, 9);
-        			gig.blit(event.getMatrixStack(), x, y, 0, 9, getPercents(), 18);
-        		}
-        	} 
-        	else {
-        		gig.blit(event.getMatrixStack(), x, y, 0, 0, 100, 9);
-        		gig.blit(event.getMatrixStack(), x, y, 0, 9, getPercents(), 18);    	
-        	}
-        }
-    }
-
-    private int getPercents() {
-        Arcana arcana = mc.player.getCapability(ArcanaCapability.CAPABILITY_ARCANA).orElse(null);
-        if (arcana != null) {
-            float result = arcana.getArcana() / arcana.getMaxArcana() * 100;
-
-            return (int) MathHelper.clamp(Math.floor(result), 0, 100);
+            mc.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+                if(ClientConfig.hideArcanaBar.get() != false) {
+                    if (Mth.clamp(Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 0, 100) != 100) {
+                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 0, 100, 9);
+                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
+                    }
+                } else {
+                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 0, 100, 9);
+                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
+                    }
+            });
         }
 
-        return 0;
-    }
 }

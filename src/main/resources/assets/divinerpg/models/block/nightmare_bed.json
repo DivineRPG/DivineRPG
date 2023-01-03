@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/template_bed",
+  "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:blocks/nightmare"
+    "particle": "divinerpg:block/nightmare"
   }
 }

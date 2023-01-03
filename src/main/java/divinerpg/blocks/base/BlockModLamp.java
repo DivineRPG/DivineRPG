@@ -1,11 +1,11 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModLamp extends BlockMod {
-    public BlockModLamp(String name, float hardness, float resistance, int luminance) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.STONE).lightLevel((p_235464_0_) -> {
+    public BlockModLamp(float hardness, float resistance, int luminance) {
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.STONE).lightLevel((state) -> {
             return luminance;
         }));
 

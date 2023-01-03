@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
+  "render_type": "cutout_mipped",
   "textures": {
-    "wall": "divinerpg:blocks/ancient_bricks"
+    "wall": "divinerpg:block/ancient_bricks"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+  	"lukewarm_ocean",
+  	"warm_ocean",
+  	"deep_lukewarm_ocean"
+  ],
+  "spawners":
+  {
+    "type": "divinerpg:shark",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 4,
+      "bonus_rolls": 6,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:deepslate",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 48,
+                "max": 64
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:glow_berries",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:amethyst_shard",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 16,
+                "max": 24
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

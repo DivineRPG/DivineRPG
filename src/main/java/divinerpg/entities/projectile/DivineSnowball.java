@@ -1,25 +1,23 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.network.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.particles.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.fml.network.*;
 
-public class DivineSnowball extends ProjectileItemEntity {
-    public DivineSnowball(EntityType<? extends DivineSnowball> type, World world) {
+public class DivineSnowball extends ThrowableItemProjectile {
+    public DivineSnowball(EntityType<? extends DivineSnowball> type, Level world) {
         super(type, world);
     }
 
-    public DivineSnowball(World world, LivingEntity entity, EntityType<? extends DivineSnowball> type) {
+    public DivineSnowball(Level world, LivingEntity entity, EntityType<? extends DivineSnowball> type) {
         super(type, entity, world);
     }
 
-    public DivineSnowball(World world, double x, double y, double z, EntityType<? extends DivineSnowball> type) {
+    public DivineSnowball(Level world, double x, double y, double z, EntityType<? extends DivineSnowball> type) {
         super(type, x, y, z, world);
     }
 
@@ -28,15 +26,15 @@ public class DivineSnowball extends ProjectileItemEntity {
     }
 
     @OnlyIn(Dist.CLIENT)
-    private IParticleData getParticle() {
+    private ParticleOptions getParticle() {
         ItemStack itemstack = this.getItemRaw();
-        return new ItemParticleData(ParticleTypes.ITEM, itemstack);
+        return new ItemParticleOption(ParticleTypes.ITEM, itemstack);
     }
 
     @OnlyIn(Dist.CLIENT)
     public void handleEntityEvent(byte b) {
         if (b == 3) {
-            IParticleData iparticledata = this.getParticle();
+            ParticleOptions iparticledata = this.getParticle();
 
             for(int i = 0; i < 8; ++i) {
                 this.level.addParticle(iparticledata, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
@@ -45,24 +43,26 @@ public class DivineSnowball extends ProjectileItemEntity {
 
     }
 
-    protected void onHit(RayTraceResult result) {
+    protected void onHit(HitResult result) {
         super.onHit(result);
         if (!this.level.isClientSide) {
             this.level.broadcastEntityEvent(this, (byte)3);
-            this.remove();
+            this.remove(RemovalReason.DISCARDED);
         }
 
     }
 
+
     @Override
     public void tick() {
         super.tick();
+
         if (this.tickCount > 200)
             this.kill();
     }
 
-    @Override
-    public IPacket<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
+//    @Override
+//    public Packet<?> getAddEntityPacket() {
+//        return NetworkHooks.getEntitySpawningPacket(this);
+//    }
 }

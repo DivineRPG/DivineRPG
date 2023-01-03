@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/pardimal_bow_1"
+    "layer0": "divinerpg:item/pardimal_bow_1"
   }
 }

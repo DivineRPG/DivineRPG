@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_helmet"
+            "items": [
+              "divinerpg:divine_helmet"
+            ]
           }
         ]
       }
@@ -29,7 +31,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_chestplate"
+            "items": [
+              "divinerpg:divine_chestplate"
+            ]
           }
         ]
       }
@@ -39,7 +43,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_leggings"
+            "items": [
+              "divinerpg:divine_leggings"
+            ]
           }
         ]
       }
@@ -49,7 +55,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_boots"
+            "items": [
+              "divinerpg:divine_boots"
+            ]
           }
         ]
       }
@@ -59,7 +67,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_sword"
+            "items": [
+              "divinerpg:divine_sword"
+            ]
           }
         ]
       }
@@ -69,7 +79,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_axe"
+            "items": [
+              "divinerpg:divine_axe"
+            ]
           }
         ]
       }
@@ -79,7 +91,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_pickaxe"
+            "items": [
+              "divinerpg:divine_pickaxe"
+            ]
           }
         ]
       }
@@ -89,7 +103,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_shovel"
+            "items": [
+              "divinerpg:divine_shovel"
+            ]
           }
         ]
       }
@@ -99,7 +115,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_shickaxe"
+            "items": [
+              "divinerpg:divine_shickaxe"
+            ]
           }
         ]
       }

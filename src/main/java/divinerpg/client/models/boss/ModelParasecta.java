@@ -1,161 +1,139 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.boss.EntityParasecta;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class ModelParasecta<T extends Entity> extends SegmentedModel<T>
-{
-    ModelRenderer foot6;
-    ModelRenderer wing2;
-    ModelRenderer wing1;
-    ModelRenderer body;
-    ModelRenderer leg6;
-    ModelRenderer foot4;
-    ModelRenderer leg4;
-    ModelRenderer foot5;
-    ModelRenderer leg5;
-    ModelRenderer leg1;
-    ModelRenderer leg2;
-    ModelRenderer leg3;
-    ModelRenderer foot1;
-    ModelRenderer foot2;
-    ModelRenderer foot3;
-    ModelRenderer tusk1;
-    ModelRenderer head;
-    ModelRenderer tusk2;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelParasecta() {
-        texWidth = 128;
-        texHeight = 32;
+public class ModelParasecta extends EntityModel<EntityParasecta> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("parasecta");
+	private final ModelPart foot6;
+	private final ModelPart wing2;
+	private final ModelPart wing1;
+	private final ModelPart body;
+	private final ModelPart leg6;
+	private final ModelPart foot4;
+	private final ModelPart leg4;
+	private final ModelPart foot5;
+	private final ModelPart leg5;
+	private final ModelPart leg1;
+	private final ModelPart leg2;
+	private final ModelPart leg3;
+	private final ModelPart foot1;
+	private final ModelPart foot2;
+	private final ModelPart foot3;
+	private final ModelPart head;
 
-        foot6 = new ModelRenderer(this, 15, 17);
-        foot6.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot6.setPos(-3F, 13F, 11F);
-        foot6.setTexSize(128, 32);
-        foot6.mirror = true;
-        setRotation(foot6, 0F, 0F, -0.4363323F);
-        wing2 = new ModelRenderer(this, 0, 0);
-        wing2.addBox(-14F, 0F, -5F, 14, 1, 10);
-        wing2.setPos(-10F, 0F, 0F);
-        wing2.setTexSize(128, 32);
-        wing2.mirror = true;
-        setRotation(wing2, -0.7330383F, 0F, 0F);
-        wing1 = new ModelRenderer(this, 0, 0);
-        wing1.addBox(0F, 0F, -5F, 14, 1, 10);
-        wing1.setPos(10F, 0F, 0F);
-        wing1.setTexSize(128, 32);
-        wing1.mirror = true;
-        setRotation(wing1, -0.7330383F, 0F, 0F);
-        body = new ModelRenderer(this, 78, 0);
-        body.addBox(-6F, -10F, -7F, 20, 22, 5);
-        body.setPos(-4F, -3F, 2F);
-        body.setTexSize(128, 32);
-        body.mirror = true;
-        setRotation(body, 0.8644027F, 0F, 0F);
-        leg6 = new ModelRenderer(this, 0, 14);
-        leg6.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg6.setPos(-3F, 15F, 10F);
-        leg6.setTexSize(128, 32);
-        leg6.mirror = true;
-        setRotation(leg6, 0F, 0F, 0F);
-        foot4 = new ModelRenderer(this, 15, 17);
-        foot4.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot4.setPos(-3F, 6F, 1F);
-        foot4.setTexSize(128, 32);
-        foot4.mirror = true;
-        setRotation(foot4, 0F, 0F, -0.4363323F);
-        leg4 = new ModelRenderer(this, 0, 14);
-        leg4.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg4.setPos(-3F, 8F, 0F);
-        leg4.setTexSize(128, 32);
-        leg4.mirror = true;
-        setRotation(leg4, 0F, 0F, 0F);
-        foot5 = new ModelRenderer(this, 15, 17);
-        foot5.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot5.setPos(-3F, 10F, 6F);
-        foot5.setTexSize(128, 32);
-        foot5.mirror = true;
-        setRotation(foot5, 0F, 0F, -0.4363323F);
-        leg5 = new ModelRenderer(this, 0, 14);
-        leg5.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg5.setPos(-3F, 12F, 5F);
-        leg5.setTexSize(128, 32);
-        leg5.mirror = true;
-        setRotation(leg5, 0F, 0F, 0F);
-        leg1 = new ModelRenderer(this, 0, 14);
-        leg1.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg1.setPos(11F, 8F, 0F);
-        leg1.setTexSize(128, 32);
-        leg1.mirror = true;
-        setRotation(leg1, 0F, 0F, 0F);
-        leg2 = new ModelRenderer(this, 0, 14);
-        leg2.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg2.setPos(11F, 12F, 5F);
-        leg2.setTexSize(128, 32);
-        leg2.mirror = true;
-        setRotation(leg2, 0F, 0F, 0F);
-        leg3 = new ModelRenderer(this, 0, 14);
-        leg3.addBox(-6F, -10F, -7F, 4, 12, 3);
-        leg3.setPos(11F, 15F, 10F);
-        leg3.setTexSize(128, 32);
-        leg3.mirror = true;
-        setRotation(leg3, 0F, 0F, 0F);
-        foot1 = new ModelRenderer(this, 15, 17);
-        foot1.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot1.setPos(11F, 9F, 1F);
-        foot1.setTexSize(128, 32);
-        foot1.mirror = true;
-        setRotation(foot1, 0F, 0F, 0.4363323F);
-        foot2 = new ModelRenderer(this, 15, 17);
-        foot2.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot2.setPos(11F, 13F, 6F);
-        foot2.setTexSize(128, 32);
-        foot2.mirror = true;
-        setRotation(foot2, 0F, 0F, 0.4363323F);
-        foot3 = new ModelRenderer(this, 15, 17);
-        foot3.addBox(-5F, -1F, -7F, 2, 9, 1);
-        foot3.setPos(11F, 16F, 11F);
-        foot3.setTexSize(128, 32);
-        foot3.mirror = true;
-        setRotation(foot3, 0F, 0F, 0.4363323F);
-        tusk1 = new ModelRenderer(this, 47, 16);
-        tusk1.addBox(0F, 0.5333334F, 0F, 1, 3, 1);
-        tusk1.setPos(2F, 0F, -13F);
-        tusk1.setTexSize(128, 32);
-        tusk1.mirror = true;
-        setRotation(tusk1, 0F, 0F, 0.1396263F);
-        head = new ModelRenderer(this, 48, 0);
-        head.addBox(-4F, -4F, -6F, 8, 8, 6);
-        head.setPos(0F, -3F, -8F);
-        head.setTexSize(128, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        tusk2 = new ModelRenderer(this, 47, 16);
-        tusk2.addBox(-1F, 0.5333334F, 0F, 1, 3, 1);
-        tusk2.setPos(-2F, 0F, -13F);
-        tusk2.setTexSize(128, 32);
-        tusk2.mirror = true;
-        setRotation(tusk2, 0F, 0F, -0.1396263F);
-    }
+	public ModelParasecta(ModelPart root) {
+		this.foot6 = root.getChild("foot6");
+		this.wing2 = root.getChild("wing2");
+		this.wing1 = root.getChild("wing1");
+		this.body = root.getChild("body");
+		this.leg6 = root.getChild("leg6");
+		this.foot4 = root.getChild("foot4");
+		this.leg4 = root.getChild("leg4");
+		this.foot5 = root.getChild("foot5");
+		this.leg5 = root.getChild("leg5");
+		this.leg1 = root.getChild("leg1");
+		this.leg2 = root.getChild("leg2");
+		this.leg3 = root.getChild("leg3");
+		this.foot1 = root.getChild("foot1");
+		this.foot2 = root.getChild("foot2");
+		this.foot3 = root.getChild("foot3");
+		this.head = root.getChild("head");
+	}
+	public ModelParasecta(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.foot6 = root.getChild("foot6");
+		this.wing2 = root.getChild("wing2");
+		this.wing1 = root.getChild("wing1");
+		this.body = root.getChild("body");
+		this.leg6 = root.getChild("leg6");
+		this.foot4 = root.getChild("foot4");
+		this.leg4 = root.getChild("leg4");
+		this.foot5 = root.getChild("foot5");
+		this.leg5 = root.getChild("leg5");
+		this.leg1 = root.getChild("leg1");
+		this.leg2 = root.getChild("leg2");
+		this.leg3 = root.getChild("leg3");
+		this.foot1 = root.getChild("foot1");
+		this.foot2 = root.getChild("foot2");
+		this.foot3 = root.getChild("foot3");
+		this.head = root.getChild("head");
+	}
 
-    @Override
-    public void setupAnim(T e, float f, float f1, float f2, float f3, float f4) {
-        this.wing1.yRot = MathHelper.cos(f3 * 1.3F) * (float) Math.PI * 0.25F;
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("foot6", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.0F, 13.0F, 11.0F, 0.0F, 0.0F, -0.4363F));
+
+		partdefinition.addOrReplaceChild("wing2", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-14.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-10.0F, 0.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("wing1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, -5.0F, 14.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(10.0F, 0.0F, 0.0F, -0.733F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(78, 0).mirror().addBox(-6.0F, -10.0F, -7.0F, 20.0F, 22.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, -3.0F, 2.0F, 0.8644F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leg6", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 15.0F, 10.0F));
+
+		partdefinition.addOrReplaceChild("foot4", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.0F, 6.0F, 1.0F, 0.0F, 0.0F, -0.4363F));
+
+		partdefinition.addOrReplaceChild("leg4", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("foot5", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.0F, 10.0F, 6.0F, 0.0F, 0.0F, -0.4363F));
+
+		partdefinition.addOrReplaceChild("leg5", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 12.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(11.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(11.0F, 12.0F, 5.0F));
+
+		partdefinition.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-6.0F, -10.0F, -7.0F, 4.0F, 12.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(11.0F, 15.0F, 10.0F));
+
+		partdefinition.addOrReplaceChild("foot1", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(11.0F, 9.0F, 1.0F, 0.0F, 0.0F, 0.4363F));
+
+		partdefinition.addOrReplaceChild("foot2", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(11.0F, 13.0F, 6.0F, 0.0F, 0.0F, 0.4363F));
+
+		partdefinition.addOrReplaceChild("foot3", CubeListBuilder.create().texOffs(15, 17).mirror().addBox(-5.0F, -1.0F, -7.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(11.0F, 16.0F, 11.0F, 0.0F, 0.0F, 0.4363F));
+
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(48, 0).mirror().addBox(-4.0F, -4.0F, -5.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -3.0F, -8.0F));
+
+		head.addOrReplaceChild("tusk1_r1", CubeListBuilder.create().texOffs(47, 16).mirror().addBox(-1.0F, -0.4667F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(3.0F, 4.0F, -4.0F, 0.0F, 0.0F, 0.2618F));
+
+		head.addOrReplaceChild("tusk2_r1", CubeListBuilder.create().texOffs(47, 16).mirror().addBox(0.0F, -0.4667F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.0F, 4.0F, -4.0F, 0.0F, 0.0F, -0.2618F));
+
+		return LayerDefinition.create(meshdefinition, 128, 32);
+	}
+
+	@Override
+	public void setupAnim(EntityParasecta entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.wing1.yRot = (float) (Math.cos(ageInTicks * 1.3F) * Math.PI * 0.25F);
         this.wing2.yRot = -this.wing1.yRot;
-    }
+        this.head.yRot = netHeadYaw / (180F / (float) Math.PI);
+        this.head.xRot = headPitch / (180F / (float) Math.PI);
+	}
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(foot6, wing2, wing1, body, leg6, foot4, leg4, foot5, leg5, leg1, leg2, leg3, foot1, foot2, foot3, tusk1, head, tusk2);
-    }
-
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
-
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		foot6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wing2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		wing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		foot3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

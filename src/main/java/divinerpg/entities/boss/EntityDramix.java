@@ -2,21 +2,21 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.world.BossInfo.*;
-import net.minecraft.world.*;
+
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
 
 public class EntityDramix extends EntityDivineBoss {
-    public EntityDramix(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityDramix(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.7F;
     }
 
@@ -24,42 +24,32 @@ public class EntityDramix extends EntityDivineBoss {
     public boolean fireImmune() {
         return true;
     }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.dramixHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.dramixDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.dramixSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.dramixFollowRange).add(Attributes.KNOCKBACK_RESISTANCE, 1);
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         if (this.tickCount % 600 < 300) {
-            this.addEffect(new EffectInstance(Effects.INVISIBILITY, 5, 0, true, false));
+            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 5, 0, true, false));
         }
         super.tick();
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.DRAMIX;
+        return SoundRegistry.DRAMIX.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource s) {
-        return SoundRegistry.DRAMIX_HURT;
+        return SoundRegistry.DRAMIX_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.DRAMIX_HURT;
+        return SoundRegistry.DRAMIX_HURT.get();
     }
 
     @Override
-    public Color getBarColor() {
-        return Color.BLUE;
+    public BossBarColor getBarColor() {
+        return BossBarColor.BLUE;
     }
 }

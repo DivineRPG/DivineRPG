@@ -1,31 +1,31 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.controller.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.projectile.EntityWatcherShot;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
+import net.minecraft.sounds.*;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.*;
 import net.minecraftforge.api.distmarker.*;
 
-import java.util.*;
+import java.util.EnumSet;
 
-public class EntityTheWatcher extends EntityDivineFlyingMob {
-    private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(EntityTheWatcher.class, DataSerializers.BOOLEAN);
+public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAttackMob {
+    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(EntityTheWatcher.class, EntityDataSerializers.BOOLEAN);
     private int explosionStrength = 1;
 
-    public EntityTheWatcher(EntityType<? extends FlyingEntity> type, World worldIn) {
+    public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 5000;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);
@@ -35,29 +35,23 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     public boolean fireImmune() {
         return true;
     }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.theWatcherHealth).add(Attributes.ATTACK_DAMAGE, 0)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.theWatcherSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.theWatcherFollowRange).add(Attributes.FLYING_SPEED, EntityStats.theWatcherSpeed);
-    }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.6F;
     }
-    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
-        return level.dimension() == World.OVERWORLD;
+    public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
+        return level.dimension() == Level.OVERWORLD;
     }
 
     protected void registerGoals() {
-        addAttackingAI();
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
         this.goalSelector.addGoal(5, new EntityTheWatcher.RandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EntityTheWatcher.LookAroundGoal(this));
         this.goalSelector.addGoal(7, new EntityTheWatcher.FireballAttackGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_213812_1_) -> {
             return Math.abs(p_213812_1_.getY() - this.getY()) <= 4.0D;
         }));
     }
-
 
     @OnlyIn(Dist.CLIENT)
     public boolean isAttacking() {
@@ -78,13 +72,12 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        super.performRangedAttack(entity, range);
-        if (this.isAlive()) {
-            ProjectileEntity projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, level, this);
+        if (this.isAlive() && getTarget() != null) {
+            Projectile projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), level, this);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
-            double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+            double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
             this.level.addFreshEntity(projectile);
         }
@@ -93,7 +86,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
     public boolean hurt(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
-        } else if (source.getEntity() instanceof FireballEntity && source.getDirectEntity() instanceof PlayerEntity) {
+        } else if (source.getEntity() instanceof LargeFireball && source.getDirectEntity() instanceof Player) {
             super.hurt(source, 1000.0F);
             return true;
         } else {
@@ -106,39 +99,38 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         this.entityData.define(ATTACKING, false);
     }
 
-    public SoundCategory getSoundSource() {
-        return SoundCategory.HOSTILE;
+    public SoundSource getSoundSource() {
+        return SoundSource.HOSTILE;
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.ROAR;
+        return SoundEvents.GHAST_AMBIENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundRegistry.ROAR;
+        return SoundEvents.GHAST_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.ROAR;
+        return SoundEvents.GHAST_DEATH;
     }
 
     protected float getSoundVolume() {
         return 5.0F;
     }
 
-    public void addAdditionalSaveData(CompoundNBT compound) {
+    public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("ExplosionPower", this.explosionStrength);
     }
 
-    public void readAdditionalSaveData(CompoundNBT compound) {
+    public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if (compound.contains("ExplosionPower", 99)) {
             this.explosionStrength = compound.getInt("ExplosionPower");
         }
 
     }
-
 
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher mob;
@@ -163,8 +155,8 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         public void tick() {
             LivingEntity livingentity = this.mob.getTarget();
 //            double d0 = 64.0D;
-            if (livingentity.distanceToSqr(this.mob) < 4096.0D && this.mob.canSee(livingentity)) {
-                World world = this.mob.level;
+            if (livingentity.distanceToSqr(this.mob) < 4096.0D && this.mob.hasLineOfSight(livingentity)) {
+                Level world = this.mob.level;
                 ++this.chargeTime;
                 if (this.chargeTime == 10 && !this.mob.isSilent()) {
                     world.levelEvent(null, 1015, this.mob.blockPosition(), 0);
@@ -172,7 +164,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
                 if (this.chargeTime == 20) {
 //                    float d1 = 4.0F;
-                    Vector3d vector3d = this.mob.getViewVector(1.0F);
+                    Vec3 vector3d = this.mob.getViewVector(1.0F);
                     double d2 = livingentity.getX() - (this.mob.getX() + vector3d.x * 4.0D);
                     double d3 = livingentity.getY(0.5D) - (0.5D + this.mob.getY(0.5D));
                     double d4 = livingentity.getZ() - (this.mob.getZ() + vector3d.z * 4.0D);
@@ -180,7 +172,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
                         world.levelEvent(null, 1016, this.mob.blockPosition(), 0);
                     }
 
-                    EntityWatcherShot shot = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT, world, this.mob);
+                    EntityWatcherShot shot = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), world, this.mob);
                     shot.shoot(d2, d3, d4, 1, 1);
                     shot.setPos(this.mob.getX() + vector3d.x * 4.0D, this.mob.getY(0.5D) + 0.5D, shot.getZ() + vector3d.z * 4.0D);
                     world.addFreshEntity(shot);
@@ -208,8 +200,8 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
 
         public void tick() {
             if (this.mob.getTarget() == null) {
-                Vector3d vector3d = this.mob.getDeltaMovement();
-                this.mob.yRot = -((float)MathHelper.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                Vec3 vector3d = this.mob.getDeltaMovement();
+                this.mob.yRot = -((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
                 this.mob.yBodyRot = this.mob.yRot;
             } else {
                 LivingEntity livingentity = this.mob.getTarget();
@@ -217,7 +209,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
                 if (livingentity.distanceToSqr(this.mob) < 4096.0D) {
                     double d1 = livingentity.getX() - this.mob.getX();
                     double d2 = livingentity.getZ() - this.mob.getZ();
-                    this.mob.yRot = -((float)MathHelper.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.mob.yRot = -((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI);
                     this.mob.yBodyRot = this.mob.yRot;
                 }
             }
@@ -225,7 +217,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         }
     }
 
-    static class MoveHelperController extends MovementController {
+    static class MoveHelperController extends MoveControl {
         private final EntityTheWatcher mob;
         private int floatDuration;
 
@@ -235,24 +227,24 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         }
 
         public void tick() {
-            if (this.operation == MovementController.Action.MOVE_TO) {
+            if (this.operation == MoveControl.Operation.MOVE_TO) {
                 if (this.floatDuration-- <= 0) {
                     this.floatDuration += this.mob.getRandom().nextInt(5) + 2;
-                    Vector3d vector3d = new Vector3d(this.wantedX - this.mob.getX(), this.wantedY - this.mob.getY(), this.wantedZ - this.mob.getZ());
+                    Vec3 vector3d = new Vec3(this.wantedX - this.mob.getX(), this.wantedY - this.mob.getY(), this.wantedZ - this.mob.getZ());
                     double d0 = vector3d.length();
                     vector3d = vector3d.normalize();
-                    if (this.canReach(vector3d, MathHelper.ceil(d0))) {
+                    if (this.canReach(vector3d, (int) Math.ceil(d0))) {
                         this.mob.setDeltaMovement(this.mob.getDeltaMovement().add(vector3d.scale(0.1D)));
                     } else {
-                        this.operation = MovementController.Action.WAIT;
+                        this.operation = MoveControl.Operation.WAIT;
                     }
                 }
 
             }
         }
 
-        private boolean canReach(Vector3d vec, int ticks) {
-            AxisAlignedBB axisalignedbb = this.mob.getBoundingBox();
+        private boolean canReach(Vec3 vec, int ticks) {
+            AABB axisalignedbb = this.mob.getBoundingBox();
 
             for(int i = 1; i < ticks; ++i) {
                 axisalignedbb = axisalignedbb.move(vec);
@@ -274,7 +266,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         }
 
         public boolean canUse() {
-            MovementController movementcontroller = this.mob.getMoveControl();
+            MoveControl movementcontroller = this.mob.getMoveControl();
             if (!movementcontroller.hasWanted()) {
                 return true;
             } else {
@@ -291,7 +283,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob {
         }
 
         public void start() {
-            Random random = this.mob.getRandom();
+            RandomSource random = this.mob.getRandom();
             double d0 = this.mob.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             double d1 = this.mob.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             double d2 = this.mob.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);

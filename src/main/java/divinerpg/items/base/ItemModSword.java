@@ -1,52 +1,53 @@
 package divinerpg.items.base;
 
 import com.google.common.collect.*;
-import divinerpg.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 
-// speed slowdown from http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/modification-development/2679129-how-do-i-change-the-attack-cooldown-of-a-weapon
 public class ItemModSword extends SwordItem {
 
-    public ItemModSword(String name, Rarity rarity, IItemTier tier, ItemGroup group) {
-        super(tier, 1, 1.0F, new Item.Properties().tab(group).rarity(rarity));
-        setRegistryName(DivineRPG.MODID, name);
+    public ItemModSword(Rarity rarity, Tier tier) {
+        super(tier, 1, 1.0F, new Item.Properties().rarity(rarity));
     }
-    public ItemModSword(String name, IItemTier tier, Item.Properties properties) {
+
+    public ItemModSword(Tier tier) {
+        super(tier, 1, 1.0F, new Item.Properties());
+    }
+
+    public ItemModSword(Tier tier, Item.Properties properties) {
         super(tier, 1, 1.0F, properties);
-        setRegistryName(DivineRPG.MODID, name);
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         addAdditionalInformation(tooltip);
         if (getMaxDamage() == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());
         }
     }
 
-    protected void addAdditionalInformation(List<ITextComponent> list) {
+    protected void addAdditionalInformation(List<Component> list) {
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlotType slot, final ItemStack stack) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlot slot, final ItemStack stack) {
         final Multimap<Attribute, AttributeModifier> modifiers = ArrayListMultimap.create(super.getAttributeModifiers(slot, stack));
 
-        if (slot == EquipmentSlotType.MAINHAND) {
+        if (slot == EquipmentSlot.MAINHAND) {
             replaceModifier(modifiers, Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_UUID, getTier().getSpeed());
         }
 
         return ImmutableMultimap.copyOf(modifiers);
     }
+
     /**
      * Replace a modifier in the {@link Multimap} with a copy that's had {@code multiplier} applied to its value.
      *

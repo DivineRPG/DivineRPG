@@ -1,84 +1,81 @@
 package divinerpg.client.models.boss;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.entities.boss.EntityDramix;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class ModelDramix<T extends Entity> extends SegmentedModel<T>
-{
-    //fields
-    ModelRenderer Leg_Right;
-    ModelRenderer Leg_Left;
-    ModelRenderer Arm_Right;
-    ModelRenderer Arm_Left;
-    ModelRenderer Head;
-    ModelRenderer Chest;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelDramix()
-    {
-        texWidth = 64;
-        texHeight = 64;
-        Leg_Right = new ModelRenderer(this, 0, 22);
-        Leg_Right.addBox(-2F, -2F, -3F, 5, 15, 6);
-        Leg_Right.setPos(-4F, 11F, 1F);
-        Leg_Right.setTexSize(64, 64);
-        Leg_Right.mirror = true;
-        setRotation(Leg_Right, 0F, 0F, 0F);
-        Leg_Left = new ModelRenderer(this, 0, 22);
-        Leg_Left.addBox(-3F, -2F, -3F, 5, 15, 6);
-        Leg_Left.setPos(4F, 11F, 1F);
-        Leg_Left.setTexSize(64, 64);
-        Leg_Left.mirror = true;
-        setRotation(Leg_Left, 0F, 0F, 0F);
-        Arm_Right = new ModelRenderer(this, 22, 22);
-        Arm_Right.addBox(-2F, -2F, -3F, 4, 16, 6);
-        Arm_Right.setPos(-8F, -5F, 1F);
-        Arm_Right.setTexSize(64, 64);
-        Arm_Right.mirror = true;
-        setRotation(Arm_Right, 0F, 0F, 0F);
-        Arm_Left = new ModelRenderer(this, 22, 22);
-        Arm_Left.addBox(-2F, -2F, -3F, 4, 16, 6);
-        Arm_Left.setPos(8F, -5F, 1F);
-        Arm_Left.setTexSize(64, 64);
-        Arm_Left.mirror = true;
-        setRotation(Arm_Left, 0F, 0F, 0F);
-        Head = new ModelRenderer(this, 36, 0);
-        Head.addBox(-3F, -5F, -3F, 6, 10, 6);
-        Head.setPos(0F, -12F, 1F);
-        Head.setTexSize(64, 64);
-        Head.mirror = true;
-        setRotation(Head, 0F, 0F, 0F);
-        Chest = new ModelRenderer(this, 0, 0);
-        Chest.addBox(-6F, -7F, -2F, 12, 16, 6);
-        Chest.setPos(0F, 0F, 0F);
-        Chest.setTexSize(64, 64);
-        Chest.mirror = true;
-        setRotation(Chest, 0F, 0F, 0F);
-    }
+public class ModelDramix<E extends EntityDivineMonster> extends EntityModel<EntityDramix> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("dramix");
+	private final ModelPart Leg_Right;
+	private final ModelPart Leg_Left;
+	private final ModelPart Arm_Right;
+	private final ModelPart Arm_Left;
+	private final ModelPart Head;
+	private final ModelPart Chest;
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(Leg_Right, Leg_Left, Arm_Right, Arm_Left, Head, Chest);
-    }
+	public ModelDramix(ModelPart root) {
+		this.Leg_Right = root.getChild("Leg_Right");
+		this.Leg_Left = root.getChild("Leg_Left");
+		this.Arm_Right = root.getChild("Arm_Right");
+		this.Arm_Left = root.getChild("Arm_Left");
+		this.Head = root.getChild("Head");
+		this.Chest = root.getChild("Chest");
+	}
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public ModelDramix(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.Leg_Right = root.getChild("Leg_Right");
+		this.Leg_Left = root.getChild("Leg_Left");
+		this.Arm_Right = root.getChild("Arm_Right");
+		this.Arm_Left = root.getChild("Arm_Left");
+		this.Head = root.getChild("Head");
+		this.Chest = root.getChild("Chest");
+	}
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-                          float netHeadYaw, float headPitch) {
-        this.Arm_Right.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
-        this.Arm_Left.xRot = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation cubedef = new CubeDeformation(0.0F);
+
+		partdefinition.addOrReplaceChild("Leg_Right", CubeListBuilder.create().texOffs(0, 22).mirror().addBox(-2.0F, -2.0F, -3.0F, 5.0F, 15.0F, 6.0F, cubedef).mirror(false), PartPose.offset(-4.0F, 11.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Leg_Left", CubeListBuilder.create().texOffs(0, 22).mirror().addBox(-3.0F, -2.0F, -3.0F, 5.0F, 15.0F, 6.0F, cubedef).mirror(false), PartPose.offset(4.0F, 11.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Arm_Right", CubeListBuilder.create().texOffs(22, 22).mirror().addBox(-2.0F, -2.0F, -3.0F, 4.0F, 16.0F, 6.0F, cubedef).mirror(false), PartPose.offset(-8.0F, -5.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Arm_Left", CubeListBuilder.create().texOffs(22, 22).mirror().addBox(-2.0F, -2.0F, -3.0F, 4.0F, 16.0F, 6.0F, cubedef).mirror(false), PartPose.offset(8.0F, -5.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(36, 0).mirror().addBox(-3.0F, -5.0F, -3.0F, 6.0F, 10.0F, 6.0F, cubedef).mirror(false), PartPose.offset(0.0F, -12.0F, 1.0F));
+
+		partdefinition.addOrReplaceChild("Chest", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-6.0F, -7.0F, -2.0F, 12.0F, 16.0F, 6.0F, cubedef).mirror(false), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+
+	@Override
+	public void setupAnim(EntityDramix entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Arm_Right.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 2.0F * limbSwingAmount * 0.5F);
+        this.Arm_Left.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F);
         this.Arm_Right.zRot = 0.0F;
-        this.Leg_Left.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        this.Leg_Right.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+        this.Leg_Left.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+        this.Leg_Right.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
         this.Leg_Left.yRot = 0.0F;
         this.Leg_Right.yRot = 0.0F;
-    }
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Leg_Right.render(poseStack, buffer, packedLight, packedOverlay);
+		Leg_Left.render(poseStack, buffer, packedLight, packedOverlay);
+		Arm_Right.render(poseStack, buffer, packedLight, packedOverlay);
+		Arm_Left.render(poseStack, buffer, packedLight, packedOverlay);
+		Head.render(poseStack, buffer, packedLight, packedOverlay);
+		Chest.render(poseStack, buffer, packedLight, packedOverlay);
+	}
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/arlemite_chestplate"
+    "layer0": "divinerpg:item/arlemite_chestplate"
   }
 }

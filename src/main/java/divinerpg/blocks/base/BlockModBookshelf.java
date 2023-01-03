@@ -1,18 +1,19 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockModBookshelf extends BlockMod {
-    public BlockModBookshelf(String name, float hardness, Material material) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.STONE));
+    public BlockModBookshelf(float hardness, Material material) {
+        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.STONE));
     }
 
 
     @Override
-    public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
+    public float getEnchantPowerBonus(BlockState state, LevelReader world, BlockPos pos) {
         return 1.0F;
     }
 }

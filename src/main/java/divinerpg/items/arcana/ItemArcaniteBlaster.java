@@ -1,49 +1,33 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.entities.projectile.EntityShooterBullet;
 import divinerpg.enums.BulletType;
-import divinerpg.items.base.ItemModRanged;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.items.base.ItemModShotgun;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ThrowableEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
-public class ItemArcaniteBlaster extends ItemModRanged {
-
+public class ItemArcaniteBlaster extends ItemModShotgun {
     public ItemArcaniteBlaster() {
-        super("arcanite_blaster", RarityList.COMMON, null, BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON, SoundCategory.PLAYERS,
-                6500, 7, null, 20);
+        super("shooter_bullet", BulletType.ARCANITE_BLASTER, () -> SoundRegistry.GHAST_CANNON.get(), SoundSource.PLAYERS, 6500, 7, null, 20, 30);
     }
-
-    @Override
-    protected void spawnEntity(World world, PlayerEntity player, ItemStack stack, BulletType bulletType,
-                               EntityType entityType) {
-        Random rand = world.random;
-
-        for (int i = 0; i < 30; i++) {
-            ThrowableEntity entity = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET, player, world, BulletType.ARCANITE_BLASTER);
-            entity.xo += (rand.nextDouble() - rand.nextDouble()) * 1.5;
-            entity.yo += (rand.nextDouble() - rand.nextDouble()) * 1.5;
-            entity.zo += (rand.nextDouble() - rand.nextDouble()) * 1.5;
-            entity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
-            world.addFreshEntity(entity);
-        }
+    @SuppressWarnings("unchecked") @Override
+    protected ThrowableProjectile createProjectile(Level world, LivingEntity player) {
+    	return new EntityShooterBullet((EntityType<? extends ThrowableProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, this.entityType)), player, world, this.bulletType);
     }
-
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.bowDam("30x23"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

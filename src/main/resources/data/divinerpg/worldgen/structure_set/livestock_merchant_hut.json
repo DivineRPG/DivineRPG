@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:livestock_merchant_hut",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "random_spread",
+		"spread_type": "linear",
+		"salt": 25565,
+		"spacing": 25,
+		"separation": 14
+	}
+}

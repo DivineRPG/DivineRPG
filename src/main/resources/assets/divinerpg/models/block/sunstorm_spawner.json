@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:blocks/eden_spawner"
+    "all": "divinerpg:block/eden_spawner"
   }
 }

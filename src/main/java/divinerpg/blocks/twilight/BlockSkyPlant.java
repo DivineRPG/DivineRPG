@@ -1,12 +1,14 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import net.minecraft.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockModCrop;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockSkyPlant extends BlockModCrop {
     public BlockSkyPlant() {
-        super("sky_plant", 0.5);
+        super(0.5);
     }
 
 
@@ -16,8 +18,8 @@ public class BlockSkyPlant extends BlockModCrop {
     }
 
     @Override
-    protected IItemProvider getBaseSeedId() {
-        return ItemRegistry.skyPlantSeeds;
+    protected ItemLike getBaseSeedId() {
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sky_plant_seeds"));
     }
 
 }

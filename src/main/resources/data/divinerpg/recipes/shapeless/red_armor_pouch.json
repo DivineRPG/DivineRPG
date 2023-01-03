@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "divinerpg:armor_pouches"
+    },
+    {
+      "item": "divinerpg:red_diamond_chunk"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:red_armor_pouch"
+  }
+}

@@ -1,18 +1,22 @@
 package divinerpg.tiles;
 
+import divinerpg.DivineRPG;
 import divinerpg.registries.*;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.INameable;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.*;
+import net.minecraft.core.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-import java.util.Random;
-
-public class AltarOfCorruptionEntity extends TileEntity implements INameable, ITickableTileEntity {
+import javax.annotation.*;
+import java.util.*;
+public class AltarOfCorruptionEntity extends BlockEntity implements Nameable {
     public int time;
     public float flip;
     public float oFlip;
@@ -24,95 +28,94 @@ public class AltarOfCorruptionEntity extends TileEntity implements INameable, IT
     public float oRot;
     public float tRot;
     private static final Random RANDOM = new Random();
-    private ITextComponent name;
+    private Component name;
 
-    public AltarOfCorruptionEntity(TileEntityType<AltarOfCorruptionEntity> altarOfCorruptionTeType) {
-        super(TileRegistry.ALTAR_OF_CORRUPTION);
+    public AltarOfCorruptionEntity(BlockPos p_155501_, BlockState p_155502_) {
+        super(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), p_155501_, p_155502_);
     }
 
-    public CompoundNBT save(CompoundNBT compound) {
-        super.save(compound);
+    protected void saveAdditional(CompoundTag p_187500_) {
+        super.saveAdditional(p_187500_);
         if (this.hasCustomName()) {
-            compound.putString("CustomName", ITextComponent.Serializer.toJson(this.name));
-        }
-
-        return compound;
-    }
-
-    public void load(BlockState state, CompoundNBT nbt) {
-        super.load(state, nbt);
-        if (nbt.contains("CustomName", 8)) {
-            this.name = ITextComponent.Serializer.fromJson(nbt.getString("CustomName"));
+            p_187500_.putString("CustomName", Component.Serializer.toJson(this.name));
         }
 
     }
 
-    public void tick() {
-        this.oOpen = this.open;
-        this.oRot = this.rot;
-        PlayerEntity playerentity = this.level.getNearestPlayer((double)this.worldPosition.getX() + 0.5D, (double)this.worldPosition.getY() + 0.5D, (double)this.worldPosition.getZ() + 0.5D, 3.0D, false);
-        if (playerentity != null) {
-            double d0 = playerentity.getX() - ((double)this.worldPosition.getX() + 0.5D);
-            double d1 = playerentity.getZ() - ((double)this.worldPosition.getZ() + 0.5D);
-            this.tRot = (float)MathHelper.atan2(d1, d0);
-            this.open += 0.1F;
-            if (this.open < 0.5F || RANDOM.nextInt(40) == 0) {
-                float f1 = this.flipT;
+    public void load(CompoundTag p_155509_) {
+        super.load(p_155509_);
+        if (p_155509_.contains("CustomName", 8)) {
+            this.name = Component.Serializer.fromJson(p_155509_.getString("CustomName"));
+        }
+
+    }
+
+    public static void bookAnimationTick(Level p_155504_, BlockPos p_155505_, BlockState p_155506_, net.minecraft.world.level.block.entity.EnchantmentTableBlockEntity p_155507_) {
+        p_155507_.oOpen = p_155507_.open;
+        p_155507_.oRot = p_155507_.rot;
+        Player player = p_155504_.getNearestPlayer((double)p_155505_.getX() + 0.5D, (double)p_155505_.getY() + 0.5D, (double)p_155505_.getZ() + 0.5D, 3.0D, false);
+        if (player != null) {
+            double d0 = player.getX() - ((double)p_155505_.getX() + 0.5D);
+            double d1 = player.getZ() - ((double)p_155505_.getZ() + 0.5D);
+            p_155507_.tRot = (float)Mth.atan2(d1, d0);
+            p_155507_.open += 0.1F;
+            if (p_155507_.open < 0.5F || RANDOM.nextInt(40) == 0) {
+                float f1 = p_155507_.flipT;
 
                 do {
-                    this.flipT += (float)(RANDOM.nextInt(4) - RANDOM.nextInt(4));
-                } while(f1 == this.flipT);
+                    p_155507_.flipT += (float)(RANDOM.nextInt(4) - RANDOM.nextInt(4));
+                } while(f1 == p_155507_.flipT);
             }
         } else {
-            this.tRot += 0.02F;
-            this.open -= 0.1F;
+            p_155507_.tRot += 0.02F;
+            p_155507_.open -= 0.1F;
         }
 
-        while(this.rot >= (float)Math.PI) {
-            this.rot -= ((float)Math.PI * 2F);
+        while(p_155507_.rot >= (float)Math.PI) {
+            p_155507_.rot -= ((float)Math.PI * 2F);
         }
 
-        while(this.rot < -(float)Math.PI) {
-            this.rot += ((float)Math.PI * 2F);
+        while(p_155507_.rot < -(float)Math.PI) {
+            p_155507_.rot += ((float)Math.PI * 2F);
         }
 
-        while(this.tRot >= (float)Math.PI) {
-            this.tRot -= ((float)Math.PI * 2F);
+        while(p_155507_.tRot >= (float)Math.PI) {
+            p_155507_.tRot -= ((float)Math.PI * 2F);
         }
 
-        while(this.tRot < -(float)Math.PI) {
-            this.tRot += ((float)Math.PI * 2F);
+        while(p_155507_.tRot < -(float)Math.PI) {
+            p_155507_.tRot += ((float)Math.PI * 2F);
         }
 
         float f2;
-        for(f2 = this.tRot - this.rot; f2 >= (float)Math.PI; f2 -= ((float)Math.PI * 2F)) {
+        for(f2 = p_155507_.tRot - p_155507_.rot; f2 >= (float)Math.PI; f2 -= ((float)Math.PI * 2F)) {
         }
 
         while(f2 < -(float)Math.PI) {
             f2 += ((float)Math.PI * 2F);
         }
 
-        this.rot += f2 * 0.4F;
-        this.open = MathHelper.clamp(this.open, 0.0F, 1.0F);
-        ++this.time;
-        this.oFlip = this.flip;
-        float f = (this.flipT - this.flip) * 0.4F;
+        p_155507_.rot += f2 * 0.4F;
+        p_155507_.open = Mth.clamp(p_155507_.open, 0.0F, 1.0F);
+        ++p_155507_.time;
+        p_155507_.oFlip = p_155507_.flip;
+        float f = (p_155507_.flipT - p_155507_.flip) * 0.4F;
         float f3 = 0.2F;
-        f = MathHelper.clamp(f, -0.2F, 0.2F);
-        this.flipA += (f - this.flipA) * 0.9F;
-        this.flip += this.flipA;
+        f = Mth.clamp(f, -0.2F, 0.2F);
+        p_155507_.flipA += (f - p_155507_.flipA) * 0.9F;
+        p_155507_.flip += p_155507_.flipA;
     }
 
-    public ITextComponent getName() {
-        return (ITextComponent)(this.name != null ? this.name : new TranslationTextComponent(BlockRegistry.altarOfCorruption.getDescriptionId()));
+    public Component getName() {
+        return (Component)(this.name != null ? this.name : Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "altar_of_corruption")).getDescriptionId()));
     }
 
-    public void setCustomName(@Nullable ITextComponent p_200229_1_) {
-        this.name = p_200229_1_;
+    public void setCustomName(@Nullable Component p_59273_) {
+        this.name = p_59273_;
     }
 
     @Nullable
-    public ITextComponent getCustomName() {
+    public Component getCustomName() {
         return this.name;
     }
 }

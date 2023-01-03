@@ -1,0 +1,35 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		},
+		{
+			"item": "divinerpg:piece_of_raw_arcanium"
+		}
+	],
+	"result": {
+		"item": "divinerpg:raw_arcanium"
+	}
+}

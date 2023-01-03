@@ -3,18 +3,18 @@ package divinerpg.advancement;
 import com.google.common.collect.*;
 import com.google.gson.*;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.criterion.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.loot.*;
-import net.minecraft.util.*;
+import net.minecraft.advancements.critereon.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.*;
+import net.minecraft.server.level.*;
 
 import java.util.*;
 
-public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivineEye.Instance> {
-    public static class Instance extends CriterionInstance {
+public class AdvancementDivineEye implements CriterionTrigger<AdvancementDivineEye.Instance> {
+    public static class Instance extends AbstractCriterionTriggerInstance {
 
         public Instance(ResourceLocation parRL) {
-            super(parRL, EntityPredicate.AndPredicate.ANY);
+            super(parRL, EntityPredicate.Composite.ANY);
         }
 
         public boolean test() {
@@ -30,7 +30,7 @@ public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivine
             playerAdvancements = playerAdvancementsIn;
         }
 
-        public void add(ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
+        public void add(CriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
             listeners.add(listener);
         }
 
@@ -38,13 +38,13 @@ public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivine
             return listeners.isEmpty();
         }
 
-        public void remove(ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
+        public void remove(CriterionTrigger.Listener<AdvancementDivineEye.Instance> listener) {
             listeners.remove(listener);
         }
 
-        public void trigger(ServerPlayerEntity player) {
-            ArrayList<ICriterionTrigger.Listener<AdvancementDivineEye.Instance>> list = null;
-            for (ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener : listeners) {
+        public void trigger(ServerPlayer player) {
+            ArrayList<CriterionTrigger.Listener<AdvancementDivineEye.Instance>> list = null;
+            for (CriterionTrigger.Listener<AdvancementDivineEye.Instance> listener : listeners) {
                 if (listener.getTriggerInstance().test()) {
                     if (list == null) {
                         list = Lists.newArrayList();
@@ -53,7 +53,7 @@ public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivine
                 }
             }
             if (list != null) {
-                for (ICriterionTrigger.Listener<AdvancementDivineEye.Instance> listener1 : list) {
+                for (CriterionTrigger.Listener<AdvancementDivineEye.Instance> listener1 : list) {
                     listener1.run(playerAdvancements);
                 }
             }
@@ -78,7 +78,7 @@ public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivine
         return RL;
     }
 
-    public void trigger(ServerPlayerEntity parPlayer) {
+    public void trigger(ServerPlayer parPlayer) {
         AdvancementDivineEye.Listeners myCustomTrigger$listeners = listeners.get(parPlayer.getAdvancements());
         if (myCustomTrigger$listeners != null) {
             myCustomTrigger$listeners.trigger(parPlayer);
@@ -111,7 +111,7 @@ public class AdvancementDivineEye implements ICriterionTrigger<AdvancementDivine
     }
 
     @Override
-    public Instance createInstance(JsonObject json, ConditionArrayParser parser) {
+    public Instance createInstance(JsonObject json, DeserializationContext parser) {
         return new AdvancementDivineEye.Instance(getId());
     }
 }

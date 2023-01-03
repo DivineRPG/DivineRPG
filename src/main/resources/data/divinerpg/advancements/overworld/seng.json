@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:seng_spawn_egg"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.overworld.seng",
+      "strikethrough": true
+    },
+    "description": {
+      "translate": "advancement.divinerpg.overworld.seng.desc"
+    }
+  },
+  "parent": "divinerpg:overworld/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:seng"
+        }
+      }
+    }
+  }
+}

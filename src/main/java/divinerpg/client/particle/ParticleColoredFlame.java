@@ -1,18 +1,18 @@
 package divinerpg.client.particle;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleColoredFlame extends RisingParticle {
     private final float flameScale;
-    private IAnimatedSprite sprite;
+    private SpriteSet sprite;
 
-    protected ParticleColoredFlame(ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float r, float g, float b, IAnimatedSprite sprite) {
-        super(world, xCoordIn, yCoordIn, zCoordIn, (float) xSpeedIn, (float) ySpeedIn, (float) zSpeedIn, 0, 0, 0, 0, sprite, 0.5F, 20, -0.004D, false);
+    protected ParticleColoredFlame(ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float r, float g, float b, SpriteSet sprite) {
+        super(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
         this.xd = this.xd * 0.009999999776482582D + xSpeedIn;
         this.yd = this.yd * 0.009999999776482582D + ySpeedIn;
         this.zd = this.zd * 0.009999999776482582D + zSpeedIn;
@@ -27,9 +27,8 @@ public class ParticleColoredFlame extends RisingParticle {
         this.sprite = sprite;
     }
 
-    @Override
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     public void move(double p_106817_, double p_106818_, double p_106819_) {
@@ -44,7 +43,7 @@ public class ParticleColoredFlame extends RisingParticle {
 
     public int getLightColor(float p_106821_) {
         float f = ((float)this.age + p_106821_) / (float)this.lifetime;
-        f = MathHelper.clamp(f, 0.0F, 1.0F);
+        f = Mth.clamp(f, 0.0F, 1.0F);
         int i = super.getLightColor(p_106821_);
         int j = i & 255;
         int k = i >> 16 & 255;
@@ -57,14 +56,14 @@ public class ParticleColoredFlame extends RisingParticle {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class AquaProvider implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprites;
+    public static class AquaProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public AquaProvider(IAnimatedSprite spriteSet) {
+        public AquaProvider(SpriteSet spriteSet) {
             this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0, 1.0F, 1.0F, sprites);
             particle.pickSprite(this.sprites);
             particle.setColor(0, 1, 1);
@@ -72,14 +71,14 @@ public class ParticleColoredFlame extends RisingParticle {
         }
     }
     @OnlyIn(Dist.CLIENT)
-    public static class BlackProvider implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprites;
+    public static class BlackProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public BlackProvider(IAnimatedSprite spriteSet) {
+        public BlackProvider(SpriteSet spriteSet) {
             this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0, 0F, 0F, sprites);
             particle.pickSprite(this.sprites);
             particle.setColor(0, 0, 0);
@@ -87,14 +86,14 @@ public class ParticleColoredFlame extends RisingParticle {
         }
     }
     @OnlyIn(Dist.CLIENT)
-    public static class GreenProvider implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprites;
+    public static class GreenProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public GreenProvider(IAnimatedSprite spriteSet) {
+        public GreenProvider(SpriteSet spriteSet) {
             this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.466F, 0.866F, 0.466F, sprites);
             particle.pickSprite(this.sprites);
             particle.setColor(0.627F, 0.12549F, 0.941F);
@@ -102,14 +101,14 @@ public class ParticleColoredFlame extends RisingParticle {
         }
     }
     @OnlyIn(Dist.CLIENT)
-    public static class PurpleProvider implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprites;
+    public static class PurpleProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public PurpleProvider(IAnimatedSprite spriteSet) {
+        public PurpleProvider(SpriteSet spriteSet) {
             this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.627F, 0.12549F, 0.941F, sprites);
             particle.pickSprite(this.sprites);
             particle.setColor(0.466F, 0.866F, 0.466F);

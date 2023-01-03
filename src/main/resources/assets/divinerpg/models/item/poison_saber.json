@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/poison_saber"
+    "layer0": "divinerpg:item/poison_saber"
   }
 }

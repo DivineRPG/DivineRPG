@@ -1,49 +1,49 @@
 package divinerpg.entities.vanilla.nether;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.pathfinding.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.*;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-import java.util.*;
+import java.util.Random;
 
-public class EntityHellSpider extends EntityDivineMob {
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.defineId(EntityHellSpider.class, DataSerializers.BYTE);
+public class EntityHellSpider extends EntityDivineMonster {
+    private static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(EntityHellSpider.class, EntityDataSerializers.BYTE);
 
-    public EntityHellSpider(EntityType<? extends EntityHellSpider> type, World worldIn) {
+    public EntityHellSpider(EntityType<? extends EntityHellSpider> type, Level worldIn) {
         super(type, worldIn);
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new SwimGoal(this));
+        this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(4, new EntityHellSpider.AttackGoal(this));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new EntityHellSpider.TargetGoal<>(this, PlayerEntity.class));
-        this.targetSelector.addGoal(3, new EntityHellSpider.TargetGoal<>(this, IronGolemEntity.class));
+        this.targetSelector.addGoal(2, new EntityHellSpider.TargetGoal<>(this, Player.class));
+        this.targetSelector.addGoal(3, new EntityHellSpider.TargetGoal<>(this, IronGolem.class));
     }
 
     public double getMyRidingOffset() {return (double)(this.getBbHeight() * 0.5F);
     }
 
-    protected PathNavigator createNavigation(World worldIn) {
-        return new ClimberPathNavigator(this, worldIn);
+    protected PathNavigation createNavigation(Level worldIn) {
+        return new WallClimberNavigation(this, worldIn);
     }
     @Override
     public boolean fireImmune() {
@@ -61,14 +61,6 @@ public class EntityHellSpider extends EntityDivineMob {
 
     }
 
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellSpiderHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.hellSpiderDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.hellSpiderSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.hellSpiderFollowRange);
-    }
-
     @Override
     public boolean doHurtTarget(Entity entityIn) {
         if (super.doHurtTarget(entityIn)) {
@@ -83,7 +75,7 @@ public class EntityHellSpider extends EntityDivineMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.JUNGLE_SPIDER;
+        return SoundRegistry.JUNGLE_SPIDER.get();
     }
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
@@ -100,21 +92,20 @@ public class EntityHellSpider extends EntityDivineMob {
     public boolean isSuppressingSlidingDownLadder() {return this.isBesideClimbableBlock();
     }
 
-    public void makeStuckInBlock(BlockState state, Vector3d motionMultiplierIn) {
+    public void makeStuckInBlock(BlockState state, Vec3 motionMultiplierIn) {
         if (!state.is(Blocks.COBWEB)) {
             super.makeStuckInBlock(state, motionMultiplierIn);
         }
     }
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.ARTHROPOD;
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
     }
 
 
-    public boolean canBeAffected(EffectInstance potioneffectIn) {
-        if (potioneffectIn.getEffect() == Effects.POISON) {
-            net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent event = new net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent(this, potioneffectIn);
-            net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-            return event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW;
+    public boolean canBeAffected(MobEffectInstance potioneffectIn) {
+        if (potioneffectIn.getEffect() == MobEffects.POISON) {
+
+            return false;
         }
         return super.canBeAffected(potioneffectIn);
     }
@@ -133,7 +124,7 @@ public class EntityHellSpider extends EntityDivineMob {
         this.entityData.set(CLIMBING, b0);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.65F;
     }
 
@@ -147,7 +138,7 @@ public class EntityHellSpider extends EntityDivineMob {
         }
 
         public boolean canContinueToUse() {
-            float f = this.mob.getBrightness();
+            float f = this.mob.level.getLightEmission(mob.blockPosition());
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
                 this.mob.setTarget((LivingEntity)null);
                 return false;
@@ -161,19 +152,19 @@ public class EntityHellSpider extends EntityDivineMob {
         }
     }
 
-    public static class GroupData implements ILivingEntityData {
-        public Effect effect;
+    public static class GroupData implements SpawnGroupData {
+        public MobEffect effect;
 
         public void setRandomEffect(Random p_111104_1_) {
             int i = p_111104_1_.nextInt(5);
             if (i <= 1) {
-                this.effect = Effects.MOVEMENT_SPEED;
+                this.effect = MobEffects.MOVEMENT_SPEED;
             } else if (i <= 2) {
-                this.effect = Effects.DAMAGE_BOOST;
+                this.effect = MobEffects.DAMAGE_BOOST;
             } else if (i <= 3) {
-                this.effect = Effects.REGENERATION;
+                this.effect = MobEffects.REGENERATION;
             } else if (i <= 4) {
-                this.effect = Effects.INVISIBILITY;
+                this.effect = MobEffects.INVISIBILITY;
             }
 
         }
@@ -185,7 +176,7 @@ public class EntityHellSpider extends EntityDivineMob {
         }
 
         public boolean canUse() {
-            float f = this.mob.getBrightness();
+            float f = this.mob.level.getLightEmission(mob.blockPosition());
             return f >= 0.5F ? false : super.canUse();
         }
     }

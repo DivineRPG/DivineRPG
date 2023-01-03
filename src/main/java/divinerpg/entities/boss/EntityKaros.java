@@ -1,19 +1,23 @@
 package divinerpg.entities.boss;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.vethea.*;
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.monster.piglin.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -28,7 +32,7 @@ public class EntityKaros extends EntityDivineBoss {
     private List<BlockPos> ceiling = new ArrayList<BlockPos>();
     private List<BlockPos> cannons = new ArrayList<BlockPos>();
 
-    public EntityKaros(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityKaros(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         ability = DEFAULT;
     }
@@ -41,15 +45,15 @@ public class EntityKaros extends EntityDivineBoss {
 
 
     protected void registerGoals() {
-        this.targetSelector.addGoal(0, new SwimGoal(this));
+        this.targetSelector.addGoal(0, new FloatGoal(this));
         this.targetSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.targetSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.targetSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.targetSelector.addGoal(8, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.targetSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.targetSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(8, new MeleeAttackGoal(this, 1, true));
         this.targetSelector.addGoal(8, new FollowMobGoal(this, 1, 1, 1));
-        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, PiglinEntity.class));
-        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, Piglin.class));
+        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
 
@@ -59,11 +63,11 @@ public class EntityKaros extends EntityDivineBoss {
             switch (this.random.nextInt(3)) {
                 case 0:
                     ability = CEILING;
-                    this.playSound(SoundRegistry.CEILING_EXPLOSIONS, 1.0F, 1.0F);
+                    this.playSound(SoundRegistry.CEILING_EXPLOSIONS.get(), 1.0F, 1.0F);
                     if (!this.level.isClientSide) {
-                        List<PlayerEntity> players = this.level.getEntitiesOfClass(PlayerEntity.class, this.getBoundingBox().expandTowards(30, 30, 30));
-                        for (PlayerEntity p : players) {
-                            p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.explosion"), p.getUUID());
+                        List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+                        for (Player p : players) {
+                            p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.explosion"), true);
                         }
                     }
                     break;
@@ -96,11 +100,11 @@ public class EntityKaros extends EntityDivineBoss {
         super.tick();
         if (!hasLoadedBlocks) {
             if (!this.level.isClientSide) {
-                List<PlayerEntity> players = level.getEntitiesOfClass(PlayerEntity.class, this.getBoundingBox().expandTowards(30, 30, 30));
-                for (PlayerEntity p : players) {
-                    this.level.playSound(p, p.blockPosition(), SoundRegistry.KAROS_INTRO, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.game"), p.getUUID());
-                    p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.begin"), p.getUUID());
+                List<Player> players = level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+                for (Player p : players) {
+                    this.level.playSound(p, p.blockPosition(), SoundRegistry.KAROS_INTRO.get(), SoundSource.HOSTILE, 1.0F, 1.0F);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.game"), true);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.begin"), true);
                 }
             }
             for (int x = -40; x < 40; x++) {
@@ -108,9 +112,9 @@ public class EntityKaros extends EntityDivineBoss {
                     for (int z = -40; z < 40; z++) {
                         BlockPos currentPos = this.blockPosition().offset(x, y, z);
                         Block currentBlock = this.level.getBlockState(currentPos).getBlock();
-                        if (currentBlock == BlockRegistry.helioticBeam) {
+                        if (currentBlock == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "heliotic_beam"))) {
                             ceiling.add(currentPos);
-                        } else if (currentBlock == BlockRegistry.karosDispenser) {
+                        } else if (currentBlock == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_dispenser"))) {
                             cannons.add(currentPos);
                         }
                     }
@@ -119,9 +123,9 @@ public class EntityKaros extends EntityDivineBoss {
             hasLoadedBlocks = true;
         }
 
-        int var2;
+//        int var2;
         if (ability == CEILING && this.ceiling.size() != 0) {
-            var2 = this.random.nextInt(46);
+//            var2 = this.random.nextInt(46);
             if ((this.abilityCooldown % 8) == 0) {
                 BlockPos currentPos = ceiling.get(this.random.nextInt(ceiling.size()));
                 Block currentBlock = this.level.getBlockState(currentPos).getBlock();
@@ -131,7 +135,7 @@ public class EntityKaros extends EntityDivineBoss {
 
             }
         } else if (ability == CANNONS && this.cannons.size() != 0) {
-            var2 = this.random.nextInt(36);
+//            var2 = this.random.nextInt(36);
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.random.nextInt(cannons.size()));
                 Block currentBlock = this.level.getBlockState(currentPos).getBlock();
@@ -147,8 +151,8 @@ public class EntityKaros extends EntityDivineBoss {
                         int var3 = (int) Math.round(Math.cos(var4) * i);
 
                         BlockPos currentPos = new BlockPos((int) this.getX() + var1, (int) this.getY() - 1, (int) this.getZ() + var3);
-                        if (this.level.getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTileGreen) {
-                            this.level.setBlock(currentPos, BlockRegistry.karosHeatTileRed.defaultBlockState(), 0);
+                        if (this.level.getBlockState(currentPos).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_green"))) {
+                            this.level.setBlock(currentPos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red")).defaultBlockState(), 0);
                         }
                         var4 += Math.PI / 8.0D;
                     }
@@ -172,28 +176,28 @@ public class EntityKaros extends EntityDivineBoss {
         switch (random.nextInt(4)) {
             case 0:
                 langKey = "message.karos.laugh";
-                sound = SoundRegistry.KAROS_LAUGH;
+                sound = SoundRegistry.KAROS_LAUGH.get();
                 break;
 
             case 1:
                 langKey = "message.karos.doom";
-                sound = SoundRegistry.MEET_DOOM;
+                sound = SoundRegistry.MEET_DOOM.get();
                 break;
 
             case 2:
                 langKey = "message.karos.cmon";
-                sound = SoundRegistry.TRY_YOUR_BEST;
+                sound = SoundRegistry.TRY_YOUR_BEST.get();
                 break;
 
             default:
                 langKey = "message.karos.weak";
-                sound = SoundRegistry.YOU_CANT_KILL_ME;
+                sound = SoundRegistry.YOU_CANT_KILL_ME.get();
                 break;
         }
 
-        level.getEntitiesOfClass(PlayerEntity.class, this.getBoundingBox()
+        level.getEntitiesOfClass(Player.class, this.getBoundingBox()
                 .expandTowards(30, 30, 30))
-                .forEach(x -> x.sendMessage(LocalizeUtils.getClientSideTranslation(x, langKey), x.getUUID()));
+                .forEach(x -> x.displayClientMessage(LocalizeUtils.getClientSideTranslation(x, langKey), true));
 
         return sound;
     }
@@ -206,10 +210,5 @@ public class EntityKaros extends EntityDivineBoss {
     @Override
     public SoundEvent getDeathSound() {
         return null;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.karosHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.karosDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.karosSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.karosFollowRange);
     }
 }

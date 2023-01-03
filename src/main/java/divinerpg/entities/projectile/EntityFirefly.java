@@ -1,36 +1,40 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityFirefly extends EntityHeatSeekingProjectile {
 
-    public EntityFirefly(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityFirefly(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityFirefly(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntityFirefly(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
     }
-    public EntityFirefly(World world, PlayerEntity player) {
-        super(EntityRegistry.FIREFLY, world);
+    public EntityFirefly(Level world, Player player) {
+        super(EntityRegistry.FIREFLY.get(), world);
     }
 
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null && result.getEntity() instanceof LivingEntity){
-            LivingEntity entity = (LivingEntity) result.getEntity();
-            entity.hurt(DamageSource.thrown(this, this.getOwner()), 15);
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null && result.getEntity() instanceof LivingEntity) {
+                LivingEntity entity = (LivingEntity) result.getEntity();
+                entity.hurt(DamageSource.thrown(this, this.getOwner()), 15);
 
+            }
+
+            if (!this.level.isClientSide)
+                this.kill();
         }
-
-        if (!this.level.isClientSide)
-            this.kill();
     }
 }

@@ -1,0 +1,72 @@
+{
+  "variants": {
+	"hanging=false": [
+	  {
+      "model": "divinerpg:block/brittle_grass0"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass1"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass2"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass3"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass4"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass5"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass6"
+      },
+      {
+      "model": "divinerpg:block/brittle_grass7"
+      }
+    ],
+    "hanging=true": [
+      {
+      "model": "divinerpg:block/brittle_grass0",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass1",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass2",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass3",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass4",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass5",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass6",
+      "x": 180,
+      "y": 180
+      },
+      {
+      "model": "divinerpg:block/brittle_grass7",
+      "x": 180,
+      "y": 180
+      }
+    ]
+  }
+}

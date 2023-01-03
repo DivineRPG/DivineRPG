@@ -1,6 +1,7 @@
 {
   "parent": "block/cross",
+  "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:blocks/pink_glowbone_plant_top"
+    "cross": "divinerpg:block/pink_glowbone_plant_top"
   }
 }

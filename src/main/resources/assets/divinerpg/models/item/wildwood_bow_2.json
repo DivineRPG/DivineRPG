@@ -1,6 +1,6 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:items/wildwood_bow_2"
+    "layer0": "divinerpg:item/wildwood_bow_2"
   }
 }

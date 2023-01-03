@@ -1,28 +1,28 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.api.distmarker.*;
 
-import java.util.*;
+import java.util.Random;
 
 public class EntitySoundOfMusic extends DivineThrowable {
     Random r = new Random();
     int color = r.nextInt(25);
 
-    public EntitySoundOfMusic(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntitySoundOfMusic(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntitySoundOfMusic(EntityType<? extends ThrowableEntity> type, double x, double y, double z, World world) {
+    public EntitySoundOfMusic(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world) {
         super(type, x, y, z, world);
     }
 
-    public EntitySoundOfMusic(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntitySoundOfMusic(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
     }
 
@@ -35,13 +35,15 @@ public class EntitySoundOfMusic extends DivineThrowable {
     }
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null) {
-            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 10.0F);
-        }
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null) {
+                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 10.0F);
+            }
 
-        if (!this.level.isClientSide) {
-            this.kill();
+            if (!this.level.isClientSide) {
+                this.kill();
+            }
         }
     }
 }

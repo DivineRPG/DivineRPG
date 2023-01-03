@@ -1,75 +1,49 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
 
-public class EntityDuo extends EntityVetheaMob {
-
-    private static int ability;
-    private final int SLOW = 0, FAST = 1;
-    private int abilityCoolDown;
-    float moveSpeed = 0.25F;
-
-    public EntityDuo(EntityType<? extends MobEntity> type, World worldIn) {
+public class EntityDuo extends EntityDivineMonster {
+	public boolean isFast = false;
+    public int abilityCoolDown = 0;
+    public EntityDuo(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.duoHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.duoDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.duoSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.duoFollowRange);
-    }
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
-    protected void registerGoals() {
-    	if (ability == SLOW && this.abilityCoolDown == 0) {
-            ability = FAST;
-            this.abilityCoolDown = 350;
-            this.setSpeed(moveSpeed * 3);
-        }
-
-        this.abilityCoolDown--;
-
-        if (ability == FAST && this.abilityCoolDown == 0) {
-            ability = SLOW;
-            this.abilityCoolDown = 350;
-            this.setSpeed(moveSpeed);
-        }
-    	super.registerGoals();
-        addAttackingAI();
+    public void tick() {
+    	abilityCoolDown--;
+    	if(abilityCoolDown < 1) {
+    		isFast = !isFast;
+            abilityCoolDown = 180;
+            if(!(this instanceof EntityTwins)) {
+            	if(isFast) addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 255, 3, true, false, false));
+            	else removeEffect(MobEffects.MOVEMENT_SPEED);
+            }
+            playSound(SoundEvents.ZOMBIE_VILLAGER_CONVERTED, .6F, 1F / (this.random.nextFloat() * .4F + .8F));
+    	}
+    	super.tick();
     }
-
-    @Override
-    public int getSpawnLayer() {
-        return 1;
-    }
-
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.DUO;
+        return SoundRegistry.DUO.get();
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.DUO_HURT;
+        return SoundRegistry.DUO_HURT.get();
     }
-
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.DUO_HURT;
+        return SoundRegistry.DUO_HURT.get();
     }
 }

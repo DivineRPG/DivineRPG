@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "group": "divinerpg:ancient_brick",
+  "ingredient": {
+    "item": "divinerpg:ancient_bricks_breakable"
+  },
+  "result": "divinerpg:ancient_brick_stairs_breakable",
+  "count": 1
+}

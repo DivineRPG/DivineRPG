@@ -1,35 +1,29 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.teleport.SecondaryTeleporter;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.server.command.TextComponentHelper;
+import divinerpg.util.*;
+import divinerpg.util.teleport.*;
+import net.minecraft.*;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.*;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.server.command.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemTeleportationStar extends ItemTeleportationCrystal {
     private final static String posKey = "BlockPos";
     private final static String dimKey = "Dim";
 
     public ItemTeleportationStar() {
-        super("teleportation_star", 64);
+        super(64);
     }
 
     /**
@@ -40,7 +34,7 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
      * @param hasInfo  - is value already set
      * @return
      */
-    protected boolean trySetCords(CompoundNBT compound, PlayerEntity player, boolean hasInfo) {
+    protected boolean trySetCords(CompoundTag compound, Player player, boolean hasInfo) {
         if (hasInfo)
             return false;
 
@@ -51,29 +45,27 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
     }
 
 
-
-
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        CompoundNBT compound = getFromStack(player.getItemInHand(hand));
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        CompoundTag compound = getFromStack(player.getItemInHand(hand));
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
         if (!world.isClientSide) {
-            if(player.isCrouching()){
-                if(!trySetCords(compound, player, hasInfo)){
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
-                    message.withStyle(TextFormatting.RED);
-                    player.sendMessage(message, player.getUUID());
+            if (player.isCrouching()) {
+                if (!trySetCords(compound, player, hasInfo)) {
+                    MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
+                    message.withStyle(ChatFormatting.RED);
+                    player.displayClientMessage(message, true);
                 }
-                return ActionResult.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
             }
             if (!compound.contains(posKey) && !compound.contains(posKey)) {
-                TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_no_position");
-                message.withStyle(TextFormatting.RED);
-                player.sendMessage(message, player.getUUID());
-                return ActionResult.fail(player.getItemInHand(hand));
+                MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_no_position");
+                message.withStyle(ChatFormatting.RED);
+                player.displayClientMessage(message, true);
+                return InteractionResultHolder.fail(player.getItemInHand(hand));
             }
-            ServerWorld serverWorld = world.getServer().getLevel(RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(compound.getString(dimKey)))).getLevel();
-            if (player instanceof ServerPlayerEntity) {
+            ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
+            if (player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
                 if (!player.isCreative()) {
                     ItemStack stack = player.getItemInHand(hand);
@@ -81,25 +73,24 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
                         p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
                     });
                 }
-                return ActionResult.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
             }
         }
-        return ActionResult.fail(player.getItemInHand(hand));
+        return InteractionResultHolder.fail(player.getItemInHand(hand));
     }
 
 
-
-    private CompoundNBT getFromStack(ItemStack stack) {
+    private CompoundTag getFromStack(ItemStack stack) {
         if (!stack.hasTag()) {
-            stack.setTag(new CompoundNBT());
+            stack.setTag(new CompoundTag());
         }
 
         return stack.getTag();
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        CompoundNBT compound = getFromStack(stack);
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        CompoundTag compound = getFromStack(stack);
         if (compound.contains(dimKey)) {
             tooltip.add(LocalizeUtils.i18n("tooltip.dimension", compound.getString(dimKey)));
         }
@@ -109,7 +100,7 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
             tooltip.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
         }
 
-        tooltip.add(new TranslationTextComponent(""));
+        tooltip.add(Component.translatable(""));
         tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
     }
 }

@@ -1,88 +1,71 @@
 package divinerpg.client.models.arcana;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-public class ModelRejuvGolem<T extends Entity> extends SegmentedModel<T> 
-{
-    //fields
-	ModelRenderer head;
-    ModelRenderer rightshoulder;
-    ModelRenderer leftshoulder;
-    ModelRenderer middle;
-    ModelRenderer body;
-    ModelRenderer rightarm;
-    ModelRenderer leftarm;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelRejuvGolem()
-    {
-    	texWidth = 128;
-        texHeight = 32;
+public class ModelRejuvGolem<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rejuv_golem");
+	private final ModelPart head;
+	private final ModelPart rightshoulder;
+	private final ModelPart leftshoulder;
+	private final ModelPart middle;
+	private final ModelPart body;
+	private final ModelPart rightarm;
+	private final ModelPart leftarm;
 
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-4F, -8F, -4F, 4, 8, 8);
-        head.setPos(2F, 7F, 0F);
-        head.setTexSize(128, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        rightshoulder = new ModelRenderer(this, 73, 3);
-        rightshoulder.addBox(-4F, -6F, -3F, 6, 5, 6);
-        rightshoulder.setPos(-6F, 11F, 0F);
-        rightshoulder.setTexSize(128, 32);
-        rightshoulder.mirror = true;
-        setRotation(rightshoulder, -0.6981317F, 0F, 0F);
-        leftshoulder = new ModelRenderer(this, 73, 3);
-        leftshoulder.addBox(-2F, -6F, -3F, 6, 5, 6);
-        leftshoulder.setPos(6F, 11F, 0F);
-        leftshoulder.setTexSize(128, 32);
-        leftshoulder.mirror = true;
-        setRotation(leftshoulder, -0.6981317F, 0F, 0F);
-        middle = new ModelRenderer(this, 68, 18);
-        middle.addBox(-4F, 0F, -2F, 8, 5, 8);
-        middle.setPos(0F, 7F, -2F);
-        middle.setTexSize(128, 32);
-        middle.mirror = true;
-        setRotation(middle, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 25, 10);
-        body.addBox(-4F, 0F, -2F, 10, 12, 10);
-        body.setPos(-1F, 12F, -3F);
-        body.setTexSize(128, 32);
-        body.mirror = true;
-        setRotation(body, 0F, 0F, 0F);
-        rightarm = new ModelRenderer(this, 40, 16);
-        rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
-        rightarm.setPos(-6F, 11F, 0F);
-        rightarm.setTexSize(128, 32);
-        rightarm.mirror = true;
-        setRotation(rightarm, -0.6981317F, 0F, 0F);
-        leftarm = new ModelRenderer(this, 40, 16);
-        leftarm.addBox(-1F, -2F, -2F, 4, 12, 4);
-        leftarm.setPos(6F, 11F, 0F);
-        leftarm.setTexSize(128, 32);
-        leftarm.mirror = true;
-        setRotation(leftarm, -0.6981317F, 0F, 0F);
-    }
-    
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, rightshoulder, leftshoulder, middle, body, rightarm, leftarm);
-    }
+	public ModelRejuvGolem(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.head = root.getChild("head");
+		this.rightshoulder = root.getChild("rightshoulder");
+		this.leftshoulder = root.getChild("leftshoulder");
+		this.middle = root.getChild("middle");
+		this.body = root.getChild("body");
+		this.rightarm = root.getChild("rightarm");
+		this.leftarm = root.getChild("leftarm");
+	}
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -8.0F, -4.0F, 4.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.0F, 7.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rightshoulder", CubeListBuilder.create().texOffs(73, 3).mirror().addBox(-4.0F, -6.0F, -3.0F, 6.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 11.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftshoulder", CubeListBuilder.create().texOffs(73, 3).mirror().addBox(-2.0F, -6.0F, -3.0F, 6.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 11.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("middle", CubeListBuilder.create().texOffs(68, 18).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 5.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 7.0F, -2.0F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(25, 10).mirror().addBox(-4.0F, 0.0F, -2.0F, 10.0F, 12.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-1.0F, 12.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 11.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 11.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 32);
+	}
 
 	@Override
-	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
-        this.rightarm.xRot = this.rightshoulder.xRot = MathHelper.cos(limbSwing)*limbSwingAmount*0.75f - 0.6981317F;
-        this.leftarm.xRot = this.leftshoulder.xRot = MathHelper.cos(limbSwing + (float)Math.PI)*limbSwingAmount*0.75f - 0.6981317F;
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.rightarm.xRot = this.rightshoulder.xRot = Mth.cos(limbSwing)*limbSwingAmount*0.75f - 0.6981317F;
+		this.leftarm.xRot = this.leftshoulder.xRot = Mth.cos(limbSwing + (float)Math.PI)*limbSwingAmount*0.75f - 0.6981317F;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightshoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftshoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		middle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }
-

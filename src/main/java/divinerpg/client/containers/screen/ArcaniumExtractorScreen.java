@@ -1,25 +1,32 @@
 package divinerpg.client.containers.screen;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.systems.*;
 import divinerpg.*;
 import divinerpg.client.containers.*;
-import net.minecraft.client.gui.screen.inventory.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
 
-public class ArcaniumExtractorScreen extends ContainerScreen<ArcaniumExtractorContainer> {
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+
+public class ArcaniumExtractorScreen extends AbstractContainerScreen<ArcaniumExtractorContainer> {
     private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcanium_extractor.png");
 
-    public ArcaniumExtractorScreen(ArcaniumExtractorContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+    public ArcaniumExtractorScreen(ArcaniumExtractorContainer screenContainer, Inventory inv, Component titleIn) {
         super(screenContainer, inv, titleIn);
     }
 
     @Override
-    protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.minecraft.getTextureManager().bind(GUI_TEXTURE);
+    public void render(PoseStack matrixStack, int x, int y, float partialTicks) {
+        super.render(matrixStack, x, y, partialTicks);
+        renderTooltip(matrixStack, x, y);
+    }
+
+    @Override
+    protected void renderBg(PoseStack matrixStack, float partialTicks, int x, int y) {
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderTexture(0, GUI_TEXTURE);
         int i = this.leftPos;
         int j = this.topPos;
         this.blit(matrixStack, i, j, 0, 0, this.imageWidth, this.imageHeight);

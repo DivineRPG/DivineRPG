@@ -1,9 +1,9 @@
 {
   "variants": {
-    "age=0": {
+    "berries=false": {
       "model": "divinerpg:block/winterberry_bush"
     },
-    "age=1": {
+    "berries=true": {
       "model": "divinerpg:block/ripe_winterberry_bush"
     }
   }

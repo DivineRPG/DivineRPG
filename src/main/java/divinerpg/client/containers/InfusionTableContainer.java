@@ -1,58 +1,82 @@
 package divinerpg.client.containers;
 
-import divinerpg.*;
-import divinerpg.client.containers.slot.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.containers.slot.InfusionTableResultSlot;
 import divinerpg.recipe.*;
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
-import net.minecraft.item.crafting.*;
+import net.minecraft.core.*;
 import net.minecraft.network.*;
-import net.minecraft.network.play.server.*;
-import net.minecraft.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.network.protocol.game.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.*;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.network.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import javax.annotation.*;
 import java.util.*;
 
-public class InfusionTableContainer<C extends IInventory> extends Container {
-    public InfusionInventory infusion = new InfusionInventory(this);
-    public CraftResultInventory output = new CraftResultInventory(){};
-    public final IWorldPosCallable access;
-    private final PlayerEntity player;
+public class InfusionTableContainer extends AbstractContainerMenu {
+    public InfusionInventory inputs = new InfusionInventory(this);
+    public ResultContainer output = new ResultContainer();
+    private final ContainerLevelAccess access;
+    private final Player player;
 
-    public InfusionTableContainer(int id, PlayerInventory inventory) {
-        this(id, inventory, IWorldPosCallable.NULL);
-    }
+    public InfusionTableContainer(int screenId, Inventory plInventory, ContainerLevelAccess functionCaller) {
+        super(MenuTypeRegistry.INFUSION_TABLE.get(), screenId);
 
-    public InfusionTableContainer(int id, PlayerInventory inventory, IWorldPosCallable functionCaller) {
-        super(ContainerRegistry.INFUSION_TABLE.get(), id);
         this.access = functionCaller;
-        this.player = inventory.player;
-        addSlot(new Slot(infusion, 0, 18, 39));
-        addSlot(new Slot(infusion, 1, 18, 59));
-        addSlot(new InfusionTableResultSlot(player, infusion, output, 0, 63, 49));
+        this.player = plInventory.player;
+
+        addSlot(new Slot(inputs, 0, 18, 39));
+        addSlot(new Slot(inputs, 1, 18, 59));
+        addSlot(new InfusionTableResultSlot(player, inputs, output, 0, 63, 49));
 
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlot(new Slot(plInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
         for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(plInventory, k, 8 + k * 18, 142));
         }
-
     }
 
-    public InfusionTableContainer(int i, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
-        this(i, playerInventory);
+    public InfusionTableContainer(int id, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
+        this(id, inventory, ContainerLevelAccess.NULL);
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index) {
+    public void slotsChanged(Container inventory) {
+        access.execute((world, pos) -> slotChangedCraftingGrid(world, player, inputs, output));
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return stillValid(access, player, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")));
+    }
+
+    @Override
+    public void removed(Player player) {
+        super.removed(player);
+
+        access.execute((world, pos) -> clearContainer(player, inputs));
+    }
+
+    @Override
+    public boolean canTakeItemForPickAll(ItemStack stack, Slot slot) {
+        return slot.container != output && super.canTakeItemForPickAll(stack, slot);
+    }
+
+    @Override
+    public ItemStack quickMoveStack(Player player, int index) {
         ItemStack stack = ItemStack.EMPTY;
         Slot slot = slots.get(index);
 
@@ -92,93 +116,99 @@ public class InfusionTableContainer<C extends IInventory> extends Container {
         return stack;
     }
 
-    @Override
-    public void slotsChanged(IInventory inventory) {
-        access.execute((world, pos) -> slotChangedCraftingGrid(world, player, infusion, output));
-    }
-
-    @Override
-    public boolean stillValid(PlayerEntity player) {
-        return infusion.stillValid(player);
-    }
-
-    protected void slotChangedCraftingGrid(World world, PlayerEntity player, InfusionInventory inv, CraftResultInventory craftResult) {
-
-        Optional<InfusionTableRecipe> recipes = world.getServer().getRecipeManager().getRecipeFor(DivineRPG.INFUSION_TABLE_RECIPE, inv, world);
+    protected void slotChangedCraftingGrid(Level world, Player player, InfusionInventory inv, ResultContainer craftResult) {
+        Optional<InfusionTableRecipe> recipes = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
         if(recipes.isPresent()) {
             InfusionTableRecipe recipe = recipes.get();
             if (recipe.matches(inv, world) && craftResult.getItem(2).isEmpty()) {
                 craftResult.setItem(1, recipe.template.copy());
                 craftResult.setItem(2, recipe.output.copy());
-                ((ServerPlayerEntity)player).connection.send(new SSetSlotPacket(this.containerId, 1, recipe.template.copy()));
-                ((ServerPlayerEntity)player).connection.send(new SSetSlotPacket(this.containerId, 2, recipe.output.copy()));
+                ((ServerPlayer)player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 1, recipe.template.copy()));
+                ((ServerPlayer)player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 2, recipe.output.copy()));
                 inv.removeItem(0, recipe.getCount());
             }
         }
 
     }
 
-    public static class InfusionInventory extends CraftingInventory {
-        private final NonNullList<ItemStack> stackList;
-        private final Container container;
+    public static void openContainer(ServerPlayer player, BlockPos pos) {
+        NetworkHooks.openScreen(player, new MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId());
+            }
 
-        public InfusionInventory(Container container) {
+            @Nullable
+            @Override
+            public AbstractContainerMenu createMenu(int windowId, Inventory inv, Player player) {
+                return new InfusionTableContainer(windowId, inv, ContainerLevelAccess.create(player.level, pos));
+            }
+        }, pos);
+    }
+
+    public static class InfusionInventory extends CraftingContainer {
+        private final NonNullList<ItemStack> stackList;
+        private final AbstractContainerMenu eventListener;
+
+        public InfusionInventory(AbstractContainerMenu container) {
             super(container, 0, 0);
 
             this.stackList = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
-            this.container = container;
+            this.eventListener = container;
         }
 
         @Override
         public int getContainerSize() {
-            return stackList.size();
+            return 3;
         }
 
         @Override
         public boolean isEmpty() {
-            for (int i = 0; i < 2; i++) {
-                if (!stackList.get(i).isEmpty()) {
+            for (ItemStack stack : stackList) {
+                if (!stack.isEmpty())
                     return false;
-                }
             }
+
             return true;
         }
 
         @Override
         public ItemStack getItem(int index) {
-            return stackList.get(index);
+            return index >= getContainerSize() || index < 0 ? ItemStack.EMPTY : stackList.get(index);
         }
 
         @Override
-        public ItemStack removeItemNoUpdate(int slot) {
-            ItemStack itemStack = stackList.get(slot);
-            stackList.set(slot, ItemStack.EMPTY);
-            return itemStack;
+        public ItemStack removeItemNoUpdate(int index) {
+            return ContainerHelper.takeItem(stackList, index);
         }
 
         @Override
         public ItemStack removeItem(int index, int count) {
-            return !stackList.get(index).isEmpty() && count > 0 ? stackList.get(index).split(count) : ItemStack.EMPTY;
+            ItemStack stack = ContainerHelper.removeItem(stackList, index, count);
+
+            if (!stack.isEmpty())
+                eventListener.slotsChanged(this);
+
+            return stack;
         }
 
         @Override
         public void setItem(int index, ItemStack stack) {
             stackList.set(index, stack);
-            container.slotsChanged(this);
+            eventListener.slotsChanged(this);
         }
 
         @Override
         public void clearContent() {
-            for (int i = 0; i < 2; i++) {
-                stackList.set(i, ItemStack.EMPTY);
-            }
+            stackList.clear();
         }
 
         @Override
-        public void fillStackedContents(RecipeItemHelper recipeItemHelper) {
+        public void fillStackedContents(StackedContents recipeItemHelper) {
             for (ItemStack stack : stackList) {
                 recipeItemHelper.accountStack(stack);
             }
         }
     }
+
 }

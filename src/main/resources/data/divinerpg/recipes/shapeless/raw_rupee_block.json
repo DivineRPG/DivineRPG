@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    },
+    {
+      "item": "divinerpg:raw_rupee"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:raw_rupee_block",
+    "count": 1
+  }
+}

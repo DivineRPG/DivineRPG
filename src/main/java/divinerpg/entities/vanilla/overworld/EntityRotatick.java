@@ -1,51 +1,29 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.EntityDivineMob;
-import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import static divinerpg.registries.SoundRegistry.*;
 
-import java.util.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 
-public class EntityRotatick extends EntityDivineMob {
-
-    public EntityRotatick(EntityType<? extends EntityRotatick> type, World worldIn) {
-        super(type, worldIn);
-    }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-        return 0.75F;
-    }
+public class EntityRotatick extends EntityDivineMonster {
+	public EntityRotatick(EntityType<? extends Monster> type, Level level) {super(type, level);}
+	@Override
+	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.75F;}
+	@Override
+    protected SoundEvent getAmbientSound() {return ROTATICK.get();}
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.rotatickHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rotatickDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rotatickSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rotatickFollowRange);
-    }
+    protected SoundEvent getHurtSound(DamageSource source) {return ROTATICK_HURT.get();}
     @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.ROTATICK;
+    protected SoundEvent getDeathSound() {return ROTATICK_HURT.get();}
+    @Override public boolean isAggressive() {return true;}
+    public static boolean rotatickSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return worldIn.getLightEmission(pos) < 8 && pos.getY() < 0;
     }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ROTATICK_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.ROTATICK_HURT;
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getLightEmission(pos) < 8 && pos.getY() < 25;
-    }
-
 }

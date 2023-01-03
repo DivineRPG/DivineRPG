@@ -3,39 +3,41 @@ package divinerpg.blocks.vanilla;
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.*;
-import net.minecraft.particles.*;
-import net.minecraft.pathfinding.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.util.text.*;
+import net.minecraft.core.*;
+import net.minecraft.core.particles.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.server.level.*;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.pathfinder.*;
+import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.*;
-import java.util.*;
 
-public class BlockAltarOfCorruption extends ContainerBlock {
+public class BlockAltarOfCorruption extends BaseEntityBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
-    public BlockAltarOfCorruption(String name) {
+    public BlockAltarOfCorruption() {
         super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(5.0F, 2000.0F).sound(SoundType.STONE));
-        setRegistryName(name);
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
         super.animateTick(stateIn, worldIn, pos, rand);
 
         for(int i = -2; i <= 2; ++i) {
@@ -61,34 +63,36 @@ public class BlockAltarOfCorruption extends ContainerBlock {
 
     }
 
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
-        return BlockRenderType.MODEL;
+    public RenderShape getRenderShape(BlockState p_149645_1_) {
+        return RenderShape.MODEL;
     }
     public boolean useShapeForLightOcclusion(BlockState p_220074_1_) {
         return true;
     }
 
-    public TileEntity newBlockEntity(IBlockReader worldIn) {
-        return new AltarOfCorruptionEntity(TileRegistry.ALTAR_OF_CORRUPTION);
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new AltarOfCorruptionEntity(p_153215_, p_153216_);
     }
 
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         if (worldIn.isClientSide) {
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
         } else {
             player.openMenu(state.getMenuProvider(worldIn, pos));
-            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayerEntity) player, this);
-            return ActionResultType.CONSUME;
+            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayer) player, this);
+            return InteractionResult.CONSUME;
         }
     }
 
     @Nullable
-    public INamedContainerProvider getMenuProvider(BlockState state, World worldIn, BlockPos pos) {
-        TileEntity tileentity = worldIn.getBlockEntity(pos);
+    public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+        BlockEntity tileentity = worldIn.getBlockEntity(pos);
         if (tileentity instanceof AltarOfCorruptionEntity) {
-            ITextComponent itextcomponent = ((INameable)tileentity).getDisplayName();
-            return new SimpleNamedContainerProvider((id, inventory, player) -> {
-                return new AltarOfCorruptionContainer(id, inventory, IWorldPosCallable.create(worldIn, pos));
+            Component itextcomponent = ((Nameable)tileentity).getDisplayName();
+            return new SimpleMenuProvider((id, inventory, player) -> {
+                return new AltarOfCorruptionContainer(id, inventory, ContainerLevelAccess.create(worldIn, pos));
             }, itextcomponent);
         } else {
             return null;
@@ -98,9 +102,9 @@ public class BlockAltarOfCorruption extends ContainerBlock {
     /**
      * Called by ItemBlocks after a block is set in the world, to allow post-place logic
      */
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+    public void setPlacedBy(Level worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
-            TileEntity tileentity = worldIn.getBlockEntity(pos);
+            BlockEntity tileentity = worldIn.getBlockEntity(pos);
             if (tileentity instanceof AltarOfCorruptionEntity) {
                 ((AltarOfCorruptionEntity)tileentity).setCustomName(stack.getDisplayName());
             }
@@ -108,7 +112,7 @@ public class BlockAltarOfCorruption extends ContainerBlock {
 
     }
 
-    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+    public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
         return false;
     }
 }

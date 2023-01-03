@@ -1,54 +1,43 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.potion.*;
-import net.minecraft.state.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
-
-import java.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockModUnbreakable;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.*;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
-
-    public BlockHeatTrap(String name) {
-        super(name, Block.Properties.of(Material.STONE, MaterialColor.LAPIS).randomTicks().requiresCorrectToolForDrops().strength(-1, 3600000.0F).sound(SoundType.STONE));
-        this.registerDefaultState(stateDefinition.any().setValue(ACTIVE, Boolean.valueOf(false)));
+    public BlockHeatTrap() {
+        super(Block.Properties.of(Material.STONE, MaterialColor.LAPIS).randomTicks().requiresCorrectToolForDrops().strength(-1, 3600000.0F).sound(SoundType.STONE));
+        registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
-
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(ACTIVE);
     }
-
     @Override
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        boolean i = state.hasProperty(ACTIVE);
-        if (i == true && random.nextInt(5) == 0) {
-            worldIn.setBlock(pos, state.setValue(ACTIVE, Boolean.valueOf(false)), 2);
-        }
-
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
+        if(state.getValue(ACTIVE) && random.nextInt(5) == 0) worldIn.setBlock(pos, state.setValue(ACTIVE, false), 2);
     }
-
     @Override
-    public void updateEntityAfterFallOn(IBlockReader block, Entity entityIn){
-        if (!block.getBlockState(entityIn.blockPosition().below()).getBlockState().getValue(ACTIVE)) {
-            entityIn.level.setBlock(entityIn.blockPosition().below(), BlockRegistry.heatTrap.defaultBlockState().setValue(ACTIVE, Boolean.valueOf(true)), 1);
-        }
-        if (block.getBlockState(entityIn.blockPosition().below()).getValue(ACTIVE) && entityIn instanceof ServerPlayerEntity) {
-            LivingEntity entityLivingBase = (LivingEntity) entityIn;
-            if(entityLivingBase.getEffect(new EffectInstance(Effects.FIRE_RESISTANCE).getEffect()) == null) {
-                entityLivingBase.hurt(DamageSources.trapSource, 6);
-            }
-            entityLivingBase.setSecondsOnFire(12);
-        }
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+    	if(state.is(this) && !(entity instanceof LivingEntity && EnchantmentHelper.hasFrostWalker((LivingEntity) entity))) {
+            if(!state.getValue(ACTIVE)) level.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "heat_trap")).defaultBlockState().setValue(ACTIVE, true), 2);
+            entity.lavaHurt();
+    	}
     }
-
+    @Override
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float distance) {
+    	super.fallOn(level, state, pos, entity, distance);
+    	stepOn(level, pos, state, entity);
+    }
 }

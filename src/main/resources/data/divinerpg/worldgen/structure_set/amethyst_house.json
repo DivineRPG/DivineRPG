@@ -1,0 +1,20 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:amethyst_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 423155,
+    "locate_offset": [
+      0,
+      -80,
+      0
+    ],
+    "spread_type": "linear",
+    "spacing": 25,
+    "separation": 12
+  }
+}

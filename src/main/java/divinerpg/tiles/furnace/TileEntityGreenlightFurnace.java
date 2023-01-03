@@ -2,29 +2,17 @@ package divinerpg.tiles.furnace;
 
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.container.*;
+import net.minecraft.core.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
+import net.minecraft.world.level.block.state.*;
 
 public class TileEntityGreenlightFurnace extends TileEntityModFurnace {
-
-    public TileEntityGreenlightFurnace() {
-        super(TileRegistry.GREENLIGHT_FURNACE);
+    public TileEntityGreenlightFurnace(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.GREENLIGHT_FURNACE.get(), pos, state, "block.divinerpg.greenlight_furnace", 1.3);
     }
-
-    public String getFuranceName() {
-        return "block.divinerpg.greenlight_furnace";
-    }
-
-    int getFurnaceSpeed() {
-        return 140;
-    }
-
-    public boolean needsFuel() {
-        return true;
-    }
-
     @Override
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
-        return new GreenlightFurnaceContainer(i, playerInventory, this, this.dataAccess);
+    protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
+        return new GreenlightFurnaceContainer(i, playerInventory, this, dataAccess);
     }
 }

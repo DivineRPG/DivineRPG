@@ -1,138 +1,95 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 
-public class EntityLorgaflight extends EntityVetheaMob {
-	
-    private BlockPos currentFlightTarget;
-    private int flyTimer, spawnTick;
+import java.util.List;
+
+public class EntityLorgaflight extends EntityDivineFlyingMob {
     public boolean canSpawnMinions;
-
-    public EntityLorgaflight(EntityType<? extends MobEntity> type, World worldIn) {
-    	this(type, worldIn, true);
+    public EntityLorgaflight(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+        this(type, worldIn, true);
     }
-    
-    public EntityLorgaflight(EntityType<? extends MobEntity> type, World worldIn, boolean canSpawnMinions) {
-    	super(type, worldIn);
+    public EntityLorgaflight(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn, boolean canSpawnMinions) {
+        super(type, worldIn);
         this.canSpawnMinions = canSpawnMinions;
-        this.flyTimer = 0;
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.lorgaFlightHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.lorgaFlightDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.lorgaFlightSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.lorgaFlightFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
     @Override
-    public int getSpawnLayer() {
-    	return 3;
-    }
-    
-    @Override
-    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
+    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_, DamageSource damagesource) {
         return false;
     }
-
     @Override
     public void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
     }
-    
     @Override
     protected int calculateFallDamage(float p_225508_1_, float p_225508_2_) {
-    	return 0;
+        return 0;
     }
-
+    @Override
+    public double getMeleeAttackRangeSqr(LivingEntity entity) {
+        return super.getMeleeAttackRangeSqr(entity) * 1.5;
+    }
+    @Override
+    protected void customServerAiStep() {
+        if(getTarget() == null && random.nextBoolean()) {
+            List<EntityLorgaflight> list = level.getEntitiesOfClass(EntityLorgaflight.class, new AABB(blockPosition().offset(-5, -5, -5), blockPosition().offset(5, 5, 5)));
+            if(!list.isEmpty()) {
+                EntityLorgaflight partner = list.get(0);
+                if(partner.pathfindPos != null) pathfindPos = partner.pathfindPos.add(position().subtract(partner.position()).multiply(.9, .9, .9));
+            }
+        }
+        super.customServerAiStep();
+    }
     @Override
     public void tick() {
         super.tick();
-        this.setDeltaMovement(getDeltaMovement().x, 0.6000000238418579D, getDeltaMovement().y);
-
-        if (this.spawnTick == 0 && this.canSpawnMinions && !this.level.isClientSide) {
-            this.spawnTick = 200;
-            EntityLorgaflight var2 = new EntityLorgaflight(EntityRegistry.LORGA_FLIGHT, this.level, false);
-            var2.moveTo(this.getX() + 1, this.getY(), this.getZ() + 1, this.xRot, this.yRot);
-            this.level.addFreshEntity(var2);
-        }
-        else if (this.spawnTick > 0) {
-            this.spawnTick--;
+        if(!level.isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level.getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
+            BlockPos pos = blockPosition().offset(random.nextInt(5) - 2, 0, random.nextInt(5) - 2);
+            if(level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()) ((EntityLorgaflight) EntityRegistry.LORGA_FLIGHT.get().spawn((ServerLevel) level, (ItemStack) null, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
         }
     }
-    
     @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        if (this.getTarget() != null) {
-            int var1 = (int) this.getTarget().getX();
-            int var2 = (int) this.getTarget().getY();
-            int var3 = (int) this.getTarget().getZ();
-            this.currentFlightTarget = new BlockPos(var1, var2, var3);
-        }
-        else if (this.flyTimer != 0) {
-            this.flyTimer = 120;
-            this.currentFlightTarget = new BlockPos((int)(this.getX() + this.random.nextInt(16)) - 8, (int)(this.getY() + this.random.nextInt(32)) - 16, (int)(this.getZ() + this.random.nextInt(16)) - 8);
-        }
-
-        if (this.currentFlightTarget != null) {
-            double var1 = this.currentFlightTarget.getX() - this.getX();
-            double var3 = this.currentFlightTarget.getY() - this.getY();
-            double var5 = this.currentFlightTarget.getZ() - this.getZ();
-
-            if (Math.signum(var1) != 0 || Math.signum(var3) != 0 || Math.signum(var5) != 0) {
-                this.setDeltaMovement((Math.signum(var1) * 0.15D - this.getDeltaMovement().x) * 0.10000000149011612D, (Math.signum(var3) * 1.699999988079071D - this.getDeltaMovement().y) * 0.10000000149011612D, (Math.signum(var5) * 0.15D - this.getDeltaMovement().z) * 0.10000000149011612D);
-                float var7 = (float)(Math.atan2(this.getDeltaMovement().z, this.getDeltaMovement().z) * 180.0D / Math.PI) - 90.0F;
-                float var8 = MathHelper.wrapDegrees(var7 - this.xRot);
-                this.walkDist = 0.5F;
-                this.xRot += var8;
-            }
-            flyTimer--;
-        }
-        addAttackingAI();
+    public int getMaxSpawnClusterSize() {
+        return 8;
     }
-    
     @Override
-    public void addAdditionalSaveData(CompoundNBT tag) {
-    	super.addAdditionalSaveData(tag);
-    	tag.putBoolean("CanSpawnMinions", this.canSpawnMinions);
+    public boolean isMaxGroupSizeReached(int i) {
+        return i < 8;
     }
-    
+    @Override public boolean isAggressive() {return true;}
     @Override
-    public void readAdditionalSaveData(CompoundNBT tag) {
-    	super.readAdditionalSaveData(tag);
-    	this.canSpawnMinions = tag.getBoolean("CanSpawnMinions");
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putBoolean("CanSpawnMinions", canSpawnMinions);
     }
-
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        canSpawnMinions = tag.getBoolean("CanSpawnMinions");
+    }
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.LORGAFLIGHT;
+        return SoundRegistry.LORGAFLIGHT.get();
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.LORGAFLIGHT_HURT;
+        return SoundRegistry.LORGAFLIGHT_HURT.get();
     }
-
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.LORGAFLIGHT_HURT;
+        return SoundRegistry.LORGAFLIGHT_HURT.get();
     }
-
 }

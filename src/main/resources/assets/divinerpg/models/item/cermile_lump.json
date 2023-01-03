@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/cermile_lump"
+    "layer0": "divinerpg:item/cermile_lump"
   }
 }

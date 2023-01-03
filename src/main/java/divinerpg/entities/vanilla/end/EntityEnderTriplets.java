@@ -1,36 +1,29 @@
 package divinerpg.entities.vanilla.end;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.projectile.EntityEnderTripletsFireball;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
-import java.util.*;
-
-public class EntityEnderTriplets extends EntityDivineFlyingMob {
-    public EntityEnderTriplets(EntityType<? extends FlyingEntity> type, World worldIn) {
+public class EntityEnderTriplets extends EntityDivineFlyingMob implements RangedAttackMob {
+    public EntityEnderTriplets(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 5;
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.enderTripletsHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.enderTripletsSpeed).add(Attributes.FLYING_SPEED, EntityStats.enderTripletsSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.enderTripletsFollowRange);
     }
 
     @Override
     public boolean fireImmune() {
         return true;
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.0F;
-    }@Override
+    }
+    @Override
     protected float getSoundVolume() {
         return 10.0F;
     }
@@ -45,29 +38,29 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob {
     }
 
     @Override
+    public boolean isAggressive() {
+        return true;
+    }
+
     protected void registerGoals() {
         super.registerGoals();
-        addAttackingAI();
-        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 64.0F));
     }
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        super.performRangedAttack(entity, range);
-        if(this.isAlive()) {
+        if (this.isAlive()) {
             if (getTarget() != null) {
-                ProjectileEntity projectile = new EntityEnderTripletsFireball(EntityRegistry.ENDER_TRIPLETS_FIREBALL, level);
-                double d0 = getTarget().getX() - this.getX();
-                double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-                double d2 = getTarget().getZ() - this.getZ();
-                double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-                this.level.addFreshEntity(projectile);
+                Vec3 vector3d = this.getViewVector(1.0F);
+                double d0 = getTarget().getX() - (this.getX() + vector3d.x * 4.0D);
+                double d1 = getTarget().getY(0.5D) - (0.5D + this.getY(0.5D));
+                double d2 = getTarget().getZ() - (this.getZ() + vector3d.z * 4.0D);
+                double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
+                EntityEnderTripletsFireball shot = new EntityEnderTripletsFireball(level, this, d0, d1, d2);
+                shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 3.3F, 0.2F);
+                if (!this.level.isClientSide)
+                    this.level.addFreshEntity(shot);
             }
         }
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
     }
 }

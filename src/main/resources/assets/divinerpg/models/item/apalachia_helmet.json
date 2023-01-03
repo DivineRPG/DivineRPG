@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/apalachia_helmet"
+    "layer0": "divinerpg:item/apalachia_helmet"
   }
 }

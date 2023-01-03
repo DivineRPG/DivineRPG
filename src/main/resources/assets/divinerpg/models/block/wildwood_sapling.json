@@ -1,6 +1,7 @@
 {
   "parent": "block/cross",
+  "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:blocks/wildwood_sapling"
+    "cross": "divinerpg:block/wildwood_sapling"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:blocks/eden_log_side",
-    "south": "divinerpg:blocks/eden_log_side",
-    "north": "divinerpg:blocks/eden_log_side",
-    "west": "divinerpg:blocks/eden_log_side",
-    "particle": "divinerpg:blocks/eden_log_top",
-    "up": "divinerpg:blocks/eden_log_top",
-    "down": "divinerpg:blocks/eden_log_top"
+    "east": "divinerpg:block/eden_log_side",
+    "south": "divinerpg:block/eden_log_side",
+    "north": "divinerpg:block/eden_log_side",
+    "west": "divinerpg:block/eden_log_side",
+    "particle": "divinerpg:block/eden_log_top",
+    "up": "divinerpg:block/eden_log_top",
+    "down": "divinerpg:block/eden_log_top"
   }
 }

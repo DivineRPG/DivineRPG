@@ -1,149 +1,86 @@
 package divinerpg.blocks.base;
 
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.tags.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.lighting.*;
-import net.minecraft.world.server.*;
-import net.minecraftforge.common.*;
+import divinerpg.DivineRPG;
+import net.minecraft.core.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.lighting.LayerLightEngine;
+import net.minecraft.world.level.material.*;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.*;
-import java.util.function.*;
+import java.util.function.Supplier;
 
-public class BlockModGrass extends BlockMod implements IGrowable {
-    protected Supplier<Block> dirtSupplier;
-
-    public BlockModGrass(String name, Supplier<Block> dirt, float hardness, MaterialColor colour) {
-        super(name, Block.Properties.of(Material.DIRT, colour).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).harvestLevel(0).harvestTool(ToolType.SHOVEL).sound(SoundType.GRASS));
-        this.dirtSupplier = dirt;
+public class BlockModGrass extends BlockMod implements BonemealableBlock {
+    protected final Supplier<Block> dirtSupplier;
+    public BlockModGrass(Supplier<Block> dirt, float hardness, MaterialColor colour) {
+        super(Block.Properties.of(Material.DIRT, colour).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.GRASS));
+        dirtSupplier = dirt;
     }
-
     @Override
-    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, IPlantable plantable) {
-        return false;
+    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
+        return plantable.getPlant(world, pos.above()).getBlock() instanceof BushBlock;
     }
-
-    @Override
-    public boolean isBonemealSuccess(World p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
-        return p_180670_1_.getBlockState(p_180670_3_.above()).isAir();
+    public BlockState grass() {
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_brush")).defaultBlockState();
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "moonlight_fern")).defaultBlockState();
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_tallgrass")).defaultBlockState();
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_brush")).defaultBlockState();
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_brush")).defaultBlockState();
+        return null;
     }
-
-    @Override
-    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+        return level.getBlockState(pos.above()).isAir();
+    }
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
     }
-
-    public BlockState grass(){
-        BlockState state = Blocks.GRASS.defaultBlockState();
-        if(this.is(BlockRegistry.edenGrass)){
-            return BlockRegistry.edenBrush.defaultBlockState();
-        }
-        if(this.is(BlockRegistry.wildwoodGrass)){
-            return BlockRegistry.wildwoodTallgrass.defaultBlockState();
-        }
-        if(this.is(BlockRegistry.apalachiaGrass)){
-            return BlockRegistry.apalachiaTallgrass.defaultBlockState();
-        }
-        if(this.is(BlockRegistry.skythernGrass)){
-            return BlockRegistry.skythernBrush.defaultBlockState();
-        }
-        if(this.is(BlockRegistry.mortumGrass)){
-            return BlockRegistry.mortumBrush.defaultBlockState();
-        }
-        return state;
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    	BlockState myState = defaultBlockState();
+		place(level, random, pos.above(), myState);
+		place(level, random, pos.below(), myState);
+		place(level, random, pos.north(), myState);
+		place(level, random, pos.east(), myState);
+		place(level, random, pos.south(), myState);
+		place(level, random, pos.west(), myState);
     }
-
-    @Override
-    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void place(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+		if(random.nextBoolean()) pos = pos.relative(Direction.getRandom(random));
+		BlockPos above = pos.above();
+		if(canPropagate(state, level, pos)) {
+			if(level.getBlockState(pos).is(dirtSupplier.get())) level.setBlock(pos, state, 3);
+			else if(level.getBlockState(pos).is(this)) {
+				BlockState grass = grass();
+				if(grass != null) level.setBlock(above, grass, 3);
+			}
+		}
+	}
+    private static boolean canBeGrass(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos blockpos = pos.above();
-        BlockState blockstate = grass();
-
-
-        label48:
-        for (int i = 0; i < 128; ++i) {
-            BlockPos blockpos1 = blockpos;
-
-            for (int j = 0; j < i / 16; ++j) {
-                blockpos1 = blockpos1.offset(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (!worldIn.getBlockState(blockpos1.below()).is(this) || worldIn.getBlockState(blockpos1).isFertile(worldIn, blockpos1)) {
-                    continue label48;
-                }
-            }
-
-            BlockState blockstate2 = worldIn.getBlockState(blockpos1);
-            if (blockstate2.is(blockstate.getBlock()) && rand.nextInt(10) == 0) {
-                performBonemeal(worldIn, rand, blockpos1, blockstate2);
-            }
-
-            if (blockstate2.isAir()) {
-                BlockState blockstate1;
-                if (rand.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = worldIn.getBiome(blockpos1).getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) {
-                        continue;
-                    }
-
-                    ConfiguredFeature<?, ?> configuredfeature = list.get(0);
-                    FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                    blockstate1 = flowersfeature.getRandomFlower(rand, blockpos1, configuredfeature.config());
-                } else {
-                    blockstate1 = blockstate;
-                }
-
-                if (blockstate1.canSurvive(worldIn, blockpos1) && worldIn.getBlockState(blockpos1.below()) != blockstate1) {
-                    worldIn.setBlock(blockpos1, blockstate1, 3);
-                    if(blockstate1.getBlock() instanceof DoublePlantBlock){
-                        worldIn.setBlock(blockpos1.above(), blockstate1.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
-                    }
-                }
-            }
+        BlockState blockstate = level.getBlockState(blockpos);
+        if(blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) return true;
+        else if(blockstate.getFluidState().getAmount() == 8) return false;
+        else {
+            int i = LayerLightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));
+            return i < level.getMaxLightLevel();
         }
     }
-
-
-
-
-    private static boolean canBeGrass(BlockState p_220257_0_, IWorldReader p_220257_1_, BlockPos p_220257_2_) {
-        BlockPos blockpos = p_220257_2_.above();
-        BlockState blockstate = p_220257_1_.getBlockState(blockpos);
-        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowBlock.LAYERS) == 1) {
-            return true;
-        } else if (blockstate.getFluidState().getAmount() == 8) {
-            return false;
-        } else {
-            int i = LightEngine.getLightBlockInto(p_220257_1_, p_220257_0_, p_220257_2_, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(p_220257_1_, blockpos));
-            return i < p_220257_1_.getMaxLightLevel();
-        }
+    private static boolean canPropagate(BlockState state, LevelReader level, BlockPos pos) {
+        return canBeGrass(state, level, pos) && !level.getFluidState(pos.above()).is(FluidTags.WATER);
     }
-
-    private static boolean canPropagate(BlockState p_220256_0_, IWorldReader p_220256_1_, BlockPos p_220256_2_) {
-        BlockPos blockpos = p_220256_2_.above();
-        return canBeGrass(p_220256_0_, p_220256_1_, p_220256_2_) && !p_220256_1_.getFluidState(blockpos).is(FluidTags.WATER);
-    }
-
-    public void randomTick(BlockState p_225542_1_, ServerWorld p_225542_2_, BlockPos p_225542_3_, Random p_225542_4_) {
-        if (!canBeGrass(p_225542_1_, p_225542_2_, p_225542_3_)) {
-            if (!p_225542_2_.isAreaLoaded(p_225542_3_, 3)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
-            p_225542_2_.setBlockAndUpdate(p_225542_3_, dirtSupplier.get().defaultBlockState());
-        } else {
-            if (p_225542_2_.getMaxLocalRawBrightness(p_225542_3_.above()) >= 9) {
-                BlockState blockstate = this.defaultBlockState();
-
-                for(int i = 0; i < 4; ++i) {
-                    BlockPos blockpos = p_225542_3_.offset(p_225542_4_.nextInt(3) - 1, p_225542_4_.nextInt(5) - 3, p_225542_4_.nextInt(3) - 1);
-                    if (p_225542_2_.getBlockState(blockpos).is(dirtSupplier.get()) && canPropagate(blockstate, p_225542_2_, blockpos)) {
-                        p_225542_2_.setBlockAndUpdate(blockpos, blockstate.getBlockState());
-                    }
-                }
-            }
-
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if(!canBeGrass(state, level, pos)) level.setBlockAndUpdate(pos, dirtSupplier.get().defaultBlockState());
+        else if(level.getMaxLocalRawBrightness(pos.above()) >= 9) {
+        	BlockState blockstate = defaultBlockState();
+        	for(int i = 0; i < 4; ++i) {
+        		BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
+        		if(level.getBlockState(blockpos).is(dirtSupplier.get()) && canPropagate(blockstate, level, blockpos));
+        	}
         }
     }
 }

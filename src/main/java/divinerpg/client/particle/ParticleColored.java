@@ -1,77 +1,75 @@
 package divinerpg.client.particle;
 
+import divinerpg.client.particle.options.ParticleColouredType;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.*;
+import org.jetbrains.annotations.Nullable;
 
 @OnlyIn(Dist.CLIENT)
-public class ParticleColored extends SpriteTexturedParticle {
-    private ParticleColored(ClientWorld world, double x, double y, double z) {
-        super(world, x, y, z, 0.0D, 0.0D, 0.0D);
-        this.xd *= (double)0.8F;
-        this.yd *= (double)0.8F;
-        this.zd *= (double)0.8F;
-        this.yd = (double)(this.random.nextFloat() * 0.4F + 0.05F);
-        this.quadSize *= this.random.nextFloat() * 2.0F + 0.2F;
-        this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
+public class ParticleColored extends SimpleAnimatedParticle {
+
+    private double portalPosX, portalPosY, portalPosZ;
+    protected ParticleColored(ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet pSprites, int red, int green, int blue) {
+        super(world, x, y, z, pSprites, -0.05F);
+        this.xd = xSpeed;
+        this.yd = ySpeed;
+        this.zd = zSpeed;
+        this.quadSize *= 0.75F;
+        this.lifetime = 60 + this.random.nextInt(12);
+        this.portalPosX = this.x = x;
+        this.portalPosY = this.y = y;
+        this.portalPosZ = this.z = z;
+        this.setSpriteFromAge(pSprites);
+        this.setColor(red/255F, green/255F, blue/255F);
+        friction = 0.6F;
     }
 
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     public int getLightColor(float partialTick) {
-        int i = super.getLightColor(partialTick);
-        int j = 240;
-        int k = i >> 16 & 255;
-        return 240 | k << 16;
-    }
-
-    public float getScale(float scaleFactor) {
-        float f = ((float)this.age + scaleFactor) / (float)this.lifetime;
-        return this.quadSize * (1.0F - f * f);
+        int var2 = super.getLightColor(partialTick);
+        float var3 = (float) this.age / (float) this.lifetime;
+        var3 *= var3;
+        var3 *= var3;
+        int var4 = var2 & 255;
+        int var5 = var2 >> 16 & 255;
+        var5 += (int) (var3 * 15.0F * 16.0F);
+        if (var5 > 240)
+            var5 = 240;
+        return var4 | var5 << 16;
     }
 
     public void tick() {
         this.xo = this.x;
         this.yo = this.y;
         this.zo = this.z;
-        float f = (float)this.age / (float)this.lifetime;
-        if (this.random.nextFloat() > f) {
-            this.level.addParticle(ParticleTypes.SMOKE, this.x, this.y, this.z, this.xd, this.yd, this.zd);
-        }
-
-        if (this.age++ >= this.lifetime) {
-            this.shouldCull();
-        } else {
-            this.xd -= 0.03D;
-            this.move(this.xd, this.yd, this.zd);
-            this.xd *= (double)0.999F;
-            this.yd *= (double)0.999F;
-            this.zd *= (double)0.999F;
-            if (this.onGround) {
-                this.xd *= (double)0.7F;
-                this.zd *= (double)0.7F;
-            }
-
-        }
+        float var1 = (float) this.age / (float) this.lifetime;
+        float var2 = var1;
+        var1 = -var1 + var1 * var1 * 2.0F;
+        var1 = 1.0F - var1;
+        this.x = this.portalPosX + this.xd * var1;
+        this.y = this.portalPosY + this.yd * var1 + (1.0F - var2);
+        this.z = this.portalPosZ + this.zd * var1;
+        if (this.age++ >= this.lifetime)
+            this.remove();
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite spriteSet;
+    public static class Provider implements ParticleProvider<ParticleColouredType.ParticleColour> {
 
-        public Factory(IAnimatedSprite spriteSet) {
-            this.spriteSet = spriteSet;
+        private final SpriteSet sprites;
+
+        public Provider(SpriteSet pSprites) {
+            this.sprites = pSprites;
         }
 
-        public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleColored particle = new ParticleColored(worldIn, x, y, z);
-            particle.setSpriteFromAge(this.spriteSet);
-            return particle;
+        @Nullable
+        @Override
+        public Particle createParticle(ParticleColouredType.ParticleColour data, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+            return new ParticleColored(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites, data.getRed(), data.getGreen(), data.getBlue());
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/flaming_fury"
+    "layer0": "divinerpg:item/flaming_fury"
   }
 }

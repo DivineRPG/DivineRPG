@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_block"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_rupee_block"
+  },
+  "type": "minecraft:blasting",
+  "experience": 1.0,
+  "cookingtime": 300
+}

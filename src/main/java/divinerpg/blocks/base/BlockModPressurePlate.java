@@ -1,11 +1,12 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
 
 public class BlockModPressurePlate extends PressurePlateBlock {
 
-    public BlockModPressurePlate(String name) {
-        super(Sensitivity.EVERYTHING, AbstractBlock.Properties.copy(Blocks.OAK_PRESSURE_PLATE));
-        setRegistryName(name);
+    public BlockModPressurePlate() {
+        super(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE), SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON);
     }
 }

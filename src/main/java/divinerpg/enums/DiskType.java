@@ -1,7 +1,7 @@
 package divinerpg.enums;
 
-import divinerpg.DivineRPG;
-import net.minecraft.util.ResourceLocation;
+import divinerpg.*;
+import net.minecraft.resources.*;
 
 public enum DiskType {
     NONE(0, null),
@@ -23,14 +23,6 @@ public enum DiskType {
         this.texture = texture;
     }
 
-    public float getDamage() {
-        return this.damage;
-    }
-
-    public ResourceLocation getTexture() {
-        return this.texture;
-    }
-
     public static DiskType getDiskFromOrdinal(int ordinal) {
         if (ordinal < 0 || ordinal > values().length) {
             ordinal = 0;
@@ -39,6 +31,14 @@ public enum DiskType {
     }
 
     private static ResourceLocation ItemLoc(String name) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/items/" + name + ".png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/item/" + name + ".png");
+    }
+
+    public float getDamage() {
+        return this.damage;
+    }
+
+    public ResourceLocation getTexture() {
+        return this.texture;
     }
 }

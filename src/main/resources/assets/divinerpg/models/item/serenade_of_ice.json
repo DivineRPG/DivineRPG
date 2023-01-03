@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/serenade_of_ice"
+    "layer0": "divinerpg:item/serenade_of_ice"
   }
 }

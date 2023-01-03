@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_hoe"
+  },
+  "pattern": [
+    "II",
+    " S",
+    " S"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:bedrock_chunk"
+    }
+  }
+}

@@ -1,33 +1,37 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityCaveRock extends DivineThrowable {
 
 
-    public EntityCaveRock(EntityType<? extends ThrowableEntity> p_i48540_1_, World p_i48540_2_) {
+    public EntityCaveRock(EntityType<? extends ThrowableProjectile> p_i48540_1_, Level p_i48540_2_) {
         super(p_i48540_1_, p_i48540_2_);
     }
 
-    public EntityCaveRock(EntityType<? extends ThrowableEntity> p_i48541_1_, double p_i48541_2_, double p_i48541_4_, double p_i48541_6_, World p_i48541_8_) {
+    public EntityCaveRock(EntityType<? extends ThrowableProjectile> p_i48541_1_, double p_i48541_2_, double p_i48541_4_, double p_i48541_6_, Level p_i48541_8_) {
         super(p_i48541_1_, p_i48541_2_, p_i48541_4_, p_i48541_6_, p_i48541_8_);
     }
 
-    public EntityCaveRock(EntityType<? extends ThrowableEntity> p_i48542_1_, LivingEntity p_i48542_2_, World p_i48542_3_) {
+    public EntityCaveRock(EntityType<? extends ThrowableProjectile> p_i48542_1_, LivingEntity p_i48542_2_, Level p_i48542_3_) {
         super(p_i48542_1_, p_i48542_2_, p_i48542_3_);
     }
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null) {
-            result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 6.0F);
+    protected void onHitEntity(EntityHitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null) {
+                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 6.0F);
 
-            if (!this.level.isClientSide) {
-                this.kill();
+                if (!this.level.isClientSide) {
+                    this.kill();
+                }
             }
         }
     }

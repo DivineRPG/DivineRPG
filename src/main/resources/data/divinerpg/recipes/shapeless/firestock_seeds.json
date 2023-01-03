@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:firestock"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:firestock_seeds",
+    "count": 2
+  }
+}

@@ -1,251 +1,195 @@
 package divinerpg.client.models.twilight;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.mortum.EntityDemonOfDarkness;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelDemonOfDarkness<T extends Entity> extends SegmentedModel<T> {
-    //fields
-    ModelRenderer Main_Body;
-    ModelRenderer Lower_Body;
-    ModelRenderer Legbottom1;
-    ModelRenderer Legbottom2;
-    ModelRenderer Legbottom3;
-    ModelRenderer Legbottom4;
-    ModelRenderer Legbottom5;
-    ModelRenderer Legbottom6;
-    ModelRenderer Legbottom7;
-    ModelRenderer Legbottom8;
-    ModelRenderer Legbottom9;
-    ModelRenderer Legbottom10;
-    ModelRenderer Legbottom11;
-    ModelRenderer Legbottom12;
-    ModelRenderer Legbottom13;
-    ModelRenderer Legbottom14;
-    ModelRenderer Legbottom15;
-    ModelRenderer Legbottom16;
-    ModelRenderer Legbottom17;
-    ModelRenderer Legbottom18;
-    ModelRenderer Legbottom19;
-    ModelRenderer Legbottom20;
-    ModelRenderer Legbottom21;
-    ModelRenderer Legbottom22;
-    ModelRenderer Legbottom23;
-    ModelRenderer Legbottom24;
-    ModelRenderer Legbottom25;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelDemonOfDarkness()
-    {
-        texWidth = 64;
-        texHeight = 32;
 
-        Main_Body = new ModelRenderer(this, 0, 0);
-        Main_Body.addBox(0F, 0F, 0F, 10, 6, 10);
-        Main_Body.setPos(-6F, 6F, 2F);
-        Main_Body.setTexSize(64, 32);
-        Main_Body.mirror = true;
-        setRotation(Main_Body, 0F, 1.570796F, 0F);
-        Lower_Body = new ModelRenderer(this, 39, 20);
-        Lower_Body.addBox(0F, 0F, 0F, 6, 6, 6);
-        Lower_Body.setPos(-4F, 9F, 0F);
-        Lower_Body.setTexSize(64, 32);
-        Lower_Body.mirror = true;
-        setRotation(Lower_Body, 0F, 1.570796F, 0F);
-        Legbottom1 = new ModelRenderer(this, 14, 5);
-        Legbottom1.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom1.setPos(4F, 8F, 0F);
-        Legbottom1.setTexSize(64, 32);
-        Legbottom1.mirror = true;
-        setRotation(Legbottom1, 0F, 0F, 0F);
-        Legbottom2 = new ModelRenderer(this, 14, 5);
-        Legbottom2.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom2.setPos(4F, 8F, -7F);
-        Legbottom2.setTexSize(64, 32);
-        Legbottom2.mirror = true;
-        setRotation(Legbottom2, 0F, 0F, 0F);
-        Legbottom3 = new ModelRenderer(this, 14, 18);
-        Legbottom3.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom3.setPos(4F, 1F, -5F);
-        Legbottom3.setTexSize(64, 32);
-        Legbottom3.mirror = true;
-        setRotation(Legbottom3, -1.570796F, 1.570796F, 0F);
-        Legbottom4 = new ModelRenderer(this, 14, 18);
-        Legbottom4.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom4.setPos(4F, 1F, 2F);
-        Legbottom4.setTexSize(64, 32);
-        Legbottom4.mirror = true;
-        setRotation(Legbottom4, -1.570796F, 1.570796F, 0F);
-        Legbottom5 = new ModelRenderer(this, 14, 18);
-        Legbottom5.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom5.setPos(-2F, 15F, -4F);
-        Legbottom5.setTexSize(64, 32);
-        Legbottom5.mirror = true;
-        setRotation(Legbottom5, -1.570796F, 1.570796F, 0F);
-        Legbottom6 = new ModelRenderer(this, 14, 18);
-        Legbottom6.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom6.setPos(2F, 15F, -4F);
-        Legbottom6.setTexSize(64, 32);
-        Legbottom6.mirror = true;
-        setRotation(Legbottom6, -1.570796F, 1.570796F, 0F);
-        Legbottom7 = new ModelRenderer(this, 14, 18);
-        Legbottom7.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom7.setPos(-2F, 15F, 0F);
-        Legbottom7.setTexSize(64, 32);
-        Legbottom7.mirror = true;
-        setRotation(Legbottom7, -1.570796F, 1.570796F, 0F);
-        Legbottom8 = new ModelRenderer(this, 14, 18);
-        Legbottom8.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom8.setPos(2F, 15F, 0F);
-        Legbottom8.setTexSize(64, 32);
-        Legbottom8.mirror = true;
-        setRotation(Legbottom8, -1.570796F, 1.570796F, 0F);
-        Legbottom9 = new ModelRenderer(this, 14, 18);
-        Legbottom9.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom9.setPos(0F, 1F, 2F);
-        Legbottom9.setTexSize(64, 32);
-        Legbottom9.mirror = true;
-        setRotation(Legbottom9, -1.570796F, 1.570796F, 0F);
-        Legbottom10 = new ModelRenderer(this, 14, 18);
-        Legbottom10.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom10.setPos(0F, 1F, -5F);
-        Legbottom10.setTexSize(64, 32);
-        Legbottom10.mirror = true;
-        setRotation(Legbottom10, -1.570796F, 1.570796F, 0F);
-        Legbottom11 = new ModelRenderer(this, 14, 18);
-        Legbottom11.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom11.setPos(4F, 1F, -2F);
-        Legbottom11.setTexSize(64, 32);
-        Legbottom11.mirror = true;
-        setRotation(Legbottom11, -1.570796F, 1.570796F, 0F);
-        Legbottom12 = new ModelRenderer(this, 14, 18);
-        Legbottom12.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom12.setPos(0F, 1F, -2F);
-        Legbottom12.setTexSize(64, 32);
-        Legbottom12.mirror = true;
-        setRotation(Legbottom12, -1.570796F, 1.570796F, 0F);
-        Legbottom13 = new ModelRenderer(this, 14, 5);
-        Legbottom13.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom13.setPos(4F, 8F, -4F);
-        Legbottom13.setTexSize(64, 32);
-        Legbottom13.mirror = true;
-        setRotation(Legbottom13, 0F, 0F, 0F);
-        Legbottom14 = new ModelRenderer(this, 14, 18);
-        Legbottom14.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom14.setPos(-4F, 1F, -5F);
-        Legbottom14.setTexSize(64, 32);
-        Legbottom14.mirror = true;
-        setRotation(Legbottom14, -1.570796F, 1.570796F, 0F);
-        Legbottom15 = new ModelRenderer(this, 14, 18);
-        Legbottom15.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom15.setPos(-4F, 1F, -2F);
-        Legbottom15.setTexSize(64, 32);
-        Legbottom15.mirror = true;
-        setRotation(Legbottom15, -1.570796F, 1.570796F, 0F);
-        Legbottom16 = new ModelRenderer(this, 14, 18);
-        Legbottom16.addBox(0F, 0F, 0F, 2, 2, 5);
-        Legbottom16.setPos(-4F, 1F, 2F);
-        Legbottom16.setTexSize(64, 32);
-        Legbottom16.mirror = true;
-        setRotation(Legbottom16, -1.570796F, 1.570796F, 0F);
-        Legbottom17 = new ModelRenderer(this, 14, 5);
-        Legbottom17.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom17.setPos(4F, 5F, -7F);
-        Legbottom17.setTexSize(64, 32);
-        Legbottom17.mirror = true;
-        setRotation(Legbottom17, 0F, 0F, 0F);
-        Legbottom18 = new ModelRenderer(this, 14, 5);
-        Legbottom18.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom18.setPos(4F, 5F, -4F);
-        Legbottom18.setTexSize(64, 32);
-        Legbottom18.mirror = true;
-        setRotation(Legbottom18, 0F, 0F, 0F);
-        Legbottom19 = new ModelRenderer(this, 14, 5);
-        Legbottom19.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom19.setPos(4F, 5F, 0F);
-        Legbottom19.setTexSize(64, 32);
-        Legbottom19.mirror = true;
-        setRotation(Legbottom19, 0F, 0F, 0F);
-        Legbottom20 = new ModelRenderer(this, 14, 5);
-        Legbottom20.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom20.setPos(-9F, 5F, -7F);
-        Legbottom20.setTexSize(64, 32);
-        Legbottom20.mirror = true;
-        setRotation(Legbottom20, 0F, 0F, 0F);
-        Legbottom21 = new ModelRenderer(this, 14, 5);
-        Legbottom21.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom21.setPos(-9F, 5F, -4F);
-        Legbottom21.setTexSize(64, 32);
-        Legbottom21.mirror = true;
-        setRotation(Legbottom21, 0F, 0F, 0F);
-        Legbottom22 = new ModelRenderer(this, 14, 5);
-        Legbottom22.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom22.setPos(-9F, 5F, 0F);
-        Legbottom22.setTexSize(64, 32);
-        Legbottom22.mirror = true;
-        setRotation(Legbottom22, 0F, 0F, 0F);
-        Legbottom23 = new ModelRenderer(this, 14, 5);
-        Legbottom23.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom23.setPos(-9F, 8F, 0F);
-        Legbottom23.setTexSize(64, 32);
-        Legbottom23.mirror = true;
-        setRotation(Legbottom23, 0F, 0F, 0F);
-        Legbottom24 = new ModelRenderer(this, 14, 5);
-        Legbottom24.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom24.setPos(-9F, 8F, -4F);
-        Legbottom24.setTexSize(64, 32);
-        Legbottom24.mirror = true;
-        setRotation(Legbottom24, 0F, 0F, 0F);
-        Legbottom25 = new ModelRenderer(this, 14, 5);
-        Legbottom25.addBox(0F, 0F, 0F, 3, 2, 2);
-        Legbottom25.setPos(-9F, 8F, -7F);
-        Legbottom25.setTexSize(64, 32);
-        Legbottom25.mirror = true;
-        setRotation(Legbottom25, 0F, 0F, 0F);
-    }
+public class ModelDemonOfDarkness extends EntityModel<EntityDemonOfDarkness> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("demon_of_darkness");
+	private final ModelPart Main_Body;
+	private final ModelPart Lower_Body;
+	private final ModelPart Legbottom1;
+	private final ModelPart Legbottom2;
+	private final ModelPart Legbottom3;
+	private final ModelPart Legbottom4;
+	private final ModelPart Legbottom5;
+	private final ModelPart Legbottom6;
+	private final ModelPart Legbottom7;
+	private final ModelPart Legbottom8;
+	private final ModelPart Legbottom9;
+	private final ModelPart Legbottom10;
+	private final ModelPart Legbottom11;
+	private final ModelPart Legbottom12;
+	private final ModelPart Legbottom13;
+	private final ModelPart Legbottom14;
+	private final ModelPart Legbottom15;
+	private final ModelPart Legbottom16;
+	private final ModelPart Legbottom17;
+	private final ModelPart Legbottom18;
+	private final ModelPart Legbottom19;
+	private final ModelPart Legbottom20;
+	private final ModelPart Legbottom21;
+	private final ModelPart Legbottom22;
+	private final ModelPart Legbottom23;
+	private final ModelPart Legbottom24;
+	private final ModelPart Legbottom25;
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.Legbottom1.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom2.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom3.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom4.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom5.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom6.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom7.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom8.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom9.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom10.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom11.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom12.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom13.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom14.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom15.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom16.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom17.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom18.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom19.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom20.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom21.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom22.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom23.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom24.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-        this.Legbottom25.xRot = 0.2F * MathHelper.sin(ageInTicks * 0.3F) + 0.4F;
-    }
+	public ModelDemonOfDarkness(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.Main_Body = root.getChild("Main_Body");
+		this.Lower_Body = root.getChild("Lower_Body");
+		this.Legbottom1 = root.getChild("Legbottom1");
+		this.Legbottom2 = root.getChild("Legbottom2");
+		this.Legbottom3 = root.getChild("Legbottom3");
+		this.Legbottom4 = root.getChild("Legbottom4");
+		this.Legbottom5 = root.getChild("Legbottom5");
+		this.Legbottom6 = root.getChild("Legbottom6");
+		this.Legbottom7 = root.getChild("Legbottom7");
+		this.Legbottom8 = root.getChild("Legbottom8");
+		this.Legbottom9 = root.getChild("Legbottom9");
+		this.Legbottom10 = root.getChild("Legbottom10");
+		this.Legbottom11 = root.getChild("Legbottom11");
+		this.Legbottom12 = root.getChild("Legbottom12");
+		this.Legbottom13 = root.getChild("Legbottom13");
+		this.Legbottom14 = root.getChild("Legbottom14");
+		this.Legbottom15 = root.getChild("Legbottom15");
+		this.Legbottom16 = root.getChild("Legbottom16");
+		this.Legbottom17 = root.getChild("Legbottom17");
+		this.Legbottom18 = root.getChild("Legbottom18");
+		this.Legbottom19 = root.getChild("Legbottom19");
+		this.Legbottom20 = root.getChild("Legbottom20");
+		this.Legbottom21 = root.getChild("Legbottom21");
+		this.Legbottom22 = root.getChild("Legbottom22");
+		this.Legbottom23 = root.getChild("Legbottom23");
+		this.Legbottom24 = root.getChild("Legbottom24");
+		this.Legbottom25 = root.getChild("Legbottom25");
+	}
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(Main_Body, Lower_Body, Legbottom1, Legbottom2, Legbottom3, Legbottom4, Legbottom5, Legbottom6, Legbottom7, Legbottom8, Legbottom9, Legbottom10, Legbottom11, Legbottom12, Legbottom13, Legbottom14, Legbottom15, Legbottom16, Legbottom17, Legbottom18, Legbottom19, Legbottom20, Legbottom21, Legbottom22, Legbottom23, Legbottom24, Legbottom25);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		partdefinition.addOrReplaceChild("Main_Body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 6.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 6.0F, 2.0F, 0.0F, 1.5708F, 0.0F));
 
+		partdefinition.addOrReplaceChild("Lower_Body", CubeListBuilder.create().texOffs(39, 20).mirror().addBox(0.0F, 0.0F, 0.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 9.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom1", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom2", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 8.0F, -7.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom3", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 1.0F, -5.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom4", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 1.0F, 2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom5", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 15.0F, -4.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom6", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 15.0F, -4.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom7", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 15.0F, 0.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom8", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 15.0F, 0.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom9", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 1.0F, 2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom10", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 1.0F, -5.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom11", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.0F, 1.0F, -2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom12", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 1.0F, -2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom13", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 8.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom14", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 1.0F, -5.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom15", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 1.0F, -2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom16", CubeListBuilder.create().texOffs(14, 18).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.0F, 1.0F, 2.0F, -1.5708F, 1.5708F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom17", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 5.0F, -7.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom18", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 5.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom19", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 5.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom20", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 5.0F, -7.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom21", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 5.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom22", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 5.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom23", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 8.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom24", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 8.0F, -4.0F));
+
+		partdefinition.addOrReplaceChild("Legbottom25", CubeListBuilder.create().texOffs(14, 5).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-9.0F, 8.0F, -7.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(EntityDemonOfDarkness entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Legbottom1.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom2.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom3.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom4.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom5.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom6.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom7.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom8.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom9.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom10.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom11.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom12.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom13.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom14.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom15.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom16.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom17.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom18.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom19.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom20.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom21.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom22.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom23.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom24.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+		this.Legbottom25.xRot = 0.2F * Mth.sin(ageInTicks * 0.3F) + 0.4F;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Main_Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Lower_Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom21.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom22.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom23.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom24.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Legbottom25.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

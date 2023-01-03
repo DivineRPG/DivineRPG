@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/eternal_archer_crystal"
+    "layer0": "divinerpg:item/eternal_archer_crystal"
   }
 }

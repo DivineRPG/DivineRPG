@@ -2,40 +2,45 @@ package divinerpg.entities.projectile;
 
 import divinerpg.enums.*;
 import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 
 public class EntityGeneralsStaff extends EntityColoredBullet {
-    EntityType<? extends ThrowableEntity> type;
+    EntityType<? extends ThrowableProjectile> type;
 
-    public EntityGeneralsStaff(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityGeneralsStaff(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
         this.type = type;
     }
 
-    public EntityGeneralsStaff(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntityGeneralsStaff(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world, BulletType.GENERALS_STAFF_SHOT);
         this.type = type;
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
-        super.onHit(result);
-        if (!this.level.isClientSide) {
-            for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                EntityColoredBullet e = new EntityColoredBullet(EntityRegistry.COLORED_BULLET, (LivingEntity) this.getOwner(), level,
-                        BulletType.GENERALS_STAFF_SPRAY);
+    protected void onHit(HitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
+            super.onHit(result);
+            if (!this.level.isClientSide) {
+                for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
+                    EntityColoredBullet e = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), (LivingEntity) this.getOwner(), level,
+                            BulletType.GENERALS_STAFF_SPRAY);
+                    setHere(e);
+                    e.shoot(Math.cos(theta), 0.4, Math.sin(theta), 0.7f, 0);
+                    this.level.addFreshEntity(e);
+                }
+
+                EntityColoredBullet e = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), (LivingEntity) getOwner(), this.level, BulletType.GENERALS_STAFF_SPRAY);
                 setHere(e);
-                e.shoot(Math.cos(theta), 0.4, Math.sin(theta), 0.7f, 0);
+                e.shoot(0, 1, 0, 0.7f, 0);
                 this.level.addFreshEntity(e);
             }
-
-            EntityColoredBullet e = new EntityColoredBullet(EntityRegistry.COLORED_BULLET, (LivingEntity) getOwner(), this.level, BulletType.GENERALS_STAFF_SPRAY);
-            setHere(e);
-            e.shoot(0, 1, 0, 0.7f, 0);
-            this.level.addFreshEntity(e);
         }
     }
 

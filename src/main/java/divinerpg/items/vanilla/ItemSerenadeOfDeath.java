@@ -1,41 +1,40 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.items.base.*;
+import divinerpg.entities.projectile.EntitySerenadeOfDeath;
+import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemSerenadeOfDeath extends ItemMod {
 
     public ItemSerenadeOfDeath() {
-        super("serenade_of_death", new Properties().tab(DivineRPG.tabs.ranged).durability(500));
+        super(new Properties().durability(500));
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_death"));
         tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
         tooltip.add(LocalizeUtils.rangedDam(14));
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
         if (!world.isClientSide) {
-            world.playSound(null, player.blockPosition(), SoundRegistry.SERENADE, SoundCategory.MASTER, 1, 1);
-            ThrowableEntity bullet = new EntitySerenadeOfDeath(EntityRegistry.SERENADE_OF_DEATH, player, world);
+            world.playSound(null, player.blockPosition(), SoundRegistry.SERENADE.get(), SoundSource.MASTER, 1, 1);
+            ThrowableProjectile bullet = new EntitySerenadeOfDeath(EntityRegistry.SERENADE_OF_DEATH.get(), player, world);
             bullet.moveTo(player.getX(), player.getEyeY(), player.getZ());
             bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
             world.addFreshEntity(bullet);
@@ -45,6 +44,6 @@ public class ItemSerenadeOfDeath extends ItemMod {
                 });
             }
         }
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
+        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, stack);
     }
 }

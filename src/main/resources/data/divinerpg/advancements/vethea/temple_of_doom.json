@@ -18,7 +18,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:cermile_lump"
+            "items": [
+              "divinerpg:cermile_lump"
+            ]
           }
         ]
       }

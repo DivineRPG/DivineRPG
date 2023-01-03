@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "cross": "divinerpg:block/ripe_winterberry_vines"
+  }
+}

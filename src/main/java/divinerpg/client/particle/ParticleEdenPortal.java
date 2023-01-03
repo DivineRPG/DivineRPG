@@ -1,41 +1,45 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.ActiveRenderInfo;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
 import net.minecraftforge.api.distmarker.*;
 
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.SimpleParticleType;
+
 @OnlyIn(Dist.CLIENT)
-public class ParticleEdenPortal extends SpriteTexturedParticle
+public class ParticleEdenPortal extends TextureSheetParticle
 {
-    IAnimatedSprite animatedSprite;
-    private float sparkleParticleScale;
+    SpriteSet animatedSprite;
     private double portalPosX;
     private double portalPosY;
     private double portalPosZ;
-    public ParticleEdenPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, IAnimatedSprite sprite)
+    private float portalParticleScale;
+    public ParticleEdenPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
     }
 
-    public ParticleEdenPortal(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
+    public ParticleEdenPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
-        this.xd = xSpeed;
-        this.yd = ySpeed;
-        this.zd = zSpeed;
+        this.xd = 0;
+        this.yd = 0;
+        this.zd = 0;
+        this.quadSize *= 0.75F;
+        this.quadSize *= 0.9F;
+        this.portalParticleScale = this.quadSize;
+        this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
+        this.lifetime = (int)((float)this.lifetime * 0.5F);
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
-        this.random.nextFloat();
-        float var14 = this.random.nextFloat() * 0.6F + 0.4F;
-        this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
-        this.bCol = 1.0F * var14;
-        this.lifetime = (int) (Math.random() * 10.0D) + 40;
-        this.age = (int) (Math.random() * 10.0D) + 40;
+        float f = (float)Math.random() * 0.4F + 0.6F;
+        this.gCol = 1.0F * f;
+        this.rCol = 0.95F;
+        this.bCol = 0.24F;
         this.animatedSprite = sprite;
     }
 
@@ -58,12 +62,12 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
 
 
     @Override
-    public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
-        float var8 = (this.age + partialTicks) / this.lifetime;
+    public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
+        float var8 = (this.age + partialTicks) / this.lifetime * 3;
         var8 = 1.0F - var8;
         var8 *= var8;
         var8 = 1.0F - var8;
-        this.quadSize = this.quadSize * var8;
+        this.quadSize = this.portalParticleScale * var8;
         super.render(buffer, renderInfo, partialTicks);
     }
 
@@ -80,27 +84,25 @@ public class ParticleEdenPortal extends SpriteTexturedParticle
         this.x = this.portalPosX + this.xd * var1;
         this.y = this.portalPosY + this.yd * var1 + (1.0F - var2);
         this.z = this.portalPosZ + this.zd * var1;
-
         if (this.age++ >= this.lifetime) {
             this.remove();
         }
     }
 
     @Override
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
-
     @OnlyIn(Dist.CLIENT)
-    public static class Provider implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprites;
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public Provider(IAnimatedSprite spriteSet) {
+        public Provider(SpriteSet spriteSet) {
             this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleEdenPortal particle = new ParticleEdenPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
             particle.pickSprite(this.sprites);
             return particle;

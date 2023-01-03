@@ -1,186 +1,147 @@
 package divinerpg.tiles.bosses;
 
-import com.google.common.collect.*;
-import divinerpg.entities.boss.ayeraco.*;
+import divinerpg.DivineRPG;
+import divinerpg.entities.boss.EntityAyeraco;
 import divinerpg.registries.*;
 import divinerpg.tiles.*;
 import divinerpg.util.*;
-import net.minecraft.block.*;
+import net.minecraft.*;
+import net.minecraft.core.*;
 import net.minecraft.nbt.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.text.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.*;
-
-public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity implements ITickableTileEntity {
-    private BlockPos greenBeam;
-    private BlockPos blueBeam;
-    private BlockPos redBeam;
-    private BlockPos yellowBeam;
-    private BlockPos purpleBeam;
-
+public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity {
     /**
      * Using in render, so it need to be proceed through update package
      */
     public int spawnTick;
-
-    public TileEntityAyeracoSpawn() {
-        super(TileRegistry.AYERACO_SPAWN);
-        this.spawnTick = 600;
+    private BlockPos blueBeam, greenBeam, pinkBeam, purpleBeam, redBeam, yellowBeam;
+    /**
+     * Always should be a empty ctor
+     *
+     * @param p_155229_
+     * @param p_155230_
+     */
+    public TileEntityAyeracoSpawn(BlockPos p_155229_, BlockState p_155230_) {
+        super(BlockEntityRegistry.AYERACO_SPAWN.get(), p_155229_, p_155230_);
+        spawnTick = 600;
     }
-
-    @Override
-    public void tick() {
-        switch (spawnTick) {
+    public static void serverTick(Level level, BlockPos pos, BlockState state, TileEntityAyeracoSpawn block) {
+        switch (block.spawnTick) {
             case 600:
-                greenBeam = getBeamLocation(8, 8);
-                blueBeam = getBeamLocation(15, 0);
-                redBeam = getBeamLocation(5, -12);
-                yellowBeam = getBeamLocation(-5, -12);
-                purpleBeam = getBeamLocation(-8, 8);
-                setBlock(greenBeam, BlockRegistry.ayeracoBeamGreen);
-                logAyeracoSpawn(TextFormatting.GREEN);
+            	block.blueBeam = getBeamLocation(level, pos, 15, 0);
+            	block.greenBeam = getBeamLocation(level, pos, 8, 12);
+            	block.pinkBeam = getBeamLocation(level, pos, -8, 12);
+            	block.purpleBeam = getBeamLocation(level, pos, -15, 0);
+            	block.redBeam = getBeamLocation(level, pos, -8, -12);
+            	block.yellowBeam = getBeamLocation(level, pos, 8, -12);
+                level.setBlock(block.blueBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")).defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.BLUE);
                 break;
-
-            case 430:
-                setBlock(blueBeam, BlockRegistry.ayeracoBeamBlue);
-                logAyeracoSpawn(TextFormatting.BLUE);
+            case 500:
+            	level.setBlock(block.greenBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")).defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.GREEN);
                 break;
-
+            case 400:
+            	level.setBlock(block.pinkBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")).defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.LIGHT_PURPLE);
+                break;
             case 300:
-                setBlock(redBeam, BlockRegistry.ayeracoBeamRed);
-                logAyeracoSpawn(TextFormatting.RED);
+            	level.setBlock(block.purpleBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")).defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.DARK_PURPLE);
                 break;
-
-            case 210:
-                setBlock(yellowBeam, BlockRegistry.ayeracoBeamYellow);
-                logAyeracoSpawn(TextFormatting.YELLOW);
+            case 200:
+            	level.setBlock(block.redBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")).defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.RED);
                 break;
-
-            case 145:
-                setBlock(purpleBeam, BlockRegistry.ayeracoBeamPurple);
-                logAyeracoSpawn(TextFormatting.DARK_PURPLE, "purple");
-                break;
-
+            case 100:
+            	level.setBlock(block.yellowBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow")).defaultBlockState(), 3);
+            	logAyeracoSpawn(level, ChatFormatting.YELLOW, "yellow");
+            	break;
             case 0:
-                // Spawn entities only on server
                 if (!level.isClientSide) {
-                    // Order is important!
-                    ArrayList<EntityAyeraco> ayeracos = Lists.newArrayList(
-                    new EntityAyeracoRed(EntityRegistry.AYERACO_RED, this.level, redBeam),
-                            new EntityAyeracoGreen(EntityRegistry.AYERACO_GREEN, this.level, greenBeam),
-                            new EntityAyeracoBlue(EntityRegistry.AYERACO_BLUE, this.level, blueBeam),
-                            new EntityAyeracoYellow(EntityRegistry.AYERACO_YELLOW, this.level, yellowBeam),
-                            new EntityAyeracoPurple(EntityRegistry.AYERACO_PURPLE, this.level, purpleBeam));
-
-                    AyeracoGroup ayeracoGroup = new AyeracoGroup(ayeracos);
-
-                    ayeracos.forEach(x -> x.initGroup(ayeracoGroup));
-                    ayeracos.forEach(x -> x.moveTo(worldPosition.getX(), worldPosition.getY()+10, worldPosition.getZ()));
-                    ayeracos.forEach(x -> level.addFreshEntity(x));
+                	EntityAyeraco group[] = new EntityAyeraco[6];
+                	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
+                	group[0].setBeamPos(block.blueBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[5]});
+                    group[1].setBeamPos(block.greenBeam).assignGroup(new EntityAyeraco[]{group[0], group[2], group[3], group[4], group[5]});
+                    group[2].setBeamPos(block.pinkBeam).assignGroup(new EntityAyeraco[]{group[1], group[0], group[3], group[4], group[5]});;
+                    group[3].setBeamPos(block.purpleBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[0], group[4], group[5]});
+                    group[4].setBeamPos(block.redBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[0], group[5]});
+                    group[5].setBeamPos(block.yellowBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[0]});
+                    for(byte i = 0; i < 6; i++) {
+                    	group[i].moveTo(pos.getX() + level.random.nextInt(5) - 2, pos.getY() + level.random.nextInt(10, 20), pos.getZ() + level.random.nextInt(5) - 2);
+                    	level.addFreshEntity(group[i]);
+                    	group[i].setVariant(i);
+                    }
                 }
-
-                setBlock(this.worldPosition, Blocks.AIR);
-                logAyeracoSpawn(TextFormatting.AQUA, "spawn");
+                level.setBlock(block.worldPosition, Blocks.AIR.defaultBlockState(), 3);
+                logAyeracoSpawn(level, ChatFormatting.AQUA, "spawn");
                 break;
         }
-
-        spawnTick--;
+        if(block.spawnTick > -1) block.spawnTick--;
     }
-
-    private BlockPos getBeamLocation(int x, int z) {
-        BlockPos beamCoords = this.worldPosition.offset(x, 0, z);
-        if (this.level.getBlockState(beamCoords) == Blocks.AIR.defaultBlockState()) {
-            while (beamCoords.getY() > 0
-                    && this.level.getBlockState(beamCoords.below()) == Blocks.AIR.defaultBlockState()) {
-                beamCoords = beamCoords.below();
-            }
-        } else {
-            while (beamCoords.getY() < 200 && this.level.getBlockState(beamCoords) != Blocks.AIR.defaultBlockState()) {
-                beamCoords = beamCoords.above();
-            }
-        }
+    private static BlockPos getBeamLocation(Level level, BlockPos pos, int x, int z) {
+        BlockPos beamCoords = pos.offset(x, 0, z);
+        if(level.getBlockState(beamCoords) == Blocks.AIR.defaultBlockState()) while(beamCoords.getY() > 0 && level.getBlockState(beamCoords.below()) == Blocks.AIR.defaultBlockState()) beamCoords = beamCoords.below();
+        else while(beamCoords.getY() < 200 && level.getBlockState(beamCoords) != Blocks.AIR.defaultBlockState()) beamCoords = beamCoords.above();
         return beamCoords;
     }
-
     @Override
-    public void load(BlockState state, CompoundNBT tag) {
+    public void load(CompoundTag tag) {
         this.spawnTick = tag.getInt("spawnTick");
 
-        greenBeam = BlockPos.of(tag.getLong("greenBeam"));
         blueBeam = BlockPos.of(tag.getLong("blueBeam"));
+        greenBeam = BlockPos.of(tag.getLong("greenBeam"));
+        pinkBeam = BlockPos.of(tag.getLong("pinkBeam"));
+        purpleBeam = BlockPos.of(tag.getLong("purpleBeam"));
         redBeam = BlockPos.of(tag.getLong("redBeam"));
         yellowBeam = BlockPos.of(tag.getLong("yellowBeam"));
-        purpleBeam = BlockPos.of(tag.getLong("purpleBeam"));
     }
-
     @Override
-    public CompoundNBT save(CompoundNBT tag) {
-        super.save(tag);
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
         tag.putInt("spawnTick", this.spawnTick);
-
-        if (greenBeam != null) {
-            tag.putLong("greenBeam", greenBeam.asLong());
-        }
-
-        if (blueBeam != null) {
-            tag.putLong("blueBeam", blueBeam.asLong());
-        }
-
-        if (redBeam != null) {
-            tag.putLong("redBeam", redBeam.asLong());
-        }
-
-        if (yellowBeam != null) {
-            tag.putLong("yellowBeam", yellowBeam.asLong());
-        }
-
-        if (purpleBeam != null) {
-            tag.putLong("purpleBeam", purpleBeam.asLong());
-        }
-
-        return tag;
+        
+        if(blueBeam != null) tag.putLong("blueBeam", blueBeam.asLong());
+        if(greenBeam != null) tag.putLong("greenBeam", greenBeam.asLong());
+        if(pinkBeam != null) tag.putLong("greenBeam", pinkBeam.asLong());
+        if(purpleBeam != null) tag.putLong("purpleBeam", purpleBeam.asLong());
+        if(redBeam != null) tag.putLong("redBeam", redBeam.asLong());
+        if(yellowBeam != null) tag.putLong("yellowBeam", yellowBeam.asLong());
     }
-
     /**
      * Prevent from double logging on client
      *
      * @param formatting - format of message
      */
-    private void logAyeracoSpawn(TextFormatting formatting) {
-        logAyeracoSpawn(formatting, null);
+    private static void logAyeracoSpawn(Level level, ChatFormatting formatting) {
+        logAyeracoSpawn(level, formatting, null);
     }
-
     /**
      * Log ayeraco spawn, prevent from double client logging
      *
      * @param formatting - message format
      * @param name       - special name
      */
-    private void logAyeracoSpawn(TextFormatting formatting, String name) {
-
+    private static void logAyeracoSpawn(Level level, ChatFormatting formatting, String name) {
         if (level.getServer() != null) {
-
-            if (name == null) {
-                name = formatting.name().toLowerCase();
-            }
-
+            if (name == null) name = formatting.name().toLowerCase();
             final String langKey = "message.ayeraco." + name;
-
             level.getServer()
                     .getPlayerList()
                     .getPlayers()
                     .forEach(x -> {
-                        ITextComponent text = LocalizeUtils.getClientSideTranslation(x, langKey);
+                        Component text = LocalizeUtils.getClientSideTranslation(x, langKey);
                         text.getStyle().withColor(formatting);
-
-                        x.sendMessage(text, x.getUUID());
+                        x.displayClientMessage(text, true);
                     });
         }
-    }
-
-    private void setBlock(BlockPos pos, Block block) {
-        this.level.setBlock(pos, block.defaultBlockState(), 0);
     }
 }

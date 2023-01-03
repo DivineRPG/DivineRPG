@@ -1,23 +1,22 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.blocks.base.BlockMod;
-import divinerpg.util.DamageSources;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
+import divinerpg.blocks.base.*;
+import divinerpg.util.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.*;
 
 public class BlockSpike extends BlockMod {
     private final boolean isHot;
 
-    public BlockSpike(String name, boolean isHot) {
-        super(name, 3);
+    public BlockSpike(boolean isHot) {
+        super(Block.Properties.of(Material.METAL).strength(3).requiresCorrectToolForDrops());
         this.isHot = isHot;
     }
 
     @Override
-    public void updateEntityAfterFallOn(IBlockReader block, Entity entityIn){
+    public void updateEntityAfterFallOn(BlockGetter block, Entity entityIn){
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
                 entityIn.hurt(DamageSources.spikeSource, 8);

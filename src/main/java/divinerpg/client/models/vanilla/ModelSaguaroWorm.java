@@ -1,114 +1,56 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.*;
 import divinerpg.entities.vanilla.overworld.EntitySaguaroWorm;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelSaguaroWorm<T extends EntitySaguaroWorm> extends SegmentedModel<T> {
-    ModelRenderer connector2;
-    ModelRenderer middle;
-    ModelRenderer base;
-    ModelRenderer connector1;
-    ModelRenderer head;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    ModelRenderer Shape1;
-    ModelRenderer Shape2;
-    ModelRenderer Shape3;
+public class ModelSaguaroWorm extends EntityModel<EntitySaguaroWorm> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("saguaro_worm");
+	private final ModelPart base, inactive;
 
-    public ModelSaguaroWorm() {
-        texWidth = 64;
-        texHeight = 64;
+	public ModelSaguaroWorm(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.base = root.getChild("base");
+		this.inactive = root.getChild("inactive");
+	}
 
-        connector2 = new ModelRenderer(this, 0, 32);
-        connector2.addBox(0F, 0F, 0F, 10, 16, 10);
-        connector2.setPos(-5F, -24F, -21F);
-        connector2.setTexSize(64, 64);
-        connector2.mirror = true;
-        setRotation(connector2, 0.5759587F, 0F, 0F);
-        middle = new ModelRenderer(this, 0, 0);
-        middle.addBox(0F, 0F, 0F, 16, 16, 16);
-        middle.setPos(-8F, -13F, -16F);
-        middle.setTexSize(64, 64);
-        middle.mirror = true;
-        setRotation(middle, 0.4363323F, 0F, 0F);
-        base = new ModelRenderer(this, 0, 0);
-        base.addBox(0F, 0F, 0F, 16, 16, 16);
-        base.setPos(-8F, 8F, -8F);
-        base.setTexSize(64, 64);
-        base.mirror = true;
-        setRotation(base, 0F, 0F, 0F);
-        connector1 = new ModelRenderer(this, 0, 32);
-        connector1.addBox(0F, 0F, 0F, 10, 16, 10);
-        connector1.setPos(-5F, -3F, -9F);
-        connector1.setTexSize(64, 64);
-        connector1.mirror = true;
-        setRotation(connector1, 0.3316126F, 0F, 0F);
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-8F, -16F, -8F, 16, 16, 16);
-        head.setPos(0F, -24F, -14F);
-        head.setTexSize(64, 64);
-        head.mirror = true;
-        setRotation(head, 1.047198F, 0F, 0F);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-        Shape1 = new ModelRenderer(this, 0, 0);
-        Shape1.addBox(0F, 0F, 0F, 16, 16, 16);
-        Shape1.setPos(-8F, -8F, -8F);
-        Shape1.setTexSize(64, 64);
-        Shape1.mirror = true;
-        setRotation(Shape1, 0F, 0F, 0F);
-        Shape2 = new ModelRenderer(this, 0, 0);
-        Shape2.addBox(0F, 0F, 0F, 16, 16, 16);
-        Shape2.setPos(-8F, 8F, -8F);
-        Shape2.setTexSize(64, 64);
-        Shape2.mirror = true;
-        setRotation(Shape2, 0F, 0F, 0F);
-        Shape3 = new ModelRenderer(this, 0, 0);
-        Shape3.addBox(0F, 0F, 0F, 16, 16, 16);
-        Shape3.setPos(-8F, -24F, -8F);
-        Shape3.setTexSize(64, 64);
-        Shape3.mirror = true;
-        setRotation(Shape3, 0F, 0F, 0F);
-    }
+		PartDefinition base = partdefinition.addOrReplaceChild("base", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 8.0F, -8.0F));
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		base.addOrReplaceChild("connector1_r1", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(-5.0F, -2.0F, 1.0F, 10.0F, 16.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, -9.0F, -1.0F, 0.288F, 0.0F, 0.0F));
 
-    }
-    public void prepareMobModel(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
-        if(entityIn.getProvoked()){
-            connector2.visible = true;
-            middle.visible = true;
-            base.visible = true;
-            connector1.visible = true;
-            head.visible = true;
-            Shape1.visible = false;
-            Shape2.visible = false;
-            Shape3.visible = false;
-        }
-        else{
-            connector2.visible = false;
-            middle.visible = false;
-            base.visible = false;
-            connector1.visible = false;
-            head.visible = false;
-            Shape1.visible = true;
-            Shape2.visible = true;
-            Shape3.visible = true;
-        }
+		base.addOrReplaceChild("middle_r1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-8.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, -21.0F, -8.0F, 0.4363F, 0.0F, 0.0F));
 
-    }
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(connector2, middle, base, connector1, head, Shape1, Shape2, Shape3);
-    }
+		base.addOrReplaceChild("head_r1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-8.0F, -42.5F, -14.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, -25.0F, 19.0F, 1.0472F, 0.0F, 0.0F));
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		base.addOrReplaceChild("connector2_r1", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(-5.0F, 0.0F, 0.0F, 10.0F, 16.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(8.0F, -32.0F, -13.0F, 0.576F, 0.0F, 0.0F));
 
+		partdefinition.addOrReplaceChild("inactive", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, -16.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false)
+		.texOffs(0, 0).mirror().addBox(0.0F, -32.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false)
+		.texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 8.0F, -8.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+	@Override
+	public void prepareMobModel(EntitySaguaroWorm entity, float p_102615_, float p_102616_, float p_102617_) {
+		base.visible = entity.getProvoked();
+		inactive.visible = !base.visible;
+	}
+	@Override
+	public void setupAnim(EntitySaguaroWorm entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		inactive.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

@@ -2,40 +2,38 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.EntityDivineWaterMob;
 import divinerpg.registries.*;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.ai.control.*;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
 
 public class EntityWhale extends EntityDivineWaterMob {
 
-    public EntityWhale(EntityType<? extends EntityWhale> type, World worldIn) {
+    public EntityWhale(EntityType<? extends EntityWhale> type, Level worldIn) {
         super(type, worldIn);
+        this.moveControl = new SmoothSwimmingMoveControl(this, 1, 1, 0.25F, 0.1F, true);
+        this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.4F;
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.whaleHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.whaleDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.whaleSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.whaleFollowRange);
     }
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.WHALE;
+        return SoundRegistry.WHALE.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.WHALE_HURT;
+        return SoundRegistry.WHALE_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.WHALE_HURT;
+        return SoundRegistry.WHALE_HURT.get();
     }
 
     @Override
@@ -49,8 +47,6 @@ public class EntityWhale extends EntityDivineWaterMob {
                         level.addParticle(ParticleTypes.DRIPPING_WATER, getX() + x, getY(), getZ() + z, 0, 0.4, 0);
                     }
                 }
-
-
             }
         }
     }

@@ -1,0 +1,15 @@
+{
+	"structures": [
+		{
+			"structure": "divinerpg:hunger_house",
+			"weight": 1
+		}
+	],
+	"placement": {
+		"type": "minecraft:random_spread",
+		"salt": 1581946197,
+		"spread_type": "linear",
+		"spacing": 16,
+		"separation": 8
+	}
+}

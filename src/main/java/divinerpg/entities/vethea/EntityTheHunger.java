@@ -2,21 +2,21 @@ package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.trading.MerchantOffers;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
 
-import javax.annotation.*;
+import java.util.List;
 
 public class EntityTheHunger extends EntityDivineMerchant {
-
-
-	public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, World worldIn) {
-		super(type, worldIn);
-	}
+    public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
+        super(type, worldIn);
+    }
 
     public String[] getChatMessages() {
         return new String[] {
@@ -27,83 +27,59 @@ public class EntityTheHunger extends EntityDivineMerchant {
         };
     }
 
-	@Override
+    @Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();
 
 		DivineTrades[] tradetrades = new DivineTrades[]{
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 1), new ItemStack(ItemRegistry.dreamCarrot, 2), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.dreamMelon, 4), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 5), new ItemStack(ItemRegistry.dreamPie, 5), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 10), new ItemStack(ItemRegistry.dreamCake, 8), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 10), new ItemStack(ItemRegistry.dreamShovel, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 10), new ItemStack(ItemRegistry.dreamPickaxe, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 10), new ItemStack(ItemRegistry.dreamAxe, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 5), new ItemStack(BlockRegistry.barredDoor, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.diskTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.cannonTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.backswordTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.hammerTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.bowTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.staffTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 3), new ItemStack(ItemRegistry.clawTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 5), new ItemStack(ItemRegistry.degradedTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 1), new ItemStack(BlockRegistry.lightDreamBricks, 16), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 1), new ItemStack(BlockRegistry.darkDreamBricks, 16), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 1), new ItemStack(BlockRegistry.redDreamBricks, 16), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 2), new ItemStack(BlockRegistry.dreamDirt, 64), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 1), new ItemStack(BlockRegistry.smoothGlass, 16), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 4), new ItemStack(BlockRegistry.firelight, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 4), new ItemStack(Blocks.CHEST, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirtyPearls, 2), new ItemStack(ItemRegistry.teakerArrow, 32), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 1), new ItemStack(ItemRegistry.dreamSweets, 4), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 5), new ItemStack(ItemRegistry.finishedTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 2), new ItemStack(ItemRegistry.darvenArrow, 32), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 4), new ItemStack(ItemRegistry.pardimalArrow, 32), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 6), new ItemStack(ItemRegistry.karosArrow, 32), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.cleanPearls, 15), new ItemStack(ItemRegistry.minersAmulet, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polishedPearls, 20), new ItemStack(ItemRegistry.dreamFlint, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polishedPearls, 5), new ItemStack(ItemRegistry.glisteningTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polishedPearls, 5), new ItemStack(ItemRegistry.demonizedTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shinyPearls, 40), new ItemStack(ItemRegistry.moonClock, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shinyPearls, 25), new ItemStack(ItemRegistry.bandOfHeivaHunting, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shinyPearls, 1), new ItemStack(ItemRegistry.dreamSours, 4), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shinyPearls, 4), new ItemStack(ItemRegistry.everArrow, 32), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shinyPearls, 5), new ItemStack(ItemRegistry.tormentedTemplate, 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.rockChunks, 25), new ItemStack(ItemRegistry.karosRockmaul, 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 1), new ItemStack(ItemRegistry.dream_carrot.get(), 2), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.dream_melon.get(), 4), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 5), new ItemStack(ItemRegistry.dream_pie.get(), 5), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 10), new ItemStack(ItemRegistry.dream_cake.get(), 8), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 10), new ItemStack(ItemRegistry.dream_shovel.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 10), new ItemStack(ItemRegistry.dream_pickaxe.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 10), new ItemStack(ItemRegistry.dream_axe.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 5), new ItemStack(BlockRegistry.barredDoor.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.disk_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 5), new ItemStack(ItemRegistry.dissipator_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.cannon_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.backsword_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.hammer_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.bow_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.staff_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 3), new ItemStack(ItemRegistry.claw_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 5), new ItemStack(ItemRegistry.degraded_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 1), new ItemStack(BlockRegistry.lightDreamBricks.get(), 16), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 1), new ItemStack(BlockRegistry.darkDreamBricks.get(), 16), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 1), new ItemStack(BlockRegistry.redDreamBricks.get(), 16), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 2), new ItemStack(BlockRegistry.dreamDirt.get(), 64), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 1), new ItemStack(BlockRegistry.smoothGlass.get(), 16), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 4), new ItemStack(BlockRegistry.firelight.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 4), new ItemStack(Blocks.CHEST, 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 2), new ItemStack(ItemRegistry.teaker_arrow.get(), 32), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dirty_pearls.get(), 25), new ItemStack(BlockRegistry.mortumBlock.get(), 4), random.nextInt(5), 1),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 1), new ItemStack(ItemRegistry.dream_sweets.get(), 4), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 5), new ItemStack(ItemRegistry.finished_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 2), new ItemStack(ItemRegistry.darven_arrow.get(), 32), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 4), new ItemStack(ItemRegistry.pardimal_arrow.get(), 32), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 6), new ItemStack(ItemRegistry.karos_arrow.get(), 32), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.clean_pearls.get(), 15), new ItemStack(ItemRegistry.miners_amulet.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polished_pearls.get(), 20), new ItemStack(ItemRegistry.dream_flint.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polished_pearls.get(), 5), new ItemStack(ItemRegistry.glistening_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polished_pearls.get(), 5), new ItemStack(ItemRegistry.demonized_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 40), new ItemStack(ItemRegistry.moon_clock.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 25), new ItemStack(ItemRegistry.band_of_heiva_hunting.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 1), new ItemStack(ItemRegistry.dream_sours.get(), 4), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 4), new ItemStack(ItemRegistry.ever_arrow.get(), 32), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 5), new ItemStack(ItemRegistry.tormented_template.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.rock_chunks.get(), 25), new ItemStack(ItemRegistry.karos_rockmaul.get(), 1), random.nextInt(7), 0),
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
-		super.updateTrades();
 	}
 
-	@Override
-	protected SoundEvent getAmbientSound() {
-		return SoundEvents.WOLF_AMBIENT;
-	}
-
-	@Override
-	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundEvents.PLAYER_HURT;
-	}
-
-	@Override
-	protected SoundEvent getDeathSound() {
-		return SoundEvents.WOLF_DEATH;
-	}
-
-	@Override
-	public void setTradingPlayer(@Nullable PlayerEntity player) {
-		boolean flag = this.getTradingPlayer() != null && player == null;
-		super.setTradingPlayer(player);
-		if (flag) {
-			this.stopTrading();
-		}
-
-	}
-
-	@Nullable
-	@Override
-	public PlayerEntity getTradingPlayer() {
-		return super.getTradingPlayer();
+	public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+		BlockPos blockpos = pos.below();
+		List<EntityTheHunger> entityList = level.getEntitiesOfClass(EntityTheHunger.class, new AABB(pos).inflate(32));
+		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
 	}
 }

@@ -1,39 +1,39 @@
 package divinerpg.events.enchant;
 
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.world.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.*;
+import divinerpg.registries.EnchantmentRegistry;
+import net.minecraft.core.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
 public class RiveHandler {
 
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {
-        World world = (World) event.getWorld();
+        Level world = (Level) event.getLevel();
         if(world.isClientSide) {
             return;
         }
 
-        PlayerEntity player = event.getPlayer();
+        Player player = event.getPlayer();
         if(player.isCrouching()) {
             return;
         }
 
         ItemStack itemStack = event.getPlayer().getMainHandItem();
-        if(!(itemStack.getItem() instanceof ToolItem)) {
+        if(!(itemStack.getItem() instanceof DiggerItem)) {
             return;
         }
 
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE, player);
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.get(), player);
         if(level < 1) {
             return;
         }
@@ -51,46 +51,36 @@ public class RiveHandler {
         }
     }
 
-    private void tryToBreakBlock(World world, PlayerEntity player, BlockPos pos, BlockState blockState, ItemStack tool) {
+    private void tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         if(blockState.getBlock() == Blocks.AIR) {
             return;
         }
-        if(!ForgeHooks.canHarvestBlock(blockState, player, world, pos)){
+        if(!ForgeHooks.canEntityDestroy(world, pos, player)){
             return;
-        }
-//        if(!ForgeHooks.isToolEffective(world, pos, tool)){
-//        return;
-//        }
-        if(!blockState.getBlock().isToolEffective(blockState, ToolType.AXE)){
-            if(!blockState.getBlock().isToolEffective(blockState, ToolType.HOE)) {
-                if (!blockState.getBlock().isToolEffective(blockState, ToolType.PICKAXE)) {
-                    if (!blockState.getBlock().isToolEffective(blockState, ToolType.SHOVEL)) {
-                        return;
-                    }
-                }
-            }
         }
 
         if((blockState.getBlock() instanceof TorchBlock)){
             return;
         }
-
         if(blockState.getBlock() instanceof DoorBlock){
             return;
         }
-        if(blockState.hasTileEntity()){
+        if(blockState.hasBlockEntity()){
             return;
         }
 
+        if(blockState.getBlock().defaultDestroyTime() < 0) {
+            return;
+        }
+        
+
         Block block = blockState.getBlock();
-        if(!player.isCreative()) {
+        if(block.canHarvestBlock(blockState, world, pos, player)) {
             block.playerDestroy(world, player, pos, blockState, null, tool);
             world.destroyBlock(pos, false);
             tool.hurtAndBreak(1, player, (context) -> {
                 context.broadcastBreakEvent(player.getUsedItemHand());
             });
-        } else {
-            world.destroyBlock(pos, false);
         }
     }
 

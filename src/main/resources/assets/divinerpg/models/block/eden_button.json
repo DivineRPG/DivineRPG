@@ -1,6 +1,6 @@
 {
   "parent": "block/button",
   "textures": {
-    "texture": "divinerpg:blocks/eden_planks"
+    "texture": "divinerpg:block/eden_planks"
   }
 }

@@ -1,45 +1,28 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
 
-public class EntityBiphron extends EntityVetheaMob {
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
+
+public class EntityBiphron extends EntityDivineMonster {
 
     private boolean gravity;
 
-    public EntityBiphron(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityBiphron(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        this.addAttackingAI();
     }
     
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.biphronHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.biphronDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.biphronSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.biphronFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
@@ -51,10 +34,9 @@ public class EntityBiphron extends EntityVetheaMob {
         	this.setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + 0.4, getDeltaMovement().z);
         }
     }
-    
     @Override
-    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
-        return false;
+    public boolean causeFallDamage(float p_147187_, float p_147188_, DamageSource p_147189_) {
+    	return false;
     }
 
     @Override
@@ -76,22 +58,17 @@ public class EntityBiphron extends EntityVetheaMob {
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 2;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.BIPHRON;
+        return SoundRegistry.BIPHRON.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.BIPHRON_HURT;
+        return SoundRegistry.BIPHRON_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.BIPHRON_HURT;
+        return SoundRegistry.BIPHRON_HURT.get();
     }
 }

@@ -1,14 +1,15 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.shapes.*;
 
 public class BlockModBridge extends BlockModPowered {
-    public BlockModBridge(String name, float hardness) {
-        super(name, Block.Properties
+    public BlockModBridge(float hardness) {
+        super(Block.Properties
                 .of(Material.GLASS)
                 .strength(hardness, 3.0F)
                 .requiresCorrectToolForDrops()
@@ -16,18 +17,19 @@ public class BlockModBridge extends BlockModPowered {
                 .noOcclusion()
         );
     }
-    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos) {
+    private static boolean never(BlockState state, BlockGetter reader, BlockPos pos) {
         return false;
     }
 
     @Override
-    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
         return state.getValue(POWERED) ? 15 : 0;
     }
 
-    @Override
-    public VoxelShape getCollisionShape(BlockState blockState, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-        return blockState.getValue(POWERED) ? super.getCollisionShape(blockState, reader, pos, context) : VoxelShapes.empty();
+    @SuppressWarnings("deprecation")
+	@Override
+    public VoxelShape getCollisionShape(BlockState blockState, BlockGetter reader, BlockPos pos, CollisionContext context) {
+        return blockState.getValue(POWERED) ? super.getCollisionShape(blockState, reader, pos, context) : Shapes.empty();
     }
 
 

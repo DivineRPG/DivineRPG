@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "divinerpg:blocks/frozen_planks"
+    "texture": "divinerpg:block/frozen_planks"
   }
 }

@@ -1,6 +1,7 @@
 {
   "parent": "block/cross",
+  "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:blocks/frozen_sapling"
+    "cross": "divinerpg:block/frozen_sapling"
   }
 }

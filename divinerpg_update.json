@@ -1,10 +1,6 @@
 {
 	"homepage": "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg",
 	"1.16.5": {
-		"1.8.10": "Bug fixes",
-		"1.8.9": "Bug fixes",
-		"1.8.8": "Bug fixes",
-		"1.8.7": "Bug fixes",
 		"1.8.6": "First non beta build"
 	},
 	"1.12.2": {

@@ -1,51 +1,52 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
-import net.minecraft.world.server.*;
-
-import java.util.*;
+import divinerpg.DivineRPG;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.Material;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModFire extends FireBlock {
-
-    public BlockModFire(String name) {
-        super(AbstractBlock.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().noDrops().lightLevel((p_235468_0_) -> {
+    public BlockModFire() {
+        super(BlockBehaviour.Properties.of(Material.FIRE).randomTicks().noCollission().instabreak().lightLevel((state) -> {
             return 15;
         }).sound(SoundType.WOOL));
-        this.setRegistryName(DivineRPG.MODID, name);
     }
-
-    public void lightPortal(World world, BlockPos pos) {
-        if(this == BlockRegistry.blueFire && world.getBlockState(pos.below()).getBlock() == BlockRegistry.divineRock){
-            BlockRegistry.edenPortal.makePortal(world, pos);
+    public void lightPortal(Level world, BlockPos pos) {
+        BlockModPortal portalBlock;
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")) && world.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock"))){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"));
+            portalBlock.makePortal(world, pos);
         }
-        if(this == BlockRegistry.blueFire && world.getBlockState(pos.below()).getBlock() == BlockRegistry.edenBlock){
-            BlockRegistry.wildwoodPortal.makePortal(world, pos);
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")) && world.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block"))){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"));
+            portalBlock.makePortal(world, pos);
         }
-        if(this == BlockRegistry.blueFire && world.getBlockState(pos.below()).getBlock() == BlockRegistry.wildwoodBlock){
-            BlockRegistry.apalachiaPortal.makePortal(world, pos);
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")) && world.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block"))){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"));
+            portalBlock.makePortal(world, pos);
         }
-        if(this == BlockRegistry.blueFire && world.getBlockState(pos.below()).getBlock() == BlockRegistry.apalachiaBlock){
-            BlockRegistry.skythernPortal.makePortal(world, pos);
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")) && world.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_block"))){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"));
+            portalBlock.makePortal(world, pos);
         }
-        if(this == BlockRegistry.blueFire && world.getBlockState(pos.below()).getBlock() == BlockRegistry.skythernBlock){
-            BlockRegistry.mortumPortal.makePortal(world, pos);
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")) && world.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_block"))){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"));
+            portalBlock.makePortal(world, pos);
         }
-        if(this == BlockRegistry.iceikaFire && world.getBlockState(pos.below()).getBlock() == Blocks.SNOW_BLOCK){
-            BlockRegistry.iceikaPortal.makePortal(world, pos);
+        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_fire")) && world.getBlockState(pos.below()).getBlock() == Blocks.SNOW_BLOCK){
+            portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal"));
+            portalBlock.makePortal(world, pos);
         }
     }
-
-
-
     @Override
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
     super.tick(state, worldIn, pos, rand);
         lightPortal(worldIn, pos);
     }
-
 }

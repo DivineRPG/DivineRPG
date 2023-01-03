@@ -1,42 +1,46 @@
 package divinerpg.blocks.vanilla;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.core.*;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.context.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.*;
 
-public class BlockMobPumpkin extends HorizontalBlock {
-    private final SoundEvent sound;
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+import java.util.function.Supplier;
 
-    public BlockMobPumpkin(String name, SoundEvent sound) {
+public class BlockMobPumpkin extends HorizontalDirectionalBlock {
+    private final Supplier<SoundEvent> sound;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
+    public BlockMobPumpkin(Supplier<SoundEvent> sound) {
         super(Block.Properties.of(Material.STONE, MaterialColor.STONE)
                 .requiresCorrectToolForDrops()
                 .strength(1.0F, 1.0F)
                 .sound(SoundType.WOOD));
-        setRegistryName(name);
         this.sound = sound;
         registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         if (!player.isCrouching() && sound != null) {
-            worldIn.playSound(player, pos, sound, SoundCategory.BLOCKS, 20.0F, 1.0F);
+            worldIn.playSound(player, pos, sound.get(), SoundSource.BLOCKS, 20.0F, 1.0F);
         }
-        return ActionResultType.PASS;
+        return InteractionResult.PASS;
 
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 }

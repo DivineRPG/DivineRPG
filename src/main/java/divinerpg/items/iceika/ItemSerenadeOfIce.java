@@ -1,33 +1,30 @@
 package divinerpg.items.iceika;
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemSerenadeOfIce extends ItemModRanged {
     public ItemSerenadeOfIce() {
         super("serenade_of_ice",
-                EntityRegistry.SERENADE_OF_ICE,
                 null,
-                SoundRegistry.SERENADE,
-                SoundCategory.MASTER,
+                () -> SoundRegistry.SERENADE.get(),
+                SoundSource.MASTER,
                 100,
                 0,
                 null,
-                0, DivineRPG.tabs.utilities);
+                0);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_ice"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

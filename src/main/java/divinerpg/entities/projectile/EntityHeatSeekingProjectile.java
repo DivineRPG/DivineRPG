@@ -1,24 +1,25 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
-
 import java.util.*;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class EntityHeatSeekingProjectile extends DivineThrowable {
 
     private LivingEntity target = null;
     private boolean onlyPlayers = false;
 
-    public EntityHeatSeekingProjectile(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityHeatSeekingProjectile(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityHeatSeekingProjectile(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntityHeatSeekingProjectile(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
     }
 
@@ -40,7 +41,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
                 this.getBoundingBox().inflate(30, 30, 30));
         boolean findNewTarget = this.target == null || (this.target != null && this.target.isDeadOrDying());
         for (LivingEntity e : mobs) {
-            if (e != this.getOwner() && (!this.onlyPlayers || (this.onlyPlayers && e instanceof PlayerEntity))) {
+            if (e != this.getOwner() && (!this.onlyPlayers || (this.onlyPlayers && e instanceof Player))) {
                 float targetDist = target == null ? 0 : this.distanceTo(target);
                 float compareDist = this.distanceTo(e);
                 if (findNewTarget
@@ -49,7 +50,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
             }
         }
         if (target != null) {
-            Vector3d dir = new Vector3d(target.xo - this.xo, (target.yo + target.getEyeHeight()) - this.yo,
+            Vec3 dir = new Vec3(target.xo - this.xo, (target.yo + target.getEyeHeight()) - this.yo,
                     target.zo - this.zo).normalize();
             setDeltaMovement(dir.x / 1.25, dir.y / 1.25, dir.z / 1.25);
         }
@@ -58,7 +59,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
             this.kill();
     }
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
+    protected void onHitEntity(EntityHitResult result) {
     }
 
 }

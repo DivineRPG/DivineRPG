@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/awakened_halite_helmet"
+    "layer0": "divinerpg:item/awakened_halite_helmet"
   }
 }

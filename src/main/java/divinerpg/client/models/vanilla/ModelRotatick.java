@@ -1,93 +1,80 @@
 package divinerpg.client.models.vanilla;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.api.distmarker.*;
-//Made by Declan/WS97/SirDeccy
-@OnlyIn(Dist.CLIENT)
-public class ModelRotatick<T extends Entity> extends EntityModel<T> {
-	private final ModelRenderer Head;
-	private final ModelRenderer RightMandible;
-	private final ModelRenderer LeftMandible;
-	private final ModelRenderer Body;
-	private final ModelRenderer BackLeftLeg;
-	private final ModelRenderer BackRightLeg;
-	private final ModelRenderer MiddleLeftLeg;
-	private final ModelRenderer MiddleRightLeg;
-	private final ModelRenderer FrontLeftLeg;
-	private final ModelRenderer FrontRightLeg;
+import divinerpg.entities.vanilla.overworld.EntityRotatick;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-	public ModelRotatick() {
-		texWidth = 128;
-		texHeight = 128;
+import static divinerpg.util.ClientUtils.createLocation;
 
-		Head = new ModelRenderer(this);
-		Head.setPos(0.0F, 16.0F, -5.0F);
-		Head.texOffs(38, 38).addBox(-5.0F, -2.0F, -6.0F, 10.0F, 5.0F, 6.0F, 0.0F, false);
-		Head.texOffs(0, 36).addBox(-6.0F, -5.0F, -7.0F, 12.0F, 4.0F, 7.0F, 0.0F, false);
-		Head.texOffs(38, 25).addBox(-3.0F, -1.0F, -7.0F, 6.0F, 4.0F, 1.0F, 0.0F, false);
+public class ModelRotatick extends EntityModel<EntityRotatick> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rotatick");
+	private final ModelPart
+		Head,
+		Body,
+		BackLeftLeg,
+		BackRightLeg,
+		MiddleLeftLeg,
+		MiddleRightLeg,
+		FrontLeftLeg,
+		FrontRightLeg;
 
-		RightMandible = new ModelRenderer(this);
-		RightMandible.setPos(-5.5F, 2.5F, -5.0F);
-		Head.addChild(RightMandible);
-		RightMandible.texOffs(42, 7).addBox(-0.5F, -1.5F, -3.0F, 1.0F, 3.0F, 4.0F, 0.0F, false);
+	public ModelRotatick(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		ModelPart body = root.getChild("Body");
+		this.Head = root.getChild("Head");
+		this.Body = body;
+		this.BackLeftLeg = body.getChild("BackLeftLeg");
+		this.BackRightLeg = body.getChild("BackRightLeg");
+		this.MiddleLeftLeg = body.getChild("MiddleLeftLeg");
+		this.MiddleRightLeg = body.getChild("MiddleRightLeg");
+		this.FrontLeftLeg = body.getChild("FrontLeftLeg");
+		this.FrontRightLeg = body.getChild("FrontRightLeg");
+	}
 
-		LeftMandible = new ModelRenderer(this);
-		LeftMandible.setPos(6.0F, 2.0F, -5.0F);
-		Head.addChild(LeftMandible);
-		LeftMandible.texOffs(42, 0).addBox(-1.0F, -1.0F, -3.0F, 1.0F, 3.0F, 4.0F, 0.0F, false);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		Body = new ModelRenderer(this);
-		Body.setPos(0.0F, 16.0F, 2.0F);
-		Body.texOffs(0, 0).addBox(-7.0F, -4.0F, -7.0F, 14.0F, 4.0F, 14.0F, 0.0F, false);
-		Body.texOffs(0, 18).addBox(-6.0F, 0.0F, -7.0F, 12.0F, 4.0F, 14.0F, 0.0F, false);
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(38, 38).addBox(-5.0F, -2.0F, -6.0F, 10.0F, 5.0F, 6.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 36).addBox(-6.0F, -5.0F, -7.0F, 12.0F, 4.0F, 7.0F, new CubeDeformation(0.0F))
+		.texOffs(38, 25).addBox(-3.0F, -1.0F, -7.0F, 6.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.0F, -5.0F));
 
-		BackLeftLeg = new ModelRenderer(this);
-		BackLeftLeg.setPos(5.5F, 4.0F, 4.5F);
-		Body.addChild(BackLeftLeg);
-		BackLeftLeg.texOffs(0, 25).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		Head.addOrReplaceChild("RightMandible", CubeListBuilder.create().texOffs(42, 7).addBox(-0.5F, -1.5F, -3.0F, 1.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.5F, 2.5F, -5.0F));
 
-		BackRightLeg = new ModelRenderer(this);
-		BackRightLeg.setPos(-5.5F, 4.0F, 4.5F);
-		Body.addChild(BackRightLeg);
-		BackRightLeg.texOffs(0, 18).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		Head.addOrReplaceChild("LeftMandible", CubeListBuilder.create().texOffs(42, 0).addBox(-1.0F, -1.0F, -3.0F, 1.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(6.0F, 2.0F, -5.0F));
 
-		MiddleLeftLeg = new ModelRenderer(this);
-		MiddleLeftLeg.setPos(5.5F, 4.0F, 0.5F);
-		Body.addChild(MiddleLeftLeg);
-		MiddleLeftLeg.texOffs(31, 36).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-7.0F, -4.0F, -7.0F, 14.0F, 4.0F, 14.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 18).addBox(-6.0F, 0.0F, -7.0F, 12.0F, 4.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.0F, 2.0F));
 
-		MiddleRightLeg = new ModelRenderer(this);
-		MiddleRightLeg.setPos(-5.5F, 4.0F, 0.5F);
-		Body.addChild(MiddleRightLeg);
-		MiddleRightLeg.texOffs(0, 7).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		Body.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 25).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, 4.0F, 4.5F));
 
-		FrontLeftLeg = new ModelRenderer(this);
-		FrontLeftLeg.setPos(5.5F, 4.0F, -3.5F);
-		Body.addChild(FrontLeftLeg);
-		FrontLeftLeg.texOffs(38, 18).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		Body.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 18).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.5F, 4.0F, 4.5F));
 
-		FrontRightLeg = new ModelRenderer(this);
-		FrontRightLeg.setPos(-5.5F, 4.0F, -3.5F);
-		Body.addChild(FrontRightLeg);
-		FrontRightLeg.texOffs(0, 0).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, 0.0F, false);
+		Body.addOrReplaceChild("MiddleLeftLeg", CubeListBuilder.create().texOffs(31, 36).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, 4.0F, 0.5F));
+
+		Body.addOrReplaceChild("MiddleRightLeg", CubeListBuilder.create().texOffs(0, 7).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.5F, 4.0F, 0.5F));
+
+		Body.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(38, 18).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, 4.0F, -3.5F));
+
+		Body.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.5F, 4.0F, -3.5F));
+
+		return LayerDefinition.create(meshdefinition, 128, 64);
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float var1, float var2, float var3, float var4, float var5){
-		this.Head.yRot = var4 / (180F / (float) Math.PI);
-		this.Head.xRot = var5 / (180F / (float) Math.PI);
+	public void setupAnim(EntityRotatick entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
+		this.Head.xRot = headPitch / (180F / (float) Math.PI);
 
-		this.BackLeftLeg.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-		this.MiddleLeftLeg.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-		this.FrontLeftLeg.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-		this.BackRightLeg.xRot = MathHelper.cos((float) (var1 * 0.6662F + Math.PI)) * 1.4F * var2;
-		this.MiddleRightLeg.xRot = MathHelper.cos((float) (var1 * 0.6662F + Math.PI)) * 1.4F * var2;
-		this.FrontRightLeg.xRot = MathHelper.cos((float) (var1 * 0.6662F + Math.PI)) * 1.4F * var2;
+		this.BackLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.MiddleLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.FrontLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.BackRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
+		this.MiddleRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
+		this.FrontRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
 
 		this.BackRightLeg.yRot = 0.3F;
 		this.MiddleRightLeg.yRot = 0.2F;
@@ -97,15 +84,9 @@ public class ModelRotatick<T extends Entity> extends EntityModel<T> {
 		this.FrontLeftLeg.yRot = 0.1F;
 	}
 
-	public void setRotationAngles(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.xRot = x;
-		modelRenderer.yRot = y;
-		modelRenderer.zRot = z;
-	}
-
 	@Override
-	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(matrixStack, buffer, packedLight, packedOverlay);
-		Body.render(matrixStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Head.render(poseStack, buffer, packedLight, packedOverlay);
+		Body.render(poseStack, buffer, packedLight, packedOverlay);
 	}
 }

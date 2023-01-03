@@ -3,22 +3,23 @@ package divinerpg.blocks.twilight;
 import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.chests.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 
 import javax.annotation.*;
 
 public class BlockEdenChest extends BlockModChest {
 
-    public BlockEdenChest(String name) {
-        super(name, AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(15, 10000000), () -> TileRegistry.EDEN_CHEST);
+    public BlockEdenChest() {
+        super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(15, 10000000), () -> BlockEntityRegistry.EDEN_CHEST.get());
     }
 
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new TileEntityEdenChest();
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new TileEntityEdenChest(p_153215_, p_153216_);
     }
 }

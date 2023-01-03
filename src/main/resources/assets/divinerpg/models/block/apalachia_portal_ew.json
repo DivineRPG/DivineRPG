@@ -1,8 +1,9 @@
 {
   "parent": "block/block",
+  "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:blocks/apalachia_portal",
-    "portal": "divinerpg:blocks/apalachia_portal"
+    "particle": "divinerpg:block/apalachia_portal",
+    "portal": "divinerpg:block/apalachia_portal"
   },
   "elements": [
     {

@@ -1,6 +1,7 @@
 {
   "parent": "block/crop",
+  "render_type": "cutout_mipped",
   "textures": {
-    "crop": "divinerpg:blocks/tomato_plant_2"
+    "crop": "divinerpg:block/tomato_plant_2"
   }
 }

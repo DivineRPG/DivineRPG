@@ -1,15 +1,16 @@
 package divinerpg.entities.vanilla.overworld;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+
+import net.minecraft.world.entity.EntityType;
 
 public class EntityWhiteGrizzle extends EntityBrownGrizzle {
-    public <T extends Entity> EntityWhiteGrizzle(EntityType<T> type, World worldIn) {
+    public EntityWhiteGrizzle(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected EntityWhiteGrizzle(EntityType<? extends TameableEntity> type, World worldIn, PlayerEntity player) {
+    protected EntityWhiteGrizzle(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
         super(type, worldIn);
         setHealth(getMaxHealth());
         tame(player);

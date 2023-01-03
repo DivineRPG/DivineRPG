@@ -3,22 +3,23 @@ package divinerpg.blocks.vanilla;
 import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
 import divinerpg.tiles.chests.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.tileentity.*;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 
 import javax.annotation.*;
 
 public class BlockBoneChest extends BlockModChest {
 
-    public BlockBoneChest(String name) {
-        super(name, Properties.of(Material.STONE).noOcclusion().sound(SoundType.STONE).strength(2.5F), () -> TileRegistry.BONE_CHEST);
+    public BlockBoneChest() {
+        super(Properties.of(Material.STONE).noOcclusion().sound(SoundType.STONE).strength(2.5F), () -> BlockEntityRegistry.BONE_CHEST.get());
     }
 
     @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new TileEntityBoneChest();
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new TileEntityBoneChest(p_153215_, p_153216_);
     }
 }

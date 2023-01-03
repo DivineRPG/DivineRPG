@@ -1,33 +1,28 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.controller.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.control.LookControl;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class EntityRainbour extends EntityDivineFlyingMob {
     private int angerLevel;
     private UUID angerTargetUUID;
 
-    public EntityRainbour(EntityType<? extends EntityDivineFlyingMob> type, World worldIn) {
+    public EntityRainbour(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.lookControl = new EntityRainbour.RainbourLookController(this);
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.rainbourHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.rainbourDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.rainbourSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.rainbourFollowRange).add(Attributes.FLYING_SPEED, EntityStats.rainbourSpeed);
     }
 
     @Override
@@ -44,7 +39,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
             this.angerTargetUUID = livingBase.getUUID();
         }
     }
-    public void readAdditionalSaveData(CompoundNBT tag) {
+    public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.angerLevel = tag.getShort("Anger");
         String s = tag.getString("HurtBy");
@@ -52,7 +47,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         if (!s.isEmpty())
         {
             this.angerTargetUUID = UUID.fromString(s);
-            PlayerEntity entityplayer = this.getCommandSenderWorld().getPlayerByUUID(this.angerTargetUUID);
+            Player entityplayer = this.getCommandSenderWorld().getPlayerByUUID(this.angerTargetUUID);
             this.setTarget(entityplayer);
 
             if (entityplayer != null)
@@ -62,7 +57,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
             }
         }
     }
-    public void addAdditionalSaveData(CompoundNBT tag) {
+    public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putShort("Anger", (short)this.angerLevel);
 
@@ -86,7 +81,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         {
             Entity entity = source.getDirectEntity();
 
-            if (entity instanceof PlayerEntity)
+            if (entity instanceof Player)
             {
                 this.becomeAngryAt(entity);
             }
@@ -119,7 +114,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         return false;
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.6F;
     }
 
@@ -127,10 +122,10 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     public int getMaxSpawnClusterSize() {
         return 1;
     }
-    public IParticleData getParticleData() {
+    public ParticleOptions getParticleData() {
         return this.getEntityData().get(PARTICLE);
     }
-    private static final DataParameter<IParticleData> PARTICLE = EntityDataManager.defineId(EntityRainbour.class, DataSerializers.PARTICLE);
+    private static final EntityDataAccessor<ParticleOptions> PARTICLE = SynchedEntityData.defineId(EntityRainbour.class, EntityDataSerializers.PARTICLE);
 
     @OnlyIn(Dist.CLIENT)
     public void tick() {
@@ -146,15 +141,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         }
     }
 
-    @Override
-    protected boolean isMovementNoisy() {
-        return false;
-    }
 
-    @Override
-    public boolean causeFallDamage(float p_225503_1_, float p_225503_2_) {
-        return false;
-    }
 
     @Override
     public boolean isIgnoringBlockTriggers() {
@@ -163,22 +150,22 @@ public class EntityRainbour extends EntityDivineFlyingMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.RAINBOUR;
+        return SoundRegistry.RAINBOUR.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.RAINBOUR_HURT;
+        return SoundRegistry.RAINBOUR_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.RAINBOUR_HURT;
+        return SoundRegistry.RAINBOUR_HURT.get();
     }
 
 
-    class RainbourLookController extends LookController {
-        RainbourLookController(MobEntity entity) {
+    class RainbourLookController extends LookControl {
+        RainbourLookController(Mob entity) {
             super(entity);
         }
 

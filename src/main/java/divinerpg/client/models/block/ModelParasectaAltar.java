@@ -1,97 +1,74 @@
 package divinerpg.client.models.block;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.model.*;
+import net.minecraft.client.model.Model;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Entity;
 
-public class ModelParasectaAltar extends Model {
-    //fields
-    ModelRenderer Base;
-    ModelRenderer P1;
-    ModelRenderer P2;
-    ModelRenderer P3;
-    ModelRenderer P4;
-    ModelRenderer S1;
-    ModelRenderer S2;
-    ModelRenderer S3;
-    ModelRenderer S4;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelParasectaAltar() {
-        super(RenderType::entityCutoutNoCull);
-        texWidth = 64;
-        texHeight = 64;
-        Base = new ModelRenderer(this, 0, 15);
-        Base.addBox(0F, 0F, 0F, 16, 1, 16);
-        Base.setPos(-8F, 10F, -8F);
-        Base.setTexSize(64, 32);
-        Base.mirror = true;
-        setRotation(Base, 0F, 0F, 0F);
-        P1 = new ModelRenderer(this, 0, 0);
-        P1.addBox(0F, 0F, 0F, 2, 9, 2);
-        P1.setPos(-3F, 11F, -6F);
-        P1.setTexSize(64, 32);
-        P1.mirror = true;
-        setRotation(P1, 0F, 0F, 0F);
-        P2 = new ModelRenderer(this, 0, 0);
-        P2.addBox(0F, 0F, 0F, 2, 9, 2);
-        P2.setPos(1F, 11F, -6F);
-        P2.setTexSize(64, 32);
-        P2.mirror = true;
-        setRotation(P2, 0F, 0F, 0F);
-        P3 = new ModelRenderer(this, 0, 0);
-        P3.addBox(0F, 0F, 0F, 2, 9, 2);
-        P3.setPos(1F, 11F, 4F);
-        P3.setTexSize(64, 32);
-        P3.mirror = true;
-        setRotation(P3, 0F, 0F, 0F);
-        P4 = new ModelRenderer(this, 0, 0);
-        P4.addBox(0F, 0F, 0F, 2, 9, 2);
-        P4.setPos(-3F, 11F, 4F);
-        P4.setTexSize(64, 32);
-        P4.mirror = true;
-        setRotation(P4, 0F, 0F, 0F);
-        S1 = new ModelRenderer(this, 22, 0);
-        S1.addBox(0F, 0F, 0F, 4, 4, 4);
-        S1.setPos(1F, 20F, 4F);
-        S1.setTexSize(64, 32);
-        S1.mirror = true;
-        setRotation(S1, 0F, 0F, 0F);
-        S2 = new ModelRenderer(this, 22, 0);
-        S2.addBox(0F, 0F, 0F, 4, 4, 4);
-        S2.setPos(-5F, 20F, 4F);
-        S2.setTexSize(64, 32);
-        S2.mirror = true;
-        setRotation(S2, 0F, 0F, 0F);
-        S3 = new ModelRenderer(this, 22, 0);
-        S3.addBox(0F, 0F, 0F, 4, 4, 4);
-        S3.setPos(-5F, 20F, -8F);
-        S3.setTexSize(64, 32);
-        S3.mirror = true;
-        setRotation(S3, 0F, 0F, 0F);
-        S4 = new ModelRenderer(this, 22, 0);
-        S4.addBox(0F, 0F, 0F, 4, 4, 4);
-        S4.setPos(1F, 20F, -8F);
-        S4.setTexSize(64, 32);
-        S4.mirror = true;
-        setRotation(S4, 0F, 0F, 0F);
-    }
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+public class ModelParasectaAltar<T extends Entity> extends Model {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("parasecta_altar");
+	private final ModelPart Base;
+	private final ModelPart P1;
+	private final ModelPart P2;
+	private final ModelPart P3;
+	private final ModelPart P4;
+	private final ModelPart S1;
+	private final ModelPart S2;
+	private final ModelPart S3;
+	private final ModelPart S4;
 
-    @Override
-    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder builder, int light, int overlay, float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
-        Base.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        P1.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        P2.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        P3.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        P4.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        S1.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        S2.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        S3.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-        S4.render(matrixStack, builder, light, overlay, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
-    }
+	public ModelParasectaAltar(ModelPart root) {
+		super(RenderType::entityCutout);
+		this.Base = root.getChild("Base");
+		this.P1 = root.getChild("P1");
+		this.P2 = root.getChild("P2");
+		this.P3 = root.getChild("P3");
+		this.P4 = root.getChild("P4");
+		this.S1 = root.getChild("S1");
+		this.S2 = root.getChild("S2");
+		this.S3 = root.getChild("S3");
+		this.S4 = root.getChild("S4");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("Base", CubeListBuilder.create().texOffs(0, 15).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 1.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 10.0F, -8.0F));
+
+		partdefinition.addOrReplaceChild("P1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 11.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("P2", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 11.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("P3", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 11.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("P4", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 11.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("S1", CubeListBuilder.create().texOffs(22, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 20.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("S2", CubeListBuilder.create().texOffs(22, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-5.0F, 20.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("S3", CubeListBuilder.create().texOffs(22, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-5.0F, 20.0F, -8.0F));
+
+		partdefinition.addOrReplaceChild("S4", CubeListBuilder.create().texOffs(22, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 20.0F, -8.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		P1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		P2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		P3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		P4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		S1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		S2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		S3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		S4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

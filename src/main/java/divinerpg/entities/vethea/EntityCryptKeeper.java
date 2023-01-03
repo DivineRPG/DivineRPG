@@ -1,39 +1,29 @@
 package divinerpg.entities.vethea;
 
-import com.google.common.collect.*;
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.item.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import com.google.common.collect.ImmutableList;
+import divinerpg.DivineRPG;
+import divinerpg.entities.base.EntityGifterNPC;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class EntityCryptKeeper extends EntityGifterNPC {
 
-    public EntityCryptKeeper(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityCryptKeeper(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
 	}
     
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.6F;
-    }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createLivingAttributes().add(Attributes.MAX_HEALTH, EntityStats.cryptKeeperHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.cryptKeeperSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.cryptKeeperFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }
 
     @Override
     protected ItemStack getGift() {
-        return new ItemStack(ItemRegistry.amthirmisLump, 5);
+        return new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "amthirmis_lump")), 5);
     }
 
     @Override

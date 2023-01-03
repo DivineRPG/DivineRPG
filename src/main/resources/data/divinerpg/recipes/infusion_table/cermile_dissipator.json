@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "item": "divinerpg:cermile_lump",
+    "count": 8
+  },
+  "template": {
+    "item": "divinerpg:dissipator_template"
+  },
+  "output": {
+    "item": "divinerpg:cermile_dissipator"
+  }
+}

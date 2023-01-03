@@ -1,9 +1,9 @@
 {
   "parent": "block/orientable",
   "textures": {
-    "top": "divinerpg:blocks/karos_dispenser",
-    "front": "divinerpg:blocks/karos_dispenser",
-    "side": "divinerpg:blocks/karos_dispenser"
+    "top": "divinerpg:block/karos_dispenser",
+    "front": "divinerpg:block/karos_dispenser",
+    "side": "divinerpg:block/karos_dispenser"
   }
 }
 

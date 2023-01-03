@@ -1,127 +1,101 @@
 package divinerpg.client.models.twilight;
 
-import com.google.common.collect.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelSoulSpider<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer body;
-    ModelRenderer leg1top;
-    ModelRenderer leg1middle;
-    ModelRenderer leg1bottom;
-    ModelRenderer leg2top;
-    ModelRenderer leg2middle;
-    ModelRenderer leg2bottom;
-    ModelRenderer leg3top;
-    ModelRenderer leg4top;
-    ModelRenderer leg3middle;
-    ModelRenderer leg4middle;
-    ModelRenderer leg3bottom;
-    ModelRenderer leg4bottom;
-  
-  public ModelSoulSpider() {
-    texWidth = 64;
-    texHeight = 32;
-    
-      body = new ModelRenderer(this, 0, 0);
-      body.addBox(0F, 0F, 0F, 5, 3, 7);
-      body.setPos(-2.5F, 17F, -3F);
-      body.setTexSize(64, 32);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0F);
-      leg1top = new ModelRenderer(this, 0, 10);
-      leg1top.addBox(0F, 0F, -1F, 2, 4, 2);
-      leg1top.setPos(-2F, 18F, -1F);
-      leg1top.setTexSize(64, 32);
-      leg1top.mirror = true;
-      setRotation(leg1top, 0F, 0F, 0.8726646F);
-      leg1middle = new ModelRenderer(this, 0, 16);
-      leg1middle.addBox(-0.5F, 3F, -0.5F, 1, 2, 1);
-      leg1middle.setPos(-1.5F, 18.2F, -1F);
-      leg1middle.setTexSize(64, 32);
-      leg1middle.mirror = true;
-      setRotation(leg1middle, 0F, 0F, 0.6108652F);
-      leg1bottom = new ModelRenderer(this, 0, 16);
-      leg1bottom.addBox(-1.5F, 4.5F, -0.5F, 1, 2, 1);
-      leg1bottom.setPos(-1.75F, 18.3F, -1F);
-      leg1bottom.setTexSize(64, 32);
-      leg1bottom.mirror = true;
-      setRotation(leg1bottom, 0F, 0F, 0.3490659F);
-      leg2top = new ModelRenderer(this, 0, 10);
-      leg2top.addBox(0F, 0F, -1F, 2, 4, 2);
-      leg2top.setPos(-2F, 18F, 2F);
-      leg2top.setTexSize(64, 32);
-      leg2top.mirror = true;
-      setRotation(leg2top, 0F, 0F, 0.8726646F);
-      leg2middle = new ModelRenderer(this, 0, 16);
-      leg2middle.addBox(-0.5F, 3F, -0.5F, 1, 2, 1);
-      leg2middle.setPos(-1.5F, 18.2F, 2F);
-      leg2middle.setTexSize(64, 32);
-      leg2middle.mirror = true;
-      setRotation(leg2middle, 0F, 0F, 0.6108652F);
-      leg2bottom = new ModelRenderer(this, 0, 16);
-      leg2bottom.addBox(-1.5F, 4.5F, -0.5F, 1, 2, 1);
-      leg2bottom.setPos(-1.8F, 18.3F, 2F);
-      leg2bottom.setTexSize(64, 32);
-      leg2bottom.mirror = true;
-      setRotation(leg2bottom, 0F, 0F, 0.3490659F);
-      leg3top = new ModelRenderer(this, 0, 10);
-      leg3top.addBox(-2F, 0F, -1F, 2, 4, 2);
-      leg3top.setPos(2F, 18F, -1F);
-      leg3top.setTexSize(64, 32);
-      leg3top.mirror = true;
-      setRotation(leg3top, 0F, 0F, -0.8726646F);
-      leg4top = new ModelRenderer(this, 0, 10);
-      leg4top.addBox(-2F, 0F, -1F, 2, 4, 2);
-      leg4top.setPos(2F, 18F, 2F);
-      leg4top.setTexSize(64, 32);
-      leg4top.mirror = true;
-      setRotation(leg4top, 0F, 0F, -0.8726646F);
-      leg3middle = new ModelRenderer(this, 0, 16);
-      leg3middle.addBox(-1.5F, 3F, -0.5F, 1, 2, 1);
-      leg3middle.setPos(2.5F, 17.6F, -1F);
-      leg3middle.setTexSize(64, 32);
-      leg3middle.mirror = true;
-      setRotation(leg3middle, 0F, 0F, -0.6108652F);
-      leg4middle = new ModelRenderer(this, 0, 16);
-      leg4middle.addBox(-1.5F, 3F, -0.5F, 1, 2, 1);
-      leg4middle.setPos(2.5F, 17.6F, 2F);
-      leg4middle.setTexSize(64, 32);
-      leg4middle.mirror = true;
-      setRotation(leg4middle, 0F, 0F, -0.6108652F);
-      leg3bottom = new ModelRenderer(this, 0, 16);
-      leg3bottom.addBox(-0.5F, 4.5F, -0.5F, 1, 2, 1);
-      leg3bottom.setPos(2.8F, 18F, -1F);
-      leg3bottom.setTexSize(64, 32);
-      leg3bottom.mirror = true;
-      setRotation(leg3bottom, 0F, 0F, -0.3490659F);
-      leg4bottom = new ModelRenderer(this, 0, 16);
-      leg4bottom.addBox(-0.5F, 4.5F, -0.5F, 1, 2, 1);
-      leg4bottom.setPos(2.9F, 18F, 2F);
-      leg4bottom.setTexSize(64, 32);
-      leg4bottom.mirror = true;
-      setRotation(leg4bottom, 0F, 0F, -0.3490659F);
-  }
+import static divinerpg.util.ClientUtils.createLocation;
 
-  @Override
-  public Iterable<ModelRenderer> parts() {
-    return ImmutableList.of(body, leg1top, leg1middle, leg1bottom, leg2top, leg2middle, leg2bottom, leg3top, leg4top, leg3middle, leg4middle, leg3bottom, leg4bottom);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z) {
-    model.xRot = x;
-    model.yRot = y;
-    model.zRot = z;
-  }
-  
-  @Override
-  public void setupAnim(T e, float f, float f1, float f2, float f3, float f4) {
-    
-    this.leg1top.xRot = this.leg2top.xRot = this.leg1middle.xRot = this.leg2middle.xRot = this.leg1bottom.xRot = this.leg2bottom.xRot = (float) Math.sin(f/2)*f1*1.3f;
-    this.leg3top.xRot = this.leg4top.xRot = this.leg3middle.xRot = this.leg4middle.xRot = this.leg3bottom.xRot = this.leg4bottom.xRot = (float) Math.cos(f/2)*f1*1.3f;
-  }
 
+public class ModelSoulSpider<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("soul_spider");
+	private final ModelPart body;
+	private final ModelPart leg1top;
+	private final ModelPart leg1middle;
+	private final ModelPart leg1bottom;
+	private final ModelPart leg2top;
+	private final ModelPart leg2middle;
+	private final ModelPart leg2bottom;
+	private final ModelPart leg3top;
+	private final ModelPart leg4top;
+	private final ModelPart leg3middle;
+	private final ModelPart leg4middle;
+	private final ModelPart leg3bottom;
+	private final ModelPart leg4bottom;
+
+	public ModelSoulSpider(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.body = root.getChild("body");
+		this.leg1top = root.getChild("leg1top");
+		this.leg1middle = root.getChild("leg1middle");
+		this.leg1bottom = root.getChild("leg1bottom");
+		this.leg2top = root.getChild("leg2top");
+		this.leg2middle = root.getChild("leg2middle");
+		this.leg2bottom = root.getChild("leg2bottom");
+		this.leg3top = root.getChild("leg3top");
+		this.leg4top = root.getChild("leg4top");
+		this.leg3middle = root.getChild("leg3middle");
+		this.leg4middle = root.getChild("leg4middle");
+		this.leg3bottom = root.getChild("leg3bottom");
+		this.leg4bottom = root.getChild("leg4bottom");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 5.0F, 3.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.5F, 17.0F, -3.0F));
+
+		partdefinition.addOrReplaceChild("leg1top", CubeListBuilder.create().texOffs(0, 10).mirror().addBox(0.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 18.0F, -1.0F, 0.0F, 0.0F, 0.8727F));
+
+		partdefinition.addOrReplaceChild("leg1middle", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-0.5F, 3.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 18.2F, -1.0F, 0.0F, 0.0F, 0.6109F));
+
+		partdefinition.addOrReplaceChild("leg1bottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-1.5F, 4.5F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.75F, 18.3F, -1.0F, 0.0F, 0.0F, 0.3491F));
+
+		partdefinition.addOrReplaceChild("leg2top", CubeListBuilder.create().texOffs(0, 10).mirror().addBox(0.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 18.0F, 2.0F, 0.0F, 0.0F, 0.8727F));
+
+		partdefinition.addOrReplaceChild("leg2middle", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-0.5F, 3.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 18.2F, 2.0F, 0.0F, 0.0F, 0.6109F));
+
+		partdefinition.addOrReplaceChild("leg2bottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-1.5F, 4.5F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.8F, 18.3F, 2.0F, 0.0F, 0.0F, 0.3491F));
+
+		partdefinition.addOrReplaceChild("leg3top", CubeListBuilder.create().texOffs(0, 10).mirror().addBox(-2.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 18.0F, -1.0F, 0.0F, 0.0F, -0.8727F));
+
+		partdefinition.addOrReplaceChild("leg4top", CubeListBuilder.create().texOffs(0, 10).mirror().addBox(-2.0F, 0.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 18.0F, 2.0F, 0.0F, 0.0F, -0.8727F));
+
+		partdefinition.addOrReplaceChild("leg3middle", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-1.5F, 3.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 17.6F, -1.0F, 0.0F, 0.0F, -0.6109F));
+
+		partdefinition.addOrReplaceChild("leg4middle", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-1.5F, 3.0F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 17.6F, 2.0F, 0.0F, 0.0F, -0.6109F));
+
+		partdefinition.addOrReplaceChild("leg3bottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-0.5F, 4.5F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.8F, 18.0F, -1.0F, 0.0F, 0.0F, -0.3491F));
+
+		partdefinition.addOrReplaceChild("leg4bottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-0.5F, 4.5F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.9F, 18.0F, 2.0F, 0.0F, 0.0F, -0.3491F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.leg1top.xRot = this.leg2top.xRot = this.leg1middle.xRot = this.leg2middle.xRot = this.leg1bottom.xRot = this.leg2bottom.xRot = (float) Math.sin(limbSwing/2)*limbSwingAmount*1.3f;
+		this.leg3top.xRot = this.leg4top.xRot = this.leg3middle.xRot = this.leg4middle.xRot = this.leg3bottom.xRot = this.leg4bottom.xRot = (float) Math.cos(limbSwing/2)*limbSwingAmount*1.3f;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg1top.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg1middle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg1bottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg2top.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg2middle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg2bottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3top.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4top.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3middle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4middle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg3bottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leg4bottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

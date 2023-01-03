@@ -1,29 +1,32 @@
 package divinerpg.client.renders.entity.projectile;
 
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.entities.projectile.*;
+import divinerpg.entities.vanilla.overworld.EntitySaguaroWorm;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.util.*;
+
+import net.minecraft.resources.ResourceLocation;
 
 public class RenderSaguaroWormShot extends EntityRenderer<EntitySaguaroWormShot> {
     private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/saguaro_worm_shot.png");
-    private ModelSaguaroWormShot model = new ModelSaguaroWormShot();
+    private ModelSaguaroWormShot<EntitySaguaroWorm> model;
 
-    public RenderSaguaroWormShot(EntityRendererManager manager) {
-        super(manager);
+    public RenderSaguaroWormShot(Context context) {
+        super(context);
+        model = new ModelSaguaroWormShot<>(context);
     }
 
 
     @Override
-    public void render(EntitySaguaroWormShot entity, float yaw, float ticks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int packedLightCoords) {
+    public void render(EntitySaguaroWormShot entity, float yaw, float ticks, PoseStack matrixStack, MultiBufferSource buffer, int packedLightCoords) {
         super.render(entity, yaw, ticks, matrixStack, buffer, packedLightCoords);
         matrixStack.pushPose();
-        IVertexBuilder vertexBuilder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
+        VertexConsumer vertexBuilder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
         model.renderToBuffer(matrixStack, vertexBuilder, packedLightCoords, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();
     }

@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"rolls": 1,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:thermal_vent"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:match_tool",
+					"predicate": {
+						"enchantments": [
+							{
+								"enchantment": "minecraft:silk_touch",
+								"levels": {
+									"min": 1
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

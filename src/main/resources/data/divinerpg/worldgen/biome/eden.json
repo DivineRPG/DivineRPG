@@ -1,12 +1,8 @@
 {
-  "surface_builder": "divinerpg:eden",
-  "depth": 0.125,
-  "scale": 0.05,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
-  "category": "none",
-  "player_spawn_friendly": false,
+  "creature_spawn_probability": 0.2,
   "effects": {
     "sky_color": 10747897,
     "fog_color": 15990365,
@@ -30,7 +26,7 @@
         "maxCount": 4
       },
       {
-        "type": "divinerpg:bunny",
+        "type": "divinerpg:glinthop",
         "weight": 20,
         "minCount": 4,
         "maxCount": 4
@@ -69,29 +65,23 @@
   },
   "spawn_costs": {},
   "carvers": {},
-  "features": [
+  "features": [[],
     [],
-    [
-      "divinerpg:tar_lake"
-    ],
     [],
     [],
     [],
     [],
     [
-      "divinerpg:ore_eden"
+      "divinerpg:eden_ore",
+      "divinerpg:twilight_tar_lake"
     ],
     [
-    	"divinerpg:eden_tree"
+      "divinerpg:divine_moss_stone"
     ],
     [
-      "divinerpg:eden_brush",
-      "divinerpg:sunbloom",
-      "divinerpg:sun_blossom"
+      "divinerpg:eden_tree",
+      "divinerpg:eden_bush",
+      "divinerpg:eden_plants"
     ],
-    []
-  ],
-  "starts": [
-  "divinerpg:eden"
-]
+    []]
 }

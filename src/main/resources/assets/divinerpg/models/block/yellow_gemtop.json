@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "all": "divinerpg:blocks/yellow_gemtop"
+    "all": "divinerpg:block/yellow_gemtop"
   }
 }

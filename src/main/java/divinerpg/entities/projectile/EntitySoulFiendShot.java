@@ -1,35 +1,38 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.entities.mortum.*;
-import divinerpg.enums.*;
+import divinerpg.client.particle.options.ParticleColouredType;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.*;
 
 public class EntitySoulFiendShot extends EntityShooterBullet {
-    public EntitySoulFiendShot(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntitySoulFiendShot(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntitySoulFiendShot(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world) {
+    public EntitySoulFiendShot(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world, BulletType.SOUL_FIEND_SHOT);
     }
 
 
     @Override
-    public void onHit(RayTraceResult result) {
+    public void onHit(HitResult result) {
+        if(tickCount != 1 || tickCount != 0) {
         if (!this.level.isClientSide) {
-            if (result.hitInfo != null) {
+            if (result.getLocation() != null) {
                 for (int i = 0; i < 3; i++) {
-                    EntitySoulSpider soulSpider = new EntitySoulSpider(EntityRegistry.SOUL_SPIDER, this.level);
-                    soulSpider.moveTo(this.xo, this.yo, this.zo, 0, 0);
-                    this.level.addFreshEntity(soulSpider);
+                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, new BlockPos(result.getLocation()), MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 this.kill();
             }
+        }
         }
     }
 
@@ -37,13 +40,11 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
     @Override
     public void tick() {
         super.tick();
+        if (level.isClientSide) {
         for (int cnt = 0; cnt < 8; ++cnt) {
-//            DivineRPG.proxy.spawnColoredParticle(this.world, this.posX + (rand.nextDouble() - rand.nextDouble()) / 4,
-//                    this.posY + (rand.nextDouble() - rand.nextDouble()) / 4,
-//                    this.posZ + (rand.nextDouble() - rand.nextDouble()) / 4, new Color(0, 0, 0), true, false);
-//            DivineRPG.proxy.spawnColoredParticle(this.world, this.posX + (rand.nextDouble() - rand.nextDouble()) / 4,
-//                    this.posY + (rand.nextDouble() - rand.nextDouble()) / 4,
-//                    this.posZ + (rand.nextDouble() - rand.nextDouble()) / 4, new Color(255, 0, 0), true, true);
+                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 0, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 255, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+            }
         }
         if (!this.level.isClientSide && this.tickCount > 20) {
             this.kill();

@@ -16,6 +16,9 @@
     "divinerpg:arcanite_dirt",
     "divinerpg:arcanite_grass",
     "divinerpg:dream_dirt",
-    "divinerpg:dream_grass"
+    "divinerpg:dream_grass",
+    "divinerpg:flame_grass",
+    "divinerpg:evergrass",
+    "divinerpg:scorched_grass"
   ]
 }

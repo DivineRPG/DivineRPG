@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/empowered_meat"
+    "layer0": "divinerpg:item/empowered_meat"
   }
 }

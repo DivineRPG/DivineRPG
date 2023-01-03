@@ -2,26 +2,27 @@ package divinerpg.client.particle;
 
 
 import net.minecraft.client.particle.*;
-import net.minecraft.client.world.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
 import net.minecraftforge.api.distmarker.*;
 
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.SimpleParticleType;
+
 @OnlyIn(Dist.CLIENT)
-public class ParticleSparkler extends SpriteTexturedParticle
+public class ParticleSparkler extends TextureSheetParticle
 {
-    IAnimatedSprite animatedSprite;
+    SpriteSet animatedSprite;
     private float sparkleParticleScale;
     private double portalPosX;
     private double portalPosY;
     private double portalPosZ;
-    public ParticleSparkler(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, IAnimatedSprite sprite)
+    public ParticleSparkler(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
     }
 
-    public ParticleSparkler(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite)
+    public ParticleSparkler(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
 
@@ -91,24 +92,23 @@ public class ParticleSparkler extends SpriteTexturedParticle
         }
     }
 
-
     @Override
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<BasicParticleType> {
-        private final IAnimatedSprite sprite;
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
 
-        public Factory(IAnimatedSprite p_i50836_1_) {
-            this.sprite = p_i50836_1_;
+        public Provider(SpriteSet spriteSet) {
+            this.sprites = spriteSet;
         }
 
-        public Particle createParticle(BasicParticleType type, ClientWorld world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleSparkler sparkler = new ParticleSparkler(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprite);
-            sparkler.pickSprite(this.sprite);
-            return sparkler;
+        public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+            ParticleSparkler particle = new ParticleSparkler(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+            particle.pickSprite(this.sprites);
+            return particle;
         }
     }
 }

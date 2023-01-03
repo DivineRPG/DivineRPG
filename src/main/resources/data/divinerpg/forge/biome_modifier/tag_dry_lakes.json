@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_dry/overworld",
+  "features": "divinerpg:tar_lake",
+  "step": "lakes"
+}

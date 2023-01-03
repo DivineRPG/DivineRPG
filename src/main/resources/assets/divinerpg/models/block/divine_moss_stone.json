@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/divine_moss_stone"
+    "all": "divinerpg:block/divine_moss_stone"
   }
 }

@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:terran_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:terran_pickaxe"
+    },
+    {
+      "item": "divinerpg:terran_shovel"
+    },
+    {
+      "item": "divinerpg:terran_axe"
+    },
+    {
+      "item": "divinerpg:terran_hoe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

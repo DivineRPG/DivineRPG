@@ -1,34 +1,21 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.network.datasync.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.level.*;
 
-import java.util.*;
+public class EntityMoonWolf extends Wolf {
+//    private static final EntityDataAccessor<Float> DATA_HEALTH_ID = SynchedEntityData.defineId(EntityMoonWolf.class,
+//            EntityDataSerializers.FLOAT);
 
-public class EntityMoonWolf extends WolfEntity {
-    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.defineId(EntityMoonWolf.class,
-            DataSerializers.FLOAT);
-
-    public EntityMoonWolf(EntityType<? extends WolfEntity> type, World worldIn) {
+    public EntityMoonWolf(EntityType<? extends Wolf> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return this.getBbHeight()+0.8F;
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.moonWolfHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.moonWolfDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.moonWolfSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.moonWolfFollowRange);
-    }
-
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
     }
 
     @Override
@@ -36,7 +23,8 @@ public class EntityMoonWolf extends WolfEntity {
         if (this.getRemainingPersistentAngerTime()>0) {
             return SoundEvents.WOLF_GROWL;
         } else if (this.random.nextInt(3) == 0) {
-            return this.isTame() && this.getHealth() < 10.0F ? SoundEvents.WOLF_WHINE : SoundEvents.WOLF_PANT;
+            return this.isTame() && this.getHealth() < 10.0F ?
+                    SoundEvents.WOLF_WHINE : SoundEvents.WOLF_PANT;
         } else {
             return SoundEvents.WOLF_AMBIENT;
         }
@@ -61,7 +49,7 @@ public class EntityMoonWolf extends WolfEntity {
     public boolean removeWhenFarAway(double distance) {return !isTame();
     }
     @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
+    public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
 

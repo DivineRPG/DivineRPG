@@ -1,19 +1,21 @@
 {
-  "surface_builder": "divinerpg:mortum",
-  "depth": 0.125,
-  "scale": 0.05,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
-  "category": "none",
-  "player_spawn_friendly": false,
   "effects": {
     "sky_color": 16756224,
     "fog_color": 9536597,
     "water_color": 4403214,
     "water_fog_color": 4926466,
     "grass_color": 0,
-    "foliage_color": 0
+    "foliage_color": 0,
+    "ambient_sound": "divinerpg:mortum_ambience",
+    "mood_sound": {
+		"sound": "divinerpg:mortum_mood",
+		"tick_delay": 2000,
+		"block_search_extent": 8,
+		"offset": 2
+	}
   },
   "spawners": {
     "monster": [
@@ -63,26 +65,21 @@
   },
   "features": [
     [],
+    [],
+    [],
+    [],
+    [],
+    [],
     [
-      "divinerpg:tar_lake"
+      "divinerpg:mortum_ore",
+      "divinerpg:mortum_tar_lake"
     ],
     [],
-    [],
-    [],
-    [],
     [
-      "divinerpg:ore_mortum"
-    ],
-    [],
-    [
+      "divinerpg:mortum_plants",
       "divinerpg:mortum_tree",
-      "divinerpg:mortum_brush",
-      "divinerpg:eye_plant",
-      "divinerpg:demon_brambles"
+      "divinerpg:mortum_bush"
     ],
     []
-  ],
-  "starts": [
-    "divinerpg:mortum"
   ]
 }

@@ -1,17 +1,13 @@
 package divinerpg.items.vethea;
 
-import divinerpg.*;
-import divinerpg.enums.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-
-import java.util.function.*;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.resources.ResourceLocation;
 
 public class ItemVetheanCannon extends ItemModRanged {
 
-    public ItemVetheanCannon(String name, BulletType projectileType, Supplier<Item> ammo) {
-        super(name, null, projectileType, SoundRegistry.BLITZ, SoundCategory.MASTER, -1, 0, ammo, 0, DivineRPG.tabs.vethea);
+    public ItemVetheanCannon(BulletType projectileType, ResourceLocation ammo) {
+        super(projectileType, () -> SoundRegistry.BLITZ.get(), ammo, -1, 0);
     }
 }

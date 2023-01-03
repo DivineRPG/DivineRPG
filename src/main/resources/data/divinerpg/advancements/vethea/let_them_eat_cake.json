@@ -17,7 +17,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "divinerpg:dream_cake"
+          "items": [
+            "divinerpg:dream_cake"
+          ]
         }
       }
     }

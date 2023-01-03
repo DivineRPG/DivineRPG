@@ -1,7 +1,7 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:items/everfright_0"
+    "layer0": "divinerpg:item/everfright_0"
   },
   "display": {
     "firstperson_righthand": {

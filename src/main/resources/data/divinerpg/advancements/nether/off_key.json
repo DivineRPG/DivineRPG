@@ -18,7 +18,9 @@
       "trigger": "minecraft:item_durability_changed",
       "conditions": {
         "item": {
-          "item": "divinerpg:sound_of_music"
+          "items": [
+            "divinerpg:sound_of_music"
+          ]
         }
       }
     }

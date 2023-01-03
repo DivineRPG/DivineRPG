@@ -1,0 +1,20 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:skythern_structures",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 14122456,
+    "locate_offset": [
+      0,
+      5,
+      0
+    ],
+    "spread_type": "linear",
+    "spacing": 3,
+    "separation": 2
+  }
+}

@@ -1,22 +1,20 @@
 package divinerpg.events;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.passive.*;
-import net.minecraft.util.*;
+import net.minecraft.world.entity.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.*;
 
 public class ProtectPetsEvent {
-    private DamageSource source;
-    private float amount;
-
     @SubscribeEvent
     public void onPlayerAttackMob(LivingAttackEvent event) {
         Entity entity = event.getSource().getDirectEntity();
-        if (event.getEntity() instanceof TameableEntity) {
-            if (((TameableEntity) event.getEntity()).isTame()) {
-                if (entity == ((TameableEntity) event.getEntity()).getOwner()) {
+        if(entity != null){
+        if (event.getEntity() instanceof TamableAnimal) {
+            TamableAnimal animal = (TamableAnimal) event.getEntity();
+            if (animal.isTame() && animal.getOwner() != null) {
+                if (entity == animal.getOwner() && !animal.getOwner().isCrouching()) {
                     event.setCanceled(true);
+                }
                 }
             }
         }

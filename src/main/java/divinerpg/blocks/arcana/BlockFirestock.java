@@ -1,16 +1,18 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import net.minecraft.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockStackPlant;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockFirestock extends BlockStackPlant {
     public BlockFirestock() {
-        super("firestock_plant");
+        super();
     }
 
     @Override
-    protected IItemProvider getBaseSeedId() {
-        return ItemRegistry.firestockSeeds;
+    protected ItemLike getBaseSeedId() {
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "firestock_seeds"));
     }
 }

@@ -1,82 +1,66 @@
 package divinerpg.entities.vethea;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.entities.projectile.EntityDivineArrow;
+import divinerpg.enums.ArrowType;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
-import java.util.*;
+public class EntityZone extends EntityDivineMonster {
 
-public class EntityZone extends EntityVetheaMob {
-
-    public EntityZone(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityZone(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		this.setHealth(this.getMaxHealth());
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.1F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.zoneHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.zoneDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.zoneSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.zoneFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
 
-        PlayerEntity player = level.getNearestPlayer(this, 32);
+        Player player = level.getNearestPlayer(this, 32);
         if(player != null && !player.isCreative()) {
             this.setTarget(player);
 
             LivingEntity target = this.getTarget();
-            if(!this.level.isClientSide && target != null && this.tickCount % 40 == 0 && this.isAlive()) {
+            if(!this.level.isClientSide && target != null && this.tickCount % 40 == 0) {
                 this.shootEntity(target);
             }
         }
     }
 
-    private void shootEntity(LivingEntity target) {
-        EntityDivineArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT, this.level, ArrowType.KAROS_ARROW, this, target, 1.6f, 12F);
-        this.level.addFreshEntity(arrow);
+    private void shootEntity(LivingEntity target) {if (isAlive() && getTarget() != null && !level.isClientSide) {
+        EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), this.level, ArrowType.KAROS_ARROW, this, target, 1.6f, 1.2F);
+        double d0 = getTarget().getX() - this.getX();
+        double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
+        double d2 = getTarget().getZ() - this.getZ();
+        double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+        projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+        this.level.addFreshEntity(projectile);
     }
-
-    @Override
-    public int getSpawnLayer() {
-        return 4;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.ZONE;
+        return SoundRegistry.ZONE.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ZONE_HURT;
+        return SoundRegistry.ZONE_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.ZONE_HURT;
+        return SoundRegistry.ZONE_HURT.get();
     }
 }

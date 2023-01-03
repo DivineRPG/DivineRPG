@@ -1,23 +1,23 @@
 package divinerpg.client.containers;
 
 import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.inventory.container.*;
-import net.minecraft.item.crafting.*;
 import net.minecraft.network.*;
-import net.minecraft.util.*;
 
-public class GreenlightFurnaceContainer extends AbstractFurnaceContainer {
-    public GreenlightFurnaceContainer(int p_i50082_1_, PlayerInventory p_i50082_2_) {
-        super(ContainerRegistry.GREENLIGHT_FURNACE.get(), IRecipeType.SMELTING, RecipeBookCategory.FURNACE, p_i50082_1_, p_i50082_2_);
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.RecipeBookType;
+import net.minecraft.world.item.crafting.RecipeType;
+
+public class GreenlightFurnaceContainer extends AbstractFurnaceMenu {
+    public GreenlightFurnaceContainer(int p_i50082_1_, Inventory p_i50082_2_) {
+        super(MenuTypeRegistry.GREENLIGHT_FURNACE.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, p_i50082_1_, p_i50082_2_);
     }
-
-    public GreenlightFurnaceContainer(int p_i50083_1_, PlayerInventory p_i50083_2_, IInventory p_i50083_3_, IIntArray p_i50083_4_) {
-        super(ContainerRegistry.GREENLIGHT_FURNACE.get(), IRecipeType.SMELTING, RecipeBookCategory.FURNACE, p_i50083_1_, p_i50083_2_, p_i50083_3_, p_i50083_4_);
+    public GreenlightFurnaceContainer(int p_i50083_1_, Inventory p_i50083_2_, Container p_i50083_3_, ContainerData p_i50083_4_) {
+        super(MenuTypeRegistry.GREENLIGHT_FURNACE.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, p_i50083_1_, p_i50083_2_, p_i50083_3_, p_i50083_4_);
     }
-
-    public GreenlightFurnaceContainer(int i, PlayerInventory playerInventory, PacketBuffer buffer) {
+    public GreenlightFurnaceContainer(int i, Inventory playerInventory, FriendlyByteBuf buffer) {
         this(i, playerInventory);
     }
 }

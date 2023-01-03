@@ -1,44 +1,40 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.*;
-import divinerpg.items.base.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.effect.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.util.text.*;
+import divinerpg.items.base.ItemMod;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.*;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemSerenadeStriker extends ItemMod {
     public ItemSerenadeStriker() {
-        super("serenade_striker", new Properties().tab(DivineRPG.tabs.ranged).durability(100));
+        super(new Properties().durability(100));
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.serenade_striker"));
         tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         int blockReachDistance = 32;
-        Vector3d vec3d = player.getEyePosition(1);
-        Vector3d vec3d1 = player.getViewVector(1);
-        Vector3d vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
-        BlockRayTraceResult pos = player.level.clip(new RayTraceContext(vec3d, vec3d2, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, player));
+        Vec3 vec3d = player.getEyePosition(1);
+        Vec3 vec3d1 = player.getViewVector(1);
+        Vec3 vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
+        BlockHitResult pos = player.level.clip(new ClipContext(vec3d, vec3d2, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
 
         if (world.getBlockState(pos.getBlockPos()) != null) {
-            LightningBoltEntity bolt1 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world), bolt2 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world), bolt3 = new LightningBoltEntity(EntityType.LIGHTNING_BOLT, world);
+            LightningBolt bolt1 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt2 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt3 = new LightningBolt(EntityType.LIGHTNING_BOLT, world);
             bolt1.moveTo(pos.getLocation());
             bolt2.moveTo(pos.getLocation());
             bolt3.moveTo(pos.getLocation());
@@ -52,6 +48,6 @@ public class ItemSerenadeStriker extends ItemMod {
             }
         }
 
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
+        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, stack);
     }
 }

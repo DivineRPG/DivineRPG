@@ -1,79 +1,57 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 
-public class EntityVermenous extends EntityVetheaMob {
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
 
-    public EntityVermenous(EntityType<? extends MobEntity> type, World worldIn) {
+public class EntityVermenous extends EntityDivineMonster {
+
+    public EntityVermenous(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.5F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.vermenousHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.vermenousDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.vermenousSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.vermenousFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         super.tick();
-        PlayerEntity var1 = this.level.getNearestPlayer(this, 64.0D);
+        Player var1 = this.level.getNearestPlayer(this, 64.0D);
 
         if (var1 == null || var1.isCreative())
             return;
         else {
-            Vector3d var3 = var1.getLookAngle().normalize();
-            Vector3d var4 = new Vector3d(this.getX() - var1.getX(), this.getBoundingBox().minY + this.getEyeHeight() / 2.0F - (var1.getY() + var1.getEyeHeight()), this.getZ() - var1.getZ());
+            Vec3 var3 = var1.getLookAngle().normalize();
+            Vec3 var4 = new Vec3(this.getX() - var1.getX(), this.getBoundingBox().minY + this.getEyeHeight() / 2.0F - (var1.getY() + var1.getEyeHeight()), this.getZ() - var1.getZ());
             double var5 = var4.length();
             var4 = var4.normalize();
             double var7 = var3.dot(var4);
-            if( var7 > 1.0D - 0.025D / var5 && var1.canSee(this)) {
+            if( var7 > 1.0D - 0.025D / var5 && var1.hasLineOfSight(this)) {
                 var1.hurt(DamageSource.mobAttack(this), 4);
             }
         }
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 3;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.VERMENOUS;
+        return SoundRegistry.VERMENOUS.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.VERMENOUS_HURT;
+        return SoundRegistry.VERMENOUS_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.VERMENOUS_HURT;
+        return SoundRegistry.VERMENOUS_HURT.get();
     }
 }

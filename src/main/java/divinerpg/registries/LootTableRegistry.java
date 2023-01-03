@@ -2,7 +2,7 @@ package divinerpg.registries;
 
 import divinerpg.DivineRPG;
 import com.google.common.collect.Sets;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.*;
 
@@ -61,7 +61,7 @@ public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_ENDER_TRIPLETS = registerTable("entities/ender_triplets");
     public static final ResourceLocation ENTITIES_ENDER_WATCHER = registerTable("entities/ender_watcher");
 
-    public static final ResourceLocation ENTITIES_BUNNY = registerTable("entities/bunny");
+    public static final ResourceLocation ENTITIES_GLINTHOP = registerTable("entities/glinthop");
     public static final ResourceLocation ENTITIES_EDEN_CADILLION = registerTable("entities_cadillion");
     public static final ResourceLocation ENTITIES_EDEN_TOMO = registerTable("entities_tomo");
     public static final ResourceLocation ENTITIES_GREENFEET = registerTable("entities/greenfeet");
@@ -93,7 +93,7 @@ public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_SKYTHERN_FIEND = registerTable("entities/skythern_fiend");
     public static final ResourceLocation ENTITIES_SKYTHERN_GOLEM = registerTable("entities/skythern_golem");
 
-    public static final ResourceLocation ENTITIES_ANGRY_BUNNY = registerTable("entities/angry_bunny");
+    public static final ResourceLocation ENTITIES_ANGRY_GLINTHOP = registerTable("entities/angry_glinthop");
     public static final ResourceLocation ENTITIES_BASILISK = registerTable("entities/basilisk");
     public static final ResourceLocation ENTITIES_DEMON_OF_DARKNESS = registerTable("entities/demon_of_darkness");
     public static final ResourceLocation ENTITIES_MORTUM_CADILLION = registerTable("entities/mortum_cadillion");
@@ -148,11 +148,7 @@ public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_ZORAGON = registerTable("entities/zoragon");
 
     public static final ResourceLocation ENTITIES_ANCIENT_ENTITY = registerTable("entities/ancient_entity");
-    public static final ResourceLocation ENTITIES_AYERACO_BLUE = registerTable("entities/ayeraco_blue");
-    public static final ResourceLocation ENTITIES_AYERACO_GREEN = registerTable("entities/ayeraco_green");
-    public static final ResourceLocation ENTITIES_AYERACO_PURPLE = registerTable("entities/ayeraco_purple");
-    public static final ResourceLocation ENTITIES_AYERACO_RED = registerTable("entities/ayeraco_red");
-    public static final ResourceLocation ENTITIES_AYERACO_YELLOW = registerTable("entities/ayeraco_yellow");
+    public static final ResourceLocation ENTITIES_AYERACO_BLUE = registerTable("entities/ayeraco");
     public static final ResourceLocation ENTITIES_DENSOS = registerTable("entities/densos");
     public static final ResourceLocation ENTITIES_DRAMIX = registerTable("entities/dramix");
     public static final ResourceLocation ENTITIES_ETERNAL_ARCHER = registerTable("entities/eternal_archer");

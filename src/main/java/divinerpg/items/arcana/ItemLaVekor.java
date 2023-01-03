@@ -1,29 +1,27 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemModRanged;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.ItemRegistry;
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import divinerpg.DivineRPG;
+import divinerpg.items.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemLaVekor extends ItemModRanged {
 
     public ItemLaVekor() {
-        super("la_vekor", RarityList.COMMON, EntityRegistry.GRENADE, null, SoundRegistry.LA_VEKOR, SoundCategory.MASTER, -1, 0, () -> ItemRegistry.grenade,
+        super("grenade", null, () -> SoundRegistry.LA_VEKOR.get(), SoundSource.MASTER, -1, 0, new ResourceLocation(DivineRPG.MODID, "grenade"),
                 5);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.explosiveShots());
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

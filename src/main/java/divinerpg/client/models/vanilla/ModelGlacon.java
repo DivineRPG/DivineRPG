@@ -1,337 +1,96 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelGlacon<T extends Entity> extends SegmentedModel<T> {
-    ModelRenderer head;
-    ModelRenderer body;
-    ModelRenderer legRBT;
-    ModelRenderer legLBT;
-    ModelRenderer legRFT;
-    ModelRenderer legLFT;
-    ModelRenderer udders;
-    ModelRenderer legRMT;
-    ModelRenderer legLMT;
-    ModelRenderer legLF;
-    ModelRenderer legRF;
-    ModelRenderer legLM;
-    ModelRenderer legLB;
-    ModelRenderer legRM;
-    ModelRenderer legRB;
-    ModelRenderer body1;
-    ModelRenderer body2;
-    ModelRenderer body3;
-    ModelRenderer body4;
-    ModelRenderer body5;
-    ModelRenderer body7;
-    ModelRenderer body6;
-    ModelRenderer body8;
-    ModelRenderer body9;
-    ModelRenderer body10;
-    ModelRenderer body11;
-    ModelRenderer body12;
-    ModelRenderer body13;
-    ModelRenderer body14;
-    ModelRenderer body15;
-    ModelRenderer body16;
-    ModelRenderer body17;
-    ModelRenderer body18;
-    ModelRenderer body19;
-    ModelRenderer body20;
-    ModelRenderer body21;
-    ModelRenderer body22;
-    ModelRenderer body23;
-    ModelRenderer body24;
-    ModelRenderer body25;
-    ModelRenderer body26;
+import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.vanilla.overworld.EntityGlacon;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
-    public ModelGlacon() {
-        this.texWidth = 64;
-        this.texHeight = 32;
+import static divinerpg.util.ClientUtils.createLocation;
 
-        this.head = new ModelRenderer(this, 0, 0);
-        this.head.addBox(-4.0F, -4.0F, -6.0F, 8, 8, 11);
-        this.head.setPos(0.0F, 6.0F, -13.0F);
-        this.head.setTexSize(64, 32);
-        this.head.mirror = true;
-        setRotation(this.head, 0.0F, 0.0F, 0.0F);
-        this.body = new ModelRenderer(this, 32, 6);
-        this.body.addBox(-6.0F, -10.0F, -7.0F, 2, 5, 2);
-        this.body.setPos(12.0F, -4.0F, 17.0F);
-        this.body.setTexSize(64, 32);
-        this.body.mirror = true;
-        setRotation(this.body, 0.7853982F, 0.0F, 0.0F);
-        this.legRBT = new ModelRenderer(this, 32, 18);
-        this.legRBT.addBox(-4.0F, -4.0F, -2.0F, 5, 4, 5);
-        this.legRBT.setPos(-3.0F, 12.0F, 8.0F);
-        this.legRBT.setTexSize(64, 32);
-        this.legRBT.mirror = true;
-        setRotation(this.legRBT, 0.0F, 0.0F, 0.0F);
-        this.legLBT = new ModelRenderer(this, 32, 18);
-        this.legLBT.addBox(-1.0F, -4.0F, -2.0F, 5, 4, 5);
-        this.legLBT.setPos(3.0F, 12.0F, 8.0F);
-        this.legLBT.setTexSize(64, 32);
-        this.legLBT.mirror = true;
-        setRotation(this.legLBT, 0.0F, 0.0F, 0.0F);
-        this.legRFT = new ModelRenderer(this, 32, 18);
-        this.legRFT.addBox(-4.0F, -4.0F, -3.0F, 5, 4, 5);
-        this.legRFT.setPos(-3.0F, 12.0F, -5.0F);
-        this.legRFT.setTexSize(64, 32);
-        this.legRFT.mirror = true;
-        setRotation(this.legRFT, 0.0F, 0.0F, 0.0F);
-        this.legLFT = new ModelRenderer(this, 32, 18);
-        this.legLFT.addBox(-1.0F, -4.0F, -3.0F, 5, 4, 5);
-        this.legLFT.setPos(3.0F, 12.0F, -5.0F);
-        this.legLFT.setTexSize(64, 32);
-        this.legLFT.mirror = true;
-        setRotation(this.legLFT, 0.0F, 0.0F, 0.0F);
-        this.udders = new ModelRenderer(this, 52, 0);
-        this.udders.addBox(-2.0F, -3.0F, 0.0F, 4, 6, 2);
-        this.udders.setPos(0.0F, 14.0F, 6.0F);
-        this.udders.setTexSize(64, 32);
-        this.udders.mirror = true;
-        setRotation(this.udders, 1.570796F, 0.0F, 0.0F);
-        this.legRMT = new ModelRenderer(this, 32, 17);
-        this.legRMT.addBox(-1.0F, -4.0F, 0.0F, 5, 4, 6);
-        this.legRMT.setPos(-6.0F, 12.0F, -1.733333F);
-        this.legRMT.setTexSize(64, 32);
-        this.legRMT.mirror = true;
-        setRotation(this.legRMT, 0.0F, 0.0F, 0.0F);
-        this.legLMT = new ModelRenderer(this, 32, 17);
-        this.legLMT.addBox(0.0F, -4.0F, 0.0F, 5, 4, 6);
-        this.legLMT.setPos(2.0F, 12.0F, -1.7F);
-        this.legLMT.setTexSize(64, 32);
-        this.legLMT.mirror = true;
-        setRotation(this.legLMT, 0.0F, 0.0F, 0.0F);
-        this.legLF = new ModelRenderer(this, 0, 16);
-        this.legLF.addBox(-1.0F, 0.0F, -3.0F, 4, 12, 4);
-        this.legLF.setPos(3.0F, 12.0F, -5.0F);
-        this.legLF.setTexSize(64, 32);
-        this.legLF.mirror = true;
-        setRotation(this.legLF, 0.0F, 0.0F, 0.0F);
-        this.legRF = new ModelRenderer(this, 0, 16);
-        this.legRF.addBox(-3.0F, 0.0F, -3.0F, 4, 12, 4);
-        this.legRF.setPos(-3.0F, 12.0F, -5.0F);
-        this.legRF.setTexSize(64, 32);
-        this.legRF.mirror = true;
-        setRotation(this.legRF, 0.0F, 0.0F, 0.0F);
-        this.legLM = new ModelRenderer(this, 0, 15);
-        this.legLM.addBox(0.0F, 0.0F, 0.0F, 4, 12, 5);
-        this.legLM.setPos(2.0F, 12.0F, -1.7F);
-        this.legLM.setTexSize(64, 32);
-        this.legLM.mirror = true;
-        setRotation(this.legLM, 0.0F, 0.0F, 0.0F);
-        this.legLB = new ModelRenderer(this, 0, 16);
-        this.legLB.addBox(-1.0F, 0.0F, -2.0F, 4, 12, 4);
-        this.legLB.setPos(3.0F, 12.0F, 8.0F);
-        this.legLB.setTexSize(64, 32);
-        this.legLB.mirror = true;
-        setRotation(this.legLB, 0.0F, 0.0F, 0.0F);
-        this.legRM = new ModelRenderer(this, 0, 15);
-        this.legRM.addBox(0.0F, 0.0F, 0.0F, 4, 12, 5);
-        this.legRM.setPos(-6.0F, 12.0F, -1.733333F);
-        this.legRM.setTexSize(64, 32);
-        this.legRM.mirror = true;
-        setRotation(this.legRM, 0.0F, 0.0F, 0.0F);
-        this.legRB = new ModelRenderer(this, 0, 16);
-        this.legRB.addBox(-3.0F, 0.0F, -2.0F, 4, 12, 4);
-        this.legRB.setPos(-3.0F, 12.0F, 8.0F);
-        this.legRB.setTexSize(64, 32);
-        this.legRB.mirror = true;
-        setRotation(this.legRB, 0.0F, 0.0F, 0.0F);
-        this.body1 = new ModelRenderer(this, 20, 26);
-        this.body1.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body1.setPos(12.0F, 5.0F, 18.0F);
-        this.body1.setTexSize(64, 32);
-        this.body1.mirror = true;
-        setRotation(this.body1, 1.570796F, 0.0F, 0.0F);
-        this.body2 = new ModelRenderer(this, 20, 4);
-        this.body2.addBox(-6.0F, -10.0F, -7.0F, 12, 18, 10);
-        this.body2.setPos(0.0F, 5.0F, 2.0F);
-        this.body2.setTexSize(64, 32);
-        this.body2.mirror = true;
-        setRotation(this.body2, 1.570796F, 0.0F, 0.0F);
-        this.body3 = new ModelRenderer(this, 20, 26);
-        this.body3.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body3.setPos(12.0F, 2.0F, 2.0F);
-        this.body3.setTexSize(64, 32);
-        this.body3.mirror = true;
-        setRotation(this.body3, 1.570796F, 0.0F, 0.0F);
-        this.body4 = new ModelRenderer(this, 32, 6);
-        this.body4.addBox(-6.0F, -10.0F, -7.0F, 2, 18, 2);
-        this.body4.setPos(12.0F, -4.0F, -4.0F);
-        this.body4.setTexSize(64, 32);
-        this.body4.mirror = true;
-        setRotation(this.body4, 2.356194F, 0.0F, 0.0F);
-        this.body5 = new ModelRenderer(this, 32, 6);
-        this.body5.addBox(-6.0F, -10.0F, -7.0F, 4, 3, 4);
-        this.body5.setPos(11.0F, 14.0F, 6.0F);
-        this.body5.setTexSize(64, 32);
-        this.body5.mirror = true;
-        setRotation(this.body5, -2.356194F, 0.0F, 0.0F);
-        this.body7 = new ModelRenderer(this, 20, 26);
-        this.body7.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body7.setPos(-3.0F, 2.0F, 2.0F);
-        this.body7.setTexSize(64, 32);
-        this.body7.mirror = true;
-        setRotation(this.body7, 1.570796F, 0.0F, 0.0F);
-        this.body6 = new ModelRenderer(this, 20, 26);
-        this.body6.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body6.setPos(-3.0F, 5.0F, 18.0F);
-        this.body6.setTexSize(64, 32);
-        this.body6.mirror = true;
-        setRotation(this.body6, 1.570796F, 0.0F, 0.0F);
-        this.body8 = new ModelRenderer(this, 32, 6);
-        this.body8.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 4);
-        this.body8.setPos(7.0F, 7.0F, 5.0F);
-        this.body8.setTexSize(64, 32);
-        this.body8.mirror = true;
-        setRotation(this.body8, -2.356194F, 0.0F, 0.0F);
-        this.body9 = new ModelRenderer(this, 32, 6);
-        this.body9.addBox(-6.0F, -10.0F, -7.0F, 2, 18, 2);
-        this.body9.setPos(-2.0F, -4.0F, -4.0F);
-        this.body9.setTexSize(64, 32);
-        this.body9.mirror = true;
-        setRotation(this.body9, 2.356194F, 0.0F, 0.0F);
-        this.body10 = new ModelRenderer(this, 32, 6);
-        this.body10.addBox(-6.0F, -10.0F, -7.0F, 2, 5, 2);
-        this.body10.setPos(-2.0F, -4.0F, 17.0F);
-        this.body10.setTexSize(64, 32);
-        this.body10.mirror = true;
-        setRotation(this.body10, 0.7853982F, 0.0F, 0.0F);
-        this.body11 = new ModelRenderer(this, 20, 26);
-        this.body11.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body11.setPos(-3.0F, 5.0F, 8.0F);
-        this.body11.setTexSize(64, 32);
-        this.body11.mirror = true;
-        setRotation(this.body11, 1.570796F, 0.0F, 0.0F);
-        this.body12 = new ModelRenderer(this, 32, 6);
-        this.body12.addBox(-6.0F, -10.0F, -7.0F, 2, 18, 2);
-        this.body12.setPos(-2.0F, -1.0F, 2.0F);
-        this.body12.setTexSize(64, 32);
-        this.body12.mirror = true;
-        setRotation(this.body12, 2.356194F, 0.0F, 0.0F);
-        this.body13 = new ModelRenderer(this, 32, 6);
-        this.body13.addBox(-6.0F, -10.0F, -7.0F, 2, 5, 2);
-        this.body13.setPos(-2.0F, -1.0F, 23.0F);
-        this.body13.setTexSize(64, 32);
-        this.body13.mirror = true;
-        setRotation(this.body13, 0.7853982F, 0.0F, 0.0F);
-        this.body14 = new ModelRenderer(this, 20, 26);
-        this.body14.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 3);
-        this.body14.setPos(12.0F, 5.0F, 8.0F);
-        this.body14.setTexSize(64, 32);
-        this.body14.mirror = true;
-        setRotation(this.body14, 1.570796F, 0.0F, 0.0F);
-        this.body15 = new ModelRenderer(this, 32, 6);
-        this.body15.addBox(-6.0F, -10.0F, -7.0F, 2, 18, 2);
-        this.body15.setPos(12.0F, -1.0F, 2.0F);
-        this.body15.setTexSize(64, 32);
-        this.body15.mirror = true;
-        setRotation(this.body15, 2.356194F, 0.0F, 0.0F);
-        this.body16 = new ModelRenderer(this, 32, 6);
-        this.body16.addBox(-6.0F, -10.0F, -7.0F, 2, 5, 2);
-        this.body16.setPos(12.0F, -1.0F, 23.0F);
-        this.body16.setTexSize(64, 32);
-        this.body16.mirror = true;
-        setRotation(this.body16, 0.7853982F, 0.0F, 0.0F);
-        this.body17 = new ModelRenderer(this, 32, 6);
-        this.body17.addBox(-6.0F, -10.0F, -7.0F, 2, 9, 2);
-        this.body17.setPos(12.0F, 14.0F, 5.0F);
-        this.body17.setTexSize(64, 32);
-        this.body17.mirror = true;
-        setRotation(this.body17, -2.356194F, 0.0F, 0.0F);
-        this.body18 = new ModelRenderer(this, 32, 6);
-        this.body18.addBox(-6.0F, -10.0F, -7.0F, 1, 9, 2);
-        this.body18.setPos(8.0F, 7.0F, 4.0F);
-        this.body18.setTexSize(64, 32);
-        this.body18.mirror = true;
-        setRotation(this.body18, -2.356194F, 0.0F, 0.0F);
-        this.body19 = new ModelRenderer(this, 32, 6);
-        this.body19.addBox(-6.0F, -10.0F, -7.0F, 4, 3, 4);
-        this.body19.setPos(-3.0F, 14.0F, 6.0F);
-        this.body19.setTexSize(64, 32);
-        this.body19.mirror = true;
-        setRotation(this.body19, -2.356194F, 0.0F, 0.0F);
-        this.body20 = new ModelRenderer(this, 32, 6);
-        this.body20.addBox(-6.0F, -10.0F, -7.0F, 2, 9, 2);
-        this.body20.setPos(-2.0F, 14.0F, 5.0F);
-        this.body20.setTexSize(64, 32);
-        this.body20.mirror = true;
-        setRotation(this.body20, -2.356194F, 0.0F, 0.0F);
-        this.body21 = new ModelRenderer(this, 32, 6);
-        this.body21.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 4);
-        this.body21.setPos(2.0F, 7.0F, 5.0F);
-        this.body21.setTexSize(64, 32);
-        this.body21.mirror = true;
-        setRotation(this.body21, -2.356194F, 0.0F, 0.0F);
-        this.body22 = new ModelRenderer(this, 32, 6);
-        this.body22.addBox(-6.0F, -10.0F, -7.0F, 1, 9, 2);
-        this.body22.setPos(3.0F, 7.0F, 4.0F);
-        this.body22.setTexSize(64, 32);
-        this.body22.mirror = true;
-        setRotation(this.body22, -2.356194F, 0.0F, 0.0F);
-        this.body23 = new ModelRenderer(this, 32, 6);
-        this.body23.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 4);
-        this.body23.setPos(2.0F, 14.0F, 6.0F);
-        this.body23.setTexSize(64, 32);
-        this.body23.mirror = true;
-        setRotation(this.body23, -2.356194F, 0.0F, 0.0F);
-        this.body24 = new ModelRenderer(this, 32, 6);
-        this.body24.addBox(-6.0F, -10.0F, -7.0F, 1, 9, 2);
-        this.body24.setPos(3.0F, 14.0F, 5.0F);
-        this.body24.setTexSize(64, 32);
-        this.body24.mirror = true;
-        setRotation(this.body24, -2.356194F, 0.0F, 0.0F);
-        this.body25 = new ModelRenderer(this, 32, 6);
-        this.body25.addBox(-6.0F, -10.0F, -7.0F, 1, 9, 2);
-        this.body25.setPos(8.0F, 14.0F, 5.0F);
-        this.body25.setTexSize(64, 32);
-        this.body25.mirror = true;
-        setRotation(this.body25, -2.356194F, 0.0F, 0.0F);
-        this.body26 = new ModelRenderer(this, 32, 6);
-        this.body26.addBox(-6.0F, -10.0F, -7.0F, 3, 3, 4);
-        this.body26.setPos(7.0F, 14.0F, 6.0F);
-        this.body26.setTexSize(64, 32);
-        this.body26.mirror = true;
-        setRotation(this.body26, -2.356194F, 0.0F, 0.0F);
-    }
+public class ModelGlacon extends EntityModel<EntityGlacon> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("glacon");
+	private final ModelPart Spine, Head, RightFrontLeg, RightMiddleLeg, RightRearLeg, LeftFrontLeg, LeftMiddleLeg, LeftRearLeg;
 
-    @Override
-    public void setupAnim(T entityIn, float var1, float var2, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.legRB.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-        this.legRBT.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-        this.legRM.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-        this.legRMT.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-        this.legRF.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-        this.legRFT.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
+	public ModelGlacon(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.Spine = root.getChild("Spine");
+		this.Head = root.getChild("Head");
+		this.RightFrontLeg = root.getChild("RightLegFront");
+		this.RightMiddleLeg = root.getChild("RightLegMiddle");
+		this.RightRearLeg = root.getChild("RightLegBack");
+		this.LeftFrontLeg = root.getChild("LeftLegFront");
+		this.LeftMiddleLeg = root.getChild("LeftLegMiddle");
+		this.LeftRearLeg = root.getChild("LeftLegBack");
+	}
 
-        this.legLB.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-        this.legLBT.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-        this.legLM.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-        this.legLMT.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-        this.legLF.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-        this.legLFT.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, body, legRBT, legLBT, legRFT, legLFT, udders, legRMT, legLMT, legLF, legRF, legLM, legLB, legRM, legRB,
-                body1, body2, body3, body4, body5, body7, body6, body8, body9, body10, body11, body12, body13, body14, body15, body16, body17,
-                body18, body19, body20, body21, body22, body23, body24, body25, body26);
-    }
+		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(0.0F, 12.0F, -1.0F));
 
-    private void setRotation(ModelRenderer model, float x, float y, float z) {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+		PartDefinition Hip = Spine.addOrReplaceChild("Hip", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -3.5F, -3.0F, 8.0F, 7.0F, 22.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.5F, -3.0F));
 
+		PartDefinition RightLegBack = partdefinition.addOrReplaceChild("RightLegBack", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 12.0F, 9.0F));
+
+		PartDefinition LeftLegBack = partdefinition.addOrReplaceChild("LeftLegBack", CubeListBuilder.create().texOffs(16, 56).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 12.0F, 9.0F));
+
+		PartDefinition LeftLegMiddle = partdefinition.addOrReplaceChild("LeftLegMiddle", CubeListBuilder.create().texOffs(0, 56).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 12.0F, 3.0F));
+
+		PartDefinition RightLegMiddle = partdefinition.addOrReplaceChild("RightLegMiddle", CubeListBuilder.create().texOffs(32, 59).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 12.0F, 3.0F));
+
+		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 29).addBox(-6.0F, -8.0F, -8.0F, 12.0F, 9.0F, 8.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 73).addBox(-2.0F, 1.0F, -8.0F, 4.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -3.0F));
+
+		PartDefinition LeftSmallSail = Body.addOrReplaceChild("LeftSmallSail", CubeListBuilder.create().texOffs(32, 15).addBox(0.0F, -8.0F, -1.0F, 0.0F, 8.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -8.0F, -3.0F));
+
+		PartDefinition RightSmallSail = Body.addOrReplaceChild("RightSmallSail", CubeListBuilder.create().texOffs(38, 0).addBox(0.0F, -8.0F, -1.0F, 0.0F, 8.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, -8.0F, -3.0F));
+
+		PartDefinition RightSail = Body.addOrReplaceChild("RightSail", CubeListBuilder.create().texOffs(28, 32).addBox(0.0F, -9.0F, -2.0F, 0.0F, 10.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.0F, -9.0F, -6.0F));
+
+		PartDefinition LeftSail = Body.addOrReplaceChild("LeftSail", CubeListBuilder.create().texOffs(0, 32).addBox(0.0F, -9.0F, -2.0F, 0.0F, 10.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(6.0F, -9.0F, -6.0F));
+
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(47, 47).addBox(-3.0F, -3.5F, -8.5F, 6.0F, 7.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 6.5F, -12.5F));
+
+		PartDefinition RightWhisker = Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(0, 16).addBox(-4.5F, -2.5F, 0.0F, 5.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.5F, 2.0F, -7.5F));
+
+		PartDefinition LeftWhisker = Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(10, 16).addBox(-0.5F, -2.5F, 0.0F, 5.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(3.5F, 2.0F, -7.5F));
+
+		PartDefinition LeftLegFront = partdefinition.addOrReplaceChild("LeftLegFront", CubeListBuilder.create().texOffs(48, 63).addBox(-2.0F, -0.5F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 12.5F, -5.0F));
+
+		PartDefinition RightLegFront = partdefinition.addOrReplaceChild("RightLegFront", CubeListBuilder.create().texOffs(60, 22).addBox(-2.0F, -0.5F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.0F, 12.5F, -5.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 128);
+	}
+
+	@Override
+	public void setupAnim(EntityGlacon entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
+		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
+
+		this.RightFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.RightRearLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.RightMiddleLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + 0.000001) * 1.4F * limbSwingAmount);
+
+		this.LeftFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.LeftMiddleLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + 3.141594F) * 1.4F * limbSwingAmount);
+		this.LeftRearLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		RightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		RightMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		RightRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		LeftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		LeftMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		LeftRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }
-

@@ -1,0 +1,18 @@
+{
+	"feature": "divinerpg:brittle_caves_vegetation",
+	"placement": [
+		{
+			"type": "minecraft:count_on_every_layer",
+			"count": 16
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:biome"
+		},
+		{
+			"type": "divinerpg:underground"
+		}
+	]
+}

@@ -1,27 +1,24 @@
 package divinerpg.client.renders.entity.vanilla;
 
 
-import com.mojang.blaze3d.matrix.MatrixStack;
 import divinerpg.DivineRPG;
-import divinerpg.client.models.vanilla.*;
+import divinerpg.client.renders.base.RenderDivineMob;
 import divinerpg.entities.vanilla.overworld.EntityCyclops;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
+import static divinerpg.util.ClientUtils.layerHumanoid;
+
 @OnlyIn(Dist.CLIENT)
-public class RenderCyclops extends MobRenderer<EntityCyclops, ModelCyclops<EntityCyclops>> {
-    ResourceLocation cyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/cyclops.png");
-    ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
-
-    public RenderCyclops(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new ModelCyclops<EntityCyclops>(1), 0.8F);
+public class RenderCyclops extends RenderDivineMob<EntityCyclops> {
+    private final ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
+    public RenderCyclops(Context context) {
+        super(context, "cyclops", new HumanoidModel<EntityCyclops>(context.bakeLayer(layerHumanoid)), 0.8F, 2F);
     }
-    protected void scale(EntityCyclops entity, MatrixStack matrixStackIn, float partialTickTime) {
-        matrixStackIn.scale(2F, 2, 2F);
-    }
-
+    @Override
     public ResourceLocation getTextureLocation(EntityCyclops entity) {
-        return entity.isAngry() ? angryCyclopsLoc : cyclopsLoc;
+        return entity.isAggressive() ? angryCyclopsLoc : TEXTURE;
     }
 }

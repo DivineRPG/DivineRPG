@@ -1,9 +1,10 @@
 {
   "parent": "block/block",
+  "render_type": "cutout_mipped",
   "ambientocclusion": false,
   "textures": {
-    "particle": "divinerpg:blocks/hive_egg",
-    "all": "divinerpg:blocks/hive_egg"
+    "particle": "divinerpg:block/hive_egg",
+    "all": "divinerpg:block/hive_egg"
   },
   "elements": [
     {

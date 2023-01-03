@@ -1,0 +1,20 @@
+{
+	"feature": "divinerpg:skythern_bush",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": 1
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "highest_ground",
+			"mode": "slice",
+			"min_height": 0,
+			"max_height": 255,
+			"bury": 0
+		}
+	]
+}

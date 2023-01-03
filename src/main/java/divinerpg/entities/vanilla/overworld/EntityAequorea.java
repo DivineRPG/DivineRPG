@@ -1,106 +1,72 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
-import divinerpg.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.particles.*;
-import net.minecraft.pathfinding.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import net.minecraft.core.particles.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.animal.Squid;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.Path;
 
-import java.util.*;
+import java.util.EnumSet;
 
-public class EntityAequorea extends EntityDivineWaterMob {
-    int colour;
+import static divinerpg.util.EntityStats.aequoreaSpeed;
 
-    public EntityAequorea(EntityType<? extends EntityAequorea> type, World worldIn) {
-        super(type, worldIn);
-        colour = getRandom().nextInt(5);
-    }
+public class EntityAequorea extends Squid {
+	private int color;
+	public EntityAequorea(EntityType<EntityAequorea> type, Level level) {
+		super(type, level);
+		color = getRandom().nextInt(6);
+	}
+	@Override
+	protected float getStandingEyeHeight(Pose p_29975_, EntityDimensions p_29976_) {
+		return 0.3F;
+	}
+	@Override
+	protected void registerGoals() {
+		goalSelector.addGoal(1, new RandomMovementGoal(this));
+		goalSelector.addGoal(2, new StingAttack(this, aequoreaSpeed, false));
+	    goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+	    targetSelector.addGoal(1, new HurtByTargetGoal(this));
+	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+	}
+	public int getColor() {
+		return color;
+	}
+	@Override
+	protected ParticleOptions getInkParticle() {
+		return ParticleTypes.SPLASH;
+	}
+	class RandomMovementGoal extends Goal {
+	      private final EntityAequorea aequorea;
 
+	      public RandomMovementGoal(EntityAequorea entity) {
+	         this.aequorea = entity;
+	      }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-        return 0.3F;
-    }
+	      public boolean canUse() {
+	         return true;
+	      }
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        goalSelector.addGoal(1, new MoveRandomGoal(this));
-        goalSelector.addGoal(2, new StingAttack(this, EntityStats.aequoreaSpeed, false));
-    }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.aequoreaHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.aequoreaDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.aequoreaSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.aequoreaFollowRange);
-    }
-
-    public int getColour() {
-    return colour;
-    }
-
-    @Override
-    public void tick() {
-        if (level.isClientSide) {
-            if (isInWater()) {
-                Vector3d vec3d = getEyePosition(0.0F);
-                for (int i = 0; i < 2; ++i)
-                    level.addParticle(ParticleTypes.BUBBLE, getX() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth() - vec3d.x * 1.5D, getY() + this.random.nextDouble() * (double) this.getBbHeight() - vec3d.y * 1.5D, getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth() - vec3d.z * 1.5D, 0.0D, 0.0D, 0.0D);
-            }
-        }
-
-        if (isInWater()) {
-            setAirSupply(300);
-        } else if (onGround) {
-            xRot = random.nextFloat() * 360.0F;
-            onGround = false;
-            this.jumping = true;
-            if (level.getGameTime() % 5 == 0)
-                level.playSound(null, getX(), getY(), getZ(), SoundEvents.GUARDIAN_FLOP, SoundCategory.HOSTILE, 1F, 1F);
-            this.hurt(DamageSource.DROWN, 0.5F);
-        }
-
-        super.tick();
-    }
-
-
-
-
-
-    class MoveRandomGoal extends Goal {
-        private final EntityAequorea jellyfish;
-
-        public MoveRandomGoal(EntityAequorea jellyfish) {
-            this.jellyfish = jellyfish;
-        }
-
-        public boolean canUse() {
-            return true;
-        }
-
-        public void tick() {
-            int i = this.jellyfish.getNoActionTime();
-            if (i > 100) {
-                this.jellyfish.setDeltaMovement(0.0F, 0.0F, 0.0F);
-            } else if (this.jellyfish.getRandom().nextInt(50) == 0 || !this.jellyfish.isInWater() || !this.jellyfish.isMovementNoisy()) {
-                float f = this.jellyfish.getRandom().nextFloat() * ((float)Math.PI * 2F);
-                float f1 = MathHelper.cos(f) * 0.2F;
-                float f2 = -0.1F + this.jellyfish.getRandom().nextFloat() * 0.1F;
-                float f3 = MathHelper.sin(f) * 0.2F;
-                this.jellyfish.setDeltaMovement(f1, f2, f3);
-            }
-
-        }
-    }
-
-
+	      public void tick() {
+	         int i = this.aequorea.getNoActionTime();
+	         if (i > 100) {
+	            this.aequorea.setMovementVector(0.0F, 0.0F, 0.0F);
+	         } else if (this.aequorea.getRandom().nextInt(reducedTickDelay(50)) == 0 || !this.aequorea.wasTouchingWater || !this.aequorea.hasMovementVector()) {
+	            float f = this.aequorea.getRandom().nextFloat() * ((float)Math.PI * 2F);
+	            float f1 = Mth.cos(f) * 0.2F;
+	            float f2 = -0.1F + this.aequorea.getRandom().nextFloat() * 0.2F;
+	            float f3 = Mth.sin(f) * 0.2F;
+	            this.aequorea.setMovementVector(f1, f2, f3);
+	         }
+	      }
+	 }
      class StingAttack extends Goal {
-        protected final CreatureEntity mob;
+        protected final PathfinderMob mob;
         private final double speedModifier;
         private final boolean followingTargetEvenIfNotSeen;
         private Path path;
@@ -109,12 +75,12 @@ public class EntityAequorea extends EntityDivineWaterMob {
         private double pathedTargetZ;
         private int ticksUntilNextPathRecalculation;
         private int ticksUntilNextAttack;
-        private final int attackInterval = 20;
+//        private final int attackInterval = 20;
         private long lastCanUseCheck;
         private int failedPathFindingPenalty = 0;
         private boolean canPenalize = false;
 
-        public StingAttack(CreatureEntity aequorea, double speed, boolean followAtAllCosts) {
+        public StingAttack(PathfinderMob aequorea, double speed, boolean followAtAllCosts) {
             this.mob = aequorea;
             this.speedModifier = speed;
             this.followingTargetEvenIfNotSeen = followAtAllCosts;
@@ -163,7 +129,7 @@ public class EntityAequorea extends EntityDivineWaterMob {
             } else if (!this.mob.isWithinRestriction(livingentity.blockPosition())) {
                 return false;
             } else {
-                return !(livingentity instanceof PlayerEntity) || !livingentity.isSpectator() && !((PlayerEntity)livingentity).isCreative();
+                return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
             }
         }
 
@@ -176,7 +142,7 @@ public class EntityAequorea extends EntityDivineWaterMob {
 
         public void stop() {
             LivingEntity livingentity = this.mob.getTarget();
-            if (!EntityPredicates.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
+            if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
                 this.mob.setTarget((LivingEntity)null);
             }
 
@@ -189,7 +155,7 @@ public class EntityAequorea extends EntityDivineWaterMob {
             this.mob.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
             double d0 = this.mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
             this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
-            if ((this.followingTargetEvenIfNotSeen || this.mob.getSensing().canSee(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.mob.getRandom().nextFloat() < 0.05F)) {
+            if ((this.followingTargetEvenIfNotSeen || this.mob.getSensing().hasLineOfSight(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.mob.getRandom().nextFloat() < 0.05F)) {
                 this.pathedTargetX = livingentity.getX();
                 this.pathedTargetY = livingentity.getY();
                 this.pathedTargetZ = livingentity.getZ();
@@ -197,7 +163,7 @@ public class EntityAequorea extends EntityDivineWaterMob {
                 if (this.canPenalize) {
                     this.ticksUntilNextPathRecalculation += failedPathFindingPenalty;
                     if (this.mob.getNavigation().getPath() != null) {
-                        net.minecraft.pathfinding.PathPoint finalPathPoint = this.mob.getNavigation().getPath().getEndNode();
+                        net.minecraft.world.level.pathfinder.Node finalPathPoint = this.mob.getNavigation().getPath().getEndNode();
                         if (finalPathPoint != null && livingentity.distanceToSqr(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1)
                             failedPathFindingPenalty = 0;
                         else
@@ -225,9 +191,9 @@ public class EntityAequorea extends EntityDivineWaterMob {
             double d0 = this.getAttackReachSqr(entity);
             if (range <= d0 && this.ticksUntilNextAttack <= 0) {
                 this.resetAttackCooldown();
-                this.mob.swing(Hand.MAIN_HAND);
+                this.mob.swing(InteractionHand.MAIN_HAND);
                 this.mob.doHurtTarget(entity);
-                entity.addEffect(new EffectInstance(Effects.POISON, 3));
+                entity.addEffect(new MobEffectInstance(MobEffects.POISON, 3));
             }
 
         }

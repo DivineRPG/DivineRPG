@@ -1,47 +1,30 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
-import divinerpg.entities.base.EntityVetheaMob;
+import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.EntityStats;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
 
-public class EntityShadahier extends EntityVetheaMob {
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.*;
 
-    public EntityShadahier(EntityType<? extends MobEntity> type, World worldIn) {
+public class EntityShadahier extends EntityDivineMonster {
+
+    public EntityShadahier(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.1F;
     }
-    
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.shadahierHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.shadahierDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.shadahierSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.shadahierFollowRange);
-    }
-    
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return reason == SpawnReason.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
-    }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        addAttackingAI();
-    }
-
+    @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity target) {
         if(super.doHurtTarget(target)) {
             if(!this.level.isClientSide && target instanceof LivingEntity) {
-                ((LivingEntity) target).addEffect(new EffectInstance(Effects.BLINDNESS, 1, 1));
+                ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1, 1));
             }
             return true;
         }
@@ -51,22 +34,17 @@ public class EntityShadahier extends EntityVetheaMob {
     }
 
     @Override
-    public int getSpawnLayer() {
-        return 1;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.SHADAHIER;
+        return SoundRegistry.SHADAHIER.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.SHADAHIER_HURT;
+        return SoundRegistry.SHADAHIER_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.SHADAHIER_HURT;
+        return SoundRegistry.SHADAHIER_HURT.get();
     }
 }

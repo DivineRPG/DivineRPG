@@ -7,7 +7,7 @@ import net.minecraftforge.fml.event.lifecycle.*;
 public class ModCompat {
     public static void initCommon(FMLCommonSetupEvent e){
         if(ModList.get().isLoaded("jeresources")){
-            JERCompat.init(e);
+            JERCompat.init();
         }
         if(ModList.get().isLoaded("projecte")){
             ProjectECompat.init();
@@ -15,7 +15,7 @@ public class ModCompat {
         if(ModList.get().isLoaded("aztech")){
             DivineRPG.LOGGER.info("Together we thrive!");
         }
-        if(ModList.get().isLoaded("aoa")){
+        if(ModList.get().isLoaded("aoa3")){
             DivineRPG.LOGGER.info("The Divine Ascension");
         }
         if(ModList.get().isLoaded("journey")){

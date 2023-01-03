@@ -1,16 +1,19 @@
 package divinerpg.entities.base;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
 import net.minecraft.world.*;
-import net.minecraft.world.server.ServerBossInfo;
+import net.minecraft.server.level.ServerBossEvent;
 
-public class EntityDivineBoss extends EntityDivineMob {
-    private ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.BLUE,
-            BossInfo.Overlay.PROGRESS));
-    private int deathTicks;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.Level;
 
-    public EntityDivineBoss(EntityType<? extends MobEntity> type, World worldIn) {
+public abstract class EntityDivineBoss extends EntityDivineMonster {
+    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS));
+    //private int deathTicks;
+
+    public EntityDivineBoss(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
@@ -19,19 +22,19 @@ public class EntityDivineBoss extends EntityDivineMob {
         return false;
     }
 
-    public BossInfo.Color getBarColor() {
-        return BossInfo.Color.BLUE;
+    public BossEvent.BossBarColor getBarColor() {
+        return BossEvent.BossBarColor.BLUE;
     }
 
     @Override
-    public void startSeenByPlayer(ServerPlayerEntity player) {
+    public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
 
     @Override
-    public void stopSeenByPlayer(ServerPlayerEntity player) {
+    public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
     }
@@ -39,6 +42,6 @@ public class EntityDivineBoss extends EntityDivineMob {
     @Override
     public void tick() {
         super.tick();
-        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
 }

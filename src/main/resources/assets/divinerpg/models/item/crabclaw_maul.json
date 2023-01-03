@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/crabclaw_maul"
+    "layer0": "divinerpg:item/crabclaw_maul"
   }
 }

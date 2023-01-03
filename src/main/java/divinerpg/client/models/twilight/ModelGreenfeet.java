@@ -1,183 +1,148 @@
 package divinerpg.client.models.twilight;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelGreenfeet<T extends Entity> extends SegmentedModel<T> {
-    //fields
-    ModelRenderer head;
-    ModelRenderer body;
-    ModelRenderer leftarmbox;
-    ModelRenderer leftarm;
-    ModelRenderer rightlegext;
-    ModelRenderer leftlegext;
-    ModelRenderer leftleg;
-    ModelRenderer rightleg;
-    ModelRenderer rightarm;
-    ModelRenderer rightarmbox;
-    ModelRenderer Shape1;
-    ModelRenderer Shape2;
-    ModelRenderer Shape3;
-    ModelRenderer Shape4;
-    ModelRenderer Shape5;
-    ModelRenderer Shape6;
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelGreenfeet()
-    {
-        texWidth = 64;
-        texHeight = 32;
 
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-4F, -8F, -4F, 8, 8, 8);
-        head.setPos(0F, 0F, 2F);
-        head.setTexSize(64, 32);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
-        body = new ModelRenderer(this, 25, 16);
-        body.addBox(-7F, 0F, -2F, 14, 12, 4);
-        body.setPos(0F, 0F, 2F);
-        body.setTexSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0.4461433F, 0F, 0F);
-        leftarmbox = new ModelRenderer(this, 32, 0);
-        leftarmbox.addBox(-2F, 10F, -3F, 6, 4, 6);
-        leftarmbox.setPos(8F, 2F, 3F);
-        leftarmbox.setTexSize(64, 32);
-        leftarmbox.mirror = true;
-        setRotation(leftarmbox, 0F, 0F, 0F);
-        leftarm = new ModelRenderer(this, 40, 16);
-        leftarm.addBox(-1F, -2F, -2F, 4, 12, 4);
-        leftarm.setPos(8F, 2F, 3F);
-        leftarm.setTexSize(64, 32);
-        leftarm.mirror = true;
-        setRotation(leftarm, 0F, 0F, 0F);
-        rightlegext = new ModelRenderer(this, 0, 16);
-        rightlegext.addBox(-2F, 0F, -6F, 4, 3, 8);
-        rightlegext.setPos(-4F, 9F, 4F);
-        rightlegext.setTexSize(64, 32);
-        rightlegext.mirror = true;
-        setRotation(rightlegext, 0F, 0F, 0F);
-        leftlegext = new ModelRenderer(this, 0, 16);
-        leftlegext.addBox(-2F, 0F, -6F, 4, 3, 8);
-        leftlegext.setPos(4F, 9F, 4F);
-        leftlegext.setTexSize(64, 32);
-        leftlegext.mirror = true;
-        setRotation(leftlegext, 0F, 0F, 0F);
-        leftleg = new ModelRenderer(this, 0, 16);
-        leftleg.addBox(-2F, 3F, -6F, 4, 12, 4);
-        leftleg.setPos(4F, 9F, 4F);
-        leftleg.setTexSize(64, 32);
-        leftleg.mirror = true;
-        setRotation(leftleg, 0F, 0F, 0F);
-        rightleg = new ModelRenderer(this, 0, 16);
-        rightleg.addBox(-2F, 3F, -6F, 4, 12, 4);
-        rightleg.setPos(-4F, 9F, 4F);
-        rightleg.setTexSize(64, 32);
-        rightleg.mirror = true;
-        setRotation(rightleg, 0F, 0F, 0F);
-        rightarm = new ModelRenderer(this, 40, 16);
-        rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
-        rightarm.setPos(-8F, 2F, 3F);
-        rightarm.setTexSize(64, 32);
-        rightarm.mirror = true;
-        setRotation(rightarm, 0F, 0F, 0F);
-        rightarmbox = new ModelRenderer(this, 32, 0);
-        rightarmbox.addBox(-4F, 10F, -3F, 6, 4, 6);
-        rightarmbox.setPos(-8F, 2F, 3F);
-        rightarmbox.setTexSize(64, 32);
-        rightarmbox.mirror = true;
-        setRotation(rightarmbox, 0F, 0F, 0F);
-        Shape1 = new ModelRenderer(this, 57, 0);
-        Shape1.addBox(-5F, 0F, 0F, 2, 9, 1);
-        Shape1.setPos(-1F, -3F, 10F);
-        Shape1.setTexSize(64, 32);
-        Shape1.mirror = true;
-        setRotation(Shape1, -0.5948578F, 0F, 0F);
-        Shape2 = new ModelRenderer(this, 57, 0);
-        Shape2.addBox(-5F, 0F, 0F, 2, 9, 1);
-        Shape2.setPos(-1F, 0F, 12F);
-        Shape2.setTexSize(64, 32);
-        Shape2.mirror = true;
-        setRotation(Shape2, -0.5948578F, 0F, 0F);
-        Shape3 = new ModelRenderer(this, 57, 0);
-        Shape3.addBox(0F, 0F, 0F, 2, 9, 1);
-        Shape3.setPos(-1F, -3F, 10F);
-        Shape3.setTexSize(64, 32);
-        Shape3.mirror = true;
-        setRotation(Shape3, -0.5948578F, 0F, 0F);
-        Shape4 = new ModelRenderer(this, 57, 0);
-        Shape4.addBox(0F, 0F, 0F, 2, 9, 1);
-        Shape4.setPos(-1F, 0F, 12F);
-        Shape4.setTexSize(64, 32);
-        Shape4.mirror = true;
-        setRotation(Shape4, -0.5948578F, 0F, 0F);
-        Shape5 = new ModelRenderer(this, 57, 0);
-        Shape5.addBox(5F, 0F, 0F, 2, 9, 1);
-        Shape5.setPos(-1F, -3F, 10F);
-        Shape5.setTexSize(64, 32);
-        Shape5.mirror = true;
-        setRotation(Shape5, -0.5948578F, 0F, 0F);
-        Shape6 = new ModelRenderer(this, 57, 0);
-        Shape6.addBox(5F, 0F, 0F, 2, 9, 1);
-        Shape6.setPos(-1F, 0F, 12F);
-        Shape6.setTexSize(64, 32);
-        Shape6.mirror = true;
-        setRotation(Shape6, -0.5948578F, 0F, 0F);
-    }
+public class ModelGreenfeet<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("greenfeet");
+	private final ModelPart head;
+	private final ModelPart body;
+	private final ModelPart leftarmbox;
+	private final ModelPart leftarm;
+	private final ModelPart rightlegext;
+	private final ModelPart leftlegext;
+	private final ModelPart leftleg;
+	private final ModelPart rightleg;
+	private final ModelPart rightarm;
+	private final ModelPart rightarmbox;
+	private final ModelPart Shape1;
+	private final ModelPart Shape2;
+	private final ModelPart Shape3;
+	private final ModelPart Shape4;
+	private final ModelPart Shape5;
+	private final ModelPart Shape6;
 
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(head, body, leftarmbox, leftarm, rightlegext, leftlegext, leftleg, rightleg, rightarm, rightarmbox, Shape1, Shape2, Shape3, Shape4, Shape5, Shape6);
-    }
+	public ModelGreenfeet(EntityRendererProvider.Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.head = root.getChild("head");
+		this.body = root.getChild("body");
+		this.leftarmbox = root.getChild("leftarmbox");
+		this.leftarm = root.getChild("leftarm");
+		this.rightlegext = root.getChild("rightlegext");
+		this.leftlegext = root.getChild("leftlegext");
+		this.leftleg = root.getChild("leftleg");
+		this.rightleg = root.getChild("rightleg");
+		this.rightarm = root.getChild("rightarm");
+		this.rightarmbox = root.getChild("rightarmbox");
+		this.Shape1 = root.getChild("Shape1");
+		this.Shape2 = root.getChild("Shape2");
+		this.Shape3 = root.getChild("Shape3");
+		this.Shape4 = root.getChild("Shape4");
+		this.Shape5 = root.getChild("Shape5");
+		this.Shape6 = root.getChild("Shape6");
+	}
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
-        model.xRot = x;
-        model.yRot = y;
-        model.zRot = z;
-    }
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-    @Override
-    public void setupAnim(T ent, float var1, float var2, float var3, float var4, float var5)
-    {
-        this.head.yRot = var4 / (180F / (float)Math.PI);
-        this.head.xRot = var5 / (180F / (float)Math.PI);
-        this.rightarm.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
-        this.rightarmbox.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 2.0F * var2 * 0.5F;
-        this.leftarm.xRot = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
-        this.leftarmbox.xRot = MathHelper.cos(var1 * 0.6662F) * 2.0F * var2 * 0.5F;
-        this.rightarm.zRot = 0.0F;
-        this.rightarmbox.zRot = 0.0F;
-        this.leftarm.zRot = 0.0F;
-        this.leftarmbox.zRot = 0.0F;
-        this.rightleg.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-        this.rightlegext.xRot = MathHelper.cos(var1 * 0.6662F) * 1.4F * var2;
-        this.leftleg.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
-        this.leftlegext.xRot = MathHelper.cos(var1 * 0.6662F + (float)Math.PI) * 1.4F * var2;
-        this.rightleg.yRot = 0.0F;
-        this.rightlegext.yRot = 0.0F;
-        this.leftleg.yRot = 0.0F;
-        this.leftlegext.yRot = 0.0F;
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 0.0F, 2.0F));
 
-        this.rightarm.yRot = 0.0F;
-        this.rightarmbox.yRot = 0.0F;
-        this.leftarm.yRot = 0.0F;
-        this.leftarmbox.yRot = 0.0F;
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(25, 16).mirror().addBox(-7.0F, 0.0F, -2.0F, 14.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 2.0F, 0.4461F, 0.0F, 0.0F));
 
-        this.rightarm.zRot += MathHelper.cos(var3 * 0.09F) * 0.05F + 0.05F;
-        this.leftarm.zRot -= MathHelper.cos(var3 * 0.09F) * 0.05F + 0.05F;
-        this.rightarmbox.zRot += MathHelper.cos(var3 * 0.09F) * 0.05F + 0.05F;
-        this.leftarmbox.zRot -= MathHelper.cos(var3 * 0.09F) * 0.05F + 0.05F;
+		partdefinition.addOrReplaceChild("leftarmbox", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(-2.0F, 10.0F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 2.0F, 3.0F));
 
-        this.rightarm.xRot += MathHelper.sin(var3 * 0.067F) * 0.05F;
-        this.leftarm.xRot -= MathHelper.sin(var3 * 0.067F) * 0.05F;
-        this.rightarmbox.xRot += MathHelper.sin(var3 * 0.067F) * 0.05F;
-        this.leftarmbox.xRot -= MathHelper.sin(var3 * 0.067F) * 0.05F;
-    }
+		partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(8.0F, 2.0F, 3.0F));
 
+		partdefinition.addOrReplaceChild("rightlegext", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -6.0F, 4.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 9.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("leftlegext", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -6.0F, 4.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 9.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 3.0F, -6.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 9.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 3.0F, -6.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 9.0F, 4.0F));
+
+		partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 2.0F, 3.0F));
+
+		partdefinition.addOrReplaceChild("rightarmbox", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(-4.0F, 10.0F, -3.0F, 6.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 2.0F, 3.0F));
+
+		partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(-5.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, -3.0F, 10.0F, -0.5949F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape2", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(-5.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 0.0F, 12.0F, -0.5949F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape3", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, -3.0F, 10.0F, -0.5949F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape4", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 0.0F, 12.0F, -0.5949F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape5", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(5.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, -3.0F, 10.0F, -0.5949F, 0.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("Shape6", CubeListBuilder.create().texOffs(57, 0).mirror().addBox(5.0F, 0.0F, 0.0F, 2.0F, 9.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 0.0F, 12.0F, -0.5949F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 32);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
+		this.head.xRot = headPitch / (180F / (float)Math.PI);
+		this.rightarm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+		this.rightarmbox.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+		this.leftarm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+		this.leftarmbox.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+		this.rightarm.zRot = 0.0F;
+		this.rightarmbox.zRot = 0.0F;
+		this.leftarm.zRot = 0.0F;
+		this.leftarmbox.zRot = 0.0F;
+		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.rightlegext.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.leftlegext.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.rightleg.yRot = 0.0F;
+		this.rightlegext.yRot = 0.0F;
+		this.leftleg.yRot = 0.0F;
+		this.leftlegext.yRot = 0.0F;
+
+		this.rightarm.yRot = 0.0F;
+		this.rightarmbox.yRot = 0.0F;
+		this.leftarm.yRot = 0.0F;
+		this.leftarmbox.yRot = 0.0F;
+
+		this.rightarm.zRot += Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+		this.leftarm.zRot -= Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+		this.rightarmbox.zRot += Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+		this.leftarmbox.zRot -= Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+
+		this.rightarm.xRot += Mth.sin(ageInTicks * 0.067F) * 0.05F;
+		this.leftarm.xRot -= Mth.sin(ageInTicks * 0.067F) * 0.05F;
+		this.rightarmbox.xRot += Mth.sin(ageInTicks * 0.067F) * 0.05F;
+		this.leftarmbox.xRot -= Mth.sin(ageInTicks * 0.067F) * 0.05F;
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftarmbox.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightlegext.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftlegext.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightarmbox.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Shape6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

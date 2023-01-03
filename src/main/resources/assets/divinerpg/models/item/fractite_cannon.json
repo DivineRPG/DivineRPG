@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/fractite_cannon"
+    "layer0": "divinerpg:item/fractite_cannon"
   }
 }

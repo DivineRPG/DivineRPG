@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:sky_flower"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:sky_plant_seeds",
+    "count": 3
+  }
+}

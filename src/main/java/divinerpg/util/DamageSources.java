@@ -1,6 +1,6 @@
 package divinerpg.util;
 
-import net.minecraft.util.DamageSource;
+import net.minecraft.world.damagesource.*;
 
 public class DamageSources {
     public static final DamageSource trapSource = (new DamageSource("trapSource")).bypassArmor().setIsFire();

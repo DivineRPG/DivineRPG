@@ -1,154 +1,116 @@
 package divinerpg.entities.base;
 
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.fish.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.particles.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.vector.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.entity.monster.Guardian;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
+import net.minecraft.world.phys.Vec3;
 
-import java.util.*;
+import javax.annotation.Nullable;
 
-public class EntityDivineWaterMob extends AbstractFishEntity {
+public class EntityDivineWaterMob extends WaterAnimal {
 
 
-    public EntityDivineWaterMob(EntityType<? extends EntityDivineWaterMob> type, World worldIn) {
+    public EntityDivineWaterMob(EntityType<? extends EntityDivineWaterMob> type, Level worldIn) {
         super(type, worldIn);
-        this.random.setSeed(1 + this.getId());
     }
 
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return true;
-    }
-
-    public boolean checkSpawnObstruction(IWorldReader worldIn) {
+    public boolean checkSpawnObstruction(LevelReader worldIn) {
         return worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);
     }
 
-    @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
-        return 0.0F;
-    }
-
-    @Override
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.WATER;
-    }
-
-    @Override
-    public int getMaxSpawnClusterSize() {
-        return 1;
-    }
-
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
-
-    @Override
-    protected float getSoundVolume() {
-        return 0.4F;
-    }
-
-    @Override
-    public void tick() {
-        if (level.isClientSide) {
-            if (isInWater()) {
-                Vector3d vec3d = getEyePosition(0.0F);
-                for (int i = 0; i < 2; ++i)
-                    level.addParticle(ParticleTypes.BUBBLE, getX() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth() - vec3d.x * 1.5D, getY() + this.random.nextDouble() * (double) this.getBbHeight() - vec3d.y * 1.5D, getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getBbWidth() - vec3d.z * 1.5D, 0.0D, 0.0D, 0.0D);
-            }
-        }
-
-        if (isInWater()) {
-            setAirSupply(300);
-        } else if (onGround) {
-            setDeltaMovement(this.getDeltaMovement().add((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F, 0.5D, (this.random.nextFloat() * 2.0F - 1.0F) * 0.4F));
-            xRot = random.nextFloat() * 360.0F;
-            onGround = false;
-            this.jumping = true;
-            if (level.getGameTime() % 5 == 0)
-                level.playSound(null, getX(), getY(), getZ(), SoundEvents.GUARDIAN_FLOP, SoundCategory.HOSTILE, 1F, 1F);
-            this.hurt(DamageSource.DROWN, 0.5F);
-        }
-
-        super.tick();
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, 80.0D).add(Attributes.ATTACK_DAMAGE, 8F).add(Attributes.MOVEMENT_SPEED, 0.29D);
-    }
-
-    @Override
-    protected ItemStack getBucketItemStack() {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getFlopSound() {
-        return null;
-    }
-
-
-    protected static class AttackGoal extends MeleeAttackGoal {
-        public AttackGoal(EntityDivineWaterMob mob) {
-            super(mob, 0.4D, true);
-        }
-
-        @Override
-        protected double getAttackReachSqr(LivingEntity attackTarget) {
-            return 0.5F + attackTarget.getBbWidth();
-        }
-    }
-
-    protected static class TargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public TargetGoal(EntityDivineWaterMob mob, Class<T> classTarget) {
-            super(mob, classTarget, true);
-        }
+    public static AttributeSupplier.Builder attributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, (double)1.2F).add(Attributes.ATTACK_DAMAGE, 3.0D);
     }
 
     @Override
     protected void registerGoals() {
-        if(!needsSpecialAI()){
-            addBasicAI();
-        }
+    addBasicAI();
+    if(isAggressive()) {
+        addAttackingAI();
     }
-    public boolean needsSpecialAI() {
+    }
+
+    public boolean isAggressive() {
         return false;
     }
-
     protected void addBasicAI() {
-        this.goalSelector.addGoal(0, new EntityDivineWaterMob.SwimGoal(this));
-        this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
+        this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1.0D, 10));
+        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 32.0F));
+        this.goalSelector.addGoal(8, new FollowBoatGoal(this));
+        this.goalSelector.addGoal(9, new AvoidEntityGoal<>(this, Guardian.class, 8.0F, 1.0D, 1.0D));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, Guardian.class)).setAlertOthers());
 
     }
-
     protected void addAttackingAI() {
         goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-    static class SwimGoal extends RandomSwimmingGoal {
-        private final EntityDivineWaterMob mob;
+    @Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_28332_, DifficultyInstance p_28333_, MobSpawnType p_28334_, @Nullable SpawnGroupData p_28335_, @Nullable CompoundTag p_28336_) {
+        this.setAirSupply(this.getMaxAirSupply());
+        this.setXRot(0.0F);
+        return super.finalizeSpawn(p_28332_, p_28333_, p_28334_, p_28335_, p_28336_);
+    }
 
-        public SwimGoal(EntityDivineWaterMob mob) {
-            super(mob, 1.0D, 40);
-            this.mob = mob;
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    protected void handleAirSupply(int p_28326_) {
+    }
+
+    protected PathNavigation createNavigation(Level p_28362_) {
+        return new WaterBoundPathNavigation(this, p_28362_);
+    }
+
+    public int getMaxHeadXRot() {
+        return 1;
+    }
+
+    public int getMaxHeadYRot() {
+        return 1;
+    }
+
+    public void tick() {
+        super.tick();
+        if (this.onGround) {
+            this.setDeltaMovement(this.getDeltaMovement().add((double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F), 0.5D, (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F)));
+            this.setYRot(this.random.nextFloat() * 360.0F);
+            this.onGround = false;
+            this.hasImpulse = true;
         }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean shouldExecute() {
-            return this.mob.canRandomSwim() && super.canUse();
-        }
     }
+
+    protected boolean closeToNextPos() {
+        BlockPos blockpos = this.getNavigation().getTargetPos();
+        return blockpos != null ? blockpos.closerToCenterThan(this.position(), 12.0D) : false;
+    }
+
+    public void travel(Vec3 p_28383_) {
+        if (this.isEffectiveAi() && this.isInWater()) {
+            this.moveRelative(this.getSpeed(), p_28383_);
+            this.move(MoverType.SELF, this.getDeltaMovement());
+            this.setDeltaMovement(this.getDeltaMovement().scale(0.9D));
+            if (this.getTarget() == null) {
+                this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.005D, 0.0D));
+            }
+        } else {
+            super.travel(p_28383_);
+        }
+
+    }
+
+
 }

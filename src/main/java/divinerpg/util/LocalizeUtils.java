@@ -1,24 +1,23 @@
 package divinerpg.util;
 
-import net.minecraft.command.ICommandSource;
-import net.minecraft.item.Item;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.server.command.TextComponentHelper;
+import net.minecraft.*;
+import net.minecraft.commands.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.world.item.*;
+import net.minecraftforge.server.command.*;
 
 public class LocalizeUtils {
     /**
      * Here is stored rows with no String.format
      */
-    private static final TextComponent
-            InfiniteUses = new TranslationTextComponent("tooltip.uses.infinite"),
-            NoProtection = new TranslationTextComponent("tooltip.noprotection"),
-            HomingShoots = new TranslationTextComponent("tooltip.shots.homing"),
-            SingleUse = new TranslationTextComponent("tooltip.uses.single"),
-            InstantConsumption = new TranslationTextComponent("tooltip.instant_consumption"),
-            WeakenedWithoutArcana = new TranslationTextComponent("tooltip.weakened_without_arcana");
+    private static final MutableComponent
+            InfiniteUses = MutableComponent.create(new TranslatableContents("tooltip.uses.infinite")),
+            NoProtection = MutableComponent.create(new TranslatableContents("tooltip.noprotection")),
+            HomingShoots = MutableComponent.create(new TranslatableContents("tooltip.shots.homing")),
+            SingleUse = MutableComponent.create(new TranslatableContents("tooltip.uses.single")),
+            InstantConsumption = MutableComponent.create(new TranslatableContents("tooltip.instant_consumption")),
+            WeakenedWithoutArcana = MutableComponent.create(new TranslatableContents("tooltip.weakened_without_arcana"));
 
 
     /**
@@ -45,12 +44,12 @@ public class LocalizeUtils {
      * @param keyPart - part of localized key 'tooltip.armor_info.' + KEY_PART
      * @return
      */
-    public static TextComponent getArmorAbility(String keyPart, Object... params) {
+    public static TranslatableContents getArmorAbility(String keyPart, Object... params) {
         String id = String.format("tooltip.armor_info.%s", keyPart);
 
         return params == null || params.length < 1
-                ? new TranslationTextComponent(id)
-                : new TranslationTextComponent(id, params);
+                ? new TranslatableContents(id)
+                : new TranslatableContents(id, params);
     }
 
     /**
@@ -59,7 +58,7 @@ public class LocalizeUtils {
      * @param uses - remaining uses
      * @return
      */
-    public static ITextComponent usesRemaining(int uses) {
+    public static Component usesRemaining(int uses) {
         return i18n(RemainingUses, uses);
     }
 
@@ -68,7 +67,7 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent infiniteAmmo() {
+    public static Component infiniteAmmo() {
         return LocalizeUtils.i18n("tooltip.ammo.infinite");
 
     }
@@ -79,8 +78,8 @@ public class LocalizeUtils {
      * @param ammo
      * @return
      */
-    public static ITextComponent ammo(Item ammo) {
-        return ammo(ammo, TextFormatting.GRAY);
+    public static Component ammo(Item ammo) {
+        return ammo(ammo, ChatFormatting.GRAY);
     }
 
     /**
@@ -90,8 +89,8 @@ public class LocalizeUtils {
      * @param isPresent - if present print green else - red
      * @return
      */
-    public static ITextComponent ammo(Item ammo, boolean isPresent) {
-        return ammo(ammo, isPresent ? TextFormatting.GREEN : TextFormatting.RED);
+    public static Component ammo(Item ammo, boolean isPresent) {
+        return ammo(ammo, isPresent ? ChatFormatting.GREEN : ChatFormatting.RED);
     }
 
     /**
@@ -101,8 +100,8 @@ public class LocalizeUtils {
      * @param formatting - color of ammo name
      * @return
      */
-    public static ITextComponent ammo(Item ammo, TextFormatting formatting) {
-        ITextComponent ammoName = new TranslationTextComponent(ammo.getDescriptionId());
+    public static Component ammo(Item ammo, ChatFormatting formatting) {
+        Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId()));
         ammoName.getStyle().applyFormat(formatting);
 
         return i18n(Ammo, ammoName);
@@ -114,7 +113,7 @@ public class LocalizeUtils {
      * @param ar - amount. Possible any value, for example range value 10-20
      * @return
      */
-    public static ITextComponent arcanaConsumed(Object ar) {
+    public static Component arcanaConsumed(Object ar) {
         return i18n(ArcanaConsuming, ar);
     }
 
@@ -124,7 +123,7 @@ public class LocalizeUtils {
      * @param dam - arcana damage
      * @return
      */
-    public static ITextComponent arcanaDam(double dam) {
+    public static Component arcanaDam(double dam) {
         return i18n(ArcanaDamageSource, dam);
     }
 
@@ -134,7 +133,7 @@ public class LocalizeUtils {
      * @param ar - arcana amount
      * @return
      */
-    public static ITextComponent arcanaRegen(int ar) {
+    public static Component arcanaRegen(int ar) {
         return i18n(ArcanaRegen, ar);
     }
 
@@ -144,11 +143,11 @@ public class LocalizeUtils {
      * @param dam - string range of damage
      * @return
      */
-    public static ITextComponent bowDam(String dam) {
+    public static Component bowDam(String dam) {
         return i18n(BowDamage, dam);
     }
 
-    public static ITextComponent burn(int seconds) {
+    public static Component burn(int seconds) {
         return i18n(BurnMobs, seconds);
     }
 
@@ -157,16 +156,16 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent infiniteUses() {
-        return InfiniteUses.withStyle(TextFormatting.BLUE);
+    public static Component infiniteUses() {
+        return InfiniteUses.withStyle(ChatFormatting.BLUE);
     }
 
-    public static ITextComponent instantConsumption() {
-        return InstantConsumption.withStyle(TextFormatting.AQUA);
+    public static Component instantConsumption() {
+        return InstantConsumption.withStyle(ChatFormatting.AQUA);
     }
 
-    public static ITextComponent weakenedWithoutArcana() {
-        return WeakenedWithoutArcana.withStyle(TextFormatting.RED);
+    public static Component weakenedWithoutArcana() {
+        return WeakenedWithoutArcana.withStyle(ChatFormatting.RED);
     }
 
     /**
@@ -176,7 +175,7 @@ public class LocalizeUtils {
      * @param fullReduct - full set reduction
      * @return
      */
-    public static ITextComponent damageReduction(double reduct, double fullReduct) {
+    public static Component damageReduction(double reduct, double fullReduct) {
         return i18n(DamageReductionStringFormat, reduct, fullReduct);
     }
 
@@ -186,7 +185,7 @@ public class LocalizeUtils {
      * @param eff - efficiency
      * @return
      */
-    public static ITextComponent efficiency(double eff) {
+    public static Component efficiency(double eff) {
         return i18n(Efficency, eff);
     }
 
@@ -196,7 +195,7 @@ public class LocalizeUtils {
      * @param lvl - harvest level
      * @return
      */
-    public static ITextComponent harvestLevel(int lvl) {
+    public static Component harvestLevel(int lvl) {
         return i18n(HarvestLevel, lvl);
     }
 
@@ -205,7 +204,7 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent explosiveShots() {
+    public static Component explosiveShots() {
         return LocalizeUtils.i18n("tooltip.shots.explosive");
     }
 
@@ -214,7 +213,7 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent homingShots() {
+    public static Component homingShots() {
         return HomingShoots;
     }
 
@@ -223,7 +222,7 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent singleUse() {
+    public static Component singleUse() {
         return SingleUse;
     }
 
@@ -233,7 +232,7 @@ public class LocalizeUtils {
      * @param dam - melee gamage amount
      * @return
      */
-    public static ITextComponent meleeDam(double dam) {
+    public static Component meleeDam(double dam) {
         return i18n(MeleeDamage, dam);
     }
 
@@ -243,7 +242,7 @@ public class LocalizeUtils {
      * @param seconds - effect duration
      * @return
      */
-    public static ITextComponent poison(float seconds) {
+    public static Component poison(float seconds) {
         return i18n(Poison, seconds);
     }
 
@@ -253,7 +252,7 @@ public class LocalizeUtils {
      * @param dam - damage amount
      * @return
      */
-    public static ITextComponent rangedDam(double dam) {
+    public static Component rangedDam(double dam) {
         return i18n(BowDamage, dam);
     }
 
@@ -263,7 +262,7 @@ public class LocalizeUtils {
      * @param seconds effect duration
      * @return
      */
-    public static ITextComponent slow(double seconds) {
+    public static Component slow(double seconds) {
         return i18n(SlowMobs, seconds);
     }
 
@@ -272,7 +271,7 @@ public class LocalizeUtils {
      *
      * @return
      */
-    public static ITextComponent noProtection() {
+    public static Component noProtection() {
         return NoProtection;
     }
 
@@ -286,8 +285,8 @@ public class LocalizeUtils {
      * @param message - lang key
      * @return
      */
-    public static String normal(String message) {
-        return normal(message, TextFormatting.WHITE);
+    public static ComponentContents normal(String message) {
+        return normal(message, ChatFormatting.WHITE);
     }
 
     /**
@@ -297,8 +296,8 @@ public class LocalizeUtils {
      * @param format  - text color
      * @return
      */
-    public static String normal(String message, TextFormatting format) {
-        TextComponent text = new TranslationTextComponent(message);
+    public static ComponentContents normal(String message, ChatFormatting format) {
+        MutableComponent text = MutableComponent.create(new TranslatableContents(message));
         text.withStyle(format);
 
         return text.getContents();
@@ -310,9 +309,9 @@ public class LocalizeUtils {
      * @param vers
      * @return
      */
-    public static String version(String vers) {
-        TextComponent text = new TranslationTextComponent("message.version", vers);
-        text.withStyle(TextFormatting.RED);
+    public static ComponentContents version(String vers) {
+        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", vers));
+        text.withStyle(ChatFormatting.RED);
 
         return text.getContents();
     }
@@ -324,7 +323,7 @@ public class LocalizeUtils {
      * @param str    - lang key
      * @return
      */
-    public static ITextComponent getClientSideTranslation(ICommandSource sender, String str, final Object... args) {
+    public static Component getClientSideTranslation(CommandSource sender, String str, final Object... args) {
         return TextComponentHelper.createComponentTranslation(sender, str, args);
     }
 
@@ -335,13 +334,13 @@ public class LocalizeUtils {
      * @param args - string format args
      * @return
      */
-    public static ITextComponent i18n(String text, Object... args) {
-        TranslationTextComponent result = new TranslationTextComponent(text, args);
-        return result.withStyle(TextFormatting.GRAY);
+    public static Component i18n(String text, Object... args) {
+        MutableComponent result = MutableComponent.create(new TranslatableContents(text, args));
+        return result.withStyle(ChatFormatting.GRAY);
     }
 
-    public static ITextComponent i18n(TextFormatting color, String text, Object... args) {
-        TranslationTextComponent result = new TranslationTextComponent(text, args);
+    public static Component i18n(ChatFormatting color, String text, Object... args) {
+        MutableComponent result = MutableComponent.create(new TranslatableContents(text, args));
         return result.withStyle(color);
     }
 }

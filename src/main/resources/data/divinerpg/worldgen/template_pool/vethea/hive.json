@@ -1,0 +1,15 @@
+{
+  "name": "hive",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:vethea/dream_grounds/hive",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

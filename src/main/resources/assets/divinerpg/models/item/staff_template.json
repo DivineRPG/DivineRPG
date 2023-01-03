@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/staff_template"
+    "layer0": "divinerpg:item/staff_template"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/bloodgem_sword"
+    "layer0": "divinerpg:item/bloodgem_sword"
   }
 }

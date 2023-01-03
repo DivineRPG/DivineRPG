@@ -1,7 +1,7 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:items/inferno_bow_0"
+    "layer0": "divinerpg:item/inferno_bow_0"
   },
   "display": {
     "firstperson_righthand": {

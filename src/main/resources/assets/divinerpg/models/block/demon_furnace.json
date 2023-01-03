@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
+  "render_type": "cutout_mipped",
   "textures": {
-    "all": "divinerpg:blocks/demon_furnace_break"
+    "all": "divinerpg:block/demon_furnace_break"
   }
 }

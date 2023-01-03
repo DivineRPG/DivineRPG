@@ -1,24 +1,27 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.monster.piglin.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class EntityWreck extends EntityDivineBoss {
 
@@ -32,12 +35,12 @@ public class EntityWreck extends EntityDivineBoss {
     private int ability;
     private int abilityType;
 
-    public EntityWreck(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityWreck(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
     public void manageAbilities() {
-        PlayerEntity player = this.level.getNearestPlayer(this, 64.0D);
+        Player player = this.level.getNearestPlayer(this, 64.0D);
         if (getHealth() < 1024 / 3) {
             this.setAbilityType(RANGED);
         } else if (getHealth() < 1024 * 2 / 3 && getHealth() > 1024 / 3) {
@@ -127,7 +130,7 @@ public class EntityWreck extends EntityDivineBoss {
         }
         if (this.getAbility() == FREEZE) {
             if (player != null) {
-                player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 5));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 5));
                 this.setAbility(DEFAULT);
                 abilityTimer = 100;
             }
@@ -138,44 +141,44 @@ public class EntityWreck extends EntityDivineBoss {
     private void message() {
         List<Entity> list = level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
         for (int var1 = 0; var1 < list.size(); ++var1) {
-            if (list.get(var1) instanceof PlayerEntity) {
-                PlayerEntity player = (PlayerEntity) list.get(var1);
+            if (list.get(var1) instanceof Player) {
+                Player player = (Player) list.get(var1);
 
                 switch (this.getAbility()) {
                     case CHARGE:
-                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.charge"), player.getUUID());
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.charge"), true);
                         break;
                     case PULL:
-                        this.playSound(SoundRegistry.FEEL_SOUL_ARKSIANE, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.FEEL_SOUL_ARKSIANE.get(), 1.0F, 1.0F);
                         if (!level.isClientSide) {
-                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.pull"), player.getUUID());
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.pull"), true);
                         }
                             break;
                     case FIRE:
-                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.fire"), player.getUUID());
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.fire"), true);
                         break;
                     case FREEZE:
-                        this.playSound(SoundRegistry.STOP_AT_ONCE, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.STOP_AT_ONCE.get(), 1.0F, 1.0F);
                         if (!level.isClientSide) {
-                            player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.freeze"), player.getUUID());
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.freeze"), true);
                         }
                         break;
                     case SPEED:
-                        this.playSound(SoundRegistry.WRECK_SPEED, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.WRECK_SPEED.get(), 1.0F, 1.0F);
                         if (!level.isClientSide) {
-                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.speed"), player.getUUID());
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.speed"), true);
                     }
                         break;
                     case EXPLOSIONS:
-                        this.playSound(SoundRegistry.EXPLOSIONS, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.EXPLOSIONS.get(), 1.0F, 1.0F);
                         if (!level.isClientSide) {
-                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.explosion"), player.getUUID());
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.explosion"), true);
                     }
                         break;
                     case STRENGTH:
-                        this.playSound(SoundRegistry.WRECK_STRENGTH, 1.0F, 1.0F);
+                        this.playSound(SoundRegistry.WRECK_STRENGTH.get(), 1.0F, 1.0F);
                         if (!level.isClientSide) {
-                        player.sendMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.strength"), player.getUUID());
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.strength"), true);
                     }
                         break;
                     default:
@@ -190,19 +193,19 @@ public class EntityWreck extends EntityDivineBoss {
     public void tick() {
         super.tick();
         if (!level.isClientSide && !loaded) {
-            List<PlayerEntity> players = this.level.getEntitiesOfClass(PlayerEntity.class, this.getBoundingBox().expandTowards(30, 30, 30));
-            for (PlayerEntity p : players) {
-                p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"), p.getUUID());
-                p.sendMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.smell"), p.getUUID());
+            List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+            for (Player p : players) {
+                p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"), true);
+                p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.smell"), true);
             }
-            this.playSound(SoundRegistry.WRECK_INTRO, 1.0F, 1.0F);
+            this.playSound(SoundRegistry.WRECK_INTRO.get(), 1.0F, 1.0F);
             loaded = true;
         }
 
         if (dead) {
             return;
         } else {
-            PlayerEntity player = this.level.getNearestPlayer(this, 64.0D);
+            Player player = this.level.getNearestPlayer(this, 64.0D);
             if (this.getAbility() == PULL) {
                 if (player != null && !player.isCreative()) {
                     player.setDeltaMovement((this.getX() - player.getX()) * 0.069, (this.getY() - player.getY()) * 0.069, (this.getZ() - player.getZ()) * 0.069);
@@ -229,7 +232,7 @@ public class EntityWreck extends EntityDivineBoss {
                 knockback = 2;
             }
             if (knockback > 0) {
-                par1Entity.setDeltaMovement(-MathHelper.sin(this.xRot * (float) Math.PI / 180.0F) * knockback * 0.5F, 0.1D, MathHelper.cos(this.yRot * (float) Math.PI / 180.0F) * knockback * 0.5F);
+                par1Entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * knockback * 0.5F, 0.1D, Mth.cos(this.yRot * (float) Math.PI / 180.0F) * knockback * 0.5F);
 
                 setDeltaMovement(getDeltaMovement().x * 0.6D, getDeltaMovement().y, getDeltaMovement().z*0.6D);
             }
@@ -245,47 +248,53 @@ public class EntityWreck extends EntityDivineBoss {
     }
 
     public void performRangedAttack(LivingEntity entity) {
-        if (entity == null) return;
-        if(isAlive()) {
-            double tx = entity.getX() - this.getX();
-            double ty = entity.getY(0.3333333333333333D);
-            double tz = entity.getZ() - this.getZ();
-            switch (this.getAbility()) {
-                case BOUNCE:
-                    EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(EntityRegistry.WRECK_BOUNCING_PROJECTILE, this.level, this, 35);
-                    projectile.shoot(tx, ty, tz, 1.6f, 12f);
+        if (!isAlive() || getTarget() == null || level.isClientSide)  return;
+        double x = getTarget().getX() - this.getX();
+        double z = getTarget().getZ() - this.getZ();
+        switch (this.getAbility()) {
+            case BOUNCE:
+                    EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(EntityRegistry.WRECK_BOUNCING_PROJECTILE.get(), this.level, this, 35);
+                    double bounceY = getTarget().getY(0.3333333333333333D) - projectile.getY();
+                    double d3 = Mth.sqrt((float) (x * x + z * z));
+                    projectile.shoot(x, bounceY + d3 * (double) 0.2F, z, 1.6F, 0.5F);
                     this.level.addFreshEntity(projectile);
+                this.setAbility(DEFAULT);
+                break;
+            case SPEED:
+                if (this.abilityTimer % 5 == 0) {
+                    EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT.get(), this.level, this, 15);
+                    double shotY = getTarget().getY(0.3333333333333333D) - shot.getY();
+                    double ws3 = Mth.sqrt((float) (x * x + z * z));
+                    shot.shoot(x, shotY + ws3 * (double) 0.2F, z, 1.6F, 0.5F);
+                    this.level.addFreshEntity(shot);
+                }
+                if (this.abilityTimer <= 100) {
                     this.setAbility(DEFAULT);
-                    break;
-                case SPEED:
-                    if (this.abilityTimer % 5 == 0) {
-                        EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT, this.level, this, 15);
-                        shot.shoot(tx, ty, tz, 1.6f, 12f);
-                        this.level.addFreshEntity(shot);
-                    }
-                    if (this.abilityTimer <= 100) {
-                        this.setAbility(DEFAULT);
-                    }
-                    break;
-                case EXPLOSIONS:
-                    if ((this.abilityTimer % 40) == 0) {
-                        EntityWreckExplosiveShot shot = new EntityWreckExplosiveShot(EntityRegistry.WRECK_EXPLOSIVE_SHOT, this, this.level);
-                        shot.shoot(tx, ty, tz, 1.6f, 12f);
-                        this.level.addFreshEntity(shot);
-                    }
-                    if (this.abilityTimer == 0) this.setAbility(DEFAULT);
-                    break;
-                case STRENGTH:
-                    if ((this.abilityTimer % 40) == 0) {
-                        EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT, this.level, this, 40);
-                        shot.shoot(tx, ty, tz, 1.6f, 12f);
-                        this.level.addFreshEntity(shot);
-                    }
-                    if (this.abilityTimer == 0) this.setAbility(DEFAULT);
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case EXPLOSIONS:
+                if ((this.abilityTimer % 40) == 0) {
+                    EntityWreckExplosiveShot explosiveShot = new EntityWreckExplosiveShot(EntityRegistry.WRECK_EXPLOSIVE_SHOT.get(), this, this.level);
+                    double explodeY = getTarget().getY(0.3333333333333333D) - explosiveShot.getY();
+                    double e3 = Mth.sqrt((float) (x * x + z * z));
+                    explosiveShot.shoot(x, explodeY + e3 * (double) 0.2F, z, 1.6F, 0.5F);
+                    this.level.addFreshEntity(explosiveShot);
+                    explosiveShot.shoot(x, explodeY + e3 * (double) 0.2F, z, 1.6F, 0.5F);
+                    this.level.addFreshEntity(explosiveShot);
+                }
+                if (this.abilityTimer == 0) this.setAbility(DEFAULT);
+                break;
+            case STRENGTH:
+                if ((this.abilityTimer % 40) == 0) {
+                    EntityWreckShot strengthShot = new EntityWreckShot(EntityRegistry.WRECK_SHOT.get(), this.level, this, 40);
+                    double strengthY = getTarget().getY(0.3333333333333333D) - strengthShot.getY();
+                    double s3 = Mth.sqrt((float) (x * x + z * z));
+                    strengthShot.shoot(x, strengthY + s3 * (double) 0.2F, z, 1.6F, 0.5F);
+                }
+                if (this.abilityTimer == 0) this.setAbility(DEFAULT);
+                break;
+            default:
+                break;
         }
     }
 
@@ -307,15 +316,15 @@ public class EntityWreck extends EntityDivineBoss {
 
 
     protected void registerGoals() {
-        this.targetSelector.addGoal(0, new SwimGoal(this));
+        this.targetSelector.addGoal(0, new FloatGoal(this));
         this.targetSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
-        this.targetSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.targetSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.targetSelector.addGoal(8, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.targetSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.targetSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(8, new MeleeAttackGoal(this, 1, true));
         this.targetSelector.addGoal(8, new FollowMobGoal(this, 1, 1, 1));
-        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, PiglinEntity.class));
-        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, Piglin.class));
+        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
@@ -327,10 +336,5 @@ public class EntityWreck extends EntityDivineBoss {
     @Override
     protected SoundEvent getAmbientSound() {
         return super.getAmbientSound();
-    }
-
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.wreckHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.wreckDamage)
-                .add(Attributes.MOVEMENT_SPEED, EntityStats.wreckSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.wreckFollowRange);
     }
 }

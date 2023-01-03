@@ -1,11 +1,11 @@
 package divinerpg.blocks.base;
 
-import divinerpg.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.block.trees.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
 
 import java.util.function.*;
 
@@ -13,21 +13,15 @@ public class BlockModSapling extends SaplingBlock {
     private final Supplier<Block> grassSupplier;
     private final Supplier<Block> dirtSupplier;
 
-    public BlockModSapling(String name, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, Tree tree) {
-        super(tree, AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
-        setRegistryName(DivineRPG.MODID, name);
+    public BlockModSapling(Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, AbstractTreeGrower tree) {
+        super(tree, BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
         this.grassSupplier = grassSupplier;
         this.dirtSupplier = dirtSupplier;
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockState soil = worldIn.getBlockState(pos.below());
-        return super.canSurvive(state, worldIn, pos) || soil.getBlock() instanceof BlockModGrass || soil.getBlock() instanceof BlockModDirt;
-    }
-    @Override
-    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        BlockState soil = worldIn.getBlockState(pos.below());
-        return super.mayPlaceOn(state, worldIn, pos) || soil.getBlock() instanceof BlockModGrass || soil.getBlock() instanceof BlockModDirt;
+        return super.canSurvive(state, worldIn, pos) || soil.getBlock() == grassSupplier.get() || soil.getBlock() == dirtSupplier.get();
     }
 }

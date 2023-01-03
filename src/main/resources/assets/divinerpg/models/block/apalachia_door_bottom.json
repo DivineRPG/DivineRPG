@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom",
-  "textures": {
-    "top": "divinerpg:blocks/apalachia_door_top",
-    "bottom": "divinerpg:blocks/apalachia_door_bottom"
-  }
-}

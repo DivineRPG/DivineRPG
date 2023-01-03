@@ -1,51 +1,48 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.items.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.client.util.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.text.*;
-import net.minecraft.world.*;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemStaff extends ItemModRanged {
 
     protected int damage;
 
     public ItemStaff(int dam,
-                     int arcana,
-                     String name) {
-        super(name, null, null, SoundRegistry.STAFF,
-                SoundCategory.PLAYERS,
+                     int arcana) {
+        super("bouncing_projectile", null, () -> SoundRegistry.STAFF.get(),
+                SoundSource.PLAYERS,
                 -1,
                 0,
                 null,
-                arcana, DivineRPG.tabs.vethea);
+                arcana);
         this.damage = dam;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.arcanaDam(damage));
         tooltip.add(LocalizeUtils.i18n("tooltip.staff.bounce"));
-		/*if(stack.getItem() == ItemRegistry.evernight)
-			list.add(LocalizeUtils.i18n("tooltip.staff.evernight.damage"));*/
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        //list.add(TooltipLocalizer.vethean());
     }
 
     @Override
-    protected void spawnEntity(World world, PlayerEntity player, ItemStack stack, BulletType bulletType, EntityType entityType) {
-        DivineThrowable projectile = new EntityBouncingProjectile(EntityRegistry.BOUNCING_PROJECTILE, player, world, this.damage);
+    protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
+        DivineThrowable projectile = new EntityBouncingProjectile((EntityType<? extends EntityBouncingProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "bouncing_projectile")), player, world, this.damage);
         projectile.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 0.4F);
         world.addFreshEntity(projectile);
     }

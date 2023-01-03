@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:items/frostclaw_cannon"
+    "layer0": "divinerpg:item/frostclaw_cannon"
   }
 }

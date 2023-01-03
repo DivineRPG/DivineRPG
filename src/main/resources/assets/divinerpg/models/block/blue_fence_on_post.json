@@ -1,6 +1,7 @@
 {
   "parent": "block/fence_post",
+  "render_type": "cutout_mipped",
   "textures": {
-    "texture": "divinerpg:blocks/blue_fence_on"
+    "texture": "divinerpg:block/blue_fence_on"
   }
 }

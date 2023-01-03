@@ -1,6 +1,7 @@
 {
   "parent": "block/crop",
+  "render_type": "cutout_mipped",
   "textures": {
-    "crop": "divinerpg:blocks/hitchak_plant_1"
+    "crop": "divinerpg:block/hitchak_plant_1"
   }
 }

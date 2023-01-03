@@ -1,42 +1,44 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.util.math.shapes.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.shapes.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
-public class BlockModCrop extends CropsBlock {
+public class BlockModCrop extends CropBlock {
     int age, maxAge;
-    IItemProvider seed;
+    ResourceLocation seed;
     protected List<VoxelShape> growthStageHitboxes = new ArrayList<VoxelShape>();
 
-    public BlockModCrop(String name) {
-        this(name, 0.8);
+    public BlockModCrop() {
+        this(0.8);
     }
 
-    public BlockModCrop(String name, double maxHeight) {
-        this(name, maxHeight, 0);
+    public BlockModCrop(double maxHeight) {
+        this(maxHeight, 0);
     }
 
-    public BlockModCrop(String name, double maxHeight, int maxAge) {
-        super(AbstractBlock.Properties.of(Material.PLANT).noCollission().noOcclusion().randomTicks().instabreak().sound(SoundType.CROP));
-        this.setRegistryName(name);
+    public BlockModCrop(double maxHeight, int maxAge) {
+        super(BlockBehaviour.Properties.of(Material.PLANT).noCollission().noOcclusion().randomTicks().instabreak().sound(SoundType.CROP));
         this.maxAge = maxAge;
 
         double step = maxHeight / ((double) getMaxAge() + 1);
 
         for (int i = 0; i <= getMaxAge(); i++)
-            growthStageHitboxes.add(VoxelShapes.create(new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, step * (i + 1), 1.0D)));
+            growthStageHitboxes.add(Shapes.create(new AABB(0.0D, 0.0D, 0.0D, 1.0D, step * (i + 1), 1.0D)));
     }
 
-    public BlockModCrop(String name, int age, IItemProvider seed) {
-        this(name, 0.8, age);
+    public BlockModCrop(int age, ResourceLocation seed) {
+        this(0.8, age);
         this.age=age;
         this.seed=seed;
     }
@@ -46,18 +48,18 @@ public class BlockModCrop extends CropsBlock {
     }
 
     @Override
-    protected IItemProvider getBaseSeedId() {
-        return seed;
+    protected ItemLike getBaseSeedId() {
+        return ForgeRegistries.ITEMS.getValue(seed);
     }
 
     @Override
-    public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
-        return new ItemStack(seed);
+    public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {
+        return new ItemStack(ForgeRegistries.ITEMS.getValue(seed));
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-        growthStageHitboxes.get(MathHelper.clamp(getAge(state), 0, growthStageHitboxes.size() - 1));
-        return growthStageHitboxes.get(MathHelper.clamp(getAge(state), 0, growthStageHitboxes.size() - 1));
+    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context) {
+        growthStageHitboxes.get(Mth.clamp(getAge(state), 0, growthStageHitboxes.size() - 1));
+        return growthStageHitboxes.get(Mth.clamp(getAge(state), 0, growthStageHitboxes.size() - 1));
     }
 }

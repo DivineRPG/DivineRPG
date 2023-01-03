@@ -1,27 +1,33 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import net.minecraft.block.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import divinerpg.DivineRPG;
+import divinerpg.blocks.base.BlockModDoubleCrop;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockPinkGlowbone extends BlockModDoubleCrop {
     public BlockPinkGlowbone() {
-        super("pink_glowbone_plant");
+        super();
+    }
+
+    @Override
+    protected ItemLike getBaseSeedId() {
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "pink_glowbone_seeds"));
     }
     @Override
     public int getMaxAge() {
         return 1;
     }
     @Override
-    protected IItemProvider getBaseSeedId() {
-        return ItemRegistry.pinkGlowboneSeeds;
+    public IntegerProperty getAgeProperty() {
+        return BlockStateProperties.AGE_1;
     }
-
     @Override
-    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
         return 3;
     }
 

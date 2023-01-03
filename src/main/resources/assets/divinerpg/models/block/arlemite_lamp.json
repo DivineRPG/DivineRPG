@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:blocks/arlemite_lamp"
+    "all": "divinerpg:block/arlemite_lamp"
   }
 }

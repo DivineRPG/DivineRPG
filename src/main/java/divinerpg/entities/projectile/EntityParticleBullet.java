@@ -1,18 +1,22 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.enums.BulletType;
-import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.world.World;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+
 public class EntityParticleBullet extends EntityShooterBullet {
-    public EntityParticleBullet(EntityType<? extends ThrowableEntity> type, World world) {
+    BulletType bulletType;
+    public EntityParticleBullet(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityParticleBullet(EntityType<? extends ThrowableEntity> type, World world, LivingEntity entity, BulletType bulletType) {
+    public EntityParticleBullet(EntityType<? extends ThrowableProjectile> type, Level world, LivingEntity entity, BulletType bulletType) {
         super(type, entity, world, bulletType);
+        this.bulletType = getBulletType();
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -24,7 +28,7 @@ public class EntityParticleBullet extends EntityShooterBullet {
             double y = this.yo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double z = this.zo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             if (level.isClientSide && getBulletType().getParticle() != null) {
-                level.addParticle(this.getBulletType().getParticle(), x, y, z, 0, 0, 0);
+                level.addParticle(getBulletType().getParticle(), x, y, z, 0, 0, 0);
             }
         }
     }

@@ -1,20 +1,21 @@
 package divinerpg.entities.ai;
 
 import divinerpg.entities.wildwood.*;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.pathfinding.*;
+import net.minecraft.core.*;
+import net.minecraft.sounds.*;
 import net.minecraft.tags.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.pathfinder.*;
 
 public class EntityBehemothEatWood extends Goal {
 
     private final EntityBehemoth behemoth;
     private final float speed = 2.0F;
     private Path foodPath;
-    private PathNavigator foodPathNavigator;
+    private PathNavigation foodPathNavigator;
     private BlockPos target;
 
     public EntityBehemothEatWood(EntityBehemoth behemoth) {
@@ -43,7 +44,7 @@ public class EntityBehemothEatWood extends Goal {
                     boolean isEdible = isBlockEdible(candidateState, candidate);
 
                     if (isEdible) {
-                        double distance = behemothPosition.distSqr(x2, y2, z2, true);
+                        double distance = behemothPosition.distSqr(new Vec3i(x2, y2, z2));
                         if (distance < minDistance) {
                             minDistance = distance;
                             minDistanceWoodPos = candidate;
@@ -75,7 +76,7 @@ public class EntityBehemothEatWood extends Goal {
         } else {
             this.behemoth.heal(10F);
             this.behemoth.level.destroyBlock(this.target, false);
-            this.behemoth.level.playSound(null, this.target, SoundEvents.GENERIC_EAT, SoundCategory.HOSTILE, 1.0F, 1.0F);
+            this.behemoth.level.playSound(null, this.target, SoundEvents.GENERIC_EAT, SoundSource.HOSTILE, 1.0F, 1.0F);
             this.stop();
         }
     }
@@ -100,6 +101,6 @@ public class EntityBehemothEatWood extends Goal {
 
 
     private boolean isBlockEdible(BlockState state, BlockPos pos) {
-        return state.getMaterial() == Material.WOOD|| BlockTags.LOGS.contains(state.getBlock());
+        return state.getMaterial() == Material.WOOD || state.is(BlockTags.LOGS);
     }
 }

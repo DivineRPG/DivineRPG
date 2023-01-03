@@ -1,22 +1,25 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.enums.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityTwilightDemonShot extends EntityColoredBullet {
 
 
-    public EntityTwilightDemonShot(EntityType<? extends ThrowableEntity> type, World world) {
+    public EntityTwilightDemonShot(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
     }
 
-    public EntityTwilightDemonShot(EntityType<? extends ThrowableEntity> type, LivingEntity entity, World world, BulletType bulletType) {
+    public EntityTwilightDemonShot(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world, BulletType bulletType) {
         super(type, entity, world, bulletType);
     }
 
@@ -34,10 +37,12 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
     }
 
     @Override
-    public void onHitEntity(EntityRayTraceResult result) {
-        if (result.getEntity() != null && result.getEntity() instanceof PlayerEntity) {
-            ((PlayerEntity) result.getEntity()).addEffect(new EffectInstance(Effects.CONFUSION, 200, 0));
-            ((PlayerEntity) result.getEntity()).hurt(DamageSource.mobAttack((LivingEntity)this.getOwner()), 5);
+    public void onHitEntity(EntityHitResult result) {
+        if (tickCount != 1 || tickCount != 0) {
+            if (result.getEntity() != null && result.getEntity() instanceof Player) {
+                ((Player) result.getEntity()).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
+                ((Player) result.getEntity()).hurt(DamageSource.mobAttack((LivingEntity) this.getOwner()), 5);
+            }
         }
     }
 }

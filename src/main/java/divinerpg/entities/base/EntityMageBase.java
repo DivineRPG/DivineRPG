@@ -1,81 +1,57 @@
 package divinerpg.entities.base;
 
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
+import divinerpg.entities.projectile.EntityTwilightMageShot;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.block.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.*;
-import net.minecraft.util.math.*;
-import net.minecraft.world.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.*;
 
-import java.util.*;
-
-public class EntityMageBase extends EntityDivineMob {
+public abstract class EntityMageBase extends EntityDivineMonster {
     private final BulletType bullet;
-
-    public EntityMageBase(EntityType<? extends MobEntity> type, World worldIn) {
+    public EntityMageBase(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.bullet = BulletType.MAGE_SHOT;
     }
-    public EntityMageBase(EntityType<? extends MobEntity> type, World worldIn, BulletType bullet) {
+    public EntityMageBase(EntityType<? extends Monster> type, Level worldIn, BulletType bullet) {
         super(type, worldIn);
         this.bullet = bullet;
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+    @Override
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2F;
     }
-    public static AttributeModifierMap.MutableAttribute attributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.behemothHealth).add(Attributes.ATTACK_DAMAGE, EntityStats.behemothDamage).add(Attributes.MOVEMENT_SPEED, EntityStats.behemothSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.behemothFollowRange);
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 0, true, false, null));
+        this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));
     }
-
     @Override
     public void tick() {
         super.tick();
-            if (this.tickCount % 20 == 0) {
-                setTarget(this.level.getNearestPlayer(this, 16D));
-                if (this.getTarget() != null && !this.level.isClientSide && this.isAlive()) {
-                    if (canAttack(getTarget())) {
-                    double tx = this.getTarget().getX() - this.getX();
-                    double ty = this.getTarget().getBoundingBox().minY - this.getY();
-                    double tz = this.getTarget().getZ() - this.getZ();
-                    EntityTwilightMageShot shot = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT, this, level, bullet);
-                    shot.shoot(tx, ty, tz, 1.6f, 0);
-                    this.level.addFreshEntity(shot);
-                    level.playSound(null, this.getTarget().getX(), this.getTarget().getY(),
-                            this.getTarget().getZ(), SoundRegistry.MAGE_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F);
-                }
-            }
+        if(tickCount % 19 == 0 && isAlive() && getTarget() != null && !level.isClientSide) {
+            double tx = getTarget().getX() - getX(), ty = getTarget().getBoundingBox().minY - getY() - 0.1, tz = getTarget().getZ() - getZ();
+            EntityTwilightMageShot e = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, bullet != null ? bullet : BulletType.SPELLBINDER_SHOT);
+            e.shoot(tx, ty, tz, 1.6F, 0);
+            level.addFreshEntity(e);
+            playSound(SoundRegistry.MAGE_FIRE.get());
         }
     }
-
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.INSECT;
+        return SoundRegistry.INSECT.get();
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.INSECT;
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends MobEntity> typeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return !worldIn.getBlockState(pos.below()).is(Blocks.BEDROCK);
+        return SoundRegistry.INSECT.get();
     }
     @Override
-    public float getWalkTargetValue(BlockPos pos, IWorldReader world) {
-        return 0.0F;
+    public float getWalkTargetValue(BlockPos pos, LevelReader world) {
+        return 0F;
     }
 }

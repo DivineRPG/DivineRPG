@@ -1,48 +1,77 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.registries.SoundRegistry;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.RarityList;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import divinerpg.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemHealingSword extends ItemModSword {
 
-    private float healAmount;
+    private final float healAmount;
 
-    public ItemHealingSword(String name, IItemTier material, float healAmount) {
-        super(name, RarityList.COMMON, material, DivineRPG.tabs.melee);
+    public ItemHealingSword(Tier material, float healAmount) {
+        super(material);
         this.healAmount = healAmount;
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
             if (!player.isCreative()) {
                 stack.hurtAndBreak(2, player, (p_220044_0_) -> {
-                    p_220044_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
+                    p_220044_0_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
                 });
             }
             player.heal(healAmount);
-            player.playSound(SoundRegistry.HEAL, 1, 1);
+            player.playSound(SoundRegistry.HEAL.get(), 1, 1);
         }
         return super.use(world, player, hand);
     }
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
+    	if(!(entity instanceof ServerPlayer && ((ServerPlayer) entity).isCreative())) {
+    		if(entity instanceof Monster) {
+        		entity.hurt(DamageSource.MAGIC, healAmount / 2);
+        		if(stack.getDamageValue() < stack.getMaxDamage()) stack.setDamageValue(stack.getDamageValue() + 1);
+        		if(!player.isCreative() && player.getHealth() < player.getMaxHealth()) player.heal(healAmount / 3);
+        		player.playSound(SoundRegistry.HEAL.get(), 1, 1);
+        		player.setItemInHand(hand, stack);
+        		return InteractionResult.CONSUME;
+        	} if(entity.getHealth() < entity.getMaxHealth()) {
+        		if(!player.isCreative()) stack.hurtAndBreak(2, player, (p_220044_0_) -> {
+                        p_220044_0_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                    });
+                entity.heal(healAmount);
+        		entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
+        		player.setItemInHand(hand, stack);
+        		return InteractionResult.CONSUME;
+        	}
+    	} return InteractionResult.PASS;
+    }
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
+        if(stack.getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "frossivence")) && entity instanceof Monster){
+            stack.setDamageValue(stack.getDamageValue() - player.random.nextInt(3));
+        }
+        return super.onLeftClickEntity(stack, player, entity);
+    }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.heals",  healAmount / 2));
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.i18n("tooltip.heals", healAmount / 2));
     }
 }

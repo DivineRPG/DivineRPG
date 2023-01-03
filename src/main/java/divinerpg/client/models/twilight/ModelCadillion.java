@@ -1,109 +1,77 @@
-package divinerpg.client.models.twilight;// Made with Blockbench 3.7.5
-// Exported for Minecraft version 1.15
-// Paste this class into your mod and generate all required imports
+package divinerpg.client.models.twilight;
 
-
-import com.mojang.blaze3d.matrix.*;
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.renderer.entity.model.*;
-import net.minecraft.client.renderer.model.*;
-import net.minecraft.entity.*;
-import net.minecraft.util.math.*;
+import divinerpg.entities.base.EntityDivineMonster;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class ModelCadillion extends EntityModel<Entity> {
-	private final ModelRenderer Head;
-	private final ModelRenderer Horn_r1;
-	private final ModelRenderer Mouth;
-	private final ModelRenderer Body;
-	private final ModelRenderer FrontRightLeg;
-	private final ModelRenderer FrontLeftLeg;
-	private final ModelRenderer BackRightLeg;
-	private final ModelRenderer BackLeftLeg;
-	private final ModelRenderer bb_main;
-	private final ModelRenderer RightEar_r1;
-	private final ModelRenderer LeftEar_r1;
+import static divinerpg.util.ClientUtils.createLocation;
 
-	public ModelCadillion() {
-		texWidth = 128;
-		texHeight = 128;
+public class ModelCadillion<T extends EntityDivineMonster> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("cadillion");
+	private final ModelPart Head, Body, FrontRightLeg, FrontLeftLeg, BackRightLeg, BackLeftLeg;
 
-		Head = new ModelRenderer(this);
-		Head.setPos(0.0F, 24.0F, -9.0F);
-		Head.texOffs(33, 33).addBox(-4.0F, -24.0F, -5.0F, 8.0F, 8.0F, 6.0F, 0.0F, false);
-		Head.texOffs(54, 12).addBox(-3.0F, -21.0F, -8.0F, 6.0F, 4.0F, 3.0F, 0.0F, false);
+	public ModelCadillion(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.Head = root.getChild("Head");
+		this.Body = root.getChild("Body");
+		this.FrontRightLeg = root.getChild("FrontRightLeg");
+		this.FrontLeftLeg = root.getChild("FrontLeftLeg");
+		this.BackRightLeg = root.getChild("BackRightLeg");
+		this.BackLeftLeg = root.getChild("BackLeftLeg");
+	}
 
-		Horn_r1 = new ModelRenderer(this);
-		Horn_r1.setPos(0.0F, -21.9528F, -3.7743F);
-		Head.addChild(Horn_r1);
-		setRotationAngle(Horn_r1, 0.3927F, 0.0F, 0.0F);
-		Horn_r1.texOffs(14, 56).addBox(-1.0F, -7.5F, -1.0F, 2.0F, 7.0F, 2.0F, 0.0F, false);
-		
-		RightEar_r1 = new ModelRenderer(this);
-		RightEar_r1.setPos(-8.0F, -21.0F, -1.0F);
-		Head.addChild(RightEar_r1);
-		setRotationAngle(RightEar_r1, 0.0F, 0.0F, -0.1309F);
-		RightEar_r1.texOffs(55, 31).addBox(0.0F, -6.47F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		LeftEar_r1 = new ModelRenderer(this);
-		LeftEar_r1.setPos(3.0F, -21.0F, -1.0F);
-		Head.addChild(LeftEar_r1);
-		setRotationAngle(LeftEar_r1, 0.0F, 0.0F, 0.1309F);
-		LeftEar_r1.texOffs(1, 56).addBox(-1.0F, -7.0F, 1.0F, 6.0F, 7.0F, 0.0F, 0.0F, false);
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(33, 33).addBox(-4.0F, -5.8F, -5.7F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F))
+		.texOffs(54, 12).addBox(-3.0F, -2.8F, -8.7F, 6.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 5.8F, -8.3F));
 
-		Mouth = new ModelRenderer(this);
-		Mouth.setPos(0.0F, -16.5F, -6.5F);
-		Head.addChild(Mouth);
-		Mouth.texOffs(0, 15).addBox(-3.0F, -0.5F, -1.5F, 6.0F, 1.0F, 3.0F, 0.0F, false);
+		Head.addOrReplaceChild("Horn_r1", CubeListBuilder.create().texOffs(14, 56).addBox(-1.0F, -7.5F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -3.7528F, -4.4743F, 0.3927F, 0.0F, 0.0F));
 
-		Body = new ModelRenderer(this);
-		Body.setPos(0.0F, 9.5F, 0.75F);
-		Body.texOffs(0, 31).addBox(-4.0F, -4.5F, -8.75F, 8.0F, 8.0F, 17.0F, 0.0F, false);
-		Body.texOffs(0, 0).addBox(-5.5F, -5.5F, -9.25F, 11.0F, 12.0F, 19.0F, 0.0F, false);
+		Head.addOrReplaceChild("RightEar_r1", CubeListBuilder.create().texOffs(55, 31).addBox(0.0F, -6.47F, 1.0F, 6.0F, 7.0F, 0.0F, new CubeDeformation(0.0F))
+		.texOffs(38, 56).addBox(0.0F, -6.47F, 0.99F, 6.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, -2.8F, -1.7F, 0.0F, 0.0F, -0.1309F));
 
-		FrontRightLeg = new ModelRenderer(this);
-		FrontRightLeg.setPos(-3.0F, 13.0F, -6.0F);
-		FrontRightLeg.texOffs(50, 50).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, 0.0F, false);
+		Head.addOrReplaceChild("LeftEar_r1", CubeListBuilder.create().texOffs(1, 56).addBox(-1.0F, -7.0F, 1.0F, 6.0F, 7.0F, 0.0F, new CubeDeformation(0.0F))
+		.texOffs(22, 56).addBox(-1.0F, -7.0F, 0.99F, 6.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -2.8F, -1.7F, 0.0F, 0.0F, 0.1309F));
 
-		FrontLeftLeg = new ModelRenderer(this);
-		FrontLeftLeg.setPos(3.0F, 13.0F, -6.0F);
-		FrontLeftLeg.texOffs(41, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, 0.0F, false);
+		Head.addOrReplaceChild("Mouth", CubeListBuilder.create().texOffs(0, 15).addBox(-3.0F, -0.5F, -1.5F, 6.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.7F, -7.2F));
 
-		BackRightLeg = new ModelRenderer(this);
-		BackRightLeg.setPos(-3.0F, 13.0F, 8.0F);
-		BackRightLeg.texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, 0.0F, false);
+		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 31).addBox(-4.0F, -4.5F, -8.75F, 8.0F, 8.0F, 17.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 0).addBox(-5.5F, -5.5F, -9.25F, 11.0F, 12.0F, 19.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 9.5F, 0.75F));
 
-		BackLeftLeg = new ModelRenderer(this);
-		BackLeftLeg.setPos(3.0F, 13.0F, 8.0F);
-		BackLeftLeg.texOffs(0, 31).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, 0.0F, false);
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(50, 50).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 13.0F, -6.0F));
 
-		bb_main = new ModelRenderer(this);
-		bb_main.setPos(0.0F, 24.0F, 0.0F);
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(41, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 13.0F, -6.0F));
+
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 13.0F, 8.0F));
+
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 31).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 13.0F, 8.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
 	@Override
-	public void setupAnim(Entity p_225597_1_, float var1, float var2, float var3, float var4, float var5) {
-		this.Head.yRot = (var4 / 57.295776F);
-		this.FrontLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
-		this.FrontRightLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-		this.BackLeftLeg.xRot = (MathHelper.cos(var1 * 0.6662F + 3.141593F) * 1.4F * var2);
-		this.BackRightLeg.xRot = (MathHelper.cos(var1 * 0.6662F) * 1.4F * var2);
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.Head.yRot = netHeadYaw / (180F / (float)Math.PI);
+        this.Head.xRot = headPitch / (180F / (float)Math.PI);
+        
+        this.FrontLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
+        this.FrontRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
+        this.BackLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
+        this.BackRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
 	}
 
 	@Override
-	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		Head.render(matrixStack, buffer, packedLight, packedOverlay);
-		Body.render(matrixStack, buffer, packedLight, packedOverlay);
-		FrontRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-		FrontLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-		BackRightLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-		BackLeftLeg.render(matrixStack, buffer, packedLight, packedOverlay);
-		bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.xRot = x;
-		modelRenderer.yRot = y;
-		modelRenderer.zRot = z;
-	}
-
 }

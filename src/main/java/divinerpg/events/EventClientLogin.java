@@ -1,37 +1,37 @@
 package divinerpg.events;
 
 import divinerpg.config.*;
-import divinerpg.util.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.util.text.*;
-import net.minecraftforge.event.entity.player.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.server.command.*;
+import divinerpg.util.Utils;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class EventClientLogin {
 
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt){
-        PlayerEntity player = evt.getPlayer();
+        Player player = evt.getEntity();
         if (!player.level.isClientSide) {
             //Send welcome messages
-            if(Config.welcomeMessage.get()) {
+            if(ClientConfig.welcomeMessage.get()) {
                 if (Utils.isDeveloperName(player.getUUID())) {
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.developer", player.getDisplayName());
-                    message.withStyle(TextFormatting.DARK_RED);
-                    player.sendMessage(message, player.getUUID());
+                    MutableComponent message = Component.translatable("message.developer", player.getDisplayName());
+                    message.withStyle(ChatFormatting.DARK_RED);
+                    player.sendSystemMessage(message);
                 } else if (Utils.isTesterName(player.getUUID())) {
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.tester", player.getDisplayName());
-                    message.withStyle(TextFormatting.BLUE);
-                    player.sendMessage(message, player.getUUID());
+                    MutableComponent message = Component.translatable("message.tester", player.getDisplayName());
+                    message.withStyle(ChatFormatting.BLUE);
+                    player.sendSystemMessage(message);
                 } else if (Utils.isSpecial(player.getUUID())) {
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.special", player.getDisplayName());
-                    message.withStyle(TextFormatting.GOLD);
-                    player.sendMessage(message, player.getUUID());
+                    MutableComponent message = Component.translatable("message.special", player.getDisplayName());
+                    message.withStyle(ChatFormatting.GOLD);
+                    player.sendSystemMessage(message);
                 } else if (Utils.isFriend(player.getUUID())) {
-                    TextComponent message = TextComponentHelper.createComponentTranslation(player, "message.friend", player.getDisplayName());
-                    message.withStyle(TextFormatting.LIGHT_PURPLE);
-                    player.sendMessage(message, player.getUUID());
+                    MutableComponent message = Component.translatable("message.friend", player.getDisplayName());
+                    message.withStyle(ChatFormatting.LIGHT_PURPLE);
+                    player.sendSystemMessage(message);
                 }
             }
         }

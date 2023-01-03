@@ -1,8 +1,9 @@
 {
   "parent": "block/thin_block",
+  "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:blocks/acid_block",
-    "texture": "divinerpg:blocks/acid_block"
+    "particle": "divinerpg:block/acid_block",
+    "texture": "divinerpg:block/acid_block"
   },
   "elements": [
     {

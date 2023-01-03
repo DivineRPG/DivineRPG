@@ -1,30 +1,32 @@
 package divinerpg.client.models.vanilla;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraftforge.api.distmarker.*;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.world.entity.Entity;
 
-@OnlyIn(Dist.CLIENT)
-public class ModelSaguaroWormShot<T extends Entity> extends SegmentedModel<T> {
-    public ModelRenderer box = (new ModelRenderer(this, 0, 0)).setTexSize(16, 16);
+import static divinerpg.util.ClientUtils.createLocation;
 
-    public ModelSaguaroWormShot() {
-        this.box.addBox(0.0F, 0F, 0F, 1, 1, 1, 0.0F);
-        this.box.xRot = 0;
-        this.box.yRot = 0;
-        this.box.zRot = 0;
-    }
+public class ModelSaguaroWormShot<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("saguaro_worm_shot");
+	private final ModelPart box;
+	public ModelSaguaroWormShot(Context context) {
+		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		this.box = root.getChild("box");
+	}
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		meshdefinition.getRoot().addOrReplaceChild("box", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-    @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
-    }
-
-    @Override
-    public Iterable<ModelRenderer> parts() {
-        return ImmutableList.of(box);
-    }
-
+		return LayerDefinition.create(meshdefinition, 16, 16);
+	}
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	}
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		box.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 }

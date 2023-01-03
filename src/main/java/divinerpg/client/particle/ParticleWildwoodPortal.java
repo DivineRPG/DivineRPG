@@ -1,26 +1,28 @@
 package divinerpg.client.particle;
 
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.*;
+import net.minecraft.client.*;
+import net.minecraft.client.multiplayer.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.ActiveRenderInfo;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
+import net.minecraft.core.particles.*;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class ParticleWildwoodPortal extends SpriteTexturedParticle {
+public class ParticleWildwoodPortal extends TextureSheetParticle {
 
-	private IAnimatedSprite spriteSet;
+	SpriteSet spriteSet;
 	private float portalParticleScale;
 	private double portalPosX, portalPosY, portalPosZ;
 
-	protected ParticleWildwoodPortal(ClientWorld var1, double var2, double var4, double var6) {
-		super(var1, var2, var4, var6);
+	public ParticleWildwoodPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
+	{
+		this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
 	}
 
-	public ParticleWildwoodPortal(ClientWorld var1, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, IAnimatedSprite sprite) {
-		super(var1, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
+	public ParticleWildwoodPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
+	{
+		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
 		this.xd = 0;
 		this.yd = 0;
 		this.zd = 0;
@@ -37,7 +39,6 @@ public class ParticleWildwoodPortal extends SpriteTexturedParticle {
 		this.rCol = 0.0F;
 		this.spriteSet = sprite;
 	}
-
 	@Override
 	protected int getLightColor(float partialTick) {
 		int var2 = super.getLightColor(partialTick);
@@ -57,7 +58,7 @@ public class ParticleWildwoodPortal extends SpriteTexturedParticle {
 
 
 	@Override
-	public void render(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
+	public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
 		float var8 = (this.age + partialTicks) / this.lifetime * 3;
 		var8 = 1.0F - var8;
 		var8 *= var8;
@@ -85,21 +86,21 @@ public class ParticleWildwoodPortal extends SpriteTexturedParticle {
 	}
 
 	@Override
-	public IParticleRenderType getRenderType() {
-		return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+	public ParticleRenderType getRenderType() {
+		return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public static class Factory implements IParticleFactory<BasicParticleType> {
-		private final IAnimatedSprite spriteSet;
+	public static class Provider implements ParticleProvider<SimpleParticleType> {
+		private final SpriteSet sprites;
 
-		public Factory(IAnimatedSprite spriteSet) {
-			this.spriteSet = spriteSet;
+		public Provider(SpriteSet spriteSet) {
+			this.sprites = spriteSet;
 		}
 
-		public Particle createParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			ParticleWildwoodPortal particle = new ParticleWildwoodPortal(worldIn, x, y, z);
-			particle.pickSprite(this.spriteSet);
+		public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
+			ParticleWildwoodPortal particle = new ParticleWildwoodPortal(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, sprites);
+			particle.pickSprite(this.sprites);
 			return particle;
 		}
 	}

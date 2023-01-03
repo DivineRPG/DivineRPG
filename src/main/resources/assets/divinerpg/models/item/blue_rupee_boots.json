@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/blue_rupee_boots"
+    "layer0": "divinerpg:item/blue_rupee_boots"
   }
 }

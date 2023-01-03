@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:items/gray_diamond_chunk"
+    "layer0": "divinerpg:item/gray_diamond_chunk"
   }
 }

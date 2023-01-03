@@ -1,7 +1,7 @@
 package divinerpg.enums;
 
-import divinerpg.DivineRPG;
-import net.minecraft.util.ResourceLocation;
+import divinerpg.*;
+import net.minecraft.resources.*;
 
 public enum ArrowType {
     NONE(0, 0, VanillaLoc()),
@@ -31,9 +31,9 @@ public enum ArrowType {
     WILDFIRE_ARROW(5, 5, ProjectileLoc("inferno_arrow"), ArrowSpecial.FLAME),
     FROST_ARCHER_ARROW(2, 2, ProjectileLoc("snowstorm_arrow")),
     SUN_ARCHER_ARROW(9, 9, ProjectileLoc("eden_arrow")),
-    ENCHANTED_ARCHER_ARROW(12, 12, ProjectileLoc("wildwood_arrow")),
-    SKYTHERN_ARCHER_ARROW(14, 14, ProjectileLoc("wildwood_arrow")),
-    TWILIGHT_ARCHER_ARROW(16, 16, ProjectileLoc("fury_arrow")),
+    ENCHANTED_ARCHER_ARROW(12, 16, ProjectileLoc("wildwood_arrow")),
+    SKYTHERN_ARCHER_ARROW(14, 18, ProjectileLoc("wildwood_arrow")),
+    TWILIGHT_ARCHER_ARROW(16, 19, ProjectileLoc("fury_arrow")),
     REYVOR_ARROW(22, 22, ProjectileLoc("fury_arrow")),
     ETERNAL_ARCHER_FLAME_ARROW(26, 26, ProjectileLoc("fury_arrow"), ArrowSpecial.FLAME),
     ETERNAL_ARCHER_WITHER_ARROW(26, 26, ProjectileLoc("fury_arrow"), ArrowSpecial.WITHER),
@@ -62,6 +62,21 @@ public enum ArrowType {
         this.arrowSpecial = special;
     }
 
+    public static ArrowType getArrowFromId(int ordinal) {
+        if (ordinal < 0 || ordinal > values().length) {
+            ordinal = 0;
+        }
+        return values()[ordinal];
+    }
+
+    private static ResourceLocation ProjectileLoc(String name) {
+        return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");
+    }
+
+    private static ResourceLocation VanillaLoc() {
+        return new ResourceLocation("minecraft:textures/entity/projectiles/arrow.png");
+    }
+
     public float getMinDamage() {
         return this.minDamage;
     }
@@ -76,21 +91,6 @@ public enum ArrowType {
 
     public ArrowSpecial getArrowSpecial() {
         return this.arrowSpecial;
-    }
-
-    public static ArrowType getArrowFromId(int ordinal) {
-        if (ordinal < 0 || ordinal > values().length) {
-            ordinal = 0;
-        }
-        return values()[ordinal];
-    }
-
-    private static ResourceLocation ProjectileLoc(String name) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");
-    }
-
-    private static ResourceLocation VanillaLoc() {
-        return new ResourceLocation("minecraft:textures/entity/projectiles/arrow.png");
     }
 
     public enum ArrowSpecial {

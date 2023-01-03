@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 5,
+          "data": {
+            "Name": "divinerpg:dust_brambles"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "divinerpg:dust_lily"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "divinerpg:skythern_brush"
+          }
+        }
+      ]
+    }
+  }
+}

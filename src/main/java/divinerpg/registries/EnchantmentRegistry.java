@@ -1,28 +1,21 @@
 package divinerpg.registries;
 
-import divinerpg.*;
 import divinerpg.enchant.*;
-import net.minecraft.enchantment.*;
-import net.minecraftforge.event.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.*;
 import net.minecraftforge.registries.*;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder(DivineRPG.MODID)
+import net.minecraft.world.item.enchantment.Enchantment;
+
+import java.util.function.Supplier;
+
+import static divinerpg.DivineRPG.MODID;
+
 public class EnchantmentRegistry {
-    @ObjectHolder("rive")
-    public static final Enchantment RIVE = null;
-    @ObjectHolder("aftershock")
-    public static final Enchantment AFTERSHOCK = null;
+    public static final DeferredRegister<Enchantment> ENCHANTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MODID);
+    public static final RegistryObject<Enchantment> RIVE = registerEnchantment("rive", RiveEnchant::new);
+    public static final RegistryObject<Enchantment> AFTERSHOCK = registerEnchantment("aftershock", AftershockEnchant::new);
 
-    @SubscribeEvent
-    public static void registerEnchantments(RegistryEvent.Register<Enchantment> e) {
-        DivineRPG.LOGGER.info("[DivineRPG] Registered enchantments");
-        IForgeRegistry<Enchantment> registry = e.getRegistry();
-
-        registry.register(new RiveEnchant());
-        registry.register(new AftershockEnchant());
+    private static RegistryObject<Enchantment> registerEnchantment(String id, Supplier<Enchantment> enchantment) {
+        return ENCHANTS.register(id, enchantment);
     }
 
 }
