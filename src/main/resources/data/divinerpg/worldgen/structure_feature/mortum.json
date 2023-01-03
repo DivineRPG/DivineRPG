@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:village",
+  "config": {
+    "start_pool": "divinerpg:twilight/mortum",
+    "size": 6
+  }
+}

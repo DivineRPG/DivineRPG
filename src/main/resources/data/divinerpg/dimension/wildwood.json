@@ -1,11 +1,74 @@
 {
-	"type": "divinerpg:wildwood",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:wildwood",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:wildwood"
-		}
-	}
+  "type": {
+    "name": "divinerpg:wildwood",
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": false,
+    "has_raids": true,
+    "has_skylight": true,
+    "has_ceiling": false,
+    "coordinate_scale": 1,
+    "ambient_light": 0,
+    "logical_height": 256,
+    "infiniburn": "minecraft:infiniburn_overworld"
+  },
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 711147260,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "seed": 711147260,
+      "biome": "divinerpg:wildwood"
+    },
+    "settings": {
+      "name": "minecraft:floating_islands",
+      "bedrock_roof_position": -10,
+      "bedrock_floor_position": -10,
+      "sea_level": 0,
+      "disable_mob_generation": false,
+      "default_block": {
+        "Name": "divinerpg:twilight_stone"
+      },
+      "default_fluid": {
+        "Name": "minecraft:air"
+      },
+      "noise": {
+        "height": 128,
+        "density_factor": 0,
+        "density_offset": 0,
+        "size_horizontal": 2,
+        "size_vertical": 1,
+        "simplex_surface_noise": true,
+        "random_density_offset": false,
+        "island_noise_override": false,
+        "sampling": {
+          "xz_scale": 2,
+          "y_scale": 1,
+          "xz_factor": 80,
+          "y_factor": 160
+        },
+        "bottom_slide": {
+          "target": -30,
+          "size": 7,
+          "offset": 1
+        },
+        "top_slide": {
+          "target": -3000,
+          "size": 64,
+          "offset": -46
+        }
+      },
+      "structures": {
+        "structures": {
+          "divinerpg:wildwood": {
+            "spacing": 5,
+            "separation": 2,
+            "salt": 308457
+          }
+        }
+      }
+    }
+  }
 }

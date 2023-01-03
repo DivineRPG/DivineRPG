@@ -1,0 +1,31 @@
+{
+ "type": "minecraft:decorated",
+ "config": {
+   "decorator": {
+     "type": "minecraft:count_multilayer",
+     "config": {
+       "count": 2
+     }
+   },
+   "feature": {
+     "type": "minecraft:decorated",
+     "config": {
+       "decorator": {
+         "type": "minecraft:square",
+         "config": {}
+       },
+       "feature": {
+         "type": "divinerpg:mortum_tree",
+         "config": {
+           "state": {
+             "Name": "divinerpg:skythern_sapling",
+             "Properties": {
+               "stage": "0"
+             }
+           }
+         }
+       }
+     }
+   }
+ }
+}

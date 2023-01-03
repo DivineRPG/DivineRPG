@@ -1,0 +1,26 @@
+
+{
+  "config": {
+    "feature": {
+      "config": {
+        "state_provider": {
+          "state": {
+            "Name": "divinerpg:demon_brambles",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "type": "minecraft:simple_state_provider"
+        }
+      },
+      "type": "divinerpg:mortum_plants"
+    },
+    "decorator": {
+      "config": {
+        "count": 1
+      },
+      "type": "minecraft:count_multilayer"
+    }
+  },
+  "type": "minecraft:decorated"
+}

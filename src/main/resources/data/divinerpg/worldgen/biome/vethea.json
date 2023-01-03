@@ -1,0 +1,202 @@
+{
+  "surface_builder": "minecraft:nope",
+  "depth": 0,
+  "scale": 0,
+  "temperature": 0.5,
+  "downfall": 0,
+  "precipitation": "none",
+  "temperature_modifier": "none",
+  "category": "none",
+  "player_spawn_friendly": true,
+  "effects": {
+    "sky_color": 9108991,
+    "fog_color": 8937217,
+    "water_color": 5013734,
+    "water_fog_color": 329011,
+    "grass_color": 80917,
+    "foliage_color": 1786368
+  },
+  "starts": [],
+  "spawners": {
+    "monster": [
+      {
+        "type": "divinerpg:acid_hag",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:biphron",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:bohemite",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:cymesoid",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:dissiment",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:dreamwrecker",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:duo",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:galroid",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:gorgosion",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:helio",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:hover_stinger",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:kazrotic",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:lheiva",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:lorga",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:lorga_flight",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mandragora",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mysterious_man_layer_1",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mysterious_man_layer_2",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:mysterious_man_layer_3",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:shadahier",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:tocaxin",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:twins",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:vhraak",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:zone",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "divinerpg:zoragon",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [
+      "divinerpg:vethea_pillar"
+    ],
+    [],
+    [],
+    [
+      "divinerpg:fire_crystal"
+    ],
+    [],
+    [
+      "divinerpg:shimmer",
+      "divinerpg:shine_grass",
+      "divinerpg:dreamglow",
+      "divinerpg:cracklespike",
+      "divinerpg:fernite",
+      "divinerpg:green_gemtop",
+      "divinerpg:purple_gemtop",
+      "divinerpg:yellow_dulah",
+      "divinerpg:green_dulah"
+    ],
+    []
+  ]
+}

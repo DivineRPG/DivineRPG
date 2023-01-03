@@ -3,7 +3,7 @@
     "item": "divinerpg:arlemite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:raw_arlemite"
+    "item": "divinerpg:arlemite_ore"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

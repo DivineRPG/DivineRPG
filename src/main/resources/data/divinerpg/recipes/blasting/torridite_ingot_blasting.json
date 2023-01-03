@@ -3,7 +3,7 @@
     "item": "divinerpg:torridite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:raw_torridite"
+    "item": "divinerpg:torridite_ore"
   },
   "type": "minecraft:blasting",
   "experience": 1.1,

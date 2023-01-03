@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "can_replace": false,
+    "project": true,
+    "need_water": false,
+    "xspread": 18,
+    "yspread": 256,
+    "zspread": 13,
+    "tries": 200,
+    "state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "divinerpg:dreamglow"
+      }
+    },
+    "block_placer": {
+      "type": "minecraft:simple_block_placer"
+    },
+    "whitelist": [
+      {
+        "Name": "divinerpg:dream_grass"
+      }
+    ],
+    "blacklist": [
+      {
+        "Name": "minecraft:air"
+      }
+    ]
+  }
+}

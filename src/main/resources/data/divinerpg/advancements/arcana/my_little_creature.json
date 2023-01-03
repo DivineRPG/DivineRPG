@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:seimer_spawn_egg"
+      "item": "divinerpg:seimer_egg"
     },
     "title": {
       "translate": "advancement.divinerpg.arcana.my_little_creature"

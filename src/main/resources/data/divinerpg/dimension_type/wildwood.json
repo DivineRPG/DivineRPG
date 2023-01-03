@@ -1,26 +1,15 @@
 {
-	"ultrawarm": false,
-	"natural": false,
-	"piglin_safe": false,
-	"respawn_anchor_works": true,
-	"bed_works": true,
-	"has_raids": false,
-	"has_skylight": true,
-	"has_ceiling": false,
-	"coordinate_scale": 2,
-	"ambient_light": 0,
-	"fixed_time": 10000,
-	"logical_height": 244,
-	"effects": "divinerpg:twilight_sky",
-	"infiniburn": "#minecraft:infiniburn_overworld",
-	"min_y": 0,
-	"height": 256,
-	"monster_spawn_light_level": {
-		"type": "minecraft:uniform",
-		"value": {
-			"min_inclusive": 0,
-			"max_inclusive": 7
-		}
-	},
-	"monster_spawn_block_light_limit": 0
+  "name": "divinerpg:wildwood",
+  "ultrawarm": false,
+  "natural": true,
+  "piglin_safe": false,
+  "respawn_anchor_works": false,
+  "bed_works": false,
+  "has_raids": false,
+  "has_skylight": true,
+  "has_ceiling": false,
+  "coordinate_scale": 1,
+  "ambient_light": 0,
+  "logical_height": 256,
+  "infiniburn": "minecraft:infiniburn_overworld"
 }

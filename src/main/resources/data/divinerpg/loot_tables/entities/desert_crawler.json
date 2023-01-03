@@ -1,176 +1,29 @@
 {
-  "type": "minecraft:entity",
   "pools": [
     {
+      "name": "divinerpg:desert_crawler",
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:glass",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_on_fire": true
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "minecraft:sandstone",
+          "weight": 1,
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "killer",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "tag": "forge:tools/pickaxes"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sand",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "killer",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "tag": "forge:tools/shovels"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "divinerpg:lava_lamp",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 8
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_on_fire": true
-                }
+                "min": 0,
+                "max": 64
               }
             },
             {
-              "condition": "minecraft:entity_properties",
-              "entity": "killer",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "tag": "forge:tools/pickaxes"
-                  }
-                }
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 32
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sandstone",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 16
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_swimming": false
-                }
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:empty"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "stepping_on": {
-              "fluid": {
-                "tag": "minecraft:water"
-              }
-            }
-          }
         }
       ]
     }

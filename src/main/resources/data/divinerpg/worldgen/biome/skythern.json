@@ -1,7 +1,12 @@
 {
+  "surface_builder": "divinerpg:skythern",
+  "depth": 0.125,
+  "scale": 0.05,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
+  "category": "none",
+  "player_spawn_friendly": false,
   "effects": {
     "sky_color": 16777215,
     "fog_color": 13948116,
@@ -59,27 +64,32 @@
   "spawn_costs": {},
   "carvers": {
     "air": [
-      "minecraft:canyon",
-	  "minecraft:cave"
+      "minecraft:canyon"
     ]
   },
   "features": [
     [],
-    [],
-    [],
-    [],
-    [],
-    [],
     [
-      "divinerpg:skythern_ore",
-      "divinerpg:twilight_tar_lake"
+      "divinerpg:tar_lake"
     ],
     [],
+    [],
+    [],
+    [],
     [
-      "divinerpg:skythern_plants",
-      "divinerpg:skythern_tree",
-      "divinerpg:skythern_bush"
+      "divinerpg:ore_skythern"
+    ],
+    [
+      "divinerpg:skythern_tree"
+    ],
+    [
+      "divinerpg:skythern_brush",
+      "divinerpg:dust_lily",
+      "divinerpg:dust_brambles"
     ],
     []
+  ],
+  "starts": [
+    "divinerpg:skythern"
   ]
 }

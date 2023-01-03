@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:default",
+  "config": {
+    "top_material": {
+      "Name": "divinerpg:mortum_grass"
+    },
+    "under_material": {
+      "Name": "divinerpg:mortum_dirt"
+    },
+    "underwater_material": {
+      "Name": "divinerpg:mortum_dirt"
+    }
+  }
+}

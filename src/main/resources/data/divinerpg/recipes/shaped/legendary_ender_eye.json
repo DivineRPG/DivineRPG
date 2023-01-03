@@ -3,17 +3,14 @@
     "item": "divinerpg:legendary_ender_eye"
   },
   "pattern": [
-    "EIE",
-    "IEI",
-    "EIE"
+    "III",
+    "III",
+    "III"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
       "item": "divinerpg:ender_stone"
-    },
-    "E": {
-      "item": "divinerpg:watching_eye"
     }
   }
 }

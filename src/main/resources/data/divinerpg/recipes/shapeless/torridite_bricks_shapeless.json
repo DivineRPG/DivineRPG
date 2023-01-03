@@ -5,15 +5,6 @@
   "ingredients": [
     {
       "item": "divinerpg:torridite_ingot"
-    },
-    {
-      "tag": "minecraft:stone_bricks"
-    },
-    {
-      "tag": "minecraft:stone_bricks"
-    },
-    {
-      "tag": "minecraft:stone_bricks"
     }
   ],
   "type": "minecraft:crafting_shapeless"

@@ -1,121 +1,84 @@
 {
-	"type": "minecraft:chest",
-	"pools": [
-		{
-			"rolls": {
-				"min": 3,
-				"max": 5
-			},
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"weight": 25,
-					"name": "divinerpg:arcanite_sand",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 8
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 20,
-					"name": "divinerpg:arcanite_stone",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 6
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"name": "divinerpg:ancient_stone_breakable",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 4
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 15,
-					"name": "divinerpg:ancient_bricks_breakable",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 3
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"name": "divinerpg:arcanite_ladder",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 2
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 10,
-					"name": "divinerpg:arcanite_tubes",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 3
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 9,
-					"name": "divinerpg:collector_fragments",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 1,
-								"max": 8
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 4,
-					"name": "divinerpg:arcanic_sand"
-				},
-				{
-					"type": "minecraft:item",
-					"weight": 5,
-					"name": "divinerpg:collector"
-				}
-			]
-		}
-	]
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 3,
+        "max": 5
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:torch",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:tag",
+          "weight": 6,
+          "name": "minecraft:planks",
+          "expand": false,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:iron_shovel",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:golden_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:arcanium",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

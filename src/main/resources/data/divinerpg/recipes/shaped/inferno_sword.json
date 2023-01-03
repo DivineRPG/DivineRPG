@@ -16,7 +16,7 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "tag": "minecraft:redstone_ores"
+      "item": "minecraft:redstone_ore"
     }
   }
 }

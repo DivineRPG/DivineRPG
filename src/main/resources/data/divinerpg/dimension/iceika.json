@@ -1,108 +1,120 @@
 {
-	"type": "divinerpg:iceika",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:iceika",
-		"biome_source": {
-			"type": "minecraft:multi_noise",
-			"biomes": [
-				{
-					"biome": "divinerpg:frozen_peaks",
-					"parameters": {
-						"temperature": -0.6,
-						"humidity": -0.2,
-						"continentalness": 0.8,
-						"erosion": -0.2,
-						"weirdness": -0.6,
-						"depth": -0.2,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:snowy_peaks",
-					"parameters": {
-						"temperature": 0.6,
-						"humidity": -0.1,
-						"continentalness": 1,
-						"erosion": -0.1,
-						"weirdness": 0,
-						"depth": -0.1,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:taiga",
-					"parameters": {
-						"temperature": 0.6,
-						"humidity": 0.43,
-						"continentalness": 0.6,
-						"erosion": 0.43,
-						"weirdness": 0,
-						"depth": 0.43,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:ice_spikes",
-					"parameters": {
-						"temperature": -0.8,
-						"humidity": 0.49,
-						"continentalness": 0.1,
-						"erosion": 0.49,
-						"weirdness": 0.6,
-						"depth": 0.49,
-						"offset": 0.3
-					}
-				},
-				{
-					"biome": "divinerpg:tundra",
-					"parameters": {
-						"temperature": 0.1,
-						"humidity": 0.48,
-						"continentalness": 0.2,
-						"erosion": 0.48,
-						"weirdness": -0.2,
-						"depth": 0.48,
-						"offset": 0.1
-					}
-				},
-				{
-					"biome": "divinerpg:frozen_ocean",
-					"parameters": {
-						"temperature": 0,
-						"humidity": 0.6,
-						"continentalness": -0.35,
-						"erosion": 0.6,
-						"weirdness": 0,
-						"depth": 0.6,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:deep_frozen_ocean",
-					"parameters": {
-						"temperature": 0,
-						"humidity": 0.6,
-						"continentalness": -0.5,
-						"erosion": 0.6,
-						"weirdness": 0,
-						"depth": 0.6,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:thermal_vents",
-					"parameters": {
-						"temperature": 0,
-						"humidity": 0.85,
-						"continentalness": -0.87,
-						"erosion": 0.85,
-						"weirdness": 0,
-						"depth": 0.85,
-						"offset": 0
-					}
-				}
-			]
-		}
-	}
+  "type": {
+    "name": "divinerpg:iceika",
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": false,
+    "respawn_anchor_works": false,
+    "bed_works": true,
+    "has_raids": false,
+    "has_skylight": true,
+    "has_ceiling": false,
+    "coordinate_scale": 1,
+    "ambient_light": 0,
+    "logical_height": 256,
+    "infiniburn": "minecraft:infiniburn_overworld"
+  },
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": -1871202513,
+    "settings": {
+      "name": "minecraft:overworld",
+      "bedrock_roof_position": -10,
+      "bedrock_floor_position": 0,
+      "sea_level": 63,
+      "disable_mob_generation": false,
+      "default_block": {
+        "Name": "minecraft:stone"
+      },
+      "default_fluid": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      },
+      "noise": {
+        "height": 256,
+        "density_factor": 1,
+        "density_offset": -0.46875,
+        "size_horizontal": 1,
+        "size_vertical": 4,
+        "simplex_surface_noise": true,
+        "random_density_offset": true,
+        "sampling": {
+          "xz_scale": 1,
+          "y_scale": 1,
+          "xz_factor": 80,
+          "y_factor": 400
+        },
+        "bottom_slide": {
+          "target": 20,
+          "size": 0,
+          "offset": 0
+        },
+        "top_slide": {
+          "target": -10,
+          "size": 3,
+          "offset": 0
+        }
+      },
+      "structures": {
+        "structures": {
+          "divinerpg:iceika": {
+            "spacing": 5,
+            "separation": 4,
+            "salt": 6428742
+          },
+          "divinerpg:iceika_dungeons": {
+            "spacing": 5,
+            "separation": 4,
+            "salt": 33396887
+          }
+        }
+      }
+    },
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "seed": -1871202513,
+      "altitude_noise": {
+        "firstOctave": 252,
+        "amplitudes": [
+          1,
+          100
+        ]
+      },
+      "temperature_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "humidity_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "weirdness_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "biomes": [
+        {
+          "biome": "divinerpg:iceika_plains",
+          "parameters": {
+            "altitude": 1,
+            "temperature": 0,
+            "humidity": 0,
+            "weirdness": 1,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
 }

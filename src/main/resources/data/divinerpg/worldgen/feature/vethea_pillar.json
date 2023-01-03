@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:vethea_pillar",
+  "config": {
+    "decorator": {
+      "type": "divinerpg:vethea_pillars",
+      "config": {
+        "chance": 1
+      }
+    }
+  }
+}
