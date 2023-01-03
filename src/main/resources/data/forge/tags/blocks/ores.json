@@ -1,22 +1,15 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:arlemite_ore",
-    "divinerpg:arlemite_ore_deepslate",
-    "divinerpg:realmite_ore",
-    "divinerpg:realmite_ore_deepslate",
-    "divinerpg:rupee_ore",
-    "divinerpg:rupee_ore_deepslate",
-    "divinerpg:raw_rupee_block",
-    "divinerpg:raw_realmite_block",
-    "divinerpg:raw_arlemite_block",
-    "divinerpg:bloodgem_ore",
-    "divinerpg:torridite_ore",
-    "divinerpg:raw_torridite_block",
-    "divinerpg:eden_ore",
-    "divinerpg:wildwood_ore",
-    "divinerpg:apalachia_ore",
-    "divinerpg:skythern_ore",
-    "divinerpg:mortum_ore"
+    "#forge:ores/arlemite",
+    "#forge:ores/realmite",
+    "#forge:ores/rupee",
+    "#forge:ores/bloodgem",
+    "#forge:ores/torridite",
+    "#forge:ores/eden",
+    "#forge:ores/wildwood",
+    "#forge:ores/apalachia",
+    "#forge:ores/skythern",
+    "#forge:ores/mortum"
   ]
 }

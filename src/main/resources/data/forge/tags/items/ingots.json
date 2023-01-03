@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:arlemite_ingot",
-    "divinerpg:realmite_ingot",
-    "divinerpg:rupee_ingot",
-    "divinerpg:torridite_ingot",
-    "divinerpg:hellstone_ingot",
-    "divinerpg:aquatic_ingot"
+    "#forge:ingots/arlemite",
+    "#forge:ingots/realmite",
+    "#forge:ingots/rupee",
+    "#forge:ingots/torridite",
+    "#forge:ingots/hellstone",
+    "#forge:ingots/aquatic"
   ]
 }
