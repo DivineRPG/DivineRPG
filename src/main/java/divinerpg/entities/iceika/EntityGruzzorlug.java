@@ -2,8 +2,7 @@ package divinerpg.entities.iceika;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.entities.projectile.EntityDivineArrow;
-import divinerpg.enums.ArrowType;
+import divinerpg.entities.projectile.EntityCorruptedBullet;
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -21,28 +20,29 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class EntityGroglin extends EntityDivineMonster implements RangedAttackMob {
-    protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityGroglin.class, EntityDataSerializers.INT);
+public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttackMob {
+    protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityGruzzorlug.class, EntityDataSerializers.INT);
 
-    public EntityGroglin(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityGruzzorlug(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ITEM, 0);
-    }
-    public int heldItem() {
-        return this.entityData.get(ITEM);
     }
 
     @Override
     protected void registerGoals() {
         super.registerGoals();
-            goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
-            targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGruzzorlug.class, true));
-            targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGroglin.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
+
+    public int heldItem() {
+        return this.entityData.get(ITEM);
+    }
+
     int tickCounter;
     @Override
     public void tick() {
@@ -65,6 +65,7 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
         }
 
     }
+
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("tickCounter", tickCounter);
@@ -75,28 +76,27 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
         tickCounter = tag.getInt("itemNum");
     }
 
-
     @Override
     public void performRangedAttack(LivingEntity target, float distance) {
         if (isAlive() && getTarget() != null && !level.isClientSide && entityData.get(ITEM) == 2) {
-            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 1.2F);
+            EntityCorruptedBullet projectile = new EntityCorruptedBullet(EntityRegistry.CORRUPTED_BULLET.get(), this, level);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 1.2F);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
             this.level.addFreshEntity(projectile);
         }
     }
 
     @Override
     public void die(DamageSource source) {
-            if (entityData.get(ITEM) == 1 && level.random.nextBoolean()) {
-                level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icine_sword")))));
-            }
-            if (entityData.get(ITEM) == 2 && level.random.nextBoolean()) {
-                level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle_bow")))));
-            }
+        if (entityData.get(ITEM) == 1 && level.random.nextBoolean()) {
+            level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_pickaxe")))));
+        }
+        if (entityData.get(ITEM) == 2 && level.random.nextBoolean()) {
+            level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_cannon")))));
+        }
         super.die(source);
     }
 }

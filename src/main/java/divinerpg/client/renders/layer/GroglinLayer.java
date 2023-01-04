@@ -27,7 +27,7 @@ public class GroglinLayer extends RenderLayer<EntityGroglin, ModelGroglin<Entity
         poseStack.pushPose();
         ModelPart modelrenderer = this.getParentModel().rightArm;
         modelrenderer.translateAndRotate(poseStack);
-        if(groglin.getItemNum() == 1) {
+        if(groglin.heldItem() == 1) {
             poseStack.translate(0.0625F, 0.55F, -0.4F);
             poseStack.mulPose(Axis.YP.rotationDegrees(55));
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));
@@ -35,7 +35,7 @@ public class GroglinLayer extends RenderLayer<EntityGroglin, ModelGroglin<Entity
             poseStack.scale(0.8F, 0.8F, 0.8F);
             Minecraft.getInstance().getItemRenderer().renderStatic(groglin, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icine_sword")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, poseStack, bufferIn, groglin.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(groglin, 0.0F), 0);
         }
-        if(groglin.getItemNum() == 2) {
+        if(groglin.heldItem() == 2) {
             poseStack.translate(0.0625F, 0.50F, -0.0F);
             poseStack.mulPose(Axis.YP.rotationDegrees(55));
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));

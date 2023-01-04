@@ -84,6 +84,7 @@ public final class EntityStats {
 			rollumHealth 			= 150D, rollumDamage = 12D, rollumSpeed = normalSpeed / 1.2,
 			frostyHealth			= 140D, frostyDamage = 16D, frostySpeed = normalSpeed / 1.6,
 			groglinHealth			= 40D,  groglinDamage = 5D, groglinSpeed = normalSpeed / 1.1,
+			gruzzorlugHealth		= 60D,  gruzzorlugDamage = 3D, gruzzorlugSpeed = normalSpeed / 1.3,
 
 
 	sengHealth				= 55D, sengSpeed = normalSpeed * 1.3, sengRange = normalFollowRange / 2,
