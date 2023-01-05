@@ -27,7 +27,7 @@ public class DivineRPG {
 
     public DivineRPG() {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(DivineTab::registerTab);
+        bus.addListener(DivineTab::registerTabs);
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BLOCK_ITEMS.register(bus);

@@ -1,5 +1,15 @@
 {
-  "itemGroup.divinerpg": "DivineRPG",
+  "itemGroup.divinerpg_blocks": "DivineRPG: Blocks",
+  "itemGroup.divinerpg_ranged_weapons": "DivineRPG: Ranged Weapons",
+  "itemGroup.divinerpg_melee_weapons": "DivineRPG: Melee Weapons",
+  "itemGroup.divinerpg_tools": "DivineRPG: Tools",
+  "itemGroup.divinerpg_raw_materials": "DivineRPG: Raw Materials",
+  "itemGroup.divinerpg_armor": "DivineRPG: Armor",
+  "itemGroup.divinerpg_spawner": "DivineRPG: Spawner",
+  "itemGroup.divinerpg_utility": "DivineRPG: Utility",
+  "itemGroup.divinerpg_food": "DivineRPG: Food and Agriculture",
+  "itemGroup.divinerpg_vethea": "DivineRPG: Vethea",
+
   "divinerpg.torridite": "Formerly Netherite",
   "block.divinerpg.divine_sapling": "Divine Sapling",
   "block.divinerpg.dungeon_air": "Dungeon Air",
