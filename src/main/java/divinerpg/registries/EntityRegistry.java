@@ -51,8 +51,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
-import static divinerpg.util.EntityStats.*;
 import static divinerpg.util.ClientUtils.*;
+import static divinerpg.util.EntityStats.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
@@ -192,6 +192,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityFrostArcher>>	  FROST_ARCHER 	  	= registerEntity(EntityFrostArcher::new, 	 "frost_archer",	 0.6F, 2.0F, 0x4095da, 0x407eb9);
     public static final RegistryObject<EntityType<EntityFrosty>>		  FROSTY 			= registerEntity(EntityFrosty::new, 		 "frosty",			 0.9F, 2.5F, 0xdcffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityGroglin>>		  GROGLIN 		  	= registerEntity(EntityGroglin::new, 		 "groglin",		0.5F, 1.3F, 0x88c89c, 0x587090);
+    public static final RegistryObject<EntityType<EntityGruzzorlug>>	  GRUZZORLUG 		= registerEntity(EntityGruzzorlug::new,      "gruzzorlug", 0.5F, 1.3F, 0x9370DB, 0x8B4513);
     public static final RegistryObject<EntityType<EntityGlacide>>		  GLACIDE 		  	= registerEntity(EntityGlacide::new, 		 "glacide",			 0.9F, 2.0F, 0x7ce3fe, 0x218fbf);
     public static final RegistryObject<EntityType<EntityHastreus>>		  HASTREUS 		  	= registerEntity(EntityHastreus::new, 		 "hastreus",		 1.0F, 1.9F, 0x136bd1, 0x418bea);
     public static final RegistryObject<EntityType<EntityRollum>>		  ROLLUM 			= registerEntity(EntityRollum::new, 		 "rollum",			 1.2F, 2.0F, 0x0504b7, 0x0d003d);
@@ -388,6 +389,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, FROSTY, frostyHealth, frostyDamage, frostySpeed);
         registerMonsterAttributes(event, GLACIDE, glacideHealth, glacideDamage, glacideSpeed);
         registerMonsterAttributes(event, GROGLIN, groglinHealth, groglinDamage, groglinSpeed);
+        registerMonsterAttributes(event, GRUZZORLUG, gruzzorlugHealth, gruzzorlugDamage, gruzzorlugSpeed);
         registerMonsterAttributes(event, HASTREUS, hastreusHealth, hastreusDamage);
         registerMonsterAttributes(event, ROLLUM, rollumHealth, normalDamage, rollumSpeed);
         registerMobAttributes(event, WORKSHOP_MERCHANT);
@@ -581,6 +583,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelFrosty.LAYER_LOCATION, ModelFrosty::createBodyLayer);
         event.registerLayerDefinition(ModelGlacide.LAYER_LOCATION, ModelGlacide::createBodyLayer);
         event.registerLayerDefinition(ModelGroglin.LAYER_LOCATION, ModelGroglin::createBodyLayer);
+        event.registerLayerDefinition(ModelGruzzorlug.LAYER_LOCATION, ModelGruzzorlug::createBodyLayer);
         event.registerLayerDefinition(ModelHastreus.LAYER_LOCATION, ModelHastreus::createBodyLayer);
         event.registerLayerDefinition(ModelRollum.LAYER_LOCATION, ModelRollum::createBodyLayer);
         event.registerLayerDefinition(ModelWorkshop.LAYER_LOCATION, ModelWorkshop::createBodyLayer);
@@ -820,6 +823,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(FROST_ARCHER.get(),	 RenderFrostArcher::new);
         event.registerEntityRenderer(FROSTY.get(),			 (Context context) -> new RenderDivineMob<>(context, "frosty",  new ModelFrosty(context)));
         event.registerEntityRenderer(GROGLIN.get(),			 RenderGroglin::new);
+        event.registerEntityRenderer(GRUZZORLUG.get(),		 RenderGruzzorlug::new);
         event.registerEntityRenderer(GLACIDE.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacide",  new ModelGlacide<>(context)));
         event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus<>(context)));
         event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context)));
