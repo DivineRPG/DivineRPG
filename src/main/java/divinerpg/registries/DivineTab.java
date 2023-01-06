@@ -1,19 +1,12 @@
 package divinerpg.registries;
 
-/*
 import divinerpg.DivineRPG;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.*;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.registries.*;
-*/
-
-import divinerpg.DivineRPG;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.registries.RegistryObject;
 
 public class DivineTab {
     public static ResourceLocation DIVINERPG_BLOCKS = new ResourceLocation(DivineRPG.MODID, "divinerpg_blocks");
@@ -1114,138 +1107,13 @@ public class DivineTab {
                     output.accept(new ItemStack(ItemRegistry.snapper_egg.get()));
                     output.accept(new ItemStack(ItemRegistry.stone_golem_egg.get()));
                     output.accept(new ItemStack(ItemRegistry.white_grizzle_egg.get()));
-                    // Do not know how to grab other spawn eggs
-                        /* Aequorea
-                           Arid Warrior
-                           Cave Crawler
-                           Caveclops
-                           Crab
-                           Cyclops
-                           Desert Crawler
-                           Diamond Dave
-                           Enthralled Damacryx
-                           Frost
-                           Glacon
-                           Jungle Bat
-                           Jungle Dramacryx
-                           Jungle Spider
-                           King Crab
-                           Kobblin
-                           Liopleuraodon
-                           Livestock Merchant
-                           Miner
-                           Pumpkin Spider
-                           Rainbour
-                           Rotatick
-                           Saguaro Worm
-                           Shark
-                           The Eye
-                           The Grue
-                           Whale
-                           Hell Bat
-                           Hell Pig
-                           Hell Spider
-                           Scorcher
-                           Wildfire
-                           Ender Spider
-                           Ender Scrounge
-                           Ender Triplets
-                           Ender Watcher
-                           Alicanto
-                           Fractite
-                           Frost Archer
-                           Frosty
-                           Glacide
-                           Hastreus
-                           Rollum
-                           Workshop Merchant
-                           Workshop Tinkerer
-                           Glinthop
-                           Eden Cadillion
-                           Eden Tomo
-                           Greenfeet
-                           Madivel
-                           Sun Archer
-                           Weak Cori
-                           Behemoth
-                           Epiphite
-                           Mage
-                           Moon Wolf
-                           Termid
-                           Verek
-                           Wildwood Cadillion
-                           Wildwood Golem
-                           Wildwood Tomo
-                           Apalachia Cadillion
-                           Apalachia Golem
-                           Apalachia Tomo
-                           Enchanted Archer
-                           Enchanted Warrior
-                           Spellbinder
-                           Advanced Cori
-                           Megalith
-                           Mystic
-                           Samek
-                           Skythern Archer
-                           Skythern Fiend
-                           Skythern Golem
-                           Angry Glinthop
-                           Basilisk
-                           Demon of Darkness
-                           Mortum Cadillion
-                           Sorcerer
-                           Soul Spider
-                           Soul Stealer
-                           Twilight Archer
-                           Captain Merik
-                           Datticon
-                           Deathcryx
-                           Death Hound
-                           Dungeon Constructor
-                           Dungeon Prisoner
-                           Kazari
-                           Leorna
-                           Living Statue
-                           Lord Vatticus
-                           Razorback
-                           Roamer
-                           Skyre
-                           War General
-                           Wraith
-                           Zelus
-                           Acid Hag
-                           Biphron
-                           Bohemite
-                           Crypt Keeper
-                           Cymesoid
-                           Dissiment
-                           Dreamwrecker
-                           Duo
-                           Ent
-                           Fake Vhraak
-                           Galroid
-                           Gorgosion
-                           Helio
-                           Hive Soldier
-                           Hover Stinger
-                           Kazrotic
-                           Lhevia
-                           Lorga
-                           Lorga Flight
-                           Mandragora
-                           Mysterious Man Layer 1
-                           Mysterious Man Layer 2
-                           Mysterious Man Layer 3
-                           Shadahier
-                           The Hunger
-                           Temple Guardian
-                           Tocaxin
-                           Twins
-                           Vermenous
-                           Vhraak
-                           Zone
-                           Zoragon
-                        */
+
+                    //Only Gets Spawn Eggs
+                    for(RegistryObject<Item> item : ItemRegistry.ITEMS.getEntries()){
+                        if(item.getId().toLanguageKey().contains("_spawn_egg")){
+                            output.accept(item.get());
+                        }
+                    }
                 }));
 
         // Utility
