@@ -5,7 +5,7 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
-import divinerpg.util.Utils;
+import divinerpg.util.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.*;
@@ -27,7 +27,7 @@ public class DivineRPG {
 
     public DivineRPG() {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(DivineTab::registerTab);
+        bus.addListener(DivineTab::registerTabs);
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BLOCK_ITEMS.register(bus);

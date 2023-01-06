@@ -1,5 +1,7 @@
 {
-  "itemGroup.divinerpg": "DivineRPG",
+  "itemGroup.divinerpg.tools": "DivineRPG: Tools, Weapons & Armor",
+  "itemGroup.divinerpg.misc": "DivineRPG: Misc",
+  "itemGroup.divinerpg.blocks": "DivineRPG: Blocks",
   "divinerpg.torridite": "Formerly Netherite",
   "block.divinerpg.divine_sapling": "Divine Sapling",
   "block.divinerpg.dungeon_air": "Dungeon Air",
