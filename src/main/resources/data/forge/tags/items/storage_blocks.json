@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "#forge:storage_blocks/torridite",
-    "#forge:storage_blocks/bloodgem_",
+    "#forge:storage_blocks/bloodgem",
     "#forge:storage_blocks/rupee",
     "#forge:storage_blocks/realmite",
     "#forge:storage_blocks/arlemite",

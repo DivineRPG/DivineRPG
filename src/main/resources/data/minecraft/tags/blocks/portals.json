@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:eden_portal",
+    "divinerpg:wildwood_portal",
+    "divinerpg:apalachia_portal",
+    "divinerpg:skythern_portal",
+    "divinerpg:mortum_portal",
+    "divinerpg:iceika_portal",
+    "divinerpg:vethea_portal",
+    "divinerpg:arcana_portal"
+  ]
+}
