@@ -21,7 +21,7 @@ public enum ToolStats implements Tier {
     BEDROCK_SWORD(4, 14000, -2.6F, 12F, 2, "bedrock_chunk"),
     BEDROCK_MAUL(4, -1, -2.4F, 12F, 22),
     BLOODGEM_SWORD(4, -1, -2F, 7F, 15),
-    BLUEFIRE_SWORD(4, 3000, -1.6F, 18F, 15, "bluefire_stone"),
+    SOULFIRE_SWORD(4, 3000, -1.6F, 18F, 15, "soulfire_stone"),
     CORRUPTED_MAUL(4, 6000, -2.4F, 11F, 15, "corrupted_stone"),
     CRABCLAW_MAUL(4, 4000, -2.4F, 9F, 15, "crab_claw"),
     CYCLOPSIAN_SWORD(4, 1000, -2.6F, 4F, 10, "cyclops_eye"),

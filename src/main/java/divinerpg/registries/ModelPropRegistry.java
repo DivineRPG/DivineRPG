@@ -15,7 +15,7 @@ public class ModelPropRegistry {
     public static void init() {
         DivineRPG.LOGGER.info("[DivineRPG] Attached model properties");
         registerBow((ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "bluefire_bow")),
+        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "soulfire_bow")),
         (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_bow")),
         (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "ender_bow")),
         (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")),

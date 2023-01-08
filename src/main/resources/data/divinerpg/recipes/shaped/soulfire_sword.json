@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "divinerpg:bluefire_sword"
+    "item": "divinerpg:soulfire_sword"
   },
   "pattern": [
     " I ",
@@ -13,7 +13,7 @@
       "item": "divinerpg:shadow_bar"
     },
     "I": {
-      "item": "divinerpg:bluefire_stone"
+      "item": "divinerpg:soulfire_stone"
     }
   }
 }

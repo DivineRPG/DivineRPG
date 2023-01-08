@@ -136,7 +136,7 @@ public class BlockRegistry {
             aquaLamp = registerBlock("aqua_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
             arlemiteLamp = registerBlock("arlemite_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
             blazeLamp = registerBlock("blaze_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
-            bluefireLamp = registerBlock("bluefire_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
+            soulfireLamp = registerBlock("soulfire_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
             diamondLamp = registerBlock("diamond_lamp", () -> new BlockModLamp( 0.3F, 30F, 15)),
             divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),
             drakenLamp = registerBlock("draken_lamp", () -> new BlockModLamp(0.3F, 30F, 15)),

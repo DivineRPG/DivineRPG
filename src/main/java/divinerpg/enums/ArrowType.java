@@ -8,7 +8,7 @@ public enum ArrowType {
     HUNTER_ARROW(2, 11, ProjectileLoc("hunter_arrow"), ArrowSpecial.POSION),
     SHADOW_ARROW(2, 11, ProjectileLoc("shadow_arrow")),
     ENDER_ARROW(4, 16, ProjectileLoc("ender_arrow")),
-    BLUEFIRE_ARROW(2, 11, ProjectileLoc("bluefire_arrow"), ArrowSpecial.EXPLODE),
+    SOULFIRE_ARROW(2, 11, ProjectileLoc("soulfire_arrow"), ArrowSpecial.EXPLODE),
     INFERNO_ARROW(2, 11, ProjectileLoc("inferno_arrow"), ArrowSpecial.FLAME),
     ICICLE_ARROW(2, 11, ProjectileLoc("icicle_arrow")),
     SNOWSTORM_ARROW(2, 11, ProjectileLoc("snowstorm_arrow"), ArrowSpecial.EXPLODE),

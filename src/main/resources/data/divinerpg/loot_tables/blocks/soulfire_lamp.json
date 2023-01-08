@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:bluefire_lamp"
+          "name": "divinerpg:soulfire_lamp"
         }
       ],
       "conditions": [

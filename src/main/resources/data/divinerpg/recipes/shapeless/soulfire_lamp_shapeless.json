@@ -1,13 +1,13 @@
 {
   "result": {
-    "item": "divinerpg:bluefire_lamp"
+    "item": "divinerpg:soulfire_lamp"
   },
   "ingredients": [
     {
       "item": "minecraft:glowstone"
     },
     {
-      "item": "divinerpg:bluefire_stone"
+      "item": "divinerpg:soulfire_stone"
     }
   ],
   "type": "minecraft:crafting_shapeless"

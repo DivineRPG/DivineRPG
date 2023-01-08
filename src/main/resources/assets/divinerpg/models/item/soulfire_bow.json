@@ -1,7 +1,7 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:item/bluefire_bow_0"
+    "layer0": "divinerpg:item/soulfire_bow_0"
   },
   "display": {
     "firstperson_righthand": {
@@ -78,21 +78,21 @@
       "predicate": {
         "pulling": 1
       },
-      "model": "divinerpg:item/bluefire_bow_1"
+      "model": "divinerpg:item/soulfire_bow_1"
     },
     {
       "predicate": {
         "pull": 0.65,
         "pulling": 1
       },
-      "model": "divinerpg:item/bluefire_bow_2"
+      "model": "divinerpg:item/soulfire_bow_2"
     },
     {
       "predicate": {
         "pull": 0.9,
         "pulling": 1
       },
-      "model": "divinerpg:item/bluefire_bow_3"
+      "model": "divinerpg:item/soulfire_bow_3"
     }
   ]
 }

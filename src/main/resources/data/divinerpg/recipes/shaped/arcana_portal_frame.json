@@ -11,7 +11,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "c": {
-      "item": "divinerpg:bluefire_stone"
+      "item": "divinerpg:soulfire_stone"
     },
     "i": {
       "item": "minecraft:iron_block"
