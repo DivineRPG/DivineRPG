@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:fragments/eden",
+    "#forge:fragments/wildwood",
+    "#forge:fragments/apalachia",
+    "#forge:fragments/skythern",
+    "#forge:fragments/mortum"
+  ]
+}

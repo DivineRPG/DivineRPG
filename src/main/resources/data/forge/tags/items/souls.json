@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:souls/eden",
+    "#forge:souls/wildwood",
+    "#forge:souls/apalachia",
+    "#forge:souls/skythern",
+    "#forge:souls/mortum"
+  ]
+}
