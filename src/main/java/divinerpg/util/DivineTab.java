@@ -26,7 +26,9 @@ public class DivineTab {
         }));
         event.registerCreativeModeTab(BLOCKS, builder -> builder.title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_lamp")))).displayItems((flags, output, isOp) -> {
             for(RegistryObject<Item> item : BlockRegistry.BLOCK_ITEMS.getEntries()){
-                output.accept(item.get());
+                if(!item.getId().toLanguageKey().contains("plant")){
+                    output.accept(item.get());
+                }
             }
         }));
 
