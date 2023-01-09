@@ -3,7 +3,7 @@
     "item": "divinerpg:realmite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:raw_realmite"
+    "tag": "forge:raw_materials/realmite"
   },
   "type": "minecraft:blasting",
   "experience": 0.7,

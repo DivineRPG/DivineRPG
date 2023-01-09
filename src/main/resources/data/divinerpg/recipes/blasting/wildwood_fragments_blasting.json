@@ -3,7 +3,7 @@
     "item": "divinerpg:wildwood_fragments"
   },
   "ingredient": {
-    "item": "divinerpg:wildwood_ore"
+    "tag": "forge:ores/wildwood"
   },
   "type": "minecraft:blasting",
   "experience": 1.0,

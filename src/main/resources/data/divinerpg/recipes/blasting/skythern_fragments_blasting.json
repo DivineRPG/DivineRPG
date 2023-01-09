@@ -3,7 +3,7 @@
     "item": "divinerpg:skythern_fragments"
   },
   "ingredient": {
-    "item": "divinerpg:skythern_ore"
+    "tag": "forge:ores/skythern"
   },
   "type": "minecraft:blasting",
   "experience": 1.7,

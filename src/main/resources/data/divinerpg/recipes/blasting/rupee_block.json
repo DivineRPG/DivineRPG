@@ -3,7 +3,7 @@
     "item": "divinerpg:rupee_block"
   },
   "ingredient": {
-    "item": "divinerpg:raw_rupee_block"
+    "tag": "forge:storage_blocks/raw_rupee"
   },
   "type": "minecraft:blasting",
   "experience": 1.0,
