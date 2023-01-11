@@ -110,8 +110,9 @@ dependencies {
     runtimeOnly fg.deobf("dev.architectury:architectury-forge:7.0.66") // Architectury
     runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:9.0.94") // Cloth
     runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581") //Rei
-
-
+    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
+    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4284321") // Mystical Agriculture
+    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
 }
 
 jar {

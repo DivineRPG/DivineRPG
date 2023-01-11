@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:mortum_fragments_essence"
+    }
+  },
+  "result": {
+    "item": "divinerpg:mortum_fragments",
+    "count": 1
+  }
+}

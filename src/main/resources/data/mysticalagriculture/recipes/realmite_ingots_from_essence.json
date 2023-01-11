@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:realmite_essence"
+    }
+  },
+  "result": {
+    "item": "divinerpg:realmite_ingot",
+    "count": 6
+  }
+}
