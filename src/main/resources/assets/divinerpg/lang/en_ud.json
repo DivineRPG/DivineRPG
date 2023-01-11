@@ -2201,5 +2201,8 @@
   "travelerstitles.biome.divinerpg.barren_highlands": "ᗺɐɹɹǝu Hᴉƃɥlɐups",
   "biome.divinerpg.barren_highlands.color": "4785ba",
   "travelerstitles.biome.divinerpg.dune_valley": "ᗡnuǝ Λɐllǝʎ",
-  "biome.divinerpg.dune_valley.color": "77bdd2"
+  "biome.divinerpg.dune_valley.color": "77bdd2",
+  "item.divinerpg.sabear_spawn_egg": "Sabear Spawn Egg",
+  "entity.divinerpg.sabear": "Sabear",
+  "entity.divinerpg.divine_arrow": "Divine Arrow"
 }
