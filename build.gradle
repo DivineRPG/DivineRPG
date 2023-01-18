@@ -82,10 +82,10 @@ repositories {
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
-//    compileOnly fg.deobf("mezz.jei:jei-1.19-common-api:11.0.0.215") //Just Enough Items
-//    compileOnly fg.deobf("mezz.jei:jei-1.19-forge-api:11.0.0.215") //Just Enough Items
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.19-common:11.0.0.215") //Just Enough Items
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.19-forge:11.0.0.215") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.0.2.2") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.0.2.2") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.0.2.2") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.0.2.2") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
     compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.2") //Bookshelf
