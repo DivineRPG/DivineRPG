@@ -88,30 +88,30 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.0.2.2") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
-    compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.2") //Bookshelf
+    compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.3") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76-SNAPSHOT:api") //Patchouli
 //    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76-SNAPSHOT") //Patchouli
-    compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4178488") //Enchantment Descriptions
+    compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4277371") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:3913301") //MmmMmmMmmMmm (Target Dummy)
 //    runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:3969903") //PneumaticCraft
 //    runtimeOnly fg.deobf("curse.maven:cyanide-forge-541676:3832812") //Cyanide
-    runtimeOnly fg.deobf("curse.maven:jade-324717:4199865") //Jade
+    runtimeOnly fg.deobf("curse.maven:jade-324717:4330163") //Jade
 //    runtimeOnly fg.deobf("curse.maven:the-one-probe-245211:4159743") //The One Probe
 //    runtimeOnly fg.deobf("curse.maven:sophisticated-backpacks-422301:4006090") //Sophisticated Backpacks
 //    runtimeOnly fg.deobf("curse.maven:sophisticated-core-618298:4048382") //Sophisticated Core (needed for sophisticated backpacks)
-    runtimeOnly fg.deobf("curse.maven:curios-309927:4152930") //Curios (needed for bauble slots)
+    runtimeOnly fg.deobf("curse.maven:curios-309927:4325469") //Curios (needed for bauble slots)
 //    compileOnly "mekanism:Mekanism:${mekanism_version}:api" // Mekanism API
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:additions")// Mekanism: Additions
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:generators")// Mekanism: Generators
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:tools")// Mekanism: Tools
-    runtimeOnly fg.deobf("dev.architectury:architectury-forge:7.0.66") // Architectury
-    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:9.0.94") // Cloth
-    runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581") //Rei
+//    runtimeOnly fg.deobf("dev.architectury:architectury-forge:7.0.66") // Architectury
+//    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:9.0.94") // Cloth
+//    runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581") //Rei
     runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
-    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4284321") // Mystical Agriculture
+    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
     runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
 }
 
