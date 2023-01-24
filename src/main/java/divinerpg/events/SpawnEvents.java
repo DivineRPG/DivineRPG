@@ -97,6 +97,7 @@ public class SpawnEvents {
 		registerMonsterSpawn(GROGLIN.get());
 		registerMonsterSpawn(GRUZZORLUG.get());
 		registerMonsterSpawn(SABEAR.get());
+		registerMonsterSpawn(ROBIN.get());
 		registerMonsterSpawn(WOLPERTINGER.get());
 
         //Eden

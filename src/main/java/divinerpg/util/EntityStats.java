@@ -87,6 +87,7 @@ public final class EntityStats {
 			sabearHealth			= 60D,  sabearDamage = 12D, sabearSpeed = normalSpeed * 1.05,
 			gruzzorlugHealth		= 60D,  gruzzorlugDamage = 3D, gruzzorlugSpeed = normalSpeed / 1.3,
 			wolpertingerHealth		= 15D,  wolpertingerDamage = 2D, wolpertingerSpeed = normalSpeed,
+			robinHealth				= 2D,  robinDamage = 0.5D, robinSpeed = normalSpeed,
 
 
 	sengHealth				= 55D, sengSpeed = normalSpeed * 1.3, sengRange = normalFollowRange / 2,
