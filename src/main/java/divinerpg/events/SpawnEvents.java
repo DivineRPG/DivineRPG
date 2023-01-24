@@ -92,7 +92,12 @@ public class SpawnEvents {
     	registerMonsterSpawn(HASTREUS.get());
     	registerMonsterSpawn(ROLLUM.get());
     	registerSpawn(WORKSHOP_MERCHANT.get(), EntityWorkshopMerchant::rules);
-    	registerSpawn(WORKSHOP_TINKERER.get(), EntityWorkshopTinkerer::rules);
+		registerSpawn(WORKSHOP_TINKERER.get(), EntityWorkshopTinkerer::rules);
+		registerMonsterSpawn(SENG.get());
+		registerMonsterSpawn(GROGLIN.get());
+		registerMonsterSpawn(GRUZZORLUG.get());
+		registerMonsterSpawn(SABEAR.get());
+		registerMonsterSpawn(WOLPERTINGER.get());
 
         //Eden
     	registerMobSpawn(GLINTHOP.get());
