@@ -53,18 +53,13 @@ public class ModelRobin<T extends Entity> extends EntityModel<T> {
 		if (!entity.isOnGround()) {
 			rightwing.zRot = ageInTicks;
 			leftwing.zRot = -ageInTicks;
+			rightleg.xRot = 0;
+			leftleg.xRot = -0;
 		} else {
 			rightwing.zRot = 0;
 			leftwing.zRot = -0;
-		}
-		if (entity.isOnGround()) {
-			rightleg.y = 23;
-			leftleg.y = 23;
 			rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 			leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		} else {
-			rightleg.y = 22.5F;
-			leftleg.y = 22.5F;
 		}
 	}
 
