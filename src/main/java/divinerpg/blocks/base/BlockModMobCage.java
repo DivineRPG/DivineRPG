@@ -43,11 +43,11 @@ public class BlockModMobCage extends BlockMod {
 			ItemStack item = player.getItemInHand(hand);
 			if(!player.getCooldowns().isOnCooldown(item.getItem()) && (spawnItem == null || item.is(ForgeRegistries.ITEMS.getValue(spawnItem)))) {
 				if(!(spawnItem == null || player.isCreative())) {
-					item.shrink(1);
 					player.setItemInHand(hand, item);
 					player.getCooldowns().addCooldown(item.getItem(), 40);
+					ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
+					item.shrink(1);
 				}
-				ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
 				return InteractionResult.SUCCESS;
 			}
 		} return InteractionResult.FAIL;
