@@ -82,17 +82,17 @@ repositories {
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.0.2.6") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.0.2.6") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.0.2.6") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.0.2.6") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.2.0.16") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.2.0.16") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.2.0.16") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.2.0.16") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
     compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.3") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
-//    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76-SNAPSHOT:api") //Patchouli
-//    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76-SNAPSHOT") //Patchouli
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT:api") //Patchouli
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT") //Patchouli
     compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4277371") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:3913301") //MmmMmmMmmMmm (Target Dummy)
 //    runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:3969903") //PneumaticCraft
