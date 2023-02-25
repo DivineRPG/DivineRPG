@@ -4,7 +4,6 @@ import divinerpg.util.*;
 import divinerpg.util.teleport.*;
 import net.minecraft.*;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
@@ -64,7 +63,7 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
                 player.displayClientMessage(message, true);
                 return InteractionResultHolder.fail(player.getItemInHand(hand));
             }
-            ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
+            ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if (player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
                 if (!player.isCreative()) {

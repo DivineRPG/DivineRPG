@@ -15,7 +15,6 @@ import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
@@ -109,10 +108,10 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
             if(!this.level.isClientSide) {
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
                 if (random.nextInt(10) == 1) {
-                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 if (random.nextInt(20) == 1) {
-                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }

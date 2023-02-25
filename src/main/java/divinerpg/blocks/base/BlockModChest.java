@@ -34,14 +34,15 @@ public abstract class BlockModChest extends ChestBlock {
         BlockEntity tileentity = world.getBlockEntity(pos);
         return tileentity instanceof MenuProvider ? (MenuProvider) tileentity : null;
     }
+
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
     	if(worldIn.isClientSide) return InteractionResult.SUCCESS;
         else {
-            MenuProvider menuprovider = getMenuProvider(state, worldIn, pos);
+            MenuProvider menuprovider = this.getMenuProvider(state, worldIn, pos);
             if(menuprovider != null) {
                player.openMenu(menuprovider);
-               player.awardStat(getOpenChestStat());
+               player.awardStat(this.getOpenChestStat());
             }
             return InteractionResult.CONSUME;
         }

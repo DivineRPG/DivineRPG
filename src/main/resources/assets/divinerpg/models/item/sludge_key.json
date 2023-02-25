@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/sludge_key"
+    "layer0": "divinerpg:items/sludge_key"
   }
 }

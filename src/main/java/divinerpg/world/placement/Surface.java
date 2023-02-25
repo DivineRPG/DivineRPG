@@ -1,7 +1,10 @@
 package divinerpg.world.placement;
 
+import java.util.stream.Stream;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import divinerpg.registries.PlacementModifierRegistry;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -10,8 +13,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.*;
-
-import java.util.stream.Stream;
 
 public class Surface extends PlacementModifier {
 	public static enum Surface_Type {HIGHEST_CEILING, HIGHEST_GROUND, LOWEST_CEILING, LOWEST_GROUND}
@@ -89,6 +90,6 @@ public class Surface extends PlacementModifier {
 	}
 	@Override
 	public PlacementModifierType<?> type() {
-		return PlacementModifierRegistry.SURFACE_PLACEMENT;
+		return PlacementModifierRegistry.SURFACE_PLACEMENT.get();
 	}
 }

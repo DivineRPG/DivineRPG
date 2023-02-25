@@ -2,9 +2,10 @@ package divinerpg.entities.projectile;
 
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.ParticleRegistry;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.*;
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
@@ -21,13 +22,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.network.NetworkHooks;
 
 public class EntityDivineArrow extends AbstractArrow {
     private static final EntityDataAccessor<Byte> CRITICAL = SynchedEntityData.<Byte>defineId(EntityDivineArrow.class,
@@ -114,10 +116,10 @@ public class EntityDivineArrow extends AbstractArrow {
         }
     }
 
-//    @Override
-//    public Packet<?> getAddEntityPacket() {
-//        return NetworkHooks.getEntitySpawningPacket(this);
-//    }
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
 
     @Override
     public void tick() {
@@ -224,7 +226,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
                     // Explosion Damage
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
-                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.BlockInteraction.BREAK);
                     }
                     
                     if (entity.hurt(damagesource, (float) i)) {
@@ -284,7 +286,7 @@ public class EntityDivineArrow extends AbstractArrow {
                     this.setIsCritical(false);
 
                     if (getArrowType() == ArrowType.SNOWSTORM_ARROW) {
-                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.BLOCK);
+                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.BlockInteraction.BREAK);
                         this.kill();
                     }
                 }
@@ -320,7 +322,7 @@ public class EntityDivineArrow extends AbstractArrow {
                     if (entity.hurt(damagesource, (float) i)) {
                         // Explosion Damage
                         if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
-                            this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                            this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Explosion.BlockInteraction.BREAK);
                         }
                         if (this.knockbackStrength > 0) {
                             float f1 = Mth.sqrt((float) (this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z));

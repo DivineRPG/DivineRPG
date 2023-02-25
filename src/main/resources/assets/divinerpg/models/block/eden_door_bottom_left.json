@@ -2,7 +2,7 @@
   "parent": "minecraft:block/door_bottom_left",
   "render_type": "cutout_mipped",
   "textures": {
-    "bottom": "divinerpg:block/eden_door_bottom",
-    "top": "divinerpg:block/eden_door_top"
+    "bottom": "divinerpg:blocks/eden_door_bottom",
+    "top": "divinerpg:blocks/eden_door_top"
   }
 }

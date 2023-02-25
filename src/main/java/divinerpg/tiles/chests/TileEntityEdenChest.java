@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityEdenChest extends TileEntityModChest {
+
     public TileEntityEdenChest(BlockPos p_154992_, BlockState p_154993_) {
         super(BlockEntityRegistry.EDEN_CHEST.get(), p_154992_, p_154993_);
     }

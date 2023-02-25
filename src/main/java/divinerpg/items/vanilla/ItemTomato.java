@@ -1,5 +1,6 @@
 package divinerpg.items.vanilla;
 
+import divinerpg.DivineRPG;
 import divinerpg.entities.projectile.EntityTomato;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.registries.EntityRegistry;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.Level;
 public class ItemTomato extends ItemModFood {
 
     public ItemTomato(FoodProperties food) {
-        super(new Item.Properties().food(food), food);
+        super(new Item.Properties().tab(DivineRPG.tabs.food).food(food), food);
     }
 
     @Override

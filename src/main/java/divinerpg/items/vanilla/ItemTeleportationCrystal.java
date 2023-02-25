@@ -1,28 +1,29 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.teleport.SecondaryTeleporter;
-import net.minecraft.ChatFormatting;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import divinerpg.util.teleport.*;
+import net.minecraft.*;
 import net.minecraft.network.chat.*;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.server.command.TextComponentHelper;
+import net.minecraft.world.level.*;
+import net.minecraftforge.server.command.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemTeleportationCrystal extends ItemMod {
 
     public ItemTeleportationCrystal() {
-        super(new Item.Properties().durability(10));
+        super(new Item.Properties().durability(10).tab(DivineRPG.tabs.utilities));
     }
 
     public ItemTeleportationCrystal(int durability) {
-        super(new Item.Properties().durability(durability));
+        super(new Item.Properties().durability(durability).tab(DivineRPG.tabs.utilities));
     }
 
 

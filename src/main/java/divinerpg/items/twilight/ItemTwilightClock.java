@@ -29,7 +29,7 @@ public class ItemTwilightClock extends ItemMod {
     }};
 
     public ItemTwilightClock() {
-        super(new Item.Properties().stacksTo(1));
+        super(new Item.Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
     }
 
     @Override

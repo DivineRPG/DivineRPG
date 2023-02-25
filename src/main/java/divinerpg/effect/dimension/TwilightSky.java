@@ -1,23 +1,25 @@
 package divinerpg.effect.dimension;
 
+import javax.annotation.Nullable;
+
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
+
 import divinerpg.DivineRPG;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.*;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Matrix4f;
-
-import javax.annotation.Nullable;
 
 public class TwilightSky extends DimensionSpecialEffects {
 	public static final ResourceLocation SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/twilight_sun.png");
@@ -73,10 +75,10 @@ public class TwilightSky extends DimensionSpecialEffects {
 					RenderSystem.disableTexture();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 					poseStack.pushPose();
-					poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+					poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
-					poseStack.mulPose(Axis.ZP.rotationDegrees(f3));
-					poseStack.mulPose(Axis.ZP.rotationDegrees(90F));
+					poseStack.mulPose(Vector3f.ZP.rotationDegrees(f3));
+					poseStack.mulPose(Vector3f.ZP.rotationDegrees(90F));
 					float f4 = afloat[0], f5 = afloat[1], f6 = afloat[2];
 					Matrix4f matrix4f = poseStack.last().pose();
 					bufferbuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
@@ -94,8 +96,8 @@ public class TwilightSky extends DimensionSpecialEffects {
 				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
 				RenderSystem.setShaderColor(1F, 1F, 1F, f11);
-				poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
-				poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
+				poseStack.mulPose(Vector3f.YP.rotationDegrees(-90F));
+				poseStack.mulPose(Vector3f.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
 				Matrix4f matrix4f1 = poseStack.last().pose();
 				float f12 = 30F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);

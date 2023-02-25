@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:block/skythern_brush"
+    "layer0": "divinerpg:blocks/skythern_brush"
   }
 }

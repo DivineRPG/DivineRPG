@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/corrupted_shovel"
+    "layer0": "divinerpg:items/corrupted_shovel"
   }
 }

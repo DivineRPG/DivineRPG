@@ -1,10 +1,12 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
-import divinerpg.items.base.ItemModSword;
+import divinerpg.*;
+import divinerpg.capability.*;
+import divinerpg.events.*;
+import divinerpg.items.base.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
@@ -12,7 +14,7 @@ import net.minecraft.world.phys.*;
 public class ItemStormSword extends ItemModSword {
 
     public ItemStormSword(Tier toolMaterial) {
-        super(toolMaterial);
+        super(toolMaterial, DivineRPG.tabs.melee);
     }
 
     @Override

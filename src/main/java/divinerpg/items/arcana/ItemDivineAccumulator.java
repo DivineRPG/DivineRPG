@@ -1,5 +1,6 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ItemDivineAccumulator extends ItemMod {
     public ItemDivineAccumulator() {
-        super(new Properties().stacksTo(1));
+        super(new Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
     }
 
     @Override

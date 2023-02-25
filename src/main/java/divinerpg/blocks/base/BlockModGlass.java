@@ -1,12 +1,11 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.*;
 
 public class BlockModGlass extends AbstractGlassBlock {
     public BlockModGlass(float hardness) {
-        super(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3F, hardness).sound(SoundType.GLASS).noOcclusion());
+        super(Block.Properties.of(Material.GLASS, MaterialColor.NONE).dynamicShape().requiresCorrectToolForDrops().noOcclusion().strength(hardness, 3.0F).sound(SoundType.GLASS));
     }
 
 }

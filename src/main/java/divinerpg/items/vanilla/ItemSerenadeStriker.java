@@ -1,21 +1,22 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemSerenadeStriker extends ItemMod {
     public ItemSerenadeStriker() {
-        super(new Properties().durability(100));
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(100));
     }
 
     @Override

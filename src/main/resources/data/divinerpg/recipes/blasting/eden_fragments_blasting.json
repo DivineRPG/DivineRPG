@@ -3,7 +3,7 @@
     "item": "divinerpg:eden_fragments"
   },
   "ingredient": {
-    "tag": "forge:ores/eden"
+    "item": "divinerpg:eden_ore"
   },
   "type": "minecraft:blasting",
   "experience": 0.7,

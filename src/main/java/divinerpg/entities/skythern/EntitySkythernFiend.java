@@ -1,7 +1,8 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.SoundRegistry;
+import divinerpg.entities.base.*;
+import divinerpg.registries.*;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -28,13 +29,12 @@ public class EntitySkythernFiend extends EntityDivineMonster {
         return SoundRegistry.INSECT.get();
     }
     @Override
+    protected SoundEvent getHurtSound(DamageSource p_33034_) {
+        return SoundRegistry.INSECT.get();
+    }
+    @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.INSECT.get();
     }
 
 }

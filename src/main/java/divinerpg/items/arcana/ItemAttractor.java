@@ -1,5 +1,6 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.LocalizeUtils;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ItemAttractor extends ItemModRanged {
 
     public ItemAttractor() {
-        super("attractor", null, () -> SoundRegistry.REFLECTOR.get(), SoundSource.PLAYERS, -1, 0, null, 20);
+        super("attractor", null, () -> SoundRegistry.REFLECTOR.get(), SoundSource.PLAYERS, -1, 0, null, 20, DivineRPG.tabs.utilities);
     }
 
     @Override

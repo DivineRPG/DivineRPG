@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/yellow_ender_sword"
+    "layer0": "divinerpg:items/yellow_ender_sword"
   }
 }

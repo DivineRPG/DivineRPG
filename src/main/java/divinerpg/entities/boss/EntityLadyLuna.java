@@ -3,13 +3,11 @@ package divinerpg.entities.boss;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.EntityLadyLunaSparkler;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -29,26 +27,26 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 public class EntityLadyLuna extends EntityDivineBoss {
-    public static final EntityDataAccessor<Integer> PROTECTION = SynchedEntityData.defineId(EntityLadyLuna.class, EntityDataSerializers.INT);
     public EntityLadyLuna(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.setRandomProtectionValues();
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(PROTECTION, 0);
-    }
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_, MobSpawnType p_146748_, @org.jetbrains.annotations.Nullable SpawnGroupData p_146749_, @org.jetbrains.annotations.Nullable CompoundTag p_146750_) {
-        entityData.set(PROTECTION, random.nextInt(2));
-        return super.finalizeSpawn(level, p_146747_, p_146748_, p_146749_, p_146750_);
+    public enum ProtectionType {
+        ARCANA(0), RANGED(1), MELEE(2);
+
+        private int numVal;
+
+        ProtectionType(int numVal) {
+            this.numVal = numVal;
+        }
+
+        public int value() {
+            return numVal;
+        }
     }
 
-    public int getProtection() {
-        return this.entityData.get(PROTECTION);
-    }
-
+    public ProtectionType protectionType;
     private int protectionTimer;
 
     private List<BlockPos> acidPositions = new ArrayList<BlockPos>();
@@ -91,7 +89,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             }
         }
 
-        if (!this.level.isClientSide && getProtection() == 0 && this.tickCount % 30 == 0) {
+        if (!this.level.isClientSide && this.getProtectionType() == ProtectionType.ARCANA && this.tickCount % 30 == 0) {
             Iterator<BlockPos> iter = this.acidPositions.iterator();
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();
@@ -105,24 +103,28 @@ public class EntityLadyLuna extends EntityDivineBoss {
             }
         }
 
-        if (this.getProtectionTimer() == 0) {
+        if (this.getProtectionTimer() <= 0) {
             this.setRandomProtectionValues();
         } else if (this.getProtectionTimer() > 0) {
             this.setProtectionTimer(getProtectionTimer() - 1);
         }
     }
 
-    public void setProtectionType(int i) {
-        this.entityData.set(PROTECTION, i);
-        if(i == 0) {
+    public void setProtectionType(ProtectionType type) {
+        if(type == ProtectionType.ARCANA) {
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0);
         }
         else
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.32D);
+       this.protectionType = type;
     }
 
     public void setProtectionTimer(int i) {
         this.protectionTimer = i;
+    }
+
+    public ProtectionType getProtectionType() {
+        return this.protectionType;
     }
 
     public int getProtectionTimer() {
@@ -133,11 +135,12 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public boolean hurt(DamageSource source, float par2) {
         if (source.isExplosion()) return false;
 
-        if (source.isMagic() && getProtection() == 0)
+        ProtectionType type = this.getProtectionType();
+        if (source.isMagic() && type == ProtectionType.ARCANA)
             return false;
-        else if ((source.isProjectile() || source.getMsgId().equals("thrown")) && getProtection() == 1)
+        else if ((source.isProjectile() || source.getMsgId().equals("thrown")) && type == ProtectionType.RANGED)
             return false;
-        else if (!source.isProjectile() && !source.isMagic() && getProtection() == 2)
+        else if (!source.isProjectile() && !source.isMagic() && type == ProtectionType.MELEE)
             return false;
         return super.hurt(source, par2);
     }
@@ -148,7 +151,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
         boolean var4 = e.hurt(DamageSource.mobAttack(this), dam);
         if (var4) {
-            this.level.explode(this, e.getX(), e.getY(), e.getZ(), 2, Level.ExplosionInteraction.BLOCK);
+            this.level.explode(this, e.getX(), e.getY(), e.getZ(), 2, Explosion.BlockInteraction.DESTROY);
             this.xo *= 0.6D;
             this.zo *= 0.6D;
             int var5 = EnchantmentHelper.getFireAspect(this);
@@ -161,18 +164,29 @@ public class EntityLadyLuna extends EntityDivineBoss {
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putInt("Immunity", getProtection());
+        tag.putInt("Immunity", this.getProtectionType().value());
         tag.putInt("ImmunityCooldown", this.getProtectionTimer());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        this.setProtectionType(tag.getInt("Immunity"));
+        this.setProtectionType(protectionTypeForInt(tag.getInt("Immunity")));
         this.setProtectionTimer(tag.getInt("ImmunityCooldown"));
     }
 
-
+    private static ProtectionType protectionTypeForInt(int i) {
+        switch(i) {
+            case 0:
+                return ProtectionType.ARCANA;
+            case 1:
+                return ProtectionType.RANGED;
+            case 2:
+                return ProtectionType.MELEE;
+            default:
+                return null;
+        }
+    }
 
     @Override
     public int getMaxSpawnClusterSize() {return 3;
@@ -185,8 +199,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
     }
 
     private void setRandomProtectionValues() {
-        DivineRPG.LOGGER.info("protection type: " + getProtection() + ". protection timer: " + getProtectionTimer());
-        this.setProtectionType(random.nextInt(2));
+        this.setProtectionType(protectionTypeForInt(this.random.nextInt(3)));
         this.setProtectionTimer(200 + this.random.nextInt(200));
     }
 }

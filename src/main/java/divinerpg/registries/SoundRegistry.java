@@ -248,6 +248,6 @@ public class SoundRegistry {
     }
 
     private static SoundEvent createSoundEvent(String soundPath) {
-        return SoundEvent.createVariableRangeEvent(new ResourceLocation(DivineRPG.MODID, soundPath));
+        return new SoundEvent(new ResourceLocation(DivineRPG.MODID, soundPath));
     }
 }

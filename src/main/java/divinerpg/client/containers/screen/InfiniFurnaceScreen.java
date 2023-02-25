@@ -30,9 +30,7 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 	@Override public void recipesUpdated() {recipeBookComponent.recipesUpdated();}
 	@Override
 	public void removed() {
-		if (this.minecraft.player != null) {
-			this.menu.removed(this.minecraft.player);
-		}
+	      recipeBookComponent.removed();
 	      super.removed();
 	}
 	@Override

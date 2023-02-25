@@ -1,27 +1,28 @@
 package divinerpg.items.arcana;
 
-import divinerpg.entities.projectile.EntityGrenade;
-import divinerpg.items.base.ItemMod;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.items.base.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
-import net.minecraft.stats.Stats;
+import net.minecraft.stats.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemGrenade extends ItemMod {
 
     private final int counter = 0;
 
     public ItemGrenade() {
-        super();
+        super(DivineRPG.tabs.ranged);
 
     }
 

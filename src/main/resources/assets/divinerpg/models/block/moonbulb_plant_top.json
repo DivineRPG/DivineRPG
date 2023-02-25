@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/moonbulb_plant_top"
+    "cross": "divinerpg:blocks/moonbulb_plant_top"
   }
 }

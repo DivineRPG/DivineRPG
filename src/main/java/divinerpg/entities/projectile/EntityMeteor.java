@@ -2,10 +2,14 @@ package divinerpg.entities.projectile;
 
 
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class EntityMeteor extends DivineThrowable {
     public EntityMeteor(EntityType<? extends ThrowableProjectile> type, Level world) {
@@ -36,7 +40,7 @@ public class EntityMeteor extends DivineThrowable {
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), 12);
             }
 
-            level.explode(this, this.xo, this.yo, this.zo, 4.5F, false, Level.ExplosionInteraction.TNT);
+            level.explode(this, this.xo, this.yo, this.zo, 4.5F, false, Explosion.BlockInteraction.BREAK);
 
             if (!this.level.isClientSide) {
                 this.kill();
@@ -47,7 +51,7 @@ public class EntityMeteor extends DivineThrowable {
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (!this.level.isClientSide) {
-                this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);
+                this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Explosion.BlockInteraction.BREAK);
                 this.kill();
             }
         }

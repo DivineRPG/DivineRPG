@@ -11,7 +11,7 @@ import divinerpg.client.models.vanilla.*;
 import divinerpg.client.models.vethea.*;
 import divinerpg.client.renders.base.*;
 import divinerpg.client.renders.entity.boss.*;
-import divinerpg.client.renders.entity.iceika.*;
+import divinerpg.client.renders.entity.iceika.RenderFrostArcher;
 import divinerpg.client.renders.entity.projectile.*;
 import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
@@ -51,13 +51,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
-import static divinerpg.util.ClientUtils.*;
 import static divinerpg.util.EntityStats.*;
+import static divinerpg.util.ClientUtils.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
-    private EntityRegistry(){}
+	private EntityRegistry(){}
 
     //Projectile
     public static final RegistryObject<EntityType<EntityAttractor>>				ATTRACTOR = registerProjectile(EntityAttractor::new, "attractor");
@@ -68,11 +68,11 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityCorruptedBullet>>		CORRUPTED_BULLET = registerProjectile(EntityCorruptedBullet::new, "corrupted_bullet");
     public static final RegistryObject<EntityType<EntityDisk>>					DISK = registerProjectile(EntityDisk::new, "disk");
     public static final RegistryObject<EntityType<EntityDissimentShot>>			DISSIMENT_SHOT = registerProjectile(EntityDissimentShot::new, "dissiment_shot");
-    public static final RegistryObject<EntityType<EntityDivineArrow>>			ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new, "arrow_shot");
+	public static final RegistryObject<EntityType<EntityDivineArrow>>			ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new, "arrow_shot");
     public static final RegistryObject<EntityType<EntityEnderTripletsFireball>> ENDER_TRIPLETS_FIREBALL = registerFireballProjectile(EntityEnderTripletsFireball::new, "ender_triplets_fireball");
     public static final RegistryObject<EntityType<EntityFirefly>>				FIREFLY = registerProjectile(EntityFirefly::new, "firefly");
     public static final RegistryObject<EntityType<EntityFractiteShot>>			FRACTITE_SHOT = registerFireballProjectile(EntityFractiteShot::new, "fractite_shot");
-    public static final RegistryObject<EntityType<EntityFrostCloud>>			FROST_CLOUD = registerFrostCloud(EntityFrostCloud::new, "frost_cloud");
+	public static final RegistryObject<EntityType<EntityFrostCloud>>			FROST_CLOUD = registerFrostCloud(EntityFrostCloud::new, "frost_cloud");
     public static final RegistryObject<EntityType<EntityFrostShot>>				FROST_SHOT = registerFireballProjectile(EntityFrostShot::new, "frost_shot");
     public static final RegistryObject<EntityType<EntityFyracryxFireball>>		FYRACRYX_FIREBALL = registerFireballProjectile(EntityFyracryxFireball::new, "fyracryx_fireball");
     public static final RegistryObject<EntityType<EntityGeneralsStaff>>			GENERALS_STAFF = registerProjectile(EntityGeneralsStaff::new, "generals_staff");
@@ -105,7 +105,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityTwilightMageShot>>		TWILIGHT_MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new, "twilight_mage_shot");
     public static final RegistryObject<EntityType<EntityVileStorm>>				VILE_STORM = registerProjectile(EntityVileStorm::new, "vile_storm");
     public static final RegistryObject<EntityType<EntityWatcherShot>>			WATCHER_SHOT = registerProjectile(EntityWatcherShot::new, "watcher_shot");
-    public static final RegistryObject<EntityType<EntityWildwoodLog>>			WILDWOOD_LOG = registerProjectile(EntityWildwoodLog::new, "wildwood_log");
+	public static final RegistryObject<EntityType<EntityWildwoodLog>>			WILDWOOD_LOG = registerProjectile(EntityWildwoodLog::new, "wildwood_log");
     public static final RegistryObject<EntityType<EntityWreckBouncingProjectile>>WRECK_BOUNCING_PROJECTILE = registerProjectile(EntityWreckBouncingProjectile::new, "wreck_bouncing_projectile");
     public static final RegistryObject<EntityType<EntityWreckExplosiveShot>>	WRECK_EXPLOSIVE_SHOT = registerProjectile(EntityWreckExplosiveShot::new, "wreck_explosive_shot");
     public static final RegistryObject<EntityType<EntityWreckShot>>				WRECK_SHOT = registerProjectile(EntityWreckShot::new, "wreck_shot");
@@ -139,39 +139,39 @@ public class EntityRegistry {
     // Overworld
     public static final RegistryObject<EntityType<EntityAequorea>>			 AEQUOREA 			= registerEntity(EntityAequorea::new, 			"aequorea", 			0.3F, 0.4F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		= registerEntity(EntityAridWarrior::new, 		"arid_warrior",			1.4F, 2.8f, 0x6e5209, 0xc19b28);
-    public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		= registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		0.8F, 1.4F);
-    public static final RegistryObject<EntityType<EntityCrawler>>			 CAVE_CRAWLER 		= registerEntity(EntityCrawler::new, 			"cave_crawler", 		0.6F, 0.8F, 0x90bc93, 0x8bf285);
-    public static final RegistryObject<EntityType<EntityCaveclops>>			 CAVECLOPS 			= registerEntity(EntityCaveclops::new, 			"caveclops", 			1.2F, 4.0F, 0x3a3030, 0x77352b);
-    public static final RegistryObject<EntityType<EntityCrab>>				 CRAB 				= registerEntity(EntityCrab::new, 				"crab", 				0.9F, 0.6F, 0xbf5241, 0xe2cfc0);
-    public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			= registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x534e2f, 0xc2b66e);
-    public static final RegistryObject<EntityType<EntityDesertCrawler>>		DESERT_CRAWLER 	    = registerEntity(EntityDesertCrawler::new, 		"desert_crawler", 		0.8F, 0.8F, 0xc3be8e, 0xf2d676);
+	public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		= registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		0.8F, 1.4F);
+	public static final RegistryObject<EntityType<EntityCrawler>>			 CAVE_CRAWLER 		= registerEntity(EntityCrawler::new, 			"cave_crawler", 		0.6F, 0.8F, 0x90bc93, 0x8bf285);
+	public static final RegistryObject<EntityType<EntityCaveclops>>			 CAVECLOPS 			= registerEntity(EntityCaveclops::new, 			"caveclops", 			1.2F, 4.0F, 0x3a3030, 0x77352b);
+	public static final RegistryObject<EntityType<EntityCrab>>				 CRAB 				= registerEntity(EntityCrab::new, 				"crab", 				0.9F, 0.6F, 0xbf5241, 0xe2cfc0);
+	public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			= registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x534e2f, 0xc2b66e);
+	public static final RegistryObject<EntityType<EntityDesertCrawler>>		DESERT_CRAWLER 	    = registerEntity(EntityDesertCrawler::new, 		"desert_crawler", 		0.8F, 0.8F, 0xc3be8e, 0xf2d676);
     public static final RegistryObject<EntityType<EntityDiamondDave>>       DIAMOND_DAVE        = registerEntity(EntityDiamondDave::new, 	    "diamond_dave", 		0.8F, 2F, 0x000000, 0x7D3C98, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityEhu>>				 EHU 				= registerEntity(EntityEhu::new, 				"ehu", 					0.6F, 1.0F);
-    public static final RegistryObject<EntityType<EntityEnthralledDramcryx>> ENTHRALLED_DRAMCRYX= registerEntity(EntityEnthralledDramcryx::new, "enthralled_dramcryx",  1.35F,1.75F,0x171d3e, 0x423a82);
-    public static final RegistryObject<EntityType<EntityFrost>>				 FROST 				= registerEntity(EntityFrost::new, 				"frost", 				1.0F, 1.5F, 0xbce8ff, 0xc6f8ff);
-    public static final RegistryObject<EntityType<EntityGlacon>>			 GLACON 			= registerEntity(EntityGlacon::new, 			"glacon", 				0.8F, 1.4F, 0x88deff, 0x1788bc);
-    public static final RegistryObject<EntityType<EntityHusk>>				 HUSK 				= registerEntity(EntityHusk::new, 				"husk", 				0.8F, 1.5F);
-    public static final RegistryObject<EntityType<EntityJackOMan>>			 JACK_O_MAN 		= registerEntity(EntityJackOMan::new, 			"jack_o_man", 			0.8F, 2.0F, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		= registerEntity(EntityJungleBat::new, 			"jungle_bat", 			0.7F, 1.0F, 0x325a24, 0x1b3008);
-    public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.3F, 0x2d442c, 0x3d513b);
-    public static final RegistryObject<EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		= registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		1.4F, 0.9F, 0x1a6706, 0x35a216);
-    public static final RegistryObject<EntityType<EntityKingCrab>>			 KING_CRAB 			= registerEntity(EntityKingCrab::new, 			"king_crab", 			1.8F, 1.7F, 0x771f2a, 0x272322);
-    public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			= registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x6eae44);
-    public static final RegistryObject<EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		= registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		4.0F, 1.0f, 0x2f4581, 0x3d548f);
-    public static final RegistryObject<EntityType<EntityLivestockMerchant>>  LIVESTOCK_MERCHANT = registerEntity(EntityLivestockMerchant::new, 	"livestock_merchant", 	0.8F, 2.0f, 0xa27d6a, 0x8e5f45, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityMiner>>				 MINER 				= registerEntity(EntityMiner::new, 				"miner", 				0.6F, 2.0F, 0x7f5200, 0xe2e048);
-    public static final RegistryObject<EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	= registerEntity(EntityPumpkinSpider::new, 		"pumpkin_spider", 		1.25F,1.0F, 0xe38a1d, 0xa0560b);
-    public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			= registerEntity(EntityRainbour::new, 			"rainbour", 			1.0F, 1.0F, 0x969798, 0x6c6e71);
-    public static final RegistryObject<EntityType<EntityRotatick>>			 ROTATICK 			= registerEntity(EntityRotatick::new, 			"rotatick", 			0.85F, 0.8F,0x443844, 0x3d9a54);
-    public static final RegistryObject<EntityType<EntitySaguaroWorm>> 		 SAGUARO_WORM 		= registerEntity(EntitySaguaroWorm::new, 		"saguaro_worm", 		1.0F, 3.0F, 0x699f35, 0xaab484);
-    public static final RegistryObject<EntityType<EntityShark>>				 SHARK 				= registerEntity(EntityShark::new, 				"shark", 				1.0F, 0.5F, 0xbbcde2, 0xa6b8cd);
-    public static final RegistryObject<EntityType<EntitySmelter>>			 SMELTER 			= registerEntity(EntitySmelter::new, 			"smelter", 				1.5F, 3.5F);
-    public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			= registerEntity(EntitySnapper::new, 			"snapper", 				0.6F, 0.5F);
-    public static final RegistryObject<EntityType<EntityStoneGolem>>		 STONE_GOLEM 		= registerEntity(EntityStoneGolem::new, 		"stone_golem", 			1.5F, 3.5F);
-    public static final RegistryObject<EntityType<EntityTheEye>>			 THE_EYE 			= registerEntity(EntityTheEye::new, 			"the_eye", 				1.3F, 2.0F, 0xFFFFFF, 0xFFFFFF);
-    public static final RegistryObject<EntityType<EntityTheGrue>>			 THE_GRUE 			= registerEntity(EntityTheGrue::new, 			"the_grue", 			0.8F, 1.9F, 0x210e2a, 0x4f3764);
-    public static final RegistryObject<EntityType<EntityWhale>>				 WHALE 				= registerEntity(EntityWhale::new, 				"whale", 				3.0F, 1.5F, 0x445c7b, 0x2b3b4f, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityWhiteGrizzle>>		 WHITE_GRIZZLE 		= registerEntity(EntityWhiteGrizzle::new, 		"white_grizzle", 		0.8F, 1.4F);
+	public static final RegistryObject<EntityType<EntityEnthralledDramcryx>> ENTHRALLED_DRAMCRYX= registerEntity(EntityEnthralledDramcryx::new, "enthralled_dramcryx",  1.35F,1.75F,0x171d3e, 0x423a82);
+	public static final RegistryObject<EntityType<EntityFrost>>				 FROST 				= registerEntity(EntityFrost::new, 				"frost", 				1.0F, 1.5F, 0xbce8ff, 0xc6f8ff);
+	public static final RegistryObject<EntityType<EntityGlacon>>			 GLACON 			= registerEntity(EntityGlacon::new, 			"glacon", 				0.8F, 1.4F, 0x88deff, 0x1788bc);
+	public static final RegistryObject<EntityType<EntityHusk>>				 HUSK 				= registerEntity(EntityHusk::new, 				"husk", 				0.8F, 1.5F);
+	public static final RegistryObject<EntityType<EntityJackOMan>>			 JACK_O_MAN 		= registerEntity(EntityJackOMan::new, 			"jack_o_man", 			0.8F, 2.0F, MobCategory.CREATURE);
+	public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		= registerEntity(EntityJungleBat::new, 			"jungle_bat", 			0.7F, 1.0F, 0x325a24, 0x1b3008);
+	public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.3F, 0x2d442c, 0x3d513b);
+	public static final RegistryObject<EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		= registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		1.4F, 0.9F, 0x1a6706, 0x35a216);
+	public static final RegistryObject<EntityType<EntityKingCrab>>			 KING_CRAB 			= registerEntity(EntityKingCrab::new, 			"king_crab", 			1.8F, 1.7F, 0x771f2a, 0x272322);
+	public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			= registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x6eae44);
+	public static final RegistryObject<EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		= registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		4.0F, 1.0f, 0x2f4581, 0x3d548f);
+	public static final RegistryObject<EntityType<EntityLivestockMerchant>>  LIVESTOCK_MERCHANT = registerEntity(EntityLivestockMerchant::new, 	"livestock_merchant", 	0.8F, 2.0f, 0xa27d6a, 0x8e5f45, MobCategory.CREATURE);
+	public static final RegistryObject<EntityType<EntityMiner>>				 MINER 				= registerEntity(EntityMiner::new, 				"miner", 				0.6F, 2.0F, 0x7f5200, 0xe2e048);
+	public static final RegistryObject<EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	= registerEntity(EntityPumpkinSpider::new, 		"pumpkin_spider", 		1.25F,1.0F, 0xe38a1d, 0xa0560b);
+	public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			= registerEntity(EntityRainbour::new, 			"rainbour", 			1.0F, 1.0F, 0x969798, 0x6c6e71);
+	public static final RegistryObject<EntityType<EntityRotatick>>			 ROTATICK 			= registerEntity(EntityRotatick::new, 			"rotatick", 			0.85F, 0.8F,0x443844, 0x3d9a54);
+	public static final RegistryObject<EntityType<EntitySaguaroWorm>> 		 SAGUARO_WORM 		= registerEntity(EntitySaguaroWorm::new, 		"saguaro_worm", 		1.0F, 3.0F, 0x699f35, 0xaab484);
+	public static final RegistryObject<EntityType<EntityShark>>				 SHARK 				= registerEntity(EntityShark::new, 				"shark", 				1.0F, 0.5F, 0xbbcde2, 0xa6b8cd);
+	public static final RegistryObject<EntityType<EntitySmelter>>			 SMELTER 			= registerEntity(EntitySmelter::new, 			"smelter", 				1.5F, 3.5F);
+	public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			= registerEntity(EntitySnapper::new, 			"snapper", 				0.6F, 0.5F);
+	public static final RegistryObject<EntityType<EntityStoneGolem>>		 STONE_GOLEM 		= registerEntity(EntityStoneGolem::new, 		"stone_golem", 			1.5F, 3.5F);
+	public static final RegistryObject<EntityType<EntityTheEye>>			 THE_EYE 			= registerEntity(EntityTheEye::new, 			"the_eye", 				1.3F, 2.0F, 0xFFFFFF, 0xFFFFFF);
+	public static final RegistryObject<EntityType<EntityTheGrue>>			 THE_GRUE 			= registerEntity(EntityTheGrue::new, 			"the_grue", 			0.8F, 1.9F, 0x210e2a, 0x4f3764);
+	public static final RegistryObject<EntityType<EntityWhale>>				 WHALE 				= registerEntity(EntityWhale::new, 				"whale", 				3.0F, 1.5F, 0x445c7b, 0x2b3b4f, MobCategory.WATER_CREATURE);
+	public static final RegistryObject<EntityType<EntityWhiteGrizzle>>		 WHITE_GRIZZLE 		= registerEntity(EntityWhiteGrizzle::new, 		"white_grizzle", 		0.8F, 1.4F);
 
     //Nether
     public static final RegistryObject<EntityType<EntityHellBat>>	 HELL_BAT 	= registerEntity(EntityHellBat::new, 	"hell_bat", 	0.7F, 1.0F, 0x430c0c, 0x854343);
@@ -184,24 +184,19 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityEnderSpider>>   ENDER_SPIDER  = registerEntity(EntityEnderSpider::new,  "ender_spider",  0.5F, 0.55F,0x0a0a0a, 0x260125);
     public static final RegistryObject<EntityType<EntityEnderScrounge>> ENDER_SCROUNGE = registerEntity(EntityEnderScrounge::new,"ender_scrounge",0.2F, 0.15F, 0x162916, 0xfc1b11);
     public static final RegistryObject<EntityType<EntityEnderTriplets>> ENDER_TRIPLETS = registerEntity(EntityEnderTriplets::new,"ender_triplets",2.0F, 2.0F, 0x161616, 0xfc1b28);
-    public static final RegistryObject<EntityType<EntityEnderWatcher>>  ENDER_WATCHER = registerEntity(EntityEnderWatcher::new, "ender_watcher", 0.7F, 0.9F, 0x161616, 0xca1ae1);
-
-    // Iceika
-    public static final RegistryObject<EntityType<EntityAlicanto>>		  ALICANTO 		  	= registerEntity(EntityAlicanto::new, 		 "alicanto",		 1.2F, 1.6F, 0x1c94ff, 0x0837a6);
-    public static final RegistryObject<EntityType<EntityFractite>>		  FRACTITE 		  	= registerEntity(EntityFractite::new, 		 "fractite",		 1.7F, 1.3F, 0xeeffff, 0xe2ffff);
+	public static final RegistryObject<EntityType<EntityEnderWatcher>>  ENDER_WATCHER = registerEntity(EntityEnderWatcher::new, "ender_watcher", 0.7F, 0.9F, 0x161616, 0xca1ae1);
+     
+	// Iceika
+	public static final RegistryObject<EntityType<EntityAlicanto>>		  ALICANTO 		  	= registerEntity(EntityAlicanto::new, 		 "alicanto",		 1.2F, 1.6F, 0x1c94ff, 0x0837a6);
+	public static final RegistryObject<EntityType<EntityFractite>>		  FRACTITE 		  	= registerEntity(EntityFractite::new, 		 "fractite",		 1.7F, 1.3F, 0xeeffff, 0xe2ffff);
     public static final RegistryObject<EntityType<EntityFrostArcher>>	  FROST_ARCHER 	  	= registerEntity(EntityFrostArcher::new, 	 "frost_archer",	 0.6F, 2.0F, 0x4095da, 0x407eb9);
     public static final RegistryObject<EntityType<EntityFrosty>>		  FROSTY 			= registerEntity(EntityFrosty::new, 		 "frosty",			 0.9F, 2.5F, 0xdcffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityGroglin>>		  GROGLIN 		  	= registerEntity(EntityGroglin::new, 		 "groglin",		0.5F, 1.3F, 0x88c89c, 0x587090);
-    public static final RegistryObject<EntityType<EntityGruzzorlug>>	  GRUZZORLUG 		= registerEntity(EntityGruzzorlug::new,      "gruzzorlug", 0.5F, 1.3F, 0x9370DB, 0x8B4513);
     public static final RegistryObject<EntityType<EntityGlacide>>		  GLACIDE 		  	= registerEntity(EntityGlacide::new, 		 "glacide",			 0.9F, 2.0F, 0x7ce3fe, 0x218fbf);
     public static final RegistryObject<EntityType<EntityHastreus>>		  HASTREUS 		  	= registerEntity(EntityHastreus::new, 		 "hastreus",		 1.0F, 1.9F, 0x136bd1, 0x418bea);
     public static final RegistryObject<EntityType<EntityRollum>>		  ROLLUM 			= registerEntity(EntityRollum::new, 		 "rollum",			 1.2F, 2.0F, 0x0504b7, 0x0d003d);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>WORKSHOP_MERCHANT = registerEntity(EntityWorkshopMerchant::new,"workshop_merchant",1.0F, 2.0F, 0xb81503, 0x321100, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>WORKSHOP_TINKERER = registerEntity(EntityWorkshopTinkerer::new,"workshop_tinkerer",1.0F, 2.0F, 0x003859, 0x087aa6, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntitySeng>>            SENG              = registerEntity(EntitySeng::new,"seng",0.7F, 1.1F, 0x6091152, 0x000000);
-    public static final RegistryObject<EntityType<EntitySabear>>          SABEAR            = registerEntity(EntitySabear::new,"sabear", 1.3F, 1.1F, 0x5C4312, 0x74510D);
-    public static final RegistryObject<EntityType<EntityWolpertinger>>    WOLPERTINGER      = registerEntity(EntityWolpertinger::new,"wolpertinger", 0.6F, 0.6F, 0x4a321f, 0xc9b6a7);
-    public static final RegistryObject<EntityType<EntityRobin>>           ROBIN             = registerEntity(EntityRobin::new,"robin", 0.3F, 0.3F, 0x63312e, 0x8c4541);
 
     // Eden
     public static final RegistryObject<EntityType<EntityGlinthop>>      GLINTHOP        = registerEntity(EntityGlinthop::new, 			    "glinthop",		 0.5F, 0.7F, 0xd7d2cf, 0xa0998c, MobCategory.CREATURE);
@@ -210,7 +205,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityGreenfeet>> 	GREENFEET 		= registerEntity(EntityGreenfeet::new, 		"greenfeet", 	 1.0F, 2.0F, 0x084f1e, 0x4c5815);
     public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 0.6F, 2.9F, 0xf86a54, 0xffe15c);
     public static final RegistryObject<EntityType<EntitySunArcher>> 	SUN_ARCHER 		= registerEntity(EntitySunArcher::new, 		"sun_archer", 	 0.8F, 2.2F, 0xeaab42, 0xfdf182);
-    public static final RegistryObject<EntityType<EntityWeakCori>> 		WEAK_CORI 		= registerEntity(EntityWeakCori::new, 		"weak_cori", 	 0.6F, 1.5F, 0x160f00, 0x4681ff);
+	public static final RegistryObject<EntityType<EntityWeakCori>> 		WEAK_CORI 		= registerEntity(EntityWeakCori::new, 		"weak_cori", 	 0.6F, 1.5F, 0x160f00, 0x4681ff);
 
     // Wildwood
     public static final RegistryObject<EntityType<EntityBehemoth>> 			BEHEMOTH 			= registerEntity(EntityBehemoth::new, 			"behemoth", 		 1.0F, 1.2F, 0x4180d0, 0x54b7e0);
@@ -230,9 +225,9 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityEnchantedArcher>> 	ENCHANTED_ARCHER  	= registerEntity(EntityEnchantedArcher::new, 	"enchanted_archer", 	1.8F, 3.0F, 0x160430, 0x2f0a66);
     public static final RegistryObject<EntityType<EntityEnchantedWarrior>> 	ENCHANTED_WARRIOR 	= registerEntity(EntityEnchantedWarrior::new, 	"enchanted_warrior", 	0.6F, 2.4F, 0x5800a2, 0x30005b);
     public static final RegistryObject<EntityType<EntitySpellbinder>> 		SPELLBINDER 		= registerEntity(EntitySpellbinder::new, 		"spellbinder", 			1.0F, 2.0F, 0x8b27de, 0xd16ff7);
-
+    
     // Skythern
-    public static final RegistryObject<EntityType<EntityAdvancedCori>>	ADVANCED_CORI 	= registerEntity(EntityAdvancedCori::new, 	"advanced_cori", 	0.6F, 1.5F, 0x160f00, 0xffc446);
+	public static final RegistryObject<EntityType<EntityAdvancedCori>>	ADVANCED_CORI 	= registerEntity(EntityAdvancedCori::new, 	"advanced_cori", 	0.6F, 1.5F, 0x160f00, 0xffc446);
     public static final RegistryObject<EntityType<EntityMegalith>>		MEGALITH 		= registerEntity(EntityMegalith::new,		"megalith", 		1.2F, 4.0F, 0x7b7b7b, 0x939393);
     public static final RegistryObject<EntityType<EntityMystic>>		MYSTIC 			= registerEntity(EntityMystic::new, 		"mystic", 			1.0F, 2.0F, 0xb7a5a9, 0xe4d9dd);
     public static final RegistryObject<EntityType<EntitySamek>>			SAMEK 			= registerEntity(EntitySamek::new, 			"samek", 			0.8F, 2.0F, 0xa6a875, 0x6e703b);
@@ -305,12 +300,12 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			 1.0F, 3.0F, 0x581b15, 0xa55f12);
     public static final RegistryObject<EntityType<EntityVhraak>>			 VHRAAK				  = registerEntity(EntityVhraak::new, 				"vhraak",				 1.0F, 1.0F, 0x3f2626, 0x5d1a1a);
     public static final RegistryObject<EntityType<EntityZone>>				 ZONE				  = registerEntity(EntityZone::new, 				"zone",					 1.0F, 1.3F, 0xb31c15, 0xaf9311);
-    public static final RegistryObject<EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 4.0F, 4.0F, 0xc71a1a, 0x0613c0);
+	public static final RegistryObject<EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 4.0F, 4.0F, 0xc71a1a, 0x0613c0);
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
-
+        
         //Boss
         registerMonsterAttributes(event, ANCIENT_ENTITY, ancientEntityHealth, ancientEntityDamage);
         registerMonsterAttributes(event, AYERACO, ayeracoHealth);
@@ -334,7 +329,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, TWILIGHT_DEMON, twilightDemonHealth, twilightDemonDamage);
         registerMonsterAttributes(event, VAMACHERON, vamacheronHealth, vamacheronDamage, vamacheronSpeed);
         registerMonsterAttributes(event, WRECK, wreckHealth, wreckDamage);
-
+        
         // Vanilla
         registerDamageMobAttributes(event, AEQUOREA, aequoreaHealth, aequoreaDamage, aequoreaSpeed, aequoreaFollowRange);
         registerMonsterAttributes(event, ARID_WARRIOR, aridWarriorHealth, aridWarriorDamage);
@@ -358,7 +353,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, KOBBLIN, kobblinHealth, kobblinDamage);
         registerDamageMobAttributes(event, LIOPLEURODON, liopleurodonHealth, liopleurodonDamage);
         registerMobAttributes(event, LIVESTOCK_MERCHANT);
-        event.put(MINER.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, minerHealth).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.ARMOR, minerArmor).build());
+		event.put(MINER.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, minerHealth).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.ARMOR, minerArmor).build());
         registerMonsterAttributes(event, PUMPKIN_SPIDER, pumpkinSpiderHealth, pumpkinSpiderDamage);
         registerFlyingMobAttributes(event, RAINBOUR, rainbourHealth, rainbourDamage);
         registerMonsterAttributes(event, ROTATICK, rotatickHealth, rotatickDamage);
@@ -391,16 +386,11 @@ public class EntityRegistry {
         registerMonsterAttributes(event, FROST_ARCHER, frostArcherHealth, frostArcherDamage);
         registerMonsterAttributes(event, FROSTY, frostyHealth, frostyDamage, frostySpeed);
         registerMonsterAttributes(event, GLACIDE, glacideHealth, glacideDamage, glacideSpeed);
-        registerMonsterAttributes(event, GROGLIN, groglinHealth, groglinDamage, groglinSpeed);
-        registerMonsterAttributes(event, GRUZZORLUG, gruzzorlugHealth, gruzzorlugDamage, gruzzorlugSpeed);
         registerMonsterAttributes(event, HASTREUS, hastreusHealth, hastreusDamage);
         registerMonsterAttributes(event, ROLLUM, rollumHealth, normalDamage, rollumSpeed);
         registerMobAttributes(event, WORKSHOP_MERCHANT);
         registerMobAttributes(event, WORKSHOP_TINKERER);
         registerMonsterAttributes(event, SENG, sengHealth, normalDamage, sengSpeed, sengRange);
-        registerMonsterAttributes(event, SABEAR, sabearHealth, sabearDamage, sabearSpeed, normalFollowRange);
-        registerMonsterAttributes(event, WOLPERTINGER, wolpertingerHealth, wolpertingerDamage, wolpertingerSpeed, normalFollowRange);
-        registerFlyingMobAttributes(event, ROBIN, robinHealth, robinDamage, robinSpeed, normalFollowRange);
 
         //Eden
         registerDamageMobAttributes(event, GLINTHOP, glinthopHealth, glinthopDamage);
@@ -457,7 +447,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, DUNGEON_CONSTRUCTOR, constructorHealth, constructorDamage);
         registerMonsterAttributes(event, DUNGEON_DEMON, dungeonPrisonerHealth, dungeonPrisonerDamage);
         registerMonsterAttributes(event, DUNGEON_PRISONER, dungeonPrisonerHealth, dungeonPrisonerDamage);
-        registerDamageMobAttributes(event, FYRACRYX, fyracryxHealth, fyracryxDamage);
+        registerMobAttributes(event, FYRACRYX, fyracryxHealth);
         registerDamageMobAttributes(event, GOLEM_OF_REJUVENATION, golemRejuvHealth, golemRejuvDamage);
         registerMobAttributes(event, KAZARI);
         registerMobAttributes(event, LEORNA);
@@ -471,7 +461,7 @@ public class EntityRegistry {
         registerMobAttributes(event, WAR_GENERAL);
         event.put(WRAITH.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, seimerHealth).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
         registerMobAttributes(event, ZELUS);
-
+        
         //Vethea
         registerMonsterAttributes(event, ACID_HAG, acidHagHealth);
         registerMonsterAttributes(event, BIPHRON, biphronHealth, biphronDamage);
@@ -488,7 +478,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, HELIO, helioHealth, helioDamage);
         registerMonsterAttributes(event, HIVE_SOLDIER, hiveSoldierHealth, hiveSoldierDamage);
         registerMonsterAttributes(event, HOVER_STINGER, hoverStingerHealth, hoverStingerDamage, hoverStingerMovementSpeed, hoverStingerFollowRange);
-        registerMonsterAttributes(event, KAZROTIC, kazroticHealth, kazroticDamage);
+        registerMobAttributes(event, KAZROTIC, kazroticHealth);
         registerMonsterAttributes(event, LHEIVA, lheivaHealth, lheivaDamage);
         registerMonsterAttributes(event, LORGA, lorgaHealth, lorgaDamage);
         registerFlyingMobAttributes(event, LORGA_FLIGHT, lorgaFlightHealth, lorgaFlightDamage);
@@ -508,77 +498,77 @@ public class EntityRegistry {
     }
 
     @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        //Base
-        event.registerLayerDefinition(layerHumanoid, () -> LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0), 64, 32));
-        event.registerLayerDefinition(layerBat, BatModel::createBodyLayer);
-        event.registerLayerDefinition(layerPig, () -> PigModel.createBodyLayer(CubeDeformation.NONE));
-        event.registerLayerDefinition(layerSpider, SpiderModel::createSpiderBodyLayer);
-
-        //Boss
-        event.registerLayerDefinition(ModelAncientEntity.LAYER_LOCATION, 	ModelAncientEntity::createBodyLayer);
-        event.registerLayerDefinition(ModelAyeraco.LAYER_LOCATION, 			ModelAyeraco::createBodyLayer);
-        event.registerLayerDefinition(ModelDensos.LAYER_LOCATION, 			ModelDensos::createBodyLayer);
-        event.registerLayerDefinition(ModelDramix.LAYER_LOCATION, 			ModelDramix::createBodyLayer);
-        event.registerLayerDefinition(ModelEternalArcher.LAYER_LOCATION, 	ModelEternalArcher::createBodyLayer);
-        event.registerLayerDefinition(ModelExperiencedCori.LAYER_LOCATION,  ModelExperiencedCori::createBodyLayer);
-        event.registerLayerDefinition(ModelHiveQueen.LAYER_LOCATION, 		ModelHiveQueen::createBodyLayer);
-        event.registerLayerDefinition(ModelKaros.LAYER_LOCATION, 			ModelKaros::createBodyLayer);
-        event.registerLayerDefinition(ModelKarot.LAYER_LOCATION, 			ModelKarot::createBodyLayer);
-        event.registerLayerDefinition(ModelKingOfScorchers.LAYER_LOCATION,  ModelKingOfScorchers::createBodyLayer);
-        event.registerLayerDefinition(ModelLadyLuna.LAYER_LOCATION, 		ModelLadyLuna::createBodyLayer);
-        event.registerLayerDefinition(ModelParasecta.LAYER_LOCATION, 		ModelParasecta::createBodyLayer);
-        event.registerLayerDefinition(ModelQuadro.LAYER_LOCATION, 			ModelQuadro::createBodyLayer);
+	@SubscribeEvent
+	public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+    	//Base
+    	event.registerLayerDefinition(layerHumanoid, () -> LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0), 64, 32));
+    	event.registerLayerDefinition(layerBat, BatModel::createBodyLayer);
+    	event.registerLayerDefinition(layerPig, () -> PigModel.createBodyLayer(CubeDeformation.NONE));
+    	event.registerLayerDefinition(layerSpider, SpiderModel::createSpiderBodyLayer);
+    	
+		//Boss
+    	event.registerLayerDefinition(ModelAncientEntity.LAYER_LOCATION, 	ModelAncientEntity::createBodyLayer);
+    	event.registerLayerDefinition(ModelAyeraco.LAYER_LOCATION, 			ModelAyeraco::createBodyLayer);
+    	event.registerLayerDefinition(ModelDensos.LAYER_LOCATION, 			ModelDensos::createBodyLayer);
+    	event.registerLayerDefinition(ModelDramix.LAYER_LOCATION, 			ModelDramix::createBodyLayer);
+    	event.registerLayerDefinition(ModelEternalArcher.LAYER_LOCATION, 	ModelEternalArcher::createBodyLayer);
+    	event.registerLayerDefinition(ModelExperiencedCori.LAYER_LOCATION,  ModelExperiencedCori::createBodyLayer);
+    	event.registerLayerDefinition(ModelHiveQueen.LAYER_LOCATION, 		ModelHiveQueen::createBodyLayer);
+    	event.registerLayerDefinition(ModelKaros.LAYER_LOCATION, 			ModelKaros::createBodyLayer);
+    	event.registerLayerDefinition(ModelKarot.LAYER_LOCATION, 			ModelKarot::createBodyLayer);
+    	event.registerLayerDefinition(ModelKingOfScorchers.LAYER_LOCATION,  ModelKingOfScorchers::createBodyLayer);
+    	event.registerLayerDefinition(ModelLadyLuna.LAYER_LOCATION, 		ModelLadyLuna::createBodyLayer);
+    	event.registerLayerDefinition(ModelParasecta.LAYER_LOCATION, 		ModelParasecta::createBodyLayer);
+    	event.registerLayerDefinition(ModelQuadro.LAYER_LOCATION, 			ModelQuadro::createBodyLayer);
         event.registerLayerDefinition(ModelRaglok.LAYER_LOCATION, 			ModelRaglok::createBodyLayer);
         event.registerLayerDefinition(ModelReyvor.LAYER_LOCATION, 			ModelReyvor::createBodyLayer);
-        event.registerLayerDefinition(ModelSoulFiend.LAYER_LOCATION, 		ModelSoulFiend::createBodyLayer);
-        event.registerLayerDefinition(ModelSunstorm.LAYER_LOCATION, 		ModelSunstorm::createBodyLayer);
-        event.registerLayerDefinition(ModelTermasect.LAYER_LOCATION, 		ModelTermasect::createBodyLayer);
-        event.registerLayerDefinition(ModelTwilightDemon.LAYER_LOCATION, 	ModelTwilightDemon::createBodyLayer);
-        event.registerLayerDefinition(ModelVamacheron.LAYER_LOCATION, 		ModelVamacheron::createBodyLayer);
-        event.registerLayerDefinition(ModelWreck.LAYER_LOCATION, 			ModelWreck::createBodyLayer);
-        event.registerLayerDefinition(ModelWreckArcanic.LAYER_LOCATION, 	ModelWreckArcanic::createBodyLayer);
-        event.registerLayerDefinition(ModelWreckRanged.LAYER_LOCATION, 		ModelWreckRanged::createBodyLayer);
-
-        //Overworld
-        event.registerLayerDefinition(ModelAequorea.LAYER_LOCATION,			 ModelAequorea::createBodyLayer);
-        event.registerLayerDefinition(ModelAridWarrior.LAYER_LOCATION,		 ModelAridWarrior::createBodyLayer);
+    	event.registerLayerDefinition(ModelSoulFiend.LAYER_LOCATION, 		ModelSoulFiend::createBodyLayer);
+    	event.registerLayerDefinition(ModelSunstorm.LAYER_LOCATION, 		ModelSunstorm::createBodyLayer);
+    	event.registerLayerDefinition(ModelTermasect.LAYER_LOCATION, 		ModelTermasect::createBodyLayer);
+    	event.registerLayerDefinition(ModelTwilightDemon.LAYER_LOCATION, 	ModelTwilightDemon::createBodyLayer);
+    	event.registerLayerDefinition(ModelVamacheron.LAYER_LOCATION, 		ModelVamacheron::createBodyLayer);
+    	event.registerLayerDefinition(ModelWreck.LAYER_LOCATION, 			ModelWreck::createBodyLayer);
+    	event.registerLayerDefinition(ModelWreckArcanic.LAYER_LOCATION, 	ModelWreckArcanic::createBodyLayer);
+    	event.registerLayerDefinition(ModelWreckRanged.LAYER_LOCATION, 		ModelWreckRanged::createBodyLayer);
+    	
+    	//Overworld
+    	event.registerLayerDefinition(ModelAequorea.LAYER_LOCATION,			 ModelAequorea::createBodyLayer);
+    	event.registerLayerDefinition(ModelAridWarrior.LAYER_LOCATION,		 ModelAridWarrior::createBodyLayer);
         event.registerLayerDefinition(ModelCaveCrawler.LAYER_LOCATION,	     ModelCaveCrawler::createBodyLayer);
         event.registerLayerDefinition(ModelCrawler.LAYER_LOCATION,			 ModelCrawler::createBodyLayer);
-        event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
-        event.registerLayerDefinition(ModelCrab.LAYER_LOCATION,				 ModelCrab::createBodyLayer);
+    	event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
+    	event.registerLayerDefinition(ModelCrab.LAYER_LOCATION,				 ModelCrab::createBodyLayer);
         event.registerLayerDefinition(ModelDesertCrawler.LAYER_LOCATION,	 ModelDesertCrawler::createBodyLayer);
         event.registerLayerDefinition(ModelDramcryx.LAYER_LOCATION,			 ModelDramcryx::createBodyLayer);
-        event.registerLayerDefinition(ModelEhu.LAYER_LOCATION,				 ModelEhu::createBodyLayer);
-        event.registerLayerDefinition(ModelFrost.LAYER_LOCATION,			 ModelFrost::createBodyLayer);
-        event.registerLayerDefinition(ModelGlacon.LAYER_LOCATION,			 ModelGlacon::createBodyLayer);
-        event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
-        event.registerLayerDefinition(ModelHusk.LAYER_LOCATION,				 ModelHusk::createBodyLayer);
-        event.registerLayerDefinition(ModelJungleSpider.LAYER_LOCATION,		 ModelJungleSpider::createBodyLayer);
-        event.registerLayerDefinition(ModelKingCrab.LAYER_LOCATION,			 ModelKingCrab::createBodyLayer);
-        event.registerLayerDefinition(ModelKobblin.LAYER_LOCATION,			 ModelKobblin::createBodyLayer);
-        event.registerLayerDefinition(ModelLiopleurodon.LAYER_LOCATION,		 ModelLiopleurodon::createBodyLayer);
-        event.registerLayerDefinition(ModelLivestockMerchant.LAYER_LOCATION, ModelLivestockMerchant::createBodyLayer);
-        event.registerLayerDefinition(ModelPumpkinSpider.LAYER_LOCATION,	 ModelPumpkinSpider::createBodyLayer);
-        event.registerLayerDefinition(ModelRainbour.LAYER_LOCATION,			 ModelRainbour::createBodyLayer);
-        event.registerLayerDefinition(ModelRotatick.LAYER_LOCATION,			 ModelRotatick::createBodyLayer);
-        event.registerLayerDefinition(ModelSaguaroWorm.LAYER_LOCATION,		 ModelSaguaroWorm::createBodyLayer);
-        event.registerLayerDefinition(ModelSaguaroWormShot.LAYER_LOCATION,	 ModelSaguaroWormShot::createBodyLayer);
-        event.registerLayerDefinition(ModelShark.LAYER_LOCATION,			 ModelShark::createBodyLayer);
-        event.registerLayerDefinition(ModelSnapper.LAYER_LOCATION,			 ModelSnapper::createBodyLayer);
-        event.registerLayerDefinition(ModelStoneGolem.LAYER_LOCATION,		 ModelStoneGolem::createBodyLayer);
-        event.registerLayerDefinition(ModelTheEye.LAYER_LOCATION,			 ModelTheEye::createBodyLayer);
-        event.registerLayerDefinition(ModelTheGrue.LAYER_LOCATION,			 ModelTheGrue::createBodyLayer);
-        event.registerLayerDefinition(ModelWatcher.LAYER_LOCATION,			 ModelWatcher::createBodyLayer);
-        event.registerLayerDefinition(ModelWhale.LAYER_LOCATION,			 ModelWhale::createBodyLayer);
-
-        //Nether
-        event.registerLayerDefinition(ModelHellSpider.LAYER_LOCATION,ModelHellSpider::createBodyLayer);
-        event.registerLayerDefinition(ModelScorcher.LAYER_LOCATION,  ModelScorcher::createBodyLayer);
-        event.registerLayerDefinition(ModelWildfire.LAYER_LOCATION,  ModelWildfire::createBodyLayer);
-
-        //End
+    	event.registerLayerDefinition(ModelEhu.LAYER_LOCATION,				 ModelEhu::createBodyLayer);
+    	event.registerLayerDefinition(ModelFrost.LAYER_LOCATION,			 ModelFrost::createBodyLayer);
+    	event.registerLayerDefinition(ModelGlacon.LAYER_LOCATION,			 ModelGlacon::createBodyLayer);
+    	event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
+    	event.registerLayerDefinition(ModelHusk.LAYER_LOCATION,				 ModelHusk::createBodyLayer);
+    	event.registerLayerDefinition(ModelJungleSpider.LAYER_LOCATION,		 ModelJungleSpider::createBodyLayer);
+    	event.registerLayerDefinition(ModelKingCrab.LAYER_LOCATION,			 ModelKingCrab::createBodyLayer);
+    	event.registerLayerDefinition(ModelKobblin.LAYER_LOCATION,			 ModelKobblin::createBodyLayer);
+    	event.registerLayerDefinition(ModelLiopleurodon.LAYER_LOCATION,		 ModelLiopleurodon::createBodyLayer);
+    	event.registerLayerDefinition(ModelLivestockMerchant.LAYER_LOCATION, ModelLivestockMerchant::createBodyLayer);
+    	event.registerLayerDefinition(ModelPumpkinSpider.LAYER_LOCATION,	 ModelPumpkinSpider::createBodyLayer);
+    	event.registerLayerDefinition(ModelRainbour.LAYER_LOCATION,			 ModelRainbour::createBodyLayer);
+    	event.registerLayerDefinition(ModelRotatick.LAYER_LOCATION,			 ModelRotatick::createBodyLayer);
+    	event.registerLayerDefinition(ModelSaguaroWorm.LAYER_LOCATION,		 ModelSaguaroWorm::createBodyLayer);
+    	event.registerLayerDefinition(ModelSaguaroWormShot.LAYER_LOCATION,	 ModelSaguaroWormShot::createBodyLayer);
+    	event.registerLayerDefinition(ModelShark.LAYER_LOCATION,			 ModelShark::createBodyLayer);
+    	event.registerLayerDefinition(ModelSnapper.LAYER_LOCATION,			 ModelSnapper::createBodyLayer);
+    	event.registerLayerDefinition(ModelStoneGolem.LAYER_LOCATION,		 ModelStoneGolem::createBodyLayer);
+    	event.registerLayerDefinition(ModelTheEye.LAYER_LOCATION,			 ModelTheEye::createBodyLayer);
+    	event.registerLayerDefinition(ModelTheGrue.LAYER_LOCATION,			 ModelTheGrue::createBodyLayer);
+    	event.registerLayerDefinition(ModelWatcher.LAYER_LOCATION,			 ModelWatcher::createBodyLayer);
+    	event.registerLayerDefinition(ModelWhale.LAYER_LOCATION,			 ModelWhale::createBodyLayer);
+    	
+    	//Nether
+    	event.registerLayerDefinition(ModelHellSpider.LAYER_LOCATION,ModelHellSpider::createBodyLayer);
+    	event.registerLayerDefinition(ModelScorcher.LAYER_LOCATION,  ModelScorcher::createBodyLayer);
+    	event.registerLayerDefinition(ModelWildfire.LAYER_LOCATION,  ModelWildfire::createBodyLayer);
+    	
+    	//End
         event.registerLayerDefinition(ModelEnderTriplets.LAYER_LOCATION, ModelEnderTriplets::createBodyLayer);
         event.registerLayerDefinition(ModelEnderScrounge.LAYER_LOCATION, ModelEnderScrounge::createBodyLayer);
 
@@ -588,15 +578,10 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelFrostArcher.LAYER_LOCATION, ModelFrostArcher::createBodyLayer);
         event.registerLayerDefinition(ModelFrosty.LAYER_LOCATION, ModelFrosty::createBodyLayer);
         event.registerLayerDefinition(ModelGlacide.LAYER_LOCATION, ModelGlacide::createBodyLayer);
-        event.registerLayerDefinition(ModelGroglin.LAYER_LOCATION, ModelGroglin::createBodyLayer);
-        event.registerLayerDefinition(ModelGruzzorlug.LAYER_LOCATION, ModelGruzzorlug::createBodyLayer);
         event.registerLayerDefinition(ModelHastreus.LAYER_LOCATION, ModelHastreus::createBodyLayer);
         event.registerLayerDefinition(ModelRollum.LAYER_LOCATION, ModelRollum::createBodyLayer);
         event.registerLayerDefinition(ModelWorkshop.LAYER_LOCATION, ModelWorkshop::createBodyLayer);
         event.registerLayerDefinition(ModelSeng.LAYER_LOCATION, ModelSeng::createBodyLayer);
-        event.registerLayerDefinition(ModelSabear.LAYER_LOCATION, ModelSabear::createBodyLayer);
-        event.registerLayerDefinition(ModelWolpertinger.LAYER_LOCATION, ModelWolpertinger::createBodyLayer);
-        event.registerLayerDefinition(ModelRobin.LAYER_LOCATION, ModelRobin::createBodyLayer);
 
         //Eden
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
@@ -696,8 +681,8 @@ public class EntityRegistry {
     }
 
     @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+	@SubscribeEvent
+	public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         DivineRPG.LOGGER.info("[DivineRPG] Registered entity renders");
         //Projectile
         event.registerEntityRenderer(ATTRACTOR.get(), 				(Context context) -> new RenderDivineProjectile<>(context));
@@ -751,7 +736,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(TOMATO.get(), 			        (Context context) -> new RenderDivineProjectile<>(context, new ResourceLocation(MODID, "textures/items/tomato.png")));
         event.registerEntityRenderer(WILDWOOD_LOG.get(), 			(Context context) -> new RenderWildwoodLog(context));
         event.registerEntityRenderer(FROST_CLOUD.get(), 			(Context context) -> new RenderFrostCloud(context));
-
+        
         //Boss
         event.registerEntityRenderer(ANCIENT_ENTITY.get(), 	(Context context) -> new RenderDivineMob<>(context, "ancient_entity", 	new ModelAncientEntity(context), 6F, 6F));
         event.registerEntityRenderer(AYERACO.get(),			RenderAyeraco::new);
@@ -775,7 +760,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(TWILIGHT_DEMON.get(), 	(Context context) -> new RenderDivineMob<>(context, "twilight_demon", 	new ModelTwilightDemon(context), 0.5F, 2F));
         event.registerEntityRenderer(VAMACHERON.get(), 		(Context context) -> new RenderDivineMob<>(context, "mortum_cadillion", new ModelVamacheron(context), 0.5F, 1.6F));
         event.registerEntityRenderer(WRECK.get(), 			RenderWreck::new);
-
+        
         //Overworld
         event.registerEntityRenderer(AEQUOREA.get(),		 RenderAequorea::new);
         event.registerEntityRenderer(ARID_WARRIOR.get(),	 RenderAridWarrior::new);
@@ -831,17 +816,12 @@ public class EntityRegistry {
         event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite<>(context), 0.5F, 2F));
         event.registerEntityRenderer(FROST_ARCHER.get(),	 RenderFrostArcher::new);
         event.registerEntityRenderer(FROSTY.get(),			 (Context context) -> new RenderDivineMob<>(context, "frosty",  new ModelFrosty(context)));
-        event.registerEntityRenderer(GROGLIN.get(),			 RenderGroglin::new);
-        event.registerEntityRenderer(GRUZZORLUG.get(),		 RenderGruzzorlug::new);
         event.registerEntityRenderer(GLACIDE.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacide",  new ModelGlacide<>(context)));
         event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus<>(context)));
         event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context)));
         event.registerEntityRenderer(WORKSHOP_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_merchant",  new ModelWorkshop<>(context)));
         event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshop<>(context)));
         event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.3F));
-        event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear<>(context), 0.8F));
-        event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger<>(context), 0.6F));
-        event.registerEntityRenderer(ROBIN.get(),            (Context context) -> new RenderDivineMob<>(context, "robin",  new ModelRobin<>(context), 0.1F));
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
@@ -947,78 +927,78 @@ public class EntityRegistry {
         event.registerEntityRenderer(ZONE.get(), (Context context) -> new RenderDivineMob<>(context, "zone", new ModelZone<>(context)));
         event.registerEntityRenderer(ZORAGON.get(), (Context context) -> new RenderDivineMob<>(context, "zoragon", new ModelZoragon<>(context), 0.5F, 3F));
     }
-
+    
     private static final <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height) {
-        return ENTITIES.register(name, () -> EntityType.Builder.of(factory, MobCategory.MONSTER).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
-    }
+		return ENTITIES.register(name, () -> EntityType.Builder.of(factory, MobCategory.MONSTER).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
+	}
     private static final <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, MobCategory category) {
-        return ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
-    }
-    private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor) {
-        return registerEntity(factory, name, width, height, backgroundColor, highlightColor, MobCategory.MONSTER);
-    }
-    private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor, MobCategory category) {
-        RegistryObject<EntityType<T>> entity = ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
-        ItemRegistry.ITEMS.register(name + "_spawn_egg", () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties()));
+		return ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
+	}
+	private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor) {
+		return registerEntity(factory, name, width, height, backgroundColor, highlightColor, MobCategory.MONSTER);
+	}
+	private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor, MobCategory category) {
+		RegistryObject<EntityType<T>> entity = ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
+        ItemRegistry.ITEMS.register(name + "_spawn_egg", () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties().tab(DivineRPG.tabs.spawners)));
         return entity;
-    }
-
+	}
+    
     private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, normalHealth).add(Attributes.MOVEMENT_SPEED, normalSpeed).build());
-    }
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double speed, double followRange) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).add(Attributes.FLYING_SPEED, speed).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
-    }
-
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, normalHealth).add(Attributes.MOVEMENT_SPEED, normalSpeed).build());
+	}
+	private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double speed, double followRange) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
+	}
+	private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
+	}
+	private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
+	}
+	private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
+	}
+	private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
+		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).add(Attributes.FLYING_SPEED, speed).build());
+	}
+	private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+	}
+	private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
+	}
+	
     private static RegistryObject<EntityType<EntityFrostCloud>> registerFrostCloud(EntityType.EntityFactory<EntityFrostCloud> factory, String entityName){
-        return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(0.5F, 0.5F).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
+    	return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(0.5F, 0.5F).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
     }
     private static final <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName, float width, float length) {
-        return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, length).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
+    	return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, length).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
     }
     private static final <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName) {
-        return registerProjectile(factory, entityName, 0.25F, 0.25F);
+    	return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
     private static final <T extends AbstractArrow> RegistryObject<EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
-        return registerProjectile(factory, entityName, 0.25F, 0.25F);
+    	return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
     private static final <T extends LargeFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
-        return registerProjectile(factory, entityName, 0.25F, 0.25F);
+    	return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
 }

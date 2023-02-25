@@ -1,6 +1,6 @@
 {
   "parent": "block/leaves",
   "textures": {
-    "all": "divinerpg:block/hyrewood_leaves"
+    "all": "divinerpg:blocks/hyrewood_leaves"
   }
 }

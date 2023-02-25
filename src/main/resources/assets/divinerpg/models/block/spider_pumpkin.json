@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/spider_pumpkin_side",
-    "south": "divinerpg:block/spider_pumpkin_side",
-    "north": "divinerpg:block/spider_pumpkin_front",
-    "west": "divinerpg:block/spider_pumpkin_side",
-    "particle": "divinerpg:block/spider_pumpkin_side",
-    "up": "divinerpg:block/spider_pumpkin_top",
-    "down": "divinerpg:block/spider_pumpkin_top"
+    "east": "divinerpg:blocks/spider_pumpkin_side",
+    "south": "divinerpg:blocks/spider_pumpkin_side",
+    "north": "divinerpg:blocks/spider_pumpkin_front",
+    "west": "divinerpg:blocks/spider_pumpkin_side",
+    "particle": "divinerpg:blocks/spider_pumpkin_side",
+    "up": "divinerpg:blocks/spider_pumpkin_top",
+    "down": "divinerpg:blocks/spider_pumpkin_top"
   }
 }

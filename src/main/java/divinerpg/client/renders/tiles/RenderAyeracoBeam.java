@@ -1,28 +1,29 @@
 package divinerpg.client.renders.tiles;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+
 import divinerpg.DivineRPG;
 import divinerpg.blocks.vanilla.BlockAyeracoBeam;
-import divinerpg.tiles.bosses.TileEntityAyeracoBeam;
+import divinerpg.tiles.bosses.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import org.joml.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.util.*;
 
-import java.lang.Math;
+import com.mojang.math.Matrix3f;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
+import net.minecraft.resources.ResourceLocation;
 
 public class RenderAyeracoBeam implements BlockEntityRenderer<TileEntityAyeracoBeam> {
 	public static final ResourceLocation
-		blue_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_blue.png"),
-		green_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_green.png"),
-		pink_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_pink.png"),
-		purple_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_purple.png"),
-		red_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_red.png"),
-		yellow_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_yellow.png"),
-		white_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_white.png");
+		blue_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_blue.png"),
+		green_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_green.png"),
+		pink_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_pink.png"),
+		purple_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_purple.png"),
+		red_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_red.png"),
+		yellow_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_yellow.png"),
+		white_beam = new ResourceLocation(DivineRPG.MODID + ":textures/blocks/beam_white.png");
     public RenderAyeracoBeam(BlockEntityRendererProvider.Context context) {
     }
 
@@ -53,7 +54,7 @@ public class RenderAyeracoBeam implements BlockEntityRenderer<TileEntityAyeracoB
         float f4 = 1.0F;
         float f5 = 1.0F;
         p_228842_0_.pushPose();
-        p_228842_0_.mulPose(Axis.YP.rotationDegrees(f * 2.25F - 45.0F));
+        p_228842_0_.mulPose(Vector3f.YP.rotationDegrees(f * 2.25F - 45.0F));
         float f6 = 0.0F;
         float f8 = 0.0F;
         float f9 = -p_228842_10_;

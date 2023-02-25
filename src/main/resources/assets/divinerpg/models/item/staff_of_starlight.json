@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/staff_of_starlight"
+    "layer0": "divinerpg:items/staff_of_starlight"
   }
 }

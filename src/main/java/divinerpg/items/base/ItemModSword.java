@@ -1,25 +1,26 @@
 package divinerpg.items.base;
 
 import com.google.common.collect.*;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
+import divinerpg.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
 
 public class ItemModSword extends SwordItem {
 
-    public ItemModSword(Rarity rarity, Tier tier) {
-        super(tier, 1, 1.0F, new Item.Properties().rarity(rarity));
+    public ItemModSword(Rarity rarity, Tier tier, CreativeModeTab group) {
+        super(tier, 1, 1.0F, new Item.Properties().tab(group).rarity(rarity));
     }
 
-    public ItemModSword(Tier tier) {
-        super(tier, 1, 1.0F, new Item.Properties());
+    public ItemModSword(Tier tier, CreativeModeTab group) {
+        super(tier, 1, 1.0F, new Item.Properties().tab(group));
     }
 
     public ItemModSword(Tier tier, Item.Properties properties) {

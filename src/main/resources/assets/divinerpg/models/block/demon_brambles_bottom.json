@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/demon_brambles_bottom"
+    "cross": "divinerpg:blocks/demon_brambles_bottom"
   }
 }

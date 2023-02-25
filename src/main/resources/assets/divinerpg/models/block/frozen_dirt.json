@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/frozen_dirt"
+    "all": "divinerpg:blocks/frozen_dirt"
   }
 }

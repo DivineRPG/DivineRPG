@@ -1,7 +1,7 @@
 package divinerpg.world.feature.plant;
 
 import divinerpg.DivineRPG;
-import divinerpg.world.ConfiguredFeatureKeys;
+import divinerpg.registries.ConfiguredFeatureRegistry;
 import divinerpg.world.placement.Underground;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -39,9 +39,8 @@ public class BrittleCavesVegetation extends Feature<NoneFeatureConfiguration> {
 					} else return false;
 				} else if(level.getBlockState(mut.above()).isAir() || level.getBlockState(mut.below()).isAir()) {
 					setBlock(level, mut, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_moss")).defaultBlockState());
-					if(random.nextBoolean()) ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_PLANTS).value().place(level, g, random, mut);
-				} else
-					return false;
+					if(random.nextBoolean()) ConfiguredFeatureRegistry.BRITTLE_PLANTS.get().place(level, g, random, mut);
+				} else return false;
 				if(random.nextBoolean()) place(null, level, null, random, mut.offset(random.nextInt(5) - 2, random.nextInt(3) - 1, random.nextInt(5) - 2));
 				if(random.nextBoolean()) place(null, level, null, random, mut.offset(random.nextInt(5) - 2, random.nextInt(3) - 1, random.nextInt(5) - 2));
 				return true;

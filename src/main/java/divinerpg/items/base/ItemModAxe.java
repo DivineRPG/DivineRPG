@@ -10,12 +10,12 @@ import javax.annotation.*;
 import java.util.*;
 
 public class ItemModAxe extends AxeItem {
-    public ItemModAxe(Tier tier, Rarity rarity) {
-        super(tier, 0, -3.4F, new Item.Properties().rarity(rarity));
+    public ItemModAxe(Tier tier, Rarity rarity, CreativeModeTab group) {
+        super(tier, 0, -3.4F, new Item.Properties().tab(group).rarity(rarity));
     }
 
-    public ItemModAxe(Tier tier) {
-        super(tier, 0, -3.4F, new Item.Properties());
+    public ItemModAxe(Tier tier, CreativeModeTab group) {
+        super(tier, 0, -3.4F, new Item.Properties().tab(group));
     }
     public ItemModAxe(Tier tier, Properties properties) {
         super(tier, 0, -3.4F, properties);

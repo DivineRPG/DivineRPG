@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/wildwood_portal",
-    "portal": "divinerpg:block/wildwood_portal"
+    "particle": "divinerpg:blocks/wildwood_portal",
+    "portal": "divinerpg:blocks/wildwood_portal"
   },
   "elements": [
     {

@@ -1,7 +1,7 @@
 package divinerpg.client.renders.tiles;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.tiles.TileEntityNightmareBed;
@@ -50,7 +50,7 @@ public class RenderNightmareBed implements BlockEntityRenderer<TileEntityNightma
         }
 
         public void render(TileEntityNightmareBed tile, float p_112206_, PoseStack poseStack, MultiBufferSource buffer, int light, int p_112210_) {
-            Material material = new Material(Sheets.BED_SHEET, new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare.png"));
+            Material material = new Material(Sheets.BED_SHEET, new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare.png"));
             Level level = tile.getLevel();
             if (level != null) {
                 BlockState blockstate = tile.getBlockState();
@@ -69,11 +69,11 @@ public class RenderNightmareBed implements BlockEntityRenderer<TileEntityNightma
         private void renderPiece(PoseStack stack, MultiBufferSource bufferSource, ModelPart part, Direction direction, Material material, int p_173547_, int p_173548_, boolean p_173549_) {
             stack.pushPose();
             stack.translate(0.0D, 0.5625D, p_173549_ ? -1.0D : 0.0D);
-            stack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            stack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
             stack.translate(0.5D, 0.5D, 0.5D);
-            stack.mulPose(Axis.ZP.rotationDegrees(180.0F + direction.toYRot()));
+            stack.mulPose(Vector3f.ZP.rotationDegrees(180.0F + direction.toYRot()));
             stack.translate(-0.5D, -0.5D, -0.5D);
-            VertexConsumer vertexconsumer = bufferSource.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare.png")));
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/blocks/nightmare.png")));
             part.render(stack, vertexconsumer, p_173547_, p_173548_);
             stack.popPose();
         }

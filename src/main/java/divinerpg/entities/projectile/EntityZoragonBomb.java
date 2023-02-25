@@ -1,9 +1,12 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
 
 public class EntityZoragonBomb extends DivineThrowable {
 
@@ -23,7 +26,7 @@ public class EntityZoragonBomb extends DivineThrowable {
     protected void onHit(HitResult rayTraceResult) {
         if(tickCount != 1 || tickCount != 0) {
             if (!this.level.isClientSide) {
-                this.level.explode(this, this.xo, this.yo, this.zo, 3, false, Level.ExplosionInteraction.TNT);
+                this.level.explode(this, this.xo, this.yo, this.zo, 3, false, Explosion.BlockInteraction.BREAK);
                 this.kill();
             }
         }

@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
   "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:block/encaged_war_general"
+    "all": "divinerpg:blocks/encaged_war_general"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/halite_blitz"
+    "layer0": "divinerpg:items/halite_blitz"
   }
 }

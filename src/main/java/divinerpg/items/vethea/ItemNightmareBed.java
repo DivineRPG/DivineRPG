@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ItemNightmareBed extends BlockItem {
     public ItemNightmareBed() {
-        super(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed_block")), new Item.Properties().stacksTo(1)
+        super(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed_block")), new Item.Properties().tab(DivineRPG.tabs.vethea).stacksTo(1)
         );
     }
 

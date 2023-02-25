@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/eden_lamp"
+    "all": "divinerpg:blocks/eden_lamp"
   }
 }

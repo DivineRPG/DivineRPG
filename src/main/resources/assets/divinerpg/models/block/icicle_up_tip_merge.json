@@ -1,6 +1,6 @@
 {
   "parent": "divinerpg:block/icicle",
   "textures": {
-    "cross": "divinerpg:block/icicle_up_tip_merge"
+    "cross": "divinerpg:blocks/icicle_up_tip_merge"
   }
 }

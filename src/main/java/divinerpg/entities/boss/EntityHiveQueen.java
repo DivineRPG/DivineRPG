@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EntityHiveQueen extends EntityDivineBoss {
@@ -30,10 +29,10 @@ public class EntityHiveQueen extends EntityDivineBoss {
         if (this.getHealth() > 0) {
             if (this.spawnTick % 40 == 0 && !this.level.isClientSide && this.level.getNearestPlayer(this, 20) != null) {
                 if (this.random.nextBoolean()) {
-                    EntityRegistry.HOVER_STINGER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.HOVER_STINGER.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
                     this.level.addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 } else {
-                    EntityRegistry.HIVE_SOLDIER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.HIVE_SOLDIER.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
                     this.level.addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 }
                 spawnTick = 80;

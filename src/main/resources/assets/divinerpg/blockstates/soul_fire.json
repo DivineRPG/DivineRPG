@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "divinerpg:block/soul_fire_0"
+        },
+        {
+          "model": "divinerpg:block/soul_fire_1"
+        }
+      ]
+    }
+  ]
+}

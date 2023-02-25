@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/band_of_heiva_hunting"
+    "layer0": "divinerpg:items/band_of_heiva_hunting"
   }
 }

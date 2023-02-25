@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/light_dream_bricks"
+    "all": "divinerpg:blocks/light_dream_bricks"
   }
 }

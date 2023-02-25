@@ -7,7 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.*;
@@ -28,7 +27,7 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
         if (!this.level.isClientSide) {
             if (result.getLocation() != null) {
                 for (int i = 0; i < 3; i++) {
-                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, new BlockPos(result.getLocation()), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, null, null, new BlockPos(result.getLocation()), MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 this.kill();
             }

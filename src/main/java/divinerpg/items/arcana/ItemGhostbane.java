@@ -1,5 +1,6 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.entities.arcana.EntityWraith;
 import divinerpg.items.base.ItemMod;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class ItemGhostbane extends ItemMod {
     public ItemGhostbane() {
-        super(new Item.Properties().stacksTo(1));
+        super(new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1));
     }
 
     @Override
@@ -28,7 +29,7 @@ public class ItemGhostbane extends ItemMod {
         Player player = context.getPlayer();
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if (arcana.getArcana() >= 200 && !world.isClientSide) {
-                new EntityWraith(EntityRegistry.WRAITH.get(), world, player).getType().spawn((ServerLevel) world, ItemStack.EMPTY, null, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false);
+                new EntityWraith(EntityRegistry.WRAITH.get(), world, player).getType().spawn((ServerLevel) world, null, null, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false);
                 arcana.consume(player, 200);
             }
         });

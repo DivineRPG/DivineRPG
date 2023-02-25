@@ -1,5 +1,6 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.LocalizeUtils;
@@ -20,7 +21,7 @@ public class ItemReflector extends ItemModRanged {
                 -1,
                 0,
                 null,
-                20);
+                20, DivineRPG.tabs.utilities);
     }
 
     @Override

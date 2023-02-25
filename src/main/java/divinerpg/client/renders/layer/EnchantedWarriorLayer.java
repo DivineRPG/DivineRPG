@@ -1,7 +1,7 @@
 package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.twilight.ModelEnchantedWarrior;
 import divinerpg.entities.apalachia.EntityEnchantedWarrior;
@@ -28,9 +28,9 @@ public class EnchantedWarriorLayer extends RenderLayer<EntityEnchantedWarrior, M
         ModelPart modelrenderer = this.getParentModel().rightArm;
         modelrenderer.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.0625F, 0.55F, -0.4F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-20));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-20));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
 
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_blade")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
 

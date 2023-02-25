@@ -15,8 +15,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 
 public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedAttackMob {
-
-
     public EntityAdvancedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
     }

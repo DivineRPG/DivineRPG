@@ -1,6 +1,6 @@
 {
   "parent": "block/button_pressed",
   "textures": {
-    "texture": "divinerpg:block/apalachia_planks"
+    "texture": "divinerpg:blocks/apalachia_planks"
   }
 }

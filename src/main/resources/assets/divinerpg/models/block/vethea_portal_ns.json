@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/vethea_portal",
-    "portal": "divinerpg:block/vethea_portal"
+    "particle": "divinerpg:blocks/vethea_portal",
+    "portal": "divinerpg:blocks/vethea_portal"
   },
   "elements": [
     {

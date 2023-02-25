@@ -1,11 +1,11 @@
 package divinerpg.items.vanilla;
 
 
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -16,26 +16,18 @@ public class ItemBurningSword extends ItemModSword {
     private final int burnSeconds;
 
     public ItemBurningSword(Tier tier, int seconds) {
-        super(tier, new Item.Properties().fireResistant());
+        super(tier, new Item.Properties().tab(DivineRPG.tabs.melee).fireResistant());
         this.burnSeconds = seconds;
     }
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity livingBase1, LivingEntity livingBase2) {
-        if(livingBase1 instanceof Player){
-            Player player = (Player) livingBase1;
-            if(!player.isCreative() && !player.isSpectator()){
-                stack.hurtAndBreak(1, livingBase1, (p_220009_1_) -> {
-                    p_220009_1_.broadcastBreakEvent(livingBase1.getUsedItemHand());
-                });
-            }
-        }
-
+        stack.hurtAndBreak(1, livingBase1, (p_220009_1_) -> {
+            p_220009_1_.broadcastBreakEvent(livingBase1.getUsedItemHand());
+        });
         livingBase1.setSecondsOnFire(this.burnSeconds);
         return true;
     }
-
-
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
         super.inventoryTick(stack, level, entity, p_41407_, p_41408_);
@@ -43,7 +35,6 @@ public class ItemBurningSword extends ItemModSword {
             stack.enchant(Enchantments.FIRE_ASPECT, 1);
         }
     }
-
     @Override
     protected void addAdditionalInformation(List<Component> list) {
         list.add(LocalizeUtils.burn(this.burnSeconds));

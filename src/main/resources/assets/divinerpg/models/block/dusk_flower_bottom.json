@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/dusk_flower_bottom"
+    "cross": "divinerpg:blocks/dusk_flower_bottom"
   }
 }

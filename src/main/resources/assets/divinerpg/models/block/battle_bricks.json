@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/battle_bricks"
+    "all": "divinerpg:blocks/battle_bricks"
   }
 }

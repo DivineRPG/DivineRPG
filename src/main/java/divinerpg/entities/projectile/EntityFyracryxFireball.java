@@ -1,10 +1,14 @@
 package divinerpg.entities.projectile;
 
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class EntityFyracryxFireball extends DivineFireball {
     public EntityFyracryxFireball(EntityType<? extends LargeFireball> type, Level world) {
@@ -23,7 +27,7 @@ public class EntityFyracryxFireball extends DivineFireball {
                     Entity entity = result.getEntity();
                     entity.hurt(DamageSource.fireball(this, this.shootingEntity), 6);
                 }
-                this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
+                this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Explosion.BlockInteraction.BREAK);
                 this.kill();
             }
         }
@@ -39,7 +43,7 @@ public class EntityFyracryxFireball extends DivineFireball {
     @Override
     protected void onHit(HitResult p_70227_1_) {
         if (tickCount > 1) {
-            this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
+            this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Explosion.BlockInteraction.BREAK);
             this.kill();
         }
     }

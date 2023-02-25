@@ -1,7 +1,7 @@
 package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
@@ -38,8 +38,8 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
                     Model model = getModel(stack);
                     matrixStack.pushPose();
                     matrixStack.translate(0.5, 0.8, 0.5);
-                    matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
-                    matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+                    matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90));
+                    matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
                     matrixStack.scale(0.6F, 0.6F, 0.6F);
                     if(texture(stack) != null) {
                         VertexConsumer builder = renderType.getBuffer(RenderType.entityCutout(texture(stack)));

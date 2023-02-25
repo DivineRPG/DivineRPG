@@ -2,8 +2,8 @@
   "ambientocclusion": false,
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/weedwood_vine",
-    "vine": "divinerpg:block/weedwood_vine"
+    "particle": "divinerpg:blocks/weedwood_vine",
+    "vine": "divinerpg:blocks/weedwood_vine"
   },
   "elements": [
     {

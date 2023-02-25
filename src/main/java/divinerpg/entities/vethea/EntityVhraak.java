@@ -8,7 +8,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 public class EntityVhraak extends EntityDivineMonster {
@@ -30,10 +29,10 @@ public class EntityVhraak extends EntityDivineMonster {
         if(!level.isClientSide) {
             if(this.getTarget() != null) {
                 if (this.spawnTick == 0) {
-                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
-                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(-1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
-                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
-                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition().offset(-1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, null, null, blockPosition().offset(1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, null, null, blockPosition().offset(-1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, null, null, blockPosition().offset(1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level, null, null, blockPosition().offset(-1, 0, -1), MobSpawnType.MOB_SUMMONED, true, false);
                     this.spawnTick = 80;
                 }
                 else {

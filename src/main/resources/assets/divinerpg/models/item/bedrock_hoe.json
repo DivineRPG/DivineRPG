@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/bedrock_hoe"
+    "layer0": "divinerpg:items/bedrock_hoe"
   }
 }

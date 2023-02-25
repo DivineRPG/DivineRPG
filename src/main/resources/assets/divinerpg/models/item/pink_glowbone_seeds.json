@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/pink_glowbone_seeds"
+    "layer0": "divinerpg:items/pink_glowbone_seeds"
   }
 }

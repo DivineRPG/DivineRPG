@@ -56,7 +56,7 @@ public class ItemModRanged extends ItemMod {
      */
     public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType,
                          Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming) {
-        super(new Properties().durability(maxDamage).rarity(rarity));
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage).rarity(rarity));
         this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
@@ -75,7 +75,7 @@ public class ItemModRanged extends ItemMod {
 
     public ItemModRanged(String entityType, BulletType bulletType,
                          Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming) {
-        super(new Properties().durability(maxDamage));
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(maxDamage));
         this.entityType = entityType;
         this.sound = sound;
         this.soundCategory = soundCategory;
@@ -92,10 +92,32 @@ public class ItemModRanged extends ItemMod {
         this.bulletType = bulletType;
     }
 
+    public ItemModRanged(String entityType, BulletType bulletType,
+                         Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, CreativeModeTab tab) {
+        super(new Properties().tab(tab).durability(maxDamage));
+        this.entityType = entityType;
+        this.sound = sound;
+        this.soundCategory = soundCategory;
+        this.delay = delay;
+
+        if (ammoSupplier == null) {
+            this.ammoSupplier = null;
+        } else {
+            this.ammoSupplier = ammoSupplier;
+        }
+
+        this.arcanaConsuming = arcanaConsuming;
+        this.bulletType = bulletType;
+    }
 
     public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> shotSound, ResourceLocation ammoSupplier, int maxDamange,
                          int counter) {
         this(null, bulletType, shotSound, SoundSource.MASTER, maxDamange, counter, ammoSupplier, 0);
+    }
+
+    public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> shotSound, ResourceLocation ammoSupplier, int maxDamange,
+                         int counter, CreativeModeTab tab) {
+        this(null, bulletType, shotSound, SoundSource.MASTER, maxDamange, counter, ammoSupplier, 0, tab);
     }
 
     public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> shotSound, int uses, int counter) {

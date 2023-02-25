@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/icy_stone"
+    "all": "divinerpg:blocks/icy_stone"
   }
 }

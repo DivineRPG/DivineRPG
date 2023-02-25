@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/wreck_altar"
+    "all": "divinerpg:blocks/wreck_altar"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/dream_dirt"
+    "all": "divinerpg:blocks/dream_dirt"
   }
 }

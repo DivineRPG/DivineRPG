@@ -1,11 +1,14 @@
 package divinerpg.items.vanilla;
 
+import java.util.List;
+
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemMod;
 import divinerpg.util.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.decoration.ArmorStand;
@@ -14,13 +17,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
-
 public class ItemArmorPouch extends ItemMod {
 	public static final String TAG_HELMET = "divinerpg:helmet", TAG_CHESTPLATE = "divinerpg:chestplate", TAG_LEGGINGS = "divinerpg:leggings", TAG_BOOTS = "divinerpg:boots";
 	public final ChatFormatting color;
 	public ItemArmorPouch(ChatFormatting color) {
-		super(new Item.Properties().stacksTo(1));
+		super(new Item.Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
 		this.color = color;
 	}
 	@Override

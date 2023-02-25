@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/sound_of_music"
+    "layer0": "divinerpg:items/sound_of_music"
   }
 }

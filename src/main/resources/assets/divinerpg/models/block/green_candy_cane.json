@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/green_candy_cane"
+    "all": "divinerpg:blocks/green_candy_cane"
   }
 }

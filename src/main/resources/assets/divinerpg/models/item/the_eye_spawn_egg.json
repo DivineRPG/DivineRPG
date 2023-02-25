@@ -1,7 +1,7 @@
 {
 	"parent": "item/template_spawn_egg",
 	"textures": {
-		"layer0": "divinerpg:item/the_eye_spawn_egg",
-		"layer1": "divinerpg:item/the_eye_spawn_egg"
+		"layer0": "divinerpg:items/the_eye_spawn_egg",
+		"layer1": "divinerpg:items/the_eye_spawn_egg"
 	}
 }

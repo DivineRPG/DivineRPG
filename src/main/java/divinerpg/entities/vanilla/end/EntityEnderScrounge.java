@@ -77,16 +77,16 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     @Override
     public void tick() {
         super.tick();
-        if (!level.isClientSide) {
+        if(!level.isClientSide) {
             if (level.getNearestPlayer(this, 3D) != null) {
                 Player player = level.getNearestPlayer(this, 3D);
                 if (!player.isCreative() && !player.isSpectator()) {
                     if (random.nextInt(50) == 0) {
                         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-                        if (boots != null && !boots.isEmpty()) {
+                        if(boots != null && !boots.isEmpty()) {
                             ItemEntity item = new ItemEntity(level, getX(), getY(), getZ(), boots);
                             level.addFreshEntity(item);
-                            player.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR));
+                            player.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR, 0));
                         }
                     }
                 }

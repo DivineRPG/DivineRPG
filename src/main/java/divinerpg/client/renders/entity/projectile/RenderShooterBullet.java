@@ -1,14 +1,16 @@
 package divinerpg.client.renders.entity.projectile;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
-import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.entities.projectile.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.texture.*;
+
+import com.mojang.math.Matrix3f;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
 import net.minecraft.resources.ResourceLocation;
-import org.joml.*;
 
 public class RenderShooterBullet<T extends EntityShooterBullet> extends EntityRenderer<T> {
     public RenderShooterBullet(final Context context) {
@@ -21,7 +23,7 @@ public class RenderShooterBullet<T extends EntityShooterBullet> extends EntityRe
         matrix.pushPose();
         matrix.scale(0.5f, 0.5f, 0.5f);
         matrix.mulPose(this.entityRenderDispatcher.cameraOrientation());
-        matrix.mulPose(Axis.YP.rotationDegrees(180.0F));
+        matrix.mulPose(Vector3f.YP.rotationDegrees(180.0F));
         PoseStack.Pose matrixEntry = matrix.last();
         Matrix4f matrix4f = matrixEntry.pose();
         Matrix3f normal = matrixEntry.normal();

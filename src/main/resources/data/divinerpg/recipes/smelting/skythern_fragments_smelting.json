@@ -3,7 +3,7 @@
     "item": "divinerpg:skythern_fragments"
   },
   "ingredient": {
-    "tag": "forge:ores/skythern"
+    "item": "divinerpg:skythern_ore"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

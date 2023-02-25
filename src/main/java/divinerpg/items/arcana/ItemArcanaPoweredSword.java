@@ -1,6 +1,7 @@
 package divinerpg.items.arcana;
 
 import com.google.common.collect.*;
+import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.util.LocalizeUtils;
@@ -22,7 +23,7 @@ public class ItemArcanaPoweredSword extends ItemModSword {
     public float weakenedDamageValue;
 
     public ItemArcanaPoweredSword(Tier tier, int arcanaConsumed, float weakenedDamageValue) {
-        super(tier);
+        super(tier, DivineRPG.tabs.melee);
         this.arcanaConsumed = arcanaConsumed;
         this.weakenedDamageValue = weakenedDamageValue;
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();

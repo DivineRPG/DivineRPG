@@ -17,8 +17,7 @@ import javax.annotation.Nonnull;
 import java.util.*;
 
 @JeiPlugin
-public final class JEICompat implements IModPlugin
-{
+public final class JEICompat implements IModPlugin {
 
     public static final RecipeType<ArcaniumExtractorRecipe> ARCANIUM_EXTRACTOR = RecipeType.create(DivineRPG.MODID, "arcanium_extractor", ArcaniumExtractorRecipe.class);
     public static final RecipeType<InfusionTableRecipe> INFUSION_TABLE = RecipeType.create(DivineRPG.MODID, "infusion_table", InfusionTableRecipe.class);

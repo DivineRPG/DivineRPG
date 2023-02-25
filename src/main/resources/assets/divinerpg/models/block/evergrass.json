@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/evergrass_side",
-    "south": "divinerpg:block/evergrass_side",
-    "north": "divinerpg:block/evergrass_side",
-    "west": "divinerpg:block/evergrass_side",
-    "particle": "divinerpg:block/dream_dirt",
-    "up": "divinerpg:block/evergrass_top",
-    "down": "divinerpg:block/dream_dirt"
+    "east": "divinerpg:blocks/evergrass_side",
+    "south": "divinerpg:blocks/evergrass_side",
+    "north": "divinerpg:blocks/evergrass_side",
+    "west": "divinerpg:blocks/evergrass_side",
+    "particle": "divinerpg:blocks/dream_dirt",
+    "up": "divinerpg:blocks/evergrass_top",
+    "down": "divinerpg:blocks/dream_dirt"
   }
 }

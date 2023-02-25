@@ -1,20 +1,21 @@
 package divinerpg.items.twilight;
 
-import divinerpg.items.base.ItemModFood;
+import divinerpg.*;
+import divinerpg.items.base.*;
 import divinerpg.util.*;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.effect.*;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemSkyFlower extends ItemModFood {
     public ItemSkyFlower() {
-        super(FoodList.SKY_FLOWER, true);
+        super(FoodList.SKY_FLOWER, DivineRPG.tabs.food, true);
     }
 
     @Override

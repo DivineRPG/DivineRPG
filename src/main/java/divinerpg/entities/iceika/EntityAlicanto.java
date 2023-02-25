@@ -17,15 +17,14 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
 
-    @Override
-    public boolean isAggressive() {
-        return true;
-    }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.3F;
     }
-
+    @Override
+    public boolean isAggressive() {
+        return true;
+    }
 
     @Override
     public float getVoicePitch() {

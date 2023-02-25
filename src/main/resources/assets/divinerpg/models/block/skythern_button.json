@@ -1,6 +1,6 @@
 {
   "parent": "block/button",
   "textures": {
-    "texture": "divinerpg:block/skythern_planks"
+    "texture": "divinerpg:blocks/skythern_planks"
   }
 }

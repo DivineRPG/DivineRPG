@@ -15,8 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class InfusionTableCategory implements IRecipeCategory<InfusionTableRecipe>
-{
+public class InfusionTableCategory implements IRecipeCategory<InfusionTableRecipe> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/jei/infusion_table.png");
 
 

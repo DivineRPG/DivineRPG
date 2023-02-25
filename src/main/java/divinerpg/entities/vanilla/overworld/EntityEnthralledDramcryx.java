@@ -26,14 +26,14 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
-        goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1D));
+        goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true){
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true) {
             @Override
             protected double getAttackReachSqr(LivingEntity entity) {
-                return (double)(this.mob.getBbWidth() * 2.0F * this.mob.getBbWidth() * 2.0F + entity.getBbWidth());
+                return mob.getBbWidth() * 2F * mob.getBbWidth() * 2F + entity.getBbWidth();
             }
         });
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));

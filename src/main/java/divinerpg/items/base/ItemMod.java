@@ -10,7 +10,7 @@ import javax.annotation.*;
 import java.util.*;
 
 public class ItemMod extends Item {
-    private static final Item.Properties props = new Item.Properties();
+    private static final Item.Properties props = new Item.Properties().tab(DivineRPG.tabs.materials);
     private boolean hasGlint;
 
     public ItemMod() {
@@ -21,8 +21,12 @@ public class ItemMod extends Item {
         super(properties);
     }
 
-    public ItemMod(Rarity rarity) {
-        super(new Item.Properties().rarity(rarity));
+    public ItemMod(CreativeModeTab tab) {
+        super(new Item.Properties().tab(tab));
+    }
+
+    public ItemMod(Rarity rarity, CreativeModeTab tab) {
+        super(new Item.Properties().tab(tab).rarity(rarity));
     }
 
     public ItemMod(boolean hasGlint) {

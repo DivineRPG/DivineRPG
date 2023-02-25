@@ -1,17 +1,15 @@
 package divinerpg.world.feature.pond;
 
+import java.util.List;
+
+import divinerpg.registries.ConfiguredFeatureRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-
-import java.util.List;
-
-import divinerpg.world.ConfiguredFeatureKeys;
 
 public class BrittlePond extends GlacialPond {
 	@Override
@@ -44,13 +42,12 @@ public class BrittlePond extends GlacialPond {
 	@Override
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		setBlock(level, pos, random.nextFloat() < 0.3 ? Blocks.CLAY.defaultBlockState() : Blocks.MOSS_BLOCK.defaultBlockState());
-		ConfiguredFeature<?, ?> vegetation = ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_CAVES_VEGETATION).value();
-		vegetation.place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
+		ConfiguredFeatureRegistry.BRITTLE_CAVES_VEGETATION.get().place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
 		pos = pos.offset(random.nextInt(5) - 2, random.nextInt(3) - 1, random.nextInt(5) - 2);
 		if(canSustain(rules, level, random, pos)) setBlock(level, pos, Blocks.MOSS_BLOCK.defaultBlockState());
-		vegetation.place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
+		ConfiguredFeatureRegistry.BRITTLE_CAVES_VEGETATION.get().place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
 		pos = pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
 		if(canSustain(rules, level, random, pos)) setBlock(level, pos, Blocks.MOSS_BLOCK.defaultBlockState());
-		vegetation.place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
+		ConfiguredFeatureRegistry.BRITTLE_CAVES_VEGETATION.get().place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
 	}
 }

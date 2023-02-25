@@ -1,24 +1,25 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
-import divinerpg.items.base.ItemMod;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.capability.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemArcanaPotion extends ItemMod {
 
     protected int amountToAdd;
 
     public ItemArcanaPotion(int amountToAdd) {
-        super(new Item.Properties());
+        super(new Item.Properties().tab(DivineRPG.tabs.utilities));
         this.amountToAdd = amountToAdd;
     }
 

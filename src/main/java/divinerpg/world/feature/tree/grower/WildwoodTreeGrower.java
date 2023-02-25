@@ -1,17 +1,17 @@
 package divinerpg.world.feature.tree.grower;
 
-import divinerpg.world.ConfiguredFeatureKeys;
-import net.minecraft.resources.ResourceKey;
+import javax.annotation.Nullable;
+
+import divinerpg.registries.ConfiguredFeatureRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import org.jetbrains.annotations.Nullable;
 
 public class WildwoodTreeGrower extends AbstractTreeGrower {
-
     @Nullable
     @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
-        return ConfiguredFeatureKeys.WILDWOOD_TREE;
+    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomIn, boolean largeHive) {
+        return Holder.direct(ConfiguredFeatureRegistry.WILDWOOD_TREE.get());
     }
 }

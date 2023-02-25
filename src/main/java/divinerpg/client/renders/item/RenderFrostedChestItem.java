@@ -1,7 +1,7 @@
 package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.block.ModelFrostedChest;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -27,8 +27,8 @@ public class RenderFrostedChestItem extends BlockEntityWithoutLevelRenderer {
         if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frosted_chest")).asItem()) {
             matrixStack.pushPose();
             matrixStack.translate(0.0, 1.0, 0.0);
-            matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
-            matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+            matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90));
+            matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
             VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/frosted_chest.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();

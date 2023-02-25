@@ -3,7 +3,7 @@
     "item": "divinerpg:mortum_fragments"
   },
   "ingredient": {
-    "tag": "forge:ores/mortum"
+    "item": "divinerpg:mortum_ore"
   },
   "type": "minecraft:blasting",
   "experience": 2.0,

@@ -3,7 +3,7 @@
     "item": "divinerpg:apalachia_fragments"
   },
   "ingredient": {
-    "tag": "forge:ores/apalachia"
+    "item": "divinerpg:apalachia_ore"
   },
   "type": "minecraft:blasting",
   "experience": 1.3,

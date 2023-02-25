@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/wildwood_bricks"
+    "all": "divinerpg:blocks/wildwood_bricks"
   }
 }

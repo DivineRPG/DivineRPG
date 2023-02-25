@@ -2,8 +2,8 @@
   "parent": "block/thin_block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/lunic_acid",
-    "texture": "divinerpg:block/lunic_acid"
+    "particle": "divinerpg:blocks/lunic_acid",
+    "texture": "divinerpg:blocks/lunic_acid"
   },
   "elements": [
     {

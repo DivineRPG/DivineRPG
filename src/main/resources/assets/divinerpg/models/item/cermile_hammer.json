@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/cermile_hammer"
+    "layer0": "divinerpg:items/cermile_hammer"
   }
 }

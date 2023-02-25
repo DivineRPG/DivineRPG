@@ -1,11 +1,12 @@
 package divinerpg.items.vethea;
 
-import divinerpg.items.base.ItemModSword;
-import net.minecraft.world.item.Tier;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import net.minecraft.world.item.*;
 
 public class ItemVetheanSword extends ItemModSword {
 
     public ItemVetheanSword(Tier material) {
-        super(material);
+        super(material, DivineRPG.tabs.vethea);
     }
 }

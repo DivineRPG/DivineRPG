@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/mortum_hoe"
+    "layer0": "divinerpg:items/mortum_hoe"
   }
 }

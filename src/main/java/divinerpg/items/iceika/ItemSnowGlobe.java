@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemSnowGlobe extends ItemMod {
     public ItemSnowGlobe() {
-        super(new Properties().stacksTo(1));
+        super(new Properties().tab(DivineRPG.tabs.utilities).stacksTo(1));
     }
 
     @Override

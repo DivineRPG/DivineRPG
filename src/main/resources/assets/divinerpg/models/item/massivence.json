@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/massivence"
+    "layer0": "divinerpg:items/massivence"
   }
 }

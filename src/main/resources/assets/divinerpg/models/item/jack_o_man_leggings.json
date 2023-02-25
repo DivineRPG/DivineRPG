@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/jack_o_man_leggings"
+    "layer0": "divinerpg:items/jack_o_man_leggings"
   }
 }

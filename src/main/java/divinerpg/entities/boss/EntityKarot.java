@@ -9,7 +9,6 @@ import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
@@ -37,7 +36,7 @@ public class EntityKarot extends EntityDivineBoss {
     @Override
     public void tick() {
         if (this.spawnTick == 0 && !this.level.isClientSide) {
-            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             this.level.addParticle(ParticleTypes.FLASH, getX(), getY() + 0.5D,
                     getZ(), this.random.nextGaussian() * 2.0D - 1.0D, this.random.nextGaussian() * 2.0D - 1.0D,
                     this.random.nextGaussian() * 2.0D - 1.0D);
@@ -71,7 +70,7 @@ public class EntityKarot extends EntityDivineBoss {
         super.die(source);
         if (!this.level.isClientSide) {
             for (int i = 0; i < 5; i++) {
-                EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             }
         }
         super.kill();

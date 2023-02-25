@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/enderice"
+    "layer0": "divinerpg:items/enderice"
   }
 }

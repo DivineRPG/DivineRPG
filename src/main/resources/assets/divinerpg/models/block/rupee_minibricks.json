@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/rupee_minibricks"
+    "all": "divinerpg:blocks/rupee_minibricks"
   }
 }

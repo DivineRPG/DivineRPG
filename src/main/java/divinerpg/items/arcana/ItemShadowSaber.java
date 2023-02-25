@@ -1,12 +1,13 @@
 package divinerpg.items.arcana;
 
+import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.*;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -17,7 +18,7 @@ import java.util.List;
 public class ItemShadowSaber extends ItemModSword {
 
     public ItemShadowSaber(Tier mat) {
-        super(mat, new Properties().durability(-1));
+        super(mat, new Properties().tab(DivineRPG.tabs.melee).durability(-1));
     }
 
     @Override

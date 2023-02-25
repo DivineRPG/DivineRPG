@@ -68,7 +68,7 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity {
             case 0:
                 if (!level.isClientSide) {
                 	EntityAyeraco group[] = new EntityAyeraco[6];
-                	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
+                	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel) level, null, null, null, pos, MobSpawnType.SPAWNER, false, false);
                 	group[0].setBeamPos(block.blueBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[5]});
                     group[1].setBeamPos(block.greenBeam).assignGroup(new EntityAyeraco[]{group[0], group[2], group[3], group[4], group[5]});
                     group[2].setBeamPos(block.pinkBeam).assignGroup(new EntityAyeraco[]{group[1], group[0], group[3], group[4], group[5]});;
@@ -78,7 +78,7 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity {
                     for(byte i = 0; i < 6; i++) {
                     	group[i].moveTo(pos.getX() + level.random.nextInt(5) - 2, pos.getY() + level.random.nextInt(10, 20), pos.getZ() + level.random.nextInt(5) - 2);
                     	level.addFreshEntity(group[i]);
-                    	group[i].setVariant(i);
+                    	level.broadcastEntityEvent(group[i], (byte) (i + 61));
                     }
                 }
                 level.setBlock(block.worldPosition, Blocks.AIR.defaultBlockState(), 3);

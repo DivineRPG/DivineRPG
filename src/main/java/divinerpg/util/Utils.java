@@ -15,12 +15,14 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.io.IOUtils;
 
-import javax.annotation.Nullable;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.annotation.Nullable;
 
 public class Utils {
     private static final Set<UUID> DEV_LIST = ConcurrentHashMap.newKeySet();
@@ -140,7 +142,7 @@ public class Utils {
      * @param entity the entity to spawn
      */
     public static void spawnPersistentEntity(Level world, BlockPos pos, LivingEntity entity) {
-        entity.getType().spawn((ServerLevel) world, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false);
+        entity.getType().spawn((ServerLevel) world, null, null, pos, MobSpawnType.MOB_SUMMONED, false, false);
     }
 
     /**

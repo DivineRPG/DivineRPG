@@ -1,34 +1,32 @@
 package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.entities.projectile.EntityKazroticShot;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
 public class EntityKazrotic extends EntityDivineMonster implements RangedAttackMob {
-	
+
     public EntityKazrotic(EntityType<? extends Monster> type, Level worldIn) {
-		super(type, worldIn);
+        super(type, worldIn);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.8F;
     }
-
     @Override
     public boolean isAggressive() {
         return true;
     }
-
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(7, new RangedAttackGoal(this, 0.25F, 15, 40.0F));
-    	super.registerGoals();
+        super.registerGoals();
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 0.25F, 15, 40F));
     }
 
     @Override
@@ -38,8 +36,8 @@ public class EntityKazrotic extends EntityDivineMonster implements RangedAttackM
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
-            double d3 = Math.sqrt((float) (d0 * d0 + d2 * d2));
-            projectile.shoot(d0, d1 + d3 * .2 - .2, d2, 1.6F, 0.8F);
+            double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+            projectile.shoot(d0, d1 + d3 * .2 - .2, d2, 1.6F, .8F);
             this.level.addFreshEntity(projectile);
         }
     }

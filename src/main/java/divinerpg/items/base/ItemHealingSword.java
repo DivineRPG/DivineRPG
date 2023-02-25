@@ -23,7 +23,7 @@ public class ItemHealingSword extends ItemModSword {
     private final float healAmount;
 
     public ItemHealingSword(Tier material, float healAmount) {
-        super(material);
+        super(material, DivineRPG.tabs.melee);
         this.healAmount = healAmount;
     }
 

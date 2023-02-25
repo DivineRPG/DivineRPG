@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "divinerpg:block/asphalt",
-    "top": "divinerpg:block/asphalt",
-    "bottom": "divinerpg:block/asphalt"
+    "side": "divinerpg:blocks/asphalt",
+    "top": "divinerpg:blocks/asphalt",
+    "bottom": "divinerpg:blocks/asphalt"
   }
 }

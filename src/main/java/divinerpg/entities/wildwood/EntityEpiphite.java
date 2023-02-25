@@ -15,15 +15,14 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
         super(type, worldIn);
         xpReward=40;
     }
-
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
     	return 1.1F;
     }
-
     @Override
     public boolean fireImmune() {
         return true;
     }
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if(source == DamageSource.LIGHTNING_BOLT) return false;
@@ -34,28 +33,22 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
         if(random.nextInt(5) == 0) {
             LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
             bolt.setPos(entity.getX(), entity.getY(), entity.getZ());
-            if (level.isClientSide) {
-                level.addFreshEntity(bolt);
-            }
-        }
+            level.addFreshEntity(bolt);
+    	}
         return super.doHurtTarget(entity);
     }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GROWL.get();
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundRegistry.GROWL_HURT.get();
     }
-
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT.get();
     }
-
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;

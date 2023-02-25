@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/heliotic_beam"
+    "all": "divinerpg:blocks/heliotic_beam"
   }
 }

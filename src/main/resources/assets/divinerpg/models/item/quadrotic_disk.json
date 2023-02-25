@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/quadrotic_disk"
+    "layer0": "divinerpg:items/quadrotic_disk"
   }
 }

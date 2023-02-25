@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/meriks_missile_0"
+    "layer0": "divinerpg:items/meriks_missile_0"
   },
   "overrides": [
     {

@@ -10,12 +10,12 @@ import javax.annotation.*;
 import java.util.*;
 
 public class ItemModShovel extends ShovelItem {
-    public ItemModShovel(Tier tier, Rarity rarity) {
-        super(tier, 0, -1.2F, new Item.Properties().rarity(rarity));
+    public ItemModShovel(Tier tier, Rarity rarity, CreativeModeTab group) {
+        super(tier, 0, -1.2F, new Item.Properties().tab(group).rarity(rarity));
     }
 
-    public ItemModShovel(Tier tier) {
-        super(tier, 0, -1.2F, new Item.Properties());
+    public ItemModShovel(Tier tier, CreativeModeTab group) {
+        super(tier, 0, -1.2F, new Item.Properties().tab(group));
     }
     public ItemModShovel(Tier tier, Properties properties) {
         super(tier, 0, -1.2F, properties);

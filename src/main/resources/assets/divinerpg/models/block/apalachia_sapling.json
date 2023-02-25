@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/apalachia_sapling"
+    "cross": "divinerpg:blocks/apalachia_sapling"
   }
 }

@@ -1,7 +1,7 @@
 package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.boss.ModelEternalArcher;
 import divinerpg.entities.boss.EntityEternalArcher;
@@ -27,9 +27,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armLeft1Part = this.getParentModel().armLeft1;
         armLeft1Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(0.5F, -0.85F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
@@ -37,9 +37,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armLeft2Part = this.getParentModel().armLeft2;
         armLeft2Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(0.95F, -1.15F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
@@ -47,9 +47,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armLeft3Part = this.getParentModel().armLeft3;
         armLeft3Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(1.4F, -1.35F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
@@ -58,9 +58,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armRight1Part = this.getParentModel().armRight1;
         armRight1Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.5F, -0.85F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
@@ -68,9 +68,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armRight2Part = this.getParentModel().armRight2;
         armRight2Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.95F, -1.15F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
@@ -78,9 +78,9 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         ModelPart armRight3Part = this.getParentModel().armRight3;
         armRight3Part.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-1.4F, -1.35F, 0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
     }

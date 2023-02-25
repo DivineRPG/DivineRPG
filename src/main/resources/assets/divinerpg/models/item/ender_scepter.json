@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/ender_scepter"
+    "layer0": "divinerpg:items/ender_scepter"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "translucent",
   "textures": {
-    "cross": "divinerpg:block/arcanite_vines_head"
+    "cross": "divinerpg:blocks/arcanite_vines_head"
   }
 }

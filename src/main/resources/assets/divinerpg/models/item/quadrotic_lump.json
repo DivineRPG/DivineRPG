@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/quadrotic_lump"
+    "layer0": "divinerpg:items/quadrotic_lump"
   }
 }

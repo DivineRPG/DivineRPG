@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/present_box_break"
+    "all": "divinerpg:blocks/present_box_break"
   }
 }

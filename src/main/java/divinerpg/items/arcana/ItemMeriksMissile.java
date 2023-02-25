@@ -24,7 +24,7 @@ public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
 
     public ItemMeriksMissile() {
-        super(new Properties().stacksTo(1).durability(-1));
+        super(new Properties().tab(DivineRPG.tabs.ranged).stacksTo(1).durability(-1));
     }
 
     @Override

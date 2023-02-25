@@ -1,20 +1,21 @@
 package divinerpg.items.base;
 
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.food.FoodProperties;
+import divinerpg.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.food.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemHealingFood extends ItemModFood {
     private final int healthGain;
 
     public ItemHealingFood(FoodProperties food) {
-        super(food);
+        super(food, DivineRPG.tabs.food);
         this.healthGain = food.getNutrition();
     }
 

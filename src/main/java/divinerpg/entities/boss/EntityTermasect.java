@@ -15,7 +15,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
@@ -111,7 +110,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
             if(!this.level.isClientSide) {
                 if (random.nextInt(10) == 1) {
                     BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
-                    EntityRegistry.TERMID.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.TERMID.get().spawn((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }

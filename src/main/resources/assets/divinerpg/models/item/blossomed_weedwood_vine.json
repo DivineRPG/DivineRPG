@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "divinerpg:block/blossomed_weedwood_vine"
+    "layer0": "divinerpg:blocks/blossomed_weedwood_vine"
   }
 }

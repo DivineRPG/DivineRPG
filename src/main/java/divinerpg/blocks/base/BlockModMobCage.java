@@ -1,5 +1,7 @@
 package divinerpg.blocks.base;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -14,13 +16,11 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-
 public class BlockModMobCage extends BlockMod {
 	public final ResourceLocation type, spawnItem;
 	protected final BlockPos relativePos;
-	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem) {
-		super(Properties.copy(Blocks.SPAWNER).strength(0.1F).noOcclusion());
+	public BlockModMobCage(ResourceLocation type, @Nullable ResourceLocation spawnItem) {
+		super(Properties.copy(Blocks.SPAWNER).strength(.1F).noOcclusion());
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
@@ -43,11 +43,11 @@ public class BlockModMobCage extends BlockMod {
 			ItemStack item = player.getItemInHand(hand);
 			if(!player.getCooldowns().isOnCooldown(item.getItem()) && (spawnItem == null || item.is(ForgeRegistries.ITEMS.getValue(spawnItem)))) {
 				if(!(spawnItem == null || player.isCreative())) {
+					item.shrink(1);
 					player.setItemInHand(hand, item);
 					player.getCooldowns().addCooldown(item.getItem(), 40);
-					ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
-					item.shrink(1);
 				}
+				ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
 				return InteractionResult.SUCCESS;
 			}
 		} return InteractionResult.FAIL;

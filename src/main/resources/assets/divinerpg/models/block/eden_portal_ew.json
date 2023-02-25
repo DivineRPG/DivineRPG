@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/eden_portal",
-    "portal": "divinerpg:block/eden_portal"
+    "particle": "divinerpg:blocks/eden_portal",
+    "portal": "divinerpg:blocks/eden_portal"
   },
   "elements": [
     {

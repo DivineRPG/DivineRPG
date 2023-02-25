@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/karos_arrow"
+    "layer0": "divinerpg:items/karos_arrow"
   }
 }

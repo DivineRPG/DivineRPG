@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "divinerpg:block/eden_planks",
-    "top": "divinerpg:block/eden_planks",
-    "bottom": "divinerpg:block/eden_planks"
+    "side": "divinerpg:blocks/eden_planks",
+    "top": "divinerpg:blocks/eden_planks",
+    "bottom": "divinerpg:blocks/eden_planks"
   }
 }

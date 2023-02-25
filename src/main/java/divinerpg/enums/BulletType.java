@@ -129,7 +129,7 @@ public enum BulletType {
     }
 
     private static ResourceLocation ItemLoc(String name) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/item/" + name + ".png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/items/" + name + ".png");
     }
 
     private static ResourceLocation VanillaItemLoc(String name) {

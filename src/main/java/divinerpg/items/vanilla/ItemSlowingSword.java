@@ -1,19 +1,20 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemModSword;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
 
-import java.util.List;
+import java.util.*;
 
 public class ItemSlowingSword extends ItemModSword {
 
     public ItemSlowingSword(Tier toolMaterial) {
-        super(toolMaterial);
+        super(toolMaterial, DivineRPG.tabs.melee);
     }
 
     @Override

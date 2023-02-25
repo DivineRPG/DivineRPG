@@ -1,8 +1,8 @@
 {
   "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
   "textures": {
-    "particle": "divinerpg:block/elevantium",
-    "0": "divinerpg:block/elevantium"
+    "particle": "divinerpg:blocks/elevantium",
+    "0": "divinerpg:blocks/elevantium"
   },
   "render_type": "cutout_mipped",
   "elements": [

@@ -87,7 +87,7 @@ public class EntityRaglok extends EntityDivineBoss {
 
         if (ability == BLIND) {
             if (player != null) {
-                player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 25, 1));
+                player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 25, 0));
             }
         }
         if (ability == SLOW) {

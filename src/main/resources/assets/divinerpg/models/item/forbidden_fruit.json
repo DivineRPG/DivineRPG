@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/forbidden_fruit"
+    "layer0": "divinerpg:items/forbidden_fruit"
   },
   "display": {
     "ground": {

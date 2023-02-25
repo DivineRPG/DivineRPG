@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/bloodgem_minibricks"
+    "all": "divinerpg:blocks/bloodgem_minibricks"
   }
 }

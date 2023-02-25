@@ -3,7 +3,7 @@
     "item": "divinerpg:torridite_block"
   },
   "ingredient": {
-    "tag": "forge:storage_blocks/raw_torridite"
+    "item": "divinerpg:raw_torridite_block"
   },
   "type": "minecraft:blasting",
   "experience": 1.2,

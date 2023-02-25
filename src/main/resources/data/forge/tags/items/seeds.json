@@ -1,19 +1,19 @@
 {
   "replace": false,
   "values": [
-    "#forge:seeds/aquamarine",
-    "#forge:seeds/eucalyptus_root",
-    "#forge:seeds/firestock",
-    "#forge:seeds/hitchak",
-    "#forge:seeds/lamona",
-    "#forge:seeds/marsine",
-    "#forge:seeds/moonbulb",
-    "#forge:seeds/pinfly",
-    "#forge:seeds/pink_glowbone",
-    "#forge:seeds/purple_glowbone",
-    "#forge:seeds/sky_plant",
-    "#forge:seeds/tomato",
-    "#forge:seeds/veilo",
-    "#forge:seeds/white_mushroom"
+    "divinerpg:aquamarine_seeds",
+    "divinerpg:eucalyptus_root_seeds",
+    "divinerpg:firestock_seeds",
+    "divinerpg:hitchak_seeds",
+    "divinerpg:lamona_seeds",
+    "divinerpg:marsine_seeds",
+    "divinerpg:moonbulb_seeds",
+    "divinerpg:pinfly_seeds",
+    "divinerpg:pink_glowbone_seeds",
+    "divinerpg:purple_glowbone_seeds",
+    "divinerpg:sky_plant_seeds",
+    "divinerpg:tomato_seeds",
+    "divinerpg:veilo_seeds",
+    "divinerpg:white_mushroom_seeds"
   ]
 }

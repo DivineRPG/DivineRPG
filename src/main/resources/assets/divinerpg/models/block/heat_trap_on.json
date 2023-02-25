@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/heat_trap_on"
+    "all": "divinerpg:blocks/heat_trap_on"
   }
 }

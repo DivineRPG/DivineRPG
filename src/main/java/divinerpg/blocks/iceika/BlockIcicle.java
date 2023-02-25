@@ -201,9 +201,8 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
 
     }
 
-
-    public DamageSource getFallDamageSource(Entity entity) {
-        return DamageSource.fallingStalactite(entity);
+    public DamageSource getFallDamageSource() {
+        return DamageSource.FALLING_STALACTITE;
     }
 
     public Predicate<Entity> getHurtsEntitySelector() {

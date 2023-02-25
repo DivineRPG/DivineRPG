@@ -1,20 +1,21 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemModSword;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
 
-import java.util.List;
+import java.util.*;
 
 public class ItemPoisonousSword extends ItemModSword {
     private final float poisonSeconds;
 
     public ItemPoisonousSword(Tier mat, float seconds) {
-        super(mat);
+        super(mat, DivineRPG.tabs.melee);
         this.poisonSeconds = seconds;
     }
 

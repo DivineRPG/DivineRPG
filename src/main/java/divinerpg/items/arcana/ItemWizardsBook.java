@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemWizardsBook extends ItemMod {
     public ItemWizardsBook() {
-        super(new Properties().stacksTo(1));
+        super(new Properties().tab(DivineRPG.tabs.spawners).stacksTo(1));
     }
 
     @Override
@@ -32,14 +32,14 @@ public class ItemWizardsBook extends ItemMod {
 
             if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_altar"))) {
 
-                EntityRegistry.PARASECTA.get().spawn((ServerLevel) world, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                EntityRegistry.PARASECTA.get().spawn((ServerLevel) world, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 if (!player.isCreative())
                     stack.shrink(1);
                 return InteractionResult.PASS;
             }
 
             if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar"))) {
-                EntityRegistry.DRAMIX.get().spawn((ServerLevel) world, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                EntityRegistry.DRAMIX.get().spawn((ServerLevel) world, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 if (!player.isCreative())
                     stack.shrink(1);
                 return InteractionResult.PASS;

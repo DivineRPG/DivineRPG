@@ -1,13 +1,14 @@
 package divinerpg.items.base;
 
+import divinerpg.*;
 import divinerpg.util.*;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.network.chat.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.Nullable;
+import javax.annotation.*;
 import java.util.*;
 
 public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
@@ -15,28 +16,28 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public ArmorInfo armorInfo;
 
     public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot) {
-        super(materialIn, slot, new Item.Properties().rarity(rarity));
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
         this.mat = materialIn;
     }
 
     public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties().rarity(rarity));
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor).rarity(rarity));
         this.mat = materialIn;
         this.armorInfo = armorInfo;
     }
 
     public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
         this.mat = materialIn;
     }
 
     public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Item.Properties().tab(DivineRPG.tabs.armor));
         this.mat = materialIn;
         this.armorInfo = armorInfo;
     }
     public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo, Properties properties) {
-        super(materialIn, slot, properties);
+        super(materialIn, slot, properties.tab(DivineRPG.tabs.armor));
         this.mat = materialIn;
         this.armorInfo = armorInfo;
     }

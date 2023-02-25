@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "divinerpg:block/apalachia_planks"
+    "texture": "divinerpg:blocks/apalachia_planks"
   }
 }

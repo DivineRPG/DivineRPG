@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
   "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:block/stained_glass2"
+    "all": "divinerpg:blocks/stained_glass2"
   }
 }

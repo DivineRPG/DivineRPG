@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/karos_heat_tile_red"
+    "all": "divinerpg:blocks/karos_heat_tile_red"
   }
 }

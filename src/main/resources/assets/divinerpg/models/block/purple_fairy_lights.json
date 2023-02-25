@@ -1,7 +1,7 @@
 {
   "textures": {
-    "texture": "divinerpg:block/purple_fairy_lights",
-    "particle": "divinerpg:block/purple_fairy_lights"
+    "texture": "divinerpg:blocks/purple_fairy_lights",
+    "particle": "divinerpg:blocks/purple_fairy_lights"
   },
   "render_type": "cutout_mipped",
   "ambientocclusion": false,

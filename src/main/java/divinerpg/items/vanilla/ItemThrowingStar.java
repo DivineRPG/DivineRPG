@@ -20,7 +20,7 @@ import java.util.*;
 public class ItemThrowingStar extends ItemMod {
 
     public ItemThrowingStar() {
-        super();
+        super(DivineRPG.tabs.ranged);
     }
 
     @Override

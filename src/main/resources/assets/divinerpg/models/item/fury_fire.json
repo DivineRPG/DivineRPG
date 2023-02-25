@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/fury_fire"
+    "layer0": "divinerpg:items/fury_fire"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/lava_bricks"
+    "all": "divinerpg:blocks/lava_bricks"
   }
 }

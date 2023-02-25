@@ -13,12 +13,11 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.*;
 
 public class EntityDissiment extends EntityDivineFlyingMob implements RangedAttackMob {
-    private static final int spawnLayer = 4;
 
     public EntityDissiment(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
     }
-    
+
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.0F;
     }
@@ -30,19 +29,14 @@ public class EntityDissiment extends EntityDivineFlyingMob implements RangedAtta
     }
 
     @Override
-    public boolean checkSpawnRules(LevelAccessor world, MobSpawnType spawnReason) {
-        return this.getY() < 48.0D * spawnLayer && this.getY() > 48.0D * (spawnLayer - 1) && super.checkSpawnRules(world, spawnReason);
-    }
-
-    @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
+        if (isAlive() && getTarget() != null) {
             Projectile projectile = new EntityDissimentShot(EntityRegistry.DISSIMENT_SHOT.get(), level);
-            double d0 = getTarget().getX() - this.getX();
+            double d0 = getTarget().getX() - getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-            double d2 = getTarget().getZ() - this.getZ();
+            double d2 = getTarget().getZ() - getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
+            projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, .8F);
             this.level.addFreshEntity(projectile);
         }
     }

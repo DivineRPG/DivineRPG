@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/torridite_ore"
+    "all": "divinerpg:blocks/torridite_ore"
   }
 }

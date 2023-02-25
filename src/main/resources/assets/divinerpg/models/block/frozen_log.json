@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/frozen_log_side",
-    "south": "divinerpg:block/frozen_log_side",
-    "north": "divinerpg:block/frozen_log_side",
-    "west": "divinerpg:block/frozen_log_side",
-    "particle": "divinerpg:block/frozen_log_top",
-    "up": "divinerpg:block/frozen_log_top",
-    "down": "divinerpg:block/frozen_log_top"
+    "east": "divinerpg:blocks/frozen_log_side",
+    "south": "divinerpg:blocks/frozen_log_side",
+    "north": "divinerpg:blocks/frozen_log_side",
+    "west": "divinerpg:blocks/frozen_log_side",
+    "particle": "divinerpg:blocks/frozen_log_top",
+    "up": "divinerpg:blocks/frozen_log_top",
+    "down": "divinerpg:blocks/frozen_log_top"
   }
 }

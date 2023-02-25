@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/crypt_wall"
+    "all": "divinerpg:blocks/crypt_wall"
   }
 }

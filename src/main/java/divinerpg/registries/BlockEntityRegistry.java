@@ -7,13 +7,13 @@ import divinerpg.tiles.block.*;
 import divinerpg.tiles.bosses.*;
 import divinerpg.tiles.chests.*;
 import divinerpg.tiles.furnace.*;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.*;
 
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import static divinerpg.DivineRPG.MODID;
 
@@ -25,7 +25,7 @@ public class BlockEntityRegistry {
     public static final RegistryObject<BlockEntityType<TileEntityAyeracoSpawn>> AYERACO_SPAWN = register("ayeraco_spawn", () -> BlockEntityType.Builder.of(TileEntityAyeracoSpawn::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_spawn"))).build(null));
     public static final RegistryObject<BlockEntityType<TileEntityAyeracoBeam>> AYERACO_BEAM = register("ayeraco_beam", () -> BlockEntityType.Builder.of(TileEntityAyeracoBeam::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow"))).build(null));
     public static final RegistryObject<BlockEntityType<TileEntityStatue>> STATUE = register("statue", () -> BlockEntityType.Builder.of(TileEntityStatue::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "densos_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eternal_archer_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karot_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "king_of_scorchers_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "reyvor_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_fiend_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "the_watcher_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_demon_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vamacheron_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))).build(null));
-   public static final RegistryObject<BlockEntityType<TileEntityBoneChest>> BONE_CHEST = register("bone_chest", () -> BlockEntityType.Builder.of(TileEntityBoneChest::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "bone_chest"))).build(null));
+    public static final RegistryObject<BlockEntityType<TileEntityBoneChest>> BONE_CHEST = register("bone_chest", () -> BlockEntityType.Builder.of(TileEntityBoneChest::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "bone_chest"))).build(null));
     public static final RegistryObject<BlockEntityType<TileEntityFrostedChest>> FROSTED_CHEST = register("frosted_chest", () -> BlockEntityType.Builder.of(TileEntityFrostedChest::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frosted_chest"))).build(null));
     public static final RegistryObject<BlockEntityType<TileEntityEdenChest>> EDEN_CHEST = register("eden_chest", () -> BlockEntityType.Builder.of(TileEntityEdenChest::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_chest"))).build(null));
     public static final RegistryObject<BlockEntityType<TileEntityPresentBox>> PRESENT_BOX = register("present_box", () -> BlockEntityType.Builder.of(TileEntityPresentBox::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "present_box"))).build(null));

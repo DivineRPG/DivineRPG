@@ -1,7 +1,7 @@
 package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.block.ModelArcaniumExtractor;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -27,8 +27,7 @@ public class RenderArcaniumExtractorItem extends BlockEntityWithoutLevelRenderer
         if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor")).asItem()) {
             matrixStack.pushPose();
             matrixStack.translate(0.5, 0, 0.5);
-            matrixStack.mulPose(Axis.YP.rotationDegrees(270));
-            matrixStack.mulPose(Axis.YN.rotationDegrees(270));
+            matrixStack.mulPose(Vector3f.YP.rotationDegrees(270));
             VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/arcanium_extractor.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();

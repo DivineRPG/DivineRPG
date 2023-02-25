@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/wildwood_grass_side",
-    "south": "divinerpg:block/wildwood_grass_side",
-    "north": "divinerpg:block/wildwood_grass_side",
-    "west": "divinerpg:block/wildwood_grass_side",
-    "particle": "divinerpg:block/wildwood_dirt",
-    "up": "divinerpg:block/wildwood_grass_top",
-    "down": "divinerpg:block/wildwood_dirt"
+    "east": "divinerpg:blocks/wildwood_grass_side",
+    "south": "divinerpg:blocks/wildwood_grass_side",
+    "north": "divinerpg:blocks/wildwood_grass_side",
+    "west": "divinerpg:blocks/wildwood_grass_side",
+    "particle": "divinerpg:blocks/wildwood_dirt",
+    "up": "divinerpg:blocks/wildwood_grass_top",
+    "down": "divinerpg:blocks/wildwood_dirt"
   }
 }

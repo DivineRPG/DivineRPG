@@ -1,17 +1,18 @@
 package divinerpg.items.base;
 
-import divinerpg.registries.LevelRegistry;
-import divinerpg.util.RarityList;
-import net.minecraft.ChatFormatting;
+import divinerpg.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.*;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.server.command.TextComponentHelper;
+import net.minecraft.world.level.*;
+import net.minecraftforge.server.command.*;
 
 import java.util.function.Supplier;
 
@@ -22,7 +23,7 @@ public class ItemBossSpawner extends ItemMod {
     private ResourceKey<Level> dimensionID;
 
     public ItemBossSpawner(String langKey, ResourceKey<Level> dimensionID, Supplier<EntityType<?>>... ents) {
-        super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
+        super(new Item.Properties().tab(DivineRPG.tabs.spawners).stacksTo(1).rarity(RarityList.BOSS));
         this.dimensionID = dimensionID;
         this.ents = ents;
         this.langKey = langKey;

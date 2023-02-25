@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_orientable_trapdoor_bottom",
   "render_type": "translucent",
   "textures": {
-    "texture": "divinerpg:block/frozen_trapdoor"
+    "texture": "divinerpg:blocks/frozen_trapdoor"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "divinerpg:block/arcana_bush"
+    "layer0": "divinerpg:blocks/arcana_bush"
   }
 }

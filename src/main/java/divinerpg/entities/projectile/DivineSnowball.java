@@ -1,12 +1,14 @@
 package divinerpg.entities.projectile;
 
+import net.minecraftforge.api.distmarker.*;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.core.particles.*;
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.*;
 
 public class DivineSnowball extends ThrowableItemProjectile {
     public DivineSnowball(EntityType<? extends DivineSnowball> type, Level world) {
@@ -61,8 +63,8 @@ public class DivineSnowball extends ThrowableItemProjectile {
             this.kill();
     }
 
-//    @Override
-//    public Packet<?> getAddEntityPacket() {
-//        return NetworkHooks.getEntitySpawningPacket(this);
-//    }
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
 }

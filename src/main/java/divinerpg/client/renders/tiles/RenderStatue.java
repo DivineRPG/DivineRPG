@@ -1,7 +1,7 @@
 package divinerpg.client.renders.tiles;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
@@ -26,8 +26,8 @@ public class RenderStatue implements BlockEntityRenderer<TileEntityStatue> {
         Model model = getModel(te);
         matrixStack.pushPose();
         matrixStack.translate(0.5D, 1.5D, 0.5D);
-        matrixStack.mulPose(Axis.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
-        matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+        matrixStack.mulPose(Vector3f.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
+        matrixStack.mulPose(Vector3f.XP.rotationDegrees(180));
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();

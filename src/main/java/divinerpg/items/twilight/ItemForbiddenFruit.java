@@ -1,11 +1,12 @@
 package divinerpg.items.twilight;
 
 
-import divinerpg.items.base.ItemModFood;
-import divinerpg.util.FoodList;
+import divinerpg.*;
+import divinerpg.items.base.*;
+import divinerpg.util.*;
 
 public class ItemForbiddenFruit extends ItemModFood {
     public ItemForbiddenFruit() {
-        super(FoodList.FORBIDDEN_FRUIT);
+        super(FoodList.FORBIDDEN_FRUIT, DivineRPG.tabs.food);
     }
 }

@@ -1,29 +1,31 @@
 package divinerpg.client.containers.screen;
 
-import com.google.common.collect.Lists;
-import com.mojang.blaze3d.platform.Lighting;
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.google.common.collect.*;
+import com.mojang.blaze3d.systems.*;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
-import divinerpg.client.containers.AltarOfCorruptionContainer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.inventory.*;
-import net.minecraft.client.model.BookModel;
-import net.minecraft.client.model.geom.ModelLayers;
+import divinerpg.client.containers.*;
+import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.network.chat.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.util.*;
+import net.minecraftforge.api.distmarker.*;
+
+import java.util.*;
+
+import com.mojang.blaze3d.platform.Lighting;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.EnchantmentNames;
+import net.minecraft.client.model.BookModel;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.api.distmarker.*;
-import org.joml.*;
-
-import java.lang.Math;
-import java.util.Random;
-import java.util.*;
 
 @OnlyIn(Dist.CLIENT)
 public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionContainer> {
@@ -75,21 +77,23 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         this.blit(p_98762_, i, j, 0, 0, this.imageWidth, this.imageHeight);
         int k = (int)this.minecraft.getWindow().getGuiScale();
         RenderSystem.viewport((this.width - 320) / 2 * k, (this.height - 240) / 2 * k, 320 * k, 240 * k);
-        Matrix4f matrix4f = (new Matrix4f()).translation(-0.34F, 0.23F, 0.0F).perspective(((float) Math.PI / 2F), 1.3333334F, 9.0F, 80.0F);
+        Matrix4f matrix4f = Matrix4f.createTranslateMatrix(-0.34F, 0.23F, 0.0F);
+        matrix4f.multiply(Matrix4f.perspective(90.0D, 1.3333334F, 9.0F, 80.0F));
         RenderSystem.backupProjectionMatrix();
         RenderSystem.setProjectionMatrix(matrix4f);
         p_98762_.pushPose();
-        p_98762_.setIdentity();
-        p_98762_.translate(0.0F, 3.3F, 1984.0F);
-        float f = 5.0F;
+        PoseStack.Pose posestack$pose = p_98762_.last();
+        posestack$pose.pose().setIdentity();
+        posestack$pose.normal().setIdentity();
+        p_98762_.translate(0.0D, (double)3.3F, 1984.0D);
         p_98762_.scale(5.0F, 5.0F, 5.0F);
-        p_98762_.mulPose(Axis.ZP.rotationDegrees(180.0F));
-        p_98762_.mulPose(Axis.XP.rotationDegrees(20.0F));
+        p_98762_.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
+        p_98762_.mulPose(Vector3f.XP.rotationDegrees(20.0F));
         float f1 = Mth.lerp(p_98763_, this.oOpen, this.open);
-        p_98762_.translate((1.0F - f1) * 0.2F, (1.0F - f1) * 0.1F, (1.0F - f1) * 0.25F);
+        p_98762_.translate((double)((1.0F - f1) * 0.2F), (double)((1.0F - f1) * 0.1F), (double)((1.0F - f1) * 0.25F));
         float f2 = -(1.0F - f1) * 90.0F - 90.0F;
-        p_98762_.mulPose(Axis.YP.rotationDegrees(f2));
-        p_98762_.mulPose(Axis.XP.rotationDegrees(180.0F));
+        p_98762_.mulPose(Vector3f.YP.rotationDegrees(f2));
+        p_98762_.mulPose(Vector3f.XP.rotationDegrees(180.0F));
         float f3 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.25F;
         float f4 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.75F;
         f3 = (f3 - (float)Mth.fastFloor((double)f3)) * 1.6F - 0.3F;

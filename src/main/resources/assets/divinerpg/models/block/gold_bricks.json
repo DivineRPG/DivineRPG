@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/gold_bricks"
+    "all": "divinerpg:blocks/gold_bricks"
   }
 }

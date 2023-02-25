@@ -46,44 +46,44 @@ public class VetheaTeleporter implements ITeleporter {
 			//search for existing portal
 			ChunkPos chunkPos = new ChunkPos(entity.blockPosition());
 			int chunkX = chunkPos.x, chunkZ = chunkPos.z;
-	    	for(int currentChunkX = chunkX - 4; currentChunkX < chunkX + 4; currentChunkX++) for(int currentChunkZ = chunkZ - 4; currentChunkZ < chunkZ + 4; currentChunkZ++) {
-	    		MutableBlockPos searchPos = new MutableBlockPos();
-	            int baseX = chunkX * 16, baseZ = chunkZ * 16;
-	            for(int y = 0; y < 256; y++) for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) {
-	                searchPos.set(baseX + x, y, baseZ + z);
-	                BlockState searchState = destWorld.getBlockState(searchPos).getBlock().defaultBlockState();
-	                if(searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState()
-	                		|| searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed_block")).defaultBlockState()) {
-	                	return new PortalInfo(new Vec3(searchPos.getX() + (entity.getX() % 1), searchPos.getY() - (isBlockPortal(destWorld, searchPos.getX(), searchPos.getY() - 1, searchPos.getZ()) ? 1 : 0), searchPos.getZ() + (entity.getZ() % 1)), Vec3.ZERO, entity.getYRot(), entity.getXRot());
-	                }
-	            }
-	        }
+			for(int currentChunkX = chunkX - 4; currentChunkX < chunkX + 4; currentChunkX++) for(int currentChunkZ = chunkZ - 4; currentChunkZ < chunkZ + 4; currentChunkZ++) {
+				MutableBlockPos searchPos = new MutableBlockPos();
+				int baseX = chunkX * 16, baseZ = chunkZ * 16;
+				for(int y = 0; y < 256; y++) for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) {
+					searchPos.set(baseX + x, y, baseZ + z);
+					BlockState searchState = destWorld.getBlockState(searchPos).getBlock().defaultBlockState();
+					if(searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState()
+							|| searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed_block")).defaultBlockState()) {
+						return new PortalInfo(new Vec3(searchPos.getX() + (entity.getX() % 1), searchPos.getY() - (isBlockPortal(destWorld, searchPos.getX(), searchPos.getY() - 1, searchPos.getZ()) ? 1 : 0), searchPos.getZ() + (entity.getZ() % 1)), Vec3.ZERO, entity.getYRot(), entity.getXRot());
+					}
+				}
+			}
 			//wake back up at your spawnpoint
 			if(player.getRespawnPosition() != null && player.getRespawnDimension() == destWorld.dimension()) return new PortalInfo(new Vec3(player.getRespawnPosition().getX(), player.getRespawnPosition().getY(), player.getRespawnPosition().getZ()), Vec3.ZERO, player.getRespawnAngle(), player.getRespawnAngle());
-	    	//create new portal
-	    	MutableBlockPos pos = entity.blockPosition().mutable();
-	    	while(!destWorld.getBlockState(pos).isAir()) pos.move(Direction.UP);
+			//create new portal
+			MutableBlockPos pos = entity.blockPosition().mutable();
+			while(!destWorld.getBlockState(pos).isAir()) pos.move(Direction.UP);
 			int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-	        for(int i = 0; i < 5; i++) for(int j = 0; j < 5; j++) for(int k = 0; k < 6; k++) destWorld.setBlock(new BlockPos(x + i - 3, y + j + 1, z + k - 4), Blocks.AIR.defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 2, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 1, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 1, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 2, z - 2), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 2, z + 2), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 3, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 3, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 4, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 1, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 2, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 2, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 2, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
-	        destWorld.setBlock(new BlockPos(x + 1, y + 3, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
-	    	return new PortalInfo(new Vec3(pos.getX(), pos.getY(), pos.getZ()), Vec3.ZERO, entity.getYRot(), entity.getXRot());
+			for(int i = 0; i < 5; i++) for(int j = 0; j < 5; j++) for(int k = 0; k < 6; k++) destWorld.setBlock(new BlockPos(x + i - 3, y + j + 1, z + k - 4), Blocks.AIR.defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 2, y, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 1, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 1, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 2, z - 2), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 2, z + 2), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 3, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 3, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 4, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_block")).defaultBlockState(), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 1, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 2, z + 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 2, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 2, z - 1), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
+			destWorld.setBlock(new BlockPos(x + 1, y + 3, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState().setValue(BlockModPortal.AXIS, Direction.Axis.Z), 0);
+			return new PortalInfo(new Vec3(pos.getX(), pos.getY(), pos.getZ()), Vec3.ZERO, entity.getYRot(), entity.getXRot());
 		} return null;
 	}
 	public boolean isBlockPortal(ServerLevel var1, int var2, int var3, int var4) {
-        return var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock().defaultBlockState() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState();
-    }
+		return var1.getBlockState(new BlockPos(var2, var3, var4)).getBlock().defaultBlockState() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState();
+	}
 }

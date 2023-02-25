@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
   "render_type": "translucent",
   "textures": {
-    "all": "divinerpg:block/apalachia_spawner"
+    "all": "divinerpg:blocks/apalachia_spawner"
   }
 }

@@ -1,8 +1,11 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.world.entity.*;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.network.NetworkHooks;
 
 public class DivineFireball extends LargeFireball {
     public LivingEntity shootingEntity;
@@ -18,10 +21,10 @@ public class DivineFireball extends LargeFireball {
         super(world, shooter, accelX, accelY, accelZ, 0);
     this.shootingEntity=shooter;
     }
-//    @Override
-//    public Packet<?> getAddEntityPacket() {
-//        return NetworkHooks.getEntitySpawningPacket(this);
-//    }
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
 
 
     @Override

@@ -1,11 +1,15 @@
 package divinerpg.entities.projectile;
 
+import net.minecraftforge.event.*;
+
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.*;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityWatcherShot extends DivineThrowable {
 
@@ -27,7 +31,7 @@ public class EntityWatcherShot extends DivineThrowable {
         if (tickCount != 1 || tickCount != 0) {
             if (!this.level.isClientSide) {
                 boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, this);
-                this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Level.ExplosionInteraction.TNT);
+                this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Explosion.BlockInteraction.BREAK);
             }
 
             if (result.getEntity() != null) {
@@ -48,7 +52,7 @@ public class EntityWatcherShot extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
         if (!this.level.isClientSide) {
             boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level, this);
-            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Level.ExplosionInteraction.TNT);
+            this.level.explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Explosion.BlockInteraction.BREAK);
             this.kill();
         }
     }

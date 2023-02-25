@@ -3,7 +3,7 @@
     "item": "divinerpg:bloodgem"
   },
   "ingredient": {
-    "tag": "forge:ores/bloodgem"
+    "item": "divinerpg:bloodgem_ore"
   },
   "type": "minecraft:blasting",
   "experience": 1.2,

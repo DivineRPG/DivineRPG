@@ -2,8 +2,8 @@
   "parent": "block/stairs",
   "render_type": "cutout_mipped",
   "textures": {
-    "side": "divinerpg:block/skythern_planks",
-    "top": "divinerpg:block/skythern_planks",
-    "bottom": "divinerpg:block/skythern_planks"
+    "side": "divinerpg:blocks/skythern_planks",
+    "top": "divinerpg:blocks/skythern_planks",
+    "bottom": "divinerpg:blocks/skythern_planks"
   }
 }

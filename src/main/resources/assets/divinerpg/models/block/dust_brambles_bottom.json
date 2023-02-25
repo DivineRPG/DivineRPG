@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/dust_brambles_bottom"
+    "cross": "divinerpg:blocks/dust_brambles_bottom"
   }
 }

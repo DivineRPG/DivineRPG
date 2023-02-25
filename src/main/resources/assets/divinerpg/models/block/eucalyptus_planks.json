@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/eucalyptus_planks"
+    "all": "divinerpg:blocks/eucalyptus_planks"
   }
 }

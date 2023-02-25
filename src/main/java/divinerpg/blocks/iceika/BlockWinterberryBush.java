@@ -39,7 +39,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
 		level.setBlock(pos, state.setValue(RIPE, true), 3);
 	}
     @Override
-	public boolean isValidBonemealTarget(LevelReader p_53900_, BlockPos p_53901_, BlockState state, boolean p_53903_) {
+	public boolean isValidBonemealTarget(BlockGetter p_53900_, BlockPos p_53901_, BlockState state, boolean p_53903_) {
 		return !state.getValue(RIPE);
 	}
     @Override

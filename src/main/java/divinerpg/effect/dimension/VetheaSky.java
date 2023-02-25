@@ -1,9 +1,12 @@
 package divinerpg.effect.dimension;
 
+import javax.annotation.Nullable;
+
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
+import com.mojang.math.*;
+
 import divinerpg.DivineRPG;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -11,9 +14,6 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
-import org.joml.*;
-
-import javax.annotation.Nullable;
 
 public class VetheaSky extends DimensionSpecialEffects {
 	public static final ResourceLocation EYE_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/eye.png");
@@ -58,8 +58,8 @@ public class VetheaSky extends DimensionSpecialEffects {
 				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
 				RenderSystem.setShaderColor(1F, 1F, 1F, f11);
-				poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
-				poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
+				poseStack.mulPose(Vector3f.YP.rotationDegrees(-90F));
+				poseStack.mulPose(Vector3f.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
 				Matrix4f matrix4f1 = poseStack.last().pose();
 				float f12 = 20F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);

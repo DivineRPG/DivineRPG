@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/iceika_portal",
-    "portal": "divinerpg:block/iceika_portal"
+    "particle": "divinerpg:blocks/iceika_portal",
+    "portal": "divinerpg:blocks/iceika_portal"
   },
   "elements": [
     {

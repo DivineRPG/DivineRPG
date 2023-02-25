@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "divinerpg:block/brittle_grass3"
+    "cross": "divinerpg:blocks/brittle_grass3"
   }
 }

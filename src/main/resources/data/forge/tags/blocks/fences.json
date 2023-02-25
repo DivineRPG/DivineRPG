@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "#forge:fences/blue",
-    "#forge:fences/green",
-    "#forge:fences/red",
-    "#forge:fences/eden",
-    "#forge:fences/wildwood",
-    "#forge:fences/apalachia",
-    "#forge:fences/skythern",
-    "#forge:fences/mortum",
-    "#forge:fences/divine",
-    "#forge:fences/frozen",
-    "#forge:fences/eucalyptus"
+    "divinerpg:blue_fence",
+    "divinerpg:green_fence",
+    "divinerpg:red_fence",
+    "divinerpg:eden_fence",
+    "divinerpg:wildwood_fence",
+    "divinerpg:apalachia_fence",
+    "divinerpg:skythern_fence",
+    "divinerpg:mortum_fence",
+    "divinerpg:divine_fence",
+    "divinerpg:frozen_fence",
+    "divinerpg:eucalyptus_fence"
   ]
 }

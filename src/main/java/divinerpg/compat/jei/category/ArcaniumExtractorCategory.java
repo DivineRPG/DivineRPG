@@ -1,5 +1,11 @@
 package divinerpg.compat.jei.category;
 
+//import divinerpg.*;
+//import divinerpg.recipe.*;
+//import divinerpg.registries.*;
+//import net.minecraft.network.chat.*;
+//import net.minecraft.resources.*;
+//import net.minecraft.world.item.*;
 
 import divinerpg.DivineRPG;
 import divinerpg.recipe.ArcaniumExtractorRecipe;
@@ -14,8 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class ArcaniumExtractorCategory implements IRecipeCategory<ArcaniumExtractorRecipe>
-{
+public class ArcaniumExtractorCategory implements IRecipeCategory<ArcaniumExtractorRecipe> {
 
     public static final ResourceLocation ARCANIUM_EXTRACTOR = new ResourceLocation(DivineRPG.MODID, "textures/gui/jei/arcanium_extractor.png");
 

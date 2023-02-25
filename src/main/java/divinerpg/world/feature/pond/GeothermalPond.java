@@ -1,7 +1,7 @@
 package divinerpg.world.feature.pond;
 
 import divinerpg.DivineRPG;
-import divinerpg.world.ConfiguredFeatureKeys;
+import divinerpg.registries.*;
 import divinerpg.world.feature.config.RuleTestConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -76,7 +76,7 @@ public class GeothermalPond extends Feature<RuleTestConfig> {
 	protected void genDeep(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		pos = pos.below();
 		setBlock(level, pos, Blocks.WATER.defaultBlockState());
-		if(random.nextFloat() < 0.1) ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.THERMAL_VENT).value().place(level, null, random, pos);
+		if(random.nextFloat() < 0.1) ConfiguredFeatureRegistry.THERMAL_VENT.get().place(level, null, random, pos);
 		if(rule(rules, random, level.getBlockState(pos.below()))) {
 			if(random.nextFloat() < 0.4F) setBlock(level, pos.below(), Blocks.GRAVEL.defaultBlockState());
 			else if(random.nextFloat() < 0.3F) setBlock(level, pos.below(), Blocks.CLAY.defaultBlockState());

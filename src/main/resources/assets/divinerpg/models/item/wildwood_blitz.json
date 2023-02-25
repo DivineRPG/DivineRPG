@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/wildwood_blitz"
+    "layer0": "divinerpg:items/wildwood_blitz"
   }
 }

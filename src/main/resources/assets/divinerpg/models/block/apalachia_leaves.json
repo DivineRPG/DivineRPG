@@ -1,6 +1,6 @@
 {
   "parent": "block/leaves",
   "textures": {
-    "all": "divinerpg:block/apalachia_leaves"
+    "all": "divinerpg:blocks/apalachia_leaves"
   }
 }

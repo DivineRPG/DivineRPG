@@ -22,7 +22,7 @@ public class ItemStaffEnrichment extends ItemMod {
 
 
     public ItemStaffEnrichment() {
-        super(new Properties().durability(100));
+        super(new Properties().tab(DivineRPG.tabs.tools).durability(100));
     }
 
     @Override

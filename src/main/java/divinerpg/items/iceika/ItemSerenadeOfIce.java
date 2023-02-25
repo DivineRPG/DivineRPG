@@ -1,5 +1,6 @@
 package divinerpg.items.iceika;
 
+import divinerpg.DivineRPG;
 import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.LocalizeUtils;
@@ -20,7 +21,7 @@ public class ItemSerenadeOfIce extends ItemModRanged {
                 100,
                 0,
                 null,
-                0);
+                0, DivineRPG.tabs.utilities);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class ItemStaff extends ItemModRanged {
                 -1,
                 0,
                 null,
-                arcana);
+                arcana, DivineRPG.tabs.vethea);
         this.damage = dam;
     }
 

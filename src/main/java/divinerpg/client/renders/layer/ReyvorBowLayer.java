@@ -1,7 +1,7 @@
 package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.boss.ModelReyvor;
 import divinerpg.entities.boss.EntityReyvor;
@@ -27,9 +27,9 @@ public class ReyvorBowLayer extends RenderLayer<EntityReyvor, ModelReyvor<Entity
         ModelPart modelrenderer = this.getParentModel().rightarm;
         modelrenderer.translateAndRotate(matrixStackIn);
         matrixStackIn.translate(-0.125F, 0.55F, -0.0F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
-        matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
+        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(55));
+        matrixStackIn.mulPose(Vector3f.YN.rotationDegrees(-25));
+        matrixStackIn.mulPose(Vector3f.ZN.rotationDegrees(45));
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
 
         matrixStackIn.popPose();

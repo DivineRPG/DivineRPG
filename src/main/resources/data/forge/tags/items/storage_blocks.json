@@ -1,21 +1,20 @@
 {
   "replace": false,
   "values": [
-    "#forge:storage_blocks/torridite",
-    "#forge:storage_blocks/bloodgem",
-    "#forge:storage_blocks/rupee",
-    "#forge:storage_blocks/realmite",
-    "#forge:storage_blocks/arlemite",
-    "#forge:storage_blocks/eden",
-    "#forge:storage_blocks/wildwood",
-    "#forge:storage_blocks/apalachia",
-    "#forge:storage_blocks/skythern",
-    "#forge:storage_blocks/mortum",
-    "#forge:storage_blocks/arcanium",
-    "#forge:storage_blocks/raw_arcanium",
-    "#forge:storage_blocks/raw_arlemite",
-    "#forge:storage_blocks/raw_realmite",
-    "#forge:storage_blocks/raw_rupee",
-    "#forge:storage_blocks/raw_torridite"
+    "divinerpg:torridite_block",
+    "divinerpg:raw_torridite_block",
+    "divinerpg:bloodgem_block",
+    "divinerpg:rupee_block",
+    "divinerpg:realmite_block",
+    "divinerpg:arlemite_block",
+    "divinerpg:raw_rupee_block",
+    "divinerpg:raw_realmite_block",
+    "divinerpg:raw_arlemite_block",
+    "divinerpg:eden_block",
+    "divinerpg:wildwood_block",
+    "divinerpg:apalachia_block",
+    "divinerpg:skythern_block",
+    "divinerpg:mortum_block",
+    "divinerpg:arcanium_block"
   ]
 }

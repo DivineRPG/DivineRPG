@@ -2,7 +2,7 @@
   "parent": "minecraft:block/door_top_left_open",
   "render_type": "cutout_mipped",
   "textures": {
-    "bottom": "divinerpg:block/soul_sludge_door_bottom",
-    "top": "divinerpg:block/soul_sludge_door_top"
+    "bottom": "divinerpg:blocks/soul_sludge_door_bottom",
+    "top": "divinerpg:blocks/soul_sludge_door_top"
   }
 }

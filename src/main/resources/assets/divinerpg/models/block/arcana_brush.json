@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "translucent",
   "textures": {
-    "cross": "divinerpg:block/arcana_brush"
+    "cross": "divinerpg:blocks/arcana_brush"
   }
 }

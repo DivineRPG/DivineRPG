@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divinerpg:item/aquatic_ingot"
+    "layer0": "divinerpg:items/aquatic_ingot"
   }
 }

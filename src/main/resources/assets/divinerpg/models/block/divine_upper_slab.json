@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "side": "divinerpg:block/divine_planks",
-    "top": "divinerpg:block/divine_planks",
-    "bottom": "divinerpg:block/divine_planks"
+    "side": "divinerpg:blocks/divine_planks",
+    "top": "divinerpg:blocks/divine_planks",
+    "bottom": "divinerpg:blocks/divine_planks"
   }
 }

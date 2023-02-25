@@ -2,12 +2,14 @@ package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Explosion.BlockInteraction;
+
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
 public class EntityGorgosion extends EntityDivineMonster {
 
@@ -31,7 +33,7 @@ public class EntityGorgosion extends EntityDivineMonster {
 	@Override
     public boolean causeFallDamage(float distance, float damageMultiplier, DamageSource damagesource) {
 		if(distance > 2) {
-			this.level.explode(this, this.getX(), this.getY(), this.getZ(), 3, false, Level.ExplosionInteraction.NONE);
+			this.level.explode(this, this.getX(), this.getY(), this.getZ(), 3, false, BlockInteraction.NONE);
 			return false;
 		}
 		return super.causeFallDamage(distance, damageMultiplier, damagesource);

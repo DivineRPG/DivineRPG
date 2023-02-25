@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#forge:bookshelves/dungeon"
+    "divinerpg:dungeon_bookshelf"
   ]
 }

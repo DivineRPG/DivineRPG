@@ -1,18 +1,19 @@
 package divinerpg.items.base;
 
-import net.minecraft.advancements.CriteriaTriggers;
+import divinerpg.*;
+import net.minecraft.advancements.*;
 import net.minecraft.core.*;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.server.level.*;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.*;
 import net.minecraftforge.common.*;
 
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class ItemModSeeds extends ItemMod implements IPlantable {
     public Supplier<Block> soilSupplier;
@@ -23,7 +24,7 @@ public class ItemModSeeds extends ItemMod implements IPlantable {
     }
 
     public ItemModSeeds(Supplier<Block> cropSupplier, Supplier<Block> soilSupplier) {
-        super();
+        super(DivineRPG.tabs.food);
         this.cropSupplier = cropSupplier;
         this.soilSupplier = soilSupplier;
     }

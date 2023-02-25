@@ -105,7 +105,7 @@ public class EntityGlinthop extends EntityDivineTameable {
 
     private void transform() {
         if (!this.level.isClientSide) {
-            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             this.remove(RemovalReason.KILLED);
         }
     }

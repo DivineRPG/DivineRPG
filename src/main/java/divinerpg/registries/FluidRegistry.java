@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.math.Vector3f;
 import divinerpg.DivineRPG;
 import net.minecraft.client.*;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -13,14 +14,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.*;
 import net.minecraftforge.registries.*;
 import org.jetbrains.annotations.NotNull;
-import org.joml.Vector3f;
 
 import java.util.function.Consumer;
 
@@ -48,9 +49,9 @@ public class FluidRegistry {
                     consumer.accept(new IClientFluidTypeExtensions()
                     {
                         private static final ResourceLocation STILL = new ResourceLocation(DivineRPG.MODID,
-                                "block/liquid_tar_still"),
+                                "blocks/liquid_tar_still"),
                                 FLOW = new ResourceLocation(DivineRPG.MODID,
-                                        "block/liquid_tar_flow"),
+                                        "blocks/liquid_tar_flow"),
                                 OVERLAY = new ResourceLocation("block/obsidian"),
                                 VIEW_OVERLAY = new ResourceLocation("textures/block/obsidian.png");
 
@@ -127,5 +128,5 @@ public class FluidRegistry {
             	}
             });
     public static final RegistryObject<Item> SMOLDERING_TAR_BUCKET = ItemRegistry.ITEMS.register("smoldering_tar_bucket", () ->
-            new BucketItem(SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+            new BucketItem(SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(DivineRPG.tabs.materials)));
 }

@@ -1,7 +1,7 @@
 {
   "parent": "item/bow",
   "textures": {
-    "layer0": "divinerpg:item/skythern_bow_0"
+    "layer0": "divinerpg:items/skythern_bow_0"
   },
   "display": {
     "firstperson_righthand": {

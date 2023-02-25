@@ -20,6 +20,6 @@ public class Underground extends PlacementFilter {
 		return !level.canSeeSkyFromBelowWater(pos.above());
 	}
 	public PlacementModifierType<?> type() {
-		return PlacementModifierRegistry.UNDERGROUND;
+		return PlacementModifierRegistry.UNDERGROUND.get();
 	}
 }

@@ -3,7 +3,7 @@ package divinerpg.client.containers;
 import divinerpg.DivineRPG;
 import divinerpg.registries.MenuTypeRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -129,7 +129,7 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
                             List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, j1, this.costs[j1]);
                             if (list != null && !list.isEmpty()) {
                                 EnchantmentInstance enchantmentdata = list.get(this.random.nextInt(list.size()));
-                                this.enchantClue[j1] = BuiltInRegistries.ENCHANTMENT.getId(enchantmentdata.enchantment);
+                                this.enchantClue[j1] = Registry.ENCHANTMENT.getId(enchantmentdata.enchantment);
                                 this.levelClue[j1] = enchantmentdata.level;
                             }
                         }

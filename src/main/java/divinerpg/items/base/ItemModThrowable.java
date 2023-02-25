@@ -1,25 +1,26 @@
 package divinerpg.items.base;
 
-import divinerpg.entities.projectile.EntityShooterBullet;
-import divinerpg.enums.BulletType;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.*;
+import divinerpg.entities.projectile.*;
+import divinerpg.enums.*;
+import divinerpg.registries.*;
+import divinerpg.util.*;
+import net.minecraft.network.chat.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import javax.annotation.*;
+import java.util.*;
 
 public class ItemModThrowable extends ItemMod {
     protected BulletType bulletType;
     protected Rarity rarity;
 
     public ItemModThrowable(Rarity rarity, BulletType bulletType) {
-        super(rarity);
+        super(rarity, DivineRPG.tabs.ranged);
         this.rarity = rarity;
         this.bulletType = bulletType;
     }

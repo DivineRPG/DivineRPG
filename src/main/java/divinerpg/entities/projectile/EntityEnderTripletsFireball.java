@@ -29,7 +29,7 @@ public class EntityEnderTripletsFireball extends DivineFireball {
                         entity.hurt(DamageSource.fireball(this, this.shootingEntity), 8);
                     }
                 }
-                this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
+                this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Explosion.BlockInteraction.DESTROY);
                 this.kill();
             }
         }
@@ -38,7 +38,7 @@ public class EntityEnderTripletsFireball extends DivineFireball {
     @Override
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
+            this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Explosion.BlockInteraction.DESTROY);
             this.kill();
         }
     }

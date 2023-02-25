@@ -2,6 +2,6 @@
   "parent": "block/crop",
   "render_type": "cutout_mipped",
   "textures": {
-    "crop": "divinerpg:block/white_mushroom_plant_1"
+    "crop": "divinerpg:blocks/white_mushroom_plant_1"
   }
 }

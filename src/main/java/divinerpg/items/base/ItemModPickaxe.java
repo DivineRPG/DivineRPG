@@ -10,12 +10,12 @@ import javax.annotation.*;
 import java.util.*;
 
 public class ItemModPickaxe extends PickaxeItem {
-    public ItemModPickaxe(Tier tier, Rarity rarity) {
-        super(tier, 0, -1.4F, new Item.Properties().rarity(rarity));
+    public ItemModPickaxe(Tier tier, Rarity rarity, CreativeModeTab group) {
+        super(tier, 0, -1.4F, new Item.Properties().tab(group).rarity(rarity));
     }
 
-    public ItemModPickaxe(Tier tier) {
-        super(tier, 0, -1.4F, new Item.Properties());
+    public ItemModPickaxe(Tier tier, CreativeModeTab group) {
+        super(tier, 0, -1.4F, new Item.Properties().tab(group));
     }
     public ItemModPickaxe(Tier tier, Properties properties) {
         super(tier, 0, -1.4F, properties);

@@ -75,7 +75,7 @@ public class ArmorAbilitiesEvent {
             }
 
             if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_boots")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_leggings")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_chestplate")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_helmet"))) {
-                if (s.equals(DamageSource.CACTUS) || s.equals(DamageSource.fallingBlock(e.getEntity())) || s.equals(DamageSource.anvil(e.getEntity())) || s.equals(DamageSource.IN_WALL) || s.equals(DamageSources.trapSource)) {
+                if (s.equals(DamageSource.CACTUS) || s.equals(DamageSource.FALLING_BLOCK) || s.equals(DamageSource.ANVIL) || s.equals(DamageSource.IN_WALL) || s.equals(DamageSources.trapSource)) {
                     e.setCanceled(true);
                 }
             }
@@ -107,74 +107,68 @@ public class ArmorAbilitiesEvent {
     }
 
     @SubscribeEvent
-    public void onLivingHurtEvent(LivingDamageEvent event) {
-        if(event.getSource().getEntity() instanceof LivingEntity) {
-            LivingEntity target = event.getEntity();
-            float amount = event.getAmount();
-            LivingEntity attacker = (LivingEntity) event.getSource().getEntity();
-            Item boots = attacker.getItemBySlot(EquipmentSlot.FEET).getItem();
-            Item legs = attacker.getItemBySlot(EquipmentSlot.LEGS).getItem();
-            Item body = attacker.getItemBySlot(EquipmentSlot.CHEST).getItem();
-            Item helmet = attacker.getItemBySlot(EquipmentSlot.HEAD).getItem();
+    public void onLivingHurtEvent(LivingHurtEvent event) {
+        if (event.getSource().getEntity() instanceof LivingEntity) {
+            LivingEntity player = event.getEntity();
+            Item boots = player.getItemBySlot(EquipmentSlot.FEET).getItem();
+            Item legs = player.getItemBySlot(EquipmentSlot.LEGS).getItem();
+            Item body = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
+            Item helmet = player.getItemBySlot(EquipmentSlot.HEAD).getItem();
             DamageSource source = event.getSource();
 
-            if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_helmet"))) {
-                if ((attacker.level.dimension() == LevelRegistry.ICEIKA) && ((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 6);
+            if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_helmet"))) {
+                if ((event.getSource().getEntity().level.dimension() == LevelRegistry.ICEIKA) && ((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
                     return;
                 }
             }
             //Halite
             if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 16);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 16);
                     return;
                 }
             }
             //Awakened Halite
             if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "awakened_halite_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "awakened_halite_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "awakened_halite_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "awakened_halite_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 20);
-                    return;
-                }
-                if (((attacker instanceof Player) && source.isProjectile())) {
-                    event.setAmount(amount * 1.5F);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 20);
                     return;
                 }
             }
             //Divine
             if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 6);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
                     return;
                 }
             }
 
             //Corrupted
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_boots")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_helmet"))) {
-                if (attacker instanceof Player && source.isProjectile()) {
-                    event.setAmount(amount * 1.5F);
+                if (((source.getEntity() instanceof Player) && source.isProjectile())) {
+                    event.setAmount(event.getAmount() * 1.2F);
                     return;
                 }
             }
 
             //Vethean
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_boots")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 3);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 3);
                     return;
                 }
             }
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_boots")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 6);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 6);
                     return;
                 }
             }
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_boots")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_helmet"))) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
-                    event.setAmount(amount + 9);
+                if (((source.getEntity() instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                    event.setAmount(event.getAmount() + 9);
                     return;
                 }
             }
@@ -182,7 +176,7 @@ public class ArmorAbilitiesEvent {
             //Arlemite
             if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arlemite_boots")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arlemite_leggings")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arlemite_chestplate")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arlemite_helmet"))) {
                 if (source.isProjectile() || source.msgId.equals("thrown")) {
-                    event.setAmount(amount * 0.3F);
+                    event.setAmount(event.getAmount() * 0.3F);
                     return;
                 }
             }
@@ -190,15 +184,15 @@ public class ArmorAbilitiesEvent {
             //Rupee
             if ((boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "rupee_boots")) || boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "red_rupee_boots")) || boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "yellow_rupee_boots")) || boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "green_rupee_boots")) || boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_rupee_boots")) || boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "gray_rupee_boots"))) && (legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "rupee_leggings")) || legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "red_rupee_leggings")) || legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "yellow_rupee_leggings")) || legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "green_rupee_leggings")) || legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_rupee_leggings")) || legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "gray_rupee_leggings"))) && (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "rupee_chestplate")) || body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "red_rupee_chestplate")) || body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "yellow_rupee_chestplate")) || body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "green_rupee_chestplate")) || body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_rupee_chestplate")) || body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "gray_rupee_chestplate"))) && (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "rupee_helmet")) || helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "red_rupee_helmet")) || helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "yellow_rupee_helmet")) || helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "green_rupee_helmet")) || helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_rupee_helmet")) || helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "gray_rupee_helmet")))) {
                 if ((source.msgId.equals("mob")) && !source.isProjectile()) {
-                    event.setAmount(amount * 0.3F);
+                    event.setAmount(event.getAmount() * 0.3F);
                     return;
                 }
             }
 
-            //Seng Fur
-            if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_boots")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_leggings")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_chestplate")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_helmet"))) {
-                if (target.level.dimension() == LevelRegistry.ICEIKA) {
-                    event.setAmount(amount * 0.2F);
+            //Santa
+            if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_boots")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_leggings")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_chestplate")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_helmet"))) {
+                if (event.getEntity().level.dimension() == LevelRegistry.ICEIKA) {
+                    event.setAmount(event.getAmount() * 0.2F);
                     return;
                 }
             }
@@ -207,35 +201,35 @@ public class ArmorAbilitiesEvent {
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_boots"))) {
                 if ((helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_helmet")) && !source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_mask")) && source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_hood")) && source.isMagic())) {
-                    event.setAmount(amount * 0.82F);
+                    event.setAmount(event.getAmount() * 0.82F);
                     return;
                 }
             }
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_boots"))) {
                 if ((helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_helmet")) && !source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_mask")) && source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "finished_hood")) && source.isMagic())) {
-                    event.setAmount(amount * 0.773F);
+                    event.setAmount(event.getAmount() * 0.773F);
                     return;
                 }
             }
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_boots"))) {
                 if ((helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_helmet")) && !source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_mask")) && source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "glistening_hood")) && source.isMagic())) {
-                    event.setAmount(amount * 0.7F);
+                    event.setAmount(event.getAmount() * 0.7F);
                     return;
                 }
             }
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_boots"))) {
                 if ((helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_helmet")) && !source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_mask")) && source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demonized_hood")) && source.isMagic())) {
-                    event.setAmount(amount * 0.625F);
+                    event.setAmount(event.getAmount() * 0.625F);
                     return;
                 }
             }
 
             if (body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_leggings")) && boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_boots"))) {
                 if ((helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_helmet")) && !source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_mask")) && source.isProjectile() && !source.isMagic()) || (helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tormented_hood")) && source.isMagic())) {
-                    event.setAmount(amount * 0.348F);
+                    event.setAmount(event.getAmount() * 0.348F);
                     return;
                 }
             }
@@ -379,8 +373,8 @@ public class ArmorAbilitiesEvent {
             }
         }
 
-        //Seng Fur
-        if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur_helmet"))) {
+        //Santa
+        if (boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "santa_helmet"))) {
             if (evt.player.level.dimension() == LevelRegistry.ICEIKA) {
                 if (evt.player.getFoodData().needsFood()) {
                     evt.player.getFoodData().eat(1, 0);

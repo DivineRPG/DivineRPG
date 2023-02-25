@@ -1,5 +1,6 @@
 package divinerpg.items.base;
 
+import divinerpg.DivineRPG;
 import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.EntityRegistry;
@@ -52,7 +53,7 @@ public class ItemModBow extends BowItem {
 
 
     public ItemModBow(ArrowType arrowType, int uses, int maxUseDuration, ResourceLocation arrowSupplier) {
-        super(new Properties().durability(uses));
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(uses));
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;
         this.maxUseDuration = maxUseDuration;
@@ -61,7 +62,7 @@ public class ItemModBow extends BowItem {
     }
 
     public ItemModBow(Rarity rarity, ArrowType arrowType, int uses, int maxUseDuration, ResourceLocation arrowSupplier) {
-        super(new Properties().durability(uses).rarity(rarity));
+        super(new Properties().tab(DivineRPG.tabs.ranged).durability(uses).rarity(rarity));
         this.arrowType = arrowType;
         this.arrowSupplier = arrowSupplier;
         this.maxUseDuration = maxUseDuration;

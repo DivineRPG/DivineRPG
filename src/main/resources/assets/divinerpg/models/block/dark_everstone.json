@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/dark_everstone"
+    "all": "divinerpg:blocks/dark_everstone"
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/door_top_right",
   "render_type": "cutout_mipped",
   "textures": {
-    "bottom": "divinerpg:block/mortum_door_bottom",
-    "top": "divinerpg:block/mortum_door_top"
+    "bottom": "divinerpg:blocks/mortum_door_bottom",
+    "top": "divinerpg:blocks/mortum_door_top"
   }
 }

@@ -18,7 +18,7 @@ public class DivineShield extends ShieldItem {
     private Ingredient repairMaterial;
 
     public DivineShield(Rarity rarity, ResourceLocation repairMaterial, int damage, String name) {
-        super(new Item.Properties().durability(damage).rarity(rarity));
+        super(new Item.Properties().tab(DivineRPG.tabs.armor).durability(damage).rarity(rarity));
         this.repairMaterial = Ingredient.of(ForgeRegistries.ITEMS.getValue(repairMaterial));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
 
@@ -26,7 +26,7 @@ public class DivineShield extends ShieldItem {
     }
 
     public DivineShield(ResourceLocation repairMaterial, int damage, String name) {
-        super(new Item.Properties().durability(damage));
+        super(new Item.Properties().tab(DivineRPG.tabs.armor).durability(damage));
         this.repairMaterial = Ingredient.of(ForgeRegistries.ITEMS.getValue(repairMaterial));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
 

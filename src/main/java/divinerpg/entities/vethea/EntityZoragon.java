@@ -1,7 +1,7 @@
 package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.entities.projectile.EntityZoragonBomb;
+import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -13,7 +13,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.*;
 
 public class EntityZoragon extends EntityDivineFlyingMob implements RangedAttackMob {
-    private static final int spawnLayer = 4;
 
     public EntityZoragon(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);

@@ -21,13 +21,13 @@ public class ItemModFood extends ItemMod {
         this.food = food;
     }
 
-    public ItemModFood(FoodProperties food) {
-        super(new Properties().food(food));
+    public ItemModFood(FoodProperties food, CreativeModeTab tab) {
+        super(new Properties().tab(tab).food(food));
         this.food = food;
     }
 
-    public ItemModFood(FoodProperties food, boolean fastFood) {
-        super(new Item.Properties().food(food));
+    public ItemModFood(FoodProperties food, CreativeModeTab tab, boolean fastFood) {
+        super(new Item.Properties().tab(tab).food(food));
         this.food = food;
         this.fastFood = fastFood;
     }

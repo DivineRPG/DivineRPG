@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/pardimal_dissipator"
+    "layer0": "divinerpg:items/pardimal_dissipator"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/coalstone_furnace_side",
-    "south": "divinerpg:block/coalstone_furnace_side",
-    "north": "divinerpg:block/coalstone_furnace_front_off",
-    "west": "divinerpg:block/coalstone_furnace_side",
-    "particle": "divinerpg:block/coalstone_furnace_front_off",
-    "up": "divinerpg:block/coalstone",
-    "down": "divinerpg:block/coalstone"
+    "east": "divinerpg:blocks/coalstone",
+    "south": "divinerpg:blocks/coalstone",
+    "north": "divinerpg:blocks/coalstone_furnace_front_off",
+    "west": "divinerpg:blocks/coalstone",
+    "particle": "divinerpg:blocks/coalstone_furnace_front_off",
+    "up": "divinerpg:blocks/coalstone",
+    "down": "divinerpg:blocks/coalstone"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "block/flower_pot_cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "plant": "divinerpg:block/demon_brambles_top"
+    "plant": "divinerpg:blocks/demon_brambles_top"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divinerpg:item/frozen_maul"
+    "layer0": "divinerpg:items/frozen_maul"
   }
 }

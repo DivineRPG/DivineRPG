@@ -1,10 +1,13 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.entity.*;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
+import net.minecraftforge.network.*;
 
 public class DivineThrowable extends ThrowableProjectile {
     public DivineThrowable(EntityType<? extends ThrowableProjectile> type, Level world) {
@@ -50,8 +53,8 @@ public class DivineThrowable extends ThrowableProjectile {
 
     }
 
-//    @Override
-//    public Packet<?> getAddEntityPacket() {
-//        return NetworkHooks.getEntitySpawningPacket(this);
-//    }
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
 }

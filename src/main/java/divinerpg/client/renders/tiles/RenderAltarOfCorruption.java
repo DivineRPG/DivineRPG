@@ -2,18 +2,19 @@ package divinerpg.client.renders.tiles;
 
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
-import divinerpg.DivineRPG;
-import divinerpg.tiles.AltarOfCorruptionEntity;
-import net.minecraft.client.model.BookModel;
-import net.minecraft.client.model.geom.ModelLayers;
+import divinerpg.*;
+import divinerpg.tiles.*;
+import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.util.*;
+import net.minecraftforge.api.distmarker.*;
+
+import com.mojang.math.Vector3f;
+import net.minecraft.client.model.BookModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorruptionEntity> {
@@ -41,8 +42,8 @@ public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorru
         }
 
         float f2 = tileEntityIn.oRot + f1 * partialTicks;
-        matrixStackIn.mulPose(Axis.YP.rotation(-f2));
-        matrixStackIn.mulPose(Axis.ZP.rotationDegrees(80.0F));
+        matrixStackIn.mulPose(Vector3f.YP.rotation(-f2));
+        matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(80.0F));
         float f3 = Mth.lerp(partialTicks, tileEntityIn.oFlip, tileEntityIn.flip);
         float f4 = Mth.frac(f3 + 0.25F) * 1.6F - 0.3F;
         float f5 = Mth.frac(f3 + 0.75F) * 1.6F - 0.3F;

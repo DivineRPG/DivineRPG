@@ -1,6 +1,7 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.DivineRPG;
+import divinerpg.capability.*;
 import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
@@ -17,7 +18,7 @@ import java.util.List;
 public class ItemEnderScepter extends ItemMod {
 
     public ItemEnderScepter() {
-        super(new Properties().stacksTo(1));
+        super(new Properties().tab(DivineRPG.tabs.melee).stacksTo(1));
     }
 
     @Override

@@ -26,7 +26,7 @@ public class RenderWildwoodLog extends EntityRenderer<EntityWildwoodLog> {
 
     @Override
     public ResourceLocation getTextureLocation(EntityWildwoodLog p_110775_1_) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/block/wildwood_log_side.png");
+        return new ResourceLocation(DivineRPG.MODID, "textures/blocks/wildwood_log_side.png");
     }
 
     public void render(EntityWildwoodLog entity, float p_114635_, float p_114636_, PoseStack p_114637_, MultiBufferSource p_114638_, int p_114639_) {

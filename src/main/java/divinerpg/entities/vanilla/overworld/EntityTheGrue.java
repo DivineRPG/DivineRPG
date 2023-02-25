@@ -19,17 +19,17 @@ public class EntityTheGrue extends EntityDivineMonster {
 	@Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 1.4F;}
 	@Override
-    protected SoundEvent getAmbientSound() {return DEATHCRYX.get();}
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {return DEATHCRYX_HURT.get();}
-    @Override
-    protected SoundEvent getDeathSound() {return DEATHCRYX_HURT.get();}
+	protected SoundEvent getAmbientSound() {return DEATHCRYX.get();}
+	@Override
+	protected SoundEvent getHurtSound(DamageSource source) {return DEATHCRYX_HURT.get();}
+	@Override
+	protected SoundEvent getDeathSound() {return DEATHCRYX_HURT.get();}
 	@Override public boolean isAggressive() {return true;}
-    @Override
+	@Override
 	protected void registerGoals() {
 		super.registerGoals();
 		goalSelector.addGoal(0, new LeapAtTargetGoal(this, 0.6F));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
 	}
 	public static boolean theGrueSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
 		return pos.getY() < 0 && checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn);

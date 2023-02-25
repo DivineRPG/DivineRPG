@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/lunic_altar"
+    "all": "divinerpg:blocks/lunic_altar"
   }
 }

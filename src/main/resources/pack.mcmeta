@@ -1,8 +1,8 @@
 {
     "pack": {
         "description": "DivineRPG resources",
-        "pack_format": 12,
-	"forge:resource_pack_format": 12,
+        "pack_format": 9,
+	"forge:resource_pack_format": 9,
         "forge:data_pack_format": 10,
         "_comment": "Newest textures by Ringu. Check their discord https://discord.gg/b3scpVk"
     }

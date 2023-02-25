@@ -34,7 +34,7 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_brush")).defaultBlockState();
         return null;
     }
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+    public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean b) {
         return level.getBlockState(pos.above()).isAir();
     }
     public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {

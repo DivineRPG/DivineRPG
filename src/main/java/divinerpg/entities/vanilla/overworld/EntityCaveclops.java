@@ -27,7 +27,7 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
     @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
-    	super.registerGoals();
+        super.registerGoals();
         goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 30, 10));
         goalSelector.addGoal(0, new FleeSunGoal(this, 0.27D));
     }
@@ -49,7 +49,7 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
+        if(isAlive() && getTarget() != null && !level.isClientSide) {
             EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK.get(), this, level);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
@@ -59,7 +59,6 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
             level.addFreshEntity(projectile);
         }
     }
-
     public static boolean caveClopsSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
         return pos.getY() < 60 && (pos.getY() < 32 || worldIn.getBiome(pos).is(Biomes.IS_LUSH)) && worldIn.getLightEmission(pos) < 8;
     }

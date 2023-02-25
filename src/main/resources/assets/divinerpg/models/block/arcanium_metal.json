@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "divinerpg:block/arcanium_metal_top",
-    "side": "divinerpg:block/arcanium_metal"
+    "end": "divinerpg:blocks/arcanium_metal_top",
+    "side": "divinerpg:blocks/arcanium_metal"
   }
 }

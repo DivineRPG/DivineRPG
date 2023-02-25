@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/checker"
+    "all": "divinerpg:blocks/checker"
   }
 }
