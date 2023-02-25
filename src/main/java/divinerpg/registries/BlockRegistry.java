@@ -252,6 +252,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block>// Structure blocks
             coalstone = registerBlock("coalstone", () -> new BlockMod(3F, 3F)),
+            coalstoneBricks = registerBlock("coalstone_bricks", () -> new BlockMod(3F, 3F)),
             coalstoneStairs = registerBlock("coalstone_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "coalstone")))),
             coalstoneFurnace = registerBlock("coalstone_furnace", () -> new BlockModInfiniFurnace(() -> BlockEntityRegistry.COALSTONE_FURNACE.get())),
             frostedChest = registerWithRender("frosted_chest", () -> new BlockFrostedChest(), Rarity.COMMON),
