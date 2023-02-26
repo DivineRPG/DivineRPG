@@ -86,16 +86,16 @@ public class EntityAyeraco extends EntityDivineBoss {
                 case 4: for(EntityAyeraco entity : group) if(entity != null) entity.canHeal = angry; break;
                 case 5: for(EntityAyeraco entity : group) if(entity != null) entity.fast = angry; break;
                 default: break; };
-            if(angry) {
+            if(angry && isAlive()) {
                 boolean b = group[0] == null;
                 for(byte by = 1; b && by < 5; by++) b = group[by] == null;
                 if(b) empowered = projectileProtected = magicProtected = canTeleport = fast = true;
             }
-            if(empowered) addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 255, 2, true, false, false));
+            if(empowered && isAlive()) addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 255, 2, true, false, false));
             else removeEffect(MobEffects.DAMAGE_BOOST);
-            if(fast) addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 255, 2, true, false, false));
+            if(fast && isAlive()) addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 255, 2, true, false, false));
             else removeEffect(MobEffects.MOVEMENT_SPEED);
-            if(canTeleport) {
+            if(canTeleport && isAlive()) {
                 playSound(SoundRegistry.AYERACO_TELEPORT.get(), 2.0F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 moveTo(getX() + random.nextInt(5) - 2, getY() + 3 + random.nextInt(15), getZ() + random.nextInt(5) - 2);
             }
@@ -122,8 +122,10 @@ public class EntityAyeraco extends EntityDivineBoss {
     }
     @Override
     public void heal(float amount) {
-        super.heal(amount);
-        updateAbilities();
+        if (isAlive()) {
+            super.heal(amount);
+            updateAbilities();
+        }
     }
     @Override
     public BossBarColor getBarColor() {return byByte(entityData.get(VARIANT));}
