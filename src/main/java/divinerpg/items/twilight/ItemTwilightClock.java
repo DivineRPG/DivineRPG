@@ -82,7 +82,7 @@ public class ItemTwilightClock extends ItemMod {
                     return InteractionResult.CONSUME;
                 } else {
                     if (possibleBlocks.contains(worldIn.getBlockState(context.getClickedPos()).getBlock())) {
-                        worldIn.setBlock(context.getClickedPos().above(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "blue_fire")).defaultBlockState(), 0);
+                        worldIn.setBlock(context.getClickedPos().above(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_fire")).defaultBlockState(), 0);
                     }
                     return InteractionResult.FAIL;
                 }

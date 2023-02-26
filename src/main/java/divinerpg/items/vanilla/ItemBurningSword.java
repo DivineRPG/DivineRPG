@@ -6,6 +6,7 @@ import divinerpg.items.base.ItemModSword;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -22,9 +23,14 @@ public class ItemBurningSword extends ItemModSword {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity livingBase1, LivingEntity livingBase2) {
-        stack.hurtAndBreak(1, livingBase1, (p_220009_1_) -> {
-            p_220009_1_.broadcastBreakEvent(livingBase1.getUsedItemHand());
-        });
+        if(livingBase1 instanceof Player){
+            Player player = (Player) livingBase1;
+            if(!player.isCreative() && !player.isSpectator()){
+                stack.hurtAndBreak(1, livingBase1, (p_220009_1_) -> {
+                    p_220009_1_.broadcastBreakEvent(livingBase1.getUsedItemHand());
+                });
+            }
+        }
         livingBase1.setSecondsOnFire(this.burnSeconds);
         return true;
     }

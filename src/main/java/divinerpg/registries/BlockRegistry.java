@@ -34,13 +34,13 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block>
     	arlemiteOre			 = registerBlock("arlemite_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.STONE))),
-	    arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate",  () -> new Block(Properties.copy(Blocks.DEEPSLATE_GOLD_ORE))),
+	    arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate",  () -> new Block(Properties.copy(Blocks.DEEPSLATE_GOLD_ORE).sound(SoundType.DEEPSLATE))),
     	realmiteOre			 = registerBlock("realmite_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.STONE))),
-		realmiteOreDeepslate = registerBlock("realmite_ore_deepslate",  () -> new Block(Properties.copy(Blocks.IRON_ORE))),
+		realmiteOreDeepslate = registerBlock("realmite_ore_deepslate",  () -> new Block(Properties.copy(Blocks.IRON_ORE).sound(SoundType.DEEPSLATE))),
     	rupeeOre			 = registerBlock("rupee_ore",				() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.STONE))),
-		rupeeOreDeepslate	 = registerBlock("rupee_ore_deepslate",  	() -> new Block(Properties.copy(Blocks.DEEPSLATE_GOLD_ORE))),
-    	bloodgemOre			 = registerBlock("bloodgem_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.STONE))),
-	    torriditeOre		 = registerBlock("torridite_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.STONE)));
+		rupeeOreDeepslate	 = registerBlock("rupee_ore_deepslate",  	() -> new Block(Properties.copy(Blocks.DEEPSLATE_GOLD_ORE).sound(SoundType.DEEPSLATE))),
+    	bloodgemOre			 = registerBlock("bloodgem_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.NETHER_ORE))),
+	    torriditeOre		 = registerBlock("torridite_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.NETHER_ORE)));
 
     public static final RegistryObject<Block>// Compressed ore blocks
 	    arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(Properties.of(Material.METAL, METAL).requiresCorrectToolForDrops().strength(5F, 3F))),
