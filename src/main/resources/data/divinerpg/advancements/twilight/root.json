@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.divinerpg.twilight.root.desc"
     },
-    "background": "divinerpg:textures/blocks/twilight_stone.png",
+    "background": "divinerpg:textures/block/twilight_stone.png",
     "announce_to_chat": true
   },
   "criteria": {

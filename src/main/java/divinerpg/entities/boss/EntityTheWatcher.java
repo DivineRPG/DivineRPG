@@ -72,7 +72,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (this.isAlive()) {
+        if (this.isAlive() && getTarget() != null) {
             Projectile projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), level, this);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();

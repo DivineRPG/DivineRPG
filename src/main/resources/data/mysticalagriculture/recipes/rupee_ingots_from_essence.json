@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:rupee_essence"
+    }
+  },
+  "result": {
+    "item": "divinerpg:rupee_ingot",
+    "count": 4
+  }
+}

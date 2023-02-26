@@ -3,7 +3,7 @@
     "item": "divinerpg:bloodgem"
   },
   "ingredient": {
-    "item": "divinerpg:bloodgem_ore"
+    "tag": "forge:ores/bloodgem"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

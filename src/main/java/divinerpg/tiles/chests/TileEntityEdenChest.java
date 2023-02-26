@@ -1,12 +1,12 @@
 package divinerpg.tiles.chests;
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.*;
-import net.minecraft.core.*;
+import divinerpg.registries.BlockEntityRegistry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityEdenChest extends TileEntityModChest {
@@ -26,6 +26,6 @@ public class TileEntityEdenChest extends TileEntityModChest {
     }
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory inv) {
-    	return ChestMenu.sixRows(i, inv, this);
+        return ChestMenu.sixRows(i, inv, this);
     }
 }

@@ -3,7 +3,7 @@
     "item": "divinerpg:torridite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:raw_torridite"
+    "tag": "forge:raw_materials/torridite"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

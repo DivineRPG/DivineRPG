@@ -3,7 +3,7 @@
     "item": "divinerpg:mortum_fragments"
   },
   "ingredient": {
-    "item": "divinerpg:mortum_ore"
+    "tag": "forge:ores/mortum"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,

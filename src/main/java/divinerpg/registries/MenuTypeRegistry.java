@@ -1,14 +1,13 @@
 package divinerpg.registries;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.client.containers.*;
 import divinerpg.client.containers.screen.*;
-import net.minecraftforge.common.extensions.*;
-import net.minecraftforge.registries.*;
-
-
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
+import net.minecraftforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
 
@@ -16,7 +15,7 @@ public class MenuTypeRegistry
 {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
     public static final RegistryObject<MenuType<ArcaniumExtractorContainer>> ARCANIUM_EXTRACTOR = CONTAINERS.register("arcanium_extractor", () -> IForgeMenuType.create(ArcaniumExtractorContainer::new));
-    public static final RegistryObject<MenuType<ModChestContainer>> EDEN_CHEST = CONTAINERS.register("eden_chest", () -> IForgeMenuType.create(ModChestContainer::new));
+    public static final RegistryObject<MenuType<EdenChestMenu>> EDEN_CHEST = CONTAINERS.register("eden_chest", () -> IForgeMenuType.create(EdenChestMenu::new));
     public static final RegistryObject<MenuType<DreamLampContainer>> DREAM_LAMP = CONTAINERS.register("dream_lamp", () -> IForgeMenuType.create(DreamLampContainer::new));
     public static final RegistryObject<MenuType<InfusionTableContainer>> INFUSION_TABLE = CONTAINERS.register("infusion_table", () -> IForgeMenuType.create(InfusionTableContainer::new));
     public static final RegistryObject<MenuType<AltarOfCorruptionContainer>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IForgeMenuType.create(AltarOfCorruptionContainer::new));
@@ -32,7 +31,7 @@ public class MenuTypeRegistry
     public static void registerScreenFactories() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
         MenuScreens.register(MenuTypeRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorScreen::new);
-        MenuScreens.register(MenuTypeRegistry.EDEN_CHEST.get(), EdenChestScreen::new);
+        MenuScreens.register(MenuTypeRegistry.EDEN_CHEST.get(), ContainerScreen::new);
         MenuScreens.register(MenuTypeRegistry.DREAM_LAMP.get(), DreamLampScreen::new);
         MenuScreens.register(MenuTypeRegistry.INFUSION_TABLE.get(), InfusionTableScreen::new);
         MenuScreens.register(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), AltarOfCorruptionScreen::new);

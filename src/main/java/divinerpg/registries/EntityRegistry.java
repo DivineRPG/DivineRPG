@@ -447,7 +447,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, DUNGEON_CONSTRUCTOR, constructorHealth, constructorDamage);
         registerMonsterAttributes(event, DUNGEON_DEMON, dungeonPrisonerHealth, dungeonPrisonerDamage);
         registerMonsterAttributes(event, DUNGEON_PRISONER, dungeonPrisonerHealth, dungeonPrisonerDamage);
-        registerMobAttributes(event, FYRACRYX, fyracryxHealth);
+        registerDamageMobAttributes(event, FYRACRYX, fyracryxHealth, 5);
         registerDamageMobAttributes(event, GOLEM_OF_REJUVENATION, golemRejuvHealth, golemRejuvDamage);
         registerMobAttributes(event, KAZARI);
         registerMobAttributes(event, LEORNA);

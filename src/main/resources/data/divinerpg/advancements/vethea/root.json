@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.divinerpg.vethea.root.desc"
     },
-    "background": "divinerpg:textures/blocks/dream_stone.png",
+    "background": "divinerpg:textures/block/dream_stone.png",
     "announce_to_chat": true
   },
   "criteria": {

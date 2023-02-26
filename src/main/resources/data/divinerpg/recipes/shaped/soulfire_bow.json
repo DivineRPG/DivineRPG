@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:soulfire_bow"
+  },
+  "pattern": [
+    " IX",
+    "I X",
+    " IX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "divinerpg:soulfire_stone"
+    },
+    "I": {
+      "item": "divinerpg:aquatic_blaze_rod"
+    }
+  }
+}

@@ -37,12 +37,12 @@ public abstract class BlockModChest extends ChestBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-    	if(worldIn.isClientSide) return InteractionResult.SUCCESS;
+        if(worldIn.isClientSide) return InteractionResult.SUCCESS;
         else {
-            MenuProvider menuprovider = this.getMenuProvider(state, worldIn, pos);
+            MenuProvider menuprovider = getMenuProvider(state, worldIn, pos);
             if(menuprovider != null) {
-               player.openMenu(menuprovider);
-               player.awardStat(this.getOpenChestStat());
+                player.openMenu(menuprovider);
+                player.awardStat(getOpenChestStat());
             }
             return InteractionResult.CONSUME;
         }

@@ -12,4 +12,8 @@ public class BlockModLadder extends LadderBlock {
                 .noOcclusion()
                 .requiresCorrectToolForDrops());
     }
+
+    public BlockModLadder(Properties properties) {
+        super(properties);
+    }
 }

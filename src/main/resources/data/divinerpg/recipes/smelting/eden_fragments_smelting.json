@@ -3,7 +3,7 @@
     "item": "divinerpg:eden_fragments"
   },
   "ingredient": {
-    "item": "divinerpg:eden_ore"
+    "tag": "forge:ores/eden"
   },
   "type": "minecraft:smelting",
   "experience": 1.3,
