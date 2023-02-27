@@ -30,6 +30,7 @@ public class JERCompat {
 
             //Overworld
             dungeonRegistry.registerChest("Diamond Dave's Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/amethyst"));
+            dungeonRegistry.registerChest("Ancient Tomb Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/ancient_tomb"));
             dungeonRegistry.registerChest("Livestock Merchant's Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/livestock_chest"));
 
             //Twilight
