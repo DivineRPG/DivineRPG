@@ -620,7 +620,12 @@ public class ItemRegistry {
             skeleton_torch = registerItem("skeleton_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_wall_torch")), new Item.Properties(), Direction.EAST)),
             raw_seng_meat = registerItem("raw_seng_meat", () -> new ItemModFood(FoodList.RAW_SENG_MEAT)),
             seng_steak = registerItem("seng_steak", () -> new ItemModFood(FoodList.COOKED_SENG_STEAK)),
-            seng_fur = registerItem("seng_fur", () -> new ItemMod());
+            raw_wolpertinger_meat = registerItem("raw_wolpertinger_meat", () -> new ItemModFood(FoodList.RAW_WOLPERTINGER_MEAT)),
+            wolpertinger_steak = registerItem("wolpertinger_steak", () -> new ItemModFood(FoodList.COOKED_WOLPERTINGER_STEAK)),
+            seng_fur = registerItem("seng_fur", () -> new ItemMod()),
+            sabear_fur = registerItem("sabear_fur", () -> new ItemMod()),
+            sabear_tooth = registerItem("sabear_tooth", () -> new ItemMod()),
+            sabear_sabre = registerItem("sabear_sabre", () -> new ItemModSword(ToolStats.SABEAR_SABRE));
 
     //Armour
     public static final RegistryObject<Item>

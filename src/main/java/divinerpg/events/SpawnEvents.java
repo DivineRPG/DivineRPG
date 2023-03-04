@@ -15,10 +15,13 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
+import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
 import static net.minecraft.world.entity.SpawnPlacements.Type.*;
@@ -52,7 +55,7 @@ public class SpawnEvents {
     	registerAgileSpawn(JUNGLE_SPIDER.get());
     	registerMonsterSpawn(KING_CRAB.get());
     	registerSpawn(KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
-    	registerWaterSpawn(LIOPLEURODON.get());
+		registerLiopleurodon(LIOPLEURODON.get());
 		registerSpawn(LIVESTOCK_MERCHANT.get(), EntityLivestockMerchant::rules);
     	registerDarkSpawn(MINER.get());
     	registerSpawn(PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
@@ -89,7 +92,13 @@ public class SpawnEvents {
     	registerMonsterSpawn(HASTREUS.get());
     	registerMonsterSpawn(ROLLUM.get());
     	registerSpawn(WORKSHOP_MERCHANT.get(), EntityWorkshopMerchant::rules);
-    	registerSpawn(WORKSHOP_TINKERER.get(), EntityWorkshopTinkerer::rules);
+		registerSpawn(WORKSHOP_TINKERER.get(), EntityWorkshopTinkerer::rules);
+		registerMonsterSpawn(SENG.get());
+		registerMonsterSpawn(GROGLIN.get());
+		registerMonsterSpawn(GRUZZORLUG.get());
+		registerMonsterSpawn(SABEAR.get());
+		registerMonsterSpawn(ROBIN.get());
+		registerMonsterSpawn(WOLPERTINGER.get());
 
         //Eden
     	registerMobSpawn(GLINTHOP.get());
@@ -206,9 +215,12 @@ public class SpawnEvents {
     public static void registerAgileSpawn(EntityType<? extends Monster> type) {
     	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules);
     }
-    public static void registerWaterSpawn(EntityType<? extends Mob> type) {
-    	SpawnPlacements.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always);
-    }
+	public static void registerWaterSpawn(EntityType<? extends Mob> type) {
+		SpawnPlacements.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always);
+	}
+	public static void registerLiopleurodon(EntityType<? extends Mob> type) {
+		SpawnPlacements.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::liopleurodon);
+	}
     public static void registerLavaSpawn(EntityType<? extends Mob> type) {
     	SpawnPlacements.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always);
     }
@@ -224,9 +236,23 @@ public class SpawnEvents {
     public static void registerDarkSpawn(EntityType<? extends Monster> type) {
     	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules);
     }
-    public static boolean always(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return true;
-    }
+	public static boolean always(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+		return true;
+	}
+	public static boolean liopleurodon(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+		List<Entity> entities = worldIn.getEntities(null, new AABB(pos.offset(-48, -48, -48), pos.offset(48, 48, 48)));
+		List<EntityLiopleurodon> liopleurodon = new ArrayList<>();
+		for (int i = 0; i < entities.size(); i++) {
+			if (entities.get(i) instanceof EntityLiopleurodon) {
+				EntityLiopleurodon liopleurodonMob = (EntityLiopleurodon) entities.get(i);
+				liopleurodon.add(liopleurodonMob);
+			}
+		}
+		if (liopleurodon.size() < 2) {
+			return true;
+		}
+		return false;
+	}
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {
         if(event.getEntity() instanceof Turtle) {

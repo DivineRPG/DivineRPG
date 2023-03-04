@@ -42,5 +42,7 @@ public class FoodList {
     public static final FoodProperties EGG_NOG = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.5F).build();
     public static final FoodProperties RAW_SENG_MEAT = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.75F).meat().build();
     public static final FoodProperties COOKED_SENG_STEAK = (new FoodProperties.Builder()).nutrition(8).saturationMod(2.5F).meat().build();
+    public static final FoodProperties RAW_WOLPERTINGER_MEAT = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.85F).meat().build();
+    public static final FoodProperties COOKED_WOLPERTINGER_STEAK = (new FoodProperties.Builder()).nutrition(10).saturationMod(3.0F).meat().build();
     public static final FoodProperties FORBIDDEN_FRUIT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).effect(new MobEffectInstance(MobEffects.REGENERATION, 100, 3), 20).effect(new MobEffectInstance(MobEffects.WITHER, 120, 1), 40).effect(new MobEffectInstance(MobEffects.POISON, 300, 1), 10).build();
 }

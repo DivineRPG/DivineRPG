@@ -34,7 +34,7 @@ public abstract class BlockVetheaAltar extends BlockModUnbreakable {
         return InteractionResult.PASS;
     }
 
-    private void spawnBoss(Level worldIn, BlockPos pos) {
+    public void spawnBoss(Level worldIn, BlockPos pos) {
         getBoss(worldIn).getType().spawn((ServerLevel) worldIn, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false);
     }
 

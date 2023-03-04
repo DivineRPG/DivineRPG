@@ -64,6 +64,7 @@ public enum ToolStats implements Tier {
     TERRAN_KNIFE(4, 750, -2.4F, 11F, 10, "terran_stone"),
     TERRAN_MAUL(4, 1200, -2.4F, 13F, 10, "terran_stone"),
     WILDWOOD_BLADE(4, 2000, -1.9F, 24F, 22, "wildwood_gem"),
+    SABEAR_SABRE(3, 1450, -1.3F, 6F, 15, "sabear_tooth"),
 
     //DREAM
     DREAM_SHOVEL(3, 500, 13F, 3F, 1),
