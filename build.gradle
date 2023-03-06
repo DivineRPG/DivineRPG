@@ -14,7 +14,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-version = '1.9.6.6'
+version = '1.9.6.7'
 group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DivineRPG'
 

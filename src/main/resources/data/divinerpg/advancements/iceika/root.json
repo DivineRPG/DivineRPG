@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.divinerpg.iceika.root.desc"
     },
-    "background": "divinerpg:textures/block/frozen_dirt.png",
+    "background": "divinerpg:textures/blocks/frozen_dirt.png",
     "announce_to_chat": true
   },
   "criteria": {
