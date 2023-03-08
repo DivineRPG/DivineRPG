@@ -68,7 +68,13 @@
 			},
 			{
 				"type": "divinerpg:seng",
-				"weight": 2,
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 3,
 				"minCount": 1,
 				"maxCount": 2
 			}
