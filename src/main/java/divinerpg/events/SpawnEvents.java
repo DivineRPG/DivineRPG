@@ -97,7 +97,7 @@ public class SpawnEvents {
 		registerMonsterSpawn(GROGLIN.get());
 		registerMonsterSpawn(GRUZZORLUG.get());
 		registerMonsterSpawn(SABEAR.get());
-		registerMonsterSpawn(ROBIN.get());
+		registerRobinSpawn(ROBIN.get());
 		registerMonsterSpawn(WOLPERTINGER.get());
 
         //Eden
@@ -221,9 +221,13 @@ public class SpawnEvents {
 	public static void registerLiopleurodon(EntityType<? extends Mob> type) {
 		SpawnPlacements.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::liopleurodon);
 	}
-    public static void registerLavaSpawn(EntityType<? extends Mob> type) {
-    	SpawnPlacements.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always);
-    }
+	public static void registerLavaSpawn(EntityType<? extends Mob> type) {
+		SpawnPlacements.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always);
+	}
+
+	public static void registerRobinSpawn(EntityType<? extends Mob> type) {
+		SpawnPlacements.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always);
+	}
     public static void registerAirSpawn(EntityType<? extends Mob> type) {
     	SpawnPlacements.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules);
     }

@@ -58,6 +58,12 @@
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:robin",
+				"weight": 1,
+				"minCount": 2,
+				"maxCount": 4
 			}
 		],
 		"water_ambient": [

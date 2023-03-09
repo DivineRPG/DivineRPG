@@ -841,7 +841,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.3F));
         event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear<>(context), 0.8F));
         event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger<>(context), 0.6F));
-        event.registerEntityRenderer(ROBIN.get(),            (Context context) -> new RenderDivineMob<>(context, "robin",  new ModelRobin<>(context), 0.1F));
+        event.registerEntityRenderer(ROBIN.get(),            (Context context) -> new RenderDivineMob<>(context, "robin",  new ModelRobin(context), 0.1F));
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
