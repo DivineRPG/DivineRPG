@@ -23,14 +23,14 @@ public class DivineRemapper {
                 .put(new ResourceLocation(DivineRPG.MODID, "santa_chestplate"), ItemRegistry.bedrock_chestplate)
                 .put(new ResourceLocation(DivineRPG.MODID, "santa_leggings"), ItemRegistry.bedrock_leggings)
                 .put(new ResourceLocation(DivineRPG.MODID, "santa_boots"), ItemRegistry.bedrock_boots)
-                .put(new ResourceLocation(DivineRPG.MODID, "soulfire_stone"), ItemRegistry.soulfire_stone)
-                .put(new ResourceLocation(DivineRPG.MODID, "soulfire_bow"), ItemRegistry.soulfire_bow)
-                .put(new ResourceLocation(DivineRPG.MODID, "soulfire_sword"), ItemRegistry.soulfire_sword)
-                .put(new ResourceLocation(DivineRPG.MODID, "soulfire_lamp"), () -> Item.byBlock(BlockRegistry.soulfireLamp.get()))
+                .put(new ResourceLocation(DivineRPG.MODID, "bluefire_stone"), ItemRegistry.soulfire_stone)
+                .put(new ResourceLocation(DivineRPG.MODID, "bluefire_bow"), ItemRegistry.soulfire_bow)
+                .put(new ResourceLocation(DivineRPG.MODID, "bluefire_sword"), ItemRegistry.soulfire_sword)
+                .put(new ResourceLocation(DivineRPG.MODID, "bluefire_lamp"), () -> Item.byBlock(BlockRegistry.soulfireLamp.get()))
                 .build();
 
         Map<ResourceLocation, Supplier<Block>> blocksMap = (new ImmutableMap.Builder<ResourceLocation, Supplier<Block>>())
-                .put(new ResourceLocation(DivineRPG.MODID, "soulfire_lamp"), BlockRegistry.soulfireLamp)
+                .put(new ResourceLocation(DivineRPG.MODID, "bluefire_lamp"), BlockRegistry.soulfireLamp)
                 .build();
 
 
