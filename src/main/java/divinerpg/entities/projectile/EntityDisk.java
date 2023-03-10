@@ -1,19 +1,14 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.enums.*;
-import net.minecraft.nbt.*;
-
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
+import divinerpg.enums.DiskType;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
@@ -50,12 +45,15 @@ public class EntityDisk extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        setDeltaMovement(getDeltaMovement().x / 0.99D, getDeltaMovement().y / 0.99D, getDeltaMovement().z / 0.99D);
-        if (this.counter == 0 && this.getOwner() != null) {
-            setDeltaMovement(getDeltaMovement().x * -1, getDeltaMovement().y * -1, getDeltaMovement().z * -1);
+        lerpMotion(getDeltaMovement().x / 0.99, getDeltaMovement().y / 0.99, getDeltaMovement().z / 0.99);
+        if (this.counter == 0 && this.getOwner() != null)
+        {
+            lerpMotion(getDeltaMovement().x * -1, getDeltaMovement().y * -1, getDeltaMovement().z * -1);
             this.bounces++;
             this.counter = 30;
-        } else if (this.counter > 0) {
+        }
+        else if (this.counter > 0)
+        {
             this.counter--;
         }
         if (this.bounces >= 12 && !this.level.isClientSide) {
