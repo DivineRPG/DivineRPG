@@ -2,7 +2,6 @@ package divinerpg.items.base;
 
 import divinerpg.util.*;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
@@ -14,28 +13,28 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public ArmorMaterial mat;
     public ArmorInfo armorInfo;
 
-    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot) {
+    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, ArmorItem.Type slot) {
         super(materialIn, slot, new Item.Properties().rarity(rarity));
         this.mat = materialIn;
     }
 
-    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
+    public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo) {
         super(materialIn, slot, new Item.Properties().rarity(rarity));
         this.mat = materialIn;
         this.armorInfo = armorInfo;
     }
 
-    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot) {
+    public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot) {
         super(materialIn, slot, new Item.Properties());
         this.mat = materialIn;
     }
 
-    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo) {
+    public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo) {
         super(materialIn, slot, new Item.Properties());
         this.mat = materialIn;
         this.armorInfo = armorInfo;
     }
-    public ItemDivineArmor(ArmorMaterial materialIn, EquipmentSlot slot, ArmorInfo armorInfo, Properties properties) {
+    public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, Properties properties) {
         super(materialIn, slot, properties);
         this.mat = materialIn;
         this.armorInfo = armorInfo;

@@ -43,7 +43,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();
 			if(fogtype != FogType.POWDER_SNOW && fogtype != FogType.LAVA && !TwilightSky.doesMobEffectBlockSky(camera)) {
-				RenderSystem.disableTexture();
+				RenderSystem.disableBlend();
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)vec3.x, f1 = (float)vec3.y, f2 = (float)vec3.z;
 				FogRenderer.levelFogColor();
@@ -53,7 +53,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 //				ShaderInstance shaderinstance = RenderSystem.getShader();
 				RenderSystem.enableBlend();
 				RenderSystem.defaultBlendFunc();
-				RenderSystem.enableTexture();
+				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
@@ -72,7 +72,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 				bufferbuilder.vertex(matrix4f1, f12, -100F, -f12).uv(f13, f14).endVertex();
 				bufferbuilder.vertex(matrix4f1, -f12, -100F, -f12).uv(f15, f14).endVertex();
 				BufferUploader.drawWithShader(bufferbuilder.end());
-				RenderSystem.disableTexture();
+				RenderSystem.disableBlend();
 				float f10 = level.getStarBrightness(partialTick) * f11 * 1.01F;
 				RenderSystem.setShaderColor(f10, f10, f10, f10);
                 FogRenderer.setupNoFog();
@@ -83,11 +83,11 @@ public class VetheaSky extends DimensionSpecialEffects {
                 RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
                 RenderSystem.disableBlend();
                 poseStack.popPose();
-                RenderSystem.disableTexture();
+                RenderSystem.disableBlend();
                 RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
                 if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
 	            else RenderSystem.setShaderColor(f, f1, f2, 1F);
-	            RenderSystem.enableTexture();
+	            RenderSystem.enableBlend();
 	            RenderSystem.depthMask(true);
 			}
 		}

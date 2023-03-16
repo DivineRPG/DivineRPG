@@ -200,7 +200,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
     }
 
     public boolean doHurtTarget(Entity p_29659_) {
-            return p_29659_.hurt(DamageSource.mobAttack(this), 3.0F);
+            return p_29659_.hurt(p_29659_.level.damageSources().mobAttack(this), 3.0F);
     }
 
     public SoundSource getSoundSource() {

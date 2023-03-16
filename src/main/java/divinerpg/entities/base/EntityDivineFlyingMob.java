@@ -53,7 +53,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected void customServerAiStep() {
         super.customServerAiStep();
         setNoGravity(true);
-        boolean blockedPath = horizontalCollision || verticalCollision || !level.getBlockState(new BlockPos(position().add(getDeltaMovement()))).isAir();
+        boolean blockedPath = horizontalCollision || verticalCollision || !level.getBlockState(new BlockPos((int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).x, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).y, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).z)).isAir();
         //decide where to go next
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * 14D), findY = getY() + ((random.nextFloat() - .6F) * 14D), findZ = getZ() + ((random.nextFloat() - .5F) * 14D);

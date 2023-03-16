@@ -83,7 +83,7 @@ public class ParticleSparkler extends TextureSheetParticle
                 this.zd *= (double) 0.7F;
             }
 
-            BlockPos blockpos = new BlockPos(this.x, this.y, this.z);
+            BlockPos blockpos = new BlockPos((int) this.x, (int) this.y, (int) this.z);
             double d0 = Math.max(this.level.getBlockState(blockpos).getCollisionShape(this.level, blockpos).max(Direction.Axis.Y, this.x - (double) blockpos.getX(), this.z - (double) blockpos.getZ()), (double) this.level.getFluidState(blockpos).getHeight(this.level, blockpos));
             if (d0 > 0.0D && this.y < (double) blockpos.getY() + d0) {
                 this.remove();

@@ -7,7 +7,6 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -222,7 +221,7 @@ public class EntityWreck extends EntityDivineBoss {
 
         int knockback = 0;
 
-        boolean var4 = par1Entity.hurt(DamageSource.mobAttack(this), amount);
+        boolean var4 = par1Entity.hurt(par1Entity.level.damageSources().mobAttack(this), amount);
 
         if (var4) {
             if (this.getAbility() == PULL) {

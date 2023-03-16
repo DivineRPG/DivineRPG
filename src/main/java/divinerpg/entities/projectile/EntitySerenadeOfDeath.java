@@ -1,16 +1,11 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 
 public class EntitySerenadeOfDeath extends DivineThrowable {
 
@@ -34,7 +29,7 @@ public class EntitySerenadeOfDeath extends DivineThrowable {
         if (tickCount != 1 || tickCount != 0) {
             if (var1.getEntity() != null) {
                 Entity entity = var1.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.getOwner()), 14.0F);
+                entity.hurt(damageSources().thrown(this, this.getOwner()), 14.0F);
                 if (var1.getEntity() instanceof LivingEntity) {
                     ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.POISON, 45, 3));
                 }

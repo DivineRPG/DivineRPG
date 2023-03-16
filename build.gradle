@@ -22,7 +22,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.19.3'
+    mappings channel: 'official', version: '1.19.4'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
@@ -81,25 +81,25 @@ repositories {
     maven { url = uri("https://maven.architectury.dev/") }
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.2.0.16") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.2.0.16") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.2.0.16") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.2.0.16") //Just Enough Items
+    minecraft 'net.minecraftforge:forge:1.19.4-45.0.6'
+//    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.2.0.16") //Just Enough Items
+//    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.2.0.16") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.2.0.16") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.2.0.16") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
-    compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.3") //Bookshelf
+//    compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.3") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT:api") //Patchouli
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT") //Patchouli
-    compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4277371") //Enchantment Descriptions
+//    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT:api") //Patchouli
+//    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT") //Patchouli
+//    compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4277371") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:3913301") //MmmMmmMmmMmm (Target Dummy)
-    runtimeOnly fg.deobf("curse.maven:jade-324717:4330163") //Jade
-    runtimeOnly fg.deobf("curse.maven:curios-309927:4325469") //Curios (needed for bauble slots)
-    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
-    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
-    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
+//    runtimeOnly fg.deobf("curse.maven:jade-324717:4330163") //Jade
+//    runtimeOnly fg.deobf("curse.maven:curios-309927:4325469") //Curios (needed for bauble slots)
+//    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
+//    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
+//    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
 }
 
 jar {
@@ -107,7 +107,7 @@ jar {
         attributes([
                 "Specification-Title": "divinerpg",
                 "Specification-Vendor": "TeamDivineRPG",
-                "Specification-Version": "1.8",
+                "Specification-Version": project.version,
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
                 "Implementation-Vendor" :"TeamDivineRPG",

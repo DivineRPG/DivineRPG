@@ -43,7 +43,7 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
         if (tickCount != 1 || tickCount != 0) {
             if (pos.getEntity() != null) {
                 Entity entity = pos.getEntity();
-                entity.hurt(DamageSources.arcanaSource, 12.0F);
+                entity.hurt(DamageSources.arcana, 12.0F);
             }
         }
     }

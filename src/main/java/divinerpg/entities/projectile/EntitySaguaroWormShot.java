@@ -1,10 +1,7 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.entities.vanilla.overworld.*;
-
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import divinerpg.entities.vanilla.overworld.EntitySaguaroWorm;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -27,7 +24,7 @@ public class EntitySaguaroWormShot extends DivineThrowable {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null && !(result.getEntity() instanceof EntitySaguaroWorm)) {
-                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
+                result.getEntity().hurt(result.getEntity().level.damageSources().thrown(this, this.getOwner()), 4.0F);
             } else if (result.getEntity() == null) {
                 if (!this.level.isClientSide)
                     this.kill();

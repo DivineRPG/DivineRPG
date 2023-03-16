@@ -1,11 +1,11 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class BlockModGate extends FenceGateBlock {
     public BlockModGate() {
-        super(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE), SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN);
+        super(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK);
     }
 }

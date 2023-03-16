@@ -4,7 +4,6 @@ import divinerpg.enums.DiskType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -66,7 +65,7 @@ public class EntityDisk extends DivineThrowable {
         if (tickCount != 1 || tickCount != 0) {
             if (this.getOwner() != null) {
                 if (result.getEntity() != null && result.getEntity() != this.getOwner()) {
-                    result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+                    result.getEntity().hurt(result.getEntity().level.damageSources().thrown(this, this.getOwner()), this.damage);
                 } else if (result.getEntity() == this.getOwner() && this.getOwner() instanceof Player
                         && this.bounces > 0) {
                     if (!((Player) this.getOwner()).isCreative()) {

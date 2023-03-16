@@ -8,7 +8,7 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
@@ -87,7 +87,7 @@ public class EntityKaros extends EntityDivineBoss {
 
     @Override
     public boolean hurt(DamageSource source, float par2) {
-        if (source.isExplosion()) {
+        if (source.is(DamageTypes.EXPLOSION)) {
             return false;
         } else {
             return super.hurt(source, par2);

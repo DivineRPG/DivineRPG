@@ -1,10 +1,7 @@
 package divinerpg.entities.vanilla.nether;
 
-import net.minecraft.nbt.*;
-
-import javax.annotation.*;
-
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.Mth;
@@ -13,9 +10,11 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
 
 public class EntityHellBat extends Bat {
     private static final EntityDataAccessor<Byte> DATA_ID_FLAGS = SynchedEntityData.defineId(EntityHellBat.class, EntityDataSerializers.BYTE);
@@ -121,7 +120,7 @@ public class EntityHellBat extends Bat {
             }
 
             if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerToCenterThan(this.position(), 2.0D)) {
-                this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
+                this.targetPosition = new BlockPos((int) (this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7)), (int) (this.getY() + (double)this.random.nextInt(6) - 2.0D), (int) (this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7)));
             }
 
             double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();

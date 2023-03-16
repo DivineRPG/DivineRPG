@@ -1,17 +1,14 @@
 package divinerpg.entities.ai;
 
-import divinerpg.entities.vanilla.overworld.*;
-
-import java.util.*;
-
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.LivingEntity;
+import divinerpg.entities.vanilla.overworld.EntityAequorea;
+import divinerpg.util.DamageSources;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.pathfinder.Node;
-import net.minecraft.world.level.pathfinder.Path;
+import net.minecraft.world.level.pathfinder.*;
+
+import java.util.EnumSet;
 
 public class TurtleEatAequorea extends Goal {
     Turtle turtle;
@@ -113,7 +110,7 @@ public class TurtleEatAequorea extends Goal {
         double d0 = this.getAttackReachSqr(entity);
         if (range <= d0 && this.ticksUntilNextAttack <= 0) {
             this.resetAttackCooldown();
-            entity.hurt(new DamageSource("turtle"), entity.getHealth());
+            entity.hurt(DamageSources.turtle, entity.getHealth());
         }
 
     }

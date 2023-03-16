@@ -2,11 +2,11 @@ package divinerpg.entities.wildwood;
 
 import divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import divinerpg.registries.*;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.*;
 
@@ -26,7 +26,7 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
     }
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if(source == DamageSource.LIGHTNING_BOLT) return false;
+        if(source.is(DamageTypes.LIGHTNING_BOLT)) return false;
         return super.hurt(source, amount);
     }
     @Override

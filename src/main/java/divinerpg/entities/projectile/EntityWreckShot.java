@@ -1,9 +1,7 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -29,7 +27,7 @@ public class EntityWreckShot extends DivineThrowable {
     protected void onHitEntity(EntityHitResult par1) {
         if(tickCount != 1 || tickCount != 0) {
             if (par1.getEntity() != null) {
-                par1.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+                par1.getEntity().hurt(damageSources().thrown(this, this.getOwner()), this.damage);
             }
 
             if (!this.level.isClientSide) {

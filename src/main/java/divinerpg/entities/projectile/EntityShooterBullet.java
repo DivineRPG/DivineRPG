@@ -1,14 +1,13 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.enums.*;
-import net.minecraft.nbt.*;
+import divinerpg.enums.BulletType;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.projectile.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityShooterBullet extends DivineThrowable {
     private static final EntityDataAccessor<Byte> BULLET_ID = SynchedEntityData.<Byte>defineId(EntityShooterBullet.class,
@@ -36,7 +35,7 @@ public class EntityShooterBullet extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null) {
                 Entity entity = result.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.getOwner()),
+                entity.hurt(entity.level.damageSources().thrown(this, this.getOwner()),
                         this.getBulletType().getDamage());
             }
             if (!this.level.isClientSide) {

@@ -31,7 +31,7 @@ public class EntitySkyreBullet extends DivineThrowable {
             if (result.getEntity() != null) {
                 Entity entity = result.getEntity();
                 if (entity instanceof Player) {
-                    entity.hurt(DamageSources.arcanaSource, ((Player) entity).getHealth() / 2);
+                    entity.hurt(DamageSources.arcana, ((Player) entity).getHealth() / 2);
                     level.playSound((Player) entity, entity.getX(), entity.getY(), entity.getZ(), SoundRegistry.SKYRE_SPARK.get(), SoundSource.HOSTILE, 0, 0);
                 }
             }

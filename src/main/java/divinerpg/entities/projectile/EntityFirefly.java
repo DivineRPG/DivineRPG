@@ -1,13 +1,10 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.registries.*;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.level.Level;
-
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class EntityFirefly extends EntityHeatSeekingProjectile {
@@ -29,7 +26,7 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null && result.getEntity() instanceof LivingEntity) {
                 LivingEntity entity = (LivingEntity) result.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.getOwner()), 15);
+                entity.hurt(damageSources().thrown(this, this.getOwner()), 15);
 
             }
 

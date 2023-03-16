@@ -60,7 +60,7 @@ public class ArmorInfo {
             result.append(dimName);
         }
         if (FullSetPerks != null && !FullSetPerks.getSiblings().isEmpty()) {
-            MutableComponent fullSetDescription = MutableComponent.create(new TranslatableContents("tooltip.fullset"));
+            MutableComponent fullSetDescription = MutableComponent.create(new TranslatableContents("tooltip.fullset", null, null));
             fullSetDescription.withStyle(ChatFormatting.WHITE);
             result.append(fullSetDescription);
 

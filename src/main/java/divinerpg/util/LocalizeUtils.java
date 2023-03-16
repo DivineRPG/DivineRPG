@@ -12,12 +12,12 @@ public class LocalizeUtils {
      * Here is stored rows with no String.format
      */
     private static final MutableComponent
-            InfiniteUses = MutableComponent.create(new TranslatableContents("tooltip.uses.infinite")),
-            NoProtection = MutableComponent.create(new TranslatableContents("tooltip.noprotection")),
-            HomingShoots = MutableComponent.create(new TranslatableContents("tooltip.shots.homing")),
-            SingleUse = MutableComponent.create(new TranslatableContents("tooltip.uses.single")),
-            InstantConsumption = MutableComponent.create(new TranslatableContents("tooltip.instant_consumption")),
-            WeakenedWithoutArcana = MutableComponent.create(new TranslatableContents("tooltip.weakened_without_arcana"));
+            InfiniteUses = MutableComponent.create(new TranslatableContents("tooltip.uses.infinite", null, null)),
+            NoProtection = MutableComponent.create(new TranslatableContents("tooltip.noprotection", null, null)),
+            HomingShoots = MutableComponent.create(new TranslatableContents("tooltip.shots.homing", null, null)),
+            SingleUse = MutableComponent.create(new TranslatableContents("tooltip.uses.single", null, null)),
+            InstantConsumption = MutableComponent.create(new TranslatableContents("tooltip.instant_consumption", null, null)),
+            WeakenedWithoutArcana = MutableComponent.create(new TranslatableContents("tooltip.weakened_without_arcana", null, null));
 
 
     /**
@@ -48,8 +48,8 @@ public class LocalizeUtils {
         String id = String.format("tooltip.armor_info.%s", keyPart);
 
         return params == null || params.length < 1
-                ? new TranslatableContents(id)
-                : new TranslatableContents(id, params);
+                ? new TranslatableContents(id, null, null)
+                : new TranslatableContents(id, null, params);
     }
 
     /**
@@ -101,7 +101,7 @@ public class LocalizeUtils {
      * @return
      */
     public static Component ammo(Item ammo, ChatFormatting formatting) {
-        Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId()));
+        Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, null));
         ammoName.getStyle().applyFormat(formatting);
 
         return i18n(Ammo, ammoName);
@@ -297,7 +297,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ComponentContents normal(String message, ChatFormatting format) {
-        MutableComponent text = MutableComponent.create(new TranslatableContents(message));
+        MutableComponent text = MutableComponent.create(new TranslatableContents(message, null, null));
         text.withStyle(format);
 
         return text.getContents();
@@ -310,7 +310,7 @@ public class LocalizeUtils {
      * @return
      */
     public static ComponentContents version(String vers) {
-        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", vers));
+        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", vers, null));
         text.withStyle(ChatFormatting.RED);
 
         return text.getContents();
@@ -335,12 +335,12 @@ public class LocalizeUtils {
      * @return
      */
     public static Component i18n(String text, Object... args) {
-        MutableComponent result = MutableComponent.create(new TranslatableContents(text, args));
+        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
         return result.withStyle(ChatFormatting.GRAY);
     }
 
     public static Component i18n(ChatFormatting color, String text, Object... args) {
-        MutableComponent result = MutableComponent.create(new TranslatableContents(text, args));
+        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
         return result.withStyle(color);
     }
 }

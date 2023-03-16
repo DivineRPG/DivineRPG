@@ -1,12 +1,12 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.sounds.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 public class BlockModButton extends ButtonBlock {
     public BlockModButton() {
-        super(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON), 30, true, SoundEvents.WOODEN_BUTTON_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON);
+        super(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 30, true);
     }
 
 }

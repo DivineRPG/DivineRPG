@@ -1,6 +1,6 @@
 package divinerpg.registries;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -11,19 +11,17 @@ import divinerpg.items.vethea.*;
 import divinerpg.util.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 
-import java.util.*;
-import java.util.function.*;
+import java.util.Objects;
+import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
 
@@ -629,247 +627,247 @@ public class ItemRegistry {
 
     //Armour
     public static final RegistryObject<Item>
-            angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, EquipmentSlot.HEAD, angelicInfo)),
-            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, EquipmentSlot.CHEST, angelicInfo)),
-            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, EquipmentSlot.LEGS, angelicInfo)),
-            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, EquipmentSlot.FEET, angelicInfo)),
+            angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.HELMET, angelicInfo)),
+            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.CHESTPLATE, angelicInfo)),
+            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
+            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
 
-    apalachia_helmet = registerItem("apalachia_helmet", () -> new ItemDivineArmor(ArmorStats.APALACHIA, EquipmentSlot.HEAD, apInfo)),
-            apalachia_chestplate = registerItem("apalachia_chestplate", () -> new ItemDivineArmor(ArmorStats.APALACHIA, EquipmentSlot.CHEST, apInfo)),
-            apalachia_leggings = registerItem("apalachia_leggings", () -> new ItemDivineArmor(ArmorStats.APALACHIA, EquipmentSlot.LEGS, apInfo)),
-            apalachia_boots = registerItem("apalachia_boots", () -> new ItemDivineArmor(ArmorStats.APALACHIA, EquipmentSlot.FEET, apInfo)),
+    apalachia_helmet = registerItem("apalachia_helmet", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.HELMET, apInfo)),
+            apalachia_chestplate = registerItem("apalachia_chestplate", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.CHESTPLATE, apInfo)),
+            apalachia_leggings = registerItem("apalachia_leggings", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.LEGGINGS, apInfo)),
+            apalachia_boots = registerItem("apalachia_boots", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.BOOTS, apInfo)),
 
-    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, EquipmentSlot.HEAD, aquastriveInfo)),
-            aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, EquipmentSlot.CHEST, aquastriveInfo)),
-            aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, EquipmentSlot.LEGS, aquastriveInfo)),
-            aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, EquipmentSlot.FEET, aquastriveInfo)),
+    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo)),
+            aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
+            aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
+            aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.BOOTS, aquastriveInfo)),
 
-    arlemite_helmet = registerItem("arlemite_helmet", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, EquipmentSlot.HEAD, arlemiteInfo)),
-            arlemite_chestplate = registerItem("arlemite_chestplate", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, EquipmentSlot.CHEST, arlemiteInfo)),
-            arlemite_leggings = registerItem("arlemite_leggings", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, EquipmentSlot.LEGS, arlemiteInfo)),
-            arlemite_boots = registerItem("arlemite_boots", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, EquipmentSlot.FEET, arlemiteInfo)),
+    arlemite_helmet = registerItem("arlemite_helmet", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.HELMET, arlemiteInfo)),
+            arlemite_chestplate = registerItem("arlemite_chestplate", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.CHESTPLATE, arlemiteInfo)),
+            arlemite_leggings = registerItem("arlemite_leggings", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.LEGGINGS, arlemiteInfo)),
+            arlemite_boots = registerItem("arlemite_boots", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.BOOTS, arlemiteInfo)),
 
-    awakened_halite_helmet = registerItem("awakened_halite_helmet", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, EquipmentSlot.HEAD, awakened_halInfo)),
-            awakened_halite_chestplate = registerItem("awakened_halite_chestplate", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, EquipmentSlot.CHEST, awakened_halInfo)),
-            awakened_halite_leggings = registerItem("awakened_halite_leggings", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, EquipmentSlot.LEGS, awakened_halInfo)),
-            awakened_halite_boots = registerItem("awakened_halite_boots", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, EquipmentSlot.FEET, awakened_halInfo)),
+    awakened_halite_helmet = registerItem("awakened_halite_helmet", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, ArmorItem.Type.HELMET, awakened_halInfo)),
+            awakened_halite_chestplate = registerItem("awakened_halite_chestplate", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, ArmorItem.Type.CHESTPLATE, awakened_halInfo)),
+            awakened_halite_leggings = registerItem("awakened_halite_leggings", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, ArmorItem.Type.LEGGINGS, awakened_halInfo)),
+            awakened_halite_boots = registerItem("awakened_halite_boots", () -> new ItemDivineArmor(ArmorStats.AWAKENED_HALITE, ArmorItem.Type.BOOTS, awakened_halInfo)),
 
-    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(ArmorStats.BEDROCK, EquipmentSlot.HEAD, bedrockInfo, new Item.Properties().fireResistant())),
-            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(ArmorStats.BEDROCK, EquipmentSlot.CHEST, bedrockInfo, new Item.Properties().fireResistant())),
-            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(ArmorStats.BEDROCK, EquipmentSlot.LEGS, bedrockInfo, new Item.Properties().fireResistant())),
-            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(ArmorStats.BEDROCK, EquipmentSlot.FEET, bedrockInfo, new Item.Properties().fireResistant())),
+    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.HELMET, bedrockInfo, new Item.Properties().fireResistant())),
+            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.CHESTPLATE, bedrockInfo, new Item.Properties().fireResistant())),
+            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.LEGGINGS, bedrockInfo, new Item.Properties().fireResistant())),
+            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.BOOTS, bedrockInfo, new Item.Properties().fireResistant())),
 
-    blue_ender_helmet = registerItem("blue_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            blue_ender_chestplate = registerItem("blue_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            blue_ender_leggings = registerItem("blue_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            blue_ender_boots = registerItem("blue_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    blue_ender_helmet = registerItem("blue_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            blue_ender_chestplate = registerItem("blue_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            blue_ender_leggings = registerItem("blue_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            blue_ender_boots = registerItem("blue_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    blue_rupee_helmet = registerItem("blue_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            blue_rupee_chestplate = registerItem("blue_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            blue_rupee_leggings = registerItem("blue_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            blue_rupee_boots = registerItem("blue_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    blue_rupee_helmet = registerItem("blue_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            blue_rupee_chestplate = registerItem("blue_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            blue_rupee_leggings = registerItem("blue_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            blue_rupee_boots = registerItem("blue_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, EquipmentSlot.HEAD, corruptedInfo)),
-            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, EquipmentSlot.CHEST, corruptedInfo)),
-            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, EquipmentSlot.LEGS, corruptedInfo)),
-            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, EquipmentSlot.FEET, corruptedInfo)),
+    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.HELMET, corruptedInfo)),
+            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.CHESTPLATE, corruptedInfo)),
+            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
+            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
 
-    divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, EquipmentSlot.HEAD, divineInfo)),
-            divine_chestplate = registerItem("divine_chestplate", () -> new ItemDivineArmor(ArmorStats.DIVINE, EquipmentSlot.CHEST, divineInfo)),
-            divine_leggings = registerItem("divine_leggings", () -> new ItemDivineArmor(ArmorStats.DIVINE, EquipmentSlot.LEGS, divineInfo)),
-            divine_boots = registerItem("divine_boots", () -> new ItemDivineArmor(ArmorStats.DIVINE, EquipmentSlot.FEET, divineInfo)),
+    divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.HELMET, divineInfo)),
+            divine_chestplate = registerItem("divine_chestplate", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.CHESTPLATE, divineInfo)),
+            divine_leggings = registerItem("divine_leggings", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.LEGGINGS, divineInfo)),
+            divine_boots = registerItem("divine_boots", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.BOOTS, divineInfo)),
 
-    eden_helmet = registerItem("eden_helmet", () -> new ItemDivineArmor(ArmorStats.EDEN, EquipmentSlot.HEAD, edenInfo)),
-            eden_chestplate = registerItem("eden_chestplate", () -> new ItemDivineArmor(ArmorStats.EDEN, EquipmentSlot.CHEST, edenInfo)),
-            eden_leggings = registerItem("eden_leggings", () -> new ItemDivineArmor(ArmorStats.EDEN, EquipmentSlot.LEGS, edenInfo)),
-            eden_boots = registerItem("eden_boots", () -> new ItemDivineArmor(ArmorStats.EDEN, EquipmentSlot.FEET, edenInfo)),
+    eden_helmet = registerItem("eden_helmet", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.HELMET, edenInfo)),
+            eden_chestplate = registerItem("eden_chestplate", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.CHESTPLATE, edenInfo)),
+            eden_leggings = registerItem("eden_leggings", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.LEGGINGS, edenInfo)),
+            eden_boots = registerItem("eden_boots", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.BOOTS, edenInfo)),
 
-    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, EquipmentSlot.HEAD, eliteRealmiteInfo)),
-            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, EquipmentSlot.CHEST, eliteRealmiteInfo)),
-            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, EquipmentSlot.LEGS, eliteRealmiteInfo)),
-            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, EquipmentSlot.FEET, eliteRealmiteInfo)),
+    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.HELMET, eliteRealmiteInfo)),
+            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.CHESTPLATE, eliteRealmiteInfo)),
+            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.LEGGINGS, eliteRealmiteInfo)),
+            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.BOOTS, eliteRealmiteInfo)),
 
-    ender_helmet = registerItem("ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            ender_chestplate = registerItem("ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            ender_leggings = registerItem("ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            ender_boots = registerItem("ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    ender_helmet = registerItem("ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            ender_chestplate = registerItem("ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            ender_leggings = registerItem("ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            ender_boots = registerItem("ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, EquipmentSlot.HEAD, frozenInfo)),
-            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, EquipmentSlot.CHEST, frozenInfo)),
-            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, EquipmentSlot.LEGS, frozenInfo)),
-            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, EquipmentSlot.FEET, frozenInfo)),
+    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.HELMET, frozenInfo)),
+            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.CHESTPLATE, frozenInfo)),
+            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.LEGGINGS, frozenInfo)),
+            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.BOOTS, frozenInfo)),
 
-    gray_ender_helmet = registerItem("gray_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            gray_ender_chestplate = registerItem("gray_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            gray_ender_leggings = registerItem("gray_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            gray_ender_boots = registerItem("gray_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    gray_ender_helmet = registerItem("gray_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            gray_ender_chestplate = registerItem("gray_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            gray_ender_leggings = registerItem("gray_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            gray_ender_boots = registerItem("gray_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    rupee_helmet = registerItem("rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            rupee_chestplate = registerItem("rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            rupee_leggings = registerItem("rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            rupee_boots = registerItem("rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    rupee_helmet = registerItem("rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            rupee_chestplate = registerItem("rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            rupee_leggings = registerItem("rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            rupee_boots = registerItem("rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    green_ender_helmet = registerItem("green_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            green_ender_chestplate = registerItem("green_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            green_ender_leggings = registerItem("green_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            green_ender_boots = registerItem("green_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    green_ender_helmet = registerItem("green_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            green_ender_chestplate = registerItem("green_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            green_ender_leggings = registerItem("green_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            green_ender_boots = registerItem("green_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    gray_rupee_helmet = registerItem("gray_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            gray_rupee_chestplate = registerItem("gray_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            gray_rupee_leggings = registerItem("gray_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            gray_rupee_boots = registerItem("gray_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    gray_rupee_helmet = registerItem("gray_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            gray_rupee_chestplate = registerItem("gray_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            gray_rupee_leggings = registerItem("gray_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            gray_rupee_boots = registerItem("gray_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    green_rupee_helmet = registerItem("green_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            green_rupee_chestplate = registerItem("green_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            green_rupee_leggings = registerItem("green_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            green_rupee_boots = registerItem("green_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    green_rupee_helmet = registerItem("green_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            green_rupee_chestplate = registerItem("green_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            green_rupee_leggings = registerItem("green_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            green_rupee_boots = registerItem("green_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    halite_helmet = registerItem("halite_helmet", () -> new ItemDivineArmor(ArmorStats.HALITE, EquipmentSlot.HEAD, halInfo)),
-            halite_chestplate = registerItem("halite_chestplate", () -> new ItemDivineArmor(ArmorStats.HALITE, EquipmentSlot.CHEST, halInfo)),
-            halite_leggings = registerItem("halite_leggings", () -> new ItemDivineArmor(ArmorStats.HALITE, EquipmentSlot.LEGS, halInfo)),
-            halite_boots = registerItem("halite_boots", () -> new ItemDivineArmor(ArmorStats.HALITE, EquipmentSlot.FEET, halInfo)),
+    halite_helmet = registerItem("halite_helmet", () -> new ItemDivineArmor(ArmorStats.HALITE, ArmorItem.Type.HELMET, halInfo)),
+            halite_chestplate = registerItem("halite_chestplate", () -> new ItemDivineArmor(ArmorStats.HALITE, ArmorItem.Type.CHESTPLATE, halInfo)),
+            halite_leggings = registerItem("halite_leggings", () -> new ItemDivineArmor(ArmorStats.HALITE, ArmorItem.Type.LEGGINGS, halInfo)),
+            halite_boots = registerItem("halite_boots", () -> new ItemDivineArmor(ArmorStats.HALITE, ArmorItem.Type.BOOTS, halInfo)),
 
-    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, EquipmentSlot.HEAD, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, EquipmentSlot.CHEST, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, EquipmentSlot.LEGS, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, EquipmentSlot.FEET, infernoInfo, new Item.Properties().fireResistant())),
+    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.HELMET, infernoInfo, new Item.Properties().fireResistant())),
+            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.CHESTPLATE, infernoInfo, new Item.Properties().fireResistant())),
+            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.LEGGINGS, infernoInfo, new Item.Properties().fireResistant())),
+            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.BOOTS, infernoInfo, new Item.Properties().fireResistant())),
 
-    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, EquipmentSlot.HEAD, jackomanInfo)),
-            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, EquipmentSlot.CHEST, jackomanInfo)),
-            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, EquipmentSlot.LEGS, jackomanInfo)),
-            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, EquipmentSlot.FEET, jackomanInfo)),
+    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.HELMET, jackomanInfo)),
+            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.CHESTPLATE, jackomanInfo)),
+            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.LEGGINGS, jackomanInfo)),
+            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.BOOTS, jackomanInfo)),
 
-    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, EquipmentSlot.HEAD, jungleInfo)),
-            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, EquipmentSlot.CHEST, jungleInfo)),
-            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, EquipmentSlot.LEGS, jungleInfo)),
-            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, EquipmentSlot.FEET, jungleInfo)),
+    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.HELMET, jungleInfo)),
+            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.CHESTPLATE, jungleInfo)),
+            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.LEGGINGS, jungleInfo)),
+            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.BOOTS, jungleInfo)),
 
-    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, EquipmentSlot.HEAD, kormInfo)),
-            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, EquipmentSlot.CHEST, kormInfo)),
-            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, EquipmentSlot.LEGS, kormInfo)),
-            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, EquipmentSlot.FEET, kormInfo)),
+    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.HELMET, kormInfo)),
+            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.CHESTPLATE, kormInfo)),
+            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.LEGGINGS, kormInfo)),
+            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.BOOTS, kormInfo)),
 
-    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, EquipmentSlot.HEAD, krakenInfo)),
-            kraken_chestplate = registerItem("kraken_chestplate", () -> new ItemDivineArmor(ArmorStats.KRAKEN, EquipmentSlot.CHEST, krakenInfo)),
-            kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, EquipmentSlot.LEGS, krakenInfo)),
-            kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, EquipmentSlot.FEET, krakenInfo)),
+    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.HELMET, krakenInfo)),
+            kraken_chestplate = registerItem("kraken_chestplate", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.CHESTPLATE, krakenInfo)),
+            kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.LEGGINGS, krakenInfo)),
+            kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.BOOTS, krakenInfo)),
 
-    mortum_helmet = registerItem("mortum_helmet", () -> new ItemDivineArmor(ArmorStats.MORTUM, EquipmentSlot.HEAD, mortInfo)),
-            mortum_chestplate = registerItem("mortum_chestplate", () -> new ItemDivineArmor(ArmorStats.MORTUM, EquipmentSlot.CHEST, mortInfo)),
-            mortum_leggings = registerItem("mortum_leggings", () -> new ItemDivineArmor(ArmorStats.MORTUM, EquipmentSlot.LEGS, mortInfo)),
-            mortum_boots = registerItem("mortum_boots", () -> new ItemDivineArmor(ArmorStats.MORTUM, EquipmentSlot.FEET, mortInfo)),
+    mortum_helmet = registerItem("mortum_helmet", () -> new ItemDivineArmor(ArmorStats.MORTUM, ArmorItem.Type.HELMET, mortInfo)),
+            mortum_chestplate = registerItem("mortum_chestplate", () -> new ItemDivineArmor(ArmorStats.MORTUM, ArmorItem.Type.CHESTPLATE, mortInfo)),
+            mortum_leggings = registerItem("mortum_leggings", () -> new ItemDivineArmor(ArmorStats.MORTUM, ArmorItem.Type.LEGGINGS, mortInfo)),
+            mortum_boots = registerItem("mortum_boots", () -> new ItemDivineArmor(ArmorStats.MORTUM, ArmorItem.Type.BOOTS, mortInfo)),
 
-    realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, EquipmentSlot.HEAD)),
-            realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, EquipmentSlot.CHEST)),
-            realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, EquipmentSlot.LEGS)),
-            realmite_boots = registerItem("realmite_boots", () -> new ItemDivineArmor(ArmorStats.REALMITE, EquipmentSlot.FEET)),
+    realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.HELMET)),
+            realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.CHESTPLATE)),
+            realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.LEGGINGS)),
+            realmite_boots = registerItem("realmite_boots", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.BOOTS)),
 
-    red_ender_helmet = registerItem("red_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            red_ender_chestplate = registerItem("red_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            red_ender_leggings = registerItem("red_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            red_ender_boots = registerItem("red_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    red_ender_helmet = registerItem("red_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            red_ender_chestplate = registerItem("red_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            red_ender_leggings = registerItem("red_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            red_ender_boots = registerItem("red_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    red_rupee_helmet = registerItem("red_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            red_rupee_chestplate = registerItem("red_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            red_rupee_leggings = registerItem("red_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            red_rupee_boots = registerItem("red_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    red_rupee_helmet = registerItem("red_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            red_rupee_chestplate = registerItem("red_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            red_rupee_leggings = registerItem("red_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            red_rupee_boots = registerItem("red_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, EquipmentSlot.HEAD, sengFurInfo)),
-            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, EquipmentSlot.CHEST, sengFurInfo)),
-            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, EquipmentSlot.LEGS, sengFurInfo)),
-            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, EquipmentSlot.FEET, sengFurInfo)),
+    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo)),
+            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
+            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
+            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
 
-    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, EquipmentSlot.HEAD, shadowInfo)),
-            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, EquipmentSlot.CHEST, shadowInfo)),
-            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, EquipmentSlot.LEGS, shadowInfo)),
-            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, EquipmentSlot.FEET, shadowInfo)),
+    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo)),
+            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo)),
+            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
+            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
 
-    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, EquipmentSlot.HEAD, skelemanInfo)),
-            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, EquipmentSlot.CHEST, skelemanInfo)),
-            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, EquipmentSlot.LEGS, skelemanInfo)),
-            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, EquipmentSlot.FEET, skelemanInfo)),
+    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.HELMET, skelemanInfo)),
+            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.CHESTPLATE, skelemanInfo)),
+            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
+            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
 
-    skythern_helmet = registerItem("skythern_helmet", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, EquipmentSlot.HEAD, skyInfo)),
-            skythern_chestplate = registerItem("skythern_chestplate", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, EquipmentSlot.CHEST, skyInfo)),
-            skythern_leggings = registerItem("skythern_leggings", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, EquipmentSlot.LEGS, skyInfo)),
-            skythern_boots = registerItem("skythern_boots", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, EquipmentSlot.FEET, skyInfo)),
+    skythern_helmet = registerItem("skythern_helmet", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.HELMET, skyInfo)),
+            skythern_chestplate = registerItem("skythern_chestplate", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.CHESTPLATE, skyInfo)),
+            skythern_leggings = registerItem("skythern_leggings", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.LEGGINGS, skyInfo)),
+            skythern_boots = registerItem("skythern_boots", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.BOOTS, skyInfo)),
 
-    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, EquipmentSlot.HEAD, terranInfo)),
-            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, EquipmentSlot.CHEST, terranInfo)),
-            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, EquipmentSlot.LEGS, terranInfo)),
-            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, EquipmentSlot.FEET, terranInfo)),
+    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo)),
+            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
+            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
+            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
 
-    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, EquipmentSlot.HEAD, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, EquipmentSlot.CHEST, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, EquipmentSlot.LEGS, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, EquipmentSlot.FEET, torriditeInfo, new Item.Properties().fireResistant())),
+    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.HELMET, torriditeInfo, new Item.Properties().fireResistant())),
+            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.CHESTPLATE, torriditeInfo, new Item.Properties().fireResistant())),
+            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.LEGGINGS, torriditeInfo, new Item.Properties().fireResistant())),
+            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.BOOTS, torriditeInfo, new Item.Properties().fireResistant())),
 
-    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, EquipmentSlot.HEAD, vemInfo)),
-            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, EquipmentSlot.CHEST, vemInfo)),
-            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, EquipmentSlot.LEGS, vemInfo)),
-            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, EquipmentSlot.FEET, vemInfo)),
+    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.HELMET, vemInfo)),
+            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.CHESTPLATE, vemInfo)),
+            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.LEGGINGS, vemInfo)),
+            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.BOOTS, vemInfo)),
 
-    wildwood_helmet = registerItem("wildwood_helmet", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, EquipmentSlot.HEAD, wildInfo)),
-            wildwood_chestplate = registerItem("wildwood_chestplate", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, EquipmentSlot.CHEST, wildInfo)),
-            wildwood_leggings = registerItem("wildwood_leggings", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, EquipmentSlot.LEGS, wildInfo)),
-            wildwood_boots = registerItem("wildwood_boots", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, EquipmentSlot.FEET, wildInfo)),
+    wildwood_helmet = registerItem("wildwood_helmet", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, ArmorItem.Type.HELMET, wildInfo)),
+            wildwood_chestplate = registerItem("wildwood_chestplate", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, ArmorItem.Type.CHESTPLATE, wildInfo)),
+            wildwood_leggings = registerItem("wildwood_leggings", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, ArmorItem.Type.LEGGINGS, wildInfo)),
+            wildwood_boots = registerItem("wildwood_boots", () -> new ItemDivineArmor(ArmorStats.WILDWOOD, ArmorItem.Type.BOOTS, wildInfo)),
 
-    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, EquipmentSlot.HEAD, witherReaperInfo)),
-            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, EquipmentSlot.CHEST, witherReaperInfo)),
-            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, EquipmentSlot.LEGS, witherReaperInfo)),
-            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, EquipmentSlot.FEET, witherReaperInfo)),
+    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.HELMET, witherReaperInfo)),
+            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.CHESTPLATE, witherReaperInfo)),
+            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.LEGGINGS, witherReaperInfo)),
+            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.BOOTS, witherReaperInfo)),
 
-    yellow_ender_helmet = registerItem("yellow_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.HEAD, enderInfo)),
-            yellow_ender_chestplate = registerItem("yellow_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.CHEST, enderInfo)),
-            yellow_ender_leggings = registerItem("yellow_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.LEGS, enderInfo)),
-            yellow_ender_boots = registerItem("yellow_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, EquipmentSlot.FEET, enderInfo)),
+    yellow_ender_helmet = registerItem("yellow_ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo)),
+            yellow_ender_chestplate = registerItem("yellow_ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
+            yellow_ender_leggings = registerItem("yellow_ender_leggings", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
+            yellow_ender_boots = registerItem("yellow_ender_boots", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    yellow_rupee_helmet = registerItem("yellow_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.HEAD, rupeeInfo)),
-            yellow_rupee_chestplate = registerItem("yellow_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.CHEST, rupeeInfo)),
-            yellow_rupee_leggings = registerItem("yellow_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.LEGS, rupeeInfo)),
-            yellow_rupee_boots = registerItem("yellow_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, EquipmentSlot.FEET, rupeeInfo)),
+    yellow_rupee_helmet = registerItem("yellow_rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo)),
+            yellow_rupee_chestplate = registerItem("yellow_rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
+            yellow_rupee_leggings = registerItem("yellow_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
+            yellow_rupee_boots = registerItem("yellow_rupee_boots", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    degraded_helmet = registerItem("degraded_helmet", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.HEAD, basicHelmInfo)),
-            degraded_hood = registerItem("degraded_hood", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.HEAD, basicHoodInfo)),
-            degraded_mask = registerItem("degraded_mask", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.HEAD, basicMaskInfo)),
-            degraded_chestplate = registerItem("degraded_chestplate", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.CHEST, new ArmorInfo())),
-            degraded_leggings = registerItem("degraded_leggings", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.LEGS, new ArmorInfo())),
-            degraded_boots = registerItem("degraded_boots", () -> new ItemDivineArmor(ArmorStats.DEGRADED, EquipmentSlot.FEET, new ArmorInfo())),
+    degraded_helmet = registerItem("degraded_helmet", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.HELMET, basicHelmInfo)),
+            degraded_hood = registerItem("degraded_hood", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.HELMET, basicHoodInfo)),
+            degraded_mask = registerItem("degraded_mask", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.HELMET, basicMaskInfo)),
+            degraded_chestplate = registerItem("degraded_chestplate", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.CHESTPLATE, new ArmorInfo())),
+            degraded_leggings = registerItem("degraded_leggings", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.LEGGINGS, new ArmorInfo())),
+            degraded_boots = registerItem("degraded_boots", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.BOOTS, new ArmorInfo())),
 
-    demonized_helmet = registerItem("demonized_helmet", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.HEAD, demonizedHelmInfo)),
-            demonized_hood = registerItem("demonized_hood", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.HEAD, demonizedHoodInfo)),
-            demonized_mask = registerItem("demonized_mask", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.HEAD, demonizedMaskInfo)),
-            demonized_chestplate = registerItem("demonized_chestplate", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.CHEST, new ArmorInfo())),
-            demonized_leggings = registerItem("demonized_leggings", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.LEGS, new ArmorInfo())),
-            demonized_boots = registerItem("demonized_boots", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, EquipmentSlot.FEET, new ArmorInfo())),
+    demonized_helmet = registerItem("demonized_helmet", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedHelmInfo)),
+            demonized_hood = registerItem("demonized_hood", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedHoodInfo)),
+            demonized_mask = registerItem("demonized_mask", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedMaskInfo)),
+            demonized_chestplate = registerItem("demonized_chestplate", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.CHESTPLATE, new ArmorInfo())),
+            demonized_leggings = registerItem("demonized_leggings", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.LEGGINGS, new ArmorInfo())),
+            demonized_boots = registerItem("demonized_boots", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.BOOTS, new ArmorInfo())),
 
-    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.HEAD)),
-            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.HEAD)),
-            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.HEAD)),
-            finished_chestplate = registerItem("finished_chestplate", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.CHEST)),
-            finished_leggings = registerItem("finished_leggings", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.LEGS)),
-            finished_boots = registerItem("finished_boots", () -> new ItemDivineArmor(ArmorStats.FINISHED, EquipmentSlot.FEET)),
+    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET)),
+            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET)),
+            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET)),
+            finished_chestplate = registerItem("finished_chestplate", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.CHESTPLATE)),
+            finished_leggings = registerItem("finished_leggings", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.LEGGINGS)),
+            finished_boots = registerItem("finished_boots", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.BOOTS)),
 
-    glistening_helmet = registerItem("glistening_helmet", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.HEAD, glisteningHelmInfo)),
-            glistening_hood = registerItem("glistening_hood", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.HEAD, glisteningHoodInfo)),
-            glistening_mask = registerItem("glistening_mask", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.HEAD, glisteningMaskInfo)),
-            glistening_chestplate = registerItem("glistening_chestplate", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.CHEST, new ArmorInfo())),
-            glistening_leggings = registerItem("glistening_leggings", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.LEGS, new ArmorInfo())),
-            glistening_boots = registerItem("glistening_boots", () -> new ItemDivineArmor(ArmorStats.GLISTENING, EquipmentSlot.FEET, new ArmorInfo())),
+    glistening_helmet = registerItem("glistening_helmet", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.HELMET, glisteningHelmInfo)),
+            glistening_hood = registerItem("glistening_hood", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.HELMET, glisteningHoodInfo)),
+            glistening_mask = registerItem("glistening_mask", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.HELMET, glisteningMaskInfo)),
+            glistening_chestplate = registerItem("glistening_chestplate", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.CHESTPLATE, new ArmorInfo())),
+            glistening_leggings = registerItem("glistening_leggings", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.LEGGINGS, new ArmorInfo())),
+            glistening_boots = registerItem("glistening_boots", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.BOOTS, new ArmorInfo())),
 
-    tormented_helmet = registerItem("tormented_helmet", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.HEAD, tormentedHelmInfo)),
-            tormented_hood = registerItem("tormented_hood", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.HEAD, tormentedHoodInfo)),
-            tormented_mask = registerItem("tormented_mask", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.HEAD, tormentedMaskInfo)),
-            tormented_chestplate = registerItem("tormented_chestplate", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.CHEST, new ArmorInfo())),
-            tormented_leggings = registerItem("tormented_leggings", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.LEGS, new ArmorInfo())),
-            tormented_boots = registerItem("tormented_boots", () -> new ItemDivineArmor(ArmorStats.TORMENTED, EquipmentSlot.FEET, new ArmorInfo()));
+    tormented_helmet = registerItem("tormented_helmet", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedHelmInfo)),
+            tormented_hood = registerItem("tormented_hood", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedHoodInfo)),
+            tormented_mask = registerItem("tormented_mask", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedMaskInfo)),
+            tormented_chestplate = registerItem("tormented_chestplate", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.CHESTPLATE, new ArmorInfo())),
+            tormented_leggings = registerItem("tormented_leggings", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.LEGGINGS, new ArmorInfo())),
+            tormented_boots = registerItem("tormented_boots", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.BOOTS, new ArmorInfo()));
 
     public static MutableComponent getArmorAbility(String keyPart, Object... params) {
         String id = String.format("tooltip.armor_info.%s", keyPart);
 
         return params == null || params.length < 1
-                ? MutableComponent.create(new TranslatableContents(id))
-                : MutableComponent.create(new TranslatableContents(id, params));
+                ? MutableComponent.create(new TranslatableContents(id, null, null))
+                : MutableComponent.create(new TranslatableContents(id, null, params));
     }
 
     private static <T extends Item> RegistryObject<T> registerItem(String registryId, Supplier<T> item) {

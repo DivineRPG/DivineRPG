@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.projectile.*;
@@ -107,7 +107,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
 
     public void fallOn(Level p_154047_, BlockState p_154048_, BlockPos p_154049_, Entity p_154050_, float p_154051_) {
         if (p_154048_.getValue(TIP_DIRECTION) == Direction.UP && p_154048_.getValue(THICKNESS) == DripstoneThickness.TIP) {
-            p_154050_.causeFallDamage(p_154051_ + 2.0F, 2.0F, DamageSource.STALAGMITE);
+            p_154050_.causeFallDamage(p_154051_ + 2.0F, 2.0F, p_154047_.damageSources().stalagmite());
         } else {
             super.fallOn(p_154047_, p_154048_, p_154049_, p_154050_, p_154051_);
         }
@@ -203,7 +203,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
 
 
     public DamageSource getFallDamageSource(Entity entity) {
-        return DamageSource.fallingStalactite(entity);
+        return entity.level.damageSources().stalagmite();
     }
 
     public Predicate<Entity> getHurtsEntitySelector() {

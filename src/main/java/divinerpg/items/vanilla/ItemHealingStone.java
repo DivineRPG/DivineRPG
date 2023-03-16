@@ -6,7 +6,6 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -39,7 +38,7 @@ public class ItemHealingStone extends ItemMod {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
     	if(!(entity instanceof ServerPlayer && ((ServerPlayer) entity).isCreative())) {
     		if(entity instanceof Monster) {
-        		entity.hurt(DamageSource.MAGIC, healAmount / 2);
+        		entity.hurt(entity.damageSources().magic(), healAmount / 2);
                 if(!player.isCreative()) {
                 	stack.shrink(1);
                 	if(player.getHealth() < player.getMaxHealth()) player.heal(healAmount / 2);

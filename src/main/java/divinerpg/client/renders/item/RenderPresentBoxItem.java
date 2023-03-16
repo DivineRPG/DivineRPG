@@ -6,7 +6,6 @@ import divinerpg.DivineRPG;
 import divinerpg.client.models.block.ModelPresentBox;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
@@ -21,8 +20,8 @@ public class RenderPresentBoxItem extends BlockEntityWithoutLevelRenderer {
     }
 
     @Override
-    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
-        super.renderByItem(stack, transformType, matrixStack, buffer, combinedLight, combinedOverlay);
+    public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        super.renderByItem(stack, context, matrixStack, buffer, combinedLight, combinedOverlay);
         Item item = stack.getItem();
         if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "present_box")).asItem()) {
             matrixStack.pushPose();

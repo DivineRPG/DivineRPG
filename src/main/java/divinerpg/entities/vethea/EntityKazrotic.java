@@ -4,7 +4,7 @@ import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.EntityKazroticShot;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.*;
@@ -46,7 +46,7 @@ public class EntityKazrotic extends EntityDivineMonster implements RangedAttackM
 
     @Override
     public boolean hurt(DamageSource par1, float par2) {
-        if(par1.isExplosion()) return false;
+        if(par1.is(DamageTypes.EXPLOSION)) return false;
         return super.hurt(par1, par2);
     }
 

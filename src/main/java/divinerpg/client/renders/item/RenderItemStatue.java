@@ -9,7 +9,6 @@ import divinerpg.client.models.vanilla.ModelWatcher;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
@@ -31,7 +30,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
     }
 
     @Override
-    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack matrixStack, MultiBufferSource renderType, int combinedLight, int combinedOverlay) {
+    public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource renderType, int combinedLight, int combinedOverlay) {
             if(stack.getItem() instanceof BlockItem){
                 Block block = ((BlockItem) stack.getItem()).getBlock();
                 if(block instanceof BlockStatue){

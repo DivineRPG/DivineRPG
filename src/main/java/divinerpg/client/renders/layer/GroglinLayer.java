@@ -8,10 +8,10 @@ import divinerpg.entities.iceika.EntityGroglin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -33,7 +33,7 @@ public class GroglinLayer extends RenderLayer<EntityGroglin, ModelGroglin<Entity
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));
             poseStack.mulPose(Axis.ZN.rotationDegrees(45));
             poseStack.scale(0.8F, 0.8F, 0.8F);
-            Minecraft.getInstance().getItemRenderer().renderStatic(groglin, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icine_sword")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, poseStack, bufferIn, groglin.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(groglin, 0.0F), 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(groglin, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icine_sword")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, groglin.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(groglin, 0.0F), 0);
         }
         if(groglin.heldItem() == 2) {
             poseStack.translate(0.0625F, 0.50F, -0.0F);
@@ -41,7 +41,7 @@ public class GroglinLayer extends RenderLayer<EntityGroglin, ModelGroglin<Entity
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));
             poseStack.mulPose(Axis.ZN.rotationDegrees(45));
             poseStack.scale(0.8F, 0.8F, 0.8F);
-            Minecraft.getInstance().getItemRenderer().renderStatic(groglin, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle_bow")).getDefaultInstance(), ItemTransforms.TransformType.NONE, false, poseStack, bufferIn, groglin.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(groglin, 0.0F), 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(groglin, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, groglin.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(groglin, 0.0F), 0);
         }
         poseStack.popPose();
     }

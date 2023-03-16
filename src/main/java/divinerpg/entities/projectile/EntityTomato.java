@@ -3,7 +3,6 @@ package divinerpg.entities.projectile;
 import divinerpg.client.particle.options.ParticleColouredType;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.ParticleRegistry;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -26,7 +25,7 @@ public class EntityTomato extends DivineThrowable {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             super.onHitEntity(result);
-            result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 1.0F);
+            result.getEntity().hurt(damageSources().thrown(this, getOwner()), 1.0F);
             if (level.isClientSide) {
                 level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), BulletType.TOMATO.getRed(), BulletType.TOMATO.getGreen(), BulletType.TOMATO.getBlue()), this.getX(), this.getY(), this.getZ(), 0.2D, 0.2D, 0.2D);
             }

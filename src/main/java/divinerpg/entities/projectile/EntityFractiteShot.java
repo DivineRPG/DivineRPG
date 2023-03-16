@@ -45,7 +45,7 @@ public class EntityFractiteShot extends DivineFireball {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null && shootingEntity != null) {
                 Entity entity = result.getEntity();
-                entity.hurt(DamageSource.fireball(this, this.shootingEntity), 12.0F);
+                entity.hurt(damageSources().fireball(this, this.shootingEntity), 12.0F);
             }
 
             this.level.explode(null, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);

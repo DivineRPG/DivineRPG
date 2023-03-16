@@ -17,7 +17,7 @@ public class ItemEvernight extends ItemStaff {
 
     @Override
     protected void doPreUsageEffects(Level world, Player player) {
-        player.hurt(DamageSources.arcanaSource, 20);
+        player.hurt(DamageSources.arcana, 20);
     }
 
     @Override

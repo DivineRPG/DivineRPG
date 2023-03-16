@@ -1,10 +1,7 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -28,7 +25,7 @@ public class EntityMandragoraProjectile extends EntityHeatSeekingProjectile {
         if(tickCount != 1 || tickCount != 0) {
             if (pos.getEntity() != null && pos.getEntity() != this.thrower) {
                 Entity entity = pos.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.thrower), 4.0F);
+                entity.hurt(damageSources().thrown(this, this.thrower), 4.0F);
             }
 
             if (!this.level.isClientSide) {

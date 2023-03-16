@@ -88,7 +88,7 @@ public class MoveTowardsGoal extends Goal {
             }
         }
 
-        return new BlockPos((double)i + p_217864_.getX(), (double)p_217867_.getY() + p_217864_.getY(), (double)j + p_217864_.getZ());
+        return new BlockPos((int) ((double)i + p_217864_.getX()), (int) ((double)p_217867_.getY() + p_217864_.getY()), (int) ((double)j + p_217864_.getZ()));
     }
     public static boolean mobRestricted(Mob p_148443_, int p_148444_) {
         return p_148443_.hasRestriction() && p_148443_.getRestrictCenter().closerToCenterThan(p_148443_.position(), (double)(p_148443_.getRestrictRadius() + (float)p_148444_) + 1.0D);

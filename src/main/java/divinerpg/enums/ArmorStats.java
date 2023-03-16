@@ -3,8 +3,7 @@ package divinerpg.enums;
 import divinerpg.DivineRPG;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -83,18 +82,20 @@ public enum ArmorStats implements ArmorMaterial {
 
     }
     public String getTextureLocation() {return textureLocation;}
-    @Override public int getDurabilityForSlot(EquipmentSlot slot) {return durability;}
+
+
+    @Override public int getDurabilityForType(ArmorItem.Type type) {return durability;}
     @Override public int getEnchantmentValue() {return enchantability;}
     @Override public SoundEvent getEquipSound() {return equipSound;}
     @Override public Ingredient getRepairIngredient() {return repairIngredient;}
     @Override public String getName() {return name;}
     @Override public float getToughness() {return toughness;}
     @Override public float getKnockbackResistance() {return 0;}
-    @Override public int getDefenseForSlot(EquipmentSlot slot) {
-        return switch(slot) {
-            case HEAD -> headArmor;
-            case CHEST -> chestArmor;
-            case LEGS -> legsArmor;
+    @Override public int getDefenseForType(ArmorItem.Type type) {
+        return switch(type) {
+            case HELMET -> headArmor;
+            case CHESTPLATE -> chestArmor;
+            case LEGGINGS -> legsArmor;
             default -> feetArmor;
         };
     }

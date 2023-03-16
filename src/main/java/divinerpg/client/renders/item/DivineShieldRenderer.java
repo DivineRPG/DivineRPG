@@ -1,16 +1,12 @@
 package divinerpg.client.renders.item;
 
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.items.base.*;
-import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.*;
-
+import divinerpg.items.base.DivineShield;
 import net.minecraft.client.model.ShieldModel;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 
 public class DivineShieldRenderer extends BlockEntityWithoutLevelRenderer {
     private final ShieldModel model;
@@ -22,8 +18,8 @@ public class DivineShieldRenderer extends BlockEntityWithoutLevelRenderer {
 
 
     @Override
-    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
-        super.renderByItem(stack, transformType, matrixStack, buffer, combinedLight, combinedOverlay);
+    public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        super.renderByItem(stack, context, matrixStack, buffer, combinedLight, combinedOverlay);
         Item item = stack.getItem();
 
         if (item instanceof DivineShield) {

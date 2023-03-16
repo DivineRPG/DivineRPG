@@ -1,10 +1,7 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.enums.*;
-
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import divinerpg.enums.BulletType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -37,7 +34,7 @@ public class EntityTwilightMageShot extends EntityColoredBullet {
     public void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null) {
-                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()),
+                result.getEntity().hurt(damageSources().thrown(this, this.getOwner()),
                         this.getBulletType().getDamage());
             }
             if (!this.level.isClientSide) {

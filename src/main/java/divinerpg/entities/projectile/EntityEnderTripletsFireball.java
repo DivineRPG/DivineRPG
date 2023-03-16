@@ -1,10 +1,9 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.registries.ParticleRegistry;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.LargeFireball;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public class EntityEnderTripletsFireball extends DivineFireball {
@@ -26,7 +25,7 @@ public class EntityEnderTripletsFireball extends DivineFireball {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
                     if (this.shootingEntity != null) {
-                        entity.hurt(DamageSource.fireball(this, this.shootingEntity), 8);
+                        entity.hurt(entity.damageSources().fireball(this, this.shootingEntity), 8);
                     }
                 }
                 this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);

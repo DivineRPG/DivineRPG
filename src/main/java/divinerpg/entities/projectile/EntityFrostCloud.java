@@ -9,7 +9,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.level.Level;
@@ -153,7 +152,7 @@ public class EntityFrostCloud extends Entity {
                                         || entity instanceof EntityFrostArcher || entity instanceof EntityFrosty
                                         || entity instanceof EntityGlacide || entity instanceof EntityHastreus
                                         || entity instanceof EntityRollum)) {
-                                    entity.hurt(DamageSource.MAGIC, 1.0F);
+                                    entity.hurt(entity.level.damageSources().magic(), 1.0F);
                                 }
                             }
                         }

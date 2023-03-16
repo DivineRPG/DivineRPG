@@ -2,7 +2,6 @@ package divinerpg.entities.projectile;
 
 import divinerpg.DivineRPG;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -28,7 +27,7 @@ public class EntityShuriken extends DivineThrowable {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if (tickCount != 1 || tickCount != 0) {
-            result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 4.0F);
+            result.getEntity().hurt(damageSources().thrown(this, getOwner()), 4.0F);
         }
     }
 

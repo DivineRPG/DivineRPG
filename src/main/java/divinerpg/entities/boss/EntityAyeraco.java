@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent.BossBarColor;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.*;
@@ -116,7 +116,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 	}
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
-		if(isInvulnerableTo(source) || (projectileProtected && source.isProjectile()) || (magicProtected && source.isMagic())) return false;
+		if(isInvulnerableTo(source) || (projectileProtected && source.is(DamageTypes.MOB_PROJECTILE)) || (magicProtected && source.is(DamageTypes.MAGIC))) return false;
 		updateAbilities();
 		return super.hurt(source, amount);
 	}
@@ -224,7 +224,7 @@ public class EntityAyeraco extends EntityDivineBoss {
            move(MoverType.SELF, getDeltaMovement());
            setDeltaMovement(getDeltaMovement().scale(0.8D));
         } else {
-           BlockPos ground = new BlockPos(getX(), getY() - 1.0D, getZ());
+           BlockPos ground = new BlockPos(blockPosition().below());
            float f = 0.91F;
            if(onGround) f = level.getBlockState(ground).getFriction(level, ground, this) * 0.91F;
            float f1 = 0.16277137F / (f * f * f);
@@ -234,7 +234,7 @@ public class EntityAyeraco extends EntityDivineBoss {
            move(MoverType.SELF, getDeltaMovement());
            setDeltaMovement(getDeltaMovement().scale(f));
         }
-        calculateEntityAnimation(this, false);
+        calculateEntityAnimation(false);
 	}
     
     class AyeracoBodyRotationControl extends BodyRotationControl {

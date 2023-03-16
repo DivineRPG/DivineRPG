@@ -44,7 +44,7 @@ public class EntityScorcherShot extends DivineFireball {
                 Entity entity1 = this.getOwner();
                 int i = entity.getRemainingFireTicks();
                 entity.setSecondsOnFire(5);
-                boolean flag = entity.hurt(DamageSource.fireball(this, entity1), 5.0F);
+                boolean flag = entity.hurt(damageSources().fireball(this, entity1), 5.0F);
                 if (!flag) {
                     entity.setRemainingFireTicks(i);
                 } else if (entity1 instanceof LivingEntity) {

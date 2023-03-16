@@ -145,7 +145,7 @@ public abstract class TileEntityModFurnace extends BaseContainerBlockEntity impl
 	}
 	private boolean canBurn(@Nullable Recipe<?> p_155006_, NonNullList<ItemStack> p_155007_, int p_155008_) {
 	      if (!p_155007_.get(0).isEmpty() && p_155006_ != null) {
-	         ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this);
+	         ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, level.registryAccess());
 	         if (itemstack.isEmpty()) return false;
 	         else {
 	            ItemStack itemstack1 = p_155007_.get(2);
@@ -159,7 +159,7 @@ public abstract class TileEntityModFurnace extends BaseContainerBlockEntity impl
 	private boolean burn(@Nullable Recipe<?> p_155027_, NonNullList<ItemStack> p_155028_, int p_155029_) {
 	      if (p_155027_ != null && this.canBurn(p_155027_, p_155028_, p_155029_)) {
 	         ItemStack itemstack = p_155028_.get(0);
-	         ItemStack itemstack1 = ((Recipe<WorldlyContainer>) p_155027_).assemble(this);
+	         ItemStack itemstack1 = ((Recipe<WorldlyContainer>) p_155027_).assemble(this, level.registryAccess());
 	         ItemStack itemstack2 = p_155028_.get(2);
 	         if (itemstack2.isEmpty()) p_155028_.set(2, itemstack1.copy());
 	         else if (itemstack2.is(itemstack1.getItem())) itemstack2.grow(itemstack1.getCount());

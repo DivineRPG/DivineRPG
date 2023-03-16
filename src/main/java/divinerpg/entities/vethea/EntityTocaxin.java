@@ -32,7 +32,7 @@ public class EntityTocaxin extends EntityDivineMonster {
             }
             else {
                 this.hurtTimer = 10;
-                var1.hurt(DamageSource.mobAttack(this), (int) (8 - this.distanceTo(var1)));
+                var1.hurt(damageSources().mobAttack(this), (int) (8 - this.distanceTo(var1)));
             }
         }
     }

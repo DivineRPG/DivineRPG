@@ -28,7 +28,7 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
         if (!this.level.isClientSide) {
             if (result.getLocation() != null) {
                 for (int i = 0; i < 3; i++) {
-                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, new BlockPos(result.getLocation()), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, new BlockPos((int) result.getLocation().x, (int) result.getLocation().y, (int) result.getLocation().z), MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 this.kill();
             }

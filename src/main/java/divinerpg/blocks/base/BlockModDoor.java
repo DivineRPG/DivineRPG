@@ -1,15 +1,15 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.core.*;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class BlockModDoor extends DoorBlock {
     public BlockModDoor(Material material, float hardness, float resistance, SoundType sound) {
@@ -18,7 +18,7 @@ public class BlockModDoor extends DoorBlock {
                 .strength(hardness, resistance)
                 .noOcclusion()
                 .requiresCorrectToolForDrops()
-                .sound(sound), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN);
+                .sound(sound), BlockSetType.OAK);
     }
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {

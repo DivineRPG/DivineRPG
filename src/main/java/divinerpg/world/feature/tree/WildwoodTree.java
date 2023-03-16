@@ -220,12 +220,12 @@ public class WildwoodTree extends DivineTree {
 	        	        	for(int y = 1; y < length + 1; y++) {
 	        	        		x += stepX;
 	        	        		z += stepZ;
-	    	        			setBlock(level, pos.offset(x, trunkY + y, z), log);
-	        	        		grow(level, pos.offset(x, trunkY + y, z), leaves, 1, 0);
-	        	        		growLeavesWithVines(level, random, pos.offset(x, trunkY + y, z), leaves, 0, 1, 1, 0.5F, 0.3F);
-	        	        		if(y > 1 && trunkY + y < treeHeight) growLeavesWithVines(level, random, pos.offset(x, trunkY + y, z), leaves, 0, 2, 0, 0.3F, 0.5F);
+	    	        			setBlock(level, pos.offset((int) x, trunkY + y, (int) z), log);
+	        	        		grow(level, pos.offset((int) x, trunkY + y, (int) z), leaves, 1, 0);
+	        	        		growLeavesWithVines(level, random, pos.offset((int) x, trunkY + y, (int) z), leaves, 0, 1, 1, 0.5F, 0.3F);
+	        	        		if(y > 1 && trunkY + y < treeHeight) growLeavesWithVines(level, random, pos.offset((int) x, trunkY + y, (int) z), leaves, 0, 2, 0, 0.3F, 0.5F);
 	        	        	}
-	        	        	setBlock(level, pos.offset(x, extraHeight, z), leaves);
+	        	        	setBlock(level, pos.offset((int) x, extraHeight, (int) z), leaves);
 	    	        	}
     	        	}
     	        	break;
@@ -236,9 +236,9 @@ public class WildwoodTree extends DivineTree {
     	        	x = 0, z = 0;
     	        	for(int y = 1; y < treeHeight + 1; y++) {
     	        		long pX = Math.round(x), pZ = Math.round(z);
-    	        		setBlock(level, pos.offset(pX, y, pZ), log);
-    	        		grow(level, pos.offset(pX, y, pZ), log, 1, 0);
-    	        		growVines(level, random, pos.offset(pX, y, pZ), 0, 2, 0, 0.3F);
+    	        		setBlock(level, pos.offset((int) pX, y, (int) pZ), log);
+    	        		grow(level, pos.offset((int) pX, y, (int) pZ), log, 1, 0);
+    	        		growVines(level, random, pos.offset((int) pX, y, (int) pZ), 0, 2, 0, 0.3F);
     	        		x += stepX;
     	        		z += stepZ;
     	        	}

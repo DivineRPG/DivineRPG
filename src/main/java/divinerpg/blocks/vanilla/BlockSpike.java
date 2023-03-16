@@ -19,12 +19,12 @@ public class BlockSpike extends BlockMod {
     public void updateEntityAfterFallOn(BlockGetter block, Entity entityIn){
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
-                entityIn.hurt(DamageSources.spikeSource, 8);
+                entityIn.hurt(DamageSources.spike, 8);
                 entityIn.setSecondsOnFire(10);
             }
         } else {
             if (entityIn instanceof LivingEntity) {
-                entityIn.hurt(DamageSources.spikeSource, 5);
+                entityIn.hurt(DamageSources.spike, 5);
             }
         }
     }

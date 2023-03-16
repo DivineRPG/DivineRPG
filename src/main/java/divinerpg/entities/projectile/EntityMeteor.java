@@ -1,7 +1,6 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -33,7 +32,7 @@ public class EntityMeteor extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null) {
                 Entity entity = result.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.getOwner()), 12);
+                entity.hurt(damageSources().thrown(this, this.getOwner()), 12);
             }
 
             level.explode(this, this.xo, this.yo, this.zo, 4.5F, false, Level.ExplosionInteraction.TNT);

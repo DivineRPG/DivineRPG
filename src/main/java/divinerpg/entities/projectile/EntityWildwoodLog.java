@@ -2,7 +2,6 @@ package divinerpg.entities.projectile;
 
 import divinerpg.DivineRPG;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -26,7 +25,7 @@ public class EntityWildwoodLog extends DivineThrowable {
 	protected void onHitEntity(EntityHitResult result) {
 		if (tickCount != 1 || tickCount != 0) {
 			if (result.getEntity() != null) {
-				result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 8.0F);
+				result.getEntity().hurt(result.getEntity().level.damageSources().thrown(this, this.getOwner()), 8.0F);
 			}
 			if (!this.level.isClientSide) {
 				level.addFreshEntity(new ItemEntity(level, this.xo, this.yo, this.zo, new ItemStack(getBlock())));

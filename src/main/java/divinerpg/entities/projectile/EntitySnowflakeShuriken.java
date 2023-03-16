@@ -2,7 +2,6 @@ package divinerpg.entities.projectile;
 
 import divinerpg.DivineRPG;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -29,7 +28,7 @@ public class EntitySnowflakeShuriken extends DivineThrowable {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if (tickCount != 1 || tickCount != 0) {
-            result.getEntity().hurt(DamageSource.thrown(this, getOwner()), 7.0F);
+            result.getEntity().hurt(damageSources().thrown(this, getOwner()), 7.0F);
             if (result.getEntity() instanceof LivingEntity)
                 ((LivingEntity) result.getEntity()).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 45, 3));
         }

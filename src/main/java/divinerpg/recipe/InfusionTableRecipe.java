@@ -2,7 +2,7 @@ package divinerpg.recipe;
 
 import com.google.gson.*;
 import divinerpg.registries.RecipeRegistry;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -39,7 +39,7 @@ public class InfusionTableRecipe implements Recipe<Container> {
     }
 
     @Override
-    public ItemStack assemble(Container inv){
+    public ItemStack assemble(Container inv, RegistryAccess access) {
         return output.copy();
     }
 
@@ -49,7 +49,7 @@ public class InfusionTableRecipe implements Recipe<Container> {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess access) {
         return this.output;
     }
 

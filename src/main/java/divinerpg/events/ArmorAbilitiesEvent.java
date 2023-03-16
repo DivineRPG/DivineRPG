@@ -5,7 +5,7 @@ import divinerpg.capability.ArcanaProvider;
 import divinerpg.registries.LevelRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
@@ -70,27 +70,27 @@ public class ArmorAbilitiesEvent {
         DamageSource source = e.getSource();
 
         if (isWearingFullArmor(player, boots, legs, body, helmet, "aquastrive")) {
-            if (source.equals(DamageSource.DROWN)) {
+            if (source.equals(player.damageSources().drown())) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "apalachia")) {
-            if (source.isProjectile() || source.equals(DamageSource.CACTUS) || source.equals(DamageSource.fallingBlock(e.getEntity())) || source.equals(DamageSource.anvil(e.getEntity())) || source.equals(DamageSource.IN_WALL) || source.equals(DamageSources.trapSource)) {
+            if (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(player.damageSources().fallingBlock(player)) || source.equals(player.damageSources().anvil(e.getEntity())) || source.equals(player.damageSources().inWall()) || source.equals(DamageSources.trap)) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "wither_reaper")) {
-            if (source.equals(DamageSource.WITHER)) {
+            if (source.equals(player.damageSources().wither())) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "jungle")) {
-            if (source.equals(DamageSource.MAGIC)) {
+            if (source.equals(player.damageSources().magic())) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "bedrock")) {
-            if (source.isExplosion()) {
+            if (source.is(DamageTypes.EXPLOSION)) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullEnderArmor(player, boots, legs, body, helmet)) {
-            if (source.isFire() || source.isExplosion()) {
+            if (source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.EXPLOSION)) {
                 e.setCanceled(true);
             }
         }
@@ -109,7 +109,7 @@ public class ArmorAbilitiesEvent {
             DamageSource source = event.getSource();
 
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "seng_fur")) {
-                if ((attacker.level.dimension() == LevelRegistry.ICEIKA) && ((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if ((attacker.level.dimension() == LevelRegistry.ICEIKA) && ((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 6);
                     return;
                 }
@@ -117,7 +117,7 @@ public class ArmorAbilitiesEvent {
 
             //Halite
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "halite")) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if (((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 16);
                     return;
                 }
@@ -125,11 +125,11 @@ public class ArmorAbilitiesEvent {
 
             //Awakened Halite
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "awakened_halite")) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if (((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 20);
                     return;
                 }
-                if (((attacker instanceof Player) && source.isProjectile())) {
+                if (((attacker instanceof Player) && source.is(DamageTypes.MOB_PROJECTILE))) {
                     event.setAmount(amount * 1.5F);
                     return;
                 }
@@ -137,7 +137,7 @@ public class ArmorAbilitiesEvent {
 
             //Divine
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "divine")) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if (((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 6);
                     return;
                 }
@@ -145,7 +145,7 @@ public class ArmorAbilitiesEvent {
 
             //Corrupted
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "corrupted")) {
-                if (attacker instanceof Player && source.isProjectile()) {
+                if (attacker instanceof Player && source.is(DamageTypes.MOB_PROJECTILE)) {
                     event.setAmount(amount * 1.5F);
                     return;
                 }
@@ -153,21 +153,21 @@ public class ArmorAbilitiesEvent {
 
             //Vethean
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "glistening")) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if (((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 3);
                     return;
                 }
             }
 
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "demonized")) {
-                if (((attacker instanceof Player) && !source.isProjectile() && !source.isMagic())) {
+                if (((attacker instanceof Player) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                     event.setAmount(amount + 6);
                     return;
                 }
             }
             //Tormented
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "tormented")) {
-                if (!event.getSource().isProjectile() && !event.getSource().isMagic()) {
+                if (!source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC)) {
                     event.setAmount(event.getAmount() + 9);
                     return;
                 }
@@ -175,7 +175,7 @@ public class ArmorAbilitiesEvent {
 
             //Arlemite
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "arlemite")) {
-                if (event.getSource().isProjectile() || event.getSource().getMsgId().equals("thrown")) {
+                if (source.is(DamageTypes.MOB_PROJECTILE) || event.getSource().getMsgId().equals("thrown")) {
                     event.setAmount(event.getAmount() * 0.3F);
                     return;
                 }
@@ -183,7 +183,7 @@ public class ArmorAbilitiesEvent {
 
             //Rupee
             if (isWearingFullArmor(attacker, boots, legs, body, helmet, "rupee")) {
-                if (event.getSource().getMsgId().equals("mob") && !event.getSource().isProjectile()) {
+                if (event.getSource().getMsgId().equals("mob") && !source.is(DamageTypes.MOB_PROJECTILE)) {
                     event.setAmount(event.getAmount() * 0.3F);
                     return;
                 }
@@ -198,27 +198,27 @@ public class ArmorAbilitiesEvent {
             }
 
             //Vethean
-            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "degraded") && (helmet == getArmorItem("degraded", "hood") && source.isMagic() || helmet == getArmorItem("degraded", "helmet") && !source.isProjectile() && !source.isMagic() || helmet == getArmorItem("degraded", "mask") && source.isProjectile() && !source.isMagic())) {
+            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "degraded") && (helmet == getArmorItem("degraded", "hood") && source.is(DamageTypes.MAGIC) || helmet == getArmorItem("degraded", "helmet") && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) || helmet == getArmorItem("degraded", "mask") && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * 0.82F);
                 return;
             }
 
-            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "finished") && (helmet == getArmorItem("finished", "hood") && source.isMagic() || helmet == getArmorItem("finished", "helmet") && !source.isProjectile() && !source.isMagic() || helmet == getArmorItem("finished", "mask") && source.isProjectile() && !source.isMagic())) {
+            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "finished") && (helmet == getArmorItem("finished", "hood") && source.is(DamageTypes.MAGIC) || helmet == getArmorItem("finished", "helmet") && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) || helmet == getArmorItem("finished", "mask") && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * 0.773F);
                 return;
             }
 
-            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "glistening") && (helmet == getArmorItem("glistening", "hood") && source.isMagic() || helmet == getArmorItem("glistening", "helmet") && !source.isProjectile() && !source.isMagic() || helmet == getArmorItem("glistening", "mask") && source.isProjectile() && !source.isMagic())) {
+            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "glistening") && (helmet == getArmorItem("glistening", "hood") && source.is(DamageTypes.MAGIC) || helmet == getArmorItem("glistening", "helmet") && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) || helmet == getArmorItem("glistening", "mask") && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * 0.7F);
                 return;
             }
 
-            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "demonized") && (helmet == getArmorItem("demonized", "hood") && source.isMagic() || helmet == getArmorItem("demonized", "helmet") && !source.isProjectile() && !source.isMagic() || helmet == getArmorItem("demonized", "mask") && source.isProjectile() && !source.isMagic())) {
+            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "demonized") && (helmet == getArmorItem("demonized", "hood") && source.is(DamageTypes.MAGIC) || helmet == getArmorItem("demonized", "helmet") && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) || helmet == getArmorItem("demonized", "mask") && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * 0.625F);
                 return;
             }
 
-            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "tormented") && (helmet == getArmorItem("tormented", "hood") && source.isMagic() || helmet == getArmorItem("tormented", "helmet") && !source.isProjectile() && !source.isMagic() || helmet == getArmorItem("tormented", "mask") && source.isProjectile() && !source.isMagic())) {
+            if (isWearingFullArmor(attacker, boots, legs, body, helmet, "tormented") && (helmet == getArmorItem("tormented", "hood") && source.is(DamageTypes.MAGIC) || helmet == getArmorItem("tormented", "helmet") && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) || helmet == getArmorItem("tormented", "mask") && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * 0.348F);
                 return;
             }

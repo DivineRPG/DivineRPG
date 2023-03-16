@@ -1,6 +1,5 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -33,7 +32,7 @@ public class EntityStar extends DivineThrowable {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null) {
-                result.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 20);
+                result.getEntity().hurt(damageSources().thrown(this, this.getOwner()), 20);
             }
 
             if (!this.level.isClientSide) {

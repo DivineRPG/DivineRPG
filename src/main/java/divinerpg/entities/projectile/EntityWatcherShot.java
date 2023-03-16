@@ -1,6 +1,5 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -33,7 +32,7 @@ public class EntityWatcherShot extends DivineThrowable {
             if (result.getEntity() != null) {
                 if (result.getEntity() instanceof LivingEntity) {
                     LivingEntity entity = (LivingEntity) result.getEntity();
-                    entity.hurt(DamageSource.thrown(this, this.getOwner()), 4.0F);
+                    entity.hurt(damageSources().thrown(this, this.getOwner()), 4.0F);
                 }
             }
 

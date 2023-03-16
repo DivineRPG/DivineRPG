@@ -79,7 +79,7 @@ public class IceikaSky extends DimensionSpecialEffects {
             double d0 = (double)this.rainSizeX[l1] * .5D, d1 = (double)this.rainSizeZ[l1] * .5D;
             blockpos$mutableblockpos.set((double)k1, camY, (double)j1);
             Biome biome = level.getBiome(blockpos$mutableblockpos).value();
-            if(biome.getPrecipitation() != Biome.Precipitation.NONE) {
+            if(biome.getPrecipitationAt(blockpos$mutableblockpos) != Biome.Precipitation.NONE) {
                int i2 = level.getHeight(Heightmap.Types.MOTION_BLOCKING, k1, j1);
                int j2 = j - l;
                int k2 = j + l;
@@ -133,7 +133,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();
 			if(fogtype != FogType.POWDER_SNOW && fogtype != FogType.LAVA && !TwilightSky.doesMobEffectBlockSky(camera)) {
-				RenderSystem.disableTexture();
+				RenderSystem.disableBlend();
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)(vec3.x * .1), f1 = (float)(vec3.y * .1), f2 = (float)(vec3.z * .1);
 				FogRenderer.levelFogColor();
@@ -149,7 +149,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 				float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTick), partialTick);
 				if(afloat != null) {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
-					RenderSystem.disableTexture();
+					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 					poseStack.pushPose();
 					poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
@@ -168,7 +168,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 					BufferUploader.drawWithShader(bufferbuilder.end());
 					poseStack.popPose();
 				}
-				RenderSystem.enableTexture();
+				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
@@ -195,7 +195,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 	            bufferbuilder.vertex(matrix4f1, f12, -100F, -f12).uv(f13, f14).endVertex();
 	            bufferbuilder.vertex(matrix4f1, -f12, -100F, -f12).uv(f15, f14).endVertex();
 	            BufferUploader.drawWithShader(bufferbuilder.end());
-	            RenderSystem.disableTexture();
+	            RenderSystem.disableBlend();
 				float f10 = level.getStarBrightness(partialTick) * f11 + .5F;
 				RenderSystem.setShaderColor(f10, f10, f10, f10);
 				FogRenderer.setupNoFog();
@@ -206,11 +206,11 @@ public class IceikaSky extends DimensionSpecialEffects {
 				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.disableBlend();
 				poseStack.popPose();
-				RenderSystem.disableTexture();
+				RenderSystem.disableBlend();
 				RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
 				if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
 				else RenderSystem.setShaderColor(f, f1, f2, 1F);
-				RenderSystem.enableTexture();
+				RenderSystem.enableBlend();
 				RenderSystem.depthMask(true);
 			}
 		}

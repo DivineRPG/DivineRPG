@@ -1,7 +1,7 @@
 {
 	"temperature": -1,
 	"downfall": 0.2,
-	"precipitation": "snow",
+	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
 	"effects": {

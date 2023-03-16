@@ -195,9 +195,9 @@ public class EntityDivineArrow extends AbstractArrow {
                     DamageSource damagesource;
 
                     if (this.shootingEntity == null) {
-                        damagesource = DamageSource.arrow(this, this);
+                        damagesource = level.damageSources().arrow(this, this);
                     } else {
-                        damagesource = DamageSource.arrow(this, this.shootingEntity);
+                        damagesource = level.damageSources().arrow(this, this.shootingEntity);
                     }
 
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
@@ -268,7 +268,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         }
                     }
                 } else {
-                    BlockPos blockpos = new BlockPos(result.getLocation());
+                    BlockPos blockpos = new BlockPos((int) result.getLocation().x, (int) result.getLocation().y, (int) result.getLocation().z);
                     this.xTile = blockpos.getX();
                     this.yTile = blockpos.getY();
                     this.zTile = blockpos.getZ();
@@ -305,9 +305,9 @@ public class EntityDivineArrow extends AbstractArrow {
                     DamageSource damagesource;
 
                     if (this.shootingEntity == null) {
-                        damagesource = DamageSource.arrow(this, this);
+                        damagesource = level.damageSources().arrow(this, this);
                     } else {
-                        damagesource = DamageSource.arrow(this, this.shootingEntity);
+                        damagesource = level.damageSources().arrow(this, this.shootingEntity);
                     }
 
                     // Fire Damage

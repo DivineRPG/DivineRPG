@@ -35,7 +35,7 @@ public class EntityVermenous extends EntityDivineMonster {
             var4 = var4.normalize();
             double var7 = var3.dot(var4);
             if( var7 > 1.0D - 0.025D / var5 && var1.hasLineOfSight(this)) {
-                var1.hurt(DamageSource.mobAttack(this), 4);
+                var1.hurt(damageSources().mobAttack(this), 4);
             }
         }
     }

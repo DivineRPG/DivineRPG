@@ -51,7 +51,7 @@ public class EntityBiphron extends EntityDivineMonster {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if(source == DamageSource.FALL) {
+        if(source == damageSources().fall()) {
             return false;
         }
         return super.hurt(source, amount);

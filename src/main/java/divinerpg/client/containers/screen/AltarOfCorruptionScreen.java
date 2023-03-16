@@ -67,15 +67,13 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
 
     protected void renderBg(PoseStack p_98762_, float p_98763_, int p_98764_, int p_98765_) {
         Lighting.setupForFlatItems();
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, ENCHANTING_TABLE_LOCATION);
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        this.blit(p_98762_, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        blit(p_98762_, i, j, 0, 0, this.imageWidth, this.imageHeight);
         int k = (int)this.minecraft.getWindow().getGuiScale();
         RenderSystem.viewport((this.width - 320) / 2 * k, (this.height - 240) / 2 * k, 320 * k, 240 * k);
-        Matrix4f matrix4f = (new Matrix4f()).translation(-0.34F, 0.23F, 0.0F).perspective(((float) Math.PI / 2F), 1.3333334F, 9.0F, 80.0F);
+        Matrix4f matrix4f = (new Matrix4f()).translation(-0.34F, 0.23F, 0.0F).perspective(((float)Math.PI / 2F), 1.3333334F, 9.0F, 80.0F);
         RenderSystem.backupProjectionMatrix();
         RenderSystem.setProjectionMatrix(matrix4f);
         p_98762_.pushPose();
@@ -92,8 +90,8 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         p_98762_.mulPose(Axis.XP.rotationDegrees(180.0F));
         float f3 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.25F;
         float f4 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.75F;
-        f3 = (f3 - (float)Mth.fastFloor((double)f3)) * 1.6F - 0.3F;
-        f4 = (f4 - (float)Mth.fastFloor((double)f4)) * 1.6F - 0.3F;
+        f3 = (f3 - (float)Mth.floor(f3)) * 1.6F - 0.3F;
+        f4 = (f4 - (float)Mth.floor(f4)) * 1.6F - 0.3F;
         if (f3 < 0.0F) {
             f3 = 0.0F;
         }
@@ -119,42 +117,38 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         RenderSystem.viewport(0, 0, this.minecraft.getWindow().getWidth(), this.minecraft.getWindow().getHeight());
         RenderSystem.restoreProjectionMatrix();
         Lighting.setupFor3DItems();
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         EnchantmentNames.getInstance().initSeed((long)this.menu.getEnchantmentSeed());
         int l = this.menu.getGoldCount();
 
         for(int i1 = 0; i1 < 3; ++i1) {
             int j1 = i + 60;
             int k1 = j1 + 20;
-            this.setBlitOffset(0);
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderTexture(0, ENCHANTING_TABLE_LOCATION);
             int l1 = (this.menu).costs[i1];
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             if (l1 == 0) {
-                this.blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
+                blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
             } else {
                 String s = "" + l1;
                 int i2 = 86 - this.font.width(s);
                 FormattedText formattedtext = EnchantmentNames.getInstance().getRandomName(this.font, i2);
                 int j2 = 6839882;
                 if (((l < i1 + 1 || this.minecraft.player.experienceLevel < l1) && !this.minecraft.player.getAbilities().instabuild) || this.menu.enchantClue[i1] == -1) { // Forge: render buttons as disabled when enchantable but enchantability not met on lower levels
-                    this.blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
-                    this.blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 239, 16, 16);
-                    this.font.drawWordWrap(formattedtext, k1, j + 16 + 19 * i1, i2, (j2 & 16711422) >> 1);
+                    blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
+                    blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 239, 16, 16);
+                    this.font.drawWordWrap(p_98762_, formattedtext, k1, j + 16 + 19 * i1, i2, (j2 & 16711422) >> 1);
                     j2 = 4226832;
                 } else {
                     int k2 = p_98764_ - (i + 60);
                     int l2 = p_98765_ - (j + 14 + 19 * i1);
                     if (k2 >= 0 && l2 >= 0 && k2 < 108 && l2 < 19) {
-                        this.blit(p_98762_, j1, j + 14 + 19 * i1, 0, 204, 108, 19);
+                        blit(p_98762_, j1, j + 14 + 19 * i1, 0, 204, 108, 19);
                         j2 = 16777088;
                     } else {
-                        this.blit(p_98762_, j1, j + 14 + 19 * i1, 0, 166, 108, 19);
+                        blit(p_98762_, j1, j + 14 + 19 * i1, 0, 166, 108, 19);
                     }
 
-                    this.blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 223, 16, 16);
-                    this.font.drawWordWrap(formattedtext, k1, j + 16 + 19 * i1, i2, j2);
+                    blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 223, 16, 16);
+                    this.font.drawWordWrap(p_98762_, formattedtext, k1, j + 16 + 19 * i1, i2, j2);
                     j2 = 8453920;
                 }
 

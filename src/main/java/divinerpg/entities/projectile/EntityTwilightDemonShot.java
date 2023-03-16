@@ -1,12 +1,8 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.enums.*;
-
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import divinerpg.enums.BulletType;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -41,7 +37,7 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
         if (tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null && result.getEntity() instanceof Player) {
                 ((Player) result.getEntity()).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
-                ((Player) result.getEntity()).hurt(DamageSource.mobAttack((LivingEntity) this.getOwner()), 5);
+                ((Player) result.getEntity()).hurt(damageSources().mobAttack((LivingEntity) this.getOwner()), 5);
             }
         }
     }

@@ -1,6 +1,5 @@
 package divinerpg.entities.projectile;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.level.Level;
@@ -21,7 +20,7 @@ public class EntityFyracryxFireball extends DivineFireball {
             if (!this.level.isClientSide) {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
-                    entity.hurt(DamageSource.fireball(this, this.shootingEntity), 6);
+                    entity.hurt(damageSources().fireball(this, this.shootingEntity), 6);
                 }
                 this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
                 this.kill();

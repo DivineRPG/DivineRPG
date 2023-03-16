@@ -1,7 +1,6 @@
 package divinerpg.entities.projectile;
 
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -24,7 +23,7 @@ public class EntityMerikMissile extends EntityHeatSeekingProjectile {
         if(tickCount != 1 || tickCount != 0) {
             if (pos.getEntity() != null) {
                 Entity entity = pos.getEntity();
-                entity.hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+                entity.hurt(damageSources().thrown(this, this.getOwner()), this.damage);
             }
             if (!this.level.isClientSide) {
                 this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);

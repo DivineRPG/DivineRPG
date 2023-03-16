@@ -1,8 +1,8 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.Material;
 
 public class BlockModTrapdoor extends TrapDoorBlock {
 
@@ -12,6 +12,6 @@ public class BlockModTrapdoor extends TrapDoorBlock {
                 .strength(2.0f, 3.0F)
                 .noOcclusion()
                 .requiresCorrectToolForDrops()
-                .sound(SoundType.WOOD), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN);
+                .sound(SoundType.WOOD), BlockSetType.OAK);
 	}
 }

@@ -159,7 +159,7 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 	}
 	private boolean canBurn(@Nullable Recipe<?> recipe, int i) {
 		if (recipe != null) {
-			ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this);
+			ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, level.registryAccess());
 	        if (itemstack.isEmpty()) return false;
 	        else {
 	            ItemStack itemstack1 = items.get(1);
@@ -172,7 +172,7 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 	}
 	private boolean burn(@Nullable Recipe<?> recipe, int maxStackSize) {
 	      if (canBurn(recipe, maxStackSize)) {
-	         ItemStack itemstack = items.get(0), itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this), itemstack2 = items.get(1);
+	         ItemStack itemstack = items.get(0), itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this, level.registryAccess()), itemstack2 = items.get(1);
 	         if (itemstack2.isEmpty()) items.set(1, itemstack1.copy());
 	         else if (itemstack2.is(itemstack1.getItem())) itemstack2.grow(itemstack1.getCount());
 	         itemstack.shrink(1);

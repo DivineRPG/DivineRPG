@@ -1,22 +1,21 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.registries.*;
-import divinerpg.util.*;
-import net.minecraft.network.chat.*;
+import divinerpg.DivineRPG;
+import divinerpg.registries.SoundRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemHealingSword extends ItemModSword {
 
@@ -45,7 +44,7 @@ public class ItemHealingSword extends ItemModSword {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
     	if(!(entity instanceof ServerPlayer && ((ServerPlayer) entity).isCreative())) {
     		if(entity instanceof Monster) {
-        		entity.hurt(DamageSource.MAGIC, healAmount / 2);
+        		entity.hurt(entity.damageSources().magic(), healAmount / 2);
         		if(stack.getDamageValue() < stack.getMaxDamage()) stack.setDamageValue(stack.getDamageValue() + 1);
         		if(!player.isCreative() && player.getHealth() < player.getMaxHealth()) player.heal(healAmount / 3);
         		player.playSound(SoundRegistry.HEAL.get(), 1, 1);

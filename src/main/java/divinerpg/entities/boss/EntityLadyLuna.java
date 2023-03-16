@@ -10,7 +10,7 @@ import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -131,13 +131,13 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
     @Override
     public boolean hurt(DamageSource source, float par2) {
-        if (source.isExplosion()) return false;
+        if (source.is(DamageTypes.EXPLOSION)) return false;
 
-        if (source.isMagic() && getProtection() == 0)
+        if (source.is(DamageTypes.MAGIC) && getProtection() == 0)
             return false;
-        else if ((source.isProjectile() || source.getMsgId().equals("thrown")) && getProtection() == 1)
+        else if ((source.is(DamageTypes.MOB_PROJECTILE) || source.getMsgId().equals("thrown")) && getProtection() == 1)
             return false;
-        else if (!source.isProjectile() && !source.isMagic() && getProtection() == 2)
+        else if (!source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC) && getProtection() == 2)
             return false;
         return super.hurt(source, par2);
     }
@@ -146,7 +146,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public boolean doHurtTarget(Entity e) {
         int dam = 20;
 
-        boolean var4 = e.hurt(DamageSource.mobAttack(this), dam);
+        boolean var4 = e.hurt(e.level.damageSources().mobAttack(this), dam);
         if (var4) {
             this.level.explode(this, e.getX(), e.getY(), e.getZ(), 2, Level.ExplosionInteraction.BLOCK);
             this.xo *= 0.6D;

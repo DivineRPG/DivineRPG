@@ -5,7 +5,7 @@ import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.BossEvent.BossBarColor;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -69,7 +69,7 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
 
     @Override
     public boolean hurt(DamageSource source, float par2) {
-        if (source.isExplosion())
+        if (source.is(DamageTypes.EXPLOSION))
             return false;
         return super.hurt(source, par2);
     }
