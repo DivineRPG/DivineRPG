@@ -23,7 +23,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 	public static final ResourceLocation SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/twilight_sun.png");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	public TwilightSky() {
-		super(256F, false, SkyType.NORMAL, false, false);
+		super(256F, true, SkyType.NORMAL, false, false);
 		
 		//create sky
 		Tesselator tesselator = Tesselator.getInstance();
@@ -44,8 +44,9 @@ public class TwilightSky extends DimensionSpecialEffects {
 	    skyBuffer.upload(bufferbuilder$renderedbuffer);
 	    VertexBuffer.unbind();
 	}
-	public Vec3 getBrightnessDependentFogColor(Vec3 vec, float f) {
-		return vec.multiply(f * 0.94 + 0.06, f * 0.94 + 0.06, f * 0.91 + 0.09);
+	@Override
+	public Vec3 getBrightnessDependentFogColor(Vec3 color, float sunHeight) {
+		return color.multiply(sunHeight  * 0.94 + 0.06, sunHeight * 0.94 + 0.06, sunHeight  * 0.91 + 0.09);
 	}
 	public boolean isFoggyAt(int i, int ii) {return false;}
 	@Override
