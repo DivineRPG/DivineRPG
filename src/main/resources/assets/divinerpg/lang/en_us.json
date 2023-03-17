@@ -2128,7 +2128,7 @@
   "book.divinerpg.entry.getting_started.ayeraco.1": "The Ayeraco Horde has 6 mini-bosses that can only be summoned in the end using the horde horn. The red Ayeraco will heal the other ayeraco when its health is half. The Green Ayeraco makes the other ayeraco immune to arrows below half health. The Blue Ayeraco speeds upt he others while below half health.",
   "book.divinerpg.entry.getting_started.ayeraco.2": "The Yellow Ayeraco increases the other ayeraco damage and finally the Purple Ayeraco will teleport the other ayeraco at half health. This is the third and final mob that drops divine shards",
   "book.divinerpg.entry.getting_started.ayeraco.title": "Ayeraco Horde",
-  "book.divinerpg.entry.getting_started.enchantments.1": "Rive when applied to a mining tool will excavate in a (enchant level x enchant level x enchant level) sized radius.",
+  "book.divinerpg.entry.getting_started.enchantments.1": "Rive when applied to a mining tool will excavate in a (3 x 3 x enchant level) sized radius.",
   "book.divinerpg.entry.getting_started.enchantments.2": "Aftershock has a chance to double the damage done by melee weapons.",
   "book.divinerpg.entry.getting_started.jack_o_man.1": "The Jack-O-Man offers the Skeleman armor, the Jack-O-Man armor, the Wither Reaper armor and lastly the scythe",
   "book.divinerpg.entry.getting_started.livestock_merchant.1": "The Livestock Merchant offers the following pets as trades: Ehu, Husk, Stone Golem, Smelter, Snapper, White Grizzle and lastly the Brown Grizzle",
