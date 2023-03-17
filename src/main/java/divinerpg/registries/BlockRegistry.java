@@ -1,5 +1,6 @@
 package divinerpg.registries;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -15,17 +16,18 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
 
 import java.util.function.Supplier;
 
-import static divinerpg.DivineRPG.*;
-import static net.minecraft.world.level.material.MaterialColor.*;
-import static net.minecraft.sounds.SoundEvents.*;
+import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.SoundRegistry.*;
 import static net.minecraft.core.particles.ParticleTypes.FLAME;
+import static net.minecraft.sounds.SoundEvents.*;
+import static net.minecraft.world.level.material.MaterialColor.*;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BlockRegistry {
@@ -260,7 +262,7 @@ public class BlockRegistry {
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(1.5F, 3F)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(2F, 3F)),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(6F, 3F)),
-            steelDoor = registerBlock("steel_door", () -> new BlockModDoor(Material.METAL, 7F, 3F, SoundType.METAL)),
+            steelDoor = registerBlock("steel_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2, 1), BlockSetType.IRON)),
             workshopBookcase = registerBlock("workshop_bookcase", () -> new BlockModBookshelf(1.5F, Material.STONE)),
             workshopCarpet = registerBlock("workshop_carpet", () -> new BlockMod(0.1F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL)),
             workshopLamp = registerBlock("workshop_lamp", () -> new BlockModLamp(0.3F, 3F, 15));
@@ -357,14 +359,14 @@ public class BlockRegistry {
             mortumStairs = registerBlock("mortum_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_planks"))));
 
     public static final RegistryObject<Block>//Doors
-            edenDoor = registerBlock("eden_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            wildwoodDoor = registerBlock("wildwood_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            apalachiaDoor = registerBlock("apalachia_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            skythernDoor = registerBlock("skythern_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            mortumDoor = registerBlock("mortum_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            divineDoor = registerBlock("divine_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            frozenDoor = registerBlock("frozen_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD)),
-            eucalyptusDoor = registerBlock("eucalyptus_door", () -> new BlockModDoor(Material.WOOD, 2f, 3F, SoundType.WOOD));
+            edenDoor = registerBlock("eden_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_planks"))), BlockSetType.OAK)),
+            wildwoodDoor = registerBlock("wildwood_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_planks"))), BlockSetType.DARK_OAK)),
+            apalachiaDoor = registerBlock("apalachia_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_planks"))), BlockSetType.ACACIA)),
+            skythernDoor = registerBlock("skythern_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_planks"))), BlockSetType.CRIMSON)),
+            mortumDoor = registerBlock("mortum_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_planks"))), BlockSetType.MANGROVE)),
+            divineDoor = registerBlock("divine_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_planks"))), BlockSetType.CHERRY)),
+            frozenDoor = registerBlock("frozen_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_planks"))), BlockSetType.OAK)),
+            eucalyptusDoor = registerBlock("eucalyptus_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eucalyptus_planks"))), BlockSetType.BIRCH));
 
 
     public static final RegistryObject<Block>//Trapdoors
@@ -647,7 +649,7 @@ public class BlockRegistry {
             smoothGlass = registerBlock("smooth_glass", () -> new BlockModGlass(0.3F));
 
     // Door
-    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new BlockModDoor(Material.HEAVY_METAL, 2f, 1F, SoundType.STONE));
+    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2, 1), BlockSetType.STONE));
 
     public static final RegistryObject<Block>// Lighting
             fireCrystal = registerBlock("fire_crystal", () -> new BlockLightCrystal(1F)),

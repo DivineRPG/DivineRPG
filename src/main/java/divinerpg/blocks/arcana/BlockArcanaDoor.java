@@ -1,25 +1,27 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.BlockModDoor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class BlockArcanaDoor extends BlockModDoor {
+public class BlockArcanaDoor extends DoorBlock {
     private ResourceLocation keyItem;
 
     public BlockArcanaDoor(ResourceLocation key) {
-        super(Material.STONE, -1, 6000000F, SoundType.STONE);
+        super(Properties.of(Material.STONE).strength(-1, 6000000F), BlockSetType.STONE);
         this.keyItem = key;
     }
+
+
 
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
