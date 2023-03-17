@@ -95,8 +95,8 @@ dependencies {
 //    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT") //Patchouli
 //    compileOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4277371") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:3913301") //MmmMmmMmmMmm (Target Dummy)
-//    runtimeOnly fg.deobf("curse.maven:jade-324717:4330163") //Jade
-//    runtimeOnly fg.deobf("curse.maven:curios-309927:4325469") //Curios (needed for bauble slots)
+    runtimeOnly fg.deobf("curse.maven:jade-324717:4439089") //Jade
+    runtimeOnly fg.deobf("curse.maven:curios-309927:4440280") //Curios (needed for bauble slots)
 //    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
 //    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
 //    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
