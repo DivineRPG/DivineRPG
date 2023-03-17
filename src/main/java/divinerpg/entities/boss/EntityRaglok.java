@@ -46,7 +46,9 @@ public class EntityRaglok extends EntityDivineBoss {
             loaded = true;
         }
 
-        manageAbilities();
+        if(this.isAlive()) {
+            manageAbilities();
+        }
     }
 
     public void manageAbilities() {
