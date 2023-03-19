@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
+import divinerpg.registries.LevelRegistry;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -116,7 +117,9 @@ public class TwilightSky extends DimensionSpecialEffects {
 					VertexBuffer.unbind();
 					setupFog.run();
 				}
-				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+				if(level.dimension() == LevelRegistry.WILDWOOD) RenderSystem.setShaderColor(.8F, .9F, 1F, 1F);
+				else if(level.dimension() == LevelRegistry.APALACHIA) RenderSystem.setShaderColor(.9F, .8F, 1F, 1F);
+				else RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
 				poseStack.popPose();

@@ -135,7 +135,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 			if(fogtype != FogType.POWDER_SNOW && fogtype != FogType.LAVA && !TwilightSky.doesMobEffectBlockSky(camera)) {
 //				RenderSystem.disableBlend();
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
-				float f = (float)(vec3.x * .1), f1 = (float)(vec3.y * .1), f2 = (float)(vec3.z * .1);
+				float f = (float)(vec3.x * .1), f1 = (float)(vec3.y * .1), f2 = (float)(vec3.z * .17);
 				FogRenderer.levelFogColor();
 				BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
 				RenderSystem.depthMask(false);
@@ -202,16 +202,10 @@ public class IceikaSky extends DimensionSpecialEffects {
 				starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
 				VertexBuffer.unbind();
 				setupFog.run();
-				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+				RenderSystem.setShaderColor(0.68F, 0.8F + ((afloat == null ? 0F : afloat[1] * 1.84F) * (.398F - Math.abs(Mth.cos(level.getTimeOfDay(partialTick) * ((float)Math.PI * 2F))))), 0.87F + f2 * 1.4F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
 				poseStack.popPose();
-//				RenderSystem.disableBlend();
-//				RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
-//				if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
-//				else RenderSystem.setShaderColor(f, f1, f2, 1F);
-//				RenderSystem.enableBlend();
-//				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.depthMask(true);
 			}
 		}
