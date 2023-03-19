@@ -55,7 +55,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();
 			if(fogtype != FogType.POWDER_SNOW && fogtype != FogType.LAVA && !doesMobEffectBlockSky(camera)) {
-				RenderSystem.disableBlend();
+//				RenderSystem.disableBlend();
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)vec3.x, f1 = (float)vec3.y, f2 = (float)vec3.z;
 				FogRenderer.levelFogColor();
@@ -71,7 +71,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 				float[] afloat = level.effects().getSunriseColor(level.getTimeOfDay(partialTick), partialTick);
 				if(afloat != null) {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
-					RenderSystem.disableBlend();
+//					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 					poseStack.pushPose();
 					poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
@@ -90,7 +90,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 					BufferUploader.drawWithShader(bufferbuilder.end());
 					poseStack.popPose();
 				}
-				RenderSystem.enableBlend();
+//				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
@@ -118,12 +118,13 @@ public class TwilightSky extends DimensionSpecialEffects {
 				}
 				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.disableBlend();
+				RenderSystem.defaultBlendFunc();
 				poseStack.popPose();
-				RenderSystem.disableBlend();
-				RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
-				if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
-				else RenderSystem.setShaderColor(f, f1, f2, 1F);
-				RenderSystem.enableBlend();
+//				RenderSystem.disableBlend();
+//				RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
+//				if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
+//				else RenderSystem.setShaderColor(f, f1, f2, 1F);
+//				RenderSystem.enableBlend();
 				RenderSystem.depthMask(true);
 			}
 		}
