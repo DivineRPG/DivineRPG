@@ -2225,6 +2225,16 @@
   "travelerstitles.biome.divinerpg.barren_highlands": "Barren Highlands",
   "biome.divinerpg.barren_highlands.color": "4785ba",
   "travelerstitles.biome.divinerpg.dune_valley": "Dune Valley",
-  "biome.divinerpg.dune_valley.color": "77bdd2"
+  "biome.divinerpg.dune_valley.color": "77bdd2",
 
+  "painting.divinerpg.island.title": "Island",
+  "painting.divinerpg.island.author": "Dall-E & Nicusha",
+  "painting.divinerpg.hill.title": "Hill",
+  "painting.divinerpg.hill.author": "Dall-E & Nicusha",
+  "painting.divinerpg.eden.title": "Eden",
+  "painting.divinerpg.eden.author": "Dall-E & Nicusha",
+  "painting.divinerpg.monster.title": "Monster",
+  "painting.divinerpg.monster.author": "Dall-E & Nicusha",
+  "painting.divinerpg.cave.title": "Cave",
+  "painting.divinerpg.cave.author": "Dall-E & Nicusha"
 }
