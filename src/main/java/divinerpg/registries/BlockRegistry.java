@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
 
@@ -262,7 +262,7 @@ public class BlockRegistry {
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(1.5F, 3F)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(2F, 3F)),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(6F, 3F)),
-            steelDoor = registerBlock("steel_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2, 1), BlockSetType.IRON)),
+            steelDoor = registerBlock("steel_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2, 1).noOcclusion(), BlockSetType.IRON)),
             workshopBookcase = registerBlock("workshop_bookcase", () -> new BlockModBookshelf(1.5F, Material.STONE)),
             workshopCarpet = registerBlock("workshop_carpet", () -> new BlockMod(0.1F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL)),
             workshopLamp = registerBlock("workshop_lamp", () -> new BlockModLamp(0.3F, 3F, 15));
@@ -359,14 +359,13 @@ public class BlockRegistry {
             mortumStairs = registerBlock("mortum_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_planks"))));
 
     public static final RegistryObject<Block>//Doors
-            edenDoor = registerBlock("eden_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_planks"))), BlockSetType.OAK)),
-            wildwoodDoor = registerBlock("wildwood_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_planks"))), BlockSetType.DARK_OAK)),
-            apalachiaDoor = registerBlock("apalachia_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_planks"))), BlockSetType.ACACIA)),
-            skythernDoor = registerBlock("skythern_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_planks"))), BlockSetType.CRIMSON)),
-            mortumDoor = registerBlock("mortum_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_planks"))), BlockSetType.MANGROVE)),
-            divineDoor = registerBlock("divine_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_planks"))), BlockSetType.CHERRY)),
-            frozenDoor = registerBlock("frozen_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_planks"))), BlockSetType.OAK)),
-            eucalyptusDoor = registerBlock("eucalyptus_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eucalyptus_planks"))), BlockSetType.BIRCH));
+            edenDoor = registerBlock("eden_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.OAK)),
+            wildwoodDoor = registerBlock("wildwood_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.DARK_OAK)),
+            apalachiaDoor = registerBlock("apalachia_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.ACACIA)),
+            skythernDoor = registerBlock("skythern_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.CRIMSON)),
+            mortumDoor = registerBlock("mortum_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.MANGROVE)),
+            divineDoor = registerBlock("divine_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.CHERRY)),
+            frozenDoor = registerBlock("frozen_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.OAK));
 
 
     public static final RegistryObject<Block>//Trapdoors
@@ -556,7 +555,8 @@ public class BlockRegistry {
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(COLOR_PINK)),
             strippedEucalyptusLog = registerBlock("stripped_eucalyptus_log", () -> new BlockModLog(COLOR_PINK)),
             eucalyptusPlanks = registerBlock("eucalyptus_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
-            eucalyptusStairs = registerBlock("eucalyptus_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks"))));
+            eucalyptusStairs = registerBlock("eucalyptus_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks")))),
+            eucalyptusDoor = registerBlock("eucalyptus_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.BIRCH));
 
     public static final RegistryObject<Block>// Plants
             aquamarinePlant = registerBlock("aquamarine_plant", () -> new BlockModCrop(3, new ResourceLocation(MODID, "aquamarine_seeds"))),
@@ -649,7 +649,7 @@ public class BlockRegistry {
             smoothGlass = registerBlock("smooth_glass", () -> new BlockModGlass(0.3F));
 
     // Door
-    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2, 1), BlockSetType.STONE));
+    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, COLOR_GREEN).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.IRON));
 
     public static final RegistryObject<Block>// Lighting
             fireCrystal = registerBlock("fire_crystal", () -> new BlockLightCrystal(1F)),

@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
@@ -17,7 +17,7 @@ public class BlockArcanaDoor extends DoorBlock {
     private ResourceLocation keyItem;
 
     public BlockArcanaDoor(ResourceLocation key) {
-        super(Properties.of(Material.STONE).strength(-1, 6000000F), BlockSetType.STONE);
+        super(BlockBehaviour.Properties.of(Material.STONE).strength(-1.0F, 60000000.0F).noOcclusion(), BlockSetType.STONE);
         this.keyItem = key;
     }
 
