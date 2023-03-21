@@ -117,8 +117,11 @@ public class TwilightSky extends DimensionSpecialEffects {
 					VertexBuffer.unbind();
 					setupFog.run();
 				}
-				if(level.dimension() == LevelRegistry.WILDWOOD) RenderSystem.setShaderColor(.8F, .9F, 1F, 1F);
+				if(level.dimension() == LevelRegistry.EDEN) RenderSystem.setShaderColor(1F, .9F, .8F, 1F);
+				else if(level.dimension() == LevelRegistry.WILDWOOD) RenderSystem.setShaderColor(.8F, .9F, 1F, 1F);
 				else if(level.dimension() == LevelRegistry.APALACHIA) RenderSystem.setShaderColor(.9F, .8F, 1F, 1F);
+				else if(level.dimension() == LevelRegistry.SKYTHERN) RenderSystem.setShaderColor(.9F, .9F, 1F, 1F);
+				else if(level.dimension() == LevelRegistry.MORTUM) RenderSystem.setShaderColor(.9F, .8F, .8F, 1F);
 				else RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
