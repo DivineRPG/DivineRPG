@@ -11,7 +11,7 @@
 	"ambient_light": 0.1,
 	"fixed_time": 18000,
 	"logical_height": 100,
-	"effects": "minecraft:nether",
+	"effects": "divinerpg:twilight_sky",
 	"infiniburn": "#minecraft:infiniburn_overworld",
 	"min_y": 0,
 	"height": 128,
