@@ -21,7 +21,8 @@ import org.joml.Matrix4f;
 import javax.annotation.Nullable;
 
 public class TwilightSky extends DimensionSpecialEffects {
-	public static final ResourceLocation SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/twilight_sun.png");
+	public static final ResourceLocation SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/twilight_sun.png"),
+			POG_SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/pog_sun.png");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	public TwilightSky() {
 		super(256F, true, SkyType.NORMAL, false, false);
@@ -101,7 +102,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 				Matrix4f matrix4f1 = poseStack.last().pose();
 				float f12 = 30F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);
-				RenderSystem.setShaderTexture(0, SUN_LOCATION);
+				RenderSystem.setShaderTexture(0, level.dimension() == LevelRegistry.MORTUM && camera.getPosition().y < 0 ? POG_SUN_LOCATION : SUN_LOCATION);
 				bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
 				bufferbuilder.vertex(matrix4f1, -f12, 100.0F, -f12).uv(0.0F, 0.0F).endVertex();
 				bufferbuilder.vertex(matrix4f1, f12, 100.0F, -f12).uv(1.0F, 0.0F).endVertex();
