@@ -12,4 +12,5 @@ public class PaintingRegistry {
     public static RegistryObject<PaintingVariant> EDEN = PAINTING_VARIANTS.register("eden",()-> new PaintingVariant(32,32));
     public static RegistryObject<PaintingVariant> MONSTER = PAINTING_VARIANTS.register("monster",()-> new PaintingVariant(32,32));
     public static RegistryObject<PaintingVariant> CAVE = PAINTING_VARIANTS.register("cave",()-> new PaintingVariant(32,32));
+    public static RegistryObject<PaintingVariant> PINK_ELEPHANT = PAINTING_VARIANTS.register("pink_elephant",()-> new PaintingVariant(96,96));
 }
