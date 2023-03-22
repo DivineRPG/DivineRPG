@@ -5,11 +5,11 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.common.*;
 
-import java.util.function.*;
+import java.util.function.Supplier;
 
 public class BlockTwilightFlower extends BushBlock implements IPlantable {
     private Supplier<Block> grassSupplier;
@@ -71,6 +71,11 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
         return state.getBlock() == grassSupplier.get();
     }
 
+    public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        BlockState blockBelow = reader.getBlockState(blockpos);
+        return blockBelow.canSustainPlant(reader, blockpos, Direction.UP, this) && !blockBelow.isAir();
+    }
 
 
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
