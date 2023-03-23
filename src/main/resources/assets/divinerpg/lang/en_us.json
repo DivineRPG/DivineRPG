@@ -2068,7 +2068,7 @@
   "tooltip.divinerpg.nightmare_bed": "You will have to trade with the hunger to make a return portal",
   "tooltip.divinerpg.dream_flint": "Used to ignite the Vethea return portal",
   "enchantment.divinerpg.rive": "Rive",
-  "enchantment.divinerpg.rive.desc": "Rive when applied to a mining tool will excavate in a (enchant level x enchant level x enchant level) sized radius.",
+  "enchantment.divinerpg.rive.desc": "Rive when applied to a mining tool will excavate in a (3 x 3 x enchant level) sized radius.",
   "enchantment.divinerpg.aftershock": "Aftershock",
   "enchantment.divinerpg.aftershock.desc": "Aftershock has a chance to double the damage done by melee weapons.",
   "summon.single_use_spawner.delay": "Will summon in %s seconds",
