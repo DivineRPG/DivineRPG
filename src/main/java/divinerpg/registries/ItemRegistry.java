@@ -396,7 +396,7 @@ public class ItemRegistry {
             boiled_egg = registerItem("boiled_egg", () -> new ItemModFood(FoodList.BOILED_EGG)),
             dream_pie = registerItem("dream_pie", () -> new ItemModFood(FoodList.DREAM_PIE)),
             chocolate_log = registerItem("chocolate_log", () -> new ItemModFood(FoodList.CHOCOLATE_LOG)),
-            winterberry = registerItem("winterberry", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry_bush")), (new Item.Properties()).food(FoodList.WINTERBERRY))),
+            winterberry = registerItem("winterberry", () -> new ItemWinterberry()),
             raw_empowered_meat = registerItem("raw_empowered_meat", () -> new ItemModFood(FoodList.RAW_EMPOWERED_MEAT)),
             dream_melon = registerItem("dream_melon", () -> new ItemModFood(FoodList.DREAM_MELON)),
             dream_cake = registerItem("dream_cake", () -> new ItemModFood(FoodList.DREAM_CAKE)),
