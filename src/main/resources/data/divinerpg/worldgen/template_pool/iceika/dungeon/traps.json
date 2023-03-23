@@ -5,10 +5,8 @@
     {
       "weight": 15,
       "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/dungeon/traps/stone",
-        "processors": "minecraft:empty"
+        "element_type": "minecraft:empty_pool_element",
+        "projection": "rigid"
       }
     },
     {
