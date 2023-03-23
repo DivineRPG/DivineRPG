@@ -81,7 +81,7 @@ repositories {
     maven { url = uri("https://maven.architectury.dev/") }
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.0.6'
+    minecraft 'net.minecraftforge:forge:1.19.4-45.0.22'
 //    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.2.0.16") //Just Enough Items
 //    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.2.0.16") //Just Enough Items
 //    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.2.0.16") //Just Enough Items
