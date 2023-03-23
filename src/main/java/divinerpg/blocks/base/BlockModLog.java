@@ -1,14 +1,14 @@
 package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.*;
-import net.minecraft.core.BlockPos;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
@@ -31,5 +31,21 @@ public class BlockModLog extends RotatedPillarBlock {
             }
         }
         super.playerDestroy(world, player, pos, state, tileEntity, stack);
+    }
+
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        if(material == Material.WOOD) {
+            return 5;
+        }
+        return 0;
+    }
+
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        if(material == Material.WOOD) {
+            return 5;
+        }
+        return 0;
     }
 }

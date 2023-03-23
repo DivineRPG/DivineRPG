@@ -191,8 +191,8 @@ public class BlockRegistry {
             divineSapling = registerBlock("divine_sapling", () -> new BlockModSapling(() -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTreeGrower())),
             divineLog = registerBlock("divine_log", () -> new BlockModLog(COLOR_YELLOW)),
             strippedDivineLog = registerBlock("stripped_divine_log", () -> new BlockModLog(COLOR_YELLOW)),
-            divineLeaves = registerBlock("divine_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_YELLOW).strength(0.2F, 0.3F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            divinePlanks = registerBlock("divine_planks", () -> new Block(Properties.copy(Blocks.BIRCH_PLANKS))),
+            divineLeaves = registerBlock("divine_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_YELLOW).strength(0.2F, 0.3F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            divinePlanks = registerBlock("divine_planks", () -> new BlockModPlanks(Properties.copy(Blocks.BIRCH_PLANKS))),
             divineStairs = registerBlock("divine_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "divine_planks")))),
             divineMossStone = registerBlock("divine_moss_stone", () -> new BlockMod(2F, 10F)),
             divineRock = registerBlock("divine_rock", () -> new BlockMod(1.5F, 10F));
@@ -241,8 +241,8 @@ public class BlockRegistry {
             frozenStone = registerBlock("frozen_stone", () -> new BlockMod(6F, 3F)),
             frozenLog = registerBlock("frozen_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
             strippedFrozenLog = registerBlock("stripped_frozen_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
-            brittleLeaves = registerBlock("brittle_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, TERRACOTTA_WHITE).strength(0.2F, 10).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            frozenPlanks = registerBlock("frozen_planks", () -> new BlockMod(2F, 3F, Material.WOOD)),
+            brittleLeaves = registerBlock("brittle_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, TERRACOTTA_WHITE).strength(0.2F, 10).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            frozenPlanks = registerBlock("frozen_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD)),
             frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_planks")))),
             frozenSapling = registerBlock("frozen_sapling", () -> new BlockModSapling(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), new FrozenTreeGrower())),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),
@@ -338,18 +338,18 @@ public class BlockRegistry {
             strippedMortumLog = registerBlock("stripped_mortum_log", () -> new BlockModLog(COLOR_RED));
 
     public static final RegistryObject<Block>// Leaves
-            edenLeaves = registerBlock("eden_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_YELLOW).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            wildwoodLeaves = registerBlock("wildwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_LIGHT_BLUE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            apalachiaLeaves = registerBlock("apalachia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_PURPLE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            skythernLeaves = registerBlock("skythern_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, TERRACOTTA_WHITE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            mortumLeaves = registerBlock("mortum_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false)));
+            edenLeaves = registerBlock("eden_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_YELLOW).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            wildwoodLeaves = registerBlock("wildwood_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_LIGHT_BLUE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            apalachiaLeaves = registerBlock("apalachia_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_PURPLE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            skythernLeaves = registerBlock("skythern_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, TERRACOTTA_WHITE).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            mortumLeaves = registerBlock("mortum_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.5F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false)));
 
     public static final RegistryObject<Block>// Planks
-            edenPlanks = registerBlock("eden_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
-            wildwoodPlanks = registerBlock("wildwood_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
-            apalachiaPlanks = registerBlock("apalachia_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
-            skythernPlanks = registerBlock("skythern_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
-            mortumPlanks = registerBlock("mortum_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD));
+            edenPlanks = registerBlock("eden_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD)),
+            wildwoodPlanks = registerBlock("wildwood_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD)),
+            apalachiaPlanks = registerBlock("apalachia_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD)),
+            skythernPlanks = registerBlock("skythern_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD)),
+            mortumPlanks = registerBlock("mortum_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD));
 
     public static final RegistryObject<Block>// Stairs
             edenStairs = registerBlock("eden_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_planks")))),
@@ -554,7 +554,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block>// Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(COLOR_PINK)),
             strippedEucalyptusLog = registerBlock("stripped_eucalyptus_log", () -> new BlockModLog(COLOR_PINK)),
-            eucalyptusPlanks = registerBlock("eucalyptus_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
+            eucalyptusPlanks = registerBlock("eucalyptus_planks", () -> new BlockModPlanks(2F, 3F, Material.WOOD, SoundType.WOOD)),
             eucalyptusStairs = registerBlock("eucalyptus_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks")))),
             eucalyptusDoor = registerBlock("eucalyptus_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.BIRCH));
 
@@ -621,10 +621,10 @@ public class BlockRegistry {
             strippedMintwoodLog = registerBlock("stripped_mintwood_log", () -> new BlockModLog(COLOR_LIGHT_BLUE));
 
     public static final RegistryObject<Block>// Leaves
-            dreamwoodLeaves = registerBlock("dreamwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            firewoodLeaves = registerBlock("firewood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            hyrewoodLeaves = registerBlock("hyrewood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            mintwoodLeaves = registerBlock("mintwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false)));
+            dreamwoodLeaves = registerBlock("dreamwood_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            firewoodLeaves = registerBlock("firewood_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            hyrewoodLeaves = registerBlock("hyrewood_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
+            mintwoodLeaves = registerBlock("mintwood_leaves", () -> new BlockModLeaves(BlockBehaviour.Properties.of(Material.LEAVES, COLOR_RED).strength(0.2F, 0.1F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false)));
 
     public static final RegistryObject<Block>// Ground foliage
             bulbatobe = registerBlock("bulbatobe", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "dream_grass")), COLOR_GREEN)),
