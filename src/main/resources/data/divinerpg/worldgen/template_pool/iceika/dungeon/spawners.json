@@ -1,0 +1,24 @@
+{
+  "name": "spawners",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/spawners/frost_archer",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/spawners/rollum",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

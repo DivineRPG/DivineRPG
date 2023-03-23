@@ -1,13 +1,47 @@
 {
-  "name": "iceika",
+  "name": "obstructions",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 32,
+      "element": {
+        "element_type": "minecraft:empty_pool_element",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 5,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_1",
+        "location": "divinerpg:iceika/dungeon/obstructions/post_1",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/obstructions/post_2",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/obstructions/door_1",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/obstructions/door_2",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +50,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_2",
+        "location": "divinerpg:iceika/dungeon/obstructions/snow",
         "processors": "minecraft:empty"
       }
     },
@@ -25,45 +59,9 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_3",
+        "location": "divinerpg:iceika/dungeon/obstructions/pumpkin",
         "processors": "minecraft:empty"
       }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_4",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_5",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/houses/workshop_house_6",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/houses/igloo",
-        "processors": "minecraft:empty"
-      }
-	}
+    }
   ]
 }

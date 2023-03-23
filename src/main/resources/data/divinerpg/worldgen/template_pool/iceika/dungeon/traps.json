@@ -1,13 +1,13 @@
 {
-  "name": "iceika",
+  "name": "traps",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 15,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/dungeons/archer",
+        "location": "divinerpg:iceika/dungeon/traps/stone",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/dungeons/rollum",
+        "location": "divinerpg:iceika/dungeon/traps/allure",
         "processors": "minecraft:empty"
       }
     }
