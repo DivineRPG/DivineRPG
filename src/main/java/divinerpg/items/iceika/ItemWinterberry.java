@@ -19,7 +19,7 @@ public class ItemWinterberry extends ItemNameBlockItem {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
         BlockState stateAbove = level.getBlockState(pos.above());
-        if (!stateAbove.isAir()) {
+        if (!stateAbove.isAir() && level.getBlockState(pos).isAir()) {
             if (!level.isClientSide) {
                 level.setBlockAndUpdate(pos, BlockRegistry.winterberryVinesHead.get().defaultBlockState());
             }
