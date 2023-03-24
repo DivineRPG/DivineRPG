@@ -1,6 +1,8 @@
 package divinerpg.blocks.iceika;
 
 import divinerpg.blocks.base.BlockModMoss;
+import divinerpg.registries.BlockRegistry;
+import divinerpg.world.ConfiguredFeatureKeys;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -22,9 +24,8 @@ public class BlockBrittleMoss extends BlockModMoss {
 		if(random.nextBoolean()) pos = pos.relative(Direction.getRandom(random));
 		BlockState s = level.getBlockState(pos);
 		if(s.is(BlockTags.MOSS_REPLACEABLE) || s.is(BlockTags.SNOW)) {
-//			if(s.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_moss")))) ConfiguredFeatureRegistry.BRITTLE_PLANTS.place(level, null, random, pos);
-//			else
-				level.setBlock(pos, state, 3);
+			if(s.is(BlockRegistry.brittleMoss.get())) ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_PLANTS).value().place(level, null, random, pos);
+			else level.setBlock(pos, state, 3);
 		}
 	}
 }
