@@ -15,6 +15,7 @@ import java.util.function.*;
 import java.util.stream.*;
 
 public class ArmorInfo {
+	public final String armorName;
     /**
      * Description of full set perks
      */
@@ -29,7 +30,8 @@ public class ArmorInfo {
      */
     private Predicate<ResourceKey<Level>> dimensionPredicate;
 
-    public ArmorInfo(Component... fullSetPerks) {
+    public ArmorInfo(String armorName, Component... fullSetPerks) {
+    	this.armorName = armorName;
         FullSetPerks = Component.translatable("");
 
         if (fullSetPerks != null && fullSetPerks.length > 0) {

@@ -1,7 +1,9 @@
 package divinerpg.events;
 
+import divinerpg.items.base.ItemDivineArmor;
 import divinerpg.registries.*;
 import net.minecraft.nbt.*;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.*;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.*;
@@ -27,6 +29,7 @@ public class VetheaInventorySwapEvent {
                 playerIn.inventoryMenu.broadcastChanges();
                 persistentData.getList(OVERWORLD_INVENTORY, 10).clear();
             }
+        	ArmorAbilitiesEvent.updateAbilities(playerIn);
         }
     }
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -53,6 +56,7 @@ public class VetheaInventorySwapEvent {
 	            persistentData.getList(VETHEA_INVENTORY, 10).clear();
 	            playerIn.removeAllEffects();
 	        }
+	        ArmorAbilitiesEvent.updateAbilities(playerIn);
         }
     }
 }
