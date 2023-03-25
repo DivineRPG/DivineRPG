@@ -43,7 +43,7 @@ public class BlockKarosHeatTile extends BlockModUnbreakable {
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entityIn) {
         if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red")) && entityIn instanceof ServerPlayer) {
-            entityIn.hurt(DamageSources.trap, 6);
+            entityIn.hurt(DamageSources.source(world, DamageSources.TRAP), 6);
             entityIn.setSecondsOnFire(5);
         }
     }

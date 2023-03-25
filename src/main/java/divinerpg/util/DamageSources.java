@@ -5,31 +5,19 @@ import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.world.damagesource.*;
+import net.minecraft.world.level.Level;
 
 public class DamageSources {
-    private final Registry<DamageType> damageTypes;
-    public static DamageSource trap = null;
-    public static DamageSource spike = null;
-    public static DamageSource acid = null;
-    public static DamageSource arcana = null;
-    public static DamageSource turtle = null;
+    public static final ResourceKey<DamageType> TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "trap"));
+    public static final ResourceKey<DamageType> SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "spike"));
+    public static final ResourceKey<DamageType> ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid"));
+    public static final ResourceKey<DamageType> ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana"));
+    public static final ResourceKey<DamageType> TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "turtle"));
 
-    public DamageSources(RegistryAccess p_270740_) {
-        this.damageTypes = p_270740_.registryOrThrow(Registries.DAMAGE_TYPE);
-        this.trap = this.source(TRAP);
-        this.spike = this.source(SPIKE);
-        this.acid = this.source(ACID);
-        this.arcana = this.source(ARCANA);
-        this.turtle = this.source(TURTLE);
+    public static DamageSource source(Level level, ResourceKey<DamageType> id) {
+        final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
+        final Holder.Reference<DamageType> damage = registry.getHolderOrThrow(id);
+        return new DamageSource(damage);
     }
 
-    private DamageSource source(ResourceKey<DamageType> p_270957_) {
-        return new DamageSource(this.damageTypes.getHolderOrThrow(p_270957_));
-    }
-
-    ResourceKey<DamageType> TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "trap"));
-    ResourceKey<DamageType> SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "spike"));
-    ResourceKey<DamageType> ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid"));
-    ResourceKey<DamageType> ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana"));
-    ResourceKey<DamageType> TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "turtle"));
 }

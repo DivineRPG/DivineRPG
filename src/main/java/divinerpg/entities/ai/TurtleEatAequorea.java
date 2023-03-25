@@ -110,7 +110,7 @@ public class TurtleEatAequorea extends Goal {
         double d0 = this.getAttackReachSqr(entity);
         if (range <= d0 && this.ticksUntilNextAttack <= 0) {
             this.resetAttackCooldown();
-            entity.hurt(DamageSources.turtle, entity.getHealth());
+            entity.hurt(DamageSources.source(entity.level, DamageSources.TURTLE), entity.getHealth());
         }
 
     }

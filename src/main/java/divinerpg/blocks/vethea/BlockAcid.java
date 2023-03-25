@@ -41,9 +41,9 @@ public class BlockAcid extends BlockMod {
     }
 
     @Override
-    public void stepOn(Level p_152431_, BlockPos p_152432_, BlockState p_152433_, Entity entity) {
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof Player) {
-            entity.hurt(DamageSources.acid, 3);
+            entity.hurt(DamageSources.source(level, DamageSources.ACID), 3);
         }
     }
 

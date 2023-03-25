@@ -74,7 +74,7 @@ public class ArmorAbilitiesEvent {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "apalachia")) {
-            if (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(player.damageSources().fallingBlock(player)) || source.equals(player.damageSources().anvil(e.getEntity())) || source.equals(player.damageSources().inWall()) || source.equals(DamageSources.trap)) {
+            if (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(player.damageSources().fallingBlock(player)) || source.equals(player.damageSources().anvil(e.getEntity())) || source.equals(player.damageSources().inWall()) || source.equals(DamageSources.source(e.getEntity().level, DamageSources.TRAP))) {
                 e.setCanceled(true);
             }
         } else if (isWearingFullArmor(player, boots, legs, body, helmet, "wither_reaper")) {
