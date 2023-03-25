@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "divinerpg:checker",
     "divinerpg:fancy_wool",
     "divinerpg:rainbow_wool",
     "divinerpg:workshop_carpet"

@@ -1,11 +1,8 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:aquatic_ingot",
-    "divinerpg:arlemite_ingot",
-    "divinerpg:bloodgem",
-    "divinerpg:realmite_ingot",
-    "divinerpg:rupee_ingot",
-    "divinerpg:torridite_ingot"
+    "#forge:gems",
+    "#forge:ingots",
+    "divinerpg:arcanium"
   ]
 }

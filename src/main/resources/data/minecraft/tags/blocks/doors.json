@@ -6,9 +6,6 @@
     "divinerpg:degraded_brick_door",
     "divinerpg:soul_sludge_door",
     "divinerpg:soul_stone_door",
-    "divinerpg:barred_door",
-    "divinerpg:divine_door",
-    "divinerpg:frozen_door",
-    "divinerpg:eucalyptus_door"
+    "divinerpg:barred_door"
   ]
 }

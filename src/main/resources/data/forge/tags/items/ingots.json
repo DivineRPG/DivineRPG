@@ -4,8 +4,9 @@
     "#forge:ingots/arlemite",
     "#forge:ingots/realmite",
     "#forge:ingots/rupee",
+    "#forge:ingots/shadow",
+    "#forge:ingots/aquatic",
     "#forge:ingots/torridite",
-    "#forge:ingots/hellstone",
-    "#forge:ingots/aquatic"
+    "#forge:ingots/hellstone"
   ]
 }

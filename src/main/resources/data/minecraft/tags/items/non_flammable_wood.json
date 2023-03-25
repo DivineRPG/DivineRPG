@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:frozen_log",
+    "divinerpg:stripped_frozen_log",
+    "divinerpg:frozen_planks",
+    "divinerpg:frozen_slab",
+    "divinerpg:frozen_pressure_plate",
+    "divinerpg:frozen_fence",
+    "divinerpg:frozen_trapdoor",
+    "divinerpg:frozen_fence_gate",
+    "divinerpg:frozen_stairs",
+    "divinerpg:frozen_button",
+    "divinerpg:frozen_door"
+  ]
+}

@@ -1,10 +1,9 @@
 {
-	"replace": false,
-	"values": [
-		"divinerpg:twilight_stone",
-		"divinerpg:frozen_stone",
-		"divinerpg:frozen_dirt",
-		"divinerpg:frozen_grass",
-		"divinerpg:brittle_moss"
-	]
+  "replace": false,
+  "values": [
+    "divinerpg:twilight_stone",
+    "divinerpg:frozen_stone",
+    "divinerpg:arcanite_moss",
+    "divinerpg:brittle_moss"
+  ]
 }

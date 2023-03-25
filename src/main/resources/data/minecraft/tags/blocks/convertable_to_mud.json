@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:arcanite_dirt",
+    "divinerpg:eden_dirt",
+    "divinerpg:wildwood_dirt",
+    "divinerpg:apalachia_dirt",
+    "divinerpg:skythern_dirt",
+    "divinerpg:mortum_dirt"
+  ]
+}

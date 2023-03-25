@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:asphalt_slab",
+    "divinerpg:ancient_brick_slab",
+    "divinerpg:ancient_brick_slab_breakable",
+    "divinerpg:ancient_brick_slab",
+    "divinerpg:degraded_brick_slab_breakable",
+    "divinerpg:degraded_brick_slab"
+  ]
+}

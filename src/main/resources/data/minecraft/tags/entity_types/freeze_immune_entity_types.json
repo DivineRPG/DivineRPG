@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:alicanto",
+    "divinerpg:fractite",
+    "divinerpg:frost",
+    "divinerpg:frosty",
+    "divinerpg:frost_archer",
+    "divinerpg:glacide",
+    "divinerpg:glacon",
+    "divinerpg:hastreus",
+    "divinerpg:rollum",
+    "divinerpg:workshop_merchant",
+    "divinerpg:workshop_tinkerer"
+  ]
+}

@@ -1,17 +1,9 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:divine_stairs",
-    "divinerpg:frozen_stairs",
-    "divinerpg:eden_stairs",
-    "divinerpg:wildwood_stairs",
-    "divinerpg:apalachia_stairs",
-    "divinerpg:skythern_stairs",
-    "divinerpg:mortum_stairs",
     "divinerpg:ancient_brick_stairs",
     "divinerpg:degraded_brick_stairs",
     "divinerpg:ancient_brick_stairs_breakable",
-    "divinerpg:degraded_brick_stairs_breakable",
-    "divinerpg:eucalyptus_stairs"
+    "divinerpg:degraded_brick_stairs_breakable"
   ]
 }
