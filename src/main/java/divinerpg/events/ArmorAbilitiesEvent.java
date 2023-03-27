@@ -70,7 +70,7 @@ public class ArmorAbilitiesEvent {
         Player player = (Player) e.getEntity();
         DamageSource source = e.getSource();
         
-        if(player.hasEffect(MobEffectRegistry.BLOCK_PROTECTION.get()) && source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(player.damageSources().fallingBlock(player)) || source.equals(player.damageSources().anvil(e.getEntity())) || source.equals(player.damageSources().inWall()) || source.equals(DamageSources.source(e.getEntity().level, DamageSources.TRAP))) {
+        if(player.hasEffect(MobEffectRegistry.BLOCK_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(player.damageSources().fallingBlock(player)) || source.equals(player.damageSources().anvil(e.getEntity())) || source.equals(player.damageSources().inWall()) || source.equals(DamageSources.source(e.getEntity().level, DamageSources.TRAP)))) {
             e.setCanceled(true);
         }
         if(player.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION.get()) && source.is(DamageTypes.EXPLOSION)) e.setCanceled(true);
@@ -101,7 +101,7 @@ public class ArmorAbilitiesEvent {
                 }
             }
             if(target instanceof Player) {
-                if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && source.is(DamageTypes.MOB_PROJECTILE) || event.getSource().getMsgId().equals("thrown"))
+                if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || event.getSource().getMsgId().equals("thrown")))
                 		|| (target.hasEffect(MobEffectRegistry.MELEE_PROTECTION.get()) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE))) {
                     event.setAmount(event.getAmount() * .34F);
                 } else if(target.hasEffect(MobEffectRegistry.SENG_FUR.get())) {
