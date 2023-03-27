@@ -36,7 +36,7 @@ public class ArmorAbilitiesEvent {
 			}
 			if(isWearingFullArmor(entity, helmet.armorInfo.armorName)) { //add missing effects if full armor set is equipped, otherwise remove them
     			for(MobEffect effect : effects) {
-    				if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) entity.addEffect(new MobEffectInstance(effect, -1, helmet.amplifier, true, false));
+    				if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) entity.addEffect(new MobEffectInstance(effect, -1, helmet.amplifier, false, false));
         			else if(effect instanceof UpdatableArmorEffect update) update.update(entity);
     			}
     		} else for(MobEffect effect : effects) entity.removeEffect(effect);
