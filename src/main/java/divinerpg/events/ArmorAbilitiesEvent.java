@@ -20,11 +20,9 @@ import java.util.ArrayList;
 public class ArmorAbilitiesEvent {
 	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
-		if(event.getSlot().isArmor()) updateAbilities(event.getEntity());
-		else {
-			LivingEntity entity = event.getEntity();
-			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
-		}
+		LivingEntity entity = event.getEntity();
+		if(event.getSlot().isArmor()) updateAbilities(entity);
+		else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
 	}
 	public static void updateAbilities(LivingEntity entity) {
 		ArrayList<MobEffect> effectRemoval = new ArrayList<>();
