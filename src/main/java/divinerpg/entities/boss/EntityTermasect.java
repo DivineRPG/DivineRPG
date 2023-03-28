@@ -6,11 +6,11 @@ import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
-import net.minecraft.util.*;
+import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
@@ -115,14 +115,19 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
                 }
             }
         }
+        if (this.level.isRaining() && this.level.canSeeSky(blockPosition()) && level.random.nextInt(50) == 3) {
+            this.heal(5.0f);
+        }
     }
 
 
     static class FlyToPlayer extends Goal {
         private final EntityDivineFlyingMob parentEntity;
+        private final double followDistanceSq;
 
         public FlyToPlayer(EntityDivineFlyingMob ent) {
             this.parentEntity = ent;
+            this.followDistanceSq = ent.getAttributeValue(Attributes.FOLLOW_RANGE) * ent.getAttributeValue(Attributes.FOLLOW_RANGE);
             this.setFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
@@ -131,41 +136,43 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
          * method as well.
          */
         public boolean canUse() {
-            MoveControl movementcontroller = this.parentEntity.getMoveControl();
-            if (!movementcontroller.hasWanted()) {
-                return true;
-            } else {
-                double d0 = movementcontroller.getWantedX() - this.parentEntity.getX();
-                double d1 = movementcontroller.getWantedY() - this.parentEntity.getY();
-                double d2 = movementcontroller.getWantedZ() - this.parentEntity.getZ();
-                double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                return d3 < 1.0D || d3 > 3600.0D;
-            }
-        }
-
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean canContinueToUse() {
-            return false;
+            return true;
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
         public void start() {
-            RandomSource random = this.parentEntity.getRandom();
-            if (parentEntity.level.getNearestPlayer(parentEntity, 64) != null) {
-                double d0 = random.nextInt(48) + parentEntity.level.getNearestPlayer(parentEntity, 64).getX();
-                double d1 = random.nextInt(16) + parentEntity.level.getNearestPlayer(parentEntity, 64).getY();
-                double d2 = random.nextInt(48) + parentEntity.level.getNearestPlayer(parentEntity, 64).getZ();
-                this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
-            } else {
-                double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                double d1 = this.parentEntity.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                double d2 = this.parentEntity.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
+            this.parentEntity.getNavigation().stop();
+        }
+
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean canContinueToUse() {
+            return this.parentEntity.getTarget() != null && this.parentEntity.distanceToSqr(this.parentEntity.getTarget()) > this.followDistanceSq;
+        }
+
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void tick() {
+            LivingEntity target = this.parentEntity.getTarget();
+            if (target == null) {
+                return;
             }
+            double d0 = target.getX() - this.parentEntity.getX();
+            double d1 = target.getY(0.3333333333333333D) - this.parentEntity.getY();
+            double d2 = target.getZ() - this.parentEntity.getZ();
+            double distSq = d0 * d0 + d1 * d1 + d2 * d2;
+            if (distSq < this.followDistanceSq) {
+                return;
+            }
+            double speed = parentEntity.getAttributeValue(Attributes.MOVEMENT_SPEED);
+            this.parentEntity.setDeltaMovement(this.parentEntity.getDeltaMovement().add((Math.signum(d0) * 0.5D - this.parentEntity.getDeltaMovement().x) * 0.10000000149011612D * speed,
+                    (Math.signum(d1) * 0.699999988079071D - this.parentEntity.getDeltaMovement().y) * 0.10000000149011612D * speed,
+                    (Math.signum(d2) * 0.5D - this.parentEntity.getDeltaMovement().z) * 0.10000000149011612D * speed));
+            this.parentEntity.lookAt(target, 30.0F, 30.0F);
         }
     }
 }
