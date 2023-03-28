@@ -42,7 +42,8 @@ public class FeatureRegistry {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),
-    	BRITTLE_CAVES_VEGETATION = FEATURES.register("brittle_caves_vegetation", () -> new BrittleCavesVegetation());
+    	BRITTLE_CAVES_VEGETATION = FEATURES.register("brittle_caves_vegetation", () -> new BrittleCavesVegetation()),
+    	WHALE_SKELETON = FEATURES.register("whale_skeleton", () -> new WhaleSkeleton());
 	public static final RegistryObject<Feature<PointedDripstoneConfiguration>> ICICLE = FEATURES.register("icicle", () -> new Icicle());
     public static final RegistryObject<Feature<RuleTestConfig>>
     	GEOTHERMAL_POND = FEATURES.register("geothermal_pond", () -> new GeothermalPond()),

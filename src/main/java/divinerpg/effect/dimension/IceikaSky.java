@@ -15,6 +15,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
+
 import org.joml.*;
 
 import javax.annotation.Nullable;
@@ -24,10 +25,11 @@ public class IceikaSky extends DimensionSpecialEffects {
 	public static final ResourceLocation
 		SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/white_dwarf.png"),
 		MOON_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/ice_moon_phases.png"),
-		SNOW_LOCATION = new ResourceLocation("minecraft", "textures/environment/snow.png");
+		SNOW_LOCATION = new ResourceLocation("minecraft", "textures/environment/snow.png"),
+		BONEYARD_LOCATION = new ResourceLocation(DivineRPG.MODID, "boneyard");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	private final float[] rainSizeX = new float[1024], rainSizeZ = new float[1024];
-	private boolean isRaining = false;
+	private boolean isRaining = false, isBoneyard = false;
 	public IceikaSky() {
 		super(256F, true, SkyType.NORMAL, false, false);
 		
@@ -118,7 +120,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 	public Vec3 getBrightnessDependentFogColor(Vec3 vec, float f) {
 		return vec.multiply(f * .94 + .06, f * .94 + .06, f * .91 + .09);
 	}
-	public boolean isFoggyAt(int x, int y) {return y < 128 && isRaining;}
+	public boolean isFoggyAt(int x, int y) {return (y < 128 && isRaining) || isBoneyard;}
 	@Override @Nullable
 	public float[] getSunriseColor(float f, float ff) {
 		float color[] = super.getSunriseColor(f, ff);
@@ -129,6 +131,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 	@Override
 	public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
 		isRaining = level.isRaining();
+		isBoneyard = level.getBiome(camera.getBlockPosition()).is(BONEYARD_LOCATION);
 		setupFog.run();
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();

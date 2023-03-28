@@ -73,6 +73,12 @@
 		        "maxCount": 4,
 		        "minCount": 1,
 		        "weight": 1
+			},
+			{
+				"type": "divinerpg:robin",
+				"weight": 1,
+				"minCount": 2,
+				"maxCount": 4
 			}
 		],
 		"underground_water_creature": [

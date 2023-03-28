@@ -1,0 +1,20 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:whale_skull",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1823877126,
+    "locate_offset": [
+      0,
+      0,
+      0
+    ],
+    "spread_type": "linear",
+    "spacing": 12,
+    "separation": 1
+  }
+}

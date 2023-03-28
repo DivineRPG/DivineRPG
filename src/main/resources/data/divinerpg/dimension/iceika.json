@@ -93,12 +93,24 @@
 				{
 					"biome": "divinerpg:thermal_vents",
 					"parameters": {
-						"temperature": 0,
+						"temperature": 0.1,
 						"humidity": 0.85,
 						"continentalness": -0.87,
 						"erosion": 0.85,
 						"weirdness": 0,
 						"depth": 0.85,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:boneyard",
+					"parameters": {
+						"temperature": -0.22,
+						"humidity": 0.68,
+						"continentalness": -0.75,
+						"erosion": 0.68,
+						"weirdness": 0.2,
+						"depth": 0.68,
 						"offset": 0
 					}
 				}
