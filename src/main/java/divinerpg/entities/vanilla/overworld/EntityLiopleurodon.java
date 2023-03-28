@@ -13,7 +13,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
     public EntityLiopleurodon(EntityType<? extends EntityLiopleurodon> type, Level worldIn) {
         super(type, worldIn);
                                                                 //Entity, maxTurnX, maxTurnY, inWaterSpeedModifier, outsideWaterSpeedModifier
-        this.moveControl = new SmoothSwimmingMoveControl(this, 1, 1, 0.3F, 0.1F, true);
+        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.3F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
 

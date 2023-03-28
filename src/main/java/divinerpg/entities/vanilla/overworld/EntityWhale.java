@@ -14,8 +14,8 @@ public class EntityWhale extends EntityDivineWaterMob {
 
     public EntityWhale(EntityType<? extends EntityWhale> type, Level worldIn) {
         super(type, worldIn);
-        this.moveControl = new SmoothSwimmingMoveControl(this, 1, 1, 0.25F, 0.1F, true);
-        this.lookControl = new SmoothSwimmingLookControl(this, 10);
+        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.25F, 0.1F, true);
+        this.lookControl = new SmoothSwimmingLookControl(this, 20);
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
@@ -49,5 +49,15 @@ public class EntityWhale extends EntityDivineWaterMob {
                 }
             }
         }
+        if (this.isInWater()) {
+            for (int i = 0; i < 5; i++) {
+                double bubbleX = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
+                double bubbleY = this.getY() + this.random.nextFloat() * this.getBbHeight();
+                double bubbleZ = this.getZ() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
+                this.level.addParticle(ParticleTypes.BUBBLE, bubbleX, bubbleY, bubbleZ, 0.0D, 0.0D, 0.0D);
+            }
+        }
+
+
     }
 }

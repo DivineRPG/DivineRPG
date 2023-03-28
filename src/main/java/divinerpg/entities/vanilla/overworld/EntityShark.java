@@ -17,7 +17,7 @@ public class EntityShark extends EntityDivineWaterMob {
 
     public EntityShark(EntityType<? extends EntityShark> type, Level worldIn) {
         super(type, worldIn);
-        this.moveControl = new SmoothSwimmingMoveControl(this, 1, 1, 0.15F, 0.1F, true);
+        this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.15F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
 
