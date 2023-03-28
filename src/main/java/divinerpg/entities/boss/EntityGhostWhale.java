@@ -134,7 +134,7 @@ public class EntityGhostWhale extends EntityWhale {
     @Override
     public boolean hurt(DamageSource source, float amount) {
         //Can only be damaged via magic or arcana
-        if (source.is(DamageTypes.MAGIC) || source == DamageSources.source(level, DamageSources.ARCANA)) {
+        if (source.is(DamageTypes.MAGIC) || source == DamageSources.source(level, DamageSources.ARCANA) || source.is(DamageTypes.OUT_OF_WORLD) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.WITHER)) {
             return super.hurt(source, amount);
         } else {
             return false;
