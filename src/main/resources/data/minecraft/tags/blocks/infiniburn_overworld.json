@@ -1,8 +1,9 @@
 {
 	"replace": false,
 	"values": [
-		"divinerpg:arcanite_sand",
-		"divinerpg:arcanite_stone",
-		"divinerpg:coalstone"
+    "#forge:arcana_sand",
+    "divinerpg:arcanite_stone",
+    "divinerpg:coalstone",
+    "divinerpg:coalstone_bricks"
 	]
 }

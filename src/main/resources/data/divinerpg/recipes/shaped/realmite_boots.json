@@ -7,6 +7,7 @@
     "I I"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "I": {
       "item": "divinerpg:realmite_ingot"

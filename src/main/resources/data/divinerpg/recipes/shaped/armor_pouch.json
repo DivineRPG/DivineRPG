@@ -8,6 +8,7 @@
     "dld"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "s": {
       "item": "minecraft:string"
@@ -19,7 +20,7 @@
       "item": "minecraft:armor_stand"
     },
     "d": {
-      "item": "divinerpg:divine_log"
+      "tag": "forge:wood/divine"
     }
   }
 }

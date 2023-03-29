@@ -8,6 +8,8 @@
     "MMM"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "key": {
     "P": {
       "item": "minecraft:pumpkin"

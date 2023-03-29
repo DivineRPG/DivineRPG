@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:eden_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:eden_brush"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "eden_dust"
+}

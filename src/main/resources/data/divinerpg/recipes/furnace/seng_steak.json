@@ -4,6 +4,7 @@
     "item": "divinerpg:raw_seng_meat"
   },
   "result": "divinerpg:seng_steak",
-  "experience": 0.1,
+  "category": "food",
+  "experience": 0.35,
   "cookingtime": 200
 }

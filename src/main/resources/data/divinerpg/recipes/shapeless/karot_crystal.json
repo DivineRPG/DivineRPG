@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "divinerpg:karot_crystal"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:base_spawn_crystal"
+    },
+    {
+      "item": "divinerpg:apalachia_soul"
+    },
+    {
+      "item": "divinerpg:mortum_soul"
+    },
+    {
+      "item": "divinerpg:mortum_soul"
+    },
+    {
+      "item": "divinerpg:skythern_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "boss_crystal"
+}

@@ -8,6 +8,7 @@
     "BSB"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "B": {
       "item": "minecraft:blaze_powder"

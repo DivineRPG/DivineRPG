@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:ender_shards"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/ender_watcher_pumpkin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_shards",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/ender_watcher_pumpkin"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_fragments"
+  },
+  "ingredient": {
+    "item": "divinerpg:wildwood_ore"
+  },
+  "type": "minecraft:smelting",
+  "experience": 1.0,
+  "cookingtime": 200
+}

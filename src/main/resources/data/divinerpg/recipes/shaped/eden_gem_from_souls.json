@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:eden_gem"
+  },
+  "pattern": [
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "twilight_gem",
+  "key": {
+    "G": {
+      "item": "divinerpg:eden_soul"
+    }
+  }
+}

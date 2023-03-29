@@ -9,6 +9,7 @@
     "GGG"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "G": {
       "item": "minecraft:glowstone"

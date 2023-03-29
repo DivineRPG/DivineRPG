@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "realmite_ingot",
+  "ingredients": [
+    {
+      "item": "divinerpg:realmite_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:realmite_ingot",
+    "count": 9
+  }
+}

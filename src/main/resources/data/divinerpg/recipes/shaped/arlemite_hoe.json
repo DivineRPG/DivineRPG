@@ -3,11 +3,12 @@
     "item": "divinerpg:arlemite_hoe"
   },
   "pattern": [
-    "II ",
-    " S ",
-    " S "
+    "II",
+    " S",
+    " S"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "minecraft:stick"

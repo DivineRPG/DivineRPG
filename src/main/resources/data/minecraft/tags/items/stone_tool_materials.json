@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:milk_stone",
-    "divinerpg:frozen_stone",
-    "divinerpg:coalstone",
-    "divinerpg:twilight_stone"
+    "#forge:stone"
   ]
 }

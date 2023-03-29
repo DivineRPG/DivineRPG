@@ -1,0 +1,72 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arlemite_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arlemite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arlemite_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arlemite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/arlemite_shickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+  "requirements": [
+    [
+      "has_axe",
+      "has_hoe",
+      "has_pickaxe",
+      "has_shovel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/arlemite_shickaxe"
+    ]
+  }
+}

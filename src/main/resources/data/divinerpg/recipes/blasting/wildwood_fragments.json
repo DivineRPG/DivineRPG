@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_fragments"
+  },
+  "ingredient": {
+    "item": "divinerpg:wildwood_ore"
+  },
+  "type": "minecraft:blasting",
+  "experience": 1.0,
+  "cookingtime": 100
+}

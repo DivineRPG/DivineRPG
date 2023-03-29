@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:realmite_ingot"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_realmite"
+  },
+  "type": "minecraft:blasting",
+  "group": "realmite_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

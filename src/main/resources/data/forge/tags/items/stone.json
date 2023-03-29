@@ -1,7 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"divinerpg:twilight_stone",
-		"divinerpg:arcanite_stone"
+    "divinerpg:twilight_stone",
+    "divinerpg:arcanite_stone",
+    "divinerpg:frozen_stone",
+    "divinerpg:milkstone",
+    "divinerpg:divine_rock"
 	]
 }

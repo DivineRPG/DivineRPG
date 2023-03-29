@@ -8,6 +8,7 @@
     "FIF"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "F": {
       "item": "divinerpg:eden_fragments"

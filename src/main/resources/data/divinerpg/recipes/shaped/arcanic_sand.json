@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+  "key": {
+    "#": {
+      "item": "divinerpg:arcanite_sand"
+    }
+  },
+	"pattern": [
+	  "###",
+	  "###",
+	  "###"
+	],
+	"result": {
+	  "item": "divinerpg:arcanic_sand"
+	}
+}

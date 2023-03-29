@@ -8,6 +8,7 @@
     "XOX"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "X": {
       "item": "divinerpg:inferno_sword"

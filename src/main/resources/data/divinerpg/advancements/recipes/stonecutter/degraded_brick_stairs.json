@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:degraded_bricks_breakable"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:stonecutter/degraded_brick_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:stonecutter/degraded_brick_stairs"
+    ]
+  }
+}

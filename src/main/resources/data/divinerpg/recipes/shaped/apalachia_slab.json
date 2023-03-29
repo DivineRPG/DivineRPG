@@ -7,6 +7,8 @@
     "sss"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_slab",
   "key": {
     "s": {
       "item": "divinerpg:apalachia_planks"

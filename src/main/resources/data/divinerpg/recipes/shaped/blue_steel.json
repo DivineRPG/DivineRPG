@@ -8,12 +8,14 @@
     "xxx"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "steel_block",
   "key": {
     "x": {
       "item": "minecraft:iron_ingot"
     },
     "y": {
-      "item": "minecraft:lapis_lazuli"
+      "item": "minecraft:blue_dye"
     }
   }
 }

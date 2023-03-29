@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shadow_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:shadow_bar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_snow_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:snow_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/snow_globe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_diamond",
+      "has_shadow_bar",
+      "has_snow_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/snow_globe"
+    ]
+  }
+}

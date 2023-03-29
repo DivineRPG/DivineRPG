@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:milk_stone_bricks",
+    "count": 4
+  },
+  "key": {
+    "#": {
+      "item": "divinerpg:milk_stone"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building"
+}

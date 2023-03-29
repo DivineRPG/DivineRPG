@@ -8,6 +8,7 @@
     " r "
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "p": {
       "tag": "minecraft:planks"

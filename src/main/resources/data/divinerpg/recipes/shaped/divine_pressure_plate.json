@@ -1,12 +1,13 @@
 {
   "result": {
     "item": "divinerpg:divine_pressure_plate",
-    "group": "wooden_pressure_plate"
   },
   "pattern": [
     "ss"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_pressure_plate",
   "key": {
     "s": {
       "item": "divinerpg:divine_planks"

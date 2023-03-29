@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "divinerpg:green_diamond_chunk"
+  },
+  "base": {
+    "item": "divinerpg:rupee_chestplate"
+  },
+  "result": {
+    "item": "divinerpg:green_rupee_chestplate"
+  }
+}

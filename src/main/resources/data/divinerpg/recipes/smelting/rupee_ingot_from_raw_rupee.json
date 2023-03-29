@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_ingot"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_rupee"
+  },
+  "type": "minecraft:smelting",
+  "group": "rupee_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

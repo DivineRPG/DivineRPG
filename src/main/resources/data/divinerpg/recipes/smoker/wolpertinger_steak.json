@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "divinerpg:raw_wolpertinger_meat"
+  },
+  "result": "divinerpg:wolpertinger_steak",
+  "experience": 0.35,
+  "cookingtime": 100
+}

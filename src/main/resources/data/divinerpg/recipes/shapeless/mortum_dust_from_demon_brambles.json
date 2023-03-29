@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:mortum_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:demon_brambles"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "mortum_dust"
+}

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:aquatic_ingot"
+  },
+  "ingredient": {
+    "item": "divinerpg:pure_aquatic_pellets"
+  },
+  "type": "minecraft:blasting",
+  "experience": 1.3,
+  "cookingtime": 100
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:whale_fin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:aquatic_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/bowhead_anchor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_fin",
+      "has_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/bowhead_anchor"
+    ]
+  }
+}

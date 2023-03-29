@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jungle_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:jungle_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shadow_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:shadow_bar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/poison_saber"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jungle_stone",
+      "has_shadow_bar",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/poison_saber"
+    ]
+  }
+}

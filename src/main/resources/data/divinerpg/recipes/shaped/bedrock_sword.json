@@ -3,11 +3,12 @@
     "item": "divinerpg:bedrock_sword"
   },
   "pattern": [
-    " B ",
-    " B ",
-    " S "
+    "B",
+    "B",
+    "S"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "B": {
       "item": "divinerpg:bedrock_chunk"

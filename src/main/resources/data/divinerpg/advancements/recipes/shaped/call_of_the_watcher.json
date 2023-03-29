@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:watching_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:molten_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:hellstone_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/call_of_the_watcher"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_eye",
+      "has_stone",
+      "has_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/call_of_the_watcher"
+    ]
+  }
+}

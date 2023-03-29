@@ -10,5 +10,6 @@
       "item": "minecraft:obsidian"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "category": "building"
 }

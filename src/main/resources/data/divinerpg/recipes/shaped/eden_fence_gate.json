@@ -7,6 +7,7 @@
     "sps"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "redstone",
   "group": "wooden_fence_gate",
   "key": {
     "p": {

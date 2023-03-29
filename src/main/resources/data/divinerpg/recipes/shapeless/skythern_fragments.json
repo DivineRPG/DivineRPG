@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_fragments"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

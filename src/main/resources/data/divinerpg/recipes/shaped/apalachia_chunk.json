@@ -8,6 +8,7 @@
     "G G"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "twilight_chunk",
   "key": {
     "G": {
       "item": "divinerpg:apalachia_gem"

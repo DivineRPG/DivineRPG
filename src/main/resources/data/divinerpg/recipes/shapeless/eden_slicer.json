@@ -8,5 +8,6 @@
       "item": "divinerpg:eden_gem"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment"
 }

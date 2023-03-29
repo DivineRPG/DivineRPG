@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:torridite_ingot"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_torridite"
+  },
+  "type": "minecraft:blasting",
+  "group": "torridite_ingot",
+  "experience": 1.1,
+  "cookingtime": 100
+}

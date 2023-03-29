@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sun_blossom": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:sun_blossom"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/eden_dust_from_sun_blossom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sun_blossom",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/eden_dust_from_sun_blossom"
+    ]
+  }
+}

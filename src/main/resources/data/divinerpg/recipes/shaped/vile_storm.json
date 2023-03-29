@@ -9,6 +9,7 @@
     "SSS"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "divinerpg:shuriken"

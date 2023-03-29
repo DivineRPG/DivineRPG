@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:rupee_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_pickaxe"
+    },
+    {
+      "item": "divinerpg:rupee_shovel"
+    },
+    {
+      "item": "divinerpg:rupee_axe"
+    },
+    {
+      "item": "divinerpg:rupee_hoe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment"
+}

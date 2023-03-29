@@ -8,6 +8,7 @@
     "ccc"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "c": {
       "item": "divinerpg:coalstone"

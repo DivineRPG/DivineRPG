@@ -8,6 +8,8 @@
     "III"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "colored_fence",
   "key": {
     "I": {
       "item": "minecraft:lapis_lazuli"

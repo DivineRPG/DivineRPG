@@ -8,6 +8,7 @@
     "CCC"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "minecraft:book"

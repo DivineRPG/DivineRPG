@@ -16,5 +16,6 @@
       "item": "divinerpg:corrupted_hoe"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment"
 }

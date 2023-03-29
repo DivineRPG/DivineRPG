@@ -8,6 +8,7 @@
     "BSB"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "R": {
       "item": "divinerpg:jungle_stone"

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_fragments"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:wildwood_soul"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

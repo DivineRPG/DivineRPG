@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rupee_ingot",
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:rupee_ingot",
+    "count": 9
+  }
+}

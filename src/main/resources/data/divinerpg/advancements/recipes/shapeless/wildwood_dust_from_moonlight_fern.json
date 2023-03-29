@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_moonlight_fern": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:moonlight_fern"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/wildwood_dust_from_moonlight_fern"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_moonlight_fern",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/wildwood_dust_from_moonlight_fern"
+    ]
+  }
+}

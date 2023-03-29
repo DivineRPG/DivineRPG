@@ -3,11 +3,12 @@
     "item": "divinerpg:apalachia_blade"
   },
   "pattern": [
-    " I ",
-    " I ",
-    " S "
+    "I",
+    "I",
+    "S"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "minecraft:stick"

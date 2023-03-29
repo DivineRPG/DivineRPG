@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:divine_rock"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:divine_shards"
+    },
+    {
+      "item": "minecraft:stone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+   "category": "building"
+}

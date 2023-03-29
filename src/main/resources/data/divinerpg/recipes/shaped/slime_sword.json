@@ -8,6 +8,7 @@
     "SDS"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "minecraft:slime_ball"

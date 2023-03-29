@@ -8,6 +8,7 @@
     "XXX"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "X": {
       "tag": "minecraft:stone_bricks"

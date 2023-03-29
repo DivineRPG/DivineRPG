@@ -8,6 +8,7 @@
     " C "
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "C": {
       "item": "divinerpg:apalachia_chunk"

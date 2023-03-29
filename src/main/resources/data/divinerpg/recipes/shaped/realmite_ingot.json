@@ -8,6 +8,7 @@
     "III"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "realmite_ingot",
   "key": {
     "I": {
       "item": "divinerpg:realmite_nugget"

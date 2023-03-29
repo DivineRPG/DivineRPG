@@ -1,5 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "colored_pouch",
   "ingredients": [
     {
       "tag": "divinerpg:armor_pouches"

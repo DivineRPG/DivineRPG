@@ -13,7 +13,7 @@
       "item": "divinerpg:mortum_block"
     },
     "W": {
-      "item": "divinerpg:mortum_log"
+      "tag": "forge:wood/mortum"
     }
   }
 }

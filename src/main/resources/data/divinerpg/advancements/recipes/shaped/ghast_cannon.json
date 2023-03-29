@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:hellstone_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:shadow_bar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/ghast_cannon"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingot",
+      "has_bar",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/ghast_cannon"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "divinerpg:eden_fragments"
+  },
+  "ingredient": {
+    "item": "divinerpg:eden_ore"
+  },
+  "type": "minecraft:smelting",
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -8,6 +8,8 @@
     "x x"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "spike_block",
   "key": {
     "x": {
       "item": "minecraft:iron_ingot"

@@ -3,11 +3,11 @@
     "item": "divinerpg:aquatic_dagger"
   },
   "pattern": [
-    "   ",
-    " I ",
-    " S "
+    "I",
+    "S"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "minecraft:stick"

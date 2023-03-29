@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:moonlight_fern"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "wildwood_dust"
+}

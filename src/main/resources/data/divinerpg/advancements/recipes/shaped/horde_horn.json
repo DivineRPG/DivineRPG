@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hellstone_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:hellstone_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ender_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ender_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ender_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:ender_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/horde_horn"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_hellstone_ingot",
+      "has_ender_eye",
+      "has_ender_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/horde_horn"
+    ]
+  }
+}

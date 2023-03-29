@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_planks",
+    "count": 4
+  },
+  "pattern": [
+    "s"
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "key": {
+    "s": {
+      "tag": "forge:wood/wildwood"
+    }
+  }
+}

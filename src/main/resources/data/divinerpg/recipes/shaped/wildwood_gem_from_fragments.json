@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:wildwood_gem"
+  },
+  "pattern": [
+    "GGG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "twilight_gem",
+  "key": {
+    "G": {
+      "item": "divinerpg:wildwood_fragments"
+    }
+  }
+}

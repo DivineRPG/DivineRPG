@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:skythern_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_pickaxe"
+    },
+    {
+      "item": "divinerpg:skythern_shovel"
+    },
+    {
+      "item": "divinerpg:skythern_axe"
+    },
+    {
+      "item": "divinerpg:skythern_hoe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment"
+}

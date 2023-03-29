@@ -8,6 +8,7 @@
     " X "
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "X": {
       "item": "divinerpg:aquatic_ingot"

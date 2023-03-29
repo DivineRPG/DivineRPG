@@ -1,0 +1,31 @@
+{
+  "result": {
+    "item": "divinerpg:rainbow_wool",
+    "count": 7
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:red_wool"
+    },
+    {
+      "item": "minecraft:orange_wool"
+    },
+    {
+      "item": "minecraft:yellow_wool"
+    },
+    {
+      "item": "minecraft:lime_wool"
+    },
+    {
+      "item": "minecraft:light_blue_wool"
+    },
+    {
+      "item": "minecraft:blue_wool"
+    },
+    {
+      "item": "minecraft:purple_wool"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+   "category": "building"
+}

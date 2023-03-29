@@ -3,11 +3,12 @@
     "item": "divinerpg:bloodgem_sword"
   },
   "pattern": [
-    " I ",
-    " I ",
-    " S "
+    "I",
+    "I",
+    "S"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "minecraft:stick"

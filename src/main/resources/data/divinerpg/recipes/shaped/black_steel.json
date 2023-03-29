@@ -8,6 +8,8 @@
     "xxx"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "steel_block",
   "key": {
     "x": {
       "item": "minecraft:iron_ingot"

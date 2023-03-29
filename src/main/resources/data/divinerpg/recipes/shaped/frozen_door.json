@@ -9,6 +9,8 @@
     "WW"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_door",
   "key": {
     "W": {
       "item": "divinerpg:frozen_planks"

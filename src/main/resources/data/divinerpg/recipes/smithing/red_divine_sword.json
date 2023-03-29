@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "divinerpg:red_diamond_chunk"
+  },
+  "base": {
+    "item": "divinerpg:divine_sword"
+  },
+  "result": {
+    "item": "divinerpg:red_divine_sword"
+  }
+}

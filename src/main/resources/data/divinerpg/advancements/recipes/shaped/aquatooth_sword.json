@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_teeth": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:liopleurodon_teeth"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_skull": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:liopleurodon_skull"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/aquatooth_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_teeth",
+      "has_skull",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/aquatooth_sword"
+    ]
+  }
+}

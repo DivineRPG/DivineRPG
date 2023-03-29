@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "divinerpg:collector_fragments"
+    }
+  },
+	"pattern": [
+	  "###",
+	  "###",
+	  "###"
+	],
+  "result": {
+    "item": "divinerpg:collector"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_demon_brambles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:demon_brambles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/mortum_dust_from_demon_brambles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_demon_brambles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/mortum_dust_from_demon_brambles"
+    ]
+  }
+}

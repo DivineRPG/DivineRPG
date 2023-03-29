@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "divinerpg:gray_diamond_chunk"
+  },
+  "base": {
+    "item": "divinerpg:ender_sword"
+  },
+  "result": {
+    "item": "divinerpg:black_ender_sword"
+  }
+}

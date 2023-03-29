@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:arlemite_shickaxe"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:arlemite_pickaxe"
+    },
+    {
+      "item": "divinerpg:arlemite_shovel"
+    },
+    {
+      "item": "divinerpg:arlemite_axe"
+    },
+    {
+      "item": "divinerpg:arlemite_hoe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment"
+}

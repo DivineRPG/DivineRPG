@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_divine_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:divine_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_book": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:book"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/guide_book"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_divine_sapling",
+      "has_book",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/guide_book"
+    ]
+  }
+}

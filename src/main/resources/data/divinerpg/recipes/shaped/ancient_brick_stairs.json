@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:ancient_brick_stairs_breakable",
+    "count": 4
+  },
+  "pattern": [
+    "s  ",
+    "ss ",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "divinerpg:ancient_bricks_breakable"
+    }
+  }
+}

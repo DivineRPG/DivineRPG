@@ -8,6 +8,7 @@
     "CCC"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "C": {
       "item": "minecraft:clock"

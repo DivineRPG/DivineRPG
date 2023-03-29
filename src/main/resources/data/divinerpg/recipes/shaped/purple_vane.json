@@ -9,6 +9,8 @@
     "CCC"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "vane",
   "key": {
     "C": {
       "item": "minecraft:purple_dye"

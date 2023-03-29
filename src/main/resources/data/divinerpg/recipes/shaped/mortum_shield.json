@@ -8,6 +8,7 @@
     " z "
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "p": {
       "item": "divinerpg:mortum_planks"
