@@ -8,6 +8,7 @@
     "III"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "divinerpg_stone",
   "key": {
     "I": {
       "item": "divinerpg:molten_shards"

@@ -6,6 +6,7 @@
     "item": "divinerpg:mortum_ore"
   },
   "type": "minecraft:smelting",
+  "group": "twilight_fragments",
   "experience": 2.0,
   "cookingtime": 200
 }

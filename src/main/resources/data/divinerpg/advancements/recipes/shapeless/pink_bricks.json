@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:pink_dye"
+            "item": [
+              "minecraft:pink_dye"
+            ]
           }
         ]
       },

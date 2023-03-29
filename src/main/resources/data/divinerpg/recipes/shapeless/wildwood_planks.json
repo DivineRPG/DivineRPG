@@ -3,15 +3,12 @@
     "item": "divinerpg:wildwood_planks",
     "count": 4
   },
-  "pattern": [
-    "s"
+  "ingredients": [
+    {
+      "tag": "forge:wood/wildwood"
+    }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
-  "group": "planks",
-  "key": {
-    "s": {
-      "tag": "forge:wood/wildwood"
-    }
-  }
+  "group": "divinerpg_planks"
 }

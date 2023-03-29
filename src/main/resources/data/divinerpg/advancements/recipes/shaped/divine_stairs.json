@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:divine_planks"
+            "item": [
+              "divinerpg:divine_planks"
+            ]
           }
         ]
       },

@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:lava_bucket"
+            "item": [
+              "minecraft:lava_bucket"
+            ]
           }
         ]
       },

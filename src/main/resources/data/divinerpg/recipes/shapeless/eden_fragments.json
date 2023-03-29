@@ -7,5 +7,6 @@
       "item": "divinerpg:eden_soul"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "group": "twilight_fragments"
 }

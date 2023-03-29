@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:torridite_ingot"
+            "item": [
+              "divinerpg:torridite_ingot"
+            ]
           }
         ]
       },

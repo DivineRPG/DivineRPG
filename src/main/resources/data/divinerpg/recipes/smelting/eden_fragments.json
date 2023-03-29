@@ -6,6 +6,7 @@
     "item": "divinerpg:eden_ore"
   },
   "type": "minecraft:smelting",
+  "group": "twilight_fragments",
   "experience": 0.7,
   "cookingtime": 200
 }

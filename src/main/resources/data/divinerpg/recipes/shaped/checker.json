@@ -9,6 +9,7 @@
     "xyx"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "x": {
       "item": "minecraft:white_wool"

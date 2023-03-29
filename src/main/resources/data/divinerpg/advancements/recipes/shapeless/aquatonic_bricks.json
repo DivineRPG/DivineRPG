@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "divinerpg:aqua_ball"
+            "item": [
+              "divinerpg:aqua_ball"
+            ]
           }
         ]
       },

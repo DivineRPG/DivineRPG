@@ -8,6 +8,7 @@
     "XXX"
   ],
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "group": "colored_minibricks",
   "key": {
     "C": {

@@ -6,6 +6,7 @@
     "item": "divinerpg:mortum_ore"
   },
   "type": "minecraft:blasting",
+  "group": "twilight_fragments",
   "experience": 2.0,
   "cookingtime": 100
 }

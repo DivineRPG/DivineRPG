@@ -10,7 +10,7 @@
   ],
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
-  "group": "wooden_door",
+  "group": "divinerpg_wooden_door",
   "key": {
     "W": {
       "item": "divinerpg:divine_planks"

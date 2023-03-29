@@ -17,5 +17,5 @@
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "group": "building"
+  "category": "building"
 }

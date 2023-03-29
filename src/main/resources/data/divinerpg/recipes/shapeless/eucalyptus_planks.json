@@ -3,15 +3,12 @@
     "item": "divinerpg:eucalyptus_planks",
     "count": 4
   },
-  "pattern": [
-    "s"
+  "ingredients": [
+    {
+      "tag": "forge:wood/eucalyptus"
+    }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
-  "group": "planks",
-  "key": {
-    "s": {
-      "tag": "forge:wood/eucalyptus"
-    }
-  }
+  "group": "divinerpg_planks"
 }

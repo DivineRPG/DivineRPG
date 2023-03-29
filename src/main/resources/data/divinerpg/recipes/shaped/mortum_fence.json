@@ -8,7 +8,7 @@
     "psp"
   ],
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_fence",
+  "group": "divinerpg_wooden_fence",
   "key": {
     "p": {
       "item": "divinerpg:mortum_planks"

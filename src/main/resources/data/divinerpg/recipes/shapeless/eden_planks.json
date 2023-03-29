@@ -3,15 +3,12 @@
     "item": "divinerpg:eden_planks",
     "count": 4
   },
-  "pattern": [
-    "s"
+  "ingredients": [
+    {
+      "tag": "forge:wood/eden"
+    }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
-  "group": "planks",
-  "key": {
-    "s": {
-      "tag": "forge:wood/eden"
-    }
-  }
+  "group": "divinerpg_planks"
 }

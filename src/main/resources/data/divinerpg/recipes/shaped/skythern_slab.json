@@ -8,7 +8,7 @@
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "wooden_slab",
+  "group": "divinerpg_wooden_slab",
   "key": {
     "s": {
       "item": "divinerpg:skythern_planks"

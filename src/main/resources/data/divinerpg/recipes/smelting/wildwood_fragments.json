@@ -6,6 +6,7 @@
     "item": "divinerpg:wildwood_ore"
   },
   "type": "minecraft:smelting",
+  "group": "twilight_fragments",
   "experience": 1.0,
   "cookingtime": 200
 }

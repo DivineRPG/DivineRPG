@@ -3,7 +3,7 @@
     "item": "divinerpg:realmite_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:deepslate_realmite_ore"
+    "item": "divinerpg:realmite_ore_deepslate"
   },
   "type": "minecraft:blasting",
   "group": "realmite_ingot",

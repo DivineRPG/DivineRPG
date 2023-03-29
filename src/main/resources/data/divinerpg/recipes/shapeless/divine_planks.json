@@ -3,15 +3,12 @@
     "item": "divinerpg:divine_planks",
     "count": 4
   },
-  "pattern": [
-    "s"
+  "ingredients": [
+    {
+      "tag": "forge:wood/divine"
+    }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
-  "group": "planks",
-  "key": {
-    "s": {
-      "tag": "forge:wood/divine"
-    }
-  }
+  "group": "divinerpg_planks"
 }

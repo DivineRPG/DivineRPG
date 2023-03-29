@@ -9,6 +9,7 @@
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "twilight_block",
   "key": {
     "B": {
       "item": "divinerpg:apalachia_heart"

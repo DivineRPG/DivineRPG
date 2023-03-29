@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:glowstone_dust"
+            "item": [
+              "minecraft:glowstone_dust"
+            ]
           }
         ]
       },

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
-  "group": "wooden_trapdoor",
+  "group": "divinerpg_wooden_trapdoor",
   "pattern": [
     "III",
     "III"

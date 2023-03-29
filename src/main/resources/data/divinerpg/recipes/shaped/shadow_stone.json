@@ -7,6 +7,7 @@
     "II"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "divinerpg_stone",
   "key": {
     "I": {
       "item": "divinerpg:shadow_bar"

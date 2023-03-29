@@ -8,7 +8,6 @@
     "sss"
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "s": {
       "item": "divinerpg:degraded_bricks_breakable"

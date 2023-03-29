@@ -3,7 +3,7 @@
     "item": "divinerpg:rupee_ingot"
   },
   "ingredient": {
-    "item": "divinerpg:deepslate_rupee_ore"
+    "item": "divinerpg:rupee_ore_deepslate"
   },
   "type": "minecraft:blasting",
   "group": "rupee_ingot",

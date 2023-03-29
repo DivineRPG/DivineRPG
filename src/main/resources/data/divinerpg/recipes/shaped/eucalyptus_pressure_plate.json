@@ -7,7 +7,7 @@
   ],
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
-  "group": "wooden_pressure_plate",
+  "group": "divinerpg_wooden_pressure_plate",
   "key": {
     "s": {
       "item": "divinerpg:eucalyptus_planks"

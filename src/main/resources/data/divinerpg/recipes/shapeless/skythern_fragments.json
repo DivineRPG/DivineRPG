@@ -7,5 +7,6 @@
       "item": "divinerpg:skythern_soul"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "group": "twilight_fragments"
 }

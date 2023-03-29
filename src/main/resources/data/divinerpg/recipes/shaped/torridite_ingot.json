@@ -8,6 +8,7 @@
     "III"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "torridite_ingot",
   "key": {
     "I": {
       "item": "divinerpg:torridite_nugget"
