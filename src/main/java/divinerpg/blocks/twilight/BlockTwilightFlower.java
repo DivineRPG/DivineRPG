@@ -71,7 +71,11 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
         return state.getBlock() == grassSupplier.get();
     }
 
-
+    public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        BlockState blockBelow = reader.getBlockState(blockpos);
+        return blockBelow.canSustainPlant(reader, blockpos, Direction.UP, this) && !blockBelow.isAir();
+    }
 
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
     public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {

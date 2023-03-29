@@ -944,13 +944,13 @@ public class EntityRegistry {
 	}
     
     private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
-		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, normalHealth).add(Attributes.MOVEMENT_SPEED, normalSpeed).build());
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, normalHealth).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).build());
 	}
 	private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
 	}
 	private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double speed, double followRange) {
-		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
+		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
 	}
 	private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
 		event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());

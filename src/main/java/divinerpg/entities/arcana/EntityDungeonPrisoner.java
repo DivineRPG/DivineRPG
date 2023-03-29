@@ -7,7 +7,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class EntityDungeonPrisoner extends EntityDivineMonster {
     public EntityDungeonPrisoner(EntityType<? extends Monster> type, Level worldIn) {
@@ -19,15 +20,17 @@ public class EntityDungeonPrisoner extends EntityDivineMonster {
     }
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
+
     @Override
-    public boolean doHurtTarget(Entity entity) {
-        if(level.isClientSide) {
-            EntityRegistry.DUNGEON_DEMON.get().spawn((ServerLevel) level, null, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-            this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE.get(), 1, 1);
+    public boolean hurt(DamageSource source, float amount) {
+        if(!level.isClientSide) {
+            if(!source.equals(DamageSource.OUT_OF_WORLD)) {
+                EntityRegistry.DUNGEON_DEMON.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE.get(), 1, 1);
+                this.kill();
+            }
         }
-        super.doHurtTarget(entity);
-        this.kill();
-        return true;
+        return super.hurt(source, amount);
     }
 
     @Override

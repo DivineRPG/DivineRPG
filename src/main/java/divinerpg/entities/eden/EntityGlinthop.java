@@ -147,7 +147,7 @@ public class EntityGlinthop extends EntityDivineTameable {
             }
             return InteractionResult.PASS;
         }
-            return super.mobInteract(player, hand);
+            return InteractionResult.FAIL;
         }
 
     @Override

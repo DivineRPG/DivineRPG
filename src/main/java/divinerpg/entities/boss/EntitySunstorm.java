@@ -1,20 +1,19 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.ai.*;
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
+import divinerpg.entities.ai.AISunstormAttack;
+import divinerpg.entities.base.EntityDivineBoss;
+import divinerpg.entities.projectile.EntityTwilightMageShot;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.sounds.*;
-import net.minecraft.util.*;
-import net.minecraft.world.BossEvent.*;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob {
 
@@ -26,18 +25,20 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level.isClientSide) {
-            if (canAttack(target))
+            if (canAttack(target)) {
                 if (distanceTo(target) < 3) {
                     target.setSecondsOnFire(3);
                 }
 
-            EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, BulletType.SUNSTORM);
-            double d0 = getTarget().getX() - this.getX();
-            double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
-            double d2 = getTarget().getZ() - this.getZ();
-            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.3F);
-            this.level.addFreshEntity(projectile);
+                EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, BulletType.SUNSTORM);
+                double tx = getTarget().getX() - this.getX();
+                double ty = getTarget().getEyeY() - this.getEyeY();
+                double tz = getTarget().getZ() - this.getZ();
+                double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
+                projectile.shoot(tx, ty, tz, 1.6f, 0);
+                projectile.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);
+                this.level.addFreshEntity(projectile);
+            }
         }
     }
 
@@ -59,7 +60,7 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
         return BossBarColor.YELLOW;
     }
 
-    
+
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.SPARKLER.get();

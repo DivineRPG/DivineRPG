@@ -45,8 +45,9 @@ public class EntityRaglok extends EntityDivineBoss {
             this.playSound(SoundRegistry.RAGLOK_AWAKEN.get(), 1.0F, 1.0F);
             loaded = true;
         }
-
-        manageAbilities();
+        if(this.isAlive()) {
+            manageAbilities();
+        }
     }
 
     public void manageAbilities() {
