@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/eden_gem"
+        "recipe": "divinerpg:shaped/eden_gem_from_souls"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/eden_gem"
+      "divinerpg:shaped/eden_gem_from_souls"
     ]
   }
 }

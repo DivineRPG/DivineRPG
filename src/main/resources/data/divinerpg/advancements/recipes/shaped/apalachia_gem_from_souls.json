@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/apalachia_gem"
+        "recipe": "divinerpg:shaped/apalachia_gem_from_souls"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/apalachia_gem"
+      "divinerpg:shaped/apalachia_gem_from_souls"
     ]
   }
 }

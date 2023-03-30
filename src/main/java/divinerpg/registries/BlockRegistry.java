@@ -45,7 +45,7 @@ public class BlockRegistry {
             torriditeOre		 = registerBlock("torridite_ore",			() -> new BlockMod(Properties.of(Material.STONE, STONE).requiresCorrectToolForDrops().strength(3F, 2000F).sound(SoundType.NETHER_ORE)));
 
     public static final RegistryObject<Block>// Compressed ore blocks
-            arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(Properties.of(Material.METAL, METAL).requiresCorrectToolForDrops().strength(5F, 3F))),
+            arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(Properties.of(Material.METAL, METAL).requiresCorrectToolForDrops().strength(5F, 3F).sound(SoundType.METAL))),
             rawArlemiteBlock= registerBlock("raw_arlemite_block",() -> new BlockMod(Properties.of(Material.METAL, METAL).requiresCorrectToolForDrops().strength(4.5F, 2.75F))),
             realmiteBlock	= registerBlock("realmite_block",	() -> new BlockMod(Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arlemite_block"))))),
             rawRealmiteBlock= registerBlock("raw_realmite_block",() -> new BlockMod(Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "raw_arlemite_block"))))),
@@ -169,14 +169,14 @@ public class BlockRegistry {
             asphaltStairs = registerBlock("asphalt_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "asphalt")))),
             asphaltSlab = registerBlock("asphalt_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "asphalt")), 3F)),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(1F)),
-            checker = registerBlock("checker", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION)),
-            crate = registerBlock("crate", () -> new BlockMod(2.5F, 3F, Material.WOOD)),
+            checker = registerBlock("checker", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL)),
+            crate = registerBlock("crate", () -> new BlockMod(2.5F, 3F, Material.WOOD, SoundType.WOOD)),
             darkstone = registerBlock("darkstone", () -> new BlockMod(Properties.of(Material.STONE, COLOR_BLACK).requiresCorrectToolForDrops().strength(50F, 3F).sound(SoundType.STONE).lightLevel((p_235464_0_) -> {
                 return 1;}))),
-            fancyWool = registerBlock("fancy_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION)),
+            fancyWool = registerBlock("fancy_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL)),
             milkStone = registerBlock("milk_stone", () -> new BlockMod(1.5F, 10F)),
-            plankDesign = registerBlock("plank_design", () -> new BlockMod(2.5F, 3F, Material.WOOD)),
-            rainbowWool = registerBlock("rainbow_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION));
+            plankDesign = registerBlock("plank_design", () -> new BlockMod(2.5F, 3F, Material.WOOD, SoundType.WOOD)),
+            rainbowWool = registerBlock("rainbow_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL));
 
     public static final RegistryObject<Block>// Spike blocks
             spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false)),
