@@ -22,9 +22,6 @@ public class ItemBurningSword extends ItemModSword {
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         if(player != null && entity != null){
             entity.setSecondsOnFire(this.burnSeconds);
-            stack.hurtAndBreak(1, player, (target) -> {
-                target.broadcastBreakEvent(player.getUsedItemHand());
-            });
         }
         return super.onLeftClickEntity(stack, player, entity);
     }
