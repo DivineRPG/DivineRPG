@@ -36,9 +36,6 @@ public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends
             UUID id = entity.getUUID();
             if (entity.inventory.getArmor(3).isEmpty()) {
                 if (Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
-                    if (entity.isCrouching()) {
-                        matrixStackIn.translate(0.0F, 0.3F, 0.0F);
-                    }
                     modelHat.top.copyFrom(getParentModel().head);
                     modelHat.bottom.copyFrom(getParentModel().head);
                     VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));
