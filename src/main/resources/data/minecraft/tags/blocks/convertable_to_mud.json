@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "divinerpg:frozen_dirt",
     "divinerpg:arcanite_dirt",
     "divinerpg:dream_dirt",
     "divinerpg:eden_dirt",

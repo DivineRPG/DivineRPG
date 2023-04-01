@@ -12,11 +12,11 @@ public class BlockModLeaves extends LeavesBlock {
 
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        return 5;
+        return 60;
     }
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        return 5;
+        return 30;
     }
 }

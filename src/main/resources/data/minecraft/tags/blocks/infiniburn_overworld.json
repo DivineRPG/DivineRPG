@@ -4,6 +4,9 @@
     "#forge:arcana_sand",
     "divinerpg:arcanite_stone",
     "divinerpg:coalstone",
-    "divinerpg:coalstone_bricks"
+    "divinerpg:coalstone_bricks",
+    "divinerpg:coalstone_stairs",
+    "divinerpg:coalstone_furnace",
+    "divinerpg:workshop_bookcase"
 	]
 }

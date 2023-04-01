@@ -175,7 +175,7 @@ public class BlockRegistry {
                 return 1;}))),
             fancyWool = registerBlock("fancy_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL)),
             milkStone = registerBlock("milk_stone", () -> new BlockMod(1.5F, 10F)),
-            plankDesign = registerBlock("plank_design", () -> new BlockMod(2.5F, 3F, Material.WOOD, SoundType.WOOD)),
+            plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(2.5F, 3F, Material.WOOD, SoundType.WOOD)),
             rainbowWool = registerBlock("rainbow_wool", () -> new BlockMod(0.8F, 3F, Material.CLOTH_DECORATION, SoundType.WOOL));
 
     public static final RegistryObject<Block>// Spike blocks

@@ -21,11 +21,11 @@ public class BlockModVine extends VineBlock {
 
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        return 5;
+        return 100;
     }
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        return 5;
+        return 15;
     }
 }

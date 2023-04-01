@@ -17,7 +17,7 @@ public class BlockModSlab extends SlabBlock {
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
         if(material == Material.WOOD) {
-            return 5;
+            return 20;
         }
         return 0;
     }
