@@ -96,8 +96,16 @@ public class ItemModBow extends BowItem {
         }
     }
 
-    private boolean needsArrow() {
-        return ForgeRegistries.ITEMS.getValue(arrowSupplier) != Items.AIR;
+    private boolean needsArrow(ItemStack stack) {
+        if (ForgeRegistries.ITEMS.getValue(arrowSupplier) != Items.AIR) {
+            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) {
+                return false; // bow has Infinity enchantment, no ammo needed
+            } else {
+                return true; // bow doesn't have Infinity enchantment, ammo needed
+            }
+        } else {
+            return false; // no arrow supplier, no ammo needed
+        }
     }
 
     @Override
@@ -121,13 +129,13 @@ public class ItemModBow extends BowItem {
             tooltip.add(LocalizeUtils.burn(12));
         if (arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE)
             tooltip.add(LocalizeUtils.explosiveShots());
-        tooltip.add(this.needsArrow() ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
+        tooltip.add(this.needsArrow(stack) ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        boolean hasAmmo = (!needsArrow() || !this.findAmmunition(player).isEmpty());
+        boolean hasAmmo = (!needsArrow(itemstack) || !this.findAmmunition(player).isEmpty());
 
         InteractionResultHolder<ItemStack> ret = ForgeEventFactory.onArrowNock(itemstack, world, player, hand, hasAmmo);
         if (ret != null) return ret;
@@ -145,7 +153,7 @@ public class ItemModBow extends BowItem {
         RandomSource random = worldIn.getRandom();
         if (entityLiving instanceof Player) {
             Player entityplayer = (Player) entityLiving;
-            boolean infiniteAmmo = !needsArrow() || entityplayer.isCreative()
+            boolean infiniteAmmo = !needsArrow(stack) || entityplayer.isCreative()
                     || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY_ARROWS, entityLiving) > 0;
             ItemStack itemstack = this.findAmmunition(entityplayer);
 

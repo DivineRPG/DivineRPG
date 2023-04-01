@@ -46,7 +46,7 @@ public class ItemHealingSword extends ItemModSword {
     	if(!(entity instanceof ServerPlayer && ((ServerPlayer) entity).isCreative())) {
     		if(entity instanceof Monster) {
         		entity.hurt(DamageSource.MAGIC, healAmount / 2);
-        		if(stack.getDamageValue() < stack.getMaxDamage()) stack.setDamageValue(stack.getDamageValue() + 1);
+        		if(stack.getDamageValue() < stack.getMaxDamage() && !player.isCreative()) stack.setDamageValue(stack.getDamageValue() + 1);
         		if(!player.isCreative() && player.getHealth() < player.getMaxHealth()) player.heal(healAmount / 3);
         		player.playSound(SoundRegistry.HEAL.get(), 1, 1);
         		player.setItemInHand(hand, stack);

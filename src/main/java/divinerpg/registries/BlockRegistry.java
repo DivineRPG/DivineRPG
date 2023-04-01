@@ -240,7 +240,7 @@ public class BlockRegistry {
             frozenLog = registerBlock("frozen_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
             strippedFrozenLog = registerBlock("stripped_frozen_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
             brittleLeaves = registerBlock("brittle_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, TERRACOTTA_WHITE).strength(0.2F, 10).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false))),
-            frozenPlanks = registerBlock("frozen_planks", () -> new BlockMod(2F, 3F, Material.WOOD)),
+            frozenPlanks = registerBlock("frozen_planks", () -> new BlockMod(2F, 3F, Material.WOOD, SoundType.WOOD)),
             frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_planks")))),
             frozenSapling = registerBlock("frozen_sapling", () -> new BlockModSapling(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), new FrozenTreeGrower())),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),

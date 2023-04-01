@@ -65,7 +65,11 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
         BlockState soil = reader.getBlockState(pos.below());
         return soil.getBlock() == grassSupplier.get();
     }
-
+    public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        BlockState blockBelow = reader.getBlockState(blockpos);
+        return blockBelow.canSustainPlant(reader, blockpos, Direction.UP, this) && !blockBelow.isAir();
+    }
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return state.getBlock() == grassSupplier.get();

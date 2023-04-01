@@ -14,7 +14,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-version = '1.10.0'
+version = '1.10.0.1'
 group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'DivineRPG'
 
@@ -82,12 +82,12 @@ repositories {
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.2.0.16") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.2.0.16") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.2.0.16") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.2.0.16") //Just Enough Items
-//    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
-//    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-common-api:12.4.0.22") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-1.19.3-forge-api:12.4.0.22") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-common:12.4.0.22") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.3-forge:12.4.0.22") //Just Enough Items
+    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4440332") //Just Enough Resources
+    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4440332") //Just Enough Resources
     compileOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.3:17.0.3") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE

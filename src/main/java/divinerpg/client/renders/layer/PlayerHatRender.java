@@ -1,21 +1,20 @@
 package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.client.models.*;
-import divinerpg.util.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.ModelHat;
+import divinerpg.util.Utils;
+import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.layers.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.*;
 
-import java.util.*;
-
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.resources.ResourceLocation;
+import java.util.UUID;
 
 @OnlyIn(Dist.CLIENT)
 public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends RenderLayer<T, M> {
@@ -37,12 +36,8 @@ public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends
             UUID id = entity.getUUID();
             if (entity.inventory.getArmor(3).isEmpty()) {
                 if (Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
-                    if (entity.isCrouching()) {
-                        matrixStackIn.translate(0.0F, 0.3F, 0.0F);
-                    }
-                    this.getParentModel().copyPropertiesTo(modelHat);
-                    this.modelHat.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
-                    this.modelHat.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+                    modelHat.top.copyFrom(getParentModel().head);
+                    modelHat.bottom.copyFrom(getParentModel().head);
                     VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));
                     this.modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
                 }

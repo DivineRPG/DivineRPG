@@ -37,10 +37,12 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         if (this.isAlive()) {
             if (getTarget() != null && !level.isClientSide) {
                 double tx = getTarget().getX() - this.getX();
-                double ty = getTarget().getBoundingBox().minY - this.getY();
+                double ty = getTarget().getEyeY() - this.getEyeY();
                 double tz = getTarget().getZ() - this.getZ();
                 EntityCoriShot e = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level, this, (float) getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
                 e.shoot(tx, ty, tz, 1.6f, 0);
+                e.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);
                 this.level.addFreshEntity(e);
             }
         }
@@ -99,7 +101,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         super.tick();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
-    
+
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();

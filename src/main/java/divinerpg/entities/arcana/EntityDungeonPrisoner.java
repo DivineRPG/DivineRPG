@@ -21,14 +21,15 @@ public class EntityDungeonPrisoner extends EntityDivineMonster {
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override
-    public boolean doHurtTarget(Entity entity) {
-        if(level.isClientSide) {
-            EntityRegistry.DUNGEON_DEMON.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-            this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE.get(), 1, 1);
+    public boolean hurt(DamageSource source, float amount) {
+        if(!level.isClientSide) {
+            if(!source.equals(DamageSource.OUT_OF_WORLD)) {
+                EntityRegistry.DUNGEON_DEMON.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE.get(), 1, 1);
+                this.kill();
+            }
         }
-        super.doHurtTarget(entity);
-        this.kill();
-        return true;
+        return super.hurt(source, amount);
     }
 
     @Override
