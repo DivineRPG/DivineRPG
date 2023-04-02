@@ -639,7 +639,7 @@ public class ItemRegistry {
             apalachia_leggings = registerItem("apalachia_leggings", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.LEGGINGS, apInfo)),
             apalachia_boots = registerItem("apalachia_boots", () -> new ItemDivineArmor(ArmorStats.APALACHIA, ArmorItem.Type.BOOTS, apInfo)),
 
-    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, 2, MobEffects.DOLPHINS_GRACE, MobEffects.WATER_BREATHING)),
+    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, new int[]{2, 0}, MobEffects.DOLPHINS_GRACE, MobEffects.WATER_BREATHING)),
             aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
             aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
             aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.BOOTS, aquastriveInfo)),
@@ -674,7 +674,7 @@ public class ItemRegistry {
             corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
             corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
 
-    divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.HELMET, divineInfo, 1, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, DIVINE_STRENGTH.get())),
+    divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.HELMET, divineInfo, new int[]{0, 1, 0}, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, DIVINE_STRENGTH.get())),
             divine_chestplate = registerItem("divine_chestplate", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.CHESTPLATE, divineInfo)),
             divine_leggings = registerItem("divine_leggings", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.LEGGINGS, divineInfo)),
             divine_boots = registerItem("divine_boots", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.BOOTS, divineInfo)),
@@ -779,7 +779,7 @@ public class ItemRegistry {
             seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
             seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
 
-    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, 3, STEP_ASSIST.get(), MobEffects.MOVEMENT_SPEED)),
+    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, new int[]{0, 3}, STEP_ASSIST.get(), MobEffects.MOVEMENT_SPEED)),
             shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo)),
             shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
             shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
@@ -789,12 +789,12 @@ public class ItemRegistry {
             skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
             skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
 
-    skythern_helmet = registerItem("skythern_helmet", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.HELMET, skyInfo, 5, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP)),
+    skythern_helmet = registerItem("skythern_helmet", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.HELMET, skyInfo, new int[]{0, 5}, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP)),
             skythern_chestplate = registerItem("skythern_chestplate", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.CHESTPLATE, skyInfo)),
             skythern_leggings = registerItem("skythern_leggings", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.LEGGINGS, skyInfo)),
             skythern_boots = registerItem("skythern_boots", () -> new ItemDivineArmor(ArmorStats.SKYTHERN, ArmorItem.Type.BOOTS, skyInfo)),
 
-    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, 2, MobEffects.DIG_SPEED)),
+    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, new int[]{2}, MobEffects.DIG_SPEED)),
             terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
             terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
             terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
@@ -837,8 +837,8 @@ public class ItemRegistry {
             degraded_boots = registerItem("degraded_boots", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.BOOTS)),
 
     demonized_helmet = registerItem("demonized_helmet", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedHelmInfo, DEMONIZED_HELMET.get())),
-            demonized_hood = registerItem("demonized_hood", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedHoodInfo, 1, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, DEMONIZED_HOOD.get())),
-            demonized_mask = registerItem("demonized_mask", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedMaskInfo, 1, MobEffects.MOVEMENT_SPEED, DEMONIZED_MASK.get())),
+            demonized_hood = registerItem("demonized_hood", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedHoodInfo, new int[]{0, 1, 0}, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, DEMONIZED_HOOD.get())),
+            demonized_mask = registerItem("demonized_mask", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.HELMET, demonizedMaskInfo, new int[]{1, 0}, MobEffects.MOVEMENT_SPEED, DEMONIZED_MASK.get())),
             demonized_chestplate = registerItem("demonized_chestplate", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.CHESTPLATE)),
             demonized_leggings = registerItem("demonized_leggings", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.LEGGINGS)),
             demonized_boots = registerItem("demonized_boots", () -> new ItemDivineArmor(ArmorStats.DEMONIZED, ArmorItem.Type.BOOTS)),
@@ -858,8 +858,8 @@ public class ItemRegistry {
             glistening_boots = registerItem("glistening_boots", () -> new ItemDivineArmor(ArmorStats.GLISTENING, ArmorItem.Type.BOOTS)),
 
     tormented_helmet = registerItem("tormented_helmet", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedHelmInfo, TORMENTED_HELMET.get())),
-            tormented_hood = registerItem("tormented_hood", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedHoodInfo, 2, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, TORMENTED_HOOD.get())),
-            tormented_mask = registerItem("tormented_mask", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedMaskInfo, 2, MobEffects.MOVEMENT_SPEED, TORMENTED_MASK.get())),
+            tormented_hood = registerItem("tormented_hood", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedHoodInfo, new int[]{0, 2, 0}, PREVENT_FALL_DAMAGE.get(), MobEffects.JUMP, TORMENTED_HOOD.get())),
+            tormented_mask = registerItem("tormented_mask", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.HELMET, tormentedMaskInfo, new int[]{2, 0}, MobEffects.MOVEMENT_SPEED, TORMENTED_MASK.get())),
             tormented_chestplate = registerItem("tormented_chestplate", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.CHESTPLATE)),
             tormented_leggings = registerItem("tormented_leggings", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.LEGGINGS)),
             tormented_boots = registerItem("tormented_boots", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.BOOTS));
