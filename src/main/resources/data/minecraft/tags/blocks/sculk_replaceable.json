@@ -1,8 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#forge:arcana_sand",
-    "#forge:stone",
+    "#forge:sand/arcanic",
+    "#forge:sand/arcanite",
+    "#forge:sand/arcanium_rich",
+    "divinerpg:twilight_stone",
+    "divinerpg:arcanite_stone",
+    "divinerpg:coalstone",
+    "divinerpg:frozen_stone",
+    "divinerpg:milk_stone",
+    "divinerpg:divine_rock",
     "divinerpg:soul_sludge_breakable"
   ]
 }

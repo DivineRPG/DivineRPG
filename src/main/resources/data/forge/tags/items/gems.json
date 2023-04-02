@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#divinerpg:chunks",
     "#forge:gems/corrupted",
     "#forge:gems/divine",
     "#forge:gems/ender",
@@ -11,6 +12,7 @@
     "#forge:gems/bloodgem",
     "#forge:gems/molten",
     "#forge:gems/soulfire",
+    "#forge:gems/arcanium",
     "#forge:gems/eden",
     "#forge:gems/wildwood",
     "#forge:gems/apalachia",

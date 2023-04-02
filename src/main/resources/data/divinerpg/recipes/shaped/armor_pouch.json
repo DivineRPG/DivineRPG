@@ -14,7 +14,7 @@
       "item": "minecraft:string"
     },
     "l": {
-      "item": "minecraft:leather"
+      "tag": "forge:leather"
     },
     "a": {
       "item": "minecraft:armor_stand"

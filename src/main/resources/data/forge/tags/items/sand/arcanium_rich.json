@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:arcanite_sand",
-    "divinerpg:arcanic_sand",
     "divinerpg:arcanium_rich_sand"
   ]
 }

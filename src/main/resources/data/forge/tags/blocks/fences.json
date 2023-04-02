@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:fences/red",
+    "#forge:fences/green",
+    "#forge:fences/blue"
+  ]
+}

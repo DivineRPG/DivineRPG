@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:dusts/eden",
+    "#forge:dusts/wildwood",
+    "#forge:dusts/apalachia",
+    "#forge:dusts/skythern",
+    "#forge:dusts/mortum"
+  ]
+}

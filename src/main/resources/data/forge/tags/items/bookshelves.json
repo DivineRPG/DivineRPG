@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:bookshelves/dungeon",
+    "#forge:bookshelves/workshop"
+  ]
+}

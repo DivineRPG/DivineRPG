@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:eden_chunk",
+    "divinerpg:wildwood_chunk",
+    "divinerpg:apalachia_chunk",
+    "divinerpg:skythern_chunk",
+    "divinerpg:mortum_chunk"
+  ]
+}

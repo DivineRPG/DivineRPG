@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "#forge:glass/frosted",
-    "#forge:glass/stained",
     "#forge:glass/smooth"
   ]
 }
