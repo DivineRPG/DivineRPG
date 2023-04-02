@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:drpg_stone",
+    "#forge:stone",
     "#forge:ores",
     "#forge:storage_blocks",
     "divinerpg:black_steel",
