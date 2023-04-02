@@ -36,7 +36,7 @@ public class MobEffectRegistry {
 		HALITE_STRENGTH = EFFECTS.register("halite_strength", () -> new MarkerEffect()),
 		WILDWOOD_HEAL = EFFECTS.register("wildwood_heal", () -> new WildwoodHealEffect()),
 		//Arcana
-		KORMA_ARCANA = EFFECTS.register("korma_arcana", () -> new KormaArcanaEffect()),
+		KORMA_ARCANA = EFFECTS.register("korma_arcana", () -> new MarkerEffect()),
 		VEMOS_HEAL = EFFECTS.register("vemos_heal", () -> new VemosHealEffect()),
 		//Iceika
 		FROZEN_SLOWNESS = EFFECTS.register("frozen_slowness", () -> new FrozenSlownessEffect()),

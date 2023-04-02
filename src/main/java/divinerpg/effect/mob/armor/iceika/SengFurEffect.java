@@ -2,7 +2,6 @@ package divinerpg.effect.mob.armor.iceika;
 
 import divinerpg.effect.mob.armor.*;
 import divinerpg.registries.LevelRegistry;
-import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +19,6 @@ public class SengFurEffect extends ArmorEffect implements UpdatableArmorEffect {
 		super.removeAttributeModifiers(entity, map, i);
 		MobEffectInstance speed = entity.getEffect(MobEffects.MOVEMENT_SPEED);
 		if(speed != null && speed.isInfiniteDuration()) entity.removeEffect(MobEffects.MOVEMENT_SPEED);
-		entity.removeEffect(MobEffectRegistry.DIVINE_STRENGTH.get());
 	}
 	@Override public void applyEffectTick(LivingEntity entity, int i) {
 		if(entity.level.dimension() == LevelRegistry.ICEIKA && entity instanceof ServerPlayer player && player.getFoodData().needsFood()) player.getFoodData().eat(1, 0);
@@ -29,7 +27,6 @@ public class SengFurEffect extends ArmorEffect implements UpdatableArmorEffect {
 	public void update(LivingEntity entity) {
 		if(entity.level.dimension() == LevelRegistry.ICEIKA) {
 			if(!entity.hasEffect(MobEffects.MOVEMENT_SPEED)) entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 1, true, false));
-			if(!entity.hasEffect(MobEffectRegistry.DIVINE_STRENGTH.get())) entity.addEffect(new MobEffectInstance(MobEffectRegistry.DIVINE_STRENGTH.get(), -1, 0, true, false));
 		} else entity.removeEffect(this);
 	}
 }

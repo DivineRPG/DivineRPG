@@ -1,5 +1,6 @@
 package divinerpg.capability;
 
+import divinerpg.registries.MobEffectRegistry;
 import divinerpg.registries.NetworkingRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,7 +33,7 @@ public class Arcana implements IArcana {
     @Override
     public void regen(Player player) {
         if (player.level.getGameTime() % tickDelay == 0) {
-            fill(player, 1);
+            fill(player, player.hasEffect(MobEffectRegistry.KORMA_ARCANA.get()) ? 4 : 1);
         }
     }
 
