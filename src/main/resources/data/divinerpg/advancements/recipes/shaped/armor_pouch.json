@@ -39,9 +39,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
               "tag": "forge:wood/divine"
-            ]
           }
         ]
       },
