@@ -4,7 +4,7 @@
 	"group": "arcanium_rich_sand",
 	"ingredients": [
 		{
-			"tag": "forge:arcana_sand"
+			"tag": "forge:sand"
 		},
 		{
 			"item": "divinerpg:piece_of_raw_arcanium"
