@@ -2,13 +2,12 @@ package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
-import net.minecraft.world.entity.player.Player;
-
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public class EntityDreamwrecker extends EntityDivineMonster {
 
@@ -31,12 +30,16 @@ public class EntityDreamwrecker extends EntityDivineMonster {
 
         Entity attackTarget = this.getTarget();
         if(attackTarget != null && attackTarget instanceof Player && !((Player)attackTarget).isCreative() && attackTarget.isAlive() && this.hasLineOfSight(attackTarget)) {
-            attackTarget.setDeltaMovement(Math.signum(this.xo - attackTarget.xo) * 0.029, attackTarget.getDeltaMovement().y, Math.signum(this.zo - attackTarget.zo) * 0.029);
+            double distanceToTarget = this.distanceToSqr(attackTarget);
+            if(distanceToTarget < 100 && attackTarget.getY() - this.getY() <= 10) {
+                attackTarget.setDeltaMovement(Math.signum(this.xo - attackTarget.xo) * 0.029, attackTarget.getDeltaMovement().y, Math.signum(this.zo - attackTarget.zo) * 0.029);
+            }
         }
         else {
             this.setTarget(null);
         }
     }
+
 
     @Override
     protected SoundEvent getAmbientSound() {
