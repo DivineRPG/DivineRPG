@@ -2063,7 +2063,7 @@
   "tooltip.armor_info.fire_protection": "Fire Protection",
   "tooltip.armor_info.no_fall": "No Fall Damage",
   "tooltip.armor_info.flight": "Flight",
-  "tooltip.armor_info.speed": "Speed %sx",
+  "tooltip.armor_info.speed": "Speed %s",
   "tooltip.armor_info.melee_damage": "+%s Melee Damage",
   "tooltip.armor_info.ranged_damage": "+%s%% Ranged Damage",
   "tooltip.armor_info.hunger": "Refills Hunger",

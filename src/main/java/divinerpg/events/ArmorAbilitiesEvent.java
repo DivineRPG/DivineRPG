@@ -29,7 +29,7 @@ public class ArmorAbilitiesEvent {
 		ArrayList<MobEffect> effectRemoval = new ArrayList<>();
 		if(entity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ItemDivineArmor helmet && helmet.supportedEffects != null) {
 			MobEffect effects[] = helmet.supportedEffects;
-			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.isInfiniteDuration()) { //remove all armor effects that do not match the helmet
+			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) { //remove all armor effects that do not match the helmet
 				MobEffect effect = instance.getEffect();
 				boolean dump = true;
 				for(MobEffect supportedEffect : effects) if(effect == supportedEffect) dump = false;
@@ -38,11 +38,11 @@ public class ArmorAbilitiesEvent {
 			if(isWearingFullArmor(entity, (ArmorStats) helmet.getMaterial())) { //add missing effects if full armor set is equipped, otherwise remove them
     			for(int i = 0; i < effects.length; i++) {
     				MobEffect effect = effects[i];
-    				if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) entity.addEffect(new MobEffectInstance(effect, -1, helmet.amplifier == null ? 0 : helmet.amplifier[i], false, false));
+    				if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) entity.addEffect(new ArmorEffectInstance(effect, helmet.amplifier == null ? 0 : helmet.amplifier[i]));
         			else if(effect instanceof UpdatableArmorEffect update) update.update(entity);
     			}
     		} else for(MobEffect effect : effects) entity.removeEffect(effect);
-		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.isInfiniteDuration()) effectRemoval.add(instance.getEffect());  //remove all armor effects
+		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) effectRemoval.add(instance.getEffect());  //remove all armor effects
 		for(MobEffect effect : effectRemoval) entity.removeEffect(effect);
 	}
     private static boolean isWearingFullArmor(LivingEntity entity, ArmorStats type) {

@@ -49,7 +49,7 @@ public class ItemRegistry {
     private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"));
     private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
     private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 66));
-    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 3), getArmorAbility("step_assist"));
+    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist"));
     private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
     private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
     private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
