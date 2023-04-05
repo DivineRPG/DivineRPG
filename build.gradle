@@ -100,6 +100,7 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
 //    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
 //    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
+    runtimeOnly fg.deobf("curse.maven:model-gap-fix-676136:4428800") // Model Gap Fix
 }
 
 jar {
