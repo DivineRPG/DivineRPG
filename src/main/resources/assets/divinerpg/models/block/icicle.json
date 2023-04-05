@@ -1,6 +1,6 @@
 {
   "ambientocclusion": true,
-  "render_type": "translucent",
+  "render_type": "cutout_mipped",
   "textures": {
     "particle": "#cross"
   },
