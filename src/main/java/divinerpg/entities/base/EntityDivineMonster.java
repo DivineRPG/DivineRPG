@@ -23,7 +23,7 @@ public abstract class EntityDivineMonster extends Monster {
             goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
             targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         }
-        if(!isAggressive()){
+        if(!isAggressive() && !(this instanceof EntityPeacefulUntilAttacked)){
             goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
         }
     }

@@ -5,7 +5,7 @@ import net.minecraft.network.syncher.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -88,6 +88,12 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        if(isAggressive()) angerLevel--;
+        if(isAggressive()) {
+            angerLevel--;
+            goalSelector.removeGoal(new PanicGoal(this, 1.25D));
+        }else{
+            goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
+        }
+
     }
 }
