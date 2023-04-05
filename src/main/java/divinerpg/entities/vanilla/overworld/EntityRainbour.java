@@ -36,7 +36,11 @@ public class EntityRainbour extends EntityDivineFlyingMob {
 
         if (livingBase != null)
         {
-            this.angerTargetUUID = livingBase.getUUID();
+            if(livingBase instanceof Player player){
+                if(!player.isCreative() || !player.isSpectator()){
+                    this.angerTargetUUID = livingBase.getUUID();
+                }
+            }
         }
     }
     public void readAdditionalSaveData(CompoundTag tag) {
@@ -81,9 +85,10 @@ public class EntityRainbour extends EntityDivineFlyingMob {
         {
             Entity entity = source.getDirectEntity();
 
-            if (entity instanceof Player)
-            {
-                this.becomeAngryAt(entity);
+            if (entity instanceof Player player) {
+                if (!player.isCreative()) {
+                    this.becomeAngryAt(entity);
+                }
             }
 
             return super.hurt(source, amount);
