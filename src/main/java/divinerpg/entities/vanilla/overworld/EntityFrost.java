@@ -1,5 +1,6 @@
 package divinerpg.entities.vanilla.overworld;
 
+import divinerpg.entities.ai.EscapeWaterGoal;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.EntityFrostShot;
 import divinerpg.registries.SoundRegistry;
@@ -26,6 +27,8 @@ public class EntityFrost extends EntityDivineMonster implements RangedAttackMob 
         return 0.6F;
     }
     protected void registerGoals() {
+        goalSelector.addGoal(1, new EscapeWaterGoal(this));
+        goalSelector.addGoal(2, new FloatGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.0F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
