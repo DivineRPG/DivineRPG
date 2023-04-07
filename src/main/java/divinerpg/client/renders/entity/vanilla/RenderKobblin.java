@@ -15,14 +15,16 @@ public class RenderKobblin extends MobRenderer<EntityKobblin, ModelKobblin> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/kobblin.png");
 
     public RenderKobblin(Context context) {
-        super(context, new ModelKobblin(context), 0.8F);
+        super(context, new ModelKobblin(context), 0.0F);
     }
 
     protected void scale(EntityKobblin entity, PoseStack matrixStackIn, float partialTickTime) {
         if(entity instanceof EntityKobblin && !((EntityKobblin) entity).getProvoked()){
-            matrixStackIn.translate(0, 1.125F, 0);
+            matrixStackIn.translate(0, 1.325F, 0);
         }
     }
+
+
 
     public ResourceLocation getTextureLocation(EntityKobblin entity) {
         return TEXTURE;
