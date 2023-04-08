@@ -10,7 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Compostables {
 
     public static void setup(final FMLCommonSetupEvent event) {
-        // Compostable Items (Some of these Floats should be raised in accordance with the Item)
         add(0.3F, "divine_leaves");
         add(0.3F, "eden_leaves");
         add(0.3F, "wildwood_leaves");
@@ -41,10 +40,19 @@ public class Compostables {
         add(0.3F, "veilo_seeds");
         add(0.3F, "white_mushroom_seeds");
         add(0.3F, "winterberry");
+        add(0.3F, "apalachia_tallgrass");
 
         add(0.5F, "winterberry_vines_head");
         add(0.5F, "arcanite_vines_head");
         add(0.5F, "dream_melon");
+        add(0.5F, "wildwood_vine");
+        add(0.5F, "weedwood_vine");
+        add(0.5F, "blossomed_weedwood_vine");
+        add(0.5F, "wildwood_tallgrass");
+        add(0.5F, "arcana_brush");
+        add(0.5F, "mortum_brush");
+        add(0.5F, "eden_brush");
+        add(0.5F, "skythern_brush");
 
         add(0.65F, "blaze_pumpkin");
         add(0.65F, "creeper_pumpkin");
@@ -69,24 +77,33 @@ public class Compostables {
         add(0.65F, "shimmer");
         add(0.65F, "shine_grass");
         add(0.65F, "yellow_dulah");
-        add(0.65F, "arcana_brush");
         add(0.65F, "arcana_bush");
         add(0.65F, "gem_of_the_dunes");
         add(0.65F, "demon_brambles");
         add(0.65F, "eye_plant");
-        add(0.65F, "mortum_brush");
         add(0.65F, "dust_brambles");
+        add(0.65F, "dust_lily");
         add(0.65F, "dusk_flower");
         add(0.65F, "moon_bud");
         add(0.65F, "moonlight_fern");
         add(0.65F, "sun_blossom");
         add(0.65F, "sunbloom");
-        add(0.65F, "eden_brush");
         add(0.65F, "winterberry_bush");
         add(0.65F, "dream_carrot");
         add(0.65F, "tomato");
+        add(0.65F, "arcanite_moss");
+        add(0.65F, "brittle_moss");
+        add(0.65F, "white_mushroom");
+        add(0.65F, "moonbulb");
+        add(0.65F, "pink_glowbone");
+        add(0.65F, "purple_glowbone");
+        add(0.65F, "aquamarine");
+        add(0.65F, "pinfly");
+        add(0.65F, "hitchak");
 
+        add(0.85F, "chocolate_log");
         add(0.85F, "donut");
+        add(0.85F, "forbidden_fruit");
 
         add(1.0F, "dream_cake");
         add(1.0F, "dream_pie");
