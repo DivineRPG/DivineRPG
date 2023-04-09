@@ -16,7 +16,7 @@
   	  },
   	  {
 	    "type": "divinerpg:jack_o_man",
-	    "weight": 3,
+	    "weight": 9,
 	    "minCount": 1,
 	    "maxCount": 1
   	  }

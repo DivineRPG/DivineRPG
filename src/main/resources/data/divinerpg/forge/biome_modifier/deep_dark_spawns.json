@@ -4,19 +4,19 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:jack_o_man",
-	    "weight": 3,
+	    "weight": 6,
 	    "minCount": 1,
 	    "maxCount": 1
 	  },
 	  {
 	    "type": "divinerpg:the_eye",
-	    "weight": 4,
+	    "weight": 12,
 	    "minCount": 1,
 	    "maxCount": 1
 	  },
 	  {
 		  "type": "divinerpg:enthralled_dramcryx",
-		  "weight": 3,
+		  "weight": 10,
 		  "minCount": 1,
 		  "maxCount": 2
 	  }

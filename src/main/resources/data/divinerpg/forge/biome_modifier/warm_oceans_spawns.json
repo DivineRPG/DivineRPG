@@ -8,7 +8,7 @@
   "spawners":
   {
     "type": "divinerpg:shark",
-    "weight": 2,
+    "weight": 8,
     "minCount": 1,
     "maxCount": 2
   }

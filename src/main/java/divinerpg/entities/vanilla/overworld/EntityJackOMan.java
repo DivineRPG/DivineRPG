@@ -77,8 +77,7 @@ public class EntityJackOMan extends EntityDivineMerchant {
     }
 
     public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        BlockPos blockpos = pos.below();
         List<EntityJackOMan> entityList = level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32));
-        return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
+        return entityList.isEmpty();
     }
 }
