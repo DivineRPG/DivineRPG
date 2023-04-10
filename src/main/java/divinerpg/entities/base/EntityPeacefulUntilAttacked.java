@@ -85,15 +85,4 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
         if(angerLevel > 0) return super.doHurtTarget(entity);
         return false;
     }
-    @Override
-    public void tick() {
-        super.tick();
-        if(isAggressive()) {
-            angerLevel--;
-            goalSelector.removeGoal(new PanicGoal(this, 1.25D));
-        }else{
-            goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
-        }
-
-    }
 }
