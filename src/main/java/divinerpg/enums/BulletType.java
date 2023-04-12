@@ -59,6 +59,8 @@ public enum BulletType {
     SUNSTORM(12, blank(),255, 235, 0),
 
     TOMATO(0.5F, ItemLoc("tomato"), 255, 99, 71),
+    BONE_FRAGMENT(6, ProjectileLoc("bone_fragment")),
+    BONE_BOMB(16, ProjectileLoc("bone_bomb")),
 
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
     AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),

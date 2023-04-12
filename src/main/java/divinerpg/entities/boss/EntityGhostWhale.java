@@ -1,6 +1,8 @@
 package divinerpg.entities.boss;
 
+import divinerpg.entities.projectile.*;
 import divinerpg.entities.vanilla.overworld.EntityWhale;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.core.BlockPos;
@@ -16,7 +18,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.*;
 
 import java.util.*;
 
@@ -91,16 +93,66 @@ public class EntityGhostWhale extends EntityWhale {
 
         //Spawn projectile out of its blowhole projectile once reaching 32 blocks traveled up will split and shoot bone fragments everywhere
         if (this.random.nextInt(200) == 0) {
-            double x = this.getX();
-            double y = this.getY() + 2.0D; // set the arrow spawn height
-            double z = this.getZ();
+            double x = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
+            double y = this.getY() + this.random.nextFloat() * this.getBbHeight();
+            double z = this.getZ() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
             double motionX = 0.0D;
-            double motionY = 0.5D; // set the arrow upward velocity
+            double motionY = 1.75D; // set the arrow upward velocity
             double motionZ = 0.0D;
-//            Arrow arrow = new Arrow(this.level, this);
-//            arrow.shoot(motionX, motionY, motionZ, 1.6F, 0.0F); // set the arrow velocity and inaccuracy
-//            arrow.setPos(x, y, z);
-//            this.level.addFreshEntity(arrow);
+            this.hurt(damageSources().outOfWorld(), 16);
+            EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level, BulletType.BONE_BOMB){
+                @Override
+                public void onHitEntity(EntityHitResult result) {
+                    super.onHitEntity(result);
+                    if(result.getEntity() instanceof EntityGhostWhale){
+                        ((EntityGhostWhale) result.getEntity()).heal(16);
+                    }
+                }
+
+                @Override
+                public void tick() {
+                    super.tick();
+                    double radius = this.getBbWidth() * 1.5;
+                    AABB aabb = new AABB(this.getX() - radius, this.getY() - radius, this.getZ() - radius,
+                            this.getX() + radius, this.getY() + radius, this.getZ() + radius);
+
+                    BlockPos.betweenClosedStream(aabb)
+                            .forEach(blockPos -> {
+                                BlockState blockState = this.level.getBlockState(blockPos);
+                                if (blockState.is(BlockTags.ICE)) {
+                                    this.level.destroyBlock(blockPos, true);
+                                }
+                            });
+
+                    if (tickCount == 39 && getOwner() != null) {
+                        if (getOwner() instanceof LivingEntity) {
+                            for (int i = 0; i < 16; i++) {
+                                double motionX = (this.random.nextDouble() - 0.5) * 2.0;
+                                double motionY = (this.random.nextDouble() - 0.5) * 2.0;
+                                double motionZ = (this.random.nextDouble() - 0.5) * 2.0;
+                                EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), (LivingEntity) getOwner(), level, BulletType.BONE_FRAGMENT){
+                                    @Override
+                                    public void onHitEntity(EntityHitResult result) {
+                                        super.onHitEntity(result);
+                                        if(result.getEntity() instanceof EntityGhostWhale){
+                                            ((EntityGhostWhale) result.getEntity()).heal(6);
+                                        }
+                                    }
+                                };
+                                e.setOwner(this.getOwner());
+                                e.setPos(getOwner().getX(), getOwner().getY(), getOwner().getZ());
+                                e.shoot(motionX, motionY, motionZ, 1.0F, 0.0F);
+                                this.level.addFreshEntity(e);
+                            }
+                            this.kill();
+                        }
+                    }
+                }
+            };
+            e.setOwner(this);
+            e.shoot(motionX, motionY, motionZ, 1.6F, 0);
+            e.setPos(x, y, z);
+            level.addFreshEntity(e);
         }
 
         //Break ice
