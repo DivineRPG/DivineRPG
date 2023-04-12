@@ -1,4 +1,4 @@
-package divinerpg.tiles.furnace;
+package divinerpg.block_entities.furnace;
 
 import com.google.common.collect.Maps;
 import divinerpg.DivineRPG;
@@ -16,8 +16,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Map;
 
-public class TileEntityArcaniumExtractor extends AbstractFurnaceBlockEntity {
-	public TileEntityArcaniumExtractor(BlockPos pos, BlockState state) {
+public class ArcaniumExtractorBlockEntity extends AbstractFurnaceBlockEntity {
+	public ArcaniumExtractorBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), pos, state, RecipeRegistry.Types.ARCANIUM_EXTRACTOR_RECIPE_TYPE.get());
     }
 	protected Component getDefaultName() {

@@ -1,4 +1,4 @@
-package divinerpg.tiles.block;
+package divinerpg.block_entities.block;
 
 import divinerpg.blocks.iceika.BlockFrostedAllure;
 import divinerpg.config.CommonConfig;

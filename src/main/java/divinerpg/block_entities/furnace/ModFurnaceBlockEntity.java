@@ -1,4 +1,4 @@
-package divinerpg.tiles.furnace;
+package divinerpg.block_entities.furnace;
 
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.*;
@@ -28,7 +28,7 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public abstract class TileEntityModFurnace extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
+public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
 	private static final int[] SLOTS_FOR_UP = new int[]{0}, SLOTS_FOR_DOWN = new int[]{2, 1}, SLOTS_FOR_SIDES = new int[]{1};
 	public final RecipeManager.CachedCheck<Container, ? extends AbstractCookingRecipe> quickCheck = RecipeManager.createCheck(RecipeType.SMELTING);
 	private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
@@ -39,28 +39,28 @@ public abstract class TileEntityModFurnace extends BaseContainerBlockEntity impl
 	protected final ContainerData dataAccess = new ContainerData() {
 	      public int get(int p_58431_) {
 	         switch (p_58431_) {
-	            case 0: return TileEntityModFurnace.this.litTime;
-	            case 1: return TileEntityModFurnace.this.litDuration;
+	            case 0: return ModFurnaceBlockEntity.this.litTime;
+	            case 1: return ModFurnaceBlockEntity.this.litDuration;
 	            case 2:
-	               return TileEntityModFurnace.this.cookingProgress;
-	            case 3: return TileEntityModFurnace.this.cookingTotalTime;
+	               return ModFurnaceBlockEntity.this.cookingProgress;
+	            case 3: return ModFurnaceBlockEntity.this.cookingTotalTime;
 	            default: return 0;
 	         }
 	      }
 	      public void set(int p_58433_, int p_58434_) {
 	         switch (p_58433_) {
-	            case 0: TileEntityModFurnace.this.litTime = p_58434_;
+	            case 0: ModFurnaceBlockEntity.this.litTime = p_58434_;
 	               break;
-	            case 1: TileEntityModFurnace.this.litDuration = p_58434_;
+	            case 1: ModFurnaceBlockEntity.this.litDuration = p_58434_;
 	               break;
-	            case 2: TileEntityModFurnace.this.cookingProgress = p_58434_;
+	            case 2: ModFurnaceBlockEntity.this.cookingProgress = p_58434_;
 	               break;
-	            case 3: TileEntityModFurnace.this.cookingTotalTime = p_58434_;
+	            case 3: ModFurnaceBlockEntity.this.cookingTotalTime = p_58434_;
 	         }
 	      }
 	      public int getCount() {return 4;}
 	};
-	public TileEntityModFurnace(BlockEntityType<?> type, BlockPos pos, BlockState state, String containerName, double speed) {
+	public ModFurnaceBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, String containerName, double speed) {
 		super(type, pos, state);
 		this.containerName = containerName;
 		this.speed = speed;
@@ -73,7 +73,7 @@ public abstract class TileEntityModFurnace extends BaseContainerBlockEntity impl
 		if (stack.isEmpty()) return 0;
 	    else return (int)(ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) / speed);
 	}
-	public static int getTotalCookTime(Level level, TileEntityModFurnace tile) {
+	public static int getTotalCookTime(Level level, ModFurnaceBlockEntity tile) {
 		return (int) (tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200) / tile.speed);
 	}
 	public boolean isLit() {return this.litTime > 0;}
@@ -102,7 +102,7 @@ public abstract class TileEntityModFurnace extends BaseContainerBlockEntity impl
 	      });
 	      p_187452_.put("RecipesUsed", compoundtag);
 	}
-	public static void serverTick(Level p_155014_, BlockPos p_155015_, BlockState p_155016_, TileEntityModFurnace p_155017_) {
+	public static void serverTick(Level p_155014_, BlockPos p_155015_, BlockState p_155016_, ModFurnaceBlockEntity p_155017_) {
 	      boolean flag = p_155017_.isLit();
 	      boolean flag1 = false;
 	      if (p_155017_.isLit()) --p_155017_.litTime;

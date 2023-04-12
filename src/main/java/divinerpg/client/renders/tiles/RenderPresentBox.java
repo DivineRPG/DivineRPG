@@ -5,19 +5,19 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModChest;
 import divinerpg.client.models.block.ModelPresentBox;
-import divinerpg.tiles.chests.TileEntityPresentBox;
+import divinerpg.block_entities.chests.PresentBoxBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderPresentBox implements BlockEntityRenderer<TileEntityPresentBox> {
+public class RenderPresentBox implements BlockEntityRenderer<PresentBoxBlockEntity> {
     private final ModelPresentBox<?> model;
     public RenderPresentBox(BlockEntityRendererProvider.Context context) {
         model = new ModelPresentBox<>(context.bakeLayer(ModelPresentBox.LAYER_LOCATION));
     }
 
     @Override
-    public void render(TileEntityPresentBox tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(PresentBoxBlockEntity tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrix.pushPose();
         if (!tile.isRemoved()) {
             matrix.translate(0.5D, 0.5D, 0.5D);

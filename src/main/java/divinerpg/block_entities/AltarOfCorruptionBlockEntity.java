@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.block_entities;
 
 import divinerpg.DivineRPG;
 import divinerpg.registries.*;
@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.*;
 import java.util.*;
-public class AltarOfCorruptionEntity extends BlockEntity implements Nameable {
+public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameable {
     public int time;
     public float flip;
     public float oFlip;
@@ -30,7 +30,7 @@ public class AltarOfCorruptionEntity extends BlockEntity implements Nameable {
     private static final Random RANDOM = new Random();
     private Component name;
 
-    public AltarOfCorruptionEntity(BlockPos p_155501_, BlockState p_155502_) {
+    public AltarOfCorruptionBlockEntity(BlockPos p_155501_, BlockState p_155502_) {
         super(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), p_155501_, p_155502_);
     }
 

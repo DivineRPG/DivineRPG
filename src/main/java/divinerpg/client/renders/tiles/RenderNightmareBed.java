@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.TileEntityNightmareBed;
+import divinerpg.block_entities.NightmareBedBlockEntity;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderNightmareBed implements BlockEntityRenderer<TileEntityNightmareBed> {
+public class RenderNightmareBed implements BlockEntityRenderer<NightmareBedBlockEntity> {
     private final ModelPart headRoot;
     private final ModelPart footRoot;
 
@@ -49,12 +49,12 @@ public class RenderNightmareBed implements BlockEntityRenderer<TileEntityNightma
             return LayerDefinition.create(meshdefinition, 64, 64);
         }
 
-        public void render(TileEntityNightmareBed tile, float p_112206_, PoseStack poseStack, MultiBufferSource buffer, int light, int p_112210_) {
+        public void render(NightmareBedBlockEntity tile, float p_112206_, PoseStack poseStack, MultiBufferSource buffer, int light, int p_112210_) {
             Material material = new Material(Sheets.BED_SHEET, new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare.png"));
             Level level = tile.getLevel();
             if (level != null) {
                 BlockState blockstate = tile.getBlockState();
-                DoubleBlockCombiner.NeighborCombineResult<? extends TileEntityNightmareBed> neighborcombineresult = DoubleBlockCombiner.combineWithNeigbour(BlockEntityRegistry.NIGHTMARE_BED.get(), BedBlock::getBlockType, BedBlock::getConnectedDirection, ChestBlock.FACING, blockstate, level, tile.getBlockPos(), (levelAccessor, pos) -> {
+                DoubleBlockCombiner.NeighborCombineResult<? extends NightmareBedBlockEntity> neighborcombineresult = DoubleBlockCombiner.combineWithNeigbour(BlockEntityRegistry.NIGHTMARE_BED.get(), BedBlock::getBlockType, BedBlock::getConnectedDirection, ChestBlock.FACING, blockstate, level, tile.getBlockPos(), (levelAccessor, pos) -> {
                     return false;
                 });
                 int i = neighborcombineresult.<Int2IntFunction>apply(new BrightnessCombiner<>()).get(light);

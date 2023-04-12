@@ -153,9 +153,9 @@ public class Utils {
      */
     public static void populateLootChestBelow(Level world, BlockPos pos, Random rand, ResourceLocation lootTable) {
         BlockPos chestPosition = pos.below();
-        BlockEntity tileEntity = world.getBlockEntity(chestPosition);
-        if (tileEntity instanceof RandomizableContainerBlockEntity) {
-            ((RandomizableContainerBlockEntity) tileEntity).setLootTable(lootTable, rand.nextLong());
+        BlockEntity blockEntity = world.getBlockEntity(chestPosition);
+        if (blockEntity instanceof RandomizableContainerBlockEntity) {
+            ((RandomizableContainerBlockEntity) blockEntity).setLootTable(lootTable, rand.nextLong());
         }
     }
     

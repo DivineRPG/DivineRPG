@@ -1,4 +1,4 @@
-package divinerpg.tiles.chests;
+package divinerpg.block_entities.chests;
 
 import net.minecraft.core.*;
 import net.minecraft.network.chat.Component;
@@ -8,8 +8,8 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.ChestType;
 
-public abstract class TileEntityModChest extends ChestBlockEntity {
-	protected TileEntityModChest(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+public abstract class ModChestBlockEntity extends ChestBlockEntity {
+	protected ModChestBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 	@Override

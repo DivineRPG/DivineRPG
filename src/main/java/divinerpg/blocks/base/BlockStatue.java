@@ -2,7 +2,7 @@ package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
 import divinerpg.enums.BlockColor;
-import divinerpg.tiles.bosses.TileEntityStatue;
+import divinerpg.block_entities.bosses.StatueBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
@@ -39,7 +39,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     }
     @Override @Nullable
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityStatue(p_153215_, p_153216_);
+        return new StatueBlockEntity(p_153215_, p_153216_);
     }
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());

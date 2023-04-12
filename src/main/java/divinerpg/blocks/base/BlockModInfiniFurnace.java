@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
-import divinerpg.tiles.furnace.TileEntityInfiniFurnace;
+import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -26,13 +26,13 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.*;
 
 public class BlockModInfiniFurnace extends BaseEntityBlock {
-	public final Supplier<BlockEntityType<? extends TileEntityInfiniFurnace>> blockEntityType;
-	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends TileEntityInfiniFurnace>> blockEntity) {
+	public final Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntityType;
+	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
         super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
     }
-	protected BlockModInfiniFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends TileEntityInfiniFurnace>> blockEntity) {
+	protected BlockModInfiniFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
 		super(properties);
         this.blockEntityType = blockEntity;
 		this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
@@ -53,7 +53,7 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
     }
 	protected void openContainer(Level level, BlockPos pos, Player player) {
         BlockEntity blockentity = level.getBlockEntity(pos);
-        if (blockentity instanceof TileEntityInfiniFurnace) {
+        if (blockentity instanceof InfiniFurnaceBlockEntity) {
            player.openMenu((MenuProvider)blockentity);
            player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }
@@ -74,7 +74,7 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
 		if (stack.hasCustomHoverName()) {
 	         BlockEntity blockentity = level.getBlockEntity(pos);
-	         if (blockentity instanceof TileEntityInfiniFurnace) ((TileEntityInfiniFurnace)blockentity).setCustomName(stack.getHoverName());
+	         if (blockentity instanceof InfiniFurnaceBlockEntity) ((InfiniFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
 	    }
 	}
 	@SuppressWarnings("deprecation")
@@ -82,10 +82,10 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
 		if (!state.is(st.getBlock())) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-			if (blockentity instanceof TileEntityInfiniFurnace) {
+			if (blockentity instanceof InfiniFurnaceBlockEntity) {
 				if (level instanceof ServerLevel) {
-					Containers.dropContents(level, pos, (TileEntityInfiniFurnace)blockentity);
-					((TileEntityInfiniFurnace)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
+					Containers.dropContents(level, pos, (InfiniFurnaceBlockEntity)blockentity);
+					((InfiniFurnaceBlockEntity)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
 	            }
 	            level.updateNeighbourForOutputSignal(pos, this);
 			}
@@ -112,8 +112,8 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 		builder.add(AbstractFurnaceBlock.FACING, AbstractFurnaceBlock.LIT);
 	}
 	@Nullable
-	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(Level level, BlockEntityType<T> type, BlockEntityType< ? extends TileEntityInfiniFurnace> entityType) {
-		return level.isClientSide ? null : createTickerHelper(type, entityType, TileEntityInfiniFurnace::serverTick);
+	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(Level level, BlockEntityType<T> type, BlockEntityType< ? extends InfiniFurnaceBlockEntity> entityType) {
+		return level.isClientSide ? null : createTickerHelper(type, entityType, InfiniFurnaceBlockEntity::serverTick);
 	}
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {

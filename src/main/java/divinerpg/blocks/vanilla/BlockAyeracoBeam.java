@@ -1,6 +1,6 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.tiles.bosses.*;
+import divinerpg.block_entities.bosses.*;
 import net.minecraft.core.*;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.level.BlockGetter;
@@ -25,7 +25,7 @@ public class BlockAyeracoBeam extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityAyeracoBeam(p_153215_, p_153216_);
+        return new AyeracoBeamBlockEntity(p_153215_, p_153216_);
     }
     public BossBarColor getColor() {
     	return color;

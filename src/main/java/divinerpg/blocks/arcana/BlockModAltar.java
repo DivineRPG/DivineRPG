@@ -1,7 +1,7 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.tiles.bosses.*;
+import divinerpg.block_entities.bosses.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockGetter;
@@ -29,6 +29,6 @@ public class BlockModAltar extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar")) ? new TileEntityDramixAltar(p_153215_, p_153216_) : new TileEntityParasectaAltar(p_153215_, p_153216_);
+        return this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar")) ? new DramixAltarBlockEntity(p_153215_, p_153216_) : new ParasectaAltarBlockEntity(p_153215_, p_153216_);
     }
 }

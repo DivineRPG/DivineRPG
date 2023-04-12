@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import divinerpg.blocks.base.*;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.furnace.*;
+import divinerpg.block_entities.furnace.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
@@ -21,8 +21,8 @@ public class BlockDemonFurnace extends BlockModInfiniFurnace {
     	return createFurnaceTicker(type, level, blockEntityType.get());
     }
     @Nullable
-	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> type, Level level, BlockEntityType<? extends TileEntityInfiniFurnace> entityType) {
-		return level.isClientSide ? null : createTickerHelper(type, entityType, TileEntityDemonFurnace::serverTick);
+	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> type, Level level, BlockEntityType<? extends InfiniFurnaceBlockEntity> entityType) {
+		return level.isClientSide ? null : createTickerHelper(type, entityType, DemonFurnaceBlockEntity::serverTick);
 	}
     @Override
     public RenderShape getRenderShape(BlockState state) {return RenderShape.INVISIBLE;}

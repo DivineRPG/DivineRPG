@@ -30,9 +30,9 @@ public class TileInventoryHelper implements Container {
         this.markDirtyNotificationLambda = markDirtyNotificationLambda;
     }
 
-    public static TileInventoryHelper createForTileEntity(int size,
-                                                          Predicate<Player> canPlayerAccessInventoryLambda,
-                                                          Notify markDirtyNotificationLambda) {
+    public static TileInventoryHelper createForBlockEntity(int size,
+                                                           Predicate<Player> canPlayerAccessInventoryLambda,
+                                                           Notify markDirtyNotificationLambda) {
         return new TileInventoryHelper(size, canPlayerAccessInventoryLambda, markDirtyNotificationLambda);
     }
 

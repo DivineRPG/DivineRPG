@@ -1,8 +1,8 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.block.*;
-import divinerpg.tiles.furnace.TileEntityInfiniFurnace;
+import divinerpg.block_entities.block.*;
+import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
@@ -26,7 +26,7 @@ public class BlockDreamLamp extends BaseEntityBlock {
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-    	return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.DREAM_LAMP.get(), TileEntityDreamLamp::serverTick);
+    	return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.DREAM_LAMP.get(), DreamLampBlockEntity::serverTick);
     }
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -44,8 +44,8 @@ public class BlockDreamLamp extends BaseEntityBlock {
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
 		if (!state.is(st.getBlock())) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-			if (blockentity instanceof TileEntityDreamLamp) {
-				if (level instanceof ServerLevel) Containers.dropContents(level, pos, (TileEntityDreamLamp)blockentity);
+			if (blockentity instanceof DreamLampBlockEntity) {
+				if (level instanceof ServerLevel) Containers.dropContents(level, pos, (DreamLampBlockEntity)blockentity);
 	            level.updateNeighbourForOutputSignal(pos, this);
 			}
 			super.onRemove(state, level, pos, st, b);
@@ -59,14 +59,14 @@ public class BlockDreamLamp extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityDreamLamp(p_153215_, p_153216_);
+        return new DreamLampBlockEntity(p_153215_, p_153216_);
     }
     @Override
 	public InteractionResult use(BlockState p_48706_, Level level, BlockPos pos, Player player, InteractionHand p_48710_, BlockHitResult p_48711_) {
 		if (level.isClientSide) return InteractionResult.SUCCESS;
 		else {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-	        if (blockentity instanceof TileEntityInfiniFurnace) player.openMenu((MenuProvider)blockentity);
+	        if (blockentity instanceof InfiniFurnaceBlockEntity) player.openMenu((MenuProvider)blockentity);
 	        return InteractionResult.CONSUME;
 		}
 	}

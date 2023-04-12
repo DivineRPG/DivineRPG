@@ -1,7 +1,7 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.registries.LevelRegistry;
-import divinerpg.tiles.TileEntityNightmareBed;
+import divinerpg.block_entities.NightmareBedBlockEntity;
 import divinerpg.util.teleport.VetheaTeleporter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -46,6 +46,6 @@ public class BlockNightmareBed extends BedBlock {
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new TileEntityNightmareBed(pos, state);
+        return new NightmareBedBlockEntity(pos, state);
     }
 }

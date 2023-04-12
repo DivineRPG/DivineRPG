@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.vanilla.BlockAyeracoBeam;
-import divinerpg.tiles.bosses.TileEntityAyeracoBeam;
+import divinerpg.block_entities.bosses.AyeracoBeamBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -14,7 +14,7 @@ import org.joml.*;
 
 import java.lang.Math;
 
-public class RenderAyeracoBeam implements BlockEntityRenderer<TileEntityAyeracoBeam> {
+public class RenderAyeracoBeam implements BlockEntityRenderer<AyeracoBeamBlockEntity> {
 	public static final ResourceLocation
 		blue_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_blue.png"),
 		green_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_green.png"),
@@ -26,11 +26,11 @@ public class RenderAyeracoBeam implements BlockEntityRenderer<TileEntityAyeracoB
     public RenderAyeracoBeam(BlockEntityRendererProvider.Context context) {
     }
 
-    public void render(TileEntityAyeracoBeam te, float p_225616_2_, PoseStack p_225616_3_, MultiBufferSource p_225616_4_, int p_225616_5_, int p_225616_6_) {
+    public void render(AyeracoBeamBlockEntity te, float p_225616_2_, PoseStack p_225616_3_, MultiBufferSource p_225616_4_, int p_225616_5_, int p_225616_6_) {
     renderBeaconBeam(p_225616_3_, p_225616_4_, p_225616_2_, te.getLevel().getHeight(), p_225616_5_, p_225616_6_, te);
     }
 
-    private static void renderBeaconBeam(PoseStack p_228841_0_, MultiBufferSource p_228841_1_, float p_228841_2_, long p_228841_3_, int p_228841_5_, int p_228841_6_, TileEntityAyeracoBeam te) {
+    private static void renderBeaconBeam(PoseStack p_228841_0_, MultiBufferSource p_228841_1_, float p_228841_2_, long p_228841_3_, int p_228841_5_, int p_228841_6_, AyeracoBeamBlockEntity te) {
     	renderBeaconBeam(p_228841_0_, p_228841_1_, switch(((BlockAyeracoBeam) te.getBlockState().getBlock()).getColor()) {
     	case BLUE -> blue_beam;
 		case GREEN -> green_beam;
@@ -93,7 +93,7 @@ public class RenderAyeracoBeam implements BlockEntityRenderer<TileEntityAyeracoB
         p_228838_2_.vertex(p_228838_0_, p_228838_8_, (float)p_228838_7_, p_228838_9_).color(p_228838_3_, p_228838_4_, p_228838_5_, p_228838_6_).uv(p_228838_10_, p_228838_11_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(p_228838_1_, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
-    public boolean shouldRenderOffScreen(TileEntityAyeracoBeam p_188185_1_) {
+    public boolean shouldRenderOffScreen(AyeracoBeamBlockEntity p_188185_1_) {
         return true;
     }
 }

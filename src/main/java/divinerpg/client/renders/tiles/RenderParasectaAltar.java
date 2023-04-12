@@ -3,12 +3,12 @@ package divinerpg.client.renders.tiles;
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.*;
 import divinerpg.client.models.block.*;
-import divinerpg.tiles.bosses.*;
+import divinerpg.block_entities.bosses.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.*;
 
-public class RenderParasectaAltar implements BlockEntityRenderer<TileEntityParasectaAltar> {
+public class RenderParasectaAltar implements BlockEntityRenderer<ParasectaAltarBlockEntity> {
     private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/parasecta_altar.png");
     private final ModelParasectaAltar<?> model;
     public RenderParasectaAltar(BlockEntityRendererProvider.Context context) {
@@ -16,7 +16,7 @@ public class RenderParasectaAltar implements BlockEntityRenderer<TileEntityParas
     }
 
     @Override
-    public void render(TileEntityParasectaAltar te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(ParasectaAltarBlockEntity te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
 
         matrixStack.pushPose();
         matrixStack.translate(0.5D, -0.625D, 0.5D);

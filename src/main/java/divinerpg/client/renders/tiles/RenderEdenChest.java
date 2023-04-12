@@ -5,19 +5,19 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModChest;
 import divinerpg.client.models.block.ModelEdenChest;
-import divinerpg.tiles.chests.TileEntityEdenChest;
+import divinerpg.block_entities.chests.EdenChestBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderEdenChest implements BlockEntityRenderer<TileEntityEdenChest> {
+public class RenderEdenChest implements BlockEntityRenderer<EdenChestBlockEntity> {
     private final ModelEdenChest<?> model;
     public RenderEdenChest(BlockEntityRendererProvider.Context context) {
         model = new ModelEdenChest<>(context.bakeLayer(ModelEdenChest.LAYER_LOCATION));
     }
 
     @Override
-    public void render(TileEntityEdenChest tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(EdenChestBlockEntity tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrix.pushPose();
         if (!tile.isRemoved()) {
             matrix.translate(0.5D, 0.5D, 0.5D);

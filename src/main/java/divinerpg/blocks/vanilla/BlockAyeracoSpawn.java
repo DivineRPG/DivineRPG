@@ -1,7 +1,7 @@
 package divinerpg.blocks.vanilla;
 
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.bosses.*;
+import divinerpg.block_entities.bosses.*;
 import net.minecraft.core.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -18,12 +18,12 @@ public class BlockAyeracoSpawn extends BaseEntityBlock {
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-    	return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.AYERACO_SPAWN.get(), TileEntityAyeracoSpawn::serverTick);
+    	return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.AYERACO_SPAWN.get(), AyeracoSpawnBlockEntity::serverTick);
     }
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityAyeracoSpawn(p_153215_, p_153216_);
+        return new AyeracoSpawnBlockEntity(p_153215_, p_153216_);
     }
 
     @Override

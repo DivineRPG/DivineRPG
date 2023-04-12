@@ -1,4 +1,4 @@
-package divinerpg.tiles.block;
+package divinerpg.block_entities.block;
 
 import divinerpg.DivineRPG;
 import divinerpg.blocks.vethea.*;
@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.*;
 
-public class TileEntityDreamLamp extends BaseContainerBlockEntity implements WorldlyContainer {
+public class DreamLampBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
     public static final int[] SLOTS = {0};
 	protected NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
 	protected final ContainerData dataAccess = new ContainerData() {
@@ -28,14 +28,14 @@ public class TileEntityDreamLamp extends BaseContainerBlockEntity implements Wor
 		@Override public void set(int type, int value) {burntime = value;}
 		@Override public int getCount() {return 1;}};
     int burntime;
-    public TileEntityDreamLamp(BlockPos pos, BlockState state) {
+    public DreamLampBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.DREAM_LAMP.get(), pos, state);
     }
     @Override @Nullable
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
-	public static void serverTick(Level level, BlockPos pos, BlockState state, TileEntityDreamLamp block) {
+	public static void serverTick(Level level, BlockPos pos, BlockState state, DreamLampBlockEntity block) {
 		if(block.burntime < 0) {
 			if(block.items.get(0).getCount() > 0) {
 				block.items.get(0).shrink(1);

@@ -1,4 +1,4 @@
-package divinerpg.tiles.furnace;
+package divinerpg.block_entities.furnace;
 
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
@@ -7,8 +7,8 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.block.state.*;
 
-public class TileEntityMoonlightFurnace extends TileEntityModFurnace {
-    public TileEntityMoonlightFurnace(BlockPos pos, BlockState state) {
+public class MoonlightFurnaceBlockEntity extends ModFurnaceBlockEntity {
+    public MoonlightFurnaceBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.MOONLIGHT_FURNACE.get(), pos, state, "block.divinerpg.moonlight_furnace", 2.6);
     }
     @Override

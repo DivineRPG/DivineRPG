@@ -6,7 +6,7 @@ import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.vanilla.ModelWatcher;
-import divinerpg.tiles.bosses.TileEntityStatue;
+import divinerpg.block_entities.bosses.StatueBlockEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.*;
@@ -15,14 +15,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RenderStatue implements BlockEntityRenderer<TileEntityStatue> {
+public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
     BlockEntityRendererProvider.Context context;
     public RenderStatue(BlockEntityRendererProvider.Context context) {
     this.context = context;
     }
 
     @Override
-    public void render(TileEntityStatue te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(StatueBlockEntity te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         Model model = getModel(te);
         matrixStack.pushPose();
         matrixStack.translate(0.5D, 1.5D, 0.5D);
@@ -34,11 +34,11 @@ public class RenderStatue implements BlockEntityRenderer<TileEntityStatue> {
     }
 
     @Override
-    public boolean shouldRenderOffScreen(TileEntityStatue tile) {
+    public boolean shouldRenderOffScreen(StatueBlockEntity tile) {
         return true;
     }
 
-    private Model getModel(TileEntityStatue tile) {
+    private Model getModel(StatueBlockEntity tile) {
         Block block = tile.getBlockState().getBlock();
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue"))) return new ModelAncientEntity(context.bakeLayer(ModelAncientEntity.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "densos_statue"))) return new ModelDensos<>(context.bakeLayer(ModelDensos.LAYER_LOCATION));
@@ -82,7 +82,7 @@ public class RenderStatue implements BlockEntityRenderer<TileEntityStatue> {
     	termasect = new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png"),
     	sunstorm = new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png"),
     	experienced_cori = new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
-    private ResourceLocation texture(TileEntityStatue tile) {
+    private ResourceLocation texture(StatueBlockEntity tile) {
         Block block = tile.getBlockState().getBlock();
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue"))) return ancient_entity;
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "densos_statue"))) return densos;

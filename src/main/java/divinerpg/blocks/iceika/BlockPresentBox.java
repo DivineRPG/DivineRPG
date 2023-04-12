@@ -3,7 +3,7 @@ package divinerpg.blocks.iceika;
 import divinerpg.blocks.base.*;
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
-import divinerpg.tiles.chests.*;
+import divinerpg.block_entities.chests.*;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.*;
@@ -24,14 +24,14 @@ public class BlockPresentBox extends BlockModChest {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityPresentBox(p_153215_, p_153216_);
+        return new PresentBoxBlockEntity(p_153215_, p_153216_);
     }
 
     @Nullable
     public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
-        BlockEntity tileentity = worldIn.getBlockEntity(pos);
-        if (tileentity instanceof TileEntityPresentBox) {
-            Component itextcomponent = ((Nameable)tileentity).getDisplayName();
+        BlockEntity blockEntity = worldIn.getBlockEntity(pos);
+        if (blockEntity instanceof PresentBoxBlockEntity) {
+            Component itextcomponent = ((Nameable)blockEntity).getDisplayName();
             return new SimpleMenuProvider((id, inventory, player) -> {
                 return new PresentBoxContainer(id, inventory, 3);
             }, itextcomponent);

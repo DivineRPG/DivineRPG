@@ -2,7 +2,7 @@ package divinerpg.blocks.twilight;
 
 import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
-import divinerpg.tiles.chests.*;
+import divinerpg.block_entities.chests.*;
 import net.minecraft.core.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
@@ -20,6 +20,6 @@ public class BlockEdenChest extends BlockModChest {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityEdenChest(p_153215_, p_153216_);
+        return new EdenChestBlockEntity(p_153215_, p_153216_);
     }
 }

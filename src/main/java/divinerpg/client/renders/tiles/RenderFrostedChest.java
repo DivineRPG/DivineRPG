@@ -5,19 +5,19 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModChest;
 import divinerpg.client.models.block.ModelFrostedChest;
-import divinerpg.tiles.chests.TileEntityFrostedChest;
+import divinerpg.block_entities.chests.FrostedChestBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderFrostedChest implements BlockEntityRenderer<TileEntityFrostedChest> {
+public class RenderFrostedChest implements BlockEntityRenderer<FrostedChestBlockEntity> {
     private final ModelFrostedChest<?> model;
     public RenderFrostedChest(BlockEntityRendererProvider.Context context) {
         model = new ModelFrostedChest<>(context.bakeLayer(ModelFrostedChest.LAYER_LOCATION));
     }
 
     @Override
-    public void render(TileEntityFrostedChest tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(FrostedChestBlockEntity tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrix.pushPose();
         if (!tile.isRemoved()) {
             matrix.translate(0.5D, 0.5D, 0.5D);

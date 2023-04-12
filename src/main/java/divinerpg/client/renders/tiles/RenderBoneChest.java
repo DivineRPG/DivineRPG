@@ -5,12 +5,12 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModChest;
 import divinerpg.client.models.block.ModelBoneChest;
-import divinerpg.tiles.chests.TileEntityBoneChest;
+import divinerpg.block_entities.chests.BoneChestBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderBoneChest implements BlockEntityRenderer<TileEntityBoneChest> {
+public class RenderBoneChest implements BlockEntityRenderer<BoneChestBlockEntity> {
 
     private final ModelBoneChest<?> model;
     public RenderBoneChest(BlockEntityRendererProvider.Context context) {
@@ -18,7 +18,7 @@ public class RenderBoneChest implements BlockEntityRenderer<TileEntityBoneChest>
     }
 
     @Override
-    public void render(TileEntityBoneChest tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+    public void render(BoneChestBlockEntity tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrix.pushPose();
         if (!tile.isRemoved()) {
             matrix.translate(0.5D, 0.5D, 0.5D);

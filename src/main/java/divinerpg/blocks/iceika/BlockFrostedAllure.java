@@ -2,7 +2,7 @@ package divinerpg.blocks.iceika;
 
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.block.FrostedAllureBlockEntity;
+import divinerpg.block_entities.block.FrostedAllureBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

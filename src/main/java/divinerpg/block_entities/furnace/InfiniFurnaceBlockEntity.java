@@ -1,4 +1,4 @@
-package divinerpg.tiles.furnace;
+package divinerpg.block_entities.furnace;
 
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.*;
@@ -27,7 +27,7 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
+public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
 	private static final int[] SLOTS_FOR_UP = new int[]{0};
 	private static final int[] SLOTS_FOR_DOWN = new int[]{1};
 	public final RecipeManager.CachedCheck<Container, ? extends AbstractCookingRecipe> quickCheck = RecipeManager.createCheck(RecipeType.SMELTING);;
@@ -36,11 +36,11 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 	int cookingTotalTime, cookingProgress;
 	protected final ContainerData dataAccess = new ContainerData() {
 	      public int get(int type) {
-	    	  return type == 0 ? TileEntityInfiniFurnace.this.cookingProgress : TileEntityInfiniFurnace.this.cookingTotalTime;
+	    	  return type == 0 ? InfiniFurnaceBlockEntity.this.cookingProgress : InfiniFurnaceBlockEntity.this.cookingTotalTime;
 	      }
 	      public void set(int type, int value) {
-	    	  if(type == 0) TileEntityInfiniFurnace.this.cookingProgress = value;
-	    	  else TileEntityInfiniFurnace.this.cookingTotalTime = value;
+	    	  if(type == 0) InfiniFurnaceBlockEntity.this.cookingProgress = value;
+	    	  else InfiniFurnaceBlockEntity.this.cookingTotalTime = value;
 	      }
 	      public int getCount() {return 2;}
 	};
@@ -48,7 +48,7 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 	public final String containerName;
 	public final double speed;
 	public boolean isLit = false;
-	protected TileEntityInfiniFurnace(BlockEntityType<?> type, BlockPos pos, BlockState state, String containerName, double speed) {
+	protected InfiniFurnaceBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, String containerName, double speed) {
 		super(type, pos, state);
 		this.containerName = containerName;
 		this.speed = speed;
@@ -87,7 +87,7 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 	        setChanged();
 	    }
 	}
-	public static int getTotalCookTime(Level level, TileEntityInfiniFurnace tile) {
+	public static int getTotalCookTime(Level level, InfiniFurnaceBlockEntity tile) {
 		return (int) (tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200) / tile.speed);
 	}
 	@Override
@@ -128,7 +128,7 @@ public abstract class TileEntityInfiniFurnace extends BaseContainerBlockEntity i
 		if (f != 0.0F && Math.random() < (double)f) ++i;
 		ExperienceOrb.award(level, vector, i);
 	}
-	public static void serverTick(Level level, BlockPos pos, BlockState state, TileEntityInfiniFurnace block) {
+	public static void serverTick(Level level, BlockPos pos, BlockState state, InfiniFurnaceBlockEntity block) {
 		boolean changes = false;
 		Recipe<?> recipe = block.quickCheck.getRecipeFor(block, level).orElse(null);
         int maxStackSize = block.getMaxStackSize();

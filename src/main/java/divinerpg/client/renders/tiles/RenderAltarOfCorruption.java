@@ -4,7 +4,7 @@ package divinerpg.client.renders.tiles;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
-import divinerpg.tiles.AltarOfCorruptionEntity;
+import divinerpg.block_entities.AltarOfCorruptionBlockEntity;
 import net.minecraft.client.model.BookModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.*;
@@ -16,7 +16,7 @@ import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorruptionEntity> {
+public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorruptionBlockEntity> {
     @SuppressWarnings("deprecation")
 	public static final Material TEXTURE_BOOK = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(DivineRPG.MODID, "textures/model/altar_book.png"));
     private final BookModel bookModel;
@@ -26,27 +26,27 @@ public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorru
     }
 
 
-    public void render(AltarOfCorruptionEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
+    public void render(AltarOfCorruptionBlockEntity blockEntity, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.5D, 0.75D, 0.5D);
-        float f = (float)tileEntityIn.time + partialTicks;
+        float f = (float)blockEntity.time + partialTicks;
         matrixStackIn.translate(0.0D, (double)(0.1F + Mth.sin(f * 0.1F) * 0.01F), 0.0D);
 
         float f1;
-        for(f1 = tileEntityIn.rot - tileEntityIn.oRot; f1 >= (float)Math.PI; f1 -= ((float)Math.PI * 2F)) {
+        for(f1 = blockEntity.rot - blockEntity.oRot; f1 >= (float)Math.PI; f1 -= ((float)Math.PI * 2F)) {
         }
 
         while(f1 < -(float)Math.PI) {
             f1 += ((float)Math.PI * 2F);
         }
 
-        float f2 = tileEntityIn.oRot + f1 * partialTicks;
+        float f2 = blockEntity.oRot + f1 * partialTicks;
         matrixStackIn.mulPose(Axis.YP.rotation(-f2));
         matrixStackIn.mulPose(Axis.ZP.rotationDegrees(80.0F));
-        float f3 = Mth.lerp(partialTicks, tileEntityIn.oFlip, tileEntityIn.flip);
+        float f3 = Mth.lerp(partialTicks, blockEntity.oFlip, blockEntity.flip);
         float f4 = Mth.frac(f3 + 0.25F) * 1.6F - 0.3F;
         float f5 = Mth.frac(f3 + 0.75F) * 1.6F - 0.3F;
-        float f6 = Mth.lerp(partialTicks, tileEntityIn.oOpen, tileEntityIn.open);
+        float f6 = Mth.lerp(partialTicks, blockEntity.oOpen, blockEntity.open);
         this.bookModel.setupAnim(f, Mth.clamp(f4, 0.0F, 1.0F), Mth.clamp(f5, 0.0F, 1.0F), f6);
         VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(TEXTURE_BOOK.texture()));
         bookModel.renderToBuffer(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn, 1.0F, 1.0F, 1.0F, 1.0F);

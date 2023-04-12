@@ -31,8 +31,8 @@ public abstract class BlockModChest extends ChestBlock {
     }
     @Nullable @Override
     public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
-        BlockEntity tileentity = world.getBlockEntity(pos);
-        return tileentity instanceof MenuProvider ? (MenuProvider) tileentity : null;
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        return blockEntity instanceof MenuProvider ? (MenuProvider) blockEntity : null;
     }
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
@@ -53,8 +53,8 @@ public abstract class BlockModChest extends ChestBlock {
     @Override
     public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         if(state.getBlock() != newState.getBlock()) {
-            BlockEntity tileentity = worldIn.getBlockEntity(pos);
-            if(tileentity instanceof Container && !((Container) tileentity).isEmpty()) super.onRemove(state, worldIn, pos, newState, isMoving);
+            BlockEntity blockEntity = worldIn.getBlockEntity(pos);
+            if(blockEntity instanceof Container && !((Container) blockEntity).isEmpty()) super.onRemove(state, worldIn, pos, newState, isMoving);
         }
     }
 }

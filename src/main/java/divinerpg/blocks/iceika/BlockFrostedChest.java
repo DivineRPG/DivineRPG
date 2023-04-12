@@ -2,7 +2,7 @@ package divinerpg.blocks.iceika;
 
 import divinerpg.blocks.base.*;
 import divinerpg.registries.*;
-import divinerpg.tiles.chests.*;
+import divinerpg.block_entities.chests.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.*;
 import net.minecraft.util.RandomSource;
@@ -26,7 +26,7 @@ public class BlockFrostedChest extends BlockModChest {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new TileEntityFrostedChest(p_153215_, p_153216_);
+        return new FrostedChestBlockEntity(p_153215_, p_153216_);
     }
 
     @Override

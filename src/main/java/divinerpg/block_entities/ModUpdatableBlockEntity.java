@@ -1,4 +1,4 @@
-package divinerpg.tiles;
+package divinerpg.block_entities;
 
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
@@ -10,13 +10,13 @@ import net.minecraft.world.level.block.state.*;
 import javax.annotation.*;
 
 /**
- * Base implementation of networking TileEntity
+ * Base implementation of networking BlockEntity
  */
-public class ModUpdatableTileEntity extends BlockEntity {
+public class ModUpdatableBlockEntity extends BlockEntity {
     /**
      * Always should be a empty ctor
      */
-    public ModUpdatableTileEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
+    public ModUpdatableBlockEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
         super(p_155228_, p_155229_, p_155230_);
     }
 

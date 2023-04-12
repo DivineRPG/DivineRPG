@@ -1,7 +1,7 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.tiles.furnace.*;
+import divinerpg.block_entities.furnace.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -32,8 +32,8 @@ public class BlockArcaniumExtractor extends FurnaceBlock {
     }
     @Override
     protected void openContainer(Level world, BlockPos pos, Player player) {
-        BlockEntity tileentity = world.getBlockEntity(pos);
-        if (tileentity instanceof TileEntityArcaniumExtractor) player.openMenu((MenuProvider)tileentity);
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof ArcaniumExtractorBlockEntity) player.openMenu((MenuProvider)blockEntity);
     }
     @Nullable
     @Override
@@ -43,10 +43,10 @@ public class BlockArcaniumExtractor extends FurnaceBlock {
     @Override
     public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean b) {
         if (!state.is(state1.getBlock())) {
-            BlockEntity tileentity = world.getBlockEntity(pos);
-            if (tileentity instanceof TileEntityArcaniumExtractor) {
-                Containers.dropContents(world, pos, (TileEntityArcaniumExtractor)tileentity);
-                ((TileEntityArcaniumExtractor)tileentity).getRecipesToAwardAndPopExperience((ServerLevel) world, Vec3.atCenterOf(pos));
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof ArcaniumExtractorBlockEntity) {
+                Containers.dropContents(world, pos, (ArcaniumExtractorBlockEntity)blockEntity);
+                ((ArcaniumExtractorBlockEntity)blockEntity).getRecipesToAwardAndPopExperience((ServerLevel) world, Vec3.atCenterOf(pos));
                 world.updateNeighbourForOutputSignal(pos, this);
             }
             super.onRemove(state, world, pos, state1, b);
@@ -59,7 +59,7 @@ public class BlockArcaniumExtractor extends FurnaceBlock {
     }
 	@Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_) {
-       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), TileEntityArcaniumExtractor::serverTick);
+       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorBlockEntity::serverTick);
     }
 	@Override public void animateTick(BlockState p_221253_, Level p_221254_, BlockPos p_221255_, RandomSource p_221256_) {}
 }

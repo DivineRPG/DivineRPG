@@ -2,7 +2,7 @@ package divinerpg.blocks.vanilla;
 
 import divinerpg.client.containers.*;
 import divinerpg.registries.*;
-import divinerpg.tiles.*;
+import divinerpg.block_entities.*;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.*;
 import net.minecraft.network.chat.*;
@@ -73,7 +73,7 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new AltarOfCorruptionEntity(p_153215_, p_153216_);
+        return new AltarOfCorruptionBlockEntity(p_153215_, p_153216_);
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
@@ -88,9 +88,9 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
 
     @Nullable
     public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
-        BlockEntity tileentity = worldIn.getBlockEntity(pos);
-        if (tileentity instanceof AltarOfCorruptionEntity) {
-            Component itextcomponent = ((Nameable)tileentity).getDisplayName();
+        BlockEntity blockEntity = worldIn.getBlockEntity(pos);
+        if (blockEntity instanceof AltarOfCorruptionBlockEntity) {
+            Component itextcomponent = ((Nameable)blockEntity).getDisplayName();
             return new SimpleMenuProvider((id, inventory, player) -> {
                 return new AltarOfCorruptionContainer(id, inventory, ContainerLevelAccess.create(worldIn, pos));
             }, itextcomponent);
@@ -104,9 +104,9 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
      */
     public void setPlacedBy(Level worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
-            BlockEntity tileentity = worldIn.getBlockEntity(pos);
-            if (tileentity instanceof AltarOfCorruptionEntity) {
-                ((AltarOfCorruptionEntity)tileentity).setCustomName(stack.getDisplayName());
+            BlockEntity blockEntity = worldIn.getBlockEntity(pos);
+            if (blockEntity instanceof AltarOfCorruptionBlockEntity) {
+                ((AltarOfCorruptionBlockEntity)blockEntity).setCustomName(stack.getDisplayName());
             }
         }
 

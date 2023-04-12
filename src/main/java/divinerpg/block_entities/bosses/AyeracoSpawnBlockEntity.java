@@ -1,9 +1,9 @@
-package divinerpg.tiles.bosses;
+package divinerpg.block_entities.bosses;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.boss.EntityAyeraco;
 import divinerpg.registries.*;
-import divinerpg.tiles.*;
+import divinerpg.block_entities.*;
 import divinerpg.util.*;
 import net.minecraft.*;
 import net.minecraft.core.*;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity {
+public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     /**
      * Using in render, so it need to be proceed through update package
      */
@@ -29,11 +29,11 @@ public class TileEntityAyeracoSpawn extends ModUpdatableTileEntity {
      * @param p_155229_
      * @param p_155230_
      */
-    public TileEntityAyeracoSpawn(BlockPos p_155229_, BlockState p_155230_) {
+    public AyeracoSpawnBlockEntity(BlockPos p_155229_, BlockState p_155230_) {
         super(BlockEntityRegistry.AYERACO_SPAWN.get(), p_155229_, p_155230_);
         spawnTick = 600;
     }
-    public static void serverTick(Level level, BlockPos pos, BlockState state, TileEntityAyeracoSpawn block) {
+    public static void serverTick(Level level, BlockPos pos, BlockState state, AyeracoSpawnBlockEntity block) {
         switch (block.spawnTick) {
             case 600:
             	block.blueBeam = getBeamLocation(level, pos, 15, 0);

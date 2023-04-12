@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
-import divinerpg.tiles.furnace.TileEntityModFurnace;
+import divinerpg.block_entities.furnace.ModFurnaceBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
@@ -22,13 +22,13 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.Vec3;
 
 public final class BlockModFurnace extends FurnaceBlock {
-	public final Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntityType;
-    public BlockModFurnace(Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntity) {
+	public final Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntityType;
+    public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity) {
         super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }
-    public BlockModFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends TileEntityModFurnace>> blockEntity) {
+    public BlockModFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity) {
         super(properties);
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
@@ -41,17 +41,17 @@ public final class BlockModFurnace extends FurnaceBlock {
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
         if (stack.hasCustomHoverName()) {
            BlockEntity blockentity = level.getBlockEntity(pos);
-           if (blockentity instanceof TileEntityModFurnace) ((TileEntityModFurnace)blockentity).setCustomName(stack.getHoverName());
+           if (blockentity instanceof ModFurnaceBlockEntity) ((ModFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
         }
 	}
 	@Override
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
 		if (!state.is(st.getBlock())) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-			if (blockentity instanceof TileEntityModFurnace) {
+			if (blockentity instanceof ModFurnaceBlockEntity) {
 				if (level instanceof ServerLevel) {
-					Containers.dropContents(level, pos, (TileEntityModFurnace)blockentity);
-					((TileEntityModFurnace)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
+					Containers.dropContents(level, pos, (ModFurnaceBlockEntity)blockentity);
+					((ModFurnaceBlockEntity)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
 	            }
 	            level.updateNeighbourForOutputSignal(pos, this);
 			}
@@ -64,8 +64,8 @@ public final class BlockModFurnace extends FurnaceBlock {
     	return createFurnaceTicker(type, level, blockEntityType.get());
     }
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_, BlockEntityType<? extends TileEntityModFurnace> p_151990_) {
-       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, p_151990_, TileEntityModFurnace::serverTick);
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_, BlockEntityType<? extends ModFurnaceBlockEntity> p_151990_) {
+       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, p_151990_, ModFurnaceBlockEntity::serverTick);
     }
     @Nullable
     @Override
@@ -75,7 +75,7 @@ public final class BlockModFurnace extends FurnaceBlock {
     @Override
     protected void openContainer(Level level, BlockPos pos, Player player) {
         BlockEntity blockentity = level.getBlockEntity(pos);
-        if (blockentity instanceof TileEntityModFurnace) {
+        if (blockentity instanceof ModFurnaceBlockEntity) {
            player.openMenu((MenuProvider)blockentity);
            player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }

@@ -46,10 +46,10 @@ public class BlockKarosDispenser extends BaseEntityBlock {
         if (p_225533_2_.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            BlockEntity tileentity = p_225533_2_.getBlockEntity(p_225533_3_);
-            if (tileentity instanceof DispenserBlockEntity) {
-                p_225533_4_.openMenu((DispenserBlockEntity)tileentity);
-                if (tileentity instanceof DropperBlockEntity) {
+            BlockEntity blockEntity = p_225533_2_.getBlockEntity(p_225533_3_);
+            if (blockEntity instanceof DispenserBlockEntity) {
+                p_225533_4_.openMenu((DispenserBlockEntity)blockEntity);
+                if (blockEntity instanceof DropperBlockEntity) {
                     p_225533_4_.awardStat(Stats.INSPECT_DROPPER);
                 } else {
                     p_225533_4_.awardStat(Stats.INSPECT_DISPENSER);
@@ -106,9 +106,9 @@ public class BlockKarosDispenser extends BaseEntityBlock {
 
     public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
         if (p_180633_5_.hasCustomHoverName()) {
-            BlockEntity tileentity = p_180633_1_.getBlockEntity(p_180633_2_);
-            if (tileentity instanceof DispenserBlockEntity) {
-                ((DispenserBlockEntity)tileentity).setCustomName(p_180633_5_.getHoverName());
+            BlockEntity blockEntity = p_180633_1_.getBlockEntity(p_180633_2_);
+            if (blockEntity instanceof DispenserBlockEntity) {
+                ((DispenserBlockEntity)blockEntity).setCustomName(p_180633_5_.getHoverName());
             }
         }
 
@@ -117,9 +117,9 @@ public class BlockKarosDispenser extends BaseEntityBlock {
     @SuppressWarnings("deprecation")
 	public void onRemove(BlockState p_196243_1_, Level p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
         if (!p_196243_1_.is(p_196243_4_.getBlock())) {
-            BlockEntity tileentity = p_196243_2_.getBlockEntity(p_196243_3_);
-            if (tileentity instanceof DispenserBlockEntity) {
-                Containers.dropContents(p_196243_2_, p_196243_3_, (DispenserBlockEntity)tileentity);
+            BlockEntity blockEntity = p_196243_2_.getBlockEntity(p_196243_3_);
+            if (blockEntity instanceof DispenserBlockEntity) {
+                Containers.dropContents(p_196243_2_, p_196243_3_, (DispenserBlockEntity)blockEntity);
                 p_196243_2_.updateNeighbourForOutputSignal(p_196243_3_, this);
             }
 
