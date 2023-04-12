@@ -26,6 +26,8 @@ public class ItemMusicShooter extends ItemModRanged {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sound_of_carols"))) {
             tooltip.add(LocalizeUtils.rangedDam(16));
+        } else if (this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sound_of_whales"))) {
+            tooltip.add(LocalizeUtils.rangedDam(20));
         } else {
             tooltip.add(LocalizeUtils.rangedDam(10));
         }

@@ -99,6 +99,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySoulFiendShot>>			SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new, "soul_fiend_shot");
     public static final RegistryObject<EntityType<EntitySoundOfCarols>>			SOUND_OF_CAROLS = registerProjectile(EntitySoundOfCarols::new, "sound_of_carols");
     public static final RegistryObject<EntityType<EntitySoundOfMusic>>			SOUND_OF_MUSIC = registerProjectile(EntitySoundOfMusic::new, "sound_of_music");
+    public static final RegistryObject<EntityType<EntitySoundOfWhales>>			SOUND_OF_WHALES = registerProjectile(EntitySoundOfWhales::new, "sound_of_whales");
     public static final RegistryObject<EntityType<EntitySparkler>>				SPARKLER = registerProjectile(EntitySparkler::new, "sparkler");
     public static final RegistryObject<EntityType<EntityStar>>					STARLIGHT = registerProjectile(EntityStar::new, "star");
     public static final RegistryObject<EntityType<EntityTwilightDemonShot>>		TWILIGHT_DEMON_SHOT = registerProjectile(EntityTwilightDemonShot::new, "twilight_demon_shot");
@@ -741,6 +742,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SOUL_FIEND_SHOT.get(), 		(Context context) -> new RenderDivineProjectile<>(context));
         event.registerEntityRenderer(SOUND_OF_CAROLS.get(), 		(Context context) -> new RenderDivineProjectile<>(context, "music"));
         event.registerEntityRenderer(SOUND_OF_MUSIC.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "music"));
+        event.registerEntityRenderer(SOUND_OF_WHALES.get(), 		(Context context) -> new RenderDivineProjectile<>(context, "music"));
         event.registerEntityRenderer(SPARKLER.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "sparkler"));
         event.registerEntityRenderer(STARLIGHT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "starlight"));
         event.registerEntityRenderer(TWILIGHT_DEMON_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "twilight_demon_shot"));

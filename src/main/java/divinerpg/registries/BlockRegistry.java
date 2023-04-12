@@ -221,7 +221,8 @@ public class BlockRegistry {
             vamacheronStatue = registerWithRender("vamacheron_statue", () -> new BlockStatue(null), Rarity.RARE),
             termasectStatue = registerWithRender("termasect_statue", () -> new BlockStatue(() -> WOOD_STEP), Rarity.RARE),
             sunstormStatue = registerWithRender("sunstorm_statue", () -> new BlockStatue(() -> SPARKLER.get()), Rarity.RARE),
-            experiencedCoriStatue = registerWithRender("experienced_cori_statue", () -> new BlockStatue(() -> CORI.get()), Rarity.RARE);
+            experiencedCoriStatue = registerWithRender("experienced_cori_statue", () -> new BlockStatue(() -> CORI.get()), Rarity.RARE),
+            ghostWhaleStatue = registerWithRender("ghost_whale_statue", () -> new BlockStatue(() -> WHALE.get()), Rarity.RARE);
 
     public static final RegistryObject<Block>// Ayeraco technical blocks
             ayeracoBeamBlue = BLOCKS.register("ayeraco_beam_blue", () -> new BlockAyeracoBeam(BossBarColor.BLUE)),

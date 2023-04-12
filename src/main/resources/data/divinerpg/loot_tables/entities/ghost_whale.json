@@ -10,20 +10,39 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1,
-                "max": 3
+                "min": 16,
+                "max": 24
               }
             }
           ]
         }
-      ],
-      "functions": [
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
         {
-          "function": "minecraft:looting_enchant",
-          "count": {
-            "min": 0,
-            "max": 1
-          }
+          "type": "minecraft:item",
+          "name": "divinerpg:sound_of_whales"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:ghost_whale_statue"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
         }
       ]
     }

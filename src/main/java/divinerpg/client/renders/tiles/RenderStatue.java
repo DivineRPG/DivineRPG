@@ -5,7 +5,7 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
-import divinerpg.client.models.vanilla.ModelWatcher;
+import divinerpg.client.models.vanilla.*;
 import divinerpg.block_entities.bosses.StatueBlockEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -57,6 +57,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue"))) return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
+        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ghost_whale_statue"))) return new ModelWhale(context.bakeLayer(ModelWhale.LAYER_LOCATION));
         return new BookModel(context.bakeLayer(ModelLayers.BOOK));
     }
     public static final ResourceLocation
@@ -81,7 +82,8 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
     	ayeraco_white = new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_white.png"),
     	termasect = new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png"),
     	sunstorm = new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png"),
-    	experienced_cori = new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
+        experienced_cori = new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png"),
+        ghost_whale = new ResourceLocation(DivineRPG.MODID, "textures/entity/ghost_whale.png");
     private ResourceLocation texture(StatueBlockEntity tile) {
         Block block = tile.getBlockState().getBlock();
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue"))) return ancient_entity;
@@ -111,6 +113,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue"))) return termasect;
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue"))) return sunstorm;
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return experienced_cori;
+        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ghost_whale_statue"))) return ghost_whale;
         return new ResourceLocation("minecraft:textures/block/stone.png");
     }
 }

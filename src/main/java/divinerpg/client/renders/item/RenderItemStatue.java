@@ -5,7 +5,7 @@ import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
-import divinerpg.client.models.vanilla.ModelWatcher;
+import divinerpg.client.models.vanilla.*;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
@@ -87,6 +87,8 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
             return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue")).asItem()){
             return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
+        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ghost_whale_statue")).asItem()){
+            return new ModelWhale(context.bakeLayer(ModelWhale.LAYER_LOCATION));
         }
 
         else {
@@ -132,6 +134,8 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png");
         } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue")).asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
+        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ghost_whale_statue")).asItem()){
+            return new ResourceLocation(DivineRPG.MODID, "textures/entity/ghost_whale.png");
         }
 
         else {

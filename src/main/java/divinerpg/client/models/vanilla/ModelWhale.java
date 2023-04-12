@@ -20,7 +20,13 @@ public class ModelWhale extends EntityModel<EntityWhale> {
 		this.flipperR = root.getChild("flipperR");
 		this.tail = root.getChild("tail");
 	}
+	public ModelWhale(ModelPart root) {
+		this.body = root.getChild("body");
+		this.flipperL = root.getChild("flipperL");
+		this.flipperR = root.getChild("flipperR");
+		this.tail = root.getChild("tail");
 
+	}
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();

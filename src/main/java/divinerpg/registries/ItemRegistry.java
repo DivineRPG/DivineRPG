@@ -247,6 +247,7 @@ public class ItemRegistry {
             meteor_mash = registerItem("meteor_mash", () -> new ItemMeteorMash()),
             sound_of_carols = registerItem("sound_of_carols", () -> new ItemMusicShooter(() -> SoundRegistry.SOUND_OF_CAROLS.get(), "sound_of_carols")),
             sound_of_music = registerItem("sound_of_music", () -> new ItemMusicShooter(() -> SoundRegistry.SOUND_OF_MUSIC.get(), "sound_of_music")),
+            sound_of_whales = registerItem("sound_of_whales", () -> new ItemMusicShooter(() -> SoundRegistry.WHALE.get(), "sound_of_whales")),
             jungle_knife = registerItem("jungle_knife", () -> new ItemPoisonousSword(ToolStats.JUNGLE_KNIFE, 2.5f)),
             jungle_rapier = registerItem("jungle_rapier", () -> new ItemPoisonousSword(ToolStats.JUNGLE_RAPIER, 4f)),
             poison_saber = registerItem("poison_saber", () -> new ItemPoisonousSword(ToolStats.POISON_SABER, 5)),
