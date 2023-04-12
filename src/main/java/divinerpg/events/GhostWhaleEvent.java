@@ -42,13 +42,16 @@ public class GhostWhaleEvent {
                     break;
                 }
             }
-            int kills = player.getPersistentData().getInt("animal_kills") + 1;
-            player.getPersistentData().putInt("animal_kills", kills);
-            if (kills >= CommonConfig.ghostWhaleKills.get()) {
-                BlockPos spawnPos = event.getEntity().blockPosition().offset(player.random.nextInt(16) - 8, player.random.nextInt(8) + 4, player.random.nextInt(16) - 8);
-                EntityRegistry.GHOST_WHALE.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
-                player.getPersistentData().putInt("animal_kills", 0);
+            if (!player.isCreative()) {
+                int kills = player.getPersistentData().getInt("animal_kills") + 1;
+                player.getPersistentData().putInt("animal_kills", kills);
+                if (kills >= CommonConfig.ghostWhaleKills.get()) {
+                    BlockPos spawnPos = event.getEntity().blockPosition().offset(player.random.nextInt(16) - 8, player.random.nextInt(8) + 4, player.random.nextInt(16) - 8);
+                    EntityRegistry.GHOST_WHALE.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
+                    player.getPersistentData().putInt("animal_kills", 0);
+                }
             }
         }
     }
+
 }
