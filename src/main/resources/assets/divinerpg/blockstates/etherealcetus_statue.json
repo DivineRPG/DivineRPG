@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:block/etherealcetus_statue"
+      }
+    }
+  ]
+}

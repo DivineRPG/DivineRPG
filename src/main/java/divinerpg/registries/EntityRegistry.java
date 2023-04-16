@@ -120,7 +120,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityDramix>>		 DRAMIX 			= registerEntity(EntityDramix::new, 		"dramix", 			0.85F,3.0F);
     public static final RegistryObject<EntityType<EntityEternalArcher>>  ETERNAL_ARCHER 	= registerEntity(EntityEternalArcher::new, 	"eternal_archer", 	3.0F, 5.0F);
     public static final RegistryObject<EntityType<EntityExperiencedCori>>EXPERIENCED_CORI 	= registerEntity(EntityExperiencedCori::new,"experienced_cori", 4.0F, 6.8F);
-    public static final RegistryObject<EntityType<EntityGhostWhale>>     GHOST_WHALE 	    = registerEntity(EntityGhostWhale::new,     "ghost_whale",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityEtherealcetus>>  ETHEREALCETUS = registerEntity(EntityEtherealcetus::new,     "etherealcetus",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityHiveQueen>>		 HIVE_QUEEN 		= registerEntity(EntityHiveQueen::new, 		"hive_queen", 		1.5F, 4.0F);
     public static final RegistryObject<EntityType<EntityKaros>>			 KAROS 				= registerEntity(EntityKaros::new, 			"karos", 			1.0F, 3.0F);
     public static final RegistryObject<EntityType<EntityKarot>>			 KAROT 				= registerEntity(EntityKarot::new, 			"karot", 			3.25F,4.0F);
@@ -320,7 +320,7 @@ public class EntityRegistry {
         registerMonsterAttributes(event, DRAMIX, dramixHealth, dramixDamage);
         registerMonsterAttributes(event, ETERNAL_ARCHER, eternalArcherHealth, eternalArcherDamage);
         registerFlyingMobAttributes(event, EXPERIENCED_CORI, experiencedCoriHealth, experiencedCoriDamage);
-        registerDamageMobAttributes(event, GHOST_WHALE, ghostWhaleHealth, ghostWhaleDamage, ghostWhaleSpeed);
+        registerDamageMobAttributes(event, ETHEREALCETUS, etherealcetusHealth, etherealcetusDamage, etherealcetusSpeed);
         registerMonsterAttributes(event, HIVE_QUEEN, hiveQueenHealth, hiveQueenDamage);
         registerMonsterAttributes(event, KAROS, karosHealth, karosDamage);
         registerMonsterAttributes(event, KAROT, karotHealth, karotDamage);
@@ -764,7 +764,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DRAMIX.get(), 			(Context context) -> new RenderDivineMob<>(context, "dramix", 			new ModelDramix<>(context), 0.4F));
         event.registerEntityRenderer(ETERNAL_ARCHER.get(),  RenderEternalArcher::new);
         event.registerEntityRenderer(EXPERIENCED_CORI.get(),(Context context) -> new RenderDivineMob<>(context, "experienced_cori", new ModelExperiencedCori(context), 1F, 5F));
-        event.registerEntityRenderer(GHOST_WHALE.get(), 	(Context context) -> new RenderDivineMob<>(context, "ghost_whale", 		new ModelWhale(context), 0.8F, 5F));
+        event.registerEntityRenderer(ETHEREALCETUS.get(), 	(Context context) -> new RenderDivineMob<>(context, "etherealcetus", 		new ModelWhale(context), 0.8F, 5F));
         event.registerEntityRenderer(HIVE_QUEEN.get(), 		(Context context) -> new RenderDivineMob<>(context, "hive_queen", 		new ModelHiveQueen(context), 0.4F));
         event.registerEntityRenderer(KAROS.get(), 			(Context context) -> new RenderDivineMob<>(context, "karos", 			new ModelKaros(context)));
         event.registerEntityRenderer(KAROT.get(), 			(Context context) -> new RenderDivineMob<>(context, "karot", 			new ModelKarot(context), 0.5F, 5F));

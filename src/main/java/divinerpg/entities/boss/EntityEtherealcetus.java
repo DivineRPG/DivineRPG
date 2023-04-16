@@ -1,6 +1,6 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.projectile.*;
+import divinerpg.entities.projectile.EntityShooterBullet;
 import divinerpg.entities.vanilla.overworld.EntityWhale;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.EntityRegistry;
@@ -13,6 +13,7 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
@@ -22,11 +23,11 @@ import net.minecraft.world.phys.*;
 
 import java.util.*;
 
-public class EntityGhostWhale extends EntityWhale {
+public class EntityEtherealcetus extends EntityWhale {
     private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.WHITE,
         BossEvent.BossBarOverlay.PROGRESS));
 
-    public EntityGhostWhale(EntityType<? extends EntityWhale> type, Level worldIn) {
+    public EntityEtherealcetus(EntityType<? extends EntityWhale> type, Level worldIn) {
         super(type, worldIn);
     }
 
@@ -91,68 +92,110 @@ public class EntityGhostWhale extends EntityWhale {
             }
         }
 
-        //Spawn projectile out of its blowhole projectile once reaching 32 blocks traveled up will split and shoot bone fragments everywhere
-        if (this.random.nextInt(200) == 0) {
+
+
+        // Spawn projectile out of its blowhole projectile once reaching 32 blocks traveled up will split and shoot bone fragments everywhere
+        Player closestPlayer = this.level.getNearestPlayer(this, 16.0D);
+        if (closestPlayer != null && this.random.nextInt(200) == 0) {
             double x = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
             double y = this.getY() + this.random.nextFloat() * this.getBbHeight();
             double z = this.getZ() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
-            double motionX = 0.0D;
-            double motionY = 1.75D; // set the arrow upward velocity
-            double motionZ = 0.0D;
-            this.hurt(damageSources().outOfWorld(), 16);
-            EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level, BulletType.BONE_BOMB){
-                @Override
-                public void onHitEntity(EntityHitResult result) {
-                    super.onHitEntity(result);
-                    if(result.getEntity() instanceof EntityGhostWhale){
-                        ((EntityGhostWhale) result.getEntity()).heal(16);
-                    }
-                }
-
-                @Override
-                public void tick() {
-                    super.tick();
-                    double radius = this.getBbWidth() * 1.5;
-                    AABB aabb = new AABB(this.getX() - radius, this.getY() - radius, this.getZ() - radius,
-                            this.getX() + radius, this.getY() + radius, this.getZ() + radius);
-
-                    BlockPos.betweenClosedStream(aabb)
-                            .forEach(blockPos -> {
-                                BlockState blockState = this.level.getBlockState(blockPos);
-                                if (blockState.is(BlockTags.ICE)) {
-                                    this.level.destroyBlock(blockPos, true);
-                                }
-                            });
-
-                    if (tickCount == 39 && getOwner() != null) {
-                        if (getOwner() instanceof LivingEntity) {
-                            for (int i = 0; i < 16; i++) {
-                                double motionX = (this.random.nextDouble() - 0.5) * 2.0;
-                                double motionY = (this.random.nextDouble() - 0.5) * 2.0;
-                                double motionZ = (this.random.nextDouble() - 0.5) * 2.0;
-                                EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), (LivingEntity) getOwner(), level, BulletType.BONE_FRAGMENT){
-                                    @Override
-                                    public void onHitEntity(EntityHitResult result) {
-                                        super.onHitEntity(result);
-                                        if(result.getEntity() instanceof EntityGhostWhale){
-                                            ((EntityGhostWhale) result.getEntity()).heal(6);
-                                        }
-                                    }
-                                };
-                                e.setOwner(this.getOwner());
-                                e.setPos(getOwner().getX(), getOwner().getY(), getOwner().getZ());
-                                e.shoot(motionX, motionY, motionZ, 1.0F, 0.0F);
-                                this.level.addFreshEntity(e);
-                            }
-                            this.kill();
+            if (closestPlayer.distanceToSqr(x, y, z) <= 256.0D) { // Only shoot bone projectile if player is within 16 blocks
+                double motionX = 0.0D;
+                double motionY = 1.75D; // set the arrow upward velocity
+                double motionZ = 0.0D;
+                this.hurt(damageSources().outOfWorld(), 16);
+                EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level, BulletType.BONE_BOMB) {
+                    @Override
+                    public void onHitEntity(EntityHitResult result) {
+                        super.onHitEntity(result);
+                        if (result.getEntity() instanceof EntityEtherealcetus) {
+                            ((EntityEtherealcetus) result.getEntity()).heal(16);
                         }
                     }
-                }
-            };
-            e.setOwner(this);
-            e.shoot(motionX, motionY, motionZ, 1.6F, 0);
-            e.setPos(x, y, z);
-            level.addFreshEntity(e);
+
+                    @Override
+                    public void tick() {
+                        super.tick();
+                        // Ignore water friction
+                        if (this.isInWater()) {
+                            this.noPhysics = true;
+                        } else {
+                            this.noPhysics = false;
+                        }
+                        double radius = this.getBbWidth() * 1.5;
+                        AABB aabb = new AABB(this.getX() - radius, this.getY() - radius, this.getZ() - radius,
+                                this.getX() + radius, this.getY() + radius, this.getZ() + radius);
+
+                        BlockPos.betweenClosedStream(aabb)
+                                .forEach(blockPos -> {
+                                    BlockState blockState = this.level.getBlockState(blockPos);
+                                    if (blockState.is(BlockTags.ICE)) {
+                                        this.level.destroyBlock(blockPos, true);
+                                    }
+                                });
+
+                        if (tickCount == 39 && getOwner() != null) {
+                            if (getOwner() instanceof LivingEntity) {
+                                for (int i = 0; i < 64; i++) {
+                                    double motionX = (this.random.nextDouble() - 0.5) * 2.0;
+                                    double motionY = (this.random.nextDouble() - 0.5) * 2.0;
+                                    double motionZ = (this.random.nextDouble() - 0.5) * 2.0;
+                                    EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), (LivingEntity) getOwner(), level, BulletType.BONE_FRAGMENT) {
+                                        @Override
+                                        public void onHitEntity(EntityHitResult result) {
+                                            super.onHitEntity(result);
+                                            if (result.getEntity() instanceof EntityEtherealcetus) {
+                                                ((EntityEtherealcetus) result.getEntity()).heal(6);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void tick() {
+                                            super.tick();
+                                            // Ignore water friction
+                                            if (this.isInWater()) {
+                                                this.noPhysics = true;
+                                            } else {
+                                                this.noPhysics = false;
+                                            }
+                                        }
+                                    };
+                                    e.setOwner(this.getOwner());
+                                    e.setPos(getOwner().getX(), getOwner().getY(), getOwner().getZ());
+                                    e.shoot(motionX, motionY, motionZ, 1.0F, 0.0F);
+                                    this.level.addFreshEntity(e);
+                                }
+                                this.kill();
+                            }
+                        }
+                    }
+                };
+                e.setOwner(this);
+                e.shoot(motionX, motionY, motionZ, 1.6F, 0);
+                e.setPos(x, y, z);
+                level.addFreshEntity(e);
+            }
+
+            // Calculate vector between whale and player
+            double dx = closestPlayer.getX() - this.getX();
+            double dy = closestPlayer.getY() - this.getY();
+            double dz = closestPlayer.getZ() - this.getZ();
+
+            // Normalize vector
+            double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            dx /= distance;
+            dy /= distance;
+            dz /= distance;
+
+            // Move the whale along the vector by its regular swim speed
+            double speed = this.getAttribute(Attributes.MOVEMENT_SPEED).getValue();
+            double motionX = dx * speed;
+            double motionY = dy * speed;
+            double motionZ = dz * speed;
+
+            // Apply motion to the whale
+            this.setDeltaMovement(motionX, motionY, motionZ);
         }
 
         //Break ice

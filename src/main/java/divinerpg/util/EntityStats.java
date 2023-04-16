@@ -12,7 +12,7 @@ public final class EntityStats {
 			dramixHealth 			= 1400D, dramixDamage = 30D,
 			eternalArcherHealth 	= 1550D, eternalArcherDamage = 12D,
 			experiencedCoriHealth	= 1150D, experiencedCoriDamage = 26D,
-			ghostWhaleHealth 		= 750D,  ghostWhaleDamage = 8D, ghostWhaleSpeed = normalSpeed * 1.5,
+			etherealcetusHealth = 750D,  etherealcetusDamage = 8D, etherealcetusSpeed = normalSpeed * 1.5,
 			hiveQueenHealth 		= 1500D, hiveQueenDamage = 60D,
 			karosHealth 			= 4000D, karosDamage = 20D,
 			karotHealth 			= 1250D, karotDamage = 32D,

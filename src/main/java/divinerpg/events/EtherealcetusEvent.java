@@ -19,7 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
-public class GhostWhaleEvent {
+public class EtherealcetusEvent {
 
     private static final ResourceLocation BONEYARD_BIOME = new ResourceLocation(DivineRPG.MODID, "boneyard");
 
@@ -47,7 +47,7 @@ public class GhostWhaleEvent {
                 player.getPersistentData().putInt("animal_kills", kills);
                 if (kills >= CommonConfig.ghostWhaleKills.get()) {
                     BlockPos spawnPos = event.getEntity().blockPosition().offset(player.random.nextInt(16) - 8, player.random.nextInt(8) + 4, player.random.nextInt(16) - 8);
-                    EntityRegistry.GHOST_WHALE.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
+                    EntityRegistry.ETHEREALCETUS.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
                     player.getPersistentData().putInt("animal_kills", 0);
                 }
             }
