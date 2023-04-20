@@ -7,7 +7,7 @@
 			{
 				"target": {
 					"predicate_type": "minecraft:tag_match",
-					"tag": "minecraft:base_stone_nether"
+					"tag": "forge:netherrack"
 				},
 				"state": {
 					"Name": "divinerpg:bloodgem_ore"
