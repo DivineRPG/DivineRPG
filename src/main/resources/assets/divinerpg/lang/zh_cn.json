@@ -2225,6 +2225,18 @@
   "travelerstitles.biome.divinerpg.barren_highlands": "贫瘠的高地",
   "biome.divinerpg.barren_highlands.color": "4785ba",
   "travelerstitles.biome.divinerpg.dune_valley": "沙丘谷地",
-  "biome.divinerpg.dune_valley.color": "77bdd2"
+  "biome.divinerpg.dune_valley.color": "77bdd2",
 
+  "painting.divinerpg.island.title": "岛屿",
+  "painting.divinerpg.island.author": "作者：Dall-E和Nicusha",
+  "painting.divinerpg.hill.title": "山丘",
+  "painting.divinerpg.hill.author": "作者：Dall-E和Nicusha",
+  "painting.divinerpg.eden.title": "伊甸",
+  "painting.divinerpg.eden.author": "作者：Dall-E和Nicusha",
+  "painting.divinerpg.monster.title": "怪物",
+  "painting.divinerpg.monster.author": "作者：Dall-E和Nicusha",
+  "painting.divinerpg.cave.title": "洞穴",
+  "painting.divinerpg.cave.author": "作者：Dall-E和Nicusha",
+  "painting.divinerpg.pink_elephant.title": "粉红色大象",
+  "painting.divinerpg.pink_elephant.author": "作者：Dall-E和Nicusha"
 }
