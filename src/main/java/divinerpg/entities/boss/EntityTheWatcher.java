@@ -5,8 +5,10 @@ import divinerpg.entities.projectile.EntityWatcherShot;
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
+import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -22,6 +24,8 @@ import net.minecraftforge.api.distmarker.*;
 import java.util.EnumSet;
 
 public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAttackMob {
+    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS));
     private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(EntityTheWatcher.class, EntityDataSerializers.BOOLEAN);
     private int explosionStrength = 1;
 
@@ -132,6 +136,27 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
 
     }
 
+
+    public BossEvent.BossBarColor getBarColor() {
+        return BossEvent.BossBarColor.YELLOW;
+    }
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        bossInfo.setColor(getBarColor());
+        this.bossInfo.addPlayer(player);
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossInfo.removePlayer(player);
+    }
+    @Override
+    public void tick() {
+        super.tick();
+        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+    }
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher mob;
         public int chargeTime;
