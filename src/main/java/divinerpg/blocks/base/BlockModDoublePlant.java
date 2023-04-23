@@ -1,22 +1,22 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
-import net.minecraft.util.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.context.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.PlantType;
 
-import javax.annotation.*;
-import java.util.function.*;
+import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class BlockModDoublePlant extends DoublePlantBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
@@ -49,7 +49,9 @@ public class BlockModDoublePlant extends DoublePlantBlock {
 
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-            return super.canSurvive(state, level, pos);
+            BlockPos blockpos = pos.below();
+            BlockState blockBelow = level.getBlockState(blockpos);
+            return blockBelow.canSustainPlant(level, blockpos, Direction.UP, this) && !blockBelow.isAir();
         } else {
             BlockState blockstate = level.getBlockState(pos.below());
             if (state.getBlock() != this) return super.canSurvive(state, level, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
