@@ -23,7 +23,7 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     private Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(BlockBehaviour.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.ROOTS).noCollission().randomTicks());
+        super(BlockBehaviour.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
@@ -49,9 +49,7 @@ public class BlockModDoublePlant extends DoublePlantBlock {
 
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-            BlockPos blockpos = pos.below();
-            BlockState blockBelow = level.getBlockState(blockpos);
-            return blockBelow.canSustainPlant(level, blockpos, Direction.UP, this) && !blockBelow.isAir();
+            return super.canSurvive(state, level, pos);
         } else {
             BlockState blockstate = level.getBlockState(pos.below());
             if (state.getBlock() != this) return super.canSurvive(state, level, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
@@ -94,8 +92,8 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     }
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        BlockState soil = worldIn.getBlockState(pos.below());
-        return super.mayPlaceOn(state, worldIn, pos) || !worldIn.getBlockState(pos.below()).isAir() && worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
+        BlockState soil = worldIn.getBlockState(pos);
+        return worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
@@ -116,5 +114,13 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         return PlantType.PLAINS;
     }
 
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 100;
+    }
 
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 60;
+    }
 }

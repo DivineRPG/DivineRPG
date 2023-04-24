@@ -434,7 +434,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block>// Wildwood
             moonBud = registerBlock("moon_bud", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), 0.8, 0.7, COLOR_BLUE)),
-            moonlightFern = registerBlock("moonlight_fern", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), 0.8, 0.8, COLOR_BLUE)),
+            moonlightFern = registerBlock("moonlight_fern", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), COLOR_BLUE)),
             wildwoodTallgrass = registerBlock("wildwood_tallgrass", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), COLOR_BLUE));
 
     public static final RegistryObject<Block>// Apalachia

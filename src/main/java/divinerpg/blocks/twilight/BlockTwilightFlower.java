@@ -20,7 +20,7 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
     }
 
     public BlockTwilightFlower(Supplier<Block> grassSupplier, double width, double height, MaterialColor color) {
-        super(Block.Properties.of(Material.PLANT, color).instabreak().noOcclusion().sound(SoundType.CROP).noCollission().randomTicks());
+        super(Block.Properties.of(Material.PLANT, color).instabreak().noOcclusion().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
 
         if (width <= 0 || height <= 0) {
@@ -61,22 +61,15 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter reader, BlockPos pos) {
-        BlockState soil = reader.getBlockState(pos.below());
-        return soil.getBlock() == grassSupplier.get();
+    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+        BlockState soil = worldIn.getBlockState(pos);
+        return worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
     }
 
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return state.getBlock() == grassSupplier.get();
     }
-
-    public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {
-        BlockPos blockpos = pos.below();
-        BlockState blockBelow = reader.getBlockState(blockpos);
-        return blockBelow.canSustainPlant(reader, blockpos, Direction.UP, this) && !blockBelow.isAir();
-    }
-
 
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
     public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
@@ -97,4 +90,13 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
         return PlantType.PLAINS;
     }
 
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 100;
+    }
+
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 60;
+    }
 }

@@ -30,14 +30,4 @@ public class BlockModMoss extends MossBlock {
 		if(random.nextBoolean()) pos = pos.relative(Direction.getRandom(random));
 		if(level.getBlockState(pos).is(BlockTags.MOSS_REPLACEABLE)) level.setBlock(pos, state, 3);
 	}
-
-	@Override
-	public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-		return 15;
-	}
-
-	@Override
-	public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-		return 7;
-	}
 }
