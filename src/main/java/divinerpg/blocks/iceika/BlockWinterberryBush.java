@@ -2,7 +2,7 @@ package divinerpg.blocks.iceika;
 
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockMod;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
@@ -58,5 +58,15 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
     @Override
     public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
         return true;
+    }
+
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 100;
+    }
+
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 60;
     }
 }

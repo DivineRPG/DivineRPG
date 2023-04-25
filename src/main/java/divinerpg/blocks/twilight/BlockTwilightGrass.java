@@ -5,7 +5,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.common.*;
 
@@ -15,14 +14,13 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, IForgeS
     private Supplier<Block> grassSupplier;
 
     public BlockTwilightGrass(Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(Block.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+        super(Block.Properties.of(Material.REPLACEABLE_PLANT, colour).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
     }
 
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
-        Vec3 vector3d = p_220053_1_.getOffset(p_220053_2_, p_220053_3_);
-        return SHAPE.move(vector3d.x, vector3d.y, vector3d.z);
+        return SHAPE;
     }
 
     @Override

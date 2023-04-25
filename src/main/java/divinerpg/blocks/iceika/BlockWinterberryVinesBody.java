@@ -1,7 +1,7 @@
 package divinerpg.blocks.iceika;
 
 import divinerpg.DivineRPG;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
@@ -52,5 +52,15 @@ public class BlockWinterberryVinesBody extends WeepingVinesPlantBlock implements
 	@Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(RIPE);
+    }
+
+        @Override
+        public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 60;
+        }
+
+        @Override
+        public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 15;
     }
 }

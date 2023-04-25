@@ -1,7 +1,7 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.DivineRPG;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -18,4 +18,14 @@ public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		return SHAPE;
 	}
+
+        @Override
+        public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 60;
+        }
+
+        @Override
+        public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 15;
+    }
 }

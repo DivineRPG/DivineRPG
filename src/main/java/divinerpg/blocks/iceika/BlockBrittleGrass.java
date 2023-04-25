@@ -39,4 +39,14 @@ public class BlockBrittleGrass extends BushBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		return context.getLevel().getBlockState(context.getClickedPos().above()).isFaceSturdy(context.getLevel(), context.getClickedPos().above(), Direction.DOWN) ? defaultBlockState().setValue(HANGING, true) : context.getLevel().getBlockState(context.getClickedPos().below()).isFaceSturdy(context.getLevel(), context.getClickedPos().below(), Direction.UP) ? defaultBlockState() : Blocks.AIR.defaultBlockState();
 	}
+
+        @Override
+        public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 100;
+        }
+
+        @Override
+        public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+            return 60;
+    }
 }
