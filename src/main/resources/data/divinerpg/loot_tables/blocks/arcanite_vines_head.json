@@ -7,7 +7,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "divinerpg:winterberry_vines_head",
+					"name": "divinerpg:arcanite_vines_head",
 					"conditions": [
 						{
 							"condition": "minecraft:alternative",
