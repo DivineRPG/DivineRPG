@@ -39,9 +39,9 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
     @Override
     protected void registerGoals() {
         super.registerGoals();
-            goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
-            targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGruzzorlug.class, true));
-            targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGruzzorlug.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     int tickCounter;
     @Override

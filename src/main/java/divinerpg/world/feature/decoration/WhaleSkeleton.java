@@ -39,7 +39,7 @@ public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 		boolean isZ = direction.getAxis() == Axis.Z;
 		BlockState bone = isZ ? zBone : xBone;
 		if(random.nextBoolean()) {//spine
-			byte length = random.nextBoolean() ? (byte)(random.nextInt(22) + 1) : (byte)(random.nextInt(15) + 1), shift = (byte)random.nextInt(14),
+			byte length = random.nextBoolean() ? (byte)(random.nextInt(21) + 1) : (byte)(random.nextInt(15) + 1), shift = (byte)random.nextInt(14),
 					ribAmount = (byte)(((length % 15) / 2) - (shift / 2)), rib = 0, ribDir = random.nextBoolean() ? (byte)1 : -1;
 			boolean flag = false;
 			if(ribDir == -1 && shift < 11) {

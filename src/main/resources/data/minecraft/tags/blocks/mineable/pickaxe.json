@@ -178,6 +178,8 @@
     "divinerpg:termasect_spawner",
     "divinerpg:eternal_archer_spawner",
     "divinerpg:experienced_cori_spawner",
-    "divinerpg:barred_door"
+    "divinerpg:barred_door",
+    "divinerpg:frozen_bricks",
+    "divinerpg:coalstone_slab"
   ]
 }

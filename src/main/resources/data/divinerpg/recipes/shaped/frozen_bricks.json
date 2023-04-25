@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "divinerpg:frozen_stone"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "divinerpg:frozen_bricks",
+    "count": 4
+  }
+}

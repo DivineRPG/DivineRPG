@@ -205,7 +205,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 				starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
 				VertexBuffer.unbind();
 				setupFog.run();
-				RenderSystem.setShaderColor(.8F, .85F + ((afloat == null ? 0F : afloat[1] * 1.84F) * (.398F - Math.abs(Mth.cos(level.getTimeOfDay(partialTick) * ((float)Math.PI * 2F))))), .9F + f2 * 1.4F, 1F);
+				RenderSystem.setShaderColor(.82F, .85F + ((afloat == null ? 0F : afloat[1] * 1.84F) * (.398F - Math.abs(Mth.cos(level.getTimeOfDay(partialTick) * ((float)Math.PI * 2F))))), .92F + f2 * 1.4F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
 				poseStack.popPose();

@@ -1,0 +1,22 @@
+{
+  "name": "lamp",
+  "fallback": "minecraft:empty",
+  "elements": [
+  	{
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:empty_pool_element",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/lamp",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

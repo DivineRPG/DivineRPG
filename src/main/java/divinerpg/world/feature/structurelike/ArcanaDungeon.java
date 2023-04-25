@@ -207,12 +207,12 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 	}
 	public static byte getRoomShape(int chunkX, int y, int chunkZ) {
 		byte doorValue = getDoorValue(chunkX, y, chunkZ);
-		byte hasXDoor = (byte) (hasEastDoor(doorValue) ? 1 : 0), hasZDoor = (byte) (hasSouthDoor(doorValue) ? 1 : 0), hasXEntrance = (byte) (hasEastDoor(chunkX - 1, y, chunkZ) ? 1 : 0), hasZEntrance = (byte) (hasSouthDoor(chunkX, y, chunkZ - 1) ? 1 : 0);
+		byte hasXDoor = (byte) (doorValue % 2), hasZDoor = (byte) ((doorValue / 2) % 2), hasXEntrance = (byte) (getDoorValue(chunkX - 1, y, chunkZ) % 2), hasZEntrance = (byte) ((getDoorValue(chunkX, y, chunkZ - 1) / 2) % 2);
 		return (byte) (hasXDoor + (hasZDoor * 2) + (hasXEntrance * 4) + (hasZEntrance * 8));
 	}
 	public static byte getDoorAmount(int chunkX, int y, int chunkZ) {
 		byte doorValue = getDoorValue(chunkX, y, chunkZ);
-		byte hasXDoor = (byte) (hasEastDoor(doorValue) ? 1 : 0), hasZDoor = (byte) (hasSouthDoor(doorValue) ? 1 : 0), hasXEntrance = (byte) (hasEastDoor(chunkX - 1, y, chunkZ) ? 1 : 0), hasZEntrance = (byte) (hasSouthDoor(chunkX, y, chunkZ - 1) ? 1 : 0);
+		byte hasXDoor = (byte) (doorValue % 2), hasZDoor = (byte) ((doorValue / 2) % 2), hasXEntrance = (byte) (getDoorValue(chunkX - 1, y, chunkZ) % 2), hasZEntrance = (byte) ((getDoorValue(chunkX, y, chunkZ - 1) / 2) % 2);
 		return (byte) (hasXDoor + hasZDoor + hasXEntrance + hasZEntrance);
 	}
 	public static boolean getsWestEntrance(byte roomShape) {return (roomShape / 4) % 2 == 1;}
@@ -226,14 +226,11 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		return (getDoorValue(chunkX, y, chunkZ) / 2) % 2 == 1;
 	}
 	public static byte getDoorValue(int chunkX, int y, int chunkZ) {
-		byte value = (byte) (Math.abs(dungeonNoise.getValue(chunkX, y, chunkZ)) * 15);
-		for(int steps = 0; steps < 3; steps++) {
-			if(value == 0) value = (byte) (Math.abs(dungeonNoise.getValue(chunkX - 43, y + 43, chunkZ - 43)) * 15);
-			else break;
-		}
+		byte value = 0;
+		for(byte steps = 0; value == 0 && steps < 16; steps++) value = (byte) (Math.abs(dungeonNoise.getValue(chunkX - (111 * steps), y + (112 * steps), chunkZ - (113 * steps))) * 15.7);
 		return value;
 	}
-	public static void placeRoom(StructureTemplate room, WorldGenLevel level, RandomSource random, BlockPos pos, Rotation rotation, int getsWalls) {
+	public static void placeRoom(StructureTemplate room, WorldGenLevel level, RandomSource random, BlockPos pos, Rotation rotation, byte getsWalls) {
 		boolean b = rotation == Rotation.CLOCKWISE_180;
 		pos = pos.offset(b || rotation == Rotation.CLOCKWISE_90 ? 15 - getsWalls : getsWalls, 0, b || rotation == Rotation.COUNTERCLOCKWISE_90 ? 15 - getsWalls : getsWalls);
 		room.placeInWorld(level, pos, pos, defaultSettings.setRotation(rotation), random, 2);
@@ -269,7 +266,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		public void gen(WorldGenLevel level, RandomSource random, BlockPos pos, Rotation rotation, byte roomShape) {
 			boolean b = wallBlock != null;
 			if(b) genWalls(level, random, pos, wallBlock, roomShape, null);
-			placeRoom(room, level, random, pos, rotation, b ? 1 : 0);
+			placeRoom(room, level, random, pos, rotation, b ? (byte)1 : 0);
 		}
 	}
 	class VerticalRoom {
@@ -286,7 +283,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 				genWalls(level, random, pos, wallBlock, roomShape, null);
 				genWalls(level, random, pos.offset(0, 8, 0), wallBlock, upperRoomShape, door);
 			}
-			placeRoom(room, level, random, pos, rotation, b ? 1 : 0);
+			placeRoom(room, level, random, pos, rotation, b ? (byte)1 : 0);
 		}
 	}
 	class BigRoom {
@@ -296,11 +293,11 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		}
 		public void gen(WorldGenLevel level, RandomSource random, BlockPos pos, int xPart, int zPart) {
 			if(xPart == 0) {
-				if(zPart == 0) placeRoom(room, level, random, pos, Rotation.NONE, 0);
-				else placeRoom(room, level, random, pos, Rotation.COUNTERCLOCKWISE_90, 0);
+				if(zPart == 0) placeRoom(room, level, random, pos, Rotation.NONE, (byte)0);
+				else placeRoom(room, level, random, pos, Rotation.COUNTERCLOCKWISE_90, (byte)0);
 			} else {
-				if(zPart == 0) placeRoom(room, level, random, pos, Rotation.CLOCKWISE_90, 0);
-				else placeRoom(room, level, random, pos, Rotation.CLOCKWISE_180, 0);
+				if(zPart == 0) placeRoom(room, level, random, pos, Rotation.CLOCKWISE_90, (byte)0);
+				else placeRoom(room, level, random, pos, Rotation.CLOCKWISE_180, (byte)0);
 			}
 		}
 	}

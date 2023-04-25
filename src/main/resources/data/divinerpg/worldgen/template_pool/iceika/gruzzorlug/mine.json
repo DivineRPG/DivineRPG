@@ -1,0 +1,69 @@
+{
+  "name": "gruzzorlug_mine",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/hallway",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/down",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/left_turn",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/right_turn",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/junction",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/crossing",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine/up",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

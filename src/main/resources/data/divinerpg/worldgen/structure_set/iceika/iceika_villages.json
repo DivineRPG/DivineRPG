@@ -1,0 +1,19 @@
+{
+  "structures": [
+    {
+      "structure": "divinerpg:iceika_village",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 28487452,
+    "locate_offset": [
+      0,
+      0,
+      0
+    ],
+    "separation": 8,
+    "spacing": 34
+  }
+}

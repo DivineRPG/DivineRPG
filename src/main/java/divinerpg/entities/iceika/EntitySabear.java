@@ -32,7 +32,7 @@ public class EntitySabear extends EntityDivineMonster {
             boolean playerNearby = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(8.0D)).size() > 0;
             if (playerNearby) {
                 Player nearestPlayer = this.level.getNearestPlayer(this, 8.0D);
-                if (nearestPlayer != null) {
+                if (nearestPlayer != null && !nearestPlayer.isCreative() && !nearestPlayer.isSpectator()) {
                     Vec3 playerPos = new Vec3(nearestPlayer.getX(), nearestPlayer.getY(), nearestPlayer.getZ());
                     Vec3 sabearPos = new Vec3(this.getX(), this.getY(), this.getZ());
                     AABB box = new AABB(playerPos, sabearPos).inflate(1.0D);

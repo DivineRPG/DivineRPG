@@ -1,0 +1,43 @@
+{
+	"pools":[
+		{
+			"rolls": 1,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:snowflake",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": {
+				"min": 4,
+				"max": 6
+			},
+			"bonus_rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 12,
+					"name": "divinerpg:ice_shards",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 1,
+								"max": 8
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

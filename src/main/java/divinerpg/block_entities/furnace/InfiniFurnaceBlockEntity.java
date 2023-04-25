@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -23,6 +24,7 @@ import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -148,7 +150,11 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 			block.isLit = true;
 			changes = true;
 		} else if (block.cookingProgress > 0) block.cookingProgress = Mth.clamp(block.cookingProgress - 2, 0, block.cookingTotalTime);
-		if (changes) {
+		if(block instanceof CoalstoneFurnaceBlockEntity && !block.isLit && level.getBlockState(pos.relative(state.getValue(AbstractFurnaceBlock.FACING).getOpposite())).is(Blocks.MAGMA_BLOCK)) {
+			block.isLit = true;
+			changes = true;
+		}
+		if(changes) {
 	         state = state.setValue(AbstractFurnaceBlock.LIT, block.isLit);
 	         level.setBlock(pos, state, 3);
 	         setChanged(level, pos, state);

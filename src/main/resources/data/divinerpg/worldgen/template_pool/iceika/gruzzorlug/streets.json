@@ -1,0 +1,87 @@
+{
+  "name": "gruzzorlug_village",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 7,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/road",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/left_turn",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/right_turn",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/junction",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/crossroads",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/junction_left",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/junction_right",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/mine_entrance",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/gate",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}
