@@ -73,7 +73,7 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
 
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        tickCounter = tag.getInt("itemNum");
+        tickCounter = tag.getInt("tickCounter");
     }
 
     @Override

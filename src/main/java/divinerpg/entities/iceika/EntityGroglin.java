@@ -72,7 +72,7 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
 
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        tickCounter = tag.getInt("itemNum");
+        tickCounter = tag.getInt("tickCounter");
     }
 
 
