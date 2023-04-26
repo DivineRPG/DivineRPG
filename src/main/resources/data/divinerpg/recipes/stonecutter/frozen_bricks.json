@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "divinerpg:asphalt"
+    "item": "divinerpg:frozen_stone"
   },
-  "result": "divinerpg:asphalt_stairs",
+  "result": "divinerpg:frozen_bricks",
   "count": 1
 }

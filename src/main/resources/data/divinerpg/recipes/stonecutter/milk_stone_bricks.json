@@ -1,6 +1,5 @@
 {
   "type": "minecraft:stonecutting",
-  "group": "divinerpg:milk_stone",
   "ingredient": {
     "item": "divinerpg:milk_stone"
   },
