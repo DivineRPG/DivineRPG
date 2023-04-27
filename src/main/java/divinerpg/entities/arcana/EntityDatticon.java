@@ -35,8 +35,8 @@ public class EntityDatticon extends EntityDivineMerchant {
 		DivineTrades[] tradetrades = new DivineTrades[]{
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(BlockRegistry.starBridge.get(), 16), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteTubes.get(), 16), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteLadder.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 2), new ItemStack(BlockRegistry.moltenFurnace.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteLadder.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 2), new ItemStack(BlockRegistry.moltenFurnace.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 3), new ItemStack(BlockRegistry.greenlightFurnace.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 4), new ItemStack(BlockRegistry.oceanfireFurnace.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 5), new ItemStack(BlockRegistry.moonlightFurnace.get(), 1), random.nextInt(7), 5),
