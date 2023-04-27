@@ -753,7 +753,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(WRECK_EXPLOSIVE_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "wreck_explosive_shot"));
         event.registerEntityRenderer(WRECK_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "wreck_shot"));
         event.registerEntityRenderer(ZORAGON_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "zoragon_bomb"));
-        event.registerEntityRenderer(TOMATO.get(), 			        (Context context) -> new RenderDivineProjectile<>(context, new ResourceLocation(MODID, "textures/items/tomato.png")));
+        event.registerEntityRenderer(TOMATO.get(), 			        (Context context) -> new RenderDivineProjectile<>(context, new ResourceLocation(MODID, "textures/item/tomato.png")));
         event.registerEntityRenderer(WILDWOOD_LOG.get(), 			(Context context) -> new RenderWildwoodLog(context));
         event.registerEntityRenderer(FROST_CLOUD.get(), 			(Context context) -> new RenderFrostCloud(context));
 
