@@ -2071,7 +2071,7 @@
   "tooltip.armor_info.speed": "迅捷 %s",
   "tooltip.armor_info.melee_damage": "+%s近战伤害",
   "tooltip.armor_info.ranged_damage": "+%s%%近战伤害",
-  "tooltip.armor_info.hunger": "充满饥饿值",
+  "tooltip.armor_info.hunger": "饱和",
   "tooltip.armor_info.damage_reduction": "%s%%伤害减免",
   "tooltip.armor_info.jump_height": "%sx跳跃高度",
   "tooltip.armor_info.ore_drops": "+%s暮光矿石掉落",
