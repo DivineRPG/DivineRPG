@@ -8,7 +8,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -53,9 +52,6 @@ public class RiveHandler {
 
     private void tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         if(blockState.getBlock() == Blocks.AIR) {
-            return;
-        }
-        if(!ForgeHooks.canEntityDestroy(world, pos, player)){
             return;
         }
 

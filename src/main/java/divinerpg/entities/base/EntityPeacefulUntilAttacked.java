@@ -4,20 +4,17 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
 public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     protected static final EntityDataAccessor<Integer> ANGER = SynchedEntityData.defineId(EntityPeacefulUntilAttacked.class, EntityDataSerializers.INT);
-    protected static final EntityDataAccessor<String> TARGET = SynchedEntityData.defineId(EntityPeacefulUntilAttacked.class, EntityDataSerializers.STRING);
     private int angerLevel;
     private UUID angerTargetUUID;
     public EntityPeacefulUntilAttacked(EntityType<? extends Monster> type, Level worldIn) {
@@ -28,6 +25,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
         super.defineSynchedData();
         entityData.define(ANGER, 0);
     }
+
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Anger", (short)angerLevel);
@@ -57,25 +55,30 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     }
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        boolean b = super.hurt(source, amount);
-        if(b && source.getDirectEntity() instanceof LivingEntity) {
-            LivingEntity target = (LivingEntity) source.getDirectEntity();
-            setTarget(target);
-            goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
-            targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, getTarget().getClass(), true));
-            angerLevel = 400 + random.nextInt(400);
-            double d = getAttributeValue(Attributes.FOLLOW_RANGE);
-            if(d < 10D) d = 10D;
-            level.getEntitiesOfClass(EntityPeacefulUntilAttacked.class, new AABB(position().add(-d, -10D, -d), position().add(d, 10D, d)), EntitySelector.NO_SPECTATORS).stream().filter((entity) -> {
-                return entity.getTarget() == null;
-            }).forEach((entity) -> {
-                entity.setTarget(target);
-                entity.goalSelector.addGoal(0, new MeleeAttackGoal(entity, 1, true));
-                entity.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(entity, entity.getTarget().getClass(), true));
-                entity.angerLevel = 400 + entity.random.nextInt(400);
-            });
-        } return b;
+        angerLevel = 400 + random.nextInt(400);
+        return super.hurt(source, amount);
     }
+
+    @Override
+    public void tick() {
+        super.tick();
+        angerLevel--;
+        if(lastHurtByPlayer != null){
+            if(isAggressive()) {
+                setTarget(lastHurtByPlayer);
+                setAggressive(true);
+                goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+                targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+            }
+        }
+        if(!isAggressive()) {
+            setTarget(null);
+            setAggressive(false);
+            goalSelector.removeGoal(new MeleeAttackGoal(this, 1, true));
+            targetSelector.removeGoal(new NearestAttackableTargetGoal<>(this, Player.class, true));
+        }
+    }
+
     @Override
     public boolean isAggressive() {
         return angerLevel > 0;
@@ -84,10 +87,5 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     public boolean doHurtTarget(Entity entity) {
         if(angerLevel > 0) return super.doHurtTarget(entity);
         return false;
-    }
-    @Override
-    public void tick() {
-        super.tick();
-        if(isAggressive()) angerLevel--;
     }
 }

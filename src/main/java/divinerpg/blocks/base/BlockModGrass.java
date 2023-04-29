@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public class BlockModGrass extends BlockMod implements BonemealableBlock {
     protected final Supplier<Block> dirtSupplier;
     public BlockModGrass(Supplier<Block> dirt, float hardness, MaterialColor colour) {
-        super(Block.Properties.of(Material.DIRT, colour).randomTicks().requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.GRASS));
+        super(Block.Properties.of(Material.GRASS, colour).randomTicks().strength(hardness, 3.0F).sound(SoundType.GRASS));
         dirtSupplier = dirt;
     }
     @Override
