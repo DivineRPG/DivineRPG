@@ -25,6 +25,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
         super.defineSynchedData();
         entityData.define(ANGER, 0);
     }
+
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Anger", (short)angerLevel);
@@ -63,14 +64,18 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
         super.tick();
         angerLevel--;
         if(lastHurtByPlayer != null){
-            if(angerLevel > 0) {
+            if(isAggressive()) {
                 setTarget(lastHurtByPlayer);
                 setAggressive(true);
+                goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
+                targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
             }
         }
-        if(angerLevel < 1) {
+        if(!isAggressive()) {
             setTarget(null);
             setAggressive(false);
+            goalSelector.removeGoal(new MeleeAttackGoal(this, 1, true));
+            targetSelector.removeGoal(new NearestAttackableTargetGoal<>(this, Player.class, true));
         }
     }
 
