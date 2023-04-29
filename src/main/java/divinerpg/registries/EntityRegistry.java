@@ -19,7 +19,6 @@ import divinerpg.client.renders.entity.vethea.RenderGalroid;
 import divinerpg.client.renders.tiles.RenderNightmareBed;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
-import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.boss.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
@@ -31,7 +30,7 @@ import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
-import divinerpg.util.*;
+import divinerpg.enums.EntityStats;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
@@ -39,7 +38,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.EntityType.EntityFactory;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.*;
@@ -52,7 +50,6 @@ import net.minecraftforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.util.ClientUtils.*;
-import static divinerpg.util.EntityStats.*;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
@@ -314,200 +311,200 @@ public class EntityRegistry {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
 
         //Boss
-        registerMonsterAttributes(event, ANCIENT_ENTITY, ancientEntityHealth, ancientEntityDamage);
-        registerMonsterAttributes(event, AYERACO, ayeracoHealth);
-        registerMonsterAttributes(event, DENSOS, densosHealth, densosDamage);
-        registerMonsterAttributes(event, DRAMIX, dramixHealth, dramixDamage);
-        registerMonsterAttributes(event, ETERNAL_ARCHER, eternalArcherHealth, eternalArcherDamage);
-        registerFlyingMobAttributes(event, EXPERIENCED_CORI, experiencedCoriHealth, experiencedCoriDamage);
-        registerDamageMobAttributes(event, ETHEREALCETUS, etherealcetusHealth, etherealcetusDamage, etherealcetusSpeed);
-        registerMonsterAttributes(event, HIVE_QUEEN, hiveQueenHealth, hiveQueenDamage);
-        registerMonsterAttributes(event, KAROS, karosHealth, karosDamage);
-        registerMonsterAttributes(event, KAROT, karotHealth, karotDamage);
-        registerMonsterAttributes(event, KING_OF_SCORCHERS, kingOfScorchersHealth, kingOfScorchersDamage);
-        registerMonsterAttributes(event, LADY_LUNA, ladyLunaHealth, ladyLunaDamage);
-        registerMonsterAttributes(event, PARASECTA, parasectaHealth, parasectaDamage);
-        registerMonsterAttributes(event, QUADRO, quadroHealth, quadroDamage, quadroSpeedSlow);
-        registerMonsterAttributes(event, RAGLOK, raglokHealth, raglokDamage);
-        registerMonsterAttributes(event, REYVOR, reyvorHealth, reyvorDamage);
-        registerMonsterAttributes(event, SOUL_FIEND, soulFiendHealth, soulFiendDamage);
-        registerMonsterAttributes(event, SUNSTORM, sunstormHealth, sunstormDamage);
-        registerFlyingMobAttributes(event, TERMASECT, 1050D, advancedCoriDamage, normalSpeed, 64D);
-        registerFlyingMobAttributes(event, THE_WATCHER, theWatcherHealth, theWatcherDamage);
-        registerMonsterAttributes(event, TWILIGHT_DEMON, twilightDemonHealth, twilightDemonDamage);
-        registerMonsterAttributes(event, VAMACHERON, vamacheronHealth, vamacheronDamage, vamacheronSpeed);
-        registerMonsterAttributes(event, WRECK, wreckHealth, wreckDamage);
+        registerMobAttributes(event, ANCIENT_ENTITY, EntityStats.ANCIENT_ENTITY);
+        registerMobAttributes(event, AYERACO, EntityStats.AYERACO);
+        registerMobAttributes(event, DENSOS, EntityStats.DENSOS);
+        registerMobAttributes(event, DRAMIX, EntityStats.DRAMIX);
+        registerMobAttributes(event, ETERNAL_ARCHER, EntityStats.ETERNAL_ARCHER);
+        registerMobAttributes(event, EXPERIENCED_CORI, EntityStats.EXPERIENCED_CORI);
+        registerMobAttributes(event, ETHEREALCETUS, EntityStats.ETHEREALCETUS);
+        registerMobAttributes(event, HIVE_QUEEN, EntityStats.HIVE_QUEEN);
+        registerMobAttributes(event, KAROS, EntityStats.KAROS);
+        registerMobAttributes(event, KAROT, EntityStats.KAROT);
+        registerMobAttributes(event, KING_OF_SCORCHERS, EntityStats.KING_OF_SCORCHERS);
+        registerMobAttributes(event, LADY_LUNA, EntityStats.LADY_LUNA);
+        registerMobAttributes(event, PARASECTA, EntityStats.PARASECTA);
+        registerMobAttributes(event, QUADRO, EntityStats.QUADRO);
+        registerMobAttributes(event, RAGLOK, EntityStats.RAGLOK);
+        registerMobAttributes(event, REYVOR, EntityStats.REYVOR);
+        registerMobAttributes(event, SOUL_FIEND, EntityStats.SOUL_FIEND);
+        registerMobAttributes(event, SUNSTORM, EntityStats.SUNSTORM);
+        registerMobAttributes(event, TERMASECT, EntityStats.TERMASECT);
+        registerMobAttributes(event, THE_WATCHER, EntityStats.THE_WATCHER);
+        registerMobAttributes(event, TWILIGHT_DEMON, EntityStats.TWILIGHT_DEMON);
+        registerMobAttributes(event, VAMACHERON, EntityStats.VAMACHERON);
+        registerMobAttributes(event, WRECK, EntityStats.WRECK);
 
         // Vanilla
-        registerDamageMobAttributes(event, AEQUOREA, aequoreaHealth, aequoreaDamage, aequoreaSpeed, aequoreaFollowRange);
-        registerMonsterAttributes(event, ARID_WARRIOR, aridWarriorHealth, aridWarriorDamage);
-        registerDamageMobAttributes(event, BROWN_GRIZZLE, grizzleHealth, grizzleDamage, grizzleSpeed);
-        registerMonsterAttributes(event, CAVE_CRAWLER, caveCrawlerHealth, caveCrawlerDamage, .198000000417232513);
-        registerMonsterAttributes(event, CAVECLOPS, caveclopsHealth, caveclopsDamage);
-        registerMonsterAttributes(event, CRAB, crabHealth, crabDamage);
-        registerMonsterAttributes(event, CYCLOPS, cyclopsHealth);
-        registerMonsterAttributes(event, DESERT_CRAWLER, desertCrawlerHealth, desertCrawlerDamage);
-        registerMobAttributes(event, DIAMOND_DAVE);
-        registerDamageMobAttributes(event, EHU, ehuHealth);
-        registerMonsterAttributes(event, ENTHRALLED_DRAMCRYX, enthralledDramcryxHealth, enthralledDramcryxDamage);
-        registerMonsterAttributes(event, FROST, frostHealth, frostDamage);
-        registerMonsterAttributes(event, GLACON, glaconHealth, glaconDamage, glaconSpeed);
-        registerDamageMobAttributes(event, HUSK, huskHealth, huskDamage);
-        registerMobAttributes(event, JACK_O_MAN);
-        event.put(JUNGLE_BAT.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, jungleBatHealth).add(Attributes.ATTACK_DAMAGE, jungleBatDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, hellBatFollowRange).build());
-        registerMonsterAttributes(event, JUNGLE_DRAMCRYX, jungleDramcryxHealth, jungleDramcryxDamage);
-        registerMonsterAttributes(event, JUNGLE_SPIDER, jungleSpiderHealth, jungleSpiderDamage);
-        registerMonsterAttributes(event, KING_CRAB, kingCrabHealth, kingCrabDamage);
-        registerMonsterAttributes(event, KOBBLIN, kobblinHealth, kobblinDamage);
-        registerDamageMobAttributes(event, LIOPLEURODON, liopleurodonHealth, liopleurodonDamage);
-        registerMobAttributes(event, LIVESTOCK_MERCHANT);
-        event.put(MINER.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, minerHealth).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.ARMOR, minerArmor).build());
-        registerMonsterAttributes(event, PUMPKIN_SPIDER, pumpkinSpiderHealth, pumpkinSpiderDamage);
-        registerFlyingMobAttributes(event, RAINBOUR, rainbourHealth, rainbourDamage);
-        registerMonsterAttributes(event, ROTATICK, rotatickHealth, rotatickDamage);
-        registerMonsterAttributes(event, SAGUARO_WORM, saguaroWormHealth, saguaroWormDamage, saguaroWormSpeed);
-        registerDamageMobAttributes(event, SHARK, sharkHealth, sharkDamage, normalSpeed * 2);
-        registerDamageMobAttributes(event, SMELTER, smelterHealth, smelterDamage);
-        registerDamageMobAttributes(event, SNAPPER, snapperHealth, snapperDamage, snapperSpeed);
-        registerDamageMobAttributes(event, STONE_GOLEM, stoneGolemHealth);
-        registerMonsterAttributes(event, THE_EYE, theEyeHealth, theEyeDamage);
-        registerMonsterAttributes(event, THE_GRUE, theGrueHealth, theGrueDamage, theGrueSpeed);
-        registerDamageMobAttributes(event, WHALE, whaleHealth, whaleDamage);
-        registerDamageMobAttributes(event, WHITE_GRIZZLE, grizzleHealth, grizzleDamage, grizzleSpeed);
+        registerMobAttributes(event, AEQUOREA, EntityStats.AEQUOREA);
+        registerMobAttributes(event, ARID_WARRIOR, EntityStats.ARID_WARRIOR);
+        registerMobAttributes(event, BROWN_GRIZZLE, EntityStats.GRIZZLE);
+        registerMobAttributes(event, CAVE_CRAWLER, EntityStats.CAVE_CRAWLER);
+        registerMobAttributes(event, CAVECLOPS, EntityStats.CAVECLOPS);
+        registerMobAttributes(event, CRAB, EntityStats.CRAB);
+        registerMobAttributes(event, CYCLOPS, EntityStats.CYCLOPS);
+        registerMobAttributes(event, DESERT_CRAWLER, EntityStats.DESERT_CRAWLER);
+        registerDefaultMobAttributes(event, DIAMOND_DAVE);
+        registerMobAttributes(event, EHU, EntityStats.EHU);
+        registerMobAttributes(event, ENTHRALLED_DRAMCRYX, EntityStats.ENTHRALLED_DRAMCRYX);
+        registerMobAttributes(event, FROST, EntityStats.FROST);
+        registerMobAttributes(event, GLACON, EntityStats.GLACON);
+        registerMobAttributes(event, HUSK, EntityStats.HUSK);
+        registerDefaultMobAttributes(event, JACK_O_MAN);
+        registerMobAttributes(event, JUNGLE_BAT, EntityStats.JUNGLE_BAT);
+        registerMobAttributes(event, JUNGLE_DRAMCRYX, EntityStats.JUNGLE_DRAMCRYX);
+        registerMobAttributes(event, JUNGLE_SPIDER, EntityStats.JUNGLE_SPIDER);
+        registerMobAttributes(event, KING_CRAB, EntityStats.KING_CRAB);
+        registerMobAttributes(event, KOBBLIN, EntityStats.KOBBLIN);
+        registerMobAttributes(event, LIOPLEURODON, EntityStats.LIOPLEURODON);
+        registerDefaultMobAttributes(event, LIVESTOCK_MERCHANT);
+        registerMobAttributesArmour(event, MINER, EntityStats.MINER, 10);
+        registerMobAttributes(event, PUMPKIN_SPIDER, EntityStats.PUMPKIN_SPIDER);
+        registerMobAttributes(event, RAINBOUR, EntityStats.RAINBOUR);
+        registerMobAttributes(event, ROTATICK, EntityStats.ROTATICK);
+        registerMobAttributes(event, SAGUARO_WORM, EntityStats.SAGUARO_WORM);
+        registerMobAttributes(event, SHARK, EntityStats.SHARK);
+        registerMobAttributes(event, SMELTER, EntityStats.SMELTER);
+        registerMobAttributes(event, SNAPPER, EntityStats.SNAPPER);
+        registerMobAttributes(event, STONE_GOLEM, EntityStats.STONE_GOLEM);
+        registerMobAttributes(event, THE_EYE, EntityStats.THE_EYE);
+        registerMobAttributes(event, THE_GRUE, EntityStats.THE_GRUE);
+        registerMobAttributes(event, WHALE, EntityStats.WHALE);
+        registerMobAttributes(event, WHITE_GRIZZLE, EntityStats.GRIZZLE);
 
         //Nether
-        event.put(HELL_BAT.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, hellBatHealth).add(Attributes.ATTACK_DAMAGE, hellBatDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, hellBatFollowRange).build());
-        registerDamageMobAttributes(event, HELL_PIG, hellPigHealth);
-        registerMonsterAttributes(event, HELL_SPIDER, hellSpiderHealth, hellSpiderDamage);
-        registerMonsterAttributes(event, SCORCHER, scorcherHealth);
-        registerMonsterAttributes(event, WILDFIRE, wildFireHealth, wildFireDamage);
+        registerMobAttributes(event, HELL_BAT, EntityStats.HELL_BAT);
+        registerMobAttributes(event, HELL_PIG, EntityStats.HELL_PIG);
+        registerMobAttributes(event, HELL_SPIDER, EntityStats.HELL_SPIDER);
+        registerMobAttributes(event, SCORCHER, EntityStats.SCORCHER);
+        registerMobAttributes(event, WILDFIRE, EntityStats.WILDFIRE);
 
         //End
-        registerMonsterAttributes(event, ENDER_SPIDER, enderSpiderHealth, enderSpiderDamage);
-        registerMonsterAttributes(event, ENDER_SCROUNGE, 10, 1, normalSpeed, 32);
-        registerFlyingMobAttributes(event, ENDER_TRIPLETS, enderTripletsHealth);
-        registerMonsterAttributes(event, ENDER_WATCHER, enderWatcherHealth, enderWatcherDamage);
+        registerMobAttributes(event, ENDER_SPIDER, EntityStats.END_SPIDER);
+        registerMobAttributes(event, ENDER_SCROUNGE, EntityStats.ENDER_SCROUNGE);
+        registerMobAttributes(event, ENDER_TRIPLETS, EntityStats.ENDER_TRIPLETS);
+        registerMobAttributes(event, ENDER_WATCHER, EntityStats.ENDER_WATCHER);
 
         //Iceika
-        registerFlyingMobAttributes(event, ALICANTO, alicantoHealth, alicantoDamage);
-        registerFlyingMobAttributes(event, FRACTITE, fractiteHealth);
-        registerMonsterAttributes(event, FROST_ARCHER, frostArcherHealth, frostArcherDamage);
-        registerMonsterAttributes(event, FROSTY, frostyHealth, frostyDamage, frostySpeed);
-        registerMonsterAttributes(event, GLACIDE, glacideHealth, glacideDamage, glacideSpeed);
-        registerMonsterAttributes(event, GROGLIN, groglinHealth, groglinDamage, groglinSpeed);
-        registerMonsterAttributes(event, GRUZZORLUG, gruzzorlugHealth, gruzzorlugDamage, gruzzorlugSpeed);
-        registerMonsterAttributes(event, HASTREUS, hastreusHealth, hastreusDamage);
-        registerMonsterAttributes(event, ROLLUM, rollumHealth, normalDamage, rollumSpeed);
-        registerMobAttributes(event, WORKSHOP_MERCHANT);
-        registerMobAttributes(event, WORKSHOP_TINKERER);
-        registerMonsterAttributes(event, SENG, sengHealth, normalDamage, sengSpeed, sengRange);
-        registerMonsterAttributes(event, SABEAR, sabearHealth, sabearDamage, sabearSpeed, normalFollowRange);
-        registerMonsterAttributes(event, WOLPERTINGER, wolpertingerHealth, wolpertingerDamage, wolpertingerSpeed, normalFollowRange);
-        registerFlyingMobAttributes(event, ROBIN, robinHealth, robinDamage, robinSpeed, normalFollowRange);
+        registerMobAttributes(event, ALICANTO, EntityStats.ALICANTO);
+        registerMobAttributes(event, FRACTITE, EntityStats.FRACTITE);
+        registerMobAttributes(event, FROST_ARCHER, EntityStats.FROST_ARCHER);
+        registerMobAttributes(event, FROSTY, EntityStats.FROSTY);
+        registerMobAttributes(event, GLACIDE, EntityStats.GLACIDE);
+        registerMobAttributes(event, GROGLIN, EntityStats.GROGLIN);
+        registerMobAttributes(event, GRUZZORLUG, EntityStats.GRUZZORLUG);
+        registerMobAttributes(event, HASTREUS, EntityStats.HASTREUS);
+        registerMobAttributes(event, ROLLUM, EntityStats.ROLLUM);
+        registerDefaultMobAttributes(event, WORKSHOP_MERCHANT);
+        registerDefaultMobAttributes(event, WORKSHOP_TINKERER);
+        registerMobAttributes(event, SENG, EntityStats.SENG);
+        registerMobAttributes(event, SABEAR, EntityStats.SABEAR);
+        registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
+        registerMobAttributes(event, ROBIN, EntityStats.ROBIN);
 
         //Eden
-        registerDamageMobAttributes(event, GLINTHOP, glinthopHealth, glinthopDamage);
-        registerMonsterAttributes(event, EDEN_CADILLION, edenCadillionHealth, edenCadillionDamage);
-        registerMonsterAttributes(event, EDEN_TOMO, edenTomoHealth, edenTomoDamage);
-        registerMonsterAttributes(event, GREENFEET, greenfeetHealth, greenfeetDamage);
-        registerMonsterAttributes(event, MADIVEL, madivelHealth, madivelDamage);
-        registerMonsterAttributes(event, SUN_ARCHER, sunArcherHealth, sunArcherDamage);
-        registerFlyingMobAttributes(event, WEAK_CORI, weakCoriHealth, weakCoriDamage);
+        registerMobAttributes(event, GLINTHOP, EntityStats.GLINTHOP);
+        registerMobAttributes(event, EDEN_CADILLION, EntityStats.EDEN_CADILLION);
+        registerMobAttributes(event, EDEN_TOMO, EntityStats.EDEN_TOMO);
+        registerMobAttributes(event, GREENFEET, EntityStats.GREENFEET);
+        registerMobAttributes(event, MADIVEL, EntityStats.MADIVEL);
+        registerMobAttributes(event, SUN_ARCHER, EntityStats.SUN_ARCHER);
+        registerMobAttributes(event, WEAK_CORI, EntityStats.WEAK_CORI);
 
         //Wildwood
-        registerMonsterAttributes(event, BEHEMOTH, behemothHealth, behemothDamage);
-        registerMonsterAttributes(event, EPIPHITE, epiphiteHealth, epiphiteDamage);
-        registerMonsterAttributes(event, MAGE, mageHealth, mageDamage);
-        registerDamageMobAttributes(event, MOON_WOLF, moonWolfHealth, moonWolfDamage);
-        registerMonsterAttributes(event, TERMID, termidHealth, termidDamage);
-        registerMonsterAttributes(event, VEREK, verekHealth, verekDamage);
-        registerMonsterAttributes(event, WILDWOOD_CADILLION, wildwoodCadillionHealth, wildwoodCadillionDamage);
-        registerMonsterAttributes(event, WILDWOOD_GOLEM, wildwoodGolemHealth, wildwoodGolemDamage);
-        registerMonsterAttributes(event, WILDWOOD_TOMO, wildwoodTomoHealth, wildwoodTomoDamage);
+        registerMobAttributes(event, BEHEMOTH, EntityStats.BEHEMOTH);
+        registerMobAttributes(event, EPIPHITE, EntityStats.EPIPHITE);
+        registerMobAttributes(event, MAGE, EntityStats.MAGE);
+        registerMobAttributes(event, MOON_WOLF, EntityStats.MOON_WOLF);
+        registerMobAttributes(event, TERMID, EntityStats.TERMID);
+        registerMobAttributes(event, VEREK, EntityStats.VEREK);
+        registerMobAttributes(event, WILDWOOD_CADILLION, EntityStats.WILDWOOD_CADILLION);
+        registerMobAttributes(event, WILDWOOD_GOLEM, EntityStats.WILDWOOD_GOLEM);
+        registerMobAttributes(event, WILDWOOD_TOMO, EntityStats.WILDWOOD_TOMO);
 
         //Apalachia
-        registerMonsterAttributes(event, APALACHIA_CADILLION, apalachiaCadillionHealth, apalachiaCadillionDamage);
-        registerMonsterAttributes(event, APALACHIA_GOLEM, apalachiaGolemHealth, apalachiaGolemDamage);
-        registerMonsterAttributes(event, APALACHIA_TOMO, apalachiaTomoHealth, apalachiaTomoDamage);
-        registerMonsterAttributes(event, ENCHANTED_ARCHER, enchantedArcherHealth);
-        registerMonsterAttributes(event, ENCHANTED_WARRIOR, enchantedWarriorHealth, enchantedWarriorDamage);
-        registerMonsterAttributes(event, SPELLBINDER, spellbinderHealth, spellbinderDamage);
+        registerMobAttributes(event, APALACHIA_CADILLION, EntityStats.APALACHIA_CADILLION);
+        registerMobAttributes(event, APALACHIA_GOLEM, EntityStats.APALACHIA_GOLEM);
+        registerMobAttributes(event, APALACHIA_TOMO, EntityStats.APALACHIA_TOMO);
+        registerMobAttributes(event, ENCHANTED_ARCHER, EntityStats.ENCHANTED_ARCHER);
+        registerMobAttributes(event, ENCHANTED_WARRIOR, EntityStats.ENCHANTED_WARRIOR);
+        registerMobAttributes(event, SPELLBINDER, EntityStats.SPELLBINDER);
 
         //Skythern
-        registerFlyingMobAttributes(event, ADVANCED_CORI, advancedCoriHealth, advancedCoriDamage);
-        event.put(MEGALITH.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, megalithHealth).add(Attributes.ATTACK_DAMAGE, megalithDamage).add(Attributes.MOVEMENT_SPEED, megalithSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.KNOCKBACK_RESISTANCE, megalithKnockbackResistance).build());
-        registerMonsterAttributes(event, MYSTIC, mysticHealth, mysticDamage);
-        registerMonsterAttributes(event, SAMEK, samekHealth, samekDamage);
-        registerMonsterAttributes(event, SKYTHERN_ARCHER, skythernArcherHealth);
-        registerMonsterAttributes(event, SKYTHERN_FIEND, skythernFiendHealth, skythernFiendDamage);
-        registerMonsterAttributes(event, SKYTHERN_GOLEM, skythernGolemHealth, skythernGolemDamage);
+        registerMobAttributes(event, ADVANCED_CORI, EntityStats.ADVANCED_CORI);
+        registerMobAttributesKnockback(event, MEGALITH, EntityStats.MEGALITH, 1);
+        registerMobAttributes(event, MYSTIC, EntityStats.MYSTIC);
+        registerMobAttributes(event, SAMEK, EntityStats.SAMEK);
+        registerMobAttributes(event, SKYTHERN_ARCHER, EntityStats.SKYTHERN_ARCHER);
+        registerMobAttributes(event, SKYTHERN_FIEND, EntityStats.SKYTHERN_FIEND);
+        registerMobAttributes(event, SKYTHERN_GOLEM, EntityStats.SKYTHERN_GOLEM);
 
         //Mortum
-        registerMonsterAttributes(event, ANGRY_GLINTHOP, angryGlinthopHealth, angryGlinthopDamage);
-        registerMonsterAttributes(event, BASILISK, basliskHealth, basliskDamage);
-        registerMonsterAttributes(event, DEMON_OF_DARKNESS, demonOfDarknessHealth, demonOfDarknessDamage);
-        registerMonsterAttributes(event, MORTUM_CADILLION, mortumCadillionHealth, mortumCadillionDamage);
-        registerMonsterAttributes(event, SORCERER, sorcererHealth, sorcererDamage);
-        registerMonsterAttributes(event, SOUL_SPIDER, soulSpiderHealth, soulSpiderDamage);
-        registerMonsterAttributes(event, SOUL_STEALER, soulStealerHealth, soulStealerDamage);
-        registerMonsterAttributes(event, TWILIGHT_ARCHER, twilightArcherHealth);
+        registerMobAttributes(event, ANGRY_GLINTHOP, EntityStats.ANGRY_GLINTHOP);
+        registerMobAttributes(event, BASILISK, EntityStats.BASALISK);
+        registerMobAttributes(event, DEMON_OF_DARKNESS, EntityStats.DEMON_OF_DARKNESS);
+        registerMobAttributes(event, MORTUM_CADILLION, EntityStats.MORTUM_CADILLION);
+        registerMobAttributes(event, SORCERER, EntityStats.SORCERER);
+        registerMobAttributes(event, SOUL_SPIDER, EntityStats.SOUL_SPIDER);
+        registerMobAttributes(event, SOUL_STEALER, EntityStats.SOUL_STEALER);
+        registerMobAttributes(event, TWILIGHT_ARCHER, EntityStats.TWILIGHT_ARCHER);
 
         //Arcana
-        registerMobAttributes(event, CAPTAIN_MERIK);
-        registerMobAttributes(event, DATTICON);
-        registerMonsterAttributes(event, DEATHCRYX, deathcryxHealth, deathcryxDamage);
-        registerMonsterAttributes(event, DEATH_HOUND, deathHoundHealth, deathHoundDamage);
-        registerMonsterAttributes(event, DUNGEON_CONSTRUCTOR, constructorHealth, constructorDamage);
-        registerMonsterAttributes(event, DUNGEON_DEMON, dungeonPrisonerHealth, dungeonPrisonerDamage);
-        registerMonsterAttributes(event, DUNGEON_PRISONER, dungeonPrisonerHealth, dungeonPrisonerDamage);
-        registerDamageMobAttributes(event, FYRACRYX, fyracryxHealth, fyracryxDamage);
-        registerDamageMobAttributes(event, GOLEM_OF_REJUVENATION, golemRejuvHealth, golemRejuvDamage);
-        registerMobAttributes(event, KAZARI);
-        registerMobAttributes(event, LEORNA);
-        registerMonsterAttributes(event, LIVING_STATUE, livingStatueHealth, dungeonPrisonerDamage);
-        registerMobAttributes(event, LORD_VATTICUS);
-        registerMobAttributes(event, PARATIKU, paratikuHealth);
-        registerMonsterAttributes(event, RAZORBACK, razorbackHealth, razorbackDamage);
-        registerMonsterAttributes(event, ROAMER, roamerHealth, roamerDamage);
-        registerMobAttributes(event, SEIMER, seimerHealth);
-        registerMonsterAttributes(event, SKYRE, skyreHealth, skyreDamage, normalSpeed, skyreFollowRange);
-        registerMobAttributes(event, WAR_GENERAL);
-        event.put(WRAITH.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, seimerHealth).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
-        registerMobAttributes(event, ZELUS);
+        registerDefaultMobAttributes(event, CAPTAIN_MERIK);
+        registerDefaultMobAttributes(event, DATTICON);
+        registerMobAttributes(event, DEATHCRYX, EntityStats.DEATHCRYX);
+        registerMobAttributes(event, DEATH_HOUND, EntityStats.DEATH_HOUND);
+        registerMobAttributes(event, DUNGEON_CONSTRUCTOR, EntityStats.DUNGEON_CONSTRUCTOR);
+        registerMobAttributes(event, DUNGEON_DEMON, EntityStats.DUNGEON_PRISONER);
+        registerMobAttributes(event, DUNGEON_PRISONER, EntityStats.DUNGEON_PRISONER);
+        registerMobAttributes(event, FYRACRYX, EntityStats.FYRACRYX);
+        registerMobAttributes(event, GOLEM_OF_REJUVENATION, EntityStats.GOLEM_OF_REJUVENATION);
+        registerDefaultMobAttributes(event, KAZARI);
+        registerDefaultMobAttributes(event, LEORNA);
+        registerMobAttributes(event, LIVING_STATUE, EntityStats.LIVING_STATUE);
+        registerDefaultMobAttributes(event, LORD_VATTICUS);
+        registerMobAttributes(event, PARATIKU, EntityStats.PARATIKU);
+        registerMobAttributes(event, RAZORBACK, EntityStats.RAZORBACK);
+        registerMobAttributes(event, ROAMER, EntityStats.ROAMER);
+        registerMobAttributes(event, SEIMER, EntityStats.SEIMER);
+        registerMobAttributes(event, SKYRE, EntityStats.SKYRE);
+        registerDefaultMobAttributes(event, WAR_GENERAL);
+        registerMobAttributes(event, WRAITH, EntityStats.WRAITH);
+        registerDefaultMobAttributes(event, ZELUS);
 
         //Vethea
-        registerMonsterAttributes(event, ACID_HAG, acidHagHealth);
-        registerMonsterAttributes(event, BIPHRON, biphronHealth, biphronDamage);
-        registerMonsterAttributes(event, BOHEMITE, bohemiteHealth, bohemiteDamage, bohemiteSpeed);
-        registerMobAttributes(event, CRYPT_KEEPER, cryptKeeperHealth, cryptKeeperMovementSpeed, cryptKeeperFollowRange);
-        registerMonsterAttributes(event, CYMESOID, cymesoidHealth, cymesoidDamage);
-        registerFlyingMobAttributes(event, DISSIMENT, dissimentHealth);
-        registerMonsterAttributes(event, DREAMWRECKER, dreamwreckerHealth, dreamwreckerDamage);
-        registerMonsterAttributes(event, DUO, duoHealth, duoDamage, duoSpeed);
-        registerMonsterAttributes(event, ENT, entHealth, entDamage);
-        registerMonsterAttributes(event, FAKE_VHRAAK, vhraakHealth, vhraakDamage);
-        registerMonsterAttributes(event, GALROID, galroidHealth, galroidDamage);
-        event.put(GORGOSION.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.gorgosionHealth).add(Attributes.MOVEMENT_SPEED, EntityStats.normalSpeed).add(Attributes.FOLLOW_RANGE, EntityStats.normalFollowRange).build());
-        registerMonsterAttributes(event, HELIO, helioHealth, helioDamage);
-        registerMonsterAttributes(event, HIVE_SOLDIER, hiveSoldierHealth, hiveSoldierDamage);
-        registerMonsterAttributes(event, HOVER_STINGER, hoverStingerHealth, hoverStingerDamage, hoverStingerMovementSpeed, hoverStingerFollowRange);
-        registerMonsterAttributes(event, KAZROTIC, kazroticHealth, kazroticDamage);
-        registerMonsterAttributes(event, LHEIVA, lheivaHealth, lheivaDamage);
-        registerMonsterAttributes(event, LORGA, lorgaHealth, lorgaDamage);
-        registerFlyingMobAttributes(event, LORGA_FLIGHT, lorgaFlightHealth, lorgaFlightDamage);
-        registerMonsterAttributes(event, MANDRAGORA, mandragoraHealth);
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER1, normalHealth, mysteriousManSpeed, mysteriousManFollowRange);
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER2, normalHealth, mysteriousManSpeed, mysteriousManFollowRange);
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER3, normalHealth, mysteriousManSpeed, mysteriousManFollowRange);
-        registerMonsterAttributes(event, SHADAHIER, shadahierHealth, shadahierDamage);
-        registerMobAttributes(event, TEMPLE_GUARDIAN, normalHealth, mysteriousManSpeed, mysteriousManFollowRange);
-        registerMobAttributes(event, THE_HUNGER);
-        registerMonsterAttributes(event, TOCAXIN, tocaxinHealth, tocaxinDamage);
-        registerMonsterAttributes(event, TWINS, twinsHealth);
-        registerMonsterAttributes(event, VERMENOUS, vermenousHealth, vermenousDamage);
-        registerMonsterAttributes(event, VHRAAK, vhraakHealth, vhraakDamage);
-        registerMonsterAttributes(event, ZONE, zoneHealth);
-        registerFlyingMobAttributes(event, ZORAGON, zoragonHealth, zoragonDamage, zoragonSpeed, normalFollowRange);
+        registerMobAttributes(event, ACID_HAG, EntityStats.ACID_HAG);
+        registerMobAttributes(event, BIPHRON, EntityStats.BIPHRON);
+        registerMobAttributes(event, BOHEMITE, EntityStats.BOHEMITE);
+        registerMobAttributes(event, CRYPT_KEEPER, EntityStats.CRYPT_KEEPER);
+        registerMobAttributes(event, CYMESOID, EntityStats.CYMESOID);
+        registerMobAttributes(event, DISSIMENT, EntityStats.DISSIMENT);
+        registerMobAttributes(event, DREAMWRECKER, EntityStats.DREAMWRECKER);
+        registerMobAttributes(event, DUO, EntityStats.DUO);
+        registerMobAttributes(event, ENT, EntityStats.ENT);
+        registerMobAttributes(event, FAKE_VHRAAK, EntityStats.VHRAAK);
+        registerMobAttributes(event, GALROID, EntityStats.GALROID);
+        registerMobAttributes(event, GORGOSION, EntityStats.GORGOSION);
+        registerMobAttributes(event, HELIO, EntityStats.HELIO);
+        registerMobAttributes(event, HIVE_SOLDIER, EntityStats.HIVE_SOLDIER);
+        registerMobAttributes(event, HOVER_STINGER, EntityStats.HOVER_STINGER);
+        registerMobAttributes(event, KAZROTIC, EntityStats.KAZROTIC);
+        registerMobAttributes(event, LHEIVA, EntityStats.LHEIVA);
+        registerMobAttributes(event, LORGA, EntityStats.LORGA);
+        registerMobAttributes(event, LORGA_FLIGHT, EntityStats.LORGA_FLIGHT);
+        registerMobAttributes(event, MANDRAGORA, EntityStats.MANDRAGORA);
+        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER1, EntityStats.MYSTERIOUS_MAN);
+        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER2, EntityStats.MYSTERIOUS_MAN);
+        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER3, EntityStats.MYSTERIOUS_MAN);
+        registerMobAttributes(event, SHADAHIER, EntityStats.SHADAHIER);
+        registerMobAttributes(event, TEMPLE_GUARDIAN, EntityStats.TEMPLE_GUARDIAN);
+        registerDefaultMobAttributes(event, THE_HUNGER);
+        registerMobAttributes(event, TOCAXIN, EntityStats.TOCAXIN);
+        registerMobAttributes(event, TWINS, EntityStats.TWINS);
+        registerMobAttributes(event, VERMENOUS, EntityStats.VERMENOUS);
+        registerMobAttributes(event, VHRAAK, EntityStats.VHRAAK);
+        registerMobAttributes(event, ZONE, EntityStats.ZONE);
+        registerMobAttributes(event, ZORAGON, EntityStats.ZORAGON);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -969,49 +966,19 @@ public class EntityRegistry {
         return entity;
     }
 
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, normalHealth).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).build());
+    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).build());
     }
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
+    private static final <T extends Mob> void registerMobAttributesKnockback(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double knockback) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.KNOCKBACK_RESISTANCE, knockback).build());
     }
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double speed, double followRange) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, 1).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Monster> void registerMonsterAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).add(Attributes.FLYING_SPEED, normalSpeed).build());
-    }
-    private static final <T extends EntityDivineFlyingMob> void registerFlyingMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).add(Attributes.FLYING_SPEED, speed).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, normalDamage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, normalSpeed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, normalFollowRange).build());
-    }
-    private static final <T extends Mob> void registerDamageMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, double health, double damage, double speed, double followRange) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, health).add(Attributes.ATTACK_DAMAGE, damage).add(Attributes.MOVEMENT_SPEED, speed).add(Attributes.FOLLOW_RANGE, followRange).build());
+    private static final <T extends Mob> void registerMobAttributesArmour(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double armour) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.ARMOR, armour).build());
     }
 
+    private static final <T extends Mob> void registerDefaultMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.DEFAULT.getHealth()).add(Attributes.ATTACK_DAMAGE, EntityStats.DEFAULT.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, EntityStats.DEFAULT.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, EntityStats.DEFAULT.getFollowRange()).add(Attributes.FLYING_SPEED, EntityStats.DEFAULT.getMovementSpeed()).build());
+    }
     private static RegistryObject<EntityType<EntityFrostCloud>> registerFrostCloud(EntityType.EntityFactory<EntityFrostCloud> factory, String entityName){
         return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(0.5F, 0.5F).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
     }

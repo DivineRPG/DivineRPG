@@ -1,7 +1,6 @@
 package divinerpg.entities.vanilla.nether;
 
 import divinerpg.entities.base.EntityDivineTameable;
-import divinerpg.util.EntityStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -121,7 +120,7 @@ public class EntityHellPig extends EntityDivineTameable {
 
     public void setAngry(boolean angry) {
         this.entityData.set(ANGRY, angry);
-        Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, EntityStats.hellPigTamedHealth);
+        Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 10);
     }
 
     public static boolean canSpawnOn(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {

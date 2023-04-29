@@ -5,6 +5,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.Squid;
@@ -13,8 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.Path;
 
 import java.util.EnumSet;
-
-import static divinerpg.util.EntityStats.aequoreaSpeed;
 
 public class EntityAequorea extends Squid {
 	private int color;
@@ -29,7 +28,7 @@ public class EntityAequorea extends Squid {
 	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(1, new RandomMovementGoal(this));
-		goalSelector.addGoal(2, new StingAttack(this, aequoreaSpeed, false));
+		goalSelector.addGoal(2, new StingAttack(this, getAttributeBaseValue(Attributes.MOVEMENT_SPEED), false));
 	    goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
 	    targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
