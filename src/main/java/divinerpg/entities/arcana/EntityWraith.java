@@ -41,7 +41,7 @@ public class EntityWraith extends EntityDivineTameable {
 
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.5F;
+        return 1.15625F;
     }
     
     public InteractionResult mobInteract(Player player, InteractionHand hand) {

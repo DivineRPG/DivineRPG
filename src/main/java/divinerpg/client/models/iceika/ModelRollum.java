@@ -78,8 +78,8 @@ public class ModelRollum<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.head.yRot = ageInTicks / (180F / (float)Math.PI);
-		this.head.xRot = netHeadYaw / (180F / (float)Math.PI);
+		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
+		this.head.xRot = headPitch / (180F / (float)Math.PI);
 		this.rightarmtop.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
 		this.leftarmtop.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
 		this.rightarmtop.zRot = 0.0F;

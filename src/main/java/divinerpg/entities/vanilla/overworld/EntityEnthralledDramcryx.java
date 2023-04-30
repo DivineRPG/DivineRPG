@@ -20,7 +20,7 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.25F;
+        return 1.5F;
     }
     @Override
     protected void registerGoals() {

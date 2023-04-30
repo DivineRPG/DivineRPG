@@ -2,7 +2,7 @@ package divinerpg.entities.vanilla.overworld;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
@@ -14,6 +14,10 @@ public class EntityDesertCrawler extends EntityCrawler {
     private boolean hasSeen;
     public EntityDesertCrawler(EntityType<? extends Monster> type, Level level) {
         super(type, level);
+    }
+
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.9F;
     }
 
     @Override

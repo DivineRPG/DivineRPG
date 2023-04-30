@@ -17,7 +17,7 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.7F;
+        return 1.74F;
     }
 
     @Override

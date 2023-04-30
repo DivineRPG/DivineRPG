@@ -37,7 +37,7 @@ public class EntityGlinthop extends EntityDivineTameable {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.5F;
+        return 0.6875F;
     }
 
     public static boolean canSpawnOn(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {

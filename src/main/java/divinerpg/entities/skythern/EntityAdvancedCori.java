@@ -40,7 +40,7 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedA
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8F;
+        return 0.8125F;
     }
 
     @Override

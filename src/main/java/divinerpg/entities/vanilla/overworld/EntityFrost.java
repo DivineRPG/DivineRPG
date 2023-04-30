@@ -24,7 +24,7 @@ public class EntityFrost extends EntityDivineMonster implements RangedAttackMob 
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.6F;
+        return 0.625F;
     }
     protected void registerGoals() {
         goalSelector.addGoal(1, new EscapeWaterGoal(this));

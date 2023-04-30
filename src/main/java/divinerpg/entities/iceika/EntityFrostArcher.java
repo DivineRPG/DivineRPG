@@ -21,7 +21,7 @@ public class EntityFrostArcher extends EntityDivineMonster implements RangedAtta
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.725F;
+        return 1.74F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

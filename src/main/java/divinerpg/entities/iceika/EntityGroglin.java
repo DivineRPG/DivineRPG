@@ -36,6 +36,10 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
         return this.entityData.get(ITEM);
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 1.18F;
+    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();

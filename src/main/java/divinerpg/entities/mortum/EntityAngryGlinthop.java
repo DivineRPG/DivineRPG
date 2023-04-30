@@ -16,7 +16,7 @@ public class EntityAngryGlinthop extends EntityDivineMonster {
         xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.4F;
+        return 1.345F;
     }
     @Override public boolean fireImmune() {return true;}
     @Override public boolean isAggressive() {return true;}

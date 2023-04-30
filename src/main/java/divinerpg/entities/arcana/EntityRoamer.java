@@ -15,7 +15,7 @@ public class EntityRoamer extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.625F;
+        return 1.5625F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}

@@ -13,7 +13,7 @@ public class EntityVamacheron extends EntityDivineBoss {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
+        return 2.1875F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

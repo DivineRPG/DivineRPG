@@ -25,7 +25,7 @@ public class EntityLorgaflight extends EntityDivineFlyingMob {
         this.canSpawnMinions = canSpawnMinions;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8F;
+        return 0.9375F;
     }
     @Override
     public boolean causeFallDamage(float p_225503_1_, float p_225503_2_, DamageSource damagesource) {

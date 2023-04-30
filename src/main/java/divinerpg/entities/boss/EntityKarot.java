@@ -25,7 +25,7 @@ public class EntityKarot extends EntityDivineBoss {
 
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.7F;
+        return 3.4375F;
     }
     @Override public boolean isAggressive() {return true;}
 

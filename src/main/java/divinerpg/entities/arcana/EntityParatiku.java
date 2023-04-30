@@ -37,7 +37,7 @@ public class EntityParatiku extends EntityDivineTameable {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return this.getBbHeight() / 2.0F;
+        return 1.1875F;
     }
 
     protected void defineSynchedData() {

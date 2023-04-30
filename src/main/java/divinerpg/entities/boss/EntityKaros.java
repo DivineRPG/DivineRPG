@@ -9,7 +9,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
@@ -83,6 +85,10 @@ public class EntityKaros extends EntityDivineBoss {
         } else if (this.abilityCooldown > 0) {
             this.abilityCooldown--;
         }
+    }
+
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 2.4375F;
     }
 
     @Override

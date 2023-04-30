@@ -27,7 +27,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
 
     @Override
     public float getEyeHeight(Pose pose) {
-        return 0.6F;
+        return 0.6875F;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.6F;
+        return 0.6875F;
     }
 
     @Override

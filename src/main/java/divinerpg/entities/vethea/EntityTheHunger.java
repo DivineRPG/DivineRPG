@@ -27,6 +27,10 @@ public class EntityTheHunger extends EntityDivineMerchant {
         };
     }
 
+	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+		return 1.8125F;
+	}
+
     @Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();

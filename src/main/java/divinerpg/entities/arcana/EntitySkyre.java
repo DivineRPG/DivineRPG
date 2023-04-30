@@ -29,7 +29,7 @@ public class EntitySkyre extends EntityDivineMonster {
         this.entityData.define(ARCANA, 0);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.225F;
+        return 0.4375F;
     }
     @Override public boolean isAggressive() {return false;}
     @Override public boolean fireImmune() {return true;}

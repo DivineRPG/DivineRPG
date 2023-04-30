@@ -188,6 +188,10 @@ public class EntityWreck extends EntityDivineBoss {
 
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 1.6875F;
+    }
+
     @Override
     public void tick() {
         super.tick();

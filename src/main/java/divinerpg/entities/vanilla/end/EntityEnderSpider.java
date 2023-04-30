@@ -13,7 +13,7 @@ public class EntityEnderSpider extends EnderMan {
         this.xpReward = 20;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.45F;
+        return 0.36875F;
     }
     @Override
     protected SoundEvent getAmbientSound() {

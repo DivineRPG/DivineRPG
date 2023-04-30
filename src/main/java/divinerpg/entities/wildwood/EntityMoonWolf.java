@@ -15,7 +15,7 @@ public class EntityMoonWolf extends Wolf {
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8F;
+        return 0.6875F;
     }
 
     @Override

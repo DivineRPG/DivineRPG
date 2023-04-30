@@ -14,7 +14,7 @@ public class EntityRazorback extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.225F;
+        return 0.4F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}

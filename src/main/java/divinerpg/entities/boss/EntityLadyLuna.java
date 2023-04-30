@@ -35,6 +35,10 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setRandomProtectionValues();
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 2.90625F;
+    }
+
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(PROTECTION, 0);

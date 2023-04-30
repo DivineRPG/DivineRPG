@@ -28,6 +28,10 @@ public class EntityLeorna extends EntityDivineMerchant {
 		};
 	}
 
+        protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+            return 1.74F;
+        }
+
 	@Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();

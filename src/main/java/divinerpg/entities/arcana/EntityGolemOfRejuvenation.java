@@ -26,7 +26,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
+        return 1.375F;
     }
 
     @Override

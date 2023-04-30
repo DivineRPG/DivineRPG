@@ -20,7 +20,7 @@ public class EntityDissiment extends EntityDivineFlyingMob implements RangedAtta
     }
     
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
+        return 1.125F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

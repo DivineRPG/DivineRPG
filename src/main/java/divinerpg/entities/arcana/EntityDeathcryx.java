@@ -15,7 +15,7 @@ public class EntityDeathcryx extends EntityDivineMonster {
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.85F;
+        return 0.9375F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

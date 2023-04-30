@@ -48,6 +48,10 @@ public class EntityScorcher extends EntityDivineMonster implements RangedAttackM
         this.entityData.define(DATA_FLAGS_ID, (byte)0);
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 1.34375F;
+    }
+
     @Override
     public boolean fireImmune() {
         return true;

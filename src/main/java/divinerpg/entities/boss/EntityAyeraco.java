@@ -170,7 +170,7 @@ public class EntityAyeraco extends EntityDivineBoss {
     protected SoundEvent getDeathSound() {return AYERACO_HURT.get();}
     @Override
     protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {
-        return 0.8F;
+        return 0.65625F;
     }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {

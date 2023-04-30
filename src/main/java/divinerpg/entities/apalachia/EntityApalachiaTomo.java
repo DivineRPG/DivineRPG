@@ -18,7 +18,7 @@ public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
         xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.6F;
+        return 0.34375F;
     }
 
     @Override

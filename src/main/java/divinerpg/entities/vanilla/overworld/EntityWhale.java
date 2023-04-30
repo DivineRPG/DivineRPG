@@ -19,7 +19,7 @@ public class EntityWhale extends EntityDivineWaterMob {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.4F;
+        return 1.125F;
     }
     @Override
     protected SoundEvent getAmbientSound() {

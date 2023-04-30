@@ -2,7 +2,9 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.boss.EntityEtherealcetus;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -16,6 +18,9 @@ public class EntityRobin extends EntityDivineFlyingMob {
     private int tiredTicks = 0;
     private int tiredThreshold = 0;
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.4375F;
+    }
 
     public EntityRobin(EntityType<? extends EntityDivineFlyingMob> entityType, Level world) {
             super(entityType, world);

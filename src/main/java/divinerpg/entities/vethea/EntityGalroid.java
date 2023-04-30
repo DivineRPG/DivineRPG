@@ -19,7 +19,7 @@ public class EntityGalroid extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.5F;
+        return 2.4175F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

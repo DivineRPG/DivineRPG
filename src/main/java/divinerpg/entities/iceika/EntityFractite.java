@@ -17,7 +17,7 @@ public class EntityFractite extends EntityDivineFlyingMob implements RangedAttac
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.7F;
+        return 1.875F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

@@ -23,7 +23,7 @@ public class EntityAequorea extends Squid {
 	}
 	@Override
 	protected float getStandingEyeHeight(Pose p_29975_, EntityDimensions p_29976_) {
-		return 0.3F;
+		return 0.25F;
 	}
 	@Override
 	protected void registerGoals() {

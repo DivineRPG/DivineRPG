@@ -29,6 +29,10 @@ public class EntityLordVatticus extends EntityDivineMerchant {
 		};
 	}
 
+        protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+            return 1.67F;
+        }
+
 	@Override
 	protected void updateTrades() {
 		MerchantOffers merchantoffers = this.getOffers();

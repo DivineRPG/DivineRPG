@@ -49,7 +49,7 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.25F;
+        return 0.1F;
     }
 
     public void startPersistentAngerTimer() {

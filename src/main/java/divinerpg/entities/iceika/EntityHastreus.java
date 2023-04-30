@@ -19,7 +19,7 @@ public class EntityHastreus extends EntityDivineMonster {
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3F;
+        return 1.375F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

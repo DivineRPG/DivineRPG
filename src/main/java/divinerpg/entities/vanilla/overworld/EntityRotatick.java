@@ -15,7 +15,7 @@ import net.minecraft.world.level.LevelAccessor;
 public class EntityRotatick extends EntityDivineMonster {
 	public EntityRotatick(EntityType<? extends Monster> type, Level level) {super(type, level);}
 	@Override
-	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.75F;}
+	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.5F;}
 	@Override
     protected SoundEvent getAmbientSound() {return ROTATICK.get();}
     @Override

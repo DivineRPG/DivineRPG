@@ -20,7 +20,7 @@ public class EntityHoverStinger extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.2F;
+        return 2.0F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

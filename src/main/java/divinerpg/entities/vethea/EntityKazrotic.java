@@ -17,7 +17,7 @@ public class EntityKazrotic extends EntityDivineMonster implements RangedAttackM
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8F;
+        return 2.65625F;
     }
 
     @Override

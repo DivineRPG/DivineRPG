@@ -35,6 +35,10 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.setSpeedModifier(0.0D);
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.75F;
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(1, new ClimbOnTopOfPowderSnowGoal(this, this.level));

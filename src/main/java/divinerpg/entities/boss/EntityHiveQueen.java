@@ -19,6 +19,11 @@ public class EntityHiveQueen extends EntityDivineBoss {
         super(type, worldIn);
         spawnTick=80;
     }
+
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.3125F;
+    }
+
     @Override
     public BossBarColor getBarColor() {
         return BossBarColor.YELLOW;

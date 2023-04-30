@@ -22,7 +22,7 @@ public class EntityShark extends EntityDivineWaterMob {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.3F;
+        return 0.59375F;
     }
 
     @Override

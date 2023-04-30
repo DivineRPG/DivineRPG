@@ -17,7 +17,7 @@ public class EntityDramix extends EntityDivineBoss {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.7F;
+        return 2.25F;
     }
 
     @Override

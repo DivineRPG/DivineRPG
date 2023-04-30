@@ -31,6 +31,10 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
         this.entityData.define(ITEM, 0);
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.97F;
+    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();

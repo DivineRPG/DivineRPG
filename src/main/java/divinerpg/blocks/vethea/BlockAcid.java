@@ -25,7 +25,7 @@ public class BlockAcid extends BlockMod {
     }
 
     public BlockAcid(boolean decays, boolean poison) {
-        super(Block.Properties.of(Material.SNOW).strength(0.1F, 3.0F).randomTicks());
+        super(Block.Properties.of(Material.SNOW).strength(0.1F).randomTicks().sound(SoundType.SNOW));
         this.decays = decays;
         this.poison = poison;
     }

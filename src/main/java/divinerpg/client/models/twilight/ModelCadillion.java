@@ -61,8 +61,8 @@ public class ModelCadillion<T extends EntityDivineMonster> extends EntityModel<T
         
         this.FrontLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
         this.FrontRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
-        this.BackLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
-        this.BackRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
+        this.BackLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
+        this.BackRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
 	}
 
 	@Override

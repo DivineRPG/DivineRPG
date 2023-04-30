@@ -18,8 +18,6 @@ public class ModelDungeonDemon<T extends Entity> extends EntityModel<T> {
 	private final ModelPart leftarm;
 	private final ModelPart rightleg;
 	private final ModelPart leftleg;
-	private final ModelPart headp2;
-	private final ModelPart headp3;
 	private final ModelPart Shape1;
 	private final ModelPart Shape2;
 	private final ModelPart Shape3;
@@ -48,8 +46,6 @@ public class ModelDungeonDemon<T extends Entity> extends EntityModel<T> {
 		this.leftarm = root.getChild("leftarm");
 		this.rightleg = root.getChild("rightleg");
 		this.leftleg = root.getChild("leftleg");
-		this.headp2 = root.getChild("headp2");
-		this.headp3 = root.getChild("headp3");
 		this.Shape1 = root.getChild("Shape1");
 		this.Shape2 = root.getChild("Shape2");
 		this.Shape3 = root.getChild("Shape3");
@@ -75,7 +71,9 @@ public class ModelDungeonDemon<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(-4.0F, -10.0F, -4.0F, 8.0F, 10.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 0.0F, 0.0F));
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-5.0F, -19.0F, -4.0F, 10.0F, 5.0F, 8.0F, CubeDeformation.NONE).mirror(false)
+				.texOffs(0, 0).mirror().addBox(-5.0F, -4.0F, -4.0F, 10.0F, 5.0F, 8.0F, CubeDeformation.NONE).mirror(false)
+				.texOffs(32, 0).mirror().addBox(-4.0F, -14.0F, -4.0F, 8.0F, 10.0F, 8.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(0.0F, 4.0F, 0.0F));
 
 		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 9.0F, 2.0F));
 
@@ -136,10 +134,6 @@ public class ModelDungeonDemon<T extends Entity> extends EntityModel<T> {
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
 		this.head.xRot = headPitch / (180F / (float)Math.PI);
-		this.headp2.yRot = netHeadYaw / (180F / (float)Math.PI);
-		this.headp2.xRot = headPitch / (180F / (float)Math.PI);
-		this.headp3.yRot = netHeadYaw / (180F / (float)Math.PI);
-		this.headp3.xRot = headPitch / (180F / (float)Math.PI);
 		this.rightarm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
 		this.leftarm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
 		this.rightarm.zRot = 0.0F;
@@ -164,8 +158,6 @@ public class ModelDungeonDemon<T extends Entity> extends EntityModel<T> {
 		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headp2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headp3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);

@@ -16,7 +16,7 @@ public class EntityTermid extends EntityDivineMonster {
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.1F;
+        return 1.5625F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

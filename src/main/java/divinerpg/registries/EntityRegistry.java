@@ -112,49 +112,49 @@ public class EntityRegistry {
 
     // Boss
     public static final RegistryObject<EntityType<EntityAncientEntity>>  ANCIENT_ENTITY 	= registerEntity(EntityAncientEntity::new, 	"ancient_entity", 	4.0F, 6.5F);
-    public static final RegistryObject<EntityType<EntityAyeraco>>		 AYERACO			= registerEntity(EntityAyeraco::new,		"ayeraco",			2.8F, 1.2F);
+    public static final RegistryObject<EntityType<EntityAyeraco>>		 AYERACO			= registerEntity(EntityAyeraco::new,		"ayeraco",			2.0F, 1.2F);
     public static final RegistryObject<EntityType<EntityDensos>>		 DENSOS 			= registerEntity(EntityDensos::new, 		"densos", 			1.0F, 2.5F);
-    public static final RegistryObject<EntityType<EntityDramix>>		 DRAMIX 			= registerEntity(EntityDramix::new, 		"dramix", 			0.85F,3.0F);
+    public static final RegistryObject<EntityType<EntityDramix>>		 DRAMIX 			= registerEntity(EntityDramix::new, 		"dramix", 			0.85F,2.5625F);
     public static final RegistryObject<EntityType<EntityEternalArcher>>  ETERNAL_ARCHER 	= registerEntity(EntityEternalArcher::new, 	"eternal_archer", 	3.0F, 5.0F);
-    public static final RegistryObject<EntityType<EntityExperiencedCori>>EXPERIENCED_CORI 	= registerEntity(EntityExperiencedCori::new,"experienced_cori", 4.0F, 6.8F);
+    public static final RegistryObject<EntityType<EntityExperiencedCori>>EXPERIENCED_CORI 	= registerEntity(EntityExperiencedCori::new,"experienced_cori", 4.0F, 7.1875F);
     public static final RegistryObject<EntityType<EntityEtherealcetus>>  ETHEREALCETUS = registerEntity(EntityEtherealcetus::new,     "etherealcetus",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityHiveQueen>>		 HIVE_QUEEN 		= registerEntity(EntityHiveQueen::new, 		"hive_queen", 		1.5F, 4.0F);
-    public static final RegistryObject<EntityType<EntityKaros>>			 KAROS 				= registerEntity(EntityKaros::new, 			"karos", 			1.0F, 3.0F);
-    public static final RegistryObject<EntityType<EntityKarot>>			 KAROT 				= registerEntity(EntityKarot::new, 			"karot", 			3.25F,4.0F);
+    public static final RegistryObject<EntityType<EntityHiveQueen>>		 HIVE_QUEEN 		= registerEntity(EntityHiveQueen::new, 		"hive_queen", 		1.5F, 0.75F);
+    public static final RegistryObject<EntityType<EntityKaros>>			 KAROS 				= registerEntity(EntityKaros::new, 			"karos", 			1.0F, 2.6875F);
+    public static final RegistryObject<EntityType<EntityKarot>>			 KAROT 				= registerEntity(EntityKarot::new, 			"karot", 			3.0F,4.1875F);
     public static final RegistryObject<EntityType<EntityKingOfScorchers>>KING_OF_SCORCHERS 	= registerEntity(EntityKingOfScorchers::new,"king_of_scorchers",2.0F, 2.5F);
-    public static final RegistryObject<EntityType<EntityLadyLuna>>		 LADY_LUNA 			= registerEntity(EntityLadyLuna::new, 		"lady_luna", 		1.0F, 3.5F);
-    public static final RegistryObject<EntityType<EntityParasecta>>		 PARASECTA 			= registerEntity(EntityParasecta::new, 		"parasecta", 		1.3F, 3.0F);
+    public static final RegistryObject<EntityType<EntityLadyLuna>>		 LADY_LUNA 			= registerEntity(EntityLadyLuna::new, 		"lady_luna", 		1.0F, 3.25F);
+    public static final RegistryObject<EntityType<EntityParasecta>>		 PARASECTA 			= registerEntity(EntityParasecta::new, 		"parasecta", 		1.3F, 2.0F);
     public static final RegistryObject<EntityType<EntityQuadro>>		 QUADRO 			= registerEntity(EntityQuadro::new, 		"quadro", 			1.2F, 2.2F);
-    public static final RegistryObject<EntityType<EntityRaglok>>		 RAGLOK 			= registerEntity(EntityRaglok::new, 		"raglok", 			3.0F, 5.0F);
+    public static final RegistryObject<EntityType<EntityRaglok>>		 RAGLOK 			= registerEntity(EntityRaglok::new, 		"raglok", 			3.0F, 5.25F);
     public static final RegistryObject<EntityType<EntityReyvor>>		 REYVOR 			= registerEntity(EntityReyvor::new, 		"reyvor", 			1.0F, 2.5F);
     public static final RegistryObject<EntityType<EntitySoulFiend>>		 SOUL_FIEND 		= registerEntity(EntitySoulFiend::new, 		"soul_fiend", 		0.8F, 2.0F);
     public static final RegistryObject<EntityType<EntitySunstorm>>		 SUNSTORM 			= registerEntity(EntitySunstorm::new, 		"sunstorm", 		0.9F, 3.0F);
     public static final RegistryObject<EntityType<EntityTermasect>>		 TERMASECT 			= registerEntity(EntityTermasect::new, 		"termasect", 		5.9F, 8.0F);
     public static final RegistryObject<EntityType<EntityTheWatcher>>	 THE_WATCHER 		= registerEntity(EntityTheWatcher::new, 	"the_watcher", 		4.0F, 4.0F);
     public static final RegistryObject<EntityType<EntityTwilightDemon>>  TWILIGHT_DEMON 	= registerEntity(EntityTwilightDemon::new, 	"twilight_demon", 	2.0F, 4.0F);
-    public static final RegistryObject<EntityType<EntityVamacheron>>	 VAMACHERON 		= registerEntity(EntityVamacheron::new, 	"vamacheron", 		1.45F,2.2F);
-    public static final RegistryObject<EntityType<EntityWreck>>			 WRECK 				= registerEntity(EntityWreck::new, 			"wreck", 			2.0F, 2.4F);
+    public static final RegistryObject<EntityType<EntityVamacheron>>	 VAMACHERON 		= registerEntity(EntityVamacheron::new, 	"vamacheron", 		1.45F,2.25F);
+    public static final RegistryObject<EntityType<EntityWreck>>			 WRECK 				= registerEntity(EntityWreck::new, 			"wreck", 			1.5F, 2.0F);
 
     // Overworld
-    public static final RegistryObject<EntityType<EntityAequorea>>			 AEQUOREA 			= registerEntity(EntityAequorea::new, 			"aequorea", 			0.3F, 0.4F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		= registerEntity(EntityAridWarrior::new, 		"arid_warrior",			1.4F, 2.8f, 0x6e5209, 0xc19b28);
-    public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		= registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		0.8F, 1.4F);
+    public static final RegistryObject<EntityType<EntityAequorea>>			 AEQUOREA 			= registerEntity(EntityAequorea::new, 			"aequorea", 			0.3F, 0.3125F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		= registerEntity(EntityAridWarrior::new, 		"arid_warrior",			1.4F, 2.5f, 0x6e5209, 0xc19b28);
+    public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		= registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		0.8F, 1.25F);
     public static final RegistryObject<EntityType<EntityCrawler>>			 CAVE_CRAWLER 		= registerEntity(EntityCrawler::new, 			"cave_crawler", 		0.6F, 0.8F, 0x90bc93, 0x8bf285);
     public static final RegistryObject<EntityType<EntityCaveclops>>			 CAVECLOPS 			= registerEntity(EntityCaveclops::new, 			"caveclops", 			1.2F, 4.0F, 0x3a3030, 0x77352b);
-    public static final RegistryObject<EntityType<EntityCrab>>				 CRAB 				= registerEntity(EntityCrab::new, 				"crab", 				0.9F, 0.6F, 0xbf5241, 0xe2cfc0);
+    public static final RegistryObject<EntityType<EntityCrab>>				 CRAB 				= registerEntity(EntityCrab::new, 				"crab", 				0.9F, 0.5625F, 0xbf5241, 0xe2cfc0);
     public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			= registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x534e2f, 0xc2b66e);
-    public static final RegistryObject<EntityType<EntityDesertCrawler>>		DESERT_CRAWLER 	    = registerEntity(EntityDesertCrawler::new, 		"desert_crawler", 		0.8F, 0.8F, 0xc3be8e, 0xf2d676);
+    public static final RegistryObject<EntityType<EntityDesertCrawler>>		DESERT_CRAWLER 	    = registerEntity(EntityDesertCrawler::new, 		"desert_crawler", 		0.9F, 0.94F, 0xc3be8e, 0xf2d676);
     public static final RegistryObject<EntityType<EntityDiamondDave>>       DIAMOND_DAVE        = registerEntity(EntityDiamondDave::new, 	    "diamond_dave", 		0.8F, 2F, 0x000000, 0x7D3C98, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityEhu>>				 EHU 				= registerEntity(EntityEhu::new, 				"ehu", 					0.6F, 1.0F);
     public static final RegistryObject<EntityType<EntityEnthralledDramcryx>> ENTHRALLED_DRAMCRYX= registerEntity(EntityEnthralledDramcryx::new, "enthralled_dramcryx",  1.35F,1.75F,0x171d3e, 0x423a82);
-    public static final RegistryObject<EntityType<EntityFrost>>				 FROST 				= registerEntity(EntityFrost::new, 				"frost", 				1.0F, 1.5F, 0xbce8ff, 0xc6f8ff);
-    public static final RegistryObject<EntityType<EntityGlacon>>			 GLACON 			= registerEntity(EntityGlacon::new, 			"glacon", 				0.8F, 1.4F, 0x88deff, 0x1788bc);
+    public static final RegistryObject<EntityType<EntityFrost>>				 FROST 				= registerEntity(EntityFrost::new, 				"frost", 				1.0F, 1.125F, 0xbce8ff, 0xc6f8ff);
+    public static final RegistryObject<EntityType<EntityGlacon>>			 GLACON 			= registerEntity(EntityGlacon::new, 			"glacon", 				0.8F, 1.3125F, 0x88deff, 0x1788bc);
     public static final RegistryObject<EntityType<EntityHusk>>				 HUSK 				= registerEntity(EntityHusk::new, 				"husk", 				0.8F, 1.5F);
     public static final RegistryObject<EntityType<EntityJackOMan>>			 JACK_O_MAN 		= registerEntity(EntityJackOMan::new, 			"jack_o_man", 			0.8F, 2.0F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		= registerEntity(EntityJungleBat::new, 			"jungle_bat", 			0.7F, 1.0F, 0x325a24, 0x1b3008);
-    public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.3F, 0x2d442c, 0x3d513b);
+    public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.0625F, 0x2d442c, 0x3d513b);
     public static final RegistryObject<EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		= registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		1.4F, 0.9F, 0x1a6706, 0x35a216);
-    public static final RegistryObject<EntityType<EntityKingCrab>>			 KING_CRAB 			= registerEntity(EntityKingCrab::new, 			"king_crab", 			1.8F, 1.7F, 0x771f2a, 0x272322);
+    public static final RegistryObject<EntityType<EntityKingCrab>>			 KING_CRAB 			= registerEntity(EntityKingCrab::new, 			"king_crab", 			1.8F, 1.78125F, 0x771f2a, 0x272322);
     public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			= registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x6eae44);
     public static final RegistryObject<EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		= registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		4.0F, 1.0f, 0x2f4581, 0x3d548f);
     public static final RegistryObject<EntityType<EntityLivestockMerchant>>  LIVESTOCK_MERCHANT = registerEntity(EntityLivestockMerchant::new, 	"livestock_merchant", 	0.8F, 2.0f, 0xa27d6a, 0x8e5f45, MobCategory.CREATURE);
@@ -163,148 +163,148 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			= registerEntity(EntityRainbour::new, 			"rainbour", 			1.0F, 1.0F, 0x969798, 0x6c6e71);
     public static final RegistryObject<EntityType<EntityRotatick>>			 ROTATICK 			= registerEntity(EntityRotatick::new, 			"rotatick", 			0.85F, 0.8F,0x443844, 0x3d9a54);
     public static final RegistryObject<EntityType<EntitySaguaroWorm>> 		 SAGUARO_WORM 		= registerEntity(EntitySaguaroWorm::new, 		"saguaro_worm", 		1.0F, 3.0F, 0x699f35, 0xaab484);
-    public static final RegistryObject<EntityType<EntityShark>>				 SHARK 				= registerEntity(EntityShark::new, 				"shark", 				1.0F, 0.5F, 0xbbcde2, 0xa6b8cd);
+    public static final RegistryObject<EntityType<EntityShark>>				 SHARK 				= registerEntity(EntityShark::new, 				"shark", 				1.0F, 0.75F, 0xbbcde2, 0xa6b8cd);
     public static final RegistryObject<EntityType<EntitySmelter>>			 SMELTER 			= registerEntity(EntitySmelter::new, 			"smelter", 				1.5F, 3.5F);
-    public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			= registerEntity(EntitySnapper::new, 			"snapper", 				0.6F, 0.5F);
+    public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			= registerEntity(EntitySnapper::new, 			"snapper", 				0.6F, 0.625F);
     public static final RegistryObject<EntityType<EntityStoneGolem>>		 STONE_GOLEM 		= registerEntity(EntityStoneGolem::new, 		"stone_golem", 			1.5F, 3.5F);
     public static final RegistryObject<EntityType<EntityTheEye>>			 THE_EYE 			= registerEntity(EntityTheEye::new, 			"the_eye", 				1.3F, 2.0F, 0xFFFFFF, 0xFFFFFF);
-    public static final RegistryObject<EntityType<EntityTheGrue>>			 THE_GRUE 			= registerEntity(EntityTheGrue::new, 			"the_grue", 			0.8F, 1.9F, 0x210e2a, 0x4f3764);
-    public static final RegistryObject<EntityType<EntityWhale>>				 WHALE 				= registerEntity(EntityWhale::new, 				"whale", 				3.0F, 1.5F, 0x445c7b, 0x2b3b4f, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityWhiteGrizzle>>		 WHITE_GRIZZLE 		= registerEntity(EntityWhiteGrizzle::new, 		"white_grizzle", 		0.8F, 1.4F);
+    public static final RegistryObject<EntityType<EntityTheGrue>>			 THE_GRUE 			= registerEntity(EntityTheGrue::new, 			"the_grue", 			0.8F, 1.8125F, 0x210e2a, 0x4f3764);
+    public static final RegistryObject<EntityType<EntityWhale>>				 WHALE 				= registerEntity(EntityWhale::new, 				"whale", 				3.0F, 1.875F, 0x445c7b, 0x2b3b4f, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityWhiteGrizzle>>		 WHITE_GRIZZLE 		= registerEntity(EntityWhiteGrizzle::new, 		"white_grizzle", 		0.8F, 1.25F);
 
     //Nether
     public static final RegistryObject<EntityType<EntityHellBat>>	 HELL_BAT 	= registerEntity(EntityHellBat::new, 	"hell_bat", 	0.7F, 1.0F, 0x430c0c, 0x854343);
     public static final RegistryObject<EntityType<EntityHellPig>>	 HELL_PIG 	= registerEntity(EntityHellPig::new, 	"hell_pig", 	1.0F, 0.9F, 0xd64942, 0x91231b);
     public static final RegistryObject<EntityType<EntityHellSpider>> HELL_SPIDER= registerEntity(EntityHellSpider::new, "hell_spider",  1.4F, 0.9F, 0xb01916, 0x720b07);
-    public static final RegistryObject<EntityType<EntityScorcher>>	 SCORCHER 	= registerEntity(EntityScorcher::new, 	"scorcher", 	1.2F, 2.0F, 0x8c00f3, 0x1c007a);
+    public static final RegistryObject<EntityType<EntityScorcher>>	 SCORCHER 	= registerEntity(EntityScorcher::new, 	"scorcher", 	1.2F, 1.5F, 0x8c00f3, 0x1c007a);
     public static final RegistryObject<EntityType<EntityWildfire>>	 WILDFIRE 	= registerEntity(EntityWildfire::new, 	"wildfire", 	0.8F, 2.2F, 0xaa0b01, 0x9c6d11);
 
     // End
     public static final RegistryObject<EntityType<EntityEnderSpider>>   ENDER_SPIDER  = registerEntity(EntityEnderSpider::new,  "ender_spider",  0.5F, 0.55F,0x0a0a0a, 0x260125);
     public static final RegistryObject<EntityType<EntityEnderScrounge>> ENDER_SCROUNGE = registerEntity(EntityEnderScrounge::new,"ender_scrounge",0.2F, 0.15F, 0x162916, 0xfc1b11);
     public static final RegistryObject<EntityType<EntityEnderTriplets>> ENDER_TRIPLETS = registerEntity(EntityEnderTriplets::new,"ender_triplets",2.0F, 2.0F, 0x161616, 0xfc1b28);
-    public static final RegistryObject<EntityType<EntityEnderWatcher>>  ENDER_WATCHER = registerEntity(EntityEnderWatcher::new, "ender_watcher", 0.7F, 0.9F, 0x161616, 0xca1ae1);
+    public static final RegistryObject<EntityType<EntityEnderWatcher>>  ENDER_WATCHER = registerEntity(EntityEnderWatcher::new, "ender_watcher", 0.7F, 0.8125F, 0x161616, 0xca1ae1);
 
     // Iceika
     public static final RegistryObject<EntityType<EntityAlicanto>>		  ALICANTO 		  	= registerEntity(EntityAlicanto::new, 		 "alicanto",		 1.2F, 1.6F, 0x1c94ff, 0x0837a6);
-    public static final RegistryObject<EntityType<EntityFractite>>		  FRACTITE 		  	= registerEntity(EntityFractite::new, 		 "fractite",		 1.7F, 1.3F, 0xeeffff, 0xe2ffff);
+    public static final RegistryObject<EntityType<EntityFractite>>		  FRACTITE 		  	= registerEntity(EntityFractite::new, 		 "fractite",		 1.7F, 3.0F, 0xeeffff, 0xe2ffff);
     public static final RegistryObject<EntityType<EntityFrostArcher>>	  FROST_ARCHER 	  	= registerEntity(EntityFrostArcher::new, 	 "frost_archer",	 0.6F, 2.0F, 0x4095da, 0x407eb9);
-    public static final RegistryObject<EntityType<EntityFrosty>>		  FROSTY 			= registerEntity(EntityFrosty::new, 		 "frosty",			 0.9F, 2.5F, 0xdcffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityGroglin>>		  GROGLIN 		  	= registerEntity(EntityGroglin::new, 		 "groglin",		0.5F, 1.3F, 0x88c89c, 0x587090);
-    public static final RegistryObject<EntityType<EntityGruzzorlug>>	  GRUZZORLUG 		= registerEntity(EntityGruzzorlug::new,      "gruzzorlug", 0.5F, 1.3F, 0x9370DB, 0x8B4513);
-    public static final RegistryObject<EntityType<EntityGlacide>>		  GLACIDE 		  	= registerEntity(EntityGlacide::new, 		 "glacide",			 0.9F, 2.0F, 0x7ce3fe, 0x218fbf);
-    public static final RegistryObject<EntityType<EntityHastreus>>		  HASTREUS 		  	= registerEntity(EntityHastreus::new, 		 "hastreus",		 1.0F, 1.9F, 0x136bd1, 0x418bea);
+    public static final RegistryObject<EntityType<EntityFrosty>>		  FROSTY 			= registerEntity(EntityFrosty::new, 		 "frosty",			 0.9F, 2.0F, 0xdcffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityGroglin>>		  GROGLIN 		  	= registerEntity(EntityGroglin::new, 		 "groglin",		0.5F, 1.375F, 0x88c89c, 0x587090);
+    public static final RegistryObject<EntityType<EntityGruzzorlug>>	  GRUZZORLUG 		= registerEntity(EntityGruzzorlug::new,      "gruzzorlug", 0.5F, 1.125F, 0x9370DB, 0x8B4513);
+    public static final RegistryObject<EntityType<EntityGlacide>>		  GLACIDE 		  	= registerEntity(EntityGlacide::new, 		 "glacide",			 1.4F, 2.0F, 0x7ce3fe, 0x218fbf);
+    public static final RegistryObject<EntityType<EntityHastreus>>		  HASTREUS 		  	= registerEntity(EntityHastreus::new, 		 "hastreus",		 1.4F, 2.375F, 0x136bd1, 0x418bea);
     public static final RegistryObject<EntityType<EntityRollum>>		  ROLLUM 			= registerEntity(EntityRollum::new, 		 "rollum",			 1.2F, 2.0F, 0x0504b7, 0x0d003d);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>WORKSHOP_MERCHANT = registerEntity(EntityWorkshopMerchant::new,"workshop_merchant",1.0F, 2.0F, 0xb81503, 0x321100, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>WORKSHOP_TINKERER = registerEntity(EntityWorkshopTinkerer::new,"workshop_tinkerer",1.0F, 2.0F, 0x003859, 0x087aa6, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntitySeng>>            SENG              = registerEntity(EntitySeng::new,"seng",0.7F, 1.1F, 0x6091152, 0x000000);
-    public static final RegistryObject<EntityType<EntitySabear>>          SABEAR            = registerEntity(EntitySabear::new,"sabear", 1.3F, 1.1F, 0x5C4312, 0x74510D);
-    public static final RegistryObject<EntityType<EntityWolpertinger>>    WOLPERTINGER      = registerEntity(EntityWolpertinger::new,"wolpertinger", 0.6F, 0.6F, 0x4a321f, 0xc9b6a7);
-    public static final RegistryObject<EntityType<EntityRobin>>           ROBIN             = registerEntity(EntityRobin::new,"robin", 0.3F, 0.3F, 0x63312e, 0x8c4541);
+    public static final RegistryObject<EntityType<EntitySeng>>            SENG              = registerEntity(EntitySeng::new,"seng",0.7F, 1.0F, 0x6091152, 0x000000);
+    public static final RegistryObject<EntityType<EntitySabear>>          SABEAR            = registerEntity(EntitySabear::new,"sabear", 1.3F, 1.4375F, 0x5C4312, 0x74510D);
+    public static final RegistryObject<EntityType<EntityWolpertinger>>    WOLPERTINGER      = registerEntity(EntityWolpertinger::new,"wolpertinger", 0.6F, 0.875F, 0x4a321f, 0xc9b6a7);
+    public static final RegistryObject<EntityType<EntityRobin>>           ROBIN             = registerEntity(EntityRobin::new,"robin", 0.3F, 0.5625F, 0x63312e, 0x8c4541);
 
     // Eden
-    public static final RegistryObject<EntityType<EntityGlinthop>>      GLINTHOP        = registerEntity(EntityGlinthop::new, 			    "glinthop",		 0.5F, 0.7F, 0xd7d2cf, 0xa0998c, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityEdenCadillion>> EDEN_CADILLION  = registerEntity(EntityEdenCadillion::new,  "eden_cadillion",1.0F, 1.5F, 0xfff7e1, 0xe2af20);
-    public static final RegistryObject<EntityType<EntityEdenTomo>> 		EDEN_TOMO 		= registerEntity(EntityEdenTomo::new, 		"eden_tomo", 	 1.0F, 1.0F, 0x4a5e0c, 0x738b16);
+    public static final RegistryObject<EntityType<EntityGlinthop>>      GLINTHOP        = registerEntity(EntityGlinthop::new, 			    "glinthop",		 0.5F, 0.75F, 0xd7d2cf, 0xa0998c, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityEdenCadillion>> EDEN_CADILLION  = registerEntity(EntityEdenCadillion::new,  "eden_cadillion",0.875F, 1.4F, 0xfff7e1, 0xe2af20);
+    public static final RegistryObject<EntityType<EntityEdenTomo>> 		EDEN_TOMO 		= registerEntity(EntityEdenTomo::new, 		"eden_tomo", 	 1.0F, 0.625F, 0x4a5e0c, 0x738b16);
     public static final RegistryObject<EntityType<EntityGreenfeet>> 	GREENFEET 		= registerEntity(EntityGreenfeet::new, 		"greenfeet", 	 1.0F, 2.0F, 0x084f1e, 0x4c5815);
-    public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 0.6F, 2.9F, 0xf86a54, 0xffe15c);
+    public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 0.6F, 2.8125F, 0xf86a54, 0xffe15c);
     public static final RegistryObject<EntityType<EntitySunArcher>> 	SUN_ARCHER 		= registerEntity(EntitySunArcher::new, 		"sun_archer", 	 0.8F, 2.2F, 0xeaab42, 0xfdf182);
     public static final RegistryObject<EntityType<EntityWeakCori>> 		WEAK_CORI 		= registerEntity(EntityWeakCori::new, 		"weak_cori", 	 0.6F, 1.5F, 0x160f00, 0x4681ff);
 
     // Wildwood
-    public static final RegistryObject<EntityType<EntityBehemoth>> 			BEHEMOTH 			= registerEntity(EntityBehemoth::new, 			"behemoth", 		 1.0F, 1.2F, 0x4180d0, 0x54b7e0);
-    public static final RegistryObject<EntityType<EntityEpiphite>> 			EPIPHITE 			= registerEntity(EntityEpiphite::new, 			"epiphite", 		 0.9F, 1.3F, 0x2f74d9, 0x87ecfa);
-    public static final RegistryObject<EntityType<EntityMage>> 				MAGE 				= registerEntity(EntityMage::new, 				"mage", 			 0.5F, 2.2F, 0x0f7adf, 0x2fc7fb);
+    public static final RegistryObject<EntityType<EntityBehemoth>> 			BEHEMOTH 			= registerEntity(EntityBehemoth::new, 			"behemoth", 		 1.0F, 1.125F, 0x4180d0, 0x54b7e0);
+    public static final RegistryObject<EntityType<EntityEpiphite>> 			EPIPHITE 			= registerEntity(EntityEpiphite::new, 			"epiphite", 		 0.8F, 1.0625F, 0x2f74d9, 0x87ecfa);
+    public static final RegistryObject<EntityType<EntityMage>> 				MAGE 				= registerEntity(EntityMage::new, 				"mage", 			 0.9F, 2.2F, 0x0f7adf, 0x2fc7fb);
     public static final RegistryObject<EntityType<EntityMoonWolf>> 			MOON_WOLF 			= registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		 0.6F,0.85F, 0x3b8c8d, 0x070706, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityTermid>> 			TERMID 				= registerEntity(EntityTermid::new, 			"termid", 			 0.4F, 1.2F, 0x384d6e, 0x6388d4);
+    public static final RegistryObject<EntityType<EntityTermid>> 			TERMID 				= registerEntity(EntityTermid::new, 			"termid", 			 0.4F, 1.6875F, 0x384d6e, 0x6388d4);
     public static final RegistryObject<EntityType<EntityVerek>> 			VEREK 				= registerEntity(EntityVerek::new, 				"verek", 			 0.8F, 2.0F, 0x0d5754, 0x3a8e89);
-    public static final RegistryObject<EntityType<EntityWildwoodCadillion>> WILDWOOD_CADILLION  = registerEntity(EntityWildwoodCadillion::new,  "wildwood_cadillion",1.0F, 1.5F, 0x85e5ff, 0x0061c1);
+    public static final RegistryObject<EntityType<EntityWildwoodCadillion>> WILDWOOD_CADILLION  = registerEntity(EntityWildwoodCadillion::new,  "wildwood_cadillion",0.875F, 1.4F, 0x85e5ff, 0x0061c1);
     public static final RegistryObject<EntityType<EntityWildwoodGolem>> 	WILDWOOD_GOLEM 		= registerEntity(EntityWildwoodGolem::new, 		"wildwood_golem", 	 1.3F, 2.9F, 0x4889de, 0x1e4a91);
-    public static final RegistryObject<EntityType<EntityWildwoodTomo>> 		WILDWOOD_TOMO 		= registerEntity(EntityWildwoodTomo::new, 		"wildwood_tomo", 	 1.0F, 1.0F, 0x06224c, 0x214985);
+    public static final RegistryObject<EntityType<EntityWildwoodTomo>> 		WILDWOOD_TOMO 		= registerEntity(EntityWildwoodTomo::new, 		"wildwood_tomo", 	 1.0F, 0.625F, 0x06224c, 0x214985);
 
     // Apalachia
-    public static final RegistryObject<EntityType<EntityApalachiaCadillion>>APALACHIA_CADILLION = registerEntity(EntityApalachiaCadillion::new, "apalachia_cadillion",  1.0F, 1.5F, 0xfedcf4, 0xf4afe5);
+    public static final RegistryObject<EntityType<EntityApalachiaCadillion>>APALACHIA_CADILLION = registerEntity(EntityApalachiaCadillion::new, "apalachia_cadillion",  0.875F, 1.4F, 0xfedcf4, 0xf4afe5);
     public static final RegistryObject<EntityType<EntityApalachiaGolem>> 	APALACHIA_GOLEM 	= registerEntity(EntityApalachiaGolem::new, 	"apalachia_golem", 		1.3F, 2.9F, 0x7c4bca, 0x4417a2);
-    public static final RegistryObject<EntityType<EntityApalachiaTomo>> 	APALACHIA_TOMO 		= registerEntity(EntityApalachiaTomo::new, 		"apalachia_tomo", 		1.0F, 1.0F, 0x650054, 0x96007e);
+    public static final RegistryObject<EntityType<EntityApalachiaTomo>> 	APALACHIA_TOMO 		= registerEntity(EntityApalachiaTomo::new, 		"apalachia_tomo", 		1.0F, 0.625F, 0x650054, 0x96007e);
     public static final RegistryObject<EntityType<EntityEnchantedArcher>> 	ENCHANTED_ARCHER  	= registerEntity(EntityEnchantedArcher::new, 	"enchanted_archer", 	1.8F, 3.0F, 0x160430, 0x2f0a66);
-    public static final RegistryObject<EntityType<EntityEnchantedWarrior>> 	ENCHANTED_WARRIOR 	= registerEntity(EntityEnchantedWarrior::new, 	"enchanted_warrior", 	0.6F, 2.4F, 0x5800a2, 0x30005b);
-    public static final RegistryObject<EntityType<EntitySpellbinder>> 		SPELLBINDER 		= registerEntity(EntitySpellbinder::new, 		"spellbinder", 			1.0F, 2.0F, 0x8b27de, 0xd16ff7);
+    public static final RegistryObject<EntityType<EntityEnchantedWarrior>> 	ENCHANTED_WARRIOR 	= registerEntity(EntityEnchantedWarrior::new, 	"enchanted_warrior", 	0.6F, 2.25F, 0x5800a2, 0x30005b);
+    public static final RegistryObject<EntityType<EntitySpellbinder>> 		SPELLBINDER 		= registerEntity(EntitySpellbinder::new, 		"spellbinder", 			0.9F, 2.2F, 0x8b27de, 0xd16ff7);
 
     // Skythern
     public static final RegistryObject<EntityType<EntityAdvancedCori>>	ADVANCED_CORI 	= registerEntity(EntityAdvancedCori::new, 	"advanced_cori", 	0.6F, 1.5F, 0x160f00, 0xffc446);
     public static final RegistryObject<EntityType<EntityMegalith>>		MEGALITH 		= registerEntity(EntityMegalith::new,		"megalith", 		1.2F, 4.0F, 0x7b7b7b, 0x939393);
-    public static final RegistryObject<EntityType<EntityMystic>>		MYSTIC 			= registerEntity(EntityMystic::new, 		"mystic", 			1.0F, 2.0F, 0xb7a5a9, 0xe4d9dd);
+    public static final RegistryObject<EntityType<EntityMystic>>		MYSTIC 			= registerEntity(EntityMystic::new, 		"mystic", 			0.9F, 2.2F, 0xb7a5a9, 0xe4d9dd);
     public static final RegistryObject<EntityType<EntitySamek>>			SAMEK 			= registerEntity(EntitySamek::new, 			"samek", 			0.8F, 2.0F, 0xa6a875, 0x6e703b);
     public static final RegistryObject<EntityType<EntitySkythernArcher>>SKYTHERN_ARCHER = registerEntity(EntitySkythernArcher::new, "skythern_archer",  1.8F, 3.0F, 0x3e3e3e, 0x828282);
     public static final RegistryObject<EntityType<EntitySkythernFiend>> SKYTHERN_FIEND 	= registerEntity(EntitySkythernFiend::new, 	"skythern_fiend", 	0.6F, 2.0F, 0xffffff, 0xe8e8e8);
     public static final RegistryObject<EntityType<EntitySkythernGolem>> SKYTHERN_GOLEM 	= registerEntity(EntitySkythernGolem::new, 	"skythern_golem", 	1.3F, 2.9F, 0x6b6b6b, 0x474747);
 
     // Mortum
-    public static final RegistryObject<EntityType<EntityAngryGlinthop>>	 ANGRY_GLINTHOP 	  = registerEntity(EntityAngryGlinthop::new, 	  "angry_glinthop", 	  1.1F, 1.8F, 0x282c2a, 0x686d71);
+    public static final RegistryObject<EntityType<EntityAngryGlinthop>>	 ANGRY_GLINTHOP 	  = registerEntity(EntityAngryGlinthop::new, 	  "angry_glinthop", 	  1.1F, 1.5625F, 0x282c2a, 0x686d71);
     public static final RegistryObject<EntityType<EntityBasilisk>>		 BASILISK 		  = registerEntity(EntityBasilisk::new, 	  "basilisk", 		  0.7F, 0.8F, 0x424242, 0x5f5f5f);
     public static final RegistryObject<EntityType<EntityDemonOfDarkness>>DEMON_OF_DARKNESS= registerEntity(EntityDemonOfDarkness::new,"demon_of_darkness",0.8F, 1.6F, 0x090909, 0x202020);
-    public static final RegistryObject<EntityType<EntityMortumCadillion>>MORTUM_CADILLION = registerEntity(EntityMortumCadillion::new,"mortum_cadillion", 1.0F, 1.5F, 0x170b1b, 0xb61604);
-    public static final RegistryObject<EntityType<EntitySorcerer>>		 SORCERER 		  = registerEntity(EntitySorcerer::new, 	  "sorcerer", 		  0.6F, 1.5F, 0x4f1014, 0xa82732);
-    public static final RegistryObject<EntityType<EntitySoulSpider>>	 SOUL_SPIDER 	  = registerEntity(EntitySoulSpider::new, 	  "soul_spider", 	  0.3F, 0.5F, 0x060505, 0x452827);
+    public static final RegistryObject<EntityType<EntityMortumCadillion>>MORTUM_CADILLION = registerEntity(EntityMortumCadillion::new,"mortum_cadillion", 0.875F, 1.4F, 0x170b1b, 0xb61604);
+    public static final RegistryObject<EntityType<EntitySorcerer>>		 SORCERER 		  = registerEntity(EntitySorcerer::new, 	  "sorcerer", 		  0.9F, 2.2F, 0x4f1014, 0xa82732);
+    public static final RegistryObject<EntityType<EntitySoulSpider>>	 SOUL_SPIDER 	  = registerEntity(EntitySoulSpider::new, 	  "soul_spider", 	  0.4F, 0.4375F, 0x060505, 0x452827);
     public static final RegistryObject<EntityType<EntitySoulStealer>>	 SOUL_STEALER 	  = registerEntity(EntitySoulStealer::new, 	  "soul_stealer", 	  0.8F, 2.0F, 0x211111, 0x2f2d2d);
     public static final RegistryObject<EntityType<EntityTwilightArcher>> TWILIGHT_ARCHER  = registerEntity(EntityTwilightArcher::new, "twilight_archer",  1.8F, 3.0F, 0x200306, 0x670710);
 
     // Arcana
     public static final RegistryObject<EntityType<EntityCaptainMerik>>		 CAPTAIN_MERIK 		  = registerEntity(EntityCaptainMerik::new, 	  "captain_merik", 		  0.8F, 2.0F, 0xd8473f, 0x403331, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityDatticon>>			 DATTICON 			  = registerEntity(EntityDatticon::new, 		  "datticon", 			  0.8F, 2.0F, 0x4bd9e2, 0x313e40, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityDeathcryx>>			 DEATHCRYX 			  = registerEntity(EntityDeathcryx::new, 		  "deathcryx", 			  1.0F, 1.2F, 0x020c19, 0x0a1831);
-    public static final RegistryObject<EntityType<EntityDeathHound>>		 DEATH_HOUND 		  = registerEntity(EntityDeathHound::new, 		  "death_hound", 		  0.8F, 0.9F, 0x011821, 0x03345a);
-    public static final RegistryObject<EntityType<EntityDungeonConstructor>> DUNGEON_CONSTRUCTOR  = registerEntity(EntityDungeonConstructor::new, "dungeon_constructor",  0.5F, 1.0F, 0x214108, 0x316a07);
-    public static final RegistryObject<EntityType<EntityDungeonDemon>>		 DUNGEON_DEMON 		  = registerEntity(EntityDungeonDemon::new, 	  "dungeon_demon", 		  0.6F, 2.15F);
-    public static final RegistryObject<EntityType<EntityDungeonPrisoner>>	 DUNGEON_PRISONER 	  = registerEntity(EntityDungeonPrisoner::new, 	  "dungeon_prisoner", 	  0.6F,2.15F, 0x8e8d77, 0xe3e3d0);
-    public static final RegistryObject<EntityType<EntityFyracryx>>			 FYRACRYX 			  = registerEntity(EntityFyracryx::new, 		  "fyracryx", 			  1.0F, 1.2F, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityGolemOfRejuvenation>>GOLEM_OF_REJUVENATION= registerEntity(EntityGolemOfRejuvenation::new,"golem_of_rejuvenation",1.0F,2.35F, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityDeathcryx>>			 DEATHCRYX 			  = registerEntity(EntityDeathcryx::new, 		  "deathcryx", 			  1.0F, 1.0625F, 0x020c19, 0x0a1831);
+    public static final RegistryObject<EntityType<EntityDeathHound>>		 DEATH_HOUND 		  = registerEntity(EntityDeathHound::new, 		  "death_hound", 		  0.8F, 0.85F, 0x011821, 0x03345a);
+    public static final RegistryObject<EntityType<EntityDungeonConstructor>> DUNGEON_CONSTRUCTOR  = registerEntity(EntityDungeonConstructor::new, "dungeon_constructor",  0.5F, 1.0625F, 0x214108, 0x316a07);
+    public static final RegistryObject<EntityType<EntityDungeonDemon>>		 DUNGEON_DEMON 		  = registerEntity(EntityDungeonDemon::new, 	  "dungeon_demon", 		  0.6F, 2.4375F);
+    public static final RegistryObject<EntityType<EntityDungeonPrisoner>>	 DUNGEON_PRISONER 	  = registerEntity(EntityDungeonPrisoner::new, 	  "dungeon_prisoner", 	  0.6F,2.4375F, 0x8e8d77, 0xe3e3d0);
+    public static final RegistryObject<EntityType<EntityFyracryx>>			 FYRACRYX 			  = registerEntity(EntityFyracryx::new, 		  "fyracryx", 			  1.0F, 0.9375F, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityGolemOfRejuvenation>>GOLEM_OF_REJUVENATION= registerEntity(EntityGolemOfRejuvenation::new,"golem_of_rejuvenation",1.0F,1.5625F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityKazari>>			 KAZARI				  = registerEntity(EntityKazari::new, 			  "kazari", 			  0.8F, 1.8F, 0x171717, 0x161d5a, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityLeorna>>			 LEORNA 			  = registerEntity(EntityLeorna::new, 			  "leorna", 			  0.8F, 1.8F, 0x004f04, 0x0c7807, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityLivingStatue>>		 LIVING_STATUE 		  = registerEntity(EntityLivingStatue::new, 	  "living_statue", 		  0.8F, 2.0F, 0x04202e, 0x03151c);
-    public static final RegistryObject<EntityType<EntityLordVatticus>>		 LORD_VATTICUS 		  = registerEntity(EntityLordVatticus::new, 	  "lord_vatticus", 		  0.8F, 1.8F, 0x2d0701, 0xb91c20, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityParatiku>>			 PARATIKU 			  = registerEntity(EntityParatiku::new, 		  "paratiku", 			  0.5F, 0.9F, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityLeorna>>			 LEORNA 			  = registerEntity(EntityLeorna::new, 			  "leorna", 			  0.6F, 2.0F, 0x004f04, 0x0c7807, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityLivingStatue>>		 LIVING_STATUE 		  = registerEntity(EntityLivingStatue::new, 	  "living_statue", 		  0.6F, 2.0F, 0x04202e, 0x03151c);
+    public static final RegistryObject<EntityType<EntityLordVatticus>>		 LORD_VATTICUS 		  = registerEntity(EntityLordVatticus::new, 	  "lord_vatticus", 		  0.6F, 2.0F, 0x2d0701, 0xb91c20, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityParatiku>>			 PARATIKU 			  = registerEntity(EntityParatiku::new, 		  "paratiku", 			  0.7F, 1.4375F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityRazorback>>			 RAZORBACK 			  = registerEntity(EntityRazorback::new, 		  "razorback", 			  0.6F, 0.5F, 0x4d4d4d, 0x565656);
-    public static final RegistryObject<EntityType<EntityRoamer>>			 ROAMER 			  = registerEntity(EntityRoamer::new, 			  "roamer", 			  0.6F, 1.8F, 0x14293a, 0x2a5878);
+    public static final RegistryObject<EntityType<EntityRoamer>>			 ROAMER 			  = registerEntity(EntityRoamer::new, 			  "roamer", 			  0.6F, 1.75F, 0x14293a, 0x2a5878);
     public static final RegistryObject<EntityType<EntitySeimer>>			 SEIMER 			  = registerEntity(EntitySeimer::new, 			  "seimer", 			  1.0F, 1.0F, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntitySkyre>>			     SKYRE 			      = registerEntity(EntitySkyre::new, 			  "skyre", 			  0.5F, 0.3F,0x7400FF, 0x0035FF, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityWarGeneral>>		 WAR_GENERAL 		  = registerEntity(EntityWarGeneral::new, 		  "war_general", 		  0.8F, 2.0F, 0x272928, 0x1d326a, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntitySkyre>>			     SKYRE 			      = registerEntity(EntitySkyre::new, 			  "skyre", 			  0.4F, 0.5625F,0x7400FF, 0x0035FF, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityWarGeneral>>		 WAR_GENERAL 		  = registerEntity(EntityWarGeneral::new, 		  "war_general", 		  0.6F, 2.0F, 0x272928, 0x1d326a, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWraith>>			 WRAITH 			  = registerEntity(EntityWraith::new, 			  "wraith", 			  0.9F, 1.4F, 0x160d0d, 0xff0708, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityZelus>>				 ZELUS 				  = registerEntity(EntityZelus::new, 			  "zelus", 				  0.8F, 1.8F, 0x141414, 0x800706, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityZelus>>				 ZELUS 				  = registerEntity(EntityZelus::new, 			  "zelus", 				  0.6F, 2.0F, 0x141414, 0x800706, MobCategory.CREATURE);
 
     // Vethea
-    public static final RegistryObject<EntityType<EntityAcidHag>>			 ACID_HAG			  = registerEntity(EntityAcidHag::new,				"acid_hag",				 1.0F, 1.6F, 0x657b17, 0x7e4f19);
-    public static final RegistryObject<EntityType<EntityBiphron>>			 BIPHRON			  = registerEntity(EntityBiphron::new,				"biphron",				 1.0F, 4.0F, 0xf1dc1b, 0x5e5e5e);
+    public static final RegistryObject<EntityType<EntityAcidHag>>			 ACID_HAG			  = registerEntity(EntityAcidHag::new,				"acid_hag",				 0.9F, 1.7F, 0x657b17, 0x7e4f19);
+    public static final RegistryObject<EntityType<EntityBiphron>>			 BIPHRON			  = registerEntity(EntityBiphron::new,				"biphron",				 1.0F, 3.5F, 0xf1dc1b, 0x5e5e5e);
     public static final RegistryObject<EntityType<EntityBohemite>>			 BOHEMITE			  = registerEntity(EntityBohemite::new,				"bohemite",				 1.0F, 2.0F, 0x7d1818, 0xeb0016);
-    public static final RegistryObject<EntityType<EntityCryptKeeper>>		 CRYPT_KEEPER		  = registerEntity(EntityCryptKeeper::new,			"crypt_keeper",			 1.0F, 2.0F, 0x202f05, 0x4c6e08, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityCryptKeeper>>		 CRYPT_KEEPER		  = registerEntity(EntityCryptKeeper::new,			"crypt_keeper",			 0.6F, 2.0625F, 0x202f05, 0x4c6e08, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityCymesoid>>			 CYMESOID			  = registerEntity(EntityCymesoid::new,				"cymesoid",				 0.8F, 2.0F, 0x6dd4fa, 0x469afc);
-    public static final RegistryObject<EntityType<EntityDissiment>>			 DISSIMENT			  = registerEntity(EntityDissiment::new,			"dissiment",			 4.0F, 4.0F, 0xbec7e2, 0x2a65ff);
-    public static final RegistryObject<EntityType<EntityDreamwrecker>>		 DREAMWRECKER		  = registerEntity(EntityDreamwrecker::new,			"dreamwrecker",			 1.0F, 4.4F, 0xd7d7d7, 0x92dd91);
-    public static final RegistryObject<EntityType<EntityDuo>>				 DUO				  = registerEntity(EntityDuo::new,					"duo",					 1.0F, 2.0F, 0xec2f0c, 0x621000);
+    public static final RegistryObject<EntityType<EntityDissiment>>			 DISSIMENT			  = registerEntity(EntityDissiment::new,			"dissiment",			 1.5F, 2.5F, 0xbec7e2, 0x2a65ff);
+    public static final RegistryObject<EntityType<EntityDreamwrecker>>		 DREAMWRECKER		  = registerEntity(EntityDreamwrecker::new,			"dreamwrecker",			 1.0F, 4.5625F, 0xd7d7d7, 0x92dd91);
+    public static final RegistryObject<EntityType<EntityDuo>>				 DUO				  = registerEntity(EntityDuo::new,					"duo",					 1.0F, 2.25F, 0xec2f0c, 0x621000);
     public static final RegistryObject<EntityType<EntityEnt>>				 ENT				  = registerEntity(EntityEnt::new,					"ent",					 2.0F, 4.4F, 0x4c5645, 0x209633);
-    public static final RegistryObject<EntityType<EntityFakeVhraak>>		 FAKE_VHRAAK		  = registerEntity(EntityFakeVhraak::new,			"fake_vhraak",			 1.0F, 1.0F, 0x3f2626, 0x5d1a1a);
-    public static final RegistryObject<EntityType<EntityGalroid>>			 GALROID			  = registerEntity(EntityGalroid::new,				"galroid",				 1.0F, 3.0F, 0x141f51, 0x365196);
-    public static final RegistryObject<EntityType<EntityGorgosion>>			 GORGOSION			  = registerEntity(EntityGorgosion::new,			"gorgosion",			 2.0F, 1.6F, 0x8c13c5, 0xc98a39);
+    public static final RegistryObject<EntityType<EntityFakeVhraak>>		 FAKE_VHRAAK		  = registerEntity(EntityFakeVhraak::new,			"fake_vhraak",			 1.0F, 1.25F, 0x3f2626, 0x5d1a1a);
+    public static final RegistryObject<EntityType<EntityGalroid>>			 GALROID			  = registerEntity(EntityGalroid::new,				"galroid",				 1.0F, 2.5F, 0x141f51, 0x365196);
+    public static final RegistryObject<EntityType<EntityGorgosion>>			 GORGOSION			  = registerEntity(EntityGorgosion::new,			"gorgosion",			 2.0F, 1.75F, 0x8c13c5, 0xc98a39);
     public static final RegistryObject<EntityType<EntityHelio>>				 HELIO				  = registerEntity(EntityHelio::new,				"helio",				 1.0F, 2.0F, 0xb8b8b8, 0x757575);
-    public static final RegistryObject<EntityType<EntityHiveSoldier>>		 HIVE_SOLDIER		  = registerEntity(EntityHiveSoldier::new,			"hive_soldier",			 0.6F, 1.8F, 0xcbbf79, 0x68c66e);
-    public static final RegistryObject<EntityType<EntityHoverStinger>>		 HOVER_STINGER		  = registerEntity(EntityHoverStinger::new,			"hover_stinger",		 1.0F, 2.4F, 0xc4c53d, 0x57b90e);
-    public static final RegistryObject<EntityType<EntityKazrotic>>			 KAZROTIC			  = registerEntity(EntityKazrotic::new,				"kazrotic",				 1.0F, 2.0F, 0xda6f1c, 0x4a4a4a);
-    public static final RegistryObject<EntityType<EntityLheiva>>			 LHEIVA				  = registerEntity(EntityLheiva::new,				"lheiva",				 1.0F, 1.4F, 0x0817d0, 0x00006b);
-    public static final RegistryObject<EntityType<EntityLorga>>				 LORGA				  = registerEntity(EntityLorga::new,				"lorga",				 1.0F, 2.0F, 0xff641c, 0xfed31b);
-    public static final RegistryObject<EntityType<EntityLorgaflight>>		 LORGA_FLIGHT		  = registerEntity(EntityLorgaflight::new,			"lorga_flight",			 1.0F, 1.0F, 0xff641c, 0xfed31b);
+    public static final RegistryObject<EntityType<EntityHiveSoldier>>		 HIVE_SOLDIER		  = registerEntity(EntityHiveSoldier::new,			"hive_soldier",			 0.6F, 1.9375F, 0xcbbf79, 0x68c66e);
+    public static final RegistryObject<EntityType<EntityHoverStinger>>		 HOVER_STINGER		  = registerEntity(EntityHoverStinger::new,			"hover_stinger",		 0.7F, 2.1875F, 0xc4c53d, 0x57b90e);
+    public static final RegistryObject<EntityType<EntityKazrotic>>			 KAZROTIC			  = registerEntity(EntityKazrotic::new,				"kazrotic",				 1.2F, 2.9375F, 0xda6f1c, 0x4a4a4a);
+    public static final RegistryObject<EntityType<EntityLheiva>>			 LHEIVA				  = registerEntity(EntityLheiva::new,				"lheiva",				 1.0F, 1.5625F, 0x0817d0, 0x00006b);
+    public static final RegistryObject<EntityType<EntityLorga>>				 LORGA				  = registerEntity(EntityLorga::new,				"lorga",				 1.0F, 2.25F, 0xff641c, 0xfed31b);
+    public static final RegistryObject<EntityType<EntityLorgaflight>>		 LORGA_FLIGHT		  = registerEntity(EntityLorgaflight::new,			"lorga_flight",			 0.7F, 1.1875F, 0xff641c, 0xfed31b);
     public static final RegistryObject<EntityType<EntityMandragora>>		 MANDRAGORA			  = registerEntity(EntityMandragora::new,			"mandragora",			 1.0F, 2.0F, 0x178b1e, 0x0b3a0d);
-    public static final RegistryObject<EntityType<EntityMysteriousManLayer1>>MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",1.0F, 2.0F, 0x060000, 0xb11d1d, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityMysteriousManLayer2>>MYSTERIOUS_MAN_LAYER2= registerEntity(EntityMysteriousManLayer2::new,  "mysterious_man_layer_2",1.0F, 2.0F, 0x060000, 0x40b724, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityMysteriousManLayer3>>MYSTERIOUS_MAN_LAYER3= registerEntity(EntityMysteriousManLayer3::new,  "mysterious_man_layer_3",1.0F, 2.0F, 0x060000, 0x0049d0, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityShadahier>>			 SHADAHIER 			  = registerEntity(EntityShadahier::new,			"shadahier",			 0.8F, 1.3F, 0x252525, 0x972626);
+    public static final RegistryObject<EntityType<EntityMysteriousManLayer1>>MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",0.6F, 2.125F, 0x060000, 0xb11d1d, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMysteriousManLayer2>>MYSTERIOUS_MAN_LAYER2= registerEntity(EntityMysteriousManLayer2::new,  "mysterious_man_layer_2",0.6F, 2.125F, 0x060000, 0x40b724, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMysteriousManLayer3>>MYSTERIOUS_MAN_LAYER3= registerEntity(EntityMysteriousManLayer3::new,  "mysterious_man_layer_3",0.6F, 2.125F, 0x060000, 0x0049d0, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityShadahier>>			 SHADAHIER 			  = registerEntity(EntityShadahier::new,			"shadahier",			 0.8F, 1.375F, 0x252525, 0x972626);
     public static final RegistryObject<EntityType<EntityTheHunger>>			 THE_HUNGER			  = registerEntity(EntityTheHunger::new,			"the_hunger",			 0.8F, 2.0F, 0x1e1e1e, 0xaa7d66, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityTempleGuardian>>	 TEMPLE_GUARDIAN	  = registerEntity(EntityTempleGuardian::new, 		"temple_guardian",		 2.0F, 4.4F, 0x25340a, 0x547412);
-    public static final RegistryObject<EntityType<EntityTocaxin>>			 TOCAXIN			  = registerEntity(EntityTocaxin::new, 				"tocaxin",				 1.0F, 3.3F, 0xceb89e, 0x5f5143);
-    public static final RegistryObject<EntityType<EntityTwins>>				 TWINS				  = registerEntity(EntityTwins::new, 				"twins",				 1.0F, 2.0F, 0x3ab921, 0xb3d400);
-    public static final RegistryObject<EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			 1.0F, 3.0F, 0x581b15, 0xa55f12);
-    public static final RegistryObject<EntityType<EntityVhraak>>			 VHRAAK				  = registerEntity(EntityVhraak::new, 				"vhraak",				 1.0F, 1.0F, 0x3f2626, 0x5d1a1a);
-    public static final RegistryObject<EntityType<EntityZone>>				 ZONE				  = registerEntity(EntityZone::new, 				"zone",					 1.0F, 1.3F, 0xb31c15, 0xaf9311);
-    public static final RegistryObject<EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 4.0F, 4.0F, 0xc71a1a, 0x0613c0);
+    public static final RegistryObject<EntityType<EntityTempleGuardian>>	 TEMPLE_GUARDIAN	  = registerEntity(EntityTempleGuardian::new, 		"temple_guardian",		 0.6F, 2.0F, 0x25340a, 0x547412);
+    public static final RegistryObject<EntityType<EntityTocaxin>>			 TOCAXIN			  = registerEntity(EntityTocaxin::new, 				"tocaxin",				 1.0F, 3.5F, 0xceb89e, 0x5f5143);
+    public static final RegistryObject<EntityType<EntityTwins>>				 TWINS				  = registerEntity(EntityTwins::new, 				"twins",				 1.0F, 2.25F, 0x3ab921, 0xb3d400);
+    public static final RegistryObject<EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			 1.0F, 2.9375F, 0x581b15, 0xa55f12);
+    public static final RegistryObject<EntityType<EntityVhraak>>			 VHRAAK				  = registerEntity(EntityVhraak::new, 				"vhraak",				 1.0F, 1.25F, 0x3f2626, 0x5d1a1a);
+    public static final RegistryObject<EntityType<EntityZone>>				 ZONE				  = registerEntity(EntityZone::new, 				"zone",					 1.0F, 1.4375F, 0xb31c15, 0xaf9311);
+    public static final RegistryObject<EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 3.8F, 3.75F, 0xc71a1a, 0x0613c0);
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {

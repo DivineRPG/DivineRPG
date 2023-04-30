@@ -20,7 +20,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttac
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8F;
+        return 0.8125F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

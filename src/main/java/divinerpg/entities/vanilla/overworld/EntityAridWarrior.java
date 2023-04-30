@@ -21,7 +21,7 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
         super(type, worldIn);
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.25F;
+        return 2.3125F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

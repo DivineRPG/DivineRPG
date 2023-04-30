@@ -16,7 +16,7 @@ public class EntityGlacon extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3F;
+        return 1.21875F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

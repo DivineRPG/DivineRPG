@@ -18,7 +18,7 @@ public class EntityCryptKeeper extends EntityGifterNPC {
 	}
     
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.6F;
+        return 1.9275F;
     }
 
     @Override

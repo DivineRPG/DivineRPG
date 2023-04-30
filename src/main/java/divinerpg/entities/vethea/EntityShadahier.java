@@ -17,7 +17,7 @@ public class EntityShadahier extends EntityDivineMonster {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.1F;
+        return 1.25F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

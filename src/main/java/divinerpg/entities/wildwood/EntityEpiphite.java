@@ -17,7 +17,7 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-    	return 1.1F;
+    	return 0.875F;
     }
 
     @Override

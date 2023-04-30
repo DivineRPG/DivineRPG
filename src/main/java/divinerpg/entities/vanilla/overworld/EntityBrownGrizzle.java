@@ -25,7 +25,7 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
         this.targetSelector.addGoal(3, (new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this)).setAlertOthers());
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.2F;
+        return 1.22F;
     }
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!this.level.isClientSide) {

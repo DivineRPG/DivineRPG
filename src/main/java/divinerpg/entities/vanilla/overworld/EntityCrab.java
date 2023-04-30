@@ -15,7 +15,7 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
         xpReward=40;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.6F;
+        return 0.4375F;
     }
     @Override
     protected SoundEvent getAmbientSound() {

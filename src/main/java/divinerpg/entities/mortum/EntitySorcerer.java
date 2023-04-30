@@ -13,8 +13,5 @@ public class EntitySorcerer extends EntityMageBase {
         super(type, worldIn, BulletType.SORCERER_SHOT);
     }
 
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.75F;
-    }
     @Override public boolean fireImmune() {return true;}
 }
