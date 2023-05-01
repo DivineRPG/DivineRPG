@@ -7,7 +7,7 @@
 	"has_raids": false,
 	"has_skylight": true,
 	"has_ceiling": false,
-	"coordinate_scale": 2,
+	"coordinate_scale": 1,
 	"ambient_light": 0,
 	"fixed_time": 10000,
 	"logical_height": 244,
