@@ -28,14 +28,14 @@ public class ModelDesertCrawler extends EntityModel<EntityDesertCrawler> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition spine = partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -4.0F, -8.5F, 8.0F, 6.0F, 17.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 14.0F, -0.5F));
+		PartDefinition spine = partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 8.0F, 6.0F, 17.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 14.0F, -0.5F));
 
-		PartDefinition skull = partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 23).addBox(-4.0F, -21.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-		.texOffs(24, 18).addBox(-4.0F, -25.0F, -5.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(44, 46).addBox(4.0F, -16.0F, -10.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(42, 37).addBox(-5.0F, -16.0F, -10.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(24, 22).addBox(4.0F, -25.0F, -5.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)),
-				PartPose.offset(0.0F, 25.0F, -5.5F));
+		PartDefinition skull = partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 23).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+		.texOffs(24, 18).addBox(-4.0F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(44, 46).addBox(4.0F, 1.0F, -6.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
+		.texOffs(42, 37).addBox(-5.0F, 1.0F, -6.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
+		.texOffs(24, 22).addBox(4.0F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(0.0F, 6.0F, -8.0F));
 
 		PartDefinition leftfullarm = partdefinition.addOrReplaceChild("leftfullarm", CubeListBuilder.create().texOffs(0, 39).addBox(0.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 16.0F, -5.5F));
 
@@ -47,7 +47,7 @@ public class ModelDesertCrawler extends EntityModel<EntityDesertCrawler> {
 		PartDefinition leftfullleg = partdefinition.addOrReplaceChild("leftfullleg", CubeListBuilder.create().texOffs(33, 0).addBox(0.0F, -2.0F, -2.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(30, 43).addBox(1.0F, 2.0F, 3.0F, 4.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 15.0F, 3.0F));
 
-		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(40, 23).addBox(-4.0F, -14.0F, -11.0F, 8.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(40, 23).addBox(-4.0F, -14.0F, -11.0F, 8.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 2.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
@@ -56,21 +56,21 @@ public class ModelDesertCrawler extends EntityModel<EntityDesertCrawler> {
 	public void prepareMobModel(EntityDesertCrawler entity, float limbSwing, float limbSwingAmount, float p_102617_) {
 		super.prepareMobModel(entity, limbSwing, limbSwingAmount, p_102617_);
 		if(!entity.hasSeen()){
-			this.spine.setPos(0.0F, 18.0F, 0.0F);
-			this.spine.xRot = ((float)Math.PI * 4.75F);
-			this.rightLeg.setPos(-2.5F, 22.7F, 2.0F);
+			this.spine.setPos(-1.0F, 14.0F, -4.0F);
+			this.spine.xRot = ((float)Math.PI * 1.785398F);
+			this.rightLeg.setPos(-2.5F, 18.0F, 4.0F);
 			this.rightLeg.xRot = ((float)Math.PI * 1.5F);
-			this.leftLeg.setPos(0.5F, 22.7F, 2.0F);
+			this.leftLeg.setPos(2.5F, 18.0F, 4.0F);
 			this.leftLeg.xRot = ((float)Math.PI * 1.5F);
 			this.rightArm.xRot = 5.811947F;
-			this.rightArm.setPos(-2.49F, 17.0F, -4.0F);
+			this.rightArm.setPos(-4.0F, 14.0F, -4.0F);
 			this.leftArm.xRot = 5.811947F;
-			this.leftArm.setPos(0.51F, 17.0F, -4.0F);
+			this.leftArm.setPos(4.0F, 14.0F, -4.0F);
 		} else {
-			this.rightLeg.setPos(-2.5F, 16.0F, 2.0F);
-			this.leftLeg.setPos(0.5F, 16.0F, 2.0F);
-			this.rightArm.setPos(-2.5F, 16.0F, -4.0F);
-			this.leftArm.setPos(0.5F, 16.0F, -4.0F);
+			this.rightLeg.setPos(-2.5F, 15.0F, 5.0F);
+			this.leftLeg.setPos(2.5F, 15.0F, 5.0F);
+			this.rightArm.setPos(-4.0F, 14.0F, -4.0F);
+			this.leftArm.setPos(4.0F, 14.0F, -4.0F);
 			this.spine.setPos(-1.0F, 14.0F, -3.0F);
 			this.spine.xRot = ((float)Math.PI / 0.125F);
 			this.leftArm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);

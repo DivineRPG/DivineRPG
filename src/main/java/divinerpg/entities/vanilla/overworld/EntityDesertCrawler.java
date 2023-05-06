@@ -57,7 +57,6 @@ public class EntityDesertCrawler extends EntityCrawler {
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
