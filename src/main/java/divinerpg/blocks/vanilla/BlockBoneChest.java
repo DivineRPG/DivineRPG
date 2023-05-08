@@ -14,7 +14,7 @@ import javax.annotation.*;
 public class BlockBoneChest extends BlockModChest {
 
     public BlockBoneChest() {
-        super(Properties.of(Material.STONE).noOcclusion().sound(SoundType.STONE).strength(2.5F), () -> BlockEntityRegistry.BONE_CHEST.get());
+        super(Properties.of(Material.STONE).noOcclusion().sound(SoundType.BONE_BLOCK).strength(2.5F), () -> BlockEntityRegistry.BONE_CHEST.get());
     }
 
     @Nullable

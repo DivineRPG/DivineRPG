@@ -22,7 +22,8 @@ public class RenderDemonFurnace implements BlockEntityRenderer<DemonFurnaceBlock
     public void render(DemonFurnaceBlockEntity te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrixStack.pushPose();
         matrixStack.translate(0.5D, 0.5D, 0.5D);
-        matrixStack.mulPose(Axis.YP.rotationDegrees(te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot() + 180));
+        matrixStack.mulPose(Axis.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
+        matrixStack.mulPose(Axis.YN.rotationDegrees(180));
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(te.getBlockState().getValue(BlockStateProperties.LIT) ? on : off));
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();

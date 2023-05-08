@@ -25,7 +25,7 @@ public class RenderFrostedChest implements BlockEntityRenderer<FrostedChestBlock
             matrix.mulPose(Axis.XN.rotationDegrees(180));
             matrix.translate(-0.5D, -0.5D, -0.5D);
         }
-        float lidAngle = tile.getOpenNess(1F);
+        float lidAngle = tile.getOpenNess(partialTick);
         lidAngle = 1.0F - lidAngle;
         lidAngle = 1.0F - lidAngle * lidAngle * lidAngle;
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/frosted_chest.png")));
