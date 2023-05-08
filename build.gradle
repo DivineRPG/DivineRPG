@@ -86,8 +86,8 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.7") //Just Enough Items
     runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-common:13.1.0.7") //Just Enough Items
     runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.7") //Just Enough Items
-//    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
-//    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:3951643") //Just Enough Resources
+    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
+    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
     runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.4:18.0.1") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
