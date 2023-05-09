@@ -31,14 +31,14 @@ public class ModelWhale extends EntityModel<EntityWhale> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 6.0F, 24.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(-5.0F, 18.0F, -9.0F));
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 8.0F, 6.0F, 24.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(-4.0F, 18.0F, -9.0F));
 
-		partdefinition.addOrReplaceChild("flipperL", CubeListBuilder.create().texOffs(0, 42).mirror().addBox(0.0F, 0.0F, -3.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(2.0F, 21.0F, 0.0F));
+		partdefinition.addOrReplaceChild("flipperL", CubeListBuilder.create().texOffs(0, 42).mirror().addBox(0.0F, 0.0F, -3.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(3.0F, 21.0F, 0.0F));
 
-		partdefinition.addOrReplaceChild("flipperR", CubeListBuilder.create().texOffs(0, 42).mirror().addBox(-6.0F, 0.0F, -3.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(-4.0F, 21.0F, 0.0F));
+		partdefinition.addOrReplaceChild("flipperR", CubeListBuilder.create().texOffs(0, 42).mirror().addBox(-6.0F, 0.0F, -3.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(-3.0F, 21.0F, 0.0F));
 
 		partdefinition.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 58).mirror().addBox(-6.0F, 0.0F, 6.0F, 12.0F, 2.0F, 4.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(0, 42).mirror().addBox(-3.0F, 0.0F, 0.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(-1.0F, 19.0F, 15.0F));
+		.texOffs(0, 42).mirror().addBox(-3.0F, 0.0F, 0.0F, 6.0F, 2.0F, 6.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(0.0F, 19.0F, 15.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
