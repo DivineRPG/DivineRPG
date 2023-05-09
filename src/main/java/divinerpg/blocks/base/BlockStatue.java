@@ -73,7 +73,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
         		return InteractionResult.CONSUME;
         	}
     	}
-    	if(!player.isCrouching() && statueSound != null && player.level.isClientSide) {
+    	if(!player.isCrouching() && statueSound != null) {
     		world.playSound(null, pos, statueSound.get(), SoundSource.BLOCKS, 20.0F, 1.0F);
     		return InteractionResult.SUCCESS;
         }
