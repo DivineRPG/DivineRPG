@@ -19,7 +19,7 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BlockMobPumpkin(Supplier<SoundEvent> sound) {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE)
+        super(Block.Properties.of(Material.VEGETABLE, MaterialColor.STONE)
                 .strength(1.0F, 1.0F)
                 .sound(SoundType.WOOD));
         this.sound = sound;
@@ -29,7 +29,7 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         if (!player.isCrouching() && sound != null) {
-            worldIn.playSound(player, pos, sound.get(), SoundSource.BLOCKS, 20.0F, 1.0F);
+            worldIn.playSound(player, pos, sound.get(), SoundSource.BLOCKS, 3.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
