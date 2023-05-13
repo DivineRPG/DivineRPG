@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left",
-  "render_type": "cutout_mipped",
+  "render_type": "cutout",
   "textures": {
     "bottom": "divinerpg:block/apalachia_door_bottom",
     "top": "divinerpg:block/apalachia_door_top"

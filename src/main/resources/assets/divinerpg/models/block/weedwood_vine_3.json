@@ -1,6 +1,6 @@
 {
   "ambientocclusion": false,
-  "render_type": "cutout_mipped",
+  "render_type": "cutout",
   "textures": {
     "particle": "divinerpg:block/weedwood_vine",
     "vine": "divinerpg:block/weedwood_vine"

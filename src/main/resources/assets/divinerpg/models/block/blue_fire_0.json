@@ -1,6 +1,6 @@
 {
   "parent": "block/template_fire_floor",
-  "render_type": "translucent",
+  "render_type": "cutout_mipped",
   "textures": {
     "fire": "divinerpg:block/blue_fire_0",
     "particle": "divinerpg:block/blue_fire_0"

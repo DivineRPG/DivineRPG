@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/door_top_left",
-  "render_type": "cutout_mipped",
+  "render_type": "cutout",
   "textures": {
     "bottom": "divinerpg:block/eucalyptus_door_bottom",
     "top": "divinerpg:block/eucalyptus_door_top"

@@ -3,7 +3,7 @@
     "texture": "divinerpg:block/yellow_fairy_lights",
     "particle": "divinerpg:block/yellow_fairy_lights"
   },
-  "render_type": "cutout_mipped",
+  "render_type": "cutout",
   "ambientocclusion": false,
   "elements": [
     {

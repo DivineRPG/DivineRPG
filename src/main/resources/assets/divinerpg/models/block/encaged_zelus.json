@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
-  "render_type": "translucent",
+  "render_type": "cutout",
   "textures": {
     "all": "divinerpg:block/encaged_zelus"
   }

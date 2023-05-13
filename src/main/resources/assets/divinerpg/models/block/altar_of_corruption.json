@@ -1,5 +1,5 @@
 {   "parent": "block/block",
-  "render_type": "translucent",
+  "render_type": "cutout_mipped",
   "textures": {
     "particle": "divinerpg:block/altar_of_corruption_bottom",
     "bottom": "divinerpg:block/altar_of_corruption_bottom",
