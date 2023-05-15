@@ -79,6 +79,7 @@ repositories {
     maven { url 'https://maven.blamejared.com'}
     maven { url "https://maven.shedaniel.me" }
     maven { url = uri("https://maven.architectury.dev/") }
+    maven { url = uri("https://maven.blakesmods.com") }
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.4-45.0.22'
@@ -98,9 +99,9 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4461804") //MmmMmmMmmMmm (Target Dummy)
     runtimeOnly fg.deobf("curse.maven:jade-324717:4439089") //Jade
 //    runtimeOnly fg.deobf("curse.maven:curios-309927:4440280") //Curios (needed for bauble slots)
-//    runtimeOnly fg.deobf("curse.maven:cucumber-272335:4284311") // Cucumber
-//    runtimeOnly fg.deobf("curse.maven:mysticalagriculture-246640:4344031") // Mystical Agriculture
-//    runtimeOnly fg.deobf("curse.maven:mysticalcustomization-280441:4284327") // Mystical Customization
+    implementation fg.deobf('com.blakebr0.cucumber:Cucumber:1.19.4-6.2.0')
+    implementation fg.deobf('com.blakebr0.mysticalagriculture:MysticalAgriculture:1.19.4-6.2.0')
+    implementation fg.deobf('com.blakebr0.mysticalcustomization:MysticalCustomization:1.19.4-4.2.0')
     runtimeOnly fg.deobf("curse.maven:model-gap-fix-676136:4428800") // Model Gap Fix
 }
 
