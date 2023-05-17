@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 9,
+      "weight": 16,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 8,
+      "weight": 14,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 5,
+      "weight": 7,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",

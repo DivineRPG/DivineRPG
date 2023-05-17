@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
-        "location": "divinerpg:iceika/gruzzorlug/left_turn",
+        "location": "divinerpg:iceika/gruzzorlug/building_left",
         "processors": "minecraft:empty"
       }
     },
@@ -25,12 +25,57 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_right",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_junction",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_left_junction",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_right_junction",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/left_turn",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
         "location": "divinerpg:iceika/gruzzorlug/right_turn",
         "processors": "minecraft:empty"
       }
     },
     {
-      "weight": 7,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -39,7 +84,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -48,7 +93,25 @@
       }
     },
     {
-      "weight": 7,
+      "weight": 8,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_junction_left",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/building_junction_right",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -57,7 +120,7 @@
       }
     },
     {
-      "weight": 7,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -66,20 +129,11 @@
       }
     },
     {
-      "weight": 3,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/mine_entrance",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
       "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/gate",
+        "location": "divinerpg:iceika/gruzzorlug/mine_entrance",
         "processors": "minecraft:empty"
       }
     }

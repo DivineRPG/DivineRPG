@@ -6,8 +6,8 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/wall",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/gruzzorlug/wall/front_right",
         "processors": "minecraft:empty"
       }
     }
