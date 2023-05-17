@@ -10,16 +10,6 @@
     "divinerpg:raw_arlemite_block",
     "divinerpg:raw_rupee_block",
     "divinerpg:bloodgem_ore",
-    "divinerpg:bloodgem_block",
-    "divinerpg:black_steel",
-    "divinerpg:blue_steel",
-    "divinerpg:bright_red_steel",
-    "divinerpg:green_steel",
-    "divinerpg:orange_steel",
-    "divinerpg:purple_steel",
-    "divinerpg:red_steel",
-    "divinerpg:white_steel",
-    "divinerpg:yellow_steel",
-    "divinerpg:teal_steel"
+    "divinerpg:bloodgem_block"
   ]
 }

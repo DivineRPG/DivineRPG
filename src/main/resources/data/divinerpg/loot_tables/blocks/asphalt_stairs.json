@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:frozen_bricks"
+          "name": "divinerpg:asphalt_stairs"
         }
       ],
       "conditions": [

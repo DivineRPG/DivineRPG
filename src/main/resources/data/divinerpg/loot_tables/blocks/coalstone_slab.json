@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:frozen_bricks"
+          "name": "divinerpg:coalstone_slab"
         }
       ],
       "conditions": [
