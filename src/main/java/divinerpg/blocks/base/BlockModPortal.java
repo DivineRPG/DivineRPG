@@ -31,9 +31,10 @@ public class BlockModPortal extends BlockMod {
 
     public BlockModPortal(Block frame) {
         super(BlockBehaviour.Properties.of(Material.PORTAL)
-                .strength(-1F)
+                .strength(-1F, 0F)
                 .noCollission()
                 .lightLevel((state) -> 11)
+                .sound(SoundType.GLASS)
         );
 //        this.frame=frame;
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));

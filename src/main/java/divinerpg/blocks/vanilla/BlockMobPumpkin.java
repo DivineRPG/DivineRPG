@@ -18,10 +18,11 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
     private final Supplier<SoundEvent> sound;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    public BlockMobPumpkin(Supplier<SoundEvent> sound) {
-        super(Block.Properties.of(Material.VEGETABLE, MaterialColor.STONE)
+    public BlockMobPumpkin(Supplier<SoundEvent> sound, MaterialColor color) {
+        super(Block.Properties.of(Material.VEGETABLE)
                 .strength(1.0F, 1.0F)
-                .sound(SoundType.WOOD));
+                .sound(SoundType.WOOD)
+                .color(color));
         this.sound = sound;
         registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
