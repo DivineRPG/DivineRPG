@@ -40,7 +40,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         return true;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.6F;
+        return 3.0F;
     }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
         return level.dimension() == Level.OVERWORLD;

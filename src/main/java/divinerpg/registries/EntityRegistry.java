@@ -130,7 +130,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySoulFiend>>		 SOUL_FIEND 		= registerEntity(EntitySoulFiend::new, 		"soul_fiend", 		0.8F, 2.0F);
     public static final RegistryObject<EntityType<EntitySunstorm>>		 SUNSTORM 			= registerEntity(EntitySunstorm::new, 		"sunstorm", 		0.9F, 3.0F);
     public static final RegistryObject<EntityType<EntityTermasect>>		 TERMASECT 			= registerEntity(EntityTermasect::new, 		"termasect", 		5.9F, 8.0F);
-    public static final RegistryObject<EntityType<EntityTheWatcher>>	 THE_WATCHER 		= registerEntity(EntityTheWatcher::new, 	"the_watcher", 		4.0F, 4.0F);
+    public static final RegistryObject<EntityType<EntityTheWatcher>>	 THE_WATCHER 		= registerEntity(EntityTheWatcher::new, 	"the_watcher", 		3.875F, 4.875F);
     public static final RegistryObject<EntityType<EntityTwilightDemon>>  TWILIGHT_DEMON 	= registerEntity(EntityTwilightDemon::new, 	"twilight_demon", 	2.0F, 4.0F);
     public static final RegistryObject<EntityType<EntityVamacheron>>	 VAMACHERON 		= registerEntity(EntityVamacheron::new, 	"vamacheron", 		1.45F,2.25F);
     public static final RegistryObject<EntityType<EntityWreck>>			 WRECK 				= registerEntity(EntityWreck::new, 			"wreck", 			1.5F, 2.0F);
