@@ -29,7 +29,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     public static final EnumProperty<BlockColor> COLOR = BlockColor.COLOR;
     private Supplier<SoundEvent> statueSound;
     public BlockStatue(Supplier<SoundEvent> soundIn) {
-        super(BlockBehaviour.Properties.of(Material.STONE).strength(6.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops());
+        super(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops());
         registerDefaultState(stateDefinition.any().setValue(COLOR, BlockColor.WHITE));
         statueSound = soundIn;
     }

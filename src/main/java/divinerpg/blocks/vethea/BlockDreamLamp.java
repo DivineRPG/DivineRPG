@@ -21,7 +21,7 @@ import javax.annotation.*;
 public class BlockDreamLamp extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public BlockDreamLamp() {
-        super(Block.Properties.of(Material.BUILDABLE_GLASS, MaterialColor.COLOR_GREEN).strength(3.0F));
+        super(Block.Properties.of(Material.BUILDABLE_GLASS, MaterialColor.COLOR_LIGHT_GRAY).strength(0.3F).sound(SoundType.GLASS));
         this.registerDefaultState(this.getStateDefinition().any().setValue(POWERED, false));
     }
     @Override

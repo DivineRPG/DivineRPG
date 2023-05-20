@@ -8,13 +8,13 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
 public class BlockModBridge extends BlockModPowered {
-    public BlockModBridge(float hardness) {
+    public BlockModBridge() {
         super(Block.Properties
-                .of(Material.GLASS)
-                .strength(hardness, 3.0F)
-                .requiresCorrectToolForDrops()
+                .of(Material.BUILDABLE_GLASS)
+                .strength(0.3F)
                 .isViewBlocking(BlockModBridge::never)
                 .noOcclusion()
+                .sound(SoundType.GLASS)
         );
     }
     private static boolean never(BlockState state, BlockGetter reader, BlockPos pos) {

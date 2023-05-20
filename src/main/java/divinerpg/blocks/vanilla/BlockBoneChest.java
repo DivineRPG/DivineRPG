@@ -1,12 +1,12 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import divinerpg.block_entities.chests.*;
-import net.minecraft.core.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
+import divinerpg.block_entities.chests.BoneChestBlockEntity;
+import divinerpg.blocks.base.BlockModChest;
+import divinerpg.registries.BlockEntityRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 
 import javax.annotation.*;
@@ -14,7 +14,7 @@ import javax.annotation.*;
 public class BlockBoneChest extends BlockModChest {
 
     public BlockBoneChest() {
-        super(Properties.of(Material.STONE).noOcclusion().sound(SoundType.BONE_BLOCK).strength(2.5F), () -> BlockEntityRegistry.BONE_CHEST.get());
+        super(Properties.of(Material.STONE, MaterialColor.WOOL).requiresCorrectToolForDrops().strength(2.5F).noOcclusion().sound(SoundType.BONE_BLOCK), () -> BlockEntityRegistry.BONE_CHEST.get());
     }
 
     @Nullable

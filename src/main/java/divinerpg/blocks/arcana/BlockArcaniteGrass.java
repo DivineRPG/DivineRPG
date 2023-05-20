@@ -7,7 +7,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcaniteGrass extends BlockModGrass {
-    public BlockArcaniteGrass(float hardness) {
-        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_dirt")), hardness, MaterialColor.COLOR_BLUE);
+    public BlockArcaniteGrass() {
+        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_dirt")), MaterialColor.LAPIS);
     }
 }

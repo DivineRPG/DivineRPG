@@ -1,17 +1,18 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.DivineRPG;
-import divinerpg.entities.boss.*;
-import divinerpg.registries.*;
+import divinerpg.entities.boss.EntityLadyLuna;
+import divinerpg.registries.EntityRegistry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockLunicAltar extends BlockVetheaAltar {
-    public BlockLunicAltar() {
-        super();
+    public BlockLunicAltar(MaterialColor color) {
+        super(color);
     }
 
     protected Item acceptedItem() {

@@ -5,11 +5,12 @@ import divinerpg.entities.projectile.*;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class BlockHelioticBeam extends BlockModUnbreakable {
 
     public BlockHelioticBeam() {
-        super();
+        super(MaterialColor.WOOL);
     }
 
     public void dropBomb(Level w, BlockPos pos) {

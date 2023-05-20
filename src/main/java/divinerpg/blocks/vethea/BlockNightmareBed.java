@@ -22,7 +22,7 @@ import net.minecraftforge.server.command.TextComponentHelper;
 public class BlockNightmareBed extends BedBlock {
 
     public BlockNightmareBed() {
-        super(DyeColor.BLACK, Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_GRAY).strength(0.2F, 0.2F).sound(SoundType.STONE));
+        super(DyeColor.BLACK, Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_GRAY).strength(0.2F).sound(SoundType.STONE));
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {

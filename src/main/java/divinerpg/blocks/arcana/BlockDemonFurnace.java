@@ -2,18 +2,18 @@ package divinerpg.blocks.arcana;
 
 import javax.annotation.Nullable;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.block_entities.furnace.*;
-import net.minecraft.world.level.*;
+import divinerpg.blocks.base.BlockModInfiniFurnace;
+import divinerpg.registries.BlockEntityRegistry;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 
 public class BlockDemonFurnace extends BlockModInfiniFurnace {
     public BlockDemonFurnace() {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).noOcclusion(), () -> BlockEntityRegistry.DEMON_FURNACE.get());
+        super(Block.Properties.of(Material.STONE, MaterialColor.FIRE).requiresCorrectToolForDrops().strength(3.5F).noOcclusion(), () -> BlockEntityRegistry.DEMON_FURNACE.get());
     }
     @Nullable
     @Override

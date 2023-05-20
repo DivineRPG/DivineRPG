@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 
 public class BlockModBookshelf extends BlockMod {
-    public BlockModBookshelf(float hardness, MaterialColor color) {
-        super(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(hardness, 6.0F).color(color).sound(SoundType.STONE));
+    public BlockModBookshelf(MaterialColor color) {
+        super(Block.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(2F, 6.0F).sound(SoundType.STONE));
     }
 
 

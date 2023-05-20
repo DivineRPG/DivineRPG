@@ -20,7 +20,7 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
 
     public BlockMobPumpkin(Supplier<SoundEvent> sound, MaterialColor color) {
         super(Block.Properties.of(Material.VEGETABLE)
-                .strength(1.0F, 1.0F)
+                .strength(1.0F)
                 .sound(SoundType.WOOD)
                 .color(color));
         this.sound = sound;

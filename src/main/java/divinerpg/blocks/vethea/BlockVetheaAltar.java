@@ -9,12 +9,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 public abstract class BlockVetheaAltar extends BlockModUnbreakable {
 
-    protected BlockVetheaAltar() {
-        super();
+    protected BlockVetheaAltar(MaterialColor color) {
+        super(color);
     }
 
     @Override

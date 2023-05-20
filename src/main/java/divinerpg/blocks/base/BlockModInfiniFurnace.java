@@ -27,8 +27,8 @@ import net.minecraft.world.phys.*;
 
 public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public final Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntityType;
-	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
+	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity, MaterialColor color) {
+        super(Block.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(3.5F));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
     }

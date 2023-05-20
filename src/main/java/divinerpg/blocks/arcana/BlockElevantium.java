@@ -20,12 +20,12 @@ public class BlockElevantium extends BlockMod {
     protected static final VoxelShape ELEVANTIUM = Shapes.or(Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D), Block.box(4.0D, 1.0D, 4.0D, 12.0D, 2.0D, 12.0D));
 
     public BlockElevantium() {
-        super(Block.Properties.of(Material.HEAVY_METAL, MaterialColor.COLOR_LIGHT_GREEN)
+        super(Block.Properties.of(Material.HEAVY_METAL, MaterialColor.GRASS)
                 .requiresCorrectToolForDrops()
-                .strength(3.0F, 20.0F)
+                .strength(5F, 6F)
                 .randomTicks()
                 .jumpFactor(2)
-                .sound(SoundType.WOOD));
+                .sound(SoundType.METAL));
     }
 
     @Override

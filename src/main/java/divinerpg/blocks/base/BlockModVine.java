@@ -7,14 +7,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 
 public class BlockModVine extends VineBlock {
-    public BlockModVine() {
-        super(Block.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_LIGHT_BLUE)
+    public BlockModVine(MaterialColor color) {
+        super(Block.Properties.of(Material.REPLACEABLE_PLANT, color)
                 .dynamicShape()
                 .randomTicks()
                 .noCollission()
                 .noOcclusion()
                 .strength(0.2F)
-                .sound(SoundType.WET_GRASS));
+                .sound(SoundType.VINE));
     }
 
 

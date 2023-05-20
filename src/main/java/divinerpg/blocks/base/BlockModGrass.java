@@ -16,10 +16,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
+import static net.minecraft.world.level.material.MaterialColor.DIAMOND;
+
 public class BlockModGrass extends BlockMod implements BonemealableBlock {
     protected final Supplier<Block> dirtSupplier;
-    public BlockModGrass(Supplier<Block> dirt, float hardness, MaterialColor colour) {
-        super(Block.Properties.of(Material.GRASS, colour).randomTicks().strength(hardness, 3.0F).sound(SoundType.GRASS));
+    public BlockModGrass(Supplier<Block> dirt, MaterialColor colour) {
+        super(Block.Properties.of(Material.GRASS, colour).randomTicks().strength(0.6F).sound(SoundType.GRASS));
+        dirtSupplier = dirt;
+    }
+    public BlockModGrass(Supplier<Block> dirt) {
+        super(Block.Properties.of(Material.STONE, DIAMOND).randomTicks().strength(2F, 6F));
         dirtSupplier = dirt;
     }
     @Override

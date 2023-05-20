@@ -30,6 +30,16 @@
     "divinerpg:torridite_lamp",
     "divinerpg:realmite_lamp",
     "divinerpg:redstone_ore_lamp",
-    "divinerpg:rupee_lamp"
+    "divinerpg:rupee_lamp",
+    "divinerpg:spike_block",
+    "divinerpg:hot_spike_block",
+    "divinerpg:arcanium_metal_breakable",
+    "divinerpg:elevantium",
+    "divinerpg:acceleron",
+    "divinerpg:steel_door",
+    "divinerpg:barred_door",
+    "divinerpg:arcana_portal_frame",
+    "divinerpg:raw_arcanium",
+    "divinerpg:arcanium_block"
   ]
 }

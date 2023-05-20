@@ -1,17 +1,17 @@
 package divinerpg.blocks.iceika;
 
-import divinerpg.blocks.base.*;
+import divinerpg.block_entities.chests.FrostedChestBlockEntity;
+import divinerpg.blocks.base.BlockModChest;
 import divinerpg.registries.*;
-import divinerpg.block_entities.chests.*;
-import net.minecraft.core.*;
-import net.minecraft.server.level.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.api.distmarker.*;
 
@@ -20,7 +20,7 @@ import javax.annotation.*;
 public class BlockFrostedChest extends BlockModChest {
 
     public BlockFrostedChest() {
-        super(Properties.of(Material.GLASS).strength(2.5F).sound(SoundType.GLASS), () -> BlockEntityRegistry.FROSTED_CHEST.get());
+        super(Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).strength(2.5F).sound(SoundType.GLASS), () -> BlockEntityRegistry.FROSTED_CHEST.get());
     }
 
     @Nullable
@@ -78,6 +78,4 @@ public class BlockFrostedChest extends BlockModChest {
             }
         }
     }
-
-
 }

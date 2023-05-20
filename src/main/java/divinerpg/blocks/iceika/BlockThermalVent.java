@@ -19,7 +19,7 @@ public class BlockThermalVent extends BlockMod implements SimpleWaterloggedBlock
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final VoxelShape AABB = Block.box(2D, 0D, 2D, 14D, 14D, 14D);
 	public BlockThermalVent() {
-		super(Properties.copy(Blocks.POINTED_DRIPSTONE).color(MaterialColor.COLOR_BLACK));
+		super(Properties.copy(Blocks.POINTED_DRIPSTONE).color(MaterialColor.STONE).requiresCorrectToolForDrops());
 		registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, Boolean.valueOf(true)));
 	}
 	@Override

@@ -38,7 +38,7 @@ public class BlockKarosDispenser extends BaseEntityBlock {
     }
 
     public BlockKarosDispenser() {
-        super(BlockBehaviour.Properties.of(Material.STONE).strength(-1, 6000000F));
+        super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.PLANT).strength(-1, 3600000F));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, Boolean.valueOf(false)));
     }
 

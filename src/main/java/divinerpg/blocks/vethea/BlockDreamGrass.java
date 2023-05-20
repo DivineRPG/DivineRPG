@@ -8,10 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockDreamGrass extends BlockModGrass {
 
-    public BlockDreamGrass(float hardness) {
-        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_dirt")), hardness, MaterialColor.COLOR_LIGHT_GREEN);
-    }
-    public BlockDreamGrass(float hardness, MaterialColor color) {
-    	super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_dirt")), hardness, color);
+    public BlockDreamGrass(MaterialColor color) {
+        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_dirt")), color);
     }
 }

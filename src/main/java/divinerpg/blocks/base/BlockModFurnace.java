@@ -23,8 +23,8 @@ import net.minecraft.world.phys.Vec3;
 
 public final class BlockModFurnace extends FurnaceBlock {
 	public final Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntityType;
-    public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity) {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE).strength(3.5F));
+    public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity, MaterialColor color) {
+        super(Block.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(3.5F));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }

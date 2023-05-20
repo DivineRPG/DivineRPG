@@ -5,8 +5,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.*;
 
 public class BlockModGlass extends AbstractGlassBlock {
-    public BlockModGlass(float hardness) {
-        super(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3F, hardness).sound(SoundType.GLASS).noOcclusion());
+    public BlockModGlass() {
+        super(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3F).sound(SoundType.GLASS).noOcclusion());
     }
 
 }

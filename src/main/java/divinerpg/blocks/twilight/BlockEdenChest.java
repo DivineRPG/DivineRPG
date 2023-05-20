@@ -1,11 +1,10 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import divinerpg.block_entities.chests.*;
-import net.minecraft.core.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.*;
+import divinerpg.block_entities.chests.EdenChestBlockEntity;
+import divinerpg.blocks.base.BlockModChest;
+import divinerpg.registries.BlockEntityRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 
@@ -14,7 +13,7 @@ import javax.annotation.*;
 public class BlockEdenChest extends BlockModChest {
 
     public BlockEdenChest() {
-        super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(15, 10000000), () -> BlockEntityRegistry.EDEN_CHEST.get());
+        super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.5F), () -> BlockEntityRegistry.EDEN_CHEST.get());
     }
 
     @Nullable

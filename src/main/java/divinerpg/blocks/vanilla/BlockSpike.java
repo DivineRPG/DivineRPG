@@ -1,17 +1,17 @@
 package divinerpg.blocks.vanilla;
 
-import divinerpg.blocks.base.*;
-import divinerpg.util.*;
+import divinerpg.blocks.base.BlockMod;
+import divinerpg.util.DamageSources;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.*;
 
 public class BlockSpike extends BlockMod {
     private final boolean isHot;
 
-    public BlockSpike(boolean isHot) {
-        super(Block.Properties.of(Material.METAL).strength(3).requiresCorrectToolForDrops());
+    public BlockSpike(boolean isHot, MaterialColor color) {
+        super(Block.Properties.of(Material.METAL, color).strength(5F, 6F).requiresCorrectToolForDrops().sound(SoundType.METAL));
         this.isHot = isHot;
     }
 

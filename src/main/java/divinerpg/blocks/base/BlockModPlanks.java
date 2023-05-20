@@ -2,29 +2,15 @@ package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class BlockModPlanks extends BlockMod {
-    public BlockModPlanks(float hardness) {
-        super(hardness);
-    }
-
-    public BlockModPlanks(Properties properties) {
-        super(properties);
-    }
-
-    public BlockModPlanks(float hardness, float resistance) {
-        super(hardness, resistance);
-    }
-
-    public BlockModPlanks(float hardness, float resistance, Material material) {
-        super(hardness, resistance, material);
-    }
-
-    public BlockModPlanks(float hardness, float resistance, Material material, SoundType sound) {
-        super(hardness, resistance, material, sound);
+    public BlockModPlanks(MaterialColor color) {
+        super(Block.Properties.of(Material.WOOD, color).strength(2.0F, 3.0F).sound(SoundType.WOOD));
     }
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {

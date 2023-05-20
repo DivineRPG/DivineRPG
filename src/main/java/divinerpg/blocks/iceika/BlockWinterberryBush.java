@@ -21,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
 	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
     public BlockWinterberryBush() {
-        super(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((p_235464_0_) -> {
+        super(BlockBehaviour.Properties.of(Material.PLANT).strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((p_235464_0_) -> {
                     return 1;
                 }));
 		registerDefaultState(this.stateDefinition.any().setValue(RIPE, false));
@@ -45,7 +45,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
     @Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand p_60507_, BlockHitResult p_60508_) {
 		if(state.getValue(RIPE)) {
-	        popResource(level, pos, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry")), 1));
+	        popResource(level, pos, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry")), 2 + level.random.nextInt(2)));
 	        level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
 	        level.setBlock(pos, state.setValue(RIPE, false), 2);
 	        return InteractionResult.SUCCESS;

@@ -11,10 +11,10 @@ public class BlockAcceleron extends BlockMod {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BlockAcceleron() {
-        super(Block.Properties.of(Material.STONE, MaterialColor.STONE)
+        super(Block.Properties.of(Material.METAL, MaterialColor.LAPIS)
                 .requiresCorrectToolForDrops()
-                .strength(3.0F, 3.0F)
-                .sound(SoundType.WOOD)
+                .strength(5.0F, 6.0F)
+                .sound(SoundType.METAL)
                 .friction(1.2F));
     }
 

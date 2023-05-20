@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public BlockHeatTrap() {
-        super(Block.Properties.of(Material.STONE, MaterialColor.LAPIS).randomTicks().requiresCorrectToolForDrops().strength(-1, 3600000.0F).sound(SoundType.STONE));
+        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLUE).randomTicks().strength(-1, 3600000.0F));
         registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

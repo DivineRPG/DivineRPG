@@ -8,7 +8,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,8 +17,8 @@ import javax.annotation.Nullable;
 
 public class BlockModAltar extends BaseEntityBlock {
 
-    public BlockModAltar() {
-        super(BlockBehaviour.Properties.of(Material.STONE).strength(6000000F, 6000000F).noOcclusion());
+    public BlockModAltar(MaterialColor color) {
+        super(BlockBehaviour.Properties.of(Material.STONE, color).strength(-1F, 3600000F).noOcclusion());
     }
 
     @Override

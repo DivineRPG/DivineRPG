@@ -10,14 +10,15 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcanaDoor extends DoorBlock {
     private ResourceLocation keyItem;
 
-    public BlockArcanaDoor(ResourceLocation key) {
-        super(BlockBehaviour.Properties.of(Material.STONE).strength(-1.0F, 60000000.0F).noOcclusion(), BlockSetType.STONE);
+    public BlockArcanaDoor(MaterialColor color, ResourceLocation key) {
+        super(BlockBehaviour.Properties.of(Material.STONE, color).strength(-1.0F, 3600000.0F).noOcclusion(), BlockSetType.STONE);
         this.keyItem = key;
     }
 

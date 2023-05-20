@@ -11,11 +11,9 @@
     "#forge:dirts/dream",
     "#forge:dirts/flame",
     "#forge:dirts/evergrass",
-    "#forge:dirts/scorched",
     "#forge:sand/arcanic",
     "#forge:sand/arcanite",
     "#forge:sand/arcanium_rich",
-    "divinerpg:soul_sludge_breakable",
-    "divinerpg:hive_wall"
+    "divinerpg:soul_sludge_breakable"
   ]
 }

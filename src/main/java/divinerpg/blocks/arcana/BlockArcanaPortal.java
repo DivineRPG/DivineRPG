@@ -31,7 +31,7 @@ public class BlockArcanaPortal extends BlockMod {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public BlockArcanaPortal() {
-        super(BlockBehaviour.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLUE).noCollission().lightLevel((p_235460_0_) -> {
+        super(BlockBehaviour.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLACK).noCollission().lightLevel((p_235460_0_) -> {
             return 15;
         }).strength(-1.0F, 3600000.0F));
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));

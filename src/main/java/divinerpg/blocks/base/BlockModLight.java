@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 
 public class BlockModLight extends BlockModPowered {
-    public BlockModLight(float hardness) {
-        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(hardness, 3.0F).sound(SoundType.GLASS));
+    public BlockModLight() {
+        super(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_GRAY).strength(0.3F).sound(SoundType.GLASS));
     }
 
     @Override
