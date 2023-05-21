@@ -1,6 +1,6 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.blocks.base.*;
+import divinerpg.blocks.base.BlockMod;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -20,12 +21,16 @@ public class BlockElevantium extends BlockMod {
     protected static final VoxelShape ELEVANTIUM = Shapes.or(Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D), Block.box(4.0D, 1.0D, 4.0D, 12.0D, 2.0D, 12.0D));
 
     public BlockElevantium() {
-        super(Block.Properties.of(Material.HEAVY_METAL, MaterialColor.GRASS)
+        super(Block.Properties.of(Material.METAL, MaterialColor.GRASS)
                 .requiresCorrectToolForDrops()
                 .strength(5F, 6F)
                 .randomTicks()
                 .jumpFactor(2)
                 .sound(SoundType.METAL));
+    }
+
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.DESTROY;
     }
 
     @Override

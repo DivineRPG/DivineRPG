@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -37,6 +38,9 @@ public class BlockModMobCage extends BlockMod {
 		this.type = type;
 		this.spawnItem = spawnItem;
 		this.relativePos = relativePos;
+	}
+	public PushReaction getPistonPushReaction(BlockState state) {
+		return PushReaction.BLOCK;
 	}
 	@Override
 	public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {

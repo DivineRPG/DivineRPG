@@ -22,6 +22,9 @@ public class BlockThermalVent extends BlockMod implements SimpleWaterloggedBlock
 		super(Properties.copy(Blocks.POINTED_DRIPSTONE).color(MaterialColor.STONE).requiresCorrectToolForDrops());
 		registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, Boolean.valueOf(true)));
 	}
+	public PushReaction getPistonPushReaction(BlockState state) {
+		return PushReaction.DESTROY;
+	}
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 		if(state.getValue(WATERLOGGED)) level.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0D, 0.1, 0D);

@@ -58,7 +58,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
 //    private static final VoxelShape REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
 
     public BlockIcicle() {
-        super(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.ICE).requiresCorrectToolForDrops().noOcclusion().sound(SoundType.GLASS).randomTicks().strength(0.5F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
+        super(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(0.5F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
         this.registerDefaultState(this.stateDefinition.any().setValue(TIP_DIRECTION, Direction.UP).setValue(THICKNESS, DripstoneThickness.TIP).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 

@@ -2,20 +2,27 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "name": "main",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:eternal_archer_spawner"
+          "name": "divinerpg:icicle"
         }
       ],
       "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
         {
           "condition": "minecraft:match_tool",
           "predicate": {
             "enchantments": [
               {
-                "enchantment": "minecraft:silk_touch"
+                "enchantment": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
               }
             ]
           }

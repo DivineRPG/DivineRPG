@@ -97,11 +97,11 @@ public class BlockRegistry {
             tealSteel = registerBlock("teal_steel", () -> new BlockMod(Properties.of(Material.METAL, WARPED_WART_BLOCK).requiresCorrectToolForDrops().strength(5F, 6F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block>// Vanes
-            blueVane = registerBlock("blue_vane", () -> new BlockMod(Properties.of(Material.STONE, COLOR_BLUE).requiresCorrectToolForDrops().strength(50F, 1200F))),
-            cyanVane = registerBlock("cyan_vane", () -> new BlockMod(Properties.of(Material.STONE, COLOR_CYAN).requiresCorrectToolForDrops().strength(50F, 1200F))),
-            purpleVane = registerBlock("purple_vane", () -> new BlockMod(Properties.of(Material.STONE, TERRACOTTA_PURPLE).requiresCorrectToolForDrops().strength(50F, 1200F))),
-            redVane = registerBlock("red_vane", () -> new BlockMod(Properties.of(Material.STONE, NETHER).requiresCorrectToolForDrops().strength(50F, 1200F))),
-            yellowVane = registerBlock("yellow_vane", () -> new BlockMod(Properties.of(Material.STONE, TERRACOTTA_LIGHT_GREEN).requiresCorrectToolForDrops().strength(50F, 1200F)));
+            blueVane = registerBlock("blue_vane", () -> new BlockMod(COLOR_BLUE, true, 0)),
+            cyanVane = registerBlock("cyan_vane", () -> new BlockMod(COLOR_CYAN, true, 0)),
+            purpleVane = registerBlock("purple_vane", () -> new BlockMod(TERRACOTTA_PURPLE, true, 0)),
+            redVane = registerBlock("red_vane", () -> new BlockMod(NETHER, true, 0)),
+            yellowVane = registerBlock("yellow_vane", () -> new BlockMod(TERRACOTTA_LIGHT_GREEN, true, 0));
 
     public static final RegistryObject<Block>// Bricks
             aquatonicBricks = registerBlock("aquatonic_bricks", () -> new BlockMod(Properties.of(Material.STONE, WARPED_NYLIUM).strength(2F, 6F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS))),
@@ -135,29 +135,29 @@ public class BlockRegistry {
             rupeeMinibricks = registerBlock("rupee_minibricks", () -> new BlockMod(Properties.of(Material.STONE, WATER).strength(2F, 6F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS)));
 
     public static final RegistryObject<Block>// Lamps
-            aquaLamp = registerBlock("aqua_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_LIGHT_BLUE).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            arlemiteLamp = registerBlock("arlemite_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, EMERALD).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            blazeLamp = registerBlock("blaze_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_YELLOW).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            soulfireLamp = registerBlock("soulfire_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, WATER).strength(0.3F).sound(SoundType.GLASS))),
-            diamondLamp = registerBlock("diamond_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, DIAMOND).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_YELLOW).strength(0.3F).sound(SoundType.GLASS))),
-            drakenLamp = registerBlock("draken_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_ORANGE).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            edenLamp = registerBlock("eden_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_YELLOW).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            enderLamp = registerBlock("ender_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_PURPLE).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            enderStoneLamp = registerBlock("ender_stone_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_PURPLE).strength(0.3F).sound(SoundType.GLASS))),
-            goldLamp = registerBlock("gold_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, GOLD).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, DIAMOND).strength(0.3F).sound(SoundType.GLASS))),
-            jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, EMERALD).strength(0.3F).sound(SoundType.GLASS))),
-            krakenLamp = registerBlock("kraken_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_LIGHT_GREEN).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            lapisLazuliLamp = registerBlock("lapis_lazuli_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, WATER).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            lavaLamp = registerBlock("lava_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, TERRACOTTA_ORANGE).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            milkyLamp = registerBlock("milky_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, QUARTZ).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, CRIMSON_NYLIUM).strength(0.3F).sound(SoundType.GLASS))),
-            torriditeLamp = registerBlock("torridite_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, CRIMSON_NYLIUM).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            realmiteLamp = registerBlock("realmite_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, TERRACOTTA_YELLOW).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            redstoneOreLamp = registerBlock("redstone_ore_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, CRIMSON_STEM).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            rupeeLamp = registerBlock("rupee_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_BLUE).strength(5F, 6F).sound(SoundType.LANTERN).requiresCorrectToolForDrops())),
-            terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, TERRACOTTA_GREEN).strength(0.3F).sound(SoundType.GLASS)));
+            aquaLamp = registerBlock("aqua_lamp", () -> new BlockModLamp(COLOR_LIGHT_BLUE)),
+            arlemiteLamp = registerBlock("arlemite_lamp", () -> new BlockModLamp(EMERALD)),
+            blazeLamp = registerBlock("blaze_lamp", () -> new BlockModLamp(COLOR_YELLOW)),
+            soulfireLamp = registerBlock("soulfire_lamp", () -> new BlockModLamp(Material.GLASS, WATER)),
+            diamondLamp = registerBlock("diamond_lamp", () -> new BlockModLamp(DIAMOND)),
+            divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(Material.GLASS, COLOR_YELLOW)),
+            drakenLamp = registerBlock("draken_lamp", () -> new BlockModLamp(COLOR_ORANGE)),
+            edenLamp = registerBlock("eden_lamp", () -> new BlockModLamp(COLOR_YELLOW)),
+            enderLamp = registerBlock("ender_lamp", () -> new BlockModLamp(COLOR_PURPLE)),
+            enderStoneLamp = registerBlock("ender_stone_lamp", () -> new BlockModLamp(Material.GLASS, COLOR_PURPLE)),
+            goldLamp = registerBlock("gold_lamp", () -> new BlockModLamp(GOLD)),
+            iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(Material.GLASS, DIAMOND)),
+            jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(Material.GLASS, EMERALD)),
+            krakenLamp = registerBlock("kraken_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN)),
+            lapisLazuliLamp = registerBlock("lapis_lazuli_lamp", () -> new BlockModLamp(WATER)),
+            lavaLamp = registerBlock("lava_lamp", () -> new BlockModLamp(TERRACOTTA_ORANGE)),
+            milkyLamp = registerBlock("milky_lamp", () -> new BlockModLamp(QUARTZ)),
+            moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(Material.GLASS, CRIMSON_NYLIUM)),
+            torriditeLamp = registerBlock("torridite_lamp", () -> new BlockModLamp(CRIMSON_NYLIUM)),
+            realmiteLamp = registerBlock("realmite_lamp", () -> new BlockModLamp(TERRACOTTA_YELLOW)),
+            redstoneOreLamp = registerBlock("redstone_ore_lamp", () -> new BlockModLamp(CRIMSON_STEM)),
+            rupeeLamp = registerBlock("rupee_lamp", () -> new BlockModLamp(COLOR_BLUE)),
+            terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(Material.GLASS, TERRACOTTA_GREEN));
 
     public static final RegistryObject<Block>// Powered fences
             blueFence = registerBlock("blue_fence", () -> new BlockModLightFence(COLOR_BLUE)),
@@ -171,8 +171,7 @@ public class BlockRegistry {
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             checker = registerBlock("checker", () -> new BlockMod(0.8F, 0.8F, Material.WOOL, WOOL, SoundType.WOOL)),
             crate = registerBlock("crate", () -> new BlockMod(2.5F, 2.5F, Material.WOOD, WOOD, SoundType.WOOD)),
-            darkstone = registerBlock("darkstone", () -> new BlockMod(Properties.of(Material.STONE, TERRACOTTA_GREEN).requiresCorrectToolForDrops().strength(50F, 1200F).lightLevel((p_235464_0_) -> {
-                return 1;}))),
+            darkstone = registerBlock("darkstone", () -> new BlockMod(TERRACOTTA_GREEN, true, 3)),
             fancyWool = registerBlock("fancy_wool", () -> new BlockMod(0.8F, 0.8F, Material.WOOL, CRIMSON_HYPHAE, SoundType.WOOL)),
             milkStone = registerBlock("milk_stone", () -> new BlockMod(Properties.of(Material.STONE, WOOL).strength(1.5F, 6F).requiresCorrectToolForDrops())),
             plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD)),
@@ -265,10 +264,10 @@ public class BlockRegistry {
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 1.5F, 6F)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(GLOW_LICHEN, 2F, 6F)),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW, 1.5F, 6F)),
-            steelDoor = registerBlock("steel_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, METAL).requiresCorrectToolForDrops().strength(5F).noOcclusion(), BlockSetType.IRON)),
+            steelDoor = registerBlock("steel_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL, METAL).requiresCorrectToolForDrops().strength(5F).noOcclusion(), BlockSetType.IRON)),
             workshopBookcase = registerBlock("workshop_bookcase", () -> new BlockModBookshelf(COLOR_GRAY)),
             workshopCarpet = registerBlock("workshop_carpet", () -> new BlockMod(0.8F, 0.8F, Material.WOOL, TERRACOTTA_RED, SoundType.WOOL)),
-            workshopLamp = registerBlock("workshop_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.GLASS)));
+            workshopLamp = registerBlock("workshop_lamp", () -> new BlockModLamp(Material.GLASS, COLOR_LIGHT_BLUE));
 
     public static final RegistryObject<Block>// Candy canes
             blueCandyCane = registerBlock("blue_candy_cane", () -> new BlockMod(Properties.of(Material.STONE, COLOR_BLUE).strength(0.75F).requiresCorrectToolForDrops())),
@@ -652,7 +651,7 @@ public class BlockRegistry {
             smoothGlass = registerBlock("smooth_glass", () -> new BlockModGlass());
 
     // Door
-    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, PLANT).requiresCorrectToolForDrops().strength(5F).noOcclusion(), BlockSetType.IRON));
+    public static final RegistryObject<Block> barredDoor = registerBlock("barred_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL, PLANT).requiresCorrectToolForDrops().strength(5F).noOcclusion(), BlockSetType.IRON));
 
     public static final RegistryObject<Block>// Lighting
             fireCrystal = registerBlock("fire_crystal", () -> new BlockLightCrystal(COLOR_RED)),
@@ -673,10 +672,10 @@ public class BlockRegistry {
             metalCaging = registerBlock("metal_caging", () -> new BlockMod(Properties.of(Material.STONE, TERRACOTTA_GREEN).requiresCorrectToolForDrops().strength(5F).sound(SoundType.METAL).noOcclusion()));
 
     // Village
-    public static final RegistryObject<Block> villageLamp = registerBlock("village_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, TERRACOTTA_RED).strength(0.3F).sound(SoundType.GLASS)));
+    public static final RegistryObject<Block> villageLamp = registerBlock("village_lamp", () -> new BlockModLamp(Material.GLASS, TERRACOTTA_RED));
 
     public static final RegistryObject<Block>// Hive
-            cellLamp = registerBlock("cell_lamp", () -> new BlockModLamp(Properties.of(Material.GLASS, COLOR_LIGHT_GREEN).strength(0.3F).sound(SoundType.GLASS))),
+            cellLamp = registerBlock("cell_lamp", () -> new BlockModLamp(Material.GLASS, COLOR_LIGHT_GREEN)),
             hiveWall = registerBlock("hive_wall", () -> new BlockMod(Properties.of(Material.GLASS, PLANT).strength(0.3F).sound(SoundType.GLASS).lightLevel((state) -> {
                 return 7;
             })));

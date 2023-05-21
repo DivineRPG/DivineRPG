@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +30,10 @@ public class BlockArcanaPortalFrame extends BlockMod {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
+
     public boolean useShapeForLightOcclusion(BlockState p_220074_1_) {
         return true;
     }
@@ -40,7 +45,6 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
-
 
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
         return p_185499_1_.setValue(FACING, p_185499_2_.rotate(p_185499_1_.getValue(FACING)));
@@ -85,5 +89,4 @@ public class BlockArcanaPortalFrame extends BlockMod {
             }
         }
     }
-
 }

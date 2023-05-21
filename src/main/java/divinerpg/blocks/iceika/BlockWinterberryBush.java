@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -25,6 +26,9 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
                     return 1;
                 }));
 		registerDefaultState(this.stateDefinition.any().setValue(RIPE, false));
+    }
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.DESTROY;
     }
     @Override
 	public boolean isRandomlyTicking(BlockState state) {

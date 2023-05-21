@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -22,7 +23,9 @@ public class BlockArcanaDoor extends DoorBlock {
         this.keyItem = key;
     }
 
-
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
 
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
@@ -74,7 +77,5 @@ public class BlockArcanaDoor extends DoorBlock {
 
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPosition, boolean isPowered) {
-
     }
-
 }

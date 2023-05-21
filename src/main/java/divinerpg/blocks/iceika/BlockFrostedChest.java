@@ -20,7 +20,7 @@ import javax.annotation.*;
 public class BlockFrostedChest extends BlockModChest {
 
     public BlockFrostedChest() {
-        super(Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).strength(2.5F).sound(SoundType.GLASS), () -> BlockEntityRegistry.FROSTED_CHEST.get());
+        super(Properties.of(Material.ICE, MaterialColor.COLOR_CYAN).strength(2.5F).sound(SoundType.GLASS), () -> BlockEntityRegistry.FROSTED_CHEST.get());
     }
 
     @Nullable
