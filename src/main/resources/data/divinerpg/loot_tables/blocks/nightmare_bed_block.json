@@ -21,19 +21,6 @@
             }
           ],
           "name": "divinerpg:nightmare_bed"
-        },
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "divinerpg:nightmare_bed_block",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "part": "foot"
-              }
-            }
-          ],
-          "name": "divinerpg:nightmare_bed"
         }
       ],
       "rolls": 1.0
