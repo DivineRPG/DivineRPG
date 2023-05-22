@@ -24,9 +24,10 @@ public class DivineTab {
                 }
             }
         }));
+
         event.registerCreativeModeTab(BLOCKS, builder -> builder.title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_lamp")))).displayItems((flags, output) -> {
-            for(RegistryObject<Item> item : BlockRegistry.BLOCK_ITEMS.getEntries()){
-                if(!item.getId().toLanguageKey().contains("plant")){
+            for (RegistryObject<Item> item : BlockRegistry.BLOCK_ITEMS.getEntries()) {
+                if (!item.getId().toLanguageKey().contains("plant") || item.getId().toLanguageKey().contains("eye_plant")) {
                     output.accept(item.get());
                 }
             }
