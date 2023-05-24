@@ -1,0 +1,70 @@
+{
+  "type": "minecraft:barter",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:frostking_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "divinerpg:sound_of_carols"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:frossivence"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "divinerpg:ice_lamp"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "divinerpg:icy_bricks",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 8,
+                "max": 24
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "divinerpg:ice_shards",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "divinerpg:shadow_bar"
+        }
+      ]
+    }
+  ]
+}

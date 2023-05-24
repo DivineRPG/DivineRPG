@@ -4,10 +4,14 @@ import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.EntityCorruptedBullet;
 import divinerpg.registries.EntityRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
+import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -16,9 +20,13 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.*;
+import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.List;
 
 public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttackMob {
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityGruzzorlug.class, EntityDataSerializers.INT);
@@ -41,6 +49,52 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
         goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGroglin.class, true));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+    }
+
+
+    @Override
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack itemStack = player.getItemInHand(hand);
+
+        if (isTradeItem(itemStack)) {
+            //TODO - logic for gruzzorlug favor/groglin hate
+            Item tradedItem = getTradedItem(player);
+            if (tradedItem != null) {
+                player.getInventory().add(tradedItem.getDefaultInstance());
+                itemStack.shrink(1);
+                return InteractionResult.SUCCESS;
+            }
+        }
+
+        return super.mobInteract(player, hand);
+    }
+
+    private boolean isTradeItem(ItemStack itemStack) {
+        TagKey<Item> tradeTag = TagKey.create(Registries.ITEM, new ResourceLocation(DivineRPG.MODID, "gruzzorlug_trades"));
+        return itemStack.is(tradeTag);
+    }
+
+    private Item getTradedItem(Player player) {
+        if (player.level.isClientSide) {
+            return null;
+        }
+
+        ResourceLocation lootTableLocation = new ResourceLocation(DivineRPG.MODID, "trades/gruzzorlug");
+        LootTable tradeLootTable = player.getServer().getLootTables().get(lootTableLocation);
+
+        if (tradeLootTable != null) {
+            LootContext.Builder lootContextBuilder = new LootContext.Builder((ServerLevel) player.level)
+                    .withParameter(LootContextParams.ORIGIN, player.position())
+                    .withParameter(LootContextParams.THIS_ENTITY, player)
+                    .withRandom(player.getRandom());
+
+            List<ItemStack> tradedItems = tradeLootTable.getRandomItems(lootContextBuilder.create(LootContextParamSets.GIFT));
+            if (!tradedItems.isEmpty()) {
+                ItemStack tradedItemStack = tradedItems.get(0);
+                return tradedItemStack.getItem();
+            }
+        }
+        return null;
     }
 
     public int heldItem() {
