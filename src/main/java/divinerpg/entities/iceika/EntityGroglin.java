@@ -53,7 +53,27 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
         super.registerGoals();
         goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityGruzzorlug.class, true));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true){
+            @Override
+            public boolean canUse() {
+                if (this.target instanceof Player player) {
+                    int gruzzorlugFavor = getFavor(player, "gruzzorlug_favor");
+                    int groglinFavor = getFavor(player, "groglin_favor");
+                    return gruzzorlugFavor <= groglinFavor;
+                }
+                return super.canUse();
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                if (this.target instanceof Player player) {
+                    int gruzzorlugFavor = getFavor(player, "gruzzorlug_favor");
+                    int groglinFavor = getFavor(player, "groglin_favor");
+                    return gruzzorlugFavor <= groglinFavor;
+                }
+                return super.canContinueToUse();
+            }
+        });
     }
     int tickCounter;
     @Override
@@ -92,16 +112,55 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
         ItemStack itemStack = player.getItemInHand(hand);
 
         if (isTradeItem(itemStack)) {
-            //TODO - logic for groglin favor/gruzzorlug hate
             Item tradedItem = getTradedItem(player);
             if (tradedItem != null) {
                 player.getInventory().add(tradedItem.getDefaultInstance());
                 itemStack.shrink(1);
+
+                adjustFavor(player, "gruzzorlug_favor", -1); // Decrease Gruzzorlug favor
+                adjustFavor(player, "groglin_favor", 1);     // Increase Groglin favor
+
                 return InteractionResult.SUCCESS;
             }
         }
 
         return super.mobInteract(player, hand);
+    }
+
+    private void adjustFavor(Player player, String favorTag, int amount) {
+        int favor = getFavor(player, favorTag);
+        favor += amount;
+        setFavor(player, favorTag, favor);
+    }
+
+    private int getFavor(Player player, String favorTag) {
+        CompoundTag playerData = getPlayerData(player);
+        if (playerData != null && playerData.contains(favorTag, CompoundTag.TAG_INT)) {
+            return playerData.getInt(favorTag);
+        }
+        return 0;
+    }
+
+    private void setFavor(Player player, String favorTag, int favor) {
+        CompoundTag playerData = getPlayerData(player);
+        playerData.putInt(favorTag, favor);
+        setPlayerData(player, playerData);
+    }
+
+    private CompoundTag getPlayerData(Player player) {
+        CompoundTag persistentData = player.getPersistentData();
+        CompoundTag entityData;
+        if (persistentData.contains(Player.PERSISTED_NBT_TAG)) {
+            entityData = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
+        } else {
+            entityData = new CompoundTag();
+            persistentData.put(Player.PERSISTED_NBT_TAG, entityData);
+        }
+        return entityData;
+    }
+
+    private void setPlayerData(Player player, CompoundTag playerData) {
+        player.getPersistentData().put(Player.PERSISTED_NBT_TAG, playerData);
     }
 
     private boolean isTradeItem(ItemStack itemStack) {
