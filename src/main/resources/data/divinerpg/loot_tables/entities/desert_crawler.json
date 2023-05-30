@@ -52,7 +52,7 @@
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "forge:tools/pickaxes"
+                    "tag": "minecraft:pickaxes"
                   }
                 }
               }
@@ -83,7 +83,7 @@
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "forge:tools/shovels"
+                    "tag": "minecraft:shovels"
                   }
                 }
               }
@@ -123,7 +123,7 @@
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "forge:tools/pickaxes"
+                    "tag": "minecraft:pickaxes"
                   }
                 }
               }

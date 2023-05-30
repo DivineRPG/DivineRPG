@@ -1,6 +1,19 @@
 {
   "replace": false,
   "values": [
-    "#forge:tools/axes"
+    "divinerpg:arlemite_axe",
+    "divinerpg:realmite_axe",
+    "divinerpg:rupee_axe",
+    "divinerpg:bedrock_axe",
+    "divinerpg:corrupted_axe",
+    "divinerpg:terran_axe",
+    "divinerpg:divine_axe",
+    "divinerpg:eden_axe",
+    "divinerpg:wildwood_axe",
+    "divinerpg:apalachia_axe",
+    "divinerpg:skythern_axe",
+    "divinerpg:mortum_axe",
+    "divinerpg:dream_axe",
+    "#divinerpg:shickaxes"
   ]
 }

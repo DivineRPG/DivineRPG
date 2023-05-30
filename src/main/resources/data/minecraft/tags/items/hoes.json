@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
-    "#forge:tools/hoes"
+    "divinerpg:arlemite_hoe",
+    "divinerpg:realmite_hoe",
+    "divinerpg:rupee_hoe",
+    "divinerpg:bedrock_hoe",
+    "divinerpg:corrupted_hoe",
+    "divinerpg:terran_hoe",
+    "divinerpg:divine_hoe",
+    "divinerpg:eden_hoe",
+    "divinerpg:wildwood_hoe",
+    "divinerpg:apalachia_hoe",
+    "divinerpg:skythern_hoe",
+    "divinerpg:mortum_hoe",
+    "#divinerpg:shickaxes"
   ]
 }

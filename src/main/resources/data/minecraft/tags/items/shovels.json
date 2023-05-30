@@ -1,6 +1,19 @@
 {
   "replace": false,
   "values": [
-    "#forge:tools/shovels"
+    "divinerpg:arlemite_shovel",
+    "divinerpg:realmite_shovel",
+    "divinerpg:rupee_shovel",
+    "divinerpg:bedrock_shovel",
+    "divinerpg:corrupted_shovel",
+    "divinerpg:terran_shovel",
+    "divinerpg:divine_shovel",
+    "divinerpg:eden_shovel",
+    "divinerpg:wildwood_shovel",
+    "divinerpg:apalachia_shovel",
+    "divinerpg:skythern_shovel",
+    "divinerpg:mortum_shovel",
+    "divinerpg:dream_shovel",
+    "#divinerpg:shickaxes"
   ]
 }
