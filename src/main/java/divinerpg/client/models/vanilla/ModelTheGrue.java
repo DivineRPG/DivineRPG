@@ -32,21 +32,21 @@ public class ModelTheGrue extends EntityModel<EntityTheGrue> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		CubeDeformation cubedef = new CubeDeformation(0F);
 
-		PartDefinition legRight = partdefinition.addOrReplaceChild("legRight", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(3.0F, 4.0F, 6.0F, 3.0F, 10.0F, 3.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-7.0F, 6.0F, 4.0F, -0.409F, 0.0F, 0.0F));
+		PartDefinition legRight = partdefinition.addOrReplaceChild("legRight", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 6.0F, 5.0F, 3.0F, 10.0F, 3.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-5.0F, 6.0F, 4.0F, -0.409F, 0.0F, 0.2231F));
 
-		legRight.addOrReplaceChild("toeRightIn", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(1.0F, 3.0F, 12.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(3.0F, 2.0F, 4.0F, -1.1525F, -0.1487F, 0.0F));
+		legRight.addOrReplaceChild("toeRightIn", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(9.0F, 3.0F, 12.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-8.0F, 2.0F, 4.0F, -1.1525F, -0.1487F, 0.0F));
 
-		legRight.addOrReplaceChild("toeRightOut", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(2.0F, -6.0F, 15.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-3.0F, 2.0F, 5.0F, -1.1525F, 0.8923F, 0.0F));
+		legRight.addOrReplaceChild("toeRightOut", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(2.0F, -3.0F, 15.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-8.0F, 2.0F, 4.0F, -1.1525F, 0.8179F, 0.0F));
 
-		PartDefinition legLeft = partdefinition.addOrReplaceChild("legLeft", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-7.0F, 4.0F, 6.0F, 3.0F, 10.0F, 3.0F, cubedef).mirror(false), PartPose.offsetAndRotation(8.0F, 6.0F, 4.0F, -0.409F, 0.0F, 0.0F));
+		PartDefinition legLeft = partdefinition.addOrReplaceChild("legLeft", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-2.0F, 6.0F, 5.0F, 3.0F, 10.0F, 3.0F, cubedef).mirror(false), PartPose.offsetAndRotation(5.0F, 6.0F, 4.0F, -0.409F, 0.0F, -0.2231F));
 
-		legLeft.addOrReplaceChild("toeLeftIn", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-15.0F, 3.0F, 11.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(8.0F, 2.0F, 5.0F, -1.1525F, 0.1487F, 0.0F));
+		legLeft.addOrReplaceChild("toeLeftIn", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-11.0F, 3.0F, 12.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(8.0F, 2.0F, 4.0F, -1.1525F, 0.1487F, 0.0F));
 
-		legLeft.addOrReplaceChild("toeLeftOut", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-7.0F, -6.0F, 14.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(5.0F, 2.0F, 6.0F, -1.1525F, -0.8923F, 0.0F));
+		legLeft.addOrReplaceChild("toeLeftOut", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -3.0F, 15.0F, 2.0F, 11.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(8.0F, 2.0F, 4.0F, -1.1525F, -0.8179F, 0.0F));
 
-		legRight.addOrReplaceChild("thighRight", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, cubedef).mirror(false), PartPose.offsetAndRotation(1.0F, -4.0F, 6.0F, 0.6146F, 0.0F, -0.409F));
+		legRight.addOrReplaceChild("thighRight", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-6.0F, -4.0F, -8.0F, 4.0F, 11.0F, 4.0F, cubedef).mirror(false), PartPose.offsetAndRotation(1.0F, -4.0F, 6.0F, 0.6146F, 0.0F, -0.409F));
 
-		legLeft.addOrReplaceChild("thighLeft", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, -2.0F, 4.0F, 11.0F, 4.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-6.0F, -4.0F, 6.0F, 0.6146F, 0.0F, 0.409F));
+		legLeft.addOrReplaceChild("thighLeft", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(2.0F, -4.0F, -8.0F, 4.0F, 11.0F, 4.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-1.0F, -4.0F, 6.0F, 0.6146F, 0.0F, 0.409F));
 
 		partdefinition.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, 0.0F, 0.0F, 12.0F, 6.0F, 4.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-5.0F, 1.0F, 3.0F, -0.2231F, 0.0F, 0.0F));
 

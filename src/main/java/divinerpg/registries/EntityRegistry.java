@@ -207,7 +207,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityEdenCadillion>> EDEN_CADILLION  = registerEntity(EntityEdenCadillion::new,  "eden_cadillion",0.875F, 1.4F, 0xfff7e1, 0xe2af20);
     public static final RegistryObject<EntityType<EntityEdenTomo>> 		EDEN_TOMO 		= registerEntity(EntityEdenTomo::new, 		"eden_tomo", 	 1.0F, 0.625F, 0x4a5e0c, 0x738b16);
     public static final RegistryObject<EntityType<EntityGreenfeet>> 	GREENFEET 		= registerEntity(EntityGreenfeet::new, 		"greenfeet", 	 1.0F, 2.0F, 0x084f1e, 0x4c5815);
-    public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 1.0F, 2.8125F, 0xf86a54, 0xffe15c);
+    public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 1.6F, 3.0F, 0xf86a54, 0xffe15c);
     public static final RegistryObject<EntityType<EntitySunArcher>> 	SUN_ARCHER 		= registerEntity(EntitySunArcher::new, 		"sun_archer", 	 0.8F, 2.2F, 0xeaab42, 0xfdf182);
     public static final RegistryObject<EntityType<EntityWeakCori>> 		WEAK_CORI 		= registerEntity(EntityWeakCori::new, 		"weak_cori", 	 0.6F, 1.5F, 0x160f00, 0x4681ff);
 
@@ -851,7 +851,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion<>(context)));
         event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelTomo<>(context)));
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet<>(context)));
-        event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context)));
+        event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), 0.85F));
         event.registerEntityRenderer(SUN_ARCHER.get(),	  RenderSunArcher::new);
         event.registerEntityRenderer(WEAK_CORI.get(),	  (Context context) -> new RenderDivineMob<>(context, "weak_cori",  new ModelCori<>(context)));
 
