@@ -15,7 +15,7 @@ import static divinerpg.registries.SoundRegistry.*;
 public class EntityCrawler extends EntityDivineMonster {
 	public EntityCrawler(EntityType<? extends Monster> type, Level level) {super(type, level);}
 	@Override
-	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.7F;}
+	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.84375F;}
 	@Override
     protected SoundEvent getAmbientSound() {return CRAWLER.get();}
     @Override

@@ -23,7 +23,7 @@ public class ModelCaveCrawler extends EntityModel<EntityCrawler> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition spine = partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F, -12.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 24.0F, -2.0F, 0.829F, 0.0F, 0.0F));
+		PartDefinition spine = partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F, -12.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 24.0F, 6.0F, 0.829F, 0.0F, 0.0F));
 
 		spine.addOrReplaceChild("trail_r1", CubeListBuilder.create().texOffs(20, 54).addBox(-3.5F, -1.0F, -2.0F, 9.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 0.5F, 0.2618F, 0.0F, 0.0F));
 
@@ -36,18 +36,18 @@ public class ModelCaveCrawler extends EntityModel<EntityCrawler> {
 		.texOffs(24, 40).addBox(-3.0F, -11.0F, 0.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 2.0F));
 
 		partdefinition.addOrReplaceChild("leftfullarm", CubeListBuilder.create().texOffs(20, 28).addBox(0.0F, -2.0F, -6.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 32).addBox(0.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 16.0F, -9.0F, -0.6545F, 0.0F, 0.0F));
+		.texOffs(0, 32).addBox(0.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 17.0F, -1.0F, 0.0F, 0.0F, 0F));
 
 		partdefinition.addOrReplaceChild("rightfullarm", CubeListBuilder.create().texOffs(24, 0).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(24, 16).addBox(-4.0F, -2.0F, -6.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 16.0F, -9.0F, -0.6545F, 0.0F, 0.0F));
+		.texOffs(24, 16).addBox(-4.0F, -2.0F, -6.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 17.0F, -1.0F, 0.0F, 0.0F, 0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
 	public void setupAnim(EntityCrawler entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.leftArm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-		this.rightArm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
+		this.leftArm.xRot = 0.1963F + (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		this.rightArm.xRot = 0.1963F + (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
 	}
 
 	@Override

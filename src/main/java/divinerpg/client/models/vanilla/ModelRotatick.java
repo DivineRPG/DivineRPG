@@ -71,17 +71,17 @@ public class ModelRotatick extends EntityModel<EntityRotatick> {
 
 		this.BackLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.MiddleLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.FrontLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.FrontLeftLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
 		this.BackRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
 		this.MiddleRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
-		this.FrontRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount;
+		this.FrontRightLeg.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
 		this.BackRightLeg.yRot = 0.3F;
 		this.MiddleRightLeg.yRot = 0.2F;
 		this.FrontRightLeg.yRot = 0.1F;
-		this.BackLeftLeg.yRot = 0.3F;
-		this.MiddleLeftLeg.yRot = 0.2F;
-		this.FrontLeftLeg.yRot = 0.1F;
+		this.BackLeftLeg.yRot = -0.3F;
+		this.MiddleLeftLeg.yRot = -0.2F;
+		this.FrontLeftLeg.yRot = -0.1F;
 	}
 
 	@Override

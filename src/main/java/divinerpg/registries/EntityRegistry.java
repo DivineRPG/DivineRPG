@@ -139,7 +139,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityAequorea>>			 AEQUOREA 			= registerEntity(EntityAequorea::new, 			"aequorea", 			0.3F, 0.3125F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		= registerEntity(EntityAridWarrior::new, 		"arid_warrior",			1.4F, 2.5f, 0x6e5209, 0xc19b28);
     public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		= registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		0.8F, 1.25F);
-    public static final RegistryObject<EntityType<EntityCrawler>>			 CAVE_CRAWLER 		= registerEntity(EntityCrawler::new, 			"cave_crawler", 		0.6F, 0.8F, 0x90bc93, 0x8bf285);
+    public static final RegistryObject<EntityType<EntityCrawler>>			 CAVE_CRAWLER 		= registerEntity(EntityCrawler::new, 			"cave_crawler", 		0.75F, 1.0F, 0x90bc93, 0x8bf285);
     public static final RegistryObject<EntityType<EntityCaveclops>>			 CAVECLOPS 			= registerEntity(EntityCaveclops::new, 			"caveclops", 			1.2F, 4.0F, 0x3a3030, 0x77352b);
     public static final RegistryObject<EntityType<EntityCrab>>				 CRAB 				= registerEntity(EntityCrab::new, 				"crab", 				0.9F, 0.5625F, 0xbf5241, 0xe2cfc0);
     public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			= registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x534e2f, 0xc2b66e);
@@ -989,7 +989,7 @@ public class EntityRegistry {
         return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
     private static final <T extends AbstractArrow> RegistryObject<EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
-        return registerProjectile(factory, entityName, 0.25F, 0.25F);
+        return registerProjectile(factory, entityName, 0.5F, 0.5F);
     }
     private static final <T extends LargeFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.25F, 0.25F);

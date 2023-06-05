@@ -3,11 +3,15 @@ package divinerpg.items.vanilla;
 import divinerpg.entities.projectile.EntityTomato;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.registries.EntityRegistry;
-import net.minecraft.sounds.*;
-import net.minecraft.world.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ItemTomato extends ItemModFood {
@@ -18,14 +22,14 @@ public class ItemTomato extends ItemModFood {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        if (player.isCrouching()) {
-            ItemStack itemstack = player.getItemInHand(hand);
+        ItemStack itemstack = player.getItemInHand(hand);
+        if (player.isShiftKeyDown()) {
 
             if (!player.isCreative()) {
                 itemstack.shrink(1);
             }
 
-            world.playSound(null, player.blockPosition(), SoundEvents.EGG_THROW, SoundSource.MASTER, 1, 1);
+            world.playSound(null, player.blockPosition(), SoundEvents.EGG_THROW, SoundSource.NEUTRAL, 1, 1);
 
             if (!world.isClientSide) {
                 EntityTomato bullet = new EntityTomato(EntityRegistry.TOMATO.get(), player, world);
@@ -36,16 +40,11 @@ public class ItemTomato extends ItemModFood {
             return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, itemstack);
         }
         else {
-            ItemStack itemstack = player.getItemInHand(hand);
-            if (itemstack.isEdible()) {
-                if (player.canEat(itemstack.getFoodProperties(player).canAlwaysEat())) {
-                    player.startUsingItem(hand);
-                    return InteractionResultHolder.consume(itemstack);
-                } else {
-                    return InteractionResultHolder.fail(itemstack);
-                }
+            if (player.canEat(itemstack.getFoodProperties(player).canAlwaysEat())) {
+                player.startUsingItem(hand);
+                return InteractionResultHolder.consume(itemstack);
             } else {
-                return InteractionResultHolder.pass(player.getItemInHand(hand));
+                return InteractionResultHolder.fail(itemstack);
             }
         }
     }
