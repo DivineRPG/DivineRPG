@@ -82,7 +82,7 @@ repositories {
     maven { url = uri("https://maven.blakesmods.com") }
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.0.22'
+    minecraft 'net.minecraftforge:forge:1.19.4-46.1.0'
     compileOnly fg.deobf("mezz.jei:jei-1.19.4-common-api:13.1.0.7") //Just Enough Items
     compileOnly fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.7") //Just Enough Items
     runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-common:13.1.0.7") //Just Enough Items
