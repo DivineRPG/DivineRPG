@@ -1,7 +1,5 @@
 package divinerpg.blocks.iceika;
 
-import javax.annotation.Nullable;
-
 import divinerpg.blocks.base.BlockMod;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,11 +13,13 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
+import javax.annotation.Nullable;
+
 public class BlockThermalVent extends BlockMod implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final VoxelShape AABB = Block.box(2D, 0D, 2D, 14D, 14D, 14D);
 	public BlockThermalVent() {
-		super(Properties.copy(Blocks.POINTED_DRIPSTONE).color(MaterialColor.STONE).requiresCorrectToolForDrops());
+		super(Properties.copy(Blocks.POINTED_DRIPSTONE).mapColor(MapColor.STONE).requiresCorrectToolForDrops());
 		registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, Boolean.valueOf(true)));
 	}
 	public PushReaction getPistonPushReaction(BlockState state) {

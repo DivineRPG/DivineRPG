@@ -15,12 +15,12 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
     private Supplier<Block> grassSupplier;
 //    private AABB size;
 
-    public BlockTwilightFlower(Supplier<Block> grassSupplier, MaterialColor color) {
+    public BlockTwilightFlower(Supplier<Block> grassSupplier, MapColor color) {
         this(grassSupplier, 0.4, 1, color);
     }
 
-    public BlockTwilightFlower(Supplier<Block> grassSupplier, double width, double height, MaterialColor color) {
-        super(Block.Properties.of(Material.PLANT, color).instabreak().noOcclusion().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+    public BlockTwilightFlower(Supplier<Block> grassSupplier, double width, double height, MapColor color) {
+        super(Block.Properties.of().mapColor(color).instabreak().noOcclusion().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
 
         if (width <= 0 || height <= 0) {

@@ -1,12 +1,12 @@
 modLoader = "javafml" #mandatory
-loaderVersion = "[${forge_major},)"
+loaderVersion = "[${loader_version_range},)"
 license = "https://www.curseforge.com/project/363543/license"
 issueTrackerURL = "https://github.com/DivineRPG/DivineRPG/issues" #optional
 
 [[mods]] #mandatory
-modId = "divinerpg" #mandatory
-version = "${file.jarVersion}" #mandatory
-displayName = "DivineRPG" #mandatory
+modId = "${mod_id}" #mandatory
+version = "${mod_version}" #mandatory
+displayName = "${mod_name}" #mandatory
 updateJSONURL = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/divinerpg_update.json" #optional
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg" #optional
 logoFile = "logo.png" #optional
@@ -16,6 +16,7 @@ description = '''Adds various dimensions, weapons, and mobs'''
 [[dependencies.divinerpg]] #optional
 modId = "forge" #mandatory
 mandatory = true #mandatory
-versionRange = "[${forge_major},)" #mandatory
+versionRange = "${forge_version_range}" #mandatory
 ordering = "NONE"
 side = "BOTH"
+

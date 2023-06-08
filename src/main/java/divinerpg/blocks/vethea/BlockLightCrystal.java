@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 
 public class BlockLightCrystal extends BlockMod {
-    public BlockLightCrystal(MaterialColor color) {
-        super(BlockBehaviour.Properties.of(Material.GLASS, color).strength(0.3F).sound(SoundType.GLASS).lightLevel((state) -> 15));
+    public BlockLightCrystal(MapColor color) {
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(0.3F).sound(SoundType.GLASS).lightLevel((state) -> 15));
     }
 }

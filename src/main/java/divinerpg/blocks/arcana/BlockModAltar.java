@@ -17,8 +17,8 @@ import javax.annotation.Nullable;
 
 public class BlockModAltar extends BaseEntityBlock {
 
-    public BlockModAltar(MaterialColor color) {
-        super(BlockBehaviour.Properties.of(Material.STONE, color).strength(-1F, 3600000F).noOcclusion());
+    public BlockModAltar(MapColor color) {
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1F, 3600000F).noOcclusion());
     }
 
     @Override

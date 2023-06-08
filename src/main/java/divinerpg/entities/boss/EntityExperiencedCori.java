@@ -35,15 +35,15 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (this.isAlive()) {
-            if (getTarget() != null && !level.isClientSide) {
+            if (getTarget() != null && !level().isClientSide) {
                 double tx = getTarget().getX() - this.getX();
                 double ty = getTarget().getEyeY() - this.getEyeY();
                 double tz = getTarget().getZ() - this.getZ();
-                EntityCoriShot e = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level, this, (float) getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                EntityCoriShot e = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level(), this, (float) getAttribute(Attributes.ATTACK_DAMAGE).getValue());
                 double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
                 e.shoot(tx, ty, tz, 1.6f, 0);
                 e.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);
-                this.level.addFreshEntity(e);
+                this.level().addFreshEntity(e);
             }
         }
     }
@@ -108,13 +108,13 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level.isClientSide) {
+            if(!this.level().isClientSide) {
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
                 if (random.nextInt(10) == 1) {
-                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 if (random.nextInt(20) == 1) {
-                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }

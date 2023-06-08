@@ -77,7 +77,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 		updateAbilities(angry = getHealth() < getMaxHealth() / 2F);
 	}
 	public void updateAbilities(boolean angry) {
-		if(!level.isClientSide) {
+		if(!level().isClientSide) {
 			switch(entityData.get(VARIANT)) {
 			case 0: for(EntityAyeraco entity : group) if(entity != null) entity.empowered = angry; break;
 			case 1: for(EntityAyeraco entity : group) if(entity != null) entity.projectileProtected = angry; break;
@@ -105,7 +105,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 	public void die(DamageSource source) {
 		super.die(source);
 		updateAbilities(false);
-        if(level.isLoaded(beam)) level.setBlock(beam, Blocks.AIR.defaultBlockState(), 3);
+        if(level().isLoaded(beam)) level().setBlock(beam, Blocks.AIR.defaultBlockState(), 3);
         if(group != null) for(EntityAyeraco ayeraco : group) if(ayeraco != null) ayeraco.removeFromGroup(entityData.get(VARIANT));
 	}
 	public void removeFromGroup(byte variant) {
@@ -142,7 +142,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 	}
 	public byte getVariant() {
 		if(entityData.get(VARIANT) == 6) {
-			BlockState block = level.getBlockState(beam);
+			BlockState block = level().getBlockState(beam);
 			if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")))) return 0;
 			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")))) return 1;
 			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")))) return 2;
@@ -201,15 +201,15 @@ public class EntityAyeraco extends EntityDivineBoss {
     	entityData.define(VARIANT, (byte)6);
     }
     public EntityAyeraco find(UUID id) {
-    	if(level != null && !level.isClientSide && id != null) {
-            Entity entity = ((ServerLevel) level).getEntity(id);
+    	if(level() != null && !level().isClientSide && id != null) {
+            Entity entity = ((ServerLevel) level()).getEntity(id);
             if(entity instanceof EntityAyeraco) return (EntityAyeraco) entity;
         } return null;
     }
     @Override
     public void tick() {
     	if(angry && canHeal) heal(2.5F);
-    	if(broadcast && !level.isClientSide) {
+    	if(broadcast && !level().isClientSide) {
     		loadExtra(tag);
     		broadcast = false;
     	}
@@ -226,11 +226,11 @@ public class EntityAyeraco extends EntityDivineBoss {
         } else {
            BlockPos ground = new BlockPos(blockPosition().below());
            float f = 0.91F;
-           if(onGround) f = level.getBlockState(ground).getFriction(level, ground, this) * 0.91F;
+           if(onGround()) f = level().getBlockState(ground).getFriction(level(), ground, this) * 0.91F;
            float f1 = 0.16277137F / (f * f * f);
            f = 0.91F;
-           if(onGround) f = level.getBlockState(ground).getFriction(level, ground, this) * 0.91F;
-           moveRelative(onGround ? 0.1F * f1 : 0.02F, vec);
+           if(onGround()) f = level().getBlockState(ground).getFriction(level(), ground, this) * 0.91F;
+           moveRelative(onGround() ? 0.1F * f1 : 0.02F, vec);
            move(MoverType.SELF, getDeltaMovement());
            setDeltaMovement(getDeltaMovement().scale(f));
         }
@@ -305,7 +305,7 @@ public class EntityAyeraco extends EntityDivineBoss {
       }
       @Override
       public void stop() {
-    	  EntityAyeraco.this.anchorPoint = EntityAyeraco.this.level.getHeightmapPos(Types.MOTION_BLOCKING, EntityAyeraco.this.anchorPoint).above(10 + EntityAyeraco.this.random.nextInt(20));
+    	  EntityAyeraco.this.anchorPoint = EntityAyeraco.this.level().getHeightmapPos(Types.MOTION_BLOCKING, EntityAyeraco.this.anchorPoint).above(10 + EntityAyeraco.this.random.nextInt(20));
       }
       @Override
       public void tick() {
@@ -321,8 +321,8 @@ public class EntityAyeraco extends EntityDivineBoss {
       }
       private void setAnchorAboveTarget() {
     	  EntityAyeraco.this.anchorPoint = EntityAyeraco.this.getTarget().blockPosition().above(20 + EntityAyeraco.this.random.nextInt(20));
-         if(EntityAyeraco.this.anchorPoint.getY() < EntityAyeraco.this.level.getSeaLevel()) {
-        	 EntityAyeraco.this.anchorPoint = new BlockPos(EntityAyeraco.this.anchorPoint.getX(), EntityAyeraco.this.level.getSeaLevel() + 1, EntityAyeraco.this.anchorPoint.getZ());
+         if(EntityAyeraco.this.anchorPoint.getY() < EntityAyeraco.this.level().getSeaLevel()) {
+        	 EntityAyeraco.this.anchorPoint = new BlockPos(EntityAyeraco.this.anchorPoint.getX(), EntityAyeraco.this.level().getSeaLevel() + 1, EntityAyeraco.this.anchorPoint.getZ());
          }
       }
 	}
@@ -368,7 +368,7 @@ public class EntityAyeraco extends EntityDivineBoss {
             if(EntityAyeraco.this.getBoundingBox().inflate(0.2).intersects(livingentity.getBoundingBox())) {
             	EntityAyeraco.this.doHurtTarget(livingentity);
             	EntityAyeraco.this.circling = true;
-               if(!EntityAyeraco.this.isSilent()) EntityAyeraco.this.level.levelEvent(1039, EntityAyeraco.this.blockPosition(), 0);
+               if(!EntityAyeraco.this.isSilent()) EntityAyeraco.this.level().levelEvent(1039, EntityAyeraco.this.blockPosition(), 0);
             } else if(EntityAyeraco.this.horizontalCollision || EntityAyeraco.this.hurtTime > 0) EntityAyeraco.this.circling = true;
          }
       }
@@ -402,11 +402,11 @@ public class EntityAyeraco extends EntityDivineBoss {
             selectNext();
          }
          if(touchingTarget()) selectNext();
-         if(EntityAyeraco.this.moveTargetPoint.y < EntityAyeraco.this.getY() && !EntityAyeraco.this.level.isEmptyBlock(EntityAyeraco.this.blockPosition().below(1))) {
+         if(EntityAyeraco.this.moveTargetPoint.y < EntityAyeraco.this.getY() && !EntityAyeraco.this.level().isEmptyBlock(EntityAyeraco.this.blockPosition().below(1))) {
             height = Math.max(1.0F, height);
             selectNext();
          }
-         if(EntityAyeraco.this.moveTargetPoint.y > EntityAyeraco.this.getY() && !EntityAyeraco.this.level.isEmptyBlock(EntityAyeraco.this.blockPosition().above(1))) {
+         if(EntityAyeraco.this.moveTargetPoint.y > EntityAyeraco.this.getY() && !EntityAyeraco.this.level().isEmptyBlock(EntityAyeraco.this.blockPosition().above(1))) {
             height = Math.min(-1.0F, height);
             selectNext();
          }
@@ -428,7 +428,7 @@ public class EntityAyeraco extends EntityDivineBoss {
             return false;
          } else {
             nextScanTick = reducedTickDelay(60);
-            List<Player> list = EntityAyeraco.this.level.getNearbyPlayers(attackTargeting, EntityAyeraco.this, EntityAyeraco.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
+            List<Player> list = EntityAyeraco.this.level().getNearbyPlayers(attackTargeting, EntityAyeraco.this, EntityAyeraco.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
             if(!list.isEmpty()) {
                list.sort(Comparator.<Entity, Double>comparing(Entity::getY).reversed());
                for(Player player : list) if(EntityAyeraco.this.canAttack(player, TargetingConditions.DEFAULT)) {

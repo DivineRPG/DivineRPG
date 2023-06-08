@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.*;
 
 public class BlockModLight extends BlockModPowered {
     public BlockModLight() {
-        super(Block.Properties.of(Material.GLASS, MaterialColor.COLOR_GRAY).strength(0.3F).sound(SoundType.GLASS));
+        super(Block.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(0.3F).sound(SoundType.GLASS));
     }
 
     @Override

@@ -22,7 +22,7 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
         return 3.5F;
     }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
-        return getY() < 20 && level.dimension() == Level.OVERWORLD;
+        return getY() < 20 && level().dimension() == Level.OVERWORLD;
     }
     @Override public boolean isAggressive() {return true;}
     @Override
@@ -49,14 +49,14 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
-            EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK.get(), this, level);
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
+            EntityCaveRock projectile = new EntityCaveRock(EntityRegistry.CAVE_ROCK.get(), this, level());
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-            level.addFreshEntity(projectile);
+            level().addFreshEntity(projectile);
         }
     }
 

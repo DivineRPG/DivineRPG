@@ -1,20 +1,19 @@
 package divinerpg.blocks.vanilla;
 
+import divinerpg.block_entities.bosses.AyeracoSpawnBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.block_entities.bosses.*;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockAyeracoSpawn extends BaseEntityBlock {
     public BlockAyeracoSpawn() {
-        super(BlockBehaviour.Properties.of(Material.FIRE).strength(6000000F, 6000000F).noOcclusion().randomTicks());
+        super(BlockBehaviour.Properties.of().strength(6000000F, 6000000F).noOcclusion().randomTicks());
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {

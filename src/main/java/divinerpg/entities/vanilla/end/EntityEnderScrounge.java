@@ -77,37 +77,37 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     @Override
     public void tick() {
         super.tick();
-        if (!level.isClientSide) {
-            if (level.getNearestPlayer(this, 3D) != null) {
-                Player player = level.getNearestPlayer(this, 3D);
+        if (!level().isClientSide) {
+            if (level().getNearestPlayer(this, 3D) != null) {
+                Player player = level().getNearestPlayer(this, 3D);
                 if (!player.isCreative() && !player.isSpectator()) {
                     if (random.nextInt(50) == 0) {
                         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
                         if (boots != null && !boots.isEmpty()) {
-                            ItemEntity item = new ItemEntity(level, getX(), getY(), getZ(), boots);
-                            level.addFreshEntity(item);
+                            ItemEntity item = new ItemEntity(level(), getX(), getY(), getZ(), boots);
+                            level().addFreshEntity(item);
                             player.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR));
                         }
                     }
                 }
             }
-            if(level.getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8)) != null) {
-                EnderMan enderMan = level.getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8));
+            if(level().getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8)) != null) {
+                EnderMan enderMan = level().getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8));
                 enderMan.teleportTo(xo + random.nextInt(32), yo, zo + random.nextInt(32));
             }
         }
     }
 
     public void aiStep() {
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             for(int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
+                this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
             }
         }
 
         this.jumping = false;
-        if (!this.level.isClientSide) {
-            this.updatePersistentAnger((ServerLevel)this.level, true);
+        if (!this.level().isClientSide) {
+            this.updatePersistentAnger((ServerLevel)this.level(), true);
         }
 
         super.aiStep();
@@ -118,9 +118,9 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     }
 
     protected void customServerAiStep() {
-        if (this.level.isDay() && this.tickCount >= this.targetChangeTime + 600) {
+        if (this.level().isDay() && this.tickCount >= this.targetChangeTime + 600) {
             float f = this.getLightLevelDependentMagicValue();
-            if (f > 0.5F && this.level.canSeeSky(this.blockPosition()) && this.random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F) {
+            if (f > 0.5F && this.level().canSeeSky(this.blockPosition()) && this.random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F) {
                 this.setTarget((LivingEntity)null);
                 this.teleport();
             }
@@ -130,7 +130,7 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     }
 
     protected boolean teleport() {
-        if (!this.level.isClientSide() && this.isAlive()) {
+        if (!this.level().isClientSide() && this.isAlive()) {
             double d0 = this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D;
             double d1 = this.getY() + (double)(this.random.nextInt(64) - 32);
             double d2 = this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D;
@@ -152,12 +152,12 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
 
-        while(blockpos$mutableblockpos.getY() > this.level.getMinBuildHeight() && !this.level.getBlockState(blockpos$mutableblockpos).getMaterial().blocksMotion()) {
+        while(blockpos$mutableblockpos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(blockpos$mutableblockpos).blocksMotion()) {
             blockpos$mutableblockpos.move(Direction.DOWN);
         }
 
-        BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
-        boolean flag = blockstate.getMaterial().blocksMotion();
+        BlockState blockstate = this.level().getBlockState(blockpos$mutableblockpos);
+        boolean flag = blockstate.blocksMotion();
         boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
         if (flag && !flag1) {
             net.minecraftforge.event.entity.EntityTeleportEvent.EnderEntity event = net.minecraftforge.event.ForgeEventFactory.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
@@ -165,9 +165,9 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
             Vec3 vec3 = this.position();
             boolean flag2 = this.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);
             if (flag2) {
-                this.level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(this));
+                this.level().gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(this));
                 if (!this.isSilent()) {
-                    this.level.playSound((Player)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
+                    this.level().playSound((Player)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
                     this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
                 }
             }

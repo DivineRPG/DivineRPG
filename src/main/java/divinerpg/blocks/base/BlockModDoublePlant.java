@@ -22,8 +22,8 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     private Supplier<Block> grassSupplier;
 
-    public BlockModDoublePlant(Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(BlockBehaviour.Properties.of(Material.PLANT, colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+    public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor colour) {
+        super(BlockBehaviour.Properties.of().mapColor(colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }

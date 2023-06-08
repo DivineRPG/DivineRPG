@@ -1,11 +1,10 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.Material;
 
 public class BlockModLadder extends LadderBlock {
     public BlockModLadder() {
-        super(Block.Properties.of(Material.DECORATION)
+        super(Block.Properties.of()
                 .strength(0.4F)
                 .sound(SoundType.LADDER)
                 .dynamicShape()

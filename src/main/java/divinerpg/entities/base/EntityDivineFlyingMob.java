@@ -56,7 +56,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected void customServerAiStep() {
         super.customServerAiStep();
         setNoGravity(true);
-        boolean blockedPath = horizontalCollision || verticalCollision || !level.getBlockState(new BlockPos((int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).x, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).y, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).z)).isAir();
+        boolean blockedPath = horizontalCollision || verticalCollision || !level().getBlockState(new BlockPos((int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).x, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).y, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).z)).isAir();
         //decide where to go next
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * 14D), findY = getY() + ((random.nextFloat() - .6F) * 14D), findZ = getZ() + ((random.nextFloat() - .5F) * 14D);
@@ -64,10 +64,10 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
             if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
-                    pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 4, findY + (target.getY() - getY() + preferredHeight) / 1.1 + (level.getBlockState(blockPosition()).isAir() ? 0D : 2D), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 4);
+                    pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 4, findY + (target.getY() - getY() + preferredHeight) / 1.1 + (level().getBlockState(blockPosition()).isAir() ? 0D : 2D), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 4);
                 } else {
                     pathfindPos = target.position().add(target.getDeltaMovement().multiply(3D, 3D, 3D));
-                    if(!level.getBlockState(blockPosition()).isAir()) pathfindPos.add(0D, 2D, 0D);
+                    if(!level().getBlockState(blockPosition()).isAir()) pathfindPos.add(0D, 2D, 0D);
                 }
             } else pathfindPos = new Vec3(findX, findY, findZ);
         }

@@ -1,16 +1,15 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.core.*;
-import net.minecraft.world.level.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.*;
 
 public class BlockModBridge extends BlockModPowered {
     public BlockModBridge() {
         super(Block.Properties
-                .of(Material.BUILDABLE_GLASS)
+                .of()
                 .strength(0.3F)
                 .isViewBlocking(BlockModBridge::never)
                 .noOcclusion()

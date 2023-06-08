@@ -30,7 +30,7 @@ public class EntityWreckShot extends DivineThrowable {
                 par1.getEntity().hurt(damageSources().thrown(this, this.getOwner()), this.damage);
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

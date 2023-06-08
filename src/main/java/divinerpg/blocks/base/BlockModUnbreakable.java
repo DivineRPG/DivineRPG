@@ -9,8 +9,9 @@ public class BlockModUnbreakable extends BlockMod {
         super(properties);
     }
 
-    public BlockModUnbreakable(MaterialColor color, boolean isLamp) {
-        super(Block.Properties.of(Material.GLASS, color)
+    public BlockModUnbreakable(MapColor color, boolean isLamp) {
+        super(Block.Properties.of()
+                .mapColor(color)
                 .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.GLASS)
                 .lightLevel((p_235464_0_) -> {
@@ -18,8 +19,9 @@ public class BlockModUnbreakable extends BlockMod {
                 }));
     }
 
-    public BlockModUnbreakable(MaterialColor color) {
-        super(Block.Properties.of(Material.STONE, color)
+    public BlockModUnbreakable(MapColor color) {
+        super(Block.Properties.of()
+                .mapColor(color)
                 .strength(-1.0F, 3600000.0F)
                 .sound(SoundType.STONE));
     }

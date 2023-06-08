@@ -108,7 +108,7 @@ public class EntityParatiku extends EntityDivineTameable {
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Item item = itemstack.getItem();
             if (this.isTame()) {
@@ -147,26 +147,26 @@ public class EntityParatiku extends EntityDivineTameable {
         BlockPos blockpos1 = blockpos.above();
         if (this.getIsParatikuHanging()) {
             boolean flag = this.isSilent();
-            if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos)) {
+            if (this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos)) {
                 if (this.random.nextInt(200) == 0) {
                     this.yHeadRot = (float) this.random.nextInt(360);
                 }
 
-                if (this.level.getNearestPlayer(RESTING_TARGETING, this) != null) {
+                if (this.level().getNearestPlayer(RESTING_TARGETING, this) != null) {
                     this.setIsParatikuHanging(false);
                     if (!flag) {
-                        this.level.levelEvent((Player) null, 1025, blockpos, 0);
+                        this.level().levelEvent((Player) null, 1025, blockpos, 0);
                     }
                 }
             } else {
                 this.setIsParatikuHanging(false);
                 if (!flag) {
-                    this.level.levelEvent((Player) null, 1025, blockpos, 0);
+                    this.level().levelEvent((Player) null, 1025, blockpos, 0);
                 }
             }
         } else {
             if (this.getTarget() != null) {
-                if (this.getTarget().blockPosition() != null && (!this.level.isEmptyBlock(this.getTarget().blockPosition()) || this.getTarget().blockPosition().getY() < 1)) {
+                if (this.getTarget().blockPosition() != null && (!this.level().isEmptyBlock(this.getTarget().blockPosition()) || this.getTarget().blockPosition().getY() < 1)) {
                 }
 
                 if (this.getTarget().blockPosition() == null || this.random.nextInt(30) == 0 || this.getTarget().blockPosition().closerToCenterThan(this.position(), 2.0D)) {
@@ -182,7 +182,7 @@ public class EntityParatiku extends EntityDivineTameable {
                 float f1 = Mth.wrapDegrees(f - this.yRot);
                 this.zza = 0.5F;
                 this.yRot += f1;
-                if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+                if (this.random.nextInt(100) == 0 && this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos1)) {
                     this.setIsParatikuHanging(true);
                 }
             }
@@ -195,7 +195,7 @@ public class EntityParatiku extends EntityDivineTameable {
         if (source.isCreativePlayer()) {
             return false;
         } else {
-            if (!this.level.isClientSide && this.getIsParatikuHanging()) {
+            if (!this.level().isClientSide && this.getIsParatikuHanging()) {
                 this.setIsParatikuHanging(false);
             }
 

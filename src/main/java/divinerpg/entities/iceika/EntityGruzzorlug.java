@@ -135,20 +135,18 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
     }
 
     private Item getTradedItem(Player player) {
-        if (player.level.isClientSide) {
+        if (player.level().isClientSide) {
             return null;
         }
 
         ResourceLocation lootTableLocation = new ResourceLocation(DivineRPG.MODID, "trades/gruzzorlug");
-        LootTable tradeLootTable = player.getServer().getLootTables().get(lootTableLocation);
 
-        if (tradeLootTable != null) {
-            LootContext.Builder lootContextBuilder = new LootContext.Builder((ServerLevel) player.level)
-                    .withParameter(LootContextParams.ORIGIN, player.position())
-                    .withParameter(LootContextParams.THIS_ENTITY, player)
-                    .withRandom(player.getRandom());
+        LootParams lootparams = (new LootParams.Builder((ServerLevel) player.level())).withParameter(LootContextParams.THIS_ENTITY, player).withParameter(LootContextParams.ORIGIN, player.position()).create(LootContextParamSets.SELECTOR);
+        LootContext lootcontext = (new LootContext.Builder(lootparams)).create(lootTableLocation);
+        LootTable tradeLootTable = player.getServer().getLootData().getLootTable(lootTableLocation);
 
-            List<ItemStack> tradedItems = tradeLootTable.getRandomItems(lootContextBuilder.create(LootContextParamSets.GIFT));
+        if (lootcontext != null) {
+            List<ItemStack> tradedItems = tradeLootTable.getRandomItems(lootparams);
             if (!tradedItems.isEmpty()) {
                 ItemStack tradedItemStack = tradedItems.get(0);
                 return tradedItemStack.getItem();
@@ -196,24 +194,24 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
 
     @Override
     public void performRangedAttack(LivingEntity target, float distance) {
-        if (isAlive() && getTarget() != null && !level.isClientSide && entityData.get(ITEM) == 2) {
-            EntityCorruptedBullet projectile = new EntityCorruptedBullet(EntityRegistry.CORRUPTED_BULLET.get(), this, level);
+        if (isAlive() && getTarget() != null && !level().isClientSide && entityData.get(ITEM) == 2) {
+            EntityCorruptedBullet projectile = new EntityCorruptedBullet(EntityRegistry.CORRUPTED_BULLET.get(), this, level());
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-            this.level.addFreshEntity(projectile);
+            this.level().addFreshEntity(projectile);
         }
     }
 
     @Override
     public void die(DamageSource source) {
-        if (entityData.get(ITEM) == 1 && level.random.nextBoolean()) {
-            level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_pickaxe")))));
+        if (entityData.get(ITEM) == 1 && level().random.nextBoolean()) {
+            level().addFreshEntity(new ItemEntity(level(), getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_pickaxe")))));
         }
-        if (entityData.get(ITEM) == 2 && level.random.nextBoolean()) {
-            level.addFreshEntity(new ItemEntity(level, getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_cannon")))));
+        if (entityData.get(ITEM) == 2 && level().random.nextBoolean()) {
+            level().addFreshEntity(new ItemEntity(level(), getX(), getY(), getZ(), new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_cannon")))));
         }
         super.die(source);
     }

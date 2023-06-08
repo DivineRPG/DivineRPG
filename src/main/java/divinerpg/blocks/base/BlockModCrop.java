@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,7 +27,7 @@ public class BlockModCrop extends CropBlock {
     }
 
     public BlockModCrop(double maxHeight, int maxAge) {
-        super(BlockBehaviour.Properties.of(Material.PLANT).noCollission().noOcclusion().randomTicks().instabreak().sound(SoundType.CROP));
+        super(BlockBehaviour.Properties.of().noCollission().noOcclusion().randomTicks().instabreak().sound(SoundType.CROP));
         this.maxAge = maxAge;
 
         double step = maxHeight / ((double) getMaxAge() + 1);

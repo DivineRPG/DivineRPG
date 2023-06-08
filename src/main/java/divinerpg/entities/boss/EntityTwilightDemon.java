@@ -41,28 +41,28 @@ public class EntityTwilightDemon extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             if (this.tickCount % 160 == 0)
                 this.shooting = 100;
-            this.setTarget(this.level.getNearestPlayer(this, 40.0D));
+            this.setTarget(this.level().getNearestPlayer(this, 40.0D));
             if (this.getTarget() != null && this.shooting > 0) {
                 double tx = this.getTarget().getX() - this.getX();
                 double ty = this.getTarget().getBoundingBox().minY - this.getY() - 2;
                 double tz = this.getTarget().getZ() - this.getZ();
                 double angle = Math.atan(-(tx) / (tz));
-                EntityTwilightDemonShot e = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT.get(), this, level, this.random.nextInt(50) == 0 ?
+                EntityTwilightDemonShot e = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT.get(), this, level(), this.random.nextInt(50) == 0 ?
                         BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
                 e.zo += Math.sin(angle);
                 e.xo += Math.cos(angle);
                 e.shoot(tx - Math.cos(angle), ty, tz - Math.sin(angle), 1.6f, 0);
-                this.level.addFreshEntity(e);
+                this.level().addFreshEntity(e);
 
-                EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT.get(), this, level, this.random.nextInt(50) == 0 ?
+                EntityTwilightDemonShot e1 = new EntityTwilightDemonShot(EntityRegistry.TWILIGHT_DEMON_SHOT.get(), this, level(), this.random.nextInt(50) == 0 ?
                         BulletType.TWILIGHT_DEMON_RED_SHOT : BulletType.TWILIGHT_DEMON_BLACK_SHOT);
                 e1.zo -= Math.sin(angle);
                 e1.xo -= Math.cos(angle);
                 e1.shoot(tx + Math.cos(angle), ty, tz + Math.sin(angle), 1.6f, 0);
-                this.level.addFreshEntity(e1);
+                this.level().addFreshEntity(e1);
             }
             if (this.shooting > 0) {
                 this.shooting--;

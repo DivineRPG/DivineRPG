@@ -42,11 +42,11 @@ public class EntityFrostShot extends DivineFireball {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() == null || !result.getEntity().equals(this.shootingEntity)) {
-                if (!this.level.isClientSide) {
-                    List<LivingEntity> list = this.level.<LivingEntity>getEntitiesOfClass(LivingEntity.class,
+                if (!this.level().isClientSide) {
+                    List<LivingEntity> list = this.level().<LivingEntity>getEntitiesOfClass(LivingEntity.class,
                             this.getBoundingBox().inflate(4.0D, 2.0D, 4.0D));
 
-                    EntityFrostCloud frostCloud = new EntityFrostCloud(EntityRegistry.FROST_CLOUD.get(), this.level, this.xo, this.yo, this.zo);
+                    EntityFrostCloud frostCloud = new EntityFrostCloud(EntityRegistry.FROST_CLOUD.get(), this.level(), this.xo, this.yo, this.zo);
 
                     frostCloud.setOwner(this.shootingEntity);
                     frostCloud.setRadius(3.0F);
@@ -64,9 +64,9 @@ public class EntityFrostShot extends DivineFireball {
                         }
                     }
 
-                    this.level.playSound((Player) null, this.xo, this.yo, this.zo, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, 4.0F,
-                            (1.0F + (this.level.random.nextFloat() - this.level.random.nextFloat()) * 0.2F) * 0.7F);
-                    this.level.addFreshEntity(frostCloud);
+                    this.level().playSound((Player) null, this.xo, this.yo, this.zo, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, 4.0F,
+                            (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
+                    this.level().addFreshEntity(frostCloud);
                     this.discard();
                 }
             }
@@ -79,7 +79,7 @@ public class EntityFrostShot extends DivineFireball {
         this.discard();
     }
         super.tick();
-        level.addParticle(ParticleRegistry.FROST.get(), this.xo + (random.nextFloat() * 2),
+        level().addParticle(ParticleRegistry.FROST.get(), this.xo + (random.nextFloat() * 2),
                 this.yo + (random.nextFloat() * 2), this.zo + (random.nextFloat() * 2), 0, 1, 0);
     }
 }

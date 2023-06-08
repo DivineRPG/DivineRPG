@@ -14,7 +14,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
 	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
     public BlockWinterberryBush() {
-        super(BlockBehaviour.Properties.of(Material.PLANT).strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((p_235464_0_) -> {
+        super(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((p_235464_0_) -> {
                     return 1;
                 }));
 		registerDefaultState(this.stateDefinition.any().setValue(RIPE, false));

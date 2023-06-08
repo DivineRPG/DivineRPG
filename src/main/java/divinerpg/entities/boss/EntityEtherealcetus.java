@@ -59,25 +59,25 @@ public class EntityEtherealcetus extends EntityWhale {
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
 
         //Spawn fish around it randomly
-        if (this.level.random.nextInt(200) == 0) {
-            double x = this.getX() + (this.level.random.nextDouble() - 0.5) * 8;
+        if (this.level().random.nextInt(200) == 0) {
+            double x = this.getX() + (this.level().random.nextDouble() - 0.5) * 8;
             double y = this.getY();
-            double z = this.getZ() + (this.level.random.nextDouble() - 0.5) * 8;
+            double z = this.getZ() + (this.level().random.nextDouble() - 0.5) * 8;
             BlockPos pos = new BlockPos((int) x, (int) y, (int) z);
-            if (this.level.getBlockState(pos).getFluidState().is(FluidTags.WATER)) {
+            if (this.level().getBlockState(pos).getFluidState().is(FluidTags.WATER)) {
                 List<EntityType<?>> fishEntities = Arrays.asList(EntityType.COD, EntityType.SALMON, EntityType.TROPICAL_FISH, EntityType.PUFFERFISH, EntityRegistry.SHARK.get(), EntityRegistry.AEQUOREA.get(), EntityType.GLOW_SQUID, EntityType.TURTLE, EntityType.TADPOLE);
-                EntityType<?> randomFishEntity = fishEntities.get(this.level.random.nextInt(fishEntities.size()));
-                Mob fish = (Mob) randomFishEntity.create(this.level);
+                EntityType<?> randomFishEntity = fishEntities.get(this.level().random.nextInt(fishEntities.size()));
+                Mob fish = (Mob) randomFishEntity.create(this.level());
                 fish.setPos(x, y, z);
-                fish.setDeltaMovement(this.level.random.nextGaussian() * 0.1, this.level.random.nextGaussian() * 0.1, this.level.random.nextGaussian() * 0.1);
-                if (this.level.noCollision(fish, fish.getBoundingBox().deflate(0.0625))) {
-                    this.level.addFreshEntity(fish);
+                fish.setDeltaMovement(this.level().random.nextGaussian() * 0.1, this.level().random.nextGaussian() * 0.1, this.level().random.nextGaussian() * 0.1);
+                if (this.level().noCollision(fish, fish.getBoundingBox().deflate(0.0625))) {
+                    this.level().addFreshEntity(fish);
                 }
             }
         }
 
         //Randomly add negative effects to nearby players
-        List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(16.0D));
+        List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(16.0D));
         for (Player player : players) {
             if (!player.isSpectator() && !player.isCreative() && player.isAlive() && random.nextInt(500) == 3) {
                 player.addEffect(getRandomNegativeEffect());
@@ -85,7 +85,7 @@ public class EntityEtherealcetus extends EntityWhale {
         }
 
         //Break boats if the whale is nearby
-        List<Boat> boats = this.level.getEntitiesOfClass(Boat.class, this.getBoundingBox().inflate(4.0D));
+        List<Boat> boats = this.level().getEntitiesOfClass(Boat.class, this.getBoundingBox().inflate(4.0D));
         for (Boat boat : boats) {
             if (boat.distanceTo(this) <= 4.0D) {
                 boat.hurt(damageSources().generic(), 100.0F);
@@ -95,7 +95,7 @@ public class EntityEtherealcetus extends EntityWhale {
 
 
         // Spawn projectile out of its blowhole projectile once reaching 32 blocks traveled up will split and shoot bone fragments everywhere
-        Player closestPlayer = this.level.getNearestPlayer(this, 16.0D);
+        Player closestPlayer = this.level().getNearestPlayer(this, 16.0D);
         if (closestPlayer != null && this.random.nextInt(200) == 0) {
             double x = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
             double y = this.getY() + this.random.nextFloat() * this.getBbHeight();
@@ -104,8 +104,8 @@ public class EntityEtherealcetus extends EntityWhale {
                 double motionX = 0.0D;
                 double motionY = 1.75D; // set the arrow upward velocity
                 double motionZ = 0.0D;
-                this.hurt(damageSources().outOfWorld(), 16);
-                EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level, BulletType.BONE_BOMB) {
+                this.hurt(damageSources().fellOutOfWorld(), 16);
+                EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.BONE_BOMB) {
                     @Override
                     public void onHitEntity(EntityHitResult result) {
                         super.onHitEntity(result);
@@ -129,9 +129,9 @@ public class EntityEtherealcetus extends EntityWhale {
 
                         BlockPos.betweenClosedStream(aabb)
                                 .forEach(blockPos -> {
-                                    BlockState blockState = this.level.getBlockState(blockPos);
+                                    BlockState blockState = this.level().getBlockState(blockPos);
                                     if (blockState.is(BlockTags.ICE)) {
-                                        this.level.destroyBlock(blockPos, true);
+                                        this.level().destroyBlock(blockPos, true);
                                     }
                                 });
 
@@ -141,7 +141,7 @@ public class EntityEtherealcetus extends EntityWhale {
                                     double motionX = (this.random.nextDouble() - 0.5) * 2.0;
                                     double motionY = (this.random.nextDouble() - 0.5) * 2.0;
                                     double motionZ = (this.random.nextDouble() - 0.5) * 2.0;
-                                    EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), (LivingEntity) getOwner(), level, BulletType.BONE_FRAGMENT) {
+                                    EntityShooterBullet e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), (LivingEntity) getOwner(), level(), BulletType.BONE_FRAGMENT) {
                                         @Override
                                         public void onHitEntity(EntityHitResult result) {
                                             super.onHitEntity(result);
@@ -164,7 +164,7 @@ public class EntityEtherealcetus extends EntityWhale {
                                     e.setOwner(this.getOwner());
                                     e.setPos(getOwner().getX(), getOwner().getY(), getOwner().getZ());
                                     e.shoot(motionX, motionY, motionZ, 1.0F, 0.0F);
-                                    this.level.addFreshEntity(e);
+                                    this.level().addFreshEntity(e);
                                 }
                                 this.kill();
                             }
@@ -174,7 +174,7 @@ public class EntityEtherealcetus extends EntityWhale {
                 e.setOwner(this);
                 e.shoot(motionX, motionY, motionZ, 1.6F, 0);
                 e.setPos(x, y, z);
-                level.addFreshEntity(e);
+                level().addFreshEntity(e);
             }
 
             // Calculate vector between whale and player
@@ -205,13 +205,13 @@ public class EntityEtherealcetus extends EntityWhale {
                     new BlockPos((int) box.minX, (int) box.minY, (int) box.minZ),
                     new BlockPos((int) box.maxX, (int) box.maxY, (int) box.maxZ)
             ).forEach((blockPos) -> {
-                BlockState state = this.level.getBlockState(blockPos);
+                BlockState state = this.level().getBlockState(blockPos);
 
                 if (state.is(BlockTags.ICE)) {
-                    if (blockPos.getY() == this.level.getSeaLevel()) { // Check if the block is at sea level
-                        this.level.setBlockAndUpdate(blockPos, Blocks.WATER.defaultBlockState()); // Replace ice with water
+                    if (blockPos.getY() == this.level().getSeaLevel()) { // Check if the block is at sea level
+                        this.level().setBlockAndUpdate(blockPos, Blocks.WATER.defaultBlockState()); // Replace ice with water
                     } else {
-                        this.level.destroyBlock(blockPos, false); // Break ice block
+                        this.level().destroyBlock(blockPos, false); // Break ice block
                     }
                     this.playSound(SoundEvents.GLASS_BREAK, 1.0F, 1.0F);
                 }
@@ -229,7 +229,7 @@ public class EntityEtherealcetus extends EntityWhale {
     @Override
     public boolean hurt(DamageSource source, float amount) {
         //Can only be damaged via magic or arcana
-        if (source.is(DamageTypes.MAGIC) || source == DamageSources.source(level, DamageSources.ARCANA) || source.is(DamageTypes.OUT_OF_WORLD) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.WITHER)) {
+        if (source.is(DamageTypes.MAGIC) || source == DamageSources.source(level(), DamageSources.ARCANA) || source.is(DamageTypes.FELL_OUT_OF_WORLD) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.WITHER)) {
             return super.hurt(source, amount);
         } else {
             return false;

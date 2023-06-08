@@ -16,8 +16,8 @@ public class EntityRaglokBomb extends DivineThrowable {
     @Override
     protected void onHit(HitResult var1) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
-                level.explode(this, xo, yo, zo, 2.5F, false, Level.ExplosionInteraction.TNT);
+            if (!this.level().isClientSide) {
+                level().explode(this, xo, yo, zo, 2.5F, false, Level.ExplosionInteraction.TNT);
             }
             this.kill();
         }

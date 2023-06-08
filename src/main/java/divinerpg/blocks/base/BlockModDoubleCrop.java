@@ -1,14 +1,14 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.core.*;
-import net.minecraft.server.level.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.common.*;
 
@@ -39,7 +39,7 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
         return 2;
     }
 
-    protected int getAge(BlockState p_185527_1_) {
+    public int getAge(BlockState p_185527_1_) {
         return p_185527_1_.getValue(this.getAgeProperty());
     }
 
@@ -110,7 +110,7 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
     protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
         state = world.getBlockState(pos.below());
         Block block = state.getBlock();
-        return block == this || state.getMaterial() == Material.GRASS;
+        return block == this || state.is(BlockTags.DIRT);
     }
 
     @Override

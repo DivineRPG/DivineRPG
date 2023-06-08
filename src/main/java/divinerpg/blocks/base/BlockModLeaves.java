@@ -2,15 +2,13 @@ package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockModLeaves extends LeavesBlock {
-    public BlockModLeaves(MaterialColor color, SoundType sound) {
-        super(Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(sound).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false));
+    public BlockModLeaves(MapColor color, SoundType sound) {
+        super(Properties.of().mapColor(color).strength(0.2F).randomTicks().sound(sound).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false));
     }
 
     @Override

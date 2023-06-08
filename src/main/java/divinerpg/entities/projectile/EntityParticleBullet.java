@@ -27,8 +27,8 @@ public class EntityParticleBullet extends EntityShooterBullet {
             double x = this.xo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double y = this.yo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double z = this.zo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-            if (level.isClientSide && getBulletType().getParticle() != null) {
-                level.addParticle(getBulletType().getParticle(), x, y, z, 0, 0, 0);
+            if (level().isClientSide && getBulletType().getParticle() != null) {
+                level().addParticle(getBulletType().getParticle(), x, y, z, 0, 0, 0);
             }
         }
     }

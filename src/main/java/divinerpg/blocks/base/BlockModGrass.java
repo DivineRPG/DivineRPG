@@ -9,23 +9,21 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.lighting.LayerLightEngine;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.lighting.LightEngine;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
-import static net.minecraft.world.level.material.MaterialColor.DIAMOND;
-
 public class BlockModGrass extends BlockMod implements BonemealableBlock {
     protected final Supplier<Block> dirtSupplier;
-    public BlockModGrass(Supplier<Block> dirt, MaterialColor colour) {
-        super(Block.Properties.of(Material.GRASS, colour).randomTicks().strength(0.6F).sound(SoundType.GRASS));
+    public BlockModGrass(Supplier<Block> dirt, MapColor colour) {
+        super(Block.Properties.of().mapColor(colour).randomTicks().strength(0.6F).sound(SoundType.GRASS));
         dirtSupplier = dirt;
     }
     public BlockModGrass(Supplier<Block> dirt) {
-        super(Block.Properties.of(Material.STONE, DIAMOND).randomTicks().strength(2F, 6F));
+        super(Block.Properties.of().mapColor(MapColor.DIAMOND).randomTicks().strength(2F, 6F));
         dirtSupplier = dirt;
     }
     @Override
@@ -72,7 +70,7 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         if(blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) return true;
         else if(blockstate.getFluidState().getAmount() == 8) return false;
         else {
-            int i = LayerLightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));
+            int i = LightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));
             return i < level.getMaxLightLevel();
         }
     }

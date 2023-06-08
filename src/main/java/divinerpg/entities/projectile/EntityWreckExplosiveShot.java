@@ -24,9 +24,9 @@ public class EntityWreckExplosiveShot extends DivineThrowable {
     @Override
     protected void onHit(HitResult par1MovingObjectPosition) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
-                this.level.explode(this, this.xo, this.yo, this.zo, 3, false, Level.ExplosionInteraction.NONE);
+                this.level().explode(this, this.xo, this.yo, this.zo, 3, false, Level.ExplosionInteraction.NONE);
             }
         }
     }

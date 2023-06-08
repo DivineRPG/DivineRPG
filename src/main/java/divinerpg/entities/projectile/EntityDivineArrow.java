@@ -24,7 +24,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
@@ -126,12 +125,12 @@ public class EntityDivineArrow extends AbstractArrow {
             double x = this.xo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double y = this.yo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double z = this.zo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-            level.addParticle(ParticleTypes.FLAME, x, y, z, 0, 0, 0);
+            level().addParticle(ParticleTypes.FLAME, x, y, z, 0, 0, 0);
         } else if (getArrowType() == ArrowType.ETERNAL_ARCHER_WITHER_ARROW) {
             double x = this.xo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double y = this.yo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
             double z = this.zo + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-            level.addParticle(ParticleRegistry.BLACK_FLAME.get(), x, y, z, 0, 0, 0);
+            level().addParticle(ParticleRegistry.BLACK_FLAME.get(), x, y, z, 0, 0, 0);
         }
         if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
             float f = Mth.sqrt((float) (this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z));
@@ -141,10 +140,10 @@ public class EntityDivineArrow extends AbstractArrow {
             this.xRotO = this.xRot;
         }
         BlockPos blockpos = new BlockPos(this.xTile, this.yTile, this.zTile);
-        BlockState iblockstate = this.level.getBlockState(blockpos);
+        BlockState iblockstate = this.level().getBlockState(blockpos);
         Block block = iblockstate.getBlock();
-        if (iblockstate.getMaterial() != Material.AIR) {
-            VoxelShape vox = iblockstate.getCollisionShape(this.level, blockpos);
+        if (!iblockstate.isAir()) {
+            VoxelShape vox = iblockstate.getCollisionShape(this.level(), blockpos);
             if (vox != Shapes.empty()
                     && vox.move(blockpos.getX(), blockpos.getY(), blockpos.getZ()).equals(new Vec3(this.xo, this.yo, this.zo))) {
                 this.inGround = true;
@@ -155,7 +154,7 @@ public class EntityDivineArrow extends AbstractArrow {
         }
         if (this.inGround) {
             if ((block != this.inTile)
-                    && !this.level.noCollision(this.getBoundingBox().inflate(0.05D))) {
+                    && !this.level().noCollision(this.getBoundingBox().inflate(0.05D))) {
                 this.inGround = false;
                 setDeltaMovement(getDeltaMovement().x * this.random.nextFloat() * 0.2F, getDeltaMovement().y * this.random.nextFloat() * 0.2F, getDeltaMovement().z * this.random.nextFloat() * 0.2F);
                 this.ticksInGround = 0;
@@ -195,9 +194,9 @@ public class EntityDivineArrow extends AbstractArrow {
                     DamageSource damagesource;
 
                     if (this.shootingEntity == null) {
-                        damagesource = level.damageSources().arrow(this, this);
+                        damagesource = level().damageSources().arrow(this, this);
                     } else {
-                        damagesource = level.damageSources().arrow(this, this.shootingEntity);
+                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
                     }
 
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
@@ -224,12 +223,12 @@ public class EntityDivineArrow extends AbstractArrow {
 
                     // Explosion Damage
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
-                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                        this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                     }
                     
                     if (entity.hurt(damagesource, (float) i)) {
 
-                        if (!this.level.isClientSide) {
+                        if (!this.level().isClientSide) {
                             entity.setArrowCount(entity.getArrowCount() + 1);
                         }
                         if (this.knockbackStrength > 0) {
@@ -258,11 +257,11 @@ public class EntityDivineArrow extends AbstractArrow {
                         this.yRot += 180.0F;
                         this.yRotO += 180.0F;
 //                this.ticksInAir = 0;
-                        if (!this.level.isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
+                        if (!this.level().isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
                                 + this.getDeltaMovement().z * this.getDeltaMovement().z < 0.0010000000474974513D) {
                             if (this.pickupStatus == Pickup.ALLOWED) {
-                                ItemEntity itemEnt = new ItemEntity(level, xo, yo, zo, getArrowStack());
-                                level.addFreshEntity(itemEnt);
+                                ItemEntity itemEnt = new ItemEntity(level(), xo, yo, zo, getArrowStack());
+                                level().addFreshEntity(itemEnt);
                             }
                             this.kill();
                         }
@@ -284,7 +283,7 @@ public class EntityDivineArrow extends AbstractArrow {
                     this.setIsCritical(false);
 
                     if (getArrowType() == ArrowType.SNOWSTORM_ARROW) {
-                        this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.BLOCK);
+                        this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.BLOCK);
                         this.kill();
                     }
                 }
@@ -305,9 +304,9 @@ public class EntityDivineArrow extends AbstractArrow {
                     DamageSource damagesource;
 
                     if (this.shootingEntity == null) {
-                        damagesource = level.damageSources().arrow(this, this);
+                        damagesource = level().damageSources().arrow(this, this);
                     } else {
-                        damagesource = level.damageSources().arrow(this, this.shootingEntity);
+                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
                     }
 
                     // Fire Damage
@@ -320,7 +319,7 @@ public class EntityDivineArrow extends AbstractArrow {
                     if (entity.hurt(damagesource, (float) i)) {
                         // Explosion Damage
                         if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
-                            this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                            this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                         }
                         if (this.knockbackStrength > 0) {
                             float f1 = Mth.sqrt((float) (this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().z * this.getDeltaMovement().z));
@@ -386,7 +385,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
     @Override
     public void playerTouch(Player entityIn) {
-        if (!this.level.isClientSide && this.inGround && this.arrowShake <= 0) {
+        if (!this.level().isClientSide && this.inGround && this.arrowShake <= 0) {
             boolean flag = this.pickupStatus == Pickup.ALLOWED
                     || this.pickupStatus == Pickup.CREATIVE_ONLY
                     && entityIn.isCreative();

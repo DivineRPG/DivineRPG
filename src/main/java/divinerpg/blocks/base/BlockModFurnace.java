@@ -1,30 +1,27 @@
 package divinerpg.blocks.base;
 
-import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
-
 import divinerpg.block_entities.furnace.ModFurnaceBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.Containers;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public final class BlockModFurnace extends FurnaceBlock {
 	public final Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntityType;
-    public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity, MaterialColor color) {
-        super(Block.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(3.5F));
+    public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity, MapColor color) {
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }

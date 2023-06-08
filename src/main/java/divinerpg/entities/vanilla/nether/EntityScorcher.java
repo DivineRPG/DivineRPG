@@ -77,17 +77,17 @@ public class EntityScorcher extends EntityDivineMonster implements RangedAttackM
     }
 
     public void aiStep() {
-        if (!this.onGround && this.getDeltaMovement().y < 0.0D) {
+        if (!this.onGround() && this.getDeltaMovement().y < 0.0D) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
         }
 
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             if (this.random.nextInt(24) == 0 && !this.isSilent()) {
-                this.level.playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.BLAZE_BURN, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
+                this.level().playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.BLAZE_BURN, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
             }
 
             for(int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
             }
         }
 
@@ -121,15 +121,15 @@ public class EntityScorcher extends EntityDivineMonster implements RangedAttackM
 
     @Override
     public void performRangedAttack(LivingEntity target, float p_33318_) {
-        if (isAlive() && getTarget() != null && !level.isClientSide && this.tickCount % 80 == 0) {
+        if (isAlive() && getTarget() != null && !level().isClientSide && this.tickCount % 80 == 0) {
                 Vec3 vec3 = this.getViewVector(1.0F);
                 double d0 = getTarget().getX() - (this.getX() + vec3.x * 4.0D);
                 double d1 = getTarget().getY(0.5D) - (0.5D + this.getY(0.5D));
                 double d2 = getTarget().getZ() - (this.getZ() + vec3.z * 4.0D);
                 double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
-                LargeFireball projectile = new LargeFireball(level, this, d0, d1, d2, 1);
+                LargeFireball projectile = new LargeFireball(level(), this, d0, d1, d2, 1);
                 projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-                level.addFreshEntity(projectile);
+                level().addFreshEntity(projectile);
         }
     }
 }

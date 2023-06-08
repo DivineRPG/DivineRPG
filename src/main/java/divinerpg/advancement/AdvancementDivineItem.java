@@ -16,7 +16,7 @@ public class AdvancementDivineItem implements CriterionTrigger<AdvancementDivine
         private final ItemPredicate item;
 
         public Instance(ResourceLocation parRL, ItemPredicate item) {
-            super(parRL, EntityPredicate.Composite.ANY);
+            super(parRL, ContextAwarePredicate.ANY);
             this.item = item;
         }
 

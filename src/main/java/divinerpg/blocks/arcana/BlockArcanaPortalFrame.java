@@ -13,9 +13,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.pattern.*;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,7 +24,7 @@ public class BlockArcanaPortalFrame extends BlockMod {
     private static BlockPattern portalShape;
 
     public BlockArcanaPortalFrame(float hardness, float resistance) {
-        super(Properties.of(Material.HEAVY_METAL, MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.METAL));
+        super(Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.METAL));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 

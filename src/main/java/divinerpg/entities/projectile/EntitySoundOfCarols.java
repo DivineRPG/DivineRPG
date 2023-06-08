@@ -35,7 +35,7 @@ public class EntitySoundOfCarols extends DivineThrowable {
         } else {
             color++;
         }
-        level.addParticle(ParticleTypes.NOTE, this.xo, this.yo, this.zo, (double) color / 24.0D, 0.0D,
+        level().addParticle(ParticleTypes.NOTE, this.xo, this.yo, this.zo, (double) color / 24.0D, 0.0D,
                 0.0D);
     }
 
@@ -46,7 +46,7 @@ public class EntitySoundOfCarols extends DivineThrowable {
                 result.getEntity().hurt(damageSources().thrown(this, this.getOwner()), 16.0F);
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

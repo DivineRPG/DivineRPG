@@ -12,12 +12,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockKarosAltar extends BlockVetheaAltar {
-    public BlockKarosAltar(MaterialColor color) {
+    public BlockKarosAltar(MapColor color) {
         super(color);
     }
 

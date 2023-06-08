@@ -27,7 +27,7 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide && this.tickCount > 20) {
+        if (!this.level().isClientSide && this.tickCount > 20) {
             this.kill();
         }
     }

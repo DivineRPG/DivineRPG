@@ -7,8 +7,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 
 public class BlockModVine extends VineBlock {
-    public BlockModVine(MaterialColor color) {
-        super(Block.Properties.of(Material.REPLACEABLE_PLANT, color)
+    public BlockModVine(MapColor color) {
+        super(Block.Properties.of()
+                .mapColor(color)
                 .dynamicShape()
                 .randomTicks()
                 .noCollission()

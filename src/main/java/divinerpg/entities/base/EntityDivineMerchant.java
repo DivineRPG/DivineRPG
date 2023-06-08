@@ -25,7 +25,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
 	@Override protected void rewardTradeXp(MerchantOffer offer) {
 	      int i = 3 + this.random.nextInt(4);
 	      this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
-	      if(offer.shouldRewardExp()) this.level.addFreshEntity(new ExperienceOrb(this.level, this.getX(), this.getY() + 0.5D, this.getZ(), i));
+	      if(offer.shouldRewardExp()) this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY() + 0.5D, this.getZ(), i));
 	}
 	@Override
 	public boolean isMaxGroupSizeReached(int i) {
@@ -59,8 +59,8 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!getOffers().isEmpty()) {
-            if (!level.isClientSide) {
-            	if(level.hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && needsToRestock()) this.restock();
+            if (!level().isClientSide) {
+            	if(level().hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && needsToRestock()) this.restock();
                 updateSpecialPrices(player);
                 setTradingPlayer(player);
                 openTradingScreen(player, getDisplayName(), 1);
@@ -68,7 +68,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
             }
         }
         else setUnhappy();
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.sidedSuccess(level().isClientSide);
     }
     @Override public boolean canBreed() {return false;}
     @Override public boolean canRestock() {return true;}
@@ -92,7 +92,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         }
     }
     @Override public boolean hurt(DamageSource source, float amount) {
-    	this.level.broadcastEntityEvent(this, (byte)13);
+    	this.level().broadcastEntityEvent(this, (byte)13);
     	setUnhappy();
     	return super.hurt(source, amount);
     }
@@ -110,7 +110,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     }
     private void setUnhappy() {
         this.setUnhappyCounter(40);
-        if (!this.level.isClientSide()) this.playSound(SoundRegistry.MERCHANT_HURT.get());
+        if (!this.level().isClientSide()) this.playSound(SoundRegistry.MERCHANT_HURT.get());
     }
     @Override protected void stopTrading() {
         super.stopTrading();

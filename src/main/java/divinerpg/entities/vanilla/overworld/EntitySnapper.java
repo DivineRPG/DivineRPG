@@ -27,7 +27,7 @@ public class EntitySnapper extends EntityDivineTameable {
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Item item = itemstack.getItem();
             if (this.isTame()) {
@@ -37,10 +37,10 @@ public class EntitySnapper extends EntityDivineTameable {
                         this.tame(player);
                         this.navigation.recomputePath();
                         this.setTarget((LivingEntity) null);
-                        this.level.broadcastEntityEvent(this, (byte) 7);
+                        this.level().broadcastEntityEvent(this, (byte) 7);
                         this.heal(item.getFoodProperties(itemstack, player).getNutrition());
                     } else {
-                        this.level.broadcastEntityEvent(this, (byte) 6);
+                        this.level().broadcastEntityEvent(this, (byte) 6);
                         this.heal(item.getFoodProperties(itemstack, player).getNutrition());
                     }
                 } else {

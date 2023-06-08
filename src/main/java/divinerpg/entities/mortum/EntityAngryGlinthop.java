@@ -22,7 +22,7 @@ public class EntityAngryGlinthop extends EntityDivineMonster {
     @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity entity) {
-        return entity.hurt(entity.level.damageSources().mobAttack(this), 12);
+        return entity.hurt(entity.level().damageSources().mobAttack(this), 12);
     }
 
     @Override

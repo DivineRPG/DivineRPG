@@ -10,11 +10,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockBrittleMoss extends BlockModMoss {
 	public BlockBrittleMoss() {
-		super(Block.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.GLOW_LICHEN));
+		super(Block.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.GLOW_LICHEN));
 	}
 	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {

@@ -13,7 +13,7 @@ import javax.annotation.*;
 public class BlockEdenChest extends BlockModChest {
 
     public BlockEdenChest() {
-        super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.5F), () -> BlockEntityRegistry.EDEN_CHEST.get());
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.5F), () -> BlockEntityRegistry.EDEN_CHEST.get());
     }
 
     @Nullable

@@ -25,7 +25,7 @@ public class EntitySoulSpider extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        if (this.tickCount > 600 && !this.level.isClientSide)
+        if (this.tickCount > 600 && !this.level().isClientSide)
             this.kill();
     }
 

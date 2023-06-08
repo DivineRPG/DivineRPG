@@ -15,8 +15,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -24,7 +23,6 @@ import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -63,7 +61,8 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	@Override public boolean canPlaceItemThroughFace(int i, ItemStack stack, Direction direction) {return canPlaceItem(i, stack);}
 	@Override public boolean canTakeItemThroughFace(int i, ItemStack stack, Direction direction) {return true;}
 	@Override public boolean canPlaceItem(int slot, ItemStack stack) {return slot != 1;}
-	@Override public void awardUsedRecipes(Player player) {}
+	@Override public void awardUsedRecipes(Player p_281647_, List<ItemStack> p_282578_) { RecipeHolder.super.awardUsedRecipes(p_281647_, p_282578_); }
+
 	@Override
 	public boolean isEmpty() {
 		for(ItemStack itemstack : items) if (!itemstack.isEmpty()) return false;
@@ -80,7 +79,7 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	@Override
 	public void setItem(int slot, ItemStack stack) {
 		ItemStack itemstack = items.get(slot);
-		boolean flag = !stack.isEmpty() && stack.sameItem(itemstack) && ItemStack.tagMatches(stack, itemstack);
+		boolean flag = !stack.isEmpty() && ItemStack.isSameItem(stack, itemstack) && ItemStack.isSameItem(stack, itemstack);
 	    items.set(slot, stack);
 	    if (stack.getCount() > getMaxStackSize()) stack.setCount(getMaxStackSize());
 	    if (slot == 0 && !flag) {
@@ -119,11 +118,15 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 		}
 		return list;
 	}
-	public void awardUsedRecipesAndPopExperience(ServerPlayer player) {
-	      List<Recipe<?>> list = getRecipesToAwardAndPopExperience(player.getLevel(), player.position());
-	      player.awardRecipes(list);
-	      recipesUsed.clear();
+
+	@Override
+	public boolean setRecipeUsed(Level p_40136_, ServerPlayer player, Recipe<?> p_40138_) {
+		List<Recipe<?>> list = getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+		player.awardRecipes(list);
+		recipesUsed.clear();
+		return RecipeHolder.super.setRecipeUsed(p_40136_, player, p_40138_);
 	}
+
 	private static void createExperience(ServerLevel level, Vec3 vector, int entry, float amount) {
 		int i = Mth.floor((float)entry * amount);
 		float f = Mth.frac((float)entry * amount);
@@ -170,7 +173,7 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	        else {
 	            ItemStack itemstack1 = items.get(1);
 	            if (itemstack1.isEmpty()) return true;
-	            else if (!itemstack1.sameItem(itemstack)) return false;
+	            else if (!ItemStack.isSameItem(itemstack1, itemstack)) return false;
 	            else if (itemstack1.getCount() + itemstack.getCount() <= i && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) return true; // Forge fix: make furnace respect stack sizes in furnace recipes
 	            else return itemstack1.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
 	        }

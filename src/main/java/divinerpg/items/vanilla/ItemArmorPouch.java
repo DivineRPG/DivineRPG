@@ -42,10 +42,10 @@ public class ItemArmorPouch extends ItemMod {
 	}
 	public void onDestroyed(ItemEntity entity) {
 		CompoundTag itemTag = entity.getItem().getOrCreateTag();
-		Utils.drop(entity.level, entity.position(), ItemStack.of(itemTag.getCompound(TAG_HELMET)));
-		Utils.drop(entity.level, entity.position(), ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)));
-		Utils.drop(entity.level, entity.position(), ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)));
-		Utils.drop(entity.level, entity.position(), ItemStack.of(itemTag.getCompound(TAG_BOOTS)));
+		Utils.drop(entity.level(), entity.position(), ItemStack.of(itemTag.getCompound(TAG_HELMET)));
+		Utils.drop(entity.level(), entity.position(), ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)));
+		Utils.drop(entity.level(), entity.position(), ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)));
+		Utils.drop(entity.level(), entity.position(), ItemStack.of(itemTag.getCompound(TAG_BOOTS)));
 	}
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

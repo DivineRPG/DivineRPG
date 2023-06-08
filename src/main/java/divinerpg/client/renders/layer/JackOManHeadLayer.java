@@ -26,7 +26,7 @@ public class JackOManHeadLayer extends RenderLayer<EntityJackOMan, HumanoidModel
             matrixStackIn.mulPose(Axis.YP.rotationDegrees(180.0F));
             matrixStackIn.scale(0.625F, -0.625F, -0.625F);
             ItemStack itemstack = new ItemStack(Blocks.CARVED_PUMPKIN);
-            Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, itemstack, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, itemstack, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
             matrixStackIn.popPose();
         }
     }

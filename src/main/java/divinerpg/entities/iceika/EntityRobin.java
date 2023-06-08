@@ -41,7 +41,7 @@ public class EntityRobin extends EntityDivineFlyingMob {
     @Override
     public void tick() {
         super.tick();
-        if (level.isClientSide) {
+        if (level().isClientSide) {
             // Animate wing flapping on client-side
             if (wingFlapTicks > 0) {
                 wingFlapTicks--;
@@ -53,10 +53,10 @@ public class EntityRobin extends EntityDivineFlyingMob {
 
         // If tiredTicks reaches the threshold and there is no whale nearby, set the robin to be tired and reset tiredTicks and tiredThreshold
         if (tiredTicks >= tiredThreshold) {
-            EntityEtherealcetus nearbyWhale = this.level.getNearestEntity(EntityEtherealcetus.class,
+            EntityEtherealcetus nearbyWhale = this.level().getNearestEntity(EntityEtherealcetus.class,
                     TargetingConditions.DEFAULT, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(32.0));
             if (nearbyWhale == null) {
-                tiredThreshold = this.level.random.nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
+                tiredThreshold = this.level().random.nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
                 tiredTicks = 0;
             }
         }
@@ -81,7 +81,7 @@ public class EntityRobin extends EntityDivineFlyingMob {
         public boolean canUse() {
             if (targetWhale == null || !targetWhale.isAlive()) {
                 // Find a new target whale
-                targetWhale = entityRobin.level.getNearestEntity(EntityEtherealcetus.class,
+                targetWhale = entityRobin.level().getNearestEntity(EntityEtherealcetus.class,
                         TargetingConditions.DEFAULT, entityRobin, entityRobin.getX(), entityRobin.getY(),
                         entityRobin.getZ(), entityRobin.getBoundingBox().inflate(FOLLOW_DISTANCE));
             }
@@ -136,7 +136,7 @@ public class EntityRobin extends EntityDivineFlyingMob {
         @Override
         public void start() {
             // Find the nearest whale
-            whale = robin.level.getNearestEntity(EntityEtherealcetus.class, TargetingConditions.DEFAULT, robin, robin.getX(), robin.getY(), robin.getZ(), robin.getBoundingBox().inflate(16.0));
+            whale = robin.level().getNearestEntity(EntityEtherealcetus.class, TargetingConditions.DEFAULT, robin, robin.getX(), robin.getY(), robin.getZ(), robin.getBoundingBox().inflate(16.0));
             rideTime = 0;
         }
 

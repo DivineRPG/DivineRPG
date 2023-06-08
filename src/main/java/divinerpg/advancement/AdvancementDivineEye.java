@@ -14,7 +14,7 @@ public class AdvancementDivineEye implements CriterionTrigger<AdvancementDivineE
     public static class Instance extends AbstractCriterionTriggerInstance {
 
         public Instance(ResourceLocation parRL) {
-            super(parRL, EntityPredicate.Composite.ANY);
+            super(parRL, ContextAwarePredicate.ANY);
         }
 
         public boolean test() {

@@ -28,20 +28,20 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
             if (canAttack(target)) {
                 if (distanceTo(target) < 3) {
                     target.setSecondsOnFire(3);
                 }
 
-                EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, BulletType.SUNSTORM);
+                EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level(), BulletType.SUNSTORM);
                 double tx = getTarget().getX() - this.getX();
                 double ty = getTarget().getEyeY() - this.getEyeY();
                 double tz = getTarget().getZ() - this.getZ();
                 double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
                 projectile.shoot(tx, ty, tz, 1.6f, 0);
                 projectile.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);
-                this.level.addFreshEntity(projectile);
+                this.level().addFreshEntity(projectile);
             }
         }
     }

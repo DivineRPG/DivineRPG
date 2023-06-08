@@ -29,7 +29,7 @@ public class EntityLheiva extends EntityDivineMonster {
         if (var1 != null && var1 instanceof Player) {
             if (((Player)var1).inventory.contains(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "band_of_heiva_hunting")))))
                 return super.hurt(source, par2);
-        } else if(source.is(DamageTypes.OUT_OF_WORLD)) return super.hurt(source, par2);
+        } else if(source.is(DamageTypes.FELL_OUT_OF_WORLD)) return super.hurt(source, par2);
         return false;
     }
 

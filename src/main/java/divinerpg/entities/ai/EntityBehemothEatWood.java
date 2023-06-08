@@ -1,14 +1,13 @@
 package divinerpg.entities.ai;
 
-import divinerpg.entities.wildwood.*;
+import divinerpg.entities.wildwood.EntityBehemoth;
 import net.minecraft.core.*;
 import net.minecraft.sounds.*;
-import net.minecraft.tags.*;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.navigation.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.level.pathfinder.*;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.Path;
 
 public class EntityBehemothEatWood extends Goal {
 
@@ -39,7 +38,7 @@ public class EntityBehemothEatWood extends Goal {
                 for (int y2 = (int) this.behemoth.getY() - 2; y2 < (int) this.behemoth.getY() + 1; y2++) {
 
                     BlockPos candidate = new BlockPos(x2, y2, z2);
-                    BlockState candidateState = behemoth.level.getBlockState(candidate);
+                    BlockState candidateState = behemoth.level().getBlockState(candidate);
 
                     boolean isEdible = isBlockEdible(candidateState, candidate);
 
@@ -75,8 +74,8 @@ public class EntityBehemothEatWood extends Goal {
             this.foodPathNavigator.moveTo(this.foodPath, this.speed);
         } else {
             this.behemoth.heal(10F);
-            this.behemoth.level.destroyBlock(this.target, false);
-            this.behemoth.level.playSound(null, this.target, SoundEvents.GENERIC_EAT, SoundSource.HOSTILE, 1.0F, 1.0F);
+            this.behemoth.level().destroyBlock(this.target, false);
+            this.behemoth.level().playSound(null, this.target, SoundEvents.GENERIC_EAT, SoundSource.HOSTILE, 1.0F, 1.0F);
             this.stop();
         }
     }
@@ -101,6 +100,6 @@ public class EntityBehemothEatWood extends Goal {
 
 
     private boolean isBlockEdible(BlockState state, BlockPos pos) {
-        return state.getMaterial() == Material.WOOD || state.is(BlockTags.LOGS);
+        return state.is(BlockTags.LOGS);
     }
 }

@@ -9,15 +9,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class BlockBrambles extends BlockModDoublePlant {
 
-    public BlockBrambles(Supplier<Block> grassSupplier, MaterialColor mapColorIn) {
-        super(grassSupplier, mapColorIn);
+    public BlockBrambles(Supplier<Block> grassSupplier, MapColor color) {
+        super(grassSupplier, color);
     }
 
     @Override

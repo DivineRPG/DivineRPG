@@ -52,7 +52,7 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Item item = itemstack.getItem();
             if (this.isTame()) {
@@ -64,10 +64,10 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
                         this.tame(player);
                         this.navigation.recomputePath();
                         this.setTarget((LivingEntity) null);
-                        this.level.broadcastEntityEvent(this, (byte) 7);
+                        this.level().broadcastEntityEvent(this, (byte) 7);
                         this.heal(4.0F);
                     } else {
-                        this.level.broadcastEntityEvent(this, (byte) 6);
+                        this.level().broadcastEntityEvent(this, (byte) 6);
                         this.heal(4.0F);
                     }
                 } else {

@@ -13,7 +13,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,7 +29,7 @@ public class BlockModPortal extends BlockMod {
     private static Block frame;
 
     public BlockModPortal(Block frame) {
-        super(BlockBehaviour.Properties.of(Material.PORTAL)
+        super(BlockBehaviour.Properties.of()
                 .strength(-1F, 0F)
                 .noCollission()
                 .lightLevel((state) -> 11)
@@ -65,12 +64,12 @@ public class BlockModPortal extends BlockMod {
 
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
-        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide && world != null && world.dimension() != null){
+        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level().isClientSide && world != null && world.dimension() != null){
             if(entity.isOnPortalCooldown()) {
                 entity.setPortalCooldown();
             }
                 if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
-                    entity.level.getProfiler().push(world.dimension().location().getPath());
+                    entity.level().getProfiler().push(world.dimension().location().getPath());
                     if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
                         ResourceKey<Level> key = world.dimension() == LevelRegistry.EDEN ? Level.OVERWORLD : LevelRegistry.EDEN;
                         if(world.getServer().getLevel(key) != null) {
@@ -107,7 +106,7 @@ public class BlockModPortal extends BlockMod {
                             entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
                         }
                     }
-                    entity.level.getProfiler().pop();
+                    entity.level().getProfiler().pop();
                 }
         }
 

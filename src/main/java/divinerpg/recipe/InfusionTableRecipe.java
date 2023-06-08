@@ -35,7 +35,7 @@ public class InfusionTableRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container inv, Level worldIn){
-        return ItemStack.isSame(input, inv.getItem(0)) && ItemStack.isSame(template, inv.getItem(1)) && inv.getItem(0).getCount() == count;
+        return ItemStack.isSameItem(input, inv.getItem(0)) && ItemStack.isSameItem(template, inv.getItem(1)) && inv.getItem(0).getCount() == count;
     }
 
     @Override

@@ -32,10 +32,10 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
     @Override
     public boolean doHurtTarget(Entity entity) {
         if(random.nextInt(5) == 0) {
-            LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
+            LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level());
             bolt.setPos(entity.getX(), entity.getY(), entity.getZ());
-            if (level.isClientSide) {
-                level.addFreshEntity(bolt);
+            if (level().isClientSide) {
+                level().addFreshEntity(bolt);
             }
         }
         return super.doHurtTarget(entity);

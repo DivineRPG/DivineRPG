@@ -22,7 +22,7 @@ public class EntityDreamwrecker extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        Player player = this.level.getNearestPlayer(this, 64.0D);
+        Player player = this.level().getNearestPlayer(this, 64.0D);
 
         if(player != null && !player.isCreative() && player.distanceTo(this) < 20) {
             this.setTarget(player);

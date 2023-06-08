@@ -28,10 +28,10 @@ public class EntityEnchantedWarrior extends EntityDivineMonster {
 
     @Override
     public void tick() {
-        if (this.level.isDay() && !this.level.isClientSide) {
-            float lightLevel = level.getLightEmission(this.blockPosition());
+        if (this.level().isDay() && !this.level().isClientSide) {
+            float lightLevel = level().getLightEmission(this.blockPosition());
             if (lightLevel > 0.5F
-                    && this.level.canSeeSky(new BlockPos(Mth.floor(this.getX()), Mth.floor(this.getY()),
+                    && this.level().canSeeSky(new BlockPos(Mth.floor(this.getX()), Mth.floor(this.getY()),
                             Mth.floor(this.getZ())))
                     && this.random.nextFloat() * 30.0F < (lightLevel - 0.4F) * 2.0F) {
                 this.setSecondsOnFire(8);

@@ -33,7 +33,7 @@ public class EntityDungeonConstructor extends EntityDivineMonster {
             this.lookAt(this.getTarget(), 100.0F, 100.0F);
         }
 
-        if (!this.level.isClientSide && this.isAlive()) {
+        if (!this.level().isClientSide && this.isAlive()) {
             if (this.getTarget() != null) {
                 if (this.getTarget() instanceof Player && this.angerLevel < 3) {
                     this.moveDist = 0.0F;

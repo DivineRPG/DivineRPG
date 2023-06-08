@@ -26,8 +26,8 @@ public class EntityTomato extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
             super.onHitEntity(result);
             result.getEntity().hurt(damageSources().thrown(this, getOwner()), 1.0F);
-            if (level.isClientSide) {
-                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), BulletType.TOMATO.getRed(), BulletType.TOMATO.getGreen(), BulletType.TOMATO.getBlue()), this.getX(), this.getY(), this.getZ(), 0.2D, 0.2D, 0.2D);
+            if (level().isClientSide) {
+                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), BulletType.TOMATO.getRed(), BulletType.TOMATO.getGreen(), BulletType.TOMATO.getBlue()), this.getX(), this.getY(), this.getZ(), 0.2D, 0.2D, 0.2D);
             }
         }
     }
@@ -36,8 +36,8 @@ public class EntityTomato extends DivineThrowable {
     protected void onHitBlock(BlockHitResult result) {
         if (tickCount != 1 || tickCount != 0) {
             super.onHitBlock(result);
-            if (level.isClientSide) {
-                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), BulletType.TOMATO.getRed(), BulletType.TOMATO.getGreen(), BulletType.TOMATO.getBlue()), this.getX(), this.getY(), this.getZ(), 0.2D, 0.2D, 0.2D);
+            if (level().isClientSide) {
+                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), BulletType.TOMATO.getRed(), BulletType.TOMATO.getGreen(), BulletType.TOMATO.getBlue()), this.getX(), this.getY(), this.getZ(), 0.2D, 0.2D, 0.2D);
             }
             this.kill();
         }

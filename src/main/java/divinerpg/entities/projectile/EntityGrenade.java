@@ -15,9 +15,9 @@ public class EntityGrenade extends ThrowableProjectile {
 	protected void onHit(HitResult result) {
 		if(tickCount != 1 || tickCount != 0) {
 			super.onHit(result);
-			if (!this.level.isClientSide) {
-				this.level.explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
-				this.level.broadcastEntityEvent(this, (byte) 3);
+			if (!this.level().isClientSide) {
+				this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+				this.level().broadcastEntityEvent(this, (byte) 3);
 				this.kill();
 			}
 		}

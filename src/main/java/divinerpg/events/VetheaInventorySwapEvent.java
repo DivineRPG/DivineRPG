@@ -14,7 +14,7 @@ public class VetheaInventorySwapEvent {
     public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if(!event.isCanceled() && event.getEntity() instanceof Player && persistentData != null) {
         	Player playerIn = event.getEntity();
-        	if(event.getEntity().level.dimension() == LevelRegistry.VETHEA) {
+        	if(event.getEntity().level().dimension() == LevelRegistry.VETHEA) {
         		if(!persistentData.getList(MODID_SEPERATOR + playerIn.getStringUUID() + "_" + VETHEA_INVENTORY, 10).isEmpty()) {
                     ListTag inv = persistentData.getList(MODID_SEPERATOR + playerIn.getStringUUID() + "_" + VETHEA_INVENTORY, 10);
                     playerIn.inventory.load(inv);

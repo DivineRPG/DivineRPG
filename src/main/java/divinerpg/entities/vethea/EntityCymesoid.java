@@ -25,7 +25,7 @@ public class EntityCymesoid extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        Player player = this.level.getNearestPlayer(this, 64.0D);
+        Player player = this.level().getNearestPlayer(this, 64.0D);
 
         if (player == null || player.isCreative())
             return;

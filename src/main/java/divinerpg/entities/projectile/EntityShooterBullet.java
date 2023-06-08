@@ -35,10 +35,10 @@ public class EntityShooterBullet extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null) {
                 Entity entity = result.getEntity();
-                entity.hurt(entity.level.damageSources().thrown(this, this.getOwner()),
+                entity.hurt(entity.level().damageSources().thrown(this, this.getOwner()),
                         this.getBulletType().getDamage());
             }
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

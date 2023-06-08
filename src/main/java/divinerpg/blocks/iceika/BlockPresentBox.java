@@ -11,14 +11,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockPresentBox extends BlockModChest {
 
     public BlockPresentBox() {
-        super(Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).sound(SoundType.WOOD).strength(2.5F), () -> BlockEntityRegistry.PRESENT_BOX.get());
+        super(Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.WOOD).strength(2.5F), () -> BlockEntityRegistry.PRESENT_BOX.get());
     }
 
     @Nullable

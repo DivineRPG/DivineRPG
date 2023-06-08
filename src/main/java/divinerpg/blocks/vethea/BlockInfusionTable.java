@@ -13,8 +13,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -23,7 +22,7 @@ import javax.annotation.Nullable;
 public class BlockInfusionTable extends BlockMod {
 
     public BlockInfusionTable() {
-        super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.FIRE).strength(-1, 3600000F));
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).strength(-1, 3600000F));
     }
 
     @Override

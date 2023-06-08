@@ -29,7 +29,7 @@ public class EntitySoundOfMusic extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        level.addParticle(ParticleTypes.NOTE, this.xo, this.yo, this.zo, (double) color / 24.0D, 0.0D,
+        level().addParticle(ParticleTypes.NOTE, this.xo, this.yo, this.zo, (double) color / 24.0D, 0.0D,
                 0.0D);
     }
 
@@ -40,7 +40,7 @@ public class EntitySoundOfMusic extends DivineThrowable {
                 result.getEntity().hurt(damageSources().thrown(this, this.getOwner()), 10.0F);
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

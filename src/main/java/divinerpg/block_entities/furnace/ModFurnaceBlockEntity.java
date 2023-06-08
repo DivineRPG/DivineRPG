@@ -150,7 +150,7 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	         else {
 	            ItemStack itemstack1 = p_155007_.get(2);
 	            if (itemstack1.isEmpty()) return true;
-	            else if (!itemstack1.sameItem(itemstack)) return false;
+	            else if (!ItemStack.isSameItem(itemstack1, itemstack)) return false;
 	            else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) return true; // Forge fix: make furnace respect stack sizes in furnace recipes
 	            else return itemstack1.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
 	         }
@@ -209,7 +209,7 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	@Override
 	public void setItem(int p_58333_, ItemStack p_58334_) {
 	      ItemStack itemstack = this.items.get(p_58333_);
-	      boolean flag = !p_58334_.isEmpty() && p_58334_.sameItem(itemstack) && ItemStack.tagMatches(p_58334_, itemstack);
+	      boolean flag = !p_58334_.isEmpty() && ItemStack.isSameItem(p_58334_, itemstack) && ItemStack.isSameItem(p_58334_, itemstack);
 	      this.items.set(p_58333_, p_58334_);
 	      if (p_58334_.getCount() > this.getMaxStackSize()) p_58334_.setCount(this.getMaxStackSize());
 	      if (p_58333_ == 0 && !flag) {
@@ -245,12 +245,20 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	}
 	@Override @Nullable
 	public Recipe<?> getRecipeUsed() {return null;}
-	@Override public void awardUsedRecipes(Player p_58396_) {}
-	public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
-	      List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.getLevel(), p_155004_.position());
-	      p_155004_.awardRecipes(list);
-	      this.recipesUsed.clear();
+
+	@Override
+	public void awardUsedRecipes(Player p_281647_, List<ItemStack> p_282578_) {
+		RecipeHolder.super.awardUsedRecipes(p_281647_, p_282578_);
 	}
+
+	@Override
+	public boolean setRecipeUsed(Level level, ServerPlayer player, Recipe<?> recipe) {
+		List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+		player.awardRecipes(list);
+		this.recipesUsed.clear();
+		return RecipeHolder.super.setRecipeUsed(level, player, recipe);
+	}
+
 	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel p_154996_, Vec3 p_154997_) {
 	      List<Recipe<?>> list = Lists.newArrayList();
 	      for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {

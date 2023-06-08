@@ -24,7 +24,7 @@ public class DreamLampContainer extends AbstractContainerMenu {
 		super(MenuTypeRegistry.DREAM_LAMP.get(), num);
 		checkContainerSize(container, 1);
 	    this.container = container;
-	    level = inv.player.level;
+	    level = inv.player.level();
 	    addSlot(new Slot(container, 0, 80, 47));
 	    for(int i = 0; i < 3; ++i) for(int j = 0; j < 9; ++j) addSlot(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 	    for(int k = 0; k < 9; ++k) addSlot(new Slot(inv, k, 8 + k * 18, 142));

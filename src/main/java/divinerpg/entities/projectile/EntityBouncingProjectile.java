@@ -39,8 +39,8 @@ public class EntityBouncingProjectile extends DivineThrowable {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() != null && result.getEntity() != this.thrower && result.getEntity() instanceof LivingEntity) {
                 LivingEntity entity = (LivingEntity) result.getEntity();
-                entity.hurt(DamageSources.source(level, DamageSources.ARCANA), this.damage);
-                if (!this.level.isClientSide) {
+                entity.hurt(DamageSources.source(level(), DamageSources.ARCANA), this.damage);
+                if (!this.level().isClientSide) {
                     this.kill();
                 }
                 return;

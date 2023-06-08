@@ -55,7 +55,7 @@ public class EntityDisk extends DivineThrowable {
         {
             this.counter--;
         }
-        if (this.bounces >= 12 && !this.level.isClientSide) {
+        if (this.bounces >= 12 && !this.level().isClientSide) {
             this.kill();
         }
     }
@@ -65,13 +65,13 @@ public class EntityDisk extends DivineThrowable {
         if (tickCount != 1 || tickCount != 0) {
             if (this.getOwner() != null) {
                 if (result.getEntity() != null && result.getEntity() != this.getOwner()) {
-                    result.getEntity().hurt(result.getEntity().level.damageSources().thrown(this, this.getOwner()), this.damage);
+                    result.getEntity().hurt(result.getEntity().level().damageSources().thrown(this, this.getOwner()), this.damage);
                 } else if (result.getEntity() == this.getOwner() && this.getOwner() instanceof Player
                         && this.bounces > 0) {
                     if (!((Player) this.getOwner()).isCreative()) {
                         ((Player) this.getOwner()).inventory.add(new ItemStack(this.item));
                     }
-                    if (!this.level.isClientSide) {
+                    if (!this.level().isClientSide) {
                         this.kill();
                     }
                 }
@@ -79,7 +79,7 @@ public class EntityDisk extends DivineThrowable {
                     this.counter = 0;
                     this.bounces++;
                 }
-            } else if (!this.level.isClientSide) {
+            } else if (!this.level().isClientSide) {
                 this.kill();
             }
         }

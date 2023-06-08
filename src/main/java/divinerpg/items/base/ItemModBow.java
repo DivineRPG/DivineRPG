@@ -110,7 +110,7 @@ public class ItemModBow extends BowItem {
 
     @Override
     public AbstractArrow customArrow(AbstractArrow arrow) {
-        return new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), arrow.level, arrowType, arrow.xo, arrow.yo, arrow.zo);
+        return new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), arrow.level(), arrowType, arrow.xo, arrow.yo, arrow.zo);
     }
 
     @Override

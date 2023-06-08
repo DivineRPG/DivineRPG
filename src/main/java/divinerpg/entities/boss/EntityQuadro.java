@@ -58,7 +58,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
+        if (!this.level().isClientSide && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
             this.performRangedAttack(this.getTarget(), 0);
         if (this.abilityCooldown <= 0) {
             this.ability = getRandomAbility();
@@ -66,7 +66,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
             this.rangedAttackCounter = 0;
             this.dir = true;
             int s = this.random.nextInt(9);
-            List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+            List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
             for (Player p : players) {
 
                 SoundEvent sound;
@@ -110,9 +110,9 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
                         break;
                 }
 
-                this.level.playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
+                this.level().playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
 
-                if (!level.isClientSide)
+                if (!level().isClientSide)
                     p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage), true);
 
             }
@@ -143,16 +143,16 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (getTarget() != null) {
-            if (isAlive() && !level.isClientSide) {
+            if (isAlive() && !level().isClientSide) {
                 switch (ability) {
                     case RANGED_FAST:
                         if ((this.rangedAttackCounter % 5) == 0) {
                             double tx = getTarget().getX() - this.getX();
                             double ty = getTarget().getBoundingBox().minY - this.getY();
                             double tz = getTarget().getZ() - this.getZ();
-                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.KAROS_ARROW, this, target, 2.6F, 3.0F);
+                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.KAROS_ARROW, this, target, 2.6F, 3.0F);
                             projectile.shoot(tx, ty, tz, 2.6f, 3.0F);
-                            this.level.addFreshEntity(projectile);
+                            this.level().addFreshEntity(projectile);
                         }
                         this.rangedAttackCounter++;
                         break;
@@ -161,9 +161,9 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
                             double tx = getTarget().getX() - this.getX();
                             double ty = getTarget().getBoundingBox().minY - this.getY();
                             double tz = getTarget().getZ() - this.getZ();
-                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.KAROS_ARROW, this, target, 2.6F, 0.8F);
+                            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.KAROS_ARROW, this, target, 2.6F, 0.8F);
                             projectile.shoot(tx, ty, tz, 2.6f, 0.8F);
-                            this.level.addFreshEntity(projectile);
+                            this.level().addFreshEntity(projectile);
                         }
                         this.rangedAttackCounter++;
                         break;

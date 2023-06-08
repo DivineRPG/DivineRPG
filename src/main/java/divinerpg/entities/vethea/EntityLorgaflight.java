@@ -45,7 +45,7 @@ public class EntityLorgaflight extends EntityDivineFlyingMob {
     @Override
     protected void customServerAiStep() {
         if(getTarget() == null && random.nextBoolean()) {
-            List<EntityLorgaflight> list = level.getEntitiesOfClass(EntityLorgaflight.class, new AABB(blockPosition().offset(-5, -5, -5), blockPosition().offset(5, 5, 5)));
+            List<EntityLorgaflight> list = level().getEntitiesOfClass(EntityLorgaflight.class, new AABB(blockPosition().offset(-5, -5, -5), blockPosition().offset(5, 5, 5)));
             if(!list.isEmpty()) {
                 EntityLorgaflight partner = list.get(0);
                 if(partner.pathfindPos != null) pathfindPos = partner.pathfindPos.add(position().subtract(partner.position()).multiply(.9, .9, .9));
@@ -56,9 +56,9 @@ public class EntityLorgaflight extends EntityDivineFlyingMob {
     @Override
     public void tick() {
         super.tick();
-        if(!level.isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level.getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
+        if(!level().isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level().getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
             BlockPos pos = blockPosition().offset(random.nextInt(5) - 2, 0, random.nextInt(5) - 2);
-            if(level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()) ((EntityLorgaflight) EntityRegistry.LORGA_FLIGHT.get().spawn((ServerLevel) level, (ItemStack) null, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
+            if(level().getBlockState(pos).isAir() && level().getBlockState(pos.above()).isAir()) ((EntityLorgaflight) EntityRegistry.LORGA_FLIGHT.get().spawn((ServerLevel) level(), (ItemStack) null, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
         }
     }
     @Override

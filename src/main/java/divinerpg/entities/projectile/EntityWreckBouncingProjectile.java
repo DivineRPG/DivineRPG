@@ -35,9 +35,9 @@ public class EntityWreckBouncingProjectile extends DivineThrowable
     protected void onHitEntity(EntityHitResult par1) {
         if (tickCount != 1 || tickCount != 0) {
             if (par1.getEntity() != null && par1.getEntity() != this.thrower) {
-                par1.getEntity().hurt(DamageSources.source(level, DamageSources.SPIKE), this.damage);
+                par1.getEntity().hurt(DamageSources.source(level(), DamageSources.SPIKE), this.damage);
 
-                if (!this.level.isClientSide) {
+                if (!this.level().isClientSide) {
                     this.kill();
                 }
                 return;

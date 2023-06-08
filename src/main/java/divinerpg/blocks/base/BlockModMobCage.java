@@ -10,9 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -27,14 +25,14 @@ public class BlockModMobCage extends BlockMod {
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
-	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem, MaterialColor color) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().color(color));
+	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem, MapColor color) {
+		super(Properties.copy(Blocks.SPAWNER).noOcclusion().mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
-	public BlockModMobCage(ResourceLocation type, @Nullable ResourceLocation spawnItem, MaterialColor color, @Nullable BlockPos relativePos) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().color(color));
+	public BlockModMobCage(ResourceLocation type, @Nullable ResourceLocation spawnItem, MapColor color, @Nullable BlockPos relativePos) {
+		super(Properties.copy(Blocks.SPAWNER).noOcclusion().mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		this.relativePos = relativePos;

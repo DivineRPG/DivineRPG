@@ -59,7 +59,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
 
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.setClimbing(this.horizontalCollision);
         }
     }
@@ -117,7 +117,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_213386_1_, DifficultyInstance p_213386_2_, MobSpawnType p_213386_3_, @Nullable SpawnGroupData p_213386_4_, @Nullable CompoundTag p_213386_5_) {
         p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
         if (p_213386_1_.getRandom().nextInt(100) == 0) {
-            Skeleton skeletonentity = EntityType.SKELETON.create(this.level);
+            Skeleton skeletonentity = EntityType.SKELETON.create(this.level());
             skeletonentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
             skeletonentity.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, (SpawnGroupData)null, (CompoundTag)null);
             skeletonentity.startRiding(this);
@@ -154,7 +154,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
         }
 
         public boolean canContinueToUse() {
-            float f = this.mob.level.getLightEmission(mob.blockPosition());
+            float f = this.mob.level().getLightEmission(mob.blockPosition());
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
                 this.mob.setTarget((LivingEntity)null);
                 return false;
@@ -192,7 +192,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
         }
 
         public boolean canUse() {
-            float f = this.mob.level.getLightEmission(mob.blockPosition());
+            float f = this.mob.level().getLightEmission(mob.blockPosition());
             return f >= 0.5F ? false : super.canUse();
         }
     }

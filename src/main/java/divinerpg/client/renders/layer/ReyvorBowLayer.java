@@ -30,7 +30,7 @@ public class ReyvorBowLayer extends RenderLayer<EntityReyvor, ModelReyvor<Entity
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
 
         matrixStackIn.popPose();
     }

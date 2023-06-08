@@ -47,7 +47,7 @@ public class EntityMiner extends EntityDivineMonster {
     public boolean doHurtTarget(Entity entityIn) {
         boolean flag = super.doHurtTarget(entityIn);
         if (flag) {
-            float f = (float)this.level.getDifficulty().getId();
+            float f = (float)this.level().getDifficulty().getId();
             if (this.getMainHandItem().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
                 entityIn.setSecondsOnFire(2 * (int)f);
             }

@@ -6,7 +6,7 @@ import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.*;
@@ -28,6 +28,7 @@ public class ArcanaRenderer extends Gui {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         Gui ui = mc.gui;
+        GuiGraphics gui = event.getGuiGraphics();
 
         int windowWidth = this.mc.getWindow().getGuiScaledWidth();
         int windowHeight = this.mc.getWindow().getGuiScaledHeight();
@@ -37,12 +38,12 @@ public class ArcanaRenderer extends Gui {
             mc.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
                 if(ClientConfig.hideArcanaBar.get() != false) {
                     if (Mth.clamp(Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 0, 100) != 100) {
-                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 0, 100, 9);
-                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
+                        gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
+                        gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
                     }
                 } else {
-                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 0, 100, 9);
-                        ui.blit(event.getPoseStack(), xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
+                    gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
+                    gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
                     }
             });
         }

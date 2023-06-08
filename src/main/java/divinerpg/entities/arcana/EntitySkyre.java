@@ -36,7 +36,7 @@ public class EntitySkyre extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        Player player = level.getNearestPlayer(this, 8);
+        Player player = level().getNearestPlayer(this, 8);
         if (player != null) {
             if (!player.isCreative() || !player.isSpectator()) {
                 player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
@@ -48,14 +48,14 @@ public class EntitySkyre extends EntityDivineMonster {
                 if (entityData.get(ARCANA) == 200) {
                     entityData.set(ARCANA, 0);
 
-                    if (isAlive() && getTarget() != null && !level.isClientSide && player.getHealth() >= 2) {
-                        EntitySkyreBullet entity = new EntitySkyreBullet((EntityType<? extends ThrowableProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "skyre_bullet")), player, level);
+                    if (isAlive() && getTarget() != null && !level().isClientSide && player.getHealth() >= 2) {
+                        EntitySkyreBullet entity = new EntitySkyreBullet((EntityType<? extends ThrowableProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "skyre_bullet")), player, level());
                         double d0 = getTarget().getX() - this.getX();
                         double d1 = getTarget().getY(0.3333333333333333D) - entity.getY();
                         double d2 = getTarget().getZ() - this.getZ();
                         double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
                         entity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-                        this.level.addFreshEntity(entity);
+                        this.level().addFreshEntity(entity);
                         playSound(SoundRegistry.SKYRE_SHOOT.get());
                     }
                 }

@@ -26,7 +26,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 		BufferBuilder bufferbuilder = tesselator.getBuilder();
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		if(starBuffer != null) starBuffer.close();
-		starBuffer = new VertexBuffer();
+		starBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
 		BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = TwilightSky.drawStars(bufferbuilder);
 		starBuffer.bind();
 		starBuffer.upload(bufferbuilder$renderedbuffer);

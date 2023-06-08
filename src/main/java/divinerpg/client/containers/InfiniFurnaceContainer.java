@@ -20,7 +20,7 @@ public class InfiniFurnaceContainer extends RecipeBookMenu<Container> {
 	      checkContainerDataCount(data, 2);
 	      this.container = container;
 	      this.data = data;
-	      level = inv.player.level;
+	      level = inv.player.level();
 	      addSlot(new Slot(container, 0, 56, 17));
 	      addSlot(new FurnaceResultSlot(inv.player, container, 1, 116, 35));
 	      for(int i = 0; i < 3; ++i) for(int j = 0; j < 9; ++j) addSlot(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));

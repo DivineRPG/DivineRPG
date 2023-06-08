@@ -19,8 +19,8 @@ import javax.annotation.Nullable;
 
 public class BlockModLog extends RotatedPillarBlock {
 
-    public BlockModLog(MaterialColor color) {
-        super(BlockBehaviour.Properties.of(Material.WOOD, color).strength(2.0F).sound(SoundType.WOOD));
+    public BlockModLog(MapColor color) {
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(2.0F).sound(SoundType.WOOD));
     }
 
     @Override
@@ -33,19 +33,4 @@ public class BlockModLog extends RotatedPillarBlock {
         super.playerDestroy(world, player, pos, state, blockEntity, stack);
     }
 
-    @Override
-    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        if(material == Material.WOOD) {
-            return 5;
-        }
-        return 0;
-    }
-
-    @Override
-    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-        if(material == Material.WOOD) {
-            return 5;
-        }
-        return 0;
-    }
 }

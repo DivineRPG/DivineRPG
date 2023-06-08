@@ -19,7 +19,7 @@ public class EscapeWaterGoal extends Goal {
         // Check if the entity is in water
         if (entity.isInWater()) {
             // Get the position of the nearest land above the water
-            BlockPos.MutableBlockPos pos = entity.level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG, entity.blockPosition()).mutable();
+            BlockPos.MutableBlockPos pos = entity.level().getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG, entity.blockPosition()).mutable();
             targetPos = new Vec3(pos.getX(), pos.getY(), pos.getZ());
             return true;
         }

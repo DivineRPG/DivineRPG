@@ -53,8 +53,8 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
 
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide && this.getHealth() > 0.0f) {
-            Player player = this.level.getNearestPlayer(this, 10.0D);
+        if (!this.level().isClientSide && this.getHealth() > 0.0f) {
+            Player player = this.level().getNearestPlayer(this, 10.0D);
             if (player != null && !player.isCreative() && !player.isSpectator() && this.hasLineOfSight(player)) {
                 this.setTarget(player);
                 this.setNoAi(false);
@@ -103,7 +103,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity e, float p_33318_) {
-        if (isAlive() && getTarget() != null && !level.isClientSide && this.tickCount % 30 == 0 && this.getProvoked()) {
+        if (isAlive() && getTarget() != null && !level().isClientSide && this.tickCount % 30 == 0 && this.getProvoked()) {
             double y = this.getBoundingBox().minY + 2.7D;
             double tx = e.getX() - getX();
             double ty = e.getBoundingBox().minY - y;
@@ -111,12 +111,12 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
             for (double h = -1.5; h < 1.5; h += 0.5) {
                 for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
                     for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                        EntitySaguaroWormShot shot = new EntitySaguaroWormShot(EntityRegistry.SAGUARO_WORM_SHOT.get(), this, this.level);
+                        EntitySaguaroWormShot shot = new EntitySaguaroWormShot(EntityRegistry.SAGUARO_WORM_SHOT.get(), this, this.level());
                         shot.xo = this.xo + r * Math.cos(theta);
                         shot.yo = this.yo + 5 + h;
                         shot.zo = this.zo + r * Math.sin(theta);
                         shot.shoot(tx, ty, tz, 0.9f, 5);
-                        level.addFreshEntity(shot);
+                        level().addFreshEntity(shot);
                     }
                 }
             }

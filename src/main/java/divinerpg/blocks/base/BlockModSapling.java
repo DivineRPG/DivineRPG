@@ -13,8 +13,8 @@ public class BlockModSapling extends SaplingBlock {
     private final Supplier<Block> grassSupplier;
     private final Supplier<Block> dirtSupplier;
 
-    public BlockModSapling(MaterialColor color, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, AbstractTreeGrower tree) {
-        super(tree, BlockBehaviour.Properties.of(Material.PLANT, color).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
+    public BlockModSapling(MapColor color, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, AbstractTreeGrower tree) {
+        super(tree, BlockBehaviour.Properties.of().mapColor(color).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
         this.grassSupplier = grassSupplier;
         this.dirtSupplier = dirtSupplier;
     }

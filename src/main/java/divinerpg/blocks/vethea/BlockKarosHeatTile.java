@@ -10,8 +10,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,8 +19,8 @@ public class BlockKarosHeatTile extends BlockModUnbreakable {
     private static final AABB KAROS_HEAT_TILE_AABB = new AABB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
             0.9375D);
 
-    public BlockKarosHeatTile(MaterialColor color) {
-        super(BlockBehaviour.Properties.of(Material.STONE, color).randomTicks().strength(-1F, 3600000F));
+    public BlockKarosHeatTile(MapColor color) {
+        super(BlockBehaviour.Properties.of().mapColor(color).randomTicks().strength(-1F, 3600000F));
     }
 
     @Override

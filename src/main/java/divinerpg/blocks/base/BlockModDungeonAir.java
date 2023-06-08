@@ -10,7 +10,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -19,7 +18,7 @@ public class BlockModDungeonAir extends BlockMod {
      * remove the {@code .air()} property for better managing when building with this block
      */
     public BlockModDungeonAir() {
-        super(BlockBehaviour.Properties.of(Material.BARRIER).noLootTable().noOcclusion().noCollission().air());
+        super(BlockBehaviour.Properties.of().noLootTable().noOcclusion().noCollission().air());
     }
     @Override
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

@@ -61,7 +61,7 @@ public class EntityDivineTameable extends TamableAnimal {
             if (attack && e instanceof LivingEntity) {
                 ((LivingEntity) e).canAttack(this);
             }
-            e.hurt(e.level.damageSources().mobAttack(this), (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue());
+            e.hurt(e.level().damageSources().mobAttack(this), (float) getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue());
         }
         return attack;
     }
@@ -74,7 +74,7 @@ public class EntityDivineTameable extends TamableAnimal {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             boolean flag = this.isOwnedBy(player) || this.isTame() || item == Items.BONE && !this.isTame();
             return flag ? InteractionResult.CONSUME : InteractionResult.PASS;
         } else {
@@ -108,9 +108,9 @@ public class EntityDivineTameable extends TamableAnimal {
                     this.navigation.stop();
                     this.setTarget((LivingEntity)null);
                     this.setOrderedToSit(true);
-                    this.level.broadcastEntityEvent(this, (byte)7);
+                    this.level().broadcastEntityEvent(this, (byte)7);
                 } else {
-                    this.level.broadcastEntityEvent(this, (byte)6);
+                    this.level().broadcastEntityEvent(this, (byte)6);
                 }
 
                 return InteractionResult.SUCCESS;

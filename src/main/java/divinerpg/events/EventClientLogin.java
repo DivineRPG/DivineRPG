@@ -13,7 +13,7 @@ public class EventClientLogin {
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt){
         Player player = evt.getEntity();
-        if (!player.level.isClientSide) {
+        if (!player.level().isClientSide) {
             //Send welcome messages
             if(ClientConfig.welcomeMessage.get()) {
                 if (Utils.isDeveloperName(player.getUUID())) {

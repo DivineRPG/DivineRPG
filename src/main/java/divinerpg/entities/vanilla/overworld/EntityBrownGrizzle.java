@@ -28,7 +28,7 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
         return 1.22F;
     }
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Item item = itemstack.getItem();
             if (this.isTame()) {
@@ -40,8 +40,8 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
                             this.tame(player);
                             this.navigation.recomputePath();
                             this.setTarget((LivingEntity) null);
-                            this.level.broadcastEntityEvent(this, (byte) 7);
-                        } else this.level.broadcastEntityEvent(this, (byte) 6);
+                            this.level().broadcastEntityEvent(this, (byte) 7);
+                        } else this.level().broadcastEntityEvent(this, (byte) 6);
                     } else {
                         tame(player);
                         this.setTame(true);

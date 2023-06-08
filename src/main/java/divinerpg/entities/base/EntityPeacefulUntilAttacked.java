@@ -38,7 +38,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
         String s = compound.getString("HurtBy");
         if(!s.isEmpty()) {
             angerTargetUUID = UUID.fromString(s);
-            Player entityplayer = level.getPlayerByUUID(angerTargetUUID);
+            Player entityplayer = level().getPlayerByUUID(angerTargetUUID);
             setTarget(entityplayer);
             if(entityplayer != null) {
                 setTarget(entityplayer);

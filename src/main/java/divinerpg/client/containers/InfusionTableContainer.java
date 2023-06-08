@@ -131,7 +131,7 @@ public class InfusionTableContainer extends AbstractContainerMenu {
                     craftResult.setItem(2, output);
                     ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 1, template));
                     ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 2, output));
-                } else if (craftResult.getItem(2).getItem() == output.getItem() && ItemStack.tagMatches(craftResult.getItem(2), output)) {
+                } else if (craftResult.getItem(2).getItem() == output.getItem() && ItemStack.isSameItemSameTags(craftResult.getItem(2), output)) {
                     inv.removeItem(0, recipe.getCount());
                     craftResult.getItem(2).grow(output.getCount());
                 }
@@ -149,17 +149,17 @@ public class InfusionTableContainer extends AbstractContainerMenu {
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int windowId, Inventory inv, Player player) {
-                return new InfusionTableContainer(windowId, inv, ContainerLevelAccess.create(player.level, pos));
+                return new InfusionTableContainer(windowId, inv, ContainerLevelAccess.create(player.level(), pos));
             }
         }, pos);
     }
 
-    public static class InfusionInventory extends CraftingContainer {
+    public static class InfusionInventory implements CraftingContainer {
         private final NonNullList<ItemStack> stackList;
         private final AbstractContainerMenu eventListener;
 
         public InfusionInventory(AbstractContainerMenu container) {
-            super(container, 0, 0);
+            super();
 
             this.stackList = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
             this.eventListener = container;
@@ -207,6 +207,16 @@ public class InfusionTableContainer extends AbstractContainerMenu {
         }
 
         @Override
+        public void setChanged() {
+
+        }
+
+        @Override
+        public boolean stillValid(Player p_18946_) {
+            return false;
+        }
+
+        @Override
         public void clearContent() {
             stackList.clear();
         }
@@ -216,6 +226,21 @@ public class InfusionTableContainer extends AbstractContainerMenu {
             for (ItemStack stack : stackList) {
                 recipeItemHelper.accountStack(stack);
             }
+        }
+
+        @Override
+        public int getWidth() {
+            return 3;
+        }
+
+        @Override
+        public int getHeight() {
+            return 1;
+        }
+
+        @Override
+        public List<ItemStack> getItems() {
+            return stackList;
         }
     }
 

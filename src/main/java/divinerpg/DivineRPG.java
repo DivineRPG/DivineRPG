@@ -24,7 +24,6 @@ public class DivineRPG {
 
     public DivineRPG() {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(DivineTab::registerTabs);
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BLOCK_ITEMS.register(bus);
@@ -44,6 +43,7 @@ public class DivineRPG {
         PaintingRegistry.PAINTING_VARIANTS.register(bus);
         PointOfInterestRegistry.POI.register(bus);
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
+        CreativeTabRegistry.TAB.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);

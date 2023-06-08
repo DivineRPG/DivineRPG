@@ -33,13 +33,13 @@ public class EntityHiveQueen extends EntityDivineBoss {
     public void tick() {
         super.tick();
         if (this.getHealth() > 0) {
-            if (this.spawnTick % 40 == 0 && !this.level.isClientSide && this.level.getNearestPlayer(this, 20) != null) {
+            if (this.spawnTick % 40 == 0 && !this.level().isClientSide && this.level().getNearestPlayer(this, 20) != null) {
                 if (this.random.nextBoolean()) {
-                    EntityRegistry.HOVER_STINGER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-                    this.level.addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
+                    EntityRegistry.HOVER_STINGER.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                    this.level().addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 } else {
-                    EntityRegistry.HIVE_SOLDIER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-                    this.level.addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
+                    EntityRegistry.HIVE_SOLDIER.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                    this.level().addParticle(DustParticleOptions.REDSTONE, xo, yo, zo, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1, random.nextGaussian() * 2 - 1);
                 }
                 spawnTick = 80;
             }

@@ -28,7 +28,7 @@ public class EntitySparkler extends DivineThrowable {
             if (result.getEntity() != null) {
                 result.getEntity().hurt(damageSources().thrown(this, this.getOwner()), 20);
             }
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }
@@ -40,7 +40,7 @@ public class EntitySparkler extends DivineThrowable {
     public void tick() {
         super.tick();
         for (int var3 = 0; var3 < 8; ++var3) {
-            level.addParticle(ParticleRegistry.SPARKLER.get(), this.xo, this.yo, this.zo,
+            level().addParticle(ParticleRegistry.SPARKLER.get(), this.xo, this.yo, this.zo,
                     0.25 * this.random.nextGaussian(), 0.25 * this.random.nextGaussian(), 0.25 * this.random.nextGaussian());
         }
     }

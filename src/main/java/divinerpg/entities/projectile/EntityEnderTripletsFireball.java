@@ -21,14 +21,14 @@ public class EntityEnderTripletsFireball extends DivineFireball {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
                     if (this.shootingEntity != null) {
                         entity.hurt(entity.damageSources().fireball(this, this.shootingEntity), 8);
                     }
                 }
-                this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
+                this.level().explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
                 this.kill();
             }
         }
@@ -37,7 +37,7 @@ public class EntityEnderTripletsFireball extends DivineFireball {
     @Override
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            this.level.explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
+            this.level().explode(null, this.xo, this.yo, this.zo, 2F, false, Level.ExplosionInteraction.TNT);
             this.kill();
         }
     }
@@ -45,8 +45,8 @@ public class EntityEnderTripletsFireball extends DivineFireball {
     @Override
     public void tick() {
         super.tick();
-        if(level.isClientSide) {
-            level.addParticle(ParticleRegistry.ENDER_TRIPLET.get(),
+        if(level().isClientSide) {
+            level().addParticle(ParticleRegistry.ENDER_TRIPLET.get(),
                     this.xo + (this.random.nextDouble() - this.random.nextDouble()) / 6,
                     this.yo + 0.5D + (this.random.nextDouble() - this.random.nextDouble()) / 6,
                     this.zo + (this.random.nextDouble() - this.random.nextDouble()) / 6, 0.0D, 0.0D, 0.0D);

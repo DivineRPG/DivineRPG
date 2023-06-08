@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public class BlockArcaniumExtractor extends FurnaceBlock {
     public static final VoxelShape BLOCK_AABB = Shapes.create(new AABB(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F));
     public BlockArcaniumExtractor() {
-        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(-1F, 3600000F).noOcclusion());
+        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(-1F, 3600000F).noOcclusion());
     }
     @Override
     public VoxelShape getCollisionShape(BlockState p_220071_1_, BlockGetter p_220071_2_, BlockPos p_220071_3_, CollisionContext p_220071_4_) {

@@ -35,7 +35,7 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Item item = itemstack.getItem();
             if (this.isTame()) {

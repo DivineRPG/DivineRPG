@@ -28,7 +28,7 @@ public class EntityMandragoraProjectile extends EntityHeatSeekingProjectile {
                 entity.hurt(damageSources().thrown(this, this.thrower), 4.0F);
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

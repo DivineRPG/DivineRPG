@@ -6,11 +6,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 
 public class BlockLights extends BlockModLadder {
     public BlockLights() {
-        super(Block.Properties.of(Material.DECORATION)
+        super(Block.Properties.of()
                 .strength(0.4F)
                 .sound(SoundType.WOOD)
                 .dynamicShape()

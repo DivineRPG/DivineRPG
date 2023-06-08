@@ -43,7 +43,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 		BufferBuilder bufferbuilder = tesselator.getBuilder();
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		if(starBuffer != null) starBuffer.close();
-		starBuffer = new VertexBuffer();
+		starBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
 		BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = TwilightSky.drawStars(bufferbuilder);
 		starBuffer.bind();
 		starBuffer.upload(bufferbuilder$renderedbuffer);
@@ -51,7 +51,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 		tesselator = Tesselator.getInstance();
 	    bufferbuilder = tesselator.getBuilder();
 	    if(skyBuffer != null) skyBuffer.close();
-	    skyBuffer = new VertexBuffer();
+	    skyBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
 	    bufferbuilder$renderedbuffer = TwilightSky.buildSkyDisc(bufferbuilder, 16F);
 	    skyBuffer.bind();
 	    skyBuffer.upload(bufferbuilder$renderedbuffer);

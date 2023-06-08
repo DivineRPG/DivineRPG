@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
@@ -22,7 +23,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -73,12 +73,12 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public void tick() {
         super.tick();
 
-        if (!this.level.isClientSide && this.tickCount % 5 == 0) {
+        if (!this.level().isClientSide && this.tickCount % 5 == 0) {
             for (int x = (int) this.getX() - 2; x < (int) this.getX() + 2; x++) {
                 for (int y = (int) this.getBoundingBox().minY; y < (int) this.getBoundingBox().minY + 4; y++) {
                     for (int z = (int) this.getZ() - 2; z < (int) this.getZ() + 2; z++) {
-                        if (this.level.getBlockState(new BlockPos(x, y, z)).getMaterial() == Material.LEAVES || this.level.getBlockState(new BlockPos(x, y, z)).getMaterial() == Material.WOOD)
-                            this.level.setBlock(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState(), 1);
+                        if (this.level().getBlockState(new BlockPos(x, y, z)).is(BlockTags.LEAVES) || this.level().getBlockState(new BlockPos(x, y, z)).is(BlockTags.LOGS))
+                            this.level().setBlock(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState(), 1);
                     }
                 }
             }
@@ -86,25 +86,25 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
         BlockPos current = new BlockPos((int)getX() - 1, (int)getY(), (int)getZ() - 1);
         BlockPos below = new BlockPos((int)getX() - 1, (int)getY() - 1, (int)getZ() - 1);
-        BlockState belowState = this.level.getBlockState(below);
+        BlockState belowState = this.level().getBlockState(below);
 
-        if(this.level.getBlockState(current).getBlock() == Blocks.AIR) {
+        if(this.level().getBlockState(current).getBlock() == Blocks.AIR) {
             if(belowState.canOcclude() && belowState.hasLargeCollisionShape()) {
-                this.level.setBlock(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid")).defaultBlockState(), 1);
+                this.level().setBlock(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid")).defaultBlockState(), 1);
                 acidPositions.add(current);
             }
         }
 
-        if (!this.level.isClientSide && getProtection() == 0 && this.tickCount % 30 == 0) {
+        if (!this.level().isClientSide && getProtection() == 0 && this.tickCount % 30 == 0) {
             Iterator<BlockPos> iter = this.acidPositions.iterator();
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();
 
-                if (this.level.getBlockState(pos).getBlock() != ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid"))) iter.remove();
+                if (this.level().getBlockState(pos).getBlock() != ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid"))) iter.remove();
                 else if (this.random.nextInt(4) == 0) {
-                    EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(EntityRegistry.LADY_LUNA_SPARKLER.get(), this.level, this);
+                    EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(EntityRegistry.LADY_LUNA_SPARKLER.get(), this.level(), this);
                     e.moveTo(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);
-                    this.level.addFreshEntity(e);
+                    this.level().addFreshEntity(e);
                 }
             }
         }
@@ -150,9 +150,9 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public boolean doHurtTarget(Entity e) {
         int dam = 20;
 
-        boolean var4 = e.hurt(e.level.damageSources().mobAttack(this), dam);
+        boolean var4 = e.hurt(e.level().damageSources().mobAttack(this), dam);
         if (var4) {
-            this.level.explode(this, e.getX(), e.getY(), e.getZ(), 2, Level.ExplosionInteraction.BLOCK);
+            this.level().explode(this, e.getX(), e.getY(), e.getZ(), 2, Level.ExplosionInteraction.BLOCK);
             this.xo *= 0.6D;
             this.zo *= 0.6D;
             int var5 = EnchantmentHelper.getFireAspect(this);

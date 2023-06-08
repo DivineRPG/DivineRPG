@@ -43,7 +43,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         return 3.0F;
     }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
-        return level.dimension() == Level.OVERWORLD;
+        return level().dimension() == Level.OVERWORLD;
     }
 
     protected void registerGoals() {
@@ -77,13 +77,13 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (this.isAlive() && getTarget() != null) {
-            Projectile projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), level, this);
+            Projectile projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), level(), this);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
-            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-            this.level.addFreshEntity(projectile);
+            projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level().getDifficulty().getId() * 4));
+            this.level().addFreshEntity(projectile);
         }
     }
 
@@ -181,7 +181,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
             LivingEntity livingentity = this.mob.getTarget();
 //            double d0 = 64.0D;
             if (livingentity.distanceToSqr(this.mob) < 4096.0D && this.mob.hasLineOfSight(livingentity)) {
-                Level world = this.mob.level;
+                Level world = this.mob.level();
                 ++this.chargeTime;
                 if (this.chargeTime == 10 && !this.mob.isSilent()) {
                     world.levelEvent(null, 1015, this.mob.blockPosition(), 0);
@@ -273,7 +273,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
 
             for(int i = 1; i < ticks; ++i) {
                 axisalignedbb = axisalignedbb.move(vec);
-                if (!this.mob.level.noCollision(this.mob, axisalignedbb)) {
+                if (!this.mob.level().noCollision(this.mob, axisalignedbb)) {
                     return false;
                 }
             }

@@ -22,7 +22,7 @@ public class EntityGorgosion extends EntityDivineMonster {
 	@Override
 	public void tick() {
 		super.tick();
-		Player closestPlayer = this.level.getNearestPlayer(this, 10);
+		Player closestPlayer = this.level().getNearestPlayer(this, 10);
 		if(closestPlayer != null && !closestPlayer.isCreative() && this.random.nextInt(30) == 0) {
 			this.setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + 1, getDeltaMovement().z);
 		}
@@ -31,7 +31,7 @@ public class EntityGorgosion extends EntityDivineMonster {
 	@Override
     public boolean causeFallDamage(float distance, float damageMultiplier, DamageSource damagesource) {
 		if(distance > 2) {
-			this.level.explode(this, this.getX(), this.getY(), this.getZ(), 3, false, Level.ExplosionInteraction.NONE);
+			this.level().explode(this, this.getX(), this.getY(), this.getZ(), 3, false, Level.ExplosionInteraction.NONE);
 			return false;
 		}
 		return super.causeFallDamage(distance, damageMultiplier, damagesource);

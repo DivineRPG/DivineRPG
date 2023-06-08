@@ -31,7 +31,7 @@ public class EntityCorruptedBullet extends DivineThrowable {
                 entity.hurt(entity.damageSources().thrown(this, this.getOwner()), damage);
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

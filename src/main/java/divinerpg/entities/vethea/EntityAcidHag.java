@@ -30,11 +30,11 @@ public class EntityAcidHag extends EntityDivineMonster {
 
         BlockPos current = new BlockPos((int)getX() - 1, (int)getY(), (int)getZ() - 1);
         BlockPos below = new BlockPos((int)getX() - 1, (int)getY() - 1, (int)getZ() - 1);
-        BlockState belowState = this.level.getBlockState(below);
+        BlockState belowState = this.level().getBlockState(below);
 
-        if(this.level.getBlockState(current).getBlock() == Blocks.AIR) {
-            if(belowState.isValidSpawn(level, below, EntityRegistry.ACID_HAG.get()) && belowState.canOcclude()) {
-                this.level.setBlockAndUpdate(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "acid_block")).defaultBlockState());
+        if(this.level().getBlockState(current).getBlock() == Blocks.AIR) {
+            if(belowState.isValidSpawn(level(), below, EntityRegistry.ACID_HAG.get()) && belowState.canOcclude()) {
+                this.level().setBlockAndUpdate(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "acid_block")).defaultBlockState());
             }
         }
     }

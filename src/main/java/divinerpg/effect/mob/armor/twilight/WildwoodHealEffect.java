@@ -17,7 +17,7 @@ public class WildwoodHealEffect extends ArmorEffect {
             float current = entity.getHealth();
             if((current > 0F) && (current < 20F)) entity.heal(.25f);
         }
-		if(entity.level.isRainingAt(entity.blockPosition())) entity.addEffect(new ArmorEffectInstance(MobEffects.REGENERATION, 1, true, true, true));
+		if(entity.level().isRainingAt(entity.blockPosition())) entity.addEffect(new ArmorEffectInstance(MobEffects.REGENERATION, 1, true, true, true));
         else if(entity.getEffect(MobEffects.REGENERATION) instanceof ArmorEffectInstance) entity.removeEffect(MobEffects.REGENERATION);
 	}
 }

@@ -24,7 +24,7 @@ public class EntityVermenous extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        Player var1 = this.level.getNearestPlayer(this, 64.0D);
+        Player var1 = this.level().getNearestPlayer(this, 64.0D);
 
         if (var1 == null || var1.isCreative())
             return;

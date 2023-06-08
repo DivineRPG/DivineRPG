@@ -28,14 +28,14 @@ public class EntityFractite extends EntityDivineFlyingMob implements RangedAttac
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
-            Projectile projectile = new EntityFractiteShot(EntityRegistry.FRACTITE_SHOT.get(), level);
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
+            Projectile projectile = new EntityFractiteShot(EntityRegistry.FRACTITE_SHOT.get(), level());
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-            this.level.addFreshEntity(projectile);
+            this.level().addFreshEntity(projectile);
         }
     }
 

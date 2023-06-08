@@ -30,7 +30,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
         matrixStackIn.pushPose();
@@ -40,7 +40,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
         matrixStackIn.pushPose();
@@ -50,7 +50,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
 
@@ -61,7 +61,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
         matrixStackIn.pushPose();
@@ -71,7 +71,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
 
         matrixStackIn.pushPose();
@@ -81,7 +81,7 @@ public class EternalArcherLayer extends RenderLayer<EntityEternalArcher, ModelEt
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
         matrixStackIn.popPose();
     }
 

@@ -32,7 +32,7 @@ public class RenderWildwoodLog extends EntityRenderer<EntityWildwoodLog> {
     public void render(EntityWildwoodLog entity, float p_114635_, float p_114636_, PoseStack p_114637_, MultiBufferSource p_114638_, int p_114639_) {
         BlockState blockstate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_log")).defaultBlockState();
         if (blockstate.getRenderShape() == RenderShape.MODEL) {
-            Level level = entity.getLevel();
+            Level level = entity.level();
             if (blockstate != level.getBlockState(entity.blockPosition()) && blockstate.getRenderShape() != RenderShape.INVISIBLE) {
                 p_114637_.pushPose();
                 BlockPos blockpos = new BlockPos((int) entity.getX(), (int) entity.getBoundingBox().maxY, (int) entity.getZ());

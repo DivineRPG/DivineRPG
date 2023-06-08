@@ -44,7 +44,7 @@ public class EntityWhale extends EntityDivineWaterMob {
 
                 for (float x = -0.25F; x <= 0.25F; x += 0.125F) {
                     for (float z = -0.25F; z <= 0.25F; z += 0.125F) {
-                        level.addParticle(ParticleTypes.DRIPPING_WATER, getX() + x, getY(), getZ() + z, 0, 0.4, 0);
+                        level().addParticle(ParticleTypes.DRIPPING_WATER, getX() + x, getY(), getZ() + z, 0, 0.4, 0);
                     }
                 }
             }
@@ -54,7 +54,7 @@ public class EntityWhale extends EntityDivineWaterMob {
                 double bubbleX = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
                 double bubbleY = this.getY() + this.random.nextFloat() * this.getBbHeight();
                 double bubbleZ = this.getZ() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
-                this.level.addParticle(ParticleTypes.BUBBLE, bubbleX, bubbleY, bubbleZ, 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ParticleTypes.BUBBLE, bubbleX, bubbleY, bubbleZ, 0.0D, 0.0D, 0.0D);
             }
         }
 

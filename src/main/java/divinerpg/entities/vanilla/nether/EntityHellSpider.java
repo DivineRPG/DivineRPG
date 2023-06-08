@@ -55,7 +55,7 @@ public class EntityHellSpider extends EntityDivineMonster {
     }
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.setBesideClimbableBlock(this.horizontalCollision);
         }
 
@@ -138,7 +138,7 @@ public class EntityHellSpider extends EntityDivineMonster {
         }
 
         public boolean canContinueToUse() {
-            float f = this.mob.level.getLightEmission(mob.blockPosition());
+            float f = this.mob.level().getLightEmission(mob.blockPosition());
             if (f >= 0.5F && this.mob.getRandom().nextInt(100) == 0) {
                 this.mob.setTarget((LivingEntity)null);
                 return false;
@@ -176,7 +176,7 @@ public class EntityHellSpider extends EntityDivineMonster {
         }
 
         public boolean canUse() {
-            float f = this.mob.level.getLightEmission(mob.blockPosition());
+            float f = this.mob.level().getLightEmission(mob.blockPosition());
             return f >= 0.5F ? false : super.canUse();
         }
     }

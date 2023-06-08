@@ -13,8 +13,8 @@ import java.util.function.*;
 public class BlockTwilightGrass extends BushBlock implements IPlantable, IForgeShearable {
     private Supplier<Block> grassSupplier;
 
-    public BlockTwilightGrass(Supplier<Block> grassSupplier, MaterialColor colour) {
-        super(Block.Properties.of(Material.REPLACEABLE_PLANT, colour).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+    public BlockTwilightGrass(Supplier<Block> grassSupplier, MapColor colour) {
+        super(Block.Properties.of().mapColor(colour).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
     }
 

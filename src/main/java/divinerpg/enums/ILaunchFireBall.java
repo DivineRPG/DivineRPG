@@ -34,7 +34,7 @@ public interface ILaunchFireBall {
         double d3 = target.getBoundingBox().minY + (target.getEyeY() / 2.0F) - (0.5D + parent.yo + (parent.getEyeY() / 2.0F));
         double d4 = target.zo - (parent.zo + vec3d.z * 4.0D);
 
-        Entity fireball = createFireball(parent.level, parent, d2, d3, d4, parent.getRandom().nextInt(6));
+        Entity fireball = createFireball(parent.level(), parent, d2, d3, d4, parent.getRandom().nextInt(6));
 
         fireball.xo = parent.xo + vec3d.x * 4.0D;
         fireball.yo = parent.yo + (parent.getEyeY() / 2.0F) + 0.5D;

@@ -1,14 +1,12 @@
 package divinerpg.entities.projectile;
 
-import java.util.*;
-
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
+
+import java.util.List;
 
 public class EntityHeatSeekingProjectile extends DivineThrowable {
 
@@ -35,9 +33,9 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        if (this.level.isClientSide)
+        if (this.level().isClientSide)
             return;
-        List<LivingEntity> mobs = this.level.getEntitiesOfClass(LivingEntity.class,
+        List<LivingEntity> mobs = this.level().getEntitiesOfClass(LivingEntity.class,
                 this.getBoundingBox().inflate(30, 30, 30));
         boolean findNewTarget = this.target == null || (this.target != null && this.target.isDeadOrDying());
         for (LivingEntity e : mobs) {

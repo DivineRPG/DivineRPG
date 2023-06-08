@@ -1,7 +1,7 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.registries.LevelRegistry;
 import divinerpg.block_entities.NightmareBedBlockEntity;
+import divinerpg.registries.LevelRegistry;
 import divinerpg.util.teleport.VetheaTeleporter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -14,15 +14,14 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.server.command.TextComponentHelper;
 
 public class BlockNightmareBed extends BedBlock {
 
     public BlockNightmareBed() {
-        super(DyeColor.BLACK, Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_GRAY).strength(0.2F).sound(SoundType.STONE));
+        super(DyeColor.BLACK, Properties.of().mapColor(MapColor.COLOR_GRAY).strength(0.2F).sound(SoundType.STONE));
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {

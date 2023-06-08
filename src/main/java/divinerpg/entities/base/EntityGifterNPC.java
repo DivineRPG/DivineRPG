@@ -1,15 +1,14 @@
 package divinerpg.entities.base;
 
-import net.minecraft.world.*;
-
-import java.util.*;
-
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
+
+import java.util.ArrayList;
 
 public abstract class EntityGifterNPC extends PathfinderMob {
 
@@ -31,7 +30,7 @@ public abstract class EntityGifterNPC extends PathfinderMob {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if(this.isAlive()) {
-            if(!this.level.isClientSide) {
+            if(!this.level().isClientSide) {
                 player.inventory.add(this.getGift());
                 sendRandomChatMessage(player);
                 this.kill();

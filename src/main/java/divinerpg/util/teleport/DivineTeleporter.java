@@ -153,7 +153,7 @@ public class DivineTeleporter implements ITeleporter {
         for (int i = -1; i < 3; ++i) {
             for (int j = -1; j < 4; ++j) {
                 offsetPos.setWithOffset(originalPos, directionIn.getStepX() * i + direction.getStepX() * offsetScale, j, directionIn.getStepZ() * i + direction.getStepZ() * offsetScale);
-                if (j < 0 && !this.world.getBlockState(offsetPos).getMaterial().isSolid()) {
+                if (j < 0 && !this.world.getBlockState(offsetPos).isSolid()) {
                     return false;
                 }
 
@@ -170,7 +170,7 @@ public class DivineTeleporter implements ITeleporter {
     @Override
     public PortalInfo getPortalInfo(Entity entity, ServerLevel destWorld, Function<ServerLevel, PortalInfo> defaultPortalInfo) {
         boolean isntOverworld = destWorld.dimension() == world.dimension();
-        if (entity.level.dimension() != world.dimension() && !isntOverworld) {
+        if (entity.level().dimension() != world.dimension() && !isntOverworld) {
             return null;
         } else if (!this.hasFrame) {
             return new PortalInfo(new Vec3(entity.getX(), 255D, entity.getZ()), Vec3.ZERO, entity.yRot, entity.xRot);
@@ -180,15 +180,15 @@ public class DivineTeleporter implements ITeleporter {
             double minZ = Math.max(-2.9999872E7D, border.getMinZ() + 16.0D);
             double maxX = Math.min(2.9999872E7D, border.getMaxX() - 16.0D);
             double maxZ = Math.min(2.9999872E7D, border.getMaxZ() - 16.0D);
-            double coordinateDifference = DimensionType.getTeleportationScale(entity.level.dimensionType(), destWorld.dimensionType());
+            double coordinateDifference = DimensionType.getTeleportationScale(entity.level().dimensionType(), destWorld.dimensionType());
             BlockPos blockpos = new BlockPos((int) Mth.clamp(entity.getX() * coordinateDifference, minX, maxX), (int) entity.getY(), (int) Mth.clamp(entity.getZ() * coordinateDifference, minZ, maxZ));
             return this.getOrMakePortal(entity, blockpos).map((result) -> {
-                BlockState blockstate = entity.level.getBlockState(entity.blockPosition());
+                BlockState blockstate = entity.level().getBlockState(entity.blockPosition());
                 Direction.Axis axis;
                 Vec3 vector3d;
                 if (blockstate.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
                     axis = blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(entity.blockPosition(), axis, 21, Direction.Axis.Y, 21, (pos) -> entity.level.getBlockState(pos) == blockstate);
+                    BlockUtil.FoundRectangle rectangle = BlockUtil.getLargestRectangleAround(entity.blockPosition(), axis, 21, Direction.Axis.Y, 21, (pos) -> entity.level().getBlockState(pos) == blockstate);
                     vector3d = entity.getRelativePortalPosition(axis, rectangle);
                 } else {
                     axis = Direction.Axis.X;

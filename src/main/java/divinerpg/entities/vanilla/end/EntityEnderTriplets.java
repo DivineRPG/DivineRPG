@@ -56,10 +56,10 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
                 double d1 = getTarget().getY(0.5D) - (0.5D + this.getY(0.5D));
                 double d2 = getTarget().getZ() - (this.getZ() + vector3d.z * 4.0D);
                 double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
-                EntityEnderTripletsFireball shot = new EntityEnderTripletsFireball(level, this, d0, d1, d2);
+                EntityEnderTripletsFireball shot = new EntityEnderTripletsFireball(level(), this, d0, d1, d2);
                 shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 3.3F, 0.2F);
-                if (!this.level.isClientSide)
-                    this.level.addFreshEntity(shot);
+                if (!this.level().isClientSide)
+                    this.level().addFreshEntity(shot);
             }
         }
     }

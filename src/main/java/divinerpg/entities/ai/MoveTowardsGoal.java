@@ -61,14 +61,14 @@ public class MoveTowardsGoal extends Goal {
     }
 
     public static boolean isOutsideLimits(BlockPos p_148452_, Mob p_148453_) {
-        return p_148452_.getY() < p_148453_.level.getMinBuildHeight() || p_148452_.getY() > p_148453_.level.getMaxBuildHeight();
+        return p_148452_.getY() < p_148453_.level().getMinBuildHeight() || p_148452_.getY() > p_148453_.level().getMaxBuildHeight();
     }
 
     public static boolean isRestricted(boolean p_148455_, Mob p_148456_, BlockPos p_148457_) {
         return p_148455_ && !p_148456_.isWithinRestriction(p_148457_);
     }
     public static boolean hasMalus(Mob p_148459_, BlockPos p_148460_) {
-        return p_148459_.getPathfindingMalus(WalkNodeEvaluator.getBlockPathTypeStatic(p_148459_.level, p_148460_.mutable())) != 0.0F;
+        return p_148459_.getPathfindingMalus(WalkNodeEvaluator.getBlockPathTypeStatic(p_148459_.level(), p_148460_.mutable())) != 0.0F;
     }
     public static BlockPos generateRandomPosTowardDirection(Mob p_217864_, int p_217865_, RandomSource p_217866_, BlockPos p_217867_) {
         int i = p_217867_.getX();

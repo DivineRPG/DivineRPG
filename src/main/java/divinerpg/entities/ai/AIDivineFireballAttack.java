@@ -1,17 +1,13 @@
 package divinerpg.entities.ai;
 
 import divinerpg.enums.*;
-import java.util.function.*;
-
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
+
+import java.util.function.BiFunction;
 
 public class AIDivineFireballAttack extends Goal {
     private final Mob parentEntity;
@@ -79,7 +75,7 @@ public class AIDivineFireballAttack extends Goal {
             if (entitylivingbase != null) {
                 if (Math.sqrt(entitylivingbase.distanceTo(this.parentEntity)) < maxDistance
                         && this.parentEntity.hasLineOfSight(entitylivingbase)) {
-                    Level world = this.parentEntity.level;
+                    Level world = this.parentEntity.level();
                     ++this.attackTimer;
 
                     if (this.attackTimer == attackDelay - 10) {
@@ -107,12 +103,12 @@ public class AIDivineFireballAttack extends Goal {
     }
 
     private void playSound(SoundEvent event) {
-        if (parentEntity == null || parentEntity.level == null || event == null)
+        if (parentEntity == null || parentEntity.level() == null || event == null)
             return;
 
-        RandomSource rand = parentEntity.level.random;
+        RandomSource rand = parentEntity.level().random;
 
-        parentEntity.level.playSound(null,
+        parentEntity.level().playSound(null,
                 parentEntity.blockPosition(),
                 event,
                 SoundSource.HOSTILE,

@@ -2,15 +2,14 @@ package divinerpg.client.containers.screen;
 
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.platform.Lighting;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import divinerpg.client.containers.AltarOfCorruptionContainer;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.*;
 import net.minecraft.client.model.BookModel;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
@@ -19,10 +18,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.api.distmarker.*;
-import org.joml.*;
 
-import java.lang.Math;
-import java.util.Random;
 import java.util.*;
 
 @OnlyIn(Dist.CLIENT)
@@ -65,105 +61,80 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         return super.mouseClicked(p_231044_1_, p_231044_3_, p_231044_5_);
     }
 
-    protected void renderBg(PoseStack p_98762_, float p_98763_, int p_98764_, int p_98765_) {
-        Lighting.setupForFlatItems();
-        RenderSystem.setShaderTexture(0, ENCHANTING_TABLE_LOCATION);
+    protected void renderBg(GuiGraphics p_282430_, float p_282530_, int p_281621_, int p_283333_) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        blit(p_98762_, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        int k = (int)this.minecraft.getWindow().getGuiScale();
-        RenderSystem.viewport((this.width - 320) / 2 * k, (this.height - 240) / 2 * k, 320 * k, 240 * k);
-        Matrix4f matrix4f = (new Matrix4f()).translation(-0.34F, 0.23F, 0.0F).perspective(((float)Math.PI / 2F), 1.3333334F, 9.0F, 80.0F);
-        RenderSystem.backupProjectionMatrix();
-        RenderSystem.setProjectionMatrix(matrix4f);
-        p_98762_.pushPose();
-        p_98762_.setIdentity();
-        p_98762_.translate(0.0F, 3.3F, 1984.0F);
-        float f = 5.0F;
-        p_98762_.scale(5.0F, 5.0F, 5.0F);
-        p_98762_.mulPose(Axis.ZP.rotationDegrees(180.0F));
-        p_98762_.mulPose(Axis.XP.rotationDegrees(20.0F));
-        float f1 = Mth.lerp(p_98763_, this.oOpen, this.open);
-        p_98762_.translate((1.0F - f1) * 0.2F, (1.0F - f1) * 0.1F, (1.0F - f1) * 0.25F);
-        float f2 = -(1.0F - f1) * 90.0F - 90.0F;
-        p_98762_.mulPose(Axis.YP.rotationDegrees(f2));
-        p_98762_.mulPose(Axis.XP.rotationDegrees(180.0F));
-        float f3 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.25F;
-        float f4 = Mth.lerp(p_98763_, this.oFlip, this.flip) + 0.75F;
-        f3 = (f3 - (float)Mth.floor(f3)) * 1.6F - 0.3F;
-        f4 = (f4 - (float)Mth.floor(f4)) * 1.6F - 0.3F;
-        if (f3 < 0.0F) {
-            f3 = 0.0F;
-        }
-
-        if (f4 < 0.0F) {
-            f4 = 0.0F;
-        }
-
-        if (f3 > 1.0F) {
-            f3 = 1.0F;
-        }
-
-        if (f4 > 1.0F) {
-            f4 = 1.0F;
-        }
-
-        this.BOOK_MODEL.setupAnim(0.0F, f3, f4, f1);
-        MultiBufferSource.BufferSource multibuffersource$buffersource = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
-        VertexConsumer vertexconsumer = multibuffersource$buffersource.getBuffer(this.BOOK_MODEL.renderType(ENCHANTING_BOOK_LOCATION));
-        this.BOOK_MODEL.renderToBuffer(p_98762_, vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-        multibuffersource$buffersource.endBatch();
-        p_98762_.popPose();
-        RenderSystem.viewport(0, 0, this.minecraft.getWindow().getWidth(), this.minecraft.getWindow().getHeight());
-        RenderSystem.restoreProjectionMatrix();
-        Lighting.setupFor3DItems();
+        p_282430_.blit(ENCHANTING_TABLE_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        this.renderBook(p_282430_, i, j, p_282530_);
         EnchantmentNames.getInstance().initSeed((long)this.menu.getEnchantmentSeed());
-        int l = this.menu.getGoldCount();
+        int k = this.menu.getGoldCount();
 
-        for(int i1 = 0; i1 < 3; ++i1) {
-            int j1 = i + 60;
-            int k1 = j1 + 20;
-            RenderSystem.setShaderTexture(0, ENCHANTING_TABLE_LOCATION);
-            int l1 = (this.menu).costs[i1];
-            if (l1 == 0) {
-                blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
+        for(int l = 0; l < 3; ++l) {
+            int i1 = i + 60;
+            int j1 = i1 + 20;
+            int k1 = (this.menu).costs[l];
+            if (k1 == 0) {
+                p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1, j + 14 + 19 * l, 0, 185, 108, 19);
             } else {
-                String s = "" + l1;
-                int i2 = 86 - this.font.width(s);
-                FormattedText formattedtext = EnchantmentNames.getInstance().getRandomName(this.font, i2);
-                int j2 = 6839882;
-                if (((l < i1 + 1 || this.minecraft.player.experienceLevel < l1) && !this.minecraft.player.getAbilities().instabuild) || this.menu.enchantClue[i1] == -1) { // Forge: render buttons as disabled when enchantable but enchantability not met on lower levels
-                    blit(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
-                    blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 239, 16, 16);
-                    this.font.drawWordWrap(p_98762_, formattedtext, k1, j + 16 + 19 * i1, i2, (j2 & 16711422) >> 1);
-                    j2 = 4226832;
+                String s = "" + k1;
+                int l1 = 86 - this.font.width(s);
+                FormattedText formattedtext = EnchantmentNames.getInstance().getRandomName(this.font, l1);
+                int i2 = 6839882;
+                if (((k < l + 1 || this.minecraft.player.experienceLevel < k1) && !this.minecraft.player.getAbilities().instabuild) || this.menu.enchantClue[i1] == -1) { // Forge: render buttons as disabled when enchantable but enchantability not met on lower levels
+                    p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1, j + 14 + 19 * l, 0, 185, 108, 19);
+                    p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1 + 1, j + 15 + 19 * l, 16 * l, 239, 16, 16);
+                    p_282430_.drawWordWrap(this.font, formattedtext, j1, j + 16 + 19 * l, l1, (i2 & 16711422) >> 1);
+                    i2 = 4226832;
                 } else {
-                    int k2 = p_98764_ - (i + 60);
-                    int l2 = p_98765_ - (j + 14 + 19 * i1);
-                    if (k2 >= 0 && l2 >= 0 && k2 < 108 && l2 < 19) {
-                        blit(p_98762_, j1, j + 14 + 19 * i1, 0, 204, 108, 19);
-                        j2 = 16777088;
+                    int j2 = p_281621_ - (i + 60);
+                    int k2 = p_283333_ - (j + 14 + 19 * l);
+                    if (j2 >= 0 && k2 >= 0 && j2 < 108 && k2 < 19) {
+                        p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1, j + 14 + 19 * l, 0, 204, 108, 19);
+                        i2 = 16777088;
                     } else {
-                        blit(p_98762_, j1, j + 14 + 19 * i1, 0, 166, 108, 19);
+                        p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1, j + 14 + 19 * l, 0, 166, 108, 19);
                     }
 
-                    blit(p_98762_, j1 + 1, j + 15 + 19 * i1, 16 * i1, 223, 16, 16);
-                    this.font.drawWordWrap(p_98762_, formattedtext, k1, j + 16 + 19 * i1, i2, j2);
-                    j2 = 8453920;
+                    p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1 + 1, j + 15 + 19 * l, 16 * l, 223, 16, 16);
+                    p_282430_.drawWordWrap(this.font, formattedtext, j1, j + 16 + 19 * l, l1, i2);
+                    i2 = 8453920;
                 }
 
-                this.font.drawShadow(p_98762_, s, (float)(k1 + 86 - this.font.width(s)), (float)(j + 16 + 19 * i1 + 7), j2);
+                p_282430_.drawString(this.font, s, j1 + 86 - this.font.width(s), j + 16 + 19 * l + 7, i2);
             }
         }
 
     }
 
-    public void render(PoseStack p_230430_1_, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
-        p_230430_4_ = this.minecraft.getFrameTime();
-        this.renderBackground(p_230430_1_);
-        super.render(p_230430_1_, p_230430_2_, p_230430_3_, p_230430_4_);
-        this.renderTooltip(p_230430_1_, p_230430_2_, p_230430_3_);
-        boolean flag = this.minecraft.player.abilities.instabuild;
+    private void renderBook(GuiGraphics p_289697_, int p_289667_, int p_289669_, float p_289670_) {
+        float f = Mth.lerp(p_289670_, this.oOpen, this.open);
+        float f1 = Mth.lerp(p_289670_, this.oFlip, this.flip);
+        Lighting.setupForEntityInInventory();
+        p_289697_.pose().pushPose();
+        p_289697_.pose().translate((float)p_289667_ + 33.0F, (float)p_289669_ + 31.0F, 100.0F);
+        float f2 = 40.0F;
+        p_289697_.pose().scale(-40.0F, 40.0F, 40.0F);
+        p_289697_.pose().mulPose(Axis.XP.rotationDegrees(25.0F));
+        p_289697_.pose().translate((1.0F - f) * 0.2F, (1.0F - f) * 0.1F, (1.0F - f) * 0.25F);
+        float f3 = -(1.0F - f) * 90.0F - 90.0F;
+        p_289697_.pose().mulPose(Axis.YP.rotationDegrees(f3));
+        p_289697_.pose().mulPose(Axis.XP.rotationDegrees(180.0F));
+        float f4 = Mth.clamp(Mth.frac(f1 + 0.25F) * 1.6F - 0.3F, 0.0F, 1.0F);
+        float f5 = Mth.clamp(Mth.frac(f1 + 0.75F) * 1.6F - 0.3F, 0.0F, 1.0F);
+        this.BOOK_MODEL.setupAnim(0.0F, f4, f5, f);
+        VertexConsumer vertexconsumer = p_289697_.bufferSource().getBuffer(this.BOOK_MODEL.renderType(ENCHANTING_BOOK_LOCATION));
+        this.BOOK_MODEL.renderToBuffer(p_289697_.pose(), vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        p_289697_.flush();
+        p_289697_.pose().popPose();
+        Lighting.setupFor3DItems();
+    }
+
+    public void render(GuiGraphics p_283462_, int p_282491_, int p_281953_, float p_282182_) {
+        p_282182_ = this.minecraft.getFrameTime();
+        this.renderBackground(p_283462_);
+        super.render(p_283462_, p_282491_, p_281953_, p_282182_);
+        this.renderTooltip(p_283462_, p_282491_, p_281953_);
+        boolean flag = this.minecraft.player.getAbilities().instabuild;
         int i = this.menu.getGoldCount();
 
         for(int j = 0; j < 3; ++j) {
@@ -171,37 +142,37 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
             Enchantment enchantment = Enchantment.byId((this.menu).enchantClue[j]);
             int l = (this.menu).levelClue[j];
             int i1 = j + 1;
-            if (this.isHovering(60, 14 + 19 * j, 108, 17, (double)p_230430_2_, (double)p_230430_3_) && k > 0) {
+            if (this.isHovering(60, 14 + 19 * j, 108, 17, (double)p_282491_, (double)p_281953_) && k > 0) {
                 List<Component> list = Lists.newArrayList();
                 list.add((Component.translatable("container.enchant.clue", enchantment == null ? "" : enchantment.getFullname(l))).withStyle(ChatFormatting.WHITE));
-                if(enchantment == null) {
-                    list.add(Component.translatable(("")));
+                if (enchantment == null) {
+                    list.add(Component.literal(""));
                     list.add(Component.translatable("forge.container.enchant.limitedEnchantability").withStyle(ChatFormatting.RED));
                 } else if (!flag) {
-                    list.add(Component.empty());
+                    list.add(CommonComponents.EMPTY);
                     if (this.minecraft.player.experienceLevel < k) {
-                        list.add((Component.translatable("container.enchant.level.requirement", (this.menu).costs[j])).withStyle(ChatFormatting.RED));
+                        list.add(Component.translatable("container.enchant.level.requirement", (this.menu).costs[j]).withStyle(ChatFormatting.RED));
                     } else {
-                        MutableComponent iformattabletextcomponent;
+                        MutableComponent mutablecomponent;
                         if (i1 == 1) {
-                            iformattabletextcomponent = Component.translatable("container.enchant.lapis.one");
+                            mutablecomponent = Component.translatable("container.enchant.lapis.one");
                         } else {
-                            iformattabletextcomponent = Component.translatable("container.enchant.lapis.many", i1);
+                            mutablecomponent = Component.translatable("container.enchant.lapis.many", i1);
                         }
 
-                        list.add(iformattabletextcomponent.withStyle(i >= i1 ? ChatFormatting.GRAY : ChatFormatting.RED));
-                        MutableComponent iformattabletextcomponent1;
+                        list.add(mutablecomponent.withStyle(i >= i1 ? ChatFormatting.GRAY : ChatFormatting.RED));
+                        MutableComponent mutablecomponent1;
                         if (i1 == 1) {
-                            iformattabletextcomponent1 = Component.translatable("container.enchant.level.one");
+                            mutablecomponent1 = Component.translatable("container.enchant.level.one");
                         } else {
-                            iformattabletextcomponent1 = Component.translatable("container.enchant.level.many", i1);
+                            mutablecomponent1 = Component.translatable("container.enchant.level.many", i1);
                         }
 
-                        list.add(iformattabletextcomponent1.withStyle(ChatFormatting.GRAY));
+                        list.add(mutablecomponent1.withStyle(ChatFormatting.GRAY));
                     }
                 }
 
-                this.renderComponentTooltip(p_230430_1_, list, p_230430_2_, p_230430_3_);
+                p_283462_.renderComponentTooltip(this.font, list, p_282491_, p_281953_);
                 break;
             }
         }
@@ -237,6 +208,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
 
         this.open = Mth.clamp(this.open, 0.0F, 1.0F);
         float f1 = (this.flipT - this.flip) * 0.4F;
+        float f = 0.2F;
         f1 = Mth.clamp(f1, -0.2F, 0.2F);
         this.flipA += (f1 - this.flipA) * 0.9F;
         this.flip += this.flipA;

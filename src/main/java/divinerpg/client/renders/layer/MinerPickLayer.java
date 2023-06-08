@@ -28,7 +28,7 @@ public class MinerPickLayer extends RenderLayer<EntityMiner, HumanoidModel<Entit
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, Items.GOLDEN_PICKAXE.getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), packedLightIn);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, Items.GOLDEN_PICKAXE.getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), packedLightIn);
 
         matrixStackIn.popPose();
     }

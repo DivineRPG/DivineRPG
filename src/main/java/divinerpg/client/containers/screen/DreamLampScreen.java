@@ -1,13 +1,13 @@
 package divinerpg.client.containers.screen;
 
-import com.mojang.blaze3d.systems.*;
-import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.client.containers.*;
-import net.minecraft.client.gui.screens.inventory.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.resources.*;
-import net.minecraft.world.entity.player.*;
+import com.mojang.blaze3d.systems.RenderSystem;
+import divinerpg.DivineRPG;
+import divinerpg.client.containers.DreamLampContainer;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 
 public class DreamLampScreen extends AbstractContainerScreen<DreamLampContainer> {
     private ResourceLocation texture = new ResourceLocation(DivineRPG.MODID + ":textures/gui/dream_lamp.png");
@@ -17,22 +17,22 @@ public class DreamLampScreen extends AbstractContainerScreen<DreamLampContainer>
 
         this.titleLabelY -= 2;
     }
-    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+    public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
     }
     @Override
-    protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {
+    protected void renderBg(GuiGraphics matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, texture);
 
         int edgeSpacingX = (this.width - this.getXSize()) / 2;
         int edgeSpacingY = (this.height - this.getYSize()) / 2;
-        this.blit(matrixStack, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
+        matrixStack.blit(texture, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
     }
     @Override
-    protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        this.font.draw(matrixStack, this.title, 12, 8, 4210752);
-        this.font.draw(matrixStack, playerInventoryTitle, 12, 70, 4210752);
+    protected void renderLabels(GuiGraphics matrixStack, int mouseX, int mouseY) {
+        matrixStack.drawString(font, this.title, 12, 8, 4210752);
+        matrixStack.drawString(font, playerInventoryTitle, 12, 70, 4210752);
     }
 }

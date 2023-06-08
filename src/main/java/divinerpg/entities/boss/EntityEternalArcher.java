@@ -41,7 +41,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
         }
 
         if (this.getTarget() == null || this.random.nextInt(200) == 0) {
-            this.setTarget(this.level.getNearestPlayer(this, 48D));
+            this.setTarget(this.level().getNearestPlayer(this, 48D));
         }
         if (this.getTarget() != null && ((this.getTarget() instanceof Player
                 && ((Player) this.getTarget()).isCreative())
@@ -58,16 +58,16 @@ public class EntityEternalArcher extends EntityDivineBoss {
             this.abilityTick = 400;
         }
 
-        if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level.isClientSide && getTarget() != null) {
+        if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level().isClientSide && getTarget() != null) {
 
             if (isAlive() && getTarget() != null) {
-                EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + armSelected), this, getTarget(), 1.6F, 3.0F);
+                EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + armSelected), this, getTarget(), 1.6F, 3.0F);
                 double d0 = getTarget().getX() - this.getX();
                 double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
                 double d2 = getTarget().getZ() - this.getZ();
                 double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
-                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
-                this.level.addFreshEntity(projectile);
+                projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level().getDifficulty().getId() * 4));
+                this.level().addFreshEntity(projectile);
             }
 
         }

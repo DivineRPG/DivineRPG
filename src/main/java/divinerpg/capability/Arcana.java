@@ -32,7 +32,7 @@ public class Arcana implements IArcana {
 
     @Override
     public void regen(Player player) {
-        if (player.level.getGameTime() % tickDelay == 0) {
+        if (player.level().getGameTime() % tickDelay == 0) {
             fill(player, player.hasEffect(MobEffectRegistry.KORMA_ARCANA.get()) ? 4 : 1);
         }
     }

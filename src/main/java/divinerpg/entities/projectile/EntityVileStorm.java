@@ -37,9 +37,9 @@ public class EntityVileStorm extends DivineThrowable {
     @Override
     protected void onHitBlock(BlockHitResult p_230299_1_) {
         if(tickCount != 1 || tickCount != 0) {
-        if (!this.level.isClientSide) {
-            ItemEntity item = new ItemEntity(level, xo, yo, zo, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "vile_storm"))));
-            level.addFreshEntity(item);
+        if (!this.level().isClientSide) {
+            ItemEntity item = new ItemEntity(level(), xo, yo, zo, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "vile_storm"))));
+            level().addFreshEntity(item);
             this.kill();
         }
         }

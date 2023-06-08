@@ -20,11 +20,11 @@ public class SengFurEffect extends ArmorEffect implements UpdatableArmorEffect {
 		if(entity.getEffect(MobEffects.MOVEMENT_SPEED) instanceof ArmorEffectInstance) entity.removeEffect(MobEffects.MOVEMENT_SPEED);
 	}
 	@Override public void applyEffectTick(LivingEntity entity, int i) {
-		if(entity.level.dimension() == LevelRegistry.ICEIKA && entity instanceof ServerPlayer player && player.getFoodData().needsFood()) player.getFoodData().eat(1, 0);
+		if(entity.level().dimension() == LevelRegistry.ICEIKA && entity instanceof ServerPlayer player && player.getFoodData().needsFood()) player.getFoodData().eat(1, 0);
 	}
 	@Override
 	public void update(LivingEntity entity) {
-		if(entity.level.dimension() == LevelRegistry.ICEIKA) {
+		if(entity.level().dimension() == LevelRegistry.ICEIKA) {
 			if(!entity.hasEffect(MobEffects.MOVEMENT_SPEED)) entity.addEffect(new ArmorEffectInstance(MobEffects.MOVEMENT_SPEED, 1, true, false));
 		} else entity.removeEffect(this);
 	}

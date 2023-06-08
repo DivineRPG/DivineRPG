@@ -38,9 +38,9 @@ public class EntityLorga extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        if(!level.isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level.getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
+        if(!level().isClientSide && canSpawnMinions && getRandom().nextInt(64) == 0 && level().getEntities(null, new AABB(blockPosition().offset(-10, -3, -10), blockPosition().offset(10, 3, 10))).size() < 8) {
         	BlockPos pos = blockPosition().offset(random.nextInt(5) - 2, 0, random.nextInt(5) - 2);
-        	if(level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()) ((EntityLorga) EntityRegistry.LORGA.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
+        	if(level().getBlockState(pos).isAir() && level().getBlockState(pos.above()).isAir()) ((EntityLorga) EntityRegistry.LORGA.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false)).canSpawnMinions = false;
         }
     }
     @Override

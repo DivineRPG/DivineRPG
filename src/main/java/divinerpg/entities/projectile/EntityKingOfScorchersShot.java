@@ -24,7 +24,7 @@ public class EntityKingOfScorchersShot extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        if (!level.isClientSide) {
+        if (!level().isClientSide) {
             if (this.tickCount > 200)
                 this.kill();
         }
@@ -33,7 +33,7 @@ public class EntityKingOfScorchersShot extends DivineThrowable {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!level.isClientSide) {
+            if (!level().isClientSide) {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
                     entity.hurt(damageSources().thrown(this, this.getOwner()), 14);

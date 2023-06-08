@@ -31,12 +31,12 @@ public class EntityKingOfScorchersMeteor extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        if (!level.isClientSide) {
+        if (!level().isClientSide) {
             if (this.tickCount > 200)
                 this.kill();
-            List<Entity> l = this.level.getEntitiesOfClass(Entity.class, this.getBoundingBox());
+            List<Entity> l = this.level().getEntitiesOfClass(Entity.class, this.getBoundingBox());
             if (l.size() > 0) {
-                this.level.explode(this, xo, yo, zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                this.level().explode(this, xo, yo, zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                 this.kill();
             }
         }
@@ -45,9 +45,9 @@ public class EntityKingOfScorchersMeteor extends DivineThrowable {
     @Override
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!level.isClientSide) {
+            if (!level().isClientSide) {
                 if (result.getType() != null && result.getType() == HitResult.Type.ENTITY) {
-                    this.level.explode(level.getEntity(5), xo, yo, zo, 3.0F, false, Level.ExplosionInteraction.TNT);
+                    this.level().explode(level().getEntity(5), xo, yo, zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                     this.kill();
                 } else {
                     setDeltaMovement(0, 0, 0);

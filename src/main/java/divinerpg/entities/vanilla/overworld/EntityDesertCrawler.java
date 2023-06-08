@@ -39,8 +39,8 @@ public class EntityDesertCrawler extends EntityCrawler {
     @Override
     public void tick() {
         super.tick();
-        if(level.getNearestPlayer(this, 16D) != null){
-            Player player = level.getNearestPlayer(this, 16D);
+        if(level().getNearestPlayer(this, 16D) != null){
+            Player player = level().getNearestPlayer(this, 16D);
             if(hasLineOfSight(player)){
                 hasSeen = true;
                 goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));

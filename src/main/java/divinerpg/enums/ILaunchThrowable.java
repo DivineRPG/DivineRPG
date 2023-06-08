@@ -44,7 +44,7 @@ public interface ILaunchThrowable {
      */
     default Entity createFireball(LivingEntity parent, Entity target) {
         // taken from snowman
-        ThrowableProjectile fireball = createThowable(parent.level, parent, parent.getX(), parent.getY(), parent.getZ());
+        ThrowableProjectile fireball = createThowable(parent.level(), parent, parent.getX(), parent.getY(), parent.getZ());
 
         double d0 = target.getY() + (double) target.getEyeHeight() - 1.100000023841858D;
         double d1 = target.getX() - parent.getX();
@@ -52,7 +52,7 @@ public interface ILaunchThrowable {
         double d3 = target.getZ() - parent.getZ();
         float f = Mth.sqrt((float) (d1 * d1 + d3 * d3)) * 0.2F;
 
-        fireball.shoot(d1, d2 + (double) f, d3, getVelocity(), getInaccuracy(parent.level));
+        fireball.shoot(d1, d2 + (double) f, d3, getVelocity(), getInaccuracy(parent.level()));
         return fireball;
     }
 }

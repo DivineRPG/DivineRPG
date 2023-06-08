@@ -35,7 +35,7 @@ public class EntitySerenadeOfDeath extends DivineThrowable {
                 }
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

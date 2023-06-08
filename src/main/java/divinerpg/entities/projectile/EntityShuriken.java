@@ -34,9 +34,9 @@ public class EntityShuriken extends DivineThrowable {
     @Override
     protected void onHitBlock(BlockHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
-                ItemEntity item = new ItemEntity(level, xo, yo, zo, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shuriken"))));
-                level.addFreshEntity(item);
+            if (!this.level().isClientSide) {
+                ItemEntity item = new ItemEntity(level(), xo, yo, zo, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shuriken"))));
+                level().addFreshEntity(item);
                 this.kill();
             }
         }

@@ -44,7 +44,7 @@ public class InfusionTableResultSlot extends Slot {
     }
 
     protected void checkTakeAchievements(ItemStack p_39558_) {
-        p_39558_.onCraftedBy(this.player.level, this.player, this.removeCount);
+        p_39558_.onCraftedBy(this.player.level(), this.player, this.removeCount);
         if (this.player instanceof ServerPlayer && this.container instanceof AbstractFurnaceBlockEntity) {
             ((AbstractFurnaceBlockEntity)this.container).awardUsedRecipesAndPopExperience((ServerPlayer)this.player);
         }
@@ -54,11 +54,11 @@ public class InfusionTableResultSlot extends Slot {
     }
 
     public void onTake(Player player, ItemStack stack) {
-        if(player.level != null) {
-            if (!player.level.isClientSide) {
+        if(player.level() != null) {
+            if (!player.level().isClientSide) {
                 this.checkTakeAchievements(stack);
                 net.minecraftforge.common.ForgeHooks.setCraftingPlayer(player);
-                Optional<InfusionTableRecipe> recipe = player.level.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level);
+                Optional<InfusionTableRecipe> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level());
                 net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
                 if (recipe.isPresent()) {
                     craftSlots.getItem(0).shrink(recipe.get().getCount());

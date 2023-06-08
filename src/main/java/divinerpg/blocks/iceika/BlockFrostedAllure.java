@@ -24,7 +24,7 @@ import java.util.List;
 public class BlockFrostedAllure extends BaseEntityBlock {
     public static final IntegerProperty CATEGORY = IntegerProperty.create("category", 0, 5);
     public BlockFrostedAllure() {
-        super(Block.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.CALCITE).randomTicks());
+        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.CALCITE).randomTicks());
         registerDefaultState(this.stateDefinition.any().setValue(CATEGORY, 0));
     }
 

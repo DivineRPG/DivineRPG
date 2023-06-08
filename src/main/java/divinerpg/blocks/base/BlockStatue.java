@@ -1,35 +1,23 @@
 package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.enums.BlockColor;
 import divinerpg.block_entities.bosses.StatueBlockEntity;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import divinerpg.enums.BlockColor;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -41,7 +29,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     private Supplier<SoundEvent> statueSound;
 
     public BlockStatue(Supplier<SoundEvent> soundIn) {
-        super(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops());
+        super(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops());
         registerDefaultState(stateDefinition.any().setValue(COLOR, BlockColor.WHITE));
         statueSound = soundIn;
     }

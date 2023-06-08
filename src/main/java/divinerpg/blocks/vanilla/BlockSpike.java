@@ -10,8 +10,8 @@ import net.minecraft.world.level.material.*;
 public class BlockSpike extends BlockMod {
     private final boolean isHot;
 
-    public BlockSpike(boolean isHot, MaterialColor color) {
-        super(Block.Properties.of(Material.METAL, color).strength(5F, 6F).requiresCorrectToolForDrops().sound(SoundType.METAL));
+    public BlockSpike(boolean isHot, MapColor color) {
+        super(Block.Properties.of().mapColor(color).strength(5F, 6F).requiresCorrectToolForDrops().sound(SoundType.METAL));
         this.isHot = isHot;
     }
 
@@ -19,12 +19,12 @@ public class BlockSpike extends BlockMod {
     public void updateEntityAfterFallOn(BlockGetter block, Entity entityIn){
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
-                entityIn.hurt(DamageSources.source(entityIn.level, DamageSources.SPIKE), 8);
+                entityIn.hurt(DamageSources.source(entityIn.level(), DamageSources.SPIKE), 8);
                 entityIn.setSecondsOnFire(10);
             }
         } else {
             if (entityIn instanceof LivingEntity) {
-                entityIn.hurt(DamageSources.source(entityIn.level, DamageSources.SPIKE), 5);
+                entityIn.hurt(DamageSources.source(entityIn.level(), DamageSources.SPIKE), 5);
             }
         }
     }

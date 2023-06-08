@@ -41,7 +41,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new ClimbOnTopOfPowderSnowGoal(this, this.level));
+        this.goalSelector.addGoal(1, new ClimbOnTopOfPowderSnowGoal(this, this.level()));
         this.goalSelector.addGoal(1, new EntityWolpertinger.WolpertingerPanicGoal(this, 2.2D));
         this.goalSelector.addGoal(4, new EntityWolpertinger.WolpertingerAvoidEntityGoal<>(this, Player.class, 8.0F, 2.2D, 2.2D));
         this.goalSelector.addGoal(4, new EntityWolpertinger.WolpertingerAvoidEntityGoal<>(this, Wolf.class, 10.0F, 2.2D, 2.2D));
@@ -77,8 +77,8 @@ public class EntityWolpertinger extends EntityDivineMonster {
             }
         }
 
-        if (!this.level.isClientSide) {
-            this.level.broadcastEntityEvent(this, (byte)1);
+        if (!this.level().isClientSide) {
+            this.level().broadcastEntityEvent(this, (byte)1);
         }
 
     }
@@ -111,7 +111,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
             --this.jumpDelayTicks;
         }
 
-        if (this.onGround) {
+        if (this.onGround()) {
             if (!this.wasOnGround) {
                 this.setJumping(false);
                 this.checkLandingDelay();
@@ -134,7 +134,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
             }
         }
 
-        this.wasOnGround = this.onGround;
+        this.wasOnGround = this.onGround();
     }
 
     public boolean canSpawnSprintParticle() {
@@ -204,7 +204,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
     }
 
     public boolean doHurtTarget(Entity p_29659_) {
-            return p_29659_.hurt(p_29659_.level.damageSources().mobAttack(this), 3.0F);
+            return p_29659_.hurt(p_29659_.level().damageSources().mobAttack(this), 3.0F);
     }
 
     public SoundSource getSoundSource() {
@@ -305,7 +305,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         }
 
         public void tick() {
-            if (this.Wolpertinger.onGround && !this.Wolpertinger.jumping && !((EntityWolpertinger.WolpertingerJumpControl)this.Wolpertinger.jumpControl).wantJump()) {
+            if (this.Wolpertinger.onGround() && !this.Wolpertinger.jumping && !((EntityWolpertinger.WolpertingerJumpControl)this.Wolpertinger.jumpControl).wantJump()) {
                 this.Wolpertinger.setSpeedModifier(0.0D);
             } else if (this.hasWanted()) {
                 this.Wolpertinger.setSpeedModifier(this.nextJumpSpeed);
@@ -353,7 +353,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
         public boolean canUse() {
             if (this.nextStartTick <= 0) {
-                if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.Wolpertinger.level, this.Wolpertinger)) {
+                if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.Wolpertinger.level(), this.Wolpertinger)) {
                     return false;
                 }
 
@@ -371,7 +371,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
             super.tick();
             this.Wolpertinger.getLookControl().setLookAt((double)this.blockPos.getX() + 0.5D, (double)(this.blockPos.getY() + 1), (double)this.blockPos.getZ() + 0.5D, 10.0F, (float)this.Wolpertinger.getMaxHeadXRot());
             if (this.isReachedTarget()) {
-                Level level = this.Wolpertinger.level;
+                Level level = this.Wolpertinger.level();
                 BlockPos blockpos = this.blockPos.above();
                 BlockState blockstate = level.getBlockState(blockpos);
                 Block block = blockstate.getBlock();

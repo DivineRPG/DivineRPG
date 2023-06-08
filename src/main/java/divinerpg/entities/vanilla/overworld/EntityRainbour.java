@@ -140,8 +140,8 @@ public class EntityRainbour extends EntityDivineFlyingMob {
             double d20 = getY() + random.nextDouble() * 0.6D + 0.2D;
             double d26 = getZ() + random.nextDouble() * 0.6D + 0.2D;
 
-            if(level.isClientSide)
-            level.addParticle(ParticleRegistry.SPARKLER.get(),d15 * (double) this.getBbWidth(),d20 + this.random.nextDouble() * (double) this.getBbHeight() - 0.25D,
+            if(level().isClientSide)
+            level().addParticle(ParticleRegistry.SPARKLER.get(),d15 * (double) this.getBbWidth(),d20 + this.random.nextDouble() * (double) this.getBbHeight() - 0.25D,
                     d26 * (double) this.getBbWidth(), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
         }
     }

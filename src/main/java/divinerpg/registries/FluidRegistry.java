@@ -120,7 +120,7 @@ public class FluidRegistry {
     public static final RegistryObject<Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
             new ForgeFlowingFluid.Flowing(fluidProperties()));
     public static final RegistryObject<LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
-            new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of(Material.LAVA, MaterialColor.COLOR_BLACK).noCollission().strength(100.0F).noLootTable()) {
+            new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100.0F).noLootTable()) {
             	@Override
             	public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
             		entity.lavaHurt();

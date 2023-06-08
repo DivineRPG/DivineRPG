@@ -85,9 +85,9 @@ public class EntityHellPig extends EntityDivineTameable {
                 this.tame(player);
                 this.navigation.stop();
                 this.setTarget((LivingEntity)null);
-                this.level.broadcastEntityEvent(this, (byte)7);
+                this.level().broadcastEntityEvent(this, (byte)7);
             } else {
-                this.level.broadcastEntityEvent(this, (byte)6);
+                this.level().broadcastEntityEvent(this, (byte)6);
             }
             return InteractionResult.SUCCESS;
         }

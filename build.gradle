@@ -1,67 +1,66 @@
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
-}
 plugins {
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-version = '1.10.4'
-group = 'TeamDivineRPG.divinerpg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'DivineRPG'
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: '1.19.4'
+    mappings channel: mapping_channel, version: mapping_version
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    copyIdeResources = true
+
     runs {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
+            property 'forge.enabledGameTestNamespaces', mod_id
             mods {
-                divinerpg {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
         }
-
         server {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
+            property 'forge.enabledGameTestNamespaces', mod_id
             mods {
-                divinerpg {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
         }
-
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', mod_id
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
         data {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'divinerpg', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
-                divinerpg {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -72,23 +71,24 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url = "https://minecraft.curseforge.com/api/maven/"}
-    maven { url = "https://dvs1.progwml6.com/files/maven/"}
-    maven { url = "https://modmaven.dev"}
-    maven { url = "https://www.cursemaven.com"}
-    maven { url 'https://maven.blamejared.com'}
-    maven { url "https://maven.shedaniel.me" }
-    maven { url = uri("https://maven.architectury.dev/") }
-    maven { url = uri("https://maven.blakesmods.com") }
+//    maven { url = "https://minecraft.curseforge.com/api/maven/"}
+//    maven { url = "https://dvs1.progwml6.com/files/maven/"}
+//    maven { url = "https://modmaven.dev"}
+//    maven { url = "https://www.cursemaven.com"}
+//    maven { url 'https://maven.blamejared.com'}
+//    maven { url "https://maven.shedaniel.me" }
+//    maven { url = uri("https://maven.architectury.dev/") }
+//    maven { url = uri("https://maven.blakesmods.com") }
 }
+
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.19.4-common-api:13.1.0.7") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.7") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-common:13.1.0.7") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.7") //Just Enough Items
-    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
-    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+//    compileOnly fg.deobf("mezz.jei:jei-1.19.4-common-api:13.1.0.7") //Just Enough Items
+//    compileOnly fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.7") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-common:13.1.0.7") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.7") //Just Enough Items
+//    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
+//    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
 //    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.4:18.0.1") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
@@ -97,23 +97,41 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4445054") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:selene-499980:4467611") //Moonlight Lib (For Target Dummy)
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4461804") //MmmMmmMmmMmm (Target Dummy)
-    runtimeOnly fg.deobf("curse.maven:jade-324717:4439089") //Jade
+//    runtimeOnly fg.deobf("curse.maven:jade-324717:4439089") //Jade
 //    runtimeOnly fg.deobf("curse.maven:curios-309927:4440280") //Curios (needed for bauble slots)
 //    implementation fg.deobf('com.blakebr0.cucumber:Cucumber:1.19.4-6.2.0')
 //    implementation fg.deobf('com.blakebr0.mysticalagriculture:MysticalAgriculture:1.19.4-6.2.0')
 //    implementation fg.deobf('com.blakebr0.mysticalcustomization:MysticalCustomization:1.19.4-4.2.0')
 //    runtimeOnly fg.deobf("curse.maven:model-gap-fix-676136:4428800") // Model Gap Fix
+
+}
+
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+        mod_authors: mod_authors, mod_description: mod_description
+]
+processResources {
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
 }
 
 jar {
     manifest {
         attributes([
-                "Specification-Title": "divinerpg",
-                "Specification-Vendor": "TeamDivineRPG",
-                "Specification-Version": project.version,
-                "Implementation-Title": project.name,
-                "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"TeamDivineRPG",
+                "Specification-Title"     : mod_id,
+                "Specification-Vendor"    : mod_authors,
+                "Specification-Version"   : project.version, // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : mod_authors,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -135,5 +153,5 @@ publishing {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

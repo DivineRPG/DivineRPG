@@ -19,7 +19,7 @@ public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivin
         private final Block block;
 
         public Instance(ResourceLocation parRL, @Nullable Block block) {
-            super(parRL, EntityPredicate.Composite.ANY);
+            super(parRL, ContextAwarePredicate.ANY);
             this.block = block;
         }
 

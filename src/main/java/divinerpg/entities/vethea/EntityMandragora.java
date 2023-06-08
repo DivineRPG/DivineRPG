@@ -29,19 +29,19 @@ public class EntityMandragora extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        Player target = this.level.getNearestPlayer(this, 16);
-        if(!level.isClientSide && target != null && this.tickCount%20 == 0) attackEntity(target);
+        Player target = this.level().getNearestPlayer(this, 16);
+        if(!level().isClientSide && target != null && this.tickCount%20 == 0) attackEntity(target);
     }
 
     public void attackEntity(LivingEntity e) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
-            EntityMandragoraProjectile projectile = new EntityMandragoraProjectile(EntityRegistry.MANDRAGORA_PROJECTILE.get(), this, this.level);
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
+            EntityMandragoraProjectile projectile = new EntityMandragoraProjectile(EntityRegistry.MANDRAGORA_PROJECTILE.get(), this, this.level());
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
             projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.8F);
-            this.level.addFreshEntity(projectile);
+            this.level().addFreshEntity(projectile);
         }
     }   
     

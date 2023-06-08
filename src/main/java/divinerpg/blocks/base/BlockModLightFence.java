@@ -12,8 +12,8 @@ import net.minecraft.world.level.material.*;
 
 public class BlockModLightFence extends FenceBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-    public BlockModLightFence(MaterialColor color) {
-        super(Block.Properties.of(Material.GLASS, color).dynamicShape().strength(0.3F).sound(SoundType.GLASS));
+    public BlockModLightFence(MapColor color) {
+        super(Block.Properties.of().mapColor(color).dynamicShape().strength(0.3F).sound(SoundType.GLASS));
         this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(WATERLOGGED, Boolean.valueOf(false)));
 
     }

@@ -35,7 +35,7 @@ public class EntitySerenadeOfIce extends DivineThrowable {
     public void tick() {
         super.tick();
         age++;
-        if (!this.level.isClientSide && age > 35)
+        if (!this.level().isClientSide && age > 35)
             this.kill();
     }
 
@@ -43,7 +43,7 @@ public class EntitySerenadeOfIce extends DivineThrowable {
     protected void onHitEntity(EntityHitResult var1) {
         if(tickCount != 1 || tickCount != 0) {
             if (var1.getEntity() != null) {
-                List<LivingEntity> entities = this.level.getEntitiesOfClass(LivingEntity.class,
+                List<LivingEntity> entities = this.level().getEntitiesOfClass(LivingEntity.class,
                         var1.getEntity().getBoundingBox().expandTowards(3, 3, 3));
                 for (LivingEntity e : entities) {
                     if (e != this.getOwner())
@@ -51,7 +51,7 @@ public class EntitySerenadeOfIce extends DivineThrowable {
                 }
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.kill();
             }
         }

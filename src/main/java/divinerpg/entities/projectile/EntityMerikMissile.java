@@ -25,8 +25,8 @@ public class EntityMerikMissile extends EntityHeatSeekingProjectile {
                 Entity entity = pos.getEntity();
                 entity.hurt(damageSources().thrown(this, this.getOwner()), this.damage);
             }
-            if (!this.level.isClientSide) {
-                this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);
+            if (!this.level().isClientSide) {
+                this.level().explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);
                 this.kill();
             }
         }
@@ -35,8 +35,8 @@ public class EntityMerikMissile extends EntityHeatSeekingProjectile {
     @Override
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
-                this.level.explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);
+            if (!this.level().isClientSide) {
+                this.level().explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.TNT);
                 this.kill();
             }
         }

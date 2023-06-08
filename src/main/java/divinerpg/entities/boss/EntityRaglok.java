@@ -35,8 +35,8 @@ public class EntityRaglok extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!loaded && !this.level.isClientSide) {
-            List<Player> players = this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+        if (!loaded && !this.level().isClientSide) {
+            List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
 
             for (Player p : players) {
                 p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.dare"), true);
@@ -56,7 +56,7 @@ public class EntityRaglok extends EntityDivineBoss {
     }
 
     public void manageAbilities() {
-        Player player = this.level.getNearestPlayer(this, 64.0D);
+        Player player = this.level().getNearestPlayer(this, 64.0D);
 
         if (player == null || player.isCreative() || avengeAbilityUsed) {
             return;
@@ -103,9 +103,9 @@ public class EntityRaglok extends EntityDivineBoss {
         }
         if (ability == LIGHTNING) {
             if (abilityCooldown % 40 == 0 && player != null) {
-                LightningBolt ent = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
+                LightningBolt ent = new LightningBolt(EntityType.LIGHTNING_BOLT, level());
                 ent.setPos(prevPlayerX, prevPlayerY, prevPlayerZ);
-                this.level.addFreshEntity(ent);
+                this.level().addFreshEntity(ent);
                 this.rangedAttackCounter++;
             } else if (abilityCooldown % 40 != 0 && abilityCooldown % 20 == 0 && player != null) {
                 this.prevPlayerX = player.getX();
@@ -122,10 +122,10 @@ public class EntityRaglok extends EntityDivineBoss {
                 for (int i = 0; i < 4; i++) {
 
 
-                    EntityRaglokBomb var2 = new EntityRaglokBomb(EntityRegistry.RAGLOK_BOMB.get(), this.level);
+                    EntityRaglokBomb var2 = new EntityRaglokBomb(EntityRegistry.RAGLOK_BOMB.get(), this.level());
                     var2.moveTo(player.xo, player.yo + 5, player.zo);
                     var2.setDeltaMovement((random.nextDouble() - random.nextDouble()) / 5, -0.14, (random.nextDouble() - random.nextDouble()) / 5);
-                    this.level.addFreshEntity(var2);
+                    this.level().addFreshEntity(var2);
                     ++this.rangedAttackCounter;
                 }
             }
@@ -136,34 +136,34 @@ public class EntityRaglok extends EntityDivineBoss {
     }
 
     private void message() {
-        List<Entity> list = this.level.getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
+        List<Entity> list = this.level().getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
         for (int var1 = 0; var1 < list.size(); ++var1) {
             if (list.get(var1) instanceof Player) {
                 Player player = (Player) list.get(var1);
                 switch (ability) {
                     case LIGHTNING:
                         this.playSound(SoundRegistry.RAGLOK_GUARDIAN.get(), 1.0F, 1.0F);
-                        if (!level.isClientSide) {
+                        if (!level().isClientSide) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.think"), true);
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.great"), true);
                         }
                         break;
                     case BLIND:
                         this.playSound(SoundRegistry.RAGLOK_DARK.get(), 1.0F, 1.0F);
-                        if (!level.isClientSide) {
+                        if (!level().isClientSide) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.future"), true);
                         }
                         break;
                     case BOMBS:
                         this.playSound(SoundRegistry.RAGLOK_RAIN.get(), 1.0F, 1.0F);
-                        if (!level.isClientSide) {
+                        if (!level().isClientSide) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.rain"), true);
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.kill"), true);
                         }
                         break;
                     case SLOW:
                         this.playSound(SoundRegistry.RAGLOK_NOTHING.get(), 1.0F, 1.0F);
-                        if (!level.isClientSide) {
+                        if (!level().isClientSide) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.compare"), true);
                         }
                         break;
@@ -205,17 +205,17 @@ public class EntityRaglok extends EntityDivineBoss {
     @Override
     public void die(DamageSource source) {
         if (!avengeAbilityUsed) {
-            if (!level.isClientSide) {
-                List<Player> players = level.getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
+            if (!level().isClientSide) {
+                List<Player> players = level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                 for (Player p : players) {
                     p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.avenge"), true);
                 }
             }
-            Player player = level.getNearestPlayer(this, 64.0D);
+            Player player = level().getNearestPlayer(this, 64.0D);
             if (player != null && !player.isCreative()) {
-                LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
+                LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level());
                 bolt.setPos(player.position().x, player.position().y, player.position().z);
-                level.addFreshEntity(bolt);
+                level().addFreshEntity(bolt);
             }
 
             avengeAbilityUsed = true;

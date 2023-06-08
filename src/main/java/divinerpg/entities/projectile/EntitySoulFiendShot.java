@@ -25,10 +25,10 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
     @Override
     public void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             if (result.getLocation() != null) {
                 for (int i = 0; i < 3; i++) {
-                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, new BlockPos((int) result.getLocation().x, (int) result.getLocation().y, (int) result.getLocation().z), MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.SOUL_SPIDER.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, new BlockPos((int) result.getLocation().x, (int) result.getLocation().y, (int) result.getLocation().z), MobSpawnType.MOB_SUMMONED, true, false);
                 }
                 this.kill();
             }
@@ -40,13 +40,13 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
     @Override
     public void tick() {
         super.tick();
-        if (level.isClientSide) {
+        if (level().isClientSide) {
         for (int cnt = 0; cnt < 8; ++cnt) {
-                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 0, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
-                level.addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 255, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 0, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 255, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
             }
         }
-        if (!this.level.isClientSide && this.tickCount > 20) {
+        if (!this.level().isClientSide && this.tickCount > 20) {
             this.kill();
         }
     }

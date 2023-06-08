@@ -38,7 +38,7 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         if (hasInfo)
             return false;
 
-        compound.putString(dimKey, player.level.dimension().location().toString());
+        compound.putString(dimKey, player.level().dimension().location().toString());
         compound.putLong(posKey, player.blockPosition().asLong());
 
         return true;

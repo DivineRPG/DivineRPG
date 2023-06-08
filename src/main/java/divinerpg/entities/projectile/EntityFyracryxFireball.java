@@ -17,12 +17,12 @@ public class EntityFyracryxFireball extends DivineFireball {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
                     entity.hurt(damageSources().fireball(this, this.shootingEntity), 6);
                 }
-                this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
+                this.level().explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
                 this.kill();
             }
         }
@@ -38,7 +38,7 @@ public class EntityFyracryxFireball extends DivineFireball {
     @Override
     protected void onHit(HitResult p_70227_1_) {
         if (tickCount > 1) {
-            this.level.explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
+            this.level().explode((Entity) null, this.xo, this.yo, this.zo, 1.0F, true, Level.ExplosionInteraction.TNT);
             this.kill();
         }
     }

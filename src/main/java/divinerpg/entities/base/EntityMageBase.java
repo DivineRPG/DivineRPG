@@ -34,11 +34,11 @@ public abstract class EntityMageBase extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        if(tickCount % 19 == 0 && isAlive() && getTarget() != null && !level.isClientSide) {
+        if(tickCount % 19 == 0 && isAlive() && getTarget() != null && !level().isClientSide) {
             double tx = getTarget().getX() - getX(), ty = getTarget().getBoundingBox().minY - getY() - 0.1, tz = getTarget().getZ() - getZ();
-            EntityTwilightMageShot e = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level, bullet != null ? bullet : BulletType.SPELLBINDER_SHOT);
+            EntityTwilightMageShot e = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level(), bullet != null ? bullet : BulletType.SPELLBINDER_SHOT);
             e.shoot(tx, ty, tz, 1.6F, 0);
-            level.addFreshEntity(e);
+            level().addFreshEntity(e);
             playSound(SoundRegistry.MAGE_FIRE.get());
         }
     }

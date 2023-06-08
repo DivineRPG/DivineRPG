@@ -36,9 +36,9 @@ public class EntityKarot extends EntityDivineBoss {
 
     @Override
     public void tick() {
-        if (this.spawnTick == 0 && !this.level.isClientSide) {
-            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-            this.level.addParticle(ParticleTypes.FLASH, getX(), getY() + 0.5D,
+        if (this.spawnTick == 0 && !this.level().isClientSide) {
+            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+            this.level().addParticle(ParticleTypes.FLASH, getX(), getY() + 0.5D,
                     getZ(), this.random.nextGaussian() * 2.0D - 1.0D, this.random.nextGaussian() * 2.0D - 1.0D,
                     this.random.nextGaussian() * 2.0D - 1.0D);
             this.spawnTick = 240;
@@ -69,9 +69,9 @@ public class EntityKarot extends EntityDivineBoss {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             for (int i = 0; i < 5; i++) {
-                EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+                EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             }
         }
         super.kill();

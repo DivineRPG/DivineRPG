@@ -40,14 +40,14 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && getTarget() != null && !level.isClientSide) {
-            EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG.get(), this, this.level);
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
+            EntityWildwoodLog shot = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG.get(), this, this.level());
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - shot.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
             shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 0.5F);
-            this.level.addFreshEntity(shot);
+            this.level().addFreshEntity(shot);
         }
     }
 
@@ -108,14 +108,14 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level.isClientSide) {
+            if(!this.level().isClientSide) {
                 if (random.nextInt(10) == 1) {
                     BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
-                    EntityRegistry.TERMID.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+                    EntityRegistry.TERMID.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
                 }
             }
         }
-        if (this.level.isRaining() && this.level.canSeeSky(blockPosition()) && level.random.nextInt(50) == 3) {
+        if (this.level().isRaining() && this.level().canSeeSky(blockPosition()) && level().random.nextInt(50) == 3) {
             this.heal(5.0f);
         }
     }

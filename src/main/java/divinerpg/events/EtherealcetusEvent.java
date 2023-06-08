@@ -25,14 +25,14 @@ public class EtherealcetusEvent {
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
-        if (!event.getEntity().level.isClientSide) {
+        if (!event.getEntity().level().isClientSide) {
             List<String> ANIMALS = CommonConfig.ghostWhaleProtected.get();
             Entity source = event.getSource().getDirectEntity();
             if (source == null || !(source instanceof Player)) {
                 return;
             }
             Player player = (Player) source;
-            Level world = player.level;
+            Level world = player.level();
             Holder<Biome> biome = world.getBiome(event.getEntity().blockPosition());
             if (!biome.is(BONEYARD_BIOME)) {
                 return;

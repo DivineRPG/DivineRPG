@@ -33,7 +33,7 @@ public class GruzzorlugLayer extends RenderLayer<EntityGruzzorlug, ModelGruzzorl
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));
             poseStack.mulPose(Axis.ZN.rotationDegrees(45));
             poseStack.scale(0.8F, 0.8F, 0.8F);
-            Minecraft.getInstance().getItemRenderer().renderStatic(gruzzorlug, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_pickaxe")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, gruzzorlug.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(gruzzorlug, 0.0F), 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(gruzzorlug, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_pickaxe")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, gruzzorlug.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(gruzzorlug, 0.0F), 0);
         }
         if(gruzzorlug.heldItem() == 2) {
             poseStack.translate(0.0625F, 0.50F, -0.0F);
@@ -41,7 +41,7 @@ public class GruzzorlugLayer extends RenderLayer<EntityGruzzorlug, ModelGruzzorl
             poseStack.mulPose(Axis.YN.rotationDegrees(-35));
             poseStack.mulPose(Axis.ZN.rotationDegrees(45));
             poseStack.scale(0.8F, 0.8F, 0.8F);
-            Minecraft.getInstance().getItemRenderer().renderStatic(gruzzorlug, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_cannon")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, gruzzorlug.level, packedLightIn, LivingEntityRenderer.getOverlayCoords(gruzzorlug, 0.0F), 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(gruzzorlug, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_cannon")).getDefaultInstance(), ItemDisplayContext.NONE, false, poseStack, bufferIn, gruzzorlug.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(gruzzorlug, 0.0F), 0);
         }
         poseStack.popPose();
     }

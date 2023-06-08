@@ -54,7 +54,7 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             ItemStack itemstack = player.getItemInHand(hand);
             Ingredient stone = Ingredient.of(ItemTags.STONE_CRAFTING_MATERIALS);
             if (this.isTame()) {
@@ -66,10 +66,10 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
                         this.tame(player);
                         this.navigation.recomputePath();
                         this.setTarget((LivingEntity) null);
-                        this.level.broadcastEntityEvent(this, (byte) 7);
+                        this.level().broadcastEntityEvent(this, (byte) 7);
                         this.heal(4.0F);
                     } else {
-                        this.level.broadcastEntityEvent(this, (byte) 6);
+                        this.level().broadcastEntityEvent(this, (byte) 6);
                         this.heal(4.0F);
                     }
                 } else {

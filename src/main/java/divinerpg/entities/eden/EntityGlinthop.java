@@ -61,7 +61,7 @@ public class EntityGlinthop extends EntityDivineTameable {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!this.level.isClientSide && !this.isTame()) {
+        if (!this.level().isClientSide && !this.isTame()) {
             this.transform();
         }
     }
@@ -96,7 +96,7 @@ public class EntityGlinthop extends EntityDivineTameable {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             if (this.isTame() && this.getTarget() == null) {
                 this.entityData.set(TAMED_AND_ANGRY, false);
             }
@@ -104,8 +104,8 @@ public class EntityGlinthop extends EntityDivineTameable {
     }
 
     private void transform() {
-        if (!this.level.isClientSide) {
-            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+        if (!this.level().isClientSide) {
+            EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             this.remove(RemovalReason.KILLED);
         }
     }
@@ -123,7 +123,7 @@ public class EntityGlinthop extends EntityDivineTameable {
                     return InteractionResult.PASS;
                 }
             } else if (isOwnedBy(player)) {
-                if (!this.level.isClientSide) {
+                if (!this.level().isClientSide) {
                     this.setOrderedToSit(!this.isOrderedToSit());
                     this.jumping = false;
                 }
@@ -133,16 +133,16 @@ public class EntityGlinthop extends EntityDivineTameable {
             if (!player.isCreative()) {
                 held.shrink(1);
             }
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 if (this.random.nextInt(3) == 0) {
                     tame(player);
                     this.setTarget(null);
                     this.setOrderedToSit(true);
 
                     this.setHealth(20);
-                    this.level.broadcastEntityEvent(this, (byte) 7);
+                    this.level().broadcastEntityEvent(this, (byte) 7);
                 } else {
-                    this.level.broadcastEntityEvent(this, (byte) 6);
+                    this.level().broadcastEntityEvent(this, (byte) 6);
                 }
             }
             return InteractionResult.PASS;

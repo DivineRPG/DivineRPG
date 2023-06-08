@@ -61,8 +61,8 @@ public class EntityFrostCloud extends Entity {
 
     @Nullable
     public LivingEntity getOwner() {
-        if (this.owner == null && this.ownerUniqueId != null && this.level instanceof ServerLevel) {
-            Entity entity = ((ServerLevel) this.level).getEntity(this.ownerUniqueId);
+        if (this.owner == null && this.ownerUniqueId != null && this.level() instanceof ServerLevel) {
+            Entity entity = ((ServerLevel) this.level()).getEntity(this.ownerUniqueId);
             if (entity instanceof LivingEntity) {
                 this.owner = (LivingEntity) entity;
             }
@@ -93,7 +93,7 @@ public class EntityFrostCloud extends Entity {
         super.tick();
         float f = this.getRadius();
 
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             float f5 = (float) Math.PI * f * f;
 
             for (int k1 = 0; k1 < f5; ++k1) {
@@ -102,7 +102,7 @@ public class EntityFrostCloud extends Entity {
                 float f8 = Mth.cos(f6) * f7;
                 float f9 = Mth.sin(f6) * f7;
 
-                level.addParticle(ParticleRegistry.FROST.get(), this.xo + f8, this.yo, this.zo + f9,
+                level().addParticle(ParticleRegistry.FROST.get(), this.xo + f8, this.yo, this.zo + f9,
                         (0.5D - this.random.nextDouble()) * 0.15D, 0.009999999776482582D,
                         (0.5D - this.random.nextDouble()) * 0.15D);
             }
@@ -134,7 +134,7 @@ public class EntityFrostCloud extends Entity {
                     }
                 }
 
-                List<LivingEntity> list = this.level.getEntitiesOfClass(LivingEntity.class,
+                List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class,
                         this.getBoundingBox());
 
                 if (!list.isEmpty()) {
@@ -152,7 +152,7 @@ public class EntityFrostCloud extends Entity {
                                         || entity instanceof EntityFrostArcher || entity instanceof EntityFrosty
                                         || entity instanceof EntityGlacide || entity instanceof EntityHastreus
                                         || entity instanceof EntityRollum)) {
-                                    entity.hurt(entity.level.damageSources().magic(), 1.0F);
+                                    entity.hurt(entity.level().damageSources().magic(), 1.0F);
                                 }
                             }
                         }
@@ -178,7 +178,7 @@ public class EntityFrostCloud extends Entity {
 //        this.setSize(radiusIn * 2.0F, 0.5F);
         this.setPos(d0, d1, d2);
 
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
             this.entityData.set(RADIUS, Float.valueOf(radiusIn));
         }
     }

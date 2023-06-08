@@ -1,16 +1,16 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.blocks.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.registries.*;
-import net.minecraft.core.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.material.MaterialColor;
+import divinerpg.blocks.base.BlockModUnbreakable;
+import divinerpg.entities.projectile.EntityZoragonBomb;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockHelioticBeam extends BlockModUnbreakable {
 
     public BlockHelioticBeam() {
-        super(MaterialColor.WOOL);
+        super(MapColor.WOOL);
     }
 
     public void dropBomb(Level w, BlockPos pos) {
