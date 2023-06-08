@@ -1,16 +1,23 @@
 package divinerpg.blocks.vanilla;
 
-import net.minecraft.core.*;
-import net.minecraft.sounds.*;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.context.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.function.Supplier;
 
@@ -29,12 +36,11 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if (!player.isCrouching() && sound != null) {
-            worldIn.playSound(player, pos, sound.get(), SoundSource.BLOCKS, 3.0F, 1.0F);
-            return InteractionResult.SUCCESS;
+        if ((player.isCrouching() && !player.getItemInHand(handIn).isEmpty()) || sound == null) {
+            return InteractionResult.PASS;
         }
-        return InteractionResult.PASS;
-
+        worldIn.playSound(player, pos, sound.get(), SoundSource.BLOCKS, 3.0F, 1.0F);
+        return InteractionResult.SUCCESS;
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
