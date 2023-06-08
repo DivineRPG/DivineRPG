@@ -49,7 +49,6 @@ public class ItemBossSpawner extends ItemMod {
         }
         Player player = context.getPlayer();
         InteractionHand hand = context.getHand();
-        if (!world.isClientSide) {
             if (dimensionID == null) {
                 dimensionID = LevelRegistry.MORTUM;
             }
@@ -63,10 +62,11 @@ public class ItemBossSpawner extends ItemMod {
                 return InteractionResult.FAIL;
             } else {
                 for (Supplier<EntityType<?>> entType : ents) {
-                    entType.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
+                    if (!world.isClientSide) {
+                        entType.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
+                    }
                     if (!player.isCreative()) {
                         player.getItemInHand(hand).shrink(1);
-                    }
                 }
                 return InteractionResult.SUCCESS;
             }
