@@ -73,8 +73,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
 //    maven { url = "https://minecraft.curseforge.com/api/maven/"}
 //    maven { url = "https://dvs1.progwml6.com/files/maven/"}
-//    maven { url = "https://modmaven.dev"}
-//    maven { url = "https://www.cursemaven.com"}
+    maven { url = "https://modmaven.dev"}
+    maven { url = "https://www.cursemaven.com"}
 //    maven { url 'https://maven.blamejared.com'}
 //    maven { url "https://maven.shedaniel.me" }
 //    maven { url = uri("https://maven.architectury.dev/") }
@@ -83,25 +83,25 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-//    compileOnly fg.deobf("mezz.jei:jei-1.19.4-common-api:13.1.0.7") //Just Enough Items
-//    compileOnly fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.7") //Just Enough Items
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-common:13.1.0.7") //Just Enough Items
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.7") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") //Just Enough Items
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common:${jei_version}") //Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
-//    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.19.4:18.0.1") //Bookshelf
+//    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:18.0.1") //Bookshelf
 //    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
 //    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
-//    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT:api") //Patchouli
-//    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.3-78-SNAPSHOT") //Patchouli
+//    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-78-SNAPSHOT:api") //Patchouli
+//    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-78-SNAPSHOT") //Patchouli
 //    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4445054") //Enchantment Descriptions
 //    runtimeOnly fg.deobf("curse.maven:selene-499980:4467611") //Moonlight Lib (For Target Dummy)
 //    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4461804") //MmmMmmMmmMmm (Target Dummy)
-//    runtimeOnly fg.deobf("curse.maven:jade-324717:4439089") //Jade
+//    runtimeOnly fg.deobf("curse.maven:jade-324717:4573193") //Jade
 //    runtimeOnly fg.deobf("curse.maven:curios-309927:4440280") //Curios (needed for bauble slots)
-//    implementation fg.deobf('com.blakebr0.cucumber:Cucumber:1.19.4-6.2.0')
-//    implementation fg.deobf('com.blakebr0.mysticalagriculture:MysticalAgriculture:1.19.4-6.2.0')
-//    implementation fg.deobf('com.blakebr0.mysticalcustomization:MysticalCustomization:1.19.4-4.2.0')
+//    implementation fg.deobf('com.blakebr0.cucumber:Cucumber:${minecraft_version}-6.2.0')
+//    implementation fg.deobf('com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-6.2.0')
+//    implementation fg.deobf('com.blakebr0.mysticalcustomization:MysticalCustomization:${minecraft_version}-4.2.0')
 //    runtimeOnly fg.deobf("curse.maven:model-gap-fix-676136:4428800") // Model Gap Fix
 
 }
