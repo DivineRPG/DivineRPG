@@ -27,24 +27,26 @@ public class ItemWizardsBook extends ItemMod {
         Player player = context.getPlayer();
         InteractionHand hand = context.getHand();
         BlockPos pos = context.getClickedPos();
-        if (!world.isClientSide) {
-            ItemStack stack = player.getItemInHand(hand);
-            Block block = world.getBlockState(pos).getBlock();
-            if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_altar"))) {
+        ItemStack stack = player.getItemInHand(hand);
+        Block block = world.getBlockState(pos).getBlock();
+        if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_altar"))) {
+            if (!world.isClientSide) {
                 EntityRegistry.PARASECTA.get().spawn((ServerLevel) world, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
-                if (!player.isCreative())
-                    stack.shrink(1);
-                return InteractionResult.SUCCESS;
             }
-
-            if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar"))) {
-                EntityRegistry.DRAMIX.get().spawn((ServerLevel) world, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
-                if (!player.isCreative())
-                    stack.shrink(1);
-                return InteractionResult.SUCCESS;
-            }
+            if (!player.isCreative())
+                stack.shrink(1);
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResult.FAIL;
+
+        if (block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar"))) {
+            if (!world.isClientSide) {
+                EntityRegistry.DRAMIX.get().spawn((ServerLevel) world, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
+            }
+            if (!player.isCreative())
+                stack.shrink(1);
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.PASS;
     }
 
 }

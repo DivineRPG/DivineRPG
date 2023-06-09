@@ -49,24 +49,24 @@ public class ItemBossSpawner extends ItemMod {
         }
         Player player = context.getPlayer();
         InteractionHand hand = context.getHand();
-        if (!world.isClientSide) {
-            if (dimensionID == null) {
-                dimensionID = LevelRegistry.MORTUM;
-            }
-            if (world.dimension() != dimensionID) {
-                MutableComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
-                message.withStyle(ChatFormatting.AQUA);
-                player.displayClientMessage(message, true);
-                return InteractionResult.FAIL;
-            } else if (world.getDifficulty() == Difficulty.PEACEFUL) {
-                player.displayClientMessage(Component.translatable("message.spawner.peaceful"), true);
-                return InteractionResult.FAIL;
-            } else {
-                for (Supplier<EntityType<?>> entType : ents) {
+        if (dimensionID == null) {
+            dimensionID = LevelRegistry.MORTUM;
+        }
+        if (world.dimension() != dimensionID) {
+            MutableComponent message = TextComponentHelper.createComponentTranslation(player, langKey);
+            message.withStyle(ChatFormatting.AQUA);
+            player.displayClientMessage(message, true);
+            return InteractionResult.FAIL;
+        } else if (world.getDifficulty() == Difficulty.PEACEFUL) {
+            player.displayClientMessage(Component.translatable("message.spawner.peaceful"), true);
+            return InteractionResult.FAIL;
+        } else {
+            for (Supplier<EntityType<?>> entType : ents) {
+                if (!world.isClientSide) {
                     entType.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
-                    if (!player.isCreative()) {
-                        player.getItemInHand(hand).shrink(1);
-                    }
+                }
+                if (!player.isCreative()) {
+                    player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
             }
