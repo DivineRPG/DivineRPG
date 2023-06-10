@@ -70,11 +70,6 @@ public class EntityFrostCloud extends Entity {
         return this.owner;
     }
 
-    @Override
-    public PushReaction getPistonPushReaction() {
-        return PushReaction.IGNORE;
-    }
-
     public float getRadius() {
         return this.entityData.get(RADIUS).floatValue();
     }

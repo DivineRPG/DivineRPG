@@ -24,12 +24,8 @@ public class BlockArcanaPortalFrame extends BlockMod {
     private static BlockPattern portalShape;
 
     public BlockArcanaPortalFrame(float hardness, float resistance) {
-        super(Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(hardness, resistance).sound(SoundType.METAL));
+        super(Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).strength(hardness, resistance).sound(SoundType.METAL));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-    }
-
-    public PushReaction getPistonPushReaction(BlockState state) {
-        return PushReaction.BLOCK;
     }
 
     public boolean useShapeForLightOcclusion(BlockState p_220074_1_) {

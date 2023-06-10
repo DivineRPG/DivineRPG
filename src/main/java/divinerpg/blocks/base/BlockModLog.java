@@ -33,4 +33,13 @@ public class BlockModLog extends RotatedPillarBlock {
         super.playerDestroy(world, player, pos, state, blockEntity, stack);
     }
 
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 5;
+    }
+
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 5;
+    }
 }

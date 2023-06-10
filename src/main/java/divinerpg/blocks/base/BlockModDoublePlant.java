@@ -23,7 +23,13 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     private Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor colour) {
-        super(BlockBehaviour.Properties.of().mapColor(colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+        super(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().mapColor(colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+        this.grassSupplier = grassSupplier;
+        this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
+    }
+
+    public BlockModDoublePlant(Supplier<Block> grassSupplier, Properties properties) {
+        super(properties);
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }

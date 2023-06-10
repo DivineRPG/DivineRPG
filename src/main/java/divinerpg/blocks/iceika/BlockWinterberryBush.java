@@ -14,37 +14,37 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
 	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
     public BlockWinterberryBush() {
-        super(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((p_235464_0_) -> {
-                    return 1;
-                }));
+        super((BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((state) -> 1)));
 		registerDefaultState(this.stateDefinition.any().setValue(RIPE, false));
     }
-    public PushReaction getPistonPushReaction(BlockState state) {
-        return PushReaction.DESTROY;
-    }
+
     @Override
 	public boolean isRandomlyTicking(BlockState state) {
         return !state.getValue(RIPE);
     }
+
     @Override
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(random.nextFloat() < 0.3F) level.setBlock(pos, state.setValue(RIPE, true), 3);
     }
+
     @Override
 	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
 		level.setBlock(pos, state.setValue(RIPE, true), 3);
 	}
+
     @Override
 	public boolean isValidBonemealTarget(LevelReader p_53900_, BlockPos p_53901_, BlockState state, boolean p_53903_) {
 		return !state.getValue(RIPE);
 	}
+
     @Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand p_60507_, BlockHitResult p_60508_) {
 		if(state.getValue(RIPE)) {
@@ -54,10 +54,12 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
 	        return InteractionResult.SUCCESS;
 		} return InteractionResult.PASS;
 	}
+
 	@Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(RIPE);
     }
+
     @Override
     public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
         return true;

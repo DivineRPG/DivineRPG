@@ -4,32 +4,18 @@ import divinerpg.blocks.base.BlockMod;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.phys.shapes.*;
 
 public class BlockElevantium extends BlockMod {
 
     protected static final VoxelShape ELEVANTIUM = Shapes.or(Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D), Block.box(4.0D, 1.0D, 4.0D, 12.0D, 2.0D, 12.0D));
 
     public BlockElevantium() {
-        super(Block.Properties.of()
-                .mapColor(MapColor.GRASS)
-                .requiresCorrectToolForDrops()
-                .strength(5F, 6F)
-                .randomTicks()
-                .jumpFactor(2)
-                .sound(SoundType.METAL));
-    }
-
-    public PushReaction getPistonPushReaction(BlockState state) {
-        return PushReaction.DESTROY;
+        super(Block.Properties.of().mapColor(MapColor.GRASS).requiresCorrectToolForDrops().strength(5F, 6F).pushReaction(PushReaction.DESTROY).randomTicks().jumpFactor(2).sound(SoundType.METAL));
     }
 
     @Override

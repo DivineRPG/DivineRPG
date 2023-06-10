@@ -21,28 +21,24 @@ public class BlockModMobCage extends BlockMod {
 	protected final BlockPos relativePos;
 
 	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion());
+		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
 
 	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem, MapColor color) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().mapColor(color));
+		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
 
 	public BlockModMobCage(ResourceLocation type, @Nullable ResourceLocation spawnItem, MapColor color, @Nullable BlockPos relativePos) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().mapColor(color));
+		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		this.relativePos = relativePos;
-	}
-
-	public PushReaction getPistonPushReaction(BlockState state) {
-		return PushReaction.BLOCK;
 	}
 
 	@Override

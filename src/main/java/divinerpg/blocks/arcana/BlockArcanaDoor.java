@@ -21,10 +21,6 @@ public class BlockArcanaDoor extends DoorBlock {
         this.keyItem = key;
     }
 
-    public PushReaction getPistonPushReaction(BlockState state) {
-        return PushReaction.BLOCK;
-    }
-
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
         BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());

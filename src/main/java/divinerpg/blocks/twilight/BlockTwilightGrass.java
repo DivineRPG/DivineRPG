@@ -1,20 +1,20 @@
 package divinerpg.blocks.twilight;
 
 import net.minecraft.core.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.common.*;
 
-import java.util.function.*;
+import java.util.function.Supplier;
 
 public class BlockTwilightGrass extends BushBlock implements IPlantable, IForgeShearable {
     private Supplier<Block> grassSupplier;
 
-    public BlockTwilightGrass(Supplier<Block> grassSupplier, MapColor colour) {
-        super(Block.Properties.of().mapColor(colour).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
+    public BlockTwilightGrass(Supplier<Block> grassSupplier, MapColor color) {
+        super(Block.Properties.of().mapColor(color).replaceable().pushReaction(PushReaction.DESTROY).noOcclusion().instabreak().sound(SoundType.CROP).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
         this.grassSupplier = grassSupplier;
     }
 

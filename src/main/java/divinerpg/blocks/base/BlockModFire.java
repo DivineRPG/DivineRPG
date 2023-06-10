@@ -9,13 +9,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModFire extends FireBlock {
     public BlockModFire() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).randomTicks().noCollission().instabreak().lightLevel((state) -> {
-            return 15;
-        }).sound(SoundType.WOOL));
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().noCollission().instabreak().lightLevel((state) -> 15).sound(SoundType.WOOL));
     }
     public void lightPortal(Level world, BlockPos pos) {
         BlockModPortal portalBlock;

@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.function.Supplier;
@@ -19,10 +19,7 @@ public class BlockMobPumpkin extends HorizontalDirectionalBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BlockMobPumpkin(Supplier<SoundEvent> sound, MapColor color) {
-        super(Block.Properties.of()
-                .strength(1.0F)
-                .sound(SoundType.WOOD)
-                .mapColor(color));
+        super(Block.Properties.of().strength(1.0F).pushReaction(PushReaction.DESTROY).sound(SoundType.WOOD).mapColor(color));
         this.sound = sound;
         registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
