@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:apalachia_tallgrass",
+    "divinerpg:brittle_grass",
+    "divinerpg:dusk_flower",
+    "divinerpg:dust_brambles",
+    "divinerpg:demon_brambles",
+    "divinerpg:arcana_brush",
+    "divinerpg:arcana_bush",
+    "divinerpg:eden_brush",
+    "divinerpg:skythern_brush",
+    "divinerpg:mortum_brush",
+    "divinerpg:moonlight_fern",
+    "divinerpg:wildwood_tallgrass",
+    "divinerpg:wildwood_vine",
+    "divinerpg:weedwood_vine",
+    "divinerpg:blossomed_weedwood_vine"
+  ]
+}
