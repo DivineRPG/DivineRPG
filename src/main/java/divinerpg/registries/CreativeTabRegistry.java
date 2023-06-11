@@ -15,9 +15,7 @@ import static divinerpg.DivineRPG.MODID;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MODID)
 public class CreativeTabRegistry {
-
     public static final DeferredRegister<CreativeModeTab> TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-
     public static final RegistryObject<CreativeModeTab> TOOLS = TAB.register("tools", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.tools")).icon(() -> new ItemStack(ItemRegistry.halite_blade.get())).build());
     public static final RegistryObject<CreativeModeTab> BLOCKS = TAB.register("blocks", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> new ItemStack(BlockRegistry.edenLamp.get())).build());
     public static final RegistryObject<CreativeModeTab> MISC = TAB.register("misc", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.misc")).icon(() -> new ItemStack(ItemRegistry.divine_shards.get())).build());
@@ -34,6 +32,7 @@ public class CreativeTabRegistry {
         }
         if (event.getTab() == BLOCKS.get()) {
             for (RegistryObject<Item> item : BlockRegistry.BLOCK_ITEMS.getEntries()) {
+                if (!item.getId().toLanguageKey().contains("plant") || item.getId().toLanguageKey().contains("eye_plant"))
                     event.accept(item.get());
             }
         }

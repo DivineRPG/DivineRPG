@@ -4,30 +4,32 @@ import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModCrop;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockTomatoPlant extends BlockModCrop {
-    private static final AABB[] CROPS_AABB = new AABB[] {
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.27D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.33D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.56D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.65D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.65D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.80D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.80D, 1.0D),
-            new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.80D, 1.0D) };
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 11.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 11.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 13.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 13.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 13.0D, 16.0D)
+    };
 
     public BlockTomatoPlant() {
         super();
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context) {
-        return Shapes.create(CROPS_AABB[((Integer) state.getValue(this.getAgeProperty())).intValue()]);
+    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
+        return SHAPE_BY_AGE[p_220053_1_.getValue(this.getAgeProperty())];
     }
 
     @Override
@@ -40,4 +42,8 @@ public class BlockTomatoPlant extends BlockModCrop {
         return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tomato_seeds"));
     }
 
+    @Override
+    public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {
+        return new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "tomato_seeds")));
+    }
 }

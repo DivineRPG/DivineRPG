@@ -11,6 +11,8 @@
     "#forge:dirts/dream",
     "#forge:dirts/flame",
     "#forge:dirts/evergrass",
-    "#forge:dirts/scorched"
+    "#forge:dirts/scorched",
+    "divinerpg:arcanite_moss",
+    "divinerpg:brittle_moss"
   ]
 }

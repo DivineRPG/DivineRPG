@@ -12,7 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -38,9 +38,8 @@ public class FluidRegistry {
     }
 
     public static final RegistryObject<FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
-            new FluidType(FluidType.Properties.create().supportsBoating(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_EMPTY_LAVA))
+            new FluidType(FluidType.Properties.create().supportsBoating(false).canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA).sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA))
             {
-
 
                 @Override
                 public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer)
@@ -120,11 +119,11 @@ public class FluidRegistry {
     public static final RegistryObject<Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
             new ForgeFlowingFluid.Flowing(fluidProperties()));
     public static final RegistryObject<LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
-            new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100.0F).noLootTable()) {
-            	@Override
-            	public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
-            		entity.lavaHurt();
-            	}
+            new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BLACK).noCollission().strength(100.0F).noLootTable()) {
+                @Override
+                public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+                    entity.lavaHurt();
+                }
             });
     public static final RegistryObject<Item> SMOLDERING_TAR_BUCKET = ItemRegistry.ITEMS.register("smoldering_tar_bucket", () ->
             new BucketItem(SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));

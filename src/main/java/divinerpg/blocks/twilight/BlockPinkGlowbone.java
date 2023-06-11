@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockPinkGlowbone extends BlockModDoubleCrop {
+
     public BlockPinkGlowbone() {
         super();
     }
@@ -18,17 +19,19 @@ public class BlockPinkGlowbone extends BlockModDoubleCrop {
     protected ItemLike getBaseSeedId() {
         return ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "pink_glowbone_seeds"));
     }
+
     @Override
     public int getMaxAge() {
         return 1;
     }
+
     @Override
     public IntegerProperty getAgeProperty() {
         return BlockStateProperties.AGE_1;
     }
+
     @Override
     public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
         return 3;
     }
-
 }

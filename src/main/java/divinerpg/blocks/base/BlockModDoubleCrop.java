@@ -14,12 +14,16 @@ import net.minecraftforge.common.*;
 
 public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlantable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
-    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
+    };
 //    private Random rand;
 
     public BlockModDoubleCrop() {
         super();
-        this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), 0));
     }
 
     @Override
@@ -35,6 +39,12 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
     public IntegerProperty getAgeProperty() {
         return getMaxAge() == 2 ? AGE : BlockStateProperties.AGE_1;
     }
+
+    @Override
+    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
+        return SHAPE_BY_AGE[p_220053_1_.getValue(this.getAgeProperty())];
+    }
+
     public int getMaxAge() {
         return 2;
     }
@@ -45,11 +55,6 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
 
     public BlockState getStateForAge(int p_185528_1_) {
         return this.defaultBlockState().setValue(this.getAgeProperty(), Integer.valueOf(p_185528_1_));
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
-        return SHAPE_BY_AGE[p_220053_1_.getValue(this.getAgeProperty())];
     }
 
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource randomSource) {
@@ -107,10 +112,8 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
         return f;
     }
 
-    protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
-        state = world.getBlockState(pos.below());
-        Block block = state.getBlock();
-        return block == this || state.is(BlockTags.DIRT);
+    public boolean canSurvive(BlockState state, LevelReader levelReader, BlockPos pos) {
+        return (levelReader.getRawBrightness(pos, 0) >= 8 || levelReader.canSeeSky(pos)) && levelReader.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Override
@@ -131,14 +134,12 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
         }
     }
 
-
     @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos)
-    {
+    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
         return PlantType.CROP;
     }
+
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(getMaxAge() == 2 ? AGE : BlockStateProperties.AGE_1);
     }
-
 }
