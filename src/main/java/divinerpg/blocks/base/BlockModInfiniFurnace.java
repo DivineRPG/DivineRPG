@@ -17,6 +17,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.*;
 
@@ -26,7 +27,7 @@ import java.util.function.Supplier;
 public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public final Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntityType;
 	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity, MapColor color) {
-        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F));
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F).instrument(NoteBlockInstrument.BASEDRUM));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
     }

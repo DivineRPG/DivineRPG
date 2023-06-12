@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
 import javax.annotation.Nullable;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 public class BlockBoneChest extends BlockModChest {
 
     public BlockBoneChest() {
-        super(Properties.of().mapColor(MapColor.WOOL).requiresCorrectToolForDrops().strength(2.5F).noOcclusion().sound(SoundType.BONE_BLOCK), () -> BlockEntityRegistry.BONE_CHEST.get());
+        super(Properties.of().mapColor(MapColor.WOOL).requiresCorrectToolForDrops().strength(2.5F).noOcclusion().sound(SoundType.BONE_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE), () -> BlockEntityRegistry.BONE_CHEST.get());
     }
 
     @Nullable

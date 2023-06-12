@@ -21,7 +21,7 @@ import net.minecraftforge.server.command.TextComponentHelper;
 public class BlockNightmareBed extends BedBlock {
 
     public BlockNightmareBed() {
-        super(DyeColor.BLACK, Properties.of().mapColor(MapColor.COLOR_GRAY).pushReaction(PushReaction.DESTROY).strength(0.2F).sound(SoundType.STONE));
+        super(DyeColor.BLACK, Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().pushReaction(PushReaction.DESTROY).strength(0.2F).sound(SoundType.WOOD));
     }
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {

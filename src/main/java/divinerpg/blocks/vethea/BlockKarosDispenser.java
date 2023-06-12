@@ -38,7 +38,7 @@ public class BlockKarosDispenser extends BaseEntityBlock {
     }
 
     public BlockKarosDispenser() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(-1, 3600000F));
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(-1, 3600000F).instrument(NoteBlockInstrument.BASEDRUM));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, Boolean.valueOf(false)));
     }
 

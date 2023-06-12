@@ -10,6 +10,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
@@ -20,7 +21,7 @@ public class BlockKarosHeatTile extends BlockModUnbreakable {
             0.9375D);
 
     public BlockKarosHeatTile(MapColor color) {
-        super(BlockBehaviour.Properties.of().mapColor(color).randomTicks().strength(-1F, 3600000F));
+        super(BlockBehaviour.Properties.of().mapColor(color).randomTicks().strength(-1F, 3600000F).instrument(NoteBlockInstrument.BASEDRUM));
     }
 
     @Override

@@ -1,7 +1,7 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
 public class BlockModLamp extends BlockMod {
@@ -10,7 +10,7 @@ public class BlockModLamp extends BlockMod {
     }
 
     public BlockModLamp(MapColor color, SoundType sound) {
-        super(Block.Properties.of().mapColor(color).strength(0.3F).sound(sound).lightLevel((state) -> 15));
+        super(Block.Properties.of().mapColor(color).strength(0.3F).sound(sound).instrument(NoteBlockInstrument.HAT).lightLevel((state) -> 15));
     }
 
 }

@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.IPlantable;
@@ -23,7 +24,7 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         dirtSupplier = dirt;
     }
     public BlockModGrass(Supplier<Block> dirt) {
-        super(Block.Properties.of().mapColor(MapColor.DIAMOND).randomTicks().strength(2F, 6F));
+        super(Block.Properties.of().mapColor(MapColor.DIAMOND).randomTicks().strength(2F, 6F).instrument(NoteBlockInstrument.BASEDRUM));
         dirtSupplier = dirt;
     }
     @Override

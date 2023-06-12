@@ -6,6 +6,7 @@ import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.*;
 
 import javax.annotation.*;
@@ -13,7 +14,7 @@ import javax.annotation.*;
 public class BlockEdenChest extends BlockModChest {
 
     public BlockEdenChest() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.5F), () -> BlockEntityRegistry.EDEN_CHEST.get());
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).requiresCorrectToolForDrops().strength(2.5F).instrument(NoteBlockInstrument.BASEDRUM), () -> BlockEntityRegistry.EDEN_CHEST.get());
     }
 
     @Nullable

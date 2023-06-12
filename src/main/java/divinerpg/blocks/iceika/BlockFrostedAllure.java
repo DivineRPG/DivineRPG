@@ -13,7 +13,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,7 +24,7 @@ import java.util.List;
 public class BlockFrostedAllure extends BaseEntityBlock {
     public static final IntegerProperty CATEGORY = IntegerProperty.create("category", 0, 5);
     public BlockFrostedAllure() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.CALCITE).randomTicks());
+        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
         registerDefaultState(this.stateDefinition.any().setValue(CATEGORY, 0));
     }
 

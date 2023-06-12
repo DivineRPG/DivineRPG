@@ -4,6 +4,7 @@ import net.minecraft.core.*;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.*;
 
 public class BlockMod extends Block {
@@ -17,19 +18,25 @@ public class BlockMod extends Block {
     }
 
     public BlockMod(MapColor color, float hardness, float resistance) {
-        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance));
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).instrument((NoteBlockInstrument.BASEDRUM)));
         this.flammability = 0;
         this.fireSpread = 0;
     }
 
-    public BlockMod(float hardness, float resistance, MapColor color, SoundType sound, int flammability, int fireSpread) {
-        super(Block.Properties.of().mapColor(color).strength(hardness, resistance).sound(sound));
+    public BlockMod(MapColor color, float hardness, float resistance, SoundType sound, NoteBlockInstrument instrument) {
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).sound(sound).instrument(instrument));
+        this.flammability = 0;
+        this.fireSpread = 0;
+    }
+
+    public BlockMod(MapColor color, float hardness, float resistance, int flammability, int fireSpread, SoundType sound, NoteBlockInstrument instrument) {
+        super(Block.Properties.of().mapColor(color).strength(hardness, resistance).sound(sound).instrument(instrument));
         this.flammability = flammability;
         this.fireSpread = fireSpread;
     }
 
     public BlockMod(MapColor color, int luminance) {
-        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(50F, 1200F).pushReaction(PushReaction.BLOCK).lightLevel((state) -> luminance));
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(50F, 1200F).pushReaction(PushReaction.BLOCK).instrument(NoteBlockInstrument.BASEDRUM).lightLevel((state) -> luminance));
         this.flammability = 0;
         this.fireSpread = 0;
     }

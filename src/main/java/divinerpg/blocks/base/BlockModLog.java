@@ -12,6 +12,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -20,7 +21,7 @@ import javax.annotation.Nullable;
 public class BlockModLog extends RotatedPillarBlock {
 
     public BlockModLog(MapColor color) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(2.0F).sound(SoundType.WOOD));
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(2.0F).sound(SoundType.WOOD).instrument(NoteBlockInstrument.BASS));
     }
 
     @Override

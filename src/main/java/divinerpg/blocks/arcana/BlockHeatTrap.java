@@ -11,14 +11,14 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public BlockHeatTrap() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_BLUE).randomTicks().strength(-1, 3600000.0F));
+        super(Block.Properties.of().mapColor(MapColor.COLOR_BLUE).randomTicks().strength(-1, 3600000.0F).instrument(NoteBlockInstrument.BASEDRUM));
         registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

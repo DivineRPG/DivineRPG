@@ -8,6 +8,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 public class BlockModAltar extends BaseEntityBlock {
 
     public BlockModAltar(MapColor color) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1F, 3600000F).noOcclusion());
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1F, 3600000F).instrument(NoteBlockInstrument.BASEDRUM).noOcclusion());
     }
 
     @Override

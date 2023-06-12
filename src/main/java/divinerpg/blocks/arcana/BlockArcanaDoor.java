@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,7 +17,7 @@ public class BlockArcanaDoor extends DoorBlock {
     private ResourceLocation keyItem;
 
     public BlockArcanaDoor(MapColor color, ResourceLocation key) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion(), BlockSetType.STONE);
+        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion().instrument(NoteBlockInstrument.BASEDRUM), BlockSetType.STONE);
         this.keyItem = key;
     }
 

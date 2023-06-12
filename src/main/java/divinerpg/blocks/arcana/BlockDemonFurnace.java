@@ -7,13 +7,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
 import javax.annotation.Nullable;
 
 public class BlockDemonFurnace extends BlockModInfiniFurnace {
     public BlockDemonFurnace() {
-        super(Block.Properties.of().mapColor(MapColor.FIRE).requiresCorrectToolForDrops().strength(3.5F).noOcclusion(), () -> BlockEntityRegistry.DEMON_FURNACE.get());
+        super(Block.Properties.of().mapColor(MapColor.FIRE).requiresCorrectToolForDrops().strength(3.5F).instrument(NoteBlockInstrument.BASEDRUM).noOcclusion(), () -> BlockEntityRegistry.DEMON_FURNACE.get());
     }
     @Nullable
     @Override
