@@ -8,9 +8,6 @@ import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.level.*;
 
 public class EntityMoonWolf extends Wolf {
-//    private static final EntityDataAccessor<Float> DATA_HEALTH_ID = SynchedEntityData.defineId(EntityMoonWolf.class,
-//            EntityDataSerializers.FLOAT);
-
     public EntityMoonWolf(EntityType<? extends Wolf> type, Level worldIn) {
         super(type, worldIn);
     }

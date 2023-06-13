@@ -859,7 +859,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(BEHEMOTH.get(), (Context context) -> new RenderDivineMob<>(context, "behemoth",  new ModelBehemoth(context)));
         event.registerEntityRenderer(EPIPHITE.get(), (Context context) -> new RenderDivineMob<>(context, "epiphite",  new ModelEpiphite<>(context), 0.7F));
         event.registerEntityRenderer(MAGE.get(),	 (Context context) -> new RenderDivineMob<>(context, "mage",  new ModelMage<>(context)));
-        event.registerEntityRenderer(MOON_WOLF.get(),(Context context) -> new RenderDivineMob<>(context, "moon_wolf",  new ModelMoonWolf(context), 0.7F));
+        event.registerEntityRenderer(MOON_WOLF.get(), RenderMoonWolf::new);
         event.registerEntityRenderer(TERMID.get(),	 (Context context) -> new RenderDivineMob<>(context, "termid",  new ModelTermid<>(context), 0.6F));
         event.registerEntityRenderer(VEREK.get(),	 (Context context) -> new RenderDivineMob<>(context, "verek",  new ModelSamek<>(context)));
         event.registerEntityRenderer(WILDWOOD_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "wildwood_cadillion",  new ModelCadillion<>(context)));

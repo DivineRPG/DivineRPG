@@ -5,118 +5,78 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelRollum<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rollum");
-	private final ModelPart head;
-	private final ModelPart connector;
-	private final ModelPart rightarmtop;
-	private final ModelPart rightlegbottom;
-	private final ModelPart rightleg;
-	private final ModelPart leftlegbottom;
-	private final ModelPart leftleg;
-	private final ModelPart rightarm;
-	private final ModelPart rightarmext;
-	private final ModelPart leftarmtop;
-	private final ModelPart leftarm;
-	private final ModelPart leftarmext;
-	private final ModelPart body;
+	private final ModelPart Torso;
+	private final ModelPart Hip;
 
 	public ModelRollum(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.head = root.getChild("head");
-		this.connector = root.getChild("connector");
-		this.rightarmtop = root.getChild("rightarmtop");
-		this.rightlegbottom = root.getChild("rightlegbottom");
-		this.rightleg = root.getChild("rightleg");
-		this.leftlegbottom = root.getChild("leftlegbottom");
-		this.leftleg = root.getChild("leftleg");
-		this.rightarm = root.getChild("rightarm");
-		this.rightarmext = root.getChild("rightarmext");
-		this.leftarmtop = root.getChild("leftarmtop");
-		this.leftarm = root.getChild("leftarm");
-		this.leftarmext = root.getChild("leftarmext");
-		this.body = root.getChild("body");
+		this.Torso = root.getChild("Torso");
+		this.Hip = root.getChild("Hip");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 5.0F, -10.0F));
+		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create(), PartPose.offset(0.0F, 7.7F, -2.0F));
 
-		partdefinition.addOrReplaceChild("connector", CubeListBuilder.create().texOffs(30, 14).mirror().addBox(-4.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, 1.0F, -2.0F, -1.5708F, 0.0F, 0.0F));
+		PartDefinition Torso_r1 = Torso.addOrReplaceChild("Torso_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -14.1272F, -2.8033F, 16.0F, 14.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.1696F, -0.1972F, 0.48F, 0.0F, 0.0F));
 
-		partdefinition.addOrReplaceChild("rightarmtop", CubeListBuilder.create().texOffs(36, 16).mirror().addBox(-6.0F, -3.0F, -2.0F, 8.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -5.0F, -1.0F));
+		PartDefinition Head = Torso.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(38, 35).addBox(-5.0F, -4.0F, -9.0F, 10.0F, 7.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -8.6696F, -4.6972F));
 
-		partdefinition.addOrReplaceChild("rightlegbottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-3.0F, 8.0F, -3.0F, 6.0F, 9.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 7.0F, 0.0F));
+		PartDefinition LeftArm = Torso.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(47, 17).addBox(0.0F, -4.0F, -5.0F, 7.0F, 7.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, -10.6696F, -0.6972F));
 
-		partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 7.0F, 0.0F));
+		PartDefinition LeftLowerArm = LeftArm.addOrReplaceChild("LeftLowerArm", CubeListBuilder.create().texOffs(28, 50).addBox(-4.0F, -1.0F, -4.0F, 5.0F, 13.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(6.0F, 4.0F, -1.0F));
 
-		partdefinition.addOrReplaceChild("leftlegbottom", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-3.0F, 8.0F, -3.0F, 6.0F, 9.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 7.0F, 0.0F));
+		PartDefinition RightArm = Torso.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(56, 0).addBox(-7.0F, -4.0F, -7.0F, 7.0F, 7.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-8.0F, -10.6696F, 1.3028F));
 
-		partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 7.0F, 0.0F));
+		PartDefinition RightLowerArm = RightArm.addOrReplaceChild("RightLowerArm", CubeListBuilder.create().texOffs(0, 43).addBox(-1.0F, -1.0F, -4.0F, 5.0F, 13.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.0F, 4.0F, -3.0F));
 
-		partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-5.0F, 2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -5.0F, 0.0F));
+		PartDefinition Hip = partdefinition.addOrReplaceChild("Hip", CubeListBuilder.create().texOffs(0, 26).addBox(-7.0F, 0.0F, -5.0F, 14.0F, 8.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 6.0F, 0.0F));
 
-		partdefinition.addOrReplaceChild("rightarmext", CubeListBuilder.create().texOffs(30, 18).mirror().addBox(-5.0F, 9.0F, -10.0F, 4.0F, 5.0F, 9.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-6.0F, -5.0F, -1.0F));
+		PartDefinition LeftLeg = Hip.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(56, 50).addBox(-2.0F, 0.0F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 8.0F, -1.0F));
 
-		partdefinition.addOrReplaceChild("leftarmtop", CubeListBuilder.create().texOffs(36, 16).mirror().addBox(-3.0F, -3.0F, -2.0F, 8.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(7.0F, -5.0F, -1.0F));
+		PartDefinition RightLeg = Hip.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 65).addBox(-4.0F, 0.0F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 8.0F, -1.0F));
 
-		partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(0.0F, 2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(7.0F, -5.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("leftarmext", CubeListBuilder.create().texOffs(30, 18).mirror().addBox(0.0F, 9.0F, -10.0F, 4.0F, 5.0F, 9.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(7.0F, -5.0F, -1.0F));
-
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(30, 14).mirror().addBox(-4.0F, 0.0F, -2.0F, 8.0F, 14.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -7.0F, 0.0F));
-
-		return LayerDefinition.create(meshdefinition, 64, 32);
+		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
-		this.head.xRot = headPitch / (180F / (float)Math.PI);
-		this.rightarmtop.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
-		this.leftarmtop.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
-		this.rightarmtop.zRot = 0.0F;
-		this.leftarmtop.zRot = 0.0F;
-		this.rightlegbottom.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.leftlegbottom.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		this.rightlegbottom.yRot = 0.0F;
-		this.leftlegbottom.yRot = 0.0F;
-		this.rightarm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
-		this.leftarm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
-		this.rightarm.zRot = 0.0F;
-		this.leftarm.zRot = 0.0F;
-		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		this.rightleg.yRot = 0.0F;
-		this.leftleg.yRot = 0.0F;
-
-		this.rightarmext.xRot = Mth.cos(-(limbSwing * 0.6662F + (float)Math.PI)) * 2.0F * limbSwingAmount * 0.5F;
-		this.leftarmext.xRot = Mth.cos(-(limbSwing * 0.6662F)) * 2.0F * limbSwingAmount * 0.5F;
-		this.rightarmext.zRot = 0.0F;
-		this.leftarmext.zRot = 0.0F;
+//		this.head.yRot = netHeadYaw / (180F / (float)Math.PI);
+//		this.head.xRot = headPitch / (180F / (float)Math.PI);
+//		this.rightarmtop.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+//		this.leftarmtop.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+//		this.rightarmtop.zRot = 0.0F;
+//		this.leftarmtop.zRot = 0.0F;
+//		this.rightlegbottom.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+//		this.leftlegbottom.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+//		this.rightlegbottom.yRot = 0.0F;
+//		this.leftlegbottom.yRot = 0.0F;
+//		this.rightarm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+//		this.leftarm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+//		this.rightarm.zRot = 0.0F;
+//		this.leftarm.zRot = 0.0F;
+//		this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+//		this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+//		this.rightleg.yRot = 0.0F;
+//		this.leftleg.yRot = 0.0F;
+//
+//		this.rightarmext.xRot = Mth.cos(-(limbSwing * 0.6662F + (float)Math.PI)) * 2.0F * limbSwingAmount * 0.5F;
+//		this.leftarmext.xRot = Mth.cos(-(limbSwing * 0.6662F)) * 2.0F * limbSwingAmount * 0.5F;
+//		this.rightarmext.zRot = 0.0F;
+//		this.leftarmext.zRot = 0.0F;
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		connector.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarmtop.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightlegbottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftlegbottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarmext.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarmtop.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarmext.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		Hip.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }
