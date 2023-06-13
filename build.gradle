@@ -83,10 +83,10 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common:${jei_version}") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") //Just Enough Items
+//    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") //Just Enough Items
+//    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common:${jei_version}") //Just Enough Items
+//    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") //Just Enough Items
 //    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4526641") //Just Enough Resources
 //    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:18.0.1") //Bookshelf
