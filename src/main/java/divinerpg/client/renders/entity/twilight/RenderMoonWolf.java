@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.*;
 public class RenderMoonWolf extends MobRenderer<EntityMoonWolf, ModelMoonWolf> {
 
     public RenderMoonWolf(EntityRendererProvider.Context context) {
-        super(context, new ModelMoonWolf(context), 0.7F);
+        super(context, new ModelMoonWolf(context), 0.5F);
     }
 
     @Override

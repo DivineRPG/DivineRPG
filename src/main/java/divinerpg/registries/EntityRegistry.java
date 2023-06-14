@@ -215,7 +215,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityBehemoth>> 			BEHEMOTH 			= registerEntity(EntityBehemoth::new, 			"behemoth", 		 1.0F, 1.125F, 0x4180d0, 0x54b7e0);
     public static final RegistryObject<EntityType<EntityEpiphite>> 			EPIPHITE 			= registerEntity(EntityEpiphite::new, 			"epiphite", 		 0.8F, 1.0625F, 0x2f74d9, 0x87ecfa);
     public static final RegistryObject<EntityType<EntityMage>> 				MAGE 				= registerEntity(EntityMage::new, 				"mage", 			 0.9F, 2.2F, 0x0f7adf, 0x2fc7fb);
-    public static final RegistryObject<EntityType<EntityMoonWolf>> 			MOON_WOLF 			= registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		 0.6F,0.85F, 0x3b8c8d, 0x070706, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMoonWolf>> 			MOON_WOLF 			= registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		 0.6F,0.98F, 0x3b8c8d, 0x070706, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityTermid>> 			TERMID 				= registerEntity(EntityTermid::new, 			"termid", 			 0.4F, 1.6875F, 0x384d6e, 0x6388d4);
     public static final RegistryObject<EntityType<EntityVerek>> 			VEREK 				= registerEntity(EntityVerek::new, 				"verek", 			 0.8F, 2.0F, 0x0d5754, 0x3a8e89);
     public static final RegistryObject<EntityType<EntityWildwoodCadillion>> WILDWOOD_CADILLION  = registerEntity(EntityWildwoodCadillion::new,  "wildwood_cadillion",0.875F, 1.4F, 0x85e5ff, 0x0061c1);
