@@ -838,7 +838,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(GRUZZORLUG.get(),		 RenderGruzzorlug::new);
         event.registerEntityRenderer(GLACIDE.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacide",  new ModelGlacide<>(context)));
         event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus<>(context)));
-        event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context)));
+        event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context), 0.8F));
         event.registerEntityRenderer(WORKSHOP_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_merchant",  new ModelWorkshop<>(context)));
         event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshop<>(context)));
         event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.3F));
