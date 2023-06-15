@@ -105,11 +105,10 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 			this.BackLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 			this.FrontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 			this.FrontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-
+		}
 			this.Head.zRot = entity.getHeadRollAngle(p_102617_) + entity.getBodyRollAngle(p_102617_, 0.0F);
 			this.Body.zRot = entity.getBodyRollAngle(p_102617_, -0.16F);
 			this.Tail.zRot = entity.getBodyRollAngle(p_102617_, -0.2F);
-		}
 	}
 
 	@Override
