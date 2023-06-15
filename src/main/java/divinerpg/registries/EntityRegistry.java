@@ -207,6 +207,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityEdenCadillion>> EDEN_CADILLION  = registerEntity(EntityEdenCadillion::new,  "eden_cadillion",0.875F, 1.4F, 0xfff7e1, 0xe2af20);
     public static final RegistryObject<EntityType<EntityEdenTomo>> 		EDEN_TOMO 		= registerEntity(EntityEdenTomo::new, 		"eden_tomo", 	 1.0F, 0.625F, 0x4a5e0c, 0x738b16);
     public static final RegistryObject<EntityType<EntityGreenfeet>> 	GREENFEET 		= registerEntity(EntityGreenfeet::new, 		"greenfeet", 	 1.0F, 2.0F, 0x084f1e, 0x4c5815);
+    public static final RegistryObject<EntityType<EntityGemFin>> 	    GEM_FIN 		= registerEntity(EntityGemFin::new, 		"gem_fin", 	 0.3F, 0.3F, 0xffcceb, 0xff009c);
     public static final RegistryObject<EntityType<EntityMadivel>> 		MADIVEL 		= registerEntity(EntityMadivel::new, 		"madivel", 		 1.6F, 3.0F, 0xf86a54, 0xffe15c);
     public static final RegistryObject<EntityType<EntitySunArcher>> 	SUN_ARCHER 		= registerEntity(EntitySunArcher::new, 		"sun_archer", 	 0.8F, 2.2F, 0xeaab42, 0xfdf182);
     public static final RegistryObject<EntityType<EntityWeakCori>> 		WEAK_CORI 		= registerEntity(EntityWeakCori::new, 		"weak_cori", 	 0.6F, 1.5F, 0x160f00, 0x4681ff);
@@ -406,6 +407,7 @@ public class EntityRegistry {
         registerMobAttributes(event, GLINTHOP, EntityStats.GLINTHOP);
         registerMobAttributes(event, EDEN_CADILLION, EntityStats.EDEN_CADILLION);
         registerMobAttributes(event, EDEN_TOMO, EntityStats.EDEN_TOMO);
+        registerMobAttributes(event, GEM_FIN, EntityStats.GEM_FIN);
         registerMobAttributes(event, GREENFEET, EntityStats.GREENFEET);
         registerMobAttributes(event, MADIVEL, EntityStats.MADIVEL);
         registerMobAttributes(event, SUN_ARCHER, EntityStats.SUN_ARCHER);
@@ -603,6 +605,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
         event.registerLayerDefinition(ModelCadillion.LAYER_LOCATION, ModelCadillion::createBodyLayer);
         event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelGemFin.LAYER_LOCATION, ModelGemFin::createBodyLayer);
         event.registerLayerDefinition(ModelGreenfeet.LAYER_LOCATION, ModelGreenfeet::createBodyLayer);
         event.registerLayerDefinition(ModelMadivel.LAYER_LOCATION, ModelMadivel::createBodyLayer);
         event.registerLayerDefinition(ModelSunArcher.LAYER_LOCATION, ModelSunArcher::createBodyLayer);
@@ -850,6 +853,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
         event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion<>(context)));
         event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelTomo<>(context)));
+        event.registerEntityRenderer(GEM_FIN.get(),	        RenderGemFin::new);
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet<>(context)));
         event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), 0.85F));
         event.registerEntityRenderer(SUN_ARCHER.get(),	  RenderSunArcher::new);

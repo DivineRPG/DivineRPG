@@ -14,10 +14,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 
@@ -626,7 +627,8 @@ public class ItemRegistry {
             seng_fur = registerItem("seng_fur", () -> new ItemMod()),
             sabear_fur = registerItem("sabear_fur", () -> new ItemMod()),
             sabear_tooth = registerItem("sabear_tooth", () -> new ItemMod()),
-            sabear_sabre = registerItem("sabear_sabre", () -> new ItemModSword(ToolStats.SABEAR_SABRE));
+            sabear_sabre = registerItem("sabear_sabre", () -> new ItemModSword(ToolStats.SABEAR_SABRE)),
+            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(()-> ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(MODID, "gem_fin")), ()-> Fluids.WATER, ()-> SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
 
     //Armour
     public static final RegistryObject<Item>

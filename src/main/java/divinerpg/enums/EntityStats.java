@@ -94,6 +94,7 @@ public enum EntityStats {
     GLINTHOP(10, 12),
     EDEN_TOMO(96, 16),
     EDEN_CADILLION(120, 18),
+    GEM_FIN(3),
     GREENFEET(200, 22),
     MADIVEL(150, 20),
     SUN_ARCHER(72, 15),
