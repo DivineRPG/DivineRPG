@@ -236,12 +236,12 @@ public class BlockRegistry {
     // Iceika
 
     public static final RegistryObject<Block>// Terrain
-            frozenDirt = registerBlock("frozen_dirt", () -> new BlockModDirt(SNOW)),
+            frozenDirt = registerBlock("frozen_dirt", () -> new BlockModDirt(ICE)),
             frozenGrass = registerBlock("frozen_grass", () -> new BlockModGrass( () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), DIAMOND)),
             frozenStone = registerBlock("frozen_stone", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
             frozenBricks = registerBlock("frozen_bricks", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
-            frozenLog = registerBlock("frozen_log", () -> new BlockModLog(ICE)),
-            strippedFrozenLog = registerBlock("stripped_frozen_log", () -> new BlockModLog(ICE)),
+            frozenLog = registerBlock("frozen_log", () -> new BlockModLog(SNOW)),
+            strippedFrozenLog = registerBlock("stripped_frozen_log", () -> new BlockModLog(SNOW)),
             brittleLeaves = registerBlock("brittle_leaves", () -> new BlockModLeaves(WOOL, SoundType.GRASS)),
             frozenPlanks = registerBlock("frozen_planks", () -> new BlockModPlanks(ICE)),
             frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_planks")), 20, 5)),
@@ -474,7 +474,7 @@ public class BlockRegistry {
     // Arcana
 
     public static final RegistryObject<Block>// Dirt
-            arcaniteDirt = registerBlock("arcanite_dirt", () -> new BlockModDirt(COLOR_BLUE)),
+            arcaniteDirt = registerBlock("arcanite_dirt", () -> new BlockModDirt(TERRACOTTA_BLUE)),
             arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(ICE))),
             arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_LIGHT_BLUE))),
             arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLUE)));
@@ -570,7 +570,7 @@ public class BlockRegistry {
             veiloPlant = registerBlock("veilo_plant", () -> new BlockModCrop(3, new ResourceLocation(MODID, "veilo_seeds"))),
             arcaniteVinesHead = registerBlock("arcanite_vines_head", () -> new BlockArcaniteVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
             arcaniteVinesBody = BLOCKS.register("arcanite_vines_body", () -> new BlockArcaniteVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
-            arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_BLUE)),
+            arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), TERRACOTTA_LIGHT_BLUE)),
             arcanaBush = registerBlock("arcana_bush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_BLUE)),
             gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_LIGHT_BLUE), Rarity.EPIC);
 

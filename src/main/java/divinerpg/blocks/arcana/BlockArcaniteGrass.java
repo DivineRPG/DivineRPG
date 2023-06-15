@@ -8,6 +8,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcaniteGrass extends BlockModGrass {
     public BlockArcaniteGrass() {
-        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_dirt")), MapColor.LAPIS);
+        super(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_dirt")), MapColor.TERRACOTTA_LIGHT_BLUE);
     }
 }
