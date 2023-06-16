@@ -6,22 +6,13 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/mine_entrance",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/gruzzorlug/road/crossroads",
         "processors": "minecraft:empty"
       }
     },
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -30,7 +21,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -39,7 +30,7 @@
       }
     },
     {
-      "weight": 4,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
@@ -48,11 +39,47 @@
       }
     },
     {
-      "weight": 4,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/gruzzorlug/road/junction_right",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/army_camp",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/tower",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/hut",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/small_hut",
         "processors": "minecraft:empty"
       }
     }
