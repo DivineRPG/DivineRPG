@@ -4,10 +4,12 @@ import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
@@ -176,5 +178,13 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         } else {
             return false;
         }
+    }
+    
+    @Override protected SoundEvent getHurtSound(DamageSource s) {return SoundEvents.RABBIT_HURT;}
+    @Override protected SoundEvent getAmbientSound() {return SoundEvents.RABBIT_AMBIENT;}
+    @Override protected SoundEvent getDeathSound() {return SoundEvents.RABBIT_DEATH;}
+    @Override public boolean doHurtTarget(Entity e) {
+    	playSound(SoundEvents.RABBIT_ATTACK, 1F, (random.nextFloat() - random.nextFloat()) * .2F + 1F);
+    	return super.doHurtTarget(e);
     }
 }

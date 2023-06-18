@@ -21,8 +21,8 @@
 		  "maxCount": 4
 	  },
 	  {
-		  "type": "divinerpg:end_mouse",
-		  "weight": 12,
+		  "type": "divinerpg:ender_scrounge",
+		  "weight": 6,
 		  "minCount": 2,
 		  "maxCount": 3
 	  }
