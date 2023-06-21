@@ -24,7 +24,7 @@ public class Underground extends PlacementFilter {
 		MutableBlockPos mut = pos.mutable();
 		while(mut.getY() < level.getMaxBuildHeight() - 1) {
 			BlockState state = level.getBlockState(mut.move(Direction.UP));
-			if(state.isCollisionShapeFullBlock(level, mut) && !state.is(BlockTags.LEAVES)) return level.getBrightness(LightLayer.SKY, mut.below()) < 1;
+			if(state.isCollisionShapeFullBlock(level, mut) && !state.is(BlockTags.LEAVES)) return level.getBrightness(LightLayer.SKY, pos.above()) < 1;
 		}
 		return false;
 	}
