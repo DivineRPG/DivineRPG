@@ -34,7 +34,7 @@ public class ModelAngryGlinthop<T extends Entity> extends EntityModel<T> {
 		.texOffs(0, 0).addBox(-4.8889F, -10.9444F, -7.6667F, 10.0F, 11.0F, 17.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 28).addBox(-6.8889F, -12.9444F, -11.6667F, 14.0F, 15.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.1111F, -12.0556F, -0.3333F));
 
-		PartDefinition FrontLeftLeg = partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(37, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.1111F, 14.0F, -8.6667F));
+		PartDefinition FrontLeftLeg = partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(37, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.8889F, 14.0F, -8.6667F));
 
 		PartDefinition BackLeftLeg = partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 74).addBox(-1.0F, 5.0F, 0.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(15, 60).addBox(-1.0F, -4.0F, -5.0F, 4.0F, 9.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(3.1111F, 10.0F, 6.3333F));
@@ -42,7 +42,7 @@ public class ModelAngryGlinthop<T extends Entity> extends EntityModel<T> {
 		PartDefinition FrontRightLeg = partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.8889F, 14.0F, -8.6667F));
 
 		PartDefinition BackRightLeg = partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(41, 69).addBox(-3.0F, 5.0F, 0.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(54, 0).addBox(-3.0F, -4.0F, -5.0F, 4.0F, 9.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.8889F, 10.0F, 6.3333F));
+		.texOffs(54, 0).addBox(-3.0F, -4.0F, -5.0F, 4.0F, 9.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.1111F, 10.0F, 6.3333F));
 
 		PartDefinition Tail = Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(68, 63).addBox(-3.0F, -9.75F, 0.5F, 6.0F, 10.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 40).addBox(0.0F, -12.75F, -1.5F, 0.0F, 15.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.1111F, -7.1944F, 8.8333F));

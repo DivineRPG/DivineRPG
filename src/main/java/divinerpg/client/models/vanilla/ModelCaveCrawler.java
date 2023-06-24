@@ -28,8 +28,10 @@ public class ModelCaveCrawler extends EntityModel<EntityCrawler> {
 		spine.addOrReplaceChild("trail_r1", CubeListBuilder.create().texOffs(20, 54).addBox(-3.5F, -1.0F, -2.0F, 9.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 0.5F, 0.2618F, 0.0F, 0.0F));
 
 		spine.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -5.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-		.texOffs(32, 3).addBox(-4.0F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(32, 7).addBox(4.0F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -12.0F, 1.0F, -0.829F, 0.0F, 0.0F));
+		.texOffs(32, 3).addBox(-3.99F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(32, 7).addBox(-4.0F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(37, 3).addBox(3.99F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(37, 7).addBox(4.0F, -12.0F, -2.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -12.0F, 1.0F, -0.829F, 0.0F, 0.0F));
 
 		spine.addOrReplaceChild("jug", CubeListBuilder.create().texOffs(0, 40).addBox(-3.0F, -9.0F, 0.0F, 6.0F, 7.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(24, 47).addBox(-2.0F, -10.0F, 1.0F, 4.0F, 1.0F, 4.0F, new CubeDeformation(0.0F))
