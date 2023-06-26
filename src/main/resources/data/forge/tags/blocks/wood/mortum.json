@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "divinerpg:mortum_log",
-    "divinerpg:stripped_mortum_log"
+    "divinerpg:stripped_mortum_log",
+    "divinerpg:mortum_wood",
+    "divinerpg:stripped_mortum_wood"
   ]
 }

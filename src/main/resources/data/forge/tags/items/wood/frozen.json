@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "divinerpg:frozen_log",
-    "divinerpg:stripped_frozen_log"
+    "divinerpg:stripped_frozen_log",
+    "divinerpg:frozen_wood",
+    "divinerpg:stripped_frozen_wood"
   ]
 }

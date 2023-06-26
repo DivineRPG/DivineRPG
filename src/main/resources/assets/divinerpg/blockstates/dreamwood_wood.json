@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:block/dreamwood_wood"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:block/dreamwood_wood"
+    },
+    "axis=y": {
+      "model": "divinerpg:block/dreamwood_wood"
+    }
+  }
+}

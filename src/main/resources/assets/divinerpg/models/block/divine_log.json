@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "east": "divinerpg:block/divine_log_side",
-    "south": "divinerpg:block/divine_log_side",
-    "north": "divinerpg:block/divine_log_side",
-    "west": "divinerpg:block/divine_log_side",
-    "particle": "divinerpg:block/divine_log_top",
-    "up": "divinerpg:block/divine_log_top",
-    "down": "divinerpg:block/divine_log_top"
+    "end": "divinerpg:block/divine_log_top",
+    "side": "divinerpg:block/divine_log_side"
   }
 }

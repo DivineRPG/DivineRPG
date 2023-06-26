@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/eucalyptus_log_side",
+    "side": "divinerpg:block/eucalyptus_log_side"
+  }
+}

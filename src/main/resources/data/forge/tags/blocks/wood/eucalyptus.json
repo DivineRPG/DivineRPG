@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "divinerpg:eucalyptus_log",
-    "divinerpg:stripped_eucalyptus_log"
+    "divinerpg:stripped_eucalyptus_log",
+    "divinerpg:eucalyptus_wood",
+    "divinerpg:stripped_eucalyptus_wood"
   ]
 }

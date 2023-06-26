@@ -190,6 +190,8 @@ public class BlockRegistry {
             divineSapling = registerBlock("divine_sapling", () -> new BlockModSapling(GOLD, () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTreeGrower())),
             divineLog = registerBlock("divine_log", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN)),
             strippedDivineLog = registerBlock("stripped_divine_log", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN)),
+            divineWood = registerBlock("divine_wood", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN)),
+            strippedDivineWood = registerBlock("stripped_divine_wood", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN)),
             divineLeaves = registerBlock("divine_leaves", () -> new BlockModLeaves(GOLD, SoundType.GRASS)),
             divinePlanks = registerBlock("divine_planks", () -> new BlockModPlanks(TERRACOTTA_LIGHT_GREEN)),
             divineStairs = registerBlock("divine_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "divine_planks")), 20, 5)),
@@ -242,6 +244,8 @@ public class BlockRegistry {
             frozenBricks = registerBlock("frozen_bricks", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
             frozenLog = registerBlock("frozen_log", () -> new BlockModLog(SNOW)),
             strippedFrozenLog = registerBlock("stripped_frozen_log", () -> new BlockModLog(SNOW)),
+            frozenWood = registerBlock("frozen_wood", () -> new BlockModLog(COLOR_LIGHT_GRAY)),
+            strippedFrozenWood = registerBlock("stripped_frozen_wood", () -> new BlockModLog(SNOW)),
             brittleLeaves = registerBlock("brittle_leaves", () -> new BlockModLeaves(WOOL, SoundType.GRASS)),
             frozenPlanks = registerBlock("frozen_planks", () -> new BlockModPlanks(ICE)),
             frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_planks")), 20, 5)),
@@ -326,21 +330,35 @@ public class BlockRegistry {
             mortumSapling = registerBlock("mortum_sapling", () -> new BlockModSapling(COLOR_GRAY, () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_dirt")), new MortumTreeGrower()));
 
     public static final RegistryObject<Block>// Logs
-            edenLog = registerBlock("eden_log", () -> new BlockModLog(COLOR_YELLOW)),
+            edenLog = registerBlock("eden_log", () -> new BlockModLog(SAND)),
             wildwoodLog = registerBlock("wildwood_log", () -> new BlockModLog(LAPIS)),
             apalachiaLog = registerBlock("apalachia_log", () -> new BlockModLog(COLOR_MAGENTA)),
             skythernLog = registerBlock("skythern_log", () -> new BlockModLog(QUARTZ)),
             mortumLog = registerBlock("mortum_log", () -> new BlockModLog(TERRACOTTA_PINK));
 
     public static final RegistryObject<Block>// Stripped Logs
-            strippedEdenLog = registerBlock("stripped_eden_log", () -> new BlockModLog(COLOR_YELLOW)),
+            strippedEdenLog = registerBlock("stripped_eden_log", () -> new BlockModLog(SAND)),
             strippedWildwoodLog = registerBlock("stripped_wildwood_log", () -> new BlockModLog(LAPIS)),
             strippedApalachiaLog = registerBlock("stripped_apalachia_log", () -> new BlockModLog(COLOR_MAGENTA)),
             strippedSkythernLog = registerBlock("stripped_skythern_log", () -> new BlockModLog(QUARTZ)),
             strippedMortumLog = registerBlock("stripped_mortum_log", () -> new BlockModLog(TERRACOTTA_PINK));
 
+    public static final RegistryObject<Block>// Wood
+            edenWood = registerBlock("eden_wood", () -> new BlockModLog(COLOR_BROWN)),
+            wildwoodWood = registerBlock("wildwood_wood", () -> new BlockModLog(LAPIS)),
+            apalachiaWood = registerBlock("apalachia_wood", () -> new BlockModLog(COLOR_MAGENTA)),
+            skythernWood = registerBlock("skythern_wood", () -> new BlockModLog(COLOR_LIGHT_GRAY)),
+            mortumWood = registerBlock("mortum_wood", () -> new BlockModLog(TERRACOTTA_PINK));
+
+    public static final RegistryObject<Block>// Stripped Wood
+            strippedEdenWood = registerBlock("stripped_eden_wood", () -> new BlockModLog(SAND)),
+            strippedWildwoodWood = registerBlock("stripped_wildwood_wood", () -> new BlockModLog(LAPIS)),
+            strippedApalachiaWood = registerBlock("stripped_apalachia_wood", () -> new BlockModLog(COLOR_MAGENTA)),
+            strippedSkythernWood = registerBlock("stripped_skythern_wood", () -> new BlockModLog(QUARTZ)),
+            strippedMortumWood = registerBlock("stripped_mortum_wood", () -> new BlockModLog(TERRACOTTA_PINK));
+
     public static final RegistryObject<Block>// Leaves
-            edenLeaves = registerBlock("eden_leaves", () -> new BlockModLeaves(COLOR_YELLOW, SoundType.AZALEA_LEAVES)),
+            edenLeaves = registerBlock("eden_leaves", () -> new BlockModLeaves(SAND, SoundType.AZALEA_LEAVES)),
             wildwoodLeaves = registerBlock("wildwood_leaves", () -> new BlockModLeaves(COLOR_LIGHT_BLUE, SoundType.AZALEA_LEAVES)),
             apalachiaLeaves = registerBlock("apalachia_leaves", () -> new BlockModLeaves(COLOR_MAGENTA, SoundType.AZALEA_LEAVES)),
             skythernLeaves = registerBlock("skythern_leaves", () -> new BlockModLeaves(QUARTZ, SoundType.AZALEA_LEAVES)),
@@ -555,6 +573,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block>// Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
             strippedEucalyptusLog = registerBlock("stripped_eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE)),
+            eucalyptusWood = registerBlock("eucalyptus_wood", () -> new BlockModLog(TERRACOTTA_WHITE)),
+            strippedEucalyptusWood = registerBlock("stripped_eucalyptus_wood", () -> new BlockModLog(TERRACOTTA_WHITE)),
             eucalyptusPlanks = registerBlock("eucalyptus_planks", () -> new BlockModPlanks(TERRACOTTA_WHITE)),
             eucalyptusStairs = registerBlock("eucalyptus_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks")), 20, 5)),
             eucalyptusDoor = registerBlock("eucalyptus_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks"))).strength(2.0F, 1.0F).noOcclusion(), BlockSetType.BIRCH));
@@ -620,6 +640,18 @@ public class BlockRegistry {
             strippedFirewoodLog = registerBlock("stripped_firewood_log", () -> new BlockModLog(FIRE)),
             strippedHyrewoodLog = registerBlock("stripped_hyrewood_log", () -> new BlockModLog(COLOR_BLUE)),
             strippedMintwoodLog = registerBlock("stripped_mintwood_log", () -> new BlockModLog(DIAMOND));
+
+    public static final RegistryObject<Block>// Wood
+            dreamwoodWood = registerBlock("dreamwood_wood", () -> new BlockModLog(COLOR_LIGHT_BLUE)),
+            firewoodWood = registerBlock("firewood_wood", () -> new BlockModLog(FIRE)),
+            hyrewoodWood = registerBlock("hyrewood_wood", () -> new BlockModLog(COLOR_BLUE)),
+            mintwoodWood = registerBlock("mintwood_wood", () -> new BlockModLog(DIAMOND));
+
+    public static final RegistryObject<Block>// Stripped Wood
+            strippedDreamwoodWood = registerBlock("stripped_dreamwood_wood", () -> new BlockModLog(COLOR_LIGHT_BLUE)),
+            strippedFirewoodWood = registerBlock("stripped_firewood_wood", () -> new BlockModLog(FIRE)),
+            strippedHyrewoodWood = registerBlock("stripped_hyrewood_wood", () -> new BlockModLog(COLOR_BLUE)),
+            strippedMintwoodWood = registerBlock("stripped_mintwood_wood", () -> new BlockModLog(DIAMOND));
 
     public static final RegistryObject<Block>// Leaves
             dreamwoodLeaves = registerBlock("dreamwood_leaves", () -> new BlockModLeaves(COLOR_CYAN, SoundType.GRASS)),

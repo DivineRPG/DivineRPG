@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "divinerpg:apalachia_log",
-    "divinerpg:stripped_apalachia_log"
+    "divinerpg:stripped_apalachia_log",
+    "divinerpg:apalachia_wood",
+    "divinerpg:stripped_apalachia_wood"
   ]
 }

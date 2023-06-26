@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "east": "divinerpg:block/skythern_log_side",
-    "south": "divinerpg:block/skythern_log_side",
-    "north": "divinerpg:block/skythern_log_side",
-    "west": "divinerpg:block/skythern_log_side",
-    "particle": "divinerpg:block/skythern_log_top",
-    "up": "divinerpg:block/skythern_log_top",
-    "down": "divinerpg:block/skythern_log_top"
+    "end": "divinerpg:block/skythern_log_top",
+    "side": "divinerpg:block/skythern_log_side"
   }
 }

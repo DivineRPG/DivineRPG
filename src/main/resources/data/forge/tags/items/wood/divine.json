@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "divinerpg:divine_log",
-    "divinerpg:stripped_divine_log"
+    "divinerpg:stripped_divine_log",
+    "divinerpg:divine_wood",
+    "divinerpg:stripped_divine_wood"
   ]
 }
