@@ -13,20 +13,20 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
+import net.minecraft.util.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.api.distmarker.*;
 
-import java.util.*;
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionContainer> {
     private static final ResourceLocation ENCHANTING_TABLE_LOCATION = new ResourceLocation("textures/gui/container/enchanting_table.png");
     private static final ResourceLocation ENCHANTING_BOOK_LOCATION = new ResourceLocation("textures/entity/enchanting_table_book.png");
-    private BookModel BOOK_MODEL;
-    private final Random random = new Random();
+    private final RandomSource random = RandomSource.create();
+    private BookModel bookModel;
     public int time;
     public float flip;
     public float oFlip;
@@ -36,29 +36,34 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
     public float oOpen;
     private ItemStack last = ItemStack.EMPTY;
 
-    public AltarOfCorruptionScreen(AltarOfCorruptionContainer p_i51090_1_, Inventory p_i51090_2_, Component p_i51090_3_) {
-        super(p_i51090_1_, p_i51090_2_, p_i51090_3_);
+    public AltarOfCorruptionScreen(AltarOfCorruptionContainer p_98754_, Inventory p_98755_, Component p_98756_) {
+        super(p_98754_, p_98755_, p_98756_);
     }
 
     protected void init() {
         super.init();
-        this.BOOK_MODEL = new BookModel(this.minecraft.getEntityModels().bakeLayer(ModelLayers.BOOK));
+        this.bookModel = new BookModel(this.minecraft.getEntityModels().bakeLayer(ModelLayers.BOOK));
     }
 
-    public boolean mouseClicked(double p_231044_1_, double p_231044_3_, int p_231044_5_) {
+    public void containerTick() {
+        super.containerTick();
+        this.tickBook();
+    }
+
+    public boolean mouseClicked(double p_98758_, double p_98759_, int p_98760_) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
 
         for(int k = 0; k < 3; ++k) {
-            double d0 = p_231044_1_ - (double)(i + 60);
-            double d1 = p_231044_3_ - (double)(j + 14 + 19 * k);
+            double d0 = p_98758_ - (double)(i + 60);
+            double d1 = p_98759_ - (double)(j + 14 + 19 * k);
             if (d0 >= 0.0D && d1 >= 0.0D && d0 < 108.0D && d1 < 19.0D && this.menu.clickMenuButton(this.minecraft.player, k)) {
                 this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, k);
                 return true;
             }
         }
 
-        return super.mouseClicked(p_231044_1_, p_231044_3_, p_231044_5_);
+        return super.mouseClicked(p_98758_, p_98759_, p_98760_);
     }
 
     protected void renderBg(GuiGraphics p_282430_, float p_282530_, int p_281621_, int p_283333_) {
@@ -80,7 +85,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
                 int l1 = 86 - this.font.width(s);
                 FormattedText formattedtext = EnchantmentNames.getInstance().getRandomName(this.font, l1);
                 int i2 = 6839882;
-                if (((k < l + 1 || this.minecraft.player.experienceLevel < k1) && !this.minecraft.player.getAbilities().instabuild) || this.menu.enchantClue[i1] == -1) { // Forge: render buttons as disabled when enchantable but enchantability not met on lower levels
+                if (((k < l + 1 || this.minecraft.player.experienceLevel < k1) && !this.minecraft.player.getAbilities().instabuild) || this.menu.enchantClue[l] == -1) { // Forge: render buttons as disabled when enchantable but enchantability not met on lower levels
                     p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1, j + 14 + 19 * l, 0, 185, 108, 19);
                     p_282430_.blit(ENCHANTING_TABLE_LOCATION, i1 + 1, j + 15 + 19 * l, 16 * l, 239, 16, 16);
                     p_282430_.drawWordWrap(this.font, formattedtext, j1, j + 16 + 19 * l, l1, (i2 & 16711422) >> 1);
@@ -121,9 +126,9 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         p_289697_.pose().mulPose(Axis.XP.rotationDegrees(180.0F));
         float f4 = Mth.clamp(Mth.frac(f1 + 0.25F) * 1.6F - 0.3F, 0.0F, 1.0F);
         float f5 = Mth.clamp(Mth.frac(f1 + 0.75F) * 1.6F - 0.3F, 0.0F, 1.0F);
-        this.BOOK_MODEL.setupAnim(0.0F, f4, f5, f);
-        VertexConsumer vertexconsumer = p_289697_.bufferSource().getBuffer(this.BOOK_MODEL.renderType(ENCHANTING_BOOK_LOCATION));
-        this.BOOK_MODEL.renderToBuffer(p_289697_.pose(), vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.bookModel.setupAnim(0.0F, f4, f5, f);
+        VertexConsumer vertexconsumer = p_289697_.bufferSource().getBuffer(this.bookModel.renderType(ENCHANTING_BOOK_LOCATION));
+        this.bookModel.renderToBuffer(p_289697_.pose(), vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         p_289697_.flush();
         p_289697_.pose().popPose();
         Lighting.setupFor3DItems();

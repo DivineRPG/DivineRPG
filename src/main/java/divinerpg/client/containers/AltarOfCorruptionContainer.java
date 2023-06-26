@@ -1,8 +1,10 @@
 package divinerpg.client.containers;
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.MenuTypeRegistry;
+import divinerpg.registries.*;
+import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,8 +18,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.common.Tags;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -36,15 +37,15 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
     public final int[] enchantClue = new int[]{-1, -1, -1};
     public final int[] levelClue = new int[]{-1, -1, -1};
 
-    public AltarOfCorruptionContainer(int p_i50085_1_, Inventory p_i50085_2_) {
-        this(p_i50085_1_, p_i50085_2_, ContainerLevelAccess.NULL);
+    public AltarOfCorruptionContainer(int p_39454_, Inventory p_39455_, FriendlyByteBuf buf) {
+        this(p_39454_, p_39455_, ContainerLevelAccess.NULL);
     }
 
-    public AltarOfCorruptionContainer(int p_i50086_1_, Inventory p_i50086_2_, ContainerLevelAccess p_i50086_3_) {
-        super(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), p_i50086_1_);
-        this.access = p_i50086_3_;
+    public AltarOfCorruptionContainer(int p_39457_, Inventory p_39458_, ContainerLevelAccess p_39459_) {
+        super(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), p_39457_);
+        this.access = p_39459_;
         this.addSlot(new Slot(this.enchantSlots, 0, 15, 47) {
-            public boolean mayPlace(ItemStack p_75214_1_) {
+            public boolean mayPlace(ItemStack p_39508_) {
                 return true;
             }
 
@@ -53,25 +54,25 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
             }
         });
         this.addSlot(new Slot(this.enchantSlots, 1, 35, 47) {
-            public boolean mayPlace(ItemStack stack) {
-                return stack.is(Tags.Items.GEMS);
+            public boolean mayPlace(ItemStack p_39517_) {
+                return p_39517_.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS);
             }
         });
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(p_i50086_2_, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlot(new Slot(p_39458_, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
         for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(p_i50086_2_, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(p_39458_, k, 8 + k * 18, 142));
         }
 
         this.addDataSlot(DataSlot.shared(this.costs, 0));
         this.addDataSlot(DataSlot.shared(this.costs, 1));
         this.addDataSlot(DataSlot.shared(this.costs, 2));
-        this.addDataSlot(this.enchantmentSeed).set(p_i50086_2_.player.getEnchantmentSeed());
+        this.addDataSlot(this.enchantmentSeed).set(p_39458_.player.getEnchantmentSeed());
         this.addDataSlot(DataSlot.shared(this.enchantClue, 0));
         this.addDataSlot(DataSlot.shared(this.enchantClue, 1));
         this.addDataSlot(DataSlot.shared(this.enchantClue, 2));
@@ -80,57 +81,36 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
         this.addDataSlot(DataSlot.shared(this.levelClue, 2));
     }
 
-    public AltarOfCorruptionContainer(int i, Inventory playerInventory, FriendlyByteBuf packetBuffer) {
-        this(i, playerInventory);
-    }
-
-    private float getPower(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos) {
-        return 30;
-    }
-
-    @SuppressWarnings("deprecation")
-	public void slotsChanged(Container p_75130_1_) {
-        if (p_75130_1_ == this.enchantSlots) {
-            ItemStack itemstack = p_75130_1_.getItem(0);
+    public void slotsChanged(Container p_39461_) {
+        if (p_39461_ == this.enchantSlots) {
+            ItemStack itemstack = p_39461_.getItem(0);
             if (!itemstack.isEmpty() && itemstack.isEnchantable()) {
-                this.access.execute((p_217002_2_, p_217002_3_) -> {
-                    int power = 0;
+                this.access.execute((p_39485_, p_39486_) -> {
+                    float j = 0;
 
-                    for(int k = -1; k <= 1; ++k) {
-                        for(int l = -1; l <= 1; ++l) {
-                            if ((k != 0 || l != 0) && p_217002_2_.isEmptyBlock(p_217002_3_.offset(l, 0, k)) && p_217002_2_.isEmptyBlock(p_217002_3_.offset(l, 1, k))) {
-                                power += getPower(p_217002_2_, p_217002_3_.offset(l * 2, 0, k * 2));
-                                power += getPower(p_217002_2_, p_217002_3_.offset(l * 2, 1, k * 2));
-
-                                if (l != 0 && k != 0) {
-                                    power += getPower(p_217002_2_, p_217002_3_.offset(l * 2, 0, k));
-                                    power += getPower(p_217002_2_, p_217002_3_.offset(l * 2, 1, k));
-                                    power += getPower(p_217002_2_, p_217002_3_.offset(l, 0, k * 2));
-                                    power += getPower(p_217002_2_, p_217002_3_.offset(l, 1, k * 2));
-                                }
-                            }
-                        }
+                    for(BlockPos blockpos : EnchantmentTableBlock.BOOKSHELF_OFFSETS) {
+                            j += p_39485_.getBlockState(p_39486_.offset(blockpos)).getEnchantPowerBonus(p_39485_, p_39486_.offset(blockpos));
                     }
 
                     this.random.setSeed((long)this.enchantmentSeed.get());
 
-                    for(int i1 = 0; i1 < 3; ++i1) {
-                        this.costs[i1] = EnchantmentHelper.getEnchantmentCost(this.random, i1, (int)power, itemstack);
-                        this.enchantClue[i1] = -1;
-                        this.levelClue[i1] = -1;
-                        if (this.costs[i1] < i1 + 1) {
-                            this.costs[i1] = 0;
+                    for(int k = 0; k < 3; ++k) {
+                        this.costs[k] = EnchantmentHelper.getEnchantmentCost(this.random, k, (int)j, itemstack);
+                        this.enchantClue[k] = -1;
+                        this.levelClue[k] = -1;
+                        if (this.costs[k] < k + 1) {
+                            this.costs[k] = 0;
                         }
-                        this.costs[i1] = net.minecraftforge.event.ForgeEventFactory.onEnchantmentLevelSet(p_217002_2_, p_217002_3_, i1, (int)power, itemstack, costs[i1]);
+                        this.costs[k] = net.minecraftforge.event.ForgeEventFactory.onEnchantmentLevelSet(p_39485_, p_39486_, k, (int)j, itemstack, costs[k]);
                     }
 
-                    for(int j1 = 0; j1 < 3; ++j1) {
-                        if (this.costs[j1] > 0) {
-                            List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, j1, this.costs[j1]);
+                    for(int l = 0; l < 3; ++l) {
+                        if (this.costs[l] > 0) {
+                            List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, l, this.costs[l]);
                             if (list != null && !list.isEmpty()) {
-                                EnchantmentInstance enchantmentdata = list.get(this.random.nextInt(list.size()));
-                                this.enchantClue[j1] = BuiltInRegistries.ENCHANTMENT.getId(enchantmentdata.enchantment);
-                                this.levelClue[j1] = enchantmentdata.level;
+                                EnchantmentInstance enchantmentinstance = list.get(this.random.nextInt(list.size()));
+                                this.enchantClue[l] = BuiltInRegistries.ENCHANTMENT.getId(enchantmentinstance.enchantment);
+                                this.levelClue[l] = enchantmentinstance.level;
                             }
                         }
                     }
@@ -148,110 +128,113 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
 
     }
 
-    public boolean clickMenuButton(Player p_75140_1_, int p_75140_2_) {
-        ItemStack itemstack = this.enchantSlots.getItem(0);
-        ItemStack itemstack1 = this.enchantSlots.getItem(1);
-        int i = p_75140_2_ + 1;
-        if ((itemstack1.isEmpty() || itemstack1.getCount() < i) && !p_75140_1_.abilities.instabuild) {
-            return false;
-        } else if (this.costs[p_75140_2_] <= 0 || itemstack.isEmpty() || (p_75140_1_.experienceLevel < i || p_75140_1_.experienceLevel < this.costs[p_75140_2_]) && !p_75140_1_.abilities.instabuild) {
-            return false;
-        } else {
-            this.access.execute((p_217003_6_, p_217003_7_) -> {
-                ItemStack itemstack2 = itemstack;
-                List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, p_75140_2_, this.costs[p_75140_2_]);
-                if (!list.isEmpty()) {
-                    p_75140_1_.onEnchantmentPerformed(itemstack, i);
-                    boolean flag = itemstack.getItem() == Items.BOOK;
-                    if (flag) {
-                        itemstack2 = new ItemStack(Items.ENCHANTED_BOOK);
-                        CompoundTag compoundnbt = itemstack.getTag();
-                        if (compoundnbt != null) {
-                            itemstack2.setTag(compoundnbt.copy());
-                        }
-
-                        this.enchantSlots.setItem(0, itemstack2);
-                    }
-
-                    for(int j = 0; j < list.size(); ++j) {
-                        EnchantmentInstance enchantmentdata = list.get(j);
+    public boolean clickMenuButton(Player p_39465_, int p_39466_) {
+        if (p_39466_ >= 0 && p_39466_ < this.costs.length) {
+            ItemStack itemstack = this.enchantSlots.getItem(0);
+            ItemStack itemstack1 = this.enchantSlots.getItem(1);
+            int i = p_39466_ + 1;
+            if ((itemstack1.isEmpty() || itemstack1.getCount() < i) && !p_39465_.getAbilities().instabuild) {
+                return false;
+            } else if (this.costs[p_39466_] <= 0 || itemstack.isEmpty() || (p_39465_.experienceLevel < i || p_39465_.experienceLevel < this.costs[p_39466_]) && !p_39465_.getAbilities().instabuild) {
+                return false;
+            } else {
+                this.access.execute((p_39481_, p_39482_) -> {
+                    ItemStack itemstack2 = itemstack;
+                    List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, p_39466_, this.costs[p_39466_]);
+                    if (!list.isEmpty()) {
+                        p_39465_.onEnchantmentPerformed(itemstack, i);
+                        boolean flag = itemstack.is(Items.BOOK);
                         if (flag) {
-                            EnchantedBookItem.addEnchantment(itemstack2, enchantmentdata);
-                        } else {
-                            itemstack2.enchant(enchantmentdata.enchantment, enchantmentdata.level);
+                            itemstack2 = new ItemStack(Items.ENCHANTED_BOOK);
+                            CompoundTag compoundtag = itemstack.getTag();
+                            if (compoundtag != null) {
+                                itemstack2.setTag(compoundtag.copy());
+                            }
+
+                            this.enchantSlots.setItem(0, itemstack2);
                         }
-                    }
 
-                    if (!p_75140_1_.abilities.instabuild) {
-                        itemstack1.shrink(i);
-                        if (itemstack1.isEmpty()) {
-                            this.enchantSlots.setItem(1, ItemStack.EMPTY);
+                        for(int j = 0; j < list.size(); ++j) {
+                            EnchantmentInstance enchantmentinstance = list.get(j);
+                            if (flag) {
+                                EnchantedBookItem.addEnchantment(itemstack2, enchantmentinstance);
+                            } else {
+                                itemstack2.enchant(enchantmentinstance.enchantment, enchantmentinstance.level);
+                            }
                         }
+
+                        if (!p_39465_.getAbilities().instabuild) {
+                            itemstack1.shrink(i);
+                            if (itemstack1.isEmpty()) {
+                                this.enchantSlots.setItem(1, ItemStack.EMPTY);
+                            }
+                        }
+
+                        p_39465_.awardStat(Stats.ENCHANT_ITEM);
+                        if (p_39465_ instanceof ServerPlayer) {
+                            CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)p_39465_, itemstack2, i);
+                        }
+
+                        this.enchantSlots.setChanged();
+                        this.enchantmentSeed.set(p_39465_.getEnchantmentSeed());
+                        this.slotsChanged(this.enchantSlots);
+                        p_39481_.playSound((Player)null, p_39482_, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, p_39481_.random.nextFloat() * 0.1F + 0.9F);
                     }
 
-                    p_75140_1_.awardStat(Stats.ENCHANT_ITEM);
-                    if (p_75140_1_ instanceof ServerPlayer) {
-                        CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)p_75140_1_, itemstack2, i);
-                    }
-
-                    this.enchantSlots.setChanged();
-                    this.enchantmentSeed.set(p_75140_1_.getEnchantmentSeed());
-                    this.slotsChanged(this.enchantSlots);
-                    p_217003_6_.playSound((Player)null, p_217003_7_, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, p_217003_6_.random.nextFloat() * 0.1F + 0.9F);
-                }
-
-            });
-            return true;
+                });
+                return true;
+            }
+        } else {
+            Util.logAndPauseIfInIde(p_39465_.getName() + " pressed invalid button id: " + p_39466_);
+            return false;
         }
     }
 
-    private List<EnchantmentInstance> getEnchantmentList(ItemStack p_178148_1_, int p_178148_2_, int p_178148_3_) {
-        this.random.setSeed((long)(this.enchantmentSeed.get() + p_178148_2_));
-        List<EnchantmentInstance> list = EnchantmentHelper.selectEnchantment(this.random, p_178148_1_, p_178148_3_, false);
-        if (p_178148_1_.getItem() == Items.BOOK && list.size() > 1) {
+    private List<EnchantmentInstance> getEnchantmentList(ItemStack p_39472_, int p_39473_, int p_39474_) {
+        this.random.setSeed((long)(this.enchantmentSeed.get() + p_39473_));
+        List<EnchantmentInstance> list = EnchantmentHelper.selectEnchantment(this.random, p_39472_, p_39474_, false);
+        if (p_39472_.is(Items.BOOK) && list.size() > 1) {
             list.remove(this.random.nextInt(list.size()));
         }
 
         return list;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public int getGoldCount() {
         ItemStack itemstack = this.enchantSlots.getItem(1);
         return itemstack.isEmpty() ? 0 : itemstack.getCount();
     }
 
-    @OnlyIn(Dist.CLIENT)
     public int getEnchantmentSeed() {
         return this.enchantmentSeed.get();
     }
 
-    public void removed(Player player) {
-        super.removed(player);
+    public void removed(Player p_39488_) {
+        super.removed(p_39488_);
         this.access.execute((p_39469_, p_39470_) -> {
-            this.clearContainer(player, this.enchantSlots);
+            this.clearContainer(p_39488_, this.enchantSlots);
         });
     }
 
-    public boolean stillValid(Player p_75145_1_) {
-        return stillValid(this.access, p_75145_1_, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "altar_of_corruption")));
+    public boolean stillValid(Player p_39463_) {
+        return stillValid(this.access, p_39463_, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "altar_of_corruption")));
     }
 
-    public ItemStack quickMoveStack(Player player, int slotId) {
+    public ItemStack quickMoveStack(Player p_39490_, int p_39491_) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(slotId);
+        Slot slot = this.slots.get(p_39491_);
         if (slot != null && slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
-            if (slotId == 0) {
+            if (p_39491_ == 0) {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (slotId == 1) {
+            } else if (p_39491_ == 1) {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (itemstack1.is(Tags.Items.GEMS)) {
+            } else if (itemstack1.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS)) {
                 if (!this.moveItemStackTo(itemstack1, 1, 2, true)) {
                     return ItemStack.EMPTY;
                 }
@@ -260,14 +243,13 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
                     return ItemStack.EMPTY;
                 }
 
-                ItemStack itemstack2 = itemstack1.copy();
-                itemstack2.setCount(1);
+                ItemStack itemstack2 = itemstack1.copyWithCount(1);
                 itemstack1.shrink(1);
-                this.slots.get(0).set(itemstack2);
+                this.slots.get(0).setByPlayer(itemstack2);
             }
 
             if (itemstack1.isEmpty()) {
-                slot.set(ItemStack.EMPTY);
+                slot.setByPlayer(ItemStack.EMPTY);
             } else {
                 slot.setChanged();
             }
@@ -276,7 +258,7 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
 
-            slot.onTake(player, itemstack1);
+            slot.onTake(p_39490_, itemstack1);
         }
 
         return itemstack;
