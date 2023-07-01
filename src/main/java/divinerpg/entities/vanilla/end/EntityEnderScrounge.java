@@ -36,7 +36,6 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
 
     public EntityEnderScrounge(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        this.maxUpStep = 0.75F;
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
     protected void registerGoals() {
@@ -48,6 +47,11 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Endermite.class, true, false));
         this.targetSelector.addGoal(4, new ResetUniversalAngerTargetGoal<>(this, false));
+    }
+
+    @Override
+    public float maxUpStep() {
+        return 0.75F;
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
