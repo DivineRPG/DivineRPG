@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left",
-  "render_type": "cutout",
+  "render_type": "translucent",
   "textures": {
     "bottom": "divinerpg:block/mortum_door_bottom",
     "top": "divinerpg:block/mortum_door_top"
