@@ -2,6 +2,7 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.effect.mob.armor.*;
+import divinerpg.enums.ArmorStats;
 import divinerpg.items.base.ItemDivineArmor;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DamageSources;
@@ -11,6 +12,7 @@ import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,43 +21,45 @@ import java.util.ArrayList;
 
 public class ArmorAbilitiesEvent {
 	@SubscribeEvent
+	public void onJoinWorld(EntityJoinLevelEvent event) {
+		if(event.getEntity() instanceof LivingEntity entity) updateAbilities(entity, true);
+	}
+	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
 		LivingEntity entity = event.getEntity();
-		if(event.getSlot().isArmor()) updateAbilities(entity);
+		if(event.getSlot().isArmor()) updateAbilities(entity, false);
 		else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
 	}
-	public static void updateAbilities(LivingEntity entity) {
-		ItemStack stack[] = new ItemStack[] {entity.getItemBySlot(EquipmentSlot.HEAD), entity.getItemBySlot(EquipmentSlot.CHEST), entity.getItemBySlot(EquipmentSlot.LEGS), entity.getItemBySlot(EquipmentSlot.FEET)};
-		ItemStack helmetStack = stack[0];
-		if(helmetStack != null && helmetStack.getItem() instanceof ItemDivineArmor helmet) {
-			ArrayList<MobEffect> supportedEffects = new ArrayList<>();
-			MobEffect helmetEffects[] = helmet.supportedEffects;
-			if(helmetEffects != null) for(MobEffect e : helmetEffects) supportedEffects.add(e);
-			ArmorMaterial material = helmet.getMaterial();
-			boolean fullArmor = true;
-			for(int i = 1; fullArmor && i < 4; i++) {
-				ItemStack s = stack[i];
-				if(s != null && s.getItem() instanceof ItemDivineArmor armor && armor.getMaterial() == material) {
-					MobEffect effects[] = armor.supportedEffects;
-					if(effects != null) for(MobEffect e : effects) supportedEffects.add(e);
-				} else fullArmor = false;
+	public static void updateAbilities(LivingEntity entity, boolean durationCheck) {
+		ArrayList<MobEffect> effectRemoval = new ArrayList<>();
+		if(entity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ItemDivineArmor helmet && helmet.supportedEffects != null) {
+			MobEffect effects[] = helmet.supportedEffects;
+			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance || (durationCheck && instance.isInfiniteDuration())) { //remove all armor effects that do not match the helmet
+				MobEffect effect = instance.getEffect();
+				boolean dump = true;
+				for(MobEffect supportedEffect : effects) if(effect == supportedEffect) dump = false;
+				if(dump) effectRemoval.add(effect);
 			}
-			if(fullArmor) {
-				for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) {
-					MobEffect effect = instance.getEffect();
-					if(!supportedEffects.contains(effect)) entity.removeEffect(effect);
-				}
-				for(int i = 0; i < supportedEffects.size(); i++) {
-					MobEffect effect = supportedEffects.get(i);
-					if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) {
-						entity.addEffect(new ArmorEffectInstance(effect, helmet.amplifier == null ? 0 : helmet.amplifier[i]));
-					} else if (effect instanceof UpdatableArmorEffect update) update.update(entity);
-				}
-				return;
-			}
-		}
-		for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) entity.removeEffect(instance.getEffect());
+			if(isWearingFullArmor(entity, (ArmorStats) helmet.getMaterial())) { //add missing effects if full armor set is equipped, otherwise remove them
+    			for(int i = 0; i < effects.length; i++) {
+    				MobEffect effect = effects[i];
+    				if(!entity.hasEffect(effect) || !entity.getEffect(effect).isInfiniteDuration()) entity.addEffect(new ArmorEffectInstance(effect, helmet.amplifier == null ? 0 : helmet.amplifier[i]));
+        			else if(effect instanceof UpdatableArmorEffect update) update.update(entity);
+    			}
+    		} else for(MobEffect effect : effects) entity.removeEffect(effect);
+		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance || (durationCheck && instance.isInfiniteDuration())) effectRemoval.add(instance.getEffect());  //remove all armor effects
+		for(MobEffect effect : effectRemoval) entity.removeEffect(effect);
 	}
+    private static boolean isWearingFullArmor(LivingEntity entity, ArmorStats type) {
+    	boolean b = true;
+    	Item pieces[] = new Item[] {
+    			entity.getItemBySlot(EquipmentSlot.FEET).getItem(),
+    			entity.getItemBySlot(EquipmentSlot.LEGS).getItem(),
+    			entity.getItemBySlot(EquipmentSlot.CHEST).getItem()
+    	};
+    	for(int i = 0; b && i < 3; i++) if(!(pieces[i] instanceof ItemDivineArmor armor && armor.getMaterial() == type)) b = false;
+    	return b;
+    }
     public static Item getArmorItem(String armorName, String slotName) {
         String fullArmorName = armorName + "_" + slotName;
         Item armorItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, fullArmorName));
