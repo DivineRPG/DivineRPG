@@ -2,6 +2,7 @@ package divinerpg.entities.base;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
@@ -87,5 +88,14 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     public boolean doHurtTarget(Entity entity) {
         if(angerLevel > 0) return super.doHurtTarget(entity);
         return false;
+    }
+
+    @Override
+    public void checkDespawn() {
+        if (!isPersistenceRequired() && level().getDifficulty() == Difficulty.PEACEFUL && shouldDespawnInPeaceful() && tickCount >= 6000) {
+            remove(RemovalReason.DISCARDED);
+        } else {
+            super.checkDespawn();
+        }
     }
 }
