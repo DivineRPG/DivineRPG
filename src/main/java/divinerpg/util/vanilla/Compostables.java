@@ -113,9 +113,7 @@ public class Compostables {
     }
 
     public static void add(float quantity, String itemId) {
-        DivineRPG.LOGGER.info("tried to add " + itemId);
         Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, itemId));
-        DivineRPG.LOGGER.info("id: " + itemId + ". descriptionID: " + item.getDescriptionId());
         ComposterBlock.add(quantity, item);
     }
 }
