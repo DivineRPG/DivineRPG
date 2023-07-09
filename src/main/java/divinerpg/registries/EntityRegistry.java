@@ -152,7 +152,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityHusk>>				 HUSK 				= registerEntity(EntityHusk::new, 				"husk", 				0.8F, 1.5F);
     public static final RegistryObject<EntityType<EntityJackOMan>>			 JACK_O_MAN 		= registerEntity(EntityJackOMan::new, 			"jack_o_man", 			0.8F, 2.0F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		= registerEntity(EntityJungleBat::new, 			"jungle_bat", 			0.7F, 1.0F, 0x325a24, 0x1b3008);
-    public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.0625F, 0x2d442c, 0x3d513b);
+    public static final RegistryObject<EntityType<EntityJungleDramcryx>>	 JUNGLE_DRAMCRYX 	= registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1.0F, 1.4375F, 0x2d442c, 0x3d513b);
     public static final RegistryObject<EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		= registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		1.4F, 0.9F, 0x1a6706, 0x35a216);
     public static final RegistryObject<EntityType<EntityKingCrab>>			 KING_CRAB 			= registerEntity(EntityKingCrab::new, 			"king_crab", 			1.8F, 1.78125F, 0x771f2a, 0x272322);
     public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			= registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x6eae44);
@@ -174,7 +174,7 @@ public class EntityRegistry {
 
     //Nether
     public static final RegistryObject<EntityType<EntityHellBat>>	 HELL_BAT 	= registerEntity(EntityHellBat::new, 	"hell_bat", 	0.7F, 1.0F, 0x430c0c, 0x854343);
-    public static final RegistryObject<EntityType<EntityHellPig>>	 HELL_PIG 	= registerEntity(EntityHellPig::new, 	"hell_pig", 	1.0F, 0.9F, 0xd64942, 0x91231b);
+    public static final RegistryObject<EntityType<EntityHellPig>>	 HELL_PIG 	= registerEntity(EntityHellPig::new, 	"hell_pig", 	0.9F, 1.15625F, 0xd64942, 0x91231b);
     public static final RegistryObject<EntityType<EntityHellSpider>> HELL_SPIDER= registerEntity(EntityHellSpider::new, "hell_spider",  1.4F, 0.9F, 0xb01916, 0x720b07);
     public static final RegistryObject<EntityType<EntityScorcher>>	 SCORCHER 	= registerEntity(EntityScorcher::new, 	"scorcher", 	1.2F, 1.5F, 0x8c00f3, 0x1c007a);
     public static final RegistryObject<EntityType<EntityWildfire>>	 WILDFIRE 	= registerEntity(EntityWildfire::new, 	"wildfire", 	0.8F, 2.2F, 0xaa0b01, 0x9c6d11);
@@ -196,7 +196,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityHastreus>>		  HASTREUS 		  	= registerEntity(EntityHastreus::new, 		 "hastreus",		 1.4F, 2.375F, 0x136bd1, 0x418bea);
     public static final RegistryObject<EntityType<EntityRollum>>		  ROLLUM 			= registerEntity(EntityRollum::new, 		 "rollum",			 1.2F, 2.0F, 0x0504b7, 0x0d003d);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>WORKSHOP_MERCHANT = registerEntity(EntityWorkshopMerchant::new,"workshop_merchant",1.0F, 2.0F, 0xb81503, 0x321100, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>WORKSHOP_TINKERER = registerEntity(EntityWorkshopTinkerer::new,"workshop_tinkerer",1.0F, 2.0F, 0x003859, 0x087aa6, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>WORKSHOP_TINKERER = registerEntity(EntityWorkshopTinkerer::new,"workshop_tinkerer",1.0F, 1.8125F, 0x003859, 0x087aa6, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntitySeng>>            SENG              = registerEntity(EntitySeng::new,"seng",0.7F, 1.0F, 0x6091152, 0x000000);
     public static final RegistryObject<EntityType<EntitySabear>>          SABEAR            = registerEntity(EntitySabear::new,"sabear", 1.3F, 1.4375F, 0x5C4312, 0x74510D);
     public static final RegistryObject<EntityType<EntityWolpertinger>>    WOLPERTINGER      = registerEntity(EntityWolpertinger::new,"wolpertinger", 0.6F, 0.875F, 0x4a321f, 0xc9b6a7);
@@ -552,12 +552,13 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
         event.registerLayerDefinition(ModelCrab.LAYER_LOCATION,				 ModelCrab::createBodyLayer);
         event.registerLayerDefinition(ModelDesertCrawler.LAYER_LOCATION,	 ModelDesertCrawler::createBodyLayer);
-        event.registerLayerDefinition(ModelDramcryx.LAYER_LOCATION,			 ModelDramcryx::createBodyLayer);
+        event.registerLayerDefinition(ModelEnthralledDramcryx.LAYER_LOCATION,ModelEnthralledDramcryx::createBodyLayer);
         event.registerLayerDefinition(ModelEhu.LAYER_LOCATION,				 ModelEhu::createBodyLayer);
         event.registerLayerDefinition(ModelFrost.LAYER_LOCATION,			 ModelFrost::createBodyLayer);
         event.registerLayerDefinition(ModelGlacon.LAYER_LOCATION,			 ModelGlacon::createBodyLayer);
         event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
         event.registerLayerDefinition(ModelHusk.LAYER_LOCATION,				 ModelHusk::createBodyLayer);
+        event.registerLayerDefinition(ModelJungleDramcryx.LAYER_LOCATION,    ModelJungleDramcryx::createBodyLayer);
         event.registerLayerDefinition(ModelJungleSpider.LAYER_LOCATION,		 ModelJungleSpider::createBodyLayer);
         event.registerLayerDefinition(ModelKingCrab.LAYER_LOCATION,			 ModelKingCrab::createBodyLayer);
         event.registerLayerDefinition(ModelKobblin.LAYER_LOCATION,			 ModelKobblin::createBodyLayer);
@@ -577,6 +578,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelWhale.LAYER_LOCATION,			 ModelWhale::createBodyLayer);
 
         //Nether
+        event.registerLayerDefinition(ModelHellPig.LAYER_LOCATION,ModelHellPig::createBodyLayer);
         event.registerLayerDefinition(ModelHellSpider.LAYER_LOCATION,ModelHellSpider::createBodyLayer);
         event.registerLayerDefinition(ModelScorcher.LAYER_LOCATION,  ModelScorcher::createBodyLayer);
         event.registerLayerDefinition(ModelWildfire.LAYER_LOCATION,  ModelWildfire::createBodyLayer);
@@ -596,6 +598,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelHastreus.LAYER_LOCATION, ModelHastreus::createBodyLayer);
         event.registerLayerDefinition(ModelRollum.LAYER_LOCATION, ModelRollum::createBodyLayer);
         event.registerLayerDefinition(ModelWorkshop.LAYER_LOCATION, ModelWorkshop::createBodyLayer);
+        event.registerLayerDefinition(ModelWorkshopTinkerer.LAYER_LOCATION, ModelWorkshopTinkerer::createBodyLayer);
         event.registerLayerDefinition(ModelSeng.LAYER_LOCATION, ModelSeng::createBodyLayer);
         event.registerLayerDefinition(ModelSabear.LAYER_LOCATION, ModelSabear::createBodyLayer);
         event.registerLayerDefinition(ModelWolpertinger.LAYER_LOCATION, ModelWolpertinger::createBodyLayer);
@@ -793,13 +796,13 @@ public class EntityRegistry {
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), 0.6F));
         event.registerEntityRenderer(DIAMOND_DAVE.get(),     (Context context) -> new RenderDivineMob<>(context, "diamond_dave", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.4F));
         event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderDivineMob<>(context, "ehu", new ModelEhu(context)));
-        event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelDramcryx<>(context), 0.5F, 2F));
+        event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx<>(context), 0.9F, 1.2F));
         event.registerEntityRenderer(FROST.get(),			 (Context context) -> new RenderDivineMob<>(context, "frost", new ModelFrost(context), 0.6F));
         event.registerEntityRenderer(GLACON.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacon", new ModelGlacon(context), 0.8F));
         event.registerEntityRenderer(HUSK.get(),			 (Context context) -> new RenderDivineMob<>(context, "husk", new ModelHusk(context), 0.4F));
         event.registerEntityRenderer(JACK_O_MAN.get(),		 RenderJackOMan::new);
         event.registerEntityRenderer(JUNGLE_BAT.get(),		 (Context context) -> new RenderDivineBat<>(context, "jungle_bat", 0.2F));
-        event.registerEntityRenderer(JUNGLE_DRAMCRYX.get(),	 (Context context) -> new RenderDivineMob<>(context, "jungle_dramcryx", new ModelDramcryx<>(context), 0.5F, 1.2F));
+        event.registerEntityRenderer(JUNGLE_DRAMCRYX.get(),	 (Context context) -> new RenderDivineMob<>(context, "jungle_dramcryx", new ModelJungleDramcryx<>(context), 0.64F, 1.5F));
         event.registerEntityRenderer(JUNGLE_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "jungle_spider", new ModelJungleSpider(context), 0.8F));
         event.registerEntityRenderer(KING_CRAB.get(),		 (Context context) -> new RenderDivineMob<>(context, "king_crab", new ModelKingCrab(context), 0.5F, 1.5F));
         event.registerEntityRenderer(KOBBLIN.get(),			 RenderKobblin::new);
@@ -843,7 +846,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus<>(context)));
         event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context), 0.8F));
         event.registerEntityRenderer(WORKSHOP_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_merchant",  new ModelWorkshop<>(context)));
-        event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshop<>(context)));
+        event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshopTinkerer<>(context), 0.6F));
         event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.3F));
         event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear<>(context), 0.8F));
         event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger<>(context), 0.6F));
