@@ -21,12 +21,6 @@ public class EntityHellPig extends EntityDivineTameable {
     private static final EntityDataAccessor<Boolean> ANGRY = SynchedEntityData.defineId(EntityHellPig.class,
             EntityDataSerializers.BOOLEAN);
 
-    protected EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn);
-        setHealth(getMaxHealth());
-        this.setTame(false);
-    }
-
     public EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn);
         setHealth(getMaxHealth());
@@ -39,8 +33,9 @@ public class EntityHellPig extends EntityDivineTameable {
     }
 
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8F;
+        return 0.99375F;
     }
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
