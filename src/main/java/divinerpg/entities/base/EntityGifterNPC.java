@@ -1,6 +1,7 @@
 package divinerpg.entities.base;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class EntityGifterNPC extends PathfinderMob {
 
@@ -25,7 +27,8 @@ public abstract class EntityGifterNPC extends PathfinderMob {
     }
     @Override
     public boolean checkSpawnRules(LevelAccessor p_21686_, MobSpawnType p_21687_) {
-    	return true;
+        return super.checkSpawnRules(p_21686_, p_21687_) &&
+                !p_21686_.getBiome(this.blockPosition()).is(Objects.requireNonNull(ResourceLocation.tryParse("minecraft:mushroom_fields")));
     }
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
