@@ -30,8 +30,8 @@ public class EntityDissiment extends EntityDivineFlyingMob implements RangedAtta
     }
 
     @Override
-    public boolean checkSpawnRules(LevelAccessor world, MobSpawnType spawnReason) {
-        return this.getY() < 48.0D * spawnLayer && this.getY() > 48.0D * (spawnLayer - 1) && super.checkSpawnRules(world, spawnReason);
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
+        return this.getY() < 48.0D * spawnLayer && this.getY() > 48.0D * (spawnLayer - 1) && super.checkSpawnRules(level, type);
     }
 
     @Override
