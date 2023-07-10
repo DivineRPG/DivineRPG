@@ -294,7 +294,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> winterberryBush = registerBlock("winterberry_bush", () -> new BlockWinterberryBush());
 
     // Other
-    public static final RegistryObject<Block> iceikaFire = registerBlock("iceika_fire", () -> new BlockModFire());
+    public static final RegistryObject<Block>
+    		iceikaFire = registerBlock("iceika_fire", () -> new BlockModFire()),
+    		frozenLadder = registerBlock("frozen_ladder", () -> new BlockModLadder());
 
     // Twilight dimensions
 

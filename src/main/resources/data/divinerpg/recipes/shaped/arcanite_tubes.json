@@ -3,9 +3,9 @@
     "item": "divinerpg:arcanite_tubes"
   },
   "pattern": [
-    "iii",
-    "iii",
-    "iii"
+    "i i",
+    "i i",
+    "i i"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {

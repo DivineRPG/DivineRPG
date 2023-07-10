@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_ladder",
+    "count": 6
+  },
+  "pattern": [
+    "i i",
+    "iwi",
+    "i i"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "i": {
+      "tag": "forge:rods"
+    },
+    "w": {
+      "item": "divinerpg:frozen_planks"
+    }
+  }
+}

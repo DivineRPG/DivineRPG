@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_ladder"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:ladder"
+    },
+    {
+      "item": "divinerpg:ice_stone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building"
+}
