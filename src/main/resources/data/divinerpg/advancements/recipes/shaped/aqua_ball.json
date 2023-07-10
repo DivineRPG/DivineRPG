@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_aqua_ball",
+      "has_slime_ball",
       "has_kraken_skin",
       "has_the_recipe"
     ]

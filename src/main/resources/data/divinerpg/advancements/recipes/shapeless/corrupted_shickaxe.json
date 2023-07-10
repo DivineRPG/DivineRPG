@@ -54,6 +54,7 @@
         "recipe": "divinerpg:shapeless/corrupted_shickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
+      }
     },
   "requirements": [
     [

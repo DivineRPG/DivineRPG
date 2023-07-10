@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
               "tag": "minecraft:stone_bricks"
-            ]
           }
         ]
       },

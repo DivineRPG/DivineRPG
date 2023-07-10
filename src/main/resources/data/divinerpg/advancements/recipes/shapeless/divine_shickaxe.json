@@ -54,6 +54,7 @@
         "recipe": "divinerpg:shapeless/divine_shickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
+      }
     },
   "requirements": [
     [

@@ -54,6 +54,7 @@
         "recipe": "divinerpg:shapeless/terran_shickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
+      }
     },
   "requirements": [
     [

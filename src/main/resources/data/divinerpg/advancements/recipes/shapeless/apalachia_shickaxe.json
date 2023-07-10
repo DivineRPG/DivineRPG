@@ -54,6 +54,7 @@
         "recipe": "divinerpg:shapeless/apalachia_shickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
+      }
     },
   "requirements": [
     [

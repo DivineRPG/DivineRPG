@@ -3,29 +3,46 @@ package divinerpg.blocks.arcana;
 import divinerpg.DivineRPG;
 import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcaniteVinesHead extends WeepingVinesBlock {
-	protected static final VoxelShape SHAPE = Block.box(1., 5., 1., 15., 16., 15.);
-	public BlockArcaniteVinesHead(Properties properties) {super(properties);}
-	@Override protected Block getBodyBlock() {return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_vines_body"));}
-	@Override protected boolean canGrowInto(BlockState state) {return state.isAir();}
-	@Override
+	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
+
+	public BlockArcaniteVinesHead(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    protected Block getBodyBlock() {
+        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_vines_body"));
+    }
+
+    @Override
+    protected boolean canGrowInto(BlockState state) {
+        return state.isAir();
+    }
+
+    @Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		return SHAPE;
 	}
 
-        @Override
-        public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-            return 60;
-        }
+    @Override
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
+        return false;
+    }
 
-        @Override
-        public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-            return 15;
+    @Override
+    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 60;
+    }
+
+    @Override
+    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
+        return 15;
     }
 }

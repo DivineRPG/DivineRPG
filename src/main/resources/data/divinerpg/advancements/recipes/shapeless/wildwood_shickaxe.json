@@ -54,6 +54,7 @@
         "recipe": "divinerpg:shapeless/wildwood_shickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
+      }
     },
   "requirements": [
     [
