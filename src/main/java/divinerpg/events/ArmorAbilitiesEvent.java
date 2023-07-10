@@ -22,19 +22,22 @@ import java.util.ArrayList;
 public class ArmorAbilitiesEvent {
 	@SubscribeEvent
 	public void onJoinWorld(EntityJoinLevelEvent event) {
-		if(event.getEntity() instanceof LivingEntity entity) updateAbilities(entity, true);
+		if(event.getEntity() instanceof LivingEntity entity) {
+			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.isInfiniteDuration()) entity.removeEffect(instance.getEffect());
+			updateAbilities(entity);
+		}
 	}
 	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
 		LivingEntity entity = event.getEntity();
-		if(event.getSlot().isArmor()) updateAbilities(entity, false);
+		if(event.getSlot().isArmor()) updateAbilities(entity);
 		else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
 	}
-	public static void updateAbilities(LivingEntity entity, boolean durationCheck) {
+	public static void updateAbilities(LivingEntity entity) {
 		ArrayList<MobEffect> effectRemoval = new ArrayList<>();
 		if(entity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ItemDivineArmor helmet && helmet.supportedEffects != null) {
 			MobEffect effects[] = helmet.supportedEffects;
-			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance || (durationCheck && instance.isInfiniteDuration())) { //remove all armor effects that do not match the helmet
+			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) { //remove all armor effects that do not match the helmet
 				MobEffect effect = instance.getEffect();
 				boolean dump = true;
 				for(MobEffect supportedEffect : effects) if(effect == supportedEffect) dump = false;
@@ -47,7 +50,7 @@ public class ArmorAbilitiesEvent {
         			else if(effect instanceof UpdatableArmorEffect update) update.update(entity);
     			}
     		} else for(MobEffect effect : effects) entity.removeEffect(effect);
-		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance || (durationCheck && instance.isInfiniteDuration())) effectRemoval.add(instance.getEffect());  //remove all armor effects
+		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance instanceof ArmorEffectInstance) effectRemoval.add(instance.getEffect());  //remove all armor effects
 		for(MobEffect effect : effectRemoval) entity.removeEffect(effect);
 	}
     private static boolean isWearingFullArmor(LivingEntity entity, ArmorStats type) {

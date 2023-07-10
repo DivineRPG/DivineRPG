@@ -27,7 +27,7 @@ public class VetheaInventorySwapEvent {
                 playerIn.inventoryMenu.broadcastChanges();
                 persistentData.getList(MODID_SEPERATOR + playerIn.getStringUUID() + "_" + OVERWORLD_INVENTORY, 10).clear();
             }
-        	ArmorAbilitiesEvent.updateAbilities(playerIn, true);
+        	ArmorAbilitiesEvent.updateAbilities(playerIn);
         }
     }
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -54,7 +54,7 @@ public class VetheaInventorySwapEvent {
 	            persistentData.getList(MODID_SEPERATOR + playerIn.getStringUUID() + "_" + VETHEA_INVENTORY, 10).clear();
 	            playerIn.removeAllEffects();
 	        }
-	        ArmorAbilitiesEvent.updateAbilities(playerIn, true);
+	        ArmorAbilitiesEvent.updateAbilities(playerIn);
         }
     }
 }
