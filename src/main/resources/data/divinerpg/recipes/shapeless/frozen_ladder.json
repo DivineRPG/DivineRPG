@@ -11,5 +11,5 @@
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "category": "building"
+  "group": "frozen_ladder"
 }

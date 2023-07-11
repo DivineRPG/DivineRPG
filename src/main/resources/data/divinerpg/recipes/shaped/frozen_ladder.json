@@ -9,9 +9,10 @@
     "i i"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "frozen_ladder",
   "key": {
     "i": {
-      "tag": "forge:rods"
+      "item": "minecraft:stick"
     },
     "w": {
       "item": "divinerpg:frozen_planks"
