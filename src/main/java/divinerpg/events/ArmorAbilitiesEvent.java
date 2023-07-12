@@ -11,8 +11,7 @@ import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,13 +19,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.ArrayList;
 
 public class ArmorAbilitiesEvent {
-	@SubscribeEvent
-	public void onJoinWorld(EntityJoinLevelEvent event) {
-		if(event.getEntity() instanceof LivingEntity entity) {
-			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.isInfiniteDuration()) entity.removeEffect(instance.getEffect());
-			updateAbilities(entity);
-		}
-	}
+//	@SubscribeEvent
+//	public void onJoinWorld(EntityJoinLevelEvent event) {
+//		if(event.getEntity() instanceof LivingEntity entity) {
+//			for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.isInfiniteDuration()) entity.removeEffect(instance.getEffect());
+//			updateAbilities(entity);
+//		}
+//	}
 	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
 		LivingEntity entity = event.getEntity();

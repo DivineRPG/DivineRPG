@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:hill",
+    "divinerpg:moonlight_rave",
     "divinerpg:island",
-    "divinerpg:eden",
+    "divinerpg:grazing",
     "divinerpg:monster",
-    "divinerpg:cave",
+    "divinerpg:levels",
     "divinerpg:pink_elephant"
   ]
 }
