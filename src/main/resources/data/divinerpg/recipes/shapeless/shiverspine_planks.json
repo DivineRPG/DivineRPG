@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:shiverspine_planks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "tag": "forge:wood/shiverspine"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "divinerpg_planks"
+}

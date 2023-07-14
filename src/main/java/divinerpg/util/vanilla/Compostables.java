@@ -23,7 +23,7 @@ public class Compostables {
         add(0.3F, "skythern_sapling");
         add(0.3F, "mortum_sapling");
         add(0.3F, "brittle_grass");
-        add(0.3F, "frozen_sapling");
+        add(0.3F, "shiverspine_sapling");
         add(0.3F, "divine_sapling");
         add(0.3F, "aquamarine_seeds");
         add(0.3F, "eucalyptus_root_seeds");

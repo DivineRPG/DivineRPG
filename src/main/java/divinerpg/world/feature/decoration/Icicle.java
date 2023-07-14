@@ -63,7 +63,7 @@ public class Icicle extends Feature<PointedDripstoneConfiguration> {
    protected static boolean placePackedIceIfPossible(LevelAccessor p_190854_, BlockPos p_190855_) {
 	      BlockState blockstate = p_190854_.getBlockState(p_190855_);
 	      if (isIcicleBase(blockstate)) {
-	         if(!(blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves"))) || blockstate.is(Blocks.ICE) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_log"))))) p_190854_.setBlock(p_190855_, Blocks.PACKED_ICE.defaultBlockState(), 2);
+	         if(!(blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves"))) || blockstate.is(Blocks.ICE) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log"))))) p_190854_.setBlock(p_190855_, Blocks.PACKED_ICE.defaultBlockState(), 2);
 	         return true;
 	      } else return false;
 	}
@@ -78,7 +78,7 @@ public class Icicle extends Feature<PointedDripstoneConfiguration> {
 		}
 	}
 	public static boolean isIcicleBase(BlockState blockstate) {
-	   return blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE) || blockstate.is(BlockTags.ICE) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves"))) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_log"))) || blockstate.is(Blocks.GRAVEL);
+	   return blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE) || blockstate.is(BlockTags.ICE) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves"))) || blockstate.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log"))) || blockstate.is(Blocks.GRAVEL);
 	}
 	protected static void buildBaseToTipColumn(Direction p_159652_, int p_159653_, boolean p_159654_, Consumer<BlockState> p_159655_) {
 	      if (p_159653_ >= 3) {

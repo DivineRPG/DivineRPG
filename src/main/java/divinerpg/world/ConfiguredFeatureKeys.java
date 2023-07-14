@@ -40,8 +40,8 @@ public final class ConfiguredFeatureKeys {
 			MORTUM_BUSH = registerKey("mortum_bush");
 
 	//Iceika
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FROZEN_TREE = registerKey("frozen_tree"),
-			FROZEN_BUSH = registerKey("frozen_bush"),
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
+			SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
 			GEOTHERMAL_POND = registerKey("geothermal_pond"),
 			GLACIAL_POND = registerKey("glacial_pond"),
 			BRITTLE_POND = registerKey("brittle_pond"),
@@ -87,8 +87,8 @@ public final class ConfiguredFeatureKeys {
 		register(context, MORTUM_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 
 		//Iceika
-		register(context, FROZEN_TREE, FeatureRegistry.FROZEN_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
-		register(context, FROZEN_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+		register(context, SHIVERSPINE_TREE, FeatureRegistry.SHIVERSPINE_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+		register(context, SHIVERSPINE_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, GEOTHERMAL_POND, FeatureRegistry.GEOTHERMAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, GLACIAL_POND, FeatureRegistry.GLACIAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, BRITTLE_POND, FeatureRegistry.BRITTLE_POND.get(), new RuleTestConfig(ImmutableList.of()));

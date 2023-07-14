@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "divinerpg:block/shiverspine_door_bottom",
+    "top": "divinerpg:block/shiverspine_door_top"
+  }
+}

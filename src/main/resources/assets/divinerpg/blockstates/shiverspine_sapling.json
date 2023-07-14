@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=1": {
+      "model": "divinerpg:block/shiverspine_sapling"
+    },
+    "stage=0": {
+      "model": "divinerpg:block/shiverspine_sapling"
+    }
+  }
+}

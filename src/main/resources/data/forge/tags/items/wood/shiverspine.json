@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:shiverspine_log",
+    "divinerpg:stripped_shiverspine_log",
+    "divinerpg:shiverspine_wood",
+    "divinerpg:stripped_shiverspine_wood"
+  ]
+}

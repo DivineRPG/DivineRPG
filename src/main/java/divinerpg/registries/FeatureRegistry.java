@@ -38,7 +38,7 @@ public class FeatureRegistry {
     	MORTUM_TREE = FEATURES.register("mortum_tree", () -> new MortumTree());
     
     //Iceika
-    public static final RegistryObject<Feature<TreeConfig>> FROZEN_TREE = FEATURES.register("frozen_tree", () -> new FrozenTree());
+    public static final RegistryObject<Feature<TreeConfig>> SHIVERSPINE_TREE = FEATURES.register("shiverspine_tree", () -> new ShiverspineTree());
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),

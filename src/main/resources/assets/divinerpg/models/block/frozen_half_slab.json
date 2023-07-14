@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "side": "divinerpg:block/frozen_planks",
-    "top": "divinerpg:block/frozen_planks",
-    "bottom": "divinerpg:block/frozen_planks"
-  }
-}
