@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_bottom",
-  "render_type": "cutout",
+  "render_type": "translucent",
   "textures": {
     "texture": "divinerpg:block/mortum_trapdoor"
   }

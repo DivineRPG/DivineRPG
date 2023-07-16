@@ -3,29 +3,26 @@ package divinerpg.items.twilight;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModPortal;
 import divinerpg.items.base.ItemMod;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import divinerpg.registries.LevelRegistry;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseFireBlock;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class ItemTwilightClock extends ItemMod {
-    private final Set<Block> possibleBlocks = new HashSet<Block>() {
-        private static final long serialVersionUID = 1L; {
+    private final Set<Block> possibleBlocks = new HashSet<>() {
+        private static final long serialVersionUID = 1L;
+        {
             add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock")));
             add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block")));
             add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block")));
@@ -59,35 +56,35 @@ public class ItemTwilightClock extends ItemMod {
         BlockModPortal portalBlock;
         for (Direction direction : Direction.Plane.VERTICAL) {
             BlockPos framePos = context.getClickedPos().relative(direction);
-            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock")).defaultBlockState()) {
+            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock")).defaultBlockState() && (worldIn.dimension().equals(LevelRegistry.EDEN) || worldIn.dimension().equals(Level.OVERWORLD))) {
                 portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"));
                 if (portalBlock.makePortal(context.getLevel(), framePos)) {
                     worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
                     return InteractionResult.SUCCESS;
                 }
             }
-            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block")).defaultBlockState()) {
+            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block")).defaultBlockState() && (worldIn.dimension().equals(LevelRegistry.WILDWOOD) || worldIn.dimension().equals(Level.OVERWORLD))) {
                 portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"));
                 if (portalBlock.makePortal(context.getLevel(), framePos)) {
                     worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
                     return InteractionResult.SUCCESS;
                 }
             }
-            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block")).defaultBlockState()) {
+            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block")).defaultBlockState() && (worldIn.dimension().equals(LevelRegistry.APALACHIA) || worldIn.dimension().equals(Level.OVERWORLD))) {
                 portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"));
                 if (portalBlock.makePortal(context.getLevel(), framePos)) {
                     worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
                     return InteractionResult.SUCCESS;
                 }
             }
-            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_block")).defaultBlockState()) {
+            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_block")).defaultBlockState() && (worldIn.dimension().equals(LevelRegistry.SKYTHERN) || worldIn.dimension().equals(Level.OVERWORLD))) {
                 portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"));
                 if (portalBlock.makePortal(context.getLevel(), framePos)) {
                     worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
                     return InteractionResult.SUCCESS;
                 }
             }
-            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_block")).defaultBlockState()) {
+            if (worldIn.getBlockState(framePos.below()) == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_block")).defaultBlockState() && (worldIn.dimension().equals(LevelRegistry.MORTUM) || worldIn.dimension().equals(Level.OVERWORLD))) {
                 portalBlock = (BlockModPortal) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"));
                 if (portalBlock.makePortal(context.getLevel(), framePos)) {
                     worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, random.nextFloat() * 0.4F + 0.8F);
@@ -102,5 +99,4 @@ public class ItemTwilightClock extends ItemMod {
         }
         return InteractionResult.FAIL;
     }
-
 }
