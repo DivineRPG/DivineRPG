@@ -2348,16 +2348,18 @@
   "travelerstitles.biome.divinerpg.dune_valley": "沙丘谷地",
   "biome.divinerpg.dune_valley.color": "77bdd2",
 
-  "painting.divinerpg.island.title": "Island",
-  "painting.divinerpg.island.author": "Dall-E & Nicusha",
+  "painting.divinerpg.fall.title": "Fall",
+  "painting.divinerpg.fall.author": "Sir_Deccy",
   "painting.divinerpg.moonlight_rave.title": "Moonlight Rave",
   "painting.divinerpg.moonlight_rave.author": "Sir_Deccy",
   "painting.divinerpg.grazing.title": "Grazing",
   "painting.divinerpg.grazing.author": "Sir_Deccy",
-  "painting.divinerpg.monster.title": "Monster",
-  "painting.divinerpg.monster.author": "Dall-E & Nicusha",
+  "painting.divinerpg.crawling.title": "Monster",
+  "painting.divinerpg.crawling.author": "Sir_Deccy",
   "painting.divinerpg.levels.title": "Levels",
   "painting.divinerpg.levels.author": "Sir_Deccy",
-  "painting.divinerpg.pink_elephant.title": "Pink Elephant",
-  "painting.divinerpg.pink_elephant.author": "Dall-E & Nicusha"
+  "painting.divinerpg.ice_age.title": "Ice Age",
+  "painting.divinerpg.ice_age.author": "Sir_Deccy",
+  "painting.divinerpg.disturbed.title": "Disturbed",
+  "painting.divinerpg.disturbed.author": "Sir_Deccy"
 }
