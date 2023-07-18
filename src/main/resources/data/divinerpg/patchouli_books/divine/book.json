@@ -9,5 +9,6 @@
   "creative_tab": "divinerpg_utility",
   "show_progress": false,
   "show_toasts": false,
-  "i18n": true
+  "i18n": true,
+  "use_resource_pack": true
 }
