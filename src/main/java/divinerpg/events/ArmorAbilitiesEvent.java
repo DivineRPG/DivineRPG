@@ -23,7 +23,12 @@ public class ArmorAbilitiesEvent {
 	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
 		LivingEntity entity = event.getEntity();
-		if(event.getSlot().isArmor()) updateAbilities(entity);
+		EquipmentSlot slot = event.getSlot();
+		if(slot.isArmor()) {
+			ItemStack s = event.getFrom();//remove armor effects of the previous armor piece
+			if(s != null && s.getItem() instanceof ItemDivineArmor armor && armor.supportedEffects != null) for(MobEffect effect : armor.supportedEffects) entity.removeEffect(effect);
+			updateAbilities(entity);
+		}
 		else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
 	}
 	public static void updateAbilities(LivingEntity entity) {
