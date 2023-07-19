@@ -44,7 +44,8 @@ public class ItemShickaxe extends DiggerItem {
         this.tier = tier;
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @SuppressWarnings("deprecation")
+	@OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency(speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));

@@ -24,18 +24,24 @@ import net.minecraftforge.server.command.TextComponentHelper;
 import java.util.function.Supplier;
 
 public class ItemBossSpawner extends ItemMod {
-    private final Supplier<EntityType<?>>[] ents;
+    private final Supplier<EntityType<?>> ent;
     private final String langKey;
     private ResourceKey<Level> dimensionID;
-
-    public ItemBossSpawner(String langKey, ResourceKey<Level> dimensionID, Supplier<EntityType<?>>... ents) {
+    public ItemBossSpawner(String langKey, ResourceKey<Level> dimensionID, Supplier<EntityType<?>> ent) {
         super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
         this.dimensionID = dimensionID;
-        this.ents = ents;
+        this.ent = ent;
         this.langKey = langKey;
     }
 
-    @Override
+    public ItemBossSpawner(String key, ResourceKey<Level> dimension) {
+    	super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
+    	dimensionID = dimension;
+    	langKey = key;
+    	ent = null;
+	}
+
+	@Override
     public InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
         Direction direction = context.getClickedFace();
@@ -61,17 +67,13 @@ public class ItemBossSpawner extends ItemMod {
             player.displayClientMessage(Component.translatable("message.spawner.peaceful"), true);
             return InteractionResult.FAIL;
         } else {
-            for (Supplier<EntityType<?>> entType : ents) {
-                if (!world.isClientSide) {
-                    entType.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
-                }
-                if (!player.isCreative()) {
-                    player.getItemInHand(hand).shrink(1);
-                }
-                return InteractionResult.SUCCESS;
+        	if (!world.isClientSide && ent != null) {
+                ent.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
             }
+            if (!player.isCreative()) {
+                player.getItemInHand(hand).shrink(1);
+            }
+            return InteractionResult.SUCCESS;
         }
-
-        return InteractionResult.FAIL;
     }
 }

@@ -1,21 +1,16 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
 import divinerpg.effect.mob.armor.*;
 import divinerpg.items.base.ItemDivineArmor;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DamageSources;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 
@@ -60,15 +55,6 @@ public class ArmorAbilitiesEvent {
 			if(effect != null && effect.isInfiniteDuration()) entity.removeEffect(supportedEffect);
 		}
 	}
-    public static Item getArmorItem(String armorName, String slotName) {
-        String fullArmorName = armorName + "_" + slotName;
-        Item armorItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, fullArmorName));
-        if(armorItem == null) {
-            fullArmorName = armorName + "_helmet";
-            armorItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, fullArmorName));
-        } return armorItem;
-    }
-
     @SubscribeEvent
     public void onLivingHurtEvent(LivingDamageEvent event) {
     	LivingEntity target = event.getEntity();

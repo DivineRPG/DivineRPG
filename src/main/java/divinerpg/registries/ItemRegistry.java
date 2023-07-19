@@ -54,7 +54,7 @@ public class ItemRegistry {
     private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
     private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
     private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
-    private static ArmorInfo kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets"));
+//    private static ArmorInfo kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets"));
 
     // Iceika
     private static ArmorInfo sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),

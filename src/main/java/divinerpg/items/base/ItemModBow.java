@@ -98,7 +98,7 @@ public class ItemModBow extends BowItem {
 
     private boolean needsArrow(ItemStack stack) {
         if (ForgeRegistries.ITEMS.getValue(arrowSupplier) != Items.AIR) {
-            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0) {
+            if (stack.getEnchantmentLevel(Enchantments.INFINITY_ARROWS) > 0) {
                 return false; // bow has Infinity enchantment, no ammo needed
             } else {
                 return true; // bow doesn't have Infinity enchantment, ammo needed

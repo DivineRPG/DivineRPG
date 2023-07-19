@@ -23,7 +23,7 @@ public class ItemModPickaxe extends PickaxeItem {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if (getMaxDamage() == -1) {
+        if (stack.getMaxDamage() == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());
         }
     }
