@@ -49,9 +49,9 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 
 		PartDefinition BackLeftFoot = partdefinition.addOrReplaceChild("BackLeftFoot", CubeListBuilder.create().texOffs(42, 4).addBox(-1.5F, -0.5F, -8.5F, 3.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, 23.5F, 7.5F));
 
-		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(1.0F, -7.0F, -6.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(1.0F, 0.0F, -1.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 17.0F, -5.0F));
 
-		PartDefinition RightLeg = partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 21).addBox(-4.0F, -7.0F, -6.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition RightLeg = partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 21).addBox(-4.0F, 0.0F, -1.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 17.0F, -5.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
@@ -65,6 +65,8 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 		this.BackRightFoot.xRot = this.jumpRotation * 50.0F * ((float)Math.PI / 180F);
 		this.LeftLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
 		this.RightLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
+		//this.RightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		//this.LeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
 
 	}
 

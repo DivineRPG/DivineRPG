@@ -10,11 +10,11 @@ import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelRobin<T extends Entity> extends EntityModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = createLocation("robin");
+public class ModelRobbin<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("robbin");
 	private final ModelPart body, leftwing, rightwing, leftleg, rightleg;
 
-	public ModelRobin(EntityRendererProvider.Context context) {
+	public ModelRobbin(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.body = root.getChild("body");
 		this.leftwing = root.getChild("leftwing");
@@ -51,15 +51,15 @@ public class ModelRobin<T extends Entity> extends EntityModel<T> {
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 		if (!entity.onGround()) {
-			rightwing.zRot = ageInTicks;
-			leftwing.zRot = -ageInTicks;
-			rightleg.xRot = 0;
-			leftleg.xRot = -0;
+			this.rightwing.yRot = Mth.cos(ageInTicks * 74.48451F * ((float)Math.PI / 180F)) * (float)Math.PI * 0.25F;
+			this.leftwing.yRot = -this.rightwing.yRot;
+			this.rightleg.xRot = 0;
+			this.leftleg.xRot = 0;
 		} else {
-			rightwing.zRot = 0;
-			leftwing.zRot = -0;
-			rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-			leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+			this.rightwing.yRot = 0;
+			this.leftwing.yRot = 0;
+			this.rightleg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+			this.leftleg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 		}
 	}
 

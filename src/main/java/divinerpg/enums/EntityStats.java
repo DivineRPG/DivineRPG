@@ -87,7 +87,7 @@ public enum EntityStats {
     SABEAR(60, 12),
     GRUZZORLUG(60, 3, 20, 0.31),
     WOLPERTINGER(15, 2),
-    ROBIN(2, 0.5),
+    ROBBIN(2, 0.5),
     SENG(55, 4, 10, 0.33),
 
     //EDEN

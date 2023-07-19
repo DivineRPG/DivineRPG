@@ -200,7 +200,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySeng>>            SENG              = registerEntity(EntitySeng::new,"seng",0.7F, 1.0F, 0x6091152, 0x000000);
     public static final RegistryObject<EntityType<EntitySabear>>          SABEAR            = registerEntity(EntitySabear::new,"sabear", 1.3F, 1.4375F, 0x5C4312, 0x74510D);
     public static final RegistryObject<EntityType<EntityWolpertinger>>    WOLPERTINGER      = registerEntity(EntityWolpertinger::new,"wolpertinger", 0.6F, 0.875F, 0x4a321f, 0xc9b6a7);
-    public static final RegistryObject<EntityType<EntityRobin>>           ROBIN             = registerEntity(EntityRobin::new,"robin", 0.3F, 0.5625F, 0x63312e, 0x8c4541);
+    public static final RegistryObject<EntityType<EntityRobbin>>          ROBBIN             = registerEntity(EntityRobbin::new,"robbin", 0.3F, 0.5625F, 0x63312e, 0x8c4541);
 
     // Eden
     public static final RegistryObject<EntityType<EntityGlinthop>>      GLINTHOP        = registerEntity(EntityGlinthop::new, 			    "glinthop",		 0.5F, 0.75F, 0xd7d2cf, 0xa0998c, MobCategory.CREATURE);
@@ -401,7 +401,7 @@ public class EntityRegistry {
         registerMobAttributes(event, SENG, EntityStats.SENG);
         registerMobAttributes(event, SABEAR, EntityStats.SABEAR);
         registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
-        registerMobAttributes(event, ROBIN, EntityStats.ROBIN);
+        registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
 
         //Eden
         registerMobAttributes(event, GLINTHOP, EntityStats.GLINTHOP);
@@ -602,7 +602,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelSeng.LAYER_LOCATION, ModelSeng::createBodyLayer);
         event.registerLayerDefinition(ModelSabear.LAYER_LOCATION, ModelSabear::createBodyLayer);
         event.registerLayerDefinition(ModelWolpertinger.LAYER_LOCATION, ModelWolpertinger::createBodyLayer);
-        event.registerLayerDefinition(ModelRobin.LAYER_LOCATION, ModelRobin::createBodyLayer);
+        event.registerLayerDefinition(ModelRobbin.LAYER_LOCATION, ModelRobbin::createBodyLayer);
 
         //Eden
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
@@ -850,7 +850,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.3F));
         event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear<>(context), 0.8F));
         event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger<>(context), 0.6F));
-        event.registerEntityRenderer(ROBIN.get(),            (Context context) -> new RenderDivineMob<>(context, "robin",  new ModelRobin(context), 0.1F));
+        event.registerEntityRenderer(ROBBIN.get(),            (Context context) -> new RenderDivineMob<>(context, "robbin",  new ModelRobbin(context), 0.1F));
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);

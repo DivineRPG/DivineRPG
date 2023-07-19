@@ -60,7 +60,7 @@
 				"maxCount": 4
 			},
 			{
-				"type": "divinerpg:robin",
+				"type": "divinerpg:robbin",
 				"weight": 1,
 				"minCount": 2,
 				"maxCount": 4

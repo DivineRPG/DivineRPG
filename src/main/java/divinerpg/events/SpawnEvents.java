@@ -97,7 +97,7 @@ public class SpawnEvents {
 		registerMonsterSpawn(GROGLIN.get());
 		registerMonsterSpawn(GRUZZORLUG.get());
 		registerMonsterSpawn(SABEAR.get());
-		registerRobinSpawn(ROBIN.get());
+		registerRobbinSpawn(ROBBIN.get());
 		registerMonsterSpawn(WOLPERTINGER.get());
 
         //Eden
@@ -225,7 +225,7 @@ public class SpawnEvents {
 		SpawnPlacements.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always);
 	}
 
-	public static void registerRobinSpawn(EntityType<? extends Mob> type) {
+	public static void registerRobbinSpawn(EntityType<? extends Mob> type) {
 		SpawnPlacements.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always);
 	}
     public static void registerAirSpawn(EntityType<? extends Mob> type) {
