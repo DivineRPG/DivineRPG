@@ -525,7 +525,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelDramix.LAYER_LOCATION, 			ModelDramix::createBodyLayer);
         event.registerLayerDefinition(ModelEternalArcher.LAYER_LOCATION, 	ModelEternalArcher::createBodyLayer);
         event.registerLayerDefinition(ModelExperiencedCori.LAYER_LOCATION,  ModelExperiencedCori::createBodyLayer);
-//        event.registerLayerDefinition(ModelGhostWhale.LAYER_LOCATION, 		ModelGhostWhale::createBodyLayer);
+        event.registerLayerDefinition(ModelEtherealcetus.LAYER_LOCATION, 	ModelEtherealcetus::createBodyLayer);
         event.registerLayerDefinition(ModelHiveQueen.LAYER_LOCATION, 		ModelHiveQueen::createBodyLayer);
         event.registerLayerDefinition(ModelKaros.LAYER_LOCATION, 			ModelKaros::createBodyLayer);
         event.registerLayerDefinition(ModelKarot.LAYER_LOCATION, 			ModelKarot::createBodyLayer);
@@ -767,7 +767,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DRAMIX.get(), 			(Context context) -> new RenderDivineMob<>(context, "dramix", 			new ModelDramix<>(context), 0.4F));
         event.registerEntityRenderer(ETERNAL_ARCHER.get(),  RenderEternalArcher::new);
         event.registerEntityRenderer(EXPERIENCED_CORI.get(),(Context context) -> new RenderDivineMob<>(context, "experienced_cori", new ModelExperiencedCori(context), 1F, 5F));
-        event.registerEntityRenderer(ETHEREALCETUS.get(), 	(Context context) -> new RenderDivineMob<>(context, "etherealcetus", 		new ModelWhale(context), 0.8F, 5F));
+        event.registerEntityRenderer(ETHEREALCETUS.get(), 	RenderEtherealcetus::new);
         event.registerEntityRenderer(HIVE_QUEEN.get(), 		(Context context) -> new RenderDivineMob<>(context, "hive_queen", 		new ModelHiveQueen(context), 0.4F));
         event.registerEntityRenderer(KAROS.get(), 			(Context context) -> new RenderDivineMob<>(context, "karos", 			new ModelKaros(context)));
         event.registerEntityRenderer(KAROT.get(), 			(Context context) -> new RenderDivineMob<>(context, "karot", 			new ModelKarot(context), 0.5F, 5F));
