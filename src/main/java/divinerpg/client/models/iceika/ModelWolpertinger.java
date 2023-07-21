@@ -65,9 +65,6 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 		this.BackRightFoot.xRot = this.jumpRotation * 50.0F * ((float)Math.PI / 180F);
 		this.LeftLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
 		this.RightLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
-		//this.RightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-		//this.LeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-
 	}
 
 	public void prepareMobModel(T entity, float p_103544_, float p_103545_, float age) {
