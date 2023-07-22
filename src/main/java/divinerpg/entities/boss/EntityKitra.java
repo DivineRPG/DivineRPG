@@ -23,11 +23,11 @@ import net.minecraft.world.phys.*;
 
 import java.util.*;
 
-public class EntityEtherealcetus extends EntityWhale {
+public class EntityKitra extends EntityWhale {
     private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.WHITE,
         BossEvent.BossBarOverlay.PROGRESS));
 
-    public EntityEtherealcetus(EntityType<? extends EntityWhale> type, Level worldIn) {
+    public EntityKitra(EntityType<? extends EntityWhale> type, Level worldIn) {
         super(type, worldIn);
     }
 
@@ -109,8 +109,8 @@ public class EntityEtherealcetus extends EntityWhale {
                     @Override
                     public void onHitEntity(EntityHitResult result) {
                         super.onHitEntity(result);
-                        if (result.getEntity() instanceof EntityEtherealcetus) {
-                            ((EntityEtherealcetus) result.getEntity()).heal(16);
+                        if (result.getEntity() instanceof EntityKitra) {
+                            ((EntityKitra) result.getEntity()).heal(16);
                         }
                     }
 
@@ -145,8 +145,8 @@ public class EntityEtherealcetus extends EntityWhale {
                                         @Override
                                         public void onHitEntity(EntityHitResult result) {
                                             super.onHitEntity(result);
-                                            if (result.getEntity() instanceof EntityEtherealcetus) {
-                                                ((EntityEtherealcetus) result.getEntity()).heal(6);
+                                            if (result.getEntity() instanceof EntityKitra) {
+                                                ((EntityKitra) result.getEntity()).heal(6);
                                             }
                                         }
 

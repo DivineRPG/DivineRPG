@@ -19,14 +19,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
-public class EtherealcetusEvent {
+public class KitraEvent {
 
     private static final ResourceLocation BONEYARD_BIOME = new ResourceLocation(DivineRPG.MODID, "boneyard");
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         if (!event.getEntity().level().isClientSide) {
-            List<String> ANIMALS = CommonConfig.ghostWhaleProtected.get();
+            List<String> ANIMALS = CommonConfig.kitraProtected.get();
             Entity source = event.getSource().getDirectEntity();
             if (source == null || !(source instanceof Player)) {
                 return;
@@ -45,9 +45,9 @@ public class EtherealcetusEvent {
             if (!player.isCreative()) {
                 int kills = player.getPersistentData().getInt("animal_kills") + 1;
                 player.getPersistentData().putInt("animal_kills", kills);
-                if (kills >= CommonConfig.ghostWhaleKills.get()) {
+                if (kills >= CommonConfig.kitraKills.get()) {
                     BlockPos spawnPos = event.getEntity().blockPosition().offset(player.random.nextInt(16) - 8, player.random.nextInt(8) + 4, player.random.nextInt(16) - 8);
-                    EntityRegistry.ETHEREALCETUS.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
+                    EntityRegistry.KITRA.get().spawn((ServerLevel) world, (ItemStack) null, player, spawnPos, MobSpawnType.EVENT, false, false);
                     player.getPersistentData().putInt("animal_kills", 0);
                 }
             }

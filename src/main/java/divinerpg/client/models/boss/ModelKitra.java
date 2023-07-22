@@ -4,7 +4,7 @@ package divinerpg.client.models.boss;// Made with Blockbench 4.7.4
 
 
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.entities.boss.EntityEtherealcetus;
+import divinerpg.entities.boss.EntityKitra;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
@@ -12,17 +12,17 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelEtherealcetus extends EntityModel<EntityEtherealcetus> {
-	public static final ModelLayerLocation LAYER_LOCATION = createLocation("etherealcetus");
+public class ModelKitra extends EntityModel<EntityKitra> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("kitra");
 	private final ModelPart Head;
 	private final ModelPart Torso;
 
-	public ModelEtherealcetus(EntityRendererProvider.Context context) {
+	public ModelKitra(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
 		this.Torso = root.getChild("Torso");
 	}
-	public ModelEtherealcetus(ModelPart root) {
+	public ModelKitra(ModelPart root) {
 		this.Head = root.getChild("Head");
 		this.Torso = root.getChild("Torso");
 
@@ -67,7 +67,7 @@ public class ModelEtherealcetus extends EntityModel<EntityEtherealcetus> {
 	}
 
 	@Override
-	public void setupAnim(EntityEtherealcetus entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityKitra entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 //		this.flipperR.zRot = (float) (-Math.sin((10 * ageInTicks / (180f / Math.PI))) * 0.3f);
 //		this.flipperL.zRot = (float) (Math.sin((10 * ageInTicks / (180f / Math.PI))) * 0.3f);
 //		this.tail.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount / 4);

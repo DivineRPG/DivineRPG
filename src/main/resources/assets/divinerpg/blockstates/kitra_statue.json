@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "divinerpg:block/etherealcetus_statue"
+        "model": "divinerpg:block/kitra_statue"
       }
     }
   ]

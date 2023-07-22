@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -579,7 +578,7 @@ public class BlockRegistry {
             ancientEntityStatue = registerWithRender("ancient_entity_statue", () -> new BlockStatue(() -> IRON_GOLEM_DEATH), Rarity.RARE),
             theWatcherStatue = registerWithRender("the_watcher_statue", () -> new BlockStatue(() -> ROAR.get()), Rarity.RARE),
             kingOfScorchersStatue = registerWithRender("king_of_scorchers_statue", () -> new BlockStatue(() -> KING_OF_SCORCHERS.get()), Rarity.RARE),
-            etherealcetusStatue = registerWithRender("etherealcetus_statue", () -> new BlockStatue(() -> WHALE.get()), Rarity.RARE),
+            kitraStatue = registerWithRender("kitra_statue", () -> new BlockStatue(() -> WHALE.get()), Rarity.RARE),
             ayeracoStatue = registerWithRender("ayeraco_statue", () -> new BlockStatue(() -> AYERACO.get()), Rarity.RARE),
             dramixStatue = registerWithRender("dramix_statue", () -> new BlockStatue(() -> DRAMIX.get()), Rarity.RARE),
             parasectaStatue = registerWithRender("parasecta_statue", () -> new BlockStatue(() -> PARASECTA.get()), Rarity.RARE),

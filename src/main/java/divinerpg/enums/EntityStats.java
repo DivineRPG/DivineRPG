@@ -11,7 +11,7 @@ public enum EntityStats {
     DRAMIX(1400, 30),
     ETERNAL_ARCHER(1550, 12),
     EXPERIENCED_CORI(1150, 26),
-    ETHEREALCETUS(750, 8),
+    KITRA(750, 8),
     HIVE_QUEEN(1500, 60),
     KAROS(4000, 20),
     KAROT(1250, 32),

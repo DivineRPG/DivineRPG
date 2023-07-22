@@ -117,7 +117,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityDramix>>		 DRAMIX 			= registerEntity(EntityDramix::new, 		"dramix", 			0.85F,2.5625F);
     public static final RegistryObject<EntityType<EntityEternalArcher>>  ETERNAL_ARCHER 	= registerEntity(EntityEternalArcher::new, 	"eternal_archer", 	3.0F, 5.0F);
     public static final RegistryObject<EntityType<EntityExperiencedCori>>EXPERIENCED_CORI 	= registerEntity(EntityExperiencedCori::new,"experienced_cori", 4.0F, 7.1875F);
-    public static final RegistryObject<EntityType<EntityEtherealcetus>>  ETHEREALCETUS		= registerEntity(EntityEtherealcetus::new,     "etherealcetus",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityKitra>>          KITRA              = registerEntity(EntityKitra::new,     "kitra",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityHiveQueen>>		 HIVE_QUEEN 		= registerEntity(EntityHiveQueen::new, 		"hive_queen", 		1.5F, 0.75F);
     public static final RegistryObject<EntityType<EntityKaros>>			 KAROS 				= registerEntity(EntityKaros::new, 			"karos", 			1.0F, 2.6875F);
     public static final RegistryObject<EntityType<EntityKarot>>			 KAROT 				= registerEntity(EntityKarot::new, 			"karot", 			3.0F,4.1875F);
@@ -318,7 +318,7 @@ public class EntityRegistry {
         registerMobAttributes(event, DRAMIX, EntityStats.DRAMIX);
         registerMobAttributes(event, ETERNAL_ARCHER, EntityStats.ETERNAL_ARCHER);
         registerMobAttributes(event, EXPERIENCED_CORI, EntityStats.EXPERIENCED_CORI);
-        registerMobAttributes(event, ETHEREALCETUS, EntityStats.ETHEREALCETUS);
+        registerMobAttributes(event, KITRA, EntityStats.KITRA);
         registerMobAttributes(event, HIVE_QUEEN, EntityStats.HIVE_QUEEN);
         registerMobAttributes(event, KAROS, EntityStats.KAROS);
         registerMobAttributes(event, KAROT, EntityStats.KAROT);
@@ -525,7 +525,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelDramix.LAYER_LOCATION, 			ModelDramix::createBodyLayer);
         event.registerLayerDefinition(ModelEternalArcher.LAYER_LOCATION, 	ModelEternalArcher::createBodyLayer);
         event.registerLayerDefinition(ModelExperiencedCori.LAYER_LOCATION,  ModelExperiencedCori::createBodyLayer);
-        event.registerLayerDefinition(ModelEtherealcetus.LAYER_LOCATION, 	ModelEtherealcetus::createBodyLayer);
+        event.registerLayerDefinition(ModelKitra.LAYER_LOCATION, 	ModelKitra::createBodyLayer);
         event.registerLayerDefinition(ModelHiveQueen.LAYER_LOCATION, 		ModelHiveQueen::createBodyLayer);
         event.registerLayerDefinition(ModelKaros.LAYER_LOCATION, 			ModelKaros::createBodyLayer);
         event.registerLayerDefinition(ModelKarot.LAYER_LOCATION, 			ModelKarot::createBodyLayer);
@@ -767,7 +767,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DRAMIX.get(), 			(Context context) -> new RenderDivineMob<>(context, "dramix", 			new ModelDramix<>(context), 0.4F));
         event.registerEntityRenderer(ETERNAL_ARCHER.get(),  RenderEternalArcher::new);
         event.registerEntityRenderer(EXPERIENCED_CORI.get(),(Context context) -> new RenderDivineMob<>(context, "experienced_cori", new ModelExperiencedCori(context), 1F, 5F));
-        event.registerEntityRenderer(ETHEREALCETUS.get(), 	RenderEtherealcetus::new);
+        event.registerEntityRenderer(KITRA.get(), 	RenderKitra::new);
         event.registerEntityRenderer(HIVE_QUEEN.get(), 		(Context context) -> new RenderDivineMob<>(context, "hive_queen", 		new ModelHiveQueen(context), 0.4F));
         event.registerEntityRenderer(KAROS.get(), 			(Context context) -> new RenderDivineMob<>(context, "karos", 			new ModelKaros(context)));
         event.registerEntityRenderer(KAROT.get(), 			(Context context) -> new RenderDivineMob<>(context, "karot", 			new ModelKarot(context), 0.5F, 5F));

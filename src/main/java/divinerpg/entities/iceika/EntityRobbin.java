@@ -1,7 +1,7 @@
 package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.entities.boss.EntityEtherealcetus;
+import divinerpg.entities.boss.EntityKitra;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
@@ -34,7 +34,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         this.targetSelector.addGoal(1, new FollowWhaleGoal(this));
         this.goalSelector.addGoal(2, new GoalRideWhaleWhenTired(this));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityEtherealcetus.class, 6.0F));
+        goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityKitra.class, 6.0F));
     }
 
 
@@ -53,7 +53,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 
         // If tiredTicks reaches the threshold and there is no whale nearby, set the robbin to be tired and reset tiredTicks and tiredThreshold
         if (tiredTicks >= tiredThreshold) {
-            EntityEtherealcetus nearbyWhale = this.level().getNearestEntity(EntityEtherealcetus.class,
+            EntityKitra nearbyWhale = this.level().getNearestEntity(EntityKitra.class,
                     TargetingConditions.DEFAULT, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(32.0));
             if (nearbyWhale == null) {
                 tiredThreshold = this.level().random.nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
@@ -71,7 +71,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         private static final double FOLLOW_DISTANCE = 32.0;
         private static final double CIRCLE_RADIUS = 5.0;
         private EntityRobbin entityRobbin;
-        private EntityEtherealcetus targetWhale;
+        private EntityKitra targetWhale;
 
         public FollowWhaleGoal(EntityRobbin entityRobbin) {
             this.entityRobbin = entityRobbin;
@@ -81,7 +81,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         public boolean canUse() {
             if (targetWhale == null || !targetWhale.isAlive()) {
                 // Find a new target whale
-                targetWhale = entityRobbin.level().getNearestEntity(EntityEtherealcetus.class,
+                targetWhale = entityRobbin.level().getNearestEntity(EntityKitra.class,
                         TargetingConditions.DEFAULT, entityRobbin, entityRobbin.getX(), entityRobbin.getY(),
                         entityRobbin.getZ(), entityRobbin.getBoundingBox().inflate(FOLLOW_DISTANCE));
             }
@@ -118,7 +118,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 
     public class GoalRideWhaleWhenTired extends Goal {
         private final EntityRobbin robbin;
-        private EntityEtherealcetus whale;
+        private EntityKitra whale;
         private int rideTime;
         private int rideTimeThreshold = 200;
 
@@ -136,7 +136,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         @Override
         public void start() {
             // Find the nearest whale
-            whale = robbin.level().getNearestEntity(EntityEtherealcetus.class, TargetingConditions.DEFAULT, robbin, robbin.getX(), robbin.getY(), robbin.getZ(), robbin.getBoundingBox().inflate(16.0));
+            whale = robbin.level().getNearestEntity(EntityKitra.class, TargetingConditions.DEFAULT, robbin, robbin.getX(), robbin.getY(), robbin.getZ(), robbin.getBoundingBox().inflate(16.0));
             rideTime = 0;
         }
 
