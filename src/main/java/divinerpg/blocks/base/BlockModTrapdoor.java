@@ -6,7 +6,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockModTrapdoor extends TrapDoorBlock {
 
-	public BlockModTrapdoor(MapColor color) {
-		super(Block.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(color), BlockSetType.OAK);
+	public BlockModTrapdoor(MapColor color, BlockSetType type) {
+		super(Block.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(color), type);
 	}
 }

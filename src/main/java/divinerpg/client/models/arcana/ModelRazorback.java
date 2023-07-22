@@ -43,7 +43,8 @@ public class ModelRazorback extends EntityModel<EntityRazorback> {
 		.texOffs(20, 30).addBox(-3.0F, -8.0F, 2.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(12, 30).addBox(2.0F, -9.0F, 2.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(16, 30).addBox(-3.0F, -9.0F, -2.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 15).addBox(0.0F, -8.0F, -4.0F, 0.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 21.0F, 0.0F));
+		.texOffs(0, 15).addBox(0.0F, -8.0F, -4.0F, 0.0F, 3.0F, 8.0F, new CubeDeformation(0.0F))
+		.texOffs(28, 15).addBox(0.01F, -8.0F, -4.0F, 0.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 21.0F, 0.0F));
 
 		PartDefinition FrontRightLeg = partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 13).addBox(-2.0F, -1.0F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 21.0F, -1.0F));
 

@@ -7,7 +7,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockModPressurePlate extends PressurePlateBlock {
 
-    public BlockModPressurePlate(MapColor color) {
-        super(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).mapColor(color), BlockSetType.OAK);
+    public BlockModPressurePlate(MapColor color, BlockSetType type) {
+        super(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).mapColor(color), type);
     }
 }
