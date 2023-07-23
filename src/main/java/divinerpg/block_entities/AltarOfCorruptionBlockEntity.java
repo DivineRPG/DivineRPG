@@ -1,21 +1,18 @@
 package divinerpg.block_entities;
 
-import divinerpg.DivineRPG;
 import divinerpg.registries.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.Nameable;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+
 public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameable {
     public int time;
     public float flip;
@@ -27,7 +24,7 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
     public float rot;
     public float oRot;
     public float tRot;
-    private static final Random RANDOM = new Random();
+    private static final RandomSource RANDOM = RandomSource.create();
     private Component name;
 
     public AltarOfCorruptionBlockEntity(BlockPos p_155501_, BlockState p_155502_) {
@@ -50,7 +47,7 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
 
     }
 
-    public static void bookAnimationTick(Level p_155504_, BlockPos p_155505_, BlockState p_155506_, net.minecraft.world.level.block.entity.EnchantmentTableBlockEntity p_155507_) {
+    public static void bookAnimationTick(Level p_155504_, BlockPos p_155505_, BlockState p_155506_, AltarOfCorruptionBlockEntity p_155507_) {
         p_155507_.oOpen = p_155507_.open;
         p_155507_.oRot = p_155507_.rot;
         Player player = p_155504_.getNearestPlayer((double)p_155505_.getX() + 0.5D, (double)p_155505_.getY() + 0.5D, (double)p_155505_.getZ() + 0.5D, 3.0D, false);
@@ -107,7 +104,7 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
     }
 
     public Component getName() {
-        return (Component)(this.name != null ? this.name : Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "altar_of_corruption")).getDescriptionId()));
+        return (Component)(this.name != null ? this.name : Component.translatable(BlockRegistry.altarOfCorruption.get().getDescriptionId()));
     }
 
     public void setCustomName(@Nullable Component p_59273_) {

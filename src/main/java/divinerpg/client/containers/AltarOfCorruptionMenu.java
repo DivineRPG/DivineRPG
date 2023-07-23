@@ -1,6 +1,6 @@
 package divinerpg.client.containers;
 
-import divinerpg.DivineRPG;
+import divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import divinerpg.registries.*;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
@@ -18,16 +17,14 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
-import net.minecraft.world.level.block.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
-public class AltarOfCorruptionContainer extends AbstractContainerMenu {
+public class AltarOfCorruptionMenu extends AbstractContainerMenu {
     private final Container enchantSlots = new SimpleContainer(2) {
         public void setChanged() {
             super.setChanged();
-            AltarOfCorruptionContainer.this.slotsChanged(this);
+            AltarOfCorruptionMenu.this.slotsChanged(this);
         }
     };
     private final ContainerLevelAccess access;
@@ -37,11 +34,11 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
     public final int[] enchantClue = new int[]{-1, -1, -1};
     public final int[] levelClue = new int[]{-1, -1, -1};
 
-    public AltarOfCorruptionContainer(int p_39454_, Inventory p_39455_, FriendlyByteBuf buf) {
+    public AltarOfCorruptionMenu(int p_39454_, Inventory p_39455_) {
         this(p_39454_, p_39455_, ContainerLevelAccess.NULL);
     }
 
-    public AltarOfCorruptionContainer(int p_39457_, Inventory p_39458_, ContainerLevelAccess p_39459_) {
+    public AltarOfCorruptionMenu(int p_39457_, Inventory p_39458_, ContainerLevelAccess p_39459_) {
         super(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), p_39457_);
         this.access = p_39459_;
         this.addSlot(new Slot(this.enchantSlots, 0, 15, 47) {
@@ -81,15 +78,21 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
         this.addDataSlot(DataSlot.shared(this.levelClue, 2));
     }
 
+    public AltarOfCorruptionMenu(int i, Inventory inventory, FriendlyByteBuf buf) {
+        this(i, inventory, ContainerLevelAccess.NULL);
+    }
+
     public void slotsChanged(Container p_39461_) {
         if (p_39461_ == this.enchantSlots) {
             ItemStack itemstack = p_39461_.getItem(0);
             if (!itemstack.isEmpty() && itemstack.isEnchantable()) {
                 this.access.execute((p_39485_, p_39486_) -> {
-                    float j = 0;
+                    float j = 30;
 
-                    for(BlockPos blockpos : EnchantmentTableBlock.BOOKSHELF_OFFSETS) {
+                    for(BlockPos blockpos : BlockAltarOfCorruption.BOOKSHELF_OFFSETS) {
+                        if (BlockAltarOfCorruption.isValidBookShelf(p_39485_, p_39486_, blockpos)) {
                             j += p_39485_.getBlockState(p_39486_.offset(blockpos)).getEnchantPowerBonus(p_39485_, p_39486_.offset(blockpos));
+                        }
                     }
 
                     this.random.setSeed((long)this.enchantmentSeed.get());
@@ -127,6 +130,7 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
         }
 
     }
+
 
     public boolean clickMenuButton(Player p_39465_, int p_39466_) {
         if (p_39466_ >= 0 && p_39466_ < this.costs.length) {
@@ -217,7 +221,7 @@ public class AltarOfCorruptionContainer extends AbstractContainerMenu {
     }
 
     public boolean stillValid(Player p_39463_) {
-        return stillValid(this.access, p_39463_, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "altar_of_corruption")));
+        return stillValid(this.access, p_39463_, BlockRegistry.altarOfCorruption.get());
     }
 
     public ItemStack quickMoveStack(Player p_39490_, int p_39491_) {
