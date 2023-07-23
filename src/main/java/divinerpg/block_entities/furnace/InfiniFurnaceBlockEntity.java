@@ -108,31 +108,52 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	protected Component getDefaultName() {
 		return Component.translatable(containerName);
 	}
-	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 vector) {
-		List<Recipe<?>> list = Lists.newArrayList();
-		for(Object2IntMap.Entry<ResourceLocation> entry : recipesUsed.object2IntEntrySet()) {
-			level.getRecipeManager().byKey(entry.getKey()).ifPresent((p_155023_) -> {
-				list.add(p_155023_);
-	            createExperience(level, vector, entry.getIntValue(), ((AbstractCookingRecipe)p_155023_).getExperience());
-	         });
+
+	public void awardUsedRecipesAndPopExperience(ServerPlayer player) {
+		List<Recipe<?>> recipesToAward = this.getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+		player.awardRecipes(recipesToAward);
+
+		for (Recipe<?> recipe : recipesToAward) {
+			if (recipe != null) {
+				player.triggerRecipeCrafted(recipe, this.items);
+			}
 		}
+
+		this.recipesUsed.clear();
+	}
+
+	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 position) {
+		List<Recipe<?>> list = Lists.newArrayList();
+
+		for (Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+			level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
+				list.add(recipe);
+				createExperience(level, position, entry.getIntValue(), ((AbstractCookingRecipe) recipe).getExperience());
+			});
+		}
+
 		return list;
 	}
 
-	@Override
-	public boolean setRecipeUsed(Level p_40136_, ServerPlayer player, Recipe<?> p_40138_) {
-		List<Recipe<?>> list = getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
-		player.awardRecipes(list);
-		recipesUsed.clear();
-		return RecipeHolder.super.setRecipeUsed(p_40136_, player, p_40138_);
+	private static void createExperience(ServerLevel level, Vec3 position, int entry, float amount) {
+		int xpAmount = Mth.floor((float) entry * amount);
+		float xpFraction = Mth.frac((float) entry * amount);
+		if (xpFraction != 0.0F && Math.random() < (double) xpFraction) {
+			++xpAmount;
+		}
+
+		ExperienceOrb.award(level, position, xpAmount);
 	}
 
-	private static void createExperience(ServerLevel level, Vec3 vector, int entry, float amount) {
-		int i = Mth.floor((float)entry * amount);
-		float f = Mth.frac((float)entry * amount);
-		if (f != 0.0F && Math.random() < (double)f) ++i;
-		ExperienceOrb.award(level, vector, i);
+	@Override
+	public boolean setRecipeUsed(Level level, ServerPlayer player, Recipe<?> recipe) {
+		List<Recipe<?>> recipesToAward = getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+		player.awardRecipes(recipesToAward);
+		recipesUsed.clear();
+		return RecipeHolder.super.setRecipeUsed(level, player, recipe);
 	}
+
+
 	public static void serverTick(Level level, BlockPos pos, BlockState state, InfiniFurnaceBlockEntity block) {
 		boolean changes = false;
 		Recipe<?> recipe = block.quickCheck.getRecipeFor(block, level).orElse(null);

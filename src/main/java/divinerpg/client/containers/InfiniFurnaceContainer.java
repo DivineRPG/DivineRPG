@@ -1,5 +1,7 @@
 package divinerpg.client.containers;
 
+import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
+import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
@@ -22,7 +24,14 @@ public class InfiniFurnaceContainer extends RecipeBookMenu<Container> {
 	      this.data = data;
 	      level = inv.player.level();
 	      addSlot(new Slot(container, 0, 56, 17));
-	      addSlot(new FurnaceResultSlot(inv.player, container, 1, 116, 35));
+	      addSlot(new FurnaceResultSlot(inv.player, container, 1, 116, 35){
+			  @Override
+			  public void onTake(Player player, ItemStack stack) {
+				  super.onTake(player, stack);
+				  if(player instanceof ServerPlayer)
+				  ((InfiniFurnaceBlockEntity)container).awardUsedRecipesAndPopExperience((ServerPlayer) player);
+			  }
+		  });
 	      for(int i = 0; i < 3; ++i) for(int j = 0; j < 9; ++j) addSlot(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 	      for(int k = 0; k < 9; ++k) addSlot(new Slot(inv, k, 8 + k * 18, 142));
 	      addDataSlots(data);
