@@ -17,13 +17,18 @@
     "use_altar_of_corruption": {
       "trigger": "minecraft:item_used_on_block",
       "conditions": {
-        "location": {
-          "block": {
-            "blocks": [
-              "divinerpg:altar_of_corruption"
-            ]
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "divinerpg:altar_of_corruption"
+                ]
+              }
+            }
           }
-        }
+        ]
       }
     }
   }
