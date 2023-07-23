@@ -21,55 +21,40 @@ public class BlockArcanaDoor extends DoorBlock {
         this.keyItem = key;
     }
 
-    @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
-        BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());
+    private void updateAdjacentDoors(Level world, BlockPos pos, Player player, BlockState state) {
+        BlockPos[] adjacent = {
+                pos.north(),
+                pos.east(),
+                pos.south(),
+                pos.west()
+        };
 
-        if (iblockstate.getBlock() != this) {
-            return InteractionResult.FAIL;
-        } else {
-            if (!player.isCreative()) {
-                if (iblockstate.getValue(OPEN).equals(true)) {
-                    return InteractionResult.FAIL;
-                }
-                Item key = ForgeRegistries.ITEMS.getValue(keyItem);
-                ItemStack itemstack = player.getItemInHand(hand);
-                if (itemstack == null || itemstack.getItem() != key) {
-                    return InteractionResult.FAIL;
-                }
-                itemstack.shrink(1);
-            }
-            state = iblockstate.cycle(OPEN);
-            world.setBlock(pos.below(), state, 10);
-            world.setBlockAndUpdate(pos.below(), state);
-            world.levelEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, pos, 0);
+        for (BlockPos adjacentPos : adjacent) {
+            BlockState adjacentState = world.getBlockState(adjacentPos);
 
-            BlockPos[] adjacent = {
-                    pos.below().north(),
-                    pos.below().east(),
-                    pos.below().south(),
-                    pos.below().west()
-            };
+            if (adjacentState.getBlock() instanceof BlockArcanaDoor) {
 
-            for (BlockPos adjacentPos : adjacent) {
-                BlockState adjacentBlockState = world.getBlockState(adjacentPos);
-                if (adjacentBlockState.getBlock() != this) {
-                    continue;
-                } else if (!player.isCreative() && adjacentBlockState.getValue(OPEN).equals(true)) {
-                    break;
-                } else {
-                    adjacentBlockState = iblockstate.cycle(OPEN);
-                    world.setBlock(adjacentPos, adjacentBlockState, 10);
-                    world.setBlockAndUpdate(adjacentPos, state);
-                    world.levelEvent(player, ((Boolean) state.getValue(OPEN)).booleanValue() ? 1005 : 1011, adjacentPos, 0);
-                    return InteractionResult.SUCCESS;
-                }
+                world.setBlockAndUpdate(adjacentPos, adjacentState.cycle(BlockStateProperties.OPEN).cycle(BlockStateProperties.DOOR_HINGE));
+                world.levelEvent(player, adjacentState.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, adjacentPos, 0);
             }
         }
+    }
+
+    @Override
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        Item key = ForgeRegistries.ITEMS.getValue(keyItem);
+
+        if (!player.isCreative() && itemstack.getItem() != key) {
+            return InteractionResult.FAIL;
+        }
+
+        world.setBlockAndUpdate(pos, state.cycle(BlockStateProperties.OPEN));
+        world.levelEvent(player, state.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, pos, 0);
+
+        updateAdjacentDoors(world, pos, player, state);
+
         return InteractionResult.SUCCESS;
     }
 
-    @Override
-    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPosition, boolean isPowered) {
-    }
 }
