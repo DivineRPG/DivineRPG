@@ -259,21 +259,41 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 		return RecipeHolder.super.setRecipeUsed(level, player, recipe);
 	}
 
-	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel p_154996_, Vec3 p_154997_) {
-	      List<Recipe<?>> list = Lists.newArrayList();
-	      for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-	         p_154996_.getRecipeManager().byKey(entry.getKey()).ifPresent((p_155023_) -> {
-	            list.add(p_155023_);
-	            createExperience(p_154996_, p_154997_, entry.getIntValue(), ((AbstractCookingRecipe)p_155023_).getExperience());
-	         });
-	      }
-	      return list;
+
+	public void awardUsedRecipesAndPopExperience(ServerPlayer player) {
+		List<Recipe<?>> recipesToAward = this.getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+		player.awardRecipes(recipesToAward);
+
+		for (Recipe<?> recipe : recipesToAward) {
+			if (recipe != null) {
+				player.triggerRecipeCrafted(recipe, this.items);
+			}
+		}
+
+		this.recipesUsed.clear();
 	}
-	private static void createExperience(ServerLevel p_154999_, Vec3 p_155000_, int p_155001_, float p_155002_) {
-	      int i = Mth.floor((float)p_155001_ * p_155002_);
-	      float f = Mth.frac((float)p_155001_ * p_155002_);
-	      if (f != 0.0F && Math.random() < (double)f) ++i;
-	      ExperienceOrb.award(p_154999_, p_155000_, i);
+
+	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 position) {
+		List<Recipe<?>> list = Lists.newArrayList();
+
+		for (Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+			level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
+				list.add(recipe);
+				createExperience(level, position, entry.getIntValue(), ((AbstractCookingRecipe) recipe).getExperience());
+			});
+		}
+
+		return list;
+	}
+
+	private static void createExperience(ServerLevel level, Vec3 position, int entry, float amount) {
+		int xpAmount = Mth.floor((float) entry * amount);
+		float xpFraction = Mth.frac((float) entry * amount);
+		if (xpFraction != 0.0F && Math.random() < (double) xpFraction) {
+			++xpAmount;
+		}
+
+		ExperienceOrb.award(level, position, xpAmount);
 	}
 	@Override
 	public void fillStackedContents(StackedContents p_58342_) {
