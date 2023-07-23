@@ -1,22 +1,21 @@
 package divinerpg.blocks.vethea;
 
+import divinerpg.block_entities.block.DreamLampBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.block_entities.block.*;
-import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.context.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.BlockHitResult;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockDreamLamp extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -66,7 +65,7 @@ public class BlockDreamLamp extends BaseEntityBlock {
 		if (level.isClientSide) return InteractionResult.SUCCESS;
 		else {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-	        if (blockentity instanceof InfiniFurnaceBlockEntity) player.openMenu((MenuProvider)blockentity);
+	        if (blockentity instanceof DreamLampBlockEntity) player.openMenu((MenuProvider)blockentity);
 	        return InteractionResult.CONSUME;
 		}
 	}
