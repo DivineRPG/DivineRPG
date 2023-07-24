@@ -17,15 +17,15 @@ public class ItemEggNog extends ItemModFood {
         super(new Item.Properties().food(FoodList.EGG_NOG).stacksTo(1), FoodList.EGG_NOG);
     }
 
+    @Override
     public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
         if (!worldIn.isClientSide)
             entityLiving.curePotionEffects(stack);
 
-        if (entityLiving instanceof ServerPlayer) {
-            ServerPlayer serverplayerentity = (ServerPlayer) entityLiving;
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-            serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
-            serverplayerentity.getFoodData().eat(4, 1.5F);
+        if (entityLiving instanceof ServerPlayer serverplayer) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
+            serverplayer.awardStat(Stats.ITEM_USED.get(this));
+            serverplayer.getFoodData().eat(4, 1.5F);
         }
 
         if (entityLiving instanceof Player && !((Player) entityLiving).isCreative()) {
@@ -40,6 +40,7 @@ public class ItemEggNog extends ItemModFood {
         return UseAnim.DRINK;
     }
 
+    @Override
     public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
         return ItemUtils.startUsingInstantly(worldIn, playerIn, handIn);
     }

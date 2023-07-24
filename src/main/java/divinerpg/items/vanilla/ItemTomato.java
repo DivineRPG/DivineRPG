@@ -3,21 +3,17 @@ package divinerpg.items.vanilla;
 import divinerpg.entities.projectile.EntityTomato;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.registries.EntityRegistry;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+import divinerpg.util.FoodList;
+import net.minecraft.sounds.*;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ItemTomato extends ItemModFood {
 
-    public ItemTomato(FoodProperties food) {
-        super(new Item.Properties().food(food), food);
+    public ItemTomato() {
+        super(FoodList.TOMATO);
     }
 
     @Override
@@ -37,7 +33,7 @@ public class ItemTomato extends ItemModFood {
                 world.addFreshEntity(bullet);
             }
 
-            return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, itemstack);
+            return new InteractionResultHolder<>(InteractionResult.SUCCESS, itemstack);
         }
         else {
             if (player.canEat(itemstack.getFoodProperties(player).canAlwaysEat())) {

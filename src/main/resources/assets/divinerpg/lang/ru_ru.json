@@ -1973,7 +1973,6 @@
   "tooltip.food.satiety": "Восполняет %s единиц(ы) голода",
   "tooltip.food.saturation": "%s насыщения",
   "tooltip.armor_info.fly": "Полёт",
-  "divinerpg.tooltip.food.pet": "Еда для питомцев",
   "tooltip.food.heal": "Восстанавливает %s сердeц",
   "enchantment.divinerpg.rive": "Разрушитель миров",
   "enchantment.divinerpg.rive.desc": "Расщепитель миров, при применении к инструменту, добывает в радиусе (уровень зачарования * уровень зачарования * уровень зачарования).",
