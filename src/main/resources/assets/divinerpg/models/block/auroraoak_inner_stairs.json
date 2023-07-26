@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "side": "divinerpg:block/auroraoak_planks",
+    "top": "divinerpg:block/auroraoak_planks",
+    "bottom": "divinerpg:block/auroraoak_planks"
+  }
+}

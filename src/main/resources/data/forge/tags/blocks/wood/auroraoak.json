@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:auroraoak_log",
+    "divinerpg:stripped_auroraoak_log",
+    "divinerpg:auroraoak_wood",
+    "divinerpg:stripped_auroraoak_wood"
+  ]
+}

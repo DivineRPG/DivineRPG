@@ -56,6 +56,19 @@
     "divinerpg:marsine_plant",
     "divinerpg:pinfly_plant",
     "divinerpg:veilo_plant",
-    "divinerpg:white_mushroom_plant"
+    "divinerpg:white_mushroom_plant",
+    "divinerpg:auroraoak_log",
+    "divinerpg:auroraoak_wood",
+    "divinerpg:stripped_auroraoak_log",
+    "divinerpg:stripped_auroraoak_wood",
+    "divinerpg:auroraoak_planks",
+    "divinerpg:auroraoak_stairs",
+    "divinerpg:auroraoak_slab",
+    "divinerpg:auroraoak_fence",
+    "divinerpg:auroraoak_fence_gate",
+    "divinerpg:auroraoak_door",
+    "divinerpg:auroraoak_trapdoor",
+    "divinerpg:auroraoak_pressure_plate",
+    "divinerpg:auroraoak_button"
   ]
 }

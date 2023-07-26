@@ -1,0 +1,9 @@
+{
+  "parent": "block/stairs",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "side": "divinerpg:block/auroraoak_planks",
+    "top": "divinerpg:block/auroraoak_planks",
+    "bottom": "divinerpg:block/auroraoak_planks"
+  }
+}
