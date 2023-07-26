@@ -2143,7 +2143,7 @@
   "tooltip.block_position": "Block Position: x=%s, y=%s, z=%s",
   "tooltip.harvest_level": "Harvest level: %s",
   "tooltip.instant_consumption": "Instant Consumption",
-  "tooltip.frosted_allure": "Spawns mobs on the top surface. Cycle through the mob categories with a Corrupted Stone for a more targeted mob spawn.",
+  "tooltip.frosted_allure": "Spawns mobs on the top surface. Cycle through the mob categories with a Corrupted Stone for a more targeted mob spawn",
   "tooltip.weakened_without_arcana": "Damage heavily reduced if the required arcana is not present",
   "tooltip.armor_info.fire_protection": "Fire Protection",
   "tooltip.armor_info.no_fall": "No Fall Damage",

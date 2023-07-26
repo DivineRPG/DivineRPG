@@ -3,6 +3,7 @@ package divinerpg.blocks.iceika;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.block_entities.block.FrostedAllureBlockEntity;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public class BlockFrostedAllure extends BaseEntityBlock {
     public static final IntegerProperty CATEGORY = IntegerProperty.create("category", 0, 5);
+
     public BlockFrostedAllure() {
         super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
         registerDefaultState(this.stateDefinition.any().setValue(CATEGORY, 0));
@@ -31,7 +33,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        tooltip.add(Component.translatable("tooltip.frosted_allure"));
+        tooltip.add(Component.translatable("tooltip.frosted_allure").withStyle(ChatFormatting.GRAY));
     }
 
     @Nullable
@@ -41,12 +43,15 @@ public class BlockFrostedAllure extends BaseEntityBlock {
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, BlockEntityRegistry.FROSTED_ALLURE.get(), FrostedAllureBlockEntity::serverTick);
     }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(CATEGORY);
