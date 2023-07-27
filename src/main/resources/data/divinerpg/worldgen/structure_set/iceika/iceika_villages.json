@@ -3,6 +3,14 @@
     {
       "structure": "divinerpg:iceika_village",
       "weight": 1
+    },
+    {
+      "structure": "divinerpg:gruzzorlug_village",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:groglin_village",
+      "weight": 1
     }
   ],
   "placement": {

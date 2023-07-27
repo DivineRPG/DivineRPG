@@ -3,11 +3,11 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 2,
+      "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/central_dome",
+        "location": "divinerpg:iceika/lamps/calstone_lamp_1",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/fortress",
+        "location": "divinerpg:iceika/lamps/calstone_lamp_2",
         "processors": "minecraft:empty"
       }
     },
@@ -25,25 +25,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/gate",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/tower",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/army_camp",
+        "location": "divinerpg:iceika/lamps/calstone_lamp_3",
         "processors": "minecraft:empty"
       }
     }

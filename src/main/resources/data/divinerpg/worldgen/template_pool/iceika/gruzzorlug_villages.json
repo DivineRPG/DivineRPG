@@ -1,13 +1,13 @@
 {
-  "name": "iceika",
+  "name": "iceika_village",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_1",
+        "location": "divinerpg:iceika/gruzzorlug/central_dome",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_2",
+        "location": "divinerpg:iceika/gruzzorlug/fortress",
         "processors": "minecraft:empty"
       }
     },
@@ -25,7 +25,16 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_3",
+        "location": "divinerpg:iceika/gruzzorlug/gate",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/gruzzorlug/tower",
         "processors": "minecraft:empty"
       }
     },
@@ -34,25 +43,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/hut",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/workshop_library",
-        "processors": "minecraft:empty"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/statue_top",
+        "location": "divinerpg:iceika/gruzzorlug/army_camp",
         "processors": "minecraft:empty"
       }
     }

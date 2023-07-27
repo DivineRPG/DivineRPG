@@ -1,13 +1,22 @@
 {
-  "name": "iceika",
+  "name": "iceika_village",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_1",
+        "location": "divinerpg:iceika/groglin/tower",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/groglin/market",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +25,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_2",
+        "location": "divinerpg:iceika/groglin/fortress",
         "processors": "minecraft:empty"
       }
     },
@@ -25,34 +34,34 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/lamps/coalstone_lamp_3",
+        "location": "divinerpg:iceika/groglin/gate",
         "processors": "minecraft:empty"
       }
     },
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/hut",
+        "location": "divinerpg:iceika/groglin/outpost",
         "processors": "minecraft:empty"
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/workshop_library",
+        "location": "divinerpg:iceika/groglin/outpost_1",
         "processors": "minecraft:empty"
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/gruzzorlug/statue_top",
+        "location": "divinerpg:iceika/groglin/army_camp",
         "processors": "minecraft:empty"
       }
     }
