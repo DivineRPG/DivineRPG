@@ -40,7 +40,9 @@ public final class ConfiguredFeatureKeys {
 			MORTUM_BUSH = registerKey("mortum_bush");
 
 	//Iceika
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
+	public static final ResourceKey<ConfiguredFeature<?, ?>>
+			SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
+			AURORAOAK_TREE = registerKey("auroraoak_tree"),
 			SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
 			GEOTHERMAL_POND = registerKey("geothermal_pond"),
 			GLACIAL_POND = registerKey("glacial_pond"),
@@ -88,6 +90,7 @@ public final class ConfiguredFeatureKeys {
 
 		//Iceika
 		register(context, SHIVERSPINE_TREE, FeatureRegistry.SHIVERSPINE_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+		register(context, AURORAOAK_TREE, FeatureRegistry.AURORAOAK_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "auroraoak_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "auroraoak_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, SHIVERSPINE_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, GEOTHERMAL_POND, FeatureRegistry.GEOTHERMAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, GLACIAL_POND, FeatureRegistry.GLACIAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
