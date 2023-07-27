@@ -5,7 +5,7 @@
   "spawn_overrides": {
   },
   "terrain_adaptation": "bury",
-  "start_pool": "divinerpg:iceika/iceika_dungeon",
+  "start_pool": "divinerpg:iceika/dungeon",
   "size": 6,
   "start_height": {
     "type": "minecraft:uniform",
