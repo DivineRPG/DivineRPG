@@ -52,8 +52,9 @@ public class BlockArcanaPortal extends BlockMod {
 
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
-        if (world instanceof ServerLevel && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && Shapes.joinIsNotEmpty(Shapes.create(entity.getBoundingBox().move((double) (-pos.getX()), (double) (-pos.getY()), (double) (-pos.getZ()))), state.getShape(world, pos), BooleanOp.AND)) {
-            ServerLevel serverworld = ((ServerLevel) world).getServer().getLevel(world.dimension() == LevelRegistry.ARCANA ? Level.OVERWORLD : LevelRegistry.ARCANA);
+        if (world instanceof ServerLevel && !entity.isPassenger() && !entity.isVehicle() && !entity.isOnPortalCooldown() && entity.canChangeDimensions() && Shapes.joinIsNotEmpty(Shapes.create(entity.getBoundingBox().move((double) (-pos.getX()), (double) (-pos.getY()), (double) (-pos.getZ()))), state.getShape(world, pos), BooleanOp.AND)) {
+            entity.setPortalCooldown();
+        	ServerLevel serverworld = ((ServerLevel) world).getServer().getLevel(world.dimension() == LevelRegistry.ARCANA ? Level.OVERWORLD : LevelRegistry.ARCANA);
             if (serverworld == null) {
                 return;
             }
