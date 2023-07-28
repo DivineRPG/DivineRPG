@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/arcanium_rich_sand"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/arcanium_rich_sand"
+      },
+      {
+        "model": "divinerpg:block/arcanium_rich_sand",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/arcanium_rich_sand",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/arcanium_rich_sand",
+        "y": 270
+      }
+    ]
   }
 }

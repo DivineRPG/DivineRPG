@@ -11,6 +11,6 @@ public class MoonlightFurnaceScreen extends DivineFurnaceScreen<MoonlightFurnace
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/moonlight_furnace.png");
 
     public MoonlightFurnaceScreen(MoonlightFurnaceContainer p_i51089_1_, Inventory p_i51089_2_, Component p_i51089_3_) {
-        super(p_i51089_1_, new SmeltingRecipeBookComponent(), p_i51089_2_, p_i51089_3_, TEXTURE);
+        super(p_i51089_1_, new SmeltingRecipeBookComponent(), p_i51089_2_, p_i51089_3_, TEXTURE, 4210752, 4210752);
     }
 }

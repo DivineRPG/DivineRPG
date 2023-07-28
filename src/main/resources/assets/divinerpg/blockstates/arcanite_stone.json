@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/arcanite_stone"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/arcanite_stone"
+      },
+      {
+        "model": "divinerpg:block/arcanite_stone_mirrored"
+      },
+      {
+        "model": "divinerpg:block/arcanite_stone",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/arcanite_stone_mirrored",
+        "y": 180
+      }
+    ]
   }
 }

@@ -35,7 +35,7 @@ public class BlockArcanaDoor extends DoorBlock {
 
             if (adjacentState.getBlock() instanceof BlockArcanaDoor) {
 
-                world.setBlockAndUpdate(adjacentPos, adjacentState.cycle(BlockStateProperties.OPEN).cycle(BlockStateProperties.DOOR_HINGE));
+                world.setBlockAndUpdate(adjacentPos, adjacentState.cycle(BlockStateProperties.OPEN));
                 world.levelEvent(player, adjacentState.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, adjacentPos, 0);
             }
         }
@@ -47,34 +47,39 @@ public class BlockArcanaDoor extends DoorBlock {
         BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());
         Item key = ForgeRegistries.ITEMS.getValue(keyItem);
 
-        if (!player.isCreative() && itemstack.getItem() != key) {
+        if (iblockstate.getBlock() != this) {
             return InteractionResult.FAIL;
-        }
+        } else {
 
-        if (!player.isCreative()) {
-            if (iblockstate.getValue(OPEN).equals(true)) {
+            if (!player.isCreative() && itemstack.getItem() != key) {
                 return InteractionResult.FAIL;
             }
 
-            if (itemstack.getItem() != key) {
-                return InteractionResult.FAIL;
+            if (!player.isCreative()) {
+                if (iblockstate.getValue(OPEN).equals(true)) {
+                    return InteractionResult.FAIL;
+                }
+
+                if (itemstack.getItem() != key) {
+                    return InteractionResult.FAIL;
+                }
+                itemstack.shrink(1);
             }
-            itemstack.shrink(1);
+
+            world.setBlockAndUpdate(pos, state.cycle(BlockStateProperties.OPEN));
+            world.levelEvent(player, state.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, pos, 0);
+            if (state.getValue(OPEN)) {
+                world.playSound(player, pos, SoundEvents.IRON_DOOR_CLOSE, SoundSource.BLOCKS, 1.0F, 0.8F);
+            }
+
+            if (!state.getValue(OPEN)) {
+                world.playSound(player, pos, SoundEvents.IRON_DOOR_OPEN, SoundSource.BLOCKS, 1.0F, 0.8F);
+            }
+
+            updateAdjacentDoors(world, pos, player, state);
+
+            return InteractionResult.SUCCESS;
         }
-
-        world.setBlockAndUpdate(pos, state.cycle(BlockStateProperties.OPEN));
-        world.levelEvent(player, state.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, pos, 0);
-        if (state.getValue(OPEN)) {
-            world.playSound(player, pos, SoundEvents.IRON_DOOR_CLOSE, SoundSource.BLOCKS, 1.0F, 0.8F);
-        }
-
-        if (!state.getValue(OPEN)) {
-            world.playSound(player, pos, SoundEvents.IRON_DOOR_OPEN, SoundSource.BLOCKS, 1.0F, 0.8F);
-        }
-
-        updateAdjacentDoors(world, pos, player, state);
-
-        return InteractionResult.SUCCESS;
     }
 
     @Override

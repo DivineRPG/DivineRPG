@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/arcanic_sand"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/arcanic_sand"
+      },
+      {
+        "model": "divinerpg:block/arcanic_sand",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/arcanic_sand",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/arcanic_sand",
+        "y": 270
+      }
+    ]
   }
 }
