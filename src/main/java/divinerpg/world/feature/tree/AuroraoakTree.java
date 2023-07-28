@@ -17,7 +17,7 @@ public class AuroraoakTree extends DivineTree {
 		setBlock(level, pos, log, replace);
 		for(int y = 0; y <= maxY; y++) {
 			setBlock(level, pos.move(random.nextFloat() < curvatureChance ? random.nextInt(3) - 1 : 0, 1, random.nextFloat() < curvatureChance ? random.nextInt(3) - 1 : 0), log, replace);
-			if(random.nextFloat() < splitChance) gradualGrowth(level, random, new MutableBlockPos(pos.getX() + random.nextInt(3) - 1, pos.getY(), pos.getZ() + random.nextInt(3) - 1), log, leaves, maxY - y, curvatureChance, splitChance, replace);
+			if(random.nextFloat() < splitChance) gradualGrowth(level, random, new MutableBlockPos(pos.getX() + random.nextInt(3) - 1, pos.getY(), pos.getZ() + random.nextInt(3) - 1), log, leaves, maxY - y, curvatureChance + .08F, splitChance, replace);
 		}
 		growLeaves(level, random, pos.move(0, 1, 0), leaves);
 	}
@@ -46,7 +46,7 @@ public class AuroraoakTree extends DivineTree {
 					r = random.nextInt(3);
 					extraHeight = treeHeight - branchY;
 					growBranch(level, random, pos.offset(1, branchY, 1), log, leaves, r > extraHeight ? 0 : extraHeight - r, extraHeight, extraHeight > 1, true);
-				} else gradualGrowth(level, random, pos.mutable(), log, leaves, treeHeight, .25F, .1F, true);
+				} else gradualGrowth(level, random, pos.mutable(), log, leaves, treeHeight, .2F, .1F, true);
 				return true;
 			}
 		} return false;
@@ -73,6 +73,7 @@ public class AuroraoakTree extends DivineTree {
 					grow(level, pos, leaves, 4, -1);
 					grow(level, pos.offset(0, 2, 0), leaves, 2, 2);
 					grow(level, pos.offset(0, 3, 0), leaves, 3, 0);
+					setBlock(level, pos.offset(0, 4, 0), leaves, false);
 				}
 			}
 		}
