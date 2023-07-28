@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "divinerpg:frozen_stone",
-    "divinerpg:cobbled_frozen_stone",
-    "divinerpg:frozen_dirt"
+    "divinerpg:cobbled_frozen_stone"
   ]
 }

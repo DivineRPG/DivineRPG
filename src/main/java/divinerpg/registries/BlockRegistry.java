@@ -72,6 +72,7 @@ public class BlockRegistry {
             //Stone & Stuff
             milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL, 1.5F, 6F)),
             frozenStone = registerBlock("frozen_stone", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
+            cobbledFrozenStone = registerBlock("cobbled_frozen_stone", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(GLOW_LICHEN, 2F, 6F)),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),
