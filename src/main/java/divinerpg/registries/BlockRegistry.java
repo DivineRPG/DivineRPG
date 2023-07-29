@@ -610,6 +610,9 @@ public class BlockRegistry {
             densosStatue = registerWithRender("densos_statue", () -> new BlockStatue(() -> DENSOS.get()), Rarity.RARE),
             reyvorStatue = registerWithRender("reyvor_statue", () -> new BlockStatue(() -> REYVOR.get()), Rarity.RARE),
             soulFiendStatue = registerWithRender("soul_fiend_statue", () -> new BlockStatue(null), Rarity.RARE),
+            
+            //Proximity Spawner
+            proximitySpawner = registerBlock("proximity_spawner", () -> new BlockModProximitySpawner()),
 
             //Encaged Arcana Creatures
             encagedCaptainMerik = registerBlock("encaged_captain_merik", () -> new BlockModMobCage(new ResourceLocation(MODID, "captain_merik"), new ResourceLocation(MODID, "firestock"))),

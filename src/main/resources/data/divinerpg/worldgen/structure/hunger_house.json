@@ -2,19 +2,7 @@
 	"type": "divinerpg:highest_ceiling",
 	"biomes": "divinerpg:ember_caverns",
 	"step": "surface_structures",
-	"spawn_overrides": {
-		"ambient": {
-			"bounding_box": "piece",
-			"spawns": [
-				{
-					"type": "divinerpg:the_hunger",
-					"weight": 5,
-					"minCount": 1,
-					"maxCount": 1
-				}
-			]
-		}
-	},
+	"spawn_overrides": {},
 	"terrain_adaptation": "none",
 	"start_pool": "divinerpg:vethea/hunger_house",
 	"size": 6,

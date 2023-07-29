@@ -2,19 +2,7 @@
 	"type": "minecraft:jigsaw",
 	"biomes": "#forge:is_plains",
 	"step": "surface_structures",
-	"spawn_overrides": {
-		"ambient": {
-			"bounding_box": "piece",
-			"spawns": [
-				{
-					"type": "divinerpg:livestock_merchant",
-					"weight": 5,
-					"minCount": 1,
-					"maxCount": 1
-				}
-			]
-		}
-	},
+	"spawn_overrides": {},
 	"terrain_adaptation": "beard_thin",
 	"start_pool": "divinerpg:overworld/livestock_merchant_hut",
 	"size": 6,

@@ -2,19 +2,7 @@
 	"type": "minecraft:jigsaw",
 	"biomes": "divinerpg:dune_valley",
 	"step": "surface_structures",
-	"spawn_overrides": {
-		"ambient": {
-			"bounding_box": "piece",
-			"spawns": [
-				{
-					"type": "divinerpg:lord_vatticus",
-					"weight": 5,
-					"minCount": 1,
-					"maxCount": 1
-				}
-			]
-		}
-	},
+	"spawn_overrides": {},
 	"terrain_adaptation": "beard_thin",
 	"start_pool": "divinerpg:arcana/lord_vatticus_caravan",
 	"size": 6,

@@ -2,15 +2,10 @@ package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.*;
-import net.minecraft.world.phys.AABB;
-
-import java.util.List;
 
 public class EntityKazari extends EntityDivineMerchant {
 
@@ -51,11 +46,5 @@ public class EntityKazari extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.soulStoneBreakable.get(), 16), random.nextInt(7), 5)
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
-	}
-
-	public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-		BlockPos blockpos = pos.below();
-		List<EntityKazari> entityList = level.getEntitiesOfClass(EntityKazari.class, new AABB(pos).inflate(16));
-		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
 	}
 }
