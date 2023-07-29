@@ -1,6 +1,5 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.ProximitySpawnerBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -40,10 +39,7 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 		if(player.isCreative() && level.getBlockEntity(pos) instanceof ProximitySpawnerBlockEntity entity) {
 			ItemStack item = player.getItemInHand(hand);
 			if(item == null || item.isEmpty()) entity.entityName = null;
-			else if(item.getItem() instanceof ForgeSpawnEggItem spawnegg) {
-				entity.entityName = spawnegg.getType(null).toShortString();
-				DivineRPG.LOGGER.info("set proximityspawner entity: " + entity.entityName);
-			}
+			else if(item.getItem() instanceof ForgeSpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
 			boolean enabled = entity.entityName != null;
 			if(state.getValue(BlockStateProperties.ENABLED) != enabled) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, enabled), UPDATE_ALL);
 			return InteractionResult.SUCCESS;
