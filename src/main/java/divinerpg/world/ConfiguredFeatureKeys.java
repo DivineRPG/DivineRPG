@@ -56,7 +56,6 @@ public final class ConfiguredFeatureKeys {
 	//Arcana
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ARCANA_DUNGEON = registerKey("arcana_dungeon"),
 			ARCANA_TAR_LAKE = registerKey("arcana_tar_lake"),
-			GEM_OF_THE_DUNES = registerKey("gem_of_the_dunes"),
 			ARCANITE_VINES = registerKey("arcanite_vines");
 
 	//Vethea
@@ -104,7 +103,6 @@ public final class ConfiguredFeatureKeys {
 		//Arcana
 		register(context, ARCANA_DUNGEON, FeatureRegistry.ARCANA_DUNGEON.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, ARCANA_TAR_LAKE, Feature.LAKE, new Configuration(BlockStateProvider.simple(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "smoldering_tar"))), BlockStateProvider.simple(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_sludge_breakable")))));
-		register(context, GEM_OF_THE_DUNES, FeatureRegistry.GEM_OF_THE_DUNES.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, ARCANITE_VINES, FeatureRegistry.ARCANITE_VINES.get(), NoneFeatureConfiguration.INSTANCE);
 
 		//Vethea

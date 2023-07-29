@@ -56,8 +56,7 @@ public class FeatureRegistry {
     //Arcana
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	ARCANA_DUNGEON = FEATURES.register("arcana_dungeon", () -> new ArcanaDungeon()),
-    	ARCANITE_VINES = FEATURES.register("arcanite_vines", () -> new ArcaniteVines()),
-    	GEM_OF_THE_DUNES = FEATURES.register("gem_of_the_dunes", () -> new GemOfTheDunes());
+    	ARCANITE_VINES = FEATURES.register("arcanite_vines", () -> new ArcaniteVines());
     
     //Vethea
     public static final RegistryObject<Feature<TreeConfig>>

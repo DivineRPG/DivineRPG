@@ -28,11 +28,11 @@ public class DivineTeleporter implements ITeleporter {
     public static DivineTeleporter INSTANCE = null;
     protected static Block portal;
     protected static Block frame;
-    private static ResourceKey<?> point;
+    protected static ResourceKey<PoiType> point;
     protected final ServerLevel world;
     private final boolean hasFrame;
 
-    public DivineTeleporter(ServerLevel worldIn, Block portal, Block frame, boolean hasFrame, ResourceKey<?> point) {
+    public DivineTeleporter(ServerLevel worldIn, Block portal, Block frame, boolean hasFrame, ResourceKey<PoiType> point) {
         DivineTeleporter.portal = portal;
         DivineTeleporter.frame = frame;
         INSTANCE = this;
