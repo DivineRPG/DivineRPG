@@ -459,10 +459,10 @@ public class ItemRegistry {
             fury_arrow = registerItem("fury_arrow", () -> new ItemMod()),
 
             //Anchors
-            bowhead_anchor = registerItem("bowhead_anchor", () -> new ItemAnchor(BulletType.BOWHEAD_ANCHOR_SHOT)),
             crab_anchor = registerItem("crab_anchor", () -> new ItemAnchor(BulletType.CRAB_ANCHOR_SHOT)),
-            liopleurodon_anchor = registerItem("liopleurodon_anchor", () -> new ItemAnchor(BulletType.LIOPLEURODON_ANCHOR_SHOT)),
             shark_anchor = registerItem("shark_anchor", () -> new ItemAnchor(BulletType.SHARK_ANCHOR_SHOT)),
+            bowhead_anchor = registerItem("bowhead_anchor", () -> new ItemAnchor(BulletType.BOWHEAD_ANCHOR_SHOT)),
+            liopleurodon_anchor = registerItem("liopleurodon_anchor", () -> new ItemAnchor(BulletType.LIOPLEURODON_ANCHOR_SHOT)),
 
             //Harps
             sound_of_music = registerItem("sound_of_music", () -> new ItemMusicShooter(() -> SoundRegistry.SOUND_OF_MUSIC.get(), "sound_of_music")),
