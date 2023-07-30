@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:cobbled_frozen_pressure_plate"
+  },
+  "pattern": [
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_pressure_plate",
+  "key": {
+    "s": {
+      "item": "divinerpg:cobbled_frozen_stone"
+    }
+  }
+}

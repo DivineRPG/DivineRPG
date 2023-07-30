@@ -4,6 +4,10 @@
     "divinerpg:ancient_brick_wall",
     "divinerpg:ancient_brick_wall_breakable",
     "divinerpg:degraded_brick_wall",
-    "divinerpg:degraded_brick_wall_breakable"
+    "divinerpg:degraded_brick_wall_breakable",
+    "divinerpg:cobbled_frozen_wall",
+    "divinerpg:coalstone_wall",
+    "divinerpg:frozen_brick_wall",
+    "divinerpg:coalstone_brick_wall"
   ]
 }

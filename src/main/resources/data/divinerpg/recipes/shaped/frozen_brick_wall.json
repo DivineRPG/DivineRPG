@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_brick_wall",
+    "count": 6
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:frozen_bricks"
+    }
+  }
+}

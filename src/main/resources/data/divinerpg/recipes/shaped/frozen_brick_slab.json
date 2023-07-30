@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:frozen_brick_slab",
+    "count": 6
+  },
+  "pattern": [
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "divinerpg:frozen_bricks"
+    }
+  }
+}

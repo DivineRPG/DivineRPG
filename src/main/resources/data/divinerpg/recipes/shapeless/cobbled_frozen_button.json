@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:cobbled_frozen_stone"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:cobbled_frozen_button",
+    "count": 1
+  }
+}

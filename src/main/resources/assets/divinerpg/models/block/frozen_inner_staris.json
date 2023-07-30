@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "side": "divinerpg:block/frozen_stone",
+    "top": "divinerpg:block/frozen_stone",
+    "bottom": "divinerpg:block/frozen_stone"
+  }
+}

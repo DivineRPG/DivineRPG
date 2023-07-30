@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/frozen_brick_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/frozen_bricks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/frozen_brick_upper_slab"
+    }
+  }
+}
