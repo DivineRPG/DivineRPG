@@ -40,6 +40,7 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 			ItemStack item = player.getItemInHand(hand);
 			if(item == null || item.isEmpty()) entity.entityName = null;
 			else if(item.getItem() instanceof ForgeSpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
+			else return InteractionResult.FAIL;
 			boolean enabled = entity.entityName != null;
 			if(state.getValue(BlockStateProperties.ENABLED) != enabled) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, enabled), UPDATE_ALL);
 			return InteractionResult.SUCCESS;
