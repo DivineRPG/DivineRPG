@@ -184,23 +184,14 @@
     "divinerpg:cobbled_frozen_stairs",
     "divinerpg:frozen_slab",
     "divinerpg:cobbled_frozen_slab",
-    "divinerpg:cobbled_frozen_wall",
     "divinerpg:frozen_pressure_plate",
     "divinerpg:cobbled_frozen_pressure_plate",
-    "divinerpg:frozen_button",
-    "divinerpg:cobbled_frozen_button",
-    "divinerpg:coalstone_wall",
     "divinerpg:coalstone_pressure_plate",
-    "divinerpg:coalstone_button",
     "divinerpg:frozen_brick_stairs",
     "divinerpg:frozen_brick_slab",
-    "divinerpg:frozen_brick_wall",
     "divinerpg:frozen_brick_pressure_plate",
-    "divinerpg:frozen_brick_button",
     "divinerpg:coalstone_brick_stairs",
     "divinerpg:coalstone_brick_slab",
-    "divinerpg:coalstone_brick_wall",
-    "divinerpg:coalstone_brick_pressure_plate",
-    "divinerpg:coalstone_brick_button"
+    "divinerpg:coalstone_brick_pressure_plate"
   ]
 }

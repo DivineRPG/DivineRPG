@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:arcanium_block"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {
+      "item": "divinerpg:arcanium"
+    }
+  }
+}

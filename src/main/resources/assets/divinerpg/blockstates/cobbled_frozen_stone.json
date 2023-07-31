@@ -1,20 +1,7 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "divinerpg:block/cobbled_frozen_stone"
-      },
-      {
-        "model": "divinerpg:block/cobbled_frozen_stone_mirrored"
-      },
-      {
-        "model": "divinerpg:block/cobbled_frozen_stone",
-        "y": 180
-      },
-      {
-        "model": "divinerpg:block/cobbled_frozen_stone_mirrored",
-        "y": 180
-      }
-    ]
+    "": {
+      "model": "divinerpg:block/cobbled_frozen_stone"
+    }
   }
 }
