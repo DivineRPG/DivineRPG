@@ -62,38 +62,34 @@ public class EntityDivineTameable extends TamableAnimal {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if(level().isClientSide) {
-            boolean flag = isOwnedBy(player) || isTame() || item == Items.BONE && !isTame();
-            return flag ? InteractionResult.CONSUME : InteractionResult.PASS;
-        } else {
-            if(isTame()) {
-                if(isFood(itemstack) && getHealth() < getMaxHealth()) {
-                    if(!player.isCreative()) itemstack.shrink(1);
-                    heal((float)item.getFoodProperties(itemstack, this).getNutrition());
-                    gameEvent(GameEvent.EAT, this);
-                    return InteractionResult.SUCCESS;
-                }
-                InteractionResult actionresulttype = super.mobInteract(player, hand);
-                if((!actionresulttype.consumesAction() || isBaby()) && isOwnedBy(player)) {
-                    setOrderedToSit(!isOrderedToSit());
-                    jumping = false;
-                    navigation.stop();
-                    setTarget((LivingEntity)null);
-                    return InteractionResult.SUCCESS;
-                }
-            } else if(isTamingFood(itemstack)) {
+        if(level().isClientSide()) return isOwnedBy(player) ? InteractionResult.CONSUME : InteractionResult.PASS;
+        if(isTame()) {
+            if(isFood(itemstack) && getHealth() < getMaxHealth()) {
                 if(!player.isCreative()) itemstack.shrink(1);
-                if(random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
-                    tame(player);
-                    navigation.stop();
-                    setTarget((LivingEntity)null);
-                    setOrderedToSit(true);
-                    level().broadcastEntityEvent(this, (byte)7);
-                } else level().broadcastEntityEvent(this, (byte)6);
+                heal((float)item.getFoodProperties(itemstack, this).getNutrition());
+                gameEvent(GameEvent.EAT, this);
                 return InteractionResult.SUCCESS;
-            } else tame(player);
-            return super.mobInteract(player, hand);
-        }
+            }
+            InteractionResult actionresulttype = super.mobInteract(player, hand);
+            if((!actionresulttype.consumesAction() || isBaby()) && isOwnedBy(player)) {
+                setOrderedToSit(!isOrderedToSit());
+                jumping = false;
+                navigation.stop();
+                setTarget((LivingEntity)null);
+                return InteractionResult.SUCCESS;
+            }
+        } else if(isTamingFood(itemstack)) {
+            if(!player.isCreative()) itemstack.shrink(1);
+            if(random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                tame(player);
+                navigation.stop();
+                setTarget((LivingEntity)null);
+                setOrderedToSit(true);
+                level().broadcastEntityEvent(this, (byte)7);
+            } else level().broadcastEntityEvent(this, (byte)6);
+            return InteractionResult.SUCCESS;
+        } else if(player.isCreative()) tame(player);
+        return super.mobInteract(player, hand);
     }
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {
