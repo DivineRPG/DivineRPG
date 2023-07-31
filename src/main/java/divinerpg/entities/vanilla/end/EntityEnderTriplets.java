@@ -58,7 +58,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
                 double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
                 EntityEnderTripletsFireball shot = new EntityEnderTripletsFireball(level(), this, d0, d1, d2);
                 shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 3.3F, 0.2F);
-                if (!this.level().isClientSide)
+                if (!this.level().isClientSide())
                     this.level().addFreshEntity(shot);
             }
         }

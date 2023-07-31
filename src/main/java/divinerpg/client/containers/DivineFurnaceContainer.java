@@ -16,10 +16,10 @@ public abstract class DivineFurnaceContainer extends RecipeBookMenu<Container> {
     public static final int RESULT_SLOT = 2;
     public static final int SLOT_COUNT = 3;
     public static final int DATA_COUNT = 4;
-    private static final int INV_SLOT_START = 3;
-    private static final int INV_SLOT_END = 30;
-    private static final int USE_ROW_SLOT_START = 30;
-    private static final int USE_ROW_SLOT_END = 39;
+//    private static final int INV_SLOT_START = 3;
+//    private static final int INV_SLOT_END = 30;
+//    private static final int USE_ROW_SLOT_START = 30;
+//    private static final int USE_ROW_SLOT_END = 39;
     private final Container container;
     private final ContainerData data;
     protected final Level level;

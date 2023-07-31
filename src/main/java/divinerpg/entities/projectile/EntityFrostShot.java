@@ -42,7 +42,7 @@ public class EntityFrostShot extends DivineFireball {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             if (result.getEntity() == null || !result.getEntity().equals(this.shootingEntity)) {
-                if (!this.level().isClientSide) {
+                if (!this.level().isClientSide()) {
                     List<LivingEntity> list = this.level().<LivingEntity>getEntitiesOfClass(LivingEntity.class,
                             this.getBoundingBox().inflate(4.0D, 2.0D, 4.0D));
 
@@ -65,7 +65,7 @@ public class EntityFrostShot extends DivineFireball {
                     }
 
                     this.level().playSound((Player) null, this.xo, this.yo, this.zo, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, 4.0F,
-                            (1.0F + (this.level().random.nextFloat() - this.level().random.nextFloat()) * 0.2F) * 0.7F);
+                            (1.0F + (this.level().getRandom().nextFloat() - this.level().getRandom().nextFloat()) * 0.2F) * 0.7F);
                     this.level().addFreshEntity(frostCloud);
                     this.discard();
                 }

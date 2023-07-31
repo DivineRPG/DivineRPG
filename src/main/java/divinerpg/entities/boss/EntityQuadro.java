@@ -58,7 +58,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
+        if (!this.level().isClientSide() && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
             this.performRangedAttack(this.getTarget(), 0);
         if (this.abilityCooldown <= 0) {
             this.ability = getRandomAbility();
@@ -112,7 +112,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
 
                 this.level().playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
 
-                if (!level().isClientSide)
+                if (!level().isClientSide())
                     p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage), true);
 
             }

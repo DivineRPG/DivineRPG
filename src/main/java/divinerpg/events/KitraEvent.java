@@ -25,7 +25,7 @@ public class KitraEvent {
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
-        if (!event.getEntity().level().isClientSide) {
+        if (!event.getEntity().level().isClientSide()) {
             List<String> ANIMALS = CommonConfig.kitraProtected.get();
             Entity source = event.getSource().getDirectEntity();
             if (source == null || !(source instanceof Player)) {

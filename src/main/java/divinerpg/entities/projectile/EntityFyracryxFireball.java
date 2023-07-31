@@ -17,7 +17,7 @@ public class EntityFyracryxFireball extends DivineFireball {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 if (result.getEntity() != null) {
                     Entity entity = result.getEntity();
                     entity.hurt(damageSources().fireball(this, this.shootingEntity), 6);

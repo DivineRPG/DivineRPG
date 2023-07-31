@@ -205,7 +205,7 @@ public class EntityRaglok extends EntityDivineBoss {
     @Override
     public void die(DamageSource source) {
         if (!avengeAbilityUsed) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 List<Player> players = level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                 for (Player p : players) {
                     p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.avenge"), true);

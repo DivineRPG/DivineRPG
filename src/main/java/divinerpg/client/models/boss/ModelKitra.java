@@ -33,18 +33,18 @@ public class ModelKitra extends EntityModel<EntityKitra> {
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create(), PartPose.offset(0.0F, -22.0F, -19.0F));
 
-		PartDefinition skull_r1 = Head.addOrReplaceChild("skull_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-19.0F, -7.0F, -47.0F, 38.0F, 24.0F, 48.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -7.0F, -1.0F, 0.1309F, 0.0F, 0.0F));
+		Head.addOrReplaceChild("skull_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-19.0F, -7.0F, -47.0F, 38.0F, 24.0F, 48.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -7.0F, -1.0F, 0.1309F, 0.0F, 0.0F));
 
 		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 72).addBox(-21.0F, -10.0F, -1.0F, 42.0F, 23.0F, 42.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 224).addBox(-2.0F, -15.0F, -1.0F, 4.0F, 8.0F, 41.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -26.0F, -17.0F));
 
 		PartDefinition RightFin = Torso.addOrReplaceChild("RightFin", CubeListBuilder.create(), PartPose.offset(-24.0F, 8.0F, 17.0F));
 
-		PartDefinition rightfin_r1 = RightFin.addOrReplaceChild("rightfin_r1", CubeListBuilder.create().texOffs(0, 137).addBox(-6.0F, -5.0F, 1.0F, 8.0F, 34.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.0F, 4.0F, -9.0F, 0.0F, 0.0F, 0.1745F));
+		RightFin.addOrReplaceChild("rightfin_r1", CubeListBuilder.create().texOffs(0, 137).addBox(-6.0F, -5.0F, 1.0F, 8.0F, 34.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.0F, 4.0F, -9.0F, 0.0F, 0.0F, 0.1745F));
 
 		PartDefinition LeftFin = Torso.addOrReplaceChild("LeftFin", CubeListBuilder.create(), PartPose.offset(24.0F, 8.0F, 17.0F));
 
-		PartDefinition leftfin_r1 = LeftFin.addOrReplaceChild("leftfin_r1", CubeListBuilder.create().texOffs(52, 137).addBox(-1.0F, -5.0F, 1.0F, 8.0F, 34.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-5.0F, 4.0F, -9.0F, 0.0F, 0.0F, -0.1745F));
+		LeftFin.addOrReplaceChild("leftfin_r1", CubeListBuilder.create().texOffs(52, 137).addBox(-1.0F, -5.0F, 1.0F, 8.0F, 34.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-5.0F, 4.0F, -9.0F, 0.0F, 0.0F, -0.1745F));
 
 		PartDefinition Hip = Torso.addOrReplaceChild("Hip", CubeListBuilder.create().texOffs(126, 72).addBox(-16.0F, 1.0F, -1.0F, 32.0F, 19.0F, 16.0F, new CubeDeformation(0.0F))
 				.texOffs(94, 248).addBox(-2.0F, -5.0F, 1.0F, 4.0F, 8.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -10.0F, 39.0F));
@@ -61,7 +61,7 @@ public class ModelKitra extends EntityModel<EntityKitra> {
 		PartDefinition TailSegment3 = TailSegment2.addOrReplaceChild("TailSegment3", CubeListBuilder.create().texOffs(168, 107).addBox(-11.0F, -1.5F, 0.0F, 22.0F, 12.0F, 11.0F, new CubeDeformation(0.0F))
 				.texOffs(415, 0).addBox(-2.0F, -8.5F, 1.0F, 4.0F, 8.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 10.5F));
 
-		PartDefinition TailTip = TailSegment3.addOrReplaceChild("TailTip", CubeListBuilder.create().texOffs(0, 360).addBox(0.0F, -4.5F, 0.5F, 0.0F, 13.0F, 31.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 11.5F));
+		TailSegment3.addOrReplaceChild("TailTip", CubeListBuilder.create().texOffs(0, 360).addBox(0.0F, -4.5F, 0.5F, 0.0F, 13.0F, 31.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 11.5F));
 
 		return LayerDefinition.create(meshdefinition, 512, 512);
 	}

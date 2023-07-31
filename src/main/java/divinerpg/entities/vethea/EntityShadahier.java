@@ -23,7 +23,7 @@ public class EntityShadahier extends EntityDivineMonster {
     @Override
     public boolean doHurtTarget(Entity target) {
         if(super.doHurtTarget(target)) {
-            if(!this.level().isClientSide && target instanceof LivingEntity) {
+            if(!this.level().isClientSide() && target instanceof LivingEntity) {
                 ((LivingEntity) target).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1, 1));
             }
             return true;

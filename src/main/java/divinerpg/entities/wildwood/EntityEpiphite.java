@@ -34,7 +34,7 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
         if(random.nextInt(5) == 0) {
             LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level());
             bolt.setPos(entity.getX(), entity.getY(), entity.getZ());
-            if (level().isClientSide) {
+            if (level().isClientSide()) {
                 level().addFreshEntity(bolt);
             }
         }

@@ -97,7 +97,6 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
         ++p_155507_.time;
         p_155507_.oFlip = p_155507_.flip;
         float f = (p_155507_.flipT - p_155507_.flip) * 0.4F;
-        float f3 = 0.2F;
         f = Mth.clamp(f, -0.2F, 0.2F);
         p_155507_.flipA += (f - p_155507_.flipA) * 0.9F;
         p_155507_.flip += p_155507_.flipA;

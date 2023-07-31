@@ -134,7 +134,7 @@ public class EntityWreck extends EntityDivineBoss {
                 abilityTimer = 100;
             }
         }
-        if (!level().isClientSide) this.performRangedAttack(player);
+        if (!level().isClientSide()) this.performRangedAttack(player);
     }
 
     private void message() {
@@ -195,7 +195,7 @@ public class EntityWreck extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!level().isClientSide && !loaded) {
+        if (!level().isClientSide() && !loaded) {
             List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
             for (Player p : players) {
                 p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"), true);
@@ -251,7 +251,7 @@ public class EntityWreck extends EntityDivineBoss {
     }
 
     public void performRangedAttack(LivingEntity entity) {
-        if (!isAlive() || getTarget() == null || level().isClientSide)  return;
+        if (!isAlive() || getTarget() == null || level().isClientSide())  return;
         double x = getTarget().getX() - this.getX();
         double z = getTarget().getZ() - this.getZ();
         switch (this.getAbility()) {

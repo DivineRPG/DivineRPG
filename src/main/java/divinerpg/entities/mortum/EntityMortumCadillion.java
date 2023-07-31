@@ -57,7 +57,7 @@ public class EntityMortumCadillion extends EntityDivineMonster {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             return;
         }
         if (this.ramCooldown > 0) {

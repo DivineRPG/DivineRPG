@@ -15,7 +15,6 @@ import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.Path;
@@ -77,7 +76,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
             }
         }
 
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.level().broadcastEntityEvent(this, (byte)1);
         }
 
@@ -215,14 +214,14 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
 
     @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_29678_, DifficultyInstance p_29679_, MobSpawnType p_29680_, @Nullable SpawnGroupData p_29681_, @Nullable CompoundTag p_29682_) {
-        EntityWolpertinger.Variant Wolpertinger$variant = getRandomWolpertingerVariant(p_29678_, this.blockPosition());
-            p_29681_ = new EntityWolpertinger.WolpertingerGroupData(Wolpertinger$variant);
-        return super.finalizeSpawn(p_29678_, p_29679_, p_29680_, p_29681_, p_29682_);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+        EntityWolpertinger.Variant Wolpertinger$variant = getRandomWolpertingerVariant(level, this.blockPosition());
+            data = new EntityWolpertinger.WolpertingerGroupData(Wolpertinger$variant);
+            return data;
     }
 
     private static EntityWolpertinger.Variant getRandomWolpertingerVariant(LevelAccessor p_262699_, BlockPos p_262700_) {
-        Holder<Biome> holder = p_262699_.getBiome(p_262700_);
+//        Holder<Biome> holder = p_262699_.getBiome(p_262700_);
         int i = p_262699_.getRandom().nextInt(100);
             return i < 50 ? EntityWolpertinger.Variant.BROWN : (i < 90 ? EntityWolpertinger.Variant.SALT : EntityWolpertinger.Variant.BLACK);
     }
@@ -244,11 +243,11 @@ public class EntityWolpertinger extends EntityDivineMonster {
     }
 
     static class WolpertingerAvoidEntityGoal<T extends LivingEntity> extends AvoidEntityGoal<T> {
-        private final EntityWolpertinger Wolpertinger;
+//        private final EntityWolpertinger Wolpertinger;
 
         public WolpertingerAvoidEntityGoal(EntityWolpertinger p_29743_, Class<T> p_29744_, float p_29745_, double p_29746_, double p_29747_) {
             super(p_29743_, p_29744_, p_29745_, p_29746_, p_29747_);
-            this.Wolpertinger = p_29743_;
+//            this.Wolpertinger = p_29743_;
         }
 
         public boolean canUse() {

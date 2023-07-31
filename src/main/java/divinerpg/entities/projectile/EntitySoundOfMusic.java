@@ -40,7 +40,7 @@ public class EntitySoundOfMusic extends DivineThrowable {
                 result.getEntity().hurt(damageSources().thrown(this, this.getOwner()), 10.0F);
             }
 
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }

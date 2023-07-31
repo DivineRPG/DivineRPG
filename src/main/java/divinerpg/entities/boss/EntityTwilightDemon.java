@@ -41,7 +41,7 @@ public class EntityTwilightDemon extends EntityDivineBoss {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             if (this.tickCount % 160 == 0)
                 this.shooting = 100;
             this.setTarget(this.level().getNearestPlayer(this, 40.0D));

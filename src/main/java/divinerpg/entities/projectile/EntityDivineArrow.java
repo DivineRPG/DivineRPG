@@ -37,7 +37,7 @@ public class EntityDivineArrow extends AbstractArrow {
     private int yTile;
     private int zTile;
     private Block inTile;
-    private int inData;
+//    private int inData;
     protected boolean inGround;
     protected int timeInGround;
     public Pickup pickupStatus;
@@ -228,7 +228,7 @@ public class EntityDivineArrow extends AbstractArrow {
                     
                     if (entity.hurt(damagesource, (float) i)) {
 
-                        if (!this.level().isClientSide) {
+                        if (!this.level().isClientSide()) {
                             entity.setArrowCount(entity.getArrowCount() + 1);
                         }
                         if (this.knockbackStrength > 0) {
@@ -257,7 +257,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         this.yRot += 180.0F;
                         this.yRotO += 180.0F;
 //                this.ticksInAir = 0;
-                        if (!this.level().isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
+                        if (!this.level().isClientSide() && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
                                 + this.getDeltaMovement().z * this.getDeltaMovement().z < 0.0010000000474974513D) {
                             if (this.pickupStatus == Pickup.ALLOWED) {
                                 ItemEntity itemEnt = new ItemEntity(level(), xo, yo, zo, getArrowStack());
@@ -385,7 +385,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
     @Override
     public void playerTouch(Player entityIn) {
-        if (!this.level().isClientSide && this.inGround && this.arrowShake <= 0) {
+        if (!this.level().isClientSide() && this.inGround && this.arrowShake <= 0) {
             boolean flag = this.pickupStatus == Pickup.ALLOWED
                     || this.pickupStatus == Pickup.CREATIVE_ONLY
                     && entityIn.isCreative();

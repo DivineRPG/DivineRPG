@@ -5,7 +5,6 @@ import divinerpg.recipe.InfusionTableRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.ICraftingGridHelper;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.*;
 import mezz.jei.api.recipe.category.IRecipeCategory;
@@ -24,12 +23,12 @@ public class InfusionTableCategory
 
 
     private final IDrawable back, icon;
-    private final ICraftingGridHelper craftingGridHelper;
+//    private final ICraftingGridHelper craftingGridHelper;
 
     public InfusionTableCategory(IGuiHelper helper) {
         this.back = helper.createDrawable(TEXTURE, 1, 1, 166, 76);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table"))));
-        craftingGridHelper = helper.createCraftingGridHelper();
+        helper.createCraftingGridHelper();
     }
     @Override
     public RecipeType<InfusionTableRecipe> getRecipeType() {

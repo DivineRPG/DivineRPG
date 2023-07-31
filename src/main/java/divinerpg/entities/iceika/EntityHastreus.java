@@ -24,7 +24,7 @@ public class EntityHastreus extends EntityDivineMonster {
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
-    	if(level().random.nextInt(10) == 0) {
+    	if(level().getRandom().nextInt(10) == 0) {
             List<Entity> e = level().getEntities(this, new AABB(blockPosition().offset(-25, -16, -25), blockPosition().offset(25, 16, 25)));
             for(Entity entity : e) if(entity instanceof LivingEntity) {
     	        if(entity instanceof EntityHastreus || (entity instanceof Player && (((Player)entity).isCreative() || ((Player)entity).isSpectator()))) continue;

@@ -37,7 +37,7 @@ public class EntityPumpkinSpider extends Spider {
 	@Override
 	public void tick() {
 		super.tick();
-		if(!level().isClientSide) {
+		if(!level().isClientSide()) {
 			Player player = level().getNearestPlayer(this, 4D);
 			if(player != null && hasLineOfSight(player)) setProvoked(player);
 			else setProvoked(getTarget());

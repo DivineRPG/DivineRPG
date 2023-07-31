@@ -1,6 +1,5 @@
 package divinerpg.entities.projectile;
 
-
 import com.google.common.collect.Maps;
 import divinerpg.entities.iceika.*;
 import divinerpg.entities.vanilla.overworld.*;
@@ -12,7 +11,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.PushReaction;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -88,7 +86,7 @@ public class EntityFrostCloud extends Entity {
         super.tick();
         float f = this.getRadius();
 
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             float f5 = (float) Math.PI * f * f;
 
             for (int k1 = 0; k1 < f5; ++k1) {
@@ -173,7 +171,7 @@ public class EntityFrostCloud extends Entity {
 //        this.setSize(radiusIn * 2.0F, 0.5F);
         this.setPos(d0, d1, d2);
 
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.entityData.set(RADIUS, Float.valueOf(radiusIn));
         }
     }

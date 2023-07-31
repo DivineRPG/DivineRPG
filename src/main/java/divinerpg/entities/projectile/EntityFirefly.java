@@ -30,7 +30,7 @@ public class EntityFirefly extends EntityHeatSeekingProjectile {
 
             }
 
-            if (!this.level().isClientSide)
+            if (!this.level().isClientSide())
                 this.kill();
         }
     }

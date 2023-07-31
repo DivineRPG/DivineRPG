@@ -69,7 +69,7 @@ public class EntityKarot extends EntityDivineBoss {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             for (int i = 0; i < 5; i++) {
                 EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             }

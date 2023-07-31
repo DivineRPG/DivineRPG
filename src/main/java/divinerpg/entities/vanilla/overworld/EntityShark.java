@@ -41,8 +41,8 @@ public class EntityShark extends EntityDivineWaterMob {
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        if(!level().isClientSide) {
-            if (level().random.nextInt(12) == 2) {
+        if(!level().isClientSide()) {
+            if (level().getRandom().nextInt(12) == 2) {
                 spawnAtLocation(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shark_tooth")));
             }
         }

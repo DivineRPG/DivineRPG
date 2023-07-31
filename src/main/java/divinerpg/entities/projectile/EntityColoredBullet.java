@@ -21,7 +21,7 @@ public class EntityColoredBullet extends EntityShooterBullet {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             for (int i = 0; i < 2; ++i) {
                 Vec3 vector3d = this.getDeltaMovement();
                 double d2 = this.getX() + vector3d.x + (this.random.nextDouble() - this.random.nextDouble()) / 4;

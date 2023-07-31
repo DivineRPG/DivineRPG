@@ -169,7 +169,7 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
     }
 
     private Item getTradedItem(Player player) {
-        if (player.level().isClientSide) {
+        if (player.level().isClientSide()) {
             return null;
         }
 

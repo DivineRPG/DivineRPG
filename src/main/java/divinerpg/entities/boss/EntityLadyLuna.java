@@ -44,9 +44,9 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.entityData.define(PROTECTION, 0);
     }
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_, MobSpawnType p_146748_, @org.jetbrains.annotations.Nullable SpawnGroupData p_146749_, @org.jetbrains.annotations.Nullable CompoundTag p_146750_) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @org.jetbrains.annotations.Nullable SpawnGroupData data, @org.jetbrains.annotations.Nullable CompoundTag tag) {
         entityData.set(PROTECTION, random.nextInt(2));
-        return super.finalizeSpawn(level, p_146747_, p_146748_, p_146749_, p_146750_);
+        return data;
     }
 
     public int getProtection() {
@@ -73,7 +73,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public void tick() {
         super.tick();
 
-        if (!this.level().isClientSide && this.tickCount % 5 == 0) {
+        if (!this.level().isClientSide() && this.tickCount % 5 == 0) {
             for (int x = (int) this.getX() - 2; x < (int) this.getX() + 2; x++) {
                 for (int y = (int) this.getBoundingBox().minY; y < (int) this.getBoundingBox().minY + 4; y++) {
                     for (int z = (int) this.getZ() - 2; z < (int) this.getZ() + 2; z++) {
@@ -95,7 +95,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             }
         }
 
-        if (!this.level().isClientSide && getProtection() == 0 && this.tickCount % 30 == 0) {
+        if (!this.level().isClientSide() && getProtection() == 0 && this.tickCount % 30 == 0) {
             Iterator<BlockPos> iter = this.acidPositions.iterator();
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();

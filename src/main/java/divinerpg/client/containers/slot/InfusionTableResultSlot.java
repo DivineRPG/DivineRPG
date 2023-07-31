@@ -55,7 +55,7 @@ public class InfusionTableResultSlot extends Slot {
 
     public void onTake(Player player, ItemStack stack) {
         if(player.level() != null) {
-            if (!player.level().isClientSide) {
+            if (!player.level().isClientSide()) {
                 this.checkTakeAchievements(stack);
                 net.minecraftforge.common.ForgeHooks.setCraftingPlayer(player);
                 Optional<InfusionTableRecipe> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level());

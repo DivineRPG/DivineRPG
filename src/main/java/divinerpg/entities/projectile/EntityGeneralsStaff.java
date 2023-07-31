@@ -27,7 +27,7 @@ public class EntityGeneralsStaff extends EntityColoredBullet {
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             super.onHit(result);
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
                     EntityColoredBullet e = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), (LivingEntity) this.getOwner(), level(),
                             BulletType.GENERALS_STAFF_SPRAY);

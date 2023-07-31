@@ -24,7 +24,7 @@ public class EntityWatcherShot extends DivineThrowable {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if (tickCount != 1 || tickCount != 0) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level(), this);
                 this.level().explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Level.ExplosionInteraction.TNT);
             }
@@ -36,7 +36,7 @@ public class EntityWatcherShot extends DivineThrowable {
                 }
             }
 
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }
@@ -45,7 +45,7 @@ public class EntityWatcherShot extends DivineThrowable {
     @Override
     protected void onHitBlock(BlockHitResult p_230299_1_) {
         if(tickCount != 1 || tickCount != 0) {
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             boolean flag = ForgeEventFactory.getMobGriefingEvent(this.level(), this);
             this.level().explode(null, this.getX(), this.getY(), this.getZ(), 5.0F, flag, Level.ExplosionInteraction.TNT);
             this.kill();

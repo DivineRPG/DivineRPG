@@ -59,17 +59,17 @@ public class EntityKitra extends EntityWhale {
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
 
         //Spawn fish around it randomly
-        if (this.level().random.nextInt(200) == 0) {
-            double x = this.getX() + (this.level().random.nextDouble() - 0.5) * 8;
+        if (this.level().getRandom().nextInt(200) == 0) {
+            double x = this.getX() + (this.level().getRandom().nextDouble() - 0.5) * 8;
             double y = this.getY();
-            double z = this.getZ() + (this.level().random.nextDouble() - 0.5) * 8;
+            double z = this.getZ() + (this.level().getRandom().nextDouble() - 0.5) * 8;
             BlockPos pos = new BlockPos((int) x, (int) y, (int) z);
             if (this.level().getBlockState(pos).getFluidState().is(FluidTags.WATER)) {
                 List<EntityType<?>> fishEntities = Arrays.asList(EntityType.COD, EntityType.SALMON, EntityType.TROPICAL_FISH, EntityType.PUFFERFISH, EntityRegistry.SHARK.get(), EntityRegistry.AEQUOREA.get(), EntityType.GLOW_SQUID, EntityType.TURTLE, EntityType.TADPOLE);
-                EntityType<?> randomFishEntity = fishEntities.get(this.level().random.nextInt(fishEntities.size()));
+                EntityType<?> randomFishEntity = fishEntities.get(this.level().getRandom().nextInt(fishEntities.size()));
                 Mob fish = (Mob) randomFishEntity.create(this.level());
                 fish.setPos(x, y, z);
-                fish.setDeltaMovement(this.level().random.nextGaussian() * 0.1, this.level().random.nextGaussian() * 0.1, this.level().random.nextGaussian() * 0.1);
+                fish.setDeltaMovement(this.level().getRandom().nextGaussian() * 0.1, this.level().getRandom().nextGaussian() * 0.1, this.level().getRandom().nextGaussian() * 0.1);
                 if (this.level().noCollision(fish, fish.getBoundingBox().deflate(0.0625))) {
                     this.level().addFreshEntity(fish);
                 }

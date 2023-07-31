@@ -12,12 +12,12 @@ import net.minecraft.world.phys.*;
 public class EntitySkyreBullet extends DivineThrowable {
     public EntitySkyreBullet(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);
-        setDeltaMovement(level().random.nextGaussian() * 0.05, -0.5, level().random.nextGaussian() * 0.05);
+        setDeltaMovement(level().getRandom().nextGaussian() * 0.05, -0.5, level().getRandom().nextGaussian() * 0.05);
     }
 
     public EntitySkyreBullet(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world) {
         super(type, entity, world);
-        setDeltaMovement(level().random.nextGaussian() * 0.05, -0.5, level().random.nextGaussian() * 0.05);
+        setDeltaMovement(level().getRandom().nextGaussian() * 0.05, -0.5, level().getRandom().nextGaussian() * 0.05);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class EntitySkyreBullet extends DivineThrowable {
 
             level().explode(this, this.xo, this.yo, this.zo, 4.5F, false, Level.ExplosionInteraction.NONE);
 
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }
@@ -46,7 +46,7 @@ public class EntitySkyreBullet extends DivineThrowable {
     @Override
     protected void onHit(HitResult result) {
         if (tickCount != 1 || tickCount != 0) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.level().explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.NONE);
                 this.kill();
             }

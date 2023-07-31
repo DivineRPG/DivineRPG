@@ -108,7 +108,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level().isClientSide) {
+            if(!this.level().isClientSide()) {
                 if (random.nextInt(10) == 1) {
                     BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
                     EntityRegistry.TERMID.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);

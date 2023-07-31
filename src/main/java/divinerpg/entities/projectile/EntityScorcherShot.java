@@ -38,7 +38,7 @@ public class EntityScorcherShot extends DivineFireball {
     protected void onHitEntity(EntityHitResult result) {
         if(tickCount != 1 || tickCount != 0) {
         super.onHitEntity(result);
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             Entity entity = result.getEntity();
             if (!entity.fireImmune()) {
                 Entity entity1 = this.getOwner();
@@ -59,7 +59,7 @@ public class EntityScorcherShot extends DivineFireball {
     protected void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             super.onHit(result);
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }
@@ -68,13 +68,13 @@ public class EntityScorcherShot extends DivineFireball {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.xo += (this.random.nextDouble() - this.random.nextDouble()) / 3;
             this.yo += (this.random.nextDouble() - this.random.nextDouble()) / 3;
             this.zo += (this.random.nextDouble() - this.random.nextDouble()) / 3;
         }
 
-        if(level().isClientSide){
+        if(level().isClientSide()){
             /*
              * for (int i = 0; i < 3; i++) { ParticleEntityPortal particle = new
              * ParticleEntityPortal(this.world, this.posX + (this.rand.nextDouble() -

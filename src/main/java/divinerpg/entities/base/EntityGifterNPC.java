@@ -30,7 +30,7 @@ public abstract class EntityGifterNPC extends PathfinderMob {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if(this.isAlive()) {
-            if(!this.level().isClientSide) {
+            if(!this.level().isClientSide()) {
                 player.inventory.add(this.getGift());
                 sendRandomChatMessage(player);
                 this.kill();

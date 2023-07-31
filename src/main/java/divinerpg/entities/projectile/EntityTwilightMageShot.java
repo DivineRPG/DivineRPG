@@ -25,7 +25,7 @@ public class EntityTwilightMageShot extends EntityColoredBullet {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide && this.tickCount > 50) {
+        if (!this.level().isClientSide() && this.tickCount > 50) {
             this.kill();
         }
     }
@@ -37,7 +37,7 @@ public class EntityTwilightMageShot extends EntityColoredBullet {
                 result.getEntity().hurt(damageSources().thrown(this, this.getOwner()),
                         this.getBulletType().getDamage());
             }
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }

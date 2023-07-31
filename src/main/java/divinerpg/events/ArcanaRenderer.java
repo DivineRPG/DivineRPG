@@ -27,7 +27,7 @@ public class ArcanaRenderer extends Gui {
     public void renderGameOverlayEvent(RenderGuiOverlayEvent.Post event) {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        Gui ui = mc.gui;
+//        Gui ui = mc.gui;
         GuiGraphics gui = event.getGuiGraphics();
 
         int windowWidth = this.mc.getWindow().getGuiScaledWidth();

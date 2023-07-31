@@ -108,7 +108,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level().isClientSide) {
+            if(!this.level().isClientSide()) {
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
                 if (random.nextInt(10) == 1) {
                     EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);

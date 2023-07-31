@@ -27,7 +27,7 @@ public class EntityVhraak extends EntityDivineMonster {
     public void tick() {
         super.tick();
 
-        if(!level().isClientSide) {
+        if(!level().isClientSide()) {
             if(this.getTarget() != null) {
                 if (this.spawnTick == 0) {
                     EntityRegistry.FAKE_VHRAAK.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition().offset(1, 0, 1), MobSpawnType.MOB_SUMMONED, true, false);

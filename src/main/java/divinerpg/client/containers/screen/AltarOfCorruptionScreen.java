@@ -117,7 +117,6 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         Lighting.setupForEntityInInventory();
         p_289697_.pose().pushPose();
         p_289697_.pose().translate((float)p_289667_ + 33.0F, (float)p_289669_ + 31.0F, 100.0F);
-        float f2 = 40.0F;
         p_289697_.pose().scale(-40.0F, 40.0F, 40.0F);
         p_289697_.pose().mulPose(Axis.XP.rotationDegrees(25.0F));
         p_289697_.pose().translate((1.0F - f) * 0.2F, (1.0F - f) * 0.1F, (1.0F - f) * 0.25F);
@@ -213,7 +212,6 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
 
         this.open = Mth.clamp(this.open, 0.0F, 1.0F);
         float f1 = (this.flipT - this.flip) * 0.4F;
-        float f = 0.2F;
         f1 = Mth.clamp(f1, -0.2F, 0.2F);
         this.flipA += (f1 - this.flipA) * 0.9F;
         this.flip += this.flipA;

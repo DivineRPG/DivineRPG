@@ -25,7 +25,7 @@ public class EntityCoriShot extends DivineThrowable {
                 Entity entity = result.getEntity();
                 entity.hurt(entity.damageSources().thrown(this, this.getOwner()), damage);
             }
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }
