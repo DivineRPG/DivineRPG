@@ -2,10 +2,8 @@ package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.*;
 import divinerpg.registries.SoundRegistry;
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -20,82 +18,48 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 public class EntityWraith extends EntityDivineTameable {
-
-    private BlockPos targetPosition;
-	
 	public EntityWraith(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
         this(type, worldIn);
         tame(player);
     }
-	
 	public EntityWraith(EntityType<? extends TamableAnimal> type, Level worldIn) {
-        super(type, worldIn);
-        setHealth(getMaxHealth());
-        this.moveControl = new EntityWraith.MoveHelperController(this);
+        super(type, worldIn, 1F);
+        moveControl = new EntityWraith.MoveHelperController(this);
     }
     protected void registerGoals() {
-        this.goalSelector.addGoal(5, new EntityWraith.RandomFlyGoal(this));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
-        this.goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
+        goalSelector.addGoal(5, new EntityWraith.RandomFlyGoal(this));
+        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
     }
-
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.15625F;
+    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.15625F;}
+    @Override public boolean isFood(ItemStack stack) {
+    	return isMeat(stack);
     }
-    
-    public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        ItemStack itemstack = player.getItemInHand(hand);
-        Item item = itemstack.getItem();
-        if (this.isTame()) {
-            if (isFood(itemstack)) {
-                if (!player.isCreative()) {
-                    itemstack.shrink(1);
-                }
-                this.heal((float) item.getFoodProperties(itemstack, null).getNutrition());
-                return InteractionResult.PASS;
-            } else {
-                tame(player);
-                this.setTame(true);
-            }
-        }
-        return super.mobInteract(player, hand);
+    @Override
+    protected boolean isTamingFood(ItemStack item) {
+    	return isMeat(item);
     }
-
-    public boolean isFood(ItemStack stack) {
-        Item item = stack.getItem();
-        return item.isEdible() && item.getFoodProperties(stack, null).isMeat();
-    }
-
-    
     @Override
     protected float getSoundVolume() {
-        return 0.1F;
+        return .1F;
     }
-    
     @Override
 	public float getVoicePitch() {
         return super.getVoicePitch() * 0.95F;
     }
-    
     @Nullable
     @Override
     public SoundEvent getAmbientSound() {
         return SoundRegistry.WRAITH.get();
     }
-    
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return SoundRegistry.WRAITH_HURT.get();
     }
-    
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.WRAITH_HURT.get();
     }
-
-
-
     static class LookAroundGoal extends Goal {
         private final EntityWraith parentEntity;
 
