@@ -2,7 +2,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.neoforged.gradle' version '[6.0.13, 6.2)'
 }
 
 version = mod_version
@@ -79,6 +79,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url = "https://maven.minecraftforge.net"}
 //    maven { url = "https://minecraft.curseforge.com/api/maven/"}
 //    maven { url = "https://dvs1.progwml6.com/files/maven/"}
     maven { url = "https://modmaven.dev"}
@@ -90,7 +91,7 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.neoforged:forge:${minecraft_version}-${forge_version}"
 //    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
 //    compileOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
 //    compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:${rei_version}")
